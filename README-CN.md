@@ -2,70 +2,28 @@
 
 ![](https://aliyunsdk-pages.alicdn.com/icons/AlibabaCloud.svg)
 
-## Alibaba Cloud DingTalk SDK
+# Alibaba Cloud dingtalk SDK for Go
 
 ## 要求
 - 您需要确保本地安装的 go 环境版本大于 1.12.0.
 
 ## 安装
-
 你可以使用 `go mod` 来管理你的依赖，
 ```sh
-$  go get github.com/alibabacloud-go/dingtalk-sdk
-```
-
-## 使用示例
-```go
-package main
-
-import (
-	"fmt"
-	"os"
-
-	"github.com/alibabacloud-go/tea/tea"
-	ding "github.com/alibabacloud-go/dingtalk-sdk/client"
-	fileform "github.com/alibabacloud-go/tea-fileform/service"
-)
-
-func main() {
-	config := new(ding.Config).
-		SetServerUrl("https://oapi.dingtalk.com").
-		SetSession("access_token")
-
-	client, err := ding.NewClient(config)
-	if err != nil {
-		panic(err)
-	}
-
-	file, err := os.Open("./demo.jpg")
-	if err != nil {
-		panic(err)
-	}
-
-	fileObj := new(fileform.FileField).
-		SetFilename("demo.jpg").
-		SetContent(file).
-		SetContentType("")
-
-	params := new(ding.UploadOapiMediaParams).
-		SetType("image").
-		SetMedia(fileObj)
-
-	req := new(ding.UploadOapiMediaRequest).SetParams(params)
-	resp, err := client.UploadOapiMedia(req)
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Println(resp)
-}
+  go get github.com/alibabacloud-go/dingtalk
 ```
 
 ## 问题
-[Opening an Issue](https://github.com/aliyun/dingtalk-sdk/issues/new)，不符合指南的问题可能会立即关闭。
+[提交 Issue](https://github.com/aliyun/alibabacloud-go-sdk/issues/new)，不符合指南的问题可能会立即关闭。
+
+## 使用说明
+[使用文档](https://github.com/aliyun/alibabacloud-go-sdk/blob/master/docs/Usage-CN.md#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B)
+
+## 发行说明
+每个版本的详细更改记录在[发行说明](./ChangeLog.txt)中。
 
 ## 相关
-* [Latest Release](https://github.com/aliyun/dingtalk-sdk)
+* [最新源码](https://github.com/aliyun/alibabacloud-go-sdk/)
 
 ## 许可证
 [Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0)
