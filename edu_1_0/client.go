@@ -48,7 +48,7 @@ type BatchCreateRequest struct {
 	// 老师corpId
 	DingCorpId *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
 	// 小程序版本号
-	JsVersion *int64 `json:"jsVersion,omitempty" xml:"jsVersion,omitempty"`
+	JsVersion *int32 `json:"jsVersion,omitempty" xml:"jsVersion,omitempty"`
 }
 
 func (s BatchCreateRequest) String() string {
@@ -89,7 +89,7 @@ func (s *BatchCreateRequest) SetDingCorpId(v string) *BatchCreateRequest {
 	return s
 }
 
-func (s *BatchCreateRequest) SetJsVersion(v int64) *BatchCreateRequest {
+func (s *BatchCreateRequest) SetJsVersion(v int32) *BatchCreateRequest {
 	s.JsVersion = &v
 	return s
 }
@@ -98,9 +98,9 @@ type BatchCreateRequestData struct {
 	// 是否可以补卡
 	CanReissueCard *bool `json:"canReissueCard,omitempty" xml:"canReissueCard,omitempty"`
 	// 打卡周期,单位为天
-	CardCycle *int64 `json:"cardCycle,omitempty" xml:"cardCycle,omitempty"`
+	CardCycle *int32 `json:"cardCycle,omitempty" xml:"cardCycle,omitempty"`
 	// 打卡的频次设置："cardFrequency":[             1,//周天             2,//周一             3,//周二             4,//周三             5,//周四             6,//周五             7//周六         ]
-	CardFrequency         []*int64                                       `json:"cardFrequency,omitempty" xml:"cardFrequency,omitempty" type:"Repeated"`
+	CardFrequency         []*int32                                       `json:"cardFrequency,omitempty" xml:"cardFrequency,omitempty" type:"Repeated"`
 	CardRuleItemParamList []*BatchCreateRequestDataCardRuleItemParamList `json:"cardRuleItemParamList,omitempty" xml:"cardRuleItemParamList,omitempty" type:"Repeated"`
 	// 班级列表
 	ClassIds []*string `json:"classIds,omitempty" xml:"classIds,omitempty" type:"Repeated"`
@@ -109,20 +109,20 @@ type BatchCreateRequestData struct {
 	// 打卡的内容
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 	// 卡片生效时间
-	EffectDate *float32 `json:"effectDate,omitempty" xml:"effectDate,omitempty"`
+	EffectDate *int64 `json:"effectDate,omitempty" xml:"effectDate,omitempty"`
 	// 上传相册，图片，录音，盯盘的信息
 	Medias *string `json:"medias,omitempty" xml:"medias,omitempty"`
 	// 计量开启
 	NeedMetering             *bool                                             `json:"needMetering,omitempty" xml:"needMetering,omitempty"`
 	OrgClassStudentGroupList []*BatchCreateRequestDataOrgClassStudentGroupList `json:"orgClassStudentGroupList,omitempty" xml:"orgClassStudentGroupList,omitempty" type:"Repeated"`
 	// 提醒时间（小时）
-	RemindHour *int64 `json:"remindHour,omitempty" xml:"remindHour,omitempty"`
+	RemindHour *int32 `json:"remindHour,omitempty" xml:"remindHour,omitempty"`
 	// 提醒时间（分钟）
-	RemindMinute *int64 `json:"remindMinute,omitempty" xml:"remindMinute,omitempty"`
+	RemindMinute *int32 `json:"remindMinute,omitempty" xml:"remindMinute,omitempty"`
 	// 默认：student_guardian
 	TargetRole *string `json:"targetRole,omitempty" xml:"targetRole,omitempty"`
 	// 打卡模板id
-	TemplateId *float32 `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	TemplateId *int64 `json:"templateId,omitempty" xml:"templateId,omitempty"`
 	// 卡片标题
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 	// 计量单位
@@ -142,12 +142,12 @@ func (s *BatchCreateRequestData) SetCanReissueCard(v bool) *BatchCreateRequestDa
 	return s
 }
 
-func (s *BatchCreateRequestData) SetCardCycle(v int64) *BatchCreateRequestData {
+func (s *BatchCreateRequestData) SetCardCycle(v int32) *BatchCreateRequestData {
 	s.CardCycle = &v
 	return s
 }
 
-func (s *BatchCreateRequestData) SetCardFrequency(v []*int64) *BatchCreateRequestData {
+func (s *BatchCreateRequestData) SetCardFrequency(v []*int32) *BatchCreateRequestData {
 	s.CardFrequency = v
 	return s
 }
@@ -172,7 +172,7 @@ func (s *BatchCreateRequestData) SetContent(v string) *BatchCreateRequestData {
 	return s
 }
 
-func (s *BatchCreateRequestData) SetEffectDate(v float32) *BatchCreateRequestData {
+func (s *BatchCreateRequestData) SetEffectDate(v int64) *BatchCreateRequestData {
 	s.EffectDate = &v
 	return s
 }
@@ -192,12 +192,12 @@ func (s *BatchCreateRequestData) SetOrgClassStudentGroupList(v []*BatchCreateReq
 	return s
 }
 
-func (s *BatchCreateRequestData) SetRemindHour(v int64) *BatchCreateRequestData {
+func (s *BatchCreateRequestData) SetRemindHour(v int32) *BatchCreateRequestData {
 	s.RemindHour = &v
 	return s
 }
 
-func (s *BatchCreateRequestData) SetRemindMinute(v int64) *BatchCreateRequestData {
+func (s *BatchCreateRequestData) SetRemindMinute(v int32) *BatchCreateRequestData {
 	s.RemindMinute = &v
 	return s
 }
@@ -207,7 +207,7 @@ func (s *BatchCreateRequestData) SetTargetRole(v string) *BatchCreateRequestData
 	return s
 }
 
-func (s *BatchCreateRequestData) SetTemplateId(v float32) *BatchCreateRequestData {
+func (s *BatchCreateRequestData) SetTemplateId(v int64) *BatchCreateRequestData {
 	s.TemplateId = &v
 	return s
 }
@@ -230,7 +230,7 @@ type BatchCreateRequestDataCardRuleItemParamList struct {
 	// 扩展属性，存放配音难度、每日配音视频的url等
 	CardRuleAttr *string `json:"cardRuleAttr,omitempty" xml:"cardRuleAttr,omitempty"`
 	// 每日配音数
-	DailyDubbing *int64 `json:"dailyDubbing,omitempty" xml:"dailyDubbing,omitempty"`
+	DailyDubbing *int32 `json:"dailyDubbing,omitempty" xml:"dailyDubbing,omitempty"`
 	// 关联内容标题（会在打卡详页页展示）
 	RelationTitle *string `json:"relationTitle,omitempty" xml:"relationTitle,omitempty"`
 	// relationUrl（点击打卡内容后跳转的链接）（点击卡片内容后跳转的链接）
@@ -260,7 +260,7 @@ func (s *BatchCreateRequestDataCardRuleItemParamList) SetCardRuleAttr(v string) 
 	return s
 }
 
-func (s *BatchCreateRequestDataCardRuleItemParamList) SetDailyDubbing(v int64) *BatchCreateRequestDataCardRuleItemParamList {
+func (s *BatchCreateRequestDataCardRuleItemParamList) SetDailyDubbing(v int32) *BatchCreateRequestDataCardRuleItemParamList {
 	s.DailyDubbing = &v
 	return s
 }
@@ -302,7 +302,7 @@ func (s *BatchCreateRequestDataOrgClassStudentGroupList) SetClassList(v []*Batch
 
 type BatchCreateRequestDataOrgClassStudentGroupListClassList struct {
 	// 班级id
-	ClassId *float32 `json:"classId,omitempty" xml:"classId,omitempty"`
+	ClassId *int64 `json:"classId,omitempty" xml:"classId,omitempty"`
 	// 班级名称
 	ClassName *string `json:"className,omitempty" xml:"className,omitempty"`
 	// 班级学生
@@ -317,7 +317,7 @@ func (s BatchCreateRequestDataOrgClassStudentGroupListClassList) GoString() stri
 	return s.String()
 }
 
-func (s *BatchCreateRequestDataOrgClassStudentGroupListClassList) SetClassId(v float32) *BatchCreateRequestDataOrgClassStudentGroupListClassList {
+func (s *BatchCreateRequestDataOrgClassStudentGroupListClassList) SetClassId(v int64) *BatchCreateRequestDataOrgClassStudentGroupListClassList {
 	s.ClassId = &v
 	return s
 }
@@ -334,9 +334,9 @@ func (s *BatchCreateRequestDataOrgClassStudentGroupListClassList) SetStudents(v 
 
 type BatchCreateRequestDataOrgClassStudentGroupListClassListStudents struct {
 	// 学生名称
-	StuName *string `json:"stuName,omitempty" xml:"stuName,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 学生id
-	StuId *string `json:"stuId,omitempty" xml:"stuId,omitempty"`
+	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
 }
 
 func (s BatchCreateRequestDataOrgClassStudentGroupListClassListStudents) String() string {
@@ -347,13 +347,13 @@ func (s BatchCreateRequestDataOrgClassStudentGroupListClassListStudents) GoStrin
 	return s.String()
 }
 
-func (s *BatchCreateRequestDataOrgClassStudentGroupListClassListStudents) SetStuName(v string) *BatchCreateRequestDataOrgClassStudentGroupListClassListStudents {
-	s.StuName = &v
+func (s *BatchCreateRequestDataOrgClassStudentGroupListClassListStudents) SetName(v string) *BatchCreateRequestDataOrgClassStudentGroupListClassListStudents {
+	s.Name = &v
 	return s
 }
 
-func (s *BatchCreateRequestDataOrgClassStudentGroupListClassListStudents) SetStuId(v string) *BatchCreateRequestDataOrgClassStudentGroupListClassListStudents {
-	s.StuId = &v
+func (s *BatchCreateRequestDataOrgClassStudentGroupListClassListStudents) SetStaffId(v string) *BatchCreateRequestDataOrgClassStudentGroupListClassListStudents {
+	s.StaffId = &v
 	return s
 }
 
@@ -439,26 +439,46 @@ func (s *BatchOrgCreateHWHeaders) SetXAcsDingtalkAccessToken(v string) *BatchOrg
 }
 
 type BatchOrgCreateHWRequest struct {
-	HwMedia            *string                                      `json:"hwMedia,omitempty" xml:"hwMedia,omitempty"`
-	HwContent          *string                                      `json:"hwContent,omitempty" xml:"hwContent,omitempty"`
-	HwTitle            *string                                      `json:"hwTitle,omitempty" xml:"hwTitle,omitempty"`
-	CourseName         *string                                      `json:"courseName,omitempty" xml:"courseName,omitempty"`
-	HwPhoto            *string                                      `json:"hwPhoto,omitempty" xml:"hwPhoto,omitempty"`
-	HwVideo            *string                                      `json:"hwVideo,omitempty" xml:"hwVideo,omitempty"`
-	TeacherName        *string                                      `json:"teacherName,omitempty" xml:"teacherName,omitempty"`
-	TeacherUserId      *string                                      `json:"teacherUserId,omitempty" xml:"teacherUserId,omitempty"`
-	Identifier         *string                                      `json:"identifier,omitempty" xml:"identifier,omitempty"`
-	Attributes         *string                                      `json:"attributes,omitempty" xml:"attributes,omitempty"`
-	TargetRole         *string                                      `json:"targetRole,omitempty" xml:"targetRole,omitempty"`
-	BizCode            *string                                      `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	Status             *string                                      `json:"status,omitempty" xml:"status,omitempty"`
-	ScheduledRelease   *string                                      `json:"scheduledRelease,omitempty" xml:"scheduledRelease,omitempty"`
-	ScheduledTime      *string                                      `json:"scheduledTime,omitempty" xml:"scheduledTime,omitempty"`
-	HwDeadlineOpen     *string                                      `json:"hwDeadlineOpen,omitempty" xml:"hwDeadlineOpen,omitempty"`
-	HwDeadline         *float32                                     `json:"hwDeadline,omitempty" xml:"hwDeadline,omitempty"`
-	HwType             *string                                      `json:"hwType,omitempty" xml:"hwType,omitempty"`
+	// 作业视频
+	HwMedia *string `json:"hwMedia,omitempty" xml:"hwMedia,omitempty"`
+	// 作业内容
+	HwContent *string `json:"hwContent,omitempty" xml:"hwContent,omitempty"`
+	// 作业标题
+	HwTitle *string `json:"hwTitle,omitempty" xml:"hwTitle,omitempty"`
+	// 作业课程名称
+	CourseName *string `json:"courseName,omitempty" xml:"courseName,omitempty"`
+	// 作业图片
+	HwPhoto *string `json:"hwPhoto,omitempty" xml:"hwPhoto,omitempty"`
+	// 作业音视频
+	HwVideo *string `json:"hwVideo,omitempty" xml:"hwVideo,omitempty"`
+	// 老师名称
+	TeacherName *string `json:"teacherName,omitempty" xml:"teacherName,omitempty"`
+	// 老师userid
+	TeacherUserId *string `json:"teacherUserId,omitempty" xml:"teacherUserId,omitempty"`
+	// 幂等ID字段
+	Identifier *string `json:"identifier,omitempty" xml:"identifier,omitempty"`
+	// 扩展属性
+	Attributes *string `json:"attributes,omitempty" xml:"attributes,omitempty"`
+	// 发送对象
+	TargetRole *string `json:"targetRole,omitempty" xml:"targetRole,omitempty"`
+	// 业务编码
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// 状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 定时调度
+	ScheduledRelease *string `json:"scheduledRelease,omitempty" xml:"scheduledRelease,omitempty"`
+	// 定时调度时间
+	ScheduledTime *string `json:"scheduledTime,omitempty" xml:"scheduledTime,omitempty"`
+	// 截止时间开启
+	HwDeadlineOpen *string `json:"hwDeadlineOpen,omitempty" xml:"hwDeadlineOpen,omitempty"`
+	// 截止时间
+	HwDeadline *int64 `json:"hwDeadline,omitempty" xml:"hwDeadline,omitempty"`
+	// 作业类型
+	HwType *string `json:"hwType,omitempty" xml:"hwType,omitempty"`
+	// 选择跨组织班级
 	OpenSelectItemList []*BatchOrgCreateHWRequestOpenSelectItemList `json:"openSelectItemList,omitempty" xml:"openSelectItemList,omitempty" type:"Repeated"`
-	DingOrgId          *int64                                       `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	// 组织ID
+	DingOrgId *int64 `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
 }
 
 func (s BatchOrgCreateHWRequest) String() string {
@@ -549,7 +569,7 @@ func (s *BatchOrgCreateHWRequest) SetHwDeadlineOpen(v string) *BatchOrgCreateHWR
 	return s
 }
 
-func (s *BatchOrgCreateHWRequest) SetHwDeadline(v float32) *BatchOrgCreateHWRequest {
+func (s *BatchOrgCreateHWRequest) SetHwDeadline(v int64) *BatchOrgCreateHWRequest {
 	s.HwDeadline = &v
 	return s
 }
@@ -570,9 +590,12 @@ func (s *BatchOrgCreateHWRequest) SetDingOrgId(v int64) *BatchOrgCreateHWRequest
 }
 
 type BatchOrgCreateHWRequestOpenSelectItemList struct {
-	CorpId              *string                                               `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	SelectedClassesDesc *string                                               `json:"selectedClassesDesc,omitempty" xml:"selectedClassesDesc,omitempty"`
-	ClassList           []*BatchOrgCreateHWRequestOpenSelectItemListClassList `json:"classList,omitempty" xml:"classList,omitempty" type:"Repeated"`
+	// 组织corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 选择内容
+	SelectedClassesDesc *string `json:"selectedClassesDesc,omitempty" xml:"selectedClassesDesc,omitempty"`
+	// 班级列表
+	ClassList []*BatchOrgCreateHWRequestOpenSelectItemListClassList `json:"classList,omitempty" xml:"classList,omitempty" type:"Repeated"`
 }
 
 func (s BatchOrgCreateHWRequestOpenSelectItemList) String() string {
@@ -599,10 +622,14 @@ func (s *BatchOrgCreateHWRequestOpenSelectItemList) SetClassList(v []*BatchOrgCr
 }
 
 type BatchOrgCreateHWRequestOpenSelectItemListClassList struct {
-	ClassId   *string                                                       `json:"classId,omitempty" xml:"classId,omitempty"`
-	ClassName *string                                                       `json:"className,omitempty" xml:"className,omitempty"`
-	All       *bool                                                         `json:"all,omitempty" xml:"all,omitempty"`
-	Students  []*BatchOrgCreateHWRequestOpenSelectItemListClassListStudents `json:"students,omitempty" xml:"students,omitempty" type:"Repeated"`
+	// 班级id
+	ClassId *string `json:"classId,omitempty" xml:"classId,omitempty"`
+	// 班级名称
+	ClassName *string `json:"className,omitempty" xml:"className,omitempty"`
+	// 是否全选
+	All *bool `json:"all,omitempty" xml:"all,omitempty"`
+	// 学生列表
+	Students []*BatchOrgCreateHWRequestOpenSelectItemListClassListStudents `json:"students,omitempty" xml:"students,omitempty" type:"Repeated"`
 }
 
 func (s BatchOrgCreateHWRequestOpenSelectItemListClassList) String() string {
@@ -634,9 +661,12 @@ func (s *BatchOrgCreateHWRequestOpenSelectItemListClassList) SetStudents(v []*Ba
 }
 
 type BatchOrgCreateHWRequestOpenSelectItemListClassListStudents struct {
-	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 学生姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 学生userid
 	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
-	Avatar  *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
+	// 学生头像
+	Avatar *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
 }
 
 func (s BatchOrgCreateHWRequestOpenSelectItemListClassListStudents) String() string {
