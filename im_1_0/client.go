@@ -43,10 +43,10 @@ type SendInteractiveCardRequest struct {
 	// 接收人userId列表
 	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
 	DingTokenGrantType *int64    `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
-	// 唯一标示卡片的外部编码
+	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）
 	OutTrackId   *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
 	DingSuiteKey *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
-	// 用于发送卡片的机器人编码，与场景群模板中的机器人编码保持一致
+	// 【robotCode & chatBotId二选一必填】机器人编码（群模板机器人）
 	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 	DingOrgId *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
 	// 发送的会话类型：单聊-0, 群聊-1（单聊时：openConversationId不用填写；receiverUserIdList填写有且一个员工号）
@@ -55,7 +55,12 @@ type SendInteractiveCardRequest struct {
 	CallbackRouteKey *string                             `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
 	CardData         *SendInteractiveCardRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
 	// 指定用户可见的按钮列表（key：用户userId；value：用户数据）
-	PrivateData map[string]*PrivateDataValue `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	PrivateData    map[string]*PrivateDataValue `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	DingOauthAppId *int64                       `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
+	// 【robotCode & chatBotId二选一必填】机器人ID（企业机器人）
+	ChatBotId *string `json:"chatBotId,omitempty" xml:"chatBotId,omitempty"`
+	// 用户ID类型：1：staffId模式【默认】；2：unionId模式；对应receiverUserIdList、privateData字段关于用户id的值填写方式
+	UserIdType *int32 `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 }
 
 func (s SendInteractiveCardRequest) String() string {
@@ -128,6 +133,21 @@ func (s *SendInteractiveCardRequest) SetCardData(v *SendInteractiveCardRequestCa
 
 func (s *SendInteractiveCardRequest) SetPrivateData(v map[string]*PrivateDataValue) *SendInteractiveCardRequest {
 	s.PrivateData = v
+	return s
+}
+
+func (s *SendInteractiveCardRequest) SetDingOauthAppId(v int64) *SendInteractiveCardRequest {
+	s.DingOauthAppId = &v
+	return s
+}
+
+func (s *SendInteractiveCardRequest) SetChatBotId(v string) *SendInteractiveCardRequest {
+	s.ChatBotId = &v
+	return s
+}
+
+func (s *SendInteractiveCardRequest) SetUserIdType(v int32) *SendInteractiveCardRequest {
+	s.UserIdType = &v
 	return s
 }
 
@@ -221,6 +241,7 @@ func (s *UpdateInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string) *Upd
 }
 
 type UpdateInteractiveCardRequest struct {
+	// 唯一标识一张卡片的外部ID
 	OutTrackId         *string                               `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
 	CardData           *UpdateInteractiveCardRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
 	PrivateData        map[string]*PrivateDataValue          `json:"privateData,omitempty" xml:"privateData,omitempty"`
@@ -229,6 +250,8 @@ type UpdateInteractiveCardRequest struct {
 	DingIsvOrgId       *int64                                `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
 	DingSuiteKey       *string                               `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
 	DingOauthAppId     *int64                                `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
+	// 用户ID类型：1：staffId模式【默认】；2：unionId模式；对应receiverUserIdList、privateData字段关于用户id的值填写方式
+	UserIdType *int32 `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 }
 
 func (s UpdateInteractiveCardRequest) String() string {
@@ -276,6 +299,11 @@ func (s *UpdateInteractiveCardRequest) SetDingSuiteKey(v string) *UpdateInteract
 
 func (s *UpdateInteractiveCardRequest) SetDingOauthAppId(v int64) *UpdateInteractiveCardRequest {
 	s.DingOauthAppId = &v
+	return s
+}
+
+func (s *UpdateInteractiveCardRequest) SetUserIdType(v int32) *UpdateInteractiveCardRequest {
+	s.UserIdType = &v
 	return s
 }
 
@@ -461,6 +489,18 @@ func (client *Client) SendInteractiveCardWithOptions(request *SendInteractiveCar
 		body["privateData"] = request.PrivateData
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.DingOauthAppId)) {
+		body["dingOauthAppId"] = request.DingOauthAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ChatBotId)) {
+		body["chatBotId"] = request.ChatBotId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdType)) {
+		body["userIdType"] = request.UserIdType
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -531,6 +571,10 @@ func (client *Client) UpdateInteractiveCardWithOptions(request *UpdateInteractiv
 
 	if !tea.BoolValue(util.IsUnset(request.DingOauthAppId)) {
 		body["dingOauthAppId"] = request.DingOauthAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdType)) {
+		body["userIdType"] = request.UserIdType
 	}
 
 	realHeaders := make(map[string]*string)
