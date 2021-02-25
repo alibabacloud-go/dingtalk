@@ -113,7 +113,7 @@ type BatchCreateRequestData struct {
 	// 上传相册，图片，录音，盯盘的信息
 	Medias *string `json:"medias,omitempty" xml:"medias,omitempty"`
 	// 计量开启
-	NeedMetering             *bool                                             `json:"needMetering,omitempty" xml:"needMetering,omitempty"`
+	NeedMetering             *string                                           `json:"needMetering,omitempty" xml:"needMetering,omitempty"`
 	OrgClassStudentGroupList []*BatchCreateRequestDataOrgClassStudentGroupList `json:"orgClassStudentGroupList,omitempty" xml:"orgClassStudentGroupList,omitempty" type:"Repeated"`
 	// 提醒时间（小时）
 	RemindHour *int32 `json:"remindHour,omitempty" xml:"remindHour,omitempty"`
@@ -182,7 +182,7 @@ func (s *BatchCreateRequestData) SetMedias(v string) *BatchCreateRequestData {
 	return s
 }
 
-func (s *BatchCreateRequestData) SetNeedMetering(v bool) *BatchCreateRequestData {
+func (s *BatchCreateRequestData) SetNeedMetering(v string) *BatchCreateRequestData {
 	s.NeedMetering = &v
 	return s
 }
@@ -727,8 +727,8 @@ func (s *BatchOrgCreateHWResponseBodyResult) SetPublishList(v []*BatchOrgCreateH
 }
 
 type BatchOrgCreateHWResponseBodyResultPublishList struct {
-	Corpid *string  `json:"corpid,omitempty" xml:"corpid,omitempty"`
-	Hwid   *float32 `json:"hwid,omitempty" xml:"hwid,omitempty"`
+	Corpid *string `json:"corpid,omitempty" xml:"corpid,omitempty"`
+	Hwid   *int64  `json:"hwid,omitempty" xml:"hwid,omitempty"`
 }
 
 func (s BatchOrgCreateHWResponseBodyResultPublishList) String() string {
@@ -744,7 +744,7 @@ func (s *BatchOrgCreateHWResponseBodyResultPublishList) SetCorpid(v string) *Bat
 	return s
 }
 
-func (s *BatchOrgCreateHWResponseBodyResultPublishList) SetHwid(v float32) *BatchOrgCreateHWResponseBodyResultPublishList {
+func (s *BatchOrgCreateHWResponseBodyResultPublishList) SetHwid(v int64) *BatchOrgCreateHWResponseBodyResultPublishList {
 	s.Hwid = &v
 	return s
 }
