@@ -75,8 +75,26 @@ func (s *SyncDataRequest) SetEtlTime(v string) *SyncDataRequest {
 	return s
 }
 
+type SyncDataResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SyncDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncDataResponseBody) SetSuccess(v bool) *SyncDataResponseBody {
+	s.Success = &v
+	return s
+}
+
 type SyncDataResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SyncDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SyncDataResponse) String() string {
@@ -89,6 +107,11 @@ func (s SyncDataResponse) GoString() string {
 
 func (s *SyncDataResponse) SetHeaders(v map[string]*string) *SyncDataResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SyncDataResponse) SetBody(v *SyncDataResponseBody) *SyncDataResponse {
+	s.Body = v
 	return s
 }
 
@@ -167,7 +190,7 @@ func (client *Client) SyncDataWithOptions(request *SyncDataRequest, headers *Syn
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &SyncDataResponse{}
-	_body, _err := client.DoROARequest(tea.String("SyncData"), tea.String("hrbrain_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrbrain/datas"), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("SyncData"), tea.String("hrbrain_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrbrain/datas"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
