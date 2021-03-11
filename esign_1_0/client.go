@@ -1621,7 +1621,6 @@ func (s *GetProcessStartUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetPro
 }
 
 type GetProcessStartUrlRequest struct {
-	AutoStart          *bool                                    `json:"autoStart,omitempty" xml:"autoStart,omitempty"`
 	Files              []*GetProcessStartUrlRequestFiles        `json:"files,omitempty" xml:"files,omitempty" type:"Repeated"`
 	DingCorpId         *string                                  `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
 	InitiatorUserId    *string                                  `json:"initiatorUserId,omitempty" xml:"initiatorUserId,omitempty"`
@@ -1640,11 +1639,6 @@ func (s GetProcessStartUrlRequest) String() string {
 
 func (s GetProcessStartUrlRequest) GoString() string {
 	return s.String()
-}
-
-func (s *GetProcessStartUrlRequest) SetAutoStart(v bool) *GetProcessStartUrlRequest {
-	s.AutoStart = &v
-	return s
 }
 
 func (s *GetProcessStartUrlRequest) SetFiles(v []*GetProcessStartUrlRequestFiles) *GetProcessStartUrlRequest {
@@ -1727,6 +1721,7 @@ type GetProcessStartUrlRequestParticipants struct {
 	UserId           *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	Account          *string `json:"account,omitempty" xml:"account,omitempty"`
 	AccountName      *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
+	OrgName          *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
 }
 
 func (s GetProcessStartUrlRequestParticipants) String() string {
@@ -1764,6 +1759,11 @@ func (s *GetProcessStartUrlRequestParticipants) SetAccount(v string) *GetProcess
 
 func (s *GetProcessStartUrlRequestParticipants) SetAccountName(v string) *GetProcessStartUrlRequestParticipants {
 	s.AccountName = &v
+	return s
+}
+
+func (s *GetProcessStartUrlRequestParticipants) SetOrgName(v string) *GetProcessStartUrlRequestParticipants {
+	s.OrgName = &v
 	return s
 }
 
@@ -3406,10 +3406,6 @@ func (client *Client) GetProcessStartUrlWithOptions(request *GetProcessStartUrlR
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.AutoStart)) {
-		body["autoStart"] = request.AutoStart
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.Files)) {
 		body["files"] = request.Files
 	}

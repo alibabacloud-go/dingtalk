@@ -167,6 +167,202 @@ func (s *CreateApproveResponse) SetBody(v *CreateApproveResponseBody) *CreateApp
 	return s
 }
 
+type GetUserHolidaysHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetUserHolidaysHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserHolidaysHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserHolidaysHeaders) SetCommonHeaders(v map[string]*string) *GetUserHolidaysHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetUserHolidaysHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserHolidaysHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetUserHolidaysRequest struct {
+	// 查询对象
+	TopHolidayQueryParam *GetUserHolidaysRequestTopHolidayQueryParam `json:"topHolidayQueryParam,omitempty" xml:"topHolidayQueryParam,omitempty" type:"Struct"`
+}
+
+func (s GetUserHolidaysRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserHolidaysRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserHolidaysRequest) SetTopHolidayQueryParam(v *GetUserHolidaysRequestTopHolidayQueryParam) *GetUserHolidaysRequest {
+	s.TopHolidayQueryParam = v
+	return s
+}
+
+type GetUserHolidaysRequestTopHolidayQueryParam struct {
+	// 员工列表，staffId
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// 开始日期
+	WorkDateFrom *int64 `json:"workDateFrom,omitempty" xml:"workDateFrom,omitempty"`
+	// 结束日期
+	WorkDateTo *int64 `json:"workDateTo,omitempty" xml:"workDateTo,omitempty"`
+}
+
+func (s GetUserHolidaysRequestTopHolidayQueryParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserHolidaysRequestTopHolidayQueryParam) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserHolidaysRequestTopHolidayQueryParam) SetUserIds(v []*string) *GetUserHolidaysRequestTopHolidayQueryParam {
+	s.UserIds = v
+	return s
+}
+
+func (s *GetUserHolidaysRequestTopHolidayQueryParam) SetWorkDateFrom(v int64) *GetUserHolidaysRequestTopHolidayQueryParam {
+	s.WorkDateFrom = &v
+	return s
+}
+
+func (s *GetUserHolidaysRequestTopHolidayQueryParam) SetWorkDateTo(v int64) *GetUserHolidaysRequestTopHolidayQueryParam {
+	s.WorkDateTo = &v
+	return s
+}
+
+type GetUserHolidaysShrinkRequest struct {
+	// 查询对象
+	TopHolidayQueryParamShrink *string `json:"topHolidayQueryParam,omitempty" xml:"topHolidayQueryParam,omitempty"`
+}
+
+func (s GetUserHolidaysShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserHolidaysShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserHolidaysShrinkRequest) SetTopHolidayQueryParamShrink(v string) *GetUserHolidaysShrinkRequest {
+	s.TopHolidayQueryParamShrink = &v
+	return s
+}
+
+type GetUserHolidaysResponseBody struct {
+	// 员工假期列表
+	Result []*GetUserHolidaysResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetUserHolidaysResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserHolidaysResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserHolidaysResponseBody) SetResult(v []*GetUserHolidaysResponseBodyResult) *GetUserHolidaysResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetUserHolidaysResponseBodyResult struct {
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 假期列表
+	Holidays []*GetUserHolidaysResponseBodyResultHolidays `json:"holidays,omitempty" xml:"holidays,omitempty" type:"Repeated"`
+}
+
+func (s GetUserHolidaysResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserHolidaysResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserHolidaysResponseBodyResult) SetUserId(v string) *GetUserHolidaysResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetUserHolidaysResponseBodyResult) SetHolidays(v []*GetUserHolidaysResponseBodyResultHolidays) *GetUserHolidaysResponseBodyResult {
+	s.Holidays = v
+	return s
+}
+
+type GetUserHolidaysResponseBodyResultHolidays struct {
+	// 日期
+	WorkDate *int64 `json:"workDate,omitempty" xml:"workDate,omitempty"`
+	// 假期名称
+	HolidayName *string `json:"holidayName,omitempty" xml:"holidayName,omitempty"`
+	// 假期类型，festival：法定节假日；rest：调休日；overtime：加班日；
+	HolidayType *string `json:"holidayType,omitempty" xml:"holidayType,omitempty"`
+	// 补休日，只有假期类型为加班日时才有值
+	RealWorkDate *int64 `json:"realWorkDate,omitempty" xml:"realWorkDate,omitempty"`
+}
+
+func (s GetUserHolidaysResponseBodyResultHolidays) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserHolidaysResponseBodyResultHolidays) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserHolidaysResponseBodyResultHolidays) SetWorkDate(v int64) *GetUserHolidaysResponseBodyResultHolidays {
+	s.WorkDate = &v
+	return s
+}
+
+func (s *GetUserHolidaysResponseBodyResultHolidays) SetHolidayName(v string) *GetUserHolidaysResponseBodyResultHolidays {
+	s.HolidayName = &v
+	return s
+}
+
+func (s *GetUserHolidaysResponseBodyResultHolidays) SetHolidayType(v string) *GetUserHolidaysResponseBodyResultHolidays {
+	s.HolidayType = &v
+	return s
+}
+
+func (s *GetUserHolidaysResponseBodyResultHolidays) SetRealWorkDate(v int64) *GetUserHolidaysResponseBodyResultHolidays {
+	s.RealWorkDate = &v
+	return s
+}
+
+type GetUserHolidaysResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetUserHolidaysResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetUserHolidaysResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserHolidaysResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserHolidaysResponse) SetHeaders(v map[string]*string) *GetUserHolidaysResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetUserHolidaysResponse) SetBody(v *GetUserHolidaysResponseBody) *GetUserHolidaysResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -247,6 +443,56 @@ func (client *Client) CreateApproveWithOptions(request *CreateApproveRequest, he
 	}
 	_result = &CreateApproveResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateApprove"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/approves"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetUserHolidays(request *GetUserHolidaysRequest) (_result *GetUserHolidaysResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetUserHolidaysHeaders{}
+	_result = &GetUserHolidaysResponse{}
+	_body, _err := client.GetUserHolidaysWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetUserHolidaysWithOptions(tmpReq *GetUserHolidaysRequest, headers *GetUserHolidaysHeaders, runtime *util.RuntimeOptions) (_result *GetUserHolidaysResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &GetUserHolidaysShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(tmpReq.TopHolidayQueryParam))) {
+		request.TopHolidayQueryParamShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tea.ToMap(tmpReq.TopHolidayQueryParam), tea.String("topHolidayQueryParam"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TopHolidayQueryParamShrink)) {
+		query["topHolidayQueryParam"] = request.TopHolidayQueryParamShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetUserHolidaysResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetUserHolidays"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/holidays"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
