@@ -35,8 +35,8 @@ func (s *QueryShortcutScopesHeaders) SetXAcsDingtalkAccessToken(v string) *Query
 
 type QueryShortcutScopesResponseBody struct {
 	// errorMsg
-	UserVisibleScopes []*string  `json:"userVisibleScopes,omitempty" xml:"userVisibleScopes,omitempty" type:"Repeated"`
-	DeptVisibleScopes []*float32 `json:"deptVisibleScopes,omitempty" xml:"deptVisibleScopes,omitempty" type:"Repeated"`
+	UserVisibleScopes []*string `json:"userVisibleScopes,omitempty" xml:"userVisibleScopes,omitempty" type:"Repeated"`
+	DeptVisibleScopes []*int64  `json:"deptVisibleScopes,omitempty" xml:"deptVisibleScopes,omitempty" type:"Repeated"`
 }
 
 func (s QueryShortcutScopesResponseBody) String() string {
@@ -52,7 +52,7 @@ func (s *QueryShortcutScopesResponseBody) SetUserVisibleScopes(v []*string) *Que
 	return s
 }
 
-func (s *QueryShortcutScopesResponseBody) SetDeptVisibleScopes(v []*float32) *QueryShortcutScopesResponseBody {
+func (s *QueryShortcutScopesResponseBody) SetDeptVisibleScopes(v []*int64) *QueryShortcutScopesResponseBody {
 	s.DeptVisibleScopes = v
 	return s
 }
@@ -105,8 +105,8 @@ func (s *QueryComponentScopesHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 
 type QueryComponentScopesResponseBody struct {
 	// scopes
-	UserVisibleScopes []*string  `json:"userVisibleScopes,omitempty" xml:"userVisibleScopes,omitempty" type:"Repeated"`
-	DeptVisibleScopes []*float32 `json:"deptVisibleScopes,omitempty" xml:"deptVisibleScopes,omitempty" type:"Repeated"`
+	UserVisibleScopes []*string `json:"userVisibleScopes,omitempty" xml:"userVisibleScopes,omitempty" type:"Repeated"`
+	DeptVisibleScopes []*int64  `json:"deptVisibleScopes,omitempty" xml:"deptVisibleScopes,omitempty" type:"Repeated"`
 }
 
 func (s QueryComponentScopesResponseBody) String() string {
@@ -122,7 +122,7 @@ func (s *QueryComponentScopesResponseBody) SetUserVisibleScopes(v []*string) *Qu
 	return s
 }
 
-func (s *QueryComponentScopesResponseBody) SetDeptVisibleScopes(v []*float32) *QueryComponentScopesResponseBody {
+func (s *QueryComponentScopesResponseBody) SetDeptVisibleScopes(v []*int64) *QueryComponentScopesResponseBody {
 	s.DeptVisibleScopes = v
 	return s
 }
