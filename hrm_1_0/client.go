@@ -11,6 +11,179 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type ECertQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ECertQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ECertQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ECertQueryHeaders) SetCommonHeaders(v map[string]*string) *ECertQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ECertQueryHeaders) SetXAcsDingtalkAccessToken(v string) *ECertQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ECertQueryRequest struct {
+	// 用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ECertQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ECertQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ECertQueryRequest) SetUserId(v string) *ECertQueryRequest {
+	s.UserId = &v
+	return s
+}
+
+type ECertQueryResponseBody struct {
+	// 身份证姓名
+	RealName *string `json:"realName,omitempty" xml:"realName,omitempty"`
+	// 身份证号码
+	CertNO *string `json:"certNO,omitempty" xml:"certNO,omitempty"`
+	// 主部门ID
+	MainDeptId *int64 `json:"mainDeptId,omitempty" xml:"mainDeptId,omitempty"`
+	// 主部门
+	MainDeptName *string `json:"mainDeptName,omitempty" xml:"mainDeptName,omitempty"`
+	// 职务ID
+	EmployJobId *string `json:"employJobId,omitempty" xml:"employJobId,omitempty"`
+	// 职务名称
+	EmployJobIdLabel *string `json:"employJobIdLabel,omitempty" xml:"employJobIdLabel,omitempty"`
+	// 职位ID
+	EmployPositionId *string `json:"employPositionId,omitempty" xml:"employPositionId,omitempty"`
+	// 职位名称
+	EmployPositionIdLabel *string `json:"employPositionIdLabel,omitempty" xml:"employPositionIdLabel,omitempty"`
+	// 职级ID
+	EmployPositionRankId *string `json:"employPositionRankId,omitempty" xml:"employPositionRankId,omitempty"`
+	// 职级名称
+	EmployPositionRankIdLabel *string `json:"employPositionRankIdLabel,omitempty" xml:"employPositionRankIdLabel,omitempty"`
+	// 入职日期
+	HiredDate *string `json:"hiredDate,omitempty" xml:"hiredDate,omitempty"`
+	// 离职日期
+	LastWorkDay *string `json:"lastWorkDay,omitempty" xml:"lastWorkDay,omitempty"`
+	// 主动离职原因
+	TerminationReasonVoluntary []*string `json:"terminationReasonVoluntary,omitempty" xml:"terminationReasonVoluntary,omitempty" type:"Repeated"`
+	// 被动离职原因
+	TerminationReasonPassive []*string `json:"terminationReasonPassive,omitempty" xml:"terminationReasonPassive,omitempty" type:"Repeated"`
+}
+
+func (s ECertQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ECertQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ECertQueryResponseBody) SetRealName(v string) *ECertQueryResponseBody {
+	s.RealName = &v
+	return s
+}
+
+func (s *ECertQueryResponseBody) SetCertNO(v string) *ECertQueryResponseBody {
+	s.CertNO = &v
+	return s
+}
+
+func (s *ECertQueryResponseBody) SetMainDeptId(v int64) *ECertQueryResponseBody {
+	s.MainDeptId = &v
+	return s
+}
+
+func (s *ECertQueryResponseBody) SetMainDeptName(v string) *ECertQueryResponseBody {
+	s.MainDeptName = &v
+	return s
+}
+
+func (s *ECertQueryResponseBody) SetEmployJobId(v string) *ECertQueryResponseBody {
+	s.EmployJobId = &v
+	return s
+}
+
+func (s *ECertQueryResponseBody) SetEmployJobIdLabel(v string) *ECertQueryResponseBody {
+	s.EmployJobIdLabel = &v
+	return s
+}
+
+func (s *ECertQueryResponseBody) SetEmployPositionId(v string) *ECertQueryResponseBody {
+	s.EmployPositionId = &v
+	return s
+}
+
+func (s *ECertQueryResponseBody) SetEmployPositionIdLabel(v string) *ECertQueryResponseBody {
+	s.EmployPositionIdLabel = &v
+	return s
+}
+
+func (s *ECertQueryResponseBody) SetEmployPositionRankId(v string) *ECertQueryResponseBody {
+	s.EmployPositionRankId = &v
+	return s
+}
+
+func (s *ECertQueryResponseBody) SetEmployPositionRankIdLabel(v string) *ECertQueryResponseBody {
+	s.EmployPositionRankIdLabel = &v
+	return s
+}
+
+func (s *ECertQueryResponseBody) SetHiredDate(v string) *ECertQueryResponseBody {
+	s.HiredDate = &v
+	return s
+}
+
+func (s *ECertQueryResponseBody) SetLastWorkDay(v string) *ECertQueryResponseBody {
+	s.LastWorkDay = &v
+	return s
+}
+
+func (s *ECertQueryResponseBody) SetTerminationReasonVoluntary(v []*string) *ECertQueryResponseBody {
+	s.TerminationReasonVoluntary = v
+	return s
+}
+
+func (s *ECertQueryResponseBody) SetTerminationReasonPassive(v []*string) *ECertQueryResponseBody {
+	s.TerminationReasonPassive = v
+	return s
+}
+
+type ECertQueryResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ECertQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ECertQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ECertQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ECertQueryResponse) SetHeaders(v map[string]*string) *ECertQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ECertQueryResponse) SetBody(v *ECertQueryResponseBody) *ECertQueryResponse {
+	s.Body = v
+	return s
+}
+
 type AddHrmPreentryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -206,6 +379,50 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) ECertQuery(request *ECertQueryRequest) (_result *ECertQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ECertQueryHeaders{}
+	_result = &ECertQueryResponse{}
+	_body, _err := client.ECertQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ECertQueryWithOptions(request *ECertQueryRequest, headers *ECertQueryHeaders, runtime *util.RuntimeOptions) (_result *ECertQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ECertQueryResponse{}
+	_body, _err := client.DoROARequest(tea.String("ECertQuery"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/eCerts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) AddHrmPreentry(request *AddHrmPreentryRequest) (_result *AddHrmPreentryResponse, _err error) {

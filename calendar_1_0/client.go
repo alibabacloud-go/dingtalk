@@ -148,6 +148,52 @@ func (s *ListEventsResponse) SetBody(v map[string]interface{}) *ListEventsRespon
 	return s
 }
 
+type GenerateCaldavAccountHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GenerateCaldavAccountHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateCaldavAccountHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateCaldavAccountHeaders) SetCommonHeaders(v map[string]*string) *GenerateCaldavAccountHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GenerateCaldavAccountHeaders) SetXAcsDingtalkAccessToken(v string) *GenerateCaldavAccountHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GenerateCaldavAccountResponse struct {
+	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GenerateCaldavAccountResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateCaldavAccountResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateCaldavAccountResponse) SetHeaders(v map[string]*string) *GenerateCaldavAccountResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GenerateCaldavAccountResponse) SetBody(v map[string]interface{}) *GenerateCaldavAccountResponse {
+	s.Body = v
+	return s
+}
+
 type GetScheduleHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -542,6 +588,40 @@ func (client *Client) ListEventsWithOptions(userId *string, calendarId *string, 
 	}
 	_result = &ListEventsResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListEvents"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GenerateCaldavAccount(userId *string) (_result *GenerateCaldavAccountResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GenerateCaldavAccountHeaders{}
+	_result = &GenerateCaldavAccountResponse{}
+	_body, _err := client.GenerateCaldavAccountWithOptions(userId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GenerateCaldavAccountWithOptions(userId *string, headers *GenerateCaldavAccountHeaders, runtime *util.RuntimeOptions) (_result *GenerateCaldavAccountResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GenerateCaldavAccountResponse{}
+	_body, _err := client.DoROARequest(tea.String("GenerateCaldavAccount"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/caldavAccounts"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
