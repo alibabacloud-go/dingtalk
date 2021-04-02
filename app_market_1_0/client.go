@@ -102,6 +102,106 @@ func (s *UserTaskReportResponse) SetBody(v bool) *UserTaskReportResponse {
 	return s
 }
 
+type GetPersonalExperienceInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPersonalExperienceInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPersonalExperienceInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPersonalExperienceInfoHeaders) SetCommonHeaders(v map[string]*string) *GetPersonalExperienceInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPersonalExperienceInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetPersonalExperienceInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPersonalExperienceInfoRequest struct {
+	// A short description of struct
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetPersonalExperienceInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPersonalExperienceInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPersonalExperienceInfoRequest) SetUserId(v string) *GetPersonalExperienceInfoRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetPersonalExperienceInfoResponseBody struct {
+	// 数据对象
+	Result *GetPersonalExperienceInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetPersonalExperienceInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPersonalExperienceInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPersonalExperienceInfoResponseBody) SetResult(v *GetPersonalExperienceInfoResponseBodyResult) *GetPersonalExperienceInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetPersonalExperienceInfoResponseBodyResult struct {
+	// 主组织corpId
+	MainCorpId *string `json:"mainCorpId,omitempty" xml:"mainCorpId,omitempty"`
+}
+
+func (s GetPersonalExperienceInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPersonalExperienceInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetPersonalExperienceInfoResponseBodyResult) SetMainCorpId(v string) *GetPersonalExperienceInfoResponseBodyResult {
+	s.MainCorpId = &v
+	return s
+}
+
+type GetPersonalExperienceInfoResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetPersonalExperienceInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetPersonalExperienceInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPersonalExperienceInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPersonalExperienceInfoResponse) SetHeaders(v map[string]*string) *GetPersonalExperienceInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPersonalExperienceInfoResponse) SetBody(v *GetPersonalExperienceInfoResponseBody) *GetPersonalExperienceInfoResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -178,6 +278,50 @@ func (client *Client) UserTaskReportWithOptions(request *UserTaskReportRequest, 
 	}
 	_result = &UserTaskReportResponse{}
 	_body, _err := client.DoROARequest(tea.String("UserTaskReport"), tea.String("appMarket_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/appMarket/tasks"), tea.String("boolean"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetPersonalExperienceInfo(request *GetPersonalExperienceInfoRequest) (_result *GetPersonalExperienceInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPersonalExperienceInfoHeaders{}
+	_result = &GetPersonalExperienceInfoResponse{}
+	_body, _err := client.GetPersonalExperienceInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetPersonalExperienceInfoWithOptions(request *GetPersonalExperienceInfoRequest, headers *GetPersonalExperienceInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPersonalExperienceInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetPersonalExperienceInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetPersonalExperienceInfo"), tea.String("appMarket_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/appMarket/personalExperiences"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

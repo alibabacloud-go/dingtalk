@@ -320,7 +320,6 @@ func (s *GetOfficialAccountContactsHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type GetOfficialAccountContactsRequest struct {
-	Context *GetOfficialAccountContactsRequestContext `json:"context,omitempty" xml:"context,omitempty" type:"Struct"`
 	// 取数游标，第一次传0
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 分页大小，最大不超过10
@@ -335,89 +334,12 @@ func (s GetOfficialAccountContactsRequest) GoString() string {
 	return s.String()
 }
 
-func (s *GetOfficialAccountContactsRequest) SetContext(v *GetOfficialAccountContactsRequestContext) *GetOfficialAccountContactsRequest {
-	s.Context = v
-	return s
-}
-
 func (s *GetOfficialAccountContactsRequest) SetNextToken(v string) *GetOfficialAccountContactsRequest {
 	s.NextToken = &v
 	return s
 }
 
 func (s *GetOfficialAccountContactsRequest) SetMaxResults(v int64) *GetOfficialAccountContactsRequest {
-	s.MaxResults = &v
-	return s
-}
-
-type GetOfficialAccountContactsRequestContext struct {
-	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
-	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
-	DingCorpId         *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
-	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
-}
-
-func (s GetOfficialAccountContactsRequestContext) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetOfficialAccountContactsRequestContext) GoString() string {
-	return s.String()
-}
-
-func (s *GetOfficialAccountContactsRequestContext) SetDingIsvOrgId(v int64) *GetOfficialAccountContactsRequestContext {
-	s.DingIsvOrgId = &v
-	return s
-}
-
-func (s *GetOfficialAccountContactsRequestContext) SetDingOrgId(v int64) *GetOfficialAccountContactsRequestContext {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *GetOfficialAccountContactsRequestContext) SetDingSuiteKey(v string) *GetOfficialAccountContactsRequestContext {
-	s.DingSuiteKey = &v
-	return s
-}
-
-func (s *GetOfficialAccountContactsRequestContext) SetDingCorpId(v string) *GetOfficialAccountContactsRequestContext {
-	s.DingCorpId = &v
-	return s
-}
-
-func (s *GetOfficialAccountContactsRequestContext) SetDingTokenGrantType(v int64) *GetOfficialAccountContactsRequestContext {
-	s.DingTokenGrantType = &v
-	return s
-}
-
-type GetOfficialAccountContactsShrinkRequest struct {
-	ContextShrink *string `json:"context,omitempty" xml:"context,omitempty"`
-	// 取数游标，第一次传0
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 分页大小，最大不超过10
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-}
-
-func (s GetOfficialAccountContactsShrinkRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetOfficialAccountContactsShrinkRequest) GoString() string {
-	return s.String()
-}
-
-func (s *GetOfficialAccountContactsShrinkRequest) SetContextShrink(v string) *GetOfficialAccountContactsShrinkRequest {
-	s.ContextShrink = &v
-	return s
-}
-
-func (s *GetOfficialAccountContactsShrinkRequest) SetNextToken(v string) *GetOfficialAccountContactsShrinkRequest {
-	s.NextToken = &v
-	return s
-}
-
-func (s *GetOfficialAccountContactsShrinkRequest) SetMaxResults(v int64) *GetOfficialAccountContactsShrinkRequest {
 	s.MaxResults = &v
 	return s
 }
@@ -594,6 +516,456 @@ func (s *GetOfficialAccountContactsResponse) SetBody(v *GetOfficialAccountContac
 	return s
 }
 
+type ServiceWindowMessageBatchPushHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ServiceWindowMessageBatchPushHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ServiceWindowMessageBatchPushHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ServiceWindowMessageBatchPushHeaders) SetCommonHeaders(v map[string]*string) *ServiceWindowMessageBatchPushHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushHeaders) SetXAcsDingtalkAccessToken(v string) *ServiceWindowMessageBatchPushHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ServiceWindowMessageBatchPushRequest struct {
+	Detail             *ServiceWindowMessageBatchPushRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
+	BizId              *string                                     `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	DingIsvOrgId       *int64                                      `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64                                      `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingTokenGrantType *int64                                      `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingSuiteKey       *string                                     `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+}
+
+func (s ServiceWindowMessageBatchPushRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ServiceWindowMessageBatchPushRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ServiceWindowMessageBatchPushRequest) SetDetail(v *ServiceWindowMessageBatchPushRequestDetail) *ServiceWindowMessageBatchPushRequest {
+	s.Detail = v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequest) SetBizId(v string) *ServiceWindowMessageBatchPushRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequest) SetDingIsvOrgId(v int64) *ServiceWindowMessageBatchPushRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequest) SetDingOrgId(v int64) *ServiceWindowMessageBatchPushRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequest) SetDingTokenGrantType(v int64) *ServiceWindowMessageBatchPushRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequest) SetDingSuiteKey(v string) *ServiceWindowMessageBatchPushRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+type ServiceWindowMessageBatchPushRequestDetail struct {
+	MsgType      *string                                                `json:"msgType,omitempty" xml:"msgType,omitempty"`
+	Uuid         *string                                                `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	BizRequestId *string                                                `json:"bizRequestId,omitempty" xml:"bizRequestId,omitempty"`
+	UserIdList   []*string                                              `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	MessageBody  *ServiceWindowMessageBatchPushRequestDetailMessageBody `json:"messageBody,omitempty" xml:"messageBody,omitempty" type:"Struct"`
+	SendToAll    *bool                                                  `json:"sendToAll,omitempty" xml:"sendToAll,omitempty"`
+}
+
+func (s ServiceWindowMessageBatchPushRequestDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ServiceWindowMessageBatchPushRequestDetail) GoString() string {
+	return s.String()
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetail) SetMsgType(v string) *ServiceWindowMessageBatchPushRequestDetail {
+	s.MsgType = &v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetail) SetUuid(v string) *ServiceWindowMessageBatchPushRequestDetail {
+	s.Uuid = &v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetail) SetBizRequestId(v string) *ServiceWindowMessageBatchPushRequestDetail {
+	s.BizRequestId = &v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetail) SetUserIdList(v []*string) *ServiceWindowMessageBatchPushRequestDetail {
+	s.UserIdList = v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetail) SetMessageBody(v *ServiceWindowMessageBatchPushRequestDetailMessageBody) *ServiceWindowMessageBatchPushRequestDetail {
+	s.MessageBody = v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetail) SetSendToAll(v bool) *ServiceWindowMessageBatchPushRequestDetail {
+	s.SendToAll = &v
+	return s
+}
+
+type ServiceWindowMessageBatchPushRequestDetailMessageBody struct {
+	Text       *ServiceWindowMessageBatchPushRequestDetailMessageBodyText       `json:"text,omitempty" xml:"text,omitempty" type:"Struct"`
+	Markdown   *ServiceWindowMessageBatchPushRequestDetailMessageBodyMarkdown   `json:"markdown,omitempty" xml:"markdown,omitempty" type:"Struct"`
+	Link       *ServiceWindowMessageBatchPushRequestDetailMessageBodyLink       `json:"link,omitempty" xml:"link,omitempty" type:"Struct"`
+	ActionCard *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard `json:"actionCard,omitempty" xml:"actionCard,omitempty" type:"Struct"`
+}
+
+func (s ServiceWindowMessageBatchPushRequestDetailMessageBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ServiceWindowMessageBatchPushRequestDetailMessageBody) GoString() string {
+	return s.String()
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBody) SetText(v *ServiceWindowMessageBatchPushRequestDetailMessageBodyText) *ServiceWindowMessageBatchPushRequestDetailMessageBody {
+	s.Text = v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBody) SetMarkdown(v *ServiceWindowMessageBatchPushRequestDetailMessageBodyMarkdown) *ServiceWindowMessageBatchPushRequestDetailMessageBody {
+	s.Markdown = v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBody) SetLink(v *ServiceWindowMessageBatchPushRequestDetailMessageBodyLink) *ServiceWindowMessageBatchPushRequestDetailMessageBody {
+	s.Link = v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBody) SetActionCard(v *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard) *ServiceWindowMessageBatchPushRequestDetailMessageBody {
+	s.ActionCard = v
+	return s
+}
+
+type ServiceWindowMessageBatchPushRequestDetailMessageBodyText struct {
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s ServiceWindowMessageBatchPushRequestDetailMessageBodyText) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ServiceWindowMessageBatchPushRequestDetailMessageBodyText) GoString() string {
+	return s.String()
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyText) SetContent(v string) *ServiceWindowMessageBatchPushRequestDetailMessageBodyText {
+	s.Content = &v
+	return s
+}
+
+type ServiceWindowMessageBatchPushRequestDetailMessageBodyMarkdown struct {
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	Text  *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s ServiceWindowMessageBatchPushRequestDetailMessageBodyMarkdown) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ServiceWindowMessageBatchPushRequestDetailMessageBodyMarkdown) GoString() string {
+	return s.String()
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyMarkdown) SetTitle(v string) *ServiceWindowMessageBatchPushRequestDetailMessageBodyMarkdown {
+	s.Title = &v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyMarkdown) SetText(v string) *ServiceWindowMessageBatchPushRequestDetailMessageBodyMarkdown {
+	s.Text = &v
+	return s
+}
+
+type ServiceWindowMessageBatchPushRequestDetailMessageBodyLink struct {
+	PicUrl     *string `json:"picUrl,omitempty" xml:"picUrl,omitempty"`
+	MessageUrl *string `json:"messageUrl,omitempty" xml:"messageUrl,omitempty"`
+	Title      *string `json:"title,omitempty" xml:"title,omitempty"`
+	Text       *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s ServiceWindowMessageBatchPushRequestDetailMessageBodyLink) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ServiceWindowMessageBatchPushRequestDetailMessageBodyLink) GoString() string {
+	return s.String()
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyLink) SetPicUrl(v string) *ServiceWindowMessageBatchPushRequestDetailMessageBodyLink {
+	s.PicUrl = &v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyLink) SetMessageUrl(v string) *ServiceWindowMessageBatchPushRequestDetailMessageBodyLink {
+	s.MessageUrl = &v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyLink) SetTitle(v string) *ServiceWindowMessageBatchPushRequestDetailMessageBodyLink {
+	s.Title = &v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyLink) SetText(v string) *ServiceWindowMessageBatchPushRequestDetailMessageBodyLink {
+	s.Text = &v
+	return s
+}
+
+type ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard struct {
+	ButtonOrientation *string                                                                      `json:"buttonOrientation,omitempty" xml:"buttonOrientation,omitempty"`
+	SingleUrl         *string                                                                      `json:"singleUrl,omitempty" xml:"singleUrl,omitempty"`
+	SingleTitle       *string                                                                      `json:"singleTitle,omitempty" xml:"singleTitle,omitempty"`
+	Markdown          *string                                                                      `json:"markdown,omitempty" xml:"markdown,omitempty"`
+	Title             *string                                                                      `json:"title,omitempty" xml:"title,omitempty"`
+	ButtonList        []*ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCardButtonList `json:"buttonList,omitempty" xml:"buttonList,omitempty" type:"Repeated"`
+}
+
+func (s ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard) GoString() string {
+	return s.String()
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard) SetButtonOrientation(v string) *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard {
+	s.ButtonOrientation = &v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard) SetSingleUrl(v string) *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard {
+	s.SingleUrl = &v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard) SetSingleTitle(v string) *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard {
+	s.SingleTitle = &v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard) SetMarkdown(v string) *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard {
+	s.Markdown = &v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard) SetTitle(v string) *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard {
+	s.Title = &v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard) SetButtonList(v []*ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCardButtonList) *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard {
+	s.ButtonList = v
+	return s
+}
+
+type ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCardButtonList struct {
+	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
+	ActionUrl *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
+}
+
+func (s ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCardButtonList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCardButtonList) GoString() string {
+	return s.String()
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCardButtonList) SetTitle(v string) *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCardButtonList {
+	s.Title = &v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCardButtonList) SetActionUrl(v string) *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCardButtonList {
+	s.ActionUrl = &v
+	return s
+}
+
+type ServiceWindowMessageBatchPushResponseBody struct {
+	// result
+	Result    *ServiceWindowMessageBatchPushResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	RequestId *string                                          `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s ServiceWindowMessageBatchPushResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ServiceWindowMessageBatchPushResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ServiceWindowMessageBatchPushResponseBody) SetResult(v *ServiceWindowMessageBatchPushResponseBodyResult) *ServiceWindowMessageBatchPushResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushResponseBody) SetRequestId(v string) *ServiceWindowMessageBatchPushResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type ServiceWindowMessageBatchPushResponseBodyResult struct {
+	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
+}
+
+func (s ServiceWindowMessageBatchPushResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ServiceWindowMessageBatchPushResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ServiceWindowMessageBatchPushResponseBodyResult) SetOpenPushId(v string) *ServiceWindowMessageBatchPushResponseBodyResult {
+	s.OpenPushId = &v
+	return s
+}
+
+type ServiceWindowMessageBatchPushResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ServiceWindowMessageBatchPushResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ServiceWindowMessageBatchPushResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ServiceWindowMessageBatchPushResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ServiceWindowMessageBatchPushResponse) SetHeaders(v map[string]*string) *ServiceWindowMessageBatchPushResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ServiceWindowMessageBatchPushResponse) SetBody(v *ServiceWindowMessageBatchPushResponseBody) *ServiceWindowMessageBatchPushResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteCrmFormInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteCrmFormInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCrmFormInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCrmFormInstanceHeaders) SetCommonHeaders(v map[string]*string) *DeleteCrmFormInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteCrmFormInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteCrmFormInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteCrmFormInstanceRequest struct {
+	// 当前操作人id
+	CurrentOperatorUserId *string `json:"currentOperatorUserId,omitempty" xml:"currentOperatorUserId,omitempty"`
+	// 模版名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s DeleteCrmFormInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCrmFormInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCrmFormInstanceRequest) SetCurrentOperatorUserId(v string) *DeleteCrmFormInstanceRequest {
+	s.CurrentOperatorUserId = &v
+	return s
+}
+
+func (s *DeleteCrmFormInstanceRequest) SetName(v string) *DeleteCrmFormInstanceRequest {
+	s.Name = &v
+	return s
+}
+
+type DeleteCrmFormInstanceResponseBody struct {
+	// 被删除的实例id
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+}
+
+func (s DeleteCrmFormInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCrmFormInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCrmFormInstanceResponseBody) SetInstanceId(v string) *DeleteCrmFormInstanceResponseBody {
+	s.InstanceId = &v
+	return s
+}
+
+type DeleteCrmFormInstanceResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteCrmFormInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteCrmFormInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCrmFormInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCrmFormInstanceResponse) SetHeaders(v map[string]*string) *DeleteCrmFormInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteCrmFormInstanceResponse) SetBody(v *DeleteCrmFormInstanceResponseBody) *DeleteCrmFormInstanceResponse {
+	s.Body = v
+	return s
+}
+
 type GetOfficialAccountContactInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -617,98 +989,9 @@ func (s *GetOfficialAccountContactInfoHeaders) SetXAcsDingtalkAccessToken(v stri
 	return s
 }
 
-type GetOfficialAccountContactInfoRequest struct {
-	Context *GetOfficialAccountContactInfoRequestContext `json:"context,omitempty" xml:"context,omitempty" type:"Struct"`
-}
-
-func (s GetOfficialAccountContactInfoRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetOfficialAccountContactInfoRequest) GoString() string {
-	return s.String()
-}
-
-func (s *GetOfficialAccountContactInfoRequest) SetContext(v *GetOfficialAccountContactInfoRequestContext) *GetOfficialAccountContactInfoRequest {
-	s.Context = v
-	return s
-}
-
-type GetOfficialAccountContactInfoRequestContext struct {
-	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
-	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
-	DingCorpId         *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
-	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
-	DingClientId       *string `json:"dingClientId,omitempty" xml:"dingClientId,omitempty"`
-	DingOauthAppId     *int64  `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
-}
-
-func (s GetOfficialAccountContactInfoRequestContext) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetOfficialAccountContactInfoRequestContext) GoString() string {
-	return s.String()
-}
-
-func (s *GetOfficialAccountContactInfoRequestContext) SetDingIsvOrgId(v int64) *GetOfficialAccountContactInfoRequestContext {
-	s.DingIsvOrgId = &v
-	return s
-}
-
-func (s *GetOfficialAccountContactInfoRequestContext) SetDingOrgId(v int64) *GetOfficialAccountContactInfoRequestContext {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *GetOfficialAccountContactInfoRequestContext) SetDingSuiteKey(v string) *GetOfficialAccountContactInfoRequestContext {
-	s.DingSuiteKey = &v
-	return s
-}
-
-func (s *GetOfficialAccountContactInfoRequestContext) SetDingCorpId(v string) *GetOfficialAccountContactInfoRequestContext {
-	s.DingCorpId = &v
-	return s
-}
-
-func (s *GetOfficialAccountContactInfoRequestContext) SetDingTokenGrantType(v int64) *GetOfficialAccountContactInfoRequestContext {
-	s.DingTokenGrantType = &v
-	return s
-}
-
-func (s *GetOfficialAccountContactInfoRequestContext) SetDingClientId(v string) *GetOfficialAccountContactInfoRequestContext {
-	s.DingClientId = &v
-	return s
-}
-
-func (s *GetOfficialAccountContactInfoRequestContext) SetDingOauthAppId(v int64) *GetOfficialAccountContactInfoRequestContext {
-	s.DingOauthAppId = &v
-	return s
-}
-
-type GetOfficialAccountContactInfoShrinkRequest struct {
-	ContextShrink *string `json:"context,omitempty" xml:"context,omitempty"`
-}
-
-func (s GetOfficialAccountContactInfoShrinkRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetOfficialAccountContactInfoShrinkRequest) GoString() string {
-	return s.String()
-}
-
-func (s *GetOfficialAccountContactInfoShrinkRequest) SetContextShrink(v string) *GetOfficialAccountContactInfoShrinkRequest {
-	s.ContextShrink = &v
-	return s
-}
-
 type GetOfficialAccountContactInfoResponseBody struct {
 	// 联系人主企业名称
 	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
-	// 联系人主企业id
-	MainCorpId *string `json:"mainCorpId,omitempty" xml:"mainCorpId,omitempty"`
 	// 手机号
 	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
 	// 手机号国家码
@@ -725,11 +1008,6 @@ func (s GetOfficialAccountContactInfoResponseBody) GoString() string {
 
 func (s *GetOfficialAccountContactInfoResponseBody) SetCorpName(v string) *GetOfficialAccountContactInfoResponseBody {
 	s.CorpName = &v
-	return s
-}
-
-func (s *GetOfficialAccountContactInfoResponseBody) SetMainCorpId(v string) *GetOfficialAccountContactInfoResponseBody {
-	s.MainCorpId = &v
 	return s
 }
 
@@ -877,22 +1155,12 @@ func (client *Client) GetOfficialAccountContacts(request *GetOfficialAccountCont
 	return _result, _err
 }
 
-func (client *Client) GetOfficialAccountContactsWithOptions(tmpReq *GetOfficialAccountContactsRequest, headers *GetOfficialAccountContactsHeaders, runtime *util.RuntimeOptions) (_result *GetOfficialAccountContactsResponse, _err error) {
-	_err = util.ValidateModel(tmpReq)
+func (client *Client) GetOfficialAccountContactsWithOptions(request *GetOfficialAccountContactsRequest, headers *GetOfficialAccountContactsHeaders, runtime *util.RuntimeOptions) (_result *GetOfficialAccountContactsResponse, _err error) {
+	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	request := &GetOfficialAccountContactsShrinkRequest{}
-	openapiutil.Convert(tmpReq, request)
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(tmpReq.Context))) {
-		request.ContextShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tea.ToMap(tmpReq.Context), tea.String("context"), tea.String("json"))
-	}
-
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.ContextShrink)) {
-		query["context"] = request.ContextShrink
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		query["nextToken"] = request.NextToken
 	}
@@ -923,11 +1191,11 @@ func (client *Client) GetOfficialAccountContactsWithOptions(tmpReq *GetOfficialA
 	return _result, _err
 }
 
-func (client *Client) GetOfficialAccountContactInfo(userId *string, request *GetOfficialAccountContactInfoRequest) (_result *GetOfficialAccountContactInfoResponse, _err error) {
+func (client *Client) ServiceWindowMessageBatchPush(request *ServiceWindowMessageBatchPushRequest) (_result *ServiceWindowMessageBatchPushResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetOfficialAccountContactInfoHeaders{}
-	_result = &GetOfficialAccountContactInfoResponse{}
-	_body, _err := client.GetOfficialAccountContactInfoWithOptions(userId, request, headers, runtime)
+	headers := &ServiceWindowMessageBatchPushHeaders{}
+	_result = &ServiceWindowMessageBatchPushResponse{}
+	_body, _err := client.ServiceWindowMessageBatchPushWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -935,20 +1203,82 @@ func (client *Client) GetOfficialAccountContactInfo(userId *string, request *Get
 	return _result, _err
 }
 
-func (client *Client) GetOfficialAccountContactInfoWithOptions(userId *string, tmpReq *GetOfficialAccountContactInfoRequest, headers *GetOfficialAccountContactInfoHeaders, runtime *util.RuntimeOptions) (_result *GetOfficialAccountContactInfoResponse, _err error) {
-	_err = util.ValidateModel(tmpReq)
+func (client *Client) ServiceWindowMessageBatchPushWithOptions(request *ServiceWindowMessageBatchPushRequest, headers *ServiceWindowMessageBatchPushHeaders, runtime *util.RuntimeOptions) (_result *ServiceWindowMessageBatchPushResponse, _err error) {
+	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	request := &GetOfficialAccountContactInfoShrinkRequest{}
-	openapiutil.Convert(tmpReq, request)
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(tmpReq.Context))) {
-		request.ContextShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tea.ToMap(tmpReq.Context), tea.String("context"), tea.String("json"))
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Detail))) {
+		body["detail"] = request.Detail
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ServiceWindowMessageBatchPushResponse{}
+	_body, _err := client.DoROARequest(tea.String("ServiceWindowMessageBatchPush"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/messages/batchSend"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteCrmFormInstance(instanceId *string, request *DeleteCrmFormInstanceRequest) (_result *DeleteCrmFormInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteCrmFormInstanceHeaders{}
+	_result = &DeleteCrmFormInstanceResponse{}
+	_body, _err := client.DeleteCrmFormInstanceWithOptions(instanceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteCrmFormInstanceWithOptions(instanceId *string, request *DeleteCrmFormInstanceRequest, headers *DeleteCrmFormInstanceHeaders, runtime *util.RuntimeOptions) (_result *DeleteCrmFormInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.ContextShrink)) {
-		query["context"] = request.ContextShrink
+	if !tea.BoolValue(util.IsUnset(request.CurrentOperatorUserId)) {
+		query["currentOperatorUserId"] = request.CurrentOperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		query["name"] = request.Name
 	}
 
 	realHeaders := make(map[string]*string)
@@ -963,6 +1293,40 @@ func (client *Client) GetOfficialAccountContactInfoWithOptions(userId *string, t
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteCrmFormInstanceResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteCrmFormInstance"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/crm/formInstances/"+tea.StringValue(instanceId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetOfficialAccountContactInfo(userId *string) (_result *GetOfficialAccountContactInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOfficialAccountContactInfoHeaders{}
+	_result = &GetOfficialAccountContactInfoResponse{}
+	_body, _err := client.GetOfficialAccountContactInfoWithOptions(userId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetOfficialAccountContactInfoWithOptions(userId *string, headers *GetOfficialAccountContactInfoHeaders, runtime *util.RuntimeOptions) (_result *GetOfficialAccountContactInfoResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
 	}
 	_result = &GetOfficialAccountContactInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetOfficialAccountContactInfo"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/officialAccounts/contacts/"+tea.StringValue(userId)), tea.String("json"), req, runtime)

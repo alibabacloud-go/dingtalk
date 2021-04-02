@@ -148,52 +148,6 @@ func (s *SendSingleInteractiveCardResponse) SetBody(v map[string]interface{}) *S
 	return s
 }
 
-type SendMessageToEventGroupHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s SendMessageToEventGroupHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SendMessageToEventGroupHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *SendMessageToEventGroupHeaders) SetCommonHeaders(v map[string]*string) *SendMessageToEventGroupHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *SendMessageToEventGroupHeaders) SetXAcsDingtalkAccessToken(v string) *SendMessageToEventGroupHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type SendMessageToEventGroupResponse struct {
-	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s SendMessageToEventGroupResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SendMessageToEventGroupResponse) GoString() string {
-	return s.String()
-}
-
-func (s *SendMessageToEventGroupResponse) SetHeaders(v map[string]*string) *SendMessageToEventGroupResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *SendMessageToEventGroupResponse) SetBody(v map[string]interface{}) *SendMessageToEventGroupResponse {
-	s.Body = v
-	return s
-}
-
 type AddAttendeeToEventGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -404,40 +358,6 @@ func (client *Client) SendSingleInteractiveCardWithOptions(userId *string, heade
 	}
 	_result = &SendSingleInteractiveCardResponse{}
 	_body, _err := client.DoROARequest(tea.String("SendSingleInteractiveCard"), tea.String("projectIntegration_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/projectIntegration/users/"+tea.StringValue(userId)+"/singleChatCardMessages"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) SendMessageToEventGroup(userId *string, groupId *string) (_result *SendMessageToEventGroupResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &SendMessageToEventGroupHeaders{}
-	_result = &SendMessageToEventGroupResponse{}
-	_body, _err := client.SendMessageToEventGroupWithOptions(userId, groupId, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) SendMessageToEventGroupWithOptions(userId *string, groupId *string, headers *SendMessageToEventGroupHeaders, runtime *util.RuntimeOptions) (_result *SendMessageToEventGroupResponse, _err error) {
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &SendMessageToEventGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendMessageToEventGroup"), tea.String("projectIntegration_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/projectIntegration/users/"+tea.StringValue(userId)+"/eventGroups/"+tea.StringValue(groupId)+"/messages"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
