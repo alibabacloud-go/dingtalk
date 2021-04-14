@@ -41,7 +41,7 @@ type AddCityCarApplyRequest struct {
 	City *string `json:"city,omitempty" xml:"city,omitempty"`
 	// 第三方企业ID
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 用车日期
+	// 用车时间，按天管控，比如传值2021-03-18 20:26:56表示2021-03-18当天可用车，跨天情况配合finishedDate参数使用
 	Date *string `json:"date,omitempty" xml:"date,omitempty"`
 	// 审批单关联的项目code
 	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
@@ -57,7 +57,7 @@ type AddCityCarApplyRequest struct {
 	ThirdPartInvoiceId *string `json:"thirdPartInvoiceId,omitempty" xml:"thirdPartInvoiceId,omitempty"`
 	// 审批单可用总次数
 	TimesTotal *int64 `json:"timesTotal,omitempty" xml:"timesTotal,omitempty"`
-	// 审批单可用次数类型：1-次数不限制，2-用户可指定次数，3-管理员限制次数
+	// 审批单可用次数类型：1-次数不限制，2-用户可指定次数，3-管理员限制次数；如果企业没有限制审批单使用次数的需求，这个参数传1(次数不限制)，同时times_total和times_used都传0即可
 	TimesType *int64 `json:"timesType,omitempty" xml:"timesType,omitempty"`
 	// 审批单已用次数
 	TimesUsed *int64 `json:"timesUsed,omitempty" xml:"timesUsed,omitempty"`
@@ -71,6 +71,8 @@ type AddCityCarApplyRequest struct {
 	DingCorpId *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
 	// tokenGrantType
 	DingTokenGrantType *int64 `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	// 用车截止时间，按天管控，比如date传值2021-03-18 20:26:56、finished_date传值2021-03-30 20:26:56表示2021-03-18(含)到2021-03-30(含)之间可用车，该参数不传值情况使用date作为用车截止时间；
+	FinishedDate *string `json:"finishedDate,omitempty" xml:"finishedDate,omitempty"`
 }
 
 func (s AddCityCarApplyRequest) String() string {
@@ -168,6 +170,11 @@ func (s *AddCityCarApplyRequest) SetDingCorpId(v string) *AddCityCarApplyRequest
 
 func (s *AddCityCarApplyRequest) SetDingTokenGrantType(v int64) *AddCityCarApplyRequest {
 	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *AddCityCarApplyRequest) SetFinishedDate(v string) *AddCityCarApplyRequest {
+	s.FinishedDate = &v
 	return s
 }
 
@@ -863,6 +870,10 @@ func (client *Client) AddCityCarApplyWithOptions(request *AddCityCarApplyRequest
 
 	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
 		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FinishedDate)) {
+		body["finishedDate"] = request.FinishedDate
 	}
 
 	realHeaders := make(map[string]*string)

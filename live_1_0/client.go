@@ -960,7 +960,7 @@ func (client *Client) EditFeedReplayWithOptions(feedId *string, request *EditFee
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &EditFeedReplayResponse{}
-	_body, _err := client.DoROARequest(tea.String("EditFeedReplay"), tea.String("live_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/live/openFeeds/"+tea.StringValue(feedId)+"/replay"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("EditFeedReplay"), tea.String("live_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/live/openFeeds/"+tea.StringValue(feedId)+"/cutReplay"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

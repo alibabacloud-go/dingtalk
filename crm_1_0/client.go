@@ -996,6 +996,10 @@ type GetOfficialAccountContactInfoResponseBody struct {
 	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
 	// 手机号国家码
 	StateCode *string `json:"stateCode,omitempty" xml:"stateCode,omitempty"`
+	// 联系人的unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 已授权的字段
+	AuthItems []*string `json:"authItems,omitempty" xml:"authItems,omitempty" type:"Repeated"`
 }
 
 func (s GetOfficialAccountContactInfoResponseBody) String() string {
@@ -1018,6 +1022,16 @@ func (s *GetOfficialAccountContactInfoResponseBody) SetMobile(v string) *GetOffi
 
 func (s *GetOfficialAccountContactInfoResponseBody) SetStateCode(v string) *GetOfficialAccountContactInfoResponseBody {
 	s.StateCode = &v
+	return s
+}
+
+func (s *GetOfficialAccountContactInfoResponseBody) SetUnionId(v string) *GetOfficialAccountContactInfoResponseBody {
+	s.UnionId = &v
+	return s
+}
+
+func (s *GetOfficialAccountContactInfoResponseBody) SetAuthItems(v []*string) *GetOfficialAccountContactInfoResponseBody {
+	s.AuthItems = v
 	return s
 }
 

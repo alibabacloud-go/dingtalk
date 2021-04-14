@@ -53,10 +53,6 @@ type GetTodoTaskResponseBody struct {
 	ExecutorIds []*string `json:"executorIds,omitempty" xml:"executorIds,omitempty" type:"Repeated"`
 	// 参与者列表
 	ParticipantIds []*string `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
-	// 提醒规则
-	Reminder *GetTodoTaskResponseBodyReminder `json:"reminder,omitempty" xml:"reminder,omitempty" type:"Struct"`
-	// 重复规则
-	Recurrence *string `json:"recurrence,omitempty" xml:"recurrence,omitempty"`
 	// 自定义详情页跳转配置
 	DetailUrl *GetTodoTaskResponseBodyDetailUrl `json:"detailUrl,omitempty" xml:"detailUrl,omitempty" type:"Struct"`
 	// 业务来源id
@@ -132,16 +128,6 @@ func (s *GetTodoTaskResponseBody) SetParticipantIds(v []*string) *GetTodoTaskRes
 	return s
 }
 
-func (s *GetTodoTaskResponseBody) SetReminder(v *GetTodoTaskResponseBodyReminder) *GetTodoTaskResponseBody {
-	s.Reminder = v
-	return s
-}
-
-func (s *GetTodoTaskResponseBody) SetRecurrence(v string) *GetTodoTaskResponseBody {
-	s.Recurrence = &v
-	return s
-}
-
 func (s *GetTodoTaskResponseBody) SetDetailUrl(v *GetTodoTaskResponseBodyDetailUrl) *GetTodoTaskResponseBody {
 	s.DetailUrl = v
 	return s
@@ -189,56 +175,6 @@ func (s *GetTodoTaskResponseBody) SetBizTag(v string) *GetTodoTaskResponseBody {
 
 func (s *GetTodoTaskResponseBody) SetRequestId(v string) *GetTodoTaskResponseBody {
 	s.RequestId = &v
-	return s
-}
-
-type GetTodoTaskResponseBodyReminder struct {
-	// 提醒通道
-	Channel *int32 `json:"channel,omitempty" xml:"channel,omitempty"`
-	// 提醒规则配置
-	Rules []*GetTodoTaskResponseBodyReminderRules `json:"rules,omitempty" xml:"rules,omitempty" type:"Repeated"`
-}
-
-func (s GetTodoTaskResponseBodyReminder) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetTodoTaskResponseBodyReminder) GoString() string {
-	return s.String()
-}
-
-func (s *GetTodoTaskResponseBodyReminder) SetChannel(v int32) *GetTodoTaskResponseBodyReminder {
-	s.Channel = &v
-	return s
-}
-
-func (s *GetTodoTaskResponseBodyReminder) SetRules(v []*GetTodoTaskResponseBodyReminderRules) *GetTodoTaskResponseBodyReminder {
-	s.Rules = v
-	return s
-}
-
-type GetTodoTaskResponseBodyReminderRules struct {
-	// startTime:相对开始时间 // dueTime:相对截止时间 // customTime: 绝对时间
-	BaseTime *string `json:"baseTime,omitempty" xml:"baseTime,omitempty"`
-	// baseTime 为 startTime 或者 dueTime 时表分钟；比如截止前15分钟为 -15，截止前3小时为 -180;basetime 为 customTime 时为时间戳
-	Offset *int32 `json:"offset,omitempty" xml:"offset,omitempty"`
-}
-
-func (s GetTodoTaskResponseBodyReminderRules) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetTodoTaskResponseBodyReminderRules) GoString() string {
-	return s.String()
-}
-
-func (s *GetTodoTaskResponseBodyReminderRules) SetBaseTime(v string) *GetTodoTaskResponseBodyReminderRules {
-	s.BaseTime = &v
-	return s
-}
-
-func (s *GetTodoTaskResponseBodyReminderRules) SetOffset(v int32) *GetTodoTaskResponseBodyReminderRules {
-	s.Offset = &v
 	return s
 }
 
@@ -415,12 +351,6 @@ type UpdateTodoTaskRequest struct {
 	ExecutorIds []*string `json:"executorIds,omitempty" xml:"executorIds,omitempty" type:"Repeated"`
 	// 参与者列表
 	ParticipantIds []*string `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
-	// 详情页url跳转地址
-	DetailUrl *UpdateTodoTaskRequestDetailUrl `json:"detailUrl,omitempty" xml:"detailUrl,omitempty" type:"Struct"`
-	// 待办重复规则配置
-	Recurrence *string `json:"recurrence,omitempty" xml:"recurrence,omitempty"`
-	// 待办提醒规则配置
-	Reminder *UpdateTodoTaskRequestReminder `json:"reminder,omitempty" xml:"reminder,omitempty" type:"Struct"`
 	// 当前操作者id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
@@ -463,98 +393,8 @@ func (s *UpdateTodoTaskRequest) SetParticipantIds(v []*string) *UpdateTodoTaskRe
 	return s
 }
 
-func (s *UpdateTodoTaskRequest) SetDetailUrl(v *UpdateTodoTaskRequestDetailUrl) *UpdateTodoTaskRequest {
-	s.DetailUrl = v
-	return s
-}
-
-func (s *UpdateTodoTaskRequest) SetRecurrence(v string) *UpdateTodoTaskRequest {
-	s.Recurrence = &v
-	return s
-}
-
-func (s *UpdateTodoTaskRequest) SetReminder(v *UpdateTodoTaskRequestReminder) *UpdateTodoTaskRequest {
-	s.Reminder = v
-	return s
-}
-
 func (s *UpdateTodoTaskRequest) SetOperatorId(v string) *UpdateTodoTaskRequest {
 	s.OperatorId = &v
-	return s
-}
-
-type UpdateTodoTaskRequestDetailUrl struct {
-	// app端详情页url
-	AppUrl *string `json:"appUrl,omitempty" xml:"appUrl,omitempty"`
-	// pc端详情页url
-	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
-}
-
-func (s UpdateTodoTaskRequestDetailUrl) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateTodoTaskRequestDetailUrl) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateTodoTaskRequestDetailUrl) SetAppUrl(v string) *UpdateTodoTaskRequestDetailUrl {
-	s.AppUrl = &v
-	return s
-}
-
-func (s *UpdateTodoTaskRequestDetailUrl) SetPcUrl(v string) *UpdateTodoTaskRequestDetailUrl {
-	s.PcUrl = &v
-	return s
-}
-
-type UpdateTodoTaskRequestReminder struct {
-	// 提醒通道，1 弹框，2 短信，3 电话
-	Channel *int32 `json:"channel,omitempty" xml:"channel,omitempty"`
-	// 提醒规则列表
-	Rules []*UpdateTodoTaskRequestReminderRules `json:"rules,omitempty" xml:"rules,omitempty" type:"Repeated"`
-}
-
-func (s UpdateTodoTaskRequestReminder) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateTodoTaskRequestReminder) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateTodoTaskRequestReminder) SetChannel(v int32) *UpdateTodoTaskRequestReminder {
-	s.Channel = &v
-	return s
-}
-
-func (s *UpdateTodoTaskRequestReminder) SetRules(v []*UpdateTodoTaskRequestReminderRules) *UpdateTodoTaskRequestReminder {
-	s.Rules = v
-	return s
-}
-
-type UpdateTodoTaskRequestReminderRules struct {
-	// startTime:相对开始时间  											//  					dueTime:相对截止时间 											//						customTime: 绝对时间
-	BaseTime *string `json:"baseTime,omitempty" xml:"baseTime,omitempty"`
-	// 必须，baseTime 为 startTime 或者 dueTime 时表分钟；比如截止前15分钟为 -15，截止前3小时为 -180;basetime 为 customTime 时为时间戳
-	Offset *int64 `json:"offset,omitempty" xml:"offset,omitempty"`
-}
-
-func (s UpdateTodoTaskRequestReminderRules) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateTodoTaskRequestReminderRules) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateTodoTaskRequestReminderRules) SetBaseTime(v string) *UpdateTodoTaskRequestReminderRules {
-	s.BaseTime = &v
-	return s
-}
-
-func (s *UpdateTodoTaskRequestReminderRules) SetOffset(v int64) *UpdateTodoTaskRequestReminderRules {
-	s.Offset = &v
 	return s
 }
 
@@ -639,12 +479,6 @@ type CreateTodoTaskRequest struct {
 	ParticipantIds []*string `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
 	// 详情页url跳转地址
 	DetailUrl *CreateTodoTaskRequestDetailUrl `json:"detailUrl,omitempty" xml:"detailUrl,omitempty" type:"Struct"`
-	// 待办重复规则配置
-	Recurrence *string `json:"recurrence,omitempty" xml:"recurrence,omitempty"`
-	// 待办提醒规则配置
-	Reminder *CreateTodoTaskRequestReminder `json:"reminder,omitempty" xml:"reminder,omitempty" type:"Struct"`
-	// 待办通知配置（包含单聊卡片、ding通知、群聊卡片、同步日历、同步系统消息等通知能力）
-	NotifyConfigs *CreateTodoTaskRequestNotifyConfigs `json:"notifyConfigs,omitempty" xml:"notifyConfigs,omitempty" type:"Struct"`
 	// 当前操作者id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
@@ -697,21 +531,6 @@ func (s *CreateTodoTaskRequest) SetDetailUrl(v *CreateTodoTaskRequestDetailUrl) 
 	return s
 }
 
-func (s *CreateTodoTaskRequest) SetRecurrence(v string) *CreateTodoTaskRequest {
-	s.Recurrence = &v
-	return s
-}
-
-func (s *CreateTodoTaskRequest) SetReminder(v *CreateTodoTaskRequestReminder) *CreateTodoTaskRequest {
-	s.Reminder = v
-	return s
-}
-
-func (s *CreateTodoTaskRequest) SetNotifyConfigs(v *CreateTodoTaskRequestNotifyConfigs) *CreateTodoTaskRequest {
-	s.NotifyConfigs = v
-	return s
-}
-
 func (s *CreateTodoTaskRequest) SetOperatorId(v string) *CreateTodoTaskRequest {
 	s.OperatorId = &v
 	return s
@@ -742,95 +561,6 @@ func (s *CreateTodoTaskRequestDetailUrl) SetPcUrl(v string) *CreateTodoTaskReque
 	return s
 }
 
-type CreateTodoTaskRequestReminder struct {
-	// 提醒通道，1 弹框，2 短信，3 电话
-	Channel *int32 `json:"channel,omitempty" xml:"channel,omitempty"`
-	// 提醒规则列表
-	Rules []*CreateTodoTaskRequestReminderRules `json:"rules,omitempty" xml:"rules,omitempty" type:"Repeated"`
-}
-
-func (s CreateTodoTaskRequestReminder) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateTodoTaskRequestReminder) GoString() string {
-	return s.String()
-}
-
-func (s *CreateTodoTaskRequestReminder) SetChannel(v int32) *CreateTodoTaskRequestReminder {
-	s.Channel = &v
-	return s
-}
-
-func (s *CreateTodoTaskRequestReminder) SetRules(v []*CreateTodoTaskRequestReminderRules) *CreateTodoTaskRequestReminder {
-	s.Rules = v
-	return s
-}
-
-type CreateTodoTaskRequestReminderRules struct {
-	// startTime:相对开始时间  											//  					dueTime:相对截止时间 											//						customTime: 绝对时间
-	BaseTime *string `json:"baseTime,omitempty" xml:"baseTime,omitempty"`
-	// 必须，baseTime 为 startTime 或者 dueTime 时表分钟；比如截止前15分钟为 -15，截止前3小时为 -180;basetime 为 customTime 时为时间戳
-	Offset *int64 `json:"offset,omitempty" xml:"offset,omitempty"`
-}
-
-func (s CreateTodoTaskRequestReminderRules) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateTodoTaskRequestReminderRules) GoString() string {
-	return s.String()
-}
-
-func (s *CreateTodoTaskRequestReminderRules) SetBaseTime(v string) *CreateTodoTaskRequestReminderRules {
-	s.BaseTime = &v
-	return s
-}
-
-func (s *CreateTodoTaskRequestReminderRules) SetOffset(v int64) *CreateTodoTaskRequestReminderRules {
-	s.Offset = &v
-	return s
-}
-
-type CreateTodoTaskRequestNotifyConfigs struct {
-	// 是否发送单聊卡片：value:"true/false" （发送则传true）
-	SingleChat *string `json:"singleChat,omitempty" xml:"singleChat,omitempty"`
-	// 是否发送群聊卡片：value:"groupId"（发送则传对应群聊id）
-	GroupChat *string `json:"groupChat,omitempty" xml:"groupChat,omitempty"`
-	// ding通知配置：value:"channel"（1钉弹框通知，2钉短信通知，3钉电话通知）
-	DingNotify *string `json:"dingNotify,omitempty" xml:"dingNotify,omitempty"`
-	// 是否同步到日历：value:"true/false"（同步则传true）
-	Canlender *string `json:"canlender,omitempty" xml:"canlender,omitempty"`
-}
-
-func (s CreateTodoTaskRequestNotifyConfigs) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateTodoTaskRequestNotifyConfigs) GoString() string {
-	return s.String()
-}
-
-func (s *CreateTodoTaskRequestNotifyConfigs) SetSingleChat(v string) *CreateTodoTaskRequestNotifyConfigs {
-	s.SingleChat = &v
-	return s
-}
-
-func (s *CreateTodoTaskRequestNotifyConfigs) SetGroupChat(v string) *CreateTodoTaskRequestNotifyConfigs {
-	s.GroupChat = &v
-	return s
-}
-
-func (s *CreateTodoTaskRequestNotifyConfigs) SetDingNotify(v string) *CreateTodoTaskRequestNotifyConfigs {
-	s.DingNotify = &v
-	return s
-}
-
-func (s *CreateTodoTaskRequestNotifyConfigs) SetCanlender(v string) *CreateTodoTaskRequestNotifyConfigs {
-	s.Canlender = &v
-	return s
-}
-
 type CreateTodoTaskResponseBody struct {
 	// id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
@@ -850,14 +580,8 @@ type CreateTodoTaskResponseBody struct {
 	ExecutorIds []*string `json:"executorIds,omitempty" xml:"executorIds,omitempty" type:"Repeated"`
 	// 参与者列表
 	ParticipantIds []*string `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
-	// 提醒规则
-	Reminder *CreateTodoTaskResponseBodyReminder `json:"reminder,omitempty" xml:"reminder,omitempty" type:"Struct"`
-	// 待办通知配置（包含单聊卡片、ding通知、群聊卡片、同步日历、同步系统消息等通知能力）
-	NotifyConfigs *CreateTodoTaskResponseBodyNotifyConfigs `json:"notifyConfigs,omitempty" xml:"notifyConfigs,omitempty" type:"Struct"`
 	// 自定义详情页跳转配置
 	DetailUrl *CreateTodoTaskResponseBodyDetailUrl `json:"detailUrl,omitempty" xml:"detailUrl,omitempty" type:"Struct"`
-	// 重复规则
-	Recurrence *string `json:"recurrence,omitempty" xml:"recurrence,omitempty"`
 	// 业务来源
 	Source *string `json:"source,omitempty" xml:"source,omitempty"`
 	// 业务来源id
@@ -931,23 +655,8 @@ func (s *CreateTodoTaskResponseBody) SetParticipantIds(v []*string) *CreateTodoT
 	return s
 }
 
-func (s *CreateTodoTaskResponseBody) SetReminder(v *CreateTodoTaskResponseBodyReminder) *CreateTodoTaskResponseBody {
-	s.Reminder = v
-	return s
-}
-
-func (s *CreateTodoTaskResponseBody) SetNotifyConfigs(v *CreateTodoTaskResponseBodyNotifyConfigs) *CreateTodoTaskResponseBody {
-	s.NotifyConfigs = v
-	return s
-}
-
 func (s *CreateTodoTaskResponseBody) SetDetailUrl(v *CreateTodoTaskResponseBodyDetailUrl) *CreateTodoTaskResponseBody {
 	s.DetailUrl = v
-	return s
-}
-
-func (s *CreateTodoTaskResponseBody) SetRecurrence(v string) *CreateTodoTaskResponseBody {
-	s.Recurrence = &v
 	return s
 }
 
@@ -993,95 +702,6 @@ func (s *CreateTodoTaskResponseBody) SetBizTag(v string) *CreateTodoTaskResponse
 
 func (s *CreateTodoTaskResponseBody) SetRequestId(v string) *CreateTodoTaskResponseBody {
 	s.RequestId = &v
-	return s
-}
-
-type CreateTodoTaskResponseBodyReminder struct {
-	// 提醒通道
-	Channel *int32 `json:"channel,omitempty" xml:"channel,omitempty"`
-	// 提醒规则配置
-	Rules *CreateTodoTaskResponseBodyReminderRules `json:"rules,omitempty" xml:"rules,omitempty" type:"Struct"`
-}
-
-func (s CreateTodoTaskResponseBodyReminder) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateTodoTaskResponseBodyReminder) GoString() string {
-	return s.String()
-}
-
-func (s *CreateTodoTaskResponseBodyReminder) SetChannel(v int32) *CreateTodoTaskResponseBodyReminder {
-	s.Channel = &v
-	return s
-}
-
-func (s *CreateTodoTaskResponseBodyReminder) SetRules(v *CreateTodoTaskResponseBodyReminderRules) *CreateTodoTaskResponseBodyReminder {
-	s.Rules = v
-	return s
-}
-
-type CreateTodoTaskResponseBodyReminderRules struct {
-	// 目前支持三种类型：tartDate: 相对开始时间；dueDate: 相对截止时间；customDate: 绝对时间
-	BaseTime *string `json:"baseTime,omitempty" xml:"baseTime,omitempty"`
-	// 偏移值：baseTime 为 startDate 或者 dueDate 时，offset 为相对分钟的偏移值；baseTime 为 customDate 时，offset 为毫秒时间戳
-	Offset *int64 `json:"offset,omitempty" xml:"offset,omitempty"`
-}
-
-func (s CreateTodoTaskResponseBodyReminderRules) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateTodoTaskResponseBodyReminderRules) GoString() string {
-	return s.String()
-}
-
-func (s *CreateTodoTaskResponseBodyReminderRules) SetBaseTime(v string) *CreateTodoTaskResponseBodyReminderRules {
-	s.BaseTime = &v
-	return s
-}
-
-func (s *CreateTodoTaskResponseBodyReminderRules) SetOffset(v int64) *CreateTodoTaskResponseBodyReminderRules {
-	s.Offset = &v
-	return s
-}
-
-type CreateTodoTaskResponseBodyNotifyConfigs struct {
-	// 是否发送单聊卡片：value:"true/false" （发送则传true）
-	SingleChat *string `json:"singleChat,omitempty" xml:"singleChat,omitempty"`
-	// 是否发送群聊卡片：value:"groupId"（发送则传对应群聊id）
-	GroupChat *string `json:"groupChat,omitempty" xml:"groupChat,omitempty"`
-	// ding通知配置：value:"channel"（1钉弹框通知，2钉短信通知，3钉电话通知）
-	DingNotify *string `json:"dingNotify,omitempty" xml:"dingNotify,omitempty"`
-	// 是否同步到日历：value:"true/false"（同步则传true）
-	Canlender *string `json:"canlender,omitempty" xml:"canlender,omitempty"`
-}
-
-func (s CreateTodoTaskResponseBodyNotifyConfigs) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateTodoTaskResponseBodyNotifyConfigs) GoString() string {
-	return s.String()
-}
-
-func (s *CreateTodoTaskResponseBodyNotifyConfigs) SetSingleChat(v string) *CreateTodoTaskResponseBodyNotifyConfigs {
-	s.SingleChat = &v
-	return s
-}
-
-func (s *CreateTodoTaskResponseBodyNotifyConfigs) SetGroupChat(v string) *CreateTodoTaskResponseBodyNotifyConfigs {
-	s.GroupChat = &v
-	return s
-}
-
-func (s *CreateTodoTaskResponseBodyNotifyConfigs) SetDingNotify(v string) *CreateTodoTaskResponseBodyNotifyConfigs {
-	s.DingNotify = &v
-	return s
-}
-
-func (s *CreateTodoTaskResponseBodyNotifyConfigs) SetCanlender(v string) *CreateTodoTaskResponseBodyNotifyConfigs {
-	s.Canlender = &v
 	return s
 }
 
@@ -1281,18 +901,6 @@ func (client *Client) UpdateTodoTaskWithOptions(userId *string, taskId *string, 
 		body["participantIds"] = request.ParticipantIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.DetailUrl))) {
-		body["detailUrl"] = request.DetailUrl
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Recurrence)) {
-		body["recurrence"] = request.Recurrence
-	}
-
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Reminder))) {
-		body["reminder"] = request.Reminder
-	}
-
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1369,18 +977,6 @@ func (client *Client) CreateTodoTaskWithOptions(userId *string, request *CreateT
 
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.DetailUrl))) {
 		body["detailUrl"] = request.DetailUrl
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Recurrence)) {
-		body["recurrence"] = request.Recurrence
-	}
-
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Reminder))) {
-		body["reminder"] = request.Reminder
-	}
-
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.NotifyConfigs))) {
-		body["notifyConfigs"] = request.NotifyConfigs
 	}
 
 	realHeaders := make(map[string]*string)
