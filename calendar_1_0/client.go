@@ -12,14 +12,8 @@ import (
 )
 
 type DeleteEventHeaders struct {
-	CommonHeaders map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	// 授权本次调用的企业id，该字段有值时认为本次调用已被授权访问该企业下的所有数据
-	DingOrgId *string `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	// 授权本次调用的用户id，该字段有值时认为本次调用已被授权访问该用户可以访问的所有数据
-	DingUid *string `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
-	// 授权类型
-	DingAccessTokenType     *string `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
-	XAcsDingtalkAccessToken *string `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
 func (s DeleteEventHeaders) String() string {
@@ -32,21 +26,6 @@ func (s DeleteEventHeaders) GoString() string {
 
 func (s *DeleteEventHeaders) SetCommonHeaders(v map[string]*string) *DeleteEventHeaders {
 	s.CommonHeaders = v
-	return s
-}
-
-func (s *DeleteEventHeaders) SetDingOrgId(v string) *DeleteEventHeaders {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *DeleteEventHeaders) SetDingUid(v string) *DeleteEventHeaders {
-	s.DingUid = &v
-	return s
-}
-
-func (s *DeleteEventHeaders) SetDingAccessTokenType(v string) *DeleteEventHeaders {
-	s.DingAccessTokenType = &v
 	return s
 }
 
@@ -73,14 +52,8 @@ func (s *DeleteEventResponse) SetHeaders(v map[string]*string) *DeleteEventRespo
 }
 
 type RespondEventHeaders struct {
-	CommonHeaders map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	// 授权本次调用的企业id，该字段有值时认为本次调用已被授权访问该企业下的所有数据
-	DingOrgId *string `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	// 授权本次调用的用户id，该字段有值时认为本次调用已被授权访问该用户可以访问的所有数据
-	DingUid *string `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
-	// 授权类型
-	DingAccessTokenType     *string `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
-	XAcsDingtalkAccessToken *string `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
 func (s RespondEventHeaders) String() string {
@@ -93,21 +66,6 @@ func (s RespondEventHeaders) GoString() string {
 
 func (s *RespondEventHeaders) SetCommonHeaders(v map[string]*string) *RespondEventHeaders {
 	s.CommonHeaders = v
-	return s
-}
-
-func (s *RespondEventHeaders) SetDingOrgId(v string) *RespondEventHeaders {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *RespondEventHeaders) SetDingUid(v string) *RespondEventHeaders {
-	s.DingUid = &v
-	return s
-}
-
-func (s *RespondEventHeaders) SetDingAccessTokenType(v string) *RespondEventHeaders {
-	s.DingAccessTokenType = &v
 	return s
 }
 
@@ -151,14 +109,8 @@ func (s *RespondEventResponse) SetHeaders(v map[string]*string) *RespondEventRes
 }
 
 type ListEventsHeaders struct {
-	CommonHeaders map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	// 授权本次调用的企业id，该字段有值时认为本次调用已被授权访问该企业下的所有数据
-	DingOrgId *string `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	// 授权本次调用的用户id，该字段有值时认为本次调用已被授权访问该用户可以访问的所有数据
-	DingUid *string `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
-	// 授权类型
-	DingAccessTokenType     *string `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
-	XAcsDingtalkAccessToken *string `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
 func (s ListEventsHeaders) String() string {
@@ -171,21 +123,6 @@ func (s ListEventsHeaders) GoString() string {
 
 func (s *ListEventsHeaders) SetCommonHeaders(v map[string]*string) *ListEventsHeaders {
 	s.CommonHeaders = v
-	return s
-}
-
-func (s *ListEventsHeaders) SetDingOrgId(v string) *ListEventsHeaders {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *ListEventsHeaders) SetDingUid(v string) *ListEventsHeaders {
-	s.DingUid = &v
-	return s
-}
-
-func (s *ListEventsHeaders) SetDingAccessTokenType(v string) *ListEventsHeaders {
-	s.DingAccessTokenType = &v
 	return s
 }
 
@@ -286,8 +223,6 @@ type ListEventsResponseBodyEvents struct {
 	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
 	// 日程描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 日程状态
-	Cancelled *string `json:"cancelled,omitempty" xml:"cancelled,omitempty"`
 	// 日程开始时间
 	Start *ListEventsResponseBodyEventsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
 	// 日程结束时间
@@ -302,8 +237,6 @@ type ListEventsResponseBodyEvents struct {
 	Organizer *ListEventsResponseBodyEventsOrganizer `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
 	// 日程地点
 	Location *ListEventsResponseBodyEventsLocation `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
-	// 符合RFC5545标准的日程uniqueId
-	ICalUID *string `json:"iCalUID,omitempty" xml:"iCalUID,omitempty"`
 	// 重复日程的主日程id，非重复日程为空
 	SeriesMasterId *string `json:"seriesMasterId,omitempty" xml:"seriesMasterId,omitempty"`
 	// 创建时间
@@ -334,11 +267,6 @@ func (s *ListEventsResponseBodyEvents) SetSummary(v string) *ListEventsResponseB
 
 func (s *ListEventsResponseBodyEvents) SetDescription(v string) *ListEventsResponseBodyEvents {
 	s.Description = &v
-	return s
-}
-
-func (s *ListEventsResponseBodyEvents) SetCancelled(v string) *ListEventsResponseBodyEvents {
-	s.Cancelled = &v
 	return s
 }
 
@@ -374,11 +302,6 @@ func (s *ListEventsResponseBodyEvents) SetOrganizer(v *ListEventsResponseBodyEve
 
 func (s *ListEventsResponseBodyEvents) SetLocation(v *ListEventsResponseBodyEventsLocation) *ListEventsResponseBodyEvents {
 	s.Location = v
-	return s
-}
-
-func (s *ListEventsResponseBodyEvents) SetICalUID(v string) *ListEventsResponseBodyEvents {
-	s.ICalUID = &v
 	return s
 }
 
@@ -490,13 +413,11 @@ func (s *ListEventsResponseBodyEventsRecurrence) SetRange(v *ListEventsResponseB
 
 type ListEventsResponseBodyEventsRecurrencePattern struct {
 	// 循环模式类型(type: daily, weekly, absoluteMonthly, relativeMonthly, absoluteYearly, relativeYearly)
-	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
-	DayOfMonth     *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
-	DaysOfWeek     *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
-	FirstDayOfWeek *string `json:"firstDayOfWeek,omitempty" xml:"firstDayOfWeek,omitempty"`
-	Index          *string `json:"index,omitempty" xml:"index,omitempty"`
-	Interval       *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
-	Month          *int32  `json:"month,omitempty" xml:"month,omitempty"`
+	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
 }
 
 func (s ListEventsResponseBodyEventsRecurrencePattern) String() string {
@@ -522,11 +443,6 @@ func (s *ListEventsResponseBodyEventsRecurrencePattern) SetDaysOfWeek(v string) 
 	return s
 }
 
-func (s *ListEventsResponseBodyEventsRecurrencePattern) SetFirstDayOfWeek(v string) *ListEventsResponseBodyEventsRecurrencePattern {
-	s.FirstDayOfWeek = &v
-	return s
-}
-
 func (s *ListEventsResponseBodyEventsRecurrencePattern) SetIndex(v string) *ListEventsResponseBodyEventsRecurrencePattern {
 	s.Index = &v
 	return s
@@ -534,11 +450,6 @@ func (s *ListEventsResponseBodyEventsRecurrencePattern) SetIndex(v string) *List
 
 func (s *ListEventsResponseBodyEventsRecurrencePattern) SetInterval(v int32) *ListEventsResponseBodyEventsRecurrencePattern {
 	s.Interval = &v
-	return s
-}
-
-func (s *ListEventsResponseBodyEventsRecurrencePattern) SetMonth(v int32) *ListEventsResponseBodyEventsRecurrencePattern {
-	s.Month = &v
 	return s
 }
 
@@ -575,8 +486,6 @@ func (s *ListEventsResponseBodyEventsRecurrenceRange) SetNumberOfOccurrences(v i
 type ListEventsResponseBodyEventsAttendees struct {
 	// 用户id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 用户邮件地址
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
 	// 用户名
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	// 回复状态
@@ -598,11 +507,6 @@ func (s *ListEventsResponseBodyEventsAttendees) SetId(v string) *ListEventsRespo
 	return s
 }
 
-func (s *ListEventsResponseBodyEventsAttendees) SetEmail(v string) *ListEventsResponseBodyEventsAttendees {
-	s.Email = &v
-	return s
-}
-
 func (s *ListEventsResponseBodyEventsAttendees) SetDisplayName(v string) *ListEventsResponseBodyEventsAttendees {
 	s.DisplayName = &v
 	return s
@@ -621,8 +525,6 @@ func (s *ListEventsResponseBodyEventsAttendees) SetSelf(v bool) *ListEventsRespo
 type ListEventsResponseBodyEventsOrganizer struct {
 	// 用户id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 用户邮件地址
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
 	// 用户名
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	// 回复状态
@@ -641,11 +543,6 @@ func (s ListEventsResponseBodyEventsOrganizer) GoString() string {
 
 func (s *ListEventsResponseBodyEventsOrganizer) SetId(v string) *ListEventsResponseBodyEventsOrganizer {
 	s.Id = &v
-	return s
-}
-
-func (s *ListEventsResponseBodyEventsOrganizer) SetEmail(v string) *ListEventsResponseBodyEventsOrganizer {
-	s.Email = &v
 	return s
 }
 
@@ -1035,14 +932,8 @@ func (s *GetScheduleResponse) SetBody(v *GetScheduleResponseBody) *GetScheduleRe
 }
 
 type RemoveAttendeeHeaders struct {
-	CommonHeaders map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	// 授权本次调用的企业id，该字段有值时认为本次调用已被授权访问该企业下的所有数据
-	DingOrgId *string `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	// 授权本次调用的用户id，该字段有值时认为本次调用已被授权访问该用户可以访问的所有数据
-	DingUid *string `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
-	// 授权类型
-	DingAccessTokenType     *string `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
-	XAcsDingtalkAccessToken *string `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
 func (s RemoveAttendeeHeaders) String() string {
@@ -1055,21 +946,6 @@ func (s RemoveAttendeeHeaders) GoString() string {
 
 func (s *RemoveAttendeeHeaders) SetCommonHeaders(v map[string]*string) *RemoveAttendeeHeaders {
 	s.CommonHeaders = v
-	return s
-}
-
-func (s *RemoveAttendeeHeaders) SetDingOrgId(v string) *RemoveAttendeeHeaders {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *RemoveAttendeeHeaders) SetDingUid(v string) *RemoveAttendeeHeaders {
-	s.DingUid = &v
-	return s
-}
-
-func (s *RemoveAttendeeHeaders) SetDingAccessTokenType(v string) *RemoveAttendeeHeaders {
-	s.DingAccessTokenType = &v
 	return s
 }
 
@@ -1096,9 +972,7 @@ func (s *RemoveAttendeeRequest) SetAttendeesToRemove(v []*RemoveAttendeeRequestA
 }
 
 type RemoveAttendeeRequestAttendeesToRemove struct {
-	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
-	Email       *string `json:"email,omitempty" xml:"email,omitempty"`
-	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
 func (s RemoveAttendeeRequestAttendeesToRemove) String() string {
@@ -1111,16 +985,6 @@ func (s RemoveAttendeeRequestAttendeesToRemove) GoString() string {
 
 func (s *RemoveAttendeeRequestAttendeesToRemove) SetId(v string) *RemoveAttendeeRequestAttendeesToRemove {
 	s.Id = &v
-	return s
-}
-
-func (s *RemoveAttendeeRequestAttendeesToRemove) SetEmail(v string) *RemoveAttendeeRequestAttendeesToRemove {
-	s.Email = &v
-	return s
-}
-
-func (s *RemoveAttendeeRequestAttendeesToRemove) SetDisplayName(v string) *RemoveAttendeeRequestAttendeesToRemove {
-	s.DisplayName = &v
 	return s
 }
 
@@ -1142,14 +1006,8 @@ func (s *RemoveAttendeeResponse) SetHeaders(v map[string]*string) *RemoveAttende
 }
 
 type AddAttendeeHeaders struct {
-	CommonHeaders map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	// 授权本次调用的企业id，该字段有值时认为本次调用已被授权访问该企业下的所有数据
-	DingOrgId *string `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	// 授权本次调用的用户id，该字段有值时认为本次调用已被授权访问该用户可以访问的所有数据
-	DingUid *string `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
-	// 授权类型
-	DingAccessTokenType     *string `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
-	XAcsDingtalkAccessToken *string `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
 func (s AddAttendeeHeaders) String() string {
@@ -1162,21 +1020,6 @@ func (s AddAttendeeHeaders) GoString() string {
 
 func (s *AddAttendeeHeaders) SetCommonHeaders(v map[string]*string) *AddAttendeeHeaders {
 	s.CommonHeaders = v
-	return s
-}
-
-func (s *AddAttendeeHeaders) SetDingOrgId(v string) *AddAttendeeHeaders {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *AddAttendeeHeaders) SetDingUid(v string) *AddAttendeeHeaders {
-	s.DingUid = &v
-	return s
-}
-
-func (s *AddAttendeeHeaders) SetDingAccessTokenType(v string) *AddAttendeeHeaders {
-	s.DingAccessTokenType = &v
 	return s
 }
 
@@ -1203,9 +1046,7 @@ func (s *AddAttendeeRequest) SetAttendeesToAdd(v []*AddAttendeeRequestAttendeesT
 }
 
 type AddAttendeeRequestAttendeesToAdd struct {
-	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
-	Email       *string `json:"email,omitempty" xml:"email,omitempty"`
-	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
 func (s AddAttendeeRequestAttendeesToAdd) String() string {
@@ -1218,16 +1059,6 @@ func (s AddAttendeeRequestAttendeesToAdd) GoString() string {
 
 func (s *AddAttendeeRequestAttendeesToAdd) SetId(v string) *AddAttendeeRequestAttendeesToAdd {
 	s.Id = &v
-	return s
-}
-
-func (s *AddAttendeeRequestAttendeesToAdd) SetEmail(v string) *AddAttendeeRequestAttendeesToAdd {
-	s.Email = &v
-	return s
-}
-
-func (s *AddAttendeeRequestAttendeesToAdd) SetDisplayName(v string) *AddAttendeeRequestAttendeesToAdd {
-	s.DisplayName = &v
 	return s
 }
 
@@ -1249,14 +1080,8 @@ func (s *AddAttendeeResponse) SetHeaders(v map[string]*string) *AddAttendeeRespo
 }
 
 type GetEventHeaders struct {
-	CommonHeaders map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	// 授权本次调用的企业id，该字段有值时认为本次调用已被授权访问该企业下的所有数据
-	DingOrgId *string `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	// 授权本次调用的用户id，该字段有值时认为本次调用已被授权访问该用户可以访问的所有数据
-	DingUid *string `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
-	// 授权类型
-	DingAccessTokenType     *string `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
-	XAcsDingtalkAccessToken *string `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
 func (s GetEventHeaders) String() string {
@@ -1269,21 +1094,6 @@ func (s GetEventHeaders) GoString() string {
 
 func (s *GetEventHeaders) SetCommonHeaders(v map[string]*string) *GetEventHeaders {
 	s.CommonHeaders = v
-	return s
-}
-
-func (s *GetEventHeaders) SetDingOrgId(v string) *GetEventHeaders {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *GetEventHeaders) SetDingUid(v string) *GetEventHeaders {
-	s.DingUid = &v
-	return s
-}
-
-func (s *GetEventHeaders) SetDingAccessTokenType(v string) *GetEventHeaders {
-	s.DingAccessTokenType = &v
 	return s
 }
 
@@ -1310,15 +1120,12 @@ type GetEventResponseBody struct {
 	Attendees  []*GetEventResponseBodyAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
 	Organizer  *GetEventResponseBodyOrganizer   `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
 	Location   *GetEventResponseBodyLocation    `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
-	// 符合RFC5545标准的日程uniqueId
-	ICalUID *string `json:"iCalUID,omitempty" xml:"iCalUID,omitempty"`
 	// 重复日程的主日程id，非重复日程为空
 	SeriesMasterId *string `json:"seriesMasterId,omitempty" xml:"seriesMasterId,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 更新时间
-	UpdateTime *string                          `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
-	Reminders  []*GetEventResponseBodyReminders `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
+	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
 func (s GetEventResponseBody) String() string {
@@ -1384,11 +1191,6 @@ func (s *GetEventResponseBody) SetLocation(v *GetEventResponseBodyLocation) *Get
 	return s
 }
 
-func (s *GetEventResponseBody) SetICalUID(v string) *GetEventResponseBody {
-	s.ICalUID = &v
-	return s
-}
-
 func (s *GetEventResponseBody) SetSeriesMasterId(v string) *GetEventResponseBody {
 	s.SeriesMasterId = &v
 	return s
@@ -1401,11 +1203,6 @@ func (s *GetEventResponseBody) SetCreateTime(v string) *GetEventResponseBody {
 
 func (s *GetEventResponseBody) SetUpdateTime(v string) *GetEventResponseBody {
 	s.UpdateTime = &v
-	return s
-}
-
-func (s *GetEventResponseBody) SetReminders(v []*GetEventResponseBodyReminders) *GetEventResponseBody {
-	s.Reminders = v
 	return s
 }
 
@@ -1497,13 +1294,11 @@ func (s *GetEventResponseBodyRecurrence) SetRange(v *GetEventResponseBodyRecurre
 
 type GetEventResponseBodyRecurrencePattern struct {
 	// 循环模式类型(type: daily, weekly, absoluteMonthly, relativeMonthly, absoluteYearly, relativeYearly)
-	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
-	DayOfMonth     *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
-	DaysOfWeek     *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
-	FirstDayOfWeek *string `json:"firstDayOfWeek,omitempty" xml:"firstDayOfWeek,omitempty"`
-	Index          *string `json:"index,omitempty" xml:"index,omitempty"`
-	Interval       *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
-	Month          *int32  `json:"month,omitempty" xml:"month,omitempty"`
+	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
 }
 
 func (s GetEventResponseBodyRecurrencePattern) String() string {
@@ -1529,11 +1324,6 @@ func (s *GetEventResponseBodyRecurrencePattern) SetDaysOfWeek(v string) *GetEven
 	return s
 }
 
-func (s *GetEventResponseBodyRecurrencePattern) SetFirstDayOfWeek(v string) *GetEventResponseBodyRecurrencePattern {
-	s.FirstDayOfWeek = &v
-	return s
-}
-
 func (s *GetEventResponseBodyRecurrencePattern) SetIndex(v string) *GetEventResponseBodyRecurrencePattern {
 	s.Index = &v
 	return s
@@ -1541,11 +1331,6 @@ func (s *GetEventResponseBodyRecurrencePattern) SetIndex(v string) *GetEventResp
 
 func (s *GetEventResponseBodyRecurrencePattern) SetInterval(v int32) *GetEventResponseBodyRecurrencePattern {
 	s.Interval = &v
-	return s
-}
-
-func (s *GetEventResponseBodyRecurrencePattern) SetMonth(v int32) *GetEventResponseBodyRecurrencePattern {
-	s.Month = &v
 	return s
 }
 
@@ -1581,8 +1366,6 @@ func (s *GetEventResponseBodyRecurrenceRange) SetNumberOfOccurrences(v int32) *G
 
 type GetEventResponseBodyAttendees struct {
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 用户邮件地址
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
 	// 用户名
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	// 回复状态
@@ -1604,11 +1387,6 @@ func (s *GetEventResponseBodyAttendees) SetId(v string) *GetEventResponseBodyAtt
 	return s
 }
 
-func (s *GetEventResponseBodyAttendees) SetEmail(v string) *GetEventResponseBodyAttendees {
-	s.Email = &v
-	return s
-}
-
 func (s *GetEventResponseBodyAttendees) SetDisplayName(v string) *GetEventResponseBodyAttendees {
 	s.DisplayName = &v
 	return s
@@ -1626,8 +1404,6 @@ func (s *GetEventResponseBodyAttendees) SetSelf(v bool) *GetEventResponseBodyAtt
 
 type GetEventResponseBodyOrganizer struct {
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 用户邮件地址
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
 	// 用户名
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	// 回复状态
@@ -1646,11 +1422,6 @@ func (s GetEventResponseBodyOrganizer) GoString() string {
 
 func (s *GetEventResponseBodyOrganizer) SetId(v string) *GetEventResponseBodyOrganizer {
 	s.Id = &v
-	return s
-}
-
-func (s *GetEventResponseBodyOrganizer) SetEmail(v string) *GetEventResponseBodyOrganizer {
-	s.Email = &v
 	return s
 }
 
@@ -1686,29 +1457,6 @@ func (s *GetEventResponseBodyLocation) SetDisplayName(v string) *GetEventRespons
 	return s
 }
 
-type GetEventResponseBodyReminders struct {
-	Method  *string `json:"method,omitempty" xml:"method,omitempty"`
-	Minutes *string `json:"minutes,omitempty" xml:"minutes,omitempty"`
-}
-
-func (s GetEventResponseBodyReminders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetEventResponseBodyReminders) GoString() string {
-	return s.String()
-}
-
-func (s *GetEventResponseBodyReminders) SetMethod(v string) *GetEventResponseBodyReminders {
-	s.Method = &v
-	return s
-}
-
-func (s *GetEventResponseBodyReminders) SetMinutes(v string) *GetEventResponseBodyReminders {
-	s.Minutes = &v
-	return s
-}
-
 type GetEventResponse struct {
 	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
 	Body    *GetEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
@@ -1733,14 +1481,8 @@ func (s *GetEventResponse) SetBody(v *GetEventResponseBody) *GetEventResponse {
 }
 
 type PatchEventHeaders struct {
-	CommonHeaders map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	// 授权本次调用的企业id，该字段有值时认为本次调用已被授权访问该企业下的所有数据
-	DingOrgId *string `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	// 授权本次调用的用户id，该字段有值时认为本次调用已被授权访问该用户可以访问的所有数据
-	DingUid *string `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
-	// 授权类型
-	DingAccessTokenType     *string `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
-	XAcsDingtalkAccessToken *string `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
 func (s PatchEventHeaders) String() string {
@@ -1753,21 +1495,6 @@ func (s PatchEventHeaders) GoString() string {
 
 func (s *PatchEventHeaders) SetCommonHeaders(v map[string]*string) *PatchEventHeaders {
 	s.CommonHeaders = v
-	return s
-}
-
-func (s *PatchEventHeaders) SetDingOrgId(v string) *PatchEventHeaders {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *PatchEventHeaders) SetDingUid(v string) *PatchEventHeaders {
-	s.DingUid = &v
-	return s
-}
-
-func (s *PatchEventHeaders) SetDingAccessTokenType(v string) *PatchEventHeaders {
-	s.DingAccessTokenType = &v
 	return s
 }
 
@@ -1926,13 +1653,11 @@ func (s *PatchEventRequestRecurrence) SetRange(v *PatchEventRequestRecurrenceRan
 }
 
 type PatchEventRequestRecurrencePattern struct {
-	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
-	DayOfMonth     *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
-	DaysOfWeek     *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
-	FirstDayOfWeek *string `json:"firstDayOfWeek,omitempty" xml:"firstDayOfWeek,omitempty"`
-	Index          *string `json:"index,omitempty" xml:"index,omitempty"`
-	Interval       *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
-	Month          *int32  `json:"month,omitempty" xml:"month,omitempty"`
+	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
 }
 
 func (s PatchEventRequestRecurrencePattern) String() string {
@@ -1958,11 +1683,6 @@ func (s *PatchEventRequestRecurrencePattern) SetDaysOfWeek(v string) *PatchEvent
 	return s
 }
 
-func (s *PatchEventRequestRecurrencePattern) SetFirstDayOfWeek(v string) *PatchEventRequestRecurrencePattern {
-	s.FirstDayOfWeek = &v
-	return s
-}
-
 func (s *PatchEventRequestRecurrencePattern) SetIndex(v string) *PatchEventRequestRecurrencePattern {
 	s.Index = &v
 	return s
@@ -1970,11 +1690,6 @@ func (s *PatchEventRequestRecurrencePattern) SetIndex(v string) *PatchEventReque
 
 func (s *PatchEventRequestRecurrencePattern) SetInterval(v int32) *PatchEventRequestRecurrencePattern {
 	s.Interval = &v
-	return s
-}
-
-func (s *PatchEventRequestRecurrencePattern) SetMonth(v int32) *PatchEventRequestRecurrencePattern {
-	s.Month = &v
 	return s
 }
 
@@ -2053,7 +1768,6 @@ type PatchEventResponseBody struct {
 	Attendees  []*PatchEventResponseBodyAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
 	Organizer  *PatchEventResponseBodyOrganizer   `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
 	Location   *PatchEventResponseBodyLocation    `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
-	Reminders  []*PatchEventResponseBodyReminders `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 更新时间
@@ -2115,11 +1829,6 @@ func (s *PatchEventResponseBody) SetOrganizer(v *PatchEventResponseBodyOrganizer
 
 func (s *PatchEventResponseBody) SetLocation(v *PatchEventResponseBodyLocation) *PatchEventResponseBody {
 	s.Location = v
-	return s
-}
-
-func (s *PatchEventResponseBody) SetReminders(v []*PatchEventResponseBodyReminders) *PatchEventResponseBody {
-	s.Reminders = v
 	return s
 }
 
@@ -2215,13 +1924,11 @@ func (s *PatchEventResponseBodyRecurrence) SetRange(v *PatchEventResponseBodyRec
 }
 
 type PatchEventResponseBodyRecurrencePattern struct {
-	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
-	DayOfMonth     *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
-	DaysOfWeek     *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
-	FirstDayOfWeek *string `json:"firstDayOfWeek,omitempty" xml:"firstDayOfWeek,omitempty"`
-	Index          *string `json:"index,omitempty" xml:"index,omitempty"`
-	Interval       *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
-	Month          *int32  `json:"month,omitempty" xml:"month,omitempty"`
+	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
 }
 
 func (s PatchEventResponseBodyRecurrencePattern) String() string {
@@ -2247,11 +1954,6 @@ func (s *PatchEventResponseBodyRecurrencePattern) SetDaysOfWeek(v string) *Patch
 	return s
 }
 
-func (s *PatchEventResponseBodyRecurrencePattern) SetFirstDayOfWeek(v string) *PatchEventResponseBodyRecurrencePattern {
-	s.FirstDayOfWeek = &v
-	return s
-}
-
 func (s *PatchEventResponseBodyRecurrencePattern) SetIndex(v string) *PatchEventResponseBodyRecurrencePattern {
 	s.Index = &v
 	return s
@@ -2259,11 +1961,6 @@ func (s *PatchEventResponseBodyRecurrencePattern) SetIndex(v string) *PatchEvent
 
 func (s *PatchEventResponseBodyRecurrencePattern) SetInterval(v int32) *PatchEventResponseBodyRecurrencePattern {
 	s.Interval = &v
-	return s
-}
-
-func (s *PatchEventResponseBodyRecurrencePattern) SetMonth(v int32) *PatchEventResponseBodyRecurrencePattern {
-	s.Month = &v
 	return s
 }
 
@@ -2298,8 +1995,6 @@ func (s *PatchEventResponseBodyRecurrenceRange) SetNumberOfOccurrences(v int32) 
 
 type PatchEventResponseBodyAttendees struct {
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 用户邮件地址
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
 	// 用户名
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	// 回复状态
@@ -2321,11 +2016,6 @@ func (s *PatchEventResponseBodyAttendees) SetId(v string) *PatchEventResponseBod
 	return s
 }
 
-func (s *PatchEventResponseBodyAttendees) SetEmail(v string) *PatchEventResponseBodyAttendees {
-	s.Email = &v
-	return s
-}
-
 func (s *PatchEventResponseBodyAttendees) SetDisplayName(v string) *PatchEventResponseBodyAttendees {
 	s.DisplayName = &v
 	return s
@@ -2343,8 +2033,6 @@ func (s *PatchEventResponseBodyAttendees) SetSelf(v bool) *PatchEventResponseBod
 
 type PatchEventResponseBodyOrganizer struct {
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 用户邮件地址
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
 	// 用户名
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	// 回复状态
@@ -2363,11 +2051,6 @@ func (s PatchEventResponseBodyOrganizer) GoString() string {
 
 func (s *PatchEventResponseBodyOrganizer) SetId(v string) *PatchEventResponseBodyOrganizer {
 	s.Id = &v
-	return s
-}
-
-func (s *PatchEventResponseBodyOrganizer) SetEmail(v string) *PatchEventResponseBodyOrganizer {
-	s.Email = &v
 	return s
 }
 
@@ -2403,29 +2086,6 @@ func (s *PatchEventResponseBodyLocation) SetDisplayName(v string) *PatchEventRes
 	return s
 }
 
-type PatchEventResponseBodyReminders struct {
-	Method  *string `json:"method,omitempty" xml:"method,omitempty"`
-	Minutes *string `json:"minutes,omitempty" xml:"minutes,omitempty"`
-}
-
-func (s PatchEventResponseBodyReminders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s PatchEventResponseBodyReminders) GoString() string {
-	return s.String()
-}
-
-func (s *PatchEventResponseBodyReminders) SetMethod(v string) *PatchEventResponseBodyReminders {
-	s.Method = &v
-	return s
-}
-
-func (s *PatchEventResponseBodyReminders) SetMinutes(v string) *PatchEventResponseBodyReminders {
-	s.Minutes = &v
-	return s
-}
-
 type PatchEventResponse struct {
 	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
 	Body    *PatchEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
@@ -2450,14 +2110,8 @@ func (s *PatchEventResponse) SetBody(v *PatchEventResponseBody) *PatchEventRespo
 }
 
 type CreateEventHeaders struct {
-	CommonHeaders map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	// 授权本次调用的企业id，该字段有值时认为本次调用已被授权访问该企业下的所有数据
-	DingOrgId *string `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	// 授权本次调用的用户id，该字段有值时认为本次调用已被授权访问该用户可以访问的所有数据
-	DingUid *string `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
-	// 授权类型
-	DingAccessTokenType     *string `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
-	XAcsDingtalkAccessToken *string `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
 func (s CreateEventHeaders) String() string {
@@ -2473,21 +2127,6 @@ func (s *CreateEventHeaders) SetCommonHeaders(v map[string]*string) *CreateEvent
 	return s
 }
 
-func (s *CreateEventHeaders) SetDingOrgId(v string) *CreateEventHeaders {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *CreateEventHeaders) SetDingUid(v string) *CreateEventHeaders {
-	s.DingUid = &v
-	return s
-}
-
-func (s *CreateEventHeaders) SetDingAccessTokenType(v string) *CreateEventHeaders {
-	s.DingAccessTokenType = &v
-	return s
-}
-
 func (s *CreateEventHeaders) SetXAcsDingtalkAccessToken(v string) *CreateEventHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
@@ -2495,17 +2134,19 @@ func (s *CreateEventHeaders) SetXAcsDingtalkAccessToken(v string) *CreateEventHe
 
 type CreateEventRequest struct {
 	// 日程标题
-	Summary     *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	// 日程描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 	// 日程开始时间
-	Start             *CreateEventRequestStart             `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
-	End               *CreateEventRequestEnd               `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
-	IsAllDay          *bool                                `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
-	Recurrence        *CreateEventRequestRecurrence        `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
-	Attendees         []*CreateEventRequestAttendees       `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
-	Location          *CreateEventRequestLocation          `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
-	Reminders         []*CreateEventRequestReminders       `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
-	OnlineMeetingInfo *CreateEventRequestOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
+	Start *CreateEventRequestStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// 日程结束时间
+	End *CreateEventRequestEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	// 是否为全天日程
+	IsAllDay *bool `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
+	// 日程循环规则
+	Recurrence *CreateEventRequestRecurrence  `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
+	Attendees  []*CreateEventRequestAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Location   *CreateEventRequestLocation    `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
 }
 
 func (s CreateEventRequest) String() string {
@@ -2556,19 +2197,12 @@ func (s *CreateEventRequest) SetLocation(v *CreateEventRequestLocation) *CreateE
 	return s
 }
 
-func (s *CreateEventRequest) SetReminders(v []*CreateEventRequestReminders) *CreateEventRequest {
-	s.Reminders = v
-	return s
-}
-
-func (s *CreateEventRequest) SetOnlineMeetingInfo(v *CreateEventRequestOnlineMeetingInfo) *CreateEventRequest {
-	s.OnlineMeetingInfo = v
-	return s
-}
-
 type CreateEventRequestStart struct {
-	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	// 日程开始日期，如果是全天日程必须有值，非全天日程必须留空，格式：yyyy-MM-dd
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// 日程开始时间，非全天日程必须有值，全天日程必须留空，格式为ISO-8601的date-time格式
 	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	// 日程开始时间所属时区，非全天日程必须有值，全天日程必须留空，tz database name格式，参考：https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
 }
 
@@ -2596,8 +2230,11 @@ func (s *CreateEventRequestStart) SetTimeZone(v string) *CreateEventRequestStart
 }
 
 type CreateEventRequestEnd struct {
-	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	// 日程结束日期，如果是全天日程必须有值，非全天日程必须留空，格式：yyyy-MM-dd
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// 日程结束时间，非全天日程必须有值，全天日程必须留空，格式为ISO-8601的date-time格式
 	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	// 日程结束时间所属时区，非全天日程必须有值，全天日程必须留空，tz database name格式，参考：https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
 }
 
@@ -2625,6 +2262,7 @@ func (s *CreateEventRequestEnd) SetTimeZone(v string) *CreateEventRequestEnd {
 }
 
 type CreateEventRequestRecurrence struct {
+	// 循环规则
 	Pattern *CreateEventRequestRecurrencePattern `json:"pattern,omitempty" xml:"pattern,omitempty" type:"Struct"`
 	Range   *CreateEventRequestRecurrenceRange   `json:"range,omitempty" xml:"range,omitempty" type:"Struct"`
 }
@@ -2648,13 +2286,13 @@ func (s *CreateEventRequestRecurrence) SetRange(v *CreateEventRequestRecurrenceR
 }
 
 type CreateEventRequestRecurrencePattern struct {
-	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
-	DayOfMonth     *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
-	DaysOfWeek     *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
-	FirstDayOfWeek *string `json:"firstDayOfWeek,omitempty" xml:"firstDayOfWeek,omitempty"`
-	Index          *string `json:"index,omitempty" xml:"index,omitempty"`
-	Interval       *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
-	Month          *int32  `json:"month,omitempty" xml:"month,omitempty"`
+	// 循环规则类型：  daily：每interval天 weekly：每interval周的第daysOfWeek天 absoluteMonthly：每interval月的第dayOfMonth天 relativeMonthly：每interval月的第index周的第daysOfWeek天 absoluteYearly：每interval年
+	//
+	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
 }
 
 func (s CreateEventRequestRecurrencePattern) String() string {
@@ -2680,11 +2318,6 @@ func (s *CreateEventRequestRecurrencePattern) SetDaysOfWeek(v string) *CreateEve
 	return s
 }
 
-func (s *CreateEventRequestRecurrencePattern) SetFirstDayOfWeek(v string) *CreateEventRequestRecurrencePattern {
-	s.FirstDayOfWeek = &v
-	return s
-}
-
 func (s *CreateEventRequestRecurrencePattern) SetIndex(v string) *CreateEventRequestRecurrencePattern {
 	s.Index = &v
 	return s
@@ -2692,11 +2325,6 @@ func (s *CreateEventRequestRecurrencePattern) SetIndex(v string) *CreateEventReq
 
 func (s *CreateEventRequestRecurrencePattern) SetInterval(v int32) *CreateEventRequestRecurrencePattern {
 	s.Interval = &v
-	return s
-}
-
-func (s *CreateEventRequestRecurrencePattern) SetMonth(v int32) *CreateEventRequestRecurrencePattern {
-	s.Month = &v
 	return s
 }
 
@@ -2730,9 +2358,7 @@ func (s *CreateEventRequestRecurrenceRange) SetNumberOfOccurrences(v int32) *Cre
 }
 
 type CreateEventRequestAttendees struct {
-	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
-	Email       *string `json:"email,omitempty" xml:"email,omitempty"`
-	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
 func (s CreateEventRequestAttendees) String() string {
@@ -2745,16 +2371,6 @@ func (s CreateEventRequestAttendees) GoString() string {
 
 func (s *CreateEventRequestAttendees) SetId(v string) *CreateEventRequestAttendees {
 	s.Id = &v
-	return s
-}
-
-func (s *CreateEventRequestAttendees) SetEmail(v string) *CreateEventRequestAttendees {
-	s.Email = &v
-	return s
-}
-
-func (s *CreateEventRequestAttendees) SetDisplayName(v string) *CreateEventRequestAttendees {
-	s.DisplayName = &v
 	return s
 }
 
@@ -2772,46 +2388,6 @@ func (s CreateEventRequestLocation) GoString() string {
 
 func (s *CreateEventRequestLocation) SetDisplayName(v string) *CreateEventRequestLocation {
 	s.DisplayName = &v
-	return s
-}
-
-type CreateEventRequestReminders struct {
-	Method  *string `json:"method,omitempty" xml:"method,omitempty"`
-	Minutes *int32  `json:"minutes,omitempty" xml:"minutes,omitempty"`
-}
-
-func (s CreateEventRequestReminders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventRequestReminders) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventRequestReminders) SetMethod(v string) *CreateEventRequestReminders {
-	s.Method = &v
-	return s
-}
-
-func (s *CreateEventRequestReminders) SetMinutes(v int32) *CreateEventRequestReminders {
-	s.Minutes = &v
-	return s
-}
-
-type CreateEventRequestOnlineMeetingInfo struct {
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-}
-
-func (s CreateEventRequestOnlineMeetingInfo) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventRequestOnlineMeetingInfo) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventRequestOnlineMeetingInfo) SetType(v string) *CreateEventRequestOnlineMeetingInfo {
-	s.Type = &v
 	return s
 }
 
@@ -2995,13 +2571,11 @@ func (s *CreateEventResponseBodyRecurrence) SetRange(v *CreateEventResponseBodyR
 }
 
 type CreateEventResponseBodyRecurrencePattern struct {
-	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
-	DayOfMonth     *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
-	DaysOfWeek     *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
-	FirstDayOfWeek *string `json:"firstDayOfWeek,omitempty" xml:"firstDayOfWeek,omitempty"`
-	Index          *string `json:"index,omitempty" xml:"index,omitempty"`
-	Interval       *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
-	Month          *int32  `json:"month,omitempty" xml:"month,omitempty"`
+	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
 }
 
 func (s CreateEventResponseBodyRecurrencePattern) String() string {
@@ -3027,11 +2601,6 @@ func (s *CreateEventResponseBodyRecurrencePattern) SetDaysOfWeek(v string) *Crea
 	return s
 }
 
-func (s *CreateEventResponseBodyRecurrencePattern) SetFirstDayOfWeek(v string) *CreateEventResponseBodyRecurrencePattern {
-	s.FirstDayOfWeek = &v
-	return s
-}
-
 func (s *CreateEventResponseBodyRecurrencePattern) SetIndex(v string) *CreateEventResponseBodyRecurrencePattern {
 	s.Index = &v
 	return s
@@ -3039,11 +2608,6 @@ func (s *CreateEventResponseBodyRecurrencePattern) SetIndex(v string) *CreateEve
 
 func (s *CreateEventResponseBodyRecurrencePattern) SetInterval(v int32) *CreateEventResponseBodyRecurrencePattern {
 	s.Interval = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyRecurrencePattern) SetMonth(v int32) *CreateEventResponseBodyRecurrencePattern {
-	s.Month = &v
 	return s
 }
 
@@ -3078,7 +2642,6 @@ func (s *CreateEventResponseBodyRecurrenceRange) SetNumberOfOccurrences(v int32)
 
 type CreateEventResponseBodyAttendees struct {
 	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
-	Email       *string `json:"email,omitempty" xml:"email,omitempty"`
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	// 回复状态
 	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
@@ -3095,11 +2658,6 @@ func (s CreateEventResponseBodyAttendees) GoString() string {
 
 func (s *CreateEventResponseBodyAttendees) SetId(v string) *CreateEventResponseBodyAttendees {
 	s.Id = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyAttendees) SetEmail(v string) *CreateEventResponseBodyAttendees {
-	s.Email = &v
 	return s
 }
 
@@ -3120,8 +2678,6 @@ func (s *CreateEventResponseBodyAttendees) SetSelf(v bool) *CreateEventResponseB
 
 type CreateEventResponseBodyOrganizer struct {
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 用户邮件地址
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
 	// 用户名
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	// 回复状态
@@ -3139,11 +2695,6 @@ func (s CreateEventResponseBodyOrganizer) GoString() string {
 
 func (s *CreateEventResponseBodyOrganizer) SetId(v string) *CreateEventResponseBodyOrganizer {
 	s.Id = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyOrganizer) SetEmail(v string) *CreateEventResponseBodyOrganizer {
-	s.Email = &v
 	return s
 }
 
@@ -3301,18 +2852,6 @@ func (client *Client) DeleteEventWithOptions(userId *string, calendarId *string,
 		realHeaders = headers.CommonHeaders
 	}
 
-	if !tea.BoolValue(util.IsUnset(headers.DingOrgId)) {
-		realHeaders["dingOrgId"] = headers.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingUid)) {
-		realHeaders["dingUid"] = headers.DingUid
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingAccessTokenType)) {
-		realHeaders["dingAccessTokenType"] = headers.DingAccessTokenType
-	}
-
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
 		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
 	}
@@ -3354,18 +2893,6 @@ func (client *Client) RespondEventWithOptions(userId *string, calendarId *string
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingOrgId)) {
-		realHeaders["dingOrgId"] = headers.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingUid)) {
-		realHeaders["dingUid"] = headers.DingUid
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingAccessTokenType)) {
-		realHeaders["dingAccessTokenType"] = headers.DingAccessTokenType
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
@@ -3430,18 +2957,6 @@ func (client *Client) ListEventsWithOptions(userId *string, calendarId *string, 
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingOrgId)) {
-		realHeaders["dingOrgId"] = headers.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingUid)) {
-		realHeaders["dingUid"] = headers.DingUid
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingAccessTokenType)) {
-		realHeaders["dingAccessTokenType"] = headers.DingAccessTokenType
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
@@ -3600,18 +3115,6 @@ func (client *Client) RemoveAttendeeWithOptions(userId *string, calendarId *stri
 		realHeaders = headers.CommonHeaders
 	}
 
-	if !tea.BoolValue(util.IsUnset(headers.DingOrgId)) {
-		realHeaders["dingOrgId"] = headers.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingUid)) {
-		realHeaders["dingUid"] = headers.DingUid
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingAccessTokenType)) {
-		realHeaders["dingAccessTokenType"] = headers.DingAccessTokenType
-	}
-
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
 		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
 	}
@@ -3656,18 +3159,6 @@ func (client *Client) AddAttendeeWithOptions(userId *string, calendarId *string,
 		realHeaders = headers.CommonHeaders
 	}
 
-	if !tea.BoolValue(util.IsUnset(headers.DingOrgId)) {
-		realHeaders["dingOrgId"] = headers.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingUid)) {
-		realHeaders["dingUid"] = headers.DingUid
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingAccessTokenType)) {
-		realHeaders["dingAccessTokenType"] = headers.DingAccessTokenType
-	}
-
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
 		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
 	}
@@ -3701,18 +3192,6 @@ func (client *Client) GetEventWithOptions(userId *string, calendarId *string, ev
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingOrgId)) {
-		realHeaders["dingOrgId"] = headers.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingUid)) {
-		realHeaders["dingUid"] = headers.DingUid
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingAccessTokenType)) {
-		realHeaders["dingAccessTokenType"] = headers.DingAccessTokenType
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
@@ -3790,18 +3269,6 @@ func (client *Client) PatchEventWithOptions(userId *string, calendarId *string, 
 		realHeaders = headers.CommonHeaders
 	}
 
-	if !tea.BoolValue(util.IsUnset(headers.DingOrgId)) {
-		realHeaders["dingOrgId"] = headers.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingUid)) {
-		realHeaders["dingUid"] = headers.DingUid
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingAccessTokenType)) {
-		realHeaders["dingAccessTokenType"] = headers.DingAccessTokenType
-	}
-
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
 		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
 	}
@@ -3869,29 +3336,9 @@ func (client *Client) CreateEventWithOptions(userId *string, calendarId *string,
 		body["location"] = request.Location
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Reminders)) {
-		body["reminders"] = request.Reminders
-	}
-
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.OnlineMeetingInfo))) {
-		body["onlineMeetingInfo"] = request.OnlineMeetingInfo
-	}
-
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingOrgId)) {
-		realHeaders["dingOrgId"] = headers.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingUid)) {
-		realHeaders["dingUid"] = headers.DingUid
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingAccessTokenType)) {
-		realHeaders["dingAccessTokenType"] = headers.DingAccessTokenType
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {

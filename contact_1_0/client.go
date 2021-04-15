@@ -11,6 +11,98 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type GetLatestDingIndexHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetLatestDingIndexHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLatestDingIndexHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetLatestDingIndexHeaders) SetCommonHeaders(v map[string]*string) *GetLatestDingIndexHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetLatestDingIndexHeaders) SetXAcsDingtalkAccessToken(v string) *GetLatestDingIndexHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetLatestDingIndexResponseBody struct {
+	// 日期
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+	// 钉钉指数
+	IdxTotal *float32 `json:"idxTotal,omitempty" xml:"idxTotal,omitempty"`
+	// 效率指数
+	IdxEfficiency *float32 `json:"idxEfficiency,omitempty" xml:"idxEfficiency,omitempty"`
+	// 绿色指数
+	IdxCarbon *float32 `json:"idxCarbon,omitempty" xml:"idxCarbon,omitempty"`
+	// 钉钉指数月均分
+	IdxMonthlyAvg *float32 `json:"idxMonthlyAvg,omitempty" xml:"idxMonthlyAvg,omitempty"`
+}
+
+func (s GetLatestDingIndexResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLatestDingIndexResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetLatestDingIndexResponseBody) SetStatDate(v string) *GetLatestDingIndexResponseBody {
+	s.StatDate = &v
+	return s
+}
+
+func (s *GetLatestDingIndexResponseBody) SetIdxTotal(v float32) *GetLatestDingIndexResponseBody {
+	s.IdxTotal = &v
+	return s
+}
+
+func (s *GetLatestDingIndexResponseBody) SetIdxEfficiency(v float32) *GetLatestDingIndexResponseBody {
+	s.IdxEfficiency = &v
+	return s
+}
+
+func (s *GetLatestDingIndexResponseBody) SetIdxCarbon(v float32) *GetLatestDingIndexResponseBody {
+	s.IdxCarbon = &v
+	return s
+}
+
+func (s *GetLatestDingIndexResponseBody) SetIdxMonthlyAvg(v float32) *GetLatestDingIndexResponseBody {
+	s.IdxMonthlyAvg = &v
+	return s
+}
+
+type GetLatestDingIndexResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetLatestDingIndexResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetLatestDingIndexResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLatestDingIndexResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetLatestDingIndexResponse) SetHeaders(v map[string]*string) *GetLatestDingIndexResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetLatestDingIndexResponse) SetBody(v *GetLatestDingIndexResponseBody) *GetLatestDingIndexResponse {
+	s.Body = v
+	return s
+}
+
 type GetUserHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -262,6 +354,40 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) GetLatestDingIndex() (_result *GetLatestDingIndexResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetLatestDingIndexHeaders{}
+	_result = &GetLatestDingIndexResponse{}
+	_body, _err := client.GetLatestDingIndexWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetLatestDingIndexWithOptions(headers *GetLatestDingIndexHeaders, runtime *util.RuntimeOptions) (_result *GetLatestDingIndexResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetLatestDingIndexResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetLatestDingIndex"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/dingIndexs"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) GetUser(unionId *string) (_result *GetUserResponse, _err error) {

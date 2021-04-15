@@ -61,6 +61,8 @@ type SendInteractiveCardRequest struct {
 	ChatBotId *string `json:"chatBotId,omitempty" xml:"chatBotId,omitempty"`
 	// 用户ID类型：1：staffId模式【默认】；2：unionId模式；对应receiverUserIdList、privateData字段关于用户id的值填写方式
 	UserIdType *int32 `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+	// 消息@人，{123456:"钉三多"}，key：根据userIdType来设置，【特殊设置：如果key、value都为"@ALL"则判断at所有人】
+	AtOpenIds map[string]*string `json:"atOpenIds,omitempty" xml:"atOpenIds,omitempty"`
 }
 
 func (s SendInteractiveCardRequest) String() string {
@@ -148,6 +150,11 @@ func (s *SendInteractiveCardRequest) SetChatBotId(v string) *SendInteractiveCard
 
 func (s *SendInteractiveCardRequest) SetUserIdType(v int32) *SendInteractiveCardRequest {
 	s.UserIdType = &v
+	return s
+}
+
+func (s *SendInteractiveCardRequest) SetAtOpenIds(v map[string]*string) *SendInteractiveCardRequest {
+	s.AtOpenIds = v
 	return s
 }
 
@@ -499,6 +506,10 @@ func (client *Client) SendInteractiveCardWithOptions(request *SendInteractiveCar
 
 	if !tea.BoolValue(util.IsUnset(request.UserIdType)) {
 		body["userIdType"] = request.UserIdType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AtOpenIds)) {
+		body["atOpenIds"] = request.AtOpenIds
 	}
 
 	realHeaders := make(map[string]*string)
