@@ -81,6 +81,8 @@ type ECertQueryResponseBody struct {
 	TerminationReasonVoluntary []*string `json:"terminationReasonVoluntary,omitempty" xml:"terminationReasonVoluntary,omitempty" type:"Repeated"`
 	// 被动离职原因
 	TerminationReasonPassive []*string `json:"terminationReasonPassive,omitempty" xml:"terminationReasonPassive,omitempty" type:"Repeated"`
+	// 姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s ECertQueryResponseBody) String() string {
@@ -158,6 +160,11 @@ func (s *ECertQueryResponseBody) SetTerminationReasonVoluntary(v []*string) *ECe
 
 func (s *ECertQueryResponseBody) SetTerminationReasonPassive(v []*string) *ECertQueryResponseBody {
 	s.TerminationReasonPassive = v
+	return s
+}
+
+func (s *ECertQueryResponseBody) SetName(v string) *ECertQueryResponseBody {
+	s.Name = &v
 	return s
 }
 
