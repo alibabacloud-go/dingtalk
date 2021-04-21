@@ -286,6 +286,214 @@ func (s *CreateGroupResponse) SetBody(v *CreateGroupResponseBody) *CreateGroupRe
 	return s
 }
 
+type SendServiceGroupMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendServiceGroupMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendServiceGroupMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendServiceGroupMessageHeaders) SetCommonHeaders(v map[string]*string) *SendServiceGroupMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendServiceGroupMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendServiceGroupMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendServiceGroupMessageRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	// 开放群ID
+	TargetOpenConversationId *string `json:"targetOpenConversationId,omitempty" xml:"targetOpenConversationId,omitempty"`
+	// 标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// at 手机号
+	AtMobiles []*string `json:"atMobiles,omitempty" xml:"atMobiles,omitempty" type:"Repeated"`
+	// at dingtalkId
+	AtDingtalkIds []*string `json:"atDingtalkIds,omitempty" xml:"atDingtalkIds,omitempty" type:"Repeated"`
+	// at unionIds
+	AtUnionIds []*string `json:"atUnionIds,omitempty" xml:"atUnionIds,omitempty" type:"Repeated"`
+	// 手机号接收者
+	ReceiverMobiles []*string `json:"receiverMobiles,omitempty" xml:"receiverMobiles,omitempty" type:"Repeated"`
+	// dingtalkId接收者
+	ReceiverDingtalkIds []*string `json:"receiverDingtalkIds,omitempty" xml:"receiverDingtalkIds,omitempty" type:"Repeated"`
+	// unionId接收者
+	ReceiverUnionIds []*string `json:"receiverUnionIds,omitempty" xml:"receiverUnionIds,omitempty" type:"Repeated"`
+	// 消息类型：MARKDOWN，ACTIONCARD
+	MessageType *string `json:"messageType,omitempty" xml:"messageType,omitempty"`
+	// 排列方式：0-按钮竖直排列，1-按钮横向排列
+	BtnOrientation *string `json:"btnOrientation,omitempty" xml:"btnOrientation,omitempty"`
+	// actionCard按钮
+	Btns []*SendServiceGroupMessageRequestBtns `json:"btns,omitempty" xml:"btns,omitempty" type:"Repeated"`
+}
+
+func (s SendServiceGroupMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendServiceGroupMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendServiceGroupMessageRequest) SetDingIsvOrgId(v int64) *SendServiceGroupMessageRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *SendServiceGroupMessageRequest) SetDingOrgId(v int64) *SendServiceGroupMessageRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *SendServiceGroupMessageRequest) SetDingTokenGrantType(v int64) *SendServiceGroupMessageRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *SendServiceGroupMessageRequest) SetDingSuiteKey(v string) *SendServiceGroupMessageRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *SendServiceGroupMessageRequest) SetTargetOpenConversationId(v string) *SendServiceGroupMessageRequest {
+	s.TargetOpenConversationId = &v
+	return s
+}
+
+func (s *SendServiceGroupMessageRequest) SetTitle(v string) *SendServiceGroupMessageRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *SendServiceGroupMessageRequest) SetContent(v string) *SendServiceGroupMessageRequest {
+	s.Content = &v
+	return s
+}
+
+func (s *SendServiceGroupMessageRequest) SetAtMobiles(v []*string) *SendServiceGroupMessageRequest {
+	s.AtMobiles = v
+	return s
+}
+
+func (s *SendServiceGroupMessageRequest) SetAtDingtalkIds(v []*string) *SendServiceGroupMessageRequest {
+	s.AtDingtalkIds = v
+	return s
+}
+
+func (s *SendServiceGroupMessageRequest) SetAtUnionIds(v []*string) *SendServiceGroupMessageRequest {
+	s.AtUnionIds = v
+	return s
+}
+
+func (s *SendServiceGroupMessageRequest) SetReceiverMobiles(v []*string) *SendServiceGroupMessageRequest {
+	s.ReceiverMobiles = v
+	return s
+}
+
+func (s *SendServiceGroupMessageRequest) SetReceiverDingtalkIds(v []*string) *SendServiceGroupMessageRequest {
+	s.ReceiverDingtalkIds = v
+	return s
+}
+
+func (s *SendServiceGroupMessageRequest) SetReceiverUnionIds(v []*string) *SendServiceGroupMessageRequest {
+	s.ReceiverUnionIds = v
+	return s
+}
+
+func (s *SendServiceGroupMessageRequest) SetMessageType(v string) *SendServiceGroupMessageRequest {
+	s.MessageType = &v
+	return s
+}
+
+func (s *SendServiceGroupMessageRequest) SetBtnOrientation(v string) *SendServiceGroupMessageRequest {
+	s.BtnOrientation = &v
+	return s
+}
+
+func (s *SendServiceGroupMessageRequest) SetBtns(v []*SendServiceGroupMessageRequestBtns) *SendServiceGroupMessageRequest {
+	s.Btns = v
+	return s
+}
+
+type SendServiceGroupMessageRequestBtns struct {
+	// 跳转地址
+	ActionURL *string `json:"actionURL,omitempty" xml:"actionURL,omitempty"`
+	// 按钮名称
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s SendServiceGroupMessageRequestBtns) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendServiceGroupMessageRequestBtns) GoString() string {
+	return s.String()
+}
+
+func (s *SendServiceGroupMessageRequestBtns) SetActionURL(v string) *SendServiceGroupMessageRequestBtns {
+	s.ActionURL = &v
+	return s
+}
+
+func (s *SendServiceGroupMessageRequestBtns) SetTitle(v string) *SendServiceGroupMessageRequestBtns {
+	s.Title = &v
+	return s
+}
+
+type SendServiceGroupMessageResponseBody struct {
+	// 开放消息任务ID
+	OpenMsgTaskId *string `json:"openMsgTaskId,omitempty" xml:"openMsgTaskId,omitempty"`
+}
+
+func (s SendServiceGroupMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendServiceGroupMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendServiceGroupMessageResponseBody) SetOpenMsgTaskId(v string) *SendServiceGroupMessageResponseBody {
+	s.OpenMsgTaskId = &v
+	return s
+}
+
+type SendServiceGroupMessageResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SendServiceGroupMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendServiceGroupMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendServiceGroupMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendServiceGroupMessageResponse) SetHeaders(v map[string]*string) *SendServiceGroupMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendServiceGroupMessageResponse) SetBody(v *SendServiceGroupMessageResponseBody) *SendServiceGroupMessageResponse {
+	s.Body = v
+	return s
+}
+
 type AddKnowledgeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -330,6 +538,8 @@ type AddKnowledgeRequest struct {
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 	// CCM的知识点外链
 	LinkUrl *string `json:"linkUrl,omitempty" xml:"linkUrl,omitempty"`
+	// 知识点版本号
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s AddKnowledgeRequest) String() string {
@@ -400,8 +610,14 @@ func (s *AddKnowledgeRequest) SetLinkUrl(v string) *AddKnowledgeRequest {
 	return s
 }
 
+func (s *AddKnowledgeRequest) SetVersion(v string) *AddKnowledgeRequest {
+	s.Version = &v
+	return s
+}
+
 type AddKnowledgeResponseBody struct {
-	Result *AddKnowledgeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// 开放知识点ID
+	OpenKnowledgeId *string `json:"openKnowledgeId,omitempty" xml:"openKnowledgeId,omitempty"`
 }
 
 func (s AddKnowledgeResponseBody) String() string {
@@ -412,25 +628,7 @@ func (s AddKnowledgeResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *AddKnowledgeResponseBody) SetResult(v *AddKnowledgeResponseBodyResult) *AddKnowledgeResponseBody {
-	s.Result = v
-	return s
-}
-
-type AddKnowledgeResponseBodyResult struct {
-	// 开放知识点ID
-	OpenKnowledgeId *string `json:"openKnowledgeId,omitempty" xml:"openKnowledgeId,omitempty"`
-}
-
-func (s AddKnowledgeResponseBodyResult) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddKnowledgeResponseBodyResult) GoString() string {
-	return s.String()
-}
-
-func (s *AddKnowledgeResponseBodyResult) SetOpenKnowledgeId(v string) *AddKnowledgeResponseBodyResult {
+func (s *AddKnowledgeResponseBody) SetOpenKnowledgeId(v string) *AddKnowledgeResponseBody {
 	s.OpenKnowledgeId = &v
 	return s
 }
@@ -870,6 +1068,110 @@ func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, header
 	return _result, _err
 }
 
+func (client *Client) SendServiceGroupMessage(request *SendServiceGroupMessageRequest) (_result *SendServiceGroupMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendServiceGroupMessageHeaders{}
+	_result = &SendServiceGroupMessageResponse{}
+	_body, _err := client.SendServiceGroupMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendServiceGroupMessageWithOptions(request *SendServiceGroupMessageRequest, headers *SendServiceGroupMessageHeaders, runtime *util.RuntimeOptions) (_result *SendServiceGroupMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetOpenConversationId)) {
+		body["targetOpenConversationId"] = request.TargetOpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AtMobiles)) {
+		body["atMobiles"] = request.AtMobiles
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AtDingtalkIds)) {
+		body["atDingtalkIds"] = request.AtDingtalkIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AtUnionIds)) {
+		body["atUnionIds"] = request.AtUnionIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverMobiles)) {
+		body["receiverMobiles"] = request.ReceiverMobiles
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverDingtalkIds)) {
+		body["receiverDingtalkIds"] = request.ReceiverDingtalkIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverUnionIds)) {
+		body["receiverUnionIds"] = request.ReceiverUnionIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MessageType)) {
+		body["messageType"] = request.MessageType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BtnOrientation)) {
+		body["btnOrientation"] = request.BtnOrientation
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Btns)) {
+		body["btns"] = request.Btns
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendServiceGroupMessageResponse{}
+	_body, _err := client.DoROARequest(tea.String("SendServiceGroupMessage"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/messages/send"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) AddKnowledge(request *AddKnowledgeRequest) (_result *AddKnowledgeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddKnowledgeHeaders{}
@@ -934,6 +1236,10 @@ func (client *Client) AddKnowledgeWithOptions(request *AddKnowledgeRequest, head
 
 	if !tea.BoolValue(util.IsUnset(request.LinkUrl)) {
 		body["linkUrl"] = request.LinkUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Version)) {
+		body["version"] = request.Version
 	}
 
 	realHeaders := make(map[string]*string)

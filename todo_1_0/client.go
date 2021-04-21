@@ -49,9 +49,9 @@ type GetTodoTaskResponseBody struct {
 	FinishTime *int64 `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
 	// 完成状态
 	Done *bool `json:"done,omitempty" xml:"done,omitempty"`
-	// 执行者列表
+	// 执行者列表（用户的unionId）
 	ExecutorIds []*string `json:"executorIds,omitempty" xml:"executorIds,omitempty" type:"Repeated"`
-	// 参与者列表
+	// 参与者列表（用户的unionId）
 	ParticipantIds []*string `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
 	// 自定义详情页跳转配置
 	DetailUrl *GetTodoTaskResponseBodyDetailUrl `json:"detailUrl,omitempty" xml:"detailUrl,omitempty" type:"Struct"`
@@ -63,12 +63,14 @@ type GetTodoTaskResponseBody struct {
 	CreatedTime *int64 `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
 	// 更新时间
 	ModifiedTime *int64 `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	// 创建者id
+	// 创建者id（用户的unionId）
 	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 更新者id
+	// 更新者id（用户的unionId）
 	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	// 租户id
+	// 租户id(unionId/orgId/groupId)
 	TenantId *string `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+	// 租户类型（user/org/group）
+	TenantType *string `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
 	// 接入业务应用标识
 	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
 	// requestId
@@ -168,6 +170,11 @@ func (s *GetTodoTaskResponseBody) SetTenantId(v string) *GetTodoTaskResponseBody
 	return s
 }
 
+func (s *GetTodoTaskResponseBody) SetTenantType(v string) *GetTodoTaskResponseBody {
+	s.TenantType = &v
+	return s
+}
+
 func (s *GetTodoTaskResponseBody) SetBizTag(v string) *GetTodoTaskResponseBody {
 	s.BizTag = &v
 	return s
@@ -250,7 +257,7 @@ func (s *DeleteTodoTaskHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteTodo
 }
 
 type DeleteTodoTaskRequest struct {
-	// 操作者id
+	// 操作者id，需传用户的unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -347,11 +354,11 @@ type UpdateTodoTaskRequest struct {
 	DueTime *int64 `json:"dueTime,omitempty" xml:"dueTime,omitempty"`
 	// 完成状态
 	Done *bool `json:"done,omitempty" xml:"done,omitempty"`
-	// 执行者列表
+	// 执行者列表，需传用户的unionId
 	ExecutorIds []*string `json:"executorIds,omitempty" xml:"executorIds,omitempty" type:"Repeated"`
-	// 参与者列表
+	// 参与者列表，需传用户的unionId
 	ParticipantIds []*string `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
-	// 当前操作者id
+	// 当前操作者id，需传用户的unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -467,19 +474,19 @@ type CreateTodoTaskRequest struct {
 	SourceId *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
 	// 待办标题
 	Subject *string `json:"subject,omitempty" xml:"subject,omitempty"`
-	// 创建者id
+	// 创建者id，需传用户的unionId
 	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
 	// 待办备注描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 	// 截止时间
 	DueTime *int64 `json:"dueTime,omitempty" xml:"dueTime,omitempty"`
-	// 执行者列表
+	// 执行者列表，需传用户的unionId
 	ExecutorIds []*string `json:"executorIds,omitempty" xml:"executorIds,omitempty" type:"Repeated"`
-	// 参与者列表
+	// 参与者列表，需传用户的unionId
 	ParticipantIds []*string `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
 	// 详情页url跳转地址
 	DetailUrl *CreateTodoTaskRequestDetailUrl `json:"detailUrl,omitempty" xml:"detailUrl,omitempty" type:"Struct"`
-	// 当前操作者id
+	// 当前操作者id，需传用户的unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -576,9 +583,9 @@ type CreateTodoTaskResponseBody struct {
 	FinishTime *int64 `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
 	// 完成状态
 	Done *bool `json:"done,omitempty" xml:"done,omitempty"`
-	// 执行者列表
+	// 执行者列表（用户的unionId）
 	ExecutorIds []*string `json:"executorIds,omitempty" xml:"executorIds,omitempty" type:"Repeated"`
-	// 参与者列表
+	// 参与者列表（用户的unionId）
 	ParticipantIds []*string `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
 	// 自定义详情页跳转配置
 	DetailUrl *CreateTodoTaskResponseBodyDetailUrl `json:"detailUrl,omitempty" xml:"detailUrl,omitempty" type:"Struct"`
@@ -590,12 +597,14 @@ type CreateTodoTaskResponseBody struct {
 	CreatedTime *int64 `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
 	// 更新时间
 	ModifiedTime *int64 `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	// 创建者
+	// 创建者（用户的unionId）
 	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 更新者
+	// 更新者（用户的unionId）
 	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	// 租户id
+	// 租户id(unionId/orgId/groupId)
 	TenantId *string `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+	// 租户类型（user/org/group）
+	TenantType *string `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
 	// 接入应用标识
 	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
 	// requestId
@@ -695,6 +704,11 @@ func (s *CreateTodoTaskResponseBody) SetTenantId(v string) *CreateTodoTaskRespon
 	return s
 }
 
+func (s *CreateTodoTaskResponseBody) SetTenantType(v string) *CreateTodoTaskResponseBody {
+	s.TenantType = &v
+	return s
+}
+
 func (s *CreateTodoTaskResponseBody) SetBizTag(v string) *CreateTodoTaskResponseBody {
 	s.BizTag = &v
 	return s
@@ -776,11 +790,11 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
-func (client *Client) GetTodoTask(userId *string, taskId *string) (_result *GetTodoTaskResponse, _err error) {
+func (client *Client) GetTodoTask(unionId *string, taskId *string) (_result *GetTodoTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTodoTaskHeaders{}
 	_result = &GetTodoTaskResponse{}
-	_body, _err := client.GetTodoTaskWithOptions(userId, taskId, headers, runtime)
+	_body, _err := client.GetTodoTaskWithOptions(unionId, taskId, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -788,7 +802,7 @@ func (client *Client) GetTodoTask(userId *string, taskId *string) (_result *GetT
 	return _result, _err
 }
 
-func (client *Client) GetTodoTaskWithOptions(userId *string, taskId *string, headers *GetTodoTaskHeaders, runtime *util.RuntimeOptions) (_result *GetTodoTaskResponse, _err error) {
+func (client *Client) GetTodoTaskWithOptions(unionId *string, taskId *string, headers *GetTodoTaskHeaders, runtime *util.RuntimeOptions) (_result *GetTodoTaskResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -802,7 +816,7 @@ func (client *Client) GetTodoTaskWithOptions(userId *string, taskId *string, hea
 		Headers: realHeaders,
 	}
 	_result = &GetTodoTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetTodoTask"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("GetTodoTask"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/tasks/"+tea.StringValue(taskId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -810,11 +824,11 @@ func (client *Client) GetTodoTaskWithOptions(userId *string, taskId *string, hea
 	return _result, _err
 }
 
-func (client *Client) DeleteTodoTask(userId *string, taskId *string, request *DeleteTodoTaskRequest) (_result *DeleteTodoTaskResponse, _err error) {
+func (client *Client) DeleteTodoTask(unionId *string, taskId *string, request *DeleteTodoTaskRequest) (_result *DeleteTodoTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteTodoTaskHeaders{}
 	_result = &DeleteTodoTaskResponse{}
-	_body, _err := client.DeleteTodoTaskWithOptions(userId, taskId, request, headers, runtime)
+	_body, _err := client.DeleteTodoTaskWithOptions(unionId, taskId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -822,7 +836,7 @@ func (client *Client) DeleteTodoTask(userId *string, taskId *string, request *De
 	return _result, _err
 }
 
-func (client *Client) DeleteTodoTaskWithOptions(userId *string, taskId *string, request *DeleteTodoTaskRequest, headers *DeleteTodoTaskHeaders, runtime *util.RuntimeOptions) (_result *DeleteTodoTaskResponse, _err error) {
+func (client *Client) DeleteTodoTaskWithOptions(unionId *string, taskId *string, request *DeleteTodoTaskRequest, headers *DeleteTodoTaskHeaders, runtime *util.RuntimeOptions) (_result *DeleteTodoTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -846,7 +860,7 @@ func (client *Client) DeleteTodoTaskWithOptions(userId *string, taskId *string, 
 		Query:   openapiutil.Query(query),
 	}
 	_result = &DeleteTodoTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteTodoTask"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("DeleteTodoTask"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/tasks/"+tea.StringValue(taskId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -854,11 +868,11 @@ func (client *Client) DeleteTodoTaskWithOptions(userId *string, taskId *string, 
 	return _result, _err
 }
 
-func (client *Client) UpdateTodoTask(userId *string, taskId *string, request *UpdateTodoTaskRequest) (_result *UpdateTodoTaskResponse, _err error) {
+func (client *Client) UpdateTodoTask(unionId *string, taskId *string, request *UpdateTodoTaskRequest) (_result *UpdateTodoTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateTodoTaskHeaders{}
 	_result = &UpdateTodoTaskResponse{}
-	_body, _err := client.UpdateTodoTaskWithOptions(userId, taskId, request, headers, runtime)
+	_body, _err := client.UpdateTodoTaskWithOptions(unionId, taskId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -866,7 +880,7 @@ func (client *Client) UpdateTodoTask(userId *string, taskId *string, request *Up
 	return _result, _err
 }
 
-func (client *Client) UpdateTodoTaskWithOptions(userId *string, taskId *string, request *UpdateTodoTaskRequest, headers *UpdateTodoTaskHeaders, runtime *util.RuntimeOptions) (_result *UpdateTodoTaskResponse, _err error) {
+func (client *Client) UpdateTodoTaskWithOptions(unionId *string, taskId *string, request *UpdateTodoTaskRequest, headers *UpdateTodoTaskHeaders, runtime *util.RuntimeOptions) (_result *UpdateTodoTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -916,7 +930,7 @@ func (client *Client) UpdateTodoTaskWithOptions(userId *string, taskId *string, 
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &UpdateTodoTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateTodoTask"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("UpdateTodoTask"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/tasks/"+tea.StringValue(taskId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -924,11 +938,11 @@ func (client *Client) UpdateTodoTaskWithOptions(userId *string, taskId *string, 
 	return _result, _err
 }
 
-func (client *Client) CreateTodoTask(userId *string, request *CreateTodoTaskRequest) (_result *CreateTodoTaskResponse, _err error) {
+func (client *Client) CreateTodoTask(unionId *string, request *CreateTodoTaskRequest) (_result *CreateTodoTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateTodoTaskHeaders{}
 	_result = &CreateTodoTaskResponse{}
-	_body, _err := client.CreateTodoTaskWithOptions(userId, request, headers, runtime)
+	_body, _err := client.CreateTodoTaskWithOptions(unionId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -936,7 +950,7 @@ func (client *Client) CreateTodoTask(userId *string, request *CreateTodoTaskRequ
 	return _result, _err
 }
 
-func (client *Client) CreateTodoTaskWithOptions(userId *string, request *CreateTodoTaskRequest, headers *CreateTodoTaskHeaders, runtime *util.RuntimeOptions) (_result *CreateTodoTaskResponse, _err error) {
+func (client *Client) CreateTodoTaskWithOptions(unionId *string, request *CreateTodoTaskRequest, headers *CreateTodoTaskHeaders, runtime *util.RuntimeOptions) (_result *CreateTodoTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -994,7 +1008,7 @@ func (client *Client) CreateTodoTaskWithOptions(userId *string, request *CreateT
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &CreateTodoTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateTodoTask"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(userId)+"/tasks"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("CreateTodoTask"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/tasks"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
