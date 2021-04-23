@@ -191,6 +191,151 @@ func (s *ECertQueryResponse) SetBody(v *ECertQueryResponseBody) *ECertQueryRespo
 	return s
 }
 
+type QueryCustomEntryProcessesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCustomEntryProcessesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomEntryProcessesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomEntryProcessesHeaders) SetCommonHeaders(v map[string]*string) *QueryCustomEntryProcessesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCustomEntryProcessesHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCustomEntryProcessesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCustomEntryProcessesRequest struct {
+	// 操作人id
+	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
+	// 偏移量
+	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 最大值
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+}
+
+func (s QueryCustomEntryProcessesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomEntryProcessesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomEntryProcessesRequest) SetOperateUserId(v string) *QueryCustomEntryProcessesRequest {
+	s.OperateUserId = &v
+	return s
+}
+
+func (s *QueryCustomEntryProcessesRequest) SetNextToken(v int32) *QueryCustomEntryProcessesRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryCustomEntryProcessesRequest) SetMaxResults(v int32) *QueryCustomEntryProcessesRequest {
+	s.MaxResults = &v
+	return s
+}
+
+type QueryCustomEntryProcessesResponseBody struct {
+	// 下次获取数据的起始游标
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 是否有更多
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 表单信息列表
+	List []*QueryCustomEntryProcessesResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s QueryCustomEntryProcessesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomEntryProcessesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomEntryProcessesResponseBody) SetNextToken(v int64) *QueryCustomEntryProcessesResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryCustomEntryProcessesResponseBody) SetHasMore(v bool) *QueryCustomEntryProcessesResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryCustomEntryProcessesResponseBody) SetList(v []*QueryCustomEntryProcessesResponseBodyList) *QueryCustomEntryProcessesResponseBody {
+	s.List = v
+	return s
+}
+
+type QueryCustomEntryProcessesResponseBodyList struct {
+	FormId   *string `json:"formId,omitempty" xml:"formId,omitempty"`
+	FormName *string `json:"formName,omitempty" xml:"formName,omitempty"`
+	FormDesc *string `json:"formDesc,omitempty" xml:"formDesc,omitempty"`
+	ShortUrl *string `json:"shortUrl,omitempty" xml:"shortUrl,omitempty"`
+}
+
+func (s QueryCustomEntryProcessesResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomEntryProcessesResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomEntryProcessesResponseBodyList) SetFormId(v string) *QueryCustomEntryProcessesResponseBodyList {
+	s.FormId = &v
+	return s
+}
+
+func (s *QueryCustomEntryProcessesResponseBodyList) SetFormName(v string) *QueryCustomEntryProcessesResponseBodyList {
+	s.FormName = &v
+	return s
+}
+
+func (s *QueryCustomEntryProcessesResponseBodyList) SetFormDesc(v string) *QueryCustomEntryProcessesResponseBodyList {
+	s.FormDesc = &v
+	return s
+}
+
+func (s *QueryCustomEntryProcessesResponseBodyList) SetShortUrl(v string) *QueryCustomEntryProcessesResponseBodyList {
+	s.ShortUrl = &v
+	return s
+}
+
+type QueryCustomEntryProcessesResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryCustomEntryProcessesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryCustomEntryProcessesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomEntryProcessesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomEntryProcessesResponse) SetHeaders(v map[string]*string) *QueryCustomEntryProcessesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCustomEntryProcessesResponse) SetBody(v *QueryCustomEntryProcessesResponseBody) *QueryCustomEntryProcessesResponse {
+	s.Body = v
+	return s
+}
+
 type AddHrmPreentryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -425,6 +570,58 @@ func (client *Client) ECertQueryWithOptions(request *ECertQueryRequest, headers 
 	}
 	_result = &ECertQueryResponse{}
 	_body, _err := client.DoROARequest(tea.String("ECertQuery"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/eCerts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryCustomEntryProcesses(request *QueryCustomEntryProcessesRequest) (_result *QueryCustomEntryProcessesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCustomEntryProcessesHeaders{}
+	_result = &QueryCustomEntryProcessesResponse{}
+	_body, _err := client.QueryCustomEntryProcessesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryCustomEntryProcessesWithOptions(request *QueryCustomEntryProcessesRequest, headers *QueryCustomEntryProcessesHeaders, runtime *util.RuntimeOptions) (_result *QueryCustomEntryProcessesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperateUserId)) {
+		query["operateUserId"] = request.OperateUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryCustomEntryProcessesResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryCustomEntryProcesses"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/customEntryProcesses"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
