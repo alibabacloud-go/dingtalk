@@ -138,6 +138,207 @@ func (s *DeleteKnowledgeResponse) SetBody(v *DeleteKnowledgeResponseBody) *Delet
 	return s
 }
 
+type SearchGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchGroupHeaders) SetCommonHeaders(v map[string]*string) *SearchGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchGroupHeaders) SetXAcsDingtalkAccessToken(v string) *SearchGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchGroupRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	// 开放群ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 群名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 开群组ID
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 用来标记当前开始读取的位置，置空表示从头开始。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 本次读取的最大数据记录数量，此参数为可选参数，用户传入为空时，应该有默认值。应设置最大值限制，最大不超过100
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+}
+
+func (s SearchGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchGroupRequest) SetDingIsvOrgId(v int64) *SearchGroupRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetDingOrgId(v int64) *SearchGroupRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetDingSuiteKey(v string) *SearchGroupRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetDingTokenGrantType(v int64) *SearchGroupRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetOpenConversationId(v string) *SearchGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetGroupName(v string) *SearchGroupRequest {
+	s.GroupName = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetOpenTeamId(v string) *SearchGroupRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetOpenGroupSetId(v string) *SearchGroupRequest {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetNextToken(v string) *SearchGroupRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetMaxResults(v int32) *SearchGroupRequest {
+	s.MaxResults = &v
+	return s
+}
+
+type SearchGroupResponseBody struct {
+	// 本次请求条件下的数据总量，此参数为可选参数，默认可不返回。本次请求条件下的数据总量，此参数为可选参数，默认可不返回
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 表示当前调用返回读取到的位置，空代表数据已经读取完毕
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 本次请求所返回的最大记录条数。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 已读未读信息列表
+	Records []*SearchGroupResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+}
+
+func (s SearchGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchGroupResponseBody) SetTotalCount(v int32) *SearchGroupResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *SearchGroupResponseBody) SetNextToken(v string) *SearchGroupResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchGroupResponseBody) SetMaxResults(v int32) *SearchGroupResponseBody {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchGroupResponseBody) SetRecords(v []*SearchGroupResponseBodyRecords) *SearchGroupResponseBody {
+	s.Records = v
+	return s
+}
+
+type SearchGroupResponseBodyRecords struct {
+	// 开放群ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 群名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 开放群组ID
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+}
+
+func (s SearchGroupResponseBodyRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchGroupResponseBodyRecords) GoString() string {
+	return s.String()
+}
+
+func (s *SearchGroupResponseBodyRecords) SetOpenConversationId(v string) *SearchGroupResponseBodyRecords {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SearchGroupResponseBodyRecords) SetGroupName(v string) *SearchGroupResponseBodyRecords {
+	s.GroupName = &v
+	return s
+}
+
+func (s *SearchGroupResponseBodyRecords) SetOpenTeamId(v string) *SearchGroupResponseBodyRecords {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *SearchGroupResponseBodyRecords) SetOpenGroupSetId(v string) *SearchGroupResponseBodyRecords {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+type SearchGroupResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchGroupResponse) SetHeaders(v map[string]*string) *SearchGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchGroupResponse) SetBody(v *SearchGroupResponseBody) *SearchGroupResponse {
+	s.Body = v
+	return s
+}
+
 type CreateGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -320,6 +521,8 @@ type SendServiceGroupMessageRequest struct {
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 	// 内容
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 是否 at所有人
+	IsAtAll *bool `json:"isAtAll,omitempty" xml:"isAtAll,omitempty"`
 	// at 手机号
 	AtMobiles []*string `json:"atMobiles,omitempty" xml:"atMobiles,omitempty" type:"Repeated"`
 	// at dingtalkId
@@ -380,6 +583,11 @@ func (s *SendServiceGroupMessageRequest) SetTitle(v string) *SendServiceGroupMes
 
 func (s *SendServiceGroupMessageRequest) SetContent(v string) *SendServiceGroupMessageRequest {
 	s.Content = &v
+	return s
+}
+
+func (s *SendServiceGroupMessageRequest) SetIsAtAll(v bool) *SendServiceGroupMessageRequest {
+	s.IsAtAll = &v
 	return s
 }
 
@@ -656,6 +864,193 @@ func (s *AddKnowledgeResponse) SetBody(v *AddKnowledgeResponseBody) *AddKnowledg
 	return s
 }
 
+type QueryServiceGroupMessageReadStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryServiceGroupMessageReadStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServiceGroupMessageReadStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServiceGroupMessageReadStatusHeaders) SetCommonHeaders(v map[string]*string) *QueryServiceGroupMessageReadStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusHeaders) SetXAcsDingtalkAccessToken(v string) *QueryServiceGroupMessageReadStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryServiceGroupMessageReadStatusRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 开放群ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 开放消息ID
+	OpenMsgTaskId *string `json:"openMsgTaskId,omitempty" xml:"openMsgTaskId,omitempty"`
+	// 用来标记当前开始读取的位置，置空表示从头开始。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 本次读取的最大数据记录数量，此参数为可选参数，用户传入为空时，应该有默认值。应设置最大值限制，最大不超过100
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+}
+
+func (s QueryServiceGroupMessageReadStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServiceGroupMessageReadStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServiceGroupMessageReadStatusRequest) SetDingIsvOrgId(v int64) *QueryServiceGroupMessageReadStatusRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusRequest) SetDingOrgId(v int64) *QueryServiceGroupMessageReadStatusRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusRequest) SetDingTokenGrantType(v int64) *QueryServiceGroupMessageReadStatusRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusRequest) SetDingSuiteKey(v string) *QueryServiceGroupMessageReadStatusRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusRequest) SetOpenTeamId(v string) *QueryServiceGroupMessageReadStatusRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusRequest) SetOpenConversationId(v string) *QueryServiceGroupMessageReadStatusRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusRequest) SetOpenMsgTaskId(v string) *QueryServiceGroupMessageReadStatusRequest {
+	s.OpenMsgTaskId = &v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusRequest) SetNextToken(v string) *QueryServiceGroupMessageReadStatusRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusRequest) SetMaxResults(v int32) *QueryServiceGroupMessageReadStatusRequest {
+	s.MaxResults = &v
+	return s
+}
+
+type QueryServiceGroupMessageReadStatusResponseBody struct {
+	// 本次请求条件下的数据总量，此参数为可选参数，默认可不返回。本次请求条件下的数据总量，此参数为可选参数，默认可不返回
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 表示当前调用返回读取到的位置，空代表数据已经读取完毕
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 本次请求所返回的最大记录条数。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 已读未读信息列表
+	Records []*QueryServiceGroupMessageReadStatusResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+}
+
+func (s QueryServiceGroupMessageReadStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServiceGroupMessageReadStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServiceGroupMessageReadStatusResponseBody) SetTotalCount(v int32) *QueryServiceGroupMessageReadStatusResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusResponseBody) SetNextToken(v string) *QueryServiceGroupMessageReadStatusResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusResponseBody) SetMaxResults(v int32) *QueryServiceGroupMessageReadStatusResponseBody {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusResponseBody) SetRecords(v []*QueryServiceGroupMessageReadStatusResponseBodyRecords) *QueryServiceGroupMessageReadStatusResponseBody {
+	s.Records = v
+	return s
+}
+
+type QueryServiceGroupMessageReadStatusResponseBodyRecords struct {
+	// 已读人员为企业员工则有值
+	ReceiverUserId *string `json:"receiverUserId,omitempty" xml:"receiverUserId,omitempty"`
+	// 已读人员为非企业员工则有值
+	ReceiverUnionId *string `json:"receiverUnionId,omitempty" xml:"receiverUnionId,omitempty"`
+	// 状态：已读1/未读0
+	ReadStatus *int32 `json:"readStatus,omitempty" xml:"readStatus,omitempty"`
+}
+
+func (s QueryServiceGroupMessageReadStatusResponseBodyRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServiceGroupMessageReadStatusResponseBodyRecords) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServiceGroupMessageReadStatusResponseBodyRecords) SetReceiverUserId(v string) *QueryServiceGroupMessageReadStatusResponseBodyRecords {
+	s.ReceiverUserId = &v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusResponseBodyRecords) SetReceiverUnionId(v string) *QueryServiceGroupMessageReadStatusResponseBodyRecords {
+	s.ReceiverUnionId = &v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusResponseBodyRecords) SetReadStatus(v int32) *QueryServiceGroupMessageReadStatusResponseBodyRecords {
+	s.ReadStatus = &v
+	return s
+}
+
+type QueryServiceGroupMessageReadStatusResponse struct {
+	Headers map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryServiceGroupMessageReadStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryServiceGroupMessageReadStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServiceGroupMessageReadStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServiceGroupMessageReadStatusResponse) SetHeaders(v map[string]*string) *QueryServiceGroupMessageReadStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusResponse) SetBody(v *QueryServiceGroupMessageReadStatusResponseBody) *QueryServiceGroupMessageReadStatusResponse {
+	s.Body = v
+	return s
+}
+
 type AddLibraryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -893,6 +1288,154 @@ func (s *ListUserTeamsResponse) SetBody(v *ListUserTeamsResponseBody) *ListUserT
 	return s
 }
 
+type QueryGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupHeaders) SetCommonHeaders(v map[string]*string) *QueryGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryGroupHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryGroupRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	// 开放群ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s QueryGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupRequest) SetDingIsvOrgId(v int64) *QueryGroupRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *QueryGroupRequest) SetDingOrgId(v int64) *QueryGroupRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *QueryGroupRequest) SetDingSuiteKey(v string) *QueryGroupRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *QueryGroupRequest) SetDingTokenGrantType(v int64) *QueryGroupRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *QueryGroupRequest) SetOpenConversationId(v string) *QueryGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type QueryGroupResponseBody struct {
+	// 开放群ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 群名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 开放群组ID
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 入群URL
+	GroupUrl *string `json:"groupUrl,omitempty" xml:"groupUrl,omitempty"`
+	// 服务群机器人code
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// 服务群机器人名称
+	RobotName *string `json:"robotName,omitempty" xml:"robotName,omitempty"`
+}
+
+func (s QueryGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupResponseBody) SetOpenConversationId(v string) *QueryGroupResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QueryGroupResponseBody) SetGroupName(v string) *QueryGroupResponseBody {
+	s.GroupName = &v
+	return s
+}
+
+func (s *QueryGroupResponseBody) SetOpenTeamId(v string) *QueryGroupResponseBody {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *QueryGroupResponseBody) SetOpenGroupSetId(v string) *QueryGroupResponseBody {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *QueryGroupResponseBody) SetGroupUrl(v string) *QueryGroupResponseBody {
+	s.GroupUrl = &v
+	return s
+}
+
+func (s *QueryGroupResponseBody) SetRobotCode(v string) *QueryGroupResponseBody {
+	s.RobotCode = &v
+	return s
+}
+
+func (s *QueryGroupResponseBody) SetRobotName(v string) *QueryGroupResponseBody {
+	s.RobotName = &v
+	return s
+}
+
+type QueryGroupResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupResponse) SetHeaders(v map[string]*string) *QueryGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryGroupResponse) SetBody(v *QueryGroupResponseBody) *QueryGroupResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -981,6 +1524,86 @@ func (client *Client) DeleteKnowledgeWithOptions(request *DeleteKnowledgeRequest
 	}
 	_result = &DeleteKnowledgeResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteKnowledge"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/knowledges/batchDelete"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchGroup(request *SearchGroupRequest) (_result *SearchGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchGroupHeaders{}
+	_result = &SearchGroupResponse{}
+	_body, _err := client.SearchGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchGroupWithOptions(request *SearchGroupRequest, headers *SearchGroupHeaders, runtime *util.RuntimeOptions) (_result *SearchGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
+		body["groupName"] = request.GroupName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
+		body["openGroupSetId"] = request.OpenGroupSetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SearchGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchGroup"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/search"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1112,6 +1735,10 @@ func (client *Client) SendServiceGroupMessageWithOptions(request *SendServiceGro
 
 	if !tea.BoolValue(util.IsUnset(request.Content)) {
 		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsAtAll)) {
+		body["isAtAll"] = request.IsAtAll
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.AtMobiles)) {
@@ -1264,6 +1891,82 @@ func (client *Client) AddKnowledgeWithOptions(request *AddKnowledgeRequest, head
 	return _result, _err
 }
 
+func (client *Client) QueryServiceGroupMessageReadStatus(request *QueryServiceGroupMessageReadStatusRequest) (_result *QueryServiceGroupMessageReadStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryServiceGroupMessageReadStatusHeaders{}
+	_result = &QueryServiceGroupMessageReadStatusResponse{}
+	_body, _err := client.QueryServiceGroupMessageReadStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryServiceGroupMessageReadStatusWithOptions(request *QueryServiceGroupMessageReadStatusRequest, headers *QueryServiceGroupMessageReadStatusHeaders, runtime *util.RuntimeOptions) (_result *QueryServiceGroupMessageReadStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenMsgTaskId)) {
+		body["openMsgTaskId"] = request.OpenMsgTaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryServiceGroupMessageReadStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryServiceGroupMessageReadStatus"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/messages/readStatus/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) AddLibrary(request *AddLibraryRequest) (_result *AddLibraryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddLibraryHeaders{}
@@ -1375,6 +2078,66 @@ func (client *Client) ListUserTeamsWithOptions(userId *string, headers *ListUser
 	}
 	_result = &ListUserTeamsResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListUserTeams"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/users/"+tea.StringValue(userId)+"/teams"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryGroup(request *QueryGroupRequest) (_result *QueryGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryGroupHeaders{}
+	_result = &QueryGroupResponse{}
+	_body, _err := client.QueryGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryGroupWithOptions(request *QueryGroupRequest, headers *QueryGroupHeaders, runtime *util.RuntimeOptions) (_result *QueryGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryGroup"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
