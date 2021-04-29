@@ -135,6 +135,93 @@ func (s *CreateVideoConferenceResponse) SetBody(v *CreateVideoConferenceResponse
 	return s
 }
 
+type CloseVideoConferenceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CloseVideoConferenceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseVideoConferenceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CloseVideoConferenceHeaders) SetCommonHeaders(v map[string]*string) *CloseVideoConferenceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CloseVideoConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *CloseVideoConferenceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CloseVideoConferenceRequest struct {
+	// 员工在当前开发者企业账号范围内的唯一标识
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s CloseVideoConferenceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseVideoConferenceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CloseVideoConferenceRequest) SetUnionId(v string) *CloseVideoConferenceRequest {
+	s.UnionId = &v
+	return s
+}
+
+type CloseVideoConferenceResponseBody struct {
+	Code  *int64  `json:"code,omitempty" xml:"code,omitempty"`
+	Cause *string `json:"cause,omitempty" xml:"cause,omitempty"`
+}
+
+func (s CloseVideoConferenceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseVideoConferenceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CloseVideoConferenceResponseBody) SetCode(v int64) *CloseVideoConferenceResponseBody {
+	s.Code = &v
+	return s
+}
+
+func (s *CloseVideoConferenceResponseBody) SetCause(v string) *CloseVideoConferenceResponseBody {
+	s.Cause = &v
+	return s
+}
+
+type CloseVideoConferenceResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CloseVideoConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CloseVideoConferenceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseVideoConferenceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CloseVideoConferenceResponse) SetHeaders(v map[string]*string) *CloseVideoConferenceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CloseVideoConferenceResponse) SetBody(v *CloseVideoConferenceResponseBody) *CloseVideoConferenceResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -203,6 +290,50 @@ func (client *Client) CreateVideoConferenceWithOptions(request *CreateVideoConfe
 	}
 	_result = &CreateVideoConferenceResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateVideoConference"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CloseVideoConference(conferenceId *string, request *CloseVideoConferenceRequest) (_result *CloseVideoConferenceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CloseVideoConferenceHeaders{}
+	_result = &CloseVideoConferenceResponse{}
+	_body, _err := client.CloseVideoConferenceWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CloseVideoConferenceWithOptions(conferenceId *string, request *CloseVideoConferenceRequest, headers *CloseVideoConferenceHeaders, runtime *util.RuntimeOptions) (_result *CloseVideoConferenceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &CloseVideoConferenceResponse{}
+	_body, _err := client.DoROARequest(tea.String("CloseVideoConference"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

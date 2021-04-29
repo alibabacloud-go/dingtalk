@@ -176,6 +176,10 @@ type SearchOrgInnerGroupInfoResponseBodyItems struct {
 	GroupLastActiveTimeShow *string `json:"groupLastActiveTimeShow,omitempty" xml:"groupLastActiveTimeShow,omitempty"`
 	SyncToDingpan           *int32  `json:"syncToDingpan,omitempty" xml:"syncToDingpan,omitempty"`
 	UsedQuota               *int64  `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	GroupOwnerUserId        *string `json:"groupOwnerUserId,omitempty" xml:"groupOwnerUserId,omitempty"`
+	Status                  *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	TemplateId              *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	TemplateName            *string `json:"templateName,omitempty" xml:"templateName,omitempty"`
 }
 
 func (s SearchOrgInnerGroupInfoResponseBodyItems) String() string {
@@ -233,6 +237,26 @@ func (s *SearchOrgInnerGroupInfoResponseBodyItems) SetSyncToDingpan(v int32) *Se
 
 func (s *SearchOrgInnerGroupInfoResponseBodyItems) SetUsedQuota(v int64) *SearchOrgInnerGroupInfoResponseBodyItems {
 	s.UsedQuota = &v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoResponseBodyItems) SetGroupOwnerUserId(v string) *SearchOrgInnerGroupInfoResponseBodyItems {
+	s.GroupOwnerUserId = &v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoResponseBodyItems) SetStatus(v int32) *SearchOrgInnerGroupInfoResponseBodyItems {
+	s.Status = &v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoResponseBodyItems) SetTemplateId(v string) *SearchOrgInnerGroupInfoResponseBodyItems {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoResponseBodyItems) SetTemplateName(v string) *SearchOrgInnerGroupInfoResponseBodyItems {
+	s.TemplateName = &v
 	return s
 }
 
