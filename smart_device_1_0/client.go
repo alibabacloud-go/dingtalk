@@ -284,6 +284,92 @@ func (s *KickDeviceVideoConferenceMembersResponse) SetHeaders(v map[string]*stri
 	return s
 }
 
+type ExtractFacialFeatureHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ExtractFacialFeatureHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExtractFacialFeatureHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ExtractFacialFeatureHeaders) SetCommonHeaders(v map[string]*string) *ExtractFacialFeatureHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ExtractFacialFeatureHeaders) SetXAcsDingtalkAccessToken(v string) *ExtractFacialFeatureHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ExtractFacialFeatureRequest struct {
+	Userid  *string `json:"userid,omitempty" xml:"userid,omitempty"`
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+}
+
+func (s ExtractFacialFeatureRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExtractFacialFeatureRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExtractFacialFeatureRequest) SetUserid(v string) *ExtractFacialFeatureRequest {
+	s.Userid = &v
+	return s
+}
+
+func (s *ExtractFacialFeatureRequest) SetMediaId(v string) *ExtractFacialFeatureRequest {
+	s.MediaId = &v
+	return s
+}
+
+type ExtractFacialFeatureResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s ExtractFacialFeatureResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExtractFacialFeatureResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ExtractFacialFeatureResponseBody) SetResult(v bool) *ExtractFacialFeatureResponseBody {
+	s.Result = &v
+	return s
+}
+
+type ExtractFacialFeatureResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ExtractFacialFeatureResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ExtractFacialFeatureResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExtractFacialFeatureResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExtractFacialFeatureResponse) SetHeaders(v map[string]*string) *ExtractFacialFeatureResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ExtractFacialFeatureResponse) SetBody(v *ExtractFacialFeatureResponseBody) *ExtractFacialFeatureResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -466,6 +552,54 @@ func (client *Client) KickDeviceVideoConferenceMembersWithOptions(deviceId *stri
 	}
 	_result = &KickDeviceVideoConferenceMembersResponse{}
 	_body, _err := client.DoROARequest(tea.String("KickDeviceVideoConferenceMembers"), tea.String("smartDevice_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/smartDevice/devices/"+tea.StringValue(deviceId)+"/videoConferences/"+tea.StringValue(conferenceId)+"/members/batchDelete"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ExtractFacialFeature(request *ExtractFacialFeatureRequest) (_result *ExtractFacialFeatureResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ExtractFacialFeatureHeaders{}
+	_result = &ExtractFacialFeatureResponse{}
+	_body, _err := client.ExtractFacialFeatureWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ExtractFacialFeatureWithOptions(request *ExtractFacialFeatureRequest, headers *ExtractFacialFeatureHeaders, runtime *util.RuntimeOptions) (_result *ExtractFacialFeatureResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Userid)) {
+		body["userid"] = request.Userid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
+		body["mediaId"] = request.MediaId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ExtractFacialFeatureResponse{}
+	_body, _err := client.DoROARequest(tea.String("ExtractFacialFeature"), tea.String("smartDevice_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/smartDevice/faceRecognitions/features/extract"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

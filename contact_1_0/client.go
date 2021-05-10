@@ -11,6 +11,265 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type GetApplyInviteInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetApplyInviteInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetApplyInviteInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetApplyInviteInfoHeaders) SetCommonHeaders(v map[string]*string) *GetApplyInviteInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetApplyInviteInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetApplyInviteInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetApplyInviteInfoRequest struct {
+	// 邀请者userId
+	InviterUserId *string `json:"inviterUserId,omitempty" xml:"inviterUserId,omitempty"`
+	// 获取部门邀请链接的部门ID
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+}
+
+func (s GetApplyInviteInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetApplyInviteInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetApplyInviteInfoRequest) SetInviterUserId(v string) *GetApplyInviteInfoRequest {
+	s.InviterUserId = &v
+	return s
+}
+
+func (s *GetApplyInviteInfoRequest) SetDeptId(v int64) *GetApplyInviteInfoRequest {
+	s.DeptId = &v
+	return s
+}
+
+type GetApplyInviteInfoResponseBody struct {
+	// 是否开启邀请
+	InviteSwitch *bool `json:"inviteSwitch,omitempty" xml:"inviteSwitch,omitempty"`
+	// 是否开启通过企业名称搜索申请
+	SearchNameInvite *bool `json:"searchNameInvite,omitempty" xml:"searchNameInvite,omitempty"`
+	// 是否开启通过团队号申请加入
+	OrgApplyCodeInvite *bool `json:"orgApplyCodeInvite,omitempty" xml:"orgApplyCodeInvite,omitempty"`
+	// 是否开启通过链接邀请加入
+	LinkInvite *bool `json:"linkInvite,omitempty" xml:"linkInvite,omitempty"`
+	// 邀请链接
+	InviteUrl *string `json:"inviteUrl,omitempty" xml:"inviteUrl,omitempty"`
+	// 仅部门邀请有效： 0-无需审核 1-有权限的子管理员
+	AuditType *int64 `json:"auditType,omitempty" xml:"auditType,omitempty"`
+	// 是否允许员工扫码加入部门，仅在无需审核的时候有效（已经在组织内的成员通过扫描部门二维码加入某个部门）
+	EmpApplyJoinDept *bool `json:"empApplyJoinDept,omitempty" xml:"empApplyJoinDept,omitempty"`
+}
+
+func (s GetApplyInviteInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetApplyInviteInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetApplyInviteInfoResponseBody) SetInviteSwitch(v bool) *GetApplyInviteInfoResponseBody {
+	s.InviteSwitch = &v
+	return s
+}
+
+func (s *GetApplyInviteInfoResponseBody) SetSearchNameInvite(v bool) *GetApplyInviteInfoResponseBody {
+	s.SearchNameInvite = &v
+	return s
+}
+
+func (s *GetApplyInviteInfoResponseBody) SetOrgApplyCodeInvite(v bool) *GetApplyInviteInfoResponseBody {
+	s.OrgApplyCodeInvite = &v
+	return s
+}
+
+func (s *GetApplyInviteInfoResponseBody) SetLinkInvite(v bool) *GetApplyInviteInfoResponseBody {
+	s.LinkInvite = &v
+	return s
+}
+
+func (s *GetApplyInviteInfoResponseBody) SetInviteUrl(v string) *GetApplyInviteInfoResponseBody {
+	s.InviteUrl = &v
+	return s
+}
+
+func (s *GetApplyInviteInfoResponseBody) SetAuditType(v int64) *GetApplyInviteInfoResponseBody {
+	s.AuditType = &v
+	return s
+}
+
+func (s *GetApplyInviteInfoResponseBody) SetEmpApplyJoinDept(v bool) *GetApplyInviteInfoResponseBody {
+	s.EmpApplyJoinDept = &v
+	return s
+}
+
+type GetApplyInviteInfoResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetApplyInviteInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetApplyInviteInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetApplyInviteInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetApplyInviteInfoResponse) SetHeaders(v map[string]*string) *GetApplyInviteInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetApplyInviteInfoResponse) SetBody(v *GetApplyInviteInfoResponseBody) *GetApplyInviteInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetBranchAuthDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetBranchAuthDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBranchAuthDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetBranchAuthDataHeaders) SetCommonHeaders(v map[string]*string) *GetBranchAuthDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetBranchAuthDataHeaders) SetXAcsDingtalkAccessToken(v string) *GetBranchAuthDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetBranchAuthDataRequest struct {
+	// 分支组织corpId
+	BranchCorpId *string `json:"branchCorpId,omitempty" xml:"branchCorpId,omitempty"`
+	// 数据编码
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 查询条件
+	Body map[string]*string `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetBranchAuthDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBranchAuthDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetBranchAuthDataRequest) SetBranchCorpId(v string) *GetBranchAuthDataRequest {
+	s.BranchCorpId = &v
+	return s
+}
+
+func (s *GetBranchAuthDataRequest) SetCode(v string) *GetBranchAuthDataRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *GetBranchAuthDataRequest) SetBody(v map[string]*string) *GetBranchAuthDataRequest {
+	s.Body = v
+	return s
+}
+
+type GetBranchAuthDataResponseBody struct {
+	// result
+	Result []*GetBranchAuthDataResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetBranchAuthDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBranchAuthDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetBranchAuthDataResponseBody) SetResult(v []*GetBranchAuthDataResponseBodyResult) *GetBranchAuthDataResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetBranchAuthDataResponseBodyResult struct {
+	// 字段code
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// 字段名称
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// 字段值
+	FieldValue *string `json:"fieldValue,omitempty" xml:"fieldValue,omitempty"`
+}
+
+func (s GetBranchAuthDataResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBranchAuthDataResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetBranchAuthDataResponseBodyResult) SetFieldCode(v string) *GetBranchAuthDataResponseBodyResult {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *GetBranchAuthDataResponseBodyResult) SetFieldName(v string) *GetBranchAuthDataResponseBodyResult {
+	s.FieldName = &v
+	return s
+}
+
+func (s *GetBranchAuthDataResponseBodyResult) SetFieldValue(v string) *GetBranchAuthDataResponseBodyResult {
+	s.FieldValue = &v
+	return s
+}
+
+type GetBranchAuthDataResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetBranchAuthDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetBranchAuthDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBranchAuthDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetBranchAuthDataResponse) SetHeaders(v map[string]*string) *GetBranchAuthDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetBranchAuthDataResponse) SetBody(v *GetBranchAuthDataResponseBody) *GetBranchAuthDataResponse {
+	s.Body = v
+	return s
+}
+
 type GetLatestDingIndexHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -202,137 +461,6 @@ func (s *GetUserResponse) SetBody(v *GetUserResponseBody) *GetUserResponse {
 	return s
 }
 
-type GetApplyInviteInfoHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s GetApplyInviteInfoHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetApplyInviteInfoHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *GetApplyInviteInfoHeaders) SetCommonHeaders(v map[string]*string) *GetApplyInviteInfoHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *GetApplyInviteInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetApplyInviteInfoHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type GetApplyInviteInfoRequest struct {
-	// 邀请者userId
-	InviterUserId *string `json:"inviterUserId,omitempty" xml:"inviterUserId,omitempty"`
-	// 获取部门邀请链接的部门ID
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-}
-
-func (s GetApplyInviteInfoRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetApplyInviteInfoRequest) GoString() string {
-	return s.String()
-}
-
-func (s *GetApplyInviteInfoRequest) SetInviterUserId(v string) *GetApplyInviteInfoRequest {
-	s.InviterUserId = &v
-	return s
-}
-
-func (s *GetApplyInviteInfoRequest) SetDeptId(v int64) *GetApplyInviteInfoRequest {
-	s.DeptId = &v
-	return s
-}
-
-type GetApplyInviteInfoResponseBody struct {
-	// 是否开启邀请
-	InviteSwitch *bool `json:"inviteSwitch,omitempty" xml:"inviteSwitch,omitempty"`
-	// 是否开启通过企业名称搜索申请
-	SearchNameInvite *bool `json:"searchNameInvite,omitempty" xml:"searchNameInvite,omitempty"`
-	// 是否开启通过团队号申请加入
-	OrgApplyCodeInvite *bool `json:"orgApplyCodeInvite,omitempty" xml:"orgApplyCodeInvite,omitempty"`
-	// 是否开启通过链接邀请加入
-	LinkInvite *bool `json:"linkInvite,omitempty" xml:"linkInvite,omitempty"`
-	// 邀请链接
-	InviteUrl *string `json:"inviteUrl,omitempty" xml:"inviteUrl,omitempty"`
-	// 仅部门邀请有效： 0-无需审核 1-有权限的子管理员
-	AuditType *int64 `json:"auditType,omitempty" xml:"auditType,omitempty"`
-	// 是否允许员工扫码加入部门，仅在无需审核的时候有效（已经在组织内的成员通过扫描部门二维码加入某个部门）
-	EmpApplyJoinDept *bool `json:"empApplyJoinDept,omitempty" xml:"empApplyJoinDept,omitempty"`
-}
-
-func (s GetApplyInviteInfoResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetApplyInviteInfoResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *GetApplyInviteInfoResponseBody) SetInviteSwitch(v bool) *GetApplyInviteInfoResponseBody {
-	s.InviteSwitch = &v
-	return s
-}
-
-func (s *GetApplyInviteInfoResponseBody) SetSearchNameInvite(v bool) *GetApplyInviteInfoResponseBody {
-	s.SearchNameInvite = &v
-	return s
-}
-
-func (s *GetApplyInviteInfoResponseBody) SetOrgApplyCodeInvite(v bool) *GetApplyInviteInfoResponseBody {
-	s.OrgApplyCodeInvite = &v
-	return s
-}
-
-func (s *GetApplyInviteInfoResponseBody) SetLinkInvite(v bool) *GetApplyInviteInfoResponseBody {
-	s.LinkInvite = &v
-	return s
-}
-
-func (s *GetApplyInviteInfoResponseBody) SetInviteUrl(v string) *GetApplyInviteInfoResponseBody {
-	s.InviteUrl = &v
-	return s
-}
-
-func (s *GetApplyInviteInfoResponseBody) SetAuditType(v int64) *GetApplyInviteInfoResponseBody {
-	s.AuditType = &v
-	return s
-}
-
-func (s *GetApplyInviteInfoResponseBody) SetEmpApplyJoinDept(v bool) *GetApplyInviteInfoResponseBody {
-	s.EmpApplyJoinDept = &v
-	return s
-}
-
-type GetApplyInviteInfoResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetApplyInviteInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s GetApplyInviteInfoResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetApplyInviteInfoResponse) GoString() string {
-	return s.String()
-}
-
-func (s *GetApplyInviteInfoResponse) SetHeaders(v map[string]*string) *GetApplyInviteInfoResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *GetApplyInviteInfoResponse) SetBody(v *GetApplyInviteInfoResponseBody) *GetApplyInviteInfoResponse {
-	s.Body = v
-	return s
-}
-
 type Client struct {
 	openapi.Client
 }
@@ -354,6 +482,108 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) GetApplyInviteInfo(request *GetApplyInviteInfoRequest) (_result *GetApplyInviteInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetApplyInviteInfoHeaders{}
+	_result = &GetApplyInviteInfoResponse{}
+	_body, _err := client.GetApplyInviteInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetApplyInviteInfoWithOptions(request *GetApplyInviteInfoRequest, headers *GetApplyInviteInfoHeaders, runtime *util.RuntimeOptions) (_result *GetApplyInviteInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InviterUserId)) {
+		query["inviterUserId"] = request.InviterUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		query["deptId"] = request.DeptId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetApplyInviteInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetApplyInviteInfo"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/invites/infos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetBranchAuthData(request *GetBranchAuthDataRequest) (_result *GetBranchAuthDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetBranchAuthDataHeaders{}
+	_result = &GetBranchAuthDataResponse{}
+	_body, _err := client.GetBranchAuthDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetBranchAuthDataWithOptions(request *GetBranchAuthDataRequest, headers *GetBranchAuthDataHeaders, runtime *util.RuntimeOptions) (_result *GetBranchAuthDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BranchCorpId)) {
+		query["branchCorpId"] = request.BranchCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		query["code"] = request.Code
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Body)) {
+		body["body"] = request.Body
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetBranchAuthDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetBranchAuthData"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/branchAuthDatas/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) GetLatestDingIndex() (_result *GetLatestDingIndexResponse, _err error) {
@@ -417,54 +647,6 @@ func (client *Client) GetUserWithOptions(unionId *string, headers *GetUserHeader
 	}
 	_result = &GetUserResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetUser"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/users/"+tea.StringValue(unionId)), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) GetApplyInviteInfo(request *GetApplyInviteInfoRequest) (_result *GetApplyInviteInfoResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetApplyInviteInfoHeaders{}
-	_result = &GetApplyInviteInfoResponse{}
-	_body, _err := client.GetApplyInviteInfoWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) GetApplyInviteInfoWithOptions(request *GetApplyInviteInfoRequest, headers *GetApplyInviteInfoHeaders, runtime *util.RuntimeOptions) (_result *GetApplyInviteInfoResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.InviterUserId)) {
-		query["inviterUserId"] = request.InviterUserId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
-		query["deptId"] = request.DeptId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &GetApplyInviteInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetApplyInviteInfo"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/invites/infos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
