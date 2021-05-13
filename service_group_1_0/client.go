@@ -1003,6 +1003,10 @@ type QueryServiceGroupMessageReadStatusResponseBodyRecords struct {
 	ReceiverUnionId *string `json:"receiverUnionId,omitempty" xml:"receiverUnionId,omitempty"`
 	// 状态：已读1/未读0
 	ReadStatus *int32 `json:"readStatus,omitempty" xml:"readStatus,omitempty"`
+	// 接收者昵称
+	ReceiverName *string `json:"receiverName,omitempty" xml:"receiverName,omitempty"`
+	// 接收者dingtalkId
+	ReceiverDingTalkId *string `json:"receiverDingTalkId,omitempty" xml:"receiverDingTalkId,omitempty"`
 }
 
 func (s QueryServiceGroupMessageReadStatusResponseBodyRecords) String() string {
@@ -1025,6 +1029,16 @@ func (s *QueryServiceGroupMessageReadStatusResponseBodyRecords) SetReceiverUnion
 
 func (s *QueryServiceGroupMessageReadStatusResponseBodyRecords) SetReadStatus(v int32) *QueryServiceGroupMessageReadStatusResponseBodyRecords {
 	s.ReadStatus = &v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusResponseBodyRecords) SetReceiverName(v string) *QueryServiceGroupMessageReadStatusResponseBodyRecords {
+	s.ReceiverName = &v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusResponseBodyRecords) SetReceiverDingTalkId(v string) *QueryServiceGroupMessageReadStatusResponseBodyRecords {
+	s.ReceiverDingTalkId = &v
 	return s
 }
 
@@ -1318,6 +1332,8 @@ type QueryGroupRequest struct {
 	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
 	// 开放群ID
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 业务关联ID，和开放群ID二选一传
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
 }
 
 func (s QueryGroupRequest) String() string {
@@ -1350,6 +1366,11 @@ func (s *QueryGroupRequest) SetDingTokenGrantType(v int64) *QueryGroupRequest {
 
 func (s *QueryGroupRequest) SetOpenConversationId(v string) *QueryGroupRequest {
 	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QueryGroupRequest) SetBizId(v string) *QueryGroupRequest {
+	s.BizId = &v
 	return s
 }
 
@@ -2121,6 +2142,10 @@ func (client *Client) QueryGroupWithOptions(request *QueryGroupRequest, headers 
 
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
 		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
 	}
 
 	realHeaders := make(map[string]*string)

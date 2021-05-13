@@ -1516,6 +1516,8 @@ type PatchEventRequest struct {
 	Recurrence *PatchEventRequestRecurrence  `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
 	Attendees  []*PatchEventRequestAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
 	Location   *PatchEventRequestLocation    `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
+	// 扩展信息
+	Extra map[string]*string `json:"extra,omitempty" xml:"extra,omitempty"`
 }
 
 func (s PatchEventRequest) String() string {
@@ -1568,6 +1570,11 @@ func (s *PatchEventRequest) SetAttendees(v []*PatchEventRequestAttendees) *Patch
 
 func (s *PatchEventRequest) SetLocation(v *PatchEventRequestLocation) *PatchEventRequest {
 	s.Location = v
+	return s
+}
+
+func (s *PatchEventRequest) SetExtra(v map[string]*string) *PatchEventRequest {
+	s.Extra = v
 	return s
 }
 
@@ -2147,6 +2154,8 @@ type CreateEventRequest struct {
 	Recurrence *CreateEventRequestRecurrence  `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
 	Attendees  []*CreateEventRequestAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
 	Location   *CreateEventRequestLocation    `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
+	// 扩展信息
+	Extra map[string]*string `json:"extra,omitempty" xml:"extra,omitempty"`
 }
 
 func (s CreateEventRequest) String() string {
@@ -2194,6 +2203,11 @@ func (s *CreateEventRequest) SetAttendees(v []*CreateEventRequestAttendees) *Cre
 
 func (s *CreateEventRequest) SetLocation(v *CreateEventRequestLocation) *CreateEventRequest {
 	s.Location = v
+	return s
+}
+
+func (s *CreateEventRequest) SetExtra(v map[string]*string) *CreateEventRequest {
+	s.Extra = v
 	return s
 }
 
@@ -3264,6 +3278,10 @@ func (client *Client) PatchEventWithOptions(userId *string, calendarId *string, 
 		body["location"] = request.Location
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Extra)) {
+		body["extra"] = request.Extra
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3334,6 +3352,10 @@ func (client *Client) CreateEventWithOptions(userId *string, calendarId *string,
 
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Location))) {
 		body["location"] = request.Location
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extra)) {
+		body["extra"] = request.Extra
 	}
 
 	realHeaders := make(map[string]*string)
