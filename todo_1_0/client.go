@@ -347,7 +347,7 @@ func (s *UpdateTodoTaskHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTodo
 
 type UpdateTodoTaskRequest struct {
 	// 待办标题
-	Sucject *string `json:"sucject,omitempty" xml:"sucject,omitempty"`
+	Subject *string `json:"subject,omitempty" xml:"subject,omitempty"`
 	// 待办描述备注
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 	// 截止时间
@@ -370,8 +370,8 @@ func (s UpdateTodoTaskRequest) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateTodoTaskRequest) SetSucject(v string) *UpdateTodoTaskRequest {
-	s.Sucject = &v
+func (s *UpdateTodoTaskRequest) SetSubject(v string) *UpdateTodoTaskRequest {
+	s.Subject = &v
 	return s
 }
 
@@ -891,8 +891,8 @@ func (client *Client) UpdateTodoTaskWithOptions(unionId *string, taskId *string,
 	}
 
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Sucject)) {
-		body["sucject"] = request.Sucject
+	if !tea.BoolValue(util.IsUnset(request.Subject)) {
+		body["subject"] = request.Subject
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Description)) {

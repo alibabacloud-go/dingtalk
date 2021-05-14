@@ -75,6 +75,140 @@ func (s *QueryOrgTypeResponse) SetBody(v *QueryOrgTypeResponseBody) *QueryOrgTyp
 	return s
 }
 
+type GetDefaultChildHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetDefaultChildHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDefaultChildHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetDefaultChildHeaders) SetCommonHeaders(v map[string]*string) *GetDefaultChildHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetDefaultChildHeaders) SetXAcsDingtalkAccessToken(v string) *GetDefaultChildHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetDefaultChildResponseBody struct {
+	Name         *string                                    `json:"name,omitempty" xml:"name,omitempty"`
+	Nick         *string                                    `json:"nick,omitempty" xml:"nick,omitempty"`
+	Avatar       *string                                    `json:"avatar,omitempty" xml:"avatar,omitempty"`
+	UnionId      *string                                    `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	Period       *string                                    `json:"period,omitempty" xml:"period,omitempty"`
+	Grade        *int32                                     `json:"grade,omitempty" xml:"grade,omitempty"`
+	BindStudents []*GetDefaultChildResponseBodyBindStudents `json:"bindStudents,omitempty" xml:"bindStudents,omitempty" type:"Repeated"`
+}
+
+func (s GetDefaultChildResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDefaultChildResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetDefaultChildResponseBody) SetName(v string) *GetDefaultChildResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *GetDefaultChildResponseBody) SetNick(v string) *GetDefaultChildResponseBody {
+	s.Nick = &v
+	return s
+}
+
+func (s *GetDefaultChildResponseBody) SetAvatar(v string) *GetDefaultChildResponseBody {
+	s.Avatar = &v
+	return s
+}
+
+func (s *GetDefaultChildResponseBody) SetUnionId(v string) *GetDefaultChildResponseBody {
+	s.UnionId = &v
+	return s
+}
+
+func (s *GetDefaultChildResponseBody) SetPeriod(v string) *GetDefaultChildResponseBody {
+	s.Period = &v
+	return s
+}
+
+func (s *GetDefaultChildResponseBody) SetGrade(v int32) *GetDefaultChildResponseBody {
+	s.Grade = &v
+	return s
+}
+
+func (s *GetDefaultChildResponseBody) SetBindStudents(v []*GetDefaultChildResponseBodyBindStudents) *GetDefaultChildResponseBody {
+	s.BindStudents = v
+	return s
+}
+
+type GetDefaultChildResponseBodyBindStudents struct {
+	CorpId  *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
+	ClassId *int64  `json:"classId,omitempty" xml:"classId,omitempty"`
+	Period  *string `json:"period,omitempty" xml:"period,omitempty"`
+}
+
+func (s GetDefaultChildResponseBodyBindStudents) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDefaultChildResponseBodyBindStudents) GoString() string {
+	return s.String()
+}
+
+func (s *GetDefaultChildResponseBodyBindStudents) SetCorpId(v string) *GetDefaultChildResponseBodyBindStudents {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetDefaultChildResponseBodyBindStudents) SetStaffId(v string) *GetDefaultChildResponseBodyBindStudents {
+	s.StaffId = &v
+	return s
+}
+
+func (s *GetDefaultChildResponseBodyBindStudents) SetClassId(v int64) *GetDefaultChildResponseBodyBindStudents {
+	s.ClassId = &v
+	return s
+}
+
+func (s *GetDefaultChildResponseBodyBindStudents) SetPeriod(v string) *GetDefaultChildResponseBodyBindStudents {
+	s.Period = &v
+	return s
+}
+
+type GetDefaultChildResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetDefaultChildResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetDefaultChildResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDefaultChildResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetDefaultChildResponse) SetHeaders(v map[string]*string) *GetDefaultChildResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetDefaultChildResponse) SetBody(v *GetDefaultChildResponseBody) *GetDefaultChildResponse {
+	s.Body = v
+	return s
+}
+
 type BatchCreateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1584,6 +1718,40 @@ func (client *Client) QueryOrgTypeWithOptions(headers *QueryOrgTypeHeaders, runt
 	}
 	_result = &QueryOrgTypeResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryOrgType"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/orgTypes"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetDefaultChild() (_result *GetDefaultChildResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetDefaultChildHeaders{}
+	_result = &GetDefaultChildResponse{}
+	_body, _err := client.GetDefaultChildWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetDefaultChildWithOptions(headers *GetDefaultChildHeaders, runtime *util.RuntimeOptions) (_result *GetDefaultChildResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetDefaultChildResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetDefaultChild"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/defaultChildren"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
