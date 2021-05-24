@@ -374,7 +374,9 @@ type CreateGroupRequest struct {
 	// 群主员工ID
 	OwnerStaffId *string `json:"ownerStaffId,omitempty" xml:"ownerStaffId,omitempty"`
 	// 群成员员工ID列表
-	MemberStaffIds     []*string `json:"memberStaffIds,omitempty" xml:"memberStaffIds,omitempty" type:"Repeated"`
+	MemberStaffIds []*string `json:"memberStaffIds,omitempty" xml:"memberStaffIds,omitempty" type:"Repeated"`
+	// 群标签
+	GroupTagNames      []*string `json:"groupTagNames,omitempty" xml:"groupTagNames,omitempty" type:"Repeated"`
 	DingIsvOrgId       *int64    `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
 	DingOrgId          *int64    `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
 	DingSuiteKey       *string   `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
@@ -416,6 +418,11 @@ func (s *CreateGroupRequest) SetOwnerStaffId(v string) *CreateGroupRequest {
 
 func (s *CreateGroupRequest) SetMemberStaffIds(v []*string) *CreateGroupRequest {
 	s.MemberStaffIds = v
+	return s
+}
+
+func (s *CreateGroupRequest) SetGroupTagNames(v []*string) *CreateGroupRequest {
+	s.GroupTagNames = v
 	return s
 }
 
@@ -1330,6 +1337,8 @@ type QueryGroupRequest struct {
 	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
 	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
 	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 	// 开放群ID
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	// 业务关联ID，和开放群ID二选一传
@@ -1361,6 +1370,11 @@ func (s *QueryGroupRequest) SetDingSuiteKey(v string) *QueryGroupRequest {
 
 func (s *QueryGroupRequest) SetDingTokenGrantType(v int64) *QueryGroupRequest {
 	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *QueryGroupRequest) SetOpenTeamId(v string) *QueryGroupRequest {
+	s.OpenTeamId = &v
 	return s
 }
 
@@ -1672,6 +1686,10 @@ func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, header
 
 	if !tea.BoolValue(util.IsUnset(request.MemberStaffIds)) {
 		body["memberStaffIds"] = request.MemberStaffIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupTagNames)) {
+		body["groupTagNames"] = request.GroupTagNames
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
@@ -2138,6 +2156,10 @@ func (client *Client) QueryGroupWithOptions(request *QueryGroupRequest, headers 
 
 	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
 		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {

@@ -11,6 +11,94 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type GetShareRolesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetShareRolesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShareRolesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetShareRolesHeaders) SetCommonHeaders(v map[string]*string) *GetShareRolesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetShareRolesHeaders) SetXAcsDingtalkAccessToken(v string) *GetShareRolesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetShareRolesResponseBody struct {
+	Result []*GetShareRolesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetShareRolesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShareRolesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetShareRolesResponseBody) SetResult(v []*GetShareRolesResponseBodyResult) *GetShareRolesResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetShareRolesResponseBodyResult struct {
+	// 角色code
+	ShareRoleCode *string `json:"shareRoleCode,omitempty" xml:"shareRoleCode,omitempty"`
+	// 角色名称
+	ShareRoleName *string `json:"shareRoleName,omitempty" xml:"shareRoleName,omitempty"`
+}
+
+func (s GetShareRolesResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShareRolesResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetShareRolesResponseBodyResult) SetShareRoleCode(v string) *GetShareRolesResponseBodyResult {
+	s.ShareRoleCode = &v
+	return s
+}
+
+func (s *GetShareRolesResponseBodyResult) SetShareRoleName(v string) *GetShareRolesResponseBodyResult {
+	s.ShareRoleName = &v
+	return s
+}
+
+type GetShareRolesResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetShareRolesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetShareRolesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShareRolesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetShareRolesResponse) SetHeaders(v map[string]*string) *GetShareRolesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetShareRolesResponse) SetBody(v *GetShareRolesResponseBody) *GetShareRolesResponse {
+	s.Body = v
+	return s
+}
+
 type QueryOrgTypeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1668,6 +1756,94 @@ func (s *DeleteTeacherResponse) SetBody(v *DeleteTeacherResponseBody) *DeleteTea
 	return s
 }
 
+type GetShareRoleMembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetShareRoleMembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShareRoleMembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetShareRoleMembersHeaders) SetCommonHeaders(v map[string]*string) *GetShareRoleMembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetShareRoleMembersHeaders) SetXAcsDingtalkAccessToken(v string) *GetShareRoleMembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetShareRoleMembersResponseBody struct {
+	Result []*GetShareRoleMembersResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetShareRoleMembersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShareRoleMembersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetShareRoleMembersResponseBody) SetResult(v []*GetShareRoleMembersResponseBodyResult) *GetShareRoleMembersResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetShareRoleMembersResponseBodyResult struct {
+	// 分支组织corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 角色成员在主干组织中的userId列表
+	MemberUserIdListInTrunkOrg []*string `json:"memberUserIdListInTrunkOrg,omitempty" xml:"memberUserIdListInTrunkOrg,omitempty" type:"Repeated"`
+}
+
+func (s GetShareRoleMembersResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShareRoleMembersResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetShareRoleMembersResponseBodyResult) SetCorpId(v string) *GetShareRoleMembersResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetShareRoleMembersResponseBodyResult) SetMemberUserIdListInTrunkOrg(v []*string) *GetShareRoleMembersResponseBodyResult {
+	s.MemberUserIdListInTrunkOrg = v
+	return s
+}
+
+type GetShareRoleMembersResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetShareRoleMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetShareRoleMembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShareRoleMembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetShareRoleMembersResponse) SetHeaders(v map[string]*string) *GetShareRoleMembersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetShareRoleMembersResponse) SetBody(v *GetShareRoleMembersResponseBody) *GetShareRoleMembersResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -1689,6 +1865,40 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) GetShareRoles() (_result *GetShareRolesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetShareRolesHeaders{}
+	_result = &GetShareRolesResponse{}
+	_body, _err := client.GetShareRolesWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetShareRolesWithOptions(headers *GetShareRolesHeaders, runtime *util.RuntimeOptions) (_result *GetShareRolesResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetShareRolesResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetShareRoles"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/shareRoles"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) QueryOrgType() (_result *QueryOrgTypeResponse, _err error) {
@@ -2276,6 +2486,40 @@ func (client *Client) DeleteTeacherWithOptions(classId *string, userId *string, 
 	}
 	_result = &DeleteTeacherResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteTeacher"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/classes/"+tea.StringValue(classId)+"/teachers/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetShareRoleMembers(shareRoleCode *string) (_result *GetShareRoleMembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetShareRoleMembersHeaders{}
+	_result = &GetShareRoleMembersResponse{}
+	_body, _err := client.GetShareRoleMembersWithOptions(shareRoleCode, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetShareRoleMembersWithOptions(shareRoleCode *string, headers *GetShareRoleMembersHeaders, runtime *util.RuntimeOptions) (_result *GetShareRoleMembersResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetShareRoleMembersResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetShareRoleMembers"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/shareRoles/"+tea.StringValue(shareRoleCode)+"/members"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

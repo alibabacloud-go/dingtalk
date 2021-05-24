@@ -11,6 +11,434 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type GetTodoTypeConfigHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTodoTypeConfigHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTodoTypeConfigHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTodoTypeConfigHeaders) SetCommonHeaders(v map[string]*string) *GetTodoTypeConfigHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTodoTypeConfigHeaders) SetXAcsDingtalkAccessToken(v string) *GetTodoTypeConfigHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTodoTypeConfigResponseBody struct {
+	// id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 创建时间
+	CreatedTime *int64 `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
+	// 更新时间
+	ModifiedTime *int64 `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// 创建者（用户的unionId）
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 更新者（用户的unionId）
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// 接入应用标识
+	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
+	// requestId
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// 卡片类型（取值为：1-标准卡片，2-自定义卡片）
+	CardType *int32 `json:"cardType,omitempty" xml:"cardType,omitempty"`
+	// 卡片类型icon，用于在待办列表展示
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 待办卡片类型描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 详情页链接在PC端的打开方式，取值为：「PC_SLIDE」-PC端侧边栏打开，「PC_BROWSER」-浏览器打开
+	PcDetailUrlOpenMode *string `json:"pcDetailUrlOpenMode,omitempty" xml:"pcDetailUrlOpenMode,omitempty"`
+	// 待办卡片内容区表单自定义字段配置
+	ContentFieldList []*GetTodoTypeConfigResponseBodyContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
+	// 待办卡片操作区按钮配置
+	ActionList []*GetTodoTypeConfigResponseBodyActionList `json:"actionList,omitempty" xml:"actionList,omitempty" type:"Repeated"`
+}
+
+func (s GetTodoTypeConfigResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTodoTypeConfigResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTodoTypeConfigResponseBody) SetId(v string) *GetTodoTypeConfigResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBody) SetCreatedTime(v int64) *GetTodoTypeConfigResponseBody {
+	s.CreatedTime = &v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBody) SetModifiedTime(v int64) *GetTodoTypeConfigResponseBody {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBody) SetCreatorId(v string) *GetTodoTypeConfigResponseBody {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBody) SetModifierId(v string) *GetTodoTypeConfigResponseBody {
+	s.ModifierId = &v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBody) SetBizTag(v string) *GetTodoTypeConfigResponseBody {
+	s.BizTag = &v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBody) SetRequestId(v string) *GetTodoTypeConfigResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBody) SetCardType(v int32) *GetTodoTypeConfigResponseBody {
+	s.CardType = &v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBody) SetIcon(v string) *GetTodoTypeConfigResponseBody {
+	s.Icon = &v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBody) SetDescription(v string) *GetTodoTypeConfigResponseBody {
+	s.Description = &v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBody) SetPcDetailUrlOpenMode(v string) *GetTodoTypeConfigResponseBody {
+	s.PcDetailUrlOpenMode = &v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBody) SetContentFieldList(v []*GetTodoTypeConfigResponseBodyContentFieldList) *GetTodoTypeConfigResponseBody {
+	s.ContentFieldList = v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBody) SetActionList(v []*GetTodoTypeConfigResponseBodyActionList) *GetTodoTypeConfigResponseBody {
+	s.ActionList = v
+	return s
+}
+
+type GetTodoTypeConfigResponseBodyContentFieldList struct {
+	// 字段唯一标识
+	FieldKey *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
+	// 字段类型（取值为：text-文本，url-链接）
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	// 字段的显示名称（支持国际化）
+	NameI18n map[string]interface{} `json:"nameI18n,omitempty" xml:"nameI18n,omitempty"`
+}
+
+func (s GetTodoTypeConfigResponseBodyContentFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTodoTypeConfigResponseBodyContentFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *GetTodoTypeConfigResponseBodyContentFieldList) SetFieldKey(v string) *GetTodoTypeConfigResponseBodyContentFieldList {
+	s.FieldKey = &v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBodyContentFieldList) SetFieldType(v string) *GetTodoTypeConfigResponseBodyContentFieldList {
+	s.FieldType = &v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBodyContentFieldList) SetNameI18n(v map[string]interface{}) *GetTodoTypeConfigResponseBodyContentFieldList {
+	s.NameI18n = v
+	return s
+}
+
+type GetTodoTypeConfigResponseBodyActionList struct {
+	// 操作按钮的唯一标识
+	ActionKey *string `json:"actionKey,omitempty" xml:"actionKey,omitempty"`
+	// 按钮样式类型（101：蓝色线型主按钮样式，例如「同意」，102：黑色线型副按钮样式，例如「拒绝」）
+	ButtonStyleType *int32 `json:"buttonStyleType,omitempty" xml:"buttonStyleType,omitempty"`
+	// 按钮类型（1：有操作的，2：直接跳转）
+	ActionType *int32 `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// 按钮类型为直接跳转时，对应的跳转url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 按钮操作的显示名称（支持国际化）
+	NameI18n map[string]interface{} `json:"nameI18n,omitempty" xml:"nameI18n,omitempty"`
+}
+
+func (s GetTodoTypeConfigResponseBodyActionList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTodoTypeConfigResponseBodyActionList) GoString() string {
+	return s.String()
+}
+
+func (s *GetTodoTypeConfigResponseBodyActionList) SetActionKey(v string) *GetTodoTypeConfigResponseBodyActionList {
+	s.ActionKey = &v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBodyActionList) SetButtonStyleType(v int32) *GetTodoTypeConfigResponseBodyActionList {
+	s.ButtonStyleType = &v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBodyActionList) SetActionType(v int32) *GetTodoTypeConfigResponseBodyActionList {
+	s.ActionType = &v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBodyActionList) SetUrl(v string) *GetTodoTypeConfigResponseBodyActionList {
+	s.Url = &v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponseBodyActionList) SetNameI18n(v map[string]interface{}) *GetTodoTypeConfigResponseBodyActionList {
+	s.NameI18n = v
+	return s
+}
+
+type GetTodoTypeConfigResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetTodoTypeConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetTodoTypeConfigResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTodoTypeConfigResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTodoTypeConfigResponse) SetHeaders(v map[string]*string) *GetTodoTypeConfigResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTodoTypeConfigResponse) SetBody(v *GetTodoTypeConfigResponseBody) *GetTodoTypeConfigResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateTodoTypeConfigHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateTodoTypeConfigHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTodoTypeConfigHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTodoTypeConfigHeaders) SetCommonHeaders(v map[string]*string) *UpdateTodoTypeConfigHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateTodoTypeConfigHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTodoTypeConfigHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateTodoTypeConfigRequest struct {
+	// 卡片类型（取值为：1-标准卡片，2-自定义卡片）
+	CardType *int32 `json:"cardType,omitempty" xml:"cardType,omitempty"`
+	// 卡片类型icon，用于在待办列表展示
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 待办卡片类型描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 详情页链接在PC端的打开方式，取值为：「PC_SLIDE」-PC端侧边栏打开，「PC_BROWSER」-浏览器打开
+	PcDetailUrlOpenMode *string `json:"pcDetailUrlOpenMode,omitempty" xml:"pcDetailUrlOpenMode,omitempty"`
+	// 待办卡片内容区表单自定义字段配置
+	ContentFieldList []*UpdateTodoTypeConfigRequestContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
+	// 待办卡片操作区按钮配置
+	ActionList []*UpdateTodoTypeConfigRequestActionList `json:"actionList,omitempty" xml:"actionList,omitempty" type:"Repeated"`
+	// 当前操作者id，需传用户的unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s UpdateTodoTypeConfigRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTodoTypeConfigRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTodoTypeConfigRequest) SetCardType(v int32) *UpdateTodoTypeConfigRequest {
+	s.CardType = &v
+	return s
+}
+
+func (s *UpdateTodoTypeConfigRequest) SetIcon(v string) *UpdateTodoTypeConfigRequest {
+	s.Icon = &v
+	return s
+}
+
+func (s *UpdateTodoTypeConfigRequest) SetDescription(v string) *UpdateTodoTypeConfigRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *UpdateTodoTypeConfigRequest) SetPcDetailUrlOpenMode(v string) *UpdateTodoTypeConfigRequest {
+	s.PcDetailUrlOpenMode = &v
+	return s
+}
+
+func (s *UpdateTodoTypeConfigRequest) SetContentFieldList(v []*UpdateTodoTypeConfigRequestContentFieldList) *UpdateTodoTypeConfigRequest {
+	s.ContentFieldList = v
+	return s
+}
+
+func (s *UpdateTodoTypeConfigRequest) SetActionList(v []*UpdateTodoTypeConfigRequestActionList) *UpdateTodoTypeConfigRequest {
+	s.ActionList = v
+	return s
+}
+
+func (s *UpdateTodoTypeConfigRequest) SetOperatorId(v string) *UpdateTodoTypeConfigRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type UpdateTodoTypeConfigRequestContentFieldList struct {
+	// 字段唯一标识
+	FieldKey *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
+	// 字段类型（取值为：text-文本，url-链接）
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	// 字段显示名称(需支持国际化)
+	NameI18n map[string]interface{} `json:"nameI18n,omitempty" xml:"nameI18n,omitempty"`
+}
+
+func (s UpdateTodoTypeConfigRequestContentFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTodoTypeConfigRequestContentFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTodoTypeConfigRequestContentFieldList) SetFieldKey(v string) *UpdateTodoTypeConfigRequestContentFieldList {
+	s.FieldKey = &v
+	return s
+}
+
+func (s *UpdateTodoTypeConfigRequestContentFieldList) SetFieldType(v string) *UpdateTodoTypeConfigRequestContentFieldList {
+	s.FieldType = &v
+	return s
+}
+
+func (s *UpdateTodoTypeConfigRequestContentFieldList) SetNameI18n(v map[string]interface{}) *UpdateTodoTypeConfigRequestContentFieldList {
+	s.NameI18n = v
+	return s
+}
+
+type UpdateTodoTypeConfigRequestActionList struct {
+	// 操作按钮的唯一标识
+	ActionKey *string `json:"actionKey,omitempty" xml:"actionKey,omitempty"`
+	// 按钮样式类型（101：蓝色线型主按钮样式，例如「同意」，102：黑色线型副按钮样式，例如「拒绝」）
+	ButtonStyleType *int32 `json:"buttonStyleType,omitempty" xml:"buttonStyleType,omitempty"`
+	// 按钮类型（1：有操作的，2：直接跳转）
+	ActionType *int32 `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// 按钮类型为直接跳转时，对应的跳转url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 按钮操作的显示名称（需支持国际化）
+	NameI18n map[string]interface{} `json:"nameI18n,omitempty" xml:"nameI18n,omitempty"`
+}
+
+func (s UpdateTodoTypeConfigRequestActionList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTodoTypeConfigRequestActionList) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTodoTypeConfigRequestActionList) SetActionKey(v string) *UpdateTodoTypeConfigRequestActionList {
+	s.ActionKey = &v
+	return s
+}
+
+func (s *UpdateTodoTypeConfigRequestActionList) SetButtonStyleType(v int32) *UpdateTodoTypeConfigRequestActionList {
+	s.ButtonStyleType = &v
+	return s
+}
+
+func (s *UpdateTodoTypeConfigRequestActionList) SetActionType(v int32) *UpdateTodoTypeConfigRequestActionList {
+	s.ActionType = &v
+	return s
+}
+
+func (s *UpdateTodoTypeConfigRequestActionList) SetUrl(v string) *UpdateTodoTypeConfigRequestActionList {
+	s.Url = &v
+	return s
+}
+
+func (s *UpdateTodoTypeConfigRequestActionList) SetNameI18n(v map[string]interface{}) *UpdateTodoTypeConfigRequestActionList {
+	s.NameI18n = v
+	return s
+}
+
+type UpdateTodoTypeConfigResponseBody struct {
+	// 更新结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateTodoTypeConfigResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTodoTypeConfigResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTodoTypeConfigResponseBody) SetResult(v bool) *UpdateTodoTypeConfigResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateTodoTypeConfigResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateTodoTypeConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateTodoTypeConfigResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTodoTypeConfigResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTodoTypeConfigResponse) SetHeaders(v map[string]*string) *UpdateTodoTypeConfigResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateTodoTypeConfigResponse) SetBody(v *UpdateTodoTypeConfigResponseBody) *UpdateTodoTypeConfigResponse {
+	s.Body = v
+	return s
+}
+
 type GetTodoTaskHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -322,6 +750,370 @@ func (s *DeleteTodoTaskResponse) SetBody(v *DeleteTodoTaskResponseBody) *DeleteT
 	return s
 }
 
+type CreateTodoTypeConfigHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateTodoTypeConfigHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTypeConfigHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTodoTypeConfigHeaders) SetCommonHeaders(v map[string]*string) *CreateTodoTypeConfigHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateTodoTypeConfigHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTodoTypeConfigHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateTodoTypeConfigRequest struct {
+	// 卡片类型（取值为：1-标准卡片，2-自定义卡片）
+	CardType *int32 `json:"cardType,omitempty" xml:"cardType,omitempty"`
+	// 卡片类型icon，用于在待办列表展示
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 待办卡片类型描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 详情页链接在PC端的打开方式，取值为：「PC_SLIDE」-PC端侧边栏打开，「PC_BROWSER」-浏览器打开
+	PcDetailUrlOpenMode *string `json:"pcDetailUrlOpenMode,omitempty" xml:"pcDetailUrlOpenMode,omitempty"`
+	// 待办卡片内容区表单自定义字段配置
+	ContentFieldList []*CreateTodoTypeConfigRequestContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
+	// 待办卡片操作区按钮配置
+	ActionList []*CreateTodoTypeConfigRequestActionList `json:"actionList,omitempty" xml:"actionList,omitempty" type:"Repeated"`
+	// 当前操作者id，需传用户的unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s CreateTodoTypeConfigRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTypeConfigRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTodoTypeConfigRequest) SetCardType(v int32) *CreateTodoTypeConfigRequest {
+	s.CardType = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigRequest) SetIcon(v string) *CreateTodoTypeConfigRequest {
+	s.Icon = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigRequest) SetDescription(v string) *CreateTodoTypeConfigRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigRequest) SetPcDetailUrlOpenMode(v string) *CreateTodoTypeConfigRequest {
+	s.PcDetailUrlOpenMode = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigRequest) SetContentFieldList(v []*CreateTodoTypeConfigRequestContentFieldList) *CreateTodoTypeConfigRequest {
+	s.ContentFieldList = v
+	return s
+}
+
+func (s *CreateTodoTypeConfigRequest) SetActionList(v []*CreateTodoTypeConfigRequestActionList) *CreateTodoTypeConfigRequest {
+	s.ActionList = v
+	return s
+}
+
+func (s *CreateTodoTypeConfigRequest) SetOperatorId(v string) *CreateTodoTypeConfigRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type CreateTodoTypeConfigRequestContentFieldList struct {
+	// 字段唯一标识
+	FieldKey *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
+	// 字段类型（取值为：text-文本，url-链接）
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	// 字段显示名称(需支持国际化)
+	NameI18n map[string]interface{} `json:"nameI18n,omitempty" xml:"nameI18n,omitempty"`
+}
+
+func (s CreateTodoTypeConfigRequestContentFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTypeConfigRequestContentFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTodoTypeConfigRequestContentFieldList) SetFieldKey(v string) *CreateTodoTypeConfigRequestContentFieldList {
+	s.FieldKey = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigRequestContentFieldList) SetFieldType(v string) *CreateTodoTypeConfigRequestContentFieldList {
+	s.FieldType = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigRequestContentFieldList) SetNameI18n(v map[string]interface{}) *CreateTodoTypeConfigRequestContentFieldList {
+	s.NameI18n = v
+	return s
+}
+
+type CreateTodoTypeConfigRequestActionList struct {
+	// 操作按钮的唯一标识
+	ActionKey *string `json:"actionKey,omitempty" xml:"actionKey,omitempty"`
+	// 按钮样式类型（101：蓝色线型主按钮样式，例如「同意」，102：黑色线型副按钮样式，例如「拒绝」）
+	ButtonStyleType *int32 `json:"buttonStyleType,omitempty" xml:"buttonStyleType,omitempty"`
+	// 按钮类型（1：有操作的，2：直接跳转）
+	ActionType *int32 `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// 按钮类型为直接跳转时，对应的跳转url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 按钮操作的显示名称（需支持国际化）
+	NameI18n map[string]interface{} `json:"nameI18n,omitempty" xml:"nameI18n,omitempty"`
+}
+
+func (s CreateTodoTypeConfigRequestActionList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTypeConfigRequestActionList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTodoTypeConfigRequestActionList) SetActionKey(v string) *CreateTodoTypeConfigRequestActionList {
+	s.ActionKey = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigRequestActionList) SetButtonStyleType(v int32) *CreateTodoTypeConfigRequestActionList {
+	s.ButtonStyleType = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigRequestActionList) SetActionType(v int32) *CreateTodoTypeConfigRequestActionList {
+	s.ActionType = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigRequestActionList) SetUrl(v string) *CreateTodoTypeConfigRequestActionList {
+	s.Url = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigRequestActionList) SetNameI18n(v map[string]interface{}) *CreateTodoTypeConfigRequestActionList {
+	s.NameI18n = v
+	return s
+}
+
+type CreateTodoTypeConfigResponseBody struct {
+	// id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 创建时间
+	CreatedTime *int64 `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
+	// 更新时间
+	ModifiedTime *int64 `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// 创建者（用户的unionId）
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 更新者（用户的unionId）
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// 接入应用标识
+	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
+	// requestId
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// 卡片类型（取值为：1-标准卡片，2-自定义卡片）
+	CardType *int32 `json:"cardType,omitempty" xml:"cardType,omitempty"`
+	// 卡片类型icon，用于在待办列表展示
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 待办卡片类型描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 详情页链接在PC端的打开方式，取值为：「PC_SLIDE」-PC端侧边栏打开，「PC_BROWSER」-浏览器打开
+	PcDetailUrlOpenMode *string `json:"pcDetailUrlOpenMode,omitempty" xml:"pcDetailUrlOpenMode,omitempty"`
+	// 待办卡片内容区表单自定义字段配置
+	ContentFieldList []*CreateTodoTypeConfigResponseBodyContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
+	// 待办卡片操作区按钮配置
+	ActionList []*CreateTodoTypeConfigResponseBodyActionList `json:"actionList,omitempty" xml:"actionList,omitempty" type:"Repeated"`
+}
+
+func (s CreateTodoTypeConfigResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTypeConfigResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTodoTypeConfigResponseBody) SetId(v string) *CreateTodoTypeConfigResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBody) SetCreatedTime(v int64) *CreateTodoTypeConfigResponseBody {
+	s.CreatedTime = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBody) SetModifiedTime(v int64) *CreateTodoTypeConfigResponseBody {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBody) SetCreatorId(v string) *CreateTodoTypeConfigResponseBody {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBody) SetModifierId(v string) *CreateTodoTypeConfigResponseBody {
+	s.ModifierId = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBody) SetBizTag(v string) *CreateTodoTypeConfigResponseBody {
+	s.BizTag = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBody) SetRequestId(v string) *CreateTodoTypeConfigResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBody) SetCardType(v int32) *CreateTodoTypeConfigResponseBody {
+	s.CardType = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBody) SetIcon(v string) *CreateTodoTypeConfigResponseBody {
+	s.Icon = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBody) SetDescription(v string) *CreateTodoTypeConfigResponseBody {
+	s.Description = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBody) SetPcDetailUrlOpenMode(v string) *CreateTodoTypeConfigResponseBody {
+	s.PcDetailUrlOpenMode = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBody) SetContentFieldList(v []*CreateTodoTypeConfigResponseBodyContentFieldList) *CreateTodoTypeConfigResponseBody {
+	s.ContentFieldList = v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBody) SetActionList(v []*CreateTodoTypeConfigResponseBodyActionList) *CreateTodoTypeConfigResponseBody {
+	s.ActionList = v
+	return s
+}
+
+type CreateTodoTypeConfigResponseBodyContentFieldList struct {
+	// 字段唯一标识
+	FieldKey *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
+	// 字段类型（取值为：text-文本，url-链接）
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	// 字段的显示名称（支持国际化）
+	NameI18n map[string]interface{} `json:"nameI18n,omitempty" xml:"nameI18n,omitempty"`
+}
+
+func (s CreateTodoTypeConfigResponseBodyContentFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTypeConfigResponseBodyContentFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTodoTypeConfigResponseBodyContentFieldList) SetFieldKey(v string) *CreateTodoTypeConfigResponseBodyContentFieldList {
+	s.FieldKey = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBodyContentFieldList) SetFieldType(v string) *CreateTodoTypeConfigResponseBodyContentFieldList {
+	s.FieldType = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBodyContentFieldList) SetNameI18n(v map[string]interface{}) *CreateTodoTypeConfigResponseBodyContentFieldList {
+	s.NameI18n = v
+	return s
+}
+
+type CreateTodoTypeConfigResponseBodyActionList struct {
+	// 操作按钮的唯一标识
+	ActionKey *string `json:"actionKey,omitempty" xml:"actionKey,omitempty"`
+	// 按钮样式类型（101：蓝色线型主按钮样式，例如「同意」，102：黑色线型副按钮样式，例如「拒绝」）
+	ButtonStyleType *int32 `json:"buttonStyleType,omitempty" xml:"buttonStyleType,omitempty"`
+	// 按钮类型（1：有操作的，2：直接跳转）
+	ActionType *int32 `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// 按钮类型为直接跳转时，对应的跳转url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 按钮操作的显示名称（支持国际化）
+	NameI18n map[string]interface{} `json:"nameI18n,omitempty" xml:"nameI18n,omitempty"`
+}
+
+func (s CreateTodoTypeConfigResponseBodyActionList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTypeConfigResponseBodyActionList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTodoTypeConfigResponseBodyActionList) SetActionKey(v string) *CreateTodoTypeConfigResponseBodyActionList {
+	s.ActionKey = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBodyActionList) SetButtonStyleType(v int32) *CreateTodoTypeConfigResponseBodyActionList {
+	s.ButtonStyleType = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBodyActionList) SetActionType(v int32) *CreateTodoTypeConfigResponseBodyActionList {
+	s.ActionType = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBodyActionList) SetUrl(v string) *CreateTodoTypeConfigResponseBodyActionList {
+	s.Url = &v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponseBodyActionList) SetNameI18n(v map[string]interface{}) *CreateTodoTypeConfigResponseBodyActionList {
+	s.NameI18n = v
+	return s
+}
+
+type CreateTodoTypeConfigResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateTodoTypeConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateTodoTypeConfigResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTypeConfigResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTodoTypeConfigResponse) SetHeaders(v map[string]*string) *CreateTodoTypeConfigResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateTodoTypeConfigResponse) SetBody(v *CreateTodoTypeConfigResponseBody) *CreateTodoTypeConfigResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateTodoTaskHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -486,6 +1278,10 @@ type CreateTodoTaskRequest struct {
 	ParticipantIds []*string `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
 	// 详情页url跳转地址
 	DetailUrl *CreateTodoTaskRequestDetailUrl `json:"detailUrl,omitempty" xml:"detailUrl,omitempty" type:"Struct"`
+	// 待办卡片类型id
+	CardTypeId *string `json:"cardTypeId,omitempty" xml:"cardTypeId,omitempty"`
+	// 待办卡片内容区表单自定义字段列表
+	ContentFieldList []*CreateTodoTaskRequestContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
 	// 当前操作者id，需传用户的unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
@@ -538,6 +1334,16 @@ func (s *CreateTodoTaskRequest) SetDetailUrl(v *CreateTodoTaskRequestDetailUrl) 
 	return s
 }
 
+func (s *CreateTodoTaskRequest) SetCardTypeId(v string) *CreateTodoTaskRequest {
+	s.CardTypeId = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequest) SetContentFieldList(v []*CreateTodoTaskRequestContentFieldList) *CreateTodoTaskRequest {
+	s.ContentFieldList = v
+	return s
+}
+
 func (s *CreateTodoTaskRequest) SetOperatorId(v string) *CreateTodoTaskRequest {
 	s.OperatorId = &v
 	return s
@@ -565,6 +1371,38 @@ func (s *CreateTodoTaskRequestDetailUrl) SetAppUrl(v string) *CreateTodoTaskRequ
 
 func (s *CreateTodoTaskRequestDetailUrl) SetPcUrl(v string) *CreateTodoTaskRequestDetailUrl {
 	s.PcUrl = &v
+	return s
+}
+
+type CreateTodoTaskRequestContentFieldList struct {
+	// 字段唯一标识
+	FieldKey *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
+	// 字段值
+	FieldValue *string `json:"fieldValue,omitempty" xml:"fieldValue,omitempty"`
+	// 字段内容链接
+	FieldLink *string `json:"fieldLink,omitempty" xml:"fieldLink,omitempty"`
+}
+
+func (s CreateTodoTaskRequestContentFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTaskRequestContentFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTodoTaskRequestContentFieldList) SetFieldKey(v string) *CreateTodoTaskRequestContentFieldList {
+	s.FieldKey = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequestContentFieldList) SetFieldValue(v string) *CreateTodoTaskRequestContentFieldList {
+	s.FieldValue = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequestContentFieldList) SetFieldLink(v string) *CreateTodoTaskRequestContentFieldList {
+	s.FieldLink = &v
 	return s
 }
 
@@ -609,6 +1447,10 @@ type CreateTodoTaskResponseBody struct {
 	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
 	// requestId
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// 待办卡片类型id
+	CardTypeId *string `json:"cardTypeId,omitempty" xml:"cardTypeId,omitempty"`
+	// 内容区表单字段配置
+	ContentFieldList []*CreateTodoTaskResponseBodyContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
 }
 
 func (s CreateTodoTaskResponseBody) String() string {
@@ -719,6 +1561,16 @@ func (s *CreateTodoTaskResponseBody) SetRequestId(v string) *CreateTodoTaskRespo
 	return s
 }
 
+func (s *CreateTodoTaskResponseBody) SetCardTypeId(v string) *CreateTodoTaskResponseBody {
+	s.CardTypeId = &v
+	return s
+}
+
+func (s *CreateTodoTaskResponseBody) SetContentFieldList(v []*CreateTodoTaskResponseBodyContentFieldList) *CreateTodoTaskResponseBody {
+	s.ContentFieldList = v
+	return s
+}
+
 type CreateTodoTaskResponseBodyDetailUrl struct {
 	// pc端详情页地址
 	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
@@ -741,6 +1593,38 @@ func (s *CreateTodoTaskResponseBodyDetailUrl) SetPcUrl(v string) *CreateTodoTask
 
 func (s *CreateTodoTaskResponseBodyDetailUrl) SetAppUrl(v string) *CreateTodoTaskResponseBodyDetailUrl {
 	s.AppUrl = &v
+	return s
+}
+
+type CreateTodoTaskResponseBodyContentFieldList struct {
+	// 字段唯一标识
+	FieldKey *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
+	// 字段值
+	FieldValue *string `json:"fieldValue,omitempty" xml:"fieldValue,omitempty"`
+	// 字段内容链接
+	FieldLink *string `json:"fieldLink,omitempty" xml:"fieldLink,omitempty"`
+}
+
+func (s CreateTodoTaskResponseBodyContentFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTaskResponseBodyContentFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTodoTaskResponseBodyContentFieldList) SetFieldKey(v string) *CreateTodoTaskResponseBodyContentFieldList {
+	s.FieldKey = &v
+	return s
+}
+
+func (s *CreateTodoTaskResponseBodyContentFieldList) SetFieldValue(v string) *CreateTodoTaskResponseBodyContentFieldList {
+	s.FieldValue = &v
+	return s
+}
+
+func (s *CreateTodoTaskResponseBodyContentFieldList) SetFieldLink(v string) *CreateTodoTaskResponseBodyContentFieldList {
+	s.FieldLink = &v
 	return s
 }
 
@@ -788,6 +1672,110 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) GetTodoTypeConfig(unionId *string, typeId *string) (_result *GetTodoTypeConfigResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTodoTypeConfigHeaders{}
+	_result = &GetTodoTypeConfigResponse{}
+	_body, _err := client.GetTodoTypeConfigWithOptions(unionId, typeId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetTodoTypeConfigWithOptions(unionId *string, typeId *string, headers *GetTodoTypeConfigHeaders, runtime *util.RuntimeOptions) (_result *GetTodoTypeConfigResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetTodoTypeConfigResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetTodoTypeConfig"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/configs/types/"+tea.StringValue(typeId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateTodoTypeConfig(unionId *string, typeId *string, request *UpdateTodoTypeConfigRequest) (_result *UpdateTodoTypeConfigResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTodoTypeConfigHeaders{}
+	_result = &UpdateTodoTypeConfigResponse{}
+	_body, _err := client.UpdateTodoTypeConfigWithOptions(unionId, typeId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateTodoTypeConfigWithOptions(unionId *string, typeId *string, request *UpdateTodoTypeConfigRequest, headers *UpdateTodoTypeConfigHeaders, runtime *util.RuntimeOptions) (_result *UpdateTodoTypeConfigResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CardType)) {
+		body["cardType"] = request.CardType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Icon)) {
+		body["icon"] = request.Icon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PcDetailUrlOpenMode)) {
+		body["pcDetailUrlOpenMode"] = request.PcDetailUrlOpenMode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContentFieldList)) {
+		body["contentFieldList"] = request.ContentFieldList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ActionList)) {
+		body["actionList"] = request.ActionList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateTodoTypeConfigResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateTodoTypeConfig"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/configs/types/"+tea.StringValue(typeId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) GetTodoTask(unionId *string, taskId *string) (_result *GetTodoTaskResponse, _err error) {
@@ -861,6 +1849,76 @@ func (client *Client) DeleteTodoTaskWithOptions(unionId *string, taskId *string,
 	}
 	_result = &DeleteTodoTaskResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteTodoTask"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/tasks/"+tea.StringValue(taskId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateTodoTypeConfig(unionId *string, request *CreateTodoTypeConfigRequest) (_result *CreateTodoTypeConfigResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateTodoTypeConfigHeaders{}
+	_result = &CreateTodoTypeConfigResponse{}
+	_body, _err := client.CreateTodoTypeConfigWithOptions(unionId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateTodoTypeConfigWithOptions(unionId *string, request *CreateTodoTypeConfigRequest, headers *CreateTodoTypeConfigHeaders, runtime *util.RuntimeOptions) (_result *CreateTodoTypeConfigResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CardType)) {
+		body["cardType"] = request.CardType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Icon)) {
+		body["icon"] = request.Icon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PcDetailUrlOpenMode)) {
+		body["pcDetailUrlOpenMode"] = request.PcDetailUrlOpenMode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContentFieldList)) {
+		body["contentFieldList"] = request.ContentFieldList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ActionList)) {
+		body["actionList"] = request.ActionList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateTodoTypeConfigResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateTodoTypeConfig"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/configs/types"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -991,6 +2049,14 @@ func (client *Client) CreateTodoTaskWithOptions(unionId *string, request *Create
 
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.DetailUrl))) {
 		body["detailUrl"] = request.DetailUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardTypeId)) {
+		body["cardTypeId"] = request.CardTypeId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContentFieldList)) {
+		body["contentFieldList"] = request.ContentFieldList
 	}
 
 	realHeaders := make(map[string]*string)

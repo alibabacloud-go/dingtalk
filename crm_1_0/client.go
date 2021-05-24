@@ -966,6 +966,771 @@ func (s *DeleteCrmFormInstanceResponse) SetBody(v *DeleteCrmFormInstanceResponse
 	return s
 }
 
+type SendOfficialAccountOTOMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendOfficialAccountOTOMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageHeaders) SetCommonHeaders(v map[string]*string) *SendOfficialAccountOTOMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendOfficialAccountOTOMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendOfficialAccountOTOMessageRequest struct {
+	// 消息详情
+	Detail *SendOfficialAccountOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
+	// API调用标识，可选参数
+	BizId              *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+}
+
+func (s SendOfficialAccountOTOMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageRequest) SetDetail(v *SendOfficialAccountOTOMessageRequestDetail) *SendOfficialAccountOTOMessageRequest {
+	s.Detail = v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequest) SetBizId(v string) *SendOfficialAccountOTOMessageRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequest) SetDingTokenGrantType(v int64) *SendOfficialAccountOTOMessageRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequest) SetDingIsvOrgId(v int64) *SendOfficialAccountOTOMessageRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequest) SetDingOrgId(v int64) *SendOfficialAccountOTOMessageRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequest) SetDingSuiteKey(v string) *SendOfficialAccountOTOMessageRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+type SendOfficialAccountOTOMessageRequestDetail struct {
+	// 消息类型
+	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
+	// 请求唯一 ID
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// 消息接收人id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 消息体
+	MessageBody *SendOfficialAccountOTOMessageRequestDetailMessageBody `json:"messageBody,omitempty" xml:"messageBody,omitempty" type:"Struct"`
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetail) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetail) SetMsgType(v string) *SendOfficialAccountOTOMessageRequestDetail {
+	s.MsgType = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetail) SetUuid(v string) *SendOfficialAccountOTOMessageRequestDetail {
+	s.Uuid = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetail) SetUserId(v string) *SendOfficialAccountOTOMessageRequestDetail {
+	s.UserId = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetail) SetMessageBody(v *SendOfficialAccountOTOMessageRequestDetailMessageBody) *SendOfficialAccountOTOMessageRequestDetail {
+	s.MessageBody = v
+	return s
+}
+
+type SendOfficialAccountOTOMessageRequestDetailMessageBody struct {
+	// 文本消息体  对于文本类型消息时必填
+	Text *SendOfficialAccountOTOMessageRequestDetailMessageBodyText `json:"text,omitempty" xml:"text,omitempty" type:"Struct"`
+	// markdown消息，仅对消息类型为markdown时有效
+	Markdown *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown `json:"markdown,omitempty" xml:"markdown,omitempty" type:"Struct"`
+	// 链接消息类型
+	Link *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink `json:"link,omitempty" xml:"link,omitempty" type:"Struct"`
+	// 卡片消息
+	ActionCard *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard `json:"actionCard,omitempty" xml:"actionCard,omitempty" type:"Struct"`
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBody) SetText(v *SendOfficialAccountOTOMessageRequestDetailMessageBodyText) *SendOfficialAccountOTOMessageRequestDetailMessageBody {
+	s.Text = v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBody) SetMarkdown(v *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) *SendOfficialAccountOTOMessageRequestDetailMessageBody {
+	s.Markdown = v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBody) SetLink(v *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) *SendOfficialAccountOTOMessageRequestDetailMessageBody {
+	s.Link = v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBody) SetActionCard(v *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) *SendOfficialAccountOTOMessageRequestDetailMessageBody {
+	s.ActionCard = v
+	return s
+}
+
+type SendOfficialAccountOTOMessageRequestDetailMessageBodyText struct {
+	// 消息内容，建议500字符以内。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyText) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyText) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyText) SetContent(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyText {
+	s.Content = &v
+	return s
+}
+
+type SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown struct {
+	// 首屏会话透出的展示内容。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// markdown格式的消息，建议500字符以内。
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) SetTitle(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown {
+	s.Title = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) SetText(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown {
+	s.Text = &v
+	return s
+}
+
+type SendOfficialAccountOTOMessageRequestDetailMessageBodyLink struct {
+	// 图片地址
+	PicUrl *string `json:"picUrl,omitempty" xml:"picUrl,omitempty"`
+	// 消息点击链接地址，当发送消息为小程序时支持小程序跳转链接。
+	MessageUrl *string `json:"messageUrl,omitempty" xml:"messageUrl,omitempty"`
+	// 消息标题，建议100字符以内。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 消息描述，建议500字符以内。
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetPicUrl(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink {
+	s.PicUrl = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetMessageUrl(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink {
+	s.MessageUrl = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetTitle(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink {
+	s.Title = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetText(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink {
+	s.Text = &v
+	return s
+}
+
+type SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard struct {
+	// 按钮排列方式： 0：竖直排列 1：横向排列 必须与buttonList同时设置。
+	ButtonOrientation *string `json:"buttonOrientation,omitempty" xml:"buttonOrientation,omitempty"`
+	// 消息点击链接地址，当发送消息为小程序时支持小程序跳转链接，最长500个字符。
+	SingleUrl *string `json:"singleUrl,omitempty" xml:"singleUrl,omitempty"`
+	// 使用整体跳转ActionCard样式时的标题。必须与singleUrl同时设置，最长20个字符。
+	SingleTitle *string `json:"singleTitle,omitempty" xml:"singleTitle,omitempty"`
+	// 消息内容，支持markdown，语法参考标准markdown语法。1000个字符以内。
+	Markdown *string `json:"markdown,omitempty" xml:"markdown,omitempty"`
+	// 透出到会话列表和通知的文案
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 使用独立跳转ActionCard样式时的按钮列表；必须与buttonOrientation同时设置，且长度不超过1000字符。
+	ButtonList []*SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList `json:"buttonList,omitempty" xml:"buttonList,omitempty" type:"Repeated"`
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetButtonOrientation(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.ButtonOrientation = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetSingleUrl(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.SingleUrl = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetSingleTitle(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.SingleTitle = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetMarkdown(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.Markdown = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetTitle(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.Title = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetButtonList(v []*SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.ButtonList = v
+	return s
+}
+
+type SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList struct {
+	// 使用独立跳转ActionCard样式时的按钮的标题，最长20个字符。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 使用独立跳转ActionCard样式时的跳转链接。
+	ActionUrl *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) SetTitle(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList {
+	s.Title = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) SetActionUrl(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList {
+	s.ActionUrl = &v
+	return s
+}
+
+type SendOfficialAccountOTOMessageResponseBody struct {
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// 推送结果
+	Result *SendOfficialAccountOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s SendOfficialAccountOTOMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageResponseBody) SetRequestId(v string) *SendOfficialAccountOTOMessageResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageResponseBody) SetResult(v *SendOfficialAccountOTOMessageResponseBodyResult) *SendOfficialAccountOTOMessageResponseBody {
+	s.Result = v
+	return s
+}
+
+type SendOfficialAccountOTOMessageResponseBodyResult struct {
+	// 推送ID
+	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
+}
+
+func (s SendOfficialAccountOTOMessageResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageResponseBodyResult) SetOpenPushId(v string) *SendOfficialAccountOTOMessageResponseBodyResult {
+	s.OpenPushId = &v
+	return s
+}
+
+type SendOfficialAccountOTOMessageResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SendOfficialAccountOTOMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendOfficialAccountOTOMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageResponse) SetHeaders(v map[string]*string) *SendOfficialAccountOTOMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageResponse) SetBody(v *SendOfficialAccountOTOMessageResponseBody) *SendOfficialAccountOTOMessageResponse {
+	s.Body = v
+	return s
+}
+
+type BatchSendOfficialAccountOTOMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchSendOfficialAccountOTOMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSendOfficialAccountOTOMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSendOfficialAccountOTOMessageHeaders) SetCommonHeaders(v map[string]*string) *BatchSendOfficialAccountOTOMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageHeaders) SetXAcsDingtalkAccessToken(v string) *BatchSendOfficialAccountOTOMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchSendOfficialAccountOTOMessageRequest struct {
+	// 消息详情
+	Detail *BatchSendOfficialAccountOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
+	// 服务窗授权的调用方标识，可空
+	BizId              *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+}
+
+func (s BatchSendOfficialAccountOTOMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSendOfficialAccountOTOMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequest) SetDetail(v *BatchSendOfficialAccountOTOMessageRequestDetail) *BatchSendOfficialAccountOTOMessageRequest {
+	s.Detail = v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequest) SetBizId(v string) *BatchSendOfficialAccountOTOMessageRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequest) SetDingIsvOrgId(v int64) *BatchSendOfficialAccountOTOMessageRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequest) SetDingOrgId(v int64) *BatchSendOfficialAccountOTOMessageRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequest) SetDingTokenGrantType(v int64) *BatchSendOfficialAccountOTOMessageRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequest) SetDingSuiteKey(v string) *BatchSendOfficialAccountOTOMessageRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+type BatchSendOfficialAccountOTOMessageRequestDetail struct {
+	// 消息类型
+	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
+	// 消息请求唯一ID
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// 业务请求标识，当一次业务请求需要多次调用发送API时可以设置此参数，方便后续跟踪处理。
+	BizRequestId *string `json:"bizRequestId,omitempty" xml:"bizRequestId,omitempty"`
+	// 消息接收人列表，最多支持1000人
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	// 消息体
+	MessageBody *BatchSendOfficialAccountOTOMessageRequestDetailMessageBody `json:"messageBody,omitempty" xml:"messageBody,omitempty" type:"Struct"`
+	// 全员群发
+	SendToAll *bool `json:"sendToAll,omitempty" xml:"sendToAll,omitempty"`
+}
+
+func (s BatchSendOfficialAccountOTOMessageRequestDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSendOfficialAccountOTOMessageRequestDetail) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetail) SetMsgType(v string) *BatchSendOfficialAccountOTOMessageRequestDetail {
+	s.MsgType = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetail) SetUuid(v string) *BatchSendOfficialAccountOTOMessageRequestDetail {
+	s.Uuid = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetail) SetBizRequestId(v string) *BatchSendOfficialAccountOTOMessageRequestDetail {
+	s.BizRequestId = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetail) SetUserIdList(v []*string) *BatchSendOfficialAccountOTOMessageRequestDetail {
+	s.UserIdList = v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetail) SetMessageBody(v *BatchSendOfficialAccountOTOMessageRequestDetailMessageBody) *BatchSendOfficialAccountOTOMessageRequestDetail {
+	s.MessageBody = v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetail) SetSendToAll(v bool) *BatchSendOfficialAccountOTOMessageRequestDetail {
+	s.SendToAll = &v
+	return s
+}
+
+type BatchSendOfficialAccountOTOMessageRequestDetailMessageBody struct {
+	// 文本消息体  对于文本类型消息时必填
+	Text *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyText `json:"text,omitempty" xml:"text,omitempty" type:"Struct"`
+	// markdown消息，仅对消息类型为markdown时有效
+	Markdown *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown `json:"markdown,omitempty" xml:"markdown,omitempty" type:"Struct"`
+	// 链接消息类型
+	Link *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyLink `json:"link,omitempty" xml:"link,omitempty" type:"Struct"`
+	// 卡片消息
+	ActionCard *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard `json:"actionCard,omitempty" xml:"actionCard,omitempty" type:"Struct"`
+}
+
+func (s BatchSendOfficialAccountOTOMessageRequestDetailMessageBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSendOfficialAccountOTOMessageRequestDetailMessageBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBody) SetText(v *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyText) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBody {
+	s.Text = v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBody) SetMarkdown(v *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBody {
+	s.Markdown = v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBody) SetLink(v *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyLink) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBody {
+	s.Link = v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBody) SetActionCard(v *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBody {
+	s.ActionCard = v
+	return s
+}
+
+type BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyText struct {
+	// 消息内容，建议500字符以内。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyText) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyText) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyText) SetContent(v string) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyText {
+	s.Content = &v
+	return s
+}
+
+type BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown struct {
+	// 首屏会话透出的展示内容。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// markdown格式的消息，建议500字符以内。
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) SetTitle(v string) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown {
+	s.Title = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) SetText(v string) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown {
+	s.Text = &v
+	return s
+}
+
+type BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyLink struct {
+	// 图片地址
+	PicUrl *string `json:"picUrl,omitempty" xml:"picUrl,omitempty"`
+	// 消息点击链接地址，当发送消息为小程序时支持小程序跳转链接。
+	MessageUrl *string `json:"messageUrl,omitempty" xml:"messageUrl,omitempty"`
+	// 消息标题，建议100字符以内。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 消息描述，建议500字符以内。
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyLink) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyLink) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetPicUrl(v string) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyLink {
+	s.PicUrl = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetMessageUrl(v string) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyLink {
+	s.MessageUrl = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetTitle(v string) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyLink {
+	s.Title = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetText(v string) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyLink {
+	s.Text = &v
+	return s
+}
+
+type BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard struct {
+	// 按钮排列方式： 0：竖直排列 1：横向排列 必须与buttonList同时设置。
+	ButtonOrientation *string `json:"buttonOrientation,omitempty" xml:"buttonOrientation,omitempty"`
+	// 消息点击链接地址，当发送消息为小程序时支持小程序跳转链接，最长500个字符。
+	SingleUrl *string `json:"singleUrl,omitempty" xml:"singleUrl,omitempty"`
+	// 使用整体跳转ActionCard样式时的标题。必须与singleUrl同时设置，最长20个字符。
+	SingleTitle *string `json:"singleTitle,omitempty" xml:"singleTitle,omitempty"`
+	// 消息内容，支持markdown，语法参考标准markdown语法。1000个字符以内。
+	Markdown *string `json:"markdown,omitempty" xml:"markdown,omitempty"`
+	// 透出到会话列表和通知的文案
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 使用独立跳转ActionCard样式时的按钮列表；必须与buttonOrientation同时设置，且长度不超过1000字符。
+	ButtonList []*BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList `json:"buttonList,omitempty" xml:"buttonList,omitempty" type:"Repeated"`
+}
+
+func (s BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetButtonOrientation(v string) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.ButtonOrientation = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetSingleUrl(v string) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.SingleUrl = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetSingleTitle(v string) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.SingleTitle = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetMarkdown(v string) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.Markdown = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetTitle(v string) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.Title = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetButtonList(v []*BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.ButtonList = v
+	return s
+}
+
+type BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList struct {
+	// 使用独立跳转ActionCard样式时的按钮的标题，最长20个字符。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 使用独立跳转ActionCard样式时的跳转链接。
+	ActionUrl *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
+}
+
+func (s BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) SetTitle(v string) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList {
+	s.Title = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) SetActionUrl(v string) *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList {
+	s.ActionUrl = &v
+	return s
+}
+
+type BatchSendOfficialAccountOTOMessageResponseBody struct {
+	// result
+	Result *BatchSendOfficialAccountOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// 开放API
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s BatchSendOfficialAccountOTOMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSendOfficialAccountOTOMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSendOfficialAccountOTOMessageResponseBody) SetResult(v *BatchSendOfficialAccountOTOMessageResponseBodyResult) *BatchSendOfficialAccountOTOMessageResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageResponseBody) SetRequestId(v string) *BatchSendOfficialAccountOTOMessageResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type BatchSendOfficialAccountOTOMessageResponseBodyResult struct {
+	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
+}
+
+func (s BatchSendOfficialAccountOTOMessageResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSendOfficialAccountOTOMessageResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSendOfficialAccountOTOMessageResponseBodyResult) SetOpenPushId(v string) *BatchSendOfficialAccountOTOMessageResponseBodyResult {
+	s.OpenPushId = &v
+	return s
+}
+
+type BatchSendOfficialAccountOTOMessageResponse struct {
+	Headers map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchSendOfficialAccountOTOMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchSendOfficialAccountOTOMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSendOfficialAccountOTOMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSendOfficialAccountOTOMessageResponse) SetHeaders(v map[string]*string) *BatchSendOfficialAccountOTOMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageResponse) SetBody(v *BatchSendOfficialAccountOTOMessageResponseBody) *BatchSendOfficialAccountOTOMessageResponse {
+	s.Body = v
+	return s
+}
+
 type GetOfficialAccountContactInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1310,6 +2075,134 @@ func (client *Client) DeleteCrmFormInstanceWithOptions(instanceId *string, reque
 	}
 	_result = &DeleteCrmFormInstanceResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteCrmFormInstance"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/crm/formInstances/"+tea.StringValue(instanceId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendOfficialAccountOTOMessage(request *SendOfficialAccountOTOMessageRequest) (_result *SendOfficialAccountOTOMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendOfficialAccountOTOMessageHeaders{}
+	_result = &SendOfficialAccountOTOMessageResponse{}
+	_body, _err := client.SendOfficialAccountOTOMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendOfficialAccountOTOMessageWithOptions(request *SendOfficialAccountOTOMessageRequest, headers *SendOfficialAccountOTOMessageHeaders, runtime *util.RuntimeOptions) (_result *SendOfficialAccountOTOMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Detail))) {
+		body["detail"] = request.Detail
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendOfficialAccountOTOMessageResponse{}
+	_body, _err := client.DoROARequest(tea.String("SendOfficialAccountOTOMessage"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/officialAccounts/oToMessages/send"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchSendOfficialAccountOTOMessage(request *BatchSendOfficialAccountOTOMessageRequest) (_result *BatchSendOfficialAccountOTOMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchSendOfficialAccountOTOMessageHeaders{}
+	_result = &BatchSendOfficialAccountOTOMessageResponse{}
+	_body, _err := client.BatchSendOfficialAccountOTOMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchSendOfficialAccountOTOMessageWithOptions(request *BatchSendOfficialAccountOTOMessageRequest, headers *BatchSendOfficialAccountOTOMessageHeaders, runtime *util.RuntimeOptions) (_result *BatchSendOfficialAccountOTOMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Detail))) {
+		body["detail"] = request.Detail
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchSendOfficialAccountOTOMessageResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchSendOfficialAccountOTOMessage"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/officialAccounts/oToMessages/batchSend"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
