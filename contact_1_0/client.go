@@ -11,6 +11,550 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type QueryResourceManagementMembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryResourceManagementMembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryResourceManagementMembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryResourceManagementMembersHeaders) SetCommonHeaders(v map[string]*string) *QueryResourceManagementMembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryResourceManagementMembersHeaders) SetXAcsDingtalkAccessToken(v string) *QueryResourceManagementMembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryResourceManagementMembersResponseBody struct {
+	// 可管理资源的成员
+	Members []*QueryResourceManagementMembersResponseBodyMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+}
+
+func (s QueryResourceManagementMembersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryResourceManagementMembersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryResourceManagementMembersResponseBody) SetMembers(v []*QueryResourceManagementMembersResponseBodyMembers) *QueryResourceManagementMembersResponseBody {
+	s.Members = v
+	return s
+}
+
+type QueryResourceManagementMembersResponseBodyMembers struct {
+	// 成员类型
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// 成员id
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+}
+
+func (s QueryResourceManagementMembersResponseBodyMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryResourceManagementMembersResponseBodyMembers) GoString() string {
+	return s.String()
+}
+
+func (s *QueryResourceManagementMembersResponseBodyMembers) SetMemberType(v string) *QueryResourceManagementMembersResponseBodyMembers {
+	s.MemberType = &v
+	return s
+}
+
+func (s *QueryResourceManagementMembersResponseBodyMembers) SetMemberId(v string) *QueryResourceManagementMembersResponseBodyMembers {
+	s.MemberId = &v
+	return s
+}
+
+type QueryResourceManagementMembersResponse struct {
+	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryResourceManagementMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryResourceManagementMembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryResourceManagementMembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryResourceManagementMembersResponse) SetHeaders(v map[string]*string) *QueryResourceManagementMembersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryResourceManagementMembersResponse) SetBody(v *QueryResourceManagementMembersResponseBody) *QueryResourceManagementMembersResponse {
+	s.Body = v
+	return s
+}
+
+type QueryUserManagementResourcesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryUserManagementResourcesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserManagementResourcesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserManagementResourcesHeaders) SetCommonHeaders(v map[string]*string) *QueryUserManagementResourcesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryUserManagementResourcesHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUserManagementResourcesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryUserManagementResourcesResponseBody struct {
+	// 资源列表
+	ResourceIds []*string `json:"resourceIds,omitempty" xml:"resourceIds,omitempty" type:"Repeated"`
+}
+
+func (s QueryUserManagementResourcesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserManagementResourcesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserManagementResourcesResponseBody) SetResourceIds(v []*string) *QueryUserManagementResourcesResponseBody {
+	s.ResourceIds = v
+	return s
+}
+
+type QueryUserManagementResourcesResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryUserManagementResourcesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryUserManagementResourcesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserManagementResourcesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserManagementResourcesResponse) SetHeaders(v map[string]*string) *QueryUserManagementResourcesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryUserManagementResourcesResponse) SetBody(v *QueryUserManagementResourcesResponseBody) *QueryUserManagementResourcesResponse {
+	s.Body = v
+	return s
+}
+
+type ListManagementGroupsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListManagementGroupsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListManagementGroupsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListManagementGroupsHeaders) SetCommonHeaders(v map[string]*string) *ListManagementGroupsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListManagementGroupsHeaders) SetXAcsDingtalkAccessToken(v string) *ListManagementGroupsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListManagementGroupsRequest struct {
+	// 开始读取的位置
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 本次读取的最大数据记录数量
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+}
+
+func (s ListManagementGroupsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListManagementGroupsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListManagementGroupsRequest) SetNextToken(v int64) *ListManagementGroupsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListManagementGroupsRequest) SetMaxResults(v int32) *ListManagementGroupsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+type ListManagementGroupsResponseBody struct {
+	// 下一次读取的位置
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 是否有下一页
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 管理组列表
+	Groups []*ListManagementGroupsResponseBodyGroups `json:"groups,omitempty" xml:"groups,omitempty" type:"Repeated"`
+}
+
+func (s ListManagementGroupsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListManagementGroupsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListManagementGroupsResponseBody) SetNextToken(v int64) *ListManagementGroupsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListManagementGroupsResponseBody) SetHasMore(v bool) *ListManagementGroupsResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *ListManagementGroupsResponseBody) SetGroups(v []*ListManagementGroupsResponseBodyGroups) *ListManagementGroupsResponseBody {
+	s.Groups = v
+	return s
+}
+
+type ListManagementGroupsResponseBodyGroups struct {
+	// 管理组id
+	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// 管理组名
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 成员
+	Members []*ListManagementGroupsResponseBodyGroupsMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// 管理范围
+	Scope *ListManagementGroupsResponseBodyGroupsScope `json:"scope,omitempty" xml:"scope,omitempty" type:"Struct"`
+	// 资源列表
+	ResourceIds []*string `json:"resourceIds,omitempty" xml:"resourceIds,omitempty" type:"Repeated"`
+}
+
+func (s ListManagementGroupsResponseBodyGroups) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListManagementGroupsResponseBodyGroups) GoString() string {
+	return s.String()
+}
+
+func (s *ListManagementGroupsResponseBodyGroups) SetGroupId(v string) *ListManagementGroupsResponseBodyGroups {
+	s.GroupId = &v
+	return s
+}
+
+func (s *ListManagementGroupsResponseBodyGroups) SetGroupName(v string) *ListManagementGroupsResponseBodyGroups {
+	s.GroupName = &v
+	return s
+}
+
+func (s *ListManagementGroupsResponseBodyGroups) SetMembers(v []*ListManagementGroupsResponseBodyGroupsMembers) *ListManagementGroupsResponseBodyGroups {
+	s.Members = v
+	return s
+}
+
+func (s *ListManagementGroupsResponseBodyGroups) SetScope(v *ListManagementGroupsResponseBodyGroupsScope) *ListManagementGroupsResponseBodyGroups {
+	s.Scope = v
+	return s
+}
+
+func (s *ListManagementGroupsResponseBodyGroups) SetResourceIds(v []*string) *ListManagementGroupsResponseBodyGroups {
+	s.ResourceIds = v
+	return s
+}
+
+type ListManagementGroupsResponseBodyGroupsMembers struct {
+	// 成员类型
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// 成员id
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+}
+
+func (s ListManagementGroupsResponseBodyGroupsMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListManagementGroupsResponseBodyGroupsMembers) GoString() string {
+	return s.String()
+}
+
+func (s *ListManagementGroupsResponseBodyGroupsMembers) SetMemberType(v string) *ListManagementGroupsResponseBodyGroupsMembers {
+	s.MemberType = &v
+	return s
+}
+
+func (s *ListManagementGroupsResponseBodyGroupsMembers) SetMemberId(v string) *ListManagementGroupsResponseBodyGroupsMembers {
+	s.MemberId = &v
+	return s
+}
+
+type ListManagementGroupsResponseBodyGroupsScope struct {
+	// 1
+	ScopeType *int32 `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+	// 部门列表，只在scopeType=3 生效
+	DeptIds []*int64 `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+}
+
+func (s ListManagementGroupsResponseBodyGroupsScope) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListManagementGroupsResponseBodyGroupsScope) GoString() string {
+	return s.String()
+}
+
+func (s *ListManagementGroupsResponseBodyGroupsScope) SetScopeType(v int32) *ListManagementGroupsResponseBodyGroupsScope {
+	s.ScopeType = &v
+	return s
+}
+
+func (s *ListManagementGroupsResponseBodyGroupsScope) SetDeptIds(v []*int64) *ListManagementGroupsResponseBodyGroupsScope {
+	s.DeptIds = v
+	return s
+}
+
+type ListManagementGroupsResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListManagementGroupsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListManagementGroupsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListManagementGroupsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListManagementGroupsResponse) SetHeaders(v map[string]*string) *ListManagementGroupsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListManagementGroupsResponse) SetBody(v *ListManagementGroupsResponseBody) *ListManagementGroupsResponse {
+	s.Body = v
+	return s
+}
+
+type CreateManagementGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateManagementGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateManagementGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateManagementGroupHeaders) SetCommonHeaders(v map[string]*string) *CreateManagementGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateManagementGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateManagementGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateManagementGroupRequest struct {
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 管理组成员
+	Members []*CreateManagementGroupRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// 管理范围
+	Scope *CreateManagementGroupRequestScope `json:"scope,omitempty" xml:"scope,omitempty" type:"Struct"`
+	// 资源列表
+	ResourceIds []*string `json:"resourceIds,omitempty" xml:"resourceIds,omitempty" type:"Repeated"`
+}
+
+func (s CreateManagementGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateManagementGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateManagementGroupRequest) SetGroupName(v string) *CreateManagementGroupRequest {
+	s.GroupName = &v
+	return s
+}
+
+func (s *CreateManagementGroupRequest) SetMembers(v []*CreateManagementGroupRequestMembers) *CreateManagementGroupRequest {
+	s.Members = v
+	return s
+}
+
+func (s *CreateManagementGroupRequest) SetScope(v *CreateManagementGroupRequestScope) *CreateManagementGroupRequest {
+	s.Scope = v
+	return s
+}
+
+func (s *CreateManagementGroupRequest) SetResourceIds(v []*string) *CreateManagementGroupRequest {
+	s.ResourceIds = v
+	return s
+}
+
+type CreateManagementGroupRequestMembers struct {
+	// 成员类型
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// 成员id
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+}
+
+func (s CreateManagementGroupRequestMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateManagementGroupRequestMembers) GoString() string {
+	return s.String()
+}
+
+func (s *CreateManagementGroupRequestMembers) SetMemberType(v string) *CreateManagementGroupRequestMembers {
+	s.MemberType = &v
+	return s
+}
+
+func (s *CreateManagementGroupRequestMembers) SetMemberId(v string) *CreateManagementGroupRequestMembers {
+	s.MemberId = &v
+	return s
+}
+
+type CreateManagementGroupRequestScope struct {
+	// 范围类型
+	ScopeType *int32 `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+	// 部门列表，只在scopeType=3 生效
+	DeptIds []*int64 `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+}
+
+func (s CreateManagementGroupRequestScope) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateManagementGroupRequestScope) GoString() string {
+	return s.String()
+}
+
+func (s *CreateManagementGroupRequestScope) SetScopeType(v int32) *CreateManagementGroupRequestScope {
+	s.ScopeType = &v
+	return s
+}
+
+func (s *CreateManagementGroupRequestScope) SetDeptIds(v []*int64) *CreateManagementGroupRequestScope {
+	s.DeptIds = v
+	return s
+}
+
+type CreateManagementGroupResponseBody struct {
+	// 返回管理组groupId
+	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+}
+
+func (s CreateManagementGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateManagementGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateManagementGroupResponseBody) SetGroupId(v string) *CreateManagementGroupResponseBody {
+	s.GroupId = &v
+	return s
+}
+
+type CreateManagementGroupResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateManagementGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateManagementGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateManagementGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateManagementGroupResponse) SetHeaders(v map[string]*string) *CreateManagementGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateManagementGroupResponse) SetBody(v *CreateManagementGroupResponseBody) *CreateManagementGroupResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteManagementGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteManagementGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteManagementGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteManagementGroupHeaders) SetCommonHeaders(v map[string]*string) *DeleteManagementGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteManagementGroupHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteManagementGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteManagementGroupResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s DeleteManagementGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteManagementGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteManagementGroupResponse) SetHeaders(v map[string]*string) *DeleteManagementGroupResponse {
+	s.Headers = v
+	return s
+}
+
 type GetApplyInviteInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -484,6 +1028,212 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) QueryResourceManagementMembers(resourceId *string) (_result *QueryResourceManagementMembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryResourceManagementMembersHeaders{}
+	_result = &QueryResourceManagementMembersResponse{}
+	_body, _err := client.QueryResourceManagementMembersWithOptions(resourceId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryResourceManagementMembersWithOptions(resourceId *string, headers *QueryResourceManagementMembersHeaders, runtime *util.RuntimeOptions) (_result *QueryResourceManagementMembersResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &QueryResourceManagementMembersResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryResourceManagementMembers"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/resources/"+tea.StringValue(resourceId)+"/managementMembers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryUserManagementResources(userId *string) (_result *QueryUserManagementResourcesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryUserManagementResourcesHeaders{}
+	_result = &QueryUserManagementResourcesResponse{}
+	_body, _err := client.QueryUserManagementResourcesWithOptions(userId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryUserManagementResourcesWithOptions(userId *string, headers *QueryUserManagementResourcesHeaders, runtime *util.RuntimeOptions) (_result *QueryUserManagementResourcesResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &QueryUserManagementResourcesResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryUserManagementResources"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/users/"+tea.StringValue(userId)+"/managemementResources"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListManagementGroups(request *ListManagementGroupsRequest) (_result *ListManagementGroupsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListManagementGroupsHeaders{}
+	_result = &ListManagementGroupsResponse{}
+	_body, _err := client.ListManagementGroupsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListManagementGroupsWithOptions(request *ListManagementGroupsRequest, headers *ListManagementGroupsHeaders, runtime *util.RuntimeOptions) (_result *ListManagementGroupsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListManagementGroupsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListManagementGroups"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/managementGroups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateManagementGroup(request *CreateManagementGroupRequest) (_result *CreateManagementGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateManagementGroupHeaders{}
+	_result = &CreateManagementGroupResponse{}
+	_body, _err := client.CreateManagementGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateManagementGroupWithOptions(request *CreateManagementGroupRequest, headers *CreateManagementGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateManagementGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
+		body["groupName"] = request.GroupName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Members)) {
+		body["members"] = request.Members
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Scope))) {
+		body["scope"] = request.Scope
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ResourceIds)) {
+		body["resourceIds"] = request.ResourceIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateManagementGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateManagementGroup"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/managementGroups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteManagementGroup(groupId *string) (_result *DeleteManagementGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteManagementGroupHeaders{}
+	_result = &DeleteManagementGroupResponse{}
+	_body, _err := client.DeleteManagementGroupWithOptions(groupId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteManagementGroupWithOptions(groupId *string, headers *DeleteManagementGroupHeaders, runtime *util.RuntimeOptions) (_result *DeleteManagementGroupResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &DeleteManagementGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteManagementGroup"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/contact/managementGroups/"+tea.StringValue(groupId)), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetApplyInviteInfo(request *GetApplyInviteInfoRequest) (_result *GetApplyInviteInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetApplyInviteInfoHeaders{}
@@ -558,9 +1308,9 @@ func (client *Client) GetBranchAuthDataWithOptions(request *GetBranchAuthDataReq
 		query["code"] = request.Code
 	}
 
-	body := map[string]interface{}{}
+	body := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(request.Body)) {
-		body["body"] = request.Body
+		body = request.Body
 	}
 
 	realHeaders := make(map[string]*string)

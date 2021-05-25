@@ -1674,11 +1674,11 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
-func (client *Client) GetTodoTypeConfig(unionId *string, typeId *string) (_result *GetTodoTypeConfigResponse, _err error) {
+func (client *Client) GetTodoTypeConfig(unionId *string, cardTypeId *string) (_result *GetTodoTypeConfigResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTodoTypeConfigHeaders{}
 	_result = &GetTodoTypeConfigResponse{}
-	_body, _err := client.GetTodoTypeConfigWithOptions(unionId, typeId, headers, runtime)
+	_body, _err := client.GetTodoTypeConfigWithOptions(unionId, cardTypeId, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1686,7 +1686,7 @@ func (client *Client) GetTodoTypeConfig(unionId *string, typeId *string) (_resul
 	return _result, _err
 }
 
-func (client *Client) GetTodoTypeConfigWithOptions(unionId *string, typeId *string, headers *GetTodoTypeConfigHeaders, runtime *util.RuntimeOptions) (_result *GetTodoTypeConfigResponse, _err error) {
+func (client *Client) GetTodoTypeConfigWithOptions(unionId *string, cardTypeId *string, headers *GetTodoTypeConfigHeaders, runtime *util.RuntimeOptions) (_result *GetTodoTypeConfigResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1700,7 +1700,7 @@ func (client *Client) GetTodoTypeConfigWithOptions(unionId *string, typeId *stri
 		Headers: realHeaders,
 	}
 	_result = &GetTodoTypeConfigResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetTodoTypeConfig"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/configs/types/"+tea.StringValue(typeId)), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("GetTodoTypeConfig"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/configs/types/"+tea.StringValue(cardTypeId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1708,11 +1708,11 @@ func (client *Client) GetTodoTypeConfigWithOptions(unionId *string, typeId *stri
 	return _result, _err
 }
 
-func (client *Client) UpdateTodoTypeConfig(unionId *string, typeId *string, request *UpdateTodoTypeConfigRequest) (_result *UpdateTodoTypeConfigResponse, _err error) {
+func (client *Client) UpdateTodoTypeConfig(unionId *string, cardTypeId *string, request *UpdateTodoTypeConfigRequest) (_result *UpdateTodoTypeConfigResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateTodoTypeConfigHeaders{}
 	_result = &UpdateTodoTypeConfigResponse{}
-	_body, _err := client.UpdateTodoTypeConfigWithOptions(unionId, typeId, request, headers, runtime)
+	_body, _err := client.UpdateTodoTypeConfigWithOptions(unionId, cardTypeId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1720,7 +1720,7 @@ func (client *Client) UpdateTodoTypeConfig(unionId *string, typeId *string, requ
 	return _result, _err
 }
 
-func (client *Client) UpdateTodoTypeConfigWithOptions(unionId *string, typeId *string, request *UpdateTodoTypeConfigRequest, headers *UpdateTodoTypeConfigHeaders, runtime *util.RuntimeOptions) (_result *UpdateTodoTypeConfigResponse, _err error) {
+func (client *Client) UpdateTodoTypeConfigWithOptions(unionId *string, cardTypeId *string, request *UpdateTodoTypeConfigRequest, headers *UpdateTodoTypeConfigHeaders, runtime *util.RuntimeOptions) (_result *UpdateTodoTypeConfigResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -1770,7 +1770,7 @@ func (client *Client) UpdateTodoTypeConfigWithOptions(unionId *string, typeId *s
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &UpdateTodoTypeConfigResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateTodoTypeConfig"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/configs/types/"+tea.StringValue(typeId)), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("UpdateTodoTypeConfig"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/configs/types/"+tea.StringValue(cardTypeId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
