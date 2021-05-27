@@ -942,6 +942,8 @@ type GetUserResponseBody struct {
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	// 个人邮箱
 	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+	// 手机号对应的国家号
+	StateCode *string `json:"stateCode,omitempty" xml:"stateCode,omitempty"`
 }
 
 func (s GetUserResponseBody) String() string {
@@ -979,6 +981,11 @@ func (s *GetUserResponseBody) SetUnionId(v string) *GetUserResponseBody {
 
 func (s *GetUserResponseBody) SetEmail(v string) *GetUserResponseBody {
 	s.Email = &v
+	return s
+}
+
+func (s *GetUserResponseBody) SetStateCode(v string) *GetUserResponseBody {
+	s.StateCode = &v
 	return s
 }
 

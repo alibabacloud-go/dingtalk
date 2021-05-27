@@ -11,6 +11,124 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type ListWorkBenchGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListWorkBenchGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListWorkBenchGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListWorkBenchGroupHeaders) SetCommonHeaders(v map[string]*string) *ListWorkBenchGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListWorkBenchGroupHeaders) SetXAcsDingtalkAccessToken(v string) *ListWorkBenchGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListWorkBenchGroupRequest struct {
+	OpUnionId        *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	EcologicalCorpId *string `json:"ecologicalCorpId,omitempty" xml:"ecologicalCorpId,omitempty"`
+	GroupType        *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
+}
+
+func (s ListWorkBenchGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListWorkBenchGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListWorkBenchGroupRequest) SetOpUnionId(v string) *ListWorkBenchGroupRequest {
+	s.OpUnionId = &v
+	return s
+}
+
+func (s *ListWorkBenchGroupRequest) SetEcologicalCorpId(v string) *ListWorkBenchGroupRequest {
+	s.EcologicalCorpId = &v
+	return s
+}
+
+func (s *ListWorkBenchGroupRequest) SetGroupType(v string) *ListWorkBenchGroupRequest {
+	s.GroupType = &v
+	return s
+}
+
+type ListWorkBenchGroupResponseBody struct {
+	// 应用列表
+	GroupList []*ListWorkBenchGroupResponseBodyGroupList `json:"groupList,omitempty" xml:"groupList,omitempty" type:"Repeated"`
+}
+
+func (s ListWorkBenchGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListWorkBenchGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListWorkBenchGroupResponseBody) SetGroupList(v []*ListWorkBenchGroupResponseBodyGroupList) *ListWorkBenchGroupResponseBody {
+	s.GroupList = v
+	return s
+}
+
+type ListWorkBenchGroupResponseBodyGroupList struct {
+	// 分组名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 分组id
+	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
+}
+
+func (s ListWorkBenchGroupResponseBodyGroupList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListWorkBenchGroupResponseBodyGroupList) GoString() string {
+	return s.String()
+}
+
+func (s *ListWorkBenchGroupResponseBodyGroupList) SetName(v string) *ListWorkBenchGroupResponseBodyGroupList {
+	s.Name = &v
+	return s
+}
+
+func (s *ListWorkBenchGroupResponseBodyGroupList) SetComponentId(v string) *ListWorkBenchGroupResponseBodyGroupList {
+	s.ComponentId = &v
+	return s
+}
+
+type ListWorkBenchGroupResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListWorkBenchGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListWorkBenchGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListWorkBenchGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListWorkBenchGroupResponse) SetHeaders(v map[string]*string) *ListWorkBenchGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListWorkBenchGroupResponse) SetBody(v *ListWorkBenchGroupResponseBody) *ListWorkBenchGroupResponse {
+	s.Body = v
+	return s
+}
+
 type QueryComponentScopesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -382,6 +500,58 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) ListWorkBenchGroup(request *ListWorkBenchGroupRequest) (_result *ListWorkBenchGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListWorkBenchGroupHeaders{}
+	_result = &ListWorkBenchGroupResponse{}
+	_body, _err := client.ListWorkBenchGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListWorkBenchGroupWithOptions(request *ListWorkBenchGroupRequest, headers *ListWorkBenchGroupHeaders, runtime *util.RuntimeOptions) (_result *ListWorkBenchGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUnionId)) {
+		query["opUnionId"] = request.OpUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EcologicalCorpId)) {
+		query["ecologicalCorpId"] = request.EcologicalCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupType)) {
+		query["groupType"] = request.GroupType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListWorkBenchGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListWorkBenchGroup"), tea.String("workbench_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workbench/groups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) QueryComponentScopes(componentId *string) (_result *QueryComponentScopesResponse, _err error) {

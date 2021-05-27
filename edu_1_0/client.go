@@ -99,70 +99,6 @@ func (s *GetShareRolesResponse) SetBody(v *GetShareRolesResponseBody) *GetShareR
 	return s
 }
 
-type QueryOrgTypeHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s QueryOrgTypeHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryOrgTypeHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *QueryOrgTypeHeaders) SetCommonHeaders(v map[string]*string) *QueryOrgTypeHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *QueryOrgTypeHeaders) SetXAcsDingtalkAccessToken(v string) *QueryOrgTypeHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type QueryOrgTypeResponseBody struct {
-	// 组织类型
-	OrgType *int64 `json:"orgType,omitempty" xml:"orgType,omitempty"`
-}
-
-func (s QueryOrgTypeResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryOrgTypeResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *QueryOrgTypeResponseBody) SetOrgType(v int64) *QueryOrgTypeResponseBody {
-	s.OrgType = &v
-	return s
-}
-
-type QueryOrgTypeResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryOrgTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s QueryOrgTypeResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryOrgTypeResponse) GoString() string {
-	return s.String()
-}
-
-func (s *QueryOrgTypeResponse) SetHeaders(v map[string]*string) *QueryOrgTypeResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *QueryOrgTypeResponse) SetBody(v *QueryOrgTypeResponseBody) *QueryOrgTypeResponse {
-	s.Body = v
-	return s
-}
-
 type GetDefaultChildHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -697,6 +633,624 @@ func (s *BatchCreateResponse) SetHeaders(v map[string]*string) *BatchCreateRespo
 }
 
 func (s *BatchCreateResponse) SetBody(v *BatchCreateResponseBody) *BatchCreateResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteDeptHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteDeptHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDeptHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDeptHeaders) SetCommonHeaders(v map[string]*string) *DeleteDeptHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteDeptHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteDeptHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteDeptRequest struct {
+	// 钉钉企业管理员员工ID
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+}
+
+func (s DeleteDeptRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDeptRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDeptRequest) SetOperator(v string) *DeleteDeptRequest {
+	s.Operator = &v
+	return s
+}
+
+type DeleteDeptResponseBody struct {
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteDeptResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDeptResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDeptResponseBody) SetSuccess(v bool) *DeleteDeptResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteDeptResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteDeptResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteDeptResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDeptResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDeptResponse) SetHeaders(v map[string]*string) *DeleteDeptResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteDeptResponse) SetBody(v *DeleteDeptResponseBody) *DeleteDeptResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteGuardianHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteGuardianHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteGuardianHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteGuardianHeaders) SetCommonHeaders(v map[string]*string) *DeleteGuardianHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteGuardianHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteGuardianHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteGuardianRequest struct {
+	// 学生ID
+	StuId *string `json:"stuId,omitempty" xml:"stuId,omitempty"`
+	// 钉钉企业管理员员工ID
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+}
+
+func (s DeleteGuardianRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteGuardianRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteGuardianRequest) SetStuId(v string) *DeleteGuardianRequest {
+	s.StuId = &v
+	return s
+}
+
+func (s *DeleteGuardianRequest) SetOperator(v string) *DeleteGuardianRequest {
+	s.Operator = &v
+	return s
+}
+
+type DeleteGuardianResponseBody struct {
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteGuardianResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteGuardianResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteGuardianResponseBody) SetSuccess(v bool) *DeleteGuardianResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteGuardianResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteGuardianResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteGuardianResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteGuardianResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteGuardianResponse) SetHeaders(v map[string]*string) *DeleteGuardianResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteGuardianResponse) SetBody(v *DeleteGuardianResponseBody) *DeleteGuardianResponse {
+	s.Body = v
+	return s
+}
+
+type CreateCustomClassHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateCustomClassHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomClassHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomClassHeaders) SetCommonHeaders(v map[string]*string) *CreateCustomClassHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateCustomClassHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCustomClassHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateCustomClassRequest struct {
+	// 班级信息
+	CustomClass *CreateCustomClassRequestCustomClass `json:"customClass,omitempty" xml:"customClass,omitempty" type:"Struct"`
+	// 上级部门ID
+	SuperId *int64 `json:"superId,omitempty" xml:"superId,omitempty"`
+	// 钉钉企业管理员工ID
+	Operator           *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingCorpId         *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	DingOauthAppId     *int64  `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int32  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+}
+
+func (s CreateCustomClassRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomClassRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomClassRequest) SetCustomClass(v *CreateCustomClassRequestCustomClass) *CreateCustomClassRequest {
+	s.CustomClass = v
+	return s
+}
+
+func (s *CreateCustomClassRequest) SetSuperId(v int64) *CreateCustomClassRequest {
+	s.SuperId = &v
+	return s
+}
+
+func (s *CreateCustomClassRequest) SetOperator(v string) *CreateCustomClassRequest {
+	s.Operator = &v
+	return s
+}
+
+func (s *CreateCustomClassRequest) SetDingIsvOrgId(v int64) *CreateCustomClassRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *CreateCustomClassRequest) SetDingCorpId(v string) *CreateCustomClassRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *CreateCustomClassRequest) SetDingOauthAppId(v int64) *CreateCustomClassRequest {
+	s.DingOauthAppId = &v
+	return s
+}
+
+func (s *CreateCustomClassRequest) SetDingSuiteKey(v string) *CreateCustomClassRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *CreateCustomClassRequest) SetDingTokenGrantType(v int32) *CreateCustomClassRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *CreateCustomClassRequest) SetDingOrgId(v int64) *CreateCustomClassRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+type CreateCustomClassRequestCustomClass struct {
+	// 班级名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s CreateCustomClassRequestCustomClass) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomClassRequestCustomClass) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomClassRequestCustomClass) SetName(v string) *CreateCustomClassRequestCustomClass {
+	s.Name = &v
+	return s
+}
+
+type CreateCustomClassResponseBody struct {
+	// result
+	Result *CreateCustomClassResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateCustomClassResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomClassResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomClassResponseBody) SetResult(v *CreateCustomClassResponseBodyResult) *CreateCustomClassResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *CreateCustomClassResponseBody) SetSuccess(v bool) *CreateCustomClassResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateCustomClassResponseBodyResult struct {
+	// 班级ID
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+}
+
+func (s CreateCustomClassResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomClassResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomClassResponseBodyResult) SetDeptId(v int64) *CreateCustomClassResponseBodyResult {
+	s.DeptId = &v
+	return s
+}
+
+type CreateCustomClassResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateCustomClassResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateCustomClassResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomClassResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomClassResponse) SetHeaders(v map[string]*string) *CreateCustomClassResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateCustomClassResponse) SetBody(v *CreateCustomClassResponseBody) *CreateCustomClassResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteTeacherHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteTeacherHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteTeacherHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteTeacherHeaders) SetCommonHeaders(v map[string]*string) *DeleteTeacherHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteTeacherHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteTeacherHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteTeacherRequest struct {
+	// 是否班主任；1:班主任；0:非班主任
+	Adviser *int32 `json:"adviser,omitempty" xml:"adviser,omitempty"`
+	// 钉钉企业管理员员工ID
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+}
+
+func (s DeleteTeacherRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteTeacherRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteTeacherRequest) SetAdviser(v int32) *DeleteTeacherRequest {
+	s.Adviser = &v
+	return s
+}
+
+func (s *DeleteTeacherRequest) SetOperator(v string) *DeleteTeacherRequest {
+	s.Operator = &v
+	return s
+}
+
+type DeleteTeacherResponseBody struct {
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteTeacherResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteTeacherResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteTeacherResponseBody) SetSuccess(v bool) *DeleteTeacherResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteTeacherResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteTeacherResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteTeacherResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteTeacherResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteTeacherResponse) SetHeaders(v map[string]*string) *DeleteTeacherResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteTeacherResponse) SetBody(v *DeleteTeacherResponseBody) *DeleteTeacherResponse {
+	s.Body = v
+	return s
+}
+
+type SearchTeachersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchTeachersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTeachersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTeachersHeaders) SetCommonHeaders(v map[string]*string) *SearchTeachersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchTeachersHeaders) SetXAcsDingtalkAccessToken(v string) *SearchTeachersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchTeachersRequest struct {
+	NameKeyword *string `json:"nameKeyword,omitempty" xml:"nameKeyword,omitempty"`
+}
+
+func (s SearchTeachersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTeachersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTeachersRequest) SetNameKeyword(v string) *SearchTeachersRequest {
+	s.NameKeyword = &v
+	return s
+}
+
+type SearchTeachersResponseBody struct {
+	Users []*SearchTeachersResponseBodyUsers `json:"users,omitempty" xml:"users,omitempty" type:"Repeated"`
+}
+
+func (s SearchTeachersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTeachersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTeachersResponseBody) SetUsers(v []*SearchTeachersResponseBodyUsers) *SearchTeachersResponseBody {
+	s.Users = v
+	return s
+}
+
+type SearchTeachersResponseBodyUsers struct {
+	// 用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 所在其中一个班级ID
+	ClassId *int64 `json:"classId,omitempty" xml:"classId,omitempty"`
+	// 所在其中一个班级名称
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+}
+
+func (s SearchTeachersResponseBodyUsers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTeachersResponseBodyUsers) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTeachersResponseBodyUsers) SetUserId(v string) *SearchTeachersResponseBodyUsers {
+	s.UserId = &v
+	return s
+}
+
+func (s *SearchTeachersResponseBodyUsers) SetName(v string) *SearchTeachersResponseBodyUsers {
+	s.Name = &v
+	return s
+}
+
+func (s *SearchTeachersResponseBodyUsers) SetClassId(v int64) *SearchTeachersResponseBodyUsers {
+	s.ClassId = &v
+	return s
+}
+
+func (s *SearchTeachersResponseBodyUsers) SetDeptName(v string) *SearchTeachersResponseBodyUsers {
+	s.DeptName = &v
+	return s
+}
+
+type SearchTeachersResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchTeachersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchTeachersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTeachersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTeachersResponse) SetHeaders(v map[string]*string) *SearchTeachersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchTeachersResponse) SetBody(v *SearchTeachersResponseBody) *SearchTeachersResponse {
+	s.Body = v
+	return s
+}
+
+type QueryOrgTypeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryOrgTypeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgTypeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgTypeHeaders) SetCommonHeaders(v map[string]*string) *QueryOrgTypeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryOrgTypeHeaders) SetXAcsDingtalkAccessToken(v string) *QueryOrgTypeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryOrgTypeResponseBody struct {
+	// 组织类型
+	OrgType *int64 `json:"orgType,omitempty" xml:"orgType,omitempty"`
+}
+
+func (s QueryOrgTypeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgTypeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgTypeResponseBody) SetOrgType(v int64) *QueryOrgTypeResponseBody {
+	s.OrgType = &v
+	return s
+}
+
+type QueryOrgTypeResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryOrgTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryOrgTypeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgTypeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgTypeResponse) SetHeaders(v map[string]*string) *QueryOrgTypeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryOrgTypeResponse) SetBody(v *QueryOrgTypeResponseBody) *QueryOrgTypeResponse {
 	s.Body = v
 	return s
 }
@@ -1239,88 +1793,6 @@ func (s *CreateCustomDeptResponse) SetBody(v *CreateCustomDeptResponseBody) *Cre
 	return s
 }
 
-type DeleteDeptHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s DeleteDeptHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteDeptHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteDeptHeaders) SetCommonHeaders(v map[string]*string) *DeleteDeptHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *DeleteDeptHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteDeptHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type DeleteDeptRequest struct {
-	// 钉钉企业管理员员工ID
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
-}
-
-func (s DeleteDeptRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteDeptRequest) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteDeptRequest) SetOperator(v string) *DeleteDeptRequest {
-	s.Operator = &v
-	return s
-}
-
-type DeleteDeptResponseBody struct {
-	// success
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
-}
-
-func (s DeleteDeptResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteDeptResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteDeptResponseBody) SetSuccess(v bool) *DeleteDeptResponseBody {
-	s.Success = &v
-	return s
-}
-
-type DeleteDeptResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteDeptResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s DeleteDeptResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteDeptResponse) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteDeptResponse) SetHeaders(v map[string]*string) *DeleteDeptResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *DeleteDeptResponse) SetBody(v *DeleteDeptResponseBody) *DeleteDeptResponse {
-	s.Body = v
-	return s
-}
-
 type DeleteStudentHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1399,359 +1871,6 @@ func (s *DeleteStudentResponse) SetHeaders(v map[string]*string) *DeleteStudentR
 }
 
 func (s *DeleteStudentResponse) SetBody(v *DeleteStudentResponseBody) *DeleteStudentResponse {
-	s.Body = v
-	return s
-}
-
-type DeleteGuardianHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s DeleteGuardianHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteGuardianHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteGuardianHeaders) SetCommonHeaders(v map[string]*string) *DeleteGuardianHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *DeleteGuardianHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteGuardianHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type DeleteGuardianRequest struct {
-	// 学生ID
-	StuId *string `json:"stuId,omitempty" xml:"stuId,omitempty"`
-	// 钉钉企业管理员员工ID
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
-}
-
-func (s DeleteGuardianRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteGuardianRequest) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteGuardianRequest) SetStuId(v string) *DeleteGuardianRequest {
-	s.StuId = &v
-	return s
-}
-
-func (s *DeleteGuardianRequest) SetOperator(v string) *DeleteGuardianRequest {
-	s.Operator = &v
-	return s
-}
-
-type DeleteGuardianResponseBody struct {
-	// success
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
-}
-
-func (s DeleteGuardianResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteGuardianResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteGuardianResponseBody) SetSuccess(v bool) *DeleteGuardianResponseBody {
-	s.Success = &v
-	return s
-}
-
-type DeleteGuardianResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteGuardianResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s DeleteGuardianResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteGuardianResponse) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteGuardianResponse) SetHeaders(v map[string]*string) *DeleteGuardianResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *DeleteGuardianResponse) SetBody(v *DeleteGuardianResponseBody) *DeleteGuardianResponse {
-	s.Body = v
-	return s
-}
-
-type CreateCustomClassHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s CreateCustomClassHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateCustomClassHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *CreateCustomClassHeaders) SetCommonHeaders(v map[string]*string) *CreateCustomClassHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *CreateCustomClassHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCustomClassHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type CreateCustomClassRequest struct {
-	// 班级信息
-	CustomClass *CreateCustomClassRequestCustomClass `json:"customClass,omitempty" xml:"customClass,omitempty" type:"Struct"`
-	// 上级部门ID
-	SuperId *int64 `json:"superId,omitempty" xml:"superId,omitempty"`
-	// 钉钉企业管理员工ID
-	Operator           *string `json:"operator,omitempty" xml:"operator,omitempty"`
-	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
-	DingCorpId         *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
-	DingOauthAppId     *int64  `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
-	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
-	DingTokenGrantType *int32  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
-	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-}
-
-func (s CreateCustomClassRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateCustomClassRequest) GoString() string {
-	return s.String()
-}
-
-func (s *CreateCustomClassRequest) SetCustomClass(v *CreateCustomClassRequestCustomClass) *CreateCustomClassRequest {
-	s.CustomClass = v
-	return s
-}
-
-func (s *CreateCustomClassRequest) SetSuperId(v int64) *CreateCustomClassRequest {
-	s.SuperId = &v
-	return s
-}
-
-func (s *CreateCustomClassRequest) SetOperator(v string) *CreateCustomClassRequest {
-	s.Operator = &v
-	return s
-}
-
-func (s *CreateCustomClassRequest) SetDingIsvOrgId(v int64) *CreateCustomClassRequest {
-	s.DingIsvOrgId = &v
-	return s
-}
-
-func (s *CreateCustomClassRequest) SetDingCorpId(v string) *CreateCustomClassRequest {
-	s.DingCorpId = &v
-	return s
-}
-
-func (s *CreateCustomClassRequest) SetDingOauthAppId(v int64) *CreateCustomClassRequest {
-	s.DingOauthAppId = &v
-	return s
-}
-
-func (s *CreateCustomClassRequest) SetDingSuiteKey(v string) *CreateCustomClassRequest {
-	s.DingSuiteKey = &v
-	return s
-}
-
-func (s *CreateCustomClassRequest) SetDingTokenGrantType(v int32) *CreateCustomClassRequest {
-	s.DingTokenGrantType = &v
-	return s
-}
-
-func (s *CreateCustomClassRequest) SetDingOrgId(v int64) *CreateCustomClassRequest {
-	s.DingOrgId = &v
-	return s
-}
-
-type CreateCustomClassRequestCustomClass struct {
-	// 班级名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-}
-
-func (s CreateCustomClassRequestCustomClass) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateCustomClassRequestCustomClass) GoString() string {
-	return s.String()
-}
-
-func (s *CreateCustomClassRequestCustomClass) SetName(v string) *CreateCustomClassRequestCustomClass {
-	s.Name = &v
-	return s
-}
-
-type CreateCustomClassResponseBody struct {
-	// result
-	Result *CreateCustomClassResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	// success
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
-}
-
-func (s CreateCustomClassResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateCustomClassResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *CreateCustomClassResponseBody) SetResult(v *CreateCustomClassResponseBodyResult) *CreateCustomClassResponseBody {
-	s.Result = v
-	return s
-}
-
-func (s *CreateCustomClassResponseBody) SetSuccess(v bool) *CreateCustomClassResponseBody {
-	s.Success = &v
-	return s
-}
-
-type CreateCustomClassResponseBodyResult struct {
-	// 班级ID
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-}
-
-func (s CreateCustomClassResponseBodyResult) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateCustomClassResponseBodyResult) GoString() string {
-	return s.String()
-}
-
-func (s *CreateCustomClassResponseBodyResult) SetDeptId(v int64) *CreateCustomClassResponseBodyResult {
-	s.DeptId = &v
-	return s
-}
-
-type CreateCustomClassResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateCustomClassResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s CreateCustomClassResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateCustomClassResponse) GoString() string {
-	return s.String()
-}
-
-func (s *CreateCustomClassResponse) SetHeaders(v map[string]*string) *CreateCustomClassResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *CreateCustomClassResponse) SetBody(v *CreateCustomClassResponseBody) *CreateCustomClassResponse {
-	s.Body = v
-	return s
-}
-
-type DeleteTeacherHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s DeleteTeacherHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteTeacherHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteTeacherHeaders) SetCommonHeaders(v map[string]*string) *DeleteTeacherHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *DeleteTeacherHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteTeacherHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type DeleteTeacherRequest struct {
-	// 是否班主任；1:班主任；0:非班主任
-	Adviser *int32 `json:"adviser,omitempty" xml:"adviser,omitempty"`
-	// 钉钉企业管理员员工ID
-	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
-}
-
-func (s DeleteTeacherRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteTeacherRequest) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteTeacherRequest) SetAdviser(v int32) *DeleteTeacherRequest {
-	s.Adviser = &v
-	return s
-}
-
-func (s *DeleteTeacherRequest) SetOperator(v string) *DeleteTeacherRequest {
-	s.Operator = &v
-	return s
-}
-
-type DeleteTeacherResponseBody struct {
-	// success
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
-}
-
-func (s DeleteTeacherResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteTeacherResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteTeacherResponseBody) SetSuccess(v bool) *DeleteTeacherResponseBody {
-	s.Success = &v
-	return s
-}
-
-type DeleteTeacherResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteTeacherResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s DeleteTeacherResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteTeacherResponse) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteTeacherResponse) SetHeaders(v map[string]*string) *DeleteTeacherResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *DeleteTeacherResponse) SetBody(v *DeleteTeacherResponseBody) *DeleteTeacherResponse {
 	s.Body = v
 	return s
 }
@@ -1901,40 +2020,6 @@ func (client *Client) GetShareRolesWithOptions(headers *GetShareRolesHeaders, ru
 	return _result, _err
 }
 
-func (client *Client) QueryOrgType() (_result *QueryOrgTypeResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &QueryOrgTypeHeaders{}
-	_result = &QueryOrgTypeResponse{}
-	_body, _err := client.QueryOrgTypeWithOptions(headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) QueryOrgTypeWithOptions(headers *QueryOrgTypeHeaders, runtime *util.RuntimeOptions) (_result *QueryOrgTypeResponse, _err error) {
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &QueryOrgTypeResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryOrgType"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/orgTypes"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
 func (client *Client) GetDefaultChild() (_result *GetDefaultChildResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDefaultChildHeaders{}
@@ -2030,6 +2115,300 @@ func (client *Client) BatchCreateWithOptions(request *BatchCreateRequest, header
 	}
 	_result = &BatchCreateResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchCreate"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/cards"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteDept(deptId *string, request *DeleteDeptRequest) (_result *DeleteDeptResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteDeptHeaders{}
+	_result = &DeleteDeptResponse{}
+	_body, _err := client.DeleteDeptWithOptions(deptId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteDeptWithOptions(deptId *string, request *DeleteDeptRequest, headers *DeleteDeptHeaders, runtime *util.RuntimeOptions) (_result *DeleteDeptResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		query["operator"] = request.Operator
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteDeptResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteDept"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/depts/"+tea.StringValue(deptId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteGuardian(classId *string, userId *string, request *DeleteGuardianRequest) (_result *DeleteGuardianResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteGuardianHeaders{}
+	_result = &DeleteGuardianResponse{}
+	_body, _err := client.DeleteGuardianWithOptions(classId, userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteGuardianWithOptions(classId *string, userId *string, request *DeleteGuardianRequest, headers *DeleteGuardianHeaders, runtime *util.RuntimeOptions) (_result *DeleteGuardianResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StuId)) {
+		query["stuId"] = request.StuId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		query["operator"] = request.Operator
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteGuardianResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteGuardian"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/classes/"+tea.StringValue(classId)+"/guardians/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateCustomClass(request *CreateCustomClassRequest) (_result *CreateCustomClassResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateCustomClassHeaders{}
+	_result = &CreateCustomClassResponse{}
+	_body, _err := client.CreateCustomClassWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateCustomClassWithOptions(request *CreateCustomClassRequest, headers *CreateCustomClassHeaders, runtime *util.RuntimeOptions) (_result *CreateCustomClassResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CustomClass))) {
+		body["customClass"] = request.CustomClass
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SuperId)) {
+		body["superId"] = request.SuperId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOauthAppId)) {
+		body["dingOauthAppId"] = request.DingOauthAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateCustomClassResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateCustomClass"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/customClasses"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteTeacher(classId *string, userId *string, request *DeleteTeacherRequest) (_result *DeleteTeacherResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteTeacherHeaders{}
+	_result = &DeleteTeacherResponse{}
+	_body, _err := client.DeleteTeacherWithOptions(classId, userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteTeacherWithOptions(classId *string, userId *string, request *DeleteTeacherRequest, headers *DeleteTeacherHeaders, runtime *util.RuntimeOptions) (_result *DeleteTeacherResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Adviser)) {
+		query["adviser"] = request.Adviser
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		query["operator"] = request.Operator
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteTeacherResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteTeacher"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/classes/"+tea.StringValue(classId)+"/teachers/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchTeachers(request *SearchTeachersRequest) (_result *SearchTeachersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchTeachersHeaders{}
+	_result = &SearchTeachersResponse{}
+	_body, _err := client.SearchTeachersWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchTeachersWithOptions(request *SearchTeachersRequest, headers *SearchTeachersHeaders, runtime *util.RuntimeOptions) (_result *SearchTeachersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.NameKeyword)) {
+		query["nameKeyword"] = request.NameKeyword
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &SearchTeachersResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchTeachers"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/teachers/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryOrgType() (_result *QueryOrgTypeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryOrgTypeHeaders{}
+	_result = &QueryOrgTypeResponse{}
+	_body, _err := client.QueryOrgTypeWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryOrgTypeWithOptions(headers *QueryOrgTypeHeaders, runtime *util.RuntimeOptions) (_result *QueryOrgTypeResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &QueryOrgTypeResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryOrgType"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/orgTypes"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2233,50 +2612,6 @@ func (client *Client) CreateCustomDeptWithOptions(request *CreateCustomDeptReque
 	return _result, _err
 }
 
-func (client *Client) DeleteDept(deptId *string, request *DeleteDeptRequest) (_result *DeleteDeptResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &DeleteDeptHeaders{}
-	_result = &DeleteDeptResponse{}
-	_body, _err := client.DeleteDeptWithOptions(deptId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) DeleteDeptWithOptions(deptId *string, request *DeleteDeptRequest, headers *DeleteDeptHeaders, runtime *util.RuntimeOptions) (_result *DeleteDeptResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Operator)) {
-		query["operator"] = request.Operator
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &DeleteDeptResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteDept"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/depts/"+tea.StringValue(deptId)), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
 func (client *Client) DeleteStudent(classId *string, userId *string, request *DeleteStudentRequest) (_result *DeleteStudentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteStudentHeaders{}
@@ -2314,178 +2649,6 @@ func (client *Client) DeleteStudentWithOptions(classId *string, userId *string, 
 	}
 	_result = &DeleteStudentResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteStudent"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/classes/"+tea.StringValue(classId)+"/students/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) DeleteGuardian(classId *string, userId *string, request *DeleteGuardianRequest) (_result *DeleteGuardianResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &DeleteGuardianHeaders{}
-	_result = &DeleteGuardianResponse{}
-	_body, _err := client.DeleteGuardianWithOptions(classId, userId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) DeleteGuardianWithOptions(classId *string, userId *string, request *DeleteGuardianRequest, headers *DeleteGuardianHeaders, runtime *util.RuntimeOptions) (_result *DeleteGuardianResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.StuId)) {
-		query["stuId"] = request.StuId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Operator)) {
-		query["operator"] = request.Operator
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &DeleteGuardianResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteGuardian"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/classes/"+tea.StringValue(classId)+"/guardians/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) CreateCustomClass(request *CreateCustomClassRequest) (_result *CreateCustomClassResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateCustomClassHeaders{}
-	_result = &CreateCustomClassResponse{}
-	_body, _err := client.CreateCustomClassWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) CreateCustomClassWithOptions(request *CreateCustomClassRequest, headers *CreateCustomClassHeaders, runtime *util.RuntimeOptions) (_result *CreateCustomClassResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CustomClass))) {
-		body["customClass"] = request.CustomClass
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.SuperId)) {
-		body["superId"] = request.SuperId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Operator)) {
-		body["operator"] = request.Operator
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
-		body["dingIsvOrgId"] = request.DingIsvOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
-		body["dingCorpId"] = request.DingCorpId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingOauthAppId)) {
-		body["dingOauthAppId"] = request.DingOauthAppId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
-		body["dingSuiteKey"] = request.DingSuiteKey
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
-		body["dingTokenGrantType"] = request.DingTokenGrantType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
-		body["dingOrgId"] = request.DingOrgId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &CreateCustomClassResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateCustomClass"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/customClasses"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) DeleteTeacher(classId *string, userId *string, request *DeleteTeacherRequest) (_result *DeleteTeacherResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &DeleteTeacherHeaders{}
-	_result = &DeleteTeacherResponse{}
-	_body, _err := client.DeleteTeacherWithOptions(classId, userId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) DeleteTeacherWithOptions(classId *string, userId *string, request *DeleteTeacherRequest, headers *DeleteTeacherHeaders, runtime *util.RuntimeOptions) (_result *DeleteTeacherResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Adviser)) {
-		query["adviser"] = request.Adviser
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Operator)) {
-		query["operator"] = request.Operator
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &DeleteTeacherResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteTeacher"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/classes/"+tea.StringValue(classId)+"/teachers/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
