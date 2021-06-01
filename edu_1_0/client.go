@@ -233,6 +233,168 @@ func (s *GetDefaultChildResponse) SetBody(v *GetDefaultChildResponseBody) *GetDe
 	return s
 }
 
+type GetOpenCoursesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetOpenCoursesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOpenCoursesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetOpenCoursesHeaders) SetCommonHeaders(v map[string]*string) *GetOpenCoursesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetOpenCoursesHeaders) SetXAcsDingtalkAccessToken(v string) *GetOpenCoursesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetOpenCoursesRequest struct {
+	// 分页起始, 起始值为0
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s GetOpenCoursesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOpenCoursesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetOpenCoursesRequest) SetPageNumber(v int64) *GetOpenCoursesRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetOpenCoursesRequest) SetPageSize(v int64) *GetOpenCoursesRequest {
+	s.PageSize = &v
+	return s
+}
+
+type GetOpenCoursesResponseBody struct {
+	// 总记录数
+	TotalCount *int64                                  `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	CourseList []*GetOpenCoursesResponseBodyCourseList `json:"courseList,omitempty" xml:"courseList,omitempty" type:"Repeated"`
+}
+
+func (s GetOpenCoursesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOpenCoursesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOpenCoursesResponseBody) SetTotalCount(v int64) *GetOpenCoursesResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *GetOpenCoursesResponseBody) SetCourseList(v []*GetOpenCoursesResponseBodyCourseList) *GetOpenCoursesResponseBody {
+	s.CourseList = v
+	return s
+}
+
+type GetOpenCoursesResponseBodyCourseList struct {
+	// 课程id
+	CourseId *string `json:"courseId,omitempty" xml:"courseId,omitempty"`
+	// 课程标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 课程类型: 0-直播 2-视频内容
+	FeedType *int64 `json:"feedType,omitempty" xml:"feedType,omitempty"`
+	// 老师名称
+	TeacherName *string `json:"teacherName,omitempty" xml:"teacherName,omitempty"`
+	// 封面图片地址
+	CoverUrl *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
+	// 课程开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 课程观看地址
+	JumpUrl *string `json:"jumpUrl,omitempty" xml:"jumpUrl,omitempty"`
+	// 老师的userId
+	TeacherId *string `json:"teacherId,omitempty" xml:"teacherId,omitempty"`
+}
+
+func (s GetOpenCoursesResponseBodyCourseList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOpenCoursesResponseBodyCourseList) GoString() string {
+	return s.String()
+}
+
+func (s *GetOpenCoursesResponseBodyCourseList) SetCourseId(v string) *GetOpenCoursesResponseBodyCourseList {
+	s.CourseId = &v
+	return s
+}
+
+func (s *GetOpenCoursesResponseBodyCourseList) SetTitle(v string) *GetOpenCoursesResponseBodyCourseList {
+	s.Title = &v
+	return s
+}
+
+func (s *GetOpenCoursesResponseBodyCourseList) SetFeedType(v int64) *GetOpenCoursesResponseBodyCourseList {
+	s.FeedType = &v
+	return s
+}
+
+func (s *GetOpenCoursesResponseBodyCourseList) SetTeacherName(v string) *GetOpenCoursesResponseBodyCourseList {
+	s.TeacherName = &v
+	return s
+}
+
+func (s *GetOpenCoursesResponseBodyCourseList) SetCoverUrl(v string) *GetOpenCoursesResponseBodyCourseList {
+	s.CoverUrl = &v
+	return s
+}
+
+func (s *GetOpenCoursesResponseBodyCourseList) SetStartTime(v int64) *GetOpenCoursesResponseBodyCourseList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetOpenCoursesResponseBodyCourseList) SetJumpUrl(v string) *GetOpenCoursesResponseBodyCourseList {
+	s.JumpUrl = &v
+	return s
+}
+
+func (s *GetOpenCoursesResponseBodyCourseList) SetTeacherId(v string) *GetOpenCoursesResponseBodyCourseList {
+	s.TeacherId = &v
+	return s
+}
+
+type GetOpenCoursesResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetOpenCoursesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetOpenCoursesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOpenCoursesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetOpenCoursesResponse) SetHeaders(v map[string]*string) *GetOpenCoursesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetOpenCoursesResponse) SetBody(v *GetOpenCoursesResponseBody) *GetOpenCoursesResponse {
+	s.Body = v
+	return s
+}
+
 type BatchCreateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1793,6 +1955,151 @@ func (s *CreateCustomDeptResponse) SetBody(v *CreateCustomDeptResponseBody) *Cre
 	return s
 }
 
+type GetOpenCourseDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetOpenCourseDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOpenCourseDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetOpenCourseDetailHeaders) SetCommonHeaders(v map[string]*string) *GetOpenCourseDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetOpenCourseDetailHeaders) SetXAcsDingtalkAccessToken(v string) *GetOpenCourseDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetOpenCourseDetailResponseBody struct {
+	// 课程id
+	CourseId *string `json:"courseId,omitempty" xml:"courseId,omitempty"`
+	// 课程标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 课程类型: 0-直播 2-视频内容
+	CourseType *int64 `json:"courseType,omitempty" xml:"courseType,omitempty"`
+	// 老师名称
+	TeacherName *string `json:"teacherName,omitempty" xml:"teacherName,omitempty"`
+	// 封面图片地址
+	CoverUrl *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
+	// 课程开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 老师的userId
+	TeacherId *string `json:"teacherId,omitempty" xml:"teacherId,omitempty"`
+	// 课程介绍
+	Introduction *string `json:"introduction,omitempty" xml:"introduction,omitempty"`
+	// 发布详情model
+	PushModel *GetOpenCourseDetailResponseBodyPushModel `json:"pushModel,omitempty" xml:"pushModel,omitempty" type:"Struct"`
+}
+
+func (s GetOpenCourseDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOpenCourseDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOpenCourseDetailResponseBody) SetCourseId(v string) *GetOpenCourseDetailResponseBody {
+	s.CourseId = &v
+	return s
+}
+
+func (s *GetOpenCourseDetailResponseBody) SetTitle(v string) *GetOpenCourseDetailResponseBody {
+	s.Title = &v
+	return s
+}
+
+func (s *GetOpenCourseDetailResponseBody) SetCourseType(v int64) *GetOpenCourseDetailResponseBody {
+	s.CourseType = &v
+	return s
+}
+
+func (s *GetOpenCourseDetailResponseBody) SetTeacherName(v string) *GetOpenCourseDetailResponseBody {
+	s.TeacherName = &v
+	return s
+}
+
+func (s *GetOpenCourseDetailResponseBody) SetCoverUrl(v string) *GetOpenCourseDetailResponseBody {
+	s.CoverUrl = &v
+	return s
+}
+
+func (s *GetOpenCourseDetailResponseBody) SetStartTime(v int64) *GetOpenCourseDetailResponseBody {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetOpenCourseDetailResponseBody) SetTeacherId(v string) *GetOpenCourseDetailResponseBody {
+	s.TeacherId = &v
+	return s
+}
+
+func (s *GetOpenCourseDetailResponseBody) SetIntroduction(v string) *GetOpenCourseDetailResponseBody {
+	s.Introduction = &v
+	return s
+}
+
+func (s *GetOpenCourseDetailResponseBody) SetPushModel(v *GetOpenCourseDetailResponseBodyPushModel) *GetOpenCourseDetailResponseBody {
+	s.PushModel = v
+	return s
+}
+
+type GetOpenCourseDetailResponseBodyPushModel struct {
+	// 参与学校的名称列表
+	PushOrgNameList []*string `json:"pushOrgNameList,omitempty" xml:"pushOrgNameList,omitempty" type:"Repeated"`
+	// 参与角色的名称列表
+	PushRoleNameList []*string `json:"pushRoleNameList,omitempty" xml:"pushRoleNameList,omitempty" type:"Repeated"`
+}
+
+func (s GetOpenCourseDetailResponseBodyPushModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOpenCourseDetailResponseBodyPushModel) GoString() string {
+	return s.String()
+}
+
+func (s *GetOpenCourseDetailResponseBodyPushModel) SetPushOrgNameList(v []*string) *GetOpenCourseDetailResponseBodyPushModel {
+	s.PushOrgNameList = v
+	return s
+}
+
+func (s *GetOpenCourseDetailResponseBodyPushModel) SetPushRoleNameList(v []*string) *GetOpenCourseDetailResponseBodyPushModel {
+	s.PushRoleNameList = v
+	return s
+}
+
+type GetOpenCourseDetailResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetOpenCourseDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetOpenCourseDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOpenCourseDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetOpenCourseDetailResponse) SetHeaders(v map[string]*string) *GetOpenCourseDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetOpenCourseDetailResponse) SetBody(v *GetOpenCourseDetailResponseBody) *GetOpenCourseDetailResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteStudentHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2047,6 +2354,54 @@ func (client *Client) GetDefaultChildWithOptions(headers *GetDefaultChildHeaders
 	}
 	_result = &GetDefaultChildResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetDefaultChild"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/defaultChildren"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetOpenCourses(request *GetOpenCoursesRequest) (_result *GetOpenCoursesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOpenCoursesHeaders{}
+	_result = &GetOpenCoursesResponse{}
+	_body, _err := client.GetOpenCoursesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetOpenCoursesWithOptions(request *GetOpenCoursesRequest, headers *GetOpenCoursesHeaders, runtime *util.RuntimeOptions) (_result *GetOpenCoursesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetOpenCoursesResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetOpenCourses"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/openCourses"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2605,6 +2960,40 @@ func (client *Client) CreateCustomDeptWithOptions(request *CreateCustomDeptReque
 	}
 	_result = &CreateCustomDeptResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateCustomDept"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/customDepts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetOpenCourseDetail(courseId *string) (_result *GetOpenCourseDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOpenCourseDetailHeaders{}
+	_result = &GetOpenCourseDetailResponse{}
+	_body, _err := client.GetOpenCourseDetailWithOptions(courseId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetOpenCourseDetailWithOptions(courseId *string, headers *GetOpenCourseDetailHeaders, runtime *util.RuntimeOptions) (_result *GetOpenCourseDetailResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetOpenCourseDetailResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetOpenCourseDetail"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/openCourse/"+tea.StringValue(courseId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

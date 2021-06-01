@@ -327,6 +327,116 @@ func (s *GetUserHolidaysResponse) SetBody(v *GetUserHolidaysResponseBody) *GetUs
 	return s
 }
 
+type CheckWritePermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CheckWritePermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckWritePermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CheckWritePermissionHeaders) SetCommonHeaders(v map[string]*string) *CheckWritePermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CheckWritePermissionHeaders) SetXAcsDingtalkAccessToken(v string) *CheckWritePermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CheckWritePermissionRequest struct {
+	// corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// opUserId
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// category
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// resourceKey
+	ResourceKey *string `json:"resourceKey,omitempty" xml:"resourceKey,omitempty"`
+	// entityIds
+	EntityIds []*int64 `json:"entityIds,omitempty" xml:"entityIds,omitempty" type:"Repeated"`
+}
+
+func (s CheckWritePermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckWritePermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CheckWritePermissionRequest) SetCorpId(v string) *CheckWritePermissionRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *CheckWritePermissionRequest) SetOpUserId(v string) *CheckWritePermissionRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *CheckWritePermissionRequest) SetCategory(v string) *CheckWritePermissionRequest {
+	s.Category = &v
+	return s
+}
+
+func (s *CheckWritePermissionRequest) SetResourceKey(v string) *CheckWritePermissionRequest {
+	s.ResourceKey = &v
+	return s
+}
+
+func (s *CheckWritePermissionRequest) SetEntityIds(v []*int64) *CheckWritePermissionRequest {
+	s.EntityIds = v
+	return s
+}
+
+type CheckWritePermissionResponseBody struct {
+	// entityPermissionMap
+	EntityPermissionMap map[string]*bool `json:"entityPermissionMap,omitempty" xml:"entityPermissionMap,omitempty"`
+}
+
+func (s CheckWritePermissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckWritePermissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CheckWritePermissionResponseBody) SetEntityPermissionMap(v map[string]*bool) *CheckWritePermissionResponseBody {
+	s.EntityPermissionMap = v
+	return s
+}
+
+type CheckWritePermissionResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CheckWritePermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CheckWritePermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckWritePermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CheckWritePermissionResponse) SetHeaders(v map[string]*string) *CheckWritePermissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CheckWritePermissionResponse) SetBody(v *CheckWritePermissionResponseBody) *CheckWritePermissionResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -459,6 +569,68 @@ func (client *Client) GetUserHolidaysWithOptions(request *GetUserHolidaysRequest
 	}
 	_result = &GetUserHolidaysResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetUserHolidays"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/holidays"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CheckWritePermission(request *CheckWritePermissionRequest) (_result *CheckWritePermissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CheckWritePermissionHeaders{}
+	_result = &CheckWritePermissionResponse{}
+	_body, _err := client.CheckWritePermissionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CheckWritePermissionWithOptions(request *CheckWritePermissionRequest, headers *CheckWritePermissionHeaders, runtime *util.RuntimeOptions) (_result *CheckWritePermissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Category)) {
+		body["category"] = request.Category
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ResourceKey)) {
+		body["resourceKey"] = request.ResourceKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EntityIds)) {
+		body["entityIds"] = request.EntityIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CheckWritePermissionResponse{}
+	_body, _err := client.DoROARequest(tea.String("CheckWritePermission"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/writePermissions/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

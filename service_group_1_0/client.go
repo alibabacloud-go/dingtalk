@@ -871,6 +871,151 @@ func (s *AddKnowledgeResponse) SetBody(v *AddKnowledgeResponseBody) *AddKnowledg
 	return s
 }
 
+type BatchGetGroupSetConfigHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchGetGroupSetConfigHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetGroupSetConfigHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetGroupSetConfigHeaders) SetCommonHeaders(v map[string]*string) *BatchGetGroupSetConfigHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchGetGroupSetConfigHeaders) SetXAcsDingtalkAccessToken(v string) *BatchGetGroupSetConfigHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchGetGroupSetConfigRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	// 开放团队id
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 开放群组id
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 配置项key列表
+	ConfigKeys []*string `json:"configKeys,omitempty" xml:"configKeys,omitempty" type:"Repeated"`
+}
+
+func (s BatchGetGroupSetConfigRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetGroupSetConfigRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetGroupSetConfigRequest) SetDingIsvOrgId(v int64) *BatchGetGroupSetConfigRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *BatchGetGroupSetConfigRequest) SetDingOrgId(v int64) *BatchGetGroupSetConfigRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *BatchGetGroupSetConfigRequest) SetDingSuiteKey(v string) *BatchGetGroupSetConfigRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *BatchGetGroupSetConfigRequest) SetDingTokenGrantType(v int64) *BatchGetGroupSetConfigRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *BatchGetGroupSetConfigRequest) SetOpenTeamId(v string) *BatchGetGroupSetConfigRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *BatchGetGroupSetConfigRequest) SetOpenGroupSetId(v string) *BatchGetGroupSetConfigRequest {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *BatchGetGroupSetConfigRequest) SetConfigKeys(v []*string) *BatchGetGroupSetConfigRequest {
+	s.ConfigKeys = v
+	return s
+}
+
+type BatchGetGroupSetConfigResponseBody struct {
+	// 群粗配置列表
+	GroupSetConfigs []*BatchGetGroupSetConfigResponseBodyGroupSetConfigs `json:"groupSetConfigs,omitempty" xml:"groupSetConfigs,omitempty" type:"Repeated"`
+}
+
+func (s BatchGetGroupSetConfigResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetGroupSetConfigResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetGroupSetConfigResponseBody) SetGroupSetConfigs(v []*BatchGetGroupSetConfigResponseBodyGroupSetConfigs) *BatchGetGroupSetConfigResponseBody {
+	s.GroupSetConfigs = v
+	return s
+}
+
+type BatchGetGroupSetConfigResponseBodyGroupSetConfigs struct {
+	// 配置项key
+	ConfigKey *string `json:"configKey,omitempty" xml:"configKey,omitempty"`
+	// 配置项值
+	ConfigValue *string `json:"configValue,omitempty" xml:"configValue,omitempty"`
+}
+
+func (s BatchGetGroupSetConfigResponseBodyGroupSetConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetGroupSetConfigResponseBodyGroupSetConfigs) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetGroupSetConfigResponseBodyGroupSetConfigs) SetConfigKey(v string) *BatchGetGroupSetConfigResponseBodyGroupSetConfigs {
+	s.ConfigKey = &v
+	return s
+}
+
+func (s *BatchGetGroupSetConfigResponseBodyGroupSetConfigs) SetConfigValue(v string) *BatchGetGroupSetConfigResponseBodyGroupSetConfigs {
+	s.ConfigValue = &v
+	return s
+}
+
+type BatchGetGroupSetConfigResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchGetGroupSetConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchGetGroupSetConfigResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetGroupSetConfigResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetGroupSetConfigResponse) SetHeaders(v map[string]*string) *BatchGetGroupSetConfigResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchGetGroupSetConfigResponse) SetBody(v *BatchGetGroupSetConfigResponseBody) *BatchGetGroupSetConfigResponse {
+	s.Body = v
+	return s
+}
+
 type QueryServiceGroupMessageReadStatusHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1471,6 +1616,125 @@ func (s *QueryGroupResponse) SetBody(v *QueryGroupResponseBody) *QueryGroupRespo
 	return s
 }
 
+type CloseHumanSessionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CloseHumanSessionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseHumanSessionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CloseHumanSessionHeaders) SetCommonHeaders(v map[string]*string) *CloseHumanSessionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CloseHumanSessionHeaders) SetXAcsDingtalkAccessToken(v string) *CloseHumanSessionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CloseHumanSessionRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	// 开放团队id
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 开放会话id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 访客unionid
+	VisitorUnionId *int64 `json:"visitorUnionId,omitempty" xml:"visitorUnionId,omitempty"`
+}
+
+func (s CloseHumanSessionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseHumanSessionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CloseHumanSessionRequest) SetDingIsvOrgId(v int64) *CloseHumanSessionRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *CloseHumanSessionRequest) SetDingOrgId(v int64) *CloseHumanSessionRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *CloseHumanSessionRequest) SetDingSuiteKey(v string) *CloseHumanSessionRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *CloseHumanSessionRequest) SetDingTokenGrantType(v int64) *CloseHumanSessionRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *CloseHumanSessionRequest) SetOpenTeamId(v string) *CloseHumanSessionRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *CloseHumanSessionRequest) SetOpenConversationId(v string) *CloseHumanSessionRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *CloseHumanSessionRequest) SetVisitorUnionId(v int64) *CloseHumanSessionRequest {
+	s.VisitorUnionId = &v
+	return s
+}
+
+type CloseHumanSessionResponseBody struct {
+	SessionId *int64 `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
+}
+
+func (s CloseHumanSessionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseHumanSessionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CloseHumanSessionResponseBody) SetSessionId(v int64) *CloseHumanSessionResponseBody {
+	s.SessionId = &v
+	return s
+}
+
+type CloseHumanSessionResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CloseHumanSessionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CloseHumanSessionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseHumanSessionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CloseHumanSessionResponse) SetHeaders(v map[string]*string) *CloseHumanSessionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CloseHumanSessionResponse) SetBody(v *CloseHumanSessionResponseBody) *CloseHumanSessionResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -1930,6 +2194,74 @@ func (client *Client) AddKnowledgeWithOptions(request *AddKnowledgeRequest, head
 	return _result, _err
 }
 
+func (client *Client) BatchGetGroupSetConfig(request *BatchGetGroupSetConfigRequest) (_result *BatchGetGroupSetConfigResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchGetGroupSetConfigHeaders{}
+	_result = &BatchGetGroupSetConfigResponse{}
+	_body, _err := client.BatchGetGroupSetConfigWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchGetGroupSetConfigWithOptions(request *BatchGetGroupSetConfigRequest, headers *BatchGetGroupSetConfigHeaders, runtime *util.RuntimeOptions) (_result *BatchGetGroupSetConfigResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
+		body["openGroupSetId"] = request.OpenGroupSetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ConfigKeys)) {
+		body["configKeys"] = request.ConfigKeys
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchGetGroupSetConfigResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchGetGroupSetConfig"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groupSetConfigs/batchQuery"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryServiceGroupMessageReadStatus(request *QueryServiceGroupMessageReadStatusRequest) (_result *QueryServiceGroupMessageReadStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryServiceGroupMessageReadStatusHeaders{}
@@ -2185,6 +2517,74 @@ func (client *Client) QueryGroupWithOptions(request *QueryGroupRequest, headers 
 	}
 	_result = &QueryGroupResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryGroup"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CloseHumanSession(request *CloseHumanSessionRequest) (_result *CloseHumanSessionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CloseHumanSessionHeaders{}
+	_result = &CloseHumanSessionResponse{}
+	_body, _err := client.CloseHumanSessionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CloseHumanSessionWithOptions(request *CloseHumanSessionRequest, headers *CloseHumanSessionHeaders, runtime *util.RuntimeOptions) (_result *CloseHumanSessionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VisitorUnionId)) {
+		body["visitorUnionId"] = request.VisitorUnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CloseHumanSessionResponse{}
+	_body, _err := client.DoROARequest(tea.String("CloseHumanSession"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/humanSessions/close"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -35,9 +35,12 @@ func (s *ListWorkBenchGroupHeaders) SetXAcsDingtalkAccessToken(v string) *ListWo
 }
 
 type ListWorkBenchGroupRequest struct {
-	OpUnionId        *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	// 操作人unionId
+	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	// 合作空间corpId
 	EcologicalCorpId *string `json:"ecologicalCorpId,omitempty" xml:"ecologicalCorpId,omitempty"`
-	GroupType        *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	// WORK_ALL
+	GroupType *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
 }
 
 func (s ListWorkBenchGroupRequest) String() string {
