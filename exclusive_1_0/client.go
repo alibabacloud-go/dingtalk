@@ -11,6 +11,202 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type GetGroupActiveInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetGroupActiveInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupActiveInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupActiveInfoHeaders) SetCommonHeaders(v map[string]*string) *GetGroupActiveInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetGroupActiveInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetGroupActiveInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetGroupActiveInfoRequest struct {
+	// 统计日期
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+	// 钉钉群组id
+	DingGroupId *string `json:"dingGroupId,omitempty" xml:"dingGroupId,omitempty"`
+	// 分页起始页
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s GetGroupActiveInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupActiveInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupActiveInfoRequest) SetStatDate(v string) *GetGroupActiveInfoRequest {
+	s.StatDate = &v
+	return s
+}
+
+func (s *GetGroupActiveInfoRequest) SetDingGroupId(v string) *GetGroupActiveInfoRequest {
+	s.DingGroupId = &v
+	return s
+}
+
+func (s *GetGroupActiveInfoRequest) SetPageNumber(v int64) *GetGroupActiveInfoRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetGroupActiveInfoRequest) SetPageSize(v int64) *GetGroupActiveInfoRequest {
+	s.PageSize = &v
+	return s
+}
+
+type GetGroupActiveInfoResponseBody struct {
+	Data       []*GetGroupActiveInfoResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	TotalCount *int64                                `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s GetGroupActiveInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupActiveInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupActiveInfoResponseBody) SetData(v []*GetGroupActiveInfoResponseBodyData) *GetGroupActiveInfoResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *GetGroupActiveInfoResponseBody) SetTotalCount(v int64) *GetGroupActiveInfoResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type GetGroupActiveInfoResponseBodyData struct {
+	// 统计时间
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+	// 群组id
+	DingGroupId *string `json:"dingGroupId,omitempty" xml:"dingGroupId,omitempty"`
+	// 群组创建时间
+	GroupCreateTime *string `json:"groupCreateTime,omitempty" xml:"groupCreateTime,omitempty"`
+	// 群组创建用户id
+	GroupCreateUserId *string `json:"groupCreateUserId,omitempty" xml:"groupCreateUserId,omitempty"`
+	// 群组创建用户姓名
+	GroupCreateUserName *string `json:"groupCreateUserName,omitempty" xml:"groupCreateUserName,omitempty"`
+	// 群名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 群类型：1-全员群，2-部门群，3-（其他）内部群，4-场景群
+	GroupType *int64 `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	// 最近1天群人数
+	GroupUserCnt1d *int32 `json:"groupUserCnt1d,omitempty" xml:"groupUserCnt1d,omitempty"`
+	// 最近1天发消息人数
+	SendMessageUserCnt1d *int64 `json:"sendMessageUserCnt1d,omitempty" xml:"sendMessageUserCnt1d,omitempty"`
+	// 最近1天发消息次数
+	SendMessageCnt1d *int64 `json:"sendMessageCnt1d,omitempty" xml:"sendMessageCnt1d,omitempty"`
+	// 最近1天打开群人数
+	OpenConvUv1d *int32 `json:"openConvUv1d,omitempty" xml:"openConvUv1d,omitempty"`
+}
+
+func (s GetGroupActiveInfoResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupActiveInfoResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupActiveInfoResponseBodyData) SetStatDate(v string) *GetGroupActiveInfoResponseBodyData {
+	s.StatDate = &v
+	return s
+}
+
+func (s *GetGroupActiveInfoResponseBodyData) SetDingGroupId(v string) *GetGroupActiveInfoResponseBodyData {
+	s.DingGroupId = &v
+	return s
+}
+
+func (s *GetGroupActiveInfoResponseBodyData) SetGroupCreateTime(v string) *GetGroupActiveInfoResponseBodyData {
+	s.GroupCreateTime = &v
+	return s
+}
+
+func (s *GetGroupActiveInfoResponseBodyData) SetGroupCreateUserId(v string) *GetGroupActiveInfoResponseBodyData {
+	s.GroupCreateUserId = &v
+	return s
+}
+
+func (s *GetGroupActiveInfoResponseBodyData) SetGroupCreateUserName(v string) *GetGroupActiveInfoResponseBodyData {
+	s.GroupCreateUserName = &v
+	return s
+}
+
+func (s *GetGroupActiveInfoResponseBodyData) SetGroupName(v string) *GetGroupActiveInfoResponseBodyData {
+	s.GroupName = &v
+	return s
+}
+
+func (s *GetGroupActiveInfoResponseBodyData) SetGroupType(v int64) *GetGroupActiveInfoResponseBodyData {
+	s.GroupType = &v
+	return s
+}
+
+func (s *GetGroupActiveInfoResponseBodyData) SetGroupUserCnt1d(v int32) *GetGroupActiveInfoResponseBodyData {
+	s.GroupUserCnt1d = &v
+	return s
+}
+
+func (s *GetGroupActiveInfoResponseBodyData) SetSendMessageUserCnt1d(v int64) *GetGroupActiveInfoResponseBodyData {
+	s.SendMessageUserCnt1d = &v
+	return s
+}
+
+func (s *GetGroupActiveInfoResponseBodyData) SetSendMessageCnt1d(v int64) *GetGroupActiveInfoResponseBodyData {
+	s.SendMessageCnt1d = &v
+	return s
+}
+
+func (s *GetGroupActiveInfoResponseBodyData) SetOpenConvUv1d(v int32) *GetGroupActiveInfoResponseBodyData {
+	s.OpenConvUv1d = &v
+	return s
+}
+
+type GetGroupActiveInfoResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetGroupActiveInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetGroupActiveInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupActiveInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupActiveInfoResponse) SetHeaders(v map[string]*string) *GetGroupActiveInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetGroupActiveInfoResponse) SetBody(v *GetGroupActiveInfoResponseBody) *GetGroupActiveInfoResponse {
+	s.Body = v
+	return s
+}
+
 type SearchOrgInnerGroupInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -304,6 +500,62 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) GetGroupActiveInfo(request *GetGroupActiveInfoRequest) (_result *GetGroupActiveInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetGroupActiveInfoHeaders{}
+	_result = &GetGroupActiveInfoResponse{}
+	_body, _err := client.GetGroupActiveInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetGroupActiveInfoWithOptions(request *GetGroupActiveInfoRequest, headers *GetGroupActiveInfoHeaders, runtime *util.RuntimeOptions) (_result *GetGroupActiveInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingGroupId)) {
+		query["dingGroupId"] = request.DingGroupId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetGroupActiveInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetGroupActiveInfo"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/data/activeGroups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) SearchOrgInnerGroupInfo(request *SearchOrgInnerGroupInfoRequest) (_result *SearchOrgInnerGroupInfoResponse, _err error) {

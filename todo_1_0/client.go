@@ -503,6 +503,10 @@ type GetTodoTaskResponseBody struct {
 	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
 	// requestId
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// 待办卡片类型id
+	CardTypeId *string `json:"cardTypeId,omitempty" xml:"cardTypeId,omitempty"`
+	// 内容区表单字段配置
+	ContentFieldList []*GetTodoTaskResponseBodyContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
 }
 
 func (s GetTodoTaskResponseBody) String() string {
@@ -613,6 +617,16 @@ func (s *GetTodoTaskResponseBody) SetRequestId(v string) *GetTodoTaskResponseBod
 	return s
 }
 
+func (s *GetTodoTaskResponseBody) SetCardTypeId(v string) *GetTodoTaskResponseBody {
+	s.CardTypeId = &v
+	return s
+}
+
+func (s *GetTodoTaskResponseBody) SetContentFieldList(v []*GetTodoTaskResponseBodyContentFieldList) *GetTodoTaskResponseBody {
+	s.ContentFieldList = v
+	return s
+}
+
 type GetTodoTaskResponseBodyDetailUrl struct {
 	// pc端详情页地址
 	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
@@ -635,6 +649,31 @@ func (s *GetTodoTaskResponseBodyDetailUrl) SetPcUrl(v string) *GetTodoTaskRespon
 
 func (s *GetTodoTaskResponseBodyDetailUrl) SetAppUrl(v string) *GetTodoTaskResponseBodyDetailUrl {
 	s.AppUrl = &v
+	return s
+}
+
+type GetTodoTaskResponseBodyContentFieldList struct {
+	// 字段唯一标识
+	FieldKey *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
+	// 字段值
+	FieldValue *string `json:"fieldValue,omitempty" xml:"fieldValue,omitempty"`
+}
+
+func (s GetTodoTaskResponseBodyContentFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTodoTaskResponseBodyContentFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *GetTodoTaskResponseBodyContentFieldList) SetFieldKey(v string) *GetTodoTaskResponseBodyContentFieldList {
+	s.FieldKey = &v
+	return s
+}
+
+func (s *GetTodoTaskResponseBodyContentFieldList) SetFieldValue(v string) *GetTodoTaskResponseBodyContentFieldList {
+	s.FieldValue = &v
 	return s
 }
 
@@ -1150,6 +1189,10 @@ type UpdateTodoTaskRequest struct {
 	ExecutorIds []*string `json:"executorIds,omitempty" xml:"executorIds,omitempty" type:"Repeated"`
 	// 参与者列表，需传用户的unionId
 	ParticipantIds []*string `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
+	// 待办卡片类型id
+	CardTypeId *string `json:"cardTypeId,omitempty" xml:"cardTypeId,omitempty"`
+	// 内容区表单字段配置
+	ContentFieldList []*UpdateTodoTaskRequestContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
 	// 当前操作者id，需传用户的unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
@@ -1192,8 +1235,43 @@ func (s *UpdateTodoTaskRequest) SetParticipantIds(v []*string) *UpdateTodoTaskRe
 	return s
 }
 
+func (s *UpdateTodoTaskRequest) SetCardTypeId(v string) *UpdateTodoTaskRequest {
+	s.CardTypeId = &v
+	return s
+}
+
+func (s *UpdateTodoTaskRequest) SetContentFieldList(v []*UpdateTodoTaskRequestContentFieldList) *UpdateTodoTaskRequest {
+	s.ContentFieldList = v
+	return s
+}
+
 func (s *UpdateTodoTaskRequest) SetOperatorId(v string) *UpdateTodoTaskRequest {
 	s.OperatorId = &v
+	return s
+}
+
+type UpdateTodoTaskRequestContentFieldList struct {
+	// 字段唯一标识
+	FieldKey *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
+	// 字段值
+	FieldValue *string `json:"fieldValue,omitempty" xml:"fieldValue,omitempty"`
+}
+
+func (s UpdateTodoTaskRequestContentFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTodoTaskRequestContentFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTodoTaskRequestContentFieldList) SetFieldKey(v string) *UpdateTodoTaskRequestContentFieldList {
+	s.FieldKey = &v
+	return s
+}
+
+func (s *UpdateTodoTaskRequestContentFieldList) SetFieldValue(v string) *UpdateTodoTaskRequestContentFieldList {
+	s.FieldValue = &v
 	return s
 }
 
@@ -1601,8 +1679,6 @@ type CreateTodoTaskResponseBodyContentFieldList struct {
 	FieldKey *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
 	// 字段值
 	FieldValue *string `json:"fieldValue,omitempty" xml:"fieldValue,omitempty"`
-	// 字段内容链接
-	FieldLink *string `json:"fieldLink,omitempty" xml:"fieldLink,omitempty"`
 }
 
 func (s CreateTodoTaskResponseBodyContentFieldList) String() string {
@@ -1620,11 +1696,6 @@ func (s *CreateTodoTaskResponseBodyContentFieldList) SetFieldKey(v string) *Crea
 
 func (s *CreateTodoTaskResponseBodyContentFieldList) SetFieldValue(v string) *CreateTodoTaskResponseBodyContentFieldList {
 	s.FieldValue = &v
-	return s
-}
-
-func (s *CreateTodoTaskResponseBodyContentFieldList) SetFieldLink(v string) *CreateTodoTaskResponseBodyContentFieldList {
-	s.FieldLink = &v
 	return s
 }
 
@@ -1971,6 +2042,14 @@ func (client *Client) UpdateTodoTaskWithOptions(unionId *string, taskId *string,
 
 	if !tea.BoolValue(util.IsUnset(request.ParticipantIds)) {
 		body["participantIds"] = request.ParticipantIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardTypeId)) {
+		body["cardTypeId"] = request.CardTypeId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContentFieldList)) {
+		body["contentFieldList"] = request.ContentFieldList
 	}
 
 	realHeaders := make(map[string]*string)

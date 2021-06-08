@@ -167,6 +167,136 @@ func (s *CreateApproveResponse) SetBody(v *CreateApproveResponseBody) *CreateApp
 	return s
 }
 
+type CheckClosingAccountHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CheckClosingAccountHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckClosingAccountHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CheckClosingAccountHeaders) SetCommonHeaders(v map[string]*string) *CheckClosingAccountHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CheckClosingAccountHeaders) SetXAcsDingtalkAccessToken(v string) *CheckClosingAccountHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CheckClosingAccountRequest struct {
+	// 员工列表
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// 时间段
+	UserTimeRange []*CheckClosingAccountRequestUserTimeRange `json:"userTimeRange,omitempty" xml:"userTimeRange,omitempty" type:"Repeated"`
+	// 情景
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+}
+
+func (s CheckClosingAccountRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckClosingAccountRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CheckClosingAccountRequest) SetUserIds(v []*string) *CheckClosingAccountRequest {
+	s.UserIds = v
+	return s
+}
+
+func (s *CheckClosingAccountRequest) SetUserTimeRange(v []*CheckClosingAccountRequestUserTimeRange) *CheckClosingAccountRequest {
+	s.UserTimeRange = v
+	return s
+}
+
+func (s *CheckClosingAccountRequest) SetBizCode(v string) *CheckClosingAccountRequest {
+	s.BizCode = &v
+	return s
+}
+
+type CheckClosingAccountRequestUserTimeRange struct {
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	EndTime   *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+}
+
+func (s CheckClosingAccountRequestUserTimeRange) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckClosingAccountRequestUserTimeRange) GoString() string {
+	return s.String()
+}
+
+func (s *CheckClosingAccountRequestUserTimeRange) SetStartTime(v int64) *CheckClosingAccountRequestUserTimeRange {
+	s.StartTime = &v
+	return s
+}
+
+func (s *CheckClosingAccountRequestUserTimeRange) SetEndTime(v int64) *CheckClosingAccountRequestUserTimeRange {
+	s.EndTime = &v
+	return s
+}
+
+type CheckClosingAccountResponseBody struct {
+	Mesage  *string `json:"mesage,omitempty" xml:"mesage,omitempty"`
+	Code    *int64  `json:"code,omitempty" xml:"code,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CheckClosingAccountResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckClosingAccountResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CheckClosingAccountResponseBody) SetMesage(v string) *CheckClosingAccountResponseBody {
+	s.Mesage = &v
+	return s
+}
+
+func (s *CheckClosingAccountResponseBody) SetCode(v int64) *CheckClosingAccountResponseBody {
+	s.Code = &v
+	return s
+}
+
+func (s *CheckClosingAccountResponseBody) SetSuccess(v bool) *CheckClosingAccountResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CheckClosingAccountResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CheckClosingAccountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CheckClosingAccountResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckClosingAccountResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CheckClosingAccountResponse) SetHeaders(v map[string]*string) *CheckClosingAccountResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CheckClosingAccountResponse) SetBody(v *CheckClosingAccountResponseBody) *CheckClosingAccountResponse {
+	s.Body = v
+	return s
+}
+
 type GetUserHolidaysHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -517,6 +647,58 @@ func (client *Client) CreateApproveWithOptions(request *CreateApproveRequest, he
 	}
 	_result = &CreateApproveResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateApprove"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/approves"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CheckClosingAccount(request *CheckClosingAccountRequest) (_result *CheckClosingAccountResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CheckClosingAccountHeaders{}
+	_result = &CheckClosingAccountResponse{}
+	_body, _err := client.CheckClosingAccountWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CheckClosingAccountWithOptions(request *CheckClosingAccountRequest, headers *CheckClosingAccountHeaders, runtime *util.RuntimeOptions) (_result *CheckClosingAccountResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserTimeRange)) {
+		body["userTimeRange"] = request.UserTimeRange
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		body["bizCode"] = request.BizCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CheckClosingAccountResponse{}
+	_body, _err := client.DoROARequest(tea.String("CheckClosingAccount"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/closingAccounts/status/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

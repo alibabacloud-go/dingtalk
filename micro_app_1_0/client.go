@@ -371,6 +371,8 @@ func (s *RegisterCustomAppRoleRequest) SetRoleName(v string) *RegisterCustomAppR
 type RegisterCustomAppRoleResponseBody struct {
 	// 角色id
 	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// 角色版本号
+	ScopeVersion *int64 `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
 }
 
 func (s RegisterCustomAppRoleResponseBody) String() string {
@@ -383,6 +385,11 @@ func (s RegisterCustomAppRoleResponseBody) GoString() string {
 
 func (s *RegisterCustomAppRoleResponseBody) SetRoleId(v int64) *RegisterCustomAppRoleResponseBody {
 	s.RoleId = &v
+	return s
+}
+
+func (s *RegisterCustomAppRoleResponseBody) SetScopeVersion(v int64) *RegisterCustomAppRoleResponseBody {
+	s.ScopeVersion = &v
 	return s
 }
 
