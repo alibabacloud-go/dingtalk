@@ -246,9 +246,9 @@ func (s *CheckClosingAccountRequestUserTimeRange) SetEndTime(v int64) *CheckClos
 }
 
 type CheckClosingAccountResponseBody struct {
-	Mesage  *string `json:"mesage,omitempty" xml:"mesage,omitempty"`
-	Code    *int64  `json:"code,omitempty" xml:"code,omitempty"`
-	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	Mesage *string `json:"mesage,omitempty" xml:"mesage,omitempty"`
+	Code   *string `json:"code,omitempty" xml:"code,omitempty"`
+	Pass   *bool   `json:"pass,omitempty" xml:"pass,omitempty"`
 }
 
 func (s CheckClosingAccountResponseBody) String() string {
@@ -264,13 +264,13 @@ func (s *CheckClosingAccountResponseBody) SetMesage(v string) *CheckClosingAccou
 	return s
 }
 
-func (s *CheckClosingAccountResponseBody) SetCode(v int64) *CheckClosingAccountResponseBody {
+func (s *CheckClosingAccountResponseBody) SetCode(v string) *CheckClosingAccountResponseBody {
 	s.Code = &v
 	return s
 }
 
-func (s *CheckClosingAccountResponseBody) SetSuccess(v bool) *CheckClosingAccountResponseBody {
-	s.Success = &v
+func (s *CheckClosingAccountResponseBody) SetPass(v bool) *CheckClosingAccountResponseBody {
+	s.Pass = &v
 	return s
 }
 

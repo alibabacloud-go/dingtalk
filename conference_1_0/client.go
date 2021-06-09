@@ -11,6 +11,193 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type QueryConferenceInfoBatchHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryConferenceInfoBatchHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceInfoBatchHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceInfoBatchHeaders) SetCommonHeaders(v map[string]*string) *QueryConferenceInfoBatchHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryConferenceInfoBatchHeaders) SetXAcsDingtalkAccessToken(v string) *QueryConferenceInfoBatchHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryConferenceInfoBatchRequest struct {
+	ConferenceIdList []*string `json:"conferenceIdList,omitempty" xml:"conferenceIdList,omitempty" type:"Repeated"`
+}
+
+func (s QueryConferenceInfoBatchRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceInfoBatchRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceInfoBatchRequest) SetConferenceIdList(v []*string) *QueryConferenceInfoBatchRequest {
+	s.ConferenceIdList = v
+	return s
+}
+
+type QueryConferenceInfoBatchResponseBody struct {
+	// 会议详情列表
+	Infos []*QueryConferenceInfoBatchResponseBodyInfos `json:"infos,omitempty" xml:"infos,omitempty" type:"Repeated"`
+}
+
+func (s QueryConferenceInfoBatchResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceInfoBatchResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceInfoBatchResponseBody) SetInfos(v []*QueryConferenceInfoBatchResponseBodyInfos) *QueryConferenceInfoBatchResponseBody {
+	s.Infos = v
+	return s
+}
+
+type QueryConferenceInfoBatchResponseBodyInfos struct {
+	// 会议iD
+	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	// 会议名称
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 会议开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 会议状态
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+	// 媒体状态
+	MediaStatus *int64 `json:"mediaStatus,omitempty" xml:"mediaStatus,omitempty"`
+	// 参会用户列表
+	UserList []*QueryConferenceInfoBatchResponseBodyInfosUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+}
+
+func (s QueryConferenceInfoBatchResponseBodyInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceInfoBatchResponseBodyInfos) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceInfoBatchResponseBodyInfos) SetConferenceId(v string) *QueryConferenceInfoBatchResponseBodyInfos {
+	s.ConferenceId = &v
+	return s
+}
+
+func (s *QueryConferenceInfoBatchResponseBodyInfos) SetTitle(v string) *QueryConferenceInfoBatchResponseBodyInfos {
+	s.Title = &v
+	return s
+}
+
+func (s *QueryConferenceInfoBatchResponseBodyInfos) SetStartTime(v int64) *QueryConferenceInfoBatchResponseBodyInfos {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryConferenceInfoBatchResponseBodyInfos) SetStatus(v int64) *QueryConferenceInfoBatchResponseBodyInfos {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryConferenceInfoBatchResponseBodyInfos) SetMediaStatus(v int64) *QueryConferenceInfoBatchResponseBodyInfos {
+	s.MediaStatus = &v
+	return s
+}
+
+func (s *QueryConferenceInfoBatchResponseBodyInfos) SetUserList(v []*QueryConferenceInfoBatchResponseBodyInfosUserList) *QueryConferenceInfoBatchResponseBodyInfos {
+	s.UserList = v
+	return s
+}
+
+type QueryConferenceInfoBatchResponseBodyInfosUserList struct {
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 名称
+	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	// 在会状态
+	AttendStatus *int64 `json:"attendStatus,omitempty" xml:"attendStatus,omitempty"`
+	// 摄像头状态
+	CameraStatus *int64 `json:"cameraStatus,omitempty" xml:"cameraStatus,omitempty"`
+	// 麦克风状态
+	MicStatus *int64 `json:"micStatus,omitempty" xml:"micStatus,omitempty"`
+	// 拒绝原因
+	RejectDescription *string `json:"rejectDescription,omitempty" xml:"rejectDescription,omitempty"`
+}
+
+func (s QueryConferenceInfoBatchResponseBodyInfosUserList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceInfoBatchResponseBodyInfosUserList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceInfoBatchResponseBodyInfosUserList) SetUserId(v string) *QueryConferenceInfoBatchResponseBodyInfosUserList {
+	s.UserId = &v
+	return s
+}
+
+func (s *QueryConferenceInfoBatchResponseBodyInfosUserList) SetNick(v string) *QueryConferenceInfoBatchResponseBodyInfosUserList {
+	s.Nick = &v
+	return s
+}
+
+func (s *QueryConferenceInfoBatchResponseBodyInfosUserList) SetAttendStatus(v int64) *QueryConferenceInfoBatchResponseBodyInfosUserList {
+	s.AttendStatus = &v
+	return s
+}
+
+func (s *QueryConferenceInfoBatchResponseBodyInfosUserList) SetCameraStatus(v int64) *QueryConferenceInfoBatchResponseBodyInfosUserList {
+	s.CameraStatus = &v
+	return s
+}
+
+func (s *QueryConferenceInfoBatchResponseBodyInfosUserList) SetMicStatus(v int64) *QueryConferenceInfoBatchResponseBodyInfosUserList {
+	s.MicStatus = &v
+	return s
+}
+
+func (s *QueryConferenceInfoBatchResponseBodyInfosUserList) SetRejectDescription(v string) *QueryConferenceInfoBatchResponseBodyInfosUserList {
+	s.RejectDescription = &v
+	return s
+}
+
+type QueryConferenceInfoBatchResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryConferenceInfoBatchResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryConferenceInfoBatchResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceInfoBatchResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceInfoBatchResponse) SetHeaders(v map[string]*string) *QueryConferenceInfoBatchResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryConferenceInfoBatchResponse) SetBody(v *QueryConferenceInfoBatchResponseBody) *QueryConferenceInfoBatchResponse {
+	s.Body = v
+	return s
+}
+
 type CreateVideoConferenceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -243,6 +430,50 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) QueryConferenceInfoBatch(request *QueryConferenceInfoBatchRequest) (_result *QueryConferenceInfoBatchResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryConferenceInfoBatchHeaders{}
+	_result = &QueryConferenceInfoBatchResponse{}
+	_body, _err := client.QueryConferenceInfoBatchWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryConferenceInfoBatchWithOptions(request *QueryConferenceInfoBatchRequest, headers *QueryConferenceInfoBatchHeaders, runtime *util.RuntimeOptions) (_result *QueryConferenceInfoBatchResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ConferenceIdList)) {
+		body["conferenceIdList"] = request.ConferenceIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryConferenceInfoBatchResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryConferenceInfoBatch"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) CreateVideoConference(request *CreateVideoConferenceRequest) (_result *CreateVideoConferenceResponse, _err error) {

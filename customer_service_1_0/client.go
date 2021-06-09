@@ -165,179 +165,158 @@ func (s *CreateTicketResponse) SetBody(v *CreateTicketResponseBody) *CreateTicke
 	return s
 }
 
-type PageListRobotHeaders struct {
+type ParseMsgToDingTypeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s PageListRobotHeaders) String() string {
+func (s ParseMsgToDingTypeHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s PageListRobotHeaders) GoString() string {
+func (s ParseMsgToDingTypeHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *PageListRobotHeaders) SetCommonHeaders(v map[string]*string) *PageListRobotHeaders {
+func (s *ParseMsgToDingTypeHeaders) SetCommonHeaders(v map[string]*string) *ParseMsgToDingTypeHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *PageListRobotHeaders) SetXAcsDingtalkAccessToken(v string) *PageListRobotHeaders {
+func (s *ParseMsgToDingTypeHeaders) SetXAcsDingtalkAccessToken(v string) *ParseMsgToDingTypeHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type PageListRobotRequest struct {
-	// 查询的企业Id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 多实例ID
-	OpenInstanceId *string `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
-	// 产品类型
-	ProductionType *int32 `json:"productionType,omitempty" xml:"productionType,omitempty"`
-	// 用来标记当前开始读取的位置，置空表示从头开始
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 本次读取的最大数据记录数量
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+type ParseMsgToDingTypeRequest struct {
+	// messageList
+	Body []*ParseMsgToDingTypeRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
 }
 
-func (s PageListRobotRequest) String() string {
+func (s ParseMsgToDingTypeRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s PageListRobotRequest) GoString() string {
+func (s ParseMsgToDingTypeRequest) GoString() string {
 	return s.String()
 }
 
-func (s *PageListRobotRequest) SetCorpId(v string) *PageListRobotRequest {
-	s.CorpId = &v
+func (s *ParseMsgToDingTypeRequest) SetBody(v []*ParseMsgToDingTypeRequestBody) *ParseMsgToDingTypeRequest {
+	s.Body = v
 	return s
 }
 
-func (s *PageListRobotRequest) SetOpenInstanceId(v string) *PageListRobotRequest {
-	s.OpenInstanceId = &v
-	return s
+type ParseMsgToDingTypeRequestBody struct {
+	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	SubType *string `json:"subType,omitempty" xml:"subType,omitempty"`
+	Extra   *string `json:"extra,omitempty" xml:"extra,omitempty"`
 }
 
-func (s *PageListRobotRequest) SetProductionType(v int32) *PageListRobotRequest {
-	s.ProductionType = &v
-	return s
-}
-
-func (s *PageListRobotRequest) SetNextToken(v int64) *PageListRobotRequest {
-	s.NextToken = &v
-	return s
-}
-
-func (s *PageListRobotRequest) SetMaxResults(v int32) *PageListRobotRequest {
-	s.MaxResults = &v
-	return s
-}
-
-type PageListRobotResponseBody struct {
-	// 查询结果总数
-	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
-	// 下一次查询起始游标
-	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	// 是否有更多结果
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 查询结果列表
-	List []*PageListRobotResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-}
-
-func (s PageListRobotResponseBody) String() string {
+func (s ParseMsgToDingTypeRequestBody) String() string {
 	return tea.Prettify(s)
 }
 
-func (s PageListRobotResponseBody) GoString() string {
+func (s ParseMsgToDingTypeRequestBody) GoString() string {
 	return s.String()
 }
 
-func (s *PageListRobotResponseBody) SetTotal(v int64) *PageListRobotResponseBody {
-	s.Total = &v
+func (s *ParseMsgToDingTypeRequestBody) SetMsgType(v string) *ParseMsgToDingTypeRequestBody {
+	s.MsgType = &v
 	return s
 }
 
-func (s *PageListRobotResponseBody) SetNextCursor(v int64) *PageListRobotResponseBody {
-	s.NextCursor = &v
+func (s *ParseMsgToDingTypeRequestBody) SetContent(v string) *ParseMsgToDingTypeRequestBody {
+	s.Content = &v
 	return s
 }
 
-func (s *PageListRobotResponseBody) SetHasMore(v bool) *PageListRobotResponseBody {
-	s.HasMore = &v
+func (s *ParseMsgToDingTypeRequestBody) SetSubType(v string) *ParseMsgToDingTypeRequestBody {
+	s.SubType = &v
 	return s
 }
 
-func (s *PageListRobotResponseBody) SetList(v []*PageListRobotResponseBodyList) *PageListRobotResponseBody {
-	s.List = v
+func (s *ParseMsgToDingTypeRequestBody) SetExtra(v string) *ParseMsgToDingTypeRequestBody {
+	s.Extra = &v
 	return s
 }
 
-type PageListRobotResponseBodyList struct {
-	// 机器人自增Id
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
-	// 机器人名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 机器人APPKEY
-	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
-	// 机器人所在租户ID
-	AccountId *int64 `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	// 机器人状态
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+type ParseMsgToDingTypeResponseBody struct {
+	// result
+	Result []*ParseMsgToDingTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
-func (s PageListRobotResponseBodyList) String() string {
+func (s ParseMsgToDingTypeResponseBody) String() string {
 	return tea.Prettify(s)
 }
 
-func (s PageListRobotResponseBodyList) GoString() string {
+func (s ParseMsgToDingTypeResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *PageListRobotResponseBodyList) SetId(v int64) *PageListRobotResponseBodyList {
-	s.Id = &v
+func (s *ParseMsgToDingTypeResponseBody) SetResult(v []*ParseMsgToDingTypeResponseBodyResult) *ParseMsgToDingTypeResponseBody {
+	s.Result = v
 	return s
 }
 
-func (s *PageListRobotResponseBodyList) SetName(v string) *PageListRobotResponseBodyList {
-	s.Name = &v
-	return s
+type ParseMsgToDingTypeResponseBodyResult struct {
+	// subType
+	SubType *string `json:"subType,omitempty" xml:"subType,omitempty"`
+	// extra
+	Extra *string `json:"extra,omitempty" xml:"extra,omitempty"`
+	// content
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// msgType
+	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
 }
 
-func (s *PageListRobotResponseBodyList) SetAppKey(v string) *PageListRobotResponseBodyList {
-	s.AppKey = &v
-	return s
-}
-
-func (s *PageListRobotResponseBodyList) SetAccountId(v int64) *PageListRobotResponseBodyList {
-	s.AccountId = &v
-	return s
-}
-
-func (s *PageListRobotResponseBodyList) SetStatus(v int32) *PageListRobotResponseBodyList {
-	s.Status = &v
-	return s
-}
-
-type PageListRobotResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *PageListRobotResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s PageListRobotResponse) String() string {
+func (s ParseMsgToDingTypeResponseBodyResult) String() string {
 	return tea.Prettify(s)
 }
 
-func (s PageListRobotResponse) GoString() string {
+func (s ParseMsgToDingTypeResponseBodyResult) GoString() string {
 	return s.String()
 }
 
-func (s *PageListRobotResponse) SetHeaders(v map[string]*string) *PageListRobotResponse {
+func (s *ParseMsgToDingTypeResponseBodyResult) SetSubType(v string) *ParseMsgToDingTypeResponseBodyResult {
+	s.SubType = &v
+	return s
+}
+
+func (s *ParseMsgToDingTypeResponseBodyResult) SetExtra(v string) *ParseMsgToDingTypeResponseBodyResult {
+	s.Extra = &v
+	return s
+}
+
+func (s *ParseMsgToDingTypeResponseBodyResult) SetContent(v string) *ParseMsgToDingTypeResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+func (s *ParseMsgToDingTypeResponseBodyResult) SetMsgType(v string) *ParseMsgToDingTypeResponseBodyResult {
+	s.MsgType = &v
+	return s
+}
+
+type ParseMsgToDingTypeResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ParseMsgToDingTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ParseMsgToDingTypeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ParseMsgToDingTypeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ParseMsgToDingTypeResponse) SetHeaders(v map[string]*string) *ParseMsgToDingTypeResponse {
 	s.Headers = v
 	return s
 }
 
-func (s *PageListRobotResponse) SetBody(v *PageListRobotResponseBody) *PageListRobotResponse {
+func (s *ParseMsgToDingTypeResponse) SetBody(v *ParseMsgToDingTypeResponseBody) *ParseMsgToDingTypeResponse {
 	s.Body = v
 	return s
 }
@@ -961,6 +940,340 @@ func (s *PageListTicketResponse) SetBody(v *PageListTicketResponseBody) *PageLis
 	return s
 }
 
+type GetUserSourceListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetUserSourceListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserSourceListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserSourceListHeaders) SetCommonHeaders(v map[string]*string) *GetUserSourceListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetUserSourceListHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserSourceListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetUserSourceListRequest struct {
+	OpenInstanceId *string `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
+	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
+	OrgName        *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	OrgId          *int64  `json:"orgId,omitempty" xml:"orgId,omitempty"`
+	CorpId         *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ProductionType *int32  `json:"productionType,omitempty" xml:"productionType,omitempty"`
+}
+
+func (s GetUserSourceListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserSourceListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserSourceListRequest) SetOpenInstanceId(v string) *GetUserSourceListRequest {
+	s.OpenInstanceId = &v
+	return s
+}
+
+func (s *GetUserSourceListRequest) SetDescription(v string) *GetUserSourceListRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *GetUserSourceListRequest) SetOrgName(v string) *GetUserSourceListRequest {
+	s.OrgName = &v
+	return s
+}
+
+func (s *GetUserSourceListRequest) SetOrgId(v int64) *GetUserSourceListRequest {
+	s.OrgId = &v
+	return s
+}
+
+func (s *GetUserSourceListRequest) SetCorpId(v string) *GetUserSourceListRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetUserSourceListRequest) SetProductionType(v int32) *GetUserSourceListRequest {
+	s.ProductionType = &v
+	return s
+}
+
+type GetUserSourceListResponseBody struct {
+	Result []*GetUserSourceListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetUserSourceListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserSourceListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserSourceListResponseBody) SetResult(v []*GetUserSourceListResponseBodyResult) *GetUserSourceListResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetUserSourceListResponseBodyResult struct {
+	Id          *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	Status      *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	Config      *string `json:"config,omitempty" xml:"config,omitempty"`
+	Vendor      *string `json:"vendor,omitempty" xml:"vendor,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetUserSourceListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserSourceListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserSourceListResponseBodyResult) SetId(v int64) *GetUserSourceListResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *GetUserSourceListResponseBodyResult) SetStatus(v int32) *GetUserSourceListResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *GetUserSourceListResponseBodyResult) SetDescription(v string) *GetUserSourceListResponseBodyResult {
+	s.Description = &v
+	return s
+}
+
+func (s *GetUserSourceListResponseBodyResult) SetConfig(v string) *GetUserSourceListResponseBodyResult {
+	s.Config = &v
+	return s
+}
+
+func (s *GetUserSourceListResponseBodyResult) SetVendor(v string) *GetUserSourceListResponseBodyResult {
+	s.Vendor = &v
+	return s
+}
+
+func (s *GetUserSourceListResponseBodyResult) SetName(v string) *GetUserSourceListResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+type GetUserSourceListResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetUserSourceListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetUserSourceListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserSourceListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserSourceListResponse) SetHeaders(v map[string]*string) *GetUserSourceListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetUserSourceListResponse) SetBody(v *GetUserSourceListResponseBody) *GetUserSourceListResponse {
+	s.Body = v
+	return s
+}
+
+type PageListRobotHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PageListRobotHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageListRobotHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PageListRobotHeaders) SetCommonHeaders(v map[string]*string) *PageListRobotHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PageListRobotHeaders) SetXAcsDingtalkAccessToken(v string) *PageListRobotHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PageListRobotRequest struct {
+	// 查询的企业Id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 多实例ID
+	OpenInstanceId *string `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
+	// 产品类型
+	ProductionType *int32 `json:"productionType,omitempty" xml:"productionType,omitempty"`
+	// 用来标记当前开始读取的位置，置空表示从头开始
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 本次读取的最大数据记录数量
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+}
+
+func (s PageListRobotRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageListRobotRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PageListRobotRequest) SetCorpId(v string) *PageListRobotRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *PageListRobotRequest) SetOpenInstanceId(v string) *PageListRobotRequest {
+	s.OpenInstanceId = &v
+	return s
+}
+
+func (s *PageListRobotRequest) SetProductionType(v int32) *PageListRobotRequest {
+	s.ProductionType = &v
+	return s
+}
+
+func (s *PageListRobotRequest) SetNextToken(v int64) *PageListRobotRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *PageListRobotRequest) SetMaxResults(v int32) *PageListRobotRequest {
+	s.MaxResults = &v
+	return s
+}
+
+type PageListRobotResponseBody struct {
+	// 查询结果总数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+	// 下一次查询起始游标
+	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	// 是否有更多结果
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 查询结果列表
+	List []*PageListRobotResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s PageListRobotResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageListRobotResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PageListRobotResponseBody) SetTotal(v int64) *PageListRobotResponseBody {
+	s.Total = &v
+	return s
+}
+
+func (s *PageListRobotResponseBody) SetNextCursor(v int64) *PageListRobotResponseBody {
+	s.NextCursor = &v
+	return s
+}
+
+func (s *PageListRobotResponseBody) SetHasMore(v bool) *PageListRobotResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *PageListRobotResponseBody) SetList(v []*PageListRobotResponseBodyList) *PageListRobotResponseBody {
+	s.List = v
+	return s
+}
+
+type PageListRobotResponseBodyList struct {
+	// 机器人自增Id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 机器人名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 机器人APPKEY
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// 机器人所在租户ID
+	AccountId *int64 `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// 机器人状态
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s PageListRobotResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageListRobotResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *PageListRobotResponseBodyList) SetId(v int64) *PageListRobotResponseBodyList {
+	s.Id = &v
+	return s
+}
+
+func (s *PageListRobotResponseBodyList) SetName(v string) *PageListRobotResponseBodyList {
+	s.Name = &v
+	return s
+}
+
+func (s *PageListRobotResponseBodyList) SetAppKey(v string) *PageListRobotResponseBodyList {
+	s.AppKey = &v
+	return s
+}
+
+func (s *PageListRobotResponseBodyList) SetAccountId(v int64) *PageListRobotResponseBodyList {
+	s.AccountId = &v
+	return s
+}
+
+func (s *PageListRobotResponseBodyList) SetStatus(v int32) *PageListRobotResponseBodyList {
+	s.Status = &v
+	return s
+}
+
+type PageListRobotResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PageListRobotResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PageListRobotResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageListRobotResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PageListRobotResponse) SetHeaders(v map[string]*string) *PageListRobotResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PageListRobotResponse) SetBody(v *PageListRobotResponseBody) *PageListRobotResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -1056,11 +1369,11 @@ func (client *Client) CreateTicketWithOptions(request *CreateTicketRequest, head
 	return _result, _err
 }
 
-func (client *Client) PageListRobot(request *PageListRobotRequest) (_result *PageListRobotResponse, _err error) {
+func (client *Client) ParseMsgToDingType(request *ParseMsgToDingTypeRequest) (_result *ParseMsgToDingTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &PageListRobotHeaders{}
-	_result = &PageListRobotResponse{}
-	_body, _err := client.PageListRobotWithOptions(request, headers, runtime)
+	headers := &ParseMsgToDingTypeHeaders{}
+	_result = &ParseMsgToDingTypeResponse{}
+	_body, _err := client.ParseMsgToDingTypeWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1068,32 +1381,11 @@ func (client *Client) PageListRobot(request *PageListRobotRequest) (_result *Pag
 	return _result, _err
 }
 
-func (client *Client) PageListRobotWithOptions(request *PageListRobotRequest, headers *PageListRobotHeaders, runtime *util.RuntimeOptions) (_result *PageListRobotResponse, _err error) {
+func (client *Client) ParseMsgToDingTypeWithOptions(request *ParseMsgToDingTypeRequest, headers *ParseMsgToDingTypeHeaders, runtime *util.RuntimeOptions) (_result *ParseMsgToDingTypeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
-		query["corpId"] = request.CorpId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OpenInstanceId)) {
-		query["openInstanceId"] = request.OpenInstanceId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.ProductionType)) {
-		query["productionType"] = request.ProductionType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
-		query["nextToken"] = request.NextToken
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
-		query["maxResults"] = request.MaxResults
-	}
-
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1105,10 +1397,10 @@ func (client *Client) PageListRobotWithOptions(request *PageListRobotRequest, he
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
+		Body:    util.ToArray(request.Body),
 	}
-	_result = &PageListRobotResponse{}
-	_body, _err := client.DoROARequest(tea.String("PageListRobot"), tea.String("customerService_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/customerService/robots"), tea.String("json"), req, runtime)
+	_result = &ParseMsgToDingTypeResponse{}
+	_body, _err := client.DoROARequest(tea.String("ParseMsgToDingType"), tea.String("customerService_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/customerService/messages/parse"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1317,6 +1609,130 @@ func (client *Client) PageListTicketWithOptions(request *PageListTicketRequest, 
 	}
 	_result = &PageListTicketResponse{}
 	_body, _err := client.DoROARequest(tea.String("PageListTicket"), tea.String("customerService_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/customerService/tickets"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetUserSourceList(request *GetUserSourceListRequest) (_result *GetUserSourceListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetUserSourceListHeaders{}
+	_result = &GetUserSourceListResponse{}
+	_body, _err := client.GetUserSourceListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetUserSourceListWithOptions(request *GetUserSourceListRequest, headers *GetUserSourceListHeaders, runtime *util.RuntimeOptions) (_result *GetUserSourceListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenInstanceId)) {
+		query["openInstanceId"] = request.OpenInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		query["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrgName)) {
+		query["orgName"] = request.OrgName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrgId)) {
+		query["orgId"] = request.OrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductionType)) {
+		query["productionType"] = request.ProductionType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetUserSourceListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetUserSourceList"), tea.String("customerService_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/customerService/customers/sources"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PageListRobot(request *PageListRobotRequest) (_result *PageListRobotResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PageListRobotHeaders{}
+	_result = &PageListRobotResponse{}
+	_body, _err := client.PageListRobotWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PageListRobotWithOptions(request *PageListRobotRequest, headers *PageListRobotHeaders, runtime *util.RuntimeOptions) (_result *PageListRobotResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenInstanceId)) {
+		query["openInstanceId"] = request.OpenInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductionType)) {
+		query["productionType"] = request.ProductionType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &PageListRobotResponse{}
+	_body, _err := client.DoROARequest(tea.String("PageListRobot"), tea.String("customerService_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/customerService/robots"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
