@@ -416,6 +416,118 @@ func (s *RegisterCustomAppRoleResponse) SetBody(v *RegisterCustomAppRoleResponse
 	return s
 }
 
+type UpdateApaasAppHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateApaasAppHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateApaasAppHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateApaasAppHeaders) SetCommonHeaders(v map[string]*string) *UpdateApaasAppHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateApaasAppHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateApaasAppHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateApaasAppRequest struct {
+	AppName   *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	AppIcon   *string `json:"appIcon,omitempty" xml:"appIcon,omitempty"`
+	AppStatus *int32  `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
+	OpUserId  *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	BizAppId  *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
+}
+
+func (s UpdateApaasAppRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateApaasAppRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateApaasAppRequest) SetAppName(v string) *UpdateApaasAppRequest {
+	s.AppName = &v
+	return s
+}
+
+func (s *UpdateApaasAppRequest) SetAppIcon(v string) *UpdateApaasAppRequest {
+	s.AppIcon = &v
+	return s
+}
+
+func (s *UpdateApaasAppRequest) SetAppStatus(v int32) *UpdateApaasAppRequest {
+	s.AppStatus = &v
+	return s
+}
+
+func (s *UpdateApaasAppRequest) SetOpUserId(v string) *UpdateApaasAppRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *UpdateApaasAppRequest) SetBizAppId(v string) *UpdateApaasAppRequest {
+	s.BizAppId = &v
+	return s
+}
+
+type UpdateApaasAppResponseBody struct {
+	// 钉钉侧应用id
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// ISV侧应用id
+	BizAppId *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
+}
+
+func (s UpdateApaasAppResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateApaasAppResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateApaasAppResponseBody) SetAgentId(v int64) *UpdateApaasAppResponseBody {
+	s.AgentId = &v
+	return s
+}
+
+func (s *UpdateApaasAppResponseBody) SetBizAppId(v string) *UpdateApaasAppResponseBody {
+	s.BizAppId = &v
+	return s
+}
+
+type UpdateApaasAppResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateApaasAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateApaasAppResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateApaasAppResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateApaasAppResponse) SetHeaders(v map[string]*string) *UpdateApaasAppResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateApaasAppResponse) SetBody(v *UpdateApaasAppResponseBody) *UpdateApaasAppResponse {
+	s.Body = v
+	return s
+}
+
 type AddAppRolesToMemberHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1622,6 +1734,93 @@ func (s *RebuildRoleScopeForAppRoleResponse) SetBody(v *RebuildRoleScopeForAppRo
 	return s
 }
 
+type RemoveApaasAppHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RemoveApaasAppHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveApaasAppHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveApaasAppHeaders) SetCommonHeaders(v map[string]*string) *RemoveApaasAppHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveApaasAppHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveApaasAppHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RemoveApaasAppRequest struct {
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	BizAppId *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
+}
+
+func (s RemoveApaasAppRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveApaasAppRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveApaasAppRequest) SetOpUserId(v string) *RemoveApaasAppRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *RemoveApaasAppRequest) SetBizAppId(v string) *RemoveApaasAppRequest {
+	s.BizAppId = &v
+	return s
+}
+
+type RemoveApaasAppResponseBody struct {
+	// 结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s RemoveApaasAppResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveApaasAppResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveApaasAppResponseBody) SetResult(v bool) *RemoveApaasAppResponseBody {
+	s.Result = &v
+	return s
+}
+
+type RemoveApaasAppResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RemoveApaasAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RemoveApaasAppResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveApaasAppResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveApaasAppResponse) SetHeaders(v map[string]*string) *RemoveApaasAppResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RemoveApaasAppResponse) SetBody(v *RemoveApaasAppResponseBody) *RemoveApaasAppResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteAppRoleHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1699,6 +1898,154 @@ func (s *DeleteAppRoleResponse) SetHeaders(v map[string]*string) *DeleteAppRoleR
 }
 
 func (s *DeleteAppRoleResponse) SetBody(v *DeleteAppRoleResponseBody) *DeleteAppRoleResponse {
+	s.Body = v
+	return s
+}
+
+type CreateApaasAppHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateApaasAppHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateApaasAppHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateApaasAppHeaders) SetCommonHeaders(v map[string]*string) *CreateApaasAppHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateApaasAppHeaders) SetXAcsDingtalkAccessToken(v string) *CreateApaasAppHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateApaasAppRequest struct {
+	AppName            *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	AppDesc            *string `json:"appDesc,omitempty" xml:"appDesc,omitempty"`
+	AppIcon            *string `json:"appIcon,omitempty" xml:"appIcon,omitempty"`
+	HomepageLink       *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	PcHomepageLink     *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
+	OmpLink            *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	HomepageEditLink   *string `json:"homepageEditLink,omitempty" xml:"homepageEditLink,omitempty"`
+	PcHomepageEditLink *string `json:"pcHomepageEditLink,omitempty" xml:"pcHomepageEditLink,omitempty"`
+	OpUserId           *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	BizAppId           *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
+	TemplateKey        *string `json:"templateKey,omitempty" xml:"templateKey,omitempty"`
+}
+
+func (s CreateApaasAppRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateApaasAppRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateApaasAppRequest) SetAppName(v string) *CreateApaasAppRequest {
+	s.AppName = &v
+	return s
+}
+
+func (s *CreateApaasAppRequest) SetAppDesc(v string) *CreateApaasAppRequest {
+	s.AppDesc = &v
+	return s
+}
+
+func (s *CreateApaasAppRequest) SetAppIcon(v string) *CreateApaasAppRequest {
+	s.AppIcon = &v
+	return s
+}
+
+func (s *CreateApaasAppRequest) SetHomepageLink(v string) *CreateApaasAppRequest {
+	s.HomepageLink = &v
+	return s
+}
+
+func (s *CreateApaasAppRequest) SetPcHomepageLink(v string) *CreateApaasAppRequest {
+	s.PcHomepageLink = &v
+	return s
+}
+
+func (s *CreateApaasAppRequest) SetOmpLink(v string) *CreateApaasAppRequest {
+	s.OmpLink = &v
+	return s
+}
+
+func (s *CreateApaasAppRequest) SetHomepageEditLink(v string) *CreateApaasAppRequest {
+	s.HomepageEditLink = &v
+	return s
+}
+
+func (s *CreateApaasAppRequest) SetPcHomepageEditLink(v string) *CreateApaasAppRequest {
+	s.PcHomepageEditLink = &v
+	return s
+}
+
+func (s *CreateApaasAppRequest) SetOpUserId(v string) *CreateApaasAppRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *CreateApaasAppRequest) SetBizAppId(v string) *CreateApaasAppRequest {
+	s.BizAppId = &v
+	return s
+}
+
+func (s *CreateApaasAppRequest) SetTemplateKey(v string) *CreateApaasAppRequest {
+	s.TemplateKey = &v
+	return s
+}
+
+type CreateApaasAppResponseBody struct {
+	// 钉钉侧应用id
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// ISV侧应用id
+	BizAppId *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
+}
+
+func (s CreateApaasAppResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateApaasAppResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateApaasAppResponseBody) SetAgentId(v int64) *CreateApaasAppResponseBody {
+	s.AgentId = &v
+	return s
+}
+
+func (s *CreateApaasAppResponseBody) SetBizAppId(v string) *CreateApaasAppResponseBody {
+	s.BizAppId = &v
+	return s
+}
+
+type CreateApaasAppResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateApaasAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateApaasAppResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateApaasAppResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateApaasAppResponse) SetHeaders(v map[string]*string) *CreateApaasAppResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateApaasAppResponse) SetBody(v *CreateApaasAppResponseBody) *CreateApaasAppResponse {
 	s.Body = v
 	return s
 }
@@ -2073,6 +2420,66 @@ func (client *Client) RegisterCustomAppRoleWithOptions(agentId *string, request 
 	}
 	_result = &RegisterCustomAppRoleResponse{}
 	_body, _err := client.DoROARequest(tea.String("RegisterCustomAppRole"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/roles"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateApaasApp(request *UpdateApaasAppRequest) (_result *UpdateApaasAppResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateApaasAppHeaders{}
+	_result = &UpdateApaasAppResponse{}
+	_body, _err := client.UpdateApaasAppWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateApaasAppWithOptions(request *UpdateApaasAppRequest, headers *UpdateApaasAppHeaders, runtime *util.RuntimeOptions) (_result *UpdateApaasAppResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppName)) {
+		body["appName"] = request.AppName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppIcon)) {
+		body["appIcon"] = request.AppIcon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppStatus)) {
+		body["appStatus"] = request.AppStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizAppId)) {
+		body["bizAppId"] = request.BizAppId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateApaasAppResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateApaasApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/microApp/apaasApps"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2596,6 +3003,54 @@ func (client *Client) RebuildRoleScopeForAppRoleWithOptions(agentId *string, rol
 	return _result, _err
 }
 
+func (client *Client) RemoveApaasApp(request *RemoveApaasAppRequest) (_result *RemoveApaasAppResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RemoveApaasAppHeaders{}
+	_result = &RemoveApaasAppResponse{}
+	_body, _err := client.RemoveApaasAppWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RemoveApaasAppWithOptions(request *RemoveApaasAppRequest, headers *RemoveApaasAppHeaders, runtime *util.RuntimeOptions) (_result *RemoveApaasAppResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizAppId)) {
+		body["bizAppId"] = request.BizAppId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RemoveApaasAppResponse{}
+	_body, _err := client.DoROARequest(tea.String("RemoveApaasApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/apaasApps/remove"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteAppRole(agentId *string, roleId *string, request *DeleteAppRoleRequest) (_result *DeleteAppRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteAppRoleHeaders{}
@@ -2633,6 +3088,90 @@ func (client *Client) DeleteAppRoleWithOptions(agentId *string, roleId *string, 
 	}
 	_result = &DeleteAppRoleResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteAppRole"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/roles/"+tea.StringValue(roleId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateApaasApp(request *CreateApaasAppRequest) (_result *CreateApaasAppResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateApaasAppHeaders{}
+	_result = &CreateApaasAppResponse{}
+	_body, _err := client.CreateApaasAppWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateApaasAppWithOptions(request *CreateApaasAppRequest, headers *CreateApaasAppHeaders, runtime *util.RuntimeOptions) (_result *CreateApaasAppResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppName)) {
+		body["appName"] = request.AppName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppDesc)) {
+		body["appDesc"] = request.AppDesc
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppIcon)) {
+		body["appIcon"] = request.AppIcon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HomepageLink)) {
+		body["homepageLink"] = request.HomepageLink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PcHomepageLink)) {
+		body["pcHomepageLink"] = request.PcHomepageLink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OmpLink)) {
+		body["ompLink"] = request.OmpLink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HomepageEditLink)) {
+		body["homepageEditLink"] = request.HomepageEditLink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PcHomepageEditLink)) {
+		body["pcHomepageEditLink"] = request.PcHomepageEditLink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizAppId)) {
+		body["bizAppId"] = request.BizAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateKey)) {
+		body["templateKey"] = request.TemplateKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateApaasAppResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateApaasApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/apaasApps"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

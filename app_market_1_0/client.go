@@ -102,6 +102,100 @@ func (s *UserTaskReportResponse) SetBody(v bool) *UserTaskReportResponse {
 	return s
 }
 
+type CreateAppGoodsServiceConversationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateAppGoodsServiceConversationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAppGoodsServiceConversationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAppGoodsServiceConversationHeaders) SetCommonHeaders(v map[string]*string) *CreateAppGoodsServiceConversationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateAppGoodsServiceConversationHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAppGoodsServiceConversationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateAppGoodsServiceConversationRequest struct {
+	OrderId   *int64  `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	IsvUserId *string `json:"isvUserId,omitempty" xml:"isvUserId,omitempty"`
+}
+
+func (s CreateAppGoodsServiceConversationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAppGoodsServiceConversationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAppGoodsServiceConversationRequest) SetOrderId(v int64) *CreateAppGoodsServiceConversationRequest {
+	s.OrderId = &v
+	return s
+}
+
+func (s *CreateAppGoodsServiceConversationRequest) SetIsvUserId(v string) *CreateAppGoodsServiceConversationRequest {
+	s.IsvUserId = &v
+	return s
+}
+
+type CreateAppGoodsServiceConversationResponseBody struct {
+	// 群名称
+	ConversationName *string `json:"conversationName,omitempty" xml:"conversationName,omitempty"`
+	// 是否是新群
+	NewConversation *bool `json:"newConversation,omitempty" xml:"newConversation,omitempty"`
+}
+
+func (s CreateAppGoodsServiceConversationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAppGoodsServiceConversationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAppGoodsServiceConversationResponseBody) SetConversationName(v string) *CreateAppGoodsServiceConversationResponseBody {
+	s.ConversationName = &v
+	return s
+}
+
+func (s *CreateAppGoodsServiceConversationResponseBody) SetNewConversation(v bool) *CreateAppGoodsServiceConversationResponseBody {
+	s.NewConversation = &v
+	return s
+}
+
+type CreateAppGoodsServiceConversationResponse struct {
+	Headers map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateAppGoodsServiceConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateAppGoodsServiceConversationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAppGoodsServiceConversationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAppGoodsServiceConversationResponse) SetHeaders(v map[string]*string) *CreateAppGoodsServiceConversationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateAppGoodsServiceConversationResponse) SetBody(v *CreateAppGoodsServiceConversationResponseBody) *CreateAppGoodsServiceConversationResponse {
+	s.Body = v
+	return s
+}
+
 type GetPersonalExperienceInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -278,6 +372,54 @@ func (client *Client) UserTaskReportWithOptions(request *UserTaskReportRequest, 
 	}
 	_result = &UserTaskReportResponse{}
 	_body, _err := client.DoROARequest(tea.String("UserTaskReport"), tea.String("appMarket_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/appMarket/tasks"), tea.String("boolean"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateAppGoodsServiceConversation(request *CreateAppGoodsServiceConversationRequest) (_result *CreateAppGoodsServiceConversationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateAppGoodsServiceConversationHeaders{}
+	_result = &CreateAppGoodsServiceConversationResponse{}
+	_body, _err := client.CreateAppGoodsServiceConversationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateAppGoodsServiceConversationWithOptions(request *CreateAppGoodsServiceConversationRequest, headers *CreateAppGoodsServiceConversationHeaders, runtime *util.RuntimeOptions) (_result *CreateAppGoodsServiceConversationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OrderId)) {
+		body["orderId"] = request.OrderId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsvUserId)) {
+		body["isvUserId"] = request.IsvUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateAppGoodsServiceConversationResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateAppGoodsServiceConversation"), tea.String("appMarket_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/appMarket/orders/serviceGroups"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

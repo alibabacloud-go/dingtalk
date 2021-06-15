@@ -11,291 +11,6 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
-type QueryAllCustomerHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s QueryAllCustomerHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryAllCustomerHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *QueryAllCustomerHeaders) SetCommonHeaders(v map[string]*string) *QueryAllCustomerHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *QueryAllCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *QueryAllCustomerHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type QueryAllCustomerRequest struct {
-	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
-	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
-	DingCorpId         *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
-	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
-	// 用户ID
-	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
-	// 翻页size
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页游标，第一次调用传空或者null
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 数据类型
-	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
-}
-
-func (s QueryAllCustomerRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryAllCustomerRequest) GoString() string {
-	return s.String()
-}
-
-func (s *QueryAllCustomerRequest) SetDingIsvOrgId(v int64) *QueryAllCustomerRequest {
-	s.DingIsvOrgId = &v
-	return s
-}
-
-func (s *QueryAllCustomerRequest) SetDingOrgId(v int64) *QueryAllCustomerRequest {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *QueryAllCustomerRequest) SetDingTokenGrantType(v int64) *QueryAllCustomerRequest {
-	s.DingTokenGrantType = &v
-	return s
-}
-
-func (s *QueryAllCustomerRequest) SetDingCorpId(v string) *QueryAllCustomerRequest {
-	s.DingCorpId = &v
-	return s
-}
-
-func (s *QueryAllCustomerRequest) SetDingSuiteKey(v string) *QueryAllCustomerRequest {
-	s.DingSuiteKey = &v
-	return s
-}
-
-func (s *QueryAllCustomerRequest) SetOperatorUserId(v string) *QueryAllCustomerRequest {
-	s.OperatorUserId = &v
-	return s
-}
-
-func (s *QueryAllCustomerRequest) SetMaxResults(v int64) *QueryAllCustomerRequest {
-	s.MaxResults = &v
-	return s
-}
-
-func (s *QueryAllCustomerRequest) SetNextToken(v string) *QueryAllCustomerRequest {
-	s.NextToken = &v
-	return s
-}
-
-func (s *QueryAllCustomerRequest) SetObjectType(v string) *QueryAllCustomerRequest {
-	s.ObjectType = &v
-	return s
-}
-
-type QueryAllCustomerResponseBody struct {
-	// 分页结果
-	Result *QueryAllCustomerResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-}
-
-func (s QueryAllCustomerResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryAllCustomerResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *QueryAllCustomerResponseBody) SetResult(v *QueryAllCustomerResponseBodyResult) *QueryAllCustomerResponseBody {
-	s.Result = v
-	return s
-}
-
-type QueryAllCustomerResponseBodyResult struct {
-	// 下一页的游标，为null则表示无数据
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 客户数据节点
-	Values []*QueryAllCustomerResponseBodyResultValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
-	// 分页大小
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-}
-
-func (s QueryAllCustomerResponseBodyResult) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryAllCustomerResponseBodyResult) GoString() string {
-	return s.String()
-}
-
-func (s *QueryAllCustomerResponseBodyResult) SetNextToken(v string) *QueryAllCustomerResponseBodyResult {
-	s.NextToken = &v
-	return s
-}
-
-func (s *QueryAllCustomerResponseBodyResult) SetValues(v []*QueryAllCustomerResponseBodyResultValues) *QueryAllCustomerResponseBodyResult {
-	s.Values = v
-	return s
-}
-
-func (s *QueryAllCustomerResponseBodyResult) SetMaxResults(v int64) *QueryAllCustomerResponseBodyResult {
-	s.MaxResults = &v
-	return s
-}
-
-type QueryAllCustomerResponseBodyResultValues struct {
-	// 创建记录的用户昵称
-	CreatorNick *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
-	// 记录修改时间
-	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
-	// 创建记录的用户ID
-	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	// 数据ID
-	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	// 数据内容
-	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
-	// 扩展数据内容
-	ExtendData map[string]interface{} `json:"extendData,omitempty" xml:"extendData,omitempty"`
-	// 记录创建时间
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 系统自动生成
-	OrgId *int64 `json:"orgId,omitempty" xml:"orgId,omitempty"`
-	// 数据类型
-	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
-	// 数据权限信息
-	Permission *QueryAllCustomerResponseBodyResultValuesPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
-	// 审批结果
-	ProcessOutResult *string `json:"processOutResult,omitempty" xml:"processOutResult,omitempty"`
-	// 审批状态
-	ProcessInstanceStatus *string `json:"processInstanceStatus,omitempty" xml:"processInstanceStatus,omitempty"`
-}
-
-func (s QueryAllCustomerResponseBodyResultValues) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryAllCustomerResponseBodyResultValues) GoString() string {
-	return s.String()
-}
-
-func (s *QueryAllCustomerResponseBodyResultValues) SetCreatorNick(v string) *QueryAllCustomerResponseBodyResultValues {
-	s.CreatorNick = &v
-	return s
-}
-
-func (s *QueryAllCustomerResponseBodyResultValues) SetModifyTime(v string) *QueryAllCustomerResponseBodyResultValues {
-	s.ModifyTime = &v
-	return s
-}
-
-func (s *QueryAllCustomerResponseBodyResultValues) SetCreatorUserId(v string) *QueryAllCustomerResponseBodyResultValues {
-	s.CreatorUserId = &v
-	return s
-}
-
-func (s *QueryAllCustomerResponseBodyResultValues) SetInstanceId(v string) *QueryAllCustomerResponseBodyResultValues {
-	s.InstanceId = &v
-	return s
-}
-
-func (s *QueryAllCustomerResponseBodyResultValues) SetData(v map[string]interface{}) *QueryAllCustomerResponseBodyResultValues {
-	s.Data = v
-	return s
-}
-
-func (s *QueryAllCustomerResponseBodyResultValues) SetExtendData(v map[string]interface{}) *QueryAllCustomerResponseBodyResultValues {
-	s.ExtendData = v
-	return s
-}
-
-func (s *QueryAllCustomerResponseBodyResultValues) SetCreateTime(v string) *QueryAllCustomerResponseBodyResultValues {
-	s.CreateTime = &v
-	return s
-}
-
-func (s *QueryAllCustomerResponseBodyResultValues) SetOrgId(v int64) *QueryAllCustomerResponseBodyResultValues {
-	s.OrgId = &v
-	return s
-}
-
-func (s *QueryAllCustomerResponseBodyResultValues) SetObjectType(v string) *QueryAllCustomerResponseBodyResultValues {
-	s.ObjectType = &v
-	return s
-}
-
-func (s *QueryAllCustomerResponseBodyResultValues) SetPermission(v *QueryAllCustomerResponseBodyResultValuesPermission) *QueryAllCustomerResponseBodyResultValues {
-	s.Permission = v
-	return s
-}
-
-func (s *QueryAllCustomerResponseBodyResultValues) SetProcessOutResult(v string) *QueryAllCustomerResponseBodyResultValues {
-	s.ProcessOutResult = &v
-	return s
-}
-
-func (s *QueryAllCustomerResponseBodyResultValues) SetProcessInstanceStatus(v string) *QueryAllCustomerResponseBodyResultValues {
-	s.ProcessInstanceStatus = &v
-	return s
-}
-
-type QueryAllCustomerResponseBodyResultValuesPermission struct {
-	// 协同人用户ID列表
-	ParticipantStaffIds []*string `json:"participantStaffIds,omitempty" xml:"participantStaffIds,omitempty" type:"Repeated"`
-	// 负责人用户ID列表
-	OwnerStaffIds []*string `json:"ownerStaffIds,omitempty" xml:"ownerStaffIds,omitempty" type:"Repeated"`
-}
-
-func (s QueryAllCustomerResponseBodyResultValuesPermission) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryAllCustomerResponseBodyResultValuesPermission) GoString() string {
-	return s.String()
-}
-
-func (s *QueryAllCustomerResponseBodyResultValuesPermission) SetParticipantStaffIds(v []*string) *QueryAllCustomerResponseBodyResultValuesPermission {
-	s.ParticipantStaffIds = v
-	return s
-}
-
-func (s *QueryAllCustomerResponseBodyResultValuesPermission) SetOwnerStaffIds(v []*string) *QueryAllCustomerResponseBodyResultValuesPermission {
-	s.OwnerStaffIds = v
-	return s
-}
-
-type QueryAllCustomerResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryAllCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s QueryAllCustomerResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryAllCustomerResponse) GoString() string {
-	return s.String()
-}
-
-func (s *QueryAllCustomerResponse) SetHeaders(v map[string]*string) *QueryAllCustomerResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *QueryAllCustomerResponse) SetBody(v *QueryAllCustomerResponseBody) *QueryAllCustomerResponse {
-	s.Body = v
-	return s
-}
-
 type GetOfficialAccountContactsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -966,382 +681,6 @@ func (s *DeleteCrmFormInstanceResponse) SetBody(v *DeleteCrmFormInstanceResponse
 	return s
 }
 
-type SendOfficialAccountOTOMessageHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s SendOfficialAccountOTOMessageHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SendOfficialAccountOTOMessageHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *SendOfficialAccountOTOMessageHeaders) SetCommonHeaders(v map[string]*string) *SendOfficialAccountOTOMessageHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendOfficialAccountOTOMessageHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type SendOfficialAccountOTOMessageRequest struct {
-	// 消息详情
-	Detail *SendOfficialAccountOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
-	// API调用标识，可选参数
-	BizId              *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
-	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
-	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
-}
-
-func (s SendOfficialAccountOTOMessageRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SendOfficialAccountOTOMessageRequest) GoString() string {
-	return s.String()
-}
-
-func (s *SendOfficialAccountOTOMessageRequest) SetDetail(v *SendOfficialAccountOTOMessageRequestDetail) *SendOfficialAccountOTOMessageRequest {
-	s.Detail = v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequest) SetBizId(v string) *SendOfficialAccountOTOMessageRequest {
-	s.BizId = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequest) SetDingTokenGrantType(v int64) *SendOfficialAccountOTOMessageRequest {
-	s.DingTokenGrantType = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequest) SetDingIsvOrgId(v int64) *SendOfficialAccountOTOMessageRequest {
-	s.DingIsvOrgId = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequest) SetDingOrgId(v int64) *SendOfficialAccountOTOMessageRequest {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequest) SetDingSuiteKey(v string) *SendOfficialAccountOTOMessageRequest {
-	s.DingSuiteKey = &v
-	return s
-}
-
-type SendOfficialAccountOTOMessageRequestDetail struct {
-	// 消息类型
-	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
-	// 请求唯一 ID
-	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	// 消息接收人id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 消息体
-	MessageBody *SendOfficialAccountOTOMessageRequestDetailMessageBody `json:"messageBody,omitempty" xml:"messageBody,omitempty" type:"Struct"`
-}
-
-func (s SendOfficialAccountOTOMessageRequestDetail) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SendOfficialAccountOTOMessageRequestDetail) GoString() string {
-	return s.String()
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetail) SetMsgType(v string) *SendOfficialAccountOTOMessageRequestDetail {
-	s.MsgType = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetail) SetUuid(v string) *SendOfficialAccountOTOMessageRequestDetail {
-	s.Uuid = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetail) SetUserId(v string) *SendOfficialAccountOTOMessageRequestDetail {
-	s.UserId = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetail) SetMessageBody(v *SendOfficialAccountOTOMessageRequestDetailMessageBody) *SendOfficialAccountOTOMessageRequestDetail {
-	s.MessageBody = v
-	return s
-}
-
-type SendOfficialAccountOTOMessageRequestDetailMessageBody struct {
-	// 文本消息体  对于文本类型消息时必填
-	Text *SendOfficialAccountOTOMessageRequestDetailMessageBodyText `json:"text,omitempty" xml:"text,omitempty" type:"Struct"`
-	// markdown消息，仅对消息类型为markdown时有效
-	Markdown *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown `json:"markdown,omitempty" xml:"markdown,omitempty" type:"Struct"`
-	// 链接消息类型
-	Link *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink `json:"link,omitempty" xml:"link,omitempty" type:"Struct"`
-	// 卡片消息
-	ActionCard *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard `json:"actionCard,omitempty" xml:"actionCard,omitempty" type:"Struct"`
-}
-
-func (s SendOfficialAccountOTOMessageRequestDetailMessageBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SendOfficialAccountOTOMessageRequestDetailMessageBody) GoString() string {
-	return s.String()
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBody) SetText(v *SendOfficialAccountOTOMessageRequestDetailMessageBodyText) *SendOfficialAccountOTOMessageRequestDetailMessageBody {
-	s.Text = v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBody) SetMarkdown(v *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) *SendOfficialAccountOTOMessageRequestDetailMessageBody {
-	s.Markdown = v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBody) SetLink(v *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) *SendOfficialAccountOTOMessageRequestDetailMessageBody {
-	s.Link = v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBody) SetActionCard(v *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) *SendOfficialAccountOTOMessageRequestDetailMessageBody {
-	s.ActionCard = v
-	return s
-}
-
-type SendOfficialAccountOTOMessageRequestDetailMessageBodyText struct {
-	// 消息内容，建议500字符以内。
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-}
-
-func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyText) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyText) GoString() string {
-	return s.String()
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyText) SetContent(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyText {
-	s.Content = &v
-	return s
-}
-
-type SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown struct {
-	// 首屏会话透出的展示内容。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// markdown格式的消息，建议500字符以内。
-	Text *string `json:"text,omitempty" xml:"text,omitempty"`
-}
-
-func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) GoString() string {
-	return s.String()
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) SetTitle(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown {
-	s.Title = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) SetText(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown {
-	s.Text = &v
-	return s
-}
-
-type SendOfficialAccountOTOMessageRequestDetailMessageBodyLink struct {
-	// 图片地址
-	PicUrl *string `json:"picUrl,omitempty" xml:"picUrl,omitempty"`
-	// 消息点击链接地址，当发送消息为小程序时支持小程序跳转链接。
-	MessageUrl *string `json:"messageUrl,omitempty" xml:"messageUrl,omitempty"`
-	// 消息标题，建议100字符以内。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 消息描述，建议500字符以内。
-	Text *string `json:"text,omitempty" xml:"text,omitempty"`
-}
-
-func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) GoString() string {
-	return s.String()
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetPicUrl(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink {
-	s.PicUrl = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetMessageUrl(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink {
-	s.MessageUrl = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetTitle(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink {
-	s.Title = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetText(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink {
-	s.Text = &v
-	return s
-}
-
-type SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard struct {
-	// 按钮排列方式： 0：竖直排列 1：横向排列 必须与buttonList同时设置。
-	ButtonOrientation *string `json:"buttonOrientation,omitempty" xml:"buttonOrientation,omitempty"`
-	// 消息点击链接地址，当发送消息为小程序时支持小程序跳转链接，最长500个字符。
-	SingleUrl *string `json:"singleUrl,omitempty" xml:"singleUrl,omitempty"`
-	// 使用整体跳转ActionCard样式时的标题。必须与singleUrl同时设置，最长20个字符。
-	SingleTitle *string `json:"singleTitle,omitempty" xml:"singleTitle,omitempty"`
-	// 消息内容，支持markdown，语法参考标准markdown语法。1000个字符以内。
-	Markdown *string `json:"markdown,omitempty" xml:"markdown,omitempty"`
-	// 透出到会话列表和通知的文案
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 使用独立跳转ActionCard样式时的按钮列表；必须与buttonOrientation同时设置，且长度不超过1000字符。
-	ButtonList []*SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList `json:"buttonList,omitempty" xml:"buttonList,omitempty" type:"Repeated"`
-}
-
-func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) GoString() string {
-	return s.String()
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetButtonOrientation(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
-	s.ButtonOrientation = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetSingleUrl(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
-	s.SingleUrl = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetSingleTitle(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
-	s.SingleTitle = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetMarkdown(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
-	s.Markdown = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetTitle(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
-	s.Title = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetButtonList(v []*SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
-	s.ButtonList = v
-	return s
-}
-
-type SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList struct {
-	// 使用独立跳转ActionCard样式时的按钮的标题，最长20个字符。
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 使用独立跳转ActionCard样式时的跳转链接。
-	ActionUrl *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
-}
-
-func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) GoString() string {
-	return s.String()
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) SetTitle(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList {
-	s.Title = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) SetActionUrl(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList {
-	s.ActionUrl = &v
-	return s
-}
-
-type SendOfficialAccountOTOMessageResponseBody struct {
-	// Id of the request
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	// 推送结果
-	Result *SendOfficialAccountOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-}
-
-func (s SendOfficialAccountOTOMessageResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SendOfficialAccountOTOMessageResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *SendOfficialAccountOTOMessageResponseBody) SetRequestId(v string) *SendOfficialAccountOTOMessageResponseBody {
-	s.RequestId = &v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageResponseBody) SetResult(v *SendOfficialAccountOTOMessageResponseBodyResult) *SendOfficialAccountOTOMessageResponseBody {
-	s.Result = v
-	return s
-}
-
-type SendOfficialAccountOTOMessageResponseBodyResult struct {
-	// 推送ID
-	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
-}
-
-func (s SendOfficialAccountOTOMessageResponseBodyResult) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SendOfficialAccountOTOMessageResponseBodyResult) GoString() string {
-	return s.String()
-}
-
-func (s *SendOfficialAccountOTOMessageResponseBodyResult) SetOpenPushId(v string) *SendOfficialAccountOTOMessageResponseBodyResult {
-	s.OpenPushId = &v
-	return s
-}
-
-type SendOfficialAccountOTOMessageResponse struct {
-	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SendOfficialAccountOTOMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s SendOfficialAccountOTOMessageResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SendOfficialAccountOTOMessageResponse) GoString() string {
-	return s.String()
-}
-
-func (s *SendOfficialAccountOTOMessageResponse) SetHeaders(v map[string]*string) *SendOfficialAccountOTOMessageResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *SendOfficialAccountOTOMessageResponse) SetBody(v *SendOfficialAccountOTOMessageResponseBody) *SendOfficialAccountOTOMessageResponse {
-	s.Body = v
-	return s
-}
-
 type BatchSendOfficialAccountOTOMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1823,6 +1162,1740 @@ func (s *GetOfficialAccountContactInfoResponse) SetBody(v *GetOfficialAccountCon
 	return s
 }
 
+type QueryAllCustomerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryAllCustomerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAllCustomerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAllCustomerHeaders) SetCommonHeaders(v map[string]*string) *QueryAllCustomerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryAllCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *QueryAllCustomerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryAllCustomerRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingCorpId         *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	// 用户ID
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// 翻页size
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页游标，第一次调用传空或者null
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 数据类型
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+}
+
+func (s QueryAllCustomerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAllCustomerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAllCustomerRequest) SetDingIsvOrgId(v int64) *QueryAllCustomerRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *QueryAllCustomerRequest) SetDingOrgId(v int64) *QueryAllCustomerRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *QueryAllCustomerRequest) SetDingTokenGrantType(v int64) *QueryAllCustomerRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *QueryAllCustomerRequest) SetDingCorpId(v string) *QueryAllCustomerRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *QueryAllCustomerRequest) SetDingSuiteKey(v string) *QueryAllCustomerRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *QueryAllCustomerRequest) SetOperatorUserId(v string) *QueryAllCustomerRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *QueryAllCustomerRequest) SetMaxResults(v int64) *QueryAllCustomerRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryAllCustomerRequest) SetNextToken(v string) *QueryAllCustomerRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryAllCustomerRequest) SetObjectType(v string) *QueryAllCustomerRequest {
+	s.ObjectType = &v
+	return s
+}
+
+type QueryAllCustomerResponseBody struct {
+	// 分页结果
+	Result *QueryAllCustomerResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryAllCustomerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAllCustomerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAllCustomerResponseBody) SetResult(v *QueryAllCustomerResponseBodyResult) *QueryAllCustomerResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryAllCustomerResponseBodyResult struct {
+	// 下一页的游标，为null则表示无数据
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 客户数据节点
+	Values []*QueryAllCustomerResponseBodyResultValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	// 分页大小
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+}
+
+func (s QueryAllCustomerResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAllCustomerResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAllCustomerResponseBodyResult) SetNextToken(v string) *QueryAllCustomerResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryAllCustomerResponseBodyResult) SetValues(v []*QueryAllCustomerResponseBodyResultValues) *QueryAllCustomerResponseBodyResult {
+	s.Values = v
+	return s
+}
+
+func (s *QueryAllCustomerResponseBodyResult) SetMaxResults(v int64) *QueryAllCustomerResponseBodyResult {
+	s.MaxResults = &v
+	return s
+}
+
+type QueryAllCustomerResponseBodyResultValues struct {
+	// 创建记录的用户昵称
+	CreatorNick *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	// 记录修改时间
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	// 创建记录的用户ID
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// 数据ID
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// 数据内容
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	// 扩展数据内容
+	ExtendData map[string]interface{} `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	// 记录创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 系统自动生成
+	OrgId *int64 `json:"orgId,omitempty" xml:"orgId,omitempty"`
+	// 数据类型
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	// 数据权限信息
+	Permission *QueryAllCustomerResponseBodyResultValuesPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	// 审批结果
+	ProcessOutResult *string `json:"processOutResult,omitempty" xml:"processOutResult,omitempty"`
+	// 审批状态
+	ProcessInstanceStatus *string `json:"processInstanceStatus,omitempty" xml:"processInstanceStatus,omitempty"`
+}
+
+func (s QueryAllCustomerResponseBodyResultValues) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAllCustomerResponseBodyResultValues) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAllCustomerResponseBodyResultValues) SetCreatorNick(v string) *QueryAllCustomerResponseBodyResultValues {
+	s.CreatorNick = &v
+	return s
+}
+
+func (s *QueryAllCustomerResponseBodyResultValues) SetModifyTime(v string) *QueryAllCustomerResponseBodyResultValues {
+	s.ModifyTime = &v
+	return s
+}
+
+func (s *QueryAllCustomerResponseBodyResultValues) SetCreatorUserId(v string) *QueryAllCustomerResponseBodyResultValues {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *QueryAllCustomerResponseBodyResultValues) SetInstanceId(v string) *QueryAllCustomerResponseBodyResultValues {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *QueryAllCustomerResponseBodyResultValues) SetData(v map[string]interface{}) *QueryAllCustomerResponseBodyResultValues {
+	s.Data = v
+	return s
+}
+
+func (s *QueryAllCustomerResponseBodyResultValues) SetExtendData(v map[string]interface{}) *QueryAllCustomerResponseBodyResultValues {
+	s.ExtendData = v
+	return s
+}
+
+func (s *QueryAllCustomerResponseBodyResultValues) SetCreateTime(v string) *QueryAllCustomerResponseBodyResultValues {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QueryAllCustomerResponseBodyResultValues) SetOrgId(v int64) *QueryAllCustomerResponseBodyResultValues {
+	s.OrgId = &v
+	return s
+}
+
+func (s *QueryAllCustomerResponseBodyResultValues) SetObjectType(v string) *QueryAllCustomerResponseBodyResultValues {
+	s.ObjectType = &v
+	return s
+}
+
+func (s *QueryAllCustomerResponseBodyResultValues) SetPermission(v *QueryAllCustomerResponseBodyResultValuesPermission) *QueryAllCustomerResponseBodyResultValues {
+	s.Permission = v
+	return s
+}
+
+func (s *QueryAllCustomerResponseBodyResultValues) SetProcessOutResult(v string) *QueryAllCustomerResponseBodyResultValues {
+	s.ProcessOutResult = &v
+	return s
+}
+
+func (s *QueryAllCustomerResponseBodyResultValues) SetProcessInstanceStatus(v string) *QueryAllCustomerResponseBodyResultValues {
+	s.ProcessInstanceStatus = &v
+	return s
+}
+
+type QueryAllCustomerResponseBodyResultValuesPermission struct {
+	// 协同人用户ID列表
+	ParticipantStaffIds []*string `json:"participantStaffIds,omitempty" xml:"participantStaffIds,omitempty" type:"Repeated"`
+	// 负责人用户ID列表
+	OwnerStaffIds []*string `json:"ownerStaffIds,omitempty" xml:"ownerStaffIds,omitempty" type:"Repeated"`
+}
+
+func (s QueryAllCustomerResponseBodyResultValuesPermission) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAllCustomerResponseBodyResultValuesPermission) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAllCustomerResponseBodyResultValuesPermission) SetParticipantStaffIds(v []*string) *QueryAllCustomerResponseBodyResultValuesPermission {
+	s.ParticipantStaffIds = v
+	return s
+}
+
+func (s *QueryAllCustomerResponseBodyResultValuesPermission) SetOwnerStaffIds(v []*string) *QueryAllCustomerResponseBodyResultValuesPermission {
+	s.OwnerStaffIds = v
+	return s
+}
+
+type QueryAllCustomerResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryAllCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryAllCustomerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAllCustomerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAllCustomerResponse) SetHeaders(v map[string]*string) *QueryAllCustomerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryAllCustomerResponse) SetBody(v *QueryAllCustomerResponseBody) *QueryAllCustomerResponse {
+	s.Body = v
+	return s
+}
+
+type SendOfficialAccountOTOMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendOfficialAccountOTOMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageHeaders) SetCommonHeaders(v map[string]*string) *SendOfficialAccountOTOMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendOfficialAccountOTOMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendOfficialAccountOTOMessageRequest struct {
+	// 消息详情
+	Detail *SendOfficialAccountOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
+	// API调用标识，可选参数
+	BizId              *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+}
+
+func (s SendOfficialAccountOTOMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageRequest) SetDetail(v *SendOfficialAccountOTOMessageRequestDetail) *SendOfficialAccountOTOMessageRequest {
+	s.Detail = v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequest) SetBizId(v string) *SendOfficialAccountOTOMessageRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequest) SetDingTokenGrantType(v int64) *SendOfficialAccountOTOMessageRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequest) SetDingIsvOrgId(v int64) *SendOfficialAccountOTOMessageRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequest) SetDingOrgId(v int64) *SendOfficialAccountOTOMessageRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequest) SetDingSuiteKey(v string) *SendOfficialAccountOTOMessageRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+type SendOfficialAccountOTOMessageRequestDetail struct {
+	// 消息类型
+	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
+	// 请求唯一 ID
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// 消息接收人id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 消息体
+	MessageBody *SendOfficialAccountOTOMessageRequestDetailMessageBody `json:"messageBody,omitempty" xml:"messageBody,omitempty" type:"Struct"`
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetail) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetail) SetMsgType(v string) *SendOfficialAccountOTOMessageRequestDetail {
+	s.MsgType = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetail) SetUuid(v string) *SendOfficialAccountOTOMessageRequestDetail {
+	s.Uuid = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetail) SetUserId(v string) *SendOfficialAccountOTOMessageRequestDetail {
+	s.UserId = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetail) SetMessageBody(v *SendOfficialAccountOTOMessageRequestDetailMessageBody) *SendOfficialAccountOTOMessageRequestDetail {
+	s.MessageBody = v
+	return s
+}
+
+type SendOfficialAccountOTOMessageRequestDetailMessageBody struct {
+	// 文本消息体  对于文本类型消息时必填
+	Text *SendOfficialAccountOTOMessageRequestDetailMessageBodyText `json:"text,omitempty" xml:"text,omitempty" type:"Struct"`
+	// markdown消息，仅对消息类型为markdown时有效
+	Markdown *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown `json:"markdown,omitempty" xml:"markdown,omitempty" type:"Struct"`
+	// 链接消息类型
+	Link *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink `json:"link,omitempty" xml:"link,omitempty" type:"Struct"`
+	// 卡片消息
+	ActionCard *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard `json:"actionCard,omitempty" xml:"actionCard,omitempty" type:"Struct"`
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBody) SetText(v *SendOfficialAccountOTOMessageRequestDetailMessageBodyText) *SendOfficialAccountOTOMessageRequestDetailMessageBody {
+	s.Text = v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBody) SetMarkdown(v *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) *SendOfficialAccountOTOMessageRequestDetailMessageBody {
+	s.Markdown = v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBody) SetLink(v *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) *SendOfficialAccountOTOMessageRequestDetailMessageBody {
+	s.Link = v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBody) SetActionCard(v *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) *SendOfficialAccountOTOMessageRequestDetailMessageBody {
+	s.ActionCard = v
+	return s
+}
+
+type SendOfficialAccountOTOMessageRequestDetailMessageBodyText struct {
+	// 消息内容，建议500字符以内。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyText) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyText) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyText) SetContent(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyText {
+	s.Content = &v
+	return s
+}
+
+type SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown struct {
+	// 首屏会话透出的展示内容。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// markdown格式的消息，建议500字符以内。
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) SetTitle(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown {
+	s.Title = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) SetText(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown {
+	s.Text = &v
+	return s
+}
+
+type SendOfficialAccountOTOMessageRequestDetailMessageBodyLink struct {
+	// 图片地址
+	PicUrl *string `json:"picUrl,omitempty" xml:"picUrl,omitempty"`
+	// 消息点击链接地址，当发送消息为小程序时支持小程序跳转链接。
+	MessageUrl *string `json:"messageUrl,omitempty" xml:"messageUrl,omitempty"`
+	// 消息标题，建议100字符以内。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 消息描述，建议500字符以内。
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetPicUrl(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink {
+	s.PicUrl = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetMessageUrl(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink {
+	s.MessageUrl = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetTitle(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink {
+	s.Title = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetText(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink {
+	s.Text = &v
+	return s
+}
+
+type SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard struct {
+	// 按钮排列方式： 0：竖直排列 1：横向排列 必须与buttonList同时设置。
+	ButtonOrientation *string `json:"buttonOrientation,omitempty" xml:"buttonOrientation,omitempty"`
+	// 消息点击链接地址，当发送消息为小程序时支持小程序跳转链接，最长500个字符。
+	SingleUrl *string `json:"singleUrl,omitempty" xml:"singleUrl,omitempty"`
+	// 使用整体跳转ActionCard样式时的标题。必须与singleUrl同时设置，最长20个字符。
+	SingleTitle *string `json:"singleTitle,omitempty" xml:"singleTitle,omitempty"`
+	// 消息内容，支持markdown，语法参考标准markdown语法。1000个字符以内。
+	Markdown *string `json:"markdown,omitempty" xml:"markdown,omitempty"`
+	// 透出到会话列表和通知的文案
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 使用独立跳转ActionCard样式时的按钮列表；必须与buttonOrientation同时设置，且长度不超过1000字符。
+	ButtonList []*SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList `json:"buttonList,omitempty" xml:"buttonList,omitempty" type:"Repeated"`
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetButtonOrientation(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.ButtonOrientation = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetSingleUrl(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.SingleUrl = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetSingleTitle(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.SingleTitle = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetMarkdown(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.Markdown = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetTitle(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.Title = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetButtonList(v []*SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard {
+	s.ButtonList = v
+	return s
+}
+
+type SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList struct {
+	// 使用独立跳转ActionCard样式时的按钮的标题，最长20个字符。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 使用独立跳转ActionCard样式时的跳转链接。
+	ActionUrl *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) SetTitle(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList {
+	s.Title = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) SetActionUrl(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList {
+	s.ActionUrl = &v
+	return s
+}
+
+type SendOfficialAccountOTOMessageResponseBody struct {
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// 推送结果
+	Result *SendOfficialAccountOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s SendOfficialAccountOTOMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageResponseBody) SetRequestId(v string) *SendOfficialAccountOTOMessageResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageResponseBody) SetResult(v *SendOfficialAccountOTOMessageResponseBodyResult) *SendOfficialAccountOTOMessageResponseBody {
+	s.Result = v
+	return s
+}
+
+type SendOfficialAccountOTOMessageResponseBodyResult struct {
+	// 推送ID
+	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
+}
+
+func (s SendOfficialAccountOTOMessageResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageResponseBodyResult) SetOpenPushId(v string) *SendOfficialAccountOTOMessageResponseBodyResult {
+	s.OpenPushId = &v
+	return s
+}
+
+type SendOfficialAccountOTOMessageResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SendOfficialAccountOTOMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendOfficialAccountOTOMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageResponse) SetHeaders(v map[string]*string) *SendOfficialAccountOTOMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageResponse) SetBody(v *SendOfficialAccountOTOMessageResponseBody) *SendOfficialAccountOTOMessageResponse {
+	s.Body = v
+	return s
+}
+
+type AddCrmPersonalCustomerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddCrmPersonalCustomerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCrmPersonalCustomerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddCrmPersonalCustomerHeaders) SetCommonHeaders(v map[string]*string) *AddCrmPersonalCustomerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddCrmPersonalCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *AddCrmPersonalCustomerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddCrmPersonalCustomerRequest struct {
+	// 记录创建人的用户ID
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// 记录创建人的昵称
+	CreatorNick *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	// 数据内容
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	// 扩展数据内容
+	ExtendData map[string]interface{} `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	// 权限
+	Permission *AddCrmPersonalCustomerRequestPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+}
+
+func (s AddCrmPersonalCustomerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCrmPersonalCustomerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddCrmPersonalCustomerRequest) SetCreatorUserId(v string) *AddCrmPersonalCustomerRequest {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *AddCrmPersonalCustomerRequest) SetCreatorNick(v string) *AddCrmPersonalCustomerRequest {
+	s.CreatorNick = &v
+	return s
+}
+
+func (s *AddCrmPersonalCustomerRequest) SetData(v map[string]interface{}) *AddCrmPersonalCustomerRequest {
+	s.Data = v
+	return s
+}
+
+func (s *AddCrmPersonalCustomerRequest) SetExtendData(v map[string]interface{}) *AddCrmPersonalCustomerRequest {
+	s.ExtendData = v
+	return s
+}
+
+func (s *AddCrmPersonalCustomerRequest) SetPermission(v *AddCrmPersonalCustomerRequestPermission) *AddCrmPersonalCustomerRequest {
+	s.Permission = v
+	return s
+}
+
+type AddCrmPersonalCustomerRequestPermission struct {
+	// 负责人的用户ID
+	OwnerStaffIds []*string `json:"ownerStaffIds,omitempty" xml:"ownerStaffIds,omitempty" type:"Repeated"`
+	// 协同人的用户ID
+	ParticipantStaffIds []*string `json:"participantStaffIds,omitempty" xml:"participantStaffIds,omitempty" type:"Repeated"`
+}
+
+func (s AddCrmPersonalCustomerRequestPermission) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCrmPersonalCustomerRequestPermission) GoString() string {
+	return s.String()
+}
+
+func (s *AddCrmPersonalCustomerRequestPermission) SetOwnerStaffIds(v []*string) *AddCrmPersonalCustomerRequestPermission {
+	s.OwnerStaffIds = v
+	return s
+}
+
+func (s *AddCrmPersonalCustomerRequestPermission) SetParticipantStaffIds(v []*string) *AddCrmPersonalCustomerRequestPermission {
+	s.ParticipantStaffIds = v
+	return s
+}
+
+type AddCrmPersonalCustomerResponseBody struct {
+	// 客户数据id
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+}
+
+func (s AddCrmPersonalCustomerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCrmPersonalCustomerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddCrmPersonalCustomerResponseBody) SetInstanceId(v string) *AddCrmPersonalCustomerResponseBody {
+	s.InstanceId = &v
+	return s
+}
+
+type AddCrmPersonalCustomerResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddCrmPersonalCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddCrmPersonalCustomerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCrmPersonalCustomerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddCrmPersonalCustomerResponse) SetHeaders(v map[string]*string) *AddCrmPersonalCustomerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddCrmPersonalCustomerResponse) SetBody(v *AddCrmPersonalCustomerResponseBody) *AddCrmPersonalCustomerResponse {
+	s.Body = v
+	return s
+}
+
+type DescribeCrmPersonalCustomerObjectMetaHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaHeaders) SetCommonHeaders(v map[string]*string) *DescribeCrmPersonalCustomerObjectMetaHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaHeaders) SetXAcsDingtalkAccessToken(v string) *DescribeCrmPersonalCustomerObjectMetaHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DescribeCrmPersonalCustomerObjectMetaResponseBody struct {
+	// 对象名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 是否自定义对象
+	Customized *bool `json:"customized,omitempty" xml:"customized,omitempty"`
+	// 字段列表
+	Fields []*DescribeCrmPersonalCustomerObjectMetaResponseBodyFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBody) SetName(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBody) SetCustomized(v bool) *DescribeCrmPersonalCustomerObjectMetaResponseBody {
+	s.Customized = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBody) SetFields(v []*DescribeCrmPersonalCustomerObjectMetaResponseBodyFields) *DescribeCrmPersonalCustomerObjectMetaResponseBody {
+	s.Fields = v
+	return s
+}
+
+type DescribeCrmPersonalCustomerObjectMetaResponseBodyFields struct {
+	Name                *string                                                                       `json:"name,omitempty" xml:"name,omitempty"`
+	Customized          *bool                                                                         `json:"customized,omitempty" xml:"customized,omitempty"`
+	Label               *string                                                                       `json:"label,omitempty" xml:"label,omitempty"`
+	Type                *string                                                                       `json:"type,omitempty" xml:"type,omitempty"`
+	Nillable            *bool                                                                         `json:"nillable,omitempty" xml:"nillable,omitempty"`
+	Format              *string                                                                       `json:"format,omitempty" xml:"format,omitempty"`
+	Unit                *string                                                                       `json:"unit,omitempty" xml:"unit,omitempty"`
+	SelectOptions       []*DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsSelectOptions       `json:"selectOptions,omitempty" xml:"selectOptions,omitempty" type:"Repeated"`
+	Quote               *bool                                                                         `json:"quote,omitempty" xml:"quote,omitempty"`
+	ReferenceTo         *string                                                                       `json:"referenceTo,omitempty" xml:"referenceTo,omitempty"`
+	ReferenceFields     []*DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields     `json:"referenceFields,omitempty" xml:"referenceFields,omitempty" type:"Repeated"`
+	RollUpSummaryFields []*DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsRollUpSummaryFields `json:"rollUpSummaryFields,omitempty" xml:"rollUpSummaryFields,omitempty" type:"Repeated"`
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaResponseBodyFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaResponseBodyFields) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields) SetName(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields {
+	s.Name = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields) SetCustomized(v bool) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields {
+	s.Customized = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields) SetLabel(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields) SetType(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields {
+	s.Type = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields) SetNillable(v bool) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields {
+	s.Nillable = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields) SetFormat(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields {
+	s.Format = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields) SetUnit(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields) SetSelectOptions(v []*DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsSelectOptions) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields {
+	s.SelectOptions = v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields) SetQuote(v bool) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields {
+	s.Quote = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields) SetReferenceTo(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields {
+	s.ReferenceTo = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields) SetReferenceFields(v []*DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields {
+	s.ReferenceFields = v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields) SetRollUpSummaryFields(v []*DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsRollUpSummaryFields) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFields {
+	s.RollUpSummaryFields = v
+	return s
+}
+
+type DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsSelectOptions struct {
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsSelectOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsSelectOptions) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsSelectOptions) SetKey(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsSelectOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsSelectOptions) SetValue(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsSelectOptions {
+	s.Value = &v
+	return s
+}
+
+type DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields struct {
+	Label         *string                                                                                `json:"label,omitempty" xml:"label,omitempty"`
+	Type          *string                                                                                `json:"type,omitempty" xml:"type,omitempty"`
+	Nillable      *bool                                                                                  `json:"nillable,omitempty" xml:"nillable,omitempty"`
+	Unit          *string                                                                                `json:"unit,omitempty" xml:"unit,omitempty"`
+	Format        *string                                                                                `json:"format,omitempty" xml:"format,omitempty"`
+	SelectOptions []*DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFieldsSelectOptions `json:"selectOptions,omitempty" xml:"selectOptions,omitempty" type:"Repeated"`
+	Name          *string                                                                                `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields) SetLabel(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields) SetType(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields {
+	s.Type = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields) SetNillable(v bool) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields {
+	s.Nillable = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields) SetUnit(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields) SetFormat(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields {
+	s.Format = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields) SetSelectOptions(v []*DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFieldsSelectOptions) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields {
+	s.SelectOptions = v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields) SetName(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFields {
+	s.Name = &v
+	return s
+}
+
+type DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFieldsSelectOptions struct {
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFieldsSelectOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFieldsSelectOptions) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFieldsSelectOptions) SetKey(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFieldsSelectOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFieldsSelectOptions) SetValue(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFieldsSelectOptions {
+	s.Value = &v
+	return s
+}
+
+type DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsRollUpSummaryFields struct {
+	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	Aggregator *string `json:"aggregator,omitempty" xml:"aggregator,omitempty"`
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsRollUpSummaryFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsRollUpSummaryFields) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsRollUpSummaryFields) SetName(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsRollUpSummaryFields {
+	s.Name = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsRollUpSummaryFields) SetAggregator(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsRollUpSummaryFields {
+	s.Aggregator = &v
+	return s
+}
+
+type DescribeCrmPersonalCustomerObjectMetaResponse struct {
+	Headers map[string]*string                                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DescribeCrmPersonalCustomerObjectMetaResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponse) SetHeaders(v map[string]*string) *DescribeCrmPersonalCustomerObjectMetaResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponse) SetBody(v *DescribeCrmPersonalCustomerObjectMetaResponseBody) *DescribeCrmPersonalCustomerObjectMetaResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteCrmPersonalCustomerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteCrmPersonalCustomerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCrmPersonalCustomerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCrmPersonalCustomerHeaders) SetCommonHeaders(v map[string]*string) *DeleteCrmPersonalCustomerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteCrmPersonalCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteCrmPersonalCustomerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteCrmPersonalCustomerRequest struct {
+	// 操作人用户ID
+	CurrentOperatorUserId *string `json:"currentOperatorUserId,omitempty" xml:"currentOperatorUserId,omitempty"`
+}
+
+func (s DeleteCrmPersonalCustomerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCrmPersonalCustomerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCrmPersonalCustomerRequest) SetCurrentOperatorUserId(v string) *DeleteCrmPersonalCustomerRequest {
+	s.CurrentOperatorUserId = &v
+	return s
+}
+
+type DeleteCrmPersonalCustomerResponseBody struct {
+	// 客户数据id
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+}
+
+func (s DeleteCrmPersonalCustomerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCrmPersonalCustomerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCrmPersonalCustomerResponseBody) SetInstanceId(v string) *DeleteCrmPersonalCustomerResponseBody {
+	s.InstanceId = &v
+	return s
+}
+
+type DeleteCrmPersonalCustomerResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteCrmPersonalCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteCrmPersonalCustomerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCrmPersonalCustomerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCrmPersonalCustomerResponse) SetHeaders(v map[string]*string) *DeleteCrmPersonalCustomerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteCrmPersonalCustomerResponse) SetBody(v *DeleteCrmPersonalCustomerResponseBody) *DeleteCrmPersonalCustomerResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateCrmPersonalCustomerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateCrmPersonalCustomerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCrmPersonalCustomerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCrmPersonalCustomerHeaders) SetCommonHeaders(v map[string]*string) *UpdateCrmPersonalCustomerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateCrmPersonalCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateCrmPersonalCustomerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateCrmPersonalCustomerRequest struct {
+	InstanceId     *string                                     `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	ModifierUserId *string                                     `json:"modifierUserId,omitempty" xml:"modifierUserId,omitempty"`
+	ModifierNick   *string                                     `json:"modifierNick,omitempty" xml:"modifierNick,omitempty"`
+	Data           map[string]interface{}                      `json:"data,omitempty" xml:"data,omitempty"`
+	ExtendData     map[string]interface{}                      `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	Permission     *UpdateCrmPersonalCustomerRequestPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+}
+
+func (s UpdateCrmPersonalCustomerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCrmPersonalCustomerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCrmPersonalCustomerRequest) SetInstanceId(v string) *UpdateCrmPersonalCustomerRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *UpdateCrmPersonalCustomerRequest) SetModifierUserId(v string) *UpdateCrmPersonalCustomerRequest {
+	s.ModifierUserId = &v
+	return s
+}
+
+func (s *UpdateCrmPersonalCustomerRequest) SetModifierNick(v string) *UpdateCrmPersonalCustomerRequest {
+	s.ModifierNick = &v
+	return s
+}
+
+func (s *UpdateCrmPersonalCustomerRequest) SetData(v map[string]interface{}) *UpdateCrmPersonalCustomerRequest {
+	s.Data = v
+	return s
+}
+
+func (s *UpdateCrmPersonalCustomerRequest) SetExtendData(v map[string]interface{}) *UpdateCrmPersonalCustomerRequest {
+	s.ExtendData = v
+	return s
+}
+
+func (s *UpdateCrmPersonalCustomerRequest) SetPermission(v *UpdateCrmPersonalCustomerRequestPermission) *UpdateCrmPersonalCustomerRequest {
+	s.Permission = v
+	return s
+}
+
+type UpdateCrmPersonalCustomerRequestPermission struct {
+	OwnerStaffIds       []*string `json:"ownerStaffIds,omitempty" xml:"ownerStaffIds,omitempty" type:"Repeated"`
+	ParticipantStaffIds []*string `json:"participantStaffIds,omitempty" xml:"participantStaffIds,omitempty" type:"Repeated"`
+}
+
+func (s UpdateCrmPersonalCustomerRequestPermission) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCrmPersonalCustomerRequestPermission) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCrmPersonalCustomerRequestPermission) SetOwnerStaffIds(v []*string) *UpdateCrmPersonalCustomerRequestPermission {
+	s.OwnerStaffIds = v
+	return s
+}
+
+func (s *UpdateCrmPersonalCustomerRequestPermission) SetParticipantStaffIds(v []*string) *UpdateCrmPersonalCustomerRequestPermission {
+	s.ParticipantStaffIds = v
+	return s
+}
+
+type UpdateCrmPersonalCustomerResponseBody struct {
+	// 客户数据id
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+}
+
+func (s UpdateCrmPersonalCustomerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCrmPersonalCustomerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCrmPersonalCustomerResponseBody) SetInstanceId(v string) *UpdateCrmPersonalCustomerResponseBody {
+	s.InstanceId = &v
+	return s
+}
+
+type UpdateCrmPersonalCustomerResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateCrmPersonalCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateCrmPersonalCustomerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCrmPersonalCustomerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCrmPersonalCustomerResponse) SetHeaders(v map[string]*string) *UpdateCrmPersonalCustomerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateCrmPersonalCustomerResponse) SetBody(v *UpdateCrmPersonalCustomerResponseBody) *UpdateCrmPersonalCustomerResponse {
+	s.Body = v
+	return s
+}
+
+type QueryCrmPersonalCustomerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCrmPersonalCustomerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCrmPersonalCustomerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCrmPersonalCustomerHeaders) SetCommonHeaders(v map[string]*string) *QueryCrmPersonalCustomerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCrmPersonalCustomerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCrmPersonalCustomerRequest struct {
+	// 用户ID
+	CurrentOperatorUserId *string `json:"currentOperatorUserId,omitempty" xml:"currentOperatorUserId,omitempty"`
+	// 分页页码
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 分页条数
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 查询条件
+	QueryDsl *string `json:"queryDsl,omitempty" xml:"queryDsl,omitempty"`
+}
+
+func (s QueryCrmPersonalCustomerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCrmPersonalCustomerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCrmPersonalCustomerRequest) SetCurrentOperatorUserId(v string) *QueryCrmPersonalCustomerRequest {
+	s.CurrentOperatorUserId = &v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerRequest) SetNextToken(v string) *QueryCrmPersonalCustomerRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerRequest) SetMaxResults(v int32) *QueryCrmPersonalCustomerRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerRequest) SetQueryDsl(v string) *QueryCrmPersonalCustomerRequest {
+	s.QueryDsl = &v
+	return s
+}
+
+type QueryCrmPersonalCustomerResponseBody struct {
+	Values     []*QueryCrmPersonalCustomerResponseBodyValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	HasMore    *bool                                         `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken  *string                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	MaxResults *int32                                        `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+}
+
+func (s QueryCrmPersonalCustomerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCrmPersonalCustomerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCrmPersonalCustomerResponseBody) SetValues(v []*QueryCrmPersonalCustomerResponseBodyValues) *QueryCrmPersonalCustomerResponseBody {
+	s.Values = v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerResponseBody) SetHasMore(v bool) *QueryCrmPersonalCustomerResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerResponseBody) SetNextToken(v string) *QueryCrmPersonalCustomerResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerResponseBody) SetMaxResults(v int32) *QueryCrmPersonalCustomerResponseBody {
+	s.MaxResults = &v
+	return s
+}
+
+type QueryCrmPersonalCustomerResponseBodyValues struct {
+	// 数据ID
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// 数据类型
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	// 创建记录的用户ID
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// 创建记录的用户昵称
+	CreatorNick *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	// 数据内容
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	// 扩展数据内容
+	ExtendData map[string]interface{} `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	// 数据权限信息
+	Permission *QueryCrmPersonalCustomerResponseBodyValuesPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	// 审批结果
+	ProcOutResult *string `json:"procOutResult,omitempty" xml:"procOutResult,omitempty"`
+	// 审批状态
+	ProcInstStatus *string `json:"procInstStatus,omitempty" xml:"procInstStatus,omitempty"`
+	// 记录创建时间
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 记录修改时间
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+}
+
+func (s QueryCrmPersonalCustomerResponseBodyValues) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCrmPersonalCustomerResponseBodyValues) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCrmPersonalCustomerResponseBodyValues) SetInstanceId(v string) *QueryCrmPersonalCustomerResponseBodyValues {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerResponseBodyValues) SetObjectType(v string) *QueryCrmPersonalCustomerResponseBodyValues {
+	s.ObjectType = &v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerResponseBodyValues) SetCreatorUserId(v string) *QueryCrmPersonalCustomerResponseBodyValues {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerResponseBodyValues) SetCreatorNick(v string) *QueryCrmPersonalCustomerResponseBodyValues {
+	s.CreatorNick = &v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerResponseBodyValues) SetData(v map[string]interface{}) *QueryCrmPersonalCustomerResponseBodyValues {
+	s.Data = v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerResponseBodyValues) SetExtendData(v map[string]interface{}) *QueryCrmPersonalCustomerResponseBodyValues {
+	s.ExtendData = v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerResponseBodyValues) SetPermission(v *QueryCrmPersonalCustomerResponseBodyValuesPermission) *QueryCrmPersonalCustomerResponseBodyValues {
+	s.Permission = v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerResponseBodyValues) SetProcOutResult(v string) *QueryCrmPersonalCustomerResponseBodyValues {
+	s.ProcOutResult = &v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerResponseBodyValues) SetProcInstStatus(v string) *QueryCrmPersonalCustomerResponseBodyValues {
+	s.ProcInstStatus = &v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerResponseBodyValues) SetGmtCreate(v string) *QueryCrmPersonalCustomerResponseBodyValues {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerResponseBodyValues) SetGmtModified(v string) *QueryCrmPersonalCustomerResponseBodyValues {
+	s.GmtModified = &v
+	return s
+}
+
+type QueryCrmPersonalCustomerResponseBodyValuesPermission struct {
+	// 负责人用户ID列表
+	OwnerStaffIds []*string `json:"ownerStaffIds,omitempty" xml:"ownerStaffIds,omitempty" type:"Repeated"`
+	// 协同人用户ID列表
+	ParticipantStaffIds []*string `json:"participantStaffIds,omitempty" xml:"participantStaffIds,omitempty" type:"Repeated"`
+}
+
+func (s QueryCrmPersonalCustomerResponseBodyValuesPermission) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCrmPersonalCustomerResponseBodyValuesPermission) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCrmPersonalCustomerResponseBodyValuesPermission) SetOwnerStaffIds(v []*string) *QueryCrmPersonalCustomerResponseBodyValuesPermission {
+	s.OwnerStaffIds = v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerResponseBodyValuesPermission) SetParticipantStaffIds(v []*string) *QueryCrmPersonalCustomerResponseBodyValuesPermission {
+	s.ParticipantStaffIds = v
+	return s
+}
+
+type QueryCrmPersonalCustomerResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryCrmPersonalCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryCrmPersonalCustomerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCrmPersonalCustomerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCrmPersonalCustomerResponse) SetHeaders(v map[string]*string) *QueryCrmPersonalCustomerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerResponse) SetBody(v *QueryCrmPersonalCustomerResponseBody) *QueryCrmPersonalCustomerResponse {
+	s.Body = v
+	return s
+}
+
+type ListCrmPersonalCustomersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListCrmPersonalCustomersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCrmPersonalCustomersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListCrmPersonalCustomersHeaders) SetCommonHeaders(v map[string]*string) *ListCrmPersonalCustomersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersHeaders) SetXAcsDingtalkAccessToken(v string) *ListCrmPersonalCustomersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListCrmPersonalCustomersRequest struct {
+	// 操作人用户ID
+	CurrentOperatorUserId *string `json:"currentOperatorUserId,omitempty" xml:"currentOperatorUserId,omitempty"`
+	// 数据客户列表
+	Body []*string `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+}
+
+func (s ListCrmPersonalCustomersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCrmPersonalCustomersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListCrmPersonalCustomersRequest) SetCurrentOperatorUserId(v string) *ListCrmPersonalCustomersRequest {
+	s.CurrentOperatorUserId = &v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersRequest) SetBody(v []*string) *ListCrmPersonalCustomersRequest {
+	s.Body = v
+	return s
+}
+
+type ListCrmPersonalCustomersResponseBody struct {
+	Result []*ListCrmPersonalCustomersResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s ListCrmPersonalCustomersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCrmPersonalCustomersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListCrmPersonalCustomersResponseBody) SetResult(v []*ListCrmPersonalCustomersResponseBodyResult) *ListCrmPersonalCustomersResponseBody {
+	s.Result = v
+	return s
+}
+
+type ListCrmPersonalCustomersResponseBodyResult struct {
+	OrgId          *int64                                                `json:"orgId,omitempty" xml:"orgId,omitempty"`
+	InstanceId     *string                                               `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	ObjectType     *string                                               `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	CreatorUserId  *string                                               `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	CreatorNick    *string                                               `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	Data           map[string]interface{}                                `json:"data,omitempty" xml:"data,omitempty"`
+	ExtendData     map[string]interface{}                                `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	Permission     *ListCrmPersonalCustomersResponseBodyResultPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	AppUuid        *string                                               `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	FormCode       *string                                               `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	ProcOutResult  *string                                               `json:"procOutResult,omitempty" xml:"procOutResult,omitempty"`
+	ProcInstStatus *string                                               `json:"procInstStatus,omitempty" xml:"procInstStatus,omitempty"`
+	GmtCreate      *string                                               `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified    *string                                               `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+}
+
+func (s ListCrmPersonalCustomersResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCrmPersonalCustomersResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListCrmPersonalCustomersResponseBodyResult) SetOrgId(v int64) *ListCrmPersonalCustomersResponseBodyResult {
+	s.OrgId = &v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersResponseBodyResult) SetInstanceId(v string) *ListCrmPersonalCustomersResponseBodyResult {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersResponseBodyResult) SetObjectType(v string) *ListCrmPersonalCustomersResponseBodyResult {
+	s.ObjectType = &v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersResponseBodyResult) SetCreatorUserId(v string) *ListCrmPersonalCustomersResponseBodyResult {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersResponseBodyResult) SetCreatorNick(v string) *ListCrmPersonalCustomersResponseBodyResult {
+	s.CreatorNick = &v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersResponseBodyResult) SetData(v map[string]interface{}) *ListCrmPersonalCustomersResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersResponseBodyResult) SetExtendData(v map[string]interface{}) *ListCrmPersonalCustomersResponseBodyResult {
+	s.ExtendData = v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersResponseBodyResult) SetPermission(v *ListCrmPersonalCustomersResponseBodyResultPermission) *ListCrmPersonalCustomersResponseBodyResult {
+	s.Permission = v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersResponseBodyResult) SetAppUuid(v string) *ListCrmPersonalCustomersResponseBodyResult {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersResponseBodyResult) SetFormCode(v string) *ListCrmPersonalCustomersResponseBodyResult {
+	s.FormCode = &v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersResponseBodyResult) SetProcOutResult(v string) *ListCrmPersonalCustomersResponseBodyResult {
+	s.ProcOutResult = &v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersResponseBodyResult) SetProcInstStatus(v string) *ListCrmPersonalCustomersResponseBodyResult {
+	s.ProcInstStatus = &v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersResponseBodyResult) SetGmtCreate(v string) *ListCrmPersonalCustomersResponseBodyResult {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersResponseBodyResult) SetGmtModified(v string) *ListCrmPersonalCustomersResponseBodyResult {
+	s.GmtModified = &v
+	return s
+}
+
+type ListCrmPersonalCustomersResponseBodyResultPermission struct {
+	OwnerStaffIds       []*string `json:"ownerStaffIds,omitempty" xml:"ownerStaffIds,omitempty" type:"Repeated"`
+	ParticipantStaffIds []*string `json:"participantStaffIds,omitempty" xml:"participantStaffIds,omitempty" type:"Repeated"`
+}
+
+func (s ListCrmPersonalCustomersResponseBodyResultPermission) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCrmPersonalCustomersResponseBodyResultPermission) GoString() string {
+	return s.String()
+}
+
+func (s *ListCrmPersonalCustomersResponseBodyResultPermission) SetOwnerStaffIds(v []*string) *ListCrmPersonalCustomersResponseBodyResultPermission {
+	s.OwnerStaffIds = v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersResponseBodyResultPermission) SetParticipantStaffIds(v []*string) *ListCrmPersonalCustomersResponseBodyResultPermission {
+	s.ParticipantStaffIds = v
+	return s
+}
+
+type ListCrmPersonalCustomersResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListCrmPersonalCustomersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListCrmPersonalCustomersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCrmPersonalCustomersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListCrmPersonalCustomersResponse) SetHeaders(v map[string]*string) *ListCrmPersonalCustomersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersResponse) SetBody(v *ListCrmPersonalCustomersResponseBody) *ListCrmPersonalCustomersResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -1844,82 +2917,6 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
-}
-
-func (client *Client) QueryAllCustomer(request *QueryAllCustomerRequest) (_result *QueryAllCustomerResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &QueryAllCustomerHeaders{}
-	_result = &QueryAllCustomerResponse{}
-	_body, _err := client.QueryAllCustomerWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) QueryAllCustomerWithOptions(request *QueryAllCustomerRequest, headers *QueryAllCustomerHeaders, runtime *util.RuntimeOptions) (_result *QueryAllCustomerResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
-		body["dingIsvOrgId"] = request.DingIsvOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
-		body["dingOrgId"] = request.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
-		body["dingTokenGrantType"] = request.DingTokenGrantType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
-		body["dingCorpId"] = request.DingCorpId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
-		body["dingSuiteKey"] = request.DingSuiteKey
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
-		body["operatorUserId"] = request.OperatorUserId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
-		body["maxResults"] = request.MaxResults
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
-		body["nextToken"] = request.NextToken
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.ObjectType)) {
-		body["objectType"] = request.ObjectType
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &QueryAllCustomerResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryAllCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/customerInstances"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
 }
 
 func (client *Client) GetOfficialAccountContacts(request *GetOfficialAccountContactsRequest) (_result *GetOfficialAccountContactsResponse, _err error) {
@@ -2082,70 +3079,6 @@ func (client *Client) DeleteCrmFormInstanceWithOptions(instanceId *string, reque
 	return _result, _err
 }
 
-func (client *Client) SendOfficialAccountOTOMessage(request *SendOfficialAccountOTOMessageRequest) (_result *SendOfficialAccountOTOMessageResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &SendOfficialAccountOTOMessageHeaders{}
-	_result = &SendOfficialAccountOTOMessageResponse{}
-	_body, _err := client.SendOfficialAccountOTOMessageWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) SendOfficialAccountOTOMessageWithOptions(request *SendOfficialAccountOTOMessageRequest, headers *SendOfficialAccountOTOMessageHeaders, runtime *util.RuntimeOptions) (_result *SendOfficialAccountOTOMessageResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Detail))) {
-		body["detail"] = request.Detail
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.BizId)) {
-		body["bizId"] = request.BizId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
-		body["dingTokenGrantType"] = request.DingTokenGrantType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
-		body["dingIsvOrgId"] = request.DingIsvOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
-		body["dingOrgId"] = request.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
-		body["dingSuiteKey"] = request.DingSuiteKey
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &SendOfficialAccountOTOMessageResponse{}
-	_body, _err := client.DoROARequest(tea.String("SendOfficialAccountOTOMessage"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/officialAccounts/oToMessages/send"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
 func (client *Client) BatchSendOfficialAccountOTOMessage(request *BatchSendOfficialAccountOTOMessageRequest) (_result *BatchSendOfficialAccountOTOMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchSendOfficialAccountOTOMessageHeaders{}
@@ -2237,6 +3170,449 @@ func (client *Client) GetOfficialAccountContactInfoWithOptions(userId *string, h
 	}
 	_result = &GetOfficialAccountContactInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetOfficialAccountContactInfo"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/officialAccounts/contacts/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryAllCustomer(request *QueryAllCustomerRequest) (_result *QueryAllCustomerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryAllCustomerHeaders{}
+	_result = &QueryAllCustomerResponse{}
+	_body, _err := client.QueryAllCustomerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryAllCustomerWithOptions(request *QueryAllCustomerRequest, headers *QueryAllCustomerHeaders, runtime *util.RuntimeOptions) (_result *QueryAllCustomerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectType)) {
+		body["objectType"] = request.ObjectType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryAllCustomerResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryAllCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/customerInstances"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendOfficialAccountOTOMessage(request *SendOfficialAccountOTOMessageRequest) (_result *SendOfficialAccountOTOMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendOfficialAccountOTOMessageHeaders{}
+	_result = &SendOfficialAccountOTOMessageResponse{}
+	_body, _err := client.SendOfficialAccountOTOMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendOfficialAccountOTOMessageWithOptions(request *SendOfficialAccountOTOMessageRequest, headers *SendOfficialAccountOTOMessageHeaders, runtime *util.RuntimeOptions) (_result *SendOfficialAccountOTOMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Detail))) {
+		body["detail"] = request.Detail
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendOfficialAccountOTOMessageResponse{}
+	_body, _err := client.DoROARequest(tea.String("SendOfficialAccountOTOMessage"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/officialAccounts/oToMessages/send"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddCrmPersonalCustomer(request *AddCrmPersonalCustomerRequest) (_result *AddCrmPersonalCustomerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddCrmPersonalCustomerHeaders{}
+	_result = &AddCrmPersonalCustomerResponse{}
+	_body, _err := client.AddCrmPersonalCustomerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddCrmPersonalCustomerWithOptions(request *AddCrmPersonalCustomerRequest, headers *AddCrmPersonalCustomerHeaders, runtime *util.RuntimeOptions) (_result *AddCrmPersonalCustomerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CreatorUserId)) {
+		body["creatorUserId"] = request.CreatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreatorNick)) {
+		body["creatorNick"] = request.CreatorNick
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Data)) {
+		body["data"] = request.Data
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtendData)) {
+		body["extendData"] = request.ExtendData
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Permission))) {
+		body["permission"] = request.Permission
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddCrmPersonalCustomerResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddCrmPersonalCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/personalCustomers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DescribeCrmPersonalCustomerObjectMeta() (_result *DescribeCrmPersonalCustomerObjectMetaResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DescribeCrmPersonalCustomerObjectMetaHeaders{}
+	_result = &DescribeCrmPersonalCustomerObjectMetaResponse{}
+	_body, _err := client.DescribeCrmPersonalCustomerObjectMetaWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DescribeCrmPersonalCustomerObjectMetaWithOptions(headers *DescribeCrmPersonalCustomerObjectMetaHeaders, runtime *util.RuntimeOptions) (_result *DescribeCrmPersonalCustomerObjectMetaResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &DescribeCrmPersonalCustomerObjectMetaResponse{}
+	_body, _err := client.DoROARequest(tea.String("DescribeCrmPersonalCustomerObjectMeta"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/personalCustomers/objectMeta"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteCrmPersonalCustomer(dataId *string, request *DeleteCrmPersonalCustomerRequest) (_result *DeleteCrmPersonalCustomerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteCrmPersonalCustomerHeaders{}
+	_result = &DeleteCrmPersonalCustomerResponse{}
+	_body, _err := client.DeleteCrmPersonalCustomerWithOptions(dataId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteCrmPersonalCustomerWithOptions(dataId *string, request *DeleteCrmPersonalCustomerRequest, headers *DeleteCrmPersonalCustomerHeaders, runtime *util.RuntimeOptions) (_result *DeleteCrmPersonalCustomerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CurrentOperatorUserId)) {
+		query["currentOperatorUserId"] = request.CurrentOperatorUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteCrmPersonalCustomerResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteCrmPersonalCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/crm/personalCustomers/"+tea.StringValue(dataId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateCrmPersonalCustomer(request *UpdateCrmPersonalCustomerRequest) (_result *UpdateCrmPersonalCustomerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateCrmPersonalCustomerHeaders{}
+	_result = &UpdateCrmPersonalCustomerResponse{}
+	_body, _err := client.UpdateCrmPersonalCustomerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateCrmPersonalCustomerWithOptions(request *UpdateCrmPersonalCustomerRequest, headers *UpdateCrmPersonalCustomerHeaders, runtime *util.RuntimeOptions) (_result *UpdateCrmPersonalCustomerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		body["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModifierUserId)) {
+		body["modifierUserId"] = request.ModifierUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModifierNick)) {
+		body["modifierNick"] = request.ModifierNick
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Data)) {
+		body["data"] = request.Data
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtendData)) {
+		body["extendData"] = request.ExtendData
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Permission))) {
+		body["permission"] = request.Permission
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateCrmPersonalCustomerResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateCrmPersonalCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("PATCH"), tea.String("AK"), tea.String("/v1.0/crm/personalCustomers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryCrmPersonalCustomer(request *QueryCrmPersonalCustomerRequest) (_result *QueryCrmPersonalCustomerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCrmPersonalCustomerHeaders{}
+	_result = &QueryCrmPersonalCustomerResponse{}
+	_body, _err := client.QueryCrmPersonalCustomerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryCrmPersonalCustomerWithOptions(request *QueryCrmPersonalCustomerRequest, headers *QueryCrmPersonalCustomerHeaders, runtime *util.RuntimeOptions) (_result *QueryCrmPersonalCustomerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CurrentOperatorUserId)) {
+		query["currentOperatorUserId"] = request.CurrentOperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QueryDsl)) {
+		query["queryDsl"] = request.QueryDsl
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryCrmPersonalCustomerResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryCrmPersonalCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/personalCustomers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListCrmPersonalCustomers(request *ListCrmPersonalCustomersRequest) (_result *ListCrmPersonalCustomersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListCrmPersonalCustomersHeaders{}
+	_result = &ListCrmPersonalCustomersResponse{}
+	_body, _err := client.ListCrmPersonalCustomersWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListCrmPersonalCustomersWithOptions(request *ListCrmPersonalCustomersRequest, headers *ListCrmPersonalCustomersHeaders, runtime *util.RuntimeOptions) (_result *ListCrmPersonalCustomersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CurrentOperatorUserId)) {
+		query["currentOperatorUserId"] = request.CurrentOperatorUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    request.Body,
+	}
+	_result = &ListCrmPersonalCustomersResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListCrmPersonalCustomers"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/personalCustomers/batchQuery"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
