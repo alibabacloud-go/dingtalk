@@ -11,6 +11,102 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type CreateCooperateOrgHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateCooperateOrgHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCooperateOrgHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCooperateOrgHeaders) SetCommonHeaders(v map[string]*string) *CreateCooperateOrgHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateCooperateOrgHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCooperateOrgHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateCooperateOrgRequest struct {
+	// 合作空间组织名称
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// 合作空间的logo
+	LogoMediaId *string `json:"logoMediaId,omitempty" xml:"logoMediaId,omitempty"`
+	// 行业code
+	IndustryCode *int64 `json:"industryCode,omitempty" xml:"industryCode,omitempty"`
+}
+
+func (s CreateCooperateOrgRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCooperateOrgRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCooperateOrgRequest) SetOrgName(v string) *CreateCooperateOrgRequest {
+	s.OrgName = &v
+	return s
+}
+
+func (s *CreateCooperateOrgRequest) SetLogoMediaId(v string) *CreateCooperateOrgRequest {
+	s.LogoMediaId = &v
+	return s
+}
+
+func (s *CreateCooperateOrgRequest) SetIndustryCode(v int64) *CreateCooperateOrgRequest {
+	s.IndustryCode = &v
+	return s
+}
+
+type CreateCooperateOrgResponseBody struct {
+	// result
+	CooperateCorpId *string `json:"cooperateCorpId,omitempty" xml:"cooperateCorpId,omitempty"`
+}
+
+func (s CreateCooperateOrgResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCooperateOrgResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCooperateOrgResponseBody) SetCooperateCorpId(v string) *CreateCooperateOrgResponseBody {
+	s.CooperateCorpId = &v
+	return s
+}
+
+type CreateCooperateOrgResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateCooperateOrgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateCooperateOrgResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCooperateOrgResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCooperateOrgResponse) SetHeaders(v map[string]*string) *CreateCooperateOrgResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateCooperateOrgResponse) SetBody(v *CreateCooperateOrgResponseBody) *CreateCooperateOrgResponse {
+	s.Body = v
+	return s
+}
+
 type QueryResourceManagementMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -359,6 +455,69 @@ func (s *ListManagementGroupsResponse) SetHeaders(v map[string]*string) *ListMan
 }
 
 func (s *ListManagementGroupsResponse) SetBody(v *ListManagementGroupsResponseBody) *ListManagementGroupsResponse {
+	s.Body = v
+	return s
+}
+
+type GetCooperateOrgInviteInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCooperateOrgInviteInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCooperateOrgInviteInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCooperateOrgInviteInfoHeaders) SetCommonHeaders(v map[string]*string) *GetCooperateOrgInviteInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCooperateOrgInviteInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetCooperateOrgInviteInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCooperateOrgInviteInfoResponseBody struct {
+	InviteUrl *string `json:"inviteUrl,omitempty" xml:"inviteUrl,omitempty"`
+}
+
+func (s GetCooperateOrgInviteInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCooperateOrgInviteInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCooperateOrgInviteInfoResponseBody) SetInviteUrl(v string) *GetCooperateOrgInviteInfoResponseBody {
+	s.InviteUrl = &v
+	return s
+}
+
+type GetCooperateOrgInviteInfoResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCooperateOrgInviteInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCooperateOrgInviteInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCooperateOrgInviteInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCooperateOrgInviteInfoResponse) SetHeaders(v map[string]*string) *GetCooperateOrgInviteInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCooperateOrgInviteInfoResponse) SetBody(v *GetCooperateOrgInviteInfoResponseBody) *GetCooperateOrgInviteInfoResponse {
 	s.Body = v
 	return s
 }
@@ -1163,6 +1322,58 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) CreateCooperateOrg(request *CreateCooperateOrgRequest) (_result *CreateCooperateOrgResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateCooperateOrgHeaders{}
+	_result = &CreateCooperateOrgResponse{}
+	_body, _err := client.CreateCooperateOrgWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateCooperateOrgWithOptions(request *CreateCooperateOrgRequest, headers *CreateCooperateOrgHeaders, runtime *util.RuntimeOptions) (_result *CreateCooperateOrgResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OrgName)) {
+		body["orgName"] = request.OrgName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LogoMediaId)) {
+		body["logoMediaId"] = request.LogoMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IndustryCode)) {
+		body["industryCode"] = request.IndustryCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateCooperateOrgResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateCooperateOrg"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/cooperateCorps"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryResourceManagementMembers(resourceId *string) (_result *QueryResourceManagementMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryResourceManagementMembersHeaders{}
@@ -1272,6 +1483,40 @@ func (client *Client) ListManagementGroupsWithOptions(request *ListManagementGro
 	}
 	_result = &ListManagementGroupsResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListManagementGroups"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/managementGroups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetCooperateOrgInviteInfo(cooperateCorpId *string) (_result *GetCooperateOrgInviteInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCooperateOrgInviteInfoHeaders{}
+	_result = &GetCooperateOrgInviteInfoResponse{}
+	_body, _err := client.GetCooperateOrgInviteInfoWithOptions(cooperateCorpId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetCooperateOrgInviteInfoWithOptions(cooperateCorpId *string, headers *GetCooperateOrgInviteInfoHeaders, runtime *util.RuntimeOptions) (_result *GetCooperateOrgInviteInfoResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetCooperateOrgInviteInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetCooperateOrgInviteInfo"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/cooperateCorps/"+tea.StringValue(cooperateCorpId)+"/inviteInfos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

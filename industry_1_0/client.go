@@ -1382,6 +1382,102 @@ func (s *QueryBizOptLogResponse) SetBody(v *QueryBizOptLogResponseBody) *QueryBi
 	return s
 }
 
+type QueryUserExtInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryUserExtInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserExtInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserExtInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryUserExtInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryUserExtInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUserExtInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryUserExtInfoResponseBody struct {
+	// 扩展属性
+	Content []*QueryUserExtInfoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+}
+
+func (s QueryUserExtInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserExtInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserExtInfoResponseBody) SetContent(v []*QueryUserExtInfoResponseBodyContent) *QueryUserExtInfoResponseBody {
+	s.Content = v
+	return s
+}
+
+type QueryUserExtInfoResponseBodyContent struct {
+	// 扩展属性Key
+	UserExtendKey *string `json:"userExtendKey,omitempty" xml:"userExtendKey,omitempty"`
+	// 扩展属性值
+	UserExtendValue *string `json:"userExtendValue,omitempty" xml:"userExtendValue,omitempty"`
+	// 扩展属性描述
+	UserExtendDisplayName *string `json:"userExtendDisplayName,omitempty" xml:"userExtendDisplayName,omitempty"`
+}
+
+func (s QueryUserExtInfoResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserExtInfoResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserExtInfoResponseBodyContent) SetUserExtendKey(v string) *QueryUserExtInfoResponseBodyContent {
+	s.UserExtendKey = &v
+	return s
+}
+
+func (s *QueryUserExtInfoResponseBodyContent) SetUserExtendValue(v string) *QueryUserExtInfoResponseBodyContent {
+	s.UserExtendValue = &v
+	return s
+}
+
+func (s *QueryUserExtInfoResponseBodyContent) SetUserExtendDisplayName(v string) *QueryUserExtInfoResponseBodyContent {
+	s.UserExtendDisplayName = &v
+	return s
+}
+
+type QueryUserExtInfoResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryUserExtInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryUserExtInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserExtInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserExtInfoResponse) SetHeaders(v map[string]*string) *QueryUserExtInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryUserExtInfoResponse) SetBody(v *QueryUserExtInfoResponseBody) *QueryUserExtInfoResponse {
+	s.Body = v
+	return s
+}
+
 type QueryAllDepartmentHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2275,6 +2371,40 @@ func (client *Client) QueryBizOptLogWithOptions(request *QueryBizOptLogRequest, 
 	}
 	_result = &QueryBizOptLogResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryBizOptLog"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/medicals/bizOptLogs"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryUserExtInfo(userId *string) (_result *QueryUserExtInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryUserExtInfoHeaders{}
+	_result = &QueryUserExtInfoResponse{}
+	_body, _err := client.QueryUserExtInfoWithOptions(userId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryUserExtInfoWithOptions(userId *string, headers *QueryUserExtInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryUserExtInfoResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &QueryUserExtInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryUserExtInfo"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/medicals/users/"+tea.StringValue(userId)+"/extInfos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

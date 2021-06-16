@@ -202,6 +202,246 @@ func (s *QueryComponentScopesResponse) SetBody(v *QueryComponentScopesResponseBo
 	return s
 }
 
+type QueryShortcutScopesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryShortcutScopesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryShortcutScopesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryShortcutScopesHeaders) SetCommonHeaders(v map[string]*string) *QueryShortcutScopesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryShortcutScopesHeaders) SetXAcsDingtalkAccessToken(v string) *QueryShortcutScopesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryShortcutScopesResponseBody struct {
+	// errorMsg
+	UserVisibleScopes []*string `json:"userVisibleScopes,omitempty" xml:"userVisibleScopes,omitempty" type:"Repeated"`
+	DeptVisibleScopes []*int64  `json:"deptVisibleScopes,omitempty" xml:"deptVisibleScopes,omitempty" type:"Repeated"`
+}
+
+func (s QueryShortcutScopesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryShortcutScopesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryShortcutScopesResponseBody) SetUserVisibleScopes(v []*string) *QueryShortcutScopesResponseBody {
+	s.UserVisibleScopes = v
+	return s
+}
+
+func (s *QueryShortcutScopesResponseBody) SetDeptVisibleScopes(v []*int64) *QueryShortcutScopesResponseBody {
+	s.DeptVisibleScopes = v
+	return s
+}
+
+type QueryShortcutScopesResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryShortcutScopesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryShortcutScopesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryShortcutScopesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryShortcutScopesResponse) SetHeaders(v map[string]*string) *QueryShortcutScopesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryShortcutScopesResponse) SetBody(v *QueryShortcutScopesResponseBody) *QueryShortcutScopesResponse {
+	s.Body = v
+	return s
+}
+
+type GetPluginPermissionPointHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPluginPermissionPointHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPluginPermissionPointHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPluginPermissionPointHeaders) SetCommonHeaders(v map[string]*string) *GetPluginPermissionPointHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPluginPermissionPointHeaders) SetXAcsDingtalkAccessToken(v string) *GetPluginPermissionPointHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPluginPermissionPointRequest struct {
+	// 插件id
+	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+}
+
+func (s GetPluginPermissionPointRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPluginPermissionPointRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPluginPermissionPointRequest) SetMiniAppId(v string) *GetPluginPermissionPointRequest {
+	s.MiniAppId = &v
+	return s
+}
+
+type GetPluginPermissionPointResponseBody struct {
+	// 插件权限点列表
+	PermissionPointList []*string `json:"permissionPointList,omitempty" xml:"permissionPointList,omitempty" type:"Repeated"`
+}
+
+func (s GetPluginPermissionPointResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPluginPermissionPointResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPluginPermissionPointResponseBody) SetPermissionPointList(v []*string) *GetPluginPermissionPointResponseBody {
+	s.PermissionPointList = v
+	return s
+}
+
+type GetPluginPermissionPointResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetPluginPermissionPointResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetPluginPermissionPointResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPluginPermissionPointResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPluginPermissionPointResponse) SetHeaders(v map[string]*string) *GetPluginPermissionPointResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPluginPermissionPointResponse) SetBody(v *GetPluginPermissionPointResponseBody) *GetPluginPermissionPointResponse {
+	s.Body = v
+	return s
+}
+
+type GetPluginRuleCheckInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPluginRuleCheckInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPluginRuleCheckInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPluginRuleCheckInfoHeaders) SetCommonHeaders(v map[string]*string) *GetPluginRuleCheckInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPluginRuleCheckInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetPluginRuleCheckInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPluginRuleCheckInfoRequest struct {
+	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+}
+
+func (s GetPluginRuleCheckInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPluginRuleCheckInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPluginRuleCheckInfoRequest) SetMiniAppId(v string) *GetPluginRuleCheckInfoRequest {
+	s.MiniAppId = &v
+	return s
+}
+
+type GetPluginRuleCheckInfoResponseBody struct {
+	// 权限包code
+	PackCode *string `json:"packCode,omitempty" xml:"packCode,omitempty"`
+	// 校验规则
+	PluginRuleCheckDetail *string `json:"pluginRuleCheckDetail,omitempty" xml:"pluginRuleCheckDetail,omitempty"`
+}
+
+func (s GetPluginRuleCheckInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPluginRuleCheckInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPluginRuleCheckInfoResponseBody) SetPackCode(v string) *GetPluginRuleCheckInfoResponseBody {
+	s.PackCode = &v
+	return s
+}
+
+func (s *GetPluginRuleCheckInfoResponseBody) SetPluginRuleCheckDetail(v string) *GetPluginRuleCheckInfoResponseBody {
+	s.PluginRuleCheckDetail = &v
+	return s
+}
+
+type GetPluginRuleCheckInfoResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetPluginRuleCheckInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetPluginRuleCheckInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPluginRuleCheckInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPluginRuleCheckInfoResponse) SetHeaders(v map[string]*string) *GetPluginRuleCheckInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPluginRuleCheckInfoResponse) SetBody(v *GetPluginRuleCheckInfoResponseBody) *GetPluginRuleCheckInfoResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateDingPortalPageScopeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -278,76 +518,6 @@ func (s UpdateDingPortalPageScopeResponse) GoString() string {
 
 func (s *UpdateDingPortalPageScopeResponse) SetHeaders(v map[string]*string) *UpdateDingPortalPageScopeResponse {
 	s.Headers = v
-	return s
-}
-
-type QueryShortcutScopesHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s QueryShortcutScopesHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryShortcutScopesHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *QueryShortcutScopesHeaders) SetCommonHeaders(v map[string]*string) *QueryShortcutScopesHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *QueryShortcutScopesHeaders) SetXAcsDingtalkAccessToken(v string) *QueryShortcutScopesHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type QueryShortcutScopesResponseBody struct {
-	// errorMsg
-	UserVisibleScopes []*string `json:"userVisibleScopes,omitempty" xml:"userVisibleScopes,omitempty" type:"Repeated"`
-	DeptVisibleScopes []*int64  `json:"deptVisibleScopes,omitempty" xml:"deptVisibleScopes,omitempty" type:"Repeated"`
-}
-
-func (s QueryShortcutScopesResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryShortcutScopesResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *QueryShortcutScopesResponseBody) SetUserVisibleScopes(v []*string) *QueryShortcutScopesResponseBody {
-	s.UserVisibleScopes = v
-	return s
-}
-
-func (s *QueryShortcutScopesResponseBody) SetDeptVisibleScopes(v []*int64) *QueryShortcutScopesResponseBody {
-	s.DeptVisibleScopes = v
-	return s
-}
-
-type QueryShortcutScopesResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryShortcutScopesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s QueryShortcutScopesResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryShortcutScopesResponse) GoString() string {
-	return s.String()
-}
-
-func (s *QueryShortcutScopesResponse) SetHeaders(v map[string]*string) *QueryShortcutScopesResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *QueryShortcutScopesResponse) SetBody(v *QueryShortcutScopesResponseBody) *QueryShortcutScopesResponse {
-	s.Body = v
 	return s
 }
 
@@ -591,6 +761,128 @@ func (client *Client) QueryComponentScopesWithOptions(componentId *string, heade
 	return _result, _err
 }
 
+func (client *Client) QueryShortcutScopes(shortcutKey *string) (_result *QueryShortcutScopesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryShortcutScopesHeaders{}
+	_result = &QueryShortcutScopesResponse{}
+	_body, _err := client.QueryShortcutScopesWithOptions(shortcutKey, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryShortcutScopesWithOptions(shortcutKey *string, headers *QueryShortcutScopesHeaders, runtime *util.RuntimeOptions) (_result *QueryShortcutScopesResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &QueryShortcutScopesResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryShortcutScopes"), tea.String("workbench_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workbench/shortcuts/"+tea.StringValue(shortcutKey)+"/scopes"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetPluginPermissionPoint(request *GetPluginPermissionPointRequest) (_result *GetPluginPermissionPointResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPluginPermissionPointHeaders{}
+	_result = &GetPluginPermissionPointResponse{}
+	_body, _err := client.GetPluginPermissionPointWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetPluginPermissionPointWithOptions(request *GetPluginPermissionPointRequest, headers *GetPluginPermissionPointHeaders, runtime *util.RuntimeOptions) (_result *GetPluginPermissionPointResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MiniAppId)) {
+		query["miniAppId"] = request.MiniAppId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetPluginPermissionPointResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetPluginPermissionPoint"), tea.String("workbench_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workbench/plugins/permissions"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetPluginRuleCheckInfo(request *GetPluginRuleCheckInfoRequest) (_result *GetPluginRuleCheckInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPluginRuleCheckInfoHeaders{}
+	_result = &GetPluginRuleCheckInfoResponse{}
+	_body, _err := client.GetPluginRuleCheckInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetPluginRuleCheckInfoWithOptions(request *GetPluginRuleCheckInfoRequest, headers *GetPluginRuleCheckInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPluginRuleCheckInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MiniAppId)) {
+		query["miniAppId"] = request.MiniAppId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetPluginRuleCheckInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetPluginRuleCheckInfo"), tea.String("workbench_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workbench/plugins/validationRules"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) UpdateDingPortalPageScope(pageUuid *string, appUuid *string, request *UpdateDingPortalPageScopeRequest) (_result *UpdateDingPortalPageScopeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateDingPortalPageScopeHeaders{}
@@ -640,40 +932,6 @@ func (client *Client) UpdateDingPortalPageScopeWithOptions(pageUuid *string, app
 	}
 	_result = &UpdateDingPortalPageScopeResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateDingPortalPageScope"), tea.String("workbench_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/workbench/dingPortals/"+tea.StringValue(appUuid)+"/pageScopes/"+tea.StringValue(pageUuid)), tea.String("none"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) QueryShortcutScopes(shortcutKey *string) (_result *QueryShortcutScopesResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &QueryShortcutScopesHeaders{}
-	_result = &QueryShortcutScopesResponse{}
-	_body, _err := client.QueryShortcutScopesWithOptions(shortcutKey, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) QueryShortcutScopesWithOptions(shortcutKey *string, headers *QueryShortcutScopesHeaders, runtime *util.RuntimeOptions) (_result *QueryShortcutScopesResponse, _err error) {
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &QueryShortcutScopesResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryShortcutScopes"), tea.String("workbench_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workbench/shortcuts/"+tea.StringValue(shortcutKey)+"/scopes"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
