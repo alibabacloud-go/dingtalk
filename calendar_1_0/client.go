@@ -1517,7 +1517,8 @@ type PatchEventRequest struct {
 	Attendees  []*PatchEventRequestAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
 	Location   *PatchEventRequestLocation    `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
 	// 扩展信息
-	Extra map[string]*string `json:"extra,omitempty" xml:"extra,omitempty"`
+	Extra     map[string]*string            `json:"extra,omitempty" xml:"extra,omitempty"`
+	Reminders []*PatchEventRequestReminders `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
 }
 
 func (s PatchEventRequest) String() string {
@@ -1575,6 +1576,11 @@ func (s *PatchEventRequest) SetLocation(v *PatchEventRequestLocation) *PatchEven
 
 func (s *PatchEventRequest) SetExtra(v map[string]*string) *PatchEventRequest {
 	s.Extra = v
+	return s
+}
+
+func (s *PatchEventRequest) SetReminders(v []*PatchEventRequestReminders) *PatchEventRequest {
+	s.Reminders = v
 	return s
 }
 
@@ -1760,6 +1766,29 @@ func (s PatchEventRequestLocation) GoString() string {
 
 func (s *PatchEventRequestLocation) SetDisplayName(v string) *PatchEventRequestLocation {
 	s.DisplayName = &v
+	return s
+}
+
+type PatchEventRequestReminders struct {
+	Method  *string `json:"method,omitempty" xml:"method,omitempty"`
+	Minutes *int32  `json:"minutes,omitempty" xml:"minutes,omitempty"`
+}
+
+func (s PatchEventRequestReminders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PatchEventRequestReminders) GoString() string {
+	return s.String()
+}
+
+func (s *PatchEventRequestReminders) SetMethod(v string) *PatchEventRequestReminders {
+	s.Method = &v
+	return s
+}
+
+func (s *PatchEventRequestReminders) SetMinutes(v int32) *PatchEventRequestReminders {
+	s.Minutes = &v
 	return s
 }
 
@@ -2151,9 +2180,11 @@ type CreateEventRequest struct {
 	// 是否为全天日程
 	IsAllDay *bool `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
 	// 日程循环规则
-	Recurrence *CreateEventRequestRecurrence  `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
-	Attendees  []*CreateEventRequestAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
-	Location   *CreateEventRequestLocation    `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
+	Recurrence        *CreateEventRequestRecurrence        `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
+	Attendees         []*CreateEventRequestAttendees       `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Location          *CreateEventRequestLocation          `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
+	Reminders         []*CreateEventRequestReminders       `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
+	OnlineMeetingInfo *CreateEventRequestOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
 	// 扩展信息
 	Extra map[string]*string `json:"extra,omitempty" xml:"extra,omitempty"`
 }
@@ -2203,6 +2234,16 @@ func (s *CreateEventRequest) SetAttendees(v []*CreateEventRequestAttendees) *Cre
 
 func (s *CreateEventRequest) SetLocation(v *CreateEventRequestLocation) *CreateEventRequest {
 	s.Location = v
+	return s
+}
+
+func (s *CreateEventRequest) SetReminders(v []*CreateEventRequestReminders) *CreateEventRequest {
+	s.Reminders = v
+	return s
+}
+
+func (s *CreateEventRequest) SetOnlineMeetingInfo(v *CreateEventRequestOnlineMeetingInfo) *CreateEventRequest {
+	s.OnlineMeetingInfo = v
 	return s
 }
 
@@ -2402,6 +2443,46 @@ func (s CreateEventRequestLocation) GoString() string {
 
 func (s *CreateEventRequestLocation) SetDisplayName(v string) *CreateEventRequestLocation {
 	s.DisplayName = &v
+	return s
+}
+
+type CreateEventRequestReminders struct {
+	Method  *string `json:"method,omitempty" xml:"method,omitempty"`
+	Minutes *int32  `json:"minutes,omitempty" xml:"minutes,omitempty"`
+}
+
+func (s CreateEventRequestReminders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventRequestReminders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventRequestReminders) SetMethod(v string) *CreateEventRequestReminders {
+	s.Method = &v
+	return s
+}
+
+func (s *CreateEventRequestReminders) SetMinutes(v int32) *CreateEventRequestReminders {
+	s.Minutes = &v
+	return s
+}
+
+type CreateEventRequestOnlineMeetingInfo struct {
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s CreateEventRequestOnlineMeetingInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventRequestOnlineMeetingInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventRequestOnlineMeetingInfo) SetType(v string) *CreateEventRequestOnlineMeetingInfo {
+	s.Type = &v
 	return s
 }
 
@@ -3282,6 +3363,10 @@ func (client *Client) PatchEventWithOptions(userId *string, calendarId *string, 
 		body["extra"] = request.Extra
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Reminders)) {
+		body["reminders"] = request.Reminders
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3352,6 +3437,14 @@ func (client *Client) CreateEventWithOptions(userId *string, calendarId *string,
 
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Location))) {
 		body["location"] = request.Location
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Reminders)) {
+		body["reminders"] = request.Reminders
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.OnlineMeetingInfo))) {
+		body["onlineMeetingInfo"] = request.OnlineMeetingInfo
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Extra)) {

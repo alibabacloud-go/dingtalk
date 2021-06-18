@@ -348,6 +348,8 @@ type RegisterCustomAppRoleRequest struct {
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 	// 角色名称
 	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// 是否拥有管理角色的权限，可不传，默认false
+	CanManageRole *bool `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
 }
 
 func (s RegisterCustomAppRoleRequest) String() string {
@@ -365,6 +367,11 @@ func (s *RegisterCustomAppRoleRequest) SetOpUserId(v string) *RegisterCustomAppR
 
 func (s *RegisterCustomAppRoleRequest) SetRoleName(v string) *RegisterCustomAppRoleRequest {
 	s.RoleName = &v
+	return s
+}
+
+func (s *RegisterCustomAppRoleRequest) SetCanManageRole(v bool) *RegisterCustomAppRoleRequest {
+	s.CanManageRole = &v
 	return s
 }
 
@@ -735,6 +742,8 @@ type GetAppRoleScopeByRoleIdResponseBody struct {
 	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 	// 角色范围版本号
 	ScopeVersion *string `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
+	// 是否拥有角色管理权限，默认false
+	CanManageRole *bool `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
 }
 
 func (s GetAppRoleScopeByRoleIdResponseBody) String() string {
@@ -772,6 +781,11 @@ func (s *GetAppRoleScopeByRoleIdResponseBody) SetUserIdList(v []*string) *GetApp
 
 func (s *GetAppRoleScopeByRoleIdResponseBody) SetScopeVersion(v string) *GetAppRoleScopeByRoleIdResponseBody {
 	s.ScopeVersion = &v
+	return s
+}
+
+func (s *GetAppRoleScopeByRoleIdResponseBody) SetCanManageRole(v bool) *GetAppRoleScopeByRoleIdResponseBody {
+	s.CanManageRole = &v
 	return s
 }
 
@@ -843,6 +857,8 @@ type ListRoleInfoByUserResponseBodyResult struct {
 	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
 	// 角色id
 	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// 是否拥有角色管理权限，默认false
+	CanManageRole *bool `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
 }
 
 func (s ListRoleInfoByUserResponseBodyResult) String() string {
@@ -860,6 +876,11 @@ func (s *ListRoleInfoByUserResponseBodyResult) SetRoleName(v string) *ListRoleIn
 
 func (s *ListRoleInfoByUserResponseBodyResult) SetRoleId(v int64) *ListRoleInfoByUserResponseBodyResult {
 	s.RoleId = &v
+	return s
+}
+
+func (s *ListRoleInfoByUserResponseBodyResult) SetCanManageRole(v bool) *ListRoleInfoByUserResponseBodyResult {
+	s.CanManageRole = &v
 	return s
 }
 
@@ -1465,6 +1486,8 @@ type ListAppRoleScopesResponseBodyDataList struct {
 	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 	// 角色范围最新版本号
 	ScopeVersion *int64 `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
+	// 是否拥有角色管理权限，默认false
+	CanManageRole *bool `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
 }
 
 func (s ListAppRoleScopesResponseBodyDataList) String() string {
@@ -1502,6 +1525,11 @@ func (s *ListAppRoleScopesResponseBodyDataList) SetUserIdList(v []*string) *List
 
 func (s *ListAppRoleScopesResponseBodyDataList) SetScopeVersion(v int64) *ListAppRoleScopesResponseBodyDataList {
 	s.ScopeVersion = &v
+	return s
+}
+
+func (s *ListAppRoleScopesResponseBodyDataList) SetCanManageRole(v bool) *ListAppRoleScopesResponseBodyDataList {
+	s.CanManageRole = &v
 	return s
 }
 
@@ -2165,8 +2193,10 @@ func (s *UpdateAppRoleInfoHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateA
 type UpdateAppRoleInfoRequest struct {
 	// 执行用户userId
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	// 新角色名称
+	// 变更角色名称，可不传，不传则不变
 	NewRoleName *string `json:"newRoleName,omitempty" xml:"newRoleName,omitempty"`
+	// 变更角色管理权限，可不传，不传则不变
+	CanManageRole *bool `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
 }
 
 func (s UpdateAppRoleInfoRequest) String() string {
@@ -2184,6 +2214,11 @@ func (s *UpdateAppRoleInfoRequest) SetOpUserId(v string) *UpdateAppRoleInfoReque
 
 func (s *UpdateAppRoleInfoRequest) SetNewRoleName(v string) *UpdateAppRoleInfoRequest {
 	s.NewRoleName = &v
+	return s
+}
+
+func (s *UpdateAppRoleInfoRequest) SetCanManageRole(v bool) *UpdateAppRoleInfoRequest {
+	s.CanManageRole = &v
 	return s
 }
 
@@ -2403,6 +2438,10 @@ func (client *Client) RegisterCustomAppRoleWithOptions(agentId *string, request 
 
 	if !tea.BoolValue(util.IsUnset(request.RoleName)) {
 		body["roleName"] = request.RoleName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CanManageRole)) {
+		body["canManageRole"] = request.CanManageRole
 	}
 
 	realHeaders := make(map[string]*string)
@@ -3251,6 +3290,10 @@ func (client *Client) UpdateAppRoleInfoWithOptions(agentId *string, roleId *stri
 
 	if !tea.BoolValue(util.IsUnset(request.NewRoleName)) {
 		body["newRoleName"] = request.NewRoleName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CanManageRole)) {
+		body["canManageRole"] = request.CanManageRole
 	}
 
 	realHeaders := make(map[string]*string)

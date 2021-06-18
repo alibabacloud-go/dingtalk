@@ -3511,7 +3511,7 @@ func (client *Client) UpdateCrmPersonalCustomerWithOptions(request *UpdateCrmPer
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &UpdateCrmPersonalCustomerResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateCrmPersonalCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("PATCH"), tea.String("AK"), tea.String("/v1.0/crm/personalCustomers"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("UpdateCrmPersonalCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/crm/personalCustomers"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
