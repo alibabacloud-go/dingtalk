@@ -11,102 +11,6 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
-type CreateCooperateOrgHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s CreateCooperateOrgHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateCooperateOrgHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *CreateCooperateOrgHeaders) SetCommonHeaders(v map[string]*string) *CreateCooperateOrgHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *CreateCooperateOrgHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCooperateOrgHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type CreateCooperateOrgRequest struct {
-	// 合作空间组织名称
-	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
-	// 合作空间的logo
-	LogoMediaId *string `json:"logoMediaId,omitempty" xml:"logoMediaId,omitempty"`
-	// 行业code
-	IndustryCode *int64 `json:"industryCode,omitempty" xml:"industryCode,omitempty"`
-}
-
-func (s CreateCooperateOrgRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateCooperateOrgRequest) GoString() string {
-	return s.String()
-}
-
-func (s *CreateCooperateOrgRequest) SetOrgName(v string) *CreateCooperateOrgRequest {
-	s.OrgName = &v
-	return s
-}
-
-func (s *CreateCooperateOrgRequest) SetLogoMediaId(v string) *CreateCooperateOrgRequest {
-	s.LogoMediaId = &v
-	return s
-}
-
-func (s *CreateCooperateOrgRequest) SetIndustryCode(v int64) *CreateCooperateOrgRequest {
-	s.IndustryCode = &v
-	return s
-}
-
-type CreateCooperateOrgResponseBody struct {
-	// result
-	CooperateCorpId *string `json:"cooperateCorpId,omitempty" xml:"cooperateCorpId,omitempty"`
-}
-
-func (s CreateCooperateOrgResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateCooperateOrgResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *CreateCooperateOrgResponseBody) SetCooperateCorpId(v string) *CreateCooperateOrgResponseBody {
-	s.CooperateCorpId = &v
-	return s
-}
-
-type CreateCooperateOrgResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateCooperateOrgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s CreateCooperateOrgResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateCooperateOrgResponse) GoString() string {
-	return s.String()
-}
-
-func (s *CreateCooperateOrgResponse) SetHeaders(v map[string]*string) *CreateCooperateOrgResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *CreateCooperateOrgResponse) SetBody(v *CreateCooperateOrgResponseBody) *CreateCooperateOrgResponse {
-	s.Body = v
-	return s
-}
-
 type QueryResourceManagementMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -196,67 +100,216 @@ func (s *QueryResourceManagementMembersResponse) SetBody(v *QueryResourceManagem
 	return s
 }
 
-type QueryUserManagementResourcesHeaders struct {
+type UpdateEmpAttrbuteVisibilitySettingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s QueryUserManagementResourcesHeaders) String() string {
+func (s UpdateEmpAttrbuteVisibilitySettingHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryUserManagementResourcesHeaders) GoString() string {
+func (s UpdateEmpAttrbuteVisibilitySettingHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *QueryUserManagementResourcesHeaders) SetCommonHeaders(v map[string]*string) *QueryUserManagementResourcesHeaders {
+func (s *UpdateEmpAttrbuteVisibilitySettingHeaders) SetCommonHeaders(v map[string]*string) *UpdateEmpAttrbuteVisibilitySettingHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *QueryUserManagementResourcesHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUserManagementResourcesHeaders {
+func (s *UpdateEmpAttrbuteVisibilitySettingHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateEmpAttrbuteVisibilitySettingHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type QueryUserManagementResourcesResponseBody struct {
-	// 资源列表
-	ResourceIds []*string `json:"resourceIds,omitempty" xml:"resourceIds,omitempty" type:"Repeated"`
+type UpdateEmpAttrbuteVisibilitySettingRequest struct {
+	// id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 创建时间
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 修改时间
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 描述信息
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// object员工id列表
+	ObjectStaffIds []*string `json:"objectStaffIds,omitempty" xml:"objectStaffIds,omitempty" type:"Repeated"`
+	// object部门id列表
+	ObjectDeptIds []*int64 `json:"objectDeptIds,omitempty" xml:"objectDeptIds,omitempty" type:"Repeated"`
+	// object角色id列表
+	ObjectTagIds []*int64 `json:"objectTagIds,omitempty" xml:"objectTagIds,omitempty" type:"Repeated"`
+	// object节点限制条件列表
+	ObjectNodeConditions []*string `json:"objectNodeConditions,omitempty" xml:"objectNodeConditions,omitempty" type:"Repeated"`
+	// 隐藏字段id列表
+	HideFields []*string `json:"hideFields,omitempty" xml:"hideFields,omitempty" type:"Repeated"`
+	// 例外员工id列表
+	ExcludeStaffIds []*string `json:"excludeStaffIds,omitempty" xml:"excludeStaffIds,omitempty" type:"Repeated"`
+	// 例外部门id列表
+	ExcludeDeptIds []*int64 `json:"excludeDeptIds,omitempty" xml:"excludeDeptIds,omitempty" type:"Repeated"`
+	// 例外角色id列表
+	ExcludeTagIds []*int64 `json:"excludeTagIds,omitempty" xml:"excludeTagIds,omitempty" type:"Repeated"`
+	// 是否生效
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
 }
 
-func (s QueryUserManagementResourcesResponseBody) String() string {
+func (s UpdateEmpAttrbuteVisibilitySettingRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryUserManagementResourcesResponseBody) GoString() string {
+func (s UpdateEmpAttrbuteVisibilitySettingRequest) GoString() string {
 	return s.String()
 }
 
-func (s *QueryUserManagementResourcesResponseBody) SetResourceIds(v []*string) *QueryUserManagementResourcesResponseBody {
-	s.ResourceIds = v
+func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetId(v int64) *UpdateEmpAttrbuteVisibilitySettingRequest {
+	s.Id = &v
 	return s
 }
 
-type QueryUserManagementResourcesResponse struct {
-	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryUserManagementResourcesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetGmtCreate(v string) *UpdateEmpAttrbuteVisibilitySettingRequest {
+	s.GmtCreate = &v
+	return s
 }
 
-func (s QueryUserManagementResourcesResponse) String() string {
+func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetGmtModified(v string) *UpdateEmpAttrbuteVisibilitySettingRequest {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetName(v string) *UpdateEmpAttrbuteVisibilitySettingRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetDescription(v string) *UpdateEmpAttrbuteVisibilitySettingRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetObjectStaffIds(v []*string) *UpdateEmpAttrbuteVisibilitySettingRequest {
+	s.ObjectStaffIds = v
+	return s
+}
+
+func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetObjectDeptIds(v []*int64) *UpdateEmpAttrbuteVisibilitySettingRequest {
+	s.ObjectDeptIds = v
+	return s
+}
+
+func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetObjectTagIds(v []*int64) *UpdateEmpAttrbuteVisibilitySettingRequest {
+	s.ObjectTagIds = v
+	return s
+}
+
+func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetObjectNodeConditions(v []*string) *UpdateEmpAttrbuteVisibilitySettingRequest {
+	s.ObjectNodeConditions = v
+	return s
+}
+
+func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetHideFields(v []*string) *UpdateEmpAttrbuteVisibilitySettingRequest {
+	s.HideFields = v
+	return s
+}
+
+func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetExcludeStaffIds(v []*string) *UpdateEmpAttrbuteVisibilitySettingRequest {
+	s.ExcludeStaffIds = v
+	return s
+}
+
+func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetExcludeDeptIds(v []*int64) *UpdateEmpAttrbuteVisibilitySettingRequest {
+	s.ExcludeDeptIds = v
+	return s
+}
+
+func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetExcludeTagIds(v []*int64) *UpdateEmpAttrbuteVisibilitySettingRequest {
+	s.ExcludeTagIds = v
+	return s
+}
+
+func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetActive(v bool) *UpdateEmpAttrbuteVisibilitySettingRequest {
+	s.Active = &v
+	return s
+}
+
+type UpdateEmpAttrbuteVisibilitySettingResponseBody struct {
+	// settingId
+	Result *int64 `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateEmpAttrbuteVisibilitySettingResponseBody) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryUserManagementResourcesResponse) GoString() string {
+func (s UpdateEmpAttrbuteVisibilitySettingResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *QueryUserManagementResourcesResponse) SetHeaders(v map[string]*string) *QueryUserManagementResourcesResponse {
+func (s *UpdateEmpAttrbuteVisibilitySettingResponseBody) SetResult(v int64) *UpdateEmpAttrbuteVisibilitySettingResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateEmpAttrbuteVisibilitySettingResponse struct {
+	Headers map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateEmpAttrbuteVisibilitySettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateEmpAttrbuteVisibilitySettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateEmpAttrbuteVisibilitySettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateEmpAttrbuteVisibilitySettingResponse) SetHeaders(v map[string]*string) *UpdateEmpAttrbuteVisibilitySettingResponse {
 	s.Headers = v
 	return s
 }
 
-func (s *QueryUserManagementResourcesResponse) SetBody(v *QueryUserManagementResourcesResponseBody) *QueryUserManagementResourcesResponse {
+func (s *UpdateEmpAttrbuteVisibilitySettingResponse) SetBody(v *UpdateEmpAttrbuteVisibilitySettingResponseBody) *UpdateEmpAttrbuteVisibilitySettingResponse {
 	s.Body = v
+	return s
+}
+
+type DeleteEmpAttributeVisibilityHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteEmpAttributeVisibilityHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteEmpAttributeVisibilityHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteEmpAttributeVisibilityHeaders) SetCommonHeaders(v map[string]*string) *DeleteEmpAttributeVisibilityHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteEmpAttributeVisibilityHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteEmpAttributeVisibilityHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteEmpAttributeVisibilityResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s DeleteEmpAttributeVisibilityResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteEmpAttributeVisibilityResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteEmpAttributeVisibilityResponse) SetHeaders(v map[string]*string) *DeleteEmpAttributeVisibilityResponse {
+	s.Headers = v
 	return s
 }
 
@@ -455,6 +508,507 @@ func (s *ListManagementGroupsResponse) SetHeaders(v map[string]*string) *ListMan
 }
 
 func (s *ListManagementGroupsResponse) SetBody(v *ListManagementGroupsResponseBody) *ListManagementGroupsResponse {
+	s.Body = v
+	return s
+}
+
+type ListEmpAttributeVisibilityHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListEmpAttributeVisibilityHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEmpAttributeVisibilityHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListEmpAttributeVisibilityHeaders) SetCommonHeaders(v map[string]*string) *ListEmpAttributeVisibilityHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityHeaders) SetXAcsDingtalkAccessToken(v string) *ListEmpAttributeVisibilityHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListEmpAttributeVisibilityRequest struct {
+	NextToken  *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+}
+
+func (s ListEmpAttributeVisibilityRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEmpAttributeVisibilityRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListEmpAttributeVisibilityRequest) SetNextToken(v int64) *ListEmpAttributeVisibilityRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityRequest) SetMaxResults(v int32) *ListEmpAttributeVisibilityRequest {
+	s.MaxResults = &v
+	return s
+}
+
+type ListEmpAttributeVisibilityResponseBody struct {
+	// 是否还有数据
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 下一次拉取时的offset
+	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	// 设置列表
+	List []*ListEmpAttributeVisibilityResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s ListEmpAttributeVisibilityResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEmpAttributeVisibilityResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListEmpAttributeVisibilityResponseBody) SetHasMore(v bool) *ListEmpAttributeVisibilityResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityResponseBody) SetNextCursor(v int64) *ListEmpAttributeVisibilityResponseBody {
+	s.NextCursor = &v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityResponseBody) SetList(v []*ListEmpAttributeVisibilityResponseBodyList) *ListEmpAttributeVisibilityResponseBody {
+	s.List = v
+	return s
+}
+
+type ListEmpAttributeVisibilityResponseBodyList struct {
+	// id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 设置时间
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 修改时间
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 设置描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 被查看的用户id列表
+	ObjectStaffIds []*string `json:"objectStaffIds,omitempty" xml:"objectStaffIds,omitempty" type:"Repeated"`
+	// 被查看的部门id列表
+	ObjectDeptIds []*int64 `json:"objectDeptIds,omitempty" xml:"objectDeptIds,omitempty" type:"Repeated"`
+	// 被查看的角色id列表
+	ObjectTagIds []*int64 `json:"objectTagIds,omitempty" xml:"objectTagIds,omitempty" type:"Repeated"`
+	// 被查看方condition列表
+	ObjectNodeConditions []*string `json:"objectNodeConditions,omitempty" xml:"objectNodeConditions,omitempty" type:"Repeated"`
+	// 隐藏的字段id列表
+	HideFields []*string `json:"hideFields,omitempty" xml:"hideFields,omitempty" type:"Repeated"`
+	// 白名单用户id列表
+	ExcludeStaffIds []*string `json:"excludeStaffIds,omitempty" xml:"excludeStaffIds,omitempty" type:"Repeated"`
+	// 白名单部门id列表
+	ExcludeDeptIds []*int64 `json:"excludeDeptIds,omitempty" xml:"excludeDeptIds,omitempty" type:"Repeated"`
+	// 白名单角色id列表
+	ExcludeTagIds []*int64 `json:"excludeTagIds,omitempty" xml:"excludeTagIds,omitempty" type:"Repeated"`
+	// 是否生效
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+}
+
+func (s ListEmpAttributeVisibilityResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEmpAttributeVisibilityResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *ListEmpAttributeVisibilityResponseBodyList) SetId(v int64) *ListEmpAttributeVisibilityResponseBodyList {
+	s.Id = &v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityResponseBodyList) SetGmtCreate(v string) *ListEmpAttributeVisibilityResponseBodyList {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityResponseBodyList) SetGmtModified(v string) *ListEmpAttributeVisibilityResponseBodyList {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityResponseBodyList) SetName(v string) *ListEmpAttributeVisibilityResponseBodyList {
+	s.Name = &v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityResponseBodyList) SetDescription(v string) *ListEmpAttributeVisibilityResponseBodyList {
+	s.Description = &v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityResponseBodyList) SetObjectStaffIds(v []*string) *ListEmpAttributeVisibilityResponseBodyList {
+	s.ObjectStaffIds = v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityResponseBodyList) SetObjectDeptIds(v []*int64) *ListEmpAttributeVisibilityResponseBodyList {
+	s.ObjectDeptIds = v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityResponseBodyList) SetObjectTagIds(v []*int64) *ListEmpAttributeVisibilityResponseBodyList {
+	s.ObjectTagIds = v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityResponseBodyList) SetObjectNodeConditions(v []*string) *ListEmpAttributeVisibilityResponseBodyList {
+	s.ObjectNodeConditions = v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityResponseBodyList) SetHideFields(v []*string) *ListEmpAttributeVisibilityResponseBodyList {
+	s.HideFields = v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityResponseBodyList) SetExcludeStaffIds(v []*string) *ListEmpAttributeVisibilityResponseBodyList {
+	s.ExcludeStaffIds = v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityResponseBodyList) SetExcludeDeptIds(v []*int64) *ListEmpAttributeVisibilityResponseBodyList {
+	s.ExcludeDeptIds = v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityResponseBodyList) SetExcludeTagIds(v []*int64) *ListEmpAttributeVisibilityResponseBodyList {
+	s.ExcludeTagIds = v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityResponseBodyList) SetActive(v bool) *ListEmpAttributeVisibilityResponseBodyList {
+	s.Active = &v
+	return s
+}
+
+type ListEmpAttributeVisibilityResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListEmpAttributeVisibilityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListEmpAttributeVisibilityResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEmpAttributeVisibilityResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListEmpAttributeVisibilityResponse) SetHeaders(v map[string]*string) *ListEmpAttributeVisibilityResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListEmpAttributeVisibilityResponse) SetBody(v *ListEmpAttributeVisibilityResponseBody) *ListEmpAttributeVisibilityResponse {
+	s.Body = v
+	return s
+}
+
+type GetApplyInviteInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetApplyInviteInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetApplyInviteInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetApplyInviteInfoHeaders) SetCommonHeaders(v map[string]*string) *GetApplyInviteInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetApplyInviteInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetApplyInviteInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetApplyInviteInfoRequest struct {
+	// 邀请者userId
+	InviterUserId *string `json:"inviterUserId,omitempty" xml:"inviterUserId,omitempty"`
+	// 获取部门邀请链接的部门ID
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+}
+
+func (s GetApplyInviteInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetApplyInviteInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetApplyInviteInfoRequest) SetInviterUserId(v string) *GetApplyInviteInfoRequest {
+	s.InviterUserId = &v
+	return s
+}
+
+func (s *GetApplyInviteInfoRequest) SetDeptId(v int64) *GetApplyInviteInfoRequest {
+	s.DeptId = &v
+	return s
+}
+
+type GetApplyInviteInfoResponseBody struct {
+	// 是否开启邀请
+	InviteSwitch *bool `json:"inviteSwitch,omitempty" xml:"inviteSwitch,omitempty"`
+	// 是否开启通过企业名称搜索申请
+	SearchNameInvite *bool `json:"searchNameInvite,omitempty" xml:"searchNameInvite,omitempty"`
+	// 是否开启通过团队号申请加入
+	OrgApplyCodeInvite *bool `json:"orgApplyCodeInvite,omitempty" xml:"orgApplyCodeInvite,omitempty"`
+	// 是否开启通过链接邀请加入
+	LinkInvite *bool `json:"linkInvite,omitempty" xml:"linkInvite,omitempty"`
+	// 邀请链接
+	InviteUrl *string `json:"inviteUrl,omitempty" xml:"inviteUrl,omitempty"`
+	// 仅部门邀请有效： 0-无需审核 1-有权限的子管理员
+	AuditType *int64 `json:"auditType,omitempty" xml:"auditType,omitempty"`
+	// 是否允许员工扫码加入部门，仅在无需审核的时候有效（已经在组织内的成员通过扫描部门二维码加入某个部门）
+	EmpApplyJoinDept *bool `json:"empApplyJoinDept,omitempty" xml:"empApplyJoinDept,omitempty"`
+}
+
+func (s GetApplyInviteInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetApplyInviteInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetApplyInviteInfoResponseBody) SetInviteSwitch(v bool) *GetApplyInviteInfoResponseBody {
+	s.InviteSwitch = &v
+	return s
+}
+
+func (s *GetApplyInviteInfoResponseBody) SetSearchNameInvite(v bool) *GetApplyInviteInfoResponseBody {
+	s.SearchNameInvite = &v
+	return s
+}
+
+func (s *GetApplyInviteInfoResponseBody) SetOrgApplyCodeInvite(v bool) *GetApplyInviteInfoResponseBody {
+	s.OrgApplyCodeInvite = &v
+	return s
+}
+
+func (s *GetApplyInviteInfoResponseBody) SetLinkInvite(v bool) *GetApplyInviteInfoResponseBody {
+	s.LinkInvite = &v
+	return s
+}
+
+func (s *GetApplyInviteInfoResponseBody) SetInviteUrl(v string) *GetApplyInviteInfoResponseBody {
+	s.InviteUrl = &v
+	return s
+}
+
+func (s *GetApplyInviteInfoResponseBody) SetAuditType(v int64) *GetApplyInviteInfoResponseBody {
+	s.AuditType = &v
+	return s
+}
+
+func (s *GetApplyInviteInfoResponseBody) SetEmpApplyJoinDept(v bool) *GetApplyInviteInfoResponseBody {
+	s.EmpApplyJoinDept = &v
+	return s
+}
+
+type GetApplyInviteInfoResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetApplyInviteInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetApplyInviteInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetApplyInviteInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetApplyInviteInfoResponse) SetHeaders(v map[string]*string) *GetApplyInviteInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetApplyInviteInfoResponse) SetBody(v *GetApplyInviteInfoResponseBody) *GetApplyInviteInfoResponse {
+	s.Body = v
+	return s
+}
+
+type CreateCooperateOrgHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateCooperateOrgHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCooperateOrgHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCooperateOrgHeaders) SetCommonHeaders(v map[string]*string) *CreateCooperateOrgHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateCooperateOrgHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCooperateOrgHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateCooperateOrgRequest struct {
+	// 合作空间组织名称
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// 合作空间的logo
+	LogoMediaId *string `json:"logoMediaId,omitempty" xml:"logoMediaId,omitempty"`
+	// 行业code
+	IndustryCode *int64 `json:"industryCode,omitempty" xml:"industryCode,omitempty"`
+}
+
+func (s CreateCooperateOrgRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCooperateOrgRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCooperateOrgRequest) SetOrgName(v string) *CreateCooperateOrgRequest {
+	s.OrgName = &v
+	return s
+}
+
+func (s *CreateCooperateOrgRequest) SetLogoMediaId(v string) *CreateCooperateOrgRequest {
+	s.LogoMediaId = &v
+	return s
+}
+
+func (s *CreateCooperateOrgRequest) SetIndustryCode(v int64) *CreateCooperateOrgRequest {
+	s.IndustryCode = &v
+	return s
+}
+
+type CreateCooperateOrgResponseBody struct {
+	// result
+	CooperateCorpId *string `json:"cooperateCorpId,omitempty" xml:"cooperateCorpId,omitempty"`
+}
+
+func (s CreateCooperateOrgResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCooperateOrgResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCooperateOrgResponseBody) SetCooperateCorpId(v string) *CreateCooperateOrgResponseBody {
+	s.CooperateCorpId = &v
+	return s
+}
+
+type CreateCooperateOrgResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateCooperateOrgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateCooperateOrgResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCooperateOrgResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCooperateOrgResponse) SetHeaders(v map[string]*string) *CreateCooperateOrgResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateCooperateOrgResponse) SetBody(v *CreateCooperateOrgResponseBody) *CreateCooperateOrgResponse {
+	s.Body = v
+	return s
+}
+
+type QueryUserManagementResourcesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryUserManagementResourcesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserManagementResourcesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserManagementResourcesHeaders) SetCommonHeaders(v map[string]*string) *QueryUserManagementResourcesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryUserManagementResourcesHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUserManagementResourcesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryUserManagementResourcesResponseBody struct {
+	// 资源列表
+	ResourceIds []*string `json:"resourceIds,omitempty" xml:"resourceIds,omitempty" type:"Repeated"`
+}
+
+func (s QueryUserManagementResourcesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserManagementResourcesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserManagementResourcesResponseBody) SetResourceIds(v []*string) *QueryUserManagementResourcesResponseBody {
+	s.ResourceIds = v
+	return s
+}
+
+type QueryUserManagementResourcesResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryUserManagementResourcesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryUserManagementResourcesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserManagementResourcesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserManagementResourcesResponse) SetHeaders(v map[string]*string) *QueryUserManagementResourcesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryUserManagementResourcesResponse) SetBody(v *QueryUserManagementResourcesResponseBody) *QueryUserManagementResourcesResponse {
 	s.Body = v
 	return s
 }
@@ -842,137 +1396,6 @@ func (s *DeleteManagementGroupResponse) SetHeaders(v map[string]*string) *Delete
 	return s
 }
 
-type GetApplyInviteInfoHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s GetApplyInviteInfoHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetApplyInviteInfoHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *GetApplyInviteInfoHeaders) SetCommonHeaders(v map[string]*string) *GetApplyInviteInfoHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *GetApplyInviteInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetApplyInviteInfoHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type GetApplyInviteInfoRequest struct {
-	// 邀请者userId
-	InviterUserId *string `json:"inviterUserId,omitempty" xml:"inviterUserId,omitempty"`
-	// 获取部门邀请链接的部门ID
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-}
-
-func (s GetApplyInviteInfoRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetApplyInviteInfoRequest) GoString() string {
-	return s.String()
-}
-
-func (s *GetApplyInviteInfoRequest) SetInviterUserId(v string) *GetApplyInviteInfoRequest {
-	s.InviterUserId = &v
-	return s
-}
-
-func (s *GetApplyInviteInfoRequest) SetDeptId(v int64) *GetApplyInviteInfoRequest {
-	s.DeptId = &v
-	return s
-}
-
-type GetApplyInviteInfoResponseBody struct {
-	// 是否开启邀请
-	InviteSwitch *bool `json:"inviteSwitch,omitempty" xml:"inviteSwitch,omitempty"`
-	// 是否开启通过企业名称搜索申请
-	SearchNameInvite *bool `json:"searchNameInvite,omitempty" xml:"searchNameInvite,omitempty"`
-	// 是否开启通过团队号申请加入
-	OrgApplyCodeInvite *bool `json:"orgApplyCodeInvite,omitempty" xml:"orgApplyCodeInvite,omitempty"`
-	// 是否开启通过链接邀请加入
-	LinkInvite *bool `json:"linkInvite,omitempty" xml:"linkInvite,omitempty"`
-	// 邀请链接
-	InviteUrl *string `json:"inviteUrl,omitempty" xml:"inviteUrl,omitempty"`
-	// 仅部门邀请有效： 0-无需审核 1-有权限的子管理员
-	AuditType *int64 `json:"auditType,omitempty" xml:"auditType,omitempty"`
-	// 是否允许员工扫码加入部门，仅在无需审核的时候有效（已经在组织内的成员通过扫描部门二维码加入某个部门）
-	EmpApplyJoinDept *bool `json:"empApplyJoinDept,omitempty" xml:"empApplyJoinDept,omitempty"`
-}
-
-func (s GetApplyInviteInfoResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetApplyInviteInfoResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *GetApplyInviteInfoResponseBody) SetInviteSwitch(v bool) *GetApplyInviteInfoResponseBody {
-	s.InviteSwitch = &v
-	return s
-}
-
-func (s *GetApplyInviteInfoResponseBody) SetSearchNameInvite(v bool) *GetApplyInviteInfoResponseBody {
-	s.SearchNameInvite = &v
-	return s
-}
-
-func (s *GetApplyInviteInfoResponseBody) SetOrgApplyCodeInvite(v bool) *GetApplyInviteInfoResponseBody {
-	s.OrgApplyCodeInvite = &v
-	return s
-}
-
-func (s *GetApplyInviteInfoResponseBody) SetLinkInvite(v bool) *GetApplyInviteInfoResponseBody {
-	s.LinkInvite = &v
-	return s
-}
-
-func (s *GetApplyInviteInfoResponseBody) SetInviteUrl(v string) *GetApplyInviteInfoResponseBody {
-	s.InviteUrl = &v
-	return s
-}
-
-func (s *GetApplyInviteInfoResponseBody) SetAuditType(v int64) *GetApplyInviteInfoResponseBody {
-	s.AuditType = &v
-	return s
-}
-
-func (s *GetApplyInviteInfoResponseBody) SetEmpApplyJoinDept(v bool) *GetApplyInviteInfoResponseBody {
-	s.EmpApplyJoinDept = &v
-	return s
-}
-
-type GetApplyInviteInfoResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetApplyInviteInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s GetApplyInviteInfoResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetApplyInviteInfoResponse) GoString() string {
-	return s.String()
-}
-
-func (s *GetApplyInviteInfoResponse) SetHeaders(v map[string]*string) *GetApplyInviteInfoResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *GetApplyInviteInfoResponse) SetBody(v *GetApplyInviteInfoResponseBody) *GetApplyInviteInfoResponse {
-	s.Body = v
-	return s
-}
-
 type GetBranchAuthDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1322,6 +1745,314 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) QueryResourceManagementMembers(resourceId *string) (_result *QueryResourceManagementMembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryResourceManagementMembersHeaders{}
+	_result = &QueryResourceManagementMembersResponse{}
+	_body, _err := client.QueryResourceManagementMembersWithOptions(resourceId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryResourceManagementMembersWithOptions(resourceId *string, headers *QueryResourceManagementMembersHeaders, runtime *util.RuntimeOptions) (_result *QueryResourceManagementMembersResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &QueryResourceManagementMembersResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryResourceManagementMembers"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/resources/"+tea.StringValue(resourceId)+"/managementMembers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateEmpAttrbuteVisibilitySetting(request *UpdateEmpAttrbuteVisibilitySettingRequest) (_result *UpdateEmpAttrbuteVisibilitySettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateEmpAttrbuteVisibilitySettingHeaders{}
+	_result = &UpdateEmpAttrbuteVisibilitySettingResponse{}
+	_body, _err := client.UpdateEmpAttrbuteVisibilitySettingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateEmpAttrbuteVisibilitySettingWithOptions(request *UpdateEmpAttrbuteVisibilitySettingRequest, headers *UpdateEmpAttrbuteVisibilitySettingHeaders, runtime *util.RuntimeOptions) (_result *UpdateEmpAttrbuteVisibilitySettingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Id)) {
+		body["id"] = request.Id
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GmtCreate)) {
+		body["gmtCreate"] = request.GmtCreate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GmtModified)) {
+		body["gmtModified"] = request.GmtModified
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectStaffIds)) {
+		body["objectStaffIds"] = request.ObjectStaffIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectDeptIds)) {
+		body["objectDeptIds"] = request.ObjectDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectTagIds)) {
+		body["objectTagIds"] = request.ObjectTagIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectNodeConditions)) {
+		body["objectNodeConditions"] = request.ObjectNodeConditions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HideFields)) {
+		body["hideFields"] = request.HideFields
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeStaffIds)) {
+		body["excludeStaffIds"] = request.ExcludeStaffIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeDeptIds)) {
+		body["excludeDeptIds"] = request.ExcludeDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeTagIds)) {
+		body["excludeTagIds"] = request.ExcludeTagIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Active)) {
+		body["active"] = request.Active
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateEmpAttrbuteVisibilitySettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateEmpAttrbuteVisibilitySetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/staffAttributes/visibilitySettings"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteEmpAttributeVisibility(settingId *string) (_result *DeleteEmpAttributeVisibilityResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteEmpAttributeVisibilityHeaders{}
+	_result = &DeleteEmpAttributeVisibilityResponse{}
+	_body, _err := client.DeleteEmpAttributeVisibilityWithOptions(settingId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteEmpAttributeVisibilityWithOptions(settingId *string, headers *DeleteEmpAttributeVisibilityHeaders, runtime *util.RuntimeOptions) (_result *DeleteEmpAttributeVisibilityResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &DeleteEmpAttributeVisibilityResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteEmpAttributeVisibility"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/contact/staffAttributes/visibilitySettings/"+tea.StringValue(settingId)), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListManagementGroups(request *ListManagementGroupsRequest) (_result *ListManagementGroupsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListManagementGroupsHeaders{}
+	_result = &ListManagementGroupsResponse{}
+	_body, _err := client.ListManagementGroupsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListManagementGroupsWithOptions(request *ListManagementGroupsRequest, headers *ListManagementGroupsHeaders, runtime *util.RuntimeOptions) (_result *ListManagementGroupsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListManagementGroupsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListManagementGroups"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/managementGroups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListEmpAttributeVisibility(request *ListEmpAttributeVisibilityRequest) (_result *ListEmpAttributeVisibilityResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListEmpAttributeVisibilityHeaders{}
+	_result = &ListEmpAttributeVisibilityResponse{}
+	_body, _err := client.ListEmpAttributeVisibilityWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListEmpAttributeVisibilityWithOptions(request *ListEmpAttributeVisibilityRequest, headers *ListEmpAttributeVisibilityHeaders, runtime *util.RuntimeOptions) (_result *ListEmpAttributeVisibilityResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListEmpAttributeVisibilityResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListEmpAttributeVisibility"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/staffAttributes/visibilitySettings"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetApplyInviteInfo(request *GetApplyInviteInfoRequest) (_result *GetApplyInviteInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetApplyInviteInfoHeaders{}
+	_result = &GetApplyInviteInfoResponse{}
+	_body, _err := client.GetApplyInviteInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetApplyInviteInfoWithOptions(request *GetApplyInviteInfoRequest, headers *GetApplyInviteInfoHeaders, runtime *util.RuntimeOptions) (_result *GetApplyInviteInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InviterUserId)) {
+		query["inviterUserId"] = request.InviterUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		query["deptId"] = request.DeptId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetApplyInviteInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetApplyInviteInfo"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/invites/infos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateCooperateOrg(request *CreateCooperateOrgRequest) (_result *CreateCooperateOrgResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateCooperateOrgHeaders{}
@@ -1374,40 +2105,6 @@ func (client *Client) CreateCooperateOrgWithOptions(request *CreateCooperateOrgR
 	return _result, _err
 }
 
-func (client *Client) QueryResourceManagementMembers(resourceId *string) (_result *QueryResourceManagementMembersResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &QueryResourceManagementMembersHeaders{}
-	_result = &QueryResourceManagementMembersResponse{}
-	_body, _err := client.QueryResourceManagementMembersWithOptions(resourceId, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) QueryResourceManagementMembersWithOptions(resourceId *string, headers *QueryResourceManagementMembersHeaders, runtime *util.RuntimeOptions) (_result *QueryResourceManagementMembersResponse, _err error) {
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &QueryResourceManagementMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryResourceManagementMembers"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/resources/"+tea.StringValue(resourceId)+"/managementMembers"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
 func (client *Client) QueryUserManagementResources(userId *string) (_result *QueryUserManagementResourcesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryUserManagementResourcesHeaders{}
@@ -1435,54 +2132,6 @@ func (client *Client) QueryUserManagementResourcesWithOptions(userId *string, he
 	}
 	_result = &QueryUserManagementResourcesResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryUserManagementResources"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/users/"+tea.StringValue(userId)+"/managemementResources"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) ListManagementGroups(request *ListManagementGroupsRequest) (_result *ListManagementGroupsResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &ListManagementGroupsHeaders{}
-	_result = &ListManagementGroupsResponse{}
-	_body, _err := client.ListManagementGroupsWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) ListManagementGroupsWithOptions(request *ListManagementGroupsRequest, headers *ListManagementGroupsHeaders, runtime *util.RuntimeOptions) (_result *ListManagementGroupsResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
-		query["nextToken"] = request.NextToken
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
-		query["maxResults"] = request.MaxResults
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &ListManagementGroupsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListManagementGroups"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/managementGroups"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1663,54 +2312,6 @@ func (client *Client) DeleteManagementGroupWithOptions(groupId *string, headers 
 	}
 	_result = &DeleteManagementGroupResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteManagementGroup"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/contact/managementGroups/"+tea.StringValue(groupId)), tea.String("none"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) GetApplyInviteInfo(request *GetApplyInviteInfoRequest) (_result *GetApplyInviteInfoResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetApplyInviteInfoHeaders{}
-	_result = &GetApplyInviteInfoResponse{}
-	_body, _err := client.GetApplyInviteInfoWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) GetApplyInviteInfoWithOptions(request *GetApplyInviteInfoRequest, headers *GetApplyInviteInfoHeaders, runtime *util.RuntimeOptions) (_result *GetApplyInviteInfoResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.InviterUserId)) {
-		query["inviterUserId"] = request.InviterUserId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
-		query["deptId"] = request.DeptId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &GetApplyInviteInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetApplyInviteInfo"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/invites/infos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

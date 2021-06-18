@@ -1104,6 +1104,8 @@ type GetOfficialAccountContactInfoResponseBody struct {
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	// 已授权的字段
 	AuthItems []*string `json:"authItems,omitempty" xml:"authItems,omitempty" type:"Repeated"`
+	// 已授权的字段
+	UserInfos []*string `json:"userInfos,omitempty" xml:"userInfos,omitempty" type:"Repeated"`
 }
 
 func (s GetOfficialAccountContactInfoResponseBody) String() string {
@@ -1136,6 +1138,11 @@ func (s *GetOfficialAccountContactInfoResponseBody) SetUnionId(v string) *GetOff
 
 func (s *GetOfficialAccountContactInfoResponseBody) SetAuthItems(v []*string) *GetOfficialAccountContactInfoResponseBody {
 	s.AuthItems = v
+	return s
+}
+
+func (s *GetOfficialAccountContactInfoResponseBody) SetUserInfos(v []*string) *GetOfficialAccountContactInfoResponseBody {
+	s.UserInfos = v
 	return s
 }
 
