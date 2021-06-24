@@ -45,6 +45,8 @@ type AddFileRequest struct {
 	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
 	// 文件名冲突策略
 	AddConflictPolicy *string `json:"addConflictPolicy,omitempty" xml:"addConflictPolicy,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s AddFileRequest) String() string {
@@ -77,6 +79,11 @@ func (s *AddFileRequest) SetMediaId(v string) *AddFileRequest {
 
 func (s *AddFileRequest) SetAddConflictPolicy(v string) *AddFileRequest {
 	s.AddConflictPolicy = &v
+	return s
+}
+
+func (s *AddFileRequest) SetUnionId(v string) *AddFileRequest {
+	s.UnionId = &v
 	return s
 }
 
@@ -184,6 +191,8 @@ type RecoverRecycleFilesRequest struct {
 	RecycleItemIdList []*int64 `json:"recycleItemIdList,omitempty" xml:"recycleItemIdList,omitempty" type:"Repeated"`
 	// 回收站类型
 	RecycleType *string `json:"recycleType,omitempty" xml:"recycleType,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s RecoverRecycleFilesRequest) String() string {
@@ -204,6 +213,11 @@ func (s *RecoverRecycleFilesRequest) SetRecycleType(v string) *RecoverRecycleFil
 	return s
 }
 
+func (s *RecoverRecycleFilesRequest) SetUnionId(v string) *RecoverRecycleFilesRequest {
+	s.UnionId = &v
+	return s
+}
+
 type RecoverRecycleFilesResponse struct {
 	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
 }
@@ -218,6 +232,137 @@ func (s RecoverRecycleFilesResponse) GoString() string {
 
 func (s *RecoverRecycleFilesResponse) SetHeaders(v map[string]*string) *RecoverRecycleFilesResponse {
 	s.Headers = v
+	return s
+}
+
+type AddSpaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddSpaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddSpaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddSpaceHeaders) SetCommonHeaders(v map[string]*string) *AddSpaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *AddSpaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddSpaceRequest struct {
+	// 空间名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s AddSpaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddSpaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddSpaceRequest) SetName(v string) *AddSpaceRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *AddSpaceRequest) SetUnionId(v string) *AddSpaceRequest {
+	s.UnionId = &v
+	return s
+}
+
+type AddSpaceResponseBody struct {
+	// 空间id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 空间名称
+	SpaceName *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	// 空间类型
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// 空间总额度
+	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
+	// 空间已使用额度
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 修改时间
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+}
+
+func (s AddSpaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddSpaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddSpaceResponseBody) SetSpaceId(v string) *AddSpaceResponseBody {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *AddSpaceResponseBody) SetSpaceName(v string) *AddSpaceResponseBody {
+	s.SpaceName = &v
+	return s
+}
+
+func (s *AddSpaceResponseBody) SetSpaceType(v string) *AddSpaceResponseBody {
+	s.SpaceType = &v
+	return s
+}
+
+func (s *AddSpaceResponseBody) SetQuota(v int64) *AddSpaceResponseBody {
+	s.Quota = &v
+	return s
+}
+
+func (s *AddSpaceResponseBody) SetUsedQuota(v int64) *AddSpaceResponseBody {
+	s.UsedQuota = &v
+	return s
+}
+
+func (s *AddSpaceResponseBody) SetCreateTime(v string) *AddSpaceResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *AddSpaceResponseBody) SetModifyTime(v string) *AddSpaceResponseBody {
+	s.ModifyTime = &v
+	return s
+}
+
+type AddSpaceResponse struct {
+	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddSpaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddSpaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddSpaceResponse) SetHeaders(v map[string]*string) *AddSpaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddSpaceResponse) SetBody(v *AddSpaceResponseBody) *AddSpaceResponse {
+	s.Body = v
 	return s
 }
 
@@ -249,6 +394,8 @@ type DeleteRecycleFilesRequest struct {
 	RecycleItemIdList []*int64 `json:"recycleItemIdList,omitempty" xml:"recycleItemIdList,omitempty" type:"Repeated"`
 	// 回收站类型
 	RecycleType *string `json:"recycleType,omitempty" xml:"recycleType,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s DeleteRecycleFilesRequest) String() string {
@@ -269,6 +416,11 @@ func (s *DeleteRecycleFilesRequest) SetRecycleType(v string) *DeleteRecycleFiles
 	return s
 }
 
+func (s *DeleteRecycleFilesRequest) SetUnionId(v string) *DeleteRecycleFilesRequest {
+	s.UnionId = &v
+	return s
+}
+
 type DeleteRecycleFilesResponse struct {
 	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
 }
@@ -282,6 +434,109 @@ func (s DeleteRecycleFilesResponse) GoString() string {
 }
 
 func (s *DeleteRecycleFilesResponse) SetHeaders(v map[string]*string) *DeleteRecycleFilesResponse {
+	s.Headers = v
+	return s
+}
+
+type AddPermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddPermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddPermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddPermissionHeaders) SetCommonHeaders(v map[string]*string) *AddPermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *AddPermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddPermissionRequest struct {
+	// 权限角色
+	Role    *string                        `json:"role,omitempty" xml:"role,omitempty"`
+	Members []*AddPermissionRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s AddPermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddPermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddPermissionRequest) SetRole(v string) *AddPermissionRequest {
+	s.Role = &v
+	return s
+}
+
+func (s *AddPermissionRequest) SetMembers(v []*AddPermissionRequestMembers) *AddPermissionRequest {
+	s.Members = v
+	return s
+}
+
+func (s *AddPermissionRequest) SetUnionId(v string) *AddPermissionRequest {
+	s.UnionId = &v
+	return s
+}
+
+type AddPermissionRequestMembers struct {
+	// 企业corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 成员类型
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// 成员id
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+}
+
+func (s AddPermissionRequestMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddPermissionRequestMembers) GoString() string {
+	return s.String()
+}
+
+func (s *AddPermissionRequestMembers) SetCorpId(v string) *AddPermissionRequestMembers {
+	s.CorpId = &v
+	return s
+}
+
+func (s *AddPermissionRequestMembers) SetMemberType(v string) *AddPermissionRequestMembers {
+	s.MemberType = &v
+	return s
+}
+
+func (s *AddPermissionRequestMembers) SetMemberId(v string) *AddPermissionRequestMembers {
+	s.MemberId = &v
+	return s
+}
+
+type AddPermissionResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s AddPermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddPermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddPermissionResponse) SetHeaders(v map[string]*string) *AddPermissionResponse {
 	s.Headers = v
 	return s
 }
@@ -306,6 +561,24 @@ func (s *GetFileInfoHeaders) SetCommonHeaders(v map[string]*string) *GetFileInfo
 
 func (s *GetFileInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetFileInfoHeaders {
 	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFileInfoRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetFileInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileInfoRequest) SetUnionId(v string) *GetFileInfoRequest {
+	s.UnionId = &v
 	return s
 }
 
@@ -409,6 +682,8 @@ func (s *ListRecycleFilesHeaders) SetXAcsDingtalkAccessToken(v string) *ListRecy
 }
 
 type ListRecycleFilesRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	// 回收站类型
 	RecycleType *string `json:"recycleType,omitempty" xml:"recycleType,omitempty"`
 	// 分页加载更多锚点
@@ -425,6 +700,11 @@ func (s ListRecycleFilesRequest) String() string {
 
 func (s ListRecycleFilesRequest) GoString() string {
 	return s.String()
+}
+
+func (s *ListRecycleFilesRequest) SetUnionId(v string) *ListRecycleFilesRequest {
+	s.UnionId = &v
+	return s
 }
 
 func (s *ListRecycleFilesRequest) SetRecycleType(v string) *ListRecycleFilesRequest {
@@ -475,8 +755,6 @@ func (s *ListRecycleFilesResponseBody) SetNextToken(v string) *ListRecycleFilesR
 type ListRecycleFilesResponseBodyRecycleItems struct {
 	// 回收站item id
 	RecycleItemId *string `json:"recycleItemId,omitempty" xml:"recycleItemId,omitempty"`
-	// 删除者id
-	DeleteUid *int64 `json:"deleteUid,omitempty" xml:"deleteUid,omitempty"`
 	// 删除时间
 	DeleteTime *string `json:"deleteTime,omitempty" xml:"deleteTime,omitempty"`
 	// 文件大小
@@ -501,11 +779,6 @@ func (s ListRecycleFilesResponseBodyRecycleItems) GoString() string {
 
 func (s *ListRecycleFilesResponseBodyRecycleItems) SetRecycleItemId(v string) *ListRecycleFilesResponseBodyRecycleItems {
 	s.RecycleItemId = &v
-	return s
-}
-
-func (s *ListRecycleFilesResponseBodyRecycleItems) SetDeleteUid(v int64) *ListRecycleFilesResponseBodyRecycleItems {
-	s.DeleteUid = &v
 	return s
 }
 
@@ -588,6 +861,8 @@ func (s *RenameFileHeaders) SetXAcsDingtalkAccessToken(v string) *RenameFileHead
 type RenameFileRequest struct {
 	// 新文件名称
 	NewFileName *string `json:"newFileName,omitempty" xml:"newFileName,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s RenameFileRequest) String() string {
@@ -600,6 +875,11 @@ func (s RenameFileRequest) GoString() string {
 
 func (s *RenameFileRequest) SetNewFileName(v string) *RenameFileRequest {
 	s.NewFileName = &v
+	return s
+}
+
+func (s *RenameFileRequest) SetUnionId(v string) *RenameFileRequest {
+	s.UnionId = &v
 	return s
 }
 
@@ -703,6 +983,8 @@ func (s *ListFilesHeaders) SetXAcsDingtalkAccessToken(v string) *ListFilesHeader
 }
 
 type ListFilesRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	// 父目录id
 	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
 	// 分页查询锚点
@@ -717,6 +999,11 @@ func (s ListFilesRequest) String() string {
 
 func (s ListFilesRequest) GoString() string {
 	return s.String()
+}
+
+func (s *ListFilesRequest) SetUnionId(v string) *ListFilesRequest {
+	s.UnionId = &v
+	return s
 }
 
 func (s *ListFilesRequest) SetParentId(v string) *ListFilesRequest {
@@ -835,6 +1122,340 @@ func (s *ListFilesResponse) SetBody(v *ListFilesResponseBody) *ListFilesResponse
 	return s
 }
 
+type ModifyPermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ModifyPermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ModifyPermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ModifyPermissionHeaders) SetCommonHeaders(v map[string]*string) *ModifyPermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ModifyPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *ModifyPermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ModifyPermissionRequest struct {
+	// 权限角色
+	Role    *string                           `json:"role,omitempty" xml:"role,omitempty"`
+	Members []*ModifyPermissionRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s ModifyPermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ModifyPermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ModifyPermissionRequest) SetRole(v string) *ModifyPermissionRequest {
+	s.Role = &v
+	return s
+}
+
+func (s *ModifyPermissionRequest) SetMembers(v []*ModifyPermissionRequestMembers) *ModifyPermissionRequest {
+	s.Members = v
+	return s
+}
+
+func (s *ModifyPermissionRequest) SetUnionId(v string) *ModifyPermissionRequest {
+	s.UnionId = &v
+	return s
+}
+
+type ModifyPermissionRequestMembers struct {
+	// 企业corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 成员类型
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// 成员id
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+}
+
+func (s ModifyPermissionRequestMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ModifyPermissionRequestMembers) GoString() string {
+	return s.String()
+}
+
+func (s *ModifyPermissionRequestMembers) SetCorpId(v string) *ModifyPermissionRequestMembers {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ModifyPermissionRequestMembers) SetMemberType(v string) *ModifyPermissionRequestMembers {
+	s.MemberType = &v
+	return s
+}
+
+func (s *ModifyPermissionRequestMembers) SetMemberId(v string) *ModifyPermissionRequestMembers {
+	s.MemberId = &v
+	return s
+}
+
+type ModifyPermissionResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s ModifyPermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ModifyPermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ModifyPermissionResponse) SetHeaders(v map[string]*string) *ModifyPermissionResponse {
+	s.Headers = v
+	return s
+}
+
+type ListPermissionsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListPermissionsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPermissionsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListPermissionsHeaders) SetCommonHeaders(v map[string]*string) *ListPermissionsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListPermissionsHeaders) SetXAcsDingtalkAccessToken(v string) *ListPermissionsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListPermissionsRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s ListPermissionsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPermissionsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListPermissionsRequest) SetUnionId(v string) *ListPermissionsRequest {
+	s.UnionId = &v
+	return s
+}
+
+type ListPermissionsResponseBody struct {
+	// 企业内成员权限列表
+	Members []*ListPermissionsResponseBodyMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// 企业外成员权限列表
+	OutMembers []*ListPermissionsResponseBodyOutMembers `json:"outMembers,omitempty" xml:"outMembers,omitempty" type:"Repeated"`
+}
+
+func (s ListPermissionsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPermissionsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListPermissionsResponseBody) SetMembers(v []*ListPermissionsResponseBodyMembers) *ListPermissionsResponseBody {
+	s.Members = v
+	return s
+}
+
+func (s *ListPermissionsResponseBody) SetOutMembers(v []*ListPermissionsResponseBodyOutMembers) *ListPermissionsResponseBody {
+	s.OutMembers = v
+	return s
+}
+
+type ListPermissionsResponseBodyMembers struct {
+	// 权限角色
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
+	// 成员信息
+	Member *ListPermissionsResponseBodyMembersMember `json:"member,omitempty" xml:"member,omitempty" type:"Struct"`
+	// 是否是继承的权限
+	Extend *bool `json:"extend,omitempty" xml:"extend,omitempty"`
+}
+
+func (s ListPermissionsResponseBodyMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPermissionsResponseBodyMembers) GoString() string {
+	return s.String()
+}
+
+func (s *ListPermissionsResponseBodyMembers) SetRole(v string) *ListPermissionsResponseBodyMembers {
+	s.Role = &v
+	return s
+}
+
+func (s *ListPermissionsResponseBodyMembers) SetMember(v *ListPermissionsResponseBodyMembersMember) *ListPermissionsResponseBodyMembers {
+	s.Member = v
+	return s
+}
+
+func (s *ListPermissionsResponseBodyMembers) SetExtend(v bool) *ListPermissionsResponseBodyMembers {
+	s.Extend = &v
+	return s
+}
+
+type ListPermissionsResponseBodyMembersMember struct {
+	// 企业corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 成员类型
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// 成员id
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// 成员名称
+	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+}
+
+func (s ListPermissionsResponseBodyMembersMember) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPermissionsResponseBodyMembersMember) GoString() string {
+	return s.String()
+}
+
+func (s *ListPermissionsResponseBodyMembersMember) SetCorpId(v string) *ListPermissionsResponseBodyMembersMember {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ListPermissionsResponseBodyMembersMember) SetMemberType(v string) *ListPermissionsResponseBodyMembersMember {
+	s.MemberType = &v
+	return s
+}
+
+func (s *ListPermissionsResponseBodyMembersMember) SetMemberId(v string) *ListPermissionsResponseBodyMembersMember {
+	s.MemberId = &v
+	return s
+}
+
+func (s *ListPermissionsResponseBodyMembersMember) SetMemberName(v string) *ListPermissionsResponseBodyMembersMember {
+	s.MemberName = &v
+	return s
+}
+
+type ListPermissionsResponseBodyOutMembers struct {
+	// 权限角色
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
+	// 成员信息
+	Member *ListPermissionsResponseBodyOutMembersMember `json:"member,omitempty" xml:"member,omitempty" type:"Struct"`
+	// 是否是继承的权限
+	Extend *bool `json:"extend,omitempty" xml:"extend,omitempty"`
+}
+
+func (s ListPermissionsResponseBodyOutMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPermissionsResponseBodyOutMembers) GoString() string {
+	return s.String()
+}
+
+func (s *ListPermissionsResponseBodyOutMembers) SetRole(v string) *ListPermissionsResponseBodyOutMembers {
+	s.Role = &v
+	return s
+}
+
+func (s *ListPermissionsResponseBodyOutMembers) SetMember(v *ListPermissionsResponseBodyOutMembersMember) *ListPermissionsResponseBodyOutMembers {
+	s.Member = v
+	return s
+}
+
+func (s *ListPermissionsResponseBodyOutMembers) SetExtend(v bool) *ListPermissionsResponseBodyOutMembers {
+	s.Extend = &v
+	return s
+}
+
+type ListPermissionsResponseBodyOutMembersMember struct {
+	// 企业corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 成员类型
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// 成员id
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// 成员名称
+	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+}
+
+func (s ListPermissionsResponseBodyOutMembersMember) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPermissionsResponseBodyOutMembersMember) GoString() string {
+	return s.String()
+}
+
+func (s *ListPermissionsResponseBodyOutMembersMember) SetCorpId(v string) *ListPermissionsResponseBodyOutMembersMember {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ListPermissionsResponseBodyOutMembersMember) SetMemberType(v string) *ListPermissionsResponseBodyOutMembersMember {
+	s.MemberType = &v
+	return s
+}
+
+func (s *ListPermissionsResponseBodyOutMembersMember) SetMemberId(v string) *ListPermissionsResponseBodyOutMembersMember {
+	s.MemberId = &v
+	return s
+}
+
+func (s *ListPermissionsResponseBodyOutMembersMember) SetMemberName(v string) *ListPermissionsResponseBodyOutMembersMember {
+	s.MemberName = &v
+	return s
+}
+
+type ListPermissionsResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListPermissionsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListPermissionsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPermissionsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListPermissionsResponse) SetHeaders(v map[string]*string) *ListPermissionsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListPermissionsResponse) SetBody(v *ListPermissionsResponseBody) *ListPermissionsResponse {
+	s.Body = v
+	return s
+}
+
 type MoveFileHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -865,6 +1486,8 @@ type MoveFileRequest struct {
 	TargetParentId *string `json:"targetParentId,omitempty" xml:"targetParentId,omitempty"`
 	// 文件名冲突策略
 	AddConflictPolicy *string `json:"addConflictPolicy,omitempty" xml:"addConflictPolicy,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s MoveFileRequest) String() string {
@@ -887,6 +1510,11 @@ func (s *MoveFileRequest) SetTargetParentId(v string) *MoveFileRequest {
 
 func (s *MoveFileRequest) SetAddConflictPolicy(v string) *MoveFileRequest {
 	s.AddConflictPolicy = &v
+	return s
+}
+
+func (s *MoveFileRequest) SetUnionId(v string) *MoveFileRequest {
+	s.UnionId = &v
 	return s
 }
 
@@ -989,6 +1617,24 @@ func (s *GetDownloadInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetDownlo
 	return s
 }
 
+type GetDownloadInfoRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetDownloadInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDownloadInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetDownloadInfoRequest) SetUnionId(v string) *GetDownloadInfoRequest {
+	s.UnionId = &v
+	return s
+}
+
 type GetDownloadInfoResponseBody struct {
 	// 下载加签url信息
 	DownloadInfo *GetDownloadInfoResponseBodyDownloadInfo `json:"downloadInfo,omitempty" xml:"downloadInfo,omitempty" type:"Struct"`
@@ -1086,6 +1732,8 @@ func (s *GetUploadInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetUploadIn
 }
 
 type GetUploadInfoRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	// 文件名
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
 	// 文件大小
@@ -1104,6 +1752,11 @@ func (s GetUploadInfoRequest) String() string {
 
 func (s GetUploadInfoRequest) GoString() string {
 	return s.String()
+}
+
+func (s *GetUploadInfoRequest) SetUnionId(v string) *GetUploadInfoRequest {
+	s.UnionId = &v
+	return s
 }
 
 func (s *GetUploadInfoRequest) SetFileName(v string) *GetUploadInfoRequest {
@@ -1255,6 +1908,8 @@ func (s *ListSpacesHeaders) SetXAcsDingtalkAccessToken(v string) *ListSpacesHead
 }
 
 type ListSpacesRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	// 空间类型
 	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 	// 分页加载锚点
@@ -1269,6 +1924,11 @@ func (s ListSpacesRequest) String() string {
 
 func (s ListSpacesRequest) GoString() string {
 	return s.String()
+}
+
+func (s *ListSpacesRequest) SetUnionId(v string) *ListSpacesRequest {
+	s.UnionId = &v
+	return s
 }
 
 func (s *ListSpacesRequest) SetSpaceType(v string) *ListSpacesRequest {
@@ -1393,6 +2053,167 @@ func (s *ListSpacesResponse) SetBody(v *ListSpacesResponseBody) *ListSpacesRespo
 	return s
 }
 
+type DeletePermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeletePermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePermissionHeaders) SetCommonHeaders(v map[string]*string) *DeletePermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeletePermissionHeaders) SetXAcsDingtalkAccessToken(v string) *DeletePermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeletePermissionRequest struct {
+	// 权限角色
+	Role    *string                           `json:"role,omitempty" xml:"role,omitempty"`
+	Members []*DeletePermissionRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s DeletePermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePermissionRequest) SetRole(v string) *DeletePermissionRequest {
+	s.Role = &v
+	return s
+}
+
+func (s *DeletePermissionRequest) SetMembers(v []*DeletePermissionRequestMembers) *DeletePermissionRequest {
+	s.Members = v
+	return s
+}
+
+func (s *DeletePermissionRequest) SetUnionId(v string) *DeletePermissionRequest {
+	s.UnionId = &v
+	return s
+}
+
+type DeletePermissionRequestMembers struct {
+	// 企业corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 成员类型
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// 成员id
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+}
+
+func (s DeletePermissionRequestMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePermissionRequestMembers) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePermissionRequestMembers) SetCorpId(v string) *DeletePermissionRequestMembers {
+	s.CorpId = &v
+	return s
+}
+
+func (s *DeletePermissionRequestMembers) SetMemberType(v string) *DeletePermissionRequestMembers {
+	s.MemberType = &v
+	return s
+}
+
+func (s *DeletePermissionRequestMembers) SetMemberId(v string) *DeletePermissionRequestMembers {
+	s.MemberId = &v
+	return s
+}
+
+type DeletePermissionResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s DeletePermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePermissionResponse) SetHeaders(v map[string]*string) *DeletePermissionResponse {
+	s.Headers = v
+	return s
+}
+
+type DeleteSpaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteSpaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteSpaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteSpaceHeaders) SetCommonHeaders(v map[string]*string) *DeleteSpaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteSpaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteSpaceRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s DeleteSpaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteSpaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteSpaceRequest) SetUnionId(v string) *DeleteSpaceRequest {
+	s.UnionId = &v
+	return s
+}
+
+type DeleteSpaceResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s DeleteSpaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteSpaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteSpaceResponse) SetHeaders(v map[string]*string) *DeleteSpaceResponse {
+	s.Headers = v
+	return s
+}
+
 type ClearRecycleFilesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1419,6 +2240,8 @@ func (s *ClearRecycleFilesHeaders) SetXAcsDingtalkAccessToken(v string) *ClearRe
 type ClearRecycleFilesRequest struct {
 	// 回收站类型
 	RecycleType *string `json:"recycleType,omitempty" xml:"recycleType,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s ClearRecycleFilesRequest) String() string {
@@ -1431,6 +2254,11 @@ func (s ClearRecycleFilesRequest) GoString() string {
 
 func (s *ClearRecycleFilesRequest) SetRecycleType(v string) *ClearRecycleFilesRequest {
 	s.RecycleType = &v
+	return s
+}
+
+func (s *ClearRecycleFilesRequest) SetUnionId(v string) *ClearRecycleFilesRequest {
+	s.UnionId = &v
 	return s
 }
 
@@ -1475,6 +2303,8 @@ func (s *DeleteFileHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteFileHead
 }
 
 type DeleteFileRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	// 删除策略
 	DeletePolicy *string `json:"deletePolicy,omitempty" xml:"deletePolicy,omitempty"`
 }
@@ -1485,6 +2315,11 @@ func (s DeleteFileRequest) String() string {
 
 func (s DeleteFileRequest) GoString() string {
 	return s.String()
+}
+
+func (s *DeleteFileRequest) SetUnionId(v string) *DeleteFileRequest {
+	s.UnionId = &v
+	return s
 }
 
 func (s *DeleteFileRequest) SetDeletePolicy(v string) *DeleteFileRequest {
@@ -1556,11 +2391,11 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
-func (client *Client) AddFile(unionId *string, spaceId *string, request *AddFileRequest) (_result *AddFileResponse, _err error) {
+func (client *Client) AddFile(spaceId *string, request *AddFileRequest) (_result *AddFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddFileHeaders{}
 	_result = &AddFileResponse{}
-	_body, _err := client.AddFileWithOptions(unionId, spaceId, request, headers, runtime)
+	_body, _err := client.AddFileWithOptions(spaceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1568,7 +2403,7 @@ func (client *Client) AddFile(unionId *string, spaceId *string, request *AddFile
 	return _result, _err
 }
 
-func (client *Client) AddFileWithOptions(unionId *string, spaceId *string, request *AddFileRequest, headers *AddFileHeaders, runtime *util.RuntimeOptions) (_result *AddFileResponse, _err error) {
+func (client *Client) AddFileWithOptions(spaceId *string, request *AddFileRequest, headers *AddFileHeaders, runtime *util.RuntimeOptions) (_result *AddFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -1594,6 +2429,10 @@ func (client *Client) AddFileWithOptions(unionId *string, spaceId *string, reque
 		body["addConflictPolicy"] = request.AddConflictPolicy
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1608,7 +2447,7 @@ func (client *Client) AddFileWithOptions(unionId *string, spaceId *string, reque
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &AddFileResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddFile"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/users/"+tea.StringValue(unionId)+"/spaces/"+tea.StringValue(spaceId)+"/files"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("AddFile"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1616,11 +2455,11 @@ func (client *Client) AddFileWithOptions(unionId *string, spaceId *string, reque
 	return _result, _err
 }
 
-func (client *Client) RecoverRecycleFiles(unionId *string, request *RecoverRecycleFilesRequest) (_result *RecoverRecycleFilesResponse, _err error) {
+func (client *Client) RecoverRecycleFiles(request *RecoverRecycleFilesRequest) (_result *RecoverRecycleFilesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RecoverRecycleFilesHeaders{}
 	_result = &RecoverRecycleFilesResponse{}
-	_body, _err := client.RecoverRecycleFilesWithOptions(unionId, request, headers, runtime)
+	_body, _err := client.RecoverRecycleFilesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1628,7 +2467,7 @@ func (client *Client) RecoverRecycleFiles(unionId *string, request *RecoverRecyc
 	return _result, _err
 }
 
-func (client *Client) RecoverRecycleFilesWithOptions(unionId *string, request *RecoverRecycleFilesRequest, headers *RecoverRecycleFilesHeaders, runtime *util.RuntimeOptions) (_result *RecoverRecycleFilesResponse, _err error) {
+func (client *Client) RecoverRecycleFilesWithOptions(request *RecoverRecycleFilesRequest, headers *RecoverRecycleFilesHeaders, runtime *util.RuntimeOptions) (_result *RecoverRecycleFilesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -1640,6 +2479,10 @@ func (client *Client) RecoverRecycleFilesWithOptions(unionId *string, request *R
 
 	if !tea.BoolValue(util.IsUnset(request.RecycleType)) {
 		body["recycleType"] = request.RecycleType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -1656,7 +2499,7 @@ func (client *Client) RecoverRecycleFilesWithOptions(unionId *string, request *R
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &RecoverRecycleFilesResponse{}
-	_body, _err := client.DoROARequest(tea.String("RecoverRecycleFiles"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/users/"+tea.StringValue(unionId)+"/recycleItems/recover"), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("RecoverRecycleFiles"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/recycleItems/recover"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1664,11 +2507,11 @@ func (client *Client) RecoverRecycleFilesWithOptions(unionId *string, request *R
 	return _result, _err
 }
 
-func (client *Client) DeleteRecycleFiles(unionId *string, request *DeleteRecycleFilesRequest) (_result *DeleteRecycleFilesResponse, _err error) {
+func (client *Client) AddSpace(request *AddSpaceRequest) (_result *AddSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DeleteRecycleFilesHeaders{}
-	_result = &DeleteRecycleFilesResponse{}
-	_body, _err := client.DeleteRecycleFilesWithOptions(unionId, request, headers, runtime)
+	headers := &AddSpaceHeaders{}
+	_result = &AddSpaceResponse{}
+	_body, _err := client.AddSpaceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1676,7 +2519,55 @@ func (client *Client) DeleteRecycleFiles(unionId *string, request *DeleteRecycle
 	return _result, _err
 }
 
-func (client *Client) DeleteRecycleFilesWithOptions(unionId *string, request *DeleteRecycleFilesRequest, headers *DeleteRecycleFilesHeaders, runtime *util.RuntimeOptions) (_result *DeleteRecycleFilesResponse, _err error) {
+func (client *Client) AddSpaceWithOptions(request *AddSpaceRequest, headers *AddSpaceHeaders, runtime *util.RuntimeOptions) (_result *AddSpaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddSpaceResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddSpace"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/spaces"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteRecycleFiles(request *DeleteRecycleFilesRequest) (_result *DeleteRecycleFilesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteRecycleFilesHeaders{}
+	_result = &DeleteRecycleFilesResponse{}
+	_body, _err := client.DeleteRecycleFilesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteRecycleFilesWithOptions(request *DeleteRecycleFilesRequest, headers *DeleteRecycleFilesHeaders, runtime *util.RuntimeOptions) (_result *DeleteRecycleFilesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -1688,6 +2579,10 @@ func (client *Client) DeleteRecycleFilesWithOptions(unionId *string, request *De
 
 	if !tea.BoolValue(util.IsUnset(request.RecycleType)) {
 		body["recycleType"] = request.RecycleType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -1704,7 +2599,7 @@ func (client *Client) DeleteRecycleFilesWithOptions(unionId *string, request *De
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &DeleteRecycleFilesResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteRecycleFiles"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/users/"+tea.StringValue(unionId)+"/recycleItems/delete"), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("DeleteRecycleFiles"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/recycleItems/delete"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1712,11 +2607,11 @@ func (client *Client) DeleteRecycleFilesWithOptions(unionId *string, request *De
 	return _result, _err
 }
 
-func (client *Client) GetFileInfo(unionId *string, spaceId *string, fileId *string) (_result *GetFileInfoResponse, _err error) {
+func (client *Client) AddPermission(spaceId *string, fileId *string, request *AddPermissionRequest) (_result *AddPermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetFileInfoHeaders{}
-	_result = &GetFileInfoResponse{}
-	_body, _err := client.GetFileInfoWithOptions(unionId, spaceId, fileId, headers, runtime)
+	headers := &AddPermissionHeaders{}
+	_result = &AddPermissionResponse{}
+	_body, _err := client.AddPermissionWithOptions(spaceId, fileId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1724,7 +2619,24 @@ func (client *Client) GetFileInfo(unionId *string, spaceId *string, fileId *stri
 	return _result, _err
 }
 
-func (client *Client) GetFileInfoWithOptions(unionId *string, spaceId *string, fileId *string, headers *GetFileInfoHeaders, runtime *util.RuntimeOptions) (_result *GetFileInfoResponse, _err error) {
+func (client *Client) AddPermissionWithOptions(spaceId *string, fileId *string, request *AddPermissionRequest, headers *AddPermissionHeaders, runtime *util.RuntimeOptions) (_result *AddPermissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Role)) {
+		body["role"] = request.Role
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Members)) {
+		body["members"] = request.Members
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1736,9 +2648,10 @@ func (client *Client) GetFileInfoWithOptions(unionId *string, spaceId *string, f
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &GetFileInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetFileInfo"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/users/"+tea.StringValue(unionId)+"/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)), tea.String("json"), req, runtime)
+	_result = &AddPermissionResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddPermission"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)+"/permissions"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1746,11 +2659,11 @@ func (client *Client) GetFileInfoWithOptions(unionId *string, spaceId *string, f
 	return _result, _err
 }
 
-func (client *Client) ListRecycleFiles(unionId *string, request *ListRecycleFilesRequest) (_result *ListRecycleFilesResponse, _err error) {
+func (client *Client) GetFileInfo(spaceId *string, fileId *string, request *GetFileInfoRequest) (_result *GetFileInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListRecycleFilesHeaders{}
-	_result = &ListRecycleFilesResponse{}
-	_body, _err := client.ListRecycleFilesWithOptions(unionId, request, headers, runtime)
+	headers := &GetFileInfoHeaders{}
+	_result = &GetFileInfoResponse{}
+	_body, _err := client.GetFileInfoWithOptions(spaceId, fileId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1758,12 +2671,60 @@ func (client *Client) ListRecycleFiles(unionId *string, request *ListRecycleFile
 	return _result, _err
 }
 
-func (client *Client) ListRecycleFilesWithOptions(unionId *string, request *ListRecycleFilesRequest, headers *ListRecycleFilesHeaders, runtime *util.RuntimeOptions) (_result *ListRecycleFilesResponse, _err error) {
+func (client *Client) GetFileInfoWithOptions(spaceId *string, fileId *string, request *GetFileInfoRequest, headers *GetFileInfoHeaders, runtime *util.RuntimeOptions) (_result *GetFileInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetFileInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetFileInfo"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListRecycleFiles(request *ListRecycleFilesRequest) (_result *ListRecycleFilesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListRecycleFilesHeaders{}
+	_result = &ListRecycleFilesResponse{}
+	_body, _err := client.ListRecycleFilesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListRecycleFilesWithOptions(request *ListRecycleFilesRequest, headers *ListRecycleFilesHeaders, runtime *util.RuntimeOptions) (_result *ListRecycleFilesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.RecycleType)) {
 		query["recycleType"] = request.RecycleType
 	}
@@ -1794,7 +2755,7 @@ func (client *Client) ListRecycleFilesWithOptions(unionId *string, request *List
 		Query:   openapiutil.Query(query),
 	}
 	_result = &ListRecycleFilesResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListRecycleFiles"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/users/"+tea.StringValue(unionId)+"/recycleItems"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("ListRecycleFiles"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/recycleItems"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1802,11 +2763,11 @@ func (client *Client) ListRecycleFilesWithOptions(unionId *string, request *List
 	return _result, _err
 }
 
-func (client *Client) RenameFile(unionId *string, spaceId *string, fileId *string, request *RenameFileRequest) (_result *RenameFileResponse, _err error) {
+func (client *Client) RenameFile(spaceId *string, fileId *string, request *RenameFileRequest) (_result *RenameFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RenameFileHeaders{}
 	_result = &RenameFileResponse{}
-	_body, _err := client.RenameFileWithOptions(unionId, spaceId, fileId, request, headers, runtime)
+	_body, _err := client.RenameFileWithOptions(spaceId, fileId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1814,7 +2775,7 @@ func (client *Client) RenameFile(unionId *string, spaceId *string, fileId *strin
 	return _result, _err
 }
 
-func (client *Client) RenameFileWithOptions(unionId *string, spaceId *string, fileId *string, request *RenameFileRequest, headers *RenameFileHeaders, runtime *util.RuntimeOptions) (_result *RenameFileResponse, _err error) {
+func (client *Client) RenameFileWithOptions(spaceId *string, fileId *string, request *RenameFileRequest, headers *RenameFileHeaders, runtime *util.RuntimeOptions) (_result *RenameFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -1822,6 +2783,10 @@ func (client *Client) RenameFileWithOptions(unionId *string, spaceId *string, fi
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.NewFileName)) {
 		body["newFileName"] = request.NewFileName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -1838,7 +2803,7 @@ func (client *Client) RenameFileWithOptions(unionId *string, spaceId *string, fi
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &RenameFileResponse{}
-	_body, _err := client.DoROARequest(tea.String("RenameFile"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/users/"+tea.StringValue(unionId)+"/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)+"/rename"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("RenameFile"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)+"/rename"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1846,11 +2811,11 @@ func (client *Client) RenameFileWithOptions(unionId *string, spaceId *string, fi
 	return _result, _err
 }
 
-func (client *Client) ListFiles(unionId *string, spaceId *string, request *ListFilesRequest) (_result *ListFilesResponse, _err error) {
+func (client *Client) ListFiles(spaceId *string, request *ListFilesRequest) (_result *ListFilesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListFilesHeaders{}
 	_result = &ListFilesResponse{}
-	_body, _err := client.ListFilesWithOptions(unionId, spaceId, request, headers, runtime)
+	_body, _err := client.ListFilesWithOptions(spaceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1858,12 +2823,16 @@ func (client *Client) ListFiles(unionId *string, spaceId *string, request *ListF
 	return _result, _err
 }
 
-func (client *Client) ListFilesWithOptions(unionId *string, spaceId *string, request *ListFilesRequest, headers *ListFilesHeaders, runtime *util.RuntimeOptions) (_result *ListFilesResponse, _err error) {
+func (client *Client) ListFilesWithOptions(spaceId *string, request *ListFilesRequest, headers *ListFilesHeaders, runtime *util.RuntimeOptions) (_result *ListFilesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ParentId)) {
 		query["parentId"] = request.ParentId
 	}
@@ -1890,7 +2859,7 @@ func (client *Client) ListFilesWithOptions(unionId *string, spaceId *string, req
 		Query:   openapiutil.Query(query),
 	}
 	_result = &ListFilesResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListFiles"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/users/"+tea.StringValue(unionId)+"/spaces/"+tea.StringValue(spaceId)+"/files"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("ListFiles"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1898,11 +2867,11 @@ func (client *Client) ListFilesWithOptions(unionId *string, spaceId *string, req
 	return _result, _err
 }
 
-func (client *Client) MoveFile(unionId *string, spaceId *string, fileId *string, request *MoveFileRequest) (_result *MoveFileResponse, _err error) {
+func (client *Client) ModifyPermission(spaceId *string, fileId *string, request *ModifyPermissionRequest) (_result *ModifyPermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &MoveFileHeaders{}
-	_result = &MoveFileResponse{}
-	_body, _err := client.MoveFileWithOptions(unionId, spaceId, fileId, request, headers, runtime)
+	headers := &ModifyPermissionHeaders{}
+	_result = &ModifyPermissionResponse{}
+	_body, _err := client.ModifyPermissionWithOptions(spaceId, fileId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1910,7 +2879,103 @@ func (client *Client) MoveFile(unionId *string, spaceId *string, fileId *string,
 	return _result, _err
 }
 
-func (client *Client) MoveFileWithOptions(unionId *string, spaceId *string, fileId *string, request *MoveFileRequest, headers *MoveFileHeaders, runtime *util.RuntimeOptions) (_result *MoveFileResponse, _err error) {
+func (client *Client) ModifyPermissionWithOptions(spaceId *string, fileId *string, request *ModifyPermissionRequest, headers *ModifyPermissionHeaders, runtime *util.RuntimeOptions) (_result *ModifyPermissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Role)) {
+		body["role"] = request.Role
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Members)) {
+		body["members"] = request.Members
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ModifyPermissionResponse{}
+	_body, _err := client.DoROARequest(tea.String("ModifyPermission"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)+"/permissions"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListPermissions(spaceId *string, fileId *string, request *ListPermissionsRequest) (_result *ListPermissionsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListPermissionsHeaders{}
+	_result = &ListPermissionsResponse{}
+	_body, _err := client.ListPermissionsWithOptions(spaceId, fileId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListPermissionsWithOptions(spaceId *string, fileId *string, request *ListPermissionsRequest, headers *ListPermissionsHeaders, runtime *util.RuntimeOptions) (_result *ListPermissionsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListPermissionsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListPermissions"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)+"/permissions"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) MoveFile(spaceId *string, fileId *string, request *MoveFileRequest) (_result *MoveFileResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &MoveFileHeaders{}
+	_result = &MoveFileResponse{}
+	_body, _err := client.MoveFileWithOptions(spaceId, fileId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) MoveFileWithOptions(spaceId *string, fileId *string, request *MoveFileRequest, headers *MoveFileHeaders, runtime *util.RuntimeOptions) (_result *MoveFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -1928,6 +2993,10 @@ func (client *Client) MoveFileWithOptions(unionId *string, spaceId *string, file
 		body["addConflictPolicy"] = request.AddConflictPolicy
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1942,7 +3011,7 @@ func (client *Client) MoveFileWithOptions(unionId *string, spaceId *string, file
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &MoveFileResponse{}
-	_body, _err := client.DoROARequest(tea.String("MoveFile"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/users/"+tea.StringValue(unionId)+"/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)+"/move"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("MoveFile"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)+"/move"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1950,11 +3019,11 @@ func (client *Client) MoveFileWithOptions(unionId *string, spaceId *string, file
 	return _result, _err
 }
 
-func (client *Client) GetDownloadInfo(unionId *string, spaceId *string, fileId *string) (_result *GetDownloadInfoResponse, _err error) {
+func (client *Client) GetDownloadInfo(spaceId *string, fileId *string, request *GetDownloadInfoRequest) (_result *GetDownloadInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDownloadInfoHeaders{}
 	_result = &GetDownloadInfoResponse{}
-	_body, _err := client.GetDownloadInfoWithOptions(unionId, spaceId, fileId, headers, runtime)
+	_body, _err := client.GetDownloadInfoWithOptions(spaceId, fileId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1962,7 +3031,16 @@ func (client *Client) GetDownloadInfo(unionId *string, spaceId *string, fileId *
 	return _result, _err
 }
 
-func (client *Client) GetDownloadInfoWithOptions(unionId *string, spaceId *string, fileId *string, headers *GetDownloadInfoHeaders, runtime *util.RuntimeOptions) (_result *GetDownloadInfoResponse, _err error) {
+func (client *Client) GetDownloadInfoWithOptions(spaceId *string, fileId *string, request *GetDownloadInfoRequest, headers *GetDownloadInfoHeaders, runtime *util.RuntimeOptions) (_result *GetDownloadInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1974,9 +3052,10 @@ func (client *Client) GetDownloadInfoWithOptions(unionId *string, spaceId *strin
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
 	}
 	_result = &GetDownloadInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetDownloadInfo"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/users/"+tea.StringValue(unionId)+"/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)+"/downloadInfos"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("GetDownloadInfo"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)+"/downloadInfos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1984,11 +3063,11 @@ func (client *Client) GetDownloadInfoWithOptions(unionId *string, spaceId *strin
 	return _result, _err
 }
 
-func (client *Client) GetUploadInfo(unionId *string, spaceId *string, parentId *string, request *GetUploadInfoRequest) (_result *GetUploadInfoResponse, _err error) {
+func (client *Client) GetUploadInfo(spaceId *string, parentId *string, request *GetUploadInfoRequest) (_result *GetUploadInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUploadInfoHeaders{}
 	_result = &GetUploadInfoResponse{}
-	_body, _err := client.GetUploadInfoWithOptions(unionId, spaceId, parentId, request, headers, runtime)
+	_body, _err := client.GetUploadInfoWithOptions(spaceId, parentId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1996,12 +3075,16 @@ func (client *Client) GetUploadInfo(unionId *string, spaceId *string, parentId *
 	return _result, _err
 }
 
-func (client *Client) GetUploadInfoWithOptions(unionId *string, spaceId *string, parentId *string, request *GetUploadInfoRequest, headers *GetUploadInfoHeaders, runtime *util.RuntimeOptions) (_result *GetUploadInfoResponse, _err error) {
+func (client *Client) GetUploadInfoWithOptions(spaceId *string, parentId *string, request *GetUploadInfoRequest, headers *GetUploadInfoHeaders, runtime *util.RuntimeOptions) (_result *GetUploadInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.FileName)) {
 		query["fileName"] = request.FileName
 	}
@@ -2036,7 +3119,7 @@ func (client *Client) GetUploadInfoWithOptions(unionId *string, spaceId *string,
 		Query:   openapiutil.Query(query),
 	}
 	_result = &GetUploadInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetUploadInfo"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/users/"+tea.StringValue(unionId)+"/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(parentId)+"/uploadInfos"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("GetUploadInfo"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(parentId)+"/uploadInfos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2044,11 +3127,11 @@ func (client *Client) GetUploadInfoWithOptions(unionId *string, spaceId *string,
 	return _result, _err
 }
 
-func (client *Client) ListSpaces(unionId *string, request *ListSpacesRequest) (_result *ListSpacesResponse, _err error) {
+func (client *Client) ListSpaces(request *ListSpacesRequest) (_result *ListSpacesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListSpacesHeaders{}
 	_result = &ListSpacesResponse{}
-	_body, _err := client.ListSpacesWithOptions(unionId, request, headers, runtime)
+	_body, _err := client.ListSpacesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2056,12 +3139,16 @@ func (client *Client) ListSpaces(unionId *string, request *ListSpacesRequest) (_
 	return _result, _err
 }
 
-func (client *Client) ListSpacesWithOptions(unionId *string, request *ListSpacesRequest, headers *ListSpacesHeaders, runtime *util.RuntimeOptions) (_result *ListSpacesResponse, _err error) {
+func (client *Client) ListSpacesWithOptions(request *ListSpacesRequest, headers *ListSpacesHeaders, runtime *util.RuntimeOptions) (_result *ListSpacesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.SpaceType)) {
 		query["spaceType"] = request.SpaceType
 	}
@@ -2088,7 +3175,7 @@ func (client *Client) ListSpacesWithOptions(unionId *string, request *ListSpaces
 		Query:   openapiutil.Query(query),
 	}
 	_result = &ListSpacesResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListSpaces"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/users/"+tea.StringValue(unionId)+"/spaces"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("ListSpaces"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/spaces"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2096,11 +3183,11 @@ func (client *Client) ListSpacesWithOptions(unionId *string, request *ListSpaces
 	return _result, _err
 }
 
-func (client *Client) ClearRecycleFiles(unionId *string, request *ClearRecycleFilesRequest) (_result *ClearRecycleFilesResponse, _err error) {
+func (client *Client) DeletePermission(spaceId *string, fileId *string, request *DeletePermissionRequest) (_result *DeletePermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ClearRecycleFilesHeaders{}
-	_result = &ClearRecycleFilesResponse{}
-	_body, _err := client.ClearRecycleFilesWithOptions(unionId, request, headers, runtime)
+	headers := &DeletePermissionHeaders{}
+	_result = &DeletePermissionResponse{}
+	_body, _err := client.DeletePermissionWithOptions(spaceId, fileId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2108,7 +3195,103 @@ func (client *Client) ClearRecycleFiles(unionId *string, request *ClearRecycleFi
 	return _result, _err
 }
 
-func (client *Client) ClearRecycleFilesWithOptions(unionId *string, request *ClearRecycleFilesRequest, headers *ClearRecycleFilesHeaders, runtime *util.RuntimeOptions) (_result *ClearRecycleFilesResponse, _err error) {
+func (client *Client) DeletePermissionWithOptions(spaceId *string, fileId *string, request *DeletePermissionRequest, headers *DeletePermissionHeaders, runtime *util.RuntimeOptions) (_result *DeletePermissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Role)) {
+		body["role"] = request.Role
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Members)) {
+		body["members"] = request.Members
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DeletePermissionResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeletePermission"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)+"/permissions/delete"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteSpace(spaceId *string, request *DeleteSpaceRequest) (_result *DeleteSpaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteSpaceHeaders{}
+	_result = &DeleteSpaceResponse{}
+	_body, _err := client.DeleteSpaceWithOptions(spaceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteSpaceWithOptions(spaceId *string, request *DeleteSpaceRequest, headers *DeleteSpaceHeaders, runtime *util.RuntimeOptions) (_result *DeleteSpaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteSpaceResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteSpace"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ClearRecycleFiles(request *ClearRecycleFilesRequest) (_result *ClearRecycleFilesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ClearRecycleFilesHeaders{}
+	_result = &ClearRecycleFilesResponse{}
+	_body, _err := client.ClearRecycleFilesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ClearRecycleFilesWithOptions(request *ClearRecycleFilesRequest, headers *ClearRecycleFilesHeaders, runtime *util.RuntimeOptions) (_result *ClearRecycleFilesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -2116,6 +3299,10 @@ func (client *Client) ClearRecycleFilesWithOptions(unionId *string, request *Cle
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.RecycleType)) {
 		body["recycleType"] = request.RecycleType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -2132,7 +3319,7 @@ func (client *Client) ClearRecycleFilesWithOptions(unionId *string, request *Cle
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &ClearRecycleFilesResponse{}
-	_body, _err := client.DoROARequest(tea.String("ClearRecycleFiles"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/users/"+tea.StringValue(unionId)+"/recycleItems/clear"), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("ClearRecycleFiles"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/recycleItems/clear"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2140,11 +3327,11 @@ func (client *Client) ClearRecycleFilesWithOptions(unionId *string, request *Cle
 	return _result, _err
 }
 
-func (client *Client) DeleteFile(unionId *string, spaceId *string, fileId *string, request *DeleteFileRequest) (_result *DeleteFileResponse, _err error) {
+func (client *Client) DeleteFile(spaceId *string, fileId *string, request *DeleteFileRequest) (_result *DeleteFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteFileHeaders{}
 	_result = &DeleteFileResponse{}
-	_body, _err := client.DeleteFileWithOptions(unionId, spaceId, fileId, request, headers, runtime)
+	_body, _err := client.DeleteFileWithOptions(spaceId, fileId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2152,12 +3339,16 @@ func (client *Client) DeleteFile(unionId *string, spaceId *string, fileId *strin
 	return _result, _err
 }
 
-func (client *Client) DeleteFileWithOptions(unionId *string, spaceId *string, fileId *string, request *DeleteFileRequest, headers *DeleteFileHeaders, runtime *util.RuntimeOptions) (_result *DeleteFileResponse, _err error) {
+func (client *Client) DeleteFileWithOptions(spaceId *string, fileId *string, request *DeleteFileRequest, headers *DeleteFileHeaders, runtime *util.RuntimeOptions) (_result *DeleteFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.DeletePolicy)) {
 		query["deletePolicy"] = request.DeletePolicy
 	}
@@ -2176,7 +3367,7 @@ func (client *Client) DeleteFileWithOptions(unionId *string, spaceId *string, fi
 		Query:   openapiutil.Query(query),
 	}
 	_result = &DeleteFileResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteFile"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/drive/users/"+tea.StringValue(unionId)+"/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("DeleteFile"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

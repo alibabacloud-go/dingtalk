@@ -237,6 +237,401 @@ func (s *GetTodoTypeConfigResponse) SetBody(v *GetTodoTypeConfigResponseBody) *G
 	return s
 }
 
+type QueryTodoTasksHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryTodoTasksHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTodoTasksHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTodoTasksHeaders) SetCommonHeaders(v map[string]*string) *QueryTodoTasksHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryTodoTasksHeaders) SetXAcsDingtalkAccessToken(v string) *QueryTodoTasksHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryTodoTasksRequest struct {
+	// 分页游标。如果一个查询条件一次无法全部返回结果，会返回分页token，下次查询带上该token后会返回后续数据，直到分页token为null表示数据已经全部查询完毕。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 排序字段。枚举值 默认为截止时间 dueTime。created | modified | finished | startTime | dueTime 创建时间 | 更新时间 | 完成时间 | 开始时间 | 截止时间
+	OrderBy *string `json:"orderBy,omitempty" xml:"orderBy,omitempty"`
+	// 排序方向。枚举值asc | desc 默认 asc
+	OrderDirection *string `json:"orderDirection,omitempty" xml:"orderDirection,omitempty"`
+	// 待办完成状态。
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// 查询目标用户角色类型，执行人 | 创建人 | 参与人，可以同时传多个值。如：[["executor"], ["creator"],["participant"]] 或 [["executor", "creator"]]
+	RoleTypes [][]*string `json:"roleTypes,omitempty" xml:"roleTypes,omitempty" type:"Repeated"`
+	// 查询从计划完成时间开始
+	FromDueTime *int64 `json:"fromDueTime,omitempty" xml:"fromDueTime,omitempty"`
+	// 查询到计划完成时间结束
+	ToDueTime *int64 `json:"toDueTime,omitempty" xml:"toDueTime,omitempty"`
+	// 所属分类
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// 待办回收状态
+	IsRecycled *bool `json:"isRecycled,omitempty" xml:"isRecycled,omitempty"`
+}
+
+func (s QueryTodoTasksRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTodoTasksRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTodoTasksRequest) SetNextToken(v string) *QueryTodoTasksRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryTodoTasksRequest) SetOrderBy(v string) *QueryTodoTasksRequest {
+	s.OrderBy = &v
+	return s
+}
+
+func (s *QueryTodoTasksRequest) SetOrderDirection(v string) *QueryTodoTasksRequest {
+	s.OrderDirection = &v
+	return s
+}
+
+func (s *QueryTodoTasksRequest) SetIsDone(v bool) *QueryTodoTasksRequest {
+	s.IsDone = &v
+	return s
+}
+
+func (s *QueryTodoTasksRequest) SetRoleTypes(v [][]*string) *QueryTodoTasksRequest {
+	s.RoleTypes = v
+	return s
+}
+
+func (s *QueryTodoTasksRequest) SetFromDueTime(v int64) *QueryTodoTasksRequest {
+	s.FromDueTime = &v
+	return s
+}
+
+func (s *QueryTodoTasksRequest) SetToDueTime(v int64) *QueryTodoTasksRequest {
+	s.ToDueTime = &v
+	return s
+}
+
+func (s *QueryTodoTasksRequest) SetCategory(v string) *QueryTodoTasksRequest {
+	s.Category = &v
+	return s
+}
+
+func (s *QueryTodoTasksRequest) SetIsRecycled(v bool) *QueryTodoTasksRequest {
+	s.IsRecycled = &v
+	return s
+}
+
+type QueryTodoTasksResponseBody struct {
+	// 翻页token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 待办卡片列表
+	TodoCards []*QueryTodoTasksResponseBodyTodoCards `json:"todoCards,omitempty" xml:"todoCards,omitempty" type:"Repeated"`
+	// 数据总量
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryTodoTasksResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTodoTasksResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTodoTasksResponseBody) SetNextToken(v string) *QueryTodoTasksResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBody) SetTodoCards(v []*QueryTodoTasksResponseBodyTodoCards) *QueryTodoTasksResponseBody {
+	s.TodoCards = v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBody) SetTotalCount(v int32) *QueryTodoTasksResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryTodoTasksResponseBodyTodoCards struct {
+	// 待办id
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// 待办标题
+	Subject *string `json:"subject,omitempty" xml:"subject,omitempty"`
+	// 待办截止时间
+	DueTime *int64 `json:"dueTime,omitempty" xml:"dueTime,omitempty"`
+	// 详情页链接
+	DetailUrl *QueryTodoTasksResponseBodyTodoCardsDetailUrl `json:"detailUrl,omitempty" xml:"detailUrl,omitempty" type:"Struct"`
+	// 待办卡片视图模型
+	TodoCardView *QueryTodoTasksResponseBodyTodoCardsTodoCardView `json:"todoCardView,omitempty" xml:"todoCardView,omitempty" type:"Struct"`
+	// 优先级
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 创建时间
+	CreatedTime *int64 `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
+	// 更新时间
+	ModifiedTime *int64 `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// 待办状态
+	TodoStatus *string `json:"todoStatus,omitempty" xml:"todoStatus,omitempty"`
+	// 创建者id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 来源id
+	SourceId *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	// 所属分类
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// 所属应用
+	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
+	// 业务来源信息
+	OriginalSource *QueryTodoTasksResponseBodyTodoCardsOriginalSource `json:"originalSource,omitempty" xml:"originalSource,omitempty" type:"Struct"`
+	// 待办完成状态
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+}
+
+func (s QueryTodoTasksResponseBodyTodoCards) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTodoTasksResponseBodyTodoCards) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCards) SetTaskId(v string) *QueryTodoTasksResponseBodyTodoCards {
+	s.TaskId = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCards) SetSubject(v string) *QueryTodoTasksResponseBodyTodoCards {
+	s.Subject = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCards) SetDueTime(v int64) *QueryTodoTasksResponseBodyTodoCards {
+	s.DueTime = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCards) SetDetailUrl(v *QueryTodoTasksResponseBodyTodoCardsDetailUrl) *QueryTodoTasksResponseBodyTodoCards {
+	s.DetailUrl = v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCards) SetTodoCardView(v *QueryTodoTasksResponseBodyTodoCardsTodoCardView) *QueryTodoTasksResponseBodyTodoCards {
+	s.TodoCardView = v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCards) SetPriority(v int32) *QueryTodoTasksResponseBodyTodoCards {
+	s.Priority = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCards) SetCreatedTime(v int64) *QueryTodoTasksResponseBodyTodoCards {
+	s.CreatedTime = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCards) SetModifiedTime(v int64) *QueryTodoTasksResponseBodyTodoCards {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCards) SetTodoStatus(v string) *QueryTodoTasksResponseBodyTodoCards {
+	s.TodoStatus = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCards) SetCreatorId(v string) *QueryTodoTasksResponseBodyTodoCards {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCards) SetSourceId(v string) *QueryTodoTasksResponseBodyTodoCards {
+	s.SourceId = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCards) SetCategory(v string) *QueryTodoTasksResponseBodyTodoCards {
+	s.Category = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCards) SetBizTag(v string) *QueryTodoTasksResponseBodyTodoCards {
+	s.BizTag = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCards) SetOriginalSource(v *QueryTodoTasksResponseBodyTodoCardsOriginalSource) *QueryTodoTasksResponseBodyTodoCards {
+	s.OriginalSource = v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCards) SetIsDone(v bool) *QueryTodoTasksResponseBodyTodoCards {
+	s.IsDone = &v
+	return s
+}
+
+type QueryTodoTasksResponseBodyTodoCardsDetailUrl struct {
+	// 移动端url地址
+	AppUrl *string `json:"appUrl,omitempty" xml:"appUrl,omitempty"`
+	// pc端url地址
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+}
+
+func (s QueryTodoTasksResponseBodyTodoCardsDetailUrl) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTodoTasksResponseBodyTodoCardsDetailUrl) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCardsDetailUrl) SetAppUrl(v string) *QueryTodoTasksResponseBodyTodoCardsDetailUrl {
+	s.AppUrl = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCardsDetailUrl) SetPcUrl(v string) *QueryTodoTasksResponseBodyTodoCardsDetailUrl {
+	s.PcUrl = &v
+	return s
+}
+
+type QueryTodoTasksResponseBodyTodoCardsTodoCardView struct {
+	// 卡片类型
+	CardType *string `json:"cardType,omitempty" xml:"cardType,omitempty"`
+	// 卡片左上角 区域类型是 icon, 或者checkbox 类型的
+	CircleELType *string `json:"circleELType,omitempty" xml:"circleELType,omitempty"`
+	// icon, name ,内容区域类型是 icon+value, 或者name+value 类型的
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	// link, button, 操作区类型，是链接类型，或者按钮类型
+	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// 卡片icon
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 卡片标题
+	TodoCardTitle       *string                                                               `json:"todoCardTitle,omitempty" xml:"todoCardTitle,omitempty"`
+	TodoCardContentList []*QueryTodoTasksResponseBodyTodoCardsTodoCardViewTodoCardContentList `json:"todoCardContentList,omitempty" xml:"todoCardContentList,omitempty" type:"Repeated"`
+}
+
+func (s QueryTodoTasksResponseBodyTodoCardsTodoCardView) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTodoTasksResponseBodyTodoCardsTodoCardView) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCardsTodoCardView) SetCardType(v string) *QueryTodoTasksResponseBodyTodoCardsTodoCardView {
+	s.CardType = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCardsTodoCardView) SetCircleELType(v string) *QueryTodoTasksResponseBodyTodoCardsTodoCardView {
+	s.CircleELType = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCardsTodoCardView) SetContentType(v string) *QueryTodoTasksResponseBodyTodoCardsTodoCardView {
+	s.ContentType = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCardsTodoCardView) SetActionType(v string) *QueryTodoTasksResponseBodyTodoCardsTodoCardView {
+	s.ActionType = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCardsTodoCardView) SetIcon(v string) *QueryTodoTasksResponseBodyTodoCardsTodoCardView {
+	s.Icon = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCardsTodoCardView) SetTodoCardTitle(v string) *QueryTodoTasksResponseBodyTodoCardsTodoCardView {
+	s.TodoCardTitle = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCardsTodoCardView) SetTodoCardContentList(v []*QueryTodoTasksResponseBodyTodoCardsTodoCardViewTodoCardContentList) *QueryTodoTasksResponseBodyTodoCardsTodoCardView {
+	s.TodoCardContentList = v
+	return s
+}
+
+type QueryTodoTasksResponseBodyTodoCardsTodoCardViewTodoCardContentList struct {
+	// 自定义表单内容名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 自定义表单内容值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s QueryTodoTasksResponseBodyTodoCardsTodoCardViewTodoCardContentList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTodoTasksResponseBodyTodoCardsTodoCardViewTodoCardContentList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCardsTodoCardViewTodoCardContentList) SetName(v string) *QueryTodoTasksResponseBodyTodoCardsTodoCardViewTodoCardContentList {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCardsTodoCardViewTodoCardContentList) SetValue(v string) *QueryTodoTasksResponseBodyTodoCardsTodoCardViewTodoCardContentList {
+	s.Value = &v
+	return s
+}
+
+type QueryTodoTasksResponseBodyTodoCardsOriginalSource struct {
+	// 业务来源展示名称
+	SourceTitle *string `json:"sourceTitle,omitempty" xml:"sourceTitle,omitempty"`
+}
+
+func (s QueryTodoTasksResponseBodyTodoCardsOriginalSource) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTodoTasksResponseBodyTodoCardsOriginalSource) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCardsOriginalSource) SetSourceTitle(v string) *QueryTodoTasksResponseBodyTodoCardsOriginalSource {
+	s.SourceTitle = &v
+	return s
+}
+
+type QueryTodoTasksResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryTodoTasksResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryTodoTasksResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTodoTasksResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTodoTasksResponse) SetHeaders(v map[string]*string) *QueryTodoTasksResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryTodoTasksResponse) SetBody(v *QueryTodoTasksResponseBody) *QueryTodoTasksResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateTodoTypeConfigHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -507,6 +902,12 @@ type GetTodoTaskResponseBody struct {
 	CardTypeId *string `json:"cardTypeId,omitempty" xml:"cardTypeId,omitempty"`
 	// 内容区表单字段配置
 	ContentFieldList []*GetTodoTaskResponseBodyContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
+	// 待办是否仅展示在执行人的待办列表中
+	IsOnlyShowExecutor *bool `json:"isOnlyShowExecutor,omitempty" xml:"isOnlyShowExecutor,omitempty"`
+	// 优先级, 较低:10, 普通:20, 紧急:30, 非常紧急:40
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 业务来源展示名称
+	SourceTitle *string `json:"sourceTitle,omitempty" xml:"sourceTitle,omitempty"`
 }
 
 func (s GetTodoTaskResponseBody) String() string {
@@ -624,6 +1025,21 @@ func (s *GetTodoTaskResponseBody) SetCardTypeId(v string) *GetTodoTaskResponseBo
 
 func (s *GetTodoTaskResponseBody) SetContentFieldList(v []*GetTodoTaskResponseBodyContentFieldList) *GetTodoTaskResponseBody {
 	s.ContentFieldList = v
+	return s
+}
+
+func (s *GetTodoTaskResponseBody) SetIsOnlyShowExecutor(v bool) *GetTodoTaskResponseBody {
+	s.IsOnlyShowExecutor = &v
+	return s
+}
+
+func (s *GetTodoTaskResponseBody) SetPriority(v int32) *GetTodoTaskResponseBody {
+	s.Priority = &v
+	return s
+}
+
+func (s *GetTodoTaskResponseBody) SetSourceTitle(v string) *GetTodoTaskResponseBody {
+	s.SourceTitle = &v
 	return s
 }
 
@@ -785,6 +1201,120 @@ func (s *DeleteTodoTaskResponse) SetHeaders(v map[string]*string) *DeleteTodoTas
 }
 
 func (s *DeleteTodoTaskResponse) SetBody(v *DeleteTodoTaskResponseBody) *DeleteTodoTaskResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateTodoTaskExecutorStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateTodoTaskExecutorStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTodoTaskExecutorStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTodoTaskExecutorStatusHeaders) SetCommonHeaders(v map[string]*string) *UpdateTodoTaskExecutorStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateTodoTaskExecutorStatusHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTodoTaskExecutorStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateTodoTaskExecutorStatusRequest struct {
+	// 执行者状态列表，id需传用户的unionId
+	ExecutorStatusList []*UpdateTodoTaskExecutorStatusRequestExecutorStatusList `json:"executorStatusList,omitempty" xml:"executorStatusList,omitempty" type:"Repeated"`
+	// 当前操作者id，需传用户的unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s UpdateTodoTaskExecutorStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTodoTaskExecutorStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTodoTaskExecutorStatusRequest) SetExecutorStatusList(v []*UpdateTodoTaskExecutorStatusRequestExecutorStatusList) *UpdateTodoTaskExecutorStatusRequest {
+	s.ExecutorStatusList = v
+	return s
+}
+
+func (s *UpdateTodoTaskExecutorStatusRequest) SetOperatorId(v string) *UpdateTodoTaskExecutorStatusRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type UpdateTodoTaskExecutorStatusRequestExecutorStatusList struct {
+	// 执行者id，需传用户的unionId
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 执行者完成状态
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+}
+
+func (s UpdateTodoTaskExecutorStatusRequestExecutorStatusList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTodoTaskExecutorStatusRequestExecutorStatusList) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTodoTaskExecutorStatusRequestExecutorStatusList) SetId(v string) *UpdateTodoTaskExecutorStatusRequestExecutorStatusList {
+	s.Id = &v
+	return s
+}
+
+func (s *UpdateTodoTaskExecutorStatusRequestExecutorStatusList) SetIsDone(v bool) *UpdateTodoTaskExecutorStatusRequestExecutorStatusList {
+	s.IsDone = &v
+	return s
+}
+
+type UpdateTodoTaskExecutorStatusResponseBody struct {
+	// 更新结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateTodoTaskExecutorStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTodoTaskExecutorStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTodoTaskExecutorStatusResponseBody) SetResult(v bool) *UpdateTodoTaskExecutorStatusResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateTodoTaskExecutorStatusResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateTodoTaskExecutorStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateTodoTaskExecutorStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTodoTaskExecutorStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTodoTaskExecutorStatusResponse) SetHeaders(v map[string]*string) *UpdateTodoTaskExecutorStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateTodoTaskExecutorStatusResponse) SetBody(v *UpdateTodoTaskExecutorStatusResponseBody) *UpdateTodoTaskExecutorStatusResponse {
 	s.Body = v
 	return s
 }
@@ -1153,6 +1683,123 @@ func (s *CreateTodoTypeConfigResponse) SetBody(v *CreateTodoTypeConfigResponseBo
 	return s
 }
 
+type CountTodoTasksHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CountTodoTasksHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CountTodoTasksHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CountTodoTasksHeaders) SetCommonHeaders(v map[string]*string) *CountTodoTasksHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CountTodoTasksHeaders) SetXAcsDingtalkAccessToken(v string) *CountTodoTasksHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CountTodoTasksRequest struct {
+	// 待办完成状态。
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// 查询目标用户角色类型，执行人 | 创建人 | 参与人，可以同时传多个值。如：[["executor"], ["creator"],["participant"]] 或 [["executor", "creator"]]
+	RoleTypes [][]*string `json:"roleTypes,omitempty" xml:"roleTypes,omitempty" type:"Repeated"`
+	// 查询从计划完成时间开始
+	FromDueTime *int64 `json:"fromDueTime,omitempty" xml:"fromDueTime,omitempty"`
+	// 查询到计划完成时间结束
+	ToDueTime *int64 `json:"toDueTime,omitempty" xml:"toDueTime,omitempty"`
+	// 所属分类
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// 待办回收状态
+	IsRecycled *bool `json:"isRecycled,omitempty" xml:"isRecycled,omitempty"`
+}
+
+func (s CountTodoTasksRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CountTodoTasksRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CountTodoTasksRequest) SetIsDone(v bool) *CountTodoTasksRequest {
+	s.IsDone = &v
+	return s
+}
+
+func (s *CountTodoTasksRequest) SetRoleTypes(v [][]*string) *CountTodoTasksRequest {
+	s.RoleTypes = v
+	return s
+}
+
+func (s *CountTodoTasksRequest) SetFromDueTime(v int64) *CountTodoTasksRequest {
+	s.FromDueTime = &v
+	return s
+}
+
+func (s *CountTodoTasksRequest) SetToDueTime(v int64) *CountTodoTasksRequest {
+	s.ToDueTime = &v
+	return s
+}
+
+func (s *CountTodoTasksRequest) SetCategory(v string) *CountTodoTasksRequest {
+	s.Category = &v
+	return s
+}
+
+func (s *CountTodoTasksRequest) SetIsRecycled(v bool) *CountTodoTasksRequest {
+	s.IsRecycled = &v
+	return s
+}
+
+type CountTodoTasksResponseBody struct {
+	// 待办数量
+	Result *int32 `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CountTodoTasksResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CountTodoTasksResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CountTodoTasksResponseBody) SetResult(v int32) *CountTodoTasksResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CountTodoTasksResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CountTodoTasksResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CountTodoTasksResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CountTodoTasksResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CountTodoTasksResponse) SetHeaders(v map[string]*string) *CountTodoTasksResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CountTodoTasksResponse) SetBody(v *CountTodoTasksResponseBody) *CountTodoTasksResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateTodoTaskHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1193,6 +1840,10 @@ type UpdateTodoTaskRequest struct {
 	CardTypeId *string `json:"cardTypeId,omitempty" xml:"cardTypeId,omitempty"`
 	// 内容区表单字段配置
 	ContentFieldList []*UpdateTodoTaskRequestContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
+	// 优先级, 较低:10, 普通:20, 紧急:30, 非常紧急:40
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 业务来源展示名称
+	SourceTitle *string `json:"sourceTitle,omitempty" xml:"sourceTitle,omitempty"`
 	// 当前操作者id，需传用户的unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
@@ -1242,6 +1893,16 @@ func (s *UpdateTodoTaskRequest) SetCardTypeId(v string) *UpdateTodoTaskRequest {
 
 func (s *UpdateTodoTaskRequest) SetContentFieldList(v []*UpdateTodoTaskRequestContentFieldList) *UpdateTodoTaskRequest {
 	s.ContentFieldList = v
+	return s
+}
+
+func (s *UpdateTodoTaskRequest) SetPriority(v int32) *UpdateTodoTaskRequest {
+	s.Priority = &v
+	return s
+}
+
+func (s *UpdateTodoTaskRequest) SetSourceTitle(v string) *UpdateTodoTaskRequest {
+	s.SourceTitle = &v
 	return s
 }
 
@@ -1360,6 +2021,12 @@ type CreateTodoTaskRequest struct {
 	CardTypeId *string `json:"cardTypeId,omitempty" xml:"cardTypeId,omitempty"`
 	// 待办卡片内容区表单自定义字段列表
 	ContentFieldList []*CreateTodoTaskRequestContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
+	// 生成的待办是否仅展示在执行者的待办列表中
+	IsOnlyShowExecutor *bool `json:"isOnlyShowExecutor,omitempty" xml:"isOnlyShowExecutor,omitempty"`
+	// 优先级
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 业务来源展示名称
+	SourceTitle *string `json:"sourceTitle,omitempty" xml:"sourceTitle,omitempty"`
 	// 当前操作者id，需传用户的unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
@@ -1422,6 +2089,21 @@ func (s *CreateTodoTaskRequest) SetContentFieldList(v []*CreateTodoTaskRequestCo
 	return s
 }
 
+func (s *CreateTodoTaskRequest) SetIsOnlyShowExecutor(v bool) *CreateTodoTaskRequest {
+	s.IsOnlyShowExecutor = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequest) SetPriority(v int32) *CreateTodoTaskRequest {
+	s.Priority = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequest) SetSourceTitle(v string) *CreateTodoTaskRequest {
+	s.SourceTitle = &v
+	return s
+}
+
 func (s *CreateTodoTaskRequest) SetOperatorId(v string) *CreateTodoTaskRequest {
 	s.OperatorId = &v
 	return s
@@ -1457,8 +2139,6 @@ type CreateTodoTaskRequestContentFieldList struct {
 	FieldKey *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
 	// 字段值
 	FieldValue *string `json:"fieldValue,omitempty" xml:"fieldValue,omitempty"`
-	// 字段内容链接
-	FieldLink *string `json:"fieldLink,omitempty" xml:"fieldLink,omitempty"`
 }
 
 func (s CreateTodoTaskRequestContentFieldList) String() string {
@@ -1476,11 +2156,6 @@ func (s *CreateTodoTaskRequestContentFieldList) SetFieldKey(v string) *CreateTod
 
 func (s *CreateTodoTaskRequestContentFieldList) SetFieldValue(v string) *CreateTodoTaskRequestContentFieldList {
 	s.FieldValue = &v
-	return s
-}
-
-func (s *CreateTodoTaskRequestContentFieldList) SetFieldLink(v string) *CreateTodoTaskRequestContentFieldList {
-	s.FieldLink = &v
 	return s
 }
 
@@ -1517,10 +2192,6 @@ type CreateTodoTaskResponseBody struct {
 	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
 	// 更新者（用户的unionId）
 	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	// 租户id(unionId/orgId/groupId)
-	TenantId *string `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
-	// 租户类型（user/org/group）
-	TenantType *string `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
 	// 接入应用标识
 	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
 	// requestId
@@ -1529,6 +2200,12 @@ type CreateTodoTaskResponseBody struct {
 	CardTypeId *string `json:"cardTypeId,omitempty" xml:"cardTypeId,omitempty"`
 	// 内容区表单字段配置
 	ContentFieldList []*CreateTodoTaskResponseBodyContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
+	// 生成的待办是否仅展示在执行者的待办列表中
+	IsOnlyShowExecutor *bool `json:"isOnlyShowExecutor,omitempty" xml:"isOnlyShowExecutor,omitempty"`
+	// 优先级, 较低:10, 普通:20, 紧急:30, 非常紧急:40
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 业务来源展示名称
+	SourceTitle *string `json:"sourceTitle,omitempty" xml:"sourceTitle,omitempty"`
 }
 
 func (s CreateTodoTaskResponseBody) String() string {
@@ -1619,16 +2296,6 @@ func (s *CreateTodoTaskResponseBody) SetModifierId(v string) *CreateTodoTaskResp
 	return s
 }
 
-func (s *CreateTodoTaskResponseBody) SetTenantId(v string) *CreateTodoTaskResponseBody {
-	s.TenantId = &v
-	return s
-}
-
-func (s *CreateTodoTaskResponseBody) SetTenantType(v string) *CreateTodoTaskResponseBody {
-	s.TenantType = &v
-	return s
-}
-
 func (s *CreateTodoTaskResponseBody) SetBizTag(v string) *CreateTodoTaskResponseBody {
 	s.BizTag = &v
 	return s
@@ -1646,6 +2313,21 @@ func (s *CreateTodoTaskResponseBody) SetCardTypeId(v string) *CreateTodoTaskResp
 
 func (s *CreateTodoTaskResponseBody) SetContentFieldList(v []*CreateTodoTaskResponseBodyContentFieldList) *CreateTodoTaskResponseBody {
 	s.ContentFieldList = v
+	return s
+}
+
+func (s *CreateTodoTaskResponseBody) SetIsOnlyShowExecutor(v bool) *CreateTodoTaskResponseBody {
+	s.IsOnlyShowExecutor = &v
+	return s
+}
+
+func (s *CreateTodoTaskResponseBody) SetPriority(v int32) *CreateTodoTaskResponseBody {
+	s.Priority = &v
+	return s
+}
+
+func (s *CreateTodoTaskResponseBody) SetSourceTitle(v string) *CreateTodoTaskResponseBody {
+	s.SourceTitle = &v
 	return s
 }
 
@@ -1772,6 +2454,82 @@ func (client *Client) GetTodoTypeConfigWithOptions(unionId *string, cardTypeId *
 	}
 	_result = &GetTodoTypeConfigResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetTodoTypeConfig"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/configs/types/"+tea.StringValue(cardTypeId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryTodoTasks(unionId *string, request *QueryTodoTasksRequest) (_result *QueryTodoTasksResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryTodoTasksHeaders{}
+	_result = &QueryTodoTasksResponse{}
+	_body, _err := client.QueryTodoTasksWithOptions(unionId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryTodoTasksWithOptions(unionId *string, request *QueryTodoTasksRequest, headers *QueryTodoTasksHeaders, runtime *util.RuntimeOptions) (_result *QueryTodoTasksResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderBy)) {
+		body["orderBy"] = request.OrderBy
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderDirection)) {
+		body["orderDirection"] = request.OrderDirection
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsDone)) {
+		body["isDone"] = request.IsDone
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleTypes)) {
+		body["roleTypes"] = request.RoleTypes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FromDueTime)) {
+		body["fromDueTime"] = request.FromDueTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToDueTime)) {
+		body["toDueTime"] = request.ToDueTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Category)) {
+		body["category"] = request.Category
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsRecycled)) {
+		body["isRecycled"] = request.IsRecycled
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryTodoTasksResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryTodoTasks"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/tasks/list"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1927,6 +2685,56 @@ func (client *Client) DeleteTodoTaskWithOptions(unionId *string, taskId *string,
 	return _result, _err
 }
 
+func (client *Client) UpdateTodoTaskExecutorStatus(unionId *string, taskId *string, request *UpdateTodoTaskExecutorStatusRequest) (_result *UpdateTodoTaskExecutorStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTodoTaskExecutorStatusHeaders{}
+	_result = &UpdateTodoTaskExecutorStatusResponse{}
+	_body, _err := client.UpdateTodoTaskExecutorStatusWithOptions(unionId, taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateTodoTaskExecutorStatusWithOptions(unionId *string, taskId *string, request *UpdateTodoTaskExecutorStatusRequest, headers *UpdateTodoTaskExecutorStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateTodoTaskExecutorStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ExecutorStatusList)) {
+		body["executorStatusList"] = request.ExecutorStatusList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateTodoTaskExecutorStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateTodoTaskExecutorStatus"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/tasks/"+tea.StringValue(taskId)+"/executorStatus"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateTodoTypeConfig(unionId *string, request *CreateTodoTypeConfigRequest) (_result *CreateTodoTypeConfigResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateTodoTypeConfigHeaders{}
@@ -1997,6 +2805,70 @@ func (client *Client) CreateTodoTypeConfigWithOptions(unionId *string, request *
 	return _result, _err
 }
 
+func (client *Client) CountTodoTasks(unionId *string, request *CountTodoTasksRequest) (_result *CountTodoTasksResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CountTodoTasksHeaders{}
+	_result = &CountTodoTasksResponse{}
+	_body, _err := client.CountTodoTasksWithOptions(unionId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CountTodoTasksWithOptions(unionId *string, request *CountTodoTasksRequest, headers *CountTodoTasksHeaders, runtime *util.RuntimeOptions) (_result *CountTodoTasksResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IsDone)) {
+		body["isDone"] = request.IsDone
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleTypes)) {
+		body["roleTypes"] = request.RoleTypes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FromDueTime)) {
+		body["fromDueTime"] = request.FromDueTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToDueTime)) {
+		body["toDueTime"] = request.ToDueTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Category)) {
+		body["category"] = request.Category
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsRecycled)) {
+		body["isRecycled"] = request.IsRecycled
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CountTodoTasksResponse{}
+	_body, _err := client.DoROARequest(tea.String("CountTodoTasks"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/tasks/count"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) UpdateTodoTask(unionId *string, taskId *string, request *UpdateTodoTaskRequest) (_result *UpdateTodoTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateTodoTaskHeaders{}
@@ -2050,6 +2922,14 @@ func (client *Client) UpdateTodoTaskWithOptions(unionId *string, taskId *string,
 
 	if !tea.BoolValue(util.IsUnset(request.ContentFieldList)) {
 		body["contentFieldList"] = request.ContentFieldList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Priority)) {
+		body["priority"] = request.Priority
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceTitle)) {
+		body["sourceTitle"] = request.SourceTitle
 	}
 
 	realHeaders := make(map[string]*string)
@@ -2136,6 +3016,18 @@ func (client *Client) CreateTodoTaskWithOptions(unionId *string, request *Create
 
 	if !tea.BoolValue(util.IsUnset(request.ContentFieldList)) {
 		body["contentFieldList"] = request.ContentFieldList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsOnlyShowExecutor)) {
+		body["isOnlyShowExecutor"] = request.IsOnlyShowExecutor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Priority)) {
+		body["priority"] = request.Priority
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceTitle)) {
+		body["sourceTitle"] = request.SourceTitle
 	}
 
 	realHeaders := make(map[string]*string)
