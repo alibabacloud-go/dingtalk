@@ -47,6 +47,8 @@ type PullDataByPageRequest struct {
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 单次获取的最大记录条数，最大限制100条。
 	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 同步数据的应用id，isv应用传isv应用id，企业自建应用传agentId。
+	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
 }
 
 func (s PullDataByPageRequest) String() string {
@@ -84,6 +86,11 @@ func (s *PullDataByPageRequest) SetNextToken(v string) *PullDataByPageRequest {
 
 func (s *PullDataByPageRequest) SetMaxResults(v int64) *PullDataByPageRequest {
 	s.MaxResults = &v
+	return s
+}
+
+func (s *PullDataByPageRequest) SetAppId(v string) *PullDataByPageRequest {
+	s.AppId = &v
 	return s
 }
 
@@ -228,6 +235,8 @@ func (s *PullDataByPkHeaders) SetXAcsDingtalkAccessToken(v string) *PullDataByPk
 type PullDataByPkRequest struct {
 	// 数据的主键字段值。
 	PrimaryKey *string `json:"primaryKey,omitempty" xml:"primaryKey,omitempty"`
+	// 同步数据的应用id，isv应用传isv应用id，企业自建应用传agentId。
+	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
 }
 
 func (s PullDataByPkRequest) String() string {
@@ -240,6 +249,11 @@ func (s PullDataByPkRequest) GoString() string {
 
 func (s *PullDataByPkRequest) SetPrimaryKey(v string) *PullDataByPkRequest {
 	s.PrimaryKey = &v
+	return s
+}
+
+func (s *PullDataByPkRequest) SetAppId(v string) *PullDataByPkRequest {
+	s.AppId = &v
 	return s
 }
 
@@ -351,6 +365,8 @@ func (s *SyncDataHeaders) SetXAcsDingtalkAccessToken(v string) *SyncDataHeaders 
 
 type SyncDataRequest struct {
 	TriggerDataList []*SyncDataRequestTriggerDataList `json:"triggerDataList,omitempty" xml:"triggerDataList,omitempty" type:"Repeated"`
+	// 同步数据的应用id，isv应用传isv应用id，企业自建应用传agentId。
+	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
 }
 
 func (s SyncDataRequest) String() string {
@@ -363,6 +379,11 @@ func (s SyncDataRequest) GoString() string {
 
 func (s *SyncDataRequest) SetTriggerDataList(v []*SyncDataRequestTriggerDataList) *SyncDataRequest {
 	s.TriggerDataList = v
+	return s
+}
+
+func (s *SyncDataRequest) SetAppId(v string) *SyncDataRequest {
+	s.AppId = &v
 	return s
 }
 
@@ -560,6 +581,10 @@ func (client *Client) PullDataByPageWithOptions(request *PullDataByPageRequest, 
 		query["maxResults"] = request.MaxResults
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		query["appId"] = request.AppId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -604,6 +629,10 @@ func (client *Client) PullDataByPkWithOptions(dataModelId *string, request *Pull
 		query["primaryKey"] = request.PrimaryKey
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		query["appId"] = request.AppId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -646,6 +675,10 @@ func (client *Client) SyncDataWithOptions(request *SyncDataRequest, headers *Syn
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.TriggerDataList)) {
 		body["triggerDataList"] = request.TriggerDataList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		body["appId"] = request.AppId
 	}
 
 	realHeaders := make(map[string]*string)
