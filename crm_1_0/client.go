@@ -2903,6 +2903,251 @@ func (s *ListCrmPersonalCustomersResponse) SetBody(v *ListCrmPersonalCustomersRe
 	return s
 }
 
+type CreateCustomerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateCustomerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomerHeaders) SetCommonHeaders(v map[string]*string) *CreateCustomerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCustomerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateCustomerRequest struct {
+	// 写入客户类型：个人客户crm_customer_personal; 企业客户crm_customer
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	// 已存在客户时，添加联系人，可以传入客户的instanceId用作关联绑定
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// 创建人的userId
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// 客户实例数据（表单数据）
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	// 客户实例扩展数据
+	ExtendData map[string]interface{} `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	// 关联联系人数据
+	Contacts []*CreateCustomerRequestContacts `json:"contacts,omitempty" xml:"contacts,omitempty" type:"Repeated"`
+	// 权限
+	Permission *CreateCustomerRequestPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	// 保存配置项
+	SaveOption *CreateCustomerRequestSaveOption `json:"saveOption,omitempty" xml:"saveOption,omitempty" type:"Struct"`
+}
+
+func (s CreateCustomerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomerRequest) SetObjectType(v string) *CreateCustomerRequest {
+	s.ObjectType = &v
+	return s
+}
+
+func (s *CreateCustomerRequest) SetInstanceId(v string) *CreateCustomerRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *CreateCustomerRequest) SetCreatorUserId(v string) *CreateCustomerRequest {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *CreateCustomerRequest) SetData(v map[string]interface{}) *CreateCustomerRequest {
+	s.Data = v
+	return s
+}
+
+func (s *CreateCustomerRequest) SetExtendData(v map[string]interface{}) *CreateCustomerRequest {
+	s.ExtendData = v
+	return s
+}
+
+func (s *CreateCustomerRequest) SetContacts(v []*CreateCustomerRequestContacts) *CreateCustomerRequest {
+	s.Contacts = v
+	return s
+}
+
+func (s *CreateCustomerRequest) SetPermission(v *CreateCustomerRequestPermission) *CreateCustomerRequest {
+	s.Permission = v
+	return s
+}
+
+func (s *CreateCustomerRequest) SetSaveOption(v *CreateCustomerRequestSaveOption) *CreateCustomerRequest {
+	s.SaveOption = v
+	return s
+}
+
+type CreateCustomerRequestContacts struct {
+	// 联系人表单数据
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	// 联系人扩展数据
+	ExtendData map[string]interface{} `json:"extendData,omitempty" xml:"extendData,omitempty"`
+}
+
+func (s CreateCustomerRequestContacts) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomerRequestContacts) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomerRequestContacts) SetData(v map[string]interface{}) *CreateCustomerRequestContacts {
+	s.Data = v
+	return s
+}
+
+func (s *CreateCustomerRequestContacts) SetExtendData(v map[string]interface{}) *CreateCustomerRequestContacts {
+	s.ExtendData = v
+	return s
+}
+
+type CreateCustomerRequestPermission struct {
+	// 负责人
+	OwnerStaffIds []*string `json:"ownerStaffIds,omitempty" xml:"ownerStaffIds,omitempty" type:"Repeated"`
+	// 协同人
+	ParticipantStaffIds []*string `json:"participantStaffIds,omitempty" xml:"participantStaffIds,omitempty" type:"Repeated"`
+}
+
+func (s CreateCustomerRequestPermission) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomerRequestPermission) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomerRequestPermission) SetOwnerStaffIds(v []*string) *CreateCustomerRequestPermission {
+	s.OwnerStaffIds = v
+	return s
+}
+
+func (s *CreateCustomerRequestPermission) SetParticipantStaffIds(v []*string) *CreateCustomerRequestPermission {
+	s.ParticipantStaffIds = v
+	return s
+}
+
+type CreateCustomerRequestSaveOption struct {
+	// 关注配置：0 不处理， 1 自动关注（需要单独申请白名单）
+	SubscribePolicy *int64 `json:"subscribePolicy,omitempty" xml:"subscribePolicy,omitempty"`
+	// 保存联系人失败时是否阻断
+	ThrowExceptionWhileSavingContactFailed *bool `json:"throwExceptionWhileSavingContactFailed,omitempty" xml:"throwExceptionWhileSavingContactFailed,omitempty"`
+	// 客户已存在时的处理策略：APPEND_CONTACT_FORCE 直接追加联系人； REJECT 返回失败
+	CustomerExistedPolicy *string `json:"customerExistedPolicy,omitempty" xml:"customerExistedPolicy,omitempty"`
+}
+
+func (s CreateCustomerRequestSaveOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomerRequestSaveOption) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomerRequestSaveOption) SetSubscribePolicy(v int64) *CreateCustomerRequestSaveOption {
+	s.SubscribePolicy = &v
+	return s
+}
+
+func (s *CreateCustomerRequestSaveOption) SetThrowExceptionWhileSavingContactFailed(v bool) *CreateCustomerRequestSaveOption {
+	s.ThrowExceptionWhileSavingContactFailed = &v
+	return s
+}
+
+func (s *CreateCustomerRequestSaveOption) SetCustomerExistedPolicy(v string) *CreateCustomerRequestSaveOption {
+	s.CustomerExistedPolicy = &v
+	return s
+}
+
+type CreateCustomerResponseBody struct {
+	// 客户实例id
+	CustomerInstanceId *string `json:"customerInstanceId,omitempty" xml:"customerInstanceId,omitempty"`
+	// 保存客户类型
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	// 联系人保存结果
+	Contacts []*CreateCustomerResponseBodyContacts `json:"contacts,omitempty" xml:"contacts,omitempty" type:"Repeated"`
+}
+
+func (s CreateCustomerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomerResponseBody) SetCustomerInstanceId(v string) *CreateCustomerResponseBody {
+	s.CustomerInstanceId = &v
+	return s
+}
+
+func (s *CreateCustomerResponseBody) SetObjectType(v string) *CreateCustomerResponseBody {
+	s.ObjectType = &v
+	return s
+}
+
+func (s *CreateCustomerResponseBody) SetContacts(v []*CreateCustomerResponseBodyContacts) *CreateCustomerResponseBody {
+	s.Contacts = v
+	return s
+}
+
+type CreateCustomerResponseBodyContacts struct {
+	// 联系人实例id
+	ContactInstanceId *string `json:"contactInstanceId,omitempty" xml:"contactInstanceId,omitempty"`
+}
+
+func (s CreateCustomerResponseBodyContacts) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomerResponseBodyContacts) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomerResponseBodyContacts) SetContactInstanceId(v string) *CreateCustomerResponseBodyContacts {
+	s.ContactInstanceId = &v
+	return s
+}
+
+type CreateCustomerResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateCustomerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomerResponse) SetHeaders(v map[string]*string) *CreateCustomerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateCustomerResponse) SetBody(v *CreateCustomerResponseBody) *CreateCustomerResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -3620,6 +3865,78 @@ func (client *Client) ListCrmPersonalCustomersWithOptions(request *ListCrmPerson
 	}
 	_result = &ListCrmPersonalCustomersResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListCrmPersonalCustomers"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/personalCustomers/batchQuery"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateCustomer(request *CreateCustomerRequest) (_result *CreateCustomerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateCustomerHeaders{}
+	_result = &CreateCustomerResponse{}
+	_body, _err := client.CreateCustomerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateCustomerWithOptions(request *CreateCustomerRequest, headers *CreateCustomerHeaders, runtime *util.RuntimeOptions) (_result *CreateCustomerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ObjectType)) {
+		body["objectType"] = request.ObjectType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		body["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreatorUserId)) {
+		body["creatorUserId"] = request.CreatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Data)) {
+		body["data"] = request.Data
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtendData)) {
+		body["extendData"] = request.ExtendData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Contacts)) {
+		body["contacts"] = request.Contacts
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Permission))) {
+		body["permission"] = request.Permission
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SaveOption))) {
+		body["saveOption"] = request.SaveOption
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateCustomerResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/customers"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
