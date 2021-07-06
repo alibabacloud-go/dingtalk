@@ -708,7 +708,9 @@ type BatchSendOfficialAccountOTOMessageRequest struct {
 	// 消息详情
 	Detail *BatchSendOfficialAccountOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
 	// 服务窗授权的调用方标识，可空
-	BizId              *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// 服务窗帐号ID
+	AccountId          *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
 	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
 	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
 	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
@@ -730,6 +732,11 @@ func (s *BatchSendOfficialAccountOTOMessageRequest) SetDetail(v *BatchSendOffici
 
 func (s *BatchSendOfficialAccountOTOMessageRequest) SetBizId(v string) *BatchSendOfficialAccountOTOMessageRequest {
 	s.BizId = &v
+	return s
+}
+
+func (s *BatchSendOfficialAccountOTOMessageRequest) SetAccountId(v string) *BatchSendOfficialAccountOTOMessageRequest {
+	s.AccountId = &v
 	return s
 }
 
@@ -1486,6 +1493,8 @@ type SendOfficialAccountOTOMessageRequest struct {
 	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
 	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
 	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	// 服务窗帐号ID
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
 }
 
 func (s SendOfficialAccountOTOMessageRequest) String() string {
@@ -1523,6 +1532,11 @@ func (s *SendOfficialAccountOTOMessageRequest) SetDingOrgId(v int64) *SendOffici
 
 func (s *SendOfficialAccountOTOMessageRequest) SetDingSuiteKey(v string) *SendOfficialAccountOTOMessageRequest {
 	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequest) SetAccountId(v string) *SendOfficialAccountOTOMessageRequest {
+	s.AccountId = &v
 	return s
 }
 
@@ -3357,6 +3371,10 @@ func (client *Client) BatchSendOfficialAccountOTOMessageWithOptions(request *Bat
 		body["bizId"] = request.BizId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.AccountId)) {
+		body["accountId"] = request.AccountId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
 		body["dingIsvOrgId"] = request.DingIsvOrgId
 	}
@@ -3545,6 +3563,10 @@ func (client *Client) SendOfficialAccountOTOMessageWithOptions(request *SendOffi
 
 	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
 		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccountId)) {
+		body["accountId"] = request.AccountId
 	}
 
 	realHeaders := make(map[string]*string)

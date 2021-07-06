@@ -128,6 +128,141 @@ func (s *BatchSendOTOResponse) SetBody(v *BatchSendOTOResponseBody) *BatchSendOT
 	return s
 }
 
+type BatchOTOQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchOTOQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchOTOQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchOTOQueryHeaders) SetCommonHeaders(v map[string]*string) *BatchOTOQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchOTOQueryHeaders) SetXAcsDingtalkAccessToken(v string) *BatchOTOQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchOTOQueryRequest struct {
+	// 机器人robotCode
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// 消息已读查询标志
+	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
+}
+
+func (s BatchOTOQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchOTOQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchOTOQueryRequest) SetRobotCode(v string) *BatchOTOQueryRequest {
+	s.RobotCode = &v
+	return s
+}
+
+func (s *BatchOTOQueryRequest) SetProcessQueryKey(v string) *BatchOTOQueryRequest {
+	s.ProcessQueryKey = &v
+	return s
+}
+
+type BatchOTOQueryResponseBody struct {
+	// 消息发送状态
+	SendStatus *string `json:"sendStatus,omitempty" xml:"sendStatus,omitempty"`
+	// 消息已读情况
+	MessageReadInfoList []*BatchOTOQueryResponseBodyMessageReadInfoList `json:"messageReadInfoList,omitempty" xml:"messageReadInfoList,omitempty" type:"Repeated"`
+}
+
+func (s BatchOTOQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchOTOQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchOTOQueryResponseBody) SetSendStatus(v string) *BatchOTOQueryResponseBody {
+	s.SendStatus = &v
+	return s
+}
+
+func (s *BatchOTOQueryResponseBody) SetMessageReadInfoList(v []*BatchOTOQueryResponseBodyMessageReadInfoList) *BatchOTOQueryResponseBody {
+	s.MessageReadInfoList = v
+	return s
+}
+
+type BatchOTOQueryResponseBodyMessageReadInfoList struct {
+	// 姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 工号
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 已读状态
+	ReadStatus *string `json:"readStatus,omitempty" xml:"readStatus,omitempty"`
+	// 已读时间
+	ReadTimestamp *int64 `json:"readTimestamp,omitempty" xml:"readTimestamp,omitempty"`
+}
+
+func (s BatchOTOQueryResponseBodyMessageReadInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchOTOQueryResponseBodyMessageReadInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchOTOQueryResponseBodyMessageReadInfoList) SetName(v string) *BatchOTOQueryResponseBodyMessageReadInfoList {
+	s.Name = &v
+	return s
+}
+
+func (s *BatchOTOQueryResponseBodyMessageReadInfoList) SetUserId(v string) *BatchOTOQueryResponseBodyMessageReadInfoList {
+	s.UserId = &v
+	return s
+}
+
+func (s *BatchOTOQueryResponseBodyMessageReadInfoList) SetReadStatus(v string) *BatchOTOQueryResponseBodyMessageReadInfoList {
+	s.ReadStatus = &v
+	return s
+}
+
+func (s *BatchOTOQueryResponseBodyMessageReadInfoList) SetReadTimestamp(v int64) *BatchOTOQueryResponseBodyMessageReadInfoList {
+	s.ReadTimestamp = &v
+	return s
+}
+
+type BatchOTOQueryResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchOTOQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchOTOQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchOTOQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchOTOQueryResponse) SetHeaders(v map[string]*string) *BatchOTOQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchOTOQueryResponse) SetBody(v *BatchOTOQueryResponseBody) *BatchOTOQueryResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -200,6 +335,54 @@ func (client *Client) BatchSendOTOWithOptions(request *BatchSendOTORequest, head
 	}
 	_result = &BatchSendOTOResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchSendOTO"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/oToMessages/batchSend"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchOTOQuery(request *BatchOTOQueryRequest) (_result *BatchOTOQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchOTOQueryHeaders{}
+	_result = &BatchOTOQueryResponse{}
+	_body, _err := client.BatchOTOQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchOTOQueryWithOptions(request *BatchOTOQueryRequest, headers *BatchOTOQueryHeaders, runtime *util.RuntimeOptions) (_result *BatchOTOQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		query["robotCode"] = request.RobotCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessQueryKey)) {
+		query["processQueryKey"] = request.ProcessQueryKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &BatchOTOQueryResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchOTOQuery"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/robot/oToMessages/readStatus"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
