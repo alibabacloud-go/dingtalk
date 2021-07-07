@@ -931,6 +931,108 @@ func (s *GetScheduleResponse) SetBody(v *GetScheduleResponseBody) *GetScheduleRe
 	return s
 }
 
+type ConvertLegacyEventIdHeaders struct {
+	CommonHeaders map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	// 授权本次调用的企业id，该字段有值时认为本次调用已被授权访问该企业下的所有数据
+	DingOrgId *string `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	// 授权本次调用的用户id，该字段有值时认为本次调用已被授权访问该用户可以访问的所有数据
+	DingUid *string `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
+	// 授权类型
+	DingAccessTokenType     *string `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
+	XAcsDingtalkAccessToken *string `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ConvertLegacyEventIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConvertLegacyEventIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ConvertLegacyEventIdHeaders) SetCommonHeaders(v map[string]*string) *ConvertLegacyEventIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ConvertLegacyEventIdHeaders) SetDingOrgId(v string) *ConvertLegacyEventIdHeaders {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *ConvertLegacyEventIdHeaders) SetDingUid(v string) *ConvertLegacyEventIdHeaders {
+	s.DingUid = &v
+	return s
+}
+
+func (s *ConvertLegacyEventIdHeaders) SetDingAccessTokenType(v string) *ConvertLegacyEventIdHeaders {
+	s.DingAccessTokenType = &v
+	return s
+}
+
+func (s *ConvertLegacyEventIdHeaders) SetXAcsDingtalkAccessToken(v string) *ConvertLegacyEventIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ConvertLegacyEventIdRequest struct {
+	LegacyEventIds map[string]*string `json:"legacyEventIds,omitempty" xml:"legacyEventIds,omitempty"`
+}
+
+func (s ConvertLegacyEventIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConvertLegacyEventIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ConvertLegacyEventIdRequest) SetLegacyEventIds(v map[string]*string) *ConvertLegacyEventIdRequest {
+	s.LegacyEventIds = v
+	return s
+}
+
+type ConvertLegacyEventIdResponseBody struct {
+	// legacyEventIdMap
+	LegacyEventIdMap map[string]interface{} `json:"legacyEventIdMap,omitempty" xml:"legacyEventIdMap,omitempty"`
+}
+
+func (s ConvertLegacyEventIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConvertLegacyEventIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ConvertLegacyEventIdResponseBody) SetLegacyEventIdMap(v map[string]interface{}) *ConvertLegacyEventIdResponseBody {
+	s.LegacyEventIdMap = v
+	return s
+}
+
+type ConvertLegacyEventIdResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ConvertLegacyEventIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ConvertLegacyEventIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConvertLegacyEventIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ConvertLegacyEventIdResponse) SetHeaders(v map[string]*string) *ConvertLegacyEventIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ConvertLegacyEventIdResponse) SetBody(v *ConvertLegacyEventIdResponseBody) *ConvertLegacyEventIdResponse {
+	s.Body = v
+	return s
+}
+
 type RemoveAttendeeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3176,6 +3278,62 @@ func (client *Client) GetScheduleWithOptions(userId *string, request *GetSchedul
 	}
 	_result = &GetScheduleResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetSchedule"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/getSchedule"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ConvertLegacyEventId(userId *string, request *ConvertLegacyEventIdRequest) (_result *ConvertLegacyEventIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ConvertLegacyEventIdHeaders{}
+	_result = &ConvertLegacyEventIdResponse{}
+	_body, _err := client.ConvertLegacyEventIdWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ConvertLegacyEventIdWithOptions(userId *string, request *ConvertLegacyEventIdRequest, headers *ConvertLegacyEventIdHeaders, runtime *util.RuntimeOptions) (_result *ConvertLegacyEventIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LegacyEventIds)) {
+		body["legacyEventIds"] = request.LegacyEventIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.DingOrgId)) {
+		realHeaders["dingOrgId"] = headers.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.DingUid)) {
+		realHeaders["dingUid"] = headers.DingUid
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.DingAccessTokenType)) {
+		realHeaders["dingAccessTokenType"] = headers.DingAccessTokenType
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ConvertLegacyEventIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("ConvertLegacyEventId"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/legacyEventIds/convert"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
