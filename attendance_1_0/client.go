@@ -567,6 +567,198 @@ func (s *CheckWritePermissionResponse) SetBody(v *CheckWritePermissionResponseBo
 	return s
 }
 
+type GetClosingAccountsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetClosingAccountsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClosingAccountsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetClosingAccountsHeaders) SetCommonHeaders(v map[string]*string) *GetClosingAccountsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetClosingAccountsHeaders) SetXAcsDingtalkAccessToken(v string) *GetClosingAccountsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetClosingAccountsRequest struct {
+	// 人员列表
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s GetClosingAccountsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClosingAccountsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetClosingAccountsRequest) SetUserIds(v []*string) *GetClosingAccountsRequest {
+	s.UserIds = v
+	return s
+}
+
+type GetClosingAccountsResponseBody struct {
+	// 规则列表
+	Result []*GetClosingAccountsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetClosingAccountsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClosingAccountsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetClosingAccountsResponseBody) SetResult(v []*GetClosingAccountsResponseBodyResult) *GetClosingAccountsResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetClosingAccountsResponseBodyResult struct {
+	// 人员ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 开关
+	SwitchOn *bool `json:"switchOn,omitempty" xml:"switchOn,omitempty"`
+	// 封账规则
+	ClosingAccountModel *GetClosingAccountsResponseBodyResultClosingAccountModel `json:"closingAccountModel,omitempty" xml:"closingAccountModel,omitempty" type:"Struct"`
+	// 解封规则
+	UnsealClosingAccountModel *GetClosingAccountsResponseBodyResultUnsealClosingAccountModel `json:"unsealClosingAccountModel,omitempty" xml:"unsealClosingAccountModel,omitempty" type:"Struct"`
+}
+
+func (s GetClosingAccountsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClosingAccountsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetClosingAccountsResponseBodyResult) SetUserId(v string) *GetClosingAccountsResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetClosingAccountsResponseBodyResult) SetSwitchOn(v bool) *GetClosingAccountsResponseBodyResult {
+	s.SwitchOn = &v
+	return s
+}
+
+func (s *GetClosingAccountsResponseBodyResult) SetClosingAccountModel(v *GetClosingAccountsResponseBodyResultClosingAccountModel) *GetClosingAccountsResponseBodyResult {
+	s.ClosingAccountModel = v
+	return s
+}
+
+func (s *GetClosingAccountsResponseBodyResult) SetUnsealClosingAccountModel(v *GetClosingAccountsResponseBodyResultUnsealClosingAccountModel) *GetClosingAccountsResponseBodyResult {
+	s.UnsealClosingAccountModel = v
+	return s
+}
+
+type GetClosingAccountsResponseBodyResultClosingAccountModel struct {
+	// 封账时间-日
+	ClosingDay *int32 `json:"closingDay,omitempty" xml:"closingDay,omitempty"`
+	// 封账时间-时分
+	ClosingHourMinutes *int64 `json:"closingHourMinutes,omitempty" xml:"closingHourMinutes,omitempty"`
+	// 封账范围-开始月
+	StartMonth *int32 `json:"startMonth,omitempty" xml:"startMonth,omitempty"`
+	// 封账范围-开始日
+	StartDay *int32 `json:"startDay,omitempty" xml:"startDay,omitempty"`
+	// 封账范围-结束月
+	EndMonth *int32 `json:"endMonth,omitempty" xml:"endMonth,omitempty"`
+	// 封账范围-结束日
+	EndDay *int32 `json:"endDay,omitempty" xml:"endDay,omitempty"`
+}
+
+func (s GetClosingAccountsResponseBodyResultClosingAccountModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClosingAccountsResponseBodyResultClosingAccountModel) GoString() string {
+	return s.String()
+}
+
+func (s *GetClosingAccountsResponseBodyResultClosingAccountModel) SetClosingDay(v int32) *GetClosingAccountsResponseBodyResultClosingAccountModel {
+	s.ClosingDay = &v
+	return s
+}
+
+func (s *GetClosingAccountsResponseBodyResultClosingAccountModel) SetClosingHourMinutes(v int64) *GetClosingAccountsResponseBodyResultClosingAccountModel {
+	s.ClosingHourMinutes = &v
+	return s
+}
+
+func (s *GetClosingAccountsResponseBodyResultClosingAccountModel) SetStartMonth(v int32) *GetClosingAccountsResponseBodyResultClosingAccountModel {
+	s.StartMonth = &v
+	return s
+}
+
+func (s *GetClosingAccountsResponseBodyResultClosingAccountModel) SetStartDay(v int32) *GetClosingAccountsResponseBodyResultClosingAccountModel {
+	s.StartDay = &v
+	return s
+}
+
+func (s *GetClosingAccountsResponseBodyResultClosingAccountModel) SetEndMonth(v int32) *GetClosingAccountsResponseBodyResultClosingAccountModel {
+	s.EndMonth = &v
+	return s
+}
+
+func (s *GetClosingAccountsResponseBodyResultClosingAccountModel) SetEndDay(v int32) *GetClosingAccountsResponseBodyResultClosingAccountModel {
+	s.EndDay = &v
+	return s
+}
+
+type GetClosingAccountsResponseBodyResultUnsealClosingAccountModel struct {
+	// 解封时间点
+	InvalidTimeStamp *int64 `json:"invalidTimeStamp,omitempty" xml:"invalidTimeStamp,omitempty"`
+}
+
+func (s GetClosingAccountsResponseBodyResultUnsealClosingAccountModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClosingAccountsResponseBodyResultUnsealClosingAccountModel) GoString() string {
+	return s.String()
+}
+
+func (s *GetClosingAccountsResponseBodyResultUnsealClosingAccountModel) SetInvalidTimeStamp(v int64) *GetClosingAccountsResponseBodyResultUnsealClosingAccountModel {
+	s.InvalidTimeStamp = &v
+	return s
+}
+
+type GetClosingAccountsResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetClosingAccountsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetClosingAccountsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClosingAccountsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetClosingAccountsResponse) SetHeaders(v map[string]*string) *GetClosingAccountsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetClosingAccountsResponse) SetBody(v *GetClosingAccountsResponseBody) *GetClosingAccountsResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -813,6 +1005,50 @@ func (client *Client) CheckWritePermissionWithOptions(request *CheckWritePermiss
 	}
 	_result = &CheckWritePermissionResponse{}
 	_body, _err := client.DoROARequest(tea.String("CheckWritePermission"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/writePermissions/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetClosingAccounts(request *GetClosingAccountsRequest) (_result *GetClosingAccountsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetClosingAccountsHeaders{}
+	_result = &GetClosingAccountsResponse{}
+	_body, _err := client.GetClosingAccountsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetClosingAccountsWithOptions(request *GetClosingAccountsRequest, headers *GetClosingAccountsHeaders, runtime *util.RuntimeOptions) (_result *GetClosingAccountsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetClosingAccountsResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetClosingAccounts"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/closingAccounts/rules/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

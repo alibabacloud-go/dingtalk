@@ -436,8 +436,10 @@ func (s *SendInteractiveCardRequestCardData) SetCardMediaIdParamMap(v map[string
 }
 
 type SendInteractiveCardResponseBody struct {
-	// 结果
+	// success
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 创建卡片结果
+	Result *SendInteractiveCardResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s SendInteractiveCardResponseBody) String() string {
@@ -450,6 +452,29 @@ func (s SendInteractiveCardResponseBody) GoString() string {
 
 func (s *SendInteractiveCardResponseBody) SetSuccess(v bool) *SendInteractiveCardResponseBody {
 	s.Success = &v
+	return s
+}
+
+func (s *SendInteractiveCardResponseBody) SetResult(v *SendInteractiveCardResponseBodyResult) *SendInteractiveCardResponseBody {
+	s.Result = v
+	return s
+}
+
+type SendInteractiveCardResponseBodyResult struct {
+	// 用于业务方后续查看已读列表的查询key
+	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
+}
+
+func (s SendInteractiveCardResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendInteractiveCardResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SendInteractiveCardResponseBodyResult) SetProcessQueryKey(v string) *SendInteractiveCardResponseBodyResult {
+	s.ProcessQueryKey = &v
 	return s
 }
 
