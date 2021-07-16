@@ -1844,6 +1844,126 @@ func (s *SendOfficialAccountOTOMessageResponse) SetBody(v *SendOfficialAccountOT
 	return s
 }
 
+type GetOfficialAccountOTOMessageResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetOfficialAccountOTOMessageResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOfficialAccountOTOMessageResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetOfficialAccountOTOMessageResultHeaders) SetCommonHeaders(v map[string]*string) *GetOfficialAccountOTOMessageResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetOfficialAccountOTOMessageResultHeaders) SetXAcsDingtalkAccessToken(v string) *GetOfficialAccountOTOMessageResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetOfficialAccountOTOMessageResultRequest struct {
+	// 推送ID
+	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
+	AccountId  *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+}
+
+func (s GetOfficialAccountOTOMessageResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOfficialAccountOTOMessageResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetOfficialAccountOTOMessageResultRequest) SetOpenPushId(v string) *GetOfficialAccountOTOMessageResultRequest {
+	s.OpenPushId = &v
+	return s
+}
+
+func (s *GetOfficialAccountOTOMessageResultRequest) SetAccountId(v string) *GetOfficialAccountOTOMessageResultRequest {
+	s.AccountId = &v
+	return s
+}
+
+type GetOfficialAccountOTOMessageResultResponseBody struct {
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// 查询结果
+	Result *GetOfficialAccountOTOMessageResultResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetOfficialAccountOTOMessageResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOfficialAccountOTOMessageResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOfficialAccountOTOMessageResultResponseBody) SetRequestId(v string) *GetOfficialAccountOTOMessageResultResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *GetOfficialAccountOTOMessageResultResponseBody) SetResult(v *GetOfficialAccountOTOMessageResultResponseBodyResult) *GetOfficialAccountOTOMessageResultResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetOfficialAccountOTOMessageResultResponseBodyResult struct {
+	// 执行状态： 0：未开始  1：处理中  2：处理完毕
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+	// 已读消息的userid列表
+	ReadUserIdList []*string `json:"readUserIdList,omitempty" xml:"readUserIdList,omitempty" type:"Repeated"`
+}
+
+func (s GetOfficialAccountOTOMessageResultResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOfficialAccountOTOMessageResultResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetOfficialAccountOTOMessageResultResponseBodyResult) SetStatus(v int64) *GetOfficialAccountOTOMessageResultResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *GetOfficialAccountOTOMessageResultResponseBodyResult) SetReadUserIdList(v []*string) *GetOfficialAccountOTOMessageResultResponseBodyResult {
+	s.ReadUserIdList = v
+	return s
+}
+
+type GetOfficialAccountOTOMessageResultResponse struct {
+	Headers map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetOfficialAccountOTOMessageResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetOfficialAccountOTOMessageResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOfficialAccountOTOMessageResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetOfficialAccountOTOMessageResultResponse) SetHeaders(v map[string]*string) *GetOfficialAccountOTOMessageResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetOfficialAccountOTOMessageResultResponse) SetBody(v *GetOfficialAccountOTOMessageResultResponseBody) *GetOfficialAccountOTOMessageResultResponse {
+	s.Body = v
+	return s
+}
+
 type AddCrmPersonalCustomerHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3584,6 +3704,54 @@ func (client *Client) SendOfficialAccountOTOMessageWithOptions(request *SendOffi
 	}
 	_result = &SendOfficialAccountOTOMessageResponse{}
 	_body, _err := client.DoROARequest(tea.String("SendOfficialAccountOTOMessage"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/officialAccounts/oToMessages/send"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetOfficialAccountOTOMessageResult(request *GetOfficialAccountOTOMessageResultRequest) (_result *GetOfficialAccountOTOMessageResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOfficialAccountOTOMessageResultHeaders{}
+	_result = &GetOfficialAccountOTOMessageResultResponse{}
+	_body, _err := client.GetOfficialAccountOTOMessageResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetOfficialAccountOTOMessageResultWithOptions(request *GetOfficialAccountOTOMessageResultRequest, headers *GetOfficialAccountOTOMessageResultHeaders, runtime *util.RuntimeOptions) (_result *GetOfficialAccountOTOMessageResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenPushId)) {
+		query["openPushId"] = request.OpenPushId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccountId)) {
+		query["accountId"] = request.AccountId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetOfficialAccountOTOMessageResultResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetOfficialAccountOTOMessageResult"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/officialAccounts/oToMessages/sendResults"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

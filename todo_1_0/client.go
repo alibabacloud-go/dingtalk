@@ -397,6 +397,8 @@ type QueryTodoTasksResponseBodyTodoCards struct {
 	OriginalSource *QueryTodoTasksResponseBodyTodoCardsOriginalSource `json:"originalSource,omitempty" xml:"originalSource,omitempty" type:"Struct"`
 	// 待办完成状态
 	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// 所属组织信息
+	OrgInfo *QueryTodoTasksResponseBodyTodoCardsOrgInfo `json:"orgInfo,omitempty" xml:"orgInfo,omitempty" type:"Struct"`
 }
 
 func (s QueryTodoTasksResponseBodyTodoCards) String() string {
@@ -479,6 +481,11 @@ func (s *QueryTodoTasksResponseBodyTodoCards) SetOriginalSource(v *QueryTodoTask
 
 func (s *QueryTodoTasksResponseBodyTodoCards) SetIsDone(v bool) *QueryTodoTasksResponseBodyTodoCards {
 	s.IsDone = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCards) SetOrgInfo(v *QueryTodoTasksResponseBodyTodoCardsOrgInfo) *QueryTodoTasksResponseBodyTodoCards {
+	s.OrgInfo = v
 	return s
 }
 
@@ -606,6 +613,31 @@ func (s QueryTodoTasksResponseBodyTodoCardsOriginalSource) GoString() string {
 
 func (s *QueryTodoTasksResponseBodyTodoCardsOriginalSource) SetSourceTitle(v string) *QueryTodoTasksResponseBodyTodoCardsOriginalSource {
 	s.SourceTitle = &v
+	return s
+}
+
+type QueryTodoTasksResponseBodyTodoCardsOrgInfo struct {
+	// 组织corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 组织名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s QueryTodoTasksResponseBodyTodoCardsOrgInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTodoTasksResponseBodyTodoCardsOrgInfo) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCardsOrgInfo) SetCorpId(v string) *QueryTodoTasksResponseBodyTodoCardsOrgInfo {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryTodoTasksResponseBodyTodoCardsOrgInfo) SetName(v string) *QueryTodoTasksResponseBodyTodoCardsOrgInfo {
+	s.Name = &v
 	return s
 }
 
