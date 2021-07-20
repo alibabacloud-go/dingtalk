@@ -184,6 +184,311 @@ func (s *GetMediaCerficateResponse) SetBody(v *GetMediaCerficateResponseBody) *G
 	return s
 }
 
+type GetFeedHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFeedHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFeedHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFeedHeaders) SetCommonHeaders(v map[string]*string) *GetFeedHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFeedHeaders) SetXAcsDingtalkAccessToken(v string) *GetFeedHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFeedRequest struct {
+	// 入驻账号Id(请联系钉钉接口同学获取)
+	McnId *string `json:"mcnId,omitempty" xml:"mcnId,omitempty"`
+}
+
+func (s GetFeedRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFeedRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFeedRequest) SetMcnId(v string) *GetFeedRequest {
+	s.McnId = &v
+	return s
+}
+
+type GetFeedResponseBody struct {
+	// 内容Id
+	FeedId *string `json:"feedId,omitempty" xml:"feedId,omitempty"`
+	// 子内容
+	FeedItem []*GetFeedResponseBodyFeedItem `json:"feedItem,omitempty" xml:"feedItem,omitempty" type:"Repeated"`
+}
+
+func (s GetFeedResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFeedResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFeedResponseBody) SetFeedId(v string) *GetFeedResponseBody {
+	s.FeedId = &v
+	return s
+}
+
+func (s *GetFeedResponseBody) SetFeedItem(v []*GetFeedResponseBodyFeedItem) *GetFeedResponseBody {
+	s.FeedItem = v
+	return s
+}
+
+type GetFeedResponseBodyFeedItem struct {
+	// 子内容Id
+	ItemId *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	// 子内容标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 内容类型，0表示直播，1表示图文，2表示视频，3表示音频
+	FeedContentType *int32 `json:"feedContentType,omitempty" xml:"feedContentType,omitempty"`
+	// 子内容的持续时长，单位为毫秒
+	DurationMillis *int64 `json:"durationMillis,omitempty" xml:"durationMillis,omitempty"`
+	// 子内容的跳转链接
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s GetFeedResponseBodyFeedItem) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFeedResponseBodyFeedItem) GoString() string {
+	return s.String()
+}
+
+func (s *GetFeedResponseBodyFeedItem) SetItemId(v string) *GetFeedResponseBodyFeedItem {
+	s.ItemId = &v
+	return s
+}
+
+func (s *GetFeedResponseBodyFeedItem) SetTitle(v string) *GetFeedResponseBodyFeedItem {
+	s.Title = &v
+	return s
+}
+
+func (s *GetFeedResponseBodyFeedItem) SetFeedContentType(v int32) *GetFeedResponseBodyFeedItem {
+	s.FeedContentType = &v
+	return s
+}
+
+func (s *GetFeedResponseBodyFeedItem) SetDurationMillis(v int64) *GetFeedResponseBodyFeedItem {
+	s.DurationMillis = &v
+	return s
+}
+
+func (s *GetFeedResponseBodyFeedItem) SetUrl(v string) *GetFeedResponseBodyFeedItem {
+	s.Url = &v
+	return s
+}
+
+type GetFeedResponse struct {
+	Headers map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetFeedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetFeedResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFeedResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFeedResponse) SetHeaders(v map[string]*string) *GetFeedResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFeedResponse) SetBody(v *GetFeedResponseBody) *GetFeedResponse {
+	s.Body = v
+	return s
+}
+
+type PageFeedHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PageFeedHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageFeedHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PageFeedHeaders) SetCommonHeaders(v map[string]*string) *PageFeedHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PageFeedHeaders) SetXAcsDingtalkAccessToken(v string) *PageFeedHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PageFeedRequest struct {
+	// 分页参数：起始位置，初始值应为0，后续传入返回值中的nextCursor字段中的值
+	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 分页参数：页面展示数量
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 内容Id，如果传入该参数，表示仅筛选内容Id出现在本列表中的内容
+	Body []*string `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// 入驻账号Id(请联系钉钉接口同学获取)
+	McnId *string `json:"mcnId,omitempty" xml:"mcnId,omitempty"`
+}
+
+func (s PageFeedRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageFeedRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PageFeedRequest) SetNextToken(v int32) *PageFeedRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *PageFeedRequest) SetMaxResults(v int32) *PageFeedRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *PageFeedRequest) SetBody(v []*string) *PageFeedRequest {
+	s.Body = v
+	return s
+}
+
+func (s *PageFeedRequest) SetMcnId(v string) *PageFeedRequest {
+	s.McnId = &v
+	return s
+}
+
+type PageFeedResponseBody struct {
+	// 课程列表
+	FeedList []*PageFeedResponseBodyFeedList `json:"feedList,omitempty" xml:"feedList,omitempty" type:"Repeated"`
+	// 分页参数：下一页的起始位置
+	NextCursor *int32 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	// 分页参数：是否还有下一页，false表示没有下一页
+	HasNext *bool `json:"hasNext,omitempty" xml:"hasNext,omitempty"`
+}
+
+func (s PageFeedResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageFeedResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PageFeedResponseBody) SetFeedList(v []*PageFeedResponseBodyFeedList) *PageFeedResponseBody {
+	s.FeedList = v
+	return s
+}
+
+func (s *PageFeedResponseBody) SetNextCursor(v int32) *PageFeedResponseBody {
+	s.NextCursor = &v
+	return s
+}
+
+func (s *PageFeedResponseBody) SetHasNext(v bool) *PageFeedResponseBody {
+	s.HasNext = &v
+	return s
+}
+
+type PageFeedResponseBodyFeedList struct {
+	// 内容Id
+	FeedId *string `json:"feedId,omitempty" xml:"feedId,omitempty"`
+	// 内容名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 跳转Url，跳转到职场学堂后台页面
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 内容类型，0：免费内容 4：平价内容 5：专栏内容 6：训练营内容
+	FeedType *int32 `json:"feedType,omitempty" xml:"feedType,omitempty"`
+	// 封面URL
+	ThumbUrl *string `json:"thumbUrl,omitempty" xml:"thumbUrl,omitempty"`
+	// 内容分类，请见https://developers.dingtalk.com/document/app/appendix-content
+	FeedCategory *string `json:"feedCategory,omitempty" xml:"feedCategory,omitempty"`
+}
+
+func (s PageFeedResponseBodyFeedList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageFeedResponseBodyFeedList) GoString() string {
+	return s.String()
+}
+
+func (s *PageFeedResponseBodyFeedList) SetFeedId(v string) *PageFeedResponseBodyFeedList {
+	s.FeedId = &v
+	return s
+}
+
+func (s *PageFeedResponseBodyFeedList) SetName(v string) *PageFeedResponseBodyFeedList {
+	s.Name = &v
+	return s
+}
+
+func (s *PageFeedResponseBodyFeedList) SetUrl(v string) *PageFeedResponseBodyFeedList {
+	s.Url = &v
+	return s
+}
+
+func (s *PageFeedResponseBodyFeedList) SetFeedType(v int32) *PageFeedResponseBodyFeedList {
+	s.FeedType = &v
+	return s
+}
+
+func (s *PageFeedResponseBodyFeedList) SetThumbUrl(v string) *PageFeedResponseBodyFeedList {
+	s.ThumbUrl = &v
+	return s
+}
+
+func (s *PageFeedResponseBodyFeedList) SetFeedCategory(v string) *PageFeedResponseBodyFeedList {
+	s.FeedCategory = &v
+	return s
+}
+
+type PageFeedResponse struct {
+	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PageFeedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PageFeedResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageFeedResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PageFeedResponse) SetHeaders(v map[string]*string) *PageFeedResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PageFeedResponse) SetBody(v *PageFeedResponseBody) *PageFeedResponse {
+	s.Body = v
+	return s
+}
+
 type CreateFeedHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -606,6 +911,113 @@ func (s *CreateFeedResponse) SetBody(v *CreateFeedResponseBody) *CreateFeedRespo
 	return s
 }
 
+type ListItemUserDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListItemUserDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListItemUserDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListItemUserDataHeaders) SetCommonHeaders(v map[string]*string) *ListItemUserDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListItemUserDataHeaders) SetXAcsDingtalkAccessToken(v string) *ListItemUserDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListItemUserDataRequest struct {
+	// 希望查询的用户的id列表
+	Body []*string `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+}
+
+func (s ListItemUserDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListItemUserDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListItemUserDataRequest) SetBody(v []*string) *ListItemUserDataRequest {
+	s.Body = v
+	return s
+}
+
+type ListItemUserDataResponseBody struct {
+	// 学习的时长记录
+	StudyInfos []*ListItemUserDataResponseBodyStudyInfos `json:"studyInfos,omitempty" xml:"studyInfos,omitempty" type:"Repeated"`
+}
+
+func (s ListItemUserDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListItemUserDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListItemUserDataResponseBody) SetStudyInfos(v []*ListItemUserDataResponseBodyStudyInfos) *ListItemUserDataResponseBody {
+	s.StudyInfos = v
+	return s
+}
+
+type ListItemUserDataResponseBodyStudyInfos struct {
+	// 用户id
+	Uid *string `json:"uid,omitempty" xml:"uid,omitempty"`
+	// 时间持续长度，单位为毫秒
+	DurationMillis *int64 `json:"durationMillis,omitempty" xml:"durationMillis,omitempty"`
+}
+
+func (s ListItemUserDataResponseBodyStudyInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListItemUserDataResponseBodyStudyInfos) GoString() string {
+	return s.String()
+}
+
+func (s *ListItemUserDataResponseBodyStudyInfos) SetUid(v string) *ListItemUserDataResponseBodyStudyInfos {
+	s.Uid = &v
+	return s
+}
+
+func (s *ListItemUserDataResponseBodyStudyInfos) SetDurationMillis(v int64) *ListItemUserDataResponseBodyStudyInfos {
+	s.DurationMillis = &v
+	return s
+}
+
+type ListItemUserDataResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListItemUserDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListItemUserDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListItemUserDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListItemUserDataResponse) SetHeaders(v map[string]*string) *ListItemUserDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListItemUserDataResponse) SetBody(v *ListItemUserDataResponseBody) *ListItemUserDataResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -697,6 +1109,103 @@ func (client *Client) GetMediaCerficateWithOptions(request *GetMediaCerficateReq
 	return _result, _err
 }
 
+func (client *Client) GetFeed(feedId *string, request *GetFeedRequest) (_result *GetFeedResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFeedHeaders{}
+	_result = &GetFeedResponse{}
+	_body, _err := client.GetFeedWithOptions(feedId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetFeedWithOptions(feedId *string, request *GetFeedRequest, headers *GetFeedHeaders, runtime *util.RuntimeOptions) (_result *GetFeedResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.McnId)) {
+		query["mcnId"] = request.McnId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetFeedResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetFeed"), tea.String("content_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/content/feeds/"+tea.StringValue(feedId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PageFeed(request *PageFeedRequest) (_result *PageFeedResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PageFeedHeaders{}
+	_result = &PageFeedResponse{}
+	_body, _err := client.PageFeedWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PageFeedWithOptions(request *PageFeedRequest, headers *PageFeedHeaders, runtime *util.RuntimeOptions) (_result *PageFeedResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.McnId)) {
+		query["mcnId"] = request.McnId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    request.Body,
+	}
+	_result = &PageFeedResponse{}
+	_body, _err := client.DoROARequest(tea.String("PageFeed"), tea.String("content_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/content/feeds/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateFeed(request *CreateFeedRequest) (_result *CreateFeedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateFeedHeaders{}
@@ -742,6 +1251,45 @@ func (client *Client) CreateFeedWithOptions(request *CreateFeedRequest, headers 
 	}
 	_result = &CreateFeedResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateFeed"), tea.String("content_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/content/feeds"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListItemUserData(itemId *string, request *ListItemUserDataRequest) (_result *ListItemUserDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListItemUserDataHeaders{}
+	_result = &ListItemUserDataResponse{}
+	_body, _err := client.ListItemUserDataWithOptions(itemId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListItemUserDataWithOptions(itemId *string, request *ListItemUserDataRequest, headers *ListItemUserDataHeaders, runtime *util.RuntimeOptions) (_result *ListItemUserDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    request.Body,
+	}
+	_result = &ListItemUserDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListItemUserData"), tea.String("content_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/content/feeds/items/"+tea.StringValue(itemId)+"/userStatistics/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

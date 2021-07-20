@@ -11,6 +11,147 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type CreateTrustedDeviceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateTrustedDeviceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTrustedDeviceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTrustedDeviceHeaders) SetCommonHeaders(v map[string]*string) *CreateTrustedDeviceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateTrustedDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTrustedDeviceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateTrustedDeviceRequest struct {
+	// 员工userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 平台类型
+	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	// mac地址
+	MacAddress *string `json:"macAddress,omitempty" xml:"macAddress,omitempty"`
+}
+
+func (s CreateTrustedDeviceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTrustedDeviceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTrustedDeviceRequest) SetUserId(v string) *CreateTrustedDeviceRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *CreateTrustedDeviceRequest) SetPlatform(v string) *CreateTrustedDeviceRequest {
+	s.Platform = &v
+	return s
+}
+
+func (s *CreateTrustedDeviceRequest) SetMacAddress(v string) *CreateTrustedDeviceRequest {
+	s.MacAddress = &v
+	return s
+}
+
+type CreateTrustedDeviceResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateTrustedDeviceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTrustedDeviceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTrustedDeviceResponseBody) SetSuccess(v bool) *CreateTrustedDeviceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateTrustedDeviceResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateTrustedDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateTrustedDeviceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTrustedDeviceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTrustedDeviceResponse) SetHeaders(v map[string]*string) *CreateTrustedDeviceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateTrustedDeviceResponse) SetBody(v *CreateTrustedDeviceResponseBody) *CreateTrustedDeviceResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteCommentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteCommentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCommentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCommentHeaders) SetCommonHeaders(v map[string]*string) *DeleteCommentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteCommentHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteCommentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteCommentResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *bool              `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteCommentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCommentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCommentResponse) SetHeaders(v map[string]*string) *DeleteCommentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteCommentResponse) SetBody(v bool) *DeleteCommentResponse {
+	s.Body = &v
+	return s
+}
+
 type GetGroupActiveInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -203,6 +344,251 @@ func (s *GetGroupActiveInfoResponse) SetHeaders(v map[string]*string) *GetGroupA
 }
 
 func (s *GetGroupActiveInfoResponse) SetBody(v *GetGroupActiveInfoResponseBody) *GetGroupActiveInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetCommentListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCommentListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCommentListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCommentListHeaders) SetCommonHeaders(v map[string]*string) *GetCommentListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCommentListHeaders) SetXAcsDingtalkAccessToken(v string) *GetCommentListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCommentListRequest struct {
+	// 分页起始页
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s GetCommentListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCommentListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetCommentListRequest) SetPageNumber(v int64) *GetCommentListRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetCommentListRequest) SetPageSize(v int64) *GetCommentListRequest {
+	s.PageSize = &v
+	return s
+}
+
+type GetCommentListResponseBody struct {
+	Data       []*GetCommentListResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	TotalCount *int64                            `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s GetCommentListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCommentListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCommentListResponseBody) SetData(v []*GetCommentListResponseBodyData) *GetCommentListResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *GetCommentListResponseBody) SetTotalCount(v int64) *GetCommentListResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type GetCommentListResponseBodyData struct {
+	// 评论者姓名
+	CommentUserName *string `json:"commentUserName,omitempty" xml:"commentUserName,omitempty"`
+	// 评论内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 评论时间
+	CommentTime *float32 `json:"commentTime,omitempty" xml:"commentTime,omitempty"`
+	// 评论ID
+	CommentId *string `json:"commentId,omitempty" xml:"commentId,omitempty"`
+}
+
+func (s GetCommentListResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCommentListResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetCommentListResponseBodyData) SetCommentUserName(v string) *GetCommentListResponseBodyData {
+	s.CommentUserName = &v
+	return s
+}
+
+func (s *GetCommentListResponseBodyData) SetContent(v string) *GetCommentListResponseBodyData {
+	s.Content = &v
+	return s
+}
+
+func (s *GetCommentListResponseBodyData) SetCommentTime(v float32) *GetCommentListResponseBodyData {
+	s.CommentTime = &v
+	return s
+}
+
+func (s *GetCommentListResponseBodyData) SetCommentId(v string) *GetCommentListResponseBodyData {
+	s.CommentId = &v
+	return s
+}
+
+type GetCommentListResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCommentListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCommentListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCommentListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCommentListResponse) SetHeaders(v map[string]*string) *GetCommentListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCommentListResponse) SetBody(v *GetCommentListResponseBody) *GetCommentListResponse {
+	s.Body = v
+	return s
+}
+
+type GetTrustDeviceListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTrustDeviceListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTrustDeviceListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTrustDeviceListHeaders) SetCommonHeaders(v map[string]*string) *GetTrustDeviceListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTrustDeviceListHeaders) SetXAcsDingtalkAccessToken(v string) *GetTrustDeviceListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTrustDeviceListRequest struct {
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s GetTrustDeviceListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTrustDeviceListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTrustDeviceListRequest) SetUserIds(v []*string) *GetTrustDeviceListRequest {
+	s.UserIds = v
+	return s
+}
+
+type GetTrustDeviceListResponseBody struct {
+	Data []*GetTrustDeviceListResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s GetTrustDeviceListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTrustDeviceListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTrustDeviceListResponseBody) SetData(v []*GetTrustDeviceListResponseBodyData) *GetTrustDeviceListResponseBody {
+	s.Data = v
+	return s
+}
+
+type GetTrustDeviceListResponseBodyData struct {
+	// 员工Id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 平台类型
+	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	// mac地址
+	MacAddress *string `json:"macAddress,omitempty" xml:"macAddress,omitempty"`
+}
+
+func (s GetTrustDeviceListResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTrustDeviceListResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetTrustDeviceListResponseBodyData) SetUserId(v string) *GetTrustDeviceListResponseBodyData {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetTrustDeviceListResponseBodyData) SetPlatform(v string) *GetTrustDeviceListResponseBodyData {
+	s.Platform = &v
+	return s
+}
+
+func (s *GetTrustDeviceListResponseBodyData) SetMacAddress(v string) *GetTrustDeviceListResponseBodyData {
+	s.MacAddress = &v
+	return s
+}
+
+type GetTrustDeviceListResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetTrustDeviceListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetTrustDeviceListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTrustDeviceListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTrustDeviceListResponse) SetHeaders(v map[string]*string) *GetTrustDeviceListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTrustDeviceListResponse) SetBody(v *GetTrustDeviceListResponseBody) *GetTrustDeviceListResponse {
 	s.Body = v
 	return s
 }
@@ -502,6 +888,92 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) CreateTrustedDevice(request *CreateTrustedDeviceRequest) (_result *CreateTrustedDeviceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateTrustedDeviceHeaders{}
+	_result = &CreateTrustedDeviceResponse{}
+	_body, _err := client.CreateTrustedDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateTrustedDeviceWithOptions(request *CreateTrustedDeviceRequest, headers *CreateTrustedDeviceHeaders, runtime *util.RuntimeOptions) (_result *CreateTrustedDeviceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Platform)) {
+		body["platform"] = request.Platform
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MacAddress)) {
+		body["macAddress"] = request.MacAddress
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateTrustedDeviceResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateTrustedDevice"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/trustedDevices"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteComment(publisherId *string, commentId *string) (_result *DeleteCommentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteCommentHeaders{}
+	_result = &DeleteCommentResponse{}
+	_body, _err := client.DeleteCommentWithOptions(publisherId, commentId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteCommentWithOptions(publisherId *string, commentId *string, headers *DeleteCommentHeaders, runtime *util.RuntimeOptions) (_result *DeleteCommentResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &DeleteCommentResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteComment"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/exclusive/publishers/"+tea.StringValue(publisherId)+"/comments/"+tea.StringValue(commentId)), tea.String("boolean"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetGroupActiveInfo(request *GetGroupActiveInfoRequest) (_result *GetGroupActiveInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetGroupActiveInfoHeaders{}
@@ -551,6 +1023,98 @@ func (client *Client) GetGroupActiveInfoWithOptions(request *GetGroupActiveInfoR
 	}
 	_result = &GetGroupActiveInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetGroupActiveInfo"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/data/activeGroups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetCommentList(publisherId *string, request *GetCommentListRequest) (_result *GetCommentListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCommentListHeaders{}
+	_result = &GetCommentListResponse{}
+	_body, _err := client.GetCommentListWithOptions(publisherId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetCommentListWithOptions(publisherId *string, request *GetCommentListRequest, headers *GetCommentListHeaders, runtime *util.RuntimeOptions) (_result *GetCommentListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetCommentListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetCommentList"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/publishers/"+tea.StringValue(publisherId)+"/comments/list"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetTrustDeviceList(request *GetTrustDeviceListRequest) (_result *GetTrustDeviceListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTrustDeviceListHeaders{}
+	_result = &GetTrustDeviceListResponse{}
+	_body, _err := client.GetTrustDeviceListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetTrustDeviceListWithOptions(request *GetTrustDeviceListRequest, headers *GetTrustDeviceListHeaders, runtime *util.RuntimeOptions) (_result *GetTrustDeviceListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetTrustDeviceListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetTrustDeviceList"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/trustedDevices/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

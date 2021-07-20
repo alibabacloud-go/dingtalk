@@ -1071,6 +1071,7 @@ type ListAvaiableVersionResponseBodyVersions struct {
 	PackageSize *string `json:"packageSize,omitempty" xml:"packageSize,omitempty"`
 	BuildStatus *int64  `json:"buildStatus,omitempty" xml:"buildStatus,omitempty"`
 	Version     *string `json:"version,omitempty" xml:"version,omitempty"`
+	H5Bundle    *string `json:"h5Bundle,omitempty" xml:"h5Bundle,omitempty"`
 }
 
 func (s ListAvaiableVersionResponseBodyVersions) String() string {
@@ -1098,6 +1099,11 @@ func (s *ListAvaiableVersionResponseBodyVersions) SetBuildStatus(v int64) *ListA
 
 func (s *ListAvaiableVersionResponseBodyVersions) SetVersion(v string) *ListAvaiableVersionResponseBodyVersions {
 	s.Version = &v
+	return s
+}
+
+func (s *ListAvaiableVersionResponseBodyVersions) SetH5Bundle(v string) *ListAvaiableVersionResponseBodyVersions {
+	s.H5Bundle = &v
 	return s
 }
 
