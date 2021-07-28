@@ -2099,6 +2099,119 @@ func (s *AddCrmPersonalCustomerResponse) SetBody(v *AddCrmPersonalCustomerRespon
 	return s
 }
 
+type RecallOfficialAccountOTOMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RecallOfficialAccountOTOMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RecallOfficialAccountOTOMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RecallOfficialAccountOTOMessageHeaders) SetCommonHeaders(v map[string]*string) *RecallOfficialAccountOTOMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RecallOfficialAccountOTOMessageHeaders) SetXAcsDingtalkAccessToken(v string) *RecallOfficialAccountOTOMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RecallOfficialAccountOTOMessageRequest struct {
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	// 帐号ID 可空
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// 消息推送时返回的ID
+	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
+}
+
+func (s RecallOfficialAccountOTOMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RecallOfficialAccountOTOMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RecallOfficialAccountOTOMessageRequest) SetDingSuiteKey(v string) *RecallOfficialAccountOTOMessageRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *RecallOfficialAccountOTOMessageRequest) SetDingOrgId(v int64) *RecallOfficialAccountOTOMessageRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *RecallOfficialAccountOTOMessageRequest) SetDingIsvOrgId(v int64) *RecallOfficialAccountOTOMessageRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *RecallOfficialAccountOTOMessageRequest) SetDingTokenGrantType(v int64) *RecallOfficialAccountOTOMessageRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *RecallOfficialAccountOTOMessageRequest) SetAccountId(v string) *RecallOfficialAccountOTOMessageRequest {
+	s.AccountId = &v
+	return s
+}
+
+func (s *RecallOfficialAccountOTOMessageRequest) SetOpenPushId(v string) *RecallOfficialAccountOTOMessageRequest {
+	s.OpenPushId = &v
+	return s
+}
+
+type RecallOfficialAccountOTOMessageResponseBody struct {
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s RecallOfficialAccountOTOMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RecallOfficialAccountOTOMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RecallOfficialAccountOTOMessageResponseBody) SetRequestId(v string) *RecallOfficialAccountOTOMessageResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type RecallOfficialAccountOTOMessageResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RecallOfficialAccountOTOMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RecallOfficialAccountOTOMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RecallOfficialAccountOTOMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RecallOfficialAccountOTOMessageResponse) SetHeaders(v map[string]*string) *RecallOfficialAccountOTOMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RecallOfficialAccountOTOMessageResponse) SetBody(v *RecallOfficialAccountOTOMessageResponseBody) *RecallOfficialAccountOTOMessageResponse {
+	s.Body = v
+	return s
+}
+
 type DescribeCrmPersonalCustomerObjectMetaHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3812,6 +3925,70 @@ func (client *Client) AddCrmPersonalCustomerWithOptions(request *AddCrmPersonalC
 	}
 	_result = &AddCrmPersonalCustomerResponse{}
 	_body, _err := client.DoROARequest(tea.String("AddCrmPersonalCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/personalCustomers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RecallOfficialAccountOTOMessage(request *RecallOfficialAccountOTOMessageRequest) (_result *RecallOfficialAccountOTOMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RecallOfficialAccountOTOMessageHeaders{}
+	_result = &RecallOfficialAccountOTOMessageResponse{}
+	_body, _err := client.RecallOfficialAccountOTOMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RecallOfficialAccountOTOMessageWithOptions(request *RecallOfficialAccountOTOMessageRequest, headers *RecallOfficialAccountOTOMessageHeaders, runtime *util.RuntimeOptions) (_result *RecallOfficialAccountOTOMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccountId)) {
+		body["accountId"] = request.AccountId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenPushId)) {
+		body["openPushId"] = request.OpenPushId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RecallOfficialAccountOTOMessageResponse{}
+	_body, _err := client.DoROARequest(tea.String("RecallOfficialAccountOTOMessage"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/officialAccounts/oToMessages/recall"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

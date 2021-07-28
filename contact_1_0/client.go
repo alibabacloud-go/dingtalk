@@ -100,6 +100,101 @@ func (s *QueryResourceManagementMembersResponse) SetBody(v *QueryResourceManagem
 	return s
 }
 
+type SortUserHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SortUserHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SortUserHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SortUserHeaders) SetCommonHeaders(v map[string]*string) *SortUserHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SortUserHeaders) SetXAcsDingtalkAccessToken(v string) *SortUserHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SortUserRequest struct {
+	DingOrgId *int64 `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	// 用户id列表
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	// 0 根据姓名拼音升序排列 1 根据姓名拼音降序排列
+	SortType *int32 `json:"sortType,omitempty" xml:"sortType,omitempty"`
+}
+
+func (s SortUserRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SortUserRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SortUserRequest) SetDingOrgId(v int64) *SortUserRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *SortUserRequest) SetUserIdList(v []*string) *SortUserRequest {
+	s.UserIdList = v
+	return s
+}
+
+func (s *SortUserRequest) SetSortType(v int32) *SortUserRequest {
+	s.SortType = &v
+	return s
+}
+
+type SortUserResponseBody struct {
+	// userIdList
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s SortUserResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SortUserResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SortUserResponseBody) SetUserIdList(v []*string) *SortUserResponseBody {
+	s.UserIdList = v
+	return s
+}
+
+type SortUserResponse struct {
+	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SortUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SortUserResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SortUserResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SortUserResponse) SetHeaders(v map[string]*string) *SortUserResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SortUserResponse) SetBody(v *SortUserResponseBody) *SortUserResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateEmpAttrbuteVisibilitySettingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -310,6 +405,119 @@ func (s DeleteEmpAttributeVisibilityResponse) GoString() string {
 
 func (s *DeleteEmpAttributeVisibilityResponse) SetHeaders(v map[string]*string) *DeleteEmpAttributeVisibilityResponse {
 	s.Headers = v
+	return s
+}
+
+type SearchDepartmentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchDepartmentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchDepartmentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchDepartmentHeaders) SetCommonHeaders(v map[string]*string) *SearchDepartmentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchDepartmentHeaders) SetXAcsDingtalkAccessToken(v string) *SearchDepartmentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchDepartmentRequest struct {
+	DingOrgId *int64 `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	// 部门名称或者部门名称拼音
+	QueryWord *string `json:"queryWord,omitempty" xml:"queryWord,omitempty"`
+	// 分页查询锚点
+	Offset *int32 `json:"offset,omitempty" xml:"offset,omitempty"`
+	// 分页长度
+	Size *int32 `json:"size,omitempty" xml:"size,omitempty"`
+}
+
+func (s SearchDepartmentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchDepartmentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchDepartmentRequest) SetDingOrgId(v int64) *SearchDepartmentRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *SearchDepartmentRequest) SetQueryWord(v string) *SearchDepartmentRequest {
+	s.QueryWord = &v
+	return s
+}
+
+func (s *SearchDepartmentRequest) SetOffset(v int32) *SearchDepartmentRequest {
+	s.Offset = &v
+	return s
+}
+
+func (s *SearchDepartmentRequest) SetSize(v int32) *SearchDepartmentRequest {
+	s.Size = &v
+	return s
+}
+
+type SearchDepartmentResponseBody struct {
+	HasMore    *bool    `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	TotalCount *int64   `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	List       []*int64 `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s SearchDepartmentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchDepartmentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchDepartmentResponseBody) SetHasMore(v bool) *SearchDepartmentResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *SearchDepartmentResponseBody) SetTotalCount(v int64) *SearchDepartmentResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *SearchDepartmentResponseBody) SetList(v []*int64) *SearchDepartmentResponseBody {
+	s.List = v
+	return s
+}
+
+type SearchDepartmentResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchDepartmentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchDepartmentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchDepartmentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchDepartmentResponse) SetHeaders(v map[string]*string) *SearchDepartmentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchDepartmentResponse) SetBody(v *SearchDepartmentResponseBody) *SearchDepartmentResponse {
+	s.Body = v
 	return s
 }
 
@@ -718,6 +926,120 @@ func (s *ListEmpAttributeVisibilityResponse) SetHeaders(v map[string]*string) *L
 }
 
 func (s *ListEmpAttributeVisibilityResponse) SetBody(v *ListEmpAttributeVisibilityResponseBody) *ListEmpAttributeVisibilityResponse {
+	s.Body = v
+	return s
+}
+
+type SearchUserHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchUserHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchUserHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchUserHeaders) SetCommonHeaders(v map[string]*string) *SearchUserHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchUserHeaders) SetXAcsDingtalkAccessToken(v string) *SearchUserHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchUserRequest struct {
+	DingOrgId *int64 `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	// 用户名称、名称拼音或英文名称
+	QueryWord *string `json:"queryWord,omitempty" xml:"queryWord,omitempty"`
+	// 分页查询锚点
+	Offset *int32 `json:"offset,omitempty" xml:"offset,omitempty"`
+	// 分页长度
+	Size *int32 `json:"size,omitempty" xml:"size,omitempty"`
+}
+
+func (s SearchUserRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchUserRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchUserRequest) SetDingOrgId(v int64) *SearchUserRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *SearchUserRequest) SetQueryWord(v string) *SearchUserRequest {
+	s.QueryWord = &v
+	return s
+}
+
+func (s *SearchUserRequest) SetOffset(v int32) *SearchUserRequest {
+	s.Offset = &v
+	return s
+}
+
+func (s *SearchUserRequest) SetSize(v int32) *SearchUserRequest {
+	s.Size = &v
+	return s
+}
+
+type SearchUserResponseBody struct {
+	// Id of the request
+	HasMore    *bool     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	TotalCount *int64    `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	List       []*string `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s SearchUserResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchUserResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchUserResponseBody) SetHasMore(v bool) *SearchUserResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *SearchUserResponseBody) SetTotalCount(v int64) *SearchUserResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *SearchUserResponseBody) SetList(v []*string) *SearchUserResponseBody {
+	s.List = v
+	return s
+}
+
+type SearchUserResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchUserResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchUserResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchUserResponse) SetHeaders(v map[string]*string) *SearchUserResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchUserResponse) SetBody(v *SearchUserResponseBody) *SearchUserResponse {
 	s.Body = v
 	return s
 }
@@ -1779,6 +2101,58 @@ func (client *Client) QueryResourceManagementMembersWithOptions(resourceId *stri
 	return _result, _err
 }
 
+func (client *Client) SortUser(request *SortUserRequest) (_result *SortUserResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SortUserHeaders{}
+	_result = &SortUserResponse{}
+	_body, _err := client.SortUserWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SortUserWithOptions(request *SortUserRequest, headers *SortUserHeaders, runtime *util.RuntimeOptions) (_result *SortUserResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdList)) {
+		body["userIdList"] = request.UserIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SortType)) {
+		body["sortType"] = request.SortType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SortUserResponse{}
+	_body, _err := client.DoROARequest(tea.String("SortUser"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/users/sort"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) UpdateEmpAttrbuteVisibilitySetting(request *UpdateEmpAttrbuteVisibilitySettingRequest) (_result *UpdateEmpAttrbuteVisibilitySettingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateEmpAttrbuteVisibilitySettingHeaders{}
@@ -1909,6 +2283,62 @@ func (client *Client) DeleteEmpAttributeVisibilityWithOptions(settingId *string,
 	return _result, _err
 }
 
+func (client *Client) SearchDepartment(request *SearchDepartmentRequest) (_result *SearchDepartmentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchDepartmentHeaders{}
+	_result = &SearchDepartmentResponse{}
+	_body, _err := client.SearchDepartmentWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchDepartmentWithOptions(request *SearchDepartmentRequest, headers *SearchDepartmentHeaders, runtime *util.RuntimeOptions) (_result *SearchDepartmentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QueryWord)) {
+		body["queryWord"] = request.QueryWord
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Offset)) {
+		body["offset"] = request.Offset
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Size)) {
+		body["size"] = request.Size
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SearchDepartmentResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchDepartment"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/departments/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ListManagementGroups(request *ListManagementGroupsRequest) (_result *ListManagementGroupsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListManagementGroupsHeaders{}
@@ -1998,6 +2428,62 @@ func (client *Client) ListEmpAttributeVisibilityWithOptions(request *ListEmpAttr
 	}
 	_result = &ListEmpAttributeVisibilityResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListEmpAttributeVisibility"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/staffAttributes/visibilitySettings"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchUser(request *SearchUserRequest) (_result *SearchUserResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchUserHeaders{}
+	_result = &SearchUserResponse{}
+	_body, _err := client.SearchUserWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchUserWithOptions(request *SearchUserRequest, headers *SearchUserHeaders, runtime *util.RuntimeOptions) (_result *SearchUserResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QueryWord)) {
+		body["queryWord"] = request.QueryWord
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Offset)) {
+		body["offset"] = request.Offset
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Size)) {
+		body["size"] = request.Size
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SearchUserResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchUser"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/users/search"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -2459,6 +2459,8 @@ type QueryGroupResponseBody struct {
 	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 	// 服务群机器人名称
 	RobotName *string `json:"robotName,omitempty" xml:"robotName,omitempty"`
+	// 群bizId
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
 }
 
 func (s QueryGroupResponseBody) String() string {
@@ -2501,6 +2503,11 @@ func (s *QueryGroupResponseBody) SetRobotCode(v string) *QueryGroupResponseBody 
 
 func (s *QueryGroupResponseBody) SetRobotName(v string) *QueryGroupResponseBody {
 	s.RobotName = &v
+	return s
+}
+
+func (s *QueryGroupResponseBody) SetBizId(v string) *QueryGroupResponseBody {
+	s.BizId = &v
 	return s
 }
 
