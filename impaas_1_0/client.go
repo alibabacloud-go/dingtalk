@@ -162,6 +162,289 @@ func (s *RecallMessageResponse) SetHeaders(v map[string]*string) *RecallMessageR
 	return s
 }
 
+type UpdateGroupNameHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateGroupNameHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupNameHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupNameHeaders) SetCommonHeaders(v map[string]*string) *UpdateGroupNameHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateGroupNameHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateGroupNameHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateGroupNameRequest struct {
+	OperatorUid    *string `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s UpdateGroupNameRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupNameRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupNameRequest) SetOperatorUid(v string) *UpdateGroupNameRequest {
+	s.OperatorUid = &v
+	return s
+}
+
+func (s *UpdateGroupNameRequest) SetConversationId(v string) *UpdateGroupNameRequest {
+	s.ConversationId = &v
+	return s
+}
+
+func (s *UpdateGroupNameRequest) SetName(v string) *UpdateGroupNameRequest {
+	s.Name = &v
+	return s
+}
+
+type UpdateGroupNameResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s UpdateGroupNameResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupNameResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupNameResponse) SetHeaders(v map[string]*string) *UpdateGroupNameResponse {
+	s.Headers = v
+	return s
+}
+
+type CreateGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupHeaders) SetCommonHeaders(v map[string]*string) *CreateGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateGroupRequest struct {
+	Uuid        *string                      `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	CreatorUid  *string                      `json:"creatorUid,omitempty" xml:"creatorUid,omitempty"`
+	Name        *string                      `json:"name,omitempty" xml:"name,omitempty"`
+	IconMediaId *string                      `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
+	Channel     *string                      `json:"channel,omitempty" xml:"channel,omitempty"`
+	Properties  map[string]*string           `json:"properties,omitempty" xml:"properties,omitempty"`
+	Members     []*CreateGroupRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+}
+
+func (s CreateGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupRequest) SetUuid(v string) *CreateGroupRequest {
+	s.Uuid = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetCreatorUid(v string) *CreateGroupRequest {
+	s.CreatorUid = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetName(v string) *CreateGroupRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetIconMediaId(v string) *CreateGroupRequest {
+	s.IconMediaId = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetChannel(v string) *CreateGroupRequest {
+	s.Channel = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetProperties(v map[string]*string) *CreateGroupRequest {
+	s.Properties = v
+	return s
+}
+
+func (s *CreateGroupRequest) SetMembers(v []*CreateGroupRequestMembers) *CreateGroupRequest {
+	s.Members = v
+	return s
+}
+
+type CreateGroupRequestMembers struct {
+	Uid  *string `json:"uid,omitempty" xml:"uid,omitempty"`
+	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
+}
+
+func (s CreateGroupRequestMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupRequestMembers) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupRequestMembers) SetUid(v string) *CreateGroupRequestMembers {
+	s.Uid = &v
+	return s
+}
+
+func (s *CreateGroupRequestMembers) SetNick(v string) *CreateGroupRequestMembers {
+	s.Nick = &v
+	return s
+}
+
+type CreateGroupResponseBody struct {
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+}
+
+func (s CreateGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupResponseBody) SetConversationId(v string) *CreateGroupResponseBody {
+	s.ConversationId = &v
+	return s
+}
+
+func (s *CreateGroupResponseBody) SetCreateTime(v int64) *CreateGroupResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+type CreateGroupResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupResponse) SetHeaders(v map[string]*string) *CreateGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateGroupResponse) SetBody(v *CreateGroupResponseBody) *CreateGroupResponse {
+	s.Body = v
+	return s
+}
+
+type RemoveGroupMembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RemoveGroupMembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveGroupMembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveGroupMembersHeaders) SetCommonHeaders(v map[string]*string) *RemoveGroupMembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveGroupMembersHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveGroupMembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RemoveGroupMembersRequest struct {
+	OperatorUid    *string   `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
+	ConversationId *string   `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	MemberUids     []*string `json:"memberUids,omitempty" xml:"memberUids,omitempty" type:"Repeated"`
+}
+
+func (s RemoveGroupMembersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveGroupMembersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveGroupMembersRequest) SetOperatorUid(v string) *RemoveGroupMembersRequest {
+	s.OperatorUid = &v
+	return s
+}
+
+func (s *RemoveGroupMembersRequest) SetConversationId(v string) *RemoveGroupMembersRequest {
+	s.ConversationId = &v
+	return s
+}
+
+func (s *RemoveGroupMembersRequest) SetMemberUids(v []*string) *RemoveGroupMembersRequest {
+	s.MemberUids = v
+	return s
+}
+
+type RemoveGroupMembersResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s RemoveGroupMembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveGroupMembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveGroupMembersResponse) SetHeaders(v map[string]*string) *RemoveGroupMembersResponse {
+	s.Headers = v
+	return s
+}
+
 type GetMediaUrlHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -376,75 +659,6 @@ func (s *DismissGroupResponse) SetHeaders(v map[string]*string) *DismissGroupRes
 	return s
 }
 
-type UpdateGroupNameHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s UpdateGroupNameHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateGroupNameHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateGroupNameHeaders) SetCommonHeaders(v map[string]*string) *UpdateGroupNameHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *UpdateGroupNameHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateGroupNameHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type UpdateGroupNameRequest struct {
-	OperatorUid    *string `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
-	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
-}
-
-func (s UpdateGroupNameRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateGroupNameRequest) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateGroupNameRequest) SetOperatorUid(v string) *UpdateGroupNameRequest {
-	s.OperatorUid = &v
-	return s
-}
-
-func (s *UpdateGroupNameRequest) SetConversationId(v string) *UpdateGroupNameRequest {
-	s.ConversationId = &v
-	return s
-}
-
-func (s *UpdateGroupNameRequest) SetName(v string) *UpdateGroupNameRequest {
-	s.Name = &v
-	return s
-}
-
-type UpdateGroupNameResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-}
-
-func (s UpdateGroupNameResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateGroupNameResponse) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateGroupNameResponse) SetHeaders(v map[string]*string) *UpdateGroupNameResponse {
-	s.Headers = v
-	return s
-}
-
 type AddProfileHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -616,147 +830,98 @@ func (s *AddGroupMembersResponse) SetHeaders(v map[string]*string) *AddGroupMemb
 	return s
 }
 
-type CreateGroupHeaders struct {
+type BatchSendHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s CreateGroupHeaders) String() string {
+func (s BatchSendHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CreateGroupHeaders) GoString() string {
+func (s BatchSendHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *CreateGroupHeaders) SetCommonHeaders(v map[string]*string) *CreateGroupHeaders {
+func (s *BatchSendHeaders) SetCommonHeaders(v map[string]*string) *BatchSendHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *CreateGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGroupHeaders {
+func (s *BatchSendHeaders) SetXAcsDingtalkAccessToken(v string) *BatchSendHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type CreateGroupRequest struct {
-	Uuid        *string                      `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	CreatorUid  *string                      `json:"creatorUid,omitempty" xml:"creatorUid,omitempty"`
-	Name        *string                      `json:"name,omitempty" xml:"name,omitempty"`
-	IconMediaId *string                      `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
-	Channel     *string                      `json:"channel,omitempty" xml:"channel,omitempty"`
-	Properties  map[string]*string           `json:"properties,omitempty" xml:"properties,omitempty"`
-	Members     []*CreateGroupRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+type BatchSendRequest struct {
+	// 发送者，企业员工账号
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 接受者列表，外部用户
+	AppUids []*string `json:"appUids,omitempty" xml:"appUids,omitempty" type:"Repeated"`
+	// 消息内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 }
 
-func (s CreateGroupRequest) String() string {
+func (s BatchSendRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CreateGroupRequest) GoString() string {
+func (s BatchSendRequest) GoString() string {
 	return s.String()
 }
 
-func (s *CreateGroupRequest) SetUuid(v string) *CreateGroupRequest {
-	s.Uuid = &v
+func (s *BatchSendRequest) SetUserId(v string) *BatchSendRequest {
+	s.UserId = &v
 	return s
 }
 
-func (s *CreateGroupRequest) SetCreatorUid(v string) *CreateGroupRequest {
-	s.CreatorUid = &v
+func (s *BatchSendRequest) SetAppUids(v []*string) *BatchSendRequest {
+	s.AppUids = v
 	return s
 }
 
-func (s *CreateGroupRequest) SetName(v string) *CreateGroupRequest {
-	s.Name = &v
+func (s *BatchSendRequest) SetContent(v string) *BatchSendRequest {
+	s.Content = &v
 	return s
 }
 
-func (s *CreateGroupRequest) SetIconMediaId(v string) *CreateGroupRequest {
-	s.IconMediaId = &v
-	return s
+type BatchSendResponseBody struct {
+	// 任务Id
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
-func (s *CreateGroupRequest) SetChannel(v string) *CreateGroupRequest {
-	s.Channel = &v
-	return s
-}
-
-func (s *CreateGroupRequest) SetProperties(v map[string]*string) *CreateGroupRequest {
-	s.Properties = v
-	return s
-}
-
-func (s *CreateGroupRequest) SetMembers(v []*CreateGroupRequestMembers) *CreateGroupRequest {
-	s.Members = v
-	return s
-}
-
-type CreateGroupRequestMembers struct {
-	Uid  *string `json:"uid,omitempty" xml:"uid,omitempty"`
-	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
-}
-
-func (s CreateGroupRequestMembers) String() string {
+func (s BatchSendResponseBody) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CreateGroupRequestMembers) GoString() string {
+func (s BatchSendResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *CreateGroupRequestMembers) SetUid(v string) *CreateGroupRequestMembers {
-	s.Uid = &v
+func (s *BatchSendResponseBody) SetTaskId(v string) *BatchSendResponseBody {
+	s.TaskId = &v
 	return s
 }
 
-func (s *CreateGroupRequestMembers) SetNick(v string) *CreateGroupRequestMembers {
-	s.Nick = &v
-	return s
+type BatchSendResponse struct {
+	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchSendResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
-type CreateGroupResponseBody struct {
-	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-}
-
-func (s CreateGroupResponseBody) String() string {
+func (s BatchSendResponse) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CreateGroupResponseBody) GoString() string {
+func (s BatchSendResponse) GoString() string {
 	return s.String()
 }
 
-func (s *CreateGroupResponseBody) SetConversationId(v string) *CreateGroupResponseBody {
-	s.ConversationId = &v
-	return s
-}
-
-func (s *CreateGroupResponseBody) SetCreateTime(v int64) *CreateGroupResponseBody {
-	s.CreateTime = &v
-	return s
-}
-
-type CreateGroupResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s CreateGroupResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateGroupResponse) GoString() string {
-	return s.String()
-}
-
-func (s *CreateGroupResponse) SetHeaders(v map[string]*string) *CreateGroupResponse {
+func (s *BatchSendResponse) SetHeaders(v map[string]*string) *BatchSendResponse {
 	s.Headers = v
 	return s
 }
 
-func (s *CreateGroupResponse) SetBody(v *CreateGroupResponseBody) *CreateGroupResponse {
+func (s *BatchSendResponse) SetBody(v *BatchSendResponseBody) *BatchSendResponse {
 	s.Body = v
 	return s
 }
@@ -861,75 +1026,6 @@ func (s *ListGroupStaffMembersResponse) SetHeaders(v map[string]*string) *ListGr
 
 func (s *ListGroupStaffMembersResponse) SetBody(v *ListGroupStaffMembersResponseBody) *ListGroupStaffMembersResponse {
 	s.Body = v
-	return s
-}
-
-type RemoveGroupMembersHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s RemoveGroupMembersHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s RemoveGroupMembersHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *RemoveGroupMembersHeaders) SetCommonHeaders(v map[string]*string) *RemoveGroupMembersHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *RemoveGroupMembersHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveGroupMembersHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type RemoveGroupMembersRequest struct {
-	OperatorUid    *string   `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
-	ConversationId *string   `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	MemberUids     []*string `json:"memberUids,omitempty" xml:"memberUids,omitempty" type:"Repeated"`
-}
-
-func (s RemoveGroupMembersRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s RemoveGroupMembersRequest) GoString() string {
-	return s.String()
-}
-
-func (s *RemoveGroupMembersRequest) SetOperatorUid(v string) *RemoveGroupMembersRequest {
-	s.OperatorUid = &v
-	return s
-}
-
-func (s *RemoveGroupMembersRequest) SetConversationId(v string) *RemoveGroupMembersRequest {
-	s.ConversationId = &v
-	return s
-}
-
-func (s *RemoveGroupMembersRequest) SetMemberUids(v []*string) *RemoveGroupMembersRequest {
-	s.MemberUids = v
-	return s
-}
-
-type RemoveGroupMembersResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-}
-
-func (s RemoveGroupMembersResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s RemoveGroupMembersResponse) GoString() string {
-	return s.String()
-}
-
-func (s *RemoveGroupMembersResponse) SetHeaders(v map[string]*string) *RemoveGroupMembersResponse {
-	s.Headers = v
 	return s
 }
 
@@ -1168,6 +1264,178 @@ func (client *Client) RecallMessageWithOptions(request *RecallMessageRequest, he
 	return _result, _err
 }
 
+func (client *Client) UpdateGroupName(request *UpdateGroupNameRequest) (_result *UpdateGroupNameResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateGroupNameHeaders{}
+	_result = &UpdateGroupNameResponse{}
+	_body, _err := client.UpdateGroupNameWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateGroupNameWithOptions(request *UpdateGroupNameRequest, headers *UpdateGroupNameHeaders, runtime *util.RuntimeOptions) (_result *UpdateGroupNameResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorUid)) {
+		body["operatorUid"] = request.OperatorUid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ConversationId)) {
+		body["conversationId"] = request.ConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateGroupNameResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateGroupName"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups/names"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateGroupHeaders{}
+	_result = &CreateGroupResponse{}
+	_body, _err := client.CreateGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, headers *CreateGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		body["uuid"] = request.Uuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreatorUid)) {
+		body["creatorUid"] = request.CreatorUid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IconMediaId)) {
+		body["iconMediaId"] = request.IconMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Channel)) {
+		body["channel"] = request.Channel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Properties)) {
+		body["properties"] = request.Properties
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Members)) {
+		body["members"] = request.Members
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateGroup"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RemoveGroupMembers(request *RemoveGroupMembersRequest) (_result *RemoveGroupMembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RemoveGroupMembersHeaders{}
+	_result = &RemoveGroupMembersResponse{}
+	_body, _err := client.RemoveGroupMembersWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RemoveGroupMembersWithOptions(request *RemoveGroupMembersRequest, headers *RemoveGroupMembersHeaders, runtime *util.RuntimeOptions) (_result *RemoveGroupMembersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorUid)) {
+		body["operatorUid"] = request.OperatorUid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ConversationId)) {
+		body["conversationId"] = request.ConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MemberUids)) {
+		body["memberUids"] = request.MemberUids
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RemoveGroupMembersResponse{}
+	_body, _err := client.DoROARequest(tea.String("RemoveGroupMembers"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups/members/batchRemove"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetMediaUrl(request *GetMediaUrlRequest) (_result *GetMediaUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetMediaUrlHeaders{}
@@ -1312,58 +1580,6 @@ func (client *Client) DismissGroupWithOptions(request *DismissGroupRequest, head
 	return _result, _err
 }
 
-func (client *Client) UpdateGroupName(request *UpdateGroupNameRequest) (_result *UpdateGroupNameResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &UpdateGroupNameHeaders{}
-	_result = &UpdateGroupNameResponse{}
-	_body, _err := client.UpdateGroupNameWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) UpdateGroupNameWithOptions(request *UpdateGroupNameRequest, headers *UpdateGroupNameHeaders, runtime *util.RuntimeOptions) (_result *UpdateGroupNameResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorUid)) {
-		body["operatorUid"] = request.OperatorUid
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.ConversationId)) {
-		body["conversationId"] = request.ConversationId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Name)) {
-		body["name"] = request.Name
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &UpdateGroupNameResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateGroupName"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups/names"), tea.String("none"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
 func (client *Client) AddProfile(request *AddProfileRequest) (_result *AddProfileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddProfileHeaders{}
@@ -1472,11 +1688,11 @@ func (client *Client) AddGroupMembersWithOptions(request *AddGroupMembersRequest
 	return _result, _err
 }
 
-func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateGroupResponse, _err error) {
+func (client *Client) BatchSend(request *BatchSendRequest) (_result *BatchSendResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &CreateGroupHeaders{}
-	_result = &CreateGroupResponse{}
-	_body, _err := client.CreateGroupWithOptions(request, headers, runtime)
+	headers := &BatchSendHeaders{}
+	_result = &BatchSendResponse{}
+	_body, _err := client.BatchSendWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1484,38 +1700,22 @@ func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateG
 	return _result, _err
 }
 
-func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, headers *CreateGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupResponse, _err error) {
+func (client *Client) BatchSendWithOptions(request *BatchSendRequest, headers *BatchSendHeaders, runtime *util.RuntimeOptions) (_result *BatchSendResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
-		body["uuid"] = request.Uuid
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CreatorUid)) {
-		body["creatorUid"] = request.CreatorUid
+	if !tea.BoolValue(util.IsUnset(request.AppUids)) {
+		body["appUids"] = request.AppUids
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Name)) {
-		body["name"] = request.Name
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.IconMediaId)) {
-		body["iconMediaId"] = request.IconMediaId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Channel)) {
-		body["channel"] = request.Channel
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Properties)) {
-		body["properties"] = request.Properties
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Members)) {
-		body["members"] = request.Members
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
 	}
 
 	realHeaders := make(map[string]*string)
@@ -1531,8 +1731,8 @@ func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, header
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &CreateGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateGroup"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups"), tea.String("json"), req, runtime)
+	_result = &BatchSendResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchSend"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/messages/batchSend"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1577,58 +1777,6 @@ func (client *Client) ListGroupStaffMembersWithOptions(request *ListGroupStaffMe
 	}
 	_result = &ListGroupStaffMembersResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListGroupStaffMembers"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups/staffMemers/query"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) RemoveGroupMembers(request *RemoveGroupMembersRequest) (_result *RemoveGroupMembersResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &RemoveGroupMembersHeaders{}
-	_result = &RemoveGroupMembersResponse{}
-	_body, _err := client.RemoveGroupMembersWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) RemoveGroupMembersWithOptions(request *RemoveGroupMembersRequest, headers *RemoveGroupMembersHeaders, runtime *util.RuntimeOptions) (_result *RemoveGroupMembersResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorUid)) {
-		body["operatorUid"] = request.OperatorUid
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.ConversationId)) {
-		body["conversationId"] = request.ConversationId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.MemberUids)) {
-		body["memberUids"] = request.MemberUids
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &RemoveGroupMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("RemoveGroupMembers"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups/members/batchRemove"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
