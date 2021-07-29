@@ -1998,6 +1998,8 @@ type AddCrmPersonalCustomerRequest struct {
 	ExtendData map[string]interface{} `json:"extendData,omitempty" xml:"extendData,omitempty"`
 	// 权限
 	Permission *AddCrmPersonalCustomerRequestPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	// 跳过uk查重
+	SkipDuplicateCheck *bool `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
 }
 
 func (s AddCrmPersonalCustomerRequest) String() string {
@@ -2030,6 +2032,11 @@ func (s *AddCrmPersonalCustomerRequest) SetExtendData(v map[string]interface{}) 
 
 func (s *AddCrmPersonalCustomerRequest) SetPermission(v *AddCrmPersonalCustomerRequestPermission) *AddCrmPersonalCustomerRequest {
 	s.Permission = v
+	return s
+}
+
+func (s *AddCrmPersonalCustomerRequest) SetSkipDuplicateCheck(v bool) *AddCrmPersonalCustomerRequest {
+	s.SkipDuplicateCheck = &v
 	return s
 }
 
@@ -2607,6 +2614,8 @@ type UpdateCrmPersonalCustomerRequest struct {
 	Data           map[string]interface{}                      `json:"data,omitempty" xml:"data,omitempty"`
 	ExtendData     map[string]interface{}                      `json:"extendData,omitempty" xml:"extendData,omitempty"`
 	Permission     *UpdateCrmPersonalCustomerRequestPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	// 跳过uk查重
+	SkipDuplicateCheck *bool `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
 }
 
 func (s UpdateCrmPersonalCustomerRequest) String() string {
@@ -2644,6 +2653,11 @@ func (s *UpdateCrmPersonalCustomerRequest) SetExtendData(v map[string]interface{
 
 func (s *UpdateCrmPersonalCustomerRequest) SetPermission(v *UpdateCrmPersonalCustomerRequestPermission) *UpdateCrmPersonalCustomerRequest {
 	s.Permission = v
+	return s
+}
+
+func (s *UpdateCrmPersonalCustomerRequest) SetSkipDuplicateCheck(v bool) *UpdateCrmPersonalCustomerRequest {
+	s.SkipDuplicateCheck = &v
 	return s
 }
 
@@ -3297,6 +3311,8 @@ type CreateCustomerRequestSaveOption struct {
 	ThrowExceptionWhileSavingContactFailed *bool `json:"throwExceptionWhileSavingContactFailed,omitempty" xml:"throwExceptionWhileSavingContactFailed,omitempty"`
 	// 客户已存在时的处理策略：APPEND_CONTACT_FORCE 直接追加联系人； REJECT 返回失败
 	CustomerExistedPolicy *string `json:"customerExistedPolicy,omitempty" xml:"customerExistedPolicy,omitempty"`
+	// 跳过uk查重
+	SkipDuplicateCheck *bool `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
 }
 
 func (s CreateCustomerRequestSaveOption) String() string {
@@ -3319,6 +3335,11 @@ func (s *CreateCustomerRequestSaveOption) SetThrowExceptionWhileSavingContactFai
 
 func (s *CreateCustomerRequestSaveOption) SetCustomerExistedPolicy(v string) *CreateCustomerRequestSaveOption {
 	s.CustomerExistedPolicy = &v
+	return s
+}
+
+func (s *CreateCustomerRequestSaveOption) SetSkipDuplicateCheck(v bool) *CreateCustomerRequestSaveOption {
+	s.SkipDuplicateCheck = &v
 	return s
 }
 
@@ -3910,6 +3931,10 @@ func (client *Client) AddCrmPersonalCustomerWithOptions(request *AddCrmPersonalC
 		body["permission"] = request.Permission
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.SkipDuplicateCheck)) {
+		body["skipDuplicateCheck"] = request.SkipDuplicateCheck
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4114,6 +4139,10 @@ func (client *Client) UpdateCrmPersonalCustomerWithOptions(request *UpdateCrmPer
 
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Permission))) {
 		body["permission"] = request.Permission
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SkipDuplicateCheck)) {
+		body["skipDuplicateCheck"] = request.SkipDuplicateCheck
 	}
 
 	realHeaders := make(map[string]*string)
