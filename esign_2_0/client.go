@@ -407,6 +407,140 @@ func (s *GetSignDetailResponse) SetBody(v *GetSignDetailResponseBody) *GetSignDe
 	return s
 }
 
+type GetAttachsApprovalHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	ServiceGroup            *string            `json:"serviceGroup,omitempty" xml:"serviceGroup,omitempty"`
+	TsignOpenAppId          *string            `json:"tsignOpenAppId,omitempty" xml:"tsignOpenAppId,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAttachsApprovalHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAttachsApprovalHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAttachsApprovalHeaders) SetCommonHeaders(v map[string]*string) *GetAttachsApprovalHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAttachsApprovalHeaders) SetServiceGroup(v string) *GetAttachsApprovalHeaders {
+	s.ServiceGroup = &v
+	return s
+}
+
+func (s *GetAttachsApprovalHeaders) SetTsignOpenAppId(v string) *GetAttachsApprovalHeaders {
+	s.TsignOpenAppId = &v
+	return s
+}
+
+func (s *GetAttachsApprovalHeaders) SetXAcsDingtalkAccessToken(v string) *GetAttachsApprovalHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAttachsApprovalResponseBody struct {
+	// Id of the request
+	Data []*GetAttachsApprovalResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s GetAttachsApprovalResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAttachsApprovalResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAttachsApprovalResponseBody) SetData(v []*GetAttachsApprovalResponseBodyData) *GetAttachsApprovalResponseBody {
+	s.Data = v
+	return s
+}
+
+type GetAttachsApprovalResponseBodyData struct {
+	FlowId *string                                    `json:"flowId,omitempty" xml:"flowId,omitempty"`
+	Status *string                                    `json:"status,omitempty" xml:"status,omitempty"`
+	Files  []*GetAttachsApprovalResponseBodyDataFiles `json:"files,omitempty" xml:"files,omitempty" type:"Repeated"`
+}
+
+func (s GetAttachsApprovalResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAttachsApprovalResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetAttachsApprovalResponseBodyData) SetFlowId(v string) *GetAttachsApprovalResponseBodyData {
+	s.FlowId = &v
+	return s
+}
+
+func (s *GetAttachsApprovalResponseBodyData) SetStatus(v string) *GetAttachsApprovalResponseBodyData {
+	s.Status = &v
+	return s
+}
+
+func (s *GetAttachsApprovalResponseBodyData) SetFiles(v []*GetAttachsApprovalResponseBodyDataFiles) *GetAttachsApprovalResponseBodyData {
+	s.Files = v
+	return s
+}
+
+type GetAttachsApprovalResponseBodyDataFiles struct {
+	FileName          *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	OriginalFileUrl   *string `json:"originalFileUrl,omitempty" xml:"originalFileUrl,omitempty"`
+	SignFinishFileUrl *string `json:"signFinishFileUrl,omitempty" xml:"signFinishFileUrl,omitempty"`
+}
+
+func (s GetAttachsApprovalResponseBodyDataFiles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAttachsApprovalResponseBodyDataFiles) GoString() string {
+	return s.String()
+}
+
+func (s *GetAttachsApprovalResponseBodyDataFiles) SetFileName(v string) *GetAttachsApprovalResponseBodyDataFiles {
+	s.FileName = &v
+	return s
+}
+
+func (s *GetAttachsApprovalResponseBodyDataFiles) SetOriginalFileUrl(v string) *GetAttachsApprovalResponseBodyDataFiles {
+	s.OriginalFileUrl = &v
+	return s
+}
+
+func (s *GetAttachsApprovalResponseBodyDataFiles) SetSignFinishFileUrl(v string) *GetAttachsApprovalResponseBodyDataFiles {
+	s.SignFinishFileUrl = &v
+	return s
+}
+
+type GetAttachsApprovalResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetAttachsApprovalResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAttachsApprovalResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAttachsApprovalResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAttachsApprovalResponse) SetHeaders(v map[string]*string) *GetAttachsApprovalResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAttachsApprovalResponse) SetBody(v *GetAttachsApprovalResponseBody) *GetAttachsApprovalResponse {
+	s.Body = v
+	return s
+}
+
 type ProcessStartHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	ServiceGroup            *string            `json:"serviceGroup,omitempty" xml:"serviceGroup,omitempty"`
@@ -453,7 +587,7 @@ type ProcessStartRequest struct {
 	// 抄送人列表
 	Ccs []*ProcessStartRequestCcs `json:"ccs,omitempty" xml:"ccs,omitempty" type:"Repeated"`
 	// 来源信息(目前支持传入审批信息和跳转地址)
-	SourceInfo []*ProcessStartRequestSourceInfo `json:"sourceInfo,omitempty" xml:"sourceInfo,omitempty" type:"Repeated"`
+	SourceInfo *ProcessStartRequestSourceInfo `json:"sourceInfo,omitempty" xml:"sourceInfo,omitempty" type:"Struct"`
 }
 
 func (s ProcessStartRequest) String() string {
@@ -504,7 +638,7 @@ func (s *ProcessStartRequest) SetCcs(v []*ProcessStartRequestCcs) *ProcessStartR
 	return s
 }
 
-func (s *ProcessStartRequest) SetSourceInfo(v []*ProcessStartRequestSourceInfo) *ProcessStartRequest {
+func (s *ProcessStartRequest) SetSourceInfo(v *ProcessStartRequestSourceInfo) *ProcessStartRequest {
 	s.SourceInfo = v
 	return s
 }
@@ -2710,6 +2844,48 @@ func (client *Client) GetSignDetailWithOptions(taskId *string, headers *GetSignD
 	return _result, _err
 }
 
+func (client *Client) GetAttachsApproval(instanceId *string) (_result *GetAttachsApprovalResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAttachsApprovalHeaders{}
+	_result = &GetAttachsApprovalResponse{}
+	_body, _err := client.GetAttachsApprovalWithOptions(instanceId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAttachsApprovalWithOptions(instanceId *string, headers *GetAttachsApprovalHeaders, runtime *util.RuntimeOptions) (_result *GetAttachsApprovalResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.ServiceGroup)) {
+		realHeaders["serviceGroup"] = headers.ServiceGroup
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.TsignOpenAppId)) {
+		realHeaders["tsignOpenAppId"] = headers.TsignOpenAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetAttachsApprovalResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetAttachsApproval"), tea.String("esign_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/esign/dingInstances/"+tea.StringValue(instanceId)+"/attachments"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ProcessStart(request *ProcessStartRequest) (_result *ProcessStartResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ProcessStartHeaders{}
@@ -2760,7 +2936,7 @@ func (client *Client) ProcessStartWithOptions(request *ProcessStartRequest, head
 		body["ccs"] = request.Ccs
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SourceInfo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SourceInfo))) {
 		body["sourceInfo"] = request.SourceInfo
 	}
 

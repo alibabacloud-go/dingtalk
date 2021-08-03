@@ -1965,6 +1965,7 @@ type CreateApaasAppRequest struct {
 	OpUserId           *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 	BizAppId           *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
 	TemplateKey        *string `json:"templateKey,omitempty" xml:"templateKey,omitempty"`
+	IsShortCut         *int32  `json:"isShortCut,omitempty" xml:"isShortCut,omitempty"`
 }
 
 func (s CreateApaasAppRequest) String() string {
@@ -2027,6 +2028,11 @@ func (s *CreateApaasAppRequest) SetBizAppId(v string) *CreateApaasAppRequest {
 
 func (s *CreateApaasAppRequest) SetTemplateKey(v string) *CreateApaasAppRequest {
 	s.TemplateKey = &v
+	return s
+}
+
+func (s *CreateApaasAppRequest) SetIsShortCut(v int32) *CreateApaasAppRequest {
+	s.IsShortCut = &v
 	return s
 }
 
@@ -3194,6 +3200,10 @@ func (client *Client) CreateApaasAppWithOptions(request *CreateApaasAppRequest, 
 
 	if !tea.BoolValue(util.IsUnset(request.TemplateKey)) {
 		body["templateKey"] = request.TemplateKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsShortCut)) {
+		body["isShortCut"] = request.IsShortCut
 	}
 
 	realHeaders := make(map[string]*string)

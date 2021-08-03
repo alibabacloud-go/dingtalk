@@ -3199,6 +3199,8 @@ func (s *UpdateCoursesOfClassHeaders) SetXAcsDingtalkAccessToken(v string) *Upda
 
 type UpdateCoursesOfClassRequest struct {
 	Courses []*UpdateCoursesOfClassRequestCourses `json:"courses,omitempty" xml:"courses,omitempty" type:"Repeated"`
+	// 节次设置
+	SectionConfig *UpdateCoursesOfClassRequestSectionConfig `json:"sectionConfig,omitempty" xml:"sectionConfig,omitempty" type:"Struct"`
 	// 操作者id
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
@@ -3213,6 +3215,11 @@ func (s UpdateCoursesOfClassRequest) GoString() string {
 
 func (s *UpdateCoursesOfClassRequest) SetCourses(v []*UpdateCoursesOfClassRequestCourses) *UpdateCoursesOfClassRequest {
 	s.Courses = v
+	return s
+}
+
+func (s *UpdateCoursesOfClassRequest) SetSectionConfig(v *UpdateCoursesOfClassRequestSectionConfig) *UpdateCoursesOfClassRequest {
+	s.SectionConfig = v
 	return s
 }
 
@@ -3349,6 +3356,113 @@ func (s *UpdateCoursesOfClassRequestCoursesSectionModel) SetSectionIndex(v int32
 
 func (s *UpdateCoursesOfClassRequestCoursesSectionModel) SetSectionName(v string) *UpdateCoursesOfClassRequestCoursesSectionModel {
 	s.SectionName = &v
+	return s
+}
+
+type UpdateCoursesOfClassRequestSectionConfig struct {
+	// 节次模型
+	SectionModels []*UpdateCoursesOfClassRequestSectionConfigSectionModels `json:"sectionModels,omitempty" xml:"sectionModels,omitempty" type:"Repeated"`
+}
+
+func (s UpdateCoursesOfClassRequestSectionConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCoursesOfClassRequestSectionConfig) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCoursesOfClassRequestSectionConfig) SetSectionModels(v []*UpdateCoursesOfClassRequestSectionConfigSectionModels) *UpdateCoursesOfClassRequestSectionConfig {
+	s.SectionModels = v
+	return s
+}
+
+type UpdateCoursesOfClassRequestSectionConfigSectionModels struct {
+	// 节次类型枚举：COURSE/REST
+	SectionType *string `json:"sectionType,omitempty" xml:"sectionType,omitempty"`
+	// 开始时间
+	Start *UpdateCoursesOfClassRequestSectionConfigSectionModelsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// 第几节。
+	SectionIndex *int32 `json:"sectionIndex,omitempty" xml:"sectionIndex,omitempty"`
+	// 结束时间
+	End *UpdateCoursesOfClassRequestSectionConfigSectionModelsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+}
+
+func (s UpdateCoursesOfClassRequestSectionConfigSectionModels) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCoursesOfClassRequestSectionConfigSectionModels) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCoursesOfClassRequestSectionConfigSectionModels) SetSectionType(v string) *UpdateCoursesOfClassRequestSectionConfigSectionModels {
+	s.SectionType = &v
+	return s
+}
+
+func (s *UpdateCoursesOfClassRequestSectionConfigSectionModels) SetStart(v *UpdateCoursesOfClassRequestSectionConfigSectionModelsStart) *UpdateCoursesOfClassRequestSectionConfigSectionModels {
+	s.Start = v
+	return s
+}
+
+func (s *UpdateCoursesOfClassRequestSectionConfigSectionModels) SetSectionIndex(v int32) *UpdateCoursesOfClassRequestSectionConfigSectionModels {
+	s.SectionIndex = &v
+	return s
+}
+
+func (s *UpdateCoursesOfClassRequestSectionConfigSectionModels) SetEnd(v *UpdateCoursesOfClassRequestSectionConfigSectionModelsEnd) *UpdateCoursesOfClassRequestSectionConfigSectionModels {
+	s.End = v
+	return s
+}
+
+type UpdateCoursesOfClassRequestSectionConfigSectionModelsStart struct {
+	// 分钟
+	Min *int32 `json:"min,omitempty" xml:"min,omitempty"`
+	// 小时
+	Hour *int32 `json:"hour,omitempty" xml:"hour,omitempty"`
+}
+
+func (s UpdateCoursesOfClassRequestSectionConfigSectionModelsStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCoursesOfClassRequestSectionConfigSectionModelsStart) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCoursesOfClassRequestSectionConfigSectionModelsStart) SetMin(v int32) *UpdateCoursesOfClassRequestSectionConfigSectionModelsStart {
+	s.Min = &v
+	return s
+}
+
+func (s *UpdateCoursesOfClassRequestSectionConfigSectionModelsStart) SetHour(v int32) *UpdateCoursesOfClassRequestSectionConfigSectionModelsStart {
+	s.Hour = &v
+	return s
+}
+
+type UpdateCoursesOfClassRequestSectionConfigSectionModelsEnd struct {
+	// 分钟
+	Min *int32 `json:"min,omitempty" xml:"min,omitempty"`
+	// 小时
+	Hour *int32 `json:"hour,omitempty" xml:"hour,omitempty"`
+}
+
+func (s UpdateCoursesOfClassRequestSectionConfigSectionModelsEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCoursesOfClassRequestSectionConfigSectionModelsEnd) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCoursesOfClassRequestSectionConfigSectionModelsEnd) SetMin(v int32) *UpdateCoursesOfClassRequestSectionConfigSectionModelsEnd {
+	s.Min = &v
+	return s
+}
+
+func (s *UpdateCoursesOfClassRequestSectionConfigSectionModelsEnd) SetHour(v int32) *UpdateCoursesOfClassRequestSectionConfigSectionModelsEnd {
+	s.Hour = &v
 	return s
 }
 
@@ -5698,6 +5812,10 @@ func (client *Client) UpdateCoursesOfClassWithOptions(classId *string, request *
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Courses)) {
 		body["courses"] = request.Courses
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SectionConfig))) {
+		body["sectionConfig"] = request.SectionConfig
 	}
 
 	realHeaders := make(map[string]*string)

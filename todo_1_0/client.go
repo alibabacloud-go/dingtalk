@@ -932,14 +932,6 @@ type GetTodoTaskResponseBody struct {
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	// 待办卡片类型id
 	CardTypeId *string `json:"cardTypeId,omitempty" xml:"cardTypeId,omitempty"`
-	// 内容区表单字段配置
-	ContentFieldList []*GetTodoTaskResponseBodyContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
-	// 待办是否仅展示在执行人的待办列表中
-	IsOnlyShowExecutor *bool `json:"isOnlyShowExecutor,omitempty" xml:"isOnlyShowExecutor,omitempty"`
-	// 优先级, 较低:10, 普通:20, 紧急:30, 非常紧急:40
-	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
-	// 业务来源展示名称
-	SourceTitle *string `json:"sourceTitle,omitempty" xml:"sourceTitle,omitempty"`
 }
 
 func (s GetTodoTaskResponseBody) String() string {
@@ -1055,26 +1047,6 @@ func (s *GetTodoTaskResponseBody) SetCardTypeId(v string) *GetTodoTaskResponseBo
 	return s
 }
 
-func (s *GetTodoTaskResponseBody) SetContentFieldList(v []*GetTodoTaskResponseBodyContentFieldList) *GetTodoTaskResponseBody {
-	s.ContentFieldList = v
-	return s
-}
-
-func (s *GetTodoTaskResponseBody) SetIsOnlyShowExecutor(v bool) *GetTodoTaskResponseBody {
-	s.IsOnlyShowExecutor = &v
-	return s
-}
-
-func (s *GetTodoTaskResponseBody) SetPriority(v int32) *GetTodoTaskResponseBody {
-	s.Priority = &v
-	return s
-}
-
-func (s *GetTodoTaskResponseBody) SetSourceTitle(v string) *GetTodoTaskResponseBody {
-	s.SourceTitle = &v
-	return s
-}
-
 type GetTodoTaskResponseBodyDetailUrl struct {
 	// pc端详情页地址
 	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
@@ -1097,31 +1069,6 @@ func (s *GetTodoTaskResponseBodyDetailUrl) SetPcUrl(v string) *GetTodoTaskRespon
 
 func (s *GetTodoTaskResponseBodyDetailUrl) SetAppUrl(v string) *GetTodoTaskResponseBodyDetailUrl {
 	s.AppUrl = &v
-	return s
-}
-
-type GetTodoTaskResponseBodyContentFieldList struct {
-	// 字段唯一标识
-	FieldKey *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
-	// 字段值
-	FieldValue *string `json:"fieldValue,omitempty" xml:"fieldValue,omitempty"`
-}
-
-func (s GetTodoTaskResponseBodyContentFieldList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetTodoTaskResponseBodyContentFieldList) GoString() string {
-	return s.String()
-}
-
-func (s *GetTodoTaskResponseBodyContentFieldList) SetFieldKey(v string) *GetTodoTaskResponseBodyContentFieldList {
-	s.FieldKey = &v
-	return s
-}
-
-func (s *GetTodoTaskResponseBodyContentFieldList) SetFieldValue(v string) *GetTodoTaskResponseBodyContentFieldList {
-	s.FieldValue = &v
 	return s
 }
 
@@ -1868,14 +1815,6 @@ type UpdateTodoTaskRequest struct {
 	ExecutorIds []*string `json:"executorIds,omitempty" xml:"executorIds,omitempty" type:"Repeated"`
 	// 参与者列表，需传用户的unionId
 	ParticipantIds []*string `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
-	// 待办卡片类型id
-	CardTypeId *string `json:"cardTypeId,omitempty" xml:"cardTypeId,omitempty"`
-	// 内容区表单字段配置
-	ContentFieldList []*UpdateTodoTaskRequestContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
-	// 优先级, 较低:10, 普通:20, 紧急:30, 非常紧急:40
-	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
-	// 业务来源展示名称
-	SourceTitle *string `json:"sourceTitle,omitempty" xml:"sourceTitle,omitempty"`
 	// 当前操作者id，需传用户的unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
@@ -1918,53 +1857,8 @@ func (s *UpdateTodoTaskRequest) SetParticipantIds(v []*string) *UpdateTodoTaskRe
 	return s
 }
 
-func (s *UpdateTodoTaskRequest) SetCardTypeId(v string) *UpdateTodoTaskRequest {
-	s.CardTypeId = &v
-	return s
-}
-
-func (s *UpdateTodoTaskRequest) SetContentFieldList(v []*UpdateTodoTaskRequestContentFieldList) *UpdateTodoTaskRequest {
-	s.ContentFieldList = v
-	return s
-}
-
-func (s *UpdateTodoTaskRequest) SetPriority(v int32) *UpdateTodoTaskRequest {
-	s.Priority = &v
-	return s
-}
-
-func (s *UpdateTodoTaskRequest) SetSourceTitle(v string) *UpdateTodoTaskRequest {
-	s.SourceTitle = &v
-	return s
-}
-
 func (s *UpdateTodoTaskRequest) SetOperatorId(v string) *UpdateTodoTaskRequest {
 	s.OperatorId = &v
-	return s
-}
-
-type UpdateTodoTaskRequestContentFieldList struct {
-	// 字段唯一标识
-	FieldKey *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
-	// 字段值
-	FieldValue *string `json:"fieldValue,omitempty" xml:"fieldValue,omitempty"`
-}
-
-func (s UpdateTodoTaskRequestContentFieldList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateTodoTaskRequestContentFieldList) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateTodoTaskRequestContentFieldList) SetFieldKey(v string) *UpdateTodoTaskRequestContentFieldList {
-	s.FieldKey = &v
-	return s
-}
-
-func (s *UpdateTodoTaskRequestContentFieldList) SetFieldValue(v string) *UpdateTodoTaskRequestContentFieldList {
-	s.FieldValue = &v
 	return s
 }
 
@@ -2049,16 +1943,6 @@ type CreateTodoTaskRequest struct {
 	ParticipantIds []*string `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
 	// 详情页url跳转地址
 	DetailUrl *CreateTodoTaskRequestDetailUrl `json:"detailUrl,omitempty" xml:"detailUrl,omitempty" type:"Struct"`
-	// 待办卡片类型id
-	CardTypeId *string `json:"cardTypeId,omitempty" xml:"cardTypeId,omitempty"`
-	// 待办卡片内容区表单自定义字段列表
-	ContentFieldList []*CreateTodoTaskRequestContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
-	// 生成的待办是否仅展示在执行者的待办列表中
-	IsOnlyShowExecutor *bool `json:"isOnlyShowExecutor,omitempty" xml:"isOnlyShowExecutor,omitempty"`
-	// 优先级
-	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
-	// 业务来源展示名称
-	SourceTitle *string `json:"sourceTitle,omitempty" xml:"sourceTitle,omitempty"`
 	// 当前操作者id，需传用户的unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
@@ -2111,31 +1995,6 @@ func (s *CreateTodoTaskRequest) SetDetailUrl(v *CreateTodoTaskRequestDetailUrl) 
 	return s
 }
 
-func (s *CreateTodoTaskRequest) SetCardTypeId(v string) *CreateTodoTaskRequest {
-	s.CardTypeId = &v
-	return s
-}
-
-func (s *CreateTodoTaskRequest) SetContentFieldList(v []*CreateTodoTaskRequestContentFieldList) *CreateTodoTaskRequest {
-	s.ContentFieldList = v
-	return s
-}
-
-func (s *CreateTodoTaskRequest) SetIsOnlyShowExecutor(v bool) *CreateTodoTaskRequest {
-	s.IsOnlyShowExecutor = &v
-	return s
-}
-
-func (s *CreateTodoTaskRequest) SetPriority(v int32) *CreateTodoTaskRequest {
-	s.Priority = &v
-	return s
-}
-
-func (s *CreateTodoTaskRequest) SetSourceTitle(v string) *CreateTodoTaskRequest {
-	s.SourceTitle = &v
-	return s
-}
-
 func (s *CreateTodoTaskRequest) SetOperatorId(v string) *CreateTodoTaskRequest {
 	s.OperatorId = &v
 	return s
@@ -2163,31 +2022,6 @@ func (s *CreateTodoTaskRequestDetailUrl) SetAppUrl(v string) *CreateTodoTaskRequ
 
 func (s *CreateTodoTaskRequestDetailUrl) SetPcUrl(v string) *CreateTodoTaskRequestDetailUrl {
 	s.PcUrl = &v
-	return s
-}
-
-type CreateTodoTaskRequestContentFieldList struct {
-	// 字段唯一标识
-	FieldKey *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
-	// 字段值
-	FieldValue *string `json:"fieldValue,omitempty" xml:"fieldValue,omitempty"`
-}
-
-func (s CreateTodoTaskRequestContentFieldList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateTodoTaskRequestContentFieldList) GoString() string {
-	return s.String()
-}
-
-func (s *CreateTodoTaskRequestContentFieldList) SetFieldKey(v string) *CreateTodoTaskRequestContentFieldList {
-	s.FieldKey = &v
-	return s
-}
-
-func (s *CreateTodoTaskRequestContentFieldList) SetFieldValue(v string) *CreateTodoTaskRequestContentFieldList {
-	s.FieldValue = &v
 	return s
 }
 
@@ -2228,16 +2062,6 @@ type CreateTodoTaskResponseBody struct {
 	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
 	// requestId
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	// 待办卡片类型id
-	CardTypeId *string `json:"cardTypeId,omitempty" xml:"cardTypeId,omitempty"`
-	// 内容区表单字段配置
-	ContentFieldList []*CreateTodoTaskResponseBodyContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
-	// 生成的待办是否仅展示在执行者的待办列表中
-	IsOnlyShowExecutor *bool `json:"isOnlyShowExecutor,omitempty" xml:"isOnlyShowExecutor,omitempty"`
-	// 优先级, 较低:10, 普通:20, 紧急:30, 非常紧急:40
-	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
-	// 业务来源展示名称
-	SourceTitle *string `json:"sourceTitle,omitempty" xml:"sourceTitle,omitempty"`
 }
 
 func (s CreateTodoTaskResponseBody) String() string {
@@ -2338,31 +2162,6 @@ func (s *CreateTodoTaskResponseBody) SetRequestId(v string) *CreateTodoTaskRespo
 	return s
 }
 
-func (s *CreateTodoTaskResponseBody) SetCardTypeId(v string) *CreateTodoTaskResponseBody {
-	s.CardTypeId = &v
-	return s
-}
-
-func (s *CreateTodoTaskResponseBody) SetContentFieldList(v []*CreateTodoTaskResponseBodyContentFieldList) *CreateTodoTaskResponseBody {
-	s.ContentFieldList = v
-	return s
-}
-
-func (s *CreateTodoTaskResponseBody) SetIsOnlyShowExecutor(v bool) *CreateTodoTaskResponseBody {
-	s.IsOnlyShowExecutor = &v
-	return s
-}
-
-func (s *CreateTodoTaskResponseBody) SetPriority(v int32) *CreateTodoTaskResponseBody {
-	s.Priority = &v
-	return s
-}
-
-func (s *CreateTodoTaskResponseBody) SetSourceTitle(v string) *CreateTodoTaskResponseBody {
-	s.SourceTitle = &v
-	return s
-}
-
 type CreateTodoTaskResponseBodyDetailUrl struct {
 	// pc端详情页地址
 	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
@@ -2385,31 +2184,6 @@ func (s *CreateTodoTaskResponseBodyDetailUrl) SetPcUrl(v string) *CreateTodoTask
 
 func (s *CreateTodoTaskResponseBodyDetailUrl) SetAppUrl(v string) *CreateTodoTaskResponseBodyDetailUrl {
 	s.AppUrl = &v
-	return s
-}
-
-type CreateTodoTaskResponseBodyContentFieldList struct {
-	// 字段唯一标识
-	FieldKey *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
-	// 字段值
-	FieldValue *string `json:"fieldValue,omitempty" xml:"fieldValue,omitempty"`
-}
-
-func (s CreateTodoTaskResponseBodyContentFieldList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateTodoTaskResponseBodyContentFieldList) GoString() string {
-	return s.String()
-}
-
-func (s *CreateTodoTaskResponseBodyContentFieldList) SetFieldKey(v string) *CreateTodoTaskResponseBodyContentFieldList {
-	s.FieldKey = &v
-	return s
-}
-
-func (s *CreateTodoTaskResponseBodyContentFieldList) SetFieldValue(v string) *CreateTodoTaskResponseBodyContentFieldList {
-	s.FieldValue = &v
 	return s
 }
 
@@ -2948,22 +2722,6 @@ func (client *Client) UpdateTodoTaskWithOptions(unionId *string, taskId *string,
 		body["participantIds"] = request.ParticipantIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CardTypeId)) {
-		body["cardTypeId"] = request.CardTypeId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.ContentFieldList)) {
-		body["contentFieldList"] = request.ContentFieldList
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Priority)) {
-		body["priority"] = request.Priority
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.SourceTitle)) {
-		body["sourceTitle"] = request.SourceTitle
-	}
-
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3040,26 +2798,6 @@ func (client *Client) CreateTodoTaskWithOptions(unionId *string, request *Create
 
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.DetailUrl))) {
 		body["detailUrl"] = request.DetailUrl
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.CardTypeId)) {
-		body["cardTypeId"] = request.CardTypeId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.ContentFieldList)) {
-		body["contentFieldList"] = request.ContentFieldList
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.IsOnlyShowExecutor)) {
-		body["isOnlyShowExecutor"] = request.IsOnlyShowExecutor
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Priority)) {
-		body["priority"] = request.Priority
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.SourceTitle)) {
-		body["sourceTitle"] = request.SourceTitle
 	}
 
 	realHeaders := make(map[string]*string)

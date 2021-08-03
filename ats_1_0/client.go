@@ -744,6 +744,12 @@ func (s *GetApplicationRegFormByFlowIdRequest) SetBizCode(v string) *GetApplicat
 }
 
 type GetApplicationRegFormByFlowIdResponseBody struct {
+	// 招聘流程标识
+	FlowId *string `json:"flowId,omitempty" xml:"flowId,omitempty"`
+	// 候选人标识
+	CandidateId *string `json:"candidateId,omitempty" xml:"candidateId,omitempty"`
+	// 职位标识
+	JobId *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
 	// 创建时间（邀填时间，单位：毫秒）
 	GmtCreateMillis *int64 `json:"gmtCreateMillis,omitempty" xml:"gmtCreateMillis,omitempty"`
 	// 更新时间（填写时间，单位：毫秒），仅当表单状态为已填写时有效
@@ -766,6 +772,21 @@ func (s GetApplicationRegFormByFlowIdResponseBody) String() string {
 
 func (s GetApplicationRegFormByFlowIdResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *GetApplicationRegFormByFlowIdResponseBody) SetFlowId(v string) *GetApplicationRegFormByFlowIdResponseBody {
+	s.FlowId = &v
+	return s
+}
+
+func (s *GetApplicationRegFormByFlowIdResponseBody) SetCandidateId(v string) *GetApplicationRegFormByFlowIdResponseBody {
+	s.CandidateId = &v
+	return s
+}
+
+func (s *GetApplicationRegFormByFlowIdResponseBody) SetJobId(v string) *GetApplicationRegFormByFlowIdResponseBody {
+	s.JobId = &v
+	return s
 }
 
 func (s *GetApplicationRegFormByFlowIdResponseBody) SetGmtCreateMillis(v int64) *GetApplicationRegFormByFlowIdResponseBody {

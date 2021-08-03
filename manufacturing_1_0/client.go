@@ -135,10 +135,20 @@ func (s *IndustrializeManufactureJobBookRequest) SetDingCorpId(v string) *Indust
 }
 
 type IndustrializeManufactureJobBookResponseBody struct {
-	// content
-	Content *IndustrializeManufactureJobBookResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	// httpCode
+	HttpCode *string `json:"httpCode,omitempty" xml:"httpCode,omitempty"`
 	// 此次报工记录的唯一标识
 	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// content
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// errorMsg
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// errorLevel
+	ErrorLevel *int32 `json:"errorLevel,omitempty" xml:"errorLevel,omitempty"`
+	// errorCode
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s IndustrializeManufactureJobBookResponseBody) String() string {
@@ -149,8 +159,8 @@ func (s IndustrializeManufactureJobBookResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *IndustrializeManufactureJobBookResponseBody) SetContent(v *IndustrializeManufactureJobBookResponseBodyContent) *IndustrializeManufactureJobBookResponseBody {
-	s.Content = v
+func (s *IndustrializeManufactureJobBookResponseBody) SetHttpCode(v string) *IndustrializeManufactureJobBookResponseBody {
+	s.HttpCode = &v
 	return s
 }
 
@@ -159,28 +169,28 @@ func (s *IndustrializeManufactureJobBookResponseBody) SetUuid(v string) *Industr
 	return s
 }
 
-type IndustrializeManufactureJobBookResponseBodyContent struct {
-	// 新增记录的数据id
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
-	// 更新记录的条数
-	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
-}
-
-func (s IndustrializeManufactureJobBookResponseBodyContent) String() string {
-	return tea.Prettify(s)
-}
-
-func (s IndustrializeManufactureJobBookResponseBodyContent) GoString() string {
-	return s.String()
-}
-
-func (s *IndustrializeManufactureJobBookResponseBodyContent) SetId(v int64) *IndustrializeManufactureJobBookResponseBodyContent {
-	s.Id = &v
+func (s *IndustrializeManufactureJobBookResponseBody) SetContent(v string) *IndustrializeManufactureJobBookResponseBody {
+	s.Content = &v
 	return s
 }
 
-func (s *IndustrializeManufactureJobBookResponseBodyContent) SetCount(v int64) *IndustrializeManufactureJobBookResponseBodyContent {
-	s.Count = &v
+func (s *IndustrializeManufactureJobBookResponseBody) SetErrorMsg(v string) *IndustrializeManufactureJobBookResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *IndustrializeManufactureJobBookResponseBody) SetErrorLevel(v int32) *IndustrializeManufactureJobBookResponseBody {
+	s.ErrorLevel = &v
+	return s
+}
+
+func (s *IndustrializeManufactureJobBookResponseBody) SetErrorCode(v string) *IndustrializeManufactureJobBookResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *IndustrializeManufactureJobBookResponseBody) SetSuccess(v bool) *IndustrializeManufactureJobBookResponseBody {
+	s.Success = &v
 	return s
 }
 
