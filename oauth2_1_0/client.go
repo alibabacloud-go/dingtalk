@@ -64,6 +64,8 @@ type GetUserTokenResponseBody struct {
 	RefreshToken *string `json:"refreshToken,omitempty" xml:"refreshToken,omitempty"`
 	// 超时时间
 	ExpireIn *int64 `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
+	// 所选企业corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s GetUserTokenResponseBody) String() string {
@@ -86,6 +88,11 @@ func (s *GetUserTokenResponseBody) SetRefreshToken(v string) *GetUserTokenRespon
 
 func (s *GetUserTokenResponseBody) SetExpireIn(v int64) *GetUserTokenResponseBody {
 	s.ExpireIn = &v
+	return s
+}
+
+func (s *GetUserTokenResponseBody) SetCorpId(v string) *GetUserTokenResponseBody {
+	s.CorpId = &v
 	return s
 }
 

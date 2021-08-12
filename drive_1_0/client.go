@@ -98,8 +98,14 @@ type AddFileResponseBody struct {
 	FilePath *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
 	// 文件类型
 	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// 文件内容类型
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
 	// 文件后缀
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 修改时间
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
 }
 
 func (s AddFileResponseBody) String() string {
@@ -135,8 +141,23 @@ func (s *AddFileResponseBody) SetFileType(v string) *AddFileResponseBody {
 	return s
 }
 
+func (s *AddFileResponseBody) SetContentType(v string) *AddFileResponseBody {
+	s.ContentType = &v
+	return s
+}
+
 func (s *AddFileResponseBody) SetFileExtension(v string) *AddFileResponseBody {
 	s.FileExtension = &v
+	return s
+}
+
+func (s *AddFileResponseBody) SetCreateTime(v string) *AddFileResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *AddFileResponseBody) SetModifyTime(v string) *AddFileResponseBody {
+	s.ModifyTime = &v
 	return s
 }
 
@@ -593,8 +614,14 @@ type GetFileInfoResponseBody struct {
 	FilePath *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
 	// 文件类型
 	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// 文件内容类型
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
 	// 文件后缀
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 修改时间
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
 }
 
 func (s GetFileInfoResponseBody) String() string {
@@ -630,8 +657,23 @@ func (s *GetFileInfoResponseBody) SetFileType(v string) *GetFileInfoResponseBody
 	return s
 }
 
+func (s *GetFileInfoResponseBody) SetContentType(v string) *GetFileInfoResponseBody {
+	s.ContentType = &v
+	return s
+}
+
 func (s *GetFileInfoResponseBody) SetFileExtension(v string) *GetFileInfoResponseBody {
 	s.FileExtension = &v
+	return s
+}
+
+func (s *GetFileInfoResponseBody) SetCreateTime(v string) *GetFileInfoResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetFileInfoResponseBody) SetModifyTime(v string) *GetFileInfoResponseBody {
+	s.ModifyTime = &v
 	return s
 }
 
@@ -654,6 +696,130 @@ func (s *GetFileInfoResponse) SetHeaders(v map[string]*string) *GetFileInfoRespo
 }
 
 func (s *GetFileInfoResponse) SetBody(v *GetFileInfoResponseBody) *GetFileInfoResponse {
+	s.Body = v
+	return s
+}
+
+type InfoSpaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s InfoSpaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InfoSpaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *InfoSpaceHeaders) SetCommonHeaders(v map[string]*string) *InfoSpaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *InfoSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *InfoSpaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type InfoSpaceRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s InfoSpaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InfoSpaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *InfoSpaceRequest) SetUnionId(v string) *InfoSpaceRequest {
+	s.UnionId = &v
+	return s
+}
+
+type InfoSpaceResponseBody struct {
+	// 空间id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 空间名称
+	SpaceName *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	// 空间类型
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// 容量
+	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
+	// 已使用容量
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 修改时间
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+}
+
+func (s InfoSpaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InfoSpaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *InfoSpaceResponseBody) SetSpaceId(v string) *InfoSpaceResponseBody {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *InfoSpaceResponseBody) SetSpaceName(v string) *InfoSpaceResponseBody {
+	s.SpaceName = &v
+	return s
+}
+
+func (s *InfoSpaceResponseBody) SetSpaceType(v string) *InfoSpaceResponseBody {
+	s.SpaceType = &v
+	return s
+}
+
+func (s *InfoSpaceResponseBody) SetQuota(v int64) *InfoSpaceResponseBody {
+	s.Quota = &v
+	return s
+}
+
+func (s *InfoSpaceResponseBody) SetUsedQuota(v int64) *InfoSpaceResponseBody {
+	s.UsedQuota = &v
+	return s
+}
+
+func (s *InfoSpaceResponseBody) SetCreateTime(v string) *InfoSpaceResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *InfoSpaceResponseBody) SetModifyTime(v string) *InfoSpaceResponseBody {
+	s.ModifyTime = &v
+	return s
+}
+
+type InfoSpaceResponse struct {
+	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *InfoSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s InfoSpaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InfoSpaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *InfoSpaceResponse) SetHeaders(v map[string]*string) *InfoSpaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *InfoSpaceResponse) SetBody(v *InfoSpaceResponseBody) *InfoSpaceResponse {
 	s.Body = v
 	return s
 }
@@ -755,6 +921,8 @@ func (s *ListRecycleFilesResponseBody) SetNextToken(v string) *ListRecycleFilesR
 type ListRecycleFilesResponseBodyRecycleItems struct {
 	// 回收站item id
 	RecycleItemId *string `json:"recycleItemId,omitempty" xml:"recycleItemId,omitempty"`
+	// 删除员工工号
+	DeleteStaffId *string `json:"deleteStaffId,omitempty" xml:"deleteStaffId,omitempty"`
 	// 删除时间
 	DeleteTime *string `json:"deleteTime,omitempty" xml:"deleteTime,omitempty"`
 	// 文件大小
@@ -779,6 +947,11 @@ func (s ListRecycleFilesResponseBodyRecycleItems) GoString() string {
 
 func (s *ListRecycleFilesResponseBodyRecycleItems) SetRecycleItemId(v string) *ListRecycleFilesResponseBodyRecycleItems {
 	s.RecycleItemId = &v
+	return s
+}
+
+func (s *ListRecycleFilesResponseBodyRecycleItems) SetDeleteStaffId(v string) *ListRecycleFilesResponseBodyRecycleItems {
+	s.DeleteStaffId = &v
 	return s
 }
 
@@ -894,8 +1067,14 @@ type RenameFileResponseBody struct {
 	FilePath *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
 	// 文件类型
 	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// 文件内容类型
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
 	// 文件后缀
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 修改时间
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
 }
 
 func (s RenameFileResponseBody) String() string {
@@ -931,8 +1110,23 @@ func (s *RenameFileResponseBody) SetFileType(v string) *RenameFileResponseBody {
 	return s
 }
 
+func (s *RenameFileResponseBody) SetContentType(v string) *RenameFileResponseBody {
+	s.ContentType = &v
+	return s
+}
+
 func (s *RenameFileResponseBody) SetFileExtension(v string) *RenameFileResponseBody {
 	s.FileExtension = &v
+	return s
+}
+
+func (s *RenameFileResponseBody) SetCreateTime(v string) *RenameFileResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *RenameFileResponseBody) SetModifyTime(v string) *RenameFileResponseBody {
+	s.ModifyTime = &v
 	return s
 }
 
@@ -1057,8 +1251,14 @@ type ListFilesResponseBodyFiles struct {
 	FilePath *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
 	// 文件类型
 	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// 文件内容类型
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
 	// 文件后缀
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 修改时间
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
 }
 
 func (s ListFilesResponseBodyFiles) String() string {
@@ -1094,8 +1294,23 @@ func (s *ListFilesResponseBodyFiles) SetFileType(v string) *ListFilesResponseBod
 	return s
 }
 
+func (s *ListFilesResponseBodyFiles) SetContentType(v string) *ListFilesResponseBodyFiles {
+	s.ContentType = &v
+	return s
+}
+
 func (s *ListFilesResponseBodyFiles) SetFileExtension(v string) *ListFilesResponseBodyFiles {
 	s.FileExtension = &v
+	return s
+}
+
+func (s *ListFilesResponseBodyFiles) SetCreateTime(v string) *ListFilesResponseBodyFiles {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *ListFilesResponseBodyFiles) SetModifyTime(v string) *ListFilesResponseBodyFiles {
+	s.ModifyTime = &v
 	return s
 }
 
@@ -1529,8 +1744,14 @@ type MoveFileResponseBody struct {
 	FilePath *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
 	// 文件类型
 	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// 文件内容类型
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
 	// 文件后缀
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 修改时间
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
 }
 
 func (s MoveFileResponseBody) String() string {
@@ -1566,8 +1787,23 @@ func (s *MoveFileResponseBody) SetFileType(v string) *MoveFileResponseBody {
 	return s
 }
 
+func (s *MoveFileResponseBody) SetContentType(v string) *MoveFileResponseBody {
+	s.ContentType = &v
+	return s
+}
+
 func (s *MoveFileResponseBody) SetFileExtension(v string) *MoveFileResponseBody {
 	s.FileExtension = &v
+	return s
+}
+
+func (s *MoveFileResponseBody) SetCreateTime(v string) *MoveFileResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *MoveFileResponseBody) SetModifyTime(v string) *MoveFileResponseBody {
+	s.ModifyTime = &v
 	return s
 }
 
@@ -2696,6 +2932,50 @@ func (client *Client) GetFileInfoWithOptions(spaceId *string, fileId *string, re
 	}
 	_result = &GetFileInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetFileInfo"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) InfoSpace(spaceId *string, request *InfoSpaceRequest) (_result *InfoSpaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &InfoSpaceHeaders{}
+	_result = &InfoSpaceResponse{}
+	_body, _err := client.InfoSpaceWithOptions(spaceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) InfoSpaceWithOptions(spaceId *string, request *InfoSpaceRequest, headers *InfoSpaceHeaders, runtime *util.RuntimeOptions) (_result *InfoSpaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &InfoSpaceResponse{}
+	_body, _err := client.DoROARequest(tea.String("InfoSpace"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -2868,6 +2868,7 @@ type GetTicketResponseBody struct {
 	CustomFields       *string                         `json:"customFields,omitempty" xml:"customFields,omitempty"`
 	Scene              *string                         `json:"scene,omitempty" xml:"scene,omitempty"`
 	SceneContext       *string                         `json:"sceneContext,omitempty" xml:"sceneContext,omitempty"`
+	Template           *GetTicketResponseBodyTemplate  `json:"template,omitempty" xml:"template,omitempty" type:"Struct"`
 }
 
 func (s GetTicketResponseBody) String() string {
@@ -2938,6 +2939,11 @@ func (s *GetTicketResponseBody) SetSceneContext(v string) *GetTicketResponseBody
 	return s
 }
 
+func (s *GetTicketResponseBody) SetTemplate(v *GetTicketResponseBodyTemplate) *GetTicketResponseBody {
+	s.Template = v
+	return s
+}
+
 type GetTicketResponseBodyCreator struct {
 	UnionId  *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
@@ -3004,6 +3010,38 @@ func (s *GetTicketResponseBodyTakers) SetUnionId(v string) *GetTicketResponseBod
 
 func (s *GetTicketResponseBodyTakers) SetNickName(v string) *GetTicketResponseBodyTakers {
 	s.NickName = &v
+	return s
+}
+
+type GetTicketResponseBodyTemplate struct {
+	// 工单模版ID
+	OpenTemplateId *string `json:"openTemplateId,omitempty" xml:"openTemplateId,omitempty"`
+	// 工单模版业务ID
+	OpenTemplateBizId *string `json:"openTemplateBizId,omitempty" xml:"openTemplateBizId,omitempty"`
+	// 工单模版名称
+	TemplateName *string `json:"templateName,omitempty" xml:"templateName,omitempty"`
+}
+
+func (s GetTicketResponseBodyTemplate) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTicketResponseBodyTemplate) GoString() string {
+	return s.String()
+}
+
+func (s *GetTicketResponseBodyTemplate) SetOpenTemplateId(v string) *GetTicketResponseBodyTemplate {
+	s.OpenTemplateId = &v
+	return s
+}
+
+func (s *GetTicketResponseBodyTemplate) SetOpenTemplateBizId(v string) *GetTicketResponseBodyTemplate {
+	s.OpenTemplateBizId = &v
+	return s
+}
+
+func (s *GetTicketResponseBodyTemplate) SetTemplateName(v string) *GetTicketResponseBodyTemplate {
+	s.TemplateName = &v
 	return s
 }
 

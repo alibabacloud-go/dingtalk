@@ -1688,6 +1688,10 @@ func (s *InitCoursesOfClassRequestCoursesSectionModel) SetSectionName(v string) 
 type InitCoursesOfClassRequestSectionConfig struct {
 	// 节次模型
 	SectionModels []*InitCoursesOfClassRequestSectionConfigSectionModels `json:"sectionModels,omitempty" xml:"sectionModels,omitempty" type:"Repeated"`
+	// 课程表开始时间（精确到日）
+	Start *InitCoursesOfClassRequestSectionConfigStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// 课程表结束开始时间（精确到日）
+	End *InitCoursesOfClassRequestSectionConfigEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
 }
 
 func (s InitCoursesOfClassRequestSectionConfig) String() string {
@@ -1700,6 +1704,16 @@ func (s InitCoursesOfClassRequestSectionConfig) GoString() string {
 
 func (s *InitCoursesOfClassRequestSectionConfig) SetSectionModels(v []*InitCoursesOfClassRequestSectionConfigSectionModels) *InitCoursesOfClassRequestSectionConfig {
 	s.SectionModels = v
+	return s
+}
+
+func (s *InitCoursesOfClassRequestSectionConfig) SetStart(v *InitCoursesOfClassRequestSectionConfigStart) *InitCoursesOfClassRequestSectionConfig {
+	s.Start = v
+	return s
+}
+
+func (s *InitCoursesOfClassRequestSectionConfig) SetEnd(v *InitCoursesOfClassRequestSectionConfigEnd) *InitCoursesOfClassRequestSectionConfig {
+	s.End = v
 	return s
 }
 
@@ -1789,6 +1803,70 @@ func (s *InitCoursesOfClassRequestSectionConfigSectionModelsEnd) SetMin(v int32)
 
 func (s *InitCoursesOfClassRequestSectionConfigSectionModelsEnd) SetHour(v int32) *InitCoursesOfClassRequestSectionConfigSectionModelsEnd {
 	s.Hour = &v
+	return s
+}
+
+type InitCoursesOfClassRequestSectionConfigStart struct {
+	// 月份。
+	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
+	// 年份。
+	Year *int32 `json:"year,omitempty" xml:"year,omitempty"`
+	// 每个月的第几天。
+	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+}
+
+func (s InitCoursesOfClassRequestSectionConfigStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitCoursesOfClassRequestSectionConfigStart) GoString() string {
+	return s.String()
+}
+
+func (s *InitCoursesOfClassRequestSectionConfigStart) SetMonth(v int32) *InitCoursesOfClassRequestSectionConfigStart {
+	s.Month = &v
+	return s
+}
+
+func (s *InitCoursesOfClassRequestSectionConfigStart) SetYear(v int32) *InitCoursesOfClassRequestSectionConfigStart {
+	s.Year = &v
+	return s
+}
+
+func (s *InitCoursesOfClassRequestSectionConfigStart) SetDayOfMonth(v int32) *InitCoursesOfClassRequestSectionConfigStart {
+	s.DayOfMonth = &v
+	return s
+}
+
+type InitCoursesOfClassRequestSectionConfigEnd struct {
+	// 月份。
+	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
+	// 年份。
+	Year *int32 `json:"year,omitempty" xml:"year,omitempty"`
+	// 每个月的第几天。
+	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+}
+
+func (s InitCoursesOfClassRequestSectionConfigEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitCoursesOfClassRequestSectionConfigEnd) GoString() string {
+	return s.String()
+}
+
+func (s *InitCoursesOfClassRequestSectionConfigEnd) SetMonth(v int32) *InitCoursesOfClassRequestSectionConfigEnd {
+	s.Month = &v
+	return s
+}
+
+func (s *InitCoursesOfClassRequestSectionConfigEnd) SetYear(v int32) *InitCoursesOfClassRequestSectionConfigEnd {
+	s.Year = &v
+	return s
+}
+
+func (s *InitCoursesOfClassRequestSectionConfigEnd) SetDayOfMonth(v int32) *InitCoursesOfClassRequestSectionConfigEnd {
+	s.DayOfMonth = &v
 	return s
 }
 
@@ -3245,6 +3323,8 @@ type UpdateCoursesOfClassRequestCourses struct {
 	DeleteTag *bool `json:"deleteTag,omitempty" xml:"deleteTag,omitempty"`
 	// 课程code：删除/更新必填
 	CourseCode *string `json:"courseCode,omitempty" xml:"courseCode,omitempty"`
+	// 课组code
+	CourseGroupCode *string `json:"courseGroupCode,omitempty" xml:"courseGroupCode,omitempty"`
 }
 
 func (s UpdateCoursesOfClassRequestCourses) String() string {
@@ -3292,6 +3372,11 @@ func (s *UpdateCoursesOfClassRequestCourses) SetDeleteTag(v bool) *UpdateCourses
 
 func (s *UpdateCoursesOfClassRequestCourses) SetCourseCode(v string) *UpdateCoursesOfClassRequestCourses {
 	s.CourseCode = &v
+	return s
+}
+
+func (s *UpdateCoursesOfClassRequestCourses) SetCourseGroupCode(v string) *UpdateCoursesOfClassRequestCourses {
+	s.CourseGroupCode = &v
 	return s
 }
 

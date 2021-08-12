@@ -221,10 +221,6 @@ func (s *UpdateEmpAttrbuteVisibilitySettingHeaders) SetXAcsDingtalkAccessToken(v
 type UpdateEmpAttrbuteVisibilitySettingRequest struct {
 	// id
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
-	// 创建时间
-	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	// 修改时间
-	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
 	// 名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 描述信息
@@ -235,8 +231,6 @@ type UpdateEmpAttrbuteVisibilitySettingRequest struct {
 	ObjectDeptIds []*int64 `json:"objectDeptIds,omitempty" xml:"objectDeptIds,omitempty" type:"Repeated"`
 	// object角色id列表
 	ObjectTagIds []*int64 `json:"objectTagIds,omitempty" xml:"objectTagIds,omitempty" type:"Repeated"`
-	// object节点限制条件列表
-	ObjectNodeConditions []*string `json:"objectNodeConditions,omitempty" xml:"objectNodeConditions,omitempty" type:"Repeated"`
 	// 隐藏字段id列表
 	HideFields []*string `json:"hideFields,omitempty" xml:"hideFields,omitempty" type:"Repeated"`
 	// 例外员工id列表
@@ -262,16 +256,6 @@ func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetId(v int64) *UpdateEmpAtt
 	return s
 }
 
-func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetGmtCreate(v string) *UpdateEmpAttrbuteVisibilitySettingRequest {
-	s.GmtCreate = &v
-	return s
-}
-
-func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetGmtModified(v string) *UpdateEmpAttrbuteVisibilitySettingRequest {
-	s.GmtModified = &v
-	return s
-}
-
 func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetName(v string) *UpdateEmpAttrbuteVisibilitySettingRequest {
 	s.Name = &v
 	return s
@@ -294,11 +278,6 @@ func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetObjectDeptIds(v []*int64)
 
 func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetObjectTagIds(v []*int64) *UpdateEmpAttrbuteVisibilitySettingRequest {
 	s.ObjectTagIds = v
-	return s
-}
-
-func (s *UpdateEmpAttrbuteVisibilitySettingRequest) SetObjectNodeConditions(v []*string) *UpdateEmpAttrbuteVisibilitySettingRequest {
-	s.ObjectNodeConditions = v
 	return s
 }
 
@@ -815,8 +794,6 @@ type ListEmpAttributeVisibilityResponseBodyList struct {
 	ObjectDeptIds []*int64 `json:"objectDeptIds,omitempty" xml:"objectDeptIds,omitempty" type:"Repeated"`
 	// 被查看的角色id列表
 	ObjectTagIds []*int64 `json:"objectTagIds,omitempty" xml:"objectTagIds,omitempty" type:"Repeated"`
-	// 被查看方condition列表
-	ObjectNodeConditions []*string `json:"objectNodeConditions,omitempty" xml:"objectNodeConditions,omitempty" type:"Repeated"`
 	// 隐藏的字段id列表
 	HideFields []*string `json:"hideFields,omitempty" xml:"hideFields,omitempty" type:"Repeated"`
 	// 白名单用户id列表
@@ -874,11 +851,6 @@ func (s *ListEmpAttributeVisibilityResponseBodyList) SetObjectDeptIds(v []*int64
 
 func (s *ListEmpAttributeVisibilityResponseBodyList) SetObjectTagIds(v []*int64) *ListEmpAttributeVisibilityResponseBodyList {
 	s.ObjectTagIds = v
-	return s
-}
-
-func (s *ListEmpAttributeVisibilityResponseBodyList) SetObjectNodeConditions(v []*string) *ListEmpAttributeVisibilityResponseBodyList {
-	s.ObjectNodeConditions = v
 	return s
 }
 
@@ -1331,6 +1303,116 @@ func (s *QueryUserManagementResourcesResponse) SetHeaders(v map[string]*string) 
 }
 
 func (s *QueryUserManagementResourcesResponse) SetBody(v *QueryUserManagementResourcesResponseBody) *QueryUserManagementResourcesResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateUserOwnnessHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateUserOwnnessHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateUserOwnnessHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateUserOwnnessHeaders) SetCommonHeaders(v map[string]*string) *UpdateUserOwnnessHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateUserOwnnessHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateUserOwnnessHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateUserOwnnessRequest struct {
+	// 状态类型
+	OwnenssType *int32 `json:"ownenssType,omitempty" xml:"ownenssType,omitempty"`
+	// 业务标志id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 开始时间戳（毫秒）
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 结束时间戳（毫秒）
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 删除标记
+	DeletedFlag *int32 `json:"deletedFlag,omitempty" xml:"deletedFlag,omitempty"`
+}
+
+func (s UpdateUserOwnnessRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateUserOwnnessRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateUserOwnnessRequest) SetOwnenssType(v int32) *UpdateUserOwnnessRequest {
+	s.OwnenssType = &v
+	return s
+}
+
+func (s *UpdateUserOwnnessRequest) SetId(v int64) *UpdateUserOwnnessRequest {
+	s.Id = &v
+	return s
+}
+
+func (s *UpdateUserOwnnessRequest) SetStartTime(v int64) *UpdateUserOwnnessRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *UpdateUserOwnnessRequest) SetEndTime(v int64) *UpdateUserOwnnessRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *UpdateUserOwnnessRequest) SetDeletedFlag(v int32) *UpdateUserOwnnessRequest {
+	s.DeletedFlag = &v
+	return s
+}
+
+type UpdateUserOwnnessResponseBody struct {
+	// 业务标识id
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateUserOwnnessResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateUserOwnnessResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateUserOwnnessResponseBody) SetResult(v string) *UpdateUserOwnnessResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateUserOwnnessResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateUserOwnnessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateUserOwnnessResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateUserOwnnessResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateUserOwnnessResponse) SetHeaders(v map[string]*string) *UpdateUserOwnnessResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateUserOwnnessResponse) SetBody(v *UpdateUserOwnnessResponseBody) *UpdateUserOwnnessResponse {
 	s.Body = v
 	return s
 }
@@ -2175,14 +2257,6 @@ func (client *Client) UpdateEmpAttrbuteVisibilitySettingWithOptions(request *Upd
 		body["id"] = request.Id
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.GmtCreate)) {
-		body["gmtCreate"] = request.GmtCreate
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.GmtModified)) {
-		body["gmtModified"] = request.GmtModified
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
 		body["name"] = request.Name
 	}
@@ -2201,10 +2275,6 @@ func (client *Client) UpdateEmpAttrbuteVisibilitySettingWithOptions(request *Upd
 
 	if !tea.BoolValue(util.IsUnset(request.ObjectTagIds)) {
 		body["objectTagIds"] = request.ObjectTagIds
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.ObjectNodeConditions)) {
-		body["objectNodeConditions"] = request.ObjectNodeConditions
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.HideFields)) {
@@ -2618,6 +2688,66 @@ func (client *Client) QueryUserManagementResourcesWithOptions(userId *string, he
 	}
 	_result = &QueryUserManagementResourcesResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryUserManagementResources"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/users/"+tea.StringValue(userId)+"/managemementResources"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateUserOwnness(userId *string, request *UpdateUserOwnnessRequest) (_result *UpdateUserOwnnessResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateUserOwnnessHeaders{}
+	_result = &UpdateUserOwnnessResponse{}
+	_body, _err := client.UpdateUserOwnnessWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateUserOwnnessWithOptions(userId *string, request *UpdateUserOwnnessRequest, headers *UpdateUserOwnnessHeaders, runtime *util.RuntimeOptions) (_result *UpdateUserOwnnessResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OwnenssType)) {
+		body["ownenssType"] = request.OwnenssType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Id)) {
+		body["id"] = request.Id
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeletedFlag)) {
+		body["deletedFlag"] = request.DeletedFlag
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateUserOwnnessResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateUserOwnness"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/contact/user/"+tea.StringValue(userId)+"/ownness"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

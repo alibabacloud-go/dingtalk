@@ -125,6 +125,7 @@ func (s *RecallMessageHeaders) SetXAcsDingtalkAccessToken(v string) *RecallMessa
 type RecallMessageRequest struct {
 	OperatorUid *string `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
 	MessageId   *string `json:"messageId,omitempty" xml:"messageId,omitempty"`
+	Type        *int32  `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s RecallMessageRequest) String() string {
@@ -142,6 +143,11 @@ func (s *RecallMessageRequest) SetOperatorUid(v string) *RecallMessageRequest {
 
 func (s *RecallMessageRequest) SetMessageId(v string) *RecallMessageRequest {
 	s.MessageId = &v
+	return s
+}
+
+func (s *RecallMessageRequest) SetType(v int32) *RecallMessageRequest {
+	s.Type = &v
 	return s
 }
 
@@ -255,13 +261,12 @@ func (s *CreateGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGroupHe
 }
 
 type CreateGroupRequest struct {
-	Uuid        *string                      `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	CreatorUid  *string                      `json:"creatorUid,omitempty" xml:"creatorUid,omitempty"`
-	Name        *string                      `json:"name,omitempty" xml:"name,omitempty"`
-	IconMediaId *string                      `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
-	Channel     *string                      `json:"channel,omitempty" xml:"channel,omitempty"`
-	Properties  map[string]*string           `json:"properties,omitempty" xml:"properties,omitempty"`
-	Members     []*CreateGroupRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	Uuid        *string            `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	CreatorUid  *string            `json:"creatorUid,omitempty" xml:"creatorUid,omitempty"`
+	Name        *string            `json:"name,omitempty" xml:"name,omitempty"`
+	IconMediaId *string            `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
+	Channel     *string            `json:"channel,omitempty" xml:"channel,omitempty"`
+	Properties  map[string]*string `json:"properties,omitempty" xml:"properties,omitempty"`
 }
 
 func (s CreateGroupRequest) String() string {
@@ -299,34 +304,6 @@ func (s *CreateGroupRequest) SetChannel(v string) *CreateGroupRequest {
 
 func (s *CreateGroupRequest) SetProperties(v map[string]*string) *CreateGroupRequest {
 	s.Properties = v
-	return s
-}
-
-func (s *CreateGroupRequest) SetMembers(v []*CreateGroupRequestMembers) *CreateGroupRequest {
-	s.Members = v
-	return s
-}
-
-type CreateGroupRequestMembers struct {
-	Uid  *string `json:"uid,omitempty" xml:"uid,omitempty"`
-	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
-}
-
-func (s CreateGroupRequestMembers) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateGroupRequestMembers) GoString() string {
-	return s.String()
-}
-
-func (s *CreateGroupRequestMembers) SetUid(v string) *CreateGroupRequestMembers {
-	s.Uid = &v
-	return s
-}
-
-func (s *CreateGroupRequestMembers) SetNick(v string) *CreateGroupRequestMembers {
-	s.Nick = &v
 	return s
 }
 
@@ -791,8 +768,8 @@ func (s *AddGroupMembersRequest) SetMembers(v []*AddGroupMembersRequestMembers) 
 }
 
 type AddGroupMembersRequestMembers struct {
-	Uid  *string `json:"uid,omitempty" xml:"uid,omitempty"`
 	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	Uid  *string `json:"uid,omitempty" xml:"uid,omitempty"`
 }
 
 func (s AddGroupMembersRequestMembers) String() string {
@@ -803,13 +780,13 @@ func (s AddGroupMembersRequestMembers) GoString() string {
 	return s.String()
 }
 
-func (s *AddGroupMembersRequestMembers) SetUid(v string) *AddGroupMembersRequestMembers {
-	s.Uid = &v
+func (s *AddGroupMembersRequestMembers) SetNick(v string) *AddGroupMembersRequestMembers {
+	s.Nick = &v
 	return s
 }
 
-func (s *AddGroupMembersRequestMembers) SetNick(v string) *AddGroupMembersRequestMembers {
-	s.Nick = &v
+func (s *AddGroupMembersRequestMembers) SetUid(v string) *AddGroupMembersRequestMembers {
+	s.Uid = &v
 	return s
 }
 
@@ -1102,6 +1079,7 @@ func (s *SendMessageRequest) SetCreateTime(v int64) *SendMessageRequest {
 type SendMessageResponseBody struct {
 	MsgId      *string `json:"msgId,omitempty" xml:"msgId,omitempty"`
 	CreateTime *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	MessageId  *string `json:"messageId,omitempty" xml:"messageId,omitempty"`
 }
 
 func (s SendMessageResponseBody) String() string {
@@ -1119,6 +1097,11 @@ func (s *SendMessageResponseBody) SetMsgId(v string) *SendMessageResponseBody {
 
 func (s *SendMessageResponseBody) SetCreateTime(v int64) *SendMessageResponseBody {
 	s.CreateTime = &v
+	return s
+}
+
+func (s *SendMessageResponseBody) SetMessageId(v string) *SendMessageResponseBody {
+	s.MessageId = &v
 	return s
 }
 
@@ -1242,6 +1225,10 @@ func (client *Client) RecallMessageWithOptions(request *RecallMessageRequest, he
 		body["messageId"] = request.MessageId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1356,10 +1343,6 @@ func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, header
 
 	if !tea.BoolValue(util.IsUnset(request.Properties)) {
 		body["properties"] = request.Properties
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Members)) {
-		body["members"] = request.Members
 	}
 
 	realHeaders := make(map[string]*string)

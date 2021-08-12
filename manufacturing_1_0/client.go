@@ -217,6 +217,179 @@ func (s *IndustrializeManufactureJobBookResponse) SetBody(v *IndustrializeManufa
 	return s
 }
 
+type IndustrializeManufactureQueryJobsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IndustrializeManufactureQueryJobsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustrializeManufactureQueryJobsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IndustrializeManufactureQueryJobsHeaders) SetCommonHeaders(v map[string]*string) *IndustrializeManufactureQueryJobsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsHeaders) SetXAcsDingtalkAccessToken(v string) *IndustrializeManufactureQueryJobsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IndustrializeManufactureQueryJobsRequest struct {
+	// 产品中文名称
+	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	// 每页显示记录条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 报工合格数量
+	QualifiedQuantity *string `json:"qualifiedQuantity,omitempty" xml:"qualifiedQuantity,omitempty"`
+	// 生产日期
+	ManufactureDay *string `json:"manufactureDay,omitempty" xml:"manufactureDay,omitempty"`
+	// 工单编号
+	InstNo *string `json:"instNo,omitempty" xml:"instNo,omitempty"`
+	// 员工姓名
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// 产品唯一标识
+	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	// 产品规格
+	ProductSpecification *string `json:"productSpecification,omitempty" xml:"productSpecification,omitempty"`
+	// 计件单价，单位：分
+	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+	// 报工记录的唯一标识
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// 当前页序号(从1开始)
+	CurrentPage *int32 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	// 员工钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// MES系统唯一标识
+	MesAppKey *string `json:"mesAppKey,omitempty" xml:"mesAppKey,omitempty"`
+}
+
+func (s IndustrializeManufactureQueryJobsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustrializeManufactureQueryJobsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IndustrializeManufactureQueryJobsRequest) SetProductName(v string) *IndustrializeManufactureQueryJobsRequest {
+	s.ProductName = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsRequest) SetPageSize(v int32) *IndustrializeManufactureQueryJobsRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsRequest) SetQualifiedQuantity(v string) *IndustrializeManufactureQueryJobsRequest {
+	s.QualifiedQuantity = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsRequest) SetManufactureDay(v string) *IndustrializeManufactureQueryJobsRequest {
+	s.ManufactureDay = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsRequest) SetInstNo(v string) *IndustrializeManufactureQueryJobsRequest {
+	s.InstNo = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsRequest) SetUserName(v string) *IndustrializeManufactureQueryJobsRequest {
+	s.UserName = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsRequest) SetProductCode(v string) *IndustrializeManufactureQueryJobsRequest {
+	s.ProductCode = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsRequest) SetProductSpecification(v string) *IndustrializeManufactureQueryJobsRequest {
+	s.ProductSpecification = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsRequest) SetUnitPrice(v string) *IndustrializeManufactureQueryJobsRequest {
+	s.UnitPrice = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsRequest) SetUuid(v string) *IndustrializeManufactureQueryJobsRequest {
+	s.Uuid = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsRequest) SetCurrentPage(v int32) *IndustrializeManufactureQueryJobsRequest {
+	s.CurrentPage = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsRequest) SetUserId(v string) *IndustrializeManufactureQueryJobsRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsRequest) SetMesAppKey(v string) *IndustrializeManufactureQueryJobsRequest {
+	s.MesAppKey = &v
+	return s
+}
+
+type IndustrializeManufactureQueryJobsResponseBody struct {
+	// httpCode
+	HttpCode *string `json:"httpCode,omitempty" xml:"httpCode,omitempty"`
+	// 查询的数据结果
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s IndustrializeManufactureQueryJobsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustrializeManufactureQueryJobsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBody) SetHttpCode(v string) *IndustrializeManufactureQueryJobsResponseBody {
+	s.HttpCode = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBody) SetContent(v string) *IndustrializeManufactureQueryJobsResponseBody {
+	s.Content = &v
+	return s
+}
+
+type IndustrializeManufactureQueryJobsResponse struct {
+	Headers map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *IndustrializeManufactureQueryJobsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IndustrializeManufactureQueryJobsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustrializeManufactureQueryJobsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IndustrializeManufactureQueryJobsResponse) SetHeaders(v map[string]*string) *IndustrializeManufactureQueryJobsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponse) SetBody(v *IndustrializeManufactureQueryJobsResponseBody) *IndustrializeManufactureQueryJobsResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -328,6 +501,98 @@ func (client *Client) IndustrializeManufactureJobBookWithOptions(userId *string,
 	}
 	_result = &IndustrializeManufactureJobBookResponse{}
 	_body, _err := client.DoROARequest(tea.String("IndustrializeManufactureJobBook"), tea.String("manufacturing_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/manufacturing/users/"+tea.StringValue(userId)+"/jobs"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) IndustrializeManufactureQueryJobs(request *IndustrializeManufactureQueryJobsRequest) (_result *IndustrializeManufactureQueryJobsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IndustrializeManufactureQueryJobsHeaders{}
+	_result = &IndustrializeManufactureQueryJobsResponse{}
+	_body, _err := client.IndustrializeManufactureQueryJobsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IndustrializeManufactureQueryJobsWithOptions(request *IndustrializeManufactureQueryJobsRequest, headers *IndustrializeManufactureQueryJobsHeaders, runtime *util.RuntimeOptions) (_result *IndustrializeManufactureQueryJobsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProductName)) {
+		body["productName"] = request.ProductName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QualifiedQuantity)) {
+		body["qualifiedQuantity"] = request.QualifiedQuantity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManufactureDay)) {
+		body["manufactureDay"] = request.ManufactureDay
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstNo)) {
+		body["instNo"] = request.InstNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserName)) {
+		body["userName"] = request.UserName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductCode)) {
+		body["productCode"] = request.ProductCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductSpecification)) {
+		body["productSpecification"] = request.ProductSpecification
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnitPrice)) {
+		body["unitPrice"] = request.UnitPrice
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		body["uuid"] = request.Uuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CurrentPage)) {
+		body["currentPage"] = request.CurrentPage
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MesAppKey)) {
+		body["mesAppKey"] = request.MesAppKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &IndustrializeManufactureQueryJobsResponse{}
+	_body, _err := client.DoROARequest(tea.String("IndustrializeManufactureQueryJobs"), tea.String("manufacturing_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/manufacturing/users/jobs/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

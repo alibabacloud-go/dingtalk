@@ -465,6 +465,8 @@ type QueryInterviewsResponseBodyList struct {
 	StartTimeMillis *int64 `json:"startTimeMillis,omitempty" xml:"startTimeMillis,omitempty"`
 	// 面试结束时间（单位：毫秒）
 	EndTimeMillis *int64 `json:"endTimeMillis,omitempty" xml:"endTimeMillis,omitempty"`
+	// 面试是否已取消
+	Cancelled *bool `json:"cancelled,omitempty" xml:"cancelled,omitempty"`
 	// 面试创建人员工标识
 	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
 	// 面试官列表
@@ -496,6 +498,11 @@ func (s *QueryInterviewsResponseBodyList) SetStartTimeMillis(v int64) *QueryInte
 
 func (s *QueryInterviewsResponseBodyList) SetEndTimeMillis(v int64) *QueryInterviewsResponseBodyList {
 	s.EndTimeMillis = &v
+	return s
+}
+
+func (s *QueryInterviewsResponseBodyList) SetCancelled(v bool) *QueryInterviewsResponseBodyList {
+	s.Cancelled = &v
 	return s
 }
 

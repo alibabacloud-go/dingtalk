@@ -457,6 +457,461 @@ func (s *GetUserHolidaysResponse) SetBody(v *GetUserHolidaysResponseBody) *GetUs
 	return s
 }
 
+type AttendanceBleDevicesQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AttendanceBleDevicesQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttendanceBleDevicesQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AttendanceBleDevicesQueryHeaders) SetCommonHeaders(v map[string]*string) *AttendanceBleDevicesQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AttendanceBleDevicesQueryHeaders) SetXAcsDingtalkAccessToken(v string) *AttendanceBleDevicesQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AttendanceBleDevicesQueryRequest struct {
+	// 操作人Id
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 考勤组Id
+	GroupKey *string `json:"groupKey,omitempty" xml:"groupKey,omitempty"`
+}
+
+func (s AttendanceBleDevicesQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttendanceBleDevicesQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AttendanceBleDevicesQueryRequest) SetOpUserId(v string) *AttendanceBleDevicesQueryRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *AttendanceBleDevicesQueryRequest) SetGroupKey(v string) *AttendanceBleDevicesQueryRequest {
+	s.GroupKey = &v
+	return s
+}
+
+type AttendanceBleDevicesQueryResponseBody struct {
+	// 蓝牙列表
+	Result []*AttendanceBleDevicesQueryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s AttendanceBleDevicesQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttendanceBleDevicesQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AttendanceBleDevicesQueryResponseBody) SetResult(v []*AttendanceBleDevicesQueryResponseBodyResult) *AttendanceBleDevicesQueryResponseBody {
+	s.Result = v
+	return s
+}
+
+type AttendanceBleDevicesQueryResponseBodyResult struct {
+	// 蓝牙设备Id
+	DeviceId *int64 `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// 蓝牙设备名称
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// sn
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+}
+
+func (s AttendanceBleDevicesQueryResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttendanceBleDevicesQueryResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AttendanceBleDevicesQueryResponseBodyResult) SetDeviceId(v int64) *AttendanceBleDevicesQueryResponseBodyResult {
+	s.DeviceId = &v
+	return s
+}
+
+func (s *AttendanceBleDevicesQueryResponseBodyResult) SetDeviceName(v string) *AttendanceBleDevicesQueryResponseBodyResult {
+	s.DeviceName = &v
+	return s
+}
+
+func (s *AttendanceBleDevicesQueryResponseBodyResult) SetSn(v string) *AttendanceBleDevicesQueryResponseBodyResult {
+	s.Sn = &v
+	return s
+}
+
+type AttendanceBleDevicesQueryResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AttendanceBleDevicesQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AttendanceBleDevicesQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttendanceBleDevicesQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AttendanceBleDevicesQueryResponse) SetHeaders(v map[string]*string) *AttendanceBleDevicesQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AttendanceBleDevicesQueryResponse) SetBody(v *AttendanceBleDevicesQueryResponseBody) *AttendanceBleDevicesQueryResponse {
+	s.Body = v
+	return s
+}
+
+type AttendanceBleDevicesAddHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AttendanceBleDevicesAddHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttendanceBleDevicesAddHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AttendanceBleDevicesAddHeaders) SetCommonHeaders(v map[string]*string) *AttendanceBleDevicesAddHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AttendanceBleDevicesAddHeaders) SetXAcsDingtalkAccessToken(v string) *AttendanceBleDevicesAddHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AttendanceBleDevicesAddRequest struct {
+	// 操作人Id
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 考勤组Id
+	GroupKey *string `json:"groupKey,omitempty" xml:"groupKey,omitempty"`
+	// 蓝牙设备Id列表
+	DeviceIdList []*int64 `json:"deviceIdList,omitempty" xml:"deviceIdList,omitempty" type:"Repeated"`
+}
+
+func (s AttendanceBleDevicesAddRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttendanceBleDevicesAddRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AttendanceBleDevicesAddRequest) SetOpUserId(v string) *AttendanceBleDevicesAddRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *AttendanceBleDevicesAddRequest) SetGroupKey(v string) *AttendanceBleDevicesAddRequest {
+	s.GroupKey = &v
+	return s
+}
+
+func (s *AttendanceBleDevicesAddRequest) SetDeviceIdList(v []*int64) *AttendanceBleDevicesAddRequest {
+	s.DeviceIdList = v
+	return s
+}
+
+type AttendanceBleDevicesAddResponseBody struct {
+	// 添加错误列表
+	ErrorList []*AttendanceBleDevicesAddResponseBodyErrorList `json:"errorList,omitempty" xml:"errorList,omitempty" type:"Repeated"`
+	// 添加成功蓝牙设备列表
+	SuccessList []*AttendanceBleDevicesAddResponseBodySuccessList `json:"successList,omitempty" xml:"successList,omitempty" type:"Repeated"`
+}
+
+func (s AttendanceBleDevicesAddResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttendanceBleDevicesAddResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AttendanceBleDevicesAddResponseBody) SetErrorList(v []*AttendanceBleDevicesAddResponseBodyErrorList) *AttendanceBleDevicesAddResponseBody {
+	s.ErrorList = v
+	return s
+}
+
+func (s *AttendanceBleDevicesAddResponseBody) SetSuccessList(v []*AttendanceBleDevicesAddResponseBodySuccessList) *AttendanceBleDevicesAddResponseBody {
+	s.SuccessList = v
+	return s
+}
+
+type AttendanceBleDevicesAddResponseBodyErrorList struct {
+	// 错误code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 失败蓝牙设备列表
+	FailureList []*AttendanceBleDevicesAddResponseBodyErrorListFailureList `json:"failureList,omitempty" xml:"failureList,omitempty" type:"Repeated"`
+	// errorMsg
+	Msg *string `json:"msg,omitempty" xml:"msg,omitempty"`
+}
+
+func (s AttendanceBleDevicesAddResponseBodyErrorList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttendanceBleDevicesAddResponseBodyErrorList) GoString() string {
+	return s.String()
+}
+
+func (s *AttendanceBleDevicesAddResponseBodyErrorList) SetCode(v string) *AttendanceBleDevicesAddResponseBodyErrorList {
+	s.Code = &v
+	return s
+}
+
+func (s *AttendanceBleDevicesAddResponseBodyErrorList) SetFailureList(v []*AttendanceBleDevicesAddResponseBodyErrorListFailureList) *AttendanceBleDevicesAddResponseBodyErrorList {
+	s.FailureList = v
+	return s
+}
+
+func (s *AttendanceBleDevicesAddResponseBodyErrorList) SetMsg(v string) *AttendanceBleDevicesAddResponseBodyErrorList {
+	s.Msg = &v
+	return s
+}
+
+type AttendanceBleDevicesAddResponseBodyErrorListFailureList struct {
+	// 蓝牙设备Id
+	DeviceId *int64 `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// 蓝牙设备名称
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// sn
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+}
+
+func (s AttendanceBleDevicesAddResponseBodyErrorListFailureList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttendanceBleDevicesAddResponseBodyErrorListFailureList) GoString() string {
+	return s.String()
+}
+
+func (s *AttendanceBleDevicesAddResponseBodyErrorListFailureList) SetDeviceId(v int64) *AttendanceBleDevicesAddResponseBodyErrorListFailureList {
+	s.DeviceId = &v
+	return s
+}
+
+func (s *AttendanceBleDevicesAddResponseBodyErrorListFailureList) SetDeviceName(v string) *AttendanceBleDevicesAddResponseBodyErrorListFailureList {
+	s.DeviceName = &v
+	return s
+}
+
+func (s *AttendanceBleDevicesAddResponseBodyErrorListFailureList) SetSn(v string) *AttendanceBleDevicesAddResponseBodyErrorListFailureList {
+	s.Sn = &v
+	return s
+}
+
+type AttendanceBleDevicesAddResponseBodySuccessList struct {
+	// 蓝牙设备Id
+	DeviceId *int64 `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// 蓝牙设备名称
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// sn
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+}
+
+func (s AttendanceBleDevicesAddResponseBodySuccessList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttendanceBleDevicesAddResponseBodySuccessList) GoString() string {
+	return s.String()
+}
+
+func (s *AttendanceBleDevicesAddResponseBodySuccessList) SetDeviceId(v int64) *AttendanceBleDevicesAddResponseBodySuccessList {
+	s.DeviceId = &v
+	return s
+}
+
+func (s *AttendanceBleDevicesAddResponseBodySuccessList) SetDeviceName(v string) *AttendanceBleDevicesAddResponseBodySuccessList {
+	s.DeviceName = &v
+	return s
+}
+
+func (s *AttendanceBleDevicesAddResponseBodySuccessList) SetSn(v string) *AttendanceBleDevicesAddResponseBodySuccessList {
+	s.Sn = &v
+	return s
+}
+
+type AttendanceBleDevicesAddResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AttendanceBleDevicesAddResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AttendanceBleDevicesAddResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttendanceBleDevicesAddResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AttendanceBleDevicesAddResponse) SetHeaders(v map[string]*string) *AttendanceBleDevicesAddResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AttendanceBleDevicesAddResponse) SetBody(v *AttendanceBleDevicesAddResponseBody) *AttendanceBleDevicesAddResponse {
+	s.Body = v
+	return s
+}
+
+type AttendanceBleDevicesRemoveHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AttendanceBleDevicesRemoveHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttendanceBleDevicesRemoveHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AttendanceBleDevicesRemoveHeaders) SetCommonHeaders(v map[string]*string) *AttendanceBleDevicesRemoveHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AttendanceBleDevicesRemoveHeaders) SetXAcsDingtalkAccessToken(v string) *AttendanceBleDevicesRemoveHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AttendanceBleDevicesRemoveRequest struct {
+	// 操作人id
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 考勤组Id
+	GroupKey *string `json:"groupKey,omitempty" xml:"groupKey,omitempty"`
+	// 蓝牙设备Id列表
+	DeviceIdList []*int64 `json:"deviceIdList,omitempty" xml:"deviceIdList,omitempty" type:"Repeated"`
+}
+
+func (s AttendanceBleDevicesRemoveRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttendanceBleDevicesRemoveRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AttendanceBleDevicesRemoveRequest) SetOpUserId(v string) *AttendanceBleDevicesRemoveRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *AttendanceBleDevicesRemoveRequest) SetGroupKey(v string) *AttendanceBleDevicesRemoveRequest {
+	s.GroupKey = &v
+	return s
+}
+
+func (s *AttendanceBleDevicesRemoveRequest) SetDeviceIdList(v []*int64) *AttendanceBleDevicesRemoveRequest {
+	s.DeviceIdList = v
+	return s
+}
+
+type AttendanceBleDevicesRemoveResponseBody struct {
+	// 移出错误列表
+	ErrorList []*AttendanceBleDevicesRemoveResponseBodyErrorList `json:"errorList,omitempty" xml:"errorList,omitempty" type:"Repeated"`
+	// 移除成功蓝牙设备Id列表
+	SuccessList []*int64 `json:"successList,omitempty" xml:"successList,omitempty" type:"Repeated"`
+}
+
+func (s AttendanceBleDevicesRemoveResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttendanceBleDevicesRemoveResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AttendanceBleDevicesRemoveResponseBody) SetErrorList(v []*AttendanceBleDevicesRemoveResponseBodyErrorList) *AttendanceBleDevicesRemoveResponseBody {
+	s.ErrorList = v
+	return s
+}
+
+func (s *AttendanceBleDevicesRemoveResponseBody) SetSuccessList(v []*int64) *AttendanceBleDevicesRemoveResponseBody {
+	s.SuccessList = v
+	return s
+}
+
+type AttendanceBleDevicesRemoveResponseBodyErrorList struct {
+	// 错误code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 移除失败蓝牙设备Id列表
+	FailureList []*int64 `json:"failureList,omitempty" xml:"failureList,omitempty" type:"Repeated"`
+	// 错误信息
+	Msg *string `json:"msg,omitempty" xml:"msg,omitempty"`
+}
+
+func (s AttendanceBleDevicesRemoveResponseBodyErrorList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttendanceBleDevicesRemoveResponseBodyErrorList) GoString() string {
+	return s.String()
+}
+
+func (s *AttendanceBleDevicesRemoveResponseBodyErrorList) SetCode(v string) *AttendanceBleDevicesRemoveResponseBodyErrorList {
+	s.Code = &v
+	return s
+}
+
+func (s *AttendanceBleDevicesRemoveResponseBodyErrorList) SetFailureList(v []*int64) *AttendanceBleDevicesRemoveResponseBodyErrorList {
+	s.FailureList = v
+	return s
+}
+
+func (s *AttendanceBleDevicesRemoveResponseBodyErrorList) SetMsg(v string) *AttendanceBleDevicesRemoveResponseBodyErrorList {
+	s.Msg = &v
+	return s
+}
+
+type AttendanceBleDevicesRemoveResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AttendanceBleDevicesRemoveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AttendanceBleDevicesRemoveResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AttendanceBleDevicesRemoveResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AttendanceBleDevicesRemoveResponse) SetHeaders(v map[string]*string) *AttendanceBleDevicesRemoveResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AttendanceBleDevicesRemoveResponse) SetBody(v *AttendanceBleDevicesRemoveResponseBody) *AttendanceBleDevicesRemoveResponse {
+	s.Body = v
+	return s
+}
+
 type CheckWritePermissionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -943,6 +1398,158 @@ func (client *Client) GetUserHolidaysWithOptions(request *GetUserHolidaysRequest
 	}
 	_result = &GetUserHolidaysResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetUserHolidays"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/holidays"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AttendanceBleDevicesQuery(request *AttendanceBleDevicesQueryRequest) (_result *AttendanceBleDevicesQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AttendanceBleDevicesQueryHeaders{}
+	_result = &AttendanceBleDevicesQueryResponse{}
+	_body, _err := client.AttendanceBleDevicesQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AttendanceBleDevicesQueryWithOptions(request *AttendanceBleDevicesQueryRequest, headers *AttendanceBleDevicesQueryHeaders, runtime *util.RuntimeOptions) (_result *AttendanceBleDevicesQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupKey)) {
+		body["groupKey"] = request.GroupKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AttendanceBleDevicesQueryResponse{}
+	_body, _err := client.DoROARequestWithForm(tea.String("AttendanceBleDevicesQuery"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/group/bledevices/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AttendanceBleDevicesAdd(request *AttendanceBleDevicesAddRequest) (_result *AttendanceBleDevicesAddResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AttendanceBleDevicesAddHeaders{}
+	_result = &AttendanceBleDevicesAddResponse{}
+	_body, _err := client.AttendanceBleDevicesAddWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AttendanceBleDevicesAddWithOptions(request *AttendanceBleDevicesAddRequest, headers *AttendanceBleDevicesAddHeaders, runtime *util.RuntimeOptions) (_result *AttendanceBleDevicesAddResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupKey)) {
+		body["groupKey"] = request.GroupKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceIdList)) {
+		body["deviceIdList"] = request.DeviceIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AttendanceBleDevicesAddResponse{}
+	_body, _err := client.DoROARequest(tea.String("AttendanceBleDevicesAdd"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/group/bledevices"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AttendanceBleDevicesRemove(request *AttendanceBleDevicesRemoveRequest) (_result *AttendanceBleDevicesRemoveResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AttendanceBleDevicesRemoveHeaders{}
+	_result = &AttendanceBleDevicesRemoveResponse{}
+	_body, _err := client.AttendanceBleDevicesRemoveWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AttendanceBleDevicesRemoveWithOptions(request *AttendanceBleDevicesRemoveRequest, headers *AttendanceBleDevicesRemoveHeaders, runtime *util.RuntimeOptions) (_result *AttendanceBleDevicesRemoveResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupKey)) {
+		body["groupKey"] = request.GroupKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceIdList)) {
+		body["deviceIdList"] = request.DeviceIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AttendanceBleDevicesRemoveResponse{}
+	_body, _err := client.DoROARequest(tea.String("AttendanceBleDevicesRemove"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/group/bledevices/remove"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -244,7 +244,8 @@ type ListEventsResponseBodyEvents struct {
 	// 更新时间
 	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 	// 日程状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	Status            *string                                        `json:"status,omitempty" xml:"status,omitempty"`
+	OnlineMeetingInfo *ListEventsResponseBodyEventsOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
 }
 
 func (s ListEventsResponseBodyEvents) String() string {
@@ -322,6 +323,11 @@ func (s *ListEventsResponseBodyEvents) SetUpdateTime(v string) *ListEventsRespon
 
 func (s *ListEventsResponseBodyEvents) SetStatus(v string) *ListEventsResponseBodyEvents {
 	s.Status = &v
+	return s
+}
+
+func (s *ListEventsResponseBodyEvents) SetOnlineMeetingInfo(v *ListEventsResponseBodyEventsOnlineMeetingInfo) *ListEventsResponseBodyEvents {
+	s.OnlineMeetingInfo = v
 	return s
 }
 
@@ -576,6 +582,41 @@ func (s ListEventsResponseBodyEventsLocation) GoString() string {
 
 func (s *ListEventsResponseBodyEventsLocation) SetDisplayName(v string) *ListEventsResponseBodyEventsLocation {
 	s.DisplayName = &v
+	return s
+}
+
+type ListEventsResponseBodyEventsOnlineMeetingInfo struct {
+	Type         *string                `json:"type,omitempty" xml:"type,omitempty"`
+	ConferenceId *string                `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	Url          *string                `json:"url,omitempty" xml:"url,omitempty"`
+	ExtraInfo    map[string]interface{} `json:"extraInfo,omitempty" xml:"extraInfo,omitempty"`
+}
+
+func (s ListEventsResponseBodyEventsOnlineMeetingInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsResponseBodyEventsOnlineMeetingInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsResponseBodyEventsOnlineMeetingInfo) SetType(v string) *ListEventsResponseBodyEventsOnlineMeetingInfo {
+	s.Type = &v
+	return s
+}
+
+func (s *ListEventsResponseBodyEventsOnlineMeetingInfo) SetConferenceId(v string) *ListEventsResponseBodyEventsOnlineMeetingInfo {
+	s.ConferenceId = &v
+	return s
+}
+
+func (s *ListEventsResponseBodyEventsOnlineMeetingInfo) SetUrl(v string) *ListEventsResponseBodyEventsOnlineMeetingInfo {
+	s.Url = &v
+	return s
+}
+
+func (s *ListEventsResponseBodyEventsOnlineMeetingInfo) SetExtraInfo(v map[string]interface{}) *ListEventsResponseBodyEventsOnlineMeetingInfo {
+	s.ExtraInfo = v
 	return s
 }
 
@@ -1227,7 +1268,8 @@ type GetEventResponseBody struct {
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 更新时间
-	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	UpdateTime        *string                                `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	OnlineMeetingInfo *GetEventResponseBodyOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
 }
 
 func (s GetEventResponseBody) String() string {
@@ -1305,6 +1347,11 @@ func (s *GetEventResponseBody) SetCreateTime(v string) *GetEventResponseBody {
 
 func (s *GetEventResponseBody) SetUpdateTime(v string) *GetEventResponseBody {
 	s.UpdateTime = &v
+	return s
+}
+
+func (s *GetEventResponseBody) SetOnlineMeetingInfo(v *GetEventResponseBodyOnlineMeetingInfo) *GetEventResponseBody {
+	s.OnlineMeetingInfo = v
 	return s
 }
 
@@ -1556,6 +1603,41 @@ func (s GetEventResponseBodyLocation) GoString() string {
 
 func (s *GetEventResponseBodyLocation) SetDisplayName(v string) *GetEventResponseBodyLocation {
 	s.DisplayName = &v
+	return s
+}
+
+type GetEventResponseBodyOnlineMeetingInfo struct {
+	Type         *string                `json:"type,omitempty" xml:"type,omitempty"`
+	ConferenceId *string                `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	Url          *string                `json:"url,omitempty" xml:"url,omitempty"`
+	ExtraInfo    map[string]interface{} `json:"extraInfo,omitempty" xml:"extraInfo,omitempty"`
+}
+
+func (s GetEventResponseBodyOnlineMeetingInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEventResponseBodyOnlineMeetingInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetEventResponseBodyOnlineMeetingInfo) SetType(v string) *GetEventResponseBodyOnlineMeetingInfo {
+	s.Type = &v
+	return s
+}
+
+func (s *GetEventResponseBodyOnlineMeetingInfo) SetConferenceId(v string) *GetEventResponseBodyOnlineMeetingInfo {
+	s.ConferenceId = &v
+	return s
+}
+
+func (s *GetEventResponseBodyOnlineMeetingInfo) SetUrl(v string) *GetEventResponseBodyOnlineMeetingInfo {
+	s.Url = &v
+	return s
+}
+
+func (s *GetEventResponseBodyOnlineMeetingInfo) SetExtraInfo(v map[string]interface{}) *GetEventResponseBodyOnlineMeetingInfo {
+	s.ExtraInfo = v
 	return s
 }
 
