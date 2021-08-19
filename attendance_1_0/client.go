@@ -578,6 +578,98 @@ func (s *AttendanceBleDevicesQueryResponse) SetBody(v *AttendanceBleDevicesQuery
 	return s
 }
 
+type SyncScheduleInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncScheduleInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncScheduleInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncScheduleInfoHeaders) SetCommonHeaders(v map[string]*string) *SyncScheduleInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncScheduleInfoHeaders) SetXAcsDingtalkAccessToken(v string) *SyncScheduleInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncScheduleInfoRequest struct {
+	ScheduleInfos []*SyncScheduleInfoRequestScheduleInfos `json:"scheduleInfos,omitempty" xml:"scheduleInfos,omitempty" type:"Repeated"`
+	OpUserId      *string                                 `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s SyncScheduleInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncScheduleInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncScheduleInfoRequest) SetScheduleInfos(v []*SyncScheduleInfoRequestScheduleInfos) *SyncScheduleInfoRequest {
+	s.ScheduleInfos = v
+	return s
+}
+
+func (s *SyncScheduleInfoRequest) SetOpUserId(v string) *SyncScheduleInfoRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type SyncScheduleInfoRequestScheduleInfos struct {
+	PlanId       *int64    `json:"planId,omitempty" xml:"planId,omitempty"`
+	WifiKeys     []*string `json:"wifiKeys,omitempty" xml:"wifiKeys,omitempty" type:"Repeated"`
+	PositionKeys []*string `json:"positionKeys,omitempty" xml:"positionKeys,omitempty" type:"Repeated"`
+}
+
+func (s SyncScheduleInfoRequestScheduleInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncScheduleInfoRequestScheduleInfos) GoString() string {
+	return s.String()
+}
+
+func (s *SyncScheduleInfoRequestScheduleInfos) SetPlanId(v int64) *SyncScheduleInfoRequestScheduleInfos {
+	s.PlanId = &v
+	return s
+}
+
+func (s *SyncScheduleInfoRequestScheduleInfos) SetWifiKeys(v []*string) *SyncScheduleInfoRequestScheduleInfos {
+	s.WifiKeys = v
+	return s
+}
+
+func (s *SyncScheduleInfoRequestScheduleInfos) SetPositionKeys(v []*string) *SyncScheduleInfoRequestScheduleInfos {
+	s.PositionKeys = v
+	return s
+}
+
+type SyncScheduleInfoResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s SyncScheduleInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncScheduleInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncScheduleInfoResponse) SetHeaders(v map[string]*string) *SyncScheduleInfoResponse {
+	s.Headers = v
+	return s
+}
+
 type AttendanceBleDevicesAddHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1446,6 +1538,54 @@ func (client *Client) AttendanceBleDevicesQueryWithOptions(request *AttendanceBl
 	}
 	_result = &AttendanceBleDevicesQueryResponse{}
 	_body, _err := client.DoROARequestWithForm(tea.String("AttendanceBleDevicesQuery"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/group/bledevices/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SyncScheduleInfo(request *SyncScheduleInfoRequest) (_result *SyncScheduleInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncScheduleInfoHeaders{}
+	_result = &SyncScheduleInfoResponse{}
+	_body, _err := client.SyncScheduleInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SyncScheduleInfoWithOptions(request *SyncScheduleInfoRequest, headers *SyncScheduleInfoHeaders, runtime *util.RuntimeOptions) (_result *SyncScheduleInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ScheduleInfos)) {
+		body["scheduleInfos"] = request.ScheduleInfos
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SyncScheduleInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("SyncScheduleInfo"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/attendance/schedules/additionalInfo"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

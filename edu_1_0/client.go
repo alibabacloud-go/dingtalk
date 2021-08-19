@@ -557,11 +557,11 @@ func (s *QueryClassScheduleConfigResponseBodyResult) SetSectionModels(v []*Query
 
 type QueryClassScheduleConfigResponseBodyResultStart struct {
 	// 年份
-	Year *int64 `json:"year,omitempty" xml:"year,omitempty"`
+	Year *int32 `json:"year,omitempty" xml:"year,omitempty"`
 	// 月份
-	Month *int64 `json:"month,omitempty" xml:"month,omitempty"`
+	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
 	// 一个月中的第几天
-	DayOfMonth *int64 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
 }
 
 func (s QueryClassScheduleConfigResponseBodyResultStart) String() string {
@@ -572,17 +572,17 @@ func (s QueryClassScheduleConfigResponseBodyResultStart) GoString() string {
 	return s.String()
 }
 
-func (s *QueryClassScheduleConfigResponseBodyResultStart) SetYear(v int64) *QueryClassScheduleConfigResponseBodyResultStart {
+func (s *QueryClassScheduleConfigResponseBodyResultStart) SetYear(v int32) *QueryClassScheduleConfigResponseBodyResultStart {
 	s.Year = &v
 	return s
 }
 
-func (s *QueryClassScheduleConfigResponseBodyResultStart) SetMonth(v int64) *QueryClassScheduleConfigResponseBodyResultStart {
+func (s *QueryClassScheduleConfigResponseBodyResultStart) SetMonth(v int32) *QueryClassScheduleConfigResponseBodyResultStart {
 	s.Month = &v
 	return s
 }
 
-func (s *QueryClassScheduleConfigResponseBodyResultStart) SetDayOfMonth(v int64) *QueryClassScheduleConfigResponseBodyResultStart {
+func (s *QueryClassScheduleConfigResponseBodyResultStart) SetDayOfMonth(v int32) *QueryClassScheduleConfigResponseBodyResultStart {
 	s.DayOfMonth = &v
 	return s
 }
@@ -2078,6 +2078,276 @@ func (s *DeleteGuardianResponse) SetHeaders(v map[string]*string) *DeleteGuardia
 }
 
 func (s *DeleteGuardianResponse) SetBody(v *DeleteGuardianResponseBody) *DeleteGuardianResponse {
+	s.Body = v
+	return s
+}
+
+type InsertSectionConfigHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s InsertSectionConfigHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertSectionConfigHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *InsertSectionConfigHeaders) SetCommonHeaders(v map[string]*string) *InsertSectionConfigHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *InsertSectionConfigHeaders) SetXAcsDingtalkAccessToken(v string) *InsertSectionConfigHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type InsertSectionConfigRequest struct {
+	// 节次模型
+	SectionModels []*InsertSectionConfigRequestSectionModels `json:"sectionModels,omitempty" xml:"sectionModels,omitempty" type:"Repeated"`
+	// 开始日期
+	Start *InsertSectionConfigRequestStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// 结束日期
+	End *InsertSectionConfigRequestEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	// 课程表名称
+	ScheduleName *string `json:"scheduleName,omitempty" xml:"scheduleName,omitempty"`
+	// 操作人的userid。
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s InsertSectionConfigRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertSectionConfigRequest) GoString() string {
+	return s.String()
+}
+
+func (s *InsertSectionConfigRequest) SetSectionModels(v []*InsertSectionConfigRequestSectionModels) *InsertSectionConfigRequest {
+	s.SectionModels = v
+	return s
+}
+
+func (s *InsertSectionConfigRequest) SetStart(v *InsertSectionConfigRequestStart) *InsertSectionConfigRequest {
+	s.Start = v
+	return s
+}
+
+func (s *InsertSectionConfigRequest) SetEnd(v *InsertSectionConfigRequestEnd) *InsertSectionConfigRequest {
+	s.End = v
+	return s
+}
+
+func (s *InsertSectionConfigRequest) SetScheduleName(v string) *InsertSectionConfigRequest {
+	s.ScheduleName = &v
+	return s
+}
+
+func (s *InsertSectionConfigRequest) SetOpUserId(v string) *InsertSectionConfigRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type InsertSectionConfigRequestSectionModels struct {
+	// 节次类型
+	SectionType *string `json:"sectionType,omitempty" xml:"sectionType,omitempty"`
+	// 开始时间
+	Start *InsertSectionConfigRequestSectionModelsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// 节次序号
+	SectionIndex *int32 `json:"sectionIndex,omitempty" xml:"sectionIndex,omitempty"`
+	// 结束时间
+	End *InsertSectionConfigRequestSectionModelsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	// 节次名称
+	SectionName *string `json:"sectionName,omitempty" xml:"sectionName,omitempty"`
+}
+
+func (s InsertSectionConfigRequestSectionModels) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertSectionConfigRequestSectionModels) GoString() string {
+	return s.String()
+}
+
+func (s *InsertSectionConfigRequestSectionModels) SetSectionType(v string) *InsertSectionConfigRequestSectionModels {
+	s.SectionType = &v
+	return s
+}
+
+func (s *InsertSectionConfigRequestSectionModels) SetStart(v *InsertSectionConfigRequestSectionModelsStart) *InsertSectionConfigRequestSectionModels {
+	s.Start = v
+	return s
+}
+
+func (s *InsertSectionConfigRequestSectionModels) SetSectionIndex(v int32) *InsertSectionConfigRequestSectionModels {
+	s.SectionIndex = &v
+	return s
+}
+
+func (s *InsertSectionConfigRequestSectionModels) SetEnd(v *InsertSectionConfigRequestSectionModelsEnd) *InsertSectionConfigRequestSectionModels {
+	s.End = v
+	return s
+}
+
+func (s *InsertSectionConfigRequestSectionModels) SetSectionName(v string) *InsertSectionConfigRequestSectionModels {
+	s.SectionName = &v
+	return s
+}
+
+type InsertSectionConfigRequestSectionModelsStart struct {
+	// 分钟
+	Min *int32 `json:"min,omitempty" xml:"min,omitempty"`
+	// 小时
+	Hour *int32 `json:"hour,omitempty" xml:"hour,omitempty"`
+}
+
+func (s InsertSectionConfigRequestSectionModelsStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertSectionConfigRequestSectionModelsStart) GoString() string {
+	return s.String()
+}
+
+func (s *InsertSectionConfigRequestSectionModelsStart) SetMin(v int32) *InsertSectionConfigRequestSectionModelsStart {
+	s.Min = &v
+	return s
+}
+
+func (s *InsertSectionConfigRequestSectionModelsStart) SetHour(v int32) *InsertSectionConfigRequestSectionModelsStart {
+	s.Hour = &v
+	return s
+}
+
+type InsertSectionConfigRequestSectionModelsEnd struct {
+	// 分钟
+	Min *int32 `json:"min,omitempty" xml:"min,omitempty"`
+	// 小时
+	Hour *int32 `json:"hour,omitempty" xml:"hour,omitempty"`
+}
+
+func (s InsertSectionConfigRequestSectionModelsEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertSectionConfigRequestSectionModelsEnd) GoString() string {
+	return s.String()
+}
+
+func (s *InsertSectionConfigRequestSectionModelsEnd) SetMin(v int32) *InsertSectionConfigRequestSectionModelsEnd {
+	s.Min = &v
+	return s
+}
+
+func (s *InsertSectionConfigRequestSectionModelsEnd) SetHour(v int32) *InsertSectionConfigRequestSectionModelsEnd {
+	s.Hour = &v
+	return s
+}
+
+type InsertSectionConfigRequestStart struct {
+	// 月份
+	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
+	// 年份
+	Year *int32 `json:"year,omitempty" xml:"year,omitempty"`
+	// 一月中的第几天
+	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+}
+
+func (s InsertSectionConfigRequestStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertSectionConfigRequestStart) GoString() string {
+	return s.String()
+}
+
+func (s *InsertSectionConfigRequestStart) SetMonth(v int32) *InsertSectionConfigRequestStart {
+	s.Month = &v
+	return s
+}
+
+func (s *InsertSectionConfigRequestStart) SetYear(v int32) *InsertSectionConfigRequestStart {
+	s.Year = &v
+	return s
+}
+
+func (s *InsertSectionConfigRequestStart) SetDayOfMonth(v int32) *InsertSectionConfigRequestStart {
+	s.DayOfMonth = &v
+	return s
+}
+
+type InsertSectionConfigRequestEnd struct {
+	// 月份
+	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
+	// 年份
+	Year *int32 `json:"year,omitempty" xml:"year,omitempty"`
+	// 一月中的第几天
+	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+}
+
+func (s InsertSectionConfigRequestEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertSectionConfigRequestEnd) GoString() string {
+	return s.String()
+}
+
+func (s *InsertSectionConfigRequestEnd) SetMonth(v int32) *InsertSectionConfigRequestEnd {
+	s.Month = &v
+	return s
+}
+
+func (s *InsertSectionConfigRequestEnd) SetYear(v int32) *InsertSectionConfigRequestEnd {
+	s.Year = &v
+	return s
+}
+
+func (s *InsertSectionConfigRequestEnd) SetDayOfMonth(v int32) *InsertSectionConfigRequestEnd {
+	s.DayOfMonth = &v
+	return s
+}
+
+type InsertSectionConfigResponseBody struct {
+	// 初始化是否成功。
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s InsertSectionConfigResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertSectionConfigResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *InsertSectionConfigResponseBody) SetResult(v bool) *InsertSectionConfigResponseBody {
+	s.Result = &v
+	return s
+}
+
+type InsertSectionConfigResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *InsertSectionConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s InsertSectionConfigResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertSectionConfigResponse) GoString() string {
+	return s.String()
+}
+
+func (s *InsertSectionConfigResponse) SetHeaders(v map[string]*string) *InsertSectionConfigResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *InsertSectionConfigResponse) SetBody(v *InsertSectionConfigResponseBody) *InsertSectionConfigResponse {
 	s.Body = v
 	return s
 }
@@ -5491,6 +5761,68 @@ func (client *Client) DeleteGuardianWithOptions(classId *string, userId *string,
 	}
 	_result = &DeleteGuardianResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteGuardian"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/classes/"+tea.StringValue(classId)+"/guardians/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) InsertSectionConfig(request *InsertSectionConfigRequest) (_result *InsertSectionConfigResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &InsertSectionConfigHeaders{}
+	_result = &InsertSectionConfigResponse{}
+	_body, _err := client.InsertSectionConfigWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) InsertSectionConfigWithOptions(request *InsertSectionConfigRequest, headers *InsertSectionConfigHeaders, runtime *util.RuntimeOptions) (_result *InsertSectionConfigResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SectionModels)) {
+		body["sectionModels"] = request.SectionModels
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Start))) {
+		body["start"] = request.Start
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.End))) {
+		body["end"] = request.End
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScheduleName)) {
+		body["scheduleName"] = request.ScheduleName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &InsertSectionConfigResponse{}
+	_body, _err := client.DoROARequest(tea.String("InsertSectionConfig"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/schedules/configs"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -177,6 +177,189 @@ func (s *GetConferenceDetailResponse) SetBody(v *GetConferenceDetailResponseBody
 	return s
 }
 
+type GetOaOperatorLogListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetOaOperatorLogListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOaOperatorLogListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetOaOperatorLogListHeaders) SetCommonHeaders(v map[string]*string) *GetOaOperatorLogListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetOaOperatorLogListHeaders) SetXAcsDingtalkAccessToken(v string) *GetOaOperatorLogListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetOaOperatorLogListRequest struct {
+	// 操作员userId
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 起始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 分页起始页
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 操作分类（一级目录）
+	CategoryList []*string `json:"categoryList,omitempty" xml:"categoryList,omitempty" type:"Repeated"`
+}
+
+func (s GetOaOperatorLogListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOaOperatorLogListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetOaOperatorLogListRequest) SetOpUserId(v string) *GetOaOperatorLogListRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *GetOaOperatorLogListRequest) SetStartTime(v int64) *GetOaOperatorLogListRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetOaOperatorLogListRequest) SetEndTime(v int64) *GetOaOperatorLogListRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetOaOperatorLogListRequest) SetPageNumber(v int64) *GetOaOperatorLogListRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetOaOperatorLogListRequest) SetPageSize(v int64) *GetOaOperatorLogListRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetOaOperatorLogListRequest) SetCategoryList(v []*string) *GetOaOperatorLogListRequest {
+	s.CategoryList = v
+	return s
+}
+
+type GetOaOperatorLogListResponseBody struct {
+	Data []*GetOaOperatorLogListResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// 当前获取记录数
+	ItemCount *int64 `json:"itemCount,omitempty" xml:"itemCount,omitempty"`
+}
+
+func (s GetOaOperatorLogListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOaOperatorLogListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOaOperatorLogListResponseBody) SetData(v []*GetOaOperatorLogListResponseBodyData) *GetOaOperatorLogListResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *GetOaOperatorLogListResponseBody) SetItemCount(v int64) *GetOaOperatorLogListResponseBody {
+	s.ItemCount = &v
+	return s
+}
+
+type GetOaOperatorLogListResponseBodyData struct {
+	// 操作员userId
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 操作员名字
+	OpName *string `json:"opName,omitempty" xml:"opName,omitempty"`
+	// 操作时间
+	OpTime *int64 `json:"opTime,omitempty" xml:"opTime,omitempty"`
+	// 操作分类（一级）
+	Category1Name *string `json:"category1Name,omitempty" xml:"category1Name,omitempty"`
+	// 操作分类（二级）
+	Category2Name *string `json:"category2Name,omitempty" xml:"category2Name,omitempty"`
+	// 操作详情
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 扩展字段
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+}
+
+func (s GetOaOperatorLogListResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOaOperatorLogListResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetOaOperatorLogListResponseBodyData) SetOpUserId(v string) *GetOaOperatorLogListResponseBodyData {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *GetOaOperatorLogListResponseBodyData) SetOpName(v string) *GetOaOperatorLogListResponseBodyData {
+	s.OpName = &v
+	return s
+}
+
+func (s *GetOaOperatorLogListResponseBodyData) SetOpTime(v int64) *GetOaOperatorLogListResponseBodyData {
+	s.OpTime = &v
+	return s
+}
+
+func (s *GetOaOperatorLogListResponseBodyData) SetCategory1Name(v string) *GetOaOperatorLogListResponseBodyData {
+	s.Category1Name = &v
+	return s
+}
+
+func (s *GetOaOperatorLogListResponseBodyData) SetCategory2Name(v string) *GetOaOperatorLogListResponseBodyData {
+	s.Category2Name = &v
+	return s
+}
+
+func (s *GetOaOperatorLogListResponseBodyData) SetContent(v string) *GetOaOperatorLogListResponseBodyData {
+	s.Content = &v
+	return s
+}
+
+func (s *GetOaOperatorLogListResponseBodyData) SetExtension(v string) *GetOaOperatorLogListResponseBodyData {
+	s.Extension = &v
+	return s
+}
+
+type GetOaOperatorLogListResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetOaOperatorLogListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetOaOperatorLogListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOaOperatorLogListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetOaOperatorLogListResponse) SetHeaders(v map[string]*string) *GetOaOperatorLogListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetOaOperatorLogListResponse) SetBody(v *GetOaOperatorLogListResponseBody) *GetOaOperatorLogListResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteCommentHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -592,6 +775,10 @@ type GetTrustDeviceListResponseBodyData struct {
 	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
 	// mac地址
 	MacAddress *string `json:"macAddress,omitempty" xml:"macAddress,omitempty"`
+	// 设备状态
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 创建时间
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
 }
 
 func (s GetTrustDeviceListResponseBodyData) String() string {
@@ -614,6 +801,16 @@ func (s *GetTrustDeviceListResponseBodyData) SetPlatform(v string) *GetTrustDevi
 
 func (s *GetTrustDeviceListResponseBodyData) SetMacAddress(v string) *GetTrustDeviceListResponseBodyData {
 	s.MacAddress = &v
+	return s
+}
+
+func (s *GetTrustDeviceListResponseBodyData) SetStatus(v int32) *GetTrustDeviceListResponseBodyData {
+	s.Status = &v
+	return s
+}
+
+func (s *GetTrustDeviceListResponseBodyData) SetCreateTime(v int64) *GetTrustDeviceListResponseBodyData {
+	s.CreateTime = &v
 	return s
 }
 
@@ -942,6 +1139,8 @@ type CreateTrustedDeviceRequest struct {
 	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
 	// mac地址
 	MacAddress *string `json:"macAddress,omitempty" xml:"macAddress,omitempty"`
+	// 设备状态
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s CreateTrustedDeviceRequest) String() string {
@@ -964,6 +1163,11 @@ func (s *CreateTrustedDeviceRequest) SetPlatform(v string) *CreateTrustedDeviceR
 
 func (s *CreateTrustedDeviceRequest) SetMacAddress(v string) *CreateTrustedDeviceRequest {
 	s.MacAddress = &v
+	return s
+}
+
+func (s *CreateTrustedDeviceRequest) SetStatus(v int32) *CreateTrustedDeviceRequest {
+	s.Status = &v
 	return s
 }
 
@@ -1554,6 +1758,70 @@ func (client *Client) GetConferenceDetailWithOptions(conferenceId *string, heade
 	return _result, _err
 }
 
+func (client *Client) GetOaOperatorLogList(request *GetOaOperatorLogListRequest) (_result *GetOaOperatorLogListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOaOperatorLogListHeaders{}
+	_result = &GetOaOperatorLogListResponse{}
+	_body, _err := client.GetOaOperatorLogListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetOaOperatorLogListWithOptions(request *GetOaOperatorLogListRequest, headers *GetOaOperatorLogListHeaders, runtime *util.RuntimeOptions) (_result *GetOaOperatorLogListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CategoryList)) {
+		body["categoryList"] = request.CategoryList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetOaOperatorLogListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetOaOperatorLogList"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/oaOperatorLogs/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteComment(publisherId *string, commentId *string) (_result *DeleteCommentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteCommentHeaders{}
@@ -1786,6 +2054,10 @@ func (client *Client) CreateTrustedDeviceWithOptions(request *CreateTrustedDevic
 
 	if !tea.BoolValue(util.IsUnset(request.MacAddress)) {
 		body["macAddress"] = request.MacAddress
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
 	}
 
 	realHeaders := make(map[string]*string)
