@@ -1671,6 +1671,92 @@ func (s *ListPermissionsResponse) SetBody(v *ListPermissionsResponseBody) *ListP
 	return s
 }
 
+type GrantPrivilegeOfCustomSpaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GrantPrivilegeOfCustomSpaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GrantPrivilegeOfCustomSpaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GrantPrivilegeOfCustomSpaceHeaders) SetCommonHeaders(v map[string]*string) *GrantPrivilegeOfCustomSpaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GrantPrivilegeOfCustomSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *GrantPrivilegeOfCustomSpaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GrantPrivilegeOfCustomSpaceRequest struct {
+	// 权限类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 被授予权限的员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 授权访问的文件id列表
+	FileIds []*string `json:"fileIds,omitempty" xml:"fileIds,omitempty" type:"Repeated"`
+	// 权限有效时间
+	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GrantPrivilegeOfCustomSpaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GrantPrivilegeOfCustomSpaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GrantPrivilegeOfCustomSpaceRequest) SetType(v string) *GrantPrivilegeOfCustomSpaceRequest {
+	s.Type = &v
+	return s
+}
+
+func (s *GrantPrivilegeOfCustomSpaceRequest) SetUserId(v string) *GrantPrivilegeOfCustomSpaceRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *GrantPrivilegeOfCustomSpaceRequest) SetFileIds(v []*string) *GrantPrivilegeOfCustomSpaceRequest {
+	s.FileIds = v
+	return s
+}
+
+func (s *GrantPrivilegeOfCustomSpaceRequest) SetDuration(v int64) *GrantPrivilegeOfCustomSpaceRequest {
+	s.Duration = &v
+	return s
+}
+
+func (s *GrantPrivilegeOfCustomSpaceRequest) SetUnionId(v string) *GrantPrivilegeOfCustomSpaceRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GrantPrivilegeOfCustomSpaceResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s GrantPrivilegeOfCustomSpaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GrantPrivilegeOfCustomSpaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GrantPrivilegeOfCustomSpaceResponse) SetHeaders(v map[string]*string) *GrantPrivilegeOfCustomSpaceResponse {
+	s.Headers = v
+	return s
+}
+
 type MoveFileHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2389,6 +2475,137 @@ func (s DeletePermissionResponse) GoString() string {
 
 func (s *DeletePermissionResponse) SetHeaders(v map[string]*string) *DeletePermissionResponse {
 	s.Headers = v
+	return s
+}
+
+type AddCustomSpaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddCustomSpaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCustomSpaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddCustomSpaceHeaders) SetCommonHeaders(v map[string]*string) *AddCustomSpaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddCustomSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *AddCustomSpaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddCustomSpaceRequest struct {
+	// 空间标识
+	Identifier *string `json:"identifier,omitempty" xml:"identifier,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s AddCustomSpaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCustomSpaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddCustomSpaceRequest) SetIdentifier(v string) *AddCustomSpaceRequest {
+	s.Identifier = &v
+	return s
+}
+
+func (s *AddCustomSpaceRequest) SetUnionId(v string) *AddCustomSpaceRequest {
+	s.UnionId = &v
+	return s
+}
+
+type AddCustomSpaceResponseBody struct {
+	// 空间id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 空间名称
+	SpaceName *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	// 空间类型
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// 空间总额度
+	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
+	// 空间已使用额度
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 修改时间
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+}
+
+func (s AddCustomSpaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCustomSpaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddCustomSpaceResponseBody) SetSpaceId(v string) *AddCustomSpaceResponseBody {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *AddCustomSpaceResponseBody) SetSpaceName(v string) *AddCustomSpaceResponseBody {
+	s.SpaceName = &v
+	return s
+}
+
+func (s *AddCustomSpaceResponseBody) SetSpaceType(v string) *AddCustomSpaceResponseBody {
+	s.SpaceType = &v
+	return s
+}
+
+func (s *AddCustomSpaceResponseBody) SetQuota(v int64) *AddCustomSpaceResponseBody {
+	s.Quota = &v
+	return s
+}
+
+func (s *AddCustomSpaceResponseBody) SetUsedQuota(v int64) *AddCustomSpaceResponseBody {
+	s.UsedQuota = &v
+	return s
+}
+
+func (s *AddCustomSpaceResponseBody) SetCreateTime(v string) *AddCustomSpaceResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *AddCustomSpaceResponseBody) SetModifyTime(v string) *AddCustomSpaceResponseBody {
+	s.ModifyTime = &v
+	return s
+}
+
+type AddCustomSpaceResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddCustomSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddCustomSpaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCustomSpaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddCustomSpaceResponse) SetHeaders(v map[string]*string) *AddCustomSpaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddCustomSpaceResponse) SetBody(v *AddCustomSpaceResponseBody) *AddCustomSpaceResponse {
+	s.Body = v
 	return s
 }
 
@@ -3243,6 +3460,66 @@ func (client *Client) ListPermissionsWithOptions(spaceId *string, fileId *string
 	return _result, _err
 }
 
+func (client *Client) GrantPrivilegeOfCustomSpace(spaceId *string, request *GrantPrivilegeOfCustomSpaceRequest) (_result *GrantPrivilegeOfCustomSpaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GrantPrivilegeOfCustomSpaceHeaders{}
+	_result = &GrantPrivilegeOfCustomSpaceResponse{}
+	_body, _err := client.GrantPrivilegeOfCustomSpaceWithOptions(spaceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GrantPrivilegeOfCustomSpaceWithOptions(spaceId *string, request *GrantPrivilegeOfCustomSpaceRequest, headers *GrantPrivilegeOfCustomSpaceHeaders, runtime *util.RuntimeOptions) (_result *GrantPrivilegeOfCustomSpaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileIds)) {
+		body["fileIds"] = request.FileIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Duration)) {
+		body["duration"] = request.Duration
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GrantPrivilegeOfCustomSpaceResponse{}
+	_body, _err := client.DoROARequest(tea.String("GrantPrivilegeOfCustomSpace"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files/customSpacePrivileges"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) MoveFile(spaceId *string, fileId *string, request *MoveFileRequest) (_result *MoveFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &MoveFileHeaders{}
@@ -3508,6 +3785,54 @@ func (client *Client) DeletePermissionWithOptions(spaceId *string, fileId *strin
 	}
 	_result = &DeletePermissionResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeletePermission"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)+"/permissions/delete"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddCustomSpace(request *AddCustomSpaceRequest) (_result *AddCustomSpaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddCustomSpaceHeaders{}
+	_result = &AddCustomSpaceResponse{}
+	_body, _err := client.AddCustomSpaceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddCustomSpaceWithOptions(request *AddCustomSpaceRequest, headers *AddCustomSpaceHeaders, runtime *util.RuntimeOptions) (_result *AddCustomSpaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Identifier)) {
+		body["identifier"] = request.Identifier
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddCustomSpaceResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddCustomSpace"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/spaces/customSpaces"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

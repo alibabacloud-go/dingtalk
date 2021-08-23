@@ -210,7 +210,7 @@ type GetOaOperatorLogListRequest struct {
 	// 分页起始页
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
 	// 分页大小
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 	// 操作分类（一级目录）
 	CategoryList []*string `json:"categoryList,omitempty" xml:"categoryList,omitempty" type:"Repeated"`
 }
@@ -243,7 +243,7 @@ func (s *GetOaOperatorLogListRequest) SetPageNumber(v int64) *GetOaOperatorLogLi
 	return s
 }
 
-func (s *GetOaOperatorLogListRequest) SetPageSize(v int64) *GetOaOperatorLogListRequest {
+func (s *GetOaOperatorLogListRequest) SetPageSize(v int32) *GetOaOperatorLogListRequest {
 	s.PageSize = &v
 	return s
 }

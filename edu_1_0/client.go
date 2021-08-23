@@ -3937,10 +3937,10 @@ type QueryTeachSubjectsResponseBodyResult struct {
 	SubjectCode *string `json:"subjectCode,omitempty" xml:"subjectCode,omitempty"`
 	// 学段code
 	PeriodCode *string `json:"periodCode,omitempty" xml:"periodCode,omitempty"`
-	// 组织id
-	OrgId *int64 `json:"orgId,omitempty" xml:"orgId,omitempty"`
-	// 老师uid
-	TeacherUid *int64 `json:"teacherUid,omitempty" xml:"teacherUid,omitempty"`
+	// 学校corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 老师Userid
+	TeacherUserId *string `json:"teacherUserId,omitempty" xml:"teacherUserId,omitempty"`
 	// 班级id
 	ClassId *int64 `json:"classId,omitempty" xml:"classId,omitempty"`
 }
@@ -3973,13 +3973,13 @@ func (s *QueryTeachSubjectsResponseBodyResult) SetPeriodCode(v string) *QueryTea
 	return s
 }
 
-func (s *QueryTeachSubjectsResponseBodyResult) SetOrgId(v int64) *QueryTeachSubjectsResponseBodyResult {
-	s.OrgId = &v
+func (s *QueryTeachSubjectsResponseBodyResult) SetCorpId(v string) *QueryTeachSubjectsResponseBodyResult {
+	s.CorpId = &v
 	return s
 }
 
-func (s *QueryTeachSubjectsResponseBodyResult) SetTeacherUid(v int64) *QueryTeachSubjectsResponseBodyResult {
-	s.TeacherUid = &v
+func (s *QueryTeachSubjectsResponseBodyResult) SetTeacherUserId(v string) *QueryTeachSubjectsResponseBodyResult {
+	s.TeacherUserId = &v
 	return s
 }
 
@@ -4181,10 +4181,10 @@ type QuerySubjectTeachersResponseBodyResult struct {
 	SubjectCode *string `json:"subjectCode,omitempty" xml:"subjectCode,omitempty"`
 	// 学段code
 	PeriodCode *string `json:"periodCode,omitempty" xml:"periodCode,omitempty"`
-	// 组织id
-	OrgId *int64 `json:"orgId,omitempty" xml:"orgId,omitempty"`
-	// 老师Uid
-	TeacherUid *int64 `json:"teacherUid,omitempty" xml:"teacherUid,omitempty"`
+	// 学校corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 老师Userid
+	TeacherUserId *string `json:"teacherUserId,omitempty" xml:"teacherUserId,omitempty"`
 	// 班级id
 	ClassId *int64 `json:"classId,omitempty" xml:"classId,omitempty"`
 }
@@ -4217,13 +4217,13 @@ func (s *QuerySubjectTeachersResponseBodyResult) SetPeriodCode(v string) *QueryS
 	return s
 }
 
-func (s *QuerySubjectTeachersResponseBodyResult) SetOrgId(v int64) *QuerySubjectTeachersResponseBodyResult {
-	s.OrgId = &v
+func (s *QuerySubjectTeachersResponseBodyResult) SetCorpId(v string) *QuerySubjectTeachersResponseBodyResult {
+	s.CorpId = &v
 	return s
 }
 
-func (s *QuerySubjectTeachersResponseBodyResult) SetTeacherUid(v int64) *QuerySubjectTeachersResponseBodyResult {
-	s.TeacherUid = &v
+func (s *QuerySubjectTeachersResponseBodyResult) SetTeacherUserId(v string) *QuerySubjectTeachersResponseBodyResult {
+	s.TeacherUserId = &v
 	return s
 }
 
