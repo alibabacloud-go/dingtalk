@@ -3416,6 +3416,183 @@ func (s *CreateCustomerResponse) SetBody(v *CreateCustomerResponseBody) *CreateC
 	return s
 }
 
+type QueryAllTracksHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryAllTracksHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAllTracksHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAllTracksHeaders) SetCommonHeaders(v map[string]*string) *QueryAllTracksHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryAllTracksHeaders) SetXAcsDingtalkAccessToken(v string) *QueryAllTracksHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryAllTracksRequest struct {
+	// 分页游标
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 分页size
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 排序
+	Order *string `json:"order,omitempty" xml:"order,omitempty"`
+}
+
+func (s QueryAllTracksRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAllTracksRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAllTracksRequest) SetNextToken(v string) *QueryAllTracksRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryAllTracksRequest) SetMaxResults(v int32) *QueryAllTracksRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryAllTracksRequest) SetOrder(v string) *QueryAllTracksRequest {
+	s.Order = &v
+	return s
+}
+
+type QueryAllTracksResponseBody struct {
+	// 客户动态分页数据
+	Values []*QueryAllTracksResponseBodyValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	// 是否还有数据
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 下页翻页起始游标
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 翻页size
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+}
+
+func (s QueryAllTracksResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAllTracksResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAllTracksResponseBody) SetValues(v []*QueryAllTracksResponseBodyValues) *QueryAllTracksResponseBody {
+	s.Values = v
+	return s
+}
+
+func (s *QueryAllTracksResponseBody) SetHasMore(v bool) *QueryAllTracksResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryAllTracksResponseBody) SetNextToken(v string) *QueryAllTracksResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryAllTracksResponseBody) SetMaxResults(v int32) *QueryAllTracksResponseBody {
+	s.MaxResults = &v
+	return s
+}
+
+type QueryAllTracksResponseBodyValues struct {
+	// 企业id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 客户id
+	CustomerId *string `json:"customerId,omitempty" xml:"customerId,omitempty"`
+	// 动态类型
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	// 动态子类型
+	SubType *int32 `json:"subType,omitempty" xml:"subType,omitempty"`
+	// 创建时间
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 创建人userId
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// 动态外键
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+}
+
+func (s QueryAllTracksResponseBodyValues) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAllTracksResponseBodyValues) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAllTracksResponseBodyValues) SetCorpId(v string) *QueryAllTracksResponseBodyValues {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryAllTracksResponseBodyValues) SetCustomerId(v string) *QueryAllTracksResponseBodyValues {
+	s.CustomerId = &v
+	return s
+}
+
+func (s *QueryAllTracksResponseBodyValues) SetType(v int32) *QueryAllTracksResponseBodyValues {
+	s.Type = &v
+	return s
+}
+
+func (s *QueryAllTracksResponseBodyValues) SetSubType(v int32) *QueryAllTracksResponseBodyValues {
+	s.SubType = &v
+	return s
+}
+
+func (s *QueryAllTracksResponseBodyValues) SetGmtCreate(v int64) *QueryAllTracksResponseBodyValues {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QueryAllTracksResponseBodyValues) SetCreator(v string) *QueryAllTracksResponseBodyValues {
+	s.Creator = &v
+	return s
+}
+
+func (s *QueryAllTracksResponseBodyValues) SetBizId(v string) *QueryAllTracksResponseBodyValues {
+	s.BizId = &v
+	return s
+}
+
+type QueryAllTracksResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryAllTracksResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryAllTracksResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAllTracksResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAllTracksResponse) SetHeaders(v map[string]*string) *QueryAllTracksResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryAllTracksResponse) SetBody(v *QueryAllTracksResponseBody) *QueryAllTracksResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -4333,6 +4510,58 @@ func (client *Client) CreateCustomerWithOptions(request *CreateCustomerRequest, 
 	}
 	_result = &CreateCustomerResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/customers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryAllTracks(request *QueryAllTracksRequest) (_result *QueryAllTracksResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryAllTracksHeaders{}
+	_result = &QueryAllTracksResponse{}
+	_body, _err := client.QueryAllTracksWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryAllTracksWithOptions(request *QueryAllTracksRequest, headers *QueryAllTracksHeaders, runtime *util.RuntimeOptions) (_result *QueryAllTracksResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Order)) {
+		query["order"] = request.Order
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryAllTracksResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryAllTracks"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/customers/tracks"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

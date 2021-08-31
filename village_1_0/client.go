@@ -37,7 +37,7 @@ func (s *ListSubCorpsHeaders) SetXAcsDingtalkAccessToken(v string) *ListSubCorps
 type ListSubCorpsRequest struct {
 	// 下级指定组织层级列表，组织层级为county,town,community,residential，依次为区/县、乡/镇/街道、社区/村、小区，如果查多个用 '|' 分隔
 	Types *string `json:"types,omitempty" xml:"types,omitempty"`
-	// 真正查询的组织corpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 	// 是否查询直接下级
 	IsOnlyDirect *bool `json:"isOnlyDirect,omitempty" xml:"isOnlyDirect,omitempty"`
@@ -68,7 +68,7 @@ func (s *ListSubCorpsRequest) SetIsOnlyDirect(v bool) *ListSubCorpsRequest {
 
 type ListSubCorpsResponseBody struct {
 	// result
-	Result []*ListSubCorpsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	CorpList []*ListSubCorpsResponseBodyCorpList `json:"corpList,omitempty" xml:"corpList,omitempty" type:"Repeated"`
 }
 
 func (s ListSubCorpsResponseBody) String() string {
@@ -79,67 +79,67 @@ func (s ListSubCorpsResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *ListSubCorpsResponseBody) SetResult(v []*ListSubCorpsResponseBodyResult) *ListSubCorpsResponseBody {
-	s.Result = v
+func (s *ListSubCorpsResponseBody) SetCorpList(v []*ListSubCorpsResponseBodyCorpList) *ListSubCorpsResponseBody {
+	s.CorpList = v
 	return s
 }
 
-type ListSubCorpsResponseBodyResult struct {
-	// 企业corpid
+type ListSubCorpsResponseBodyCorpList struct {
+	// 组织corpid
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 企业名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 组织名字
+	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
 	// 区域类型，值为county,town,community,residential，依次为区/县、乡/镇/街道、社区/村、小区
 	RegionType *string `json:"regionType,omitempty" xml:"regionType,omitempty"`
 	// 区域码
 	RegionId *string `json:"regionId,omitempty" xml:"regionId,omitempty"`
 	// 区域详细信息
 	RegionLocation *string `json:"regionLocation,omitempty" xml:"regionLocation,omitempty"`
-	// 企业行业码
+	// 组织行业码
 	IndustryCode *int32 `json:"industryCode,omitempty" xml:"industryCode,omitempty"`
-	// 企业行业名称
+	// 组织行业名称
 	Industry *string `json:"industry,omitempty" xml:"industry,omitempty"`
 }
 
-func (s ListSubCorpsResponseBodyResult) String() string {
+func (s ListSubCorpsResponseBodyCorpList) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ListSubCorpsResponseBodyResult) GoString() string {
+func (s ListSubCorpsResponseBodyCorpList) GoString() string {
 	return s.String()
 }
 
-func (s *ListSubCorpsResponseBodyResult) SetCorpId(v string) *ListSubCorpsResponseBodyResult {
+func (s *ListSubCorpsResponseBodyCorpList) SetCorpId(v string) *ListSubCorpsResponseBodyCorpList {
 	s.CorpId = &v
 	return s
 }
 
-func (s *ListSubCorpsResponseBodyResult) SetName(v string) *ListSubCorpsResponseBodyResult {
-	s.Name = &v
+func (s *ListSubCorpsResponseBodyCorpList) SetCorpName(v string) *ListSubCorpsResponseBodyCorpList {
+	s.CorpName = &v
 	return s
 }
 
-func (s *ListSubCorpsResponseBodyResult) SetRegionType(v string) *ListSubCorpsResponseBodyResult {
+func (s *ListSubCorpsResponseBodyCorpList) SetRegionType(v string) *ListSubCorpsResponseBodyCorpList {
 	s.RegionType = &v
 	return s
 }
 
-func (s *ListSubCorpsResponseBodyResult) SetRegionId(v string) *ListSubCorpsResponseBodyResult {
+func (s *ListSubCorpsResponseBodyCorpList) SetRegionId(v string) *ListSubCorpsResponseBodyCorpList {
 	s.RegionId = &v
 	return s
 }
 
-func (s *ListSubCorpsResponseBodyResult) SetRegionLocation(v string) *ListSubCorpsResponseBodyResult {
+func (s *ListSubCorpsResponseBodyCorpList) SetRegionLocation(v string) *ListSubCorpsResponseBodyCorpList {
 	s.RegionLocation = &v
 	return s
 }
 
-func (s *ListSubCorpsResponseBodyResult) SetIndustryCode(v int32) *ListSubCorpsResponseBodyResult {
+func (s *ListSubCorpsResponseBodyCorpList) SetIndustryCode(v int32) *ListSubCorpsResponseBodyCorpList {
 	s.IndustryCode = &v
 	return s
 }
 
-func (s *ListSubCorpsResponseBodyResult) SetIndustry(v string) *ListSubCorpsResponseBodyResult {
+func (s *ListSubCorpsResponseBodyCorpList) SetIndustry(v string) *ListSubCorpsResponseBodyCorpList {
 	s.Industry = &v
 	return s
 }
@@ -269,9 +269,9 @@ func (s *ListResidentDeptUsersHeaders) SetXAcsDingtalkAccessToken(v string) *Lis
 }
 
 type ListResidentDeptUsersRequest struct {
-	// 真实请求的组织corpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
-	// 标签
+	// 角色标签
 	Role *string `json:"role,omitempty" xml:"role,omitempty"`
 	// 游标，不传默认1
 	Cursor *int64 `json:"cursor,omitempty" xml:"cursor,omitempty"`
@@ -312,8 +312,8 @@ type ListResidentDeptUsersResponseBody struct {
 	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
 	// 是否还有更多数据
 	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 分页数据
-	List []*ListResidentDeptUsersResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// 用户列表
+	UserList []*ListResidentDeptUsersResponseBodyUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
 }
 
 func (s ListResidentDeptUsersResponseBody) String() string {
@@ -334,85 +334,85 @@ func (s *ListResidentDeptUsersResponseBody) SetHasMore(v bool) *ListResidentDept
 	return s
 }
 
-func (s *ListResidentDeptUsersResponseBody) SetList(v []*ListResidentDeptUsersResponseBodyList) *ListResidentDeptUsersResponseBody {
-	s.List = v
+func (s *ListResidentDeptUsersResponseBody) SetUserList(v []*ListResidentDeptUsersResponseBodyUserList) *ListResidentDeptUsersResponseBody {
+	s.UserList = v
 	return s
 }
 
-type ListResidentDeptUsersResponseBodyList struct {
+type ListResidentDeptUsersResponseBodyUserList struct {
 	// 员工id
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	// 员工名字
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 标签列表
-	Roles []*ListResidentDeptUsersResponseBodyListRoles `json:"roles,omitempty" xml:"roles,omitempty" type:"Repeated"`
+	Roles []*ListResidentDeptUsersResponseBodyUserListRoles `json:"roles,omitempty" xml:"roles,omitempty" type:"Repeated"`
 	// 员工特征
 	Feature *string `json:"feature,omitempty" xml:"feature,omitempty"`
 	// 钉钉唯一标识
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
-func (s ListResidentDeptUsersResponseBodyList) String() string {
+func (s ListResidentDeptUsersResponseBodyUserList) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ListResidentDeptUsersResponseBodyList) GoString() string {
+func (s ListResidentDeptUsersResponseBodyUserList) GoString() string {
 	return s.String()
 }
 
-func (s *ListResidentDeptUsersResponseBodyList) SetUserId(v string) *ListResidentDeptUsersResponseBodyList {
+func (s *ListResidentDeptUsersResponseBodyUserList) SetUserId(v string) *ListResidentDeptUsersResponseBodyUserList {
 	s.UserId = &v
 	return s
 }
 
-func (s *ListResidentDeptUsersResponseBodyList) SetName(v string) *ListResidentDeptUsersResponseBodyList {
+func (s *ListResidentDeptUsersResponseBodyUserList) SetName(v string) *ListResidentDeptUsersResponseBodyUserList {
 	s.Name = &v
 	return s
 }
 
-func (s *ListResidentDeptUsersResponseBodyList) SetRoles(v []*ListResidentDeptUsersResponseBodyListRoles) *ListResidentDeptUsersResponseBodyList {
+func (s *ListResidentDeptUsersResponseBodyUserList) SetRoles(v []*ListResidentDeptUsersResponseBodyUserListRoles) *ListResidentDeptUsersResponseBodyUserList {
 	s.Roles = v
 	return s
 }
 
-func (s *ListResidentDeptUsersResponseBodyList) SetFeature(v string) *ListResidentDeptUsersResponseBodyList {
+func (s *ListResidentDeptUsersResponseBodyUserList) SetFeature(v string) *ListResidentDeptUsersResponseBodyUserList {
 	s.Feature = &v
 	return s
 }
 
-func (s *ListResidentDeptUsersResponseBodyList) SetUnionId(v string) *ListResidentDeptUsersResponseBodyList {
+func (s *ListResidentDeptUsersResponseBodyUserList) SetUnionId(v string) *ListResidentDeptUsersResponseBodyUserList {
 	s.UnionId = &v
 	return s
 }
 
-type ListResidentDeptUsersResponseBodyListRoles struct {
+type ListResidentDeptUsersResponseBodyUserListRoles struct {
 	// 标签id
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	TagId *int64 `json:"tagId,omitempty" xml:"tagId,omitempty"`
 	// 标签名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
 	// 标签名称 tagCode
 	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
 }
 
-func (s ListResidentDeptUsersResponseBodyListRoles) String() string {
+func (s ListResidentDeptUsersResponseBodyUserListRoles) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ListResidentDeptUsersResponseBodyListRoles) GoString() string {
+func (s ListResidentDeptUsersResponseBodyUserListRoles) GoString() string {
 	return s.String()
 }
 
-func (s *ListResidentDeptUsersResponseBodyListRoles) SetId(v int64) *ListResidentDeptUsersResponseBodyListRoles {
-	s.Id = &v
+func (s *ListResidentDeptUsersResponseBodyUserListRoles) SetTagId(v int64) *ListResidentDeptUsersResponseBodyUserListRoles {
+	s.TagId = &v
 	return s
 }
 
-func (s *ListResidentDeptUsersResponseBodyListRoles) SetName(v string) *ListResidentDeptUsersResponseBodyListRoles {
-	s.Name = &v
+func (s *ListResidentDeptUsersResponseBodyUserListRoles) SetTagName(v string) *ListResidentDeptUsersResponseBodyUserListRoles {
+	s.TagName = &v
 	return s
 }
 
-func (s *ListResidentDeptUsersResponseBodyListRoles) SetTagCode(v string) *ListResidentDeptUsersResponseBodyListRoles {
+func (s *ListResidentDeptUsersResponseBodyUserListRoles) SetTagCode(v string) *ListResidentDeptUsersResponseBodyUserListRoles {
 	s.TagCode = &v
 	return s
 }
@@ -470,7 +470,7 @@ type ListDeptSimpleUsersRequest struct {
 	Size *int32 `json:"size,omitempty" xml:"size,omitempty"`
 	// containAccessLimit
 	ContainAccessLimit *bool `json:"containAccessLimit,omitempty" xml:"containAccessLimit,omitempty"`
-	// subCorpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 	// language
 	Language *string `json:"language,omitempty" xml:"language,omitempty"`
@@ -517,10 +517,11 @@ func (s *ListDeptSimpleUsersRequest) SetOrderField(v string) *ListDeptSimpleUser
 }
 
 type ListDeptSimpleUsersResponseBody struct {
-	List       []*ListDeptSimpleUsersResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	TotalCount *int64                                 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
-	NextCursor *int64                                 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	HasMore    *bool                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 用户列表
+	UserList   []*ListDeptSimpleUsersResponseBodyUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+	TotalCount *int64                                     `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	NextCursor *int64                                     `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	HasMore    *bool                                      `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 }
 
 func (s ListDeptSimpleUsersResponseBody) String() string {
@@ -531,8 +532,8 @@ func (s ListDeptSimpleUsersResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *ListDeptSimpleUsersResponseBody) SetList(v []*ListDeptSimpleUsersResponseBodyList) *ListDeptSimpleUsersResponseBody {
-	s.List = v
+func (s *ListDeptSimpleUsersResponseBody) SetUserList(v []*ListDeptSimpleUsersResponseBodyUserList) *ListDeptSimpleUsersResponseBody {
+	s.UserList = v
 	return s
 }
 
@@ -551,25 +552,27 @@ func (s *ListDeptSimpleUsersResponseBody) SetHasMore(v bool) *ListDeptSimpleUser
 	return s
 }
 
-type ListDeptSimpleUsersResponseBodyList struct {
+type ListDeptSimpleUsersResponseBodyUserList struct {
+	// 用户ID
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 用户姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
-func (s ListDeptSimpleUsersResponseBodyList) String() string {
+func (s ListDeptSimpleUsersResponseBodyUserList) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ListDeptSimpleUsersResponseBodyList) GoString() string {
+func (s ListDeptSimpleUsersResponseBodyUserList) GoString() string {
 	return s.String()
 }
 
-func (s *ListDeptSimpleUsersResponseBodyList) SetUserId(v string) *ListDeptSimpleUsersResponseBodyList {
+func (s *ListDeptSimpleUsersResponseBodyUserList) SetUserId(v string) *ListDeptSimpleUsersResponseBodyUserList {
 	s.UserId = &v
 	return s
 }
 
-func (s *ListDeptSimpleUsersResponseBodyList) SetName(v string) *ListDeptSimpleUsersResponseBodyList {
+func (s *ListDeptSimpleUsersResponseBodyUserList) SetName(v string) *ListDeptSimpleUsersResponseBodyUserList {
 	s.Name = &v
 	return s
 }
@@ -621,7 +624,7 @@ func (s *GetUserByUnionIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserB
 }
 
 type GetUserByUnionIdRequest struct {
-	// 真实请求的组织corpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 	// 人员 id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
@@ -724,7 +727,7 @@ func (s *GetResidentDeptHeaders) SetXAcsDingtalkAccessToken(v string) *GetReside
 }
 
 type GetResidentDeptRequest struct {
-	// 真实请求的组织corpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 }
 
@@ -742,10 +745,10 @@ func (s *GetResidentDeptRequest) SetSubCorpId(v string) *GetResidentDeptRequest 
 }
 
 type GetResidentDeptResponseBody struct {
-	// 部门ID
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 下属组织的部门ID
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
 	// 部门名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
 	// 部门类型
 	DeptType *string `json:"deptType,omitempty" xml:"deptType,omitempty"`
 	// 通讯录架构类型
@@ -762,13 +765,13 @@ func (s GetResidentDeptResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *GetResidentDeptResponseBody) SetDeptId(v int64) *GetResidentDeptResponseBody {
-	s.DeptId = &v
+func (s *GetResidentDeptResponseBody) SetDepartmentId(v int64) *GetResidentDeptResponseBody {
+	s.DepartmentId = &v
 	return s
 }
 
-func (s *GetResidentDeptResponseBody) SetName(v string) *GetResidentDeptResponseBody {
-	s.Name = &v
+func (s *GetResidentDeptResponseBody) SetDepartmentName(v string) *GetResidentDeptResponseBody {
+	s.DepartmentName = &v
 	return s
 }
 
@@ -834,7 +837,7 @@ func (s *GetResidentUserInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetRe
 }
 
 type GetResidentUserInfoRequest struct {
-	// 真实请求的组织corpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 }
 
@@ -899,9 +902,9 @@ func (s *GetResidentUserInfoResponseBody) SetUnionId(v string) *GetResidentUserI
 
 type GetResidentUserInfoResponseBodyRoles struct {
 	// 标签id
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
 	// 标签名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
 	// 标签名称 tagCode
 	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
 }
@@ -914,13 +917,13 @@ func (s GetResidentUserInfoResponseBodyRoles) GoString() string {
 	return s.String()
 }
 
-func (s *GetResidentUserInfoResponseBodyRoles) SetId(v int64) *GetResidentUserInfoResponseBodyRoles {
-	s.Id = &v
+func (s *GetResidentUserInfoResponseBodyRoles) SetRoleId(v int64) *GetResidentUserInfoResponseBodyRoles {
+	s.RoleId = &v
 	return s
 }
 
-func (s *GetResidentUserInfoResponseBodyRoles) SetName(v string) *GetResidentUserInfoResponseBodyRoles {
-	s.Name = &v
+func (s *GetResidentUserInfoResponseBodyRoles) SetRoleName(v string) *GetResidentUserInfoResponseBodyRoles {
+	s.RoleName = &v
 	return s
 }
 
@@ -976,7 +979,7 @@ func (s *GetDeptHeaders) SetXAcsDingtalkAccessToken(v string) *GetDeptHeaders {
 }
 
 type GetDeptRequest struct {
-	// 真实请求的组织corpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 	// 通讯录语言(默认zh_CN另外支持en_US)
 	Language *string `json:"language,omitempty" xml:"language,omitempty"`
@@ -1003,12 +1006,12 @@ func (s *GetDeptRequest) SetLanguage(v string) *GetDeptRequest {
 type GetDeptResponseBody struct {
 	// 在父部门中的次序值
 	Order *int64 `json:"order,omitempty" xml:"order,omitempty"`
-	// 部门id
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 下属组织的部门ID
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
 	// 部门名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
 	// 父部门id
-	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	ParentDepartmentId *int64 `json:"parentDepartmentId,omitempty" xml:"parentDepartmentId,omitempty"`
 	// 部门是否来自关联组织
 	FromUnionOrg *bool `json:"fromUnionOrg,omitempty" xml:"fromUnionOrg,omitempty"`
 }
@@ -1026,18 +1029,18 @@ func (s *GetDeptResponseBody) SetOrder(v int64) *GetDeptResponseBody {
 	return s
 }
 
-func (s *GetDeptResponseBody) SetDeptId(v int64) *GetDeptResponseBody {
-	s.DeptId = &v
+func (s *GetDeptResponseBody) SetDepartmentId(v int64) *GetDeptResponseBody {
+	s.DepartmentId = &v
 	return s
 }
 
-func (s *GetDeptResponseBody) SetName(v string) *GetDeptResponseBody {
-	s.Name = &v
+func (s *GetDeptResponseBody) SetDepartmentName(v string) *GetDeptResponseBody {
+	s.DepartmentName = &v
 	return s
 }
 
-func (s *GetDeptResponseBody) SetParentId(v int64) *GetDeptResponseBody {
-	s.ParentId = &v
+func (s *GetDeptResponseBody) SetParentDepartmentId(v int64) *GetDeptResponseBody {
+	s.ParentDepartmentId = &v
 	return s
 }
 
@@ -1093,10 +1096,10 @@ func (s *ListParentByDeptHeaders) SetXAcsDingtalkAccessToken(v string) *ListPare
 }
 
 type ListParentByDeptRequest struct {
-	// 真实请求的组织corpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
-	// 部门id
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 下属组织的部门ID
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
 }
 
 func (s ListParentByDeptRequest) String() string {
@@ -1112,14 +1115,14 @@ func (s *ListParentByDeptRequest) SetSubCorpId(v string) *ListParentByDeptReques
 	return s
 }
 
-func (s *ListParentByDeptRequest) SetDeptId(v int64) *ListParentByDeptRequest {
-	s.DeptId = &v
+func (s *ListParentByDeptRequest) SetDepartmentId(v int64) *ListParentByDeptRequest {
+	s.DepartmentId = &v
 	return s
 }
 
 type ListParentByDeptResponseBody struct {
-	// 父部门列表
-	ParentIdList []*int64 `json:"parentIdList,omitempty" xml:"parentIdList,omitempty" type:"Repeated"`
+	// 父部门ID列表
+	DepartmentIdList []*int64 `json:"departmentIdList,omitempty" xml:"departmentIdList,omitempty" type:"Repeated"`
 }
 
 func (s ListParentByDeptResponseBody) String() string {
@@ -1130,8 +1133,8 @@ func (s ListParentByDeptResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *ListParentByDeptResponseBody) SetParentIdList(v []*int64) *ListParentByDeptResponseBody {
-	s.ParentIdList = v
+func (s *ListParentByDeptResponseBody) SetDepartmentIdList(v []*int64) *ListParentByDeptResponseBody {
+	s.DepartmentIdList = v
 	return s
 }
 
@@ -1182,7 +1185,7 @@ func (s *ListDeptUserIdsHeaders) SetXAcsDingtalkAccessToken(v string) *ListDeptU
 }
 
 type ListDeptUserIdsRequest struct {
-	// subCorpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 }
 
@@ -1200,6 +1203,7 @@ func (s *ListDeptUserIdsRequest) SetSubCorpId(v string) *ListDeptUserIdsRequest 
 }
 
 type ListDeptUserIdsResponseBody struct {
+	// 用户ID列表
 	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
@@ -1263,13 +1267,13 @@ func (s *ListSimpleUsersByRoleHeaders) SetXAcsDingtalkAccessToken(v string) *Lis
 }
 
 type ListSimpleUsersByRoleRequest struct {
-	// cursor
+	// 起始位置
 	Offset *int64 `json:"offset,omitempty" xml:"offset,omitempty"`
-	// size
+	// 查询数量
 	Size *int32 `json:"size,omitempty" xml:"size,omitempty"`
-	// roleId
+	// 角色ID
 	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	// subCorpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 }
 
@@ -1302,10 +1306,12 @@ func (s *ListSimpleUsersByRoleRequest) SetSubCorpId(v string) *ListSimpleUsersBy
 }
 
 type ListSimpleUsersByRoleResponseBody struct {
-	List             []*ListSimpleUsersByRoleResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	NextCursorString *string                                  `json:"nextCursorString,omitempty" xml:"nextCursorString,omitempty"`
-	NextCursor       *int64                                   `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	HasMore          *bool                                    `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 用户列表
+	UserList []*ListSimpleUsersByRoleResponseBodyUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+	// 下一条记录
+	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	// 是否还有记录
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 }
 
 func (s ListSimpleUsersByRoleResponseBody) String() string {
@@ -1316,13 +1322,8 @@ func (s ListSimpleUsersByRoleResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *ListSimpleUsersByRoleResponseBody) SetList(v []*ListSimpleUsersByRoleResponseBodyList) *ListSimpleUsersByRoleResponseBody {
-	s.List = v
-	return s
-}
-
-func (s *ListSimpleUsersByRoleResponseBody) SetNextCursorString(v string) *ListSimpleUsersByRoleResponseBody {
-	s.NextCursorString = &v
+func (s *ListSimpleUsersByRoleResponseBody) SetUserList(v []*ListSimpleUsersByRoleResponseBodyUserList) *ListSimpleUsersByRoleResponseBody {
+	s.UserList = v
 	return s
 }
 
@@ -1336,37 +1337,41 @@ func (s *ListSimpleUsersByRoleResponseBody) SetHasMore(v bool) *ListSimpleUsersB
 	return s
 }
 
-type ListSimpleUsersByRoleResponseBodyList struct {
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+type ListSimpleUsersByRoleResponseBodyUserList struct {
+	// 用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 工号
 	JobNumber *string `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
-func (s ListSimpleUsersByRoleResponseBodyList) String() string {
+func (s ListSimpleUsersByRoleResponseBodyUserList) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ListSimpleUsersByRoleResponseBodyList) GoString() string {
+func (s ListSimpleUsersByRoleResponseBodyUserList) GoString() string {
 	return s.String()
 }
 
-func (s *ListSimpleUsersByRoleResponseBodyList) SetUserId(v string) *ListSimpleUsersByRoleResponseBodyList {
+func (s *ListSimpleUsersByRoleResponseBodyUserList) SetUserId(v string) *ListSimpleUsersByRoleResponseBodyUserList {
 	s.UserId = &v
 	return s
 }
 
-func (s *ListSimpleUsersByRoleResponseBodyList) SetUnionId(v string) *ListSimpleUsersByRoleResponseBodyList {
+func (s *ListSimpleUsersByRoleResponseBodyUserList) SetUnionId(v string) *ListSimpleUsersByRoleResponseBodyUserList {
 	s.UnionId = &v
 	return s
 }
 
-func (s *ListSimpleUsersByRoleResponseBodyList) SetJobNumber(v string) *ListSimpleUsersByRoleResponseBodyList {
+func (s *ListSimpleUsersByRoleResponseBodyUserList) SetJobNumber(v string) *ListSimpleUsersByRoleResponseBodyUserList {
 	s.JobNumber = &v
 	return s
 }
 
-func (s *ListSimpleUsersByRoleResponseBodyList) SetName(v string) *ListSimpleUsersByRoleResponseBodyList {
+func (s *ListSimpleUsersByRoleResponseBodyUserList) SetName(v string) *ListSimpleUsersByRoleResponseBodyUserList {
 	s.Name = &v
 	return s
 }
@@ -1418,7 +1423,7 @@ func (s *ListResidentSubDeptsHeaders) SetXAcsDingtalkAccessToken(v string) *List
 }
 
 type ListResidentSubDeptsRequest struct {
-	// 真实请求的组织corpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 	// 游标，不传默认1
 	Cursor *int64 `json:"cursor,omitempty" xml:"cursor,omitempty"`
@@ -1450,10 +1455,14 @@ func (s *ListResidentSubDeptsRequest) SetSize(v int32) *ListResidentSubDeptsRequ
 }
 
 type ListResidentSubDeptsResponseBody struct {
-	List       []*ListResidentSubDeptsResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	NextCursor *int64                                  `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	HasMore    *bool                                   `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	Total      *int64                                  `json:"total,omitempty" xml:"total,omitempty"`
+	// 组户列表
+	DepartmentList []*ListResidentSubDeptsResponseBodyDepartmentList `json:"departmentList,omitempty" xml:"departmentList,omitempty" type:"Repeated"`
+	// 游标
+	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	// 是否还有记录
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 总数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
 }
 
 func (s ListResidentSubDeptsResponseBody) String() string {
@@ -1464,8 +1473,8 @@ func (s ListResidentSubDeptsResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *ListResidentSubDeptsResponseBody) SetList(v []*ListResidentSubDeptsResponseBodyList) *ListResidentSubDeptsResponseBody {
-	s.List = v
+func (s *ListResidentSubDeptsResponseBody) SetDepartmentList(v []*ListResidentSubDeptsResponseBodyDepartmentList) *ListResidentSubDeptsResponseBody {
+	s.DepartmentList = v
 	return s
 }
 
@@ -1484,32 +1493,35 @@ func (s *ListResidentSubDeptsResponseBody) SetTotal(v int64) *ListResidentSubDep
 	return s
 }
 
-type ListResidentSubDeptsResponseBodyList struct {
-	DeptId  *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
-	SuperId *int64  `json:"superId,omitempty" xml:"superId,omitempty"`
+type ListResidentSubDeptsResponseBodyDepartmentList struct {
+	// 下属组织的部门ID
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// 组户名称
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// 父部门ID
+	SuperDepartmentId *int64 `json:"superDepartmentId,omitempty" xml:"superDepartmentId,omitempty"`
 }
 
-func (s ListResidentSubDeptsResponseBodyList) String() string {
+func (s ListResidentSubDeptsResponseBodyDepartmentList) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ListResidentSubDeptsResponseBodyList) GoString() string {
+func (s ListResidentSubDeptsResponseBodyDepartmentList) GoString() string {
 	return s.String()
 }
 
-func (s *ListResidentSubDeptsResponseBodyList) SetDeptId(v int64) *ListResidentSubDeptsResponseBodyList {
-	s.DeptId = &v
+func (s *ListResidentSubDeptsResponseBodyDepartmentList) SetDepartmentId(v int64) *ListResidentSubDeptsResponseBodyDepartmentList {
+	s.DepartmentId = &v
 	return s
 }
 
-func (s *ListResidentSubDeptsResponseBodyList) SetName(v string) *ListResidentSubDeptsResponseBodyList {
-	s.Name = &v
+func (s *ListResidentSubDeptsResponseBodyDepartmentList) SetDepartmentName(v string) *ListResidentSubDeptsResponseBodyDepartmentList {
+	s.DepartmentName = &v
 	return s
 }
 
-func (s *ListResidentSubDeptsResponseBodyList) SetSuperId(v int64) *ListResidentSubDeptsResponseBodyList {
-	s.SuperId = &v
+func (s *ListResidentSubDeptsResponseBodyDepartmentList) SetSuperDepartmentId(v int64) *ListResidentSubDeptsResponseBodyDepartmentList {
+	s.SuperDepartmentId = &v
 	return s
 }
 
@@ -1560,7 +1572,7 @@ func (s *ListParentByUserHeaders) SetXAcsDingtalkAccessToken(v string) *ListPare
 }
 
 type ListParentByUserRequest struct {
-	// 真实请求的组织corpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 	// 用户userId
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
@@ -1585,8 +1597,8 @@ func (s *ListParentByUserRequest) SetUserId(v string) *ListParentByUserRequest {
 }
 
 type ListParentByUserResponseBody struct {
-	// 上级部门id链
-	ParentDeptIdList []*int64 `json:"parentDeptIdList,omitempty" xml:"parentDeptIdList,omitempty" type:"Repeated"`
+	// 上级部门ID列表
+	DepartmentIdList []*int64 `json:"departmentIdList,omitempty" xml:"departmentIdList,omitempty" type:"Repeated"`
 }
 
 func (s ListParentByUserResponseBody) String() string {
@@ -1597,8 +1609,8 @@ func (s ListParentByUserResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *ListParentByUserResponseBody) SetParentDeptIdList(v []*int64) *ListParentByUserResponseBody {
-	s.ParentDeptIdList = v
+func (s *ListParentByUserResponseBody) SetDepartmentIdList(v []*int64) *ListParentByUserResponseBody {
+	s.DepartmentIdList = v
 	return s
 }
 
@@ -1649,7 +1661,7 @@ func (s *ListSubDeptHeaders) SetXAcsDingtalkAccessToken(v string) *ListSubDeptHe
 }
 
 type ListSubDeptRequest struct {
-	// 真实请求的组织corpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 	// 通讯录语言(默认zh_CN另外支持en_US)
 	Language *string `json:"language,omitempty" xml:"language,omitempty"`
@@ -1692,8 +1704,8 @@ func (s *ListSubDeptResponseBody) SetResult(v []*ListSubDeptResponseBodyResult) 
 }
 
 type ListSubDeptResponseBodyResult struct {
-	// 部门ID
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 下属组织的部门ID
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
 	// 部门名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
@@ -1706,8 +1718,8 @@ func (s ListSubDeptResponseBodyResult) GoString() string {
 	return s.String()
 }
 
-func (s *ListSubDeptResponseBodyResult) SetDeptId(v int64) *ListSubDeptResponseBodyResult {
-	s.DeptId = &v
+func (s *ListSubDeptResponseBodyResult) SetDepartmentId(v int64) *ListSubDeptResponseBodyResult {
+	s.DepartmentId = &v
 	return s
 }
 
@@ -1763,7 +1775,7 @@ func (s *GetUserHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserHeaders {
 }
 
 type GetUserRequest struct {
-	// 真实请求的组织corpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 	// 通讯录语言(默认zh_CN另外支持en_US)
 	Language *string `json:"language,omitempty" xml:"language,omitempty"`
@@ -1794,8 +1806,6 @@ type GetUserResponseBody struct {
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	// 姓名
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 头像
-	Avatar *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
 	// 员工工号
 	JobNumber *string `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
 	// 职位
@@ -1805,9 +1815,9 @@ type GetUserResponseBody struct {
 	// 备注
 	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 	// 所属部门id列表
-	DeptIdList []*int64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
+	DepartmentIdList []*int64 `json:"departmentIdList,omitempty" xml:"departmentIdList,omitempty" type:"Repeated"`
 	// 员工在对应的部门中的排序。
-	DeptOrderSet []*GetUserResponseBodyDeptOrderSet `json:"deptOrderSet,omitempty" xml:"deptOrderSet,omitempty" type:"Repeated"`
+	DepartmentOrderSet []*GetUserResponseBodyDepartmentOrderSet `json:"departmentOrderSet,omitempty" xml:"departmentOrderSet,omitempty" type:"Repeated"`
 	// 扩展属性，长度最大2000个字符。可以设置多种属性（手机上最多显示10个扩展属性，具体显示哪些属性，请到OA管理后台->设置->通讯录信息设置和OA管理后台->设置->手机端显示信息设置）。 该字段的值支持链接类型填写，同时链接支持变量通配符自动替换，目前支持通配符有：userid，corpid。示例： [工位地址](http://www.dingtalk.com?userid=#userid#&corpid=#corpid#)
 	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
 	// 入职时间，Unix时间戳，单位ms。
@@ -1827,7 +1837,7 @@ type GetUserResponseBody struct {
 	// 专属帐号类型：{sso: 企业自定义idp;dingtalk: 钉钉idp}
 	ExclusiveAccountType *string `json:"exclusiveAccountType,omitempty" xml:"exclusiveAccountType,omitempty"`
 	// 员工在对应的部门中是否领导。
-	LeaderInDept []*GetUserResponseBodyLeaderInDept `json:"leaderInDept,omitempty" xml:"leaderInDept,omitempty" type:"Repeated"`
+	LeaderInDepartment []*GetUserResponseBodyLeaderInDepartment `json:"leaderInDepartment,omitempty" xml:"leaderInDepartment,omitempty" type:"Repeated"`
 	// 角色列表
 	RoleList []*GetUserResponseBodyRoleList `json:"roleList,omitempty" xml:"roleList,omitempty" type:"Repeated"`
 	// 关联信息
@@ -1859,11 +1869,6 @@ func (s *GetUserResponseBody) SetName(v string) *GetUserResponseBody {
 	return s
 }
 
-func (s *GetUserResponseBody) SetAvatar(v string) *GetUserResponseBody {
-	s.Avatar = &v
-	return s
-}
-
 func (s *GetUserResponseBody) SetJobNumber(v string) *GetUserResponseBody {
 	s.JobNumber = &v
 	return s
@@ -1884,13 +1889,13 @@ func (s *GetUserResponseBody) SetRemark(v string) *GetUserResponseBody {
 	return s
 }
 
-func (s *GetUserResponseBody) SetDeptIdList(v []*int64) *GetUserResponseBody {
-	s.DeptIdList = v
+func (s *GetUserResponseBody) SetDepartmentIdList(v []*int64) *GetUserResponseBody {
+	s.DepartmentIdList = v
 	return s
 }
 
-func (s *GetUserResponseBody) SetDeptOrderSet(v []*GetUserResponseBodyDeptOrderSet) *GetUserResponseBody {
-	s.DeptOrderSet = v
+func (s *GetUserResponseBody) SetDepartmentOrderSet(v []*GetUserResponseBodyDepartmentOrderSet) *GetUserResponseBody {
+	s.DepartmentOrderSet = v
 	return s
 }
 
@@ -1939,8 +1944,8 @@ func (s *GetUserResponseBody) SetExclusiveAccountType(v string) *GetUserResponse
 	return s
 }
 
-func (s *GetUserResponseBody) SetLeaderInDept(v []*GetUserResponseBodyLeaderInDept) *GetUserResponseBody {
-	s.LeaderInDept = v
+func (s *GetUserResponseBody) SetLeaderInDepartment(v []*GetUserResponseBodyLeaderInDepartment) *GetUserResponseBody {
+	s.LeaderInDepartment = v
 	return s
 }
 
@@ -1959,61 +1964,61 @@ func (s *GetUserResponseBody) SetManagerUserId(v string) *GetUserResponseBody {
 	return s
 }
 
-type GetUserResponseBodyDeptOrderSet struct {
-	// 部门id
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+type GetUserResponseBodyDepartmentOrderSet struct {
+	// 下属组织的部门ID
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
 	// 员工在部门中的排序。
 	Order *int64 `json:"order,omitempty" xml:"order,omitempty"`
 }
 
-func (s GetUserResponseBodyDeptOrderSet) String() string {
+func (s GetUserResponseBodyDepartmentOrderSet) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetUserResponseBodyDeptOrderSet) GoString() string {
+func (s GetUserResponseBodyDepartmentOrderSet) GoString() string {
 	return s.String()
 }
 
-func (s *GetUserResponseBodyDeptOrderSet) SetDeptId(v int64) *GetUserResponseBodyDeptOrderSet {
-	s.DeptId = &v
+func (s *GetUserResponseBodyDepartmentOrderSet) SetDepartmentId(v int64) *GetUserResponseBodyDepartmentOrderSet {
+	s.DepartmentId = &v
 	return s
 }
 
-func (s *GetUserResponseBodyDeptOrderSet) SetOrder(v int64) *GetUserResponseBodyDeptOrderSet {
+func (s *GetUserResponseBodyDepartmentOrderSet) SetOrder(v int64) *GetUserResponseBodyDepartmentOrderSet {
 	s.Order = &v
 	return s
 }
 
-type GetUserResponseBodyLeaderInDept struct {
-	// 部门 id
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+type GetUserResponseBodyLeaderInDepartment struct {
+	// 下属组织的部门ID
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
 	// 员工在对应的部门中是否领导
 	Leader *bool `json:"leader,omitempty" xml:"leader,omitempty"`
 }
 
-func (s GetUserResponseBodyLeaderInDept) String() string {
+func (s GetUserResponseBodyLeaderInDepartment) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetUserResponseBodyLeaderInDept) GoString() string {
+func (s GetUserResponseBodyLeaderInDepartment) GoString() string {
 	return s.String()
 }
 
-func (s *GetUserResponseBodyLeaderInDept) SetDeptId(v int64) *GetUserResponseBodyLeaderInDept {
-	s.DeptId = &v
+func (s *GetUserResponseBodyLeaderInDepartment) SetDepartmentId(v int64) *GetUserResponseBodyLeaderInDepartment {
+	s.DepartmentId = &v
 	return s
 }
 
-func (s *GetUserResponseBodyLeaderInDept) SetLeader(v bool) *GetUserResponseBodyLeaderInDept {
+func (s *GetUserResponseBodyLeaderInDepartment) SetLeader(v bool) *GetUserResponseBodyLeaderInDepartment {
 	s.Leader = &v
 	return s
 }
 
 type GetUserResponseBodyRoleList struct {
 	// 角色id
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
 	// 角色名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
 	// 角色组名称
 	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
 }
@@ -2026,13 +2031,13 @@ func (s GetUserResponseBodyRoleList) GoString() string {
 	return s.String()
 }
 
-func (s *GetUserResponseBodyRoleList) SetId(v int64) *GetUserResponseBodyRoleList {
-	s.Id = &v
+func (s *GetUserResponseBodyRoleList) SetRoleId(v int64) *GetUserResponseBodyRoleList {
+	s.RoleId = &v
 	return s
 }
 
-func (s *GetUserResponseBodyRoleList) SetName(v string) *GetUserResponseBodyRoleList {
-	s.Name = &v
+func (s *GetUserResponseBodyRoleList) SetRoleName(v string) *GetUserResponseBodyRoleList {
+	s.RoleName = &v
 	return s
 }
 
@@ -2151,7 +2156,7 @@ type ListDeptUsersRequest struct {
 	Size *int32 `json:"size,omitempty" xml:"size,omitempty"`
 	// containAccessLimit
 	ContainAccessLimit *bool `json:"containAccessLimit,omitempty" xml:"containAccessLimit,omitempty"`
-	// subCorpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 	// language
 	Language *string `json:"language,omitempty" xml:"language,omitempty"`
@@ -2198,9 +2203,10 @@ func (s *ListDeptUsersRequest) SetOrderField(v string) *ListDeptUsersRequest {
 }
 
 type ListDeptUsersResponseBody struct {
-	List       []*ListDeptUsersResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	NextCursor *int64                           `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	HasMore    *bool                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 用户列表
+	UserList   []*ListDeptUsersResponseBodyUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+	NextCursor *int64                               `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	HasMore    *bool                                `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 }
 
 func (s ListDeptUsersResponseBody) String() string {
@@ -2211,8 +2217,8 @@ func (s ListDeptUsersResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *ListDeptUsersResponseBody) SetList(v []*ListDeptUsersResponseBodyList) *ListDeptUsersResponseBody {
-	s.List = v
+func (s *ListDeptUsersResponseBody) SetUserList(v []*ListDeptUsersResponseBodyUserList) *ListDeptUsersResponseBody {
+	s.UserList = v
 	return s
 }
 
@@ -2226,49 +2232,52 @@ func (s *ListDeptUsersResponseBody) SetHasMore(v bool) *ListDeptUsersResponseBod
 	return s
 }
 
-type ListDeptUsersResponseBodyList struct {
-	UserId     *string  `json:"userId,omitempty" xml:"userId,omitempty"`
-	UnionId    *string  `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	JobNumber  *string  `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
-	Name       *string  `json:"name,omitempty" xml:"name,omitempty"`
-	DeptIdList []*int64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
-	Active     *bool    `json:"active,omitempty" xml:"active,omitempty"`
+type ListDeptUsersResponseBodyUserList struct {
+	// 用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// unionId
+	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	JobNumber *string `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 部门ID列表
+	DepartmentList []*int64 `json:"departmentList,omitempty" xml:"departmentList,omitempty" type:"Repeated"`
+	Active         *bool    `json:"active,omitempty" xml:"active,omitempty"`
 }
 
-func (s ListDeptUsersResponseBodyList) String() string {
+func (s ListDeptUsersResponseBodyUserList) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ListDeptUsersResponseBodyList) GoString() string {
+func (s ListDeptUsersResponseBodyUserList) GoString() string {
 	return s.String()
 }
 
-func (s *ListDeptUsersResponseBodyList) SetUserId(v string) *ListDeptUsersResponseBodyList {
+func (s *ListDeptUsersResponseBodyUserList) SetUserId(v string) *ListDeptUsersResponseBodyUserList {
 	s.UserId = &v
 	return s
 }
 
-func (s *ListDeptUsersResponseBodyList) SetUnionId(v string) *ListDeptUsersResponseBodyList {
+func (s *ListDeptUsersResponseBodyUserList) SetUnionId(v string) *ListDeptUsersResponseBodyUserList {
 	s.UnionId = &v
 	return s
 }
 
-func (s *ListDeptUsersResponseBodyList) SetJobNumber(v string) *ListDeptUsersResponseBodyList {
+func (s *ListDeptUsersResponseBodyUserList) SetJobNumber(v string) *ListDeptUsersResponseBodyUserList {
 	s.JobNumber = &v
 	return s
 }
 
-func (s *ListDeptUsersResponseBodyList) SetName(v string) *ListDeptUsersResponseBodyList {
+func (s *ListDeptUsersResponseBodyUserList) SetName(v string) *ListDeptUsersResponseBodyUserList {
 	s.Name = &v
 	return s
 }
 
-func (s *ListDeptUsersResponseBodyList) SetDeptIdList(v []*int64) *ListDeptUsersResponseBodyList {
-	s.DeptIdList = v
+func (s *ListDeptUsersResponseBodyUserList) SetDepartmentList(v []*int64) *ListDeptUsersResponseBodyUserList {
+	s.DepartmentList = v
 	return s
 }
 
-func (s *ListDeptUsersResponseBodyList) SetActive(v bool) *ListDeptUsersResponseBodyList {
+func (s *ListDeptUsersResponseBodyUserList) SetActive(v bool) *ListDeptUsersResponseBodyUserList {
 	s.Active = &v
 	return s
 }
@@ -2320,7 +2329,7 @@ func (s *ListResidentUserInfosHeaders) SetXAcsDingtalkAccessToken(v string) *Lis
 }
 
 type ListResidentUserInfosRequest struct {
-	// 真实请求的组织corpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 	// 用户id列表
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
@@ -2345,7 +2354,7 @@ func (s *ListResidentUserInfosRequest) SetUserIds(v []*string) *ListResidentUser
 }
 
 type ListResidentUserInfosShrinkRequest struct {
-	// 真实请求的组织corpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 	// 用户id列表
 	UserIdsShrink *string `json:"userIds,omitempty" xml:"userIds,omitempty"`
@@ -2370,8 +2379,8 @@ func (s *ListResidentUserInfosShrinkRequest) SetUserIdsShrink(v string) *ListRes
 }
 
 type ListResidentUserInfosResponseBody struct {
-	// result
-	Result []*ListResidentUserInfosResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// 员工信息列表
+	UserList []*ListResidentUserInfosResponseBodyUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
 }
 
 func (s ListResidentUserInfosResponseBody) String() string {
@@ -2382,85 +2391,85 @@ func (s ListResidentUserInfosResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *ListResidentUserInfosResponseBody) SetResult(v []*ListResidentUserInfosResponseBodyResult) *ListResidentUserInfosResponseBody {
-	s.Result = v
+func (s *ListResidentUserInfosResponseBody) SetUserList(v []*ListResidentUserInfosResponseBodyUserList) *ListResidentUserInfosResponseBody {
+	s.UserList = v
 	return s
 }
 
-type ListResidentUserInfosResponseBodyResult struct {
-	// 员工id
-	Userid *string `json:"userid,omitempty" xml:"userid,omitempty"`
+type ListResidentUserInfosResponseBodyUserList struct {
+	// 员工 ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	// 员工名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 	// 标签列表
-	Roles []*ListResidentUserInfosResponseBodyResultRoles `json:"roles,omitempty" xml:"roles,omitempty" type:"Repeated"`
+	Roles []*ListResidentUserInfosResponseBodyUserListRoles `json:"roles,omitempty" xml:"roles,omitempty" type:"Repeated"`
 	// 员工特征
 	Feature *string `json:"feature,omitempty" xml:"feature,omitempty"`
 	// 钉钉唯一标识
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
-func (s ListResidentUserInfosResponseBodyResult) String() string {
+func (s ListResidentUserInfosResponseBodyUserList) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ListResidentUserInfosResponseBodyResult) GoString() string {
+func (s ListResidentUserInfosResponseBodyUserList) GoString() string {
 	return s.String()
 }
 
-func (s *ListResidentUserInfosResponseBodyResult) SetUserid(v string) *ListResidentUserInfosResponseBodyResult {
-	s.Userid = &v
+func (s *ListResidentUserInfosResponseBodyUserList) SetUserId(v string) *ListResidentUserInfosResponseBodyUserList {
+	s.UserId = &v
 	return s
 }
 
-func (s *ListResidentUserInfosResponseBodyResult) SetName(v string) *ListResidentUserInfosResponseBodyResult {
-	s.Name = &v
+func (s *ListResidentUserInfosResponseBodyUserList) SetUserName(v string) *ListResidentUserInfosResponseBodyUserList {
+	s.UserName = &v
 	return s
 }
 
-func (s *ListResidentUserInfosResponseBodyResult) SetRoles(v []*ListResidentUserInfosResponseBodyResultRoles) *ListResidentUserInfosResponseBodyResult {
+func (s *ListResidentUserInfosResponseBodyUserList) SetRoles(v []*ListResidentUserInfosResponseBodyUserListRoles) *ListResidentUserInfosResponseBodyUserList {
 	s.Roles = v
 	return s
 }
 
-func (s *ListResidentUserInfosResponseBodyResult) SetFeature(v string) *ListResidentUserInfosResponseBodyResult {
+func (s *ListResidentUserInfosResponseBodyUserList) SetFeature(v string) *ListResidentUserInfosResponseBodyUserList {
 	s.Feature = &v
 	return s
 }
 
-func (s *ListResidentUserInfosResponseBodyResult) SetUnionId(v string) *ListResidentUserInfosResponseBodyResult {
+func (s *ListResidentUserInfosResponseBodyUserList) SetUnionId(v string) *ListResidentUserInfosResponseBodyUserList {
 	s.UnionId = &v
 	return s
 }
 
-type ListResidentUserInfosResponseBodyResultRoles struct {
+type ListResidentUserInfosResponseBodyUserListRoles struct {
 	// 标签id
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	TagId *int64 `json:"tagId,omitempty" xml:"tagId,omitempty"`
 	// 标签名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
 	// 标签名称 tagCode
 	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
 }
 
-func (s ListResidentUserInfosResponseBodyResultRoles) String() string {
+func (s ListResidentUserInfosResponseBodyUserListRoles) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ListResidentUserInfosResponseBodyResultRoles) GoString() string {
+func (s ListResidentUserInfosResponseBodyUserListRoles) GoString() string {
 	return s.String()
 }
 
-func (s *ListResidentUserInfosResponseBodyResultRoles) SetId(v int64) *ListResidentUserInfosResponseBodyResultRoles {
-	s.Id = &v
+func (s *ListResidentUserInfosResponseBodyUserListRoles) SetTagId(v int64) *ListResidentUserInfosResponseBodyUserListRoles {
+	s.TagId = &v
 	return s
 }
 
-func (s *ListResidentUserInfosResponseBodyResultRoles) SetName(v string) *ListResidentUserInfosResponseBodyResultRoles {
-	s.Name = &v
+func (s *ListResidentUserInfosResponseBodyUserListRoles) SetTagName(v string) *ListResidentUserInfosResponseBodyUserListRoles {
+	s.TagName = &v
 	return s
 }
 
-func (s *ListResidentUserInfosResponseBodyResultRoles) SetTagCode(v string) *ListResidentUserInfosResponseBodyResultRoles {
+func (s *ListResidentUserInfosResponseBodyUserListRoles) SetTagCode(v string) *ListResidentUserInfosResponseBodyUserListRoles {
 	s.TagCode = &v
 	return s
 }
@@ -2512,7 +2521,7 @@ func (s *ListSubDeptIdsHeaders) SetXAcsDingtalkAccessToken(v string) *ListSubDep
 }
 
 type ListSubDeptIdsRequest struct {
-	// 真实请求的组织corpId
+	// 下属组织的组织ID，比如下属镇、村的corpId
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 }
 
@@ -2530,8 +2539,8 @@ func (s *ListSubDeptIdsRequest) SetSubCorpId(v string) *ListSubDeptIdsRequest {
 }
 
 type ListSubDeptIdsResponseBody struct {
-	// 部门ID列表
-	DeptIdList []*int64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
+	// 下属组织的子部门 ID 列表
+	DepartmentIdList []*int64 `json:"departmentIdList,omitempty" xml:"departmentIdList,omitempty" type:"Repeated"`
 }
 
 func (s ListSubDeptIdsResponseBody) String() string {
@@ -2542,8 +2551,8 @@ func (s ListSubDeptIdsResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *ListSubDeptIdsResponseBody) SetDeptIdList(v []*int64) *ListSubDeptIdsResponseBody {
-	s.DeptIdList = v
+func (s *ListSubDeptIdsResponseBody) SetDepartmentIdList(v []*int64) *ListSubDeptIdsResponseBody {
+	s.DepartmentIdList = v
 	return s
 }
 
@@ -2679,11 +2688,11 @@ func (client *Client) GetVillageOrgInfoWithOptions(subCorpId *string, headers *G
 	return _result, _err
 }
 
-func (client *Client) ListResidentDeptUsers(deptId *string, request *ListResidentDeptUsersRequest) (_result *ListResidentDeptUsersResponse, _err error) {
+func (client *Client) ListResidentDeptUsers(departmentId *string, request *ListResidentDeptUsersRequest) (_result *ListResidentDeptUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListResidentDeptUsersHeaders{}
 	_result = &ListResidentDeptUsersResponse{}
-	_body, _err := client.ListResidentDeptUsersWithOptions(deptId, request, headers, runtime)
+	_body, _err := client.ListResidentDeptUsersWithOptions(departmentId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2691,7 +2700,7 @@ func (client *Client) ListResidentDeptUsers(deptId *string, request *ListResiden
 	return _result, _err
 }
 
-func (client *Client) ListResidentDeptUsersWithOptions(deptId *string, request *ListResidentDeptUsersRequest, headers *ListResidentDeptUsersHeaders, runtime *util.RuntimeOptions) (_result *ListResidentDeptUsersResponse, _err error) {
+func (client *Client) ListResidentDeptUsersWithOptions(departmentId *string, request *ListResidentDeptUsersRequest, headers *ListResidentDeptUsersHeaders, runtime *util.RuntimeOptions) (_result *ListResidentDeptUsersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -2727,7 +2736,7 @@ func (client *Client) ListResidentDeptUsersWithOptions(deptId *string, request *
 		Query:   openapiutil.Query(query),
 	}
 	_result = &ListResidentDeptUsersResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListResidentDeptUsers"), tea.String("village_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/village/residentDepartments/"+tea.StringValue(deptId)+"/users"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("ListResidentDeptUsers"), tea.String("village_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/village/residentDepartments/"+tea.StringValue(departmentId)+"/users"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2735,11 +2744,11 @@ func (client *Client) ListResidentDeptUsersWithOptions(deptId *string, request *
 	return _result, _err
 }
 
-func (client *Client) ListDeptSimpleUsers(deptId *string, request *ListDeptSimpleUsersRequest) (_result *ListDeptSimpleUsersResponse, _err error) {
+func (client *Client) ListDeptSimpleUsers(departmentId *string, request *ListDeptSimpleUsersRequest) (_result *ListDeptSimpleUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListDeptSimpleUsersHeaders{}
 	_result = &ListDeptSimpleUsersResponse{}
-	_body, _err := client.ListDeptSimpleUsersWithOptions(deptId, request, headers, runtime)
+	_body, _err := client.ListDeptSimpleUsersWithOptions(departmentId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2747,7 +2756,7 @@ func (client *Client) ListDeptSimpleUsers(deptId *string, request *ListDeptSimpl
 	return _result, _err
 }
 
-func (client *Client) ListDeptSimpleUsersWithOptions(deptId *string, request *ListDeptSimpleUsersRequest, headers *ListDeptSimpleUsersHeaders, runtime *util.RuntimeOptions) (_result *ListDeptSimpleUsersResponse, _err error) {
+func (client *Client) ListDeptSimpleUsersWithOptions(departmentId *string, request *ListDeptSimpleUsersRequest, headers *ListDeptSimpleUsersHeaders, runtime *util.RuntimeOptions) (_result *ListDeptSimpleUsersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -2791,7 +2800,7 @@ func (client *Client) ListDeptSimpleUsersWithOptions(deptId *string, request *Li
 		Query:   openapiutil.Query(query),
 	}
 	_result = &ListDeptSimpleUsersResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListDeptSimpleUsers"), tea.String("village_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/village/departments/"+tea.StringValue(deptId)+"/simpleUsers"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("ListDeptSimpleUsers"), tea.String("village_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/village/departments/"+tea.StringValue(departmentId)+"/simpleUsers"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2895,11 +2904,11 @@ func (client *Client) GetResidentDeptWithOptions(departmentId *string, request *
 	return _result, _err
 }
 
-func (client *Client) GetResidentUserInfo(deptId *string, userId *string, request *GetResidentUserInfoRequest) (_result *GetResidentUserInfoResponse, _err error) {
+func (client *Client) GetResidentUserInfo(departmentId *string, userId *string, request *GetResidentUserInfoRequest) (_result *GetResidentUserInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetResidentUserInfoHeaders{}
 	_result = &GetResidentUserInfoResponse{}
-	_body, _err := client.GetResidentUserInfoWithOptions(deptId, userId, request, headers, runtime)
+	_body, _err := client.GetResidentUserInfoWithOptions(departmentId, userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2907,7 +2916,7 @@ func (client *Client) GetResidentUserInfo(deptId *string, userId *string, reques
 	return _result, _err
 }
 
-func (client *Client) GetResidentUserInfoWithOptions(deptId *string, userId *string, request *GetResidentUserInfoRequest, headers *GetResidentUserInfoHeaders, runtime *util.RuntimeOptions) (_result *GetResidentUserInfoResponse, _err error) {
+func (client *Client) GetResidentUserInfoWithOptions(departmentId *string, userId *string, request *GetResidentUserInfoRequest, headers *GetResidentUserInfoHeaders, runtime *util.RuntimeOptions) (_result *GetResidentUserInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -2931,7 +2940,7 @@ func (client *Client) GetResidentUserInfoWithOptions(deptId *string, userId *str
 		Query:   openapiutil.Query(query),
 	}
 	_result = &GetResidentUserInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetResidentUserInfo"), tea.String("village_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/village/residentDepartments/"+tea.StringValue(deptId)+"/users/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("GetResidentUserInfo"), tea.String("village_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/village/residentDepartments/"+tea.StringValue(departmentId)+"/users/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3009,8 +3018,8 @@ func (client *Client) ListParentByDeptWithOptions(request *ListParentByDeptReque
 		query["subCorpId"] = request.SubCorpId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
-		query["deptId"] = request.DeptId
+	if !tea.BoolValue(util.IsUnset(request.DepartmentId)) {
+		query["departmentId"] = request.DepartmentId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -3035,11 +3044,11 @@ func (client *Client) ListParentByDeptWithOptions(request *ListParentByDeptReque
 	return _result, _err
 }
 
-func (client *Client) ListDeptUserIds(deptId *string, request *ListDeptUserIdsRequest) (_result *ListDeptUserIdsResponse, _err error) {
+func (client *Client) ListDeptUserIds(departmentId *string, request *ListDeptUserIdsRequest) (_result *ListDeptUserIdsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListDeptUserIdsHeaders{}
 	_result = &ListDeptUserIdsResponse{}
-	_body, _err := client.ListDeptUserIdsWithOptions(deptId, request, headers, runtime)
+	_body, _err := client.ListDeptUserIdsWithOptions(departmentId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3047,7 +3056,7 @@ func (client *Client) ListDeptUserIds(deptId *string, request *ListDeptUserIdsRe
 	return _result, _err
 }
 
-func (client *Client) ListDeptUserIdsWithOptions(deptId *string, request *ListDeptUserIdsRequest, headers *ListDeptUserIdsHeaders, runtime *util.RuntimeOptions) (_result *ListDeptUserIdsResponse, _err error) {
+func (client *Client) ListDeptUserIdsWithOptions(departmentId *string, request *ListDeptUserIdsRequest, headers *ListDeptUserIdsHeaders, runtime *util.RuntimeOptions) (_result *ListDeptUserIdsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -3071,7 +3080,7 @@ func (client *Client) ListDeptUserIdsWithOptions(deptId *string, request *ListDe
 		Query:   openapiutil.Query(query),
 	}
 	_result = &ListDeptUserIdsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListDeptUserIds"), tea.String("village_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/village/departments/"+tea.StringValue(deptId)+"/userIds"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("ListDeptUserIds"), tea.String("village_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/village/departments/"+tea.StringValue(departmentId)+"/userIds"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3135,11 +3144,11 @@ func (client *Client) ListSimpleUsersByRoleWithOptions(request *ListSimpleUsersB
 	return _result, _err
 }
 
-func (client *Client) ListResidentSubDepts(deptId *string, request *ListResidentSubDeptsRequest) (_result *ListResidentSubDeptsResponse, _err error) {
+func (client *Client) ListResidentSubDepts(departmentId *string, request *ListResidentSubDeptsRequest) (_result *ListResidentSubDeptsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListResidentSubDeptsHeaders{}
 	_result = &ListResidentSubDeptsResponse{}
-	_body, _err := client.ListResidentSubDeptsWithOptions(deptId, request, headers, runtime)
+	_body, _err := client.ListResidentSubDeptsWithOptions(departmentId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3147,7 +3156,7 @@ func (client *Client) ListResidentSubDepts(deptId *string, request *ListResident
 	return _result, _err
 }
 
-func (client *Client) ListResidentSubDeptsWithOptions(deptId *string, request *ListResidentSubDeptsRequest, headers *ListResidentSubDeptsHeaders, runtime *util.RuntimeOptions) (_result *ListResidentSubDeptsResponse, _err error) {
+func (client *Client) ListResidentSubDeptsWithOptions(departmentId *string, request *ListResidentSubDeptsRequest, headers *ListResidentSubDeptsHeaders, runtime *util.RuntimeOptions) (_result *ListResidentSubDeptsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -3179,7 +3188,7 @@ func (client *Client) ListResidentSubDeptsWithOptions(deptId *string, request *L
 		Query:   openapiutil.Query(query),
 	}
 	_result = &ListResidentSubDeptsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListResidentSubDepts"), tea.String("village_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/village/residentDepartments/"+tea.StringValue(deptId)+"/subDepartments"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("ListResidentSubDepts"), tea.String("village_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/village/residentDepartments/"+tea.StringValue(departmentId)+"/subDepartments"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3235,11 +3244,11 @@ func (client *Client) ListParentByUserWithOptions(request *ListParentByUserReque
 	return _result, _err
 }
 
-func (client *Client) ListSubDept(deptId *string, request *ListSubDeptRequest) (_result *ListSubDeptResponse, _err error) {
+func (client *Client) ListSubDept(departmentId *string, request *ListSubDeptRequest) (_result *ListSubDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListSubDeptHeaders{}
 	_result = &ListSubDeptResponse{}
-	_body, _err := client.ListSubDeptWithOptions(deptId, request, headers, runtime)
+	_body, _err := client.ListSubDeptWithOptions(departmentId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3247,7 +3256,7 @@ func (client *Client) ListSubDept(deptId *string, request *ListSubDeptRequest) (
 	return _result, _err
 }
 
-func (client *Client) ListSubDeptWithOptions(deptId *string, request *ListSubDeptRequest, headers *ListSubDeptHeaders, runtime *util.RuntimeOptions) (_result *ListSubDeptResponse, _err error) {
+func (client *Client) ListSubDeptWithOptions(departmentId *string, request *ListSubDeptRequest, headers *ListSubDeptHeaders, runtime *util.RuntimeOptions) (_result *ListSubDeptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -3275,7 +3284,7 @@ func (client *Client) ListSubDeptWithOptions(deptId *string, request *ListSubDep
 		Query:   openapiutil.Query(query),
 	}
 	_result = &ListSubDeptResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListSubDept"), tea.String("village_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/village/departments/"+tea.StringValue(deptId)+"/subDepartments"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("ListSubDept"), tea.String("village_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/village/departments/"+tea.StringValue(departmentId)+"/subDepartments"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3331,11 +3340,11 @@ func (client *Client) GetUserWithOptions(userId *string, request *GetUserRequest
 	return _result, _err
 }
 
-func (client *Client) ListDeptUsers(deptId *string, request *ListDeptUsersRequest) (_result *ListDeptUsersResponse, _err error) {
+func (client *Client) ListDeptUsers(departmentId *string, request *ListDeptUsersRequest) (_result *ListDeptUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListDeptUsersHeaders{}
 	_result = &ListDeptUsersResponse{}
-	_body, _err := client.ListDeptUsersWithOptions(deptId, request, headers, runtime)
+	_body, _err := client.ListDeptUsersWithOptions(departmentId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3343,7 +3352,7 @@ func (client *Client) ListDeptUsers(deptId *string, request *ListDeptUsersReques
 	return _result, _err
 }
 
-func (client *Client) ListDeptUsersWithOptions(deptId *string, request *ListDeptUsersRequest, headers *ListDeptUsersHeaders, runtime *util.RuntimeOptions) (_result *ListDeptUsersResponse, _err error) {
+func (client *Client) ListDeptUsersWithOptions(departmentId *string, request *ListDeptUsersRequest, headers *ListDeptUsersHeaders, runtime *util.RuntimeOptions) (_result *ListDeptUsersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -3387,7 +3396,7 @@ func (client *Client) ListDeptUsersWithOptions(deptId *string, request *ListDept
 		Query:   openapiutil.Query(query),
 	}
 	_result = &ListDeptUsersResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListDeptUsers"), tea.String("village_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/village/departments/"+tea.StringValue(deptId)+"/users"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("ListDeptUsers"), tea.String("village_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/village/departments/"+tea.StringValue(departmentId)+"/users"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3449,11 +3458,11 @@ func (client *Client) ListResidentUserInfosWithOptions(tmpReq *ListResidentUserI
 	return _result, _err
 }
 
-func (client *Client) ListSubDeptIds(deptId *string, request *ListSubDeptIdsRequest) (_result *ListSubDeptIdsResponse, _err error) {
+func (client *Client) ListSubDeptIds(departmentId *string, request *ListSubDeptIdsRequest) (_result *ListSubDeptIdsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListSubDeptIdsHeaders{}
 	_result = &ListSubDeptIdsResponse{}
-	_body, _err := client.ListSubDeptIdsWithOptions(deptId, request, headers, runtime)
+	_body, _err := client.ListSubDeptIdsWithOptions(departmentId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3461,7 +3470,7 @@ func (client *Client) ListSubDeptIds(deptId *string, request *ListSubDeptIdsRequ
 	return _result, _err
 }
 
-func (client *Client) ListSubDeptIdsWithOptions(deptId *string, request *ListSubDeptIdsRequest, headers *ListSubDeptIdsHeaders, runtime *util.RuntimeOptions) (_result *ListSubDeptIdsResponse, _err error) {
+func (client *Client) ListSubDeptIdsWithOptions(departmentId *string, request *ListSubDeptIdsRequest, headers *ListSubDeptIdsHeaders, runtime *util.RuntimeOptions) (_result *ListSubDeptIdsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -3485,7 +3494,7 @@ func (client *Client) ListSubDeptIdsWithOptions(deptId *string, request *ListSub
 		Query:   openapiutil.Query(query),
 	}
 	_result = &ListSubDeptIdsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListSubDeptIds"), tea.String("village_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/village/departments/"+tea.StringValue(deptId)+"/subDepartmentIds"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("ListSubDeptIds"), tea.String("village_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/village/departments/"+tea.StringValue(departmentId)+"/subDepartmentIds"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

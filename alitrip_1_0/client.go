@@ -357,6 +357,230 @@ func (s *ApproveCityCarApplyResponse) SetBody(v *ApproveCityCarApplyResponseBody
 	return s
 }
 
+type QueryUnionOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryUnionOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUnionOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUnionOrderHeaders) SetCommonHeaders(v map[string]*string) *QueryUnionOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryUnionOrderHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUnionOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryUnionOrderRequest struct {
+	// 第三方企业id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 第三方申请单id
+	ThirdPartApplyId *string `json:"thirdPartApplyId,omitempty" xml:"thirdPartApplyId,omitempty"`
+	// 关联单号
+	UnionNo *string `json:"unionNo,omitempty" xml:"unionNo,omitempty"`
+}
+
+func (s QueryUnionOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUnionOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUnionOrderRequest) SetCorpId(v string) *QueryUnionOrderRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryUnionOrderRequest) SetThirdPartApplyId(v string) *QueryUnionOrderRequest {
+	s.ThirdPartApplyId = &v
+	return s
+}
+
+func (s *QueryUnionOrderRequest) SetUnionNo(v string) *QueryUnionOrderRequest {
+	s.UnionNo = &v
+	return s
+}
+
+type QueryUnionOrderResponseBody struct {
+	// 飞机订单信息
+	FlightList []*QueryUnionOrderResponseBodyFlightList `json:"flightList,omitempty" xml:"flightList,omitempty" type:"Repeated"`
+	// 企业id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 火车订单信息
+	TrainList []*QueryUnionOrderResponseBodyTrainList `json:"trainList,omitempty" xml:"trainList,omitempty" type:"Repeated"`
+	// 酒店订单信息
+	HotelList []*QueryUnionOrderResponseBodyHotelList `json:"hotelList,omitempty" xml:"hotelList,omitempty" type:"Repeated"`
+	// 用车订单信息
+	VehicleList []*QueryUnionOrderResponseBodyVehicleList `json:"vehicleList,omitempty" xml:"vehicleList,omitempty" type:"Repeated"`
+}
+
+func (s QueryUnionOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUnionOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUnionOrderResponseBody) SetFlightList(v []*QueryUnionOrderResponseBodyFlightList) *QueryUnionOrderResponseBody {
+	s.FlightList = v
+	return s
+}
+
+func (s *QueryUnionOrderResponseBody) SetCorpId(v string) *QueryUnionOrderResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryUnionOrderResponseBody) SetTrainList(v []*QueryUnionOrderResponseBodyTrainList) *QueryUnionOrderResponseBody {
+	s.TrainList = v
+	return s
+}
+
+func (s *QueryUnionOrderResponseBody) SetHotelList(v []*QueryUnionOrderResponseBodyHotelList) *QueryUnionOrderResponseBody {
+	s.HotelList = v
+	return s
+}
+
+func (s *QueryUnionOrderResponseBody) SetVehicleList(v []*QueryUnionOrderResponseBodyVehicleList) *QueryUnionOrderResponseBody {
+	s.VehicleList = v
+	return s
+}
+
+type QueryUnionOrderResponseBodyFlightList struct {
+	// 订单id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 订单状态：0待支付,1出票中,2已关闭,3有改签单,4有退票单,5出票成功,6退票申请中,7改签申请中
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QueryUnionOrderResponseBodyFlightList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUnionOrderResponseBodyFlightList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUnionOrderResponseBodyFlightList) SetId(v int64) *QueryUnionOrderResponseBodyFlightList {
+	s.Id = &v
+	return s
+}
+
+func (s *QueryUnionOrderResponseBodyFlightList) SetStatus(v int64) *QueryUnionOrderResponseBodyFlightList {
+	s.Status = &v
+	return s
+}
+
+type QueryUnionOrderResponseBodyTrainList struct {
+	// 火车订单号
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 订单状态：0待支付,1出票中,2已关闭,3,改签成功,4退票成功,5出票完成,6退票申请中,7改签申请中,8已出票,已发货,9出票失败,10改签失败,11退票失败
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QueryUnionOrderResponseBodyTrainList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUnionOrderResponseBodyTrainList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUnionOrderResponseBodyTrainList) SetId(v int64) *QueryUnionOrderResponseBodyTrainList {
+	s.Id = &v
+	return s
+}
+
+func (s *QueryUnionOrderResponseBodyTrainList) SetStatus(v int64) *QueryUnionOrderResponseBodyTrainList {
+	s.Status = &v
+	return s
+}
+
+type QueryUnionOrderResponseBodyHotelList struct {
+	// 酒店订单号
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 订单状态1:等待确认,2:等待付款,3:预订成功,4:申请退款,5:退款成功,6:已关闭,7:结账成功,8:支付成功
+	OrderStatus *int64 `json:"orderStatus,omitempty" xml:"orderStatus,omitempty"`
+}
+
+func (s QueryUnionOrderResponseBodyHotelList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUnionOrderResponseBodyHotelList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUnionOrderResponseBodyHotelList) SetId(v int64) *QueryUnionOrderResponseBodyHotelList {
+	s.Id = &v
+	return s
+}
+
+func (s *QueryUnionOrderResponseBodyHotelList) SetOrderStatus(v int64) *QueryUnionOrderResponseBodyHotelList {
+	s.OrderStatus = &v
+	return s
+}
+
+type QueryUnionOrderResponseBodyVehicleList struct {
+	// 用车订单号
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 订单状态:0:初始状态,1:已超时,2:派单成功,3:派单失败,4:已退款,5:已支付,6:已取消
+	OrderStatus *int64 `json:"orderStatus,omitempty" xml:"orderStatus,omitempty"`
+}
+
+func (s QueryUnionOrderResponseBodyVehicleList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUnionOrderResponseBodyVehicleList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUnionOrderResponseBodyVehicleList) SetId(v int64) *QueryUnionOrderResponseBodyVehicleList {
+	s.Id = &v
+	return s
+}
+
+func (s *QueryUnionOrderResponseBodyVehicleList) SetOrderStatus(v int64) *QueryUnionOrderResponseBodyVehicleList {
+	s.OrderStatus = &v
+	return s
+}
+
+type QueryUnionOrderResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryUnionOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryUnionOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUnionOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUnionOrderResponse) SetHeaders(v map[string]*string) *QueryUnionOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryUnionOrderResponse) SetBody(v *QueryUnionOrderResponseBody) *QueryUnionOrderResponse {
+	s.Body = v
+	return s
+}
+
 type QueryCityCarApplyHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -967,6 +1191,58 @@ func (client *Client) ApproveCityCarApplyWithOptions(request *ApproveCityCarAppl
 	}
 	_result = &ApproveCityCarApplyResponse{}
 	_body, _err := client.DoROARequest(tea.String("ApproveCityCarApply"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/alitrip/cityCarApprovals"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryUnionOrder(request *QueryUnionOrderRequest) (_result *QueryUnionOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryUnionOrderHeaders{}
+	_result = &QueryUnionOrderResponse{}
+	_body, _err := client.QueryUnionOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryUnionOrderWithOptions(request *QueryUnionOrderRequest, headers *QueryUnionOrderHeaders, runtime *util.RuntimeOptions) (_result *QueryUnionOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ThirdPartApplyId)) {
+		query["thirdPartApplyId"] = request.ThirdPartApplyId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionNo)) {
+		query["unionNo"] = request.UnionNo
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryUnionOrderResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryUnionOrder"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/alitrip/unionOrders"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

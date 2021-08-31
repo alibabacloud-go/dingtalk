@@ -290,8 +290,6 @@ type GetOaOperatorLogListResponseBodyData struct {
 	Category2Name *string `json:"category2Name,omitempty" xml:"category2Name,omitempty"`
 	// 操作详情
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	// 扩展字段
-	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
 }
 
 func (s GetOaOperatorLogListResponseBodyData) String() string {
@@ -329,11 +327,6 @@ func (s *GetOaOperatorLogListResponseBodyData) SetCategory2Name(v string) *GetOa
 
 func (s *GetOaOperatorLogListResponseBodyData) SetContent(v string) *GetOaOperatorLogListResponseBodyData {
 	s.Content = &v
-	return s
-}
-
-func (s *GetOaOperatorLogListResponseBodyData) SetExtension(v string) *GetOaOperatorLogListResponseBodyData {
-	s.Extension = &v
 	return s
 }
 

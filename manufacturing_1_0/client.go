@@ -44,6 +44,14 @@ type IndustrializeManufactureJobBookRequest struct {
 	ManufactureDate *string `json:"manufactureDate,omitempty" xml:"manufactureDate,omitempty"`
 	// 钉钉组织id
 	DingCorpId *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	// 是否是批量报工(取值[n,y])
+	IsBatchJob *string `json:"isBatchJob,omitempty" xml:"isBatchJob,omitempty"`
+	// 批量报工时多个人名以英文逗号分隔
+	UserNameList *string `json:"userNameList,omitempty" xml:"userNameList,omitempty"`
+	// 批量报工时多个工人userId以英文逗号分隔
+	UserIdList *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
+	// 计件单价，单位：分
+	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
 }
 
 func (s IndustrializeManufactureJobBookRequest) String() string {
@@ -131,6 +139,26 @@ func (s *IndustrializeManufactureJobBookRequest) SetManufactureDate(v string) *I
 
 func (s *IndustrializeManufactureJobBookRequest) SetDingCorpId(v string) *IndustrializeManufactureJobBookRequest {
 	s.DingCorpId = &v
+	return s
+}
+
+func (s *IndustrializeManufactureJobBookRequest) SetIsBatchJob(v string) *IndustrializeManufactureJobBookRequest {
+	s.IsBatchJob = &v
+	return s
+}
+
+func (s *IndustrializeManufactureJobBookRequest) SetUserNameList(v string) *IndustrializeManufactureJobBookRequest {
+	s.UserNameList = &v
+	return s
+}
+
+func (s *IndustrializeManufactureJobBookRequest) SetUserIdList(v string) *IndustrializeManufactureJobBookRequest {
+	s.UserIdList = &v
+	return s
+}
+
+func (s *IndustrializeManufactureJobBookRequest) SetUnitPrice(v string) *IndustrializeManufactureJobBookRequest {
+	s.UnitPrice = &v
 	return s
 }
 
@@ -493,6 +521,22 @@ func (client *Client) IndustrializeManufactureJobBookWithOptions(userId *string,
 
 	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
 		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsBatchJob)) {
+		body["isBatchJob"] = request.IsBatchJob
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserNameList)) {
+		body["userNameList"] = request.UserNameList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdList)) {
+		body["userIdList"] = request.UserIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnitPrice)) {
+		body["unitPrice"] = request.UnitPrice
 	}
 
 	req := &openapi.OpenApiRequest{

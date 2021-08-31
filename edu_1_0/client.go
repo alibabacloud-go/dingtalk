@@ -107,6 +107,8 @@ type QueryStatisticsDataResponseBodyResult struct {
 	ClassId *int64 `json:"classId,omitempty" xml:"classId,omitempty"`
 	// 学科名称
 	SubjectName *int64 `json:"subjectName,omitempty" xml:"subjectName,omitempty"`
+	// 学科code
+	SubjectCode *string `json:"subjectCode,omitempty" xml:"subjectCode,omitempty"`
 	// 总学时
 	CourseHours *float32 `json:"courseHours,omitempty" xml:"courseHours,omitempty"`
 	// 总课程数
@@ -138,6 +140,11 @@ func (s *QueryStatisticsDataResponseBodyResult) SetClassId(v int64) *QueryStatis
 
 func (s *QueryStatisticsDataResponseBodyResult) SetSubjectName(v int64) *QueryStatisticsDataResponseBodyResult {
 	s.SubjectName = &v
+	return s
+}
+
+func (s *QueryStatisticsDataResponseBodyResult) SetSubjectCode(v string) *QueryStatisticsDataResponseBodyResult {
+	s.SubjectCode = &v
 	return s
 }
 
