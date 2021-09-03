@@ -293,9 +293,10 @@ func (s *SearchFormDatasResponseBody) SetData(v []*SearchFormDatasResponseBodyDa
 }
 
 type SearchFormDatasResponseBodyData struct {
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
-	// 实例ID
-	FormInstId *string `json:"formInstId,omitempty" xml:"formInstId,omitempty"`
+	// 实体主键id
+	DataId *int64 `json:"dataId,omitempty" xml:"dataId,omitempty"`
+	// 表单实例ID
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
 	// 数据创建时间
 	CreatedTimeGMT *string `json:"createdTimeGMT,omitempty" xml:"createdTimeGMT,omitempty"`
 	// 最近修改时间
@@ -319,9 +320,9 @@ type SearchFormDatasResponseBodyData struct {
 	// 数据版本
 	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 	// 创建人
-	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
 	// 修改人
-	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	ModifierUserId *string `json:"modifierUserId,omitempty" xml:"modifierUserId,omitempty"`
 	// 批次号
 	Sequence *string `json:"sequence,omitempty" xml:"sequence,omitempty"`
 }
@@ -334,13 +335,13 @@ func (s SearchFormDatasResponseBodyData) GoString() string {
 	return s.String()
 }
 
-func (s *SearchFormDatasResponseBodyData) SetId(v int64) *SearchFormDatasResponseBodyData {
-	s.Id = &v
+func (s *SearchFormDatasResponseBodyData) SetDataId(v int64) *SearchFormDatasResponseBodyData {
+	s.DataId = &v
 	return s
 }
 
-func (s *SearchFormDatasResponseBodyData) SetFormInstId(v string) *SearchFormDatasResponseBodyData {
-	s.FormInstId = &v
+func (s *SearchFormDatasResponseBodyData) SetFormInstanceId(v string) *SearchFormDatasResponseBodyData {
+	s.FormInstanceId = &v
 	return s
 }
 
@@ -399,13 +400,13 @@ func (s *SearchFormDatasResponseBodyData) SetVersion(v int64) *SearchFormDatasRe
 	return s
 }
 
-func (s *SearchFormDatasResponseBodyData) SetCreator(v string) *SearchFormDatasResponseBodyData {
-	s.Creator = &v
+func (s *SearchFormDatasResponseBodyData) SetCreatorUserId(v string) *SearchFormDatasResponseBodyData {
+	s.CreatorUserId = &v
 	return s
 }
 
-func (s *SearchFormDatasResponseBodyData) SetModifier(v string) *SearchFormDatasResponseBodyData {
-	s.Modifier = &v
+func (s *SearchFormDatasResponseBodyData) SetModifierUserId(v string) *SearchFormDatasResponseBodyData {
+	s.ModifierUserId = &v
 	return s
 }
 
@@ -418,7 +419,7 @@ type SearchFormDatasResponseBodyDataOriginator struct {
 	// 用户工号
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	// 用户名
-	Name *SearchFormDatasResponseBodyDataOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	UserName *SearchFormDatasResponseBodyDataOriginatorUserName `json:"userName,omitempty" xml:"userName,omitempty" type:"Struct"`
 	// 部门名称
 	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
 	// 邮箱
@@ -438,8 +439,8 @@ func (s *SearchFormDatasResponseBodyDataOriginator) SetUserId(v string) *SearchF
 	return s
 }
 
-func (s *SearchFormDatasResponseBodyDataOriginator) SetName(v *SearchFormDatasResponseBodyDataOriginatorName) *SearchFormDatasResponseBodyDataOriginator {
-	s.Name = v
+func (s *SearchFormDatasResponseBodyDataOriginator) SetUserName(v *SearchFormDatasResponseBodyDataOriginatorUserName) *SearchFormDatasResponseBodyDataOriginator {
+	s.UserName = v
 	return s
 }
 
@@ -453,7 +454,7 @@ func (s *SearchFormDatasResponseBodyDataOriginator) SetEmail(v string) *SearchFo
 	return s
 }
 
-type SearchFormDatasResponseBodyDataOriginatorName struct {
+type SearchFormDatasResponseBodyDataOriginatorUserName struct {
 	// 中文名称
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
 	// 英文名称
@@ -462,25 +463,25 @@ type SearchFormDatasResponseBodyDataOriginatorName struct {
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
-func (s SearchFormDatasResponseBodyDataOriginatorName) String() string {
+func (s SearchFormDatasResponseBodyDataOriginatorUserName) String() string {
 	return tea.Prettify(s)
 }
 
-func (s SearchFormDatasResponseBodyDataOriginatorName) GoString() string {
+func (s SearchFormDatasResponseBodyDataOriginatorUserName) GoString() string {
 	return s.String()
 }
 
-func (s *SearchFormDatasResponseBodyDataOriginatorName) SetNameInChinese(v string) *SearchFormDatasResponseBodyDataOriginatorName {
+func (s *SearchFormDatasResponseBodyDataOriginatorUserName) SetNameInChinese(v string) *SearchFormDatasResponseBodyDataOriginatorUserName {
 	s.NameInChinese = &v
 	return s
 }
 
-func (s *SearchFormDatasResponseBodyDataOriginatorName) SetNameInEnglish(v string) *SearchFormDatasResponseBodyDataOriginatorName {
+func (s *SearchFormDatasResponseBodyDataOriginatorUserName) SetNameInEnglish(v string) *SearchFormDatasResponseBodyDataOriginatorUserName {
 	s.NameInEnglish = &v
 	return s
 }
 
-func (s *SearchFormDatasResponseBodyDataOriginatorName) SetType(v string) *SearchFormDatasResponseBodyDataOriginatorName {
+func (s *SearchFormDatasResponseBodyDataOriginatorUserName) SetType(v string) *SearchFormDatasResponseBodyDataOriginatorUserName {
 	s.Type = &v
 	return s
 }
@@ -489,7 +490,7 @@ type SearchFormDatasResponseBodyDataModifyUser struct {
 	// 用户工号
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	// 用户名
-	Name *SearchFormDatasResponseBodyDataModifyUserName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	UserName *SearchFormDatasResponseBodyDataModifyUserUserName `json:"userName,omitempty" xml:"userName,omitempty" type:"Struct"`
 	// 部门名称
 	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
 	// 邮箱
@@ -509,8 +510,8 @@ func (s *SearchFormDatasResponseBodyDataModifyUser) SetUserId(v string) *SearchF
 	return s
 }
 
-func (s *SearchFormDatasResponseBodyDataModifyUser) SetName(v *SearchFormDatasResponseBodyDataModifyUserName) *SearchFormDatasResponseBodyDataModifyUser {
-	s.Name = v
+func (s *SearchFormDatasResponseBodyDataModifyUser) SetUserName(v *SearchFormDatasResponseBodyDataModifyUserUserName) *SearchFormDatasResponseBodyDataModifyUser {
+	s.UserName = v
 	return s
 }
 
@@ -524,7 +525,7 @@ func (s *SearchFormDatasResponseBodyDataModifyUser) SetEmail(v string) *SearchFo
 	return s
 }
 
-type SearchFormDatasResponseBodyDataModifyUserName struct {
+type SearchFormDatasResponseBodyDataModifyUserUserName struct {
 	// 中文名称
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
 	// 英文名称
@@ -533,25 +534,25 @@ type SearchFormDatasResponseBodyDataModifyUserName struct {
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
-func (s SearchFormDatasResponseBodyDataModifyUserName) String() string {
+func (s SearchFormDatasResponseBodyDataModifyUserUserName) String() string {
 	return tea.Prettify(s)
 }
 
-func (s SearchFormDatasResponseBodyDataModifyUserName) GoString() string {
+func (s SearchFormDatasResponseBodyDataModifyUserUserName) GoString() string {
 	return s.String()
 }
 
-func (s *SearchFormDatasResponseBodyDataModifyUserName) SetNameInChinese(v string) *SearchFormDatasResponseBodyDataModifyUserName {
+func (s *SearchFormDatasResponseBodyDataModifyUserUserName) SetNameInChinese(v string) *SearchFormDatasResponseBodyDataModifyUserUserName {
 	s.NameInChinese = &v
 	return s
 }
 
-func (s *SearchFormDatasResponseBodyDataModifyUserName) SetNameInEnglish(v string) *SearchFormDatasResponseBodyDataModifyUserName {
+func (s *SearchFormDatasResponseBodyDataModifyUserUserName) SetNameInEnglish(v string) *SearchFormDatasResponseBodyDataModifyUserUserName {
 	s.NameInEnglish = &v
 	return s
 }
 
-func (s *SearchFormDatasResponseBodyDataModifyUserName) SetType(v string) *SearchFormDatasResponseBodyDataModifyUserName {
+func (s *SearchFormDatasResponseBodyDataModifyUserUserName) SetType(v string) *SearchFormDatasResponseBodyDataModifyUserUserName {
 	s.Type = &v
 	return s
 }

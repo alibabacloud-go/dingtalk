@@ -699,6 +699,126 @@ func (s *ListManagementGroupsResponse) SetBody(v *ListManagementGroupsResponseBo
 	return s
 }
 
+type TranslateFileHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TranslateFileHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TranslateFileHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TranslateFileHeaders) SetCommonHeaders(v map[string]*string) *TranslateFileHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TranslateFileHeaders) SetXAcsDingtalkAccessToken(v string) *TranslateFileHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TranslateFileRequest struct {
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	// 钉盘mediaId，#号开头。可以通过单步上传api获取
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// 转译后文件名（含扩展名）
+	OutputFileName *string `json:"outputFileName,omitempty" xml:"outputFileName,omitempty"`
+	// unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s TranslateFileRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TranslateFileRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TranslateFileRequest) SetDingTokenGrantType(v int64) *TranslateFileRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *TranslateFileRequest) SetDingOrgId(v int64) *TranslateFileRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *TranslateFileRequest) SetDingIsvOrgId(v int64) *TranslateFileRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *TranslateFileRequest) SetDingSuiteKey(v string) *TranslateFileRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *TranslateFileRequest) SetMediaId(v string) *TranslateFileRequest {
+	s.MediaId = &v
+	return s
+}
+
+func (s *TranslateFileRequest) SetOutputFileName(v string) *TranslateFileRequest {
+	s.OutputFileName = &v
+	return s
+}
+
+func (s *TranslateFileRequest) SetUnionId(v string) *TranslateFileRequest {
+	s.UnionId = &v
+	return s
+}
+
+type TranslateFileResponseBody struct {
+	// 异步转译任务id，最大长度为64字符
+	JobId *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
+}
+
+func (s TranslateFileResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TranslateFileResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TranslateFileResponseBody) SetJobId(v string) *TranslateFileResponseBody {
+	s.JobId = &v
+	return s
+}
+
+type TranslateFileResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *TranslateFileResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s TranslateFileResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TranslateFileResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TranslateFileResponse) SetHeaders(v map[string]*string) *TranslateFileResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TranslateFileResponse) SetBody(v *TranslateFileResponseBody) *TranslateFileResponse {
+	s.Body = v
+	return s
+}
+
 type ListEmpAttributeVisibilityHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1012,6 +1132,95 @@ func (s *SearchUserResponse) SetHeaders(v map[string]*string) *SearchUserRespons
 }
 
 func (s *SearchUserResponse) SetBody(v *SearchUserResponseBody) *SearchUserResponse {
+	s.Body = v
+	return s
+}
+
+type GetTranslateFileJobResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTranslateFileJobResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTranslateFileJobResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTranslateFileJobResultHeaders) SetCommonHeaders(v map[string]*string) *GetTranslateFileJobResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTranslateFileJobResultHeaders) SetXAcsDingtalkAccessToken(v string) *GetTranslateFileJobResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTranslateFileJobResultRequest struct {
+	// 异步转译任务id
+	JobId *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
+}
+
+func (s GetTranslateFileJobResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTranslateFileJobResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTranslateFileJobResultRequest) SetJobId(v string) *GetTranslateFileJobResultRequest {
+	s.JobId = &v
+	return s
+}
+
+type GetTranslateFileJobResultResponseBody struct {
+	// 0 任务进行中 1 任务处理成功 2 任务处理失败
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 文件内容转译成功后的url，需要用户通过oauth2授权登录在用户侧打开
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s GetTranslateFileJobResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTranslateFileJobResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTranslateFileJobResultResponseBody) SetStatus(v string) *GetTranslateFileJobResultResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *GetTranslateFileJobResultResponseBody) SetUrl(v string) *GetTranslateFileJobResultResponseBody {
+	s.Url = &v
+	return s
+}
+
+type GetTranslateFileJobResultResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetTranslateFileJobResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetTranslateFileJobResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTranslateFileJobResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTranslateFileJobResultResponse) SetHeaders(v map[string]*string) *GetTranslateFileJobResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTranslateFileJobResultResponse) SetBody(v *GetTranslateFileJobResultResponseBody) *GetTranslateFileJobResultResponse {
 	s.Body = v
 	return s
 }
@@ -2457,6 +2666,74 @@ func (client *Client) ListManagementGroupsWithOptions(request *ListManagementGro
 	return _result, _err
 }
 
+func (client *Client) TranslateFile(request *TranslateFileRequest) (_result *TranslateFileResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TranslateFileHeaders{}
+	_result = &TranslateFileResponse{}
+	_body, _err := client.TranslateFileWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) TranslateFileWithOptions(request *TranslateFileRequest, headers *TranslateFileHeaders, runtime *util.RuntimeOptions) (_result *TranslateFileResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
+		body["mediaId"] = request.MediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutputFileName)) {
+		body["outputFileName"] = request.OutputFileName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &TranslateFileResponse{}
+	_body, _err := client.DoROARequest(tea.String("TranslateFile"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/files/translate"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ListEmpAttributeVisibility(request *ListEmpAttributeVisibilityRequest) (_result *ListEmpAttributeVisibilityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListEmpAttributeVisibilityHeaders{}
@@ -2554,6 +2831,50 @@ func (client *Client) SearchUserWithOptions(request *SearchUserRequest, headers 
 	}
 	_result = &SearchUserResponse{}
 	_body, _err := client.DoROARequest(tea.String("SearchUser"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/users/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetTranslateFileJobResult(request *GetTranslateFileJobResultRequest) (_result *GetTranslateFileJobResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTranslateFileJobResultHeaders{}
+	_result = &GetTranslateFileJobResultResponse{}
+	_body, _err := client.GetTranslateFileJobResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetTranslateFileJobResultWithOptions(request *GetTranslateFileJobResultRequest, headers *GetTranslateFileJobResultHeaders, runtime *util.RuntimeOptions) (_result *GetTranslateFileJobResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.JobId)) {
+		query["jobId"] = request.JobId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetTranslateFileJobResultResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetTranslateFileJobResult"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/files/translateResults"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

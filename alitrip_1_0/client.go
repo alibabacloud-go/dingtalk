@@ -460,9 +460,9 @@ func (s *QueryUnionOrderResponseBody) SetVehicleList(v []*QueryUnionOrderRespons
 
 type QueryUnionOrderResponseBodyFlightList struct {
 	// 订单id
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	FlightOrderId *int64 `json:"flightOrderId,omitempty" xml:"flightOrderId,omitempty"`
 	// 订单状态：0待支付,1出票中,2已关闭,3有改签单,4有退票单,5出票成功,6退票申请中,7改签申请中
-	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+	FlightOrderStatus *int64 `json:"flightOrderStatus,omitempty" xml:"flightOrderStatus,omitempty"`
 }
 
 func (s QueryUnionOrderResponseBodyFlightList) String() string {
@@ -473,21 +473,21 @@ func (s QueryUnionOrderResponseBodyFlightList) GoString() string {
 	return s.String()
 }
 
-func (s *QueryUnionOrderResponseBodyFlightList) SetId(v int64) *QueryUnionOrderResponseBodyFlightList {
-	s.Id = &v
+func (s *QueryUnionOrderResponseBodyFlightList) SetFlightOrderId(v int64) *QueryUnionOrderResponseBodyFlightList {
+	s.FlightOrderId = &v
 	return s
 }
 
-func (s *QueryUnionOrderResponseBodyFlightList) SetStatus(v int64) *QueryUnionOrderResponseBodyFlightList {
-	s.Status = &v
+func (s *QueryUnionOrderResponseBodyFlightList) SetFlightOrderStatus(v int64) *QueryUnionOrderResponseBodyFlightList {
+	s.FlightOrderStatus = &v
 	return s
 }
 
 type QueryUnionOrderResponseBodyTrainList struct {
 	// 火车订单号
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	TrainOrderId *int64 `json:"trainOrderId,omitempty" xml:"trainOrderId,omitempty"`
 	// 订单状态：0待支付,1出票中,2已关闭,3,改签成功,4退票成功,5出票完成,6退票申请中,7改签申请中,8已出票,已发货,9出票失败,10改签失败,11退票失败
-	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+	TrainOrderstatus *int64 `json:"trainOrderstatus,omitempty" xml:"trainOrderstatus,omitempty"`
 }
 
 func (s QueryUnionOrderResponseBodyTrainList) String() string {
@@ -498,21 +498,21 @@ func (s QueryUnionOrderResponseBodyTrainList) GoString() string {
 	return s.String()
 }
 
-func (s *QueryUnionOrderResponseBodyTrainList) SetId(v int64) *QueryUnionOrderResponseBodyTrainList {
-	s.Id = &v
+func (s *QueryUnionOrderResponseBodyTrainList) SetTrainOrderId(v int64) *QueryUnionOrderResponseBodyTrainList {
+	s.TrainOrderId = &v
 	return s
 }
 
-func (s *QueryUnionOrderResponseBodyTrainList) SetStatus(v int64) *QueryUnionOrderResponseBodyTrainList {
-	s.Status = &v
+func (s *QueryUnionOrderResponseBodyTrainList) SetTrainOrderstatus(v int64) *QueryUnionOrderResponseBodyTrainList {
+	s.TrainOrderstatus = &v
 	return s
 }
 
 type QueryUnionOrderResponseBodyHotelList struct {
 	// 酒店订单号
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	HotelOrderId *int64 `json:"hotelOrderId,omitempty" xml:"hotelOrderId,omitempty"`
 	// 订单状态1:等待确认,2:等待付款,3:预订成功,4:申请退款,5:退款成功,6:已关闭,7:结账成功,8:支付成功
-	OrderStatus *int64 `json:"orderStatus,omitempty" xml:"orderStatus,omitempty"`
+	HotelOrderStatus *int64 `json:"hotelOrderStatus,omitempty" xml:"hotelOrderStatus,omitempty"`
 }
 
 func (s QueryUnionOrderResponseBodyHotelList) String() string {
@@ -523,21 +523,21 @@ func (s QueryUnionOrderResponseBodyHotelList) GoString() string {
 	return s.String()
 }
 
-func (s *QueryUnionOrderResponseBodyHotelList) SetId(v int64) *QueryUnionOrderResponseBodyHotelList {
-	s.Id = &v
+func (s *QueryUnionOrderResponseBodyHotelList) SetHotelOrderId(v int64) *QueryUnionOrderResponseBodyHotelList {
+	s.HotelOrderId = &v
 	return s
 }
 
-func (s *QueryUnionOrderResponseBodyHotelList) SetOrderStatus(v int64) *QueryUnionOrderResponseBodyHotelList {
-	s.OrderStatus = &v
+func (s *QueryUnionOrderResponseBodyHotelList) SetHotelOrderStatus(v int64) *QueryUnionOrderResponseBodyHotelList {
+	s.HotelOrderStatus = &v
 	return s
 }
 
 type QueryUnionOrderResponseBodyVehicleList struct {
 	// 用车订单号
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	VehicleOrderId *int64 `json:"vehicleOrderId,omitempty" xml:"vehicleOrderId,omitempty"`
 	// 订单状态:0:初始状态,1:已超时,2:派单成功,3:派单失败,4:已退款,5:已支付,6:已取消
-	OrderStatus *int64 `json:"orderStatus,omitempty" xml:"orderStatus,omitempty"`
+	VehicleOrderStatus *int64 `json:"vehicleOrderStatus,omitempty" xml:"vehicleOrderStatus,omitempty"`
 }
 
 func (s QueryUnionOrderResponseBodyVehicleList) String() string {
@@ -548,13 +548,13 @@ func (s QueryUnionOrderResponseBodyVehicleList) GoString() string {
 	return s.String()
 }
 
-func (s *QueryUnionOrderResponseBodyVehicleList) SetId(v int64) *QueryUnionOrderResponseBodyVehicleList {
-	s.Id = &v
+func (s *QueryUnionOrderResponseBodyVehicleList) SetVehicleOrderId(v int64) *QueryUnionOrderResponseBodyVehicleList {
+	s.VehicleOrderId = &v
 	return s
 }
 
-func (s *QueryUnionOrderResponseBodyVehicleList) SetOrderStatus(v int64) *QueryUnionOrderResponseBodyVehicleList {
-	s.OrderStatus = &v
+func (s *QueryUnionOrderResponseBodyVehicleList) SetVehicleOrderStatus(v int64) *QueryUnionOrderResponseBodyVehicleList {
+	s.VehicleOrderStatus = &v
 	return s
 }
 
