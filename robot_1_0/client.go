@@ -263,6 +263,116 @@ func (s *BatchOTOQueryResponse) SetBody(v *BatchOTOQueryResponseBody) *BatchOTOQ
 	return s
 }
 
+type SendRobotDingMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendRobotDingMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRobotDingMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendRobotDingMessageHeaders) SetCommonHeaders(v map[string]*string) *SendRobotDingMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendRobotDingMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendRobotDingMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendRobotDingMessageRequest struct {
+	// 机器人的Id
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// 群聊的对外开放Id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 接受人的userId列表
+	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
+	// 颁发的模版id，可通过宜搭申请：https://yida.alibaba-inc.com/alibaba/web/APP_NSUGAGIQUMI4ESRA7O7D/inst/homepage/#/FORM-WO866371VGXSECXX4M0NC9KSGAT92VSA3TZSK9B
+	DingTemplateId *string `json:"dingTemplateId,omitempty" xml:"dingTemplateId,omitempty"`
+	// 模版对应的参数
+	ContentParams map[string]*string `json:"contentParams,omitempty" xml:"contentParams,omitempty"`
+}
+
+func (s SendRobotDingMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRobotDingMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendRobotDingMessageRequest) SetRobotCode(v string) *SendRobotDingMessageRequest {
+	s.RobotCode = &v
+	return s
+}
+
+func (s *SendRobotDingMessageRequest) SetOpenConversationId(v string) *SendRobotDingMessageRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SendRobotDingMessageRequest) SetReceiverUserIdList(v []*string) *SendRobotDingMessageRequest {
+	s.ReceiverUserIdList = v
+	return s
+}
+
+func (s *SendRobotDingMessageRequest) SetDingTemplateId(v string) *SendRobotDingMessageRequest {
+	s.DingTemplateId = &v
+	return s
+}
+
+func (s *SendRobotDingMessageRequest) SetContentParams(v map[string]*string) *SendRobotDingMessageRequest {
+	s.ContentParams = v
+	return s
+}
+
+type SendRobotDingMessageResponseBody struct {
+	// 返回的ding消息id
+	DingSendResultId *string `json:"dingSendResultId,omitempty" xml:"dingSendResultId,omitempty"`
+}
+
+func (s SendRobotDingMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRobotDingMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendRobotDingMessageResponseBody) SetDingSendResultId(v string) *SendRobotDingMessageResponseBody {
+	s.DingSendResultId = &v
+	return s
+}
+
+type SendRobotDingMessageResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SendRobotDingMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendRobotDingMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRobotDingMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendRobotDingMessageResponse) SetHeaders(v map[string]*string) *SendRobotDingMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendRobotDingMessageResponse) SetBody(v *SendRobotDingMessageResponseBody) *SendRobotDingMessageResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -383,6 +493,66 @@ func (client *Client) BatchOTOQueryWithOptions(request *BatchOTOQueryRequest, he
 	}
 	_result = &BatchOTOQueryResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchOTOQuery"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/robot/oToMessages/readStatus"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendRobotDingMessage(request *SendRobotDingMessageRequest) (_result *SendRobotDingMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendRobotDingMessageHeaders{}
+	_result = &SendRobotDingMessageResponse{}
+	_body, _err := client.SendRobotDingMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendRobotDingMessageWithOptions(request *SendRobotDingMessageRequest, headers *SendRobotDingMessageHeaders, runtime *util.RuntimeOptions) (_result *SendRobotDingMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverUserIdList)) {
+		body["receiverUserIdList"] = request.ReceiverUserIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTemplateId)) {
+		body["dingTemplateId"] = request.DingTemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContentParams)) {
+		body["contentParams"] = request.ContentParams
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendRobotDingMessageResponse{}
+	_body, _err := client.DoROARequest(tea.String("SendRobotDingMessage"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/dingMessages/send"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
