@@ -101,6 +101,7 @@ func (s *GetConversationIdResponse) SetBody(v *GetConversationIdResponseBody) *G
 
 type RecallMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	OperatingSource         *string            `json:"operatingSource,omitempty" xml:"operatingSource,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
@@ -114,6 +115,11 @@ func (s RecallMessageHeaders) GoString() string {
 
 func (s *RecallMessageHeaders) SetCommonHeaders(v map[string]*string) *RecallMessageHeaders {
 	s.CommonHeaders = v
+	return s
+}
+
+func (s *RecallMessageHeaders) SetOperatingSource(v string) *RecallMessageHeaders {
+	s.OperatingSource = &v
 	return s
 }
 
@@ -170,6 +176,7 @@ func (s *RecallMessageResponse) SetHeaders(v map[string]*string) *RecallMessageR
 
 type UpdateGroupNameHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	OperatingSource         *string            `json:"operatingSource,omitempty" xml:"operatingSource,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
@@ -183,6 +190,11 @@ func (s UpdateGroupNameHeaders) GoString() string {
 
 func (s *UpdateGroupNameHeaders) SetCommonHeaders(v map[string]*string) *UpdateGroupNameHeaders {
 	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateGroupNameHeaders) SetOperatingSource(v string) *UpdateGroupNameHeaders {
+	s.OperatingSource = &v
 	return s
 }
 
@@ -239,6 +251,7 @@ func (s *UpdateGroupNameResponse) SetHeaders(v map[string]*string) *UpdateGroupN
 
 type CreateGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	OperatingSource         *string            `json:"operatingSource,omitempty" xml:"operatingSource,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
@@ -252,6 +265,11 @@ func (s CreateGroupHeaders) GoString() string {
 
 func (s *CreateGroupHeaders) SetCommonHeaders(v map[string]*string) *CreateGroupHeaders {
 	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateGroupHeaders) SetOperatingSource(v string) *CreateGroupHeaders {
+	s.OperatingSource = &v
 	return s
 }
 
@@ -353,8 +371,84 @@ func (s *CreateGroupResponse) SetBody(v *CreateGroupResponseBody) *CreateGroupRe
 	return s
 }
 
+type UpdateGroupOwnerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	OperatingSource         *string            `json:"operatingSource,omitempty" xml:"operatingSource,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateGroupOwnerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupOwnerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupOwnerHeaders) SetCommonHeaders(v map[string]*string) *UpdateGroupOwnerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateGroupOwnerHeaders) SetOperatingSource(v string) *UpdateGroupOwnerHeaders {
+	s.OperatingSource = &v
+	return s
+}
+
+func (s *UpdateGroupOwnerHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateGroupOwnerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateGroupOwnerRequest struct {
+	OwnerId        *string `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
+	OperatorUid    *string `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+}
+
+func (s UpdateGroupOwnerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupOwnerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupOwnerRequest) SetOwnerId(v string) *UpdateGroupOwnerRequest {
+	s.OwnerId = &v
+	return s
+}
+
+func (s *UpdateGroupOwnerRequest) SetOperatorUid(v string) *UpdateGroupOwnerRequest {
+	s.OperatorUid = &v
+	return s
+}
+
+func (s *UpdateGroupOwnerRequest) SetConversationId(v string) *UpdateGroupOwnerRequest {
+	s.ConversationId = &v
+	return s
+}
+
+type UpdateGroupOwnerResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s UpdateGroupOwnerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupOwnerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupOwnerResponse) SetHeaders(v map[string]*string) *UpdateGroupOwnerResponse {
+	s.Headers = v
+	return s
+}
+
 type RemoveGroupMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	OperatingSource         *string            `json:"operatingSource,omitempty" xml:"operatingSource,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
@@ -368,6 +462,11 @@ func (s RemoveGroupMembersHeaders) GoString() string {
 
 func (s *RemoveGroupMembersHeaders) SetCommonHeaders(v map[string]*string) *RemoveGroupMembersHeaders {
 	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveGroupMembersHeaders) SetOperatingSource(v string) *RemoveGroupMembersHeaders {
+	s.OperatingSource = &v
 	return s
 }
 
@@ -512,6 +611,7 @@ func (s *GetMediaUrlResponse) SetBody(v *GetMediaUrlResponseBody) *GetMediaUrlRe
 
 type ReadMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	OperatingSource         *string            `json:"operatingSource,omitempty" xml:"operatingSource,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
@@ -525,6 +625,11 @@ func (s ReadMessageHeaders) GoString() string {
 
 func (s *ReadMessageHeaders) SetCommonHeaders(v map[string]*string) *ReadMessageHeaders {
 	s.CommonHeaders = v
+	return s
+}
+
+func (s *ReadMessageHeaders) SetOperatingSource(v string) *ReadMessageHeaders {
+	s.OperatingSource = &v
 	return s
 }
 
@@ -575,6 +680,7 @@ func (s *ReadMessageResponse) SetHeaders(v map[string]*string) *ReadMessageRespo
 
 type DismissGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	OperatingSource         *string            `json:"operatingSource,omitempty" xml:"operatingSource,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
@@ -588,6 +694,11 @@ func (s DismissGroupHeaders) GoString() string {
 
 func (s *DismissGroupHeaders) SetCommonHeaders(v map[string]*string) *DismissGroupHeaders {
 	s.CommonHeaders = v
+	return s
+}
+
+func (s *DismissGroupHeaders) SetOperatingSource(v string) *DismissGroupHeaders {
+	s.OperatingSource = &v
 	return s
 }
 
@@ -717,6 +828,7 @@ func (s *AddProfileResponse) SetHeaders(v map[string]*string) *AddProfileRespons
 
 type AddGroupMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	OperatingSource         *string            `json:"operatingSource,omitempty" xml:"operatingSource,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
@@ -730,6 +842,11 @@ func (s AddGroupMembersHeaders) GoString() string {
 
 func (s *AddGroupMembersHeaders) SetCommonHeaders(v map[string]*string) *AddGroupMembersHeaders {
 	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddGroupMembersHeaders) SetOperatingSource(v string) *AddGroupMembersHeaders {
+	s.OperatingSource = &v
 	return s
 }
 
@@ -1008,6 +1125,7 @@ func (s *ListGroupStaffMembersResponse) SetBody(v *ListGroupStaffMembersResponse
 
 type SendMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	OperatingSource         *string            `json:"operatingSource,omitempty" xml:"operatingSource,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
@@ -1021,6 +1139,11 @@ func (s SendMessageHeaders) GoString() string {
 
 func (s *SendMessageHeaders) SetCommonHeaders(v map[string]*string) *SendMessageHeaders {
 	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendMessageHeaders) SetOperatingSource(v string) *SendMessageHeaders {
+	s.OperatingSource = &v
 	return s
 }
 
@@ -1234,6 +1357,10 @@ func (client *Client) RecallMessageWithOptions(request *RecallMessageRequest, he
 		realHeaders = headers.CommonHeaders
 	}
 
+	if !tea.BoolValue(util.IsUnset(headers.OperatingSource)) {
+		realHeaders["operatingSource"] = headers.OperatingSource
+	}
+
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
 		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
 	}
@@ -1284,6 +1411,10 @@ func (client *Client) UpdateGroupNameWithOptions(request *UpdateGroupNameRequest
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.OperatingSource)) {
+		realHeaders["operatingSource"] = headers.OperatingSource
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
@@ -1350,6 +1481,10 @@ func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, header
 		realHeaders = headers.CommonHeaders
 	}
 
+	if !tea.BoolValue(util.IsUnset(headers.OperatingSource)) {
+		realHeaders["operatingSource"] = headers.OperatingSource
+	}
+
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
 		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
 	}
@@ -1360,6 +1495,62 @@ func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, header
 	}
 	_result = &CreateGroupResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateGroup"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateGroupOwner(request *UpdateGroupOwnerRequest) (_result *UpdateGroupOwnerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateGroupOwnerHeaders{}
+	_result = &UpdateGroupOwnerResponse{}
+	_body, _err := client.UpdateGroupOwnerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateGroupOwnerWithOptions(request *UpdateGroupOwnerRequest, headers *UpdateGroupOwnerHeaders, runtime *util.RuntimeOptions) (_result *UpdateGroupOwnerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OwnerId)) {
+		body["ownerId"] = request.OwnerId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUid)) {
+		body["operatorUid"] = request.OperatorUid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ConversationId)) {
+		body["conversationId"] = request.ConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.OperatingSource)) {
+		realHeaders["operatingSource"] = headers.OperatingSource
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateGroupOwnerResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateGroupOwner"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups/owners"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1400,6 +1591,10 @@ func (client *Client) RemoveGroupMembersWithOptions(request *RemoveGroupMembersR
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.OperatingSource)) {
+		realHeaders["operatingSource"] = headers.OperatingSource
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
@@ -1498,6 +1693,10 @@ func (client *Client) ReadMessageWithOptions(request *ReadMessageRequest, header
 		realHeaders = headers.CommonHeaders
 	}
 
+	if !tea.BoolValue(util.IsUnset(headers.OperatingSource)) {
+		realHeaders["operatingSource"] = headers.OperatingSource
+	}
+
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
 		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
 	}
@@ -1544,6 +1743,10 @@ func (client *Client) DismissGroupWithOptions(request *DismissGroupRequest, head
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.OperatingSource)) {
+		realHeaders["operatingSource"] = headers.OperatingSource
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
@@ -1652,6 +1855,10 @@ func (client *Client) AddGroupMembersWithOptions(request *AddGroupMembersRequest
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.OperatingSource)) {
+		realHeaders["operatingSource"] = headers.OperatingSource
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
@@ -1812,6 +2019,10 @@ func (client *Client) SendMessageWithOptions(request *SendMessageRequest, header
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.OperatingSource)) {
+		realHeaders["operatingSource"] = headers.OperatingSource
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {

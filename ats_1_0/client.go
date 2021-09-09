@@ -709,6 +709,95 @@ func (s *GetFileUploadInfoResponse) SetBody(v *GetFileUploadInfoResponseBody) *G
 	return s
 }
 
+type FinishBeginnerTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s FinishBeginnerTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FinishBeginnerTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *FinishBeginnerTaskHeaders) SetCommonHeaders(v map[string]*string) *FinishBeginnerTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *FinishBeginnerTaskHeaders) SetXAcsDingtalkAccessToken(v string) *FinishBeginnerTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type FinishBeginnerTaskRequest struct {
+	// 员工标识
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 任务范围
+	Scope *string `json:"scope,omitempty" xml:"scope,omitempty"`
+}
+
+func (s FinishBeginnerTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FinishBeginnerTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *FinishBeginnerTaskRequest) SetUserId(v string) *FinishBeginnerTaskRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *FinishBeginnerTaskRequest) SetScope(v string) *FinishBeginnerTaskRequest {
+	s.Scope = &v
+	return s
+}
+
+type FinishBeginnerTaskResponseBody struct {
+	// 是否成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s FinishBeginnerTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FinishBeginnerTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *FinishBeginnerTaskResponseBody) SetResult(v bool) *FinishBeginnerTaskResponseBody {
+	s.Result = &v
+	return s
+}
+
+type FinishBeginnerTaskResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *FinishBeginnerTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s FinishBeginnerTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FinishBeginnerTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *FinishBeginnerTaskResponse) SetHeaders(v map[string]*string) *FinishBeginnerTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *FinishBeginnerTaskResponse) SetBody(v *FinishBeginnerTaskResponseBody) *FinishBeginnerTaskResponse {
+	s.Body = v
+	return s
+}
+
 type GetApplicationRegFormByFlowIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1626,6 +1715,54 @@ func (client *Client) GetFileUploadInfoWithOptions(request *GetFileUploadInfoReq
 	}
 	_result = &GetFileUploadInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetFileUploadInfo"), tea.String("ats_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/ats/files/uploadInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) FinishBeginnerTask(taskCode *string, request *FinishBeginnerTaskRequest) (_result *FinishBeginnerTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &FinishBeginnerTaskHeaders{}
+	_result = &FinishBeginnerTaskResponse{}
+	_body, _err := client.FinishBeginnerTaskWithOptions(taskCode, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) FinishBeginnerTaskWithOptions(taskCode *string, request *FinishBeginnerTaskRequest, headers *FinishBeginnerTaskHeaders, runtime *util.RuntimeOptions) (_result *FinishBeginnerTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scope)) {
+		query["scope"] = request.Scope
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &FinishBeginnerTaskResponse{}
+	_body, _err := client.DoROARequest(tea.String("FinishBeginnerTask"), tea.String("ats_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/ats/beginnerTasks/"+tea.StringValue(taskCode)+"/finish"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -11,46 +11,6 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
-type DeleteEventHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s DeleteEventHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteEventHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteEventHeaders) SetCommonHeaders(v map[string]*string) *DeleteEventHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *DeleteEventHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteEventHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type DeleteEventResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-}
-
-func (s DeleteEventResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteEventResponse) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteEventResponse) SetHeaders(v map[string]*string) *DeleteEventResponse {
-	s.Headers = v
-	return s
-}
-
 type RespondEventHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -104,6 +64,1648 @@ func (s RespondEventResponse) GoString() string {
 }
 
 func (s *RespondEventResponse) SetHeaders(v map[string]*string) *RespondEventResponse {
+	s.Headers = v
+	return s
+}
+
+type GenerateCaldavAccountHeaders struct {
+	CommonHeaders map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	// 授权本次调用的用户id，该字段有值时认为本次调用已被授权访问该用户可以访问的所有数据
+	DingUid                 *string `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
+	XAcsDingtalkAccessToken *string `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GenerateCaldavAccountHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateCaldavAccountHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateCaldavAccountHeaders) SetCommonHeaders(v map[string]*string) *GenerateCaldavAccountHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GenerateCaldavAccountHeaders) SetDingUid(v string) *GenerateCaldavAccountHeaders {
+	s.DingUid = &v
+	return s
+}
+
+func (s *GenerateCaldavAccountHeaders) SetXAcsDingtalkAccessToken(v string) *GenerateCaldavAccountHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GenerateCaldavAccountRequest struct {
+	// 设备名称
+	Device *string `json:"device,omitempty" xml:"device,omitempty"`
+}
+
+func (s GenerateCaldavAccountRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateCaldavAccountRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateCaldavAccountRequest) SetDevice(v string) *GenerateCaldavAccountRequest {
+	s.Device = &v
+	return s
+}
+
+type GenerateCaldavAccountResponseBody struct {
+	ServerAddress *string `json:"serverAddress,omitempty" xml:"serverAddress,omitempty"`
+	Username      *string `json:"username,omitempty" xml:"username,omitempty"`
+	Password      *string `json:"password,omitempty" xml:"password,omitempty"`
+}
+
+func (s GenerateCaldavAccountResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateCaldavAccountResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateCaldavAccountResponseBody) SetServerAddress(v string) *GenerateCaldavAccountResponseBody {
+	s.ServerAddress = &v
+	return s
+}
+
+func (s *GenerateCaldavAccountResponseBody) SetUsername(v string) *GenerateCaldavAccountResponseBody {
+	s.Username = &v
+	return s
+}
+
+func (s *GenerateCaldavAccountResponseBody) SetPassword(v string) *GenerateCaldavAccountResponseBody {
+	s.Password = &v
+	return s
+}
+
+type GenerateCaldavAccountResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GenerateCaldavAccountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GenerateCaldavAccountResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateCaldavAccountResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateCaldavAccountResponse) SetHeaders(v map[string]*string) *GenerateCaldavAccountResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GenerateCaldavAccountResponse) SetBody(v *GenerateCaldavAccountResponseBody) *GenerateCaldavAccountResponse {
+	s.Body = v
+	return s
+}
+
+type GetScheduleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetScheduleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetScheduleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetScheduleHeaders) SetCommonHeaders(v map[string]*string) *GetScheduleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetScheduleHeaders) SetXAcsDingtalkAccessToken(v string) *GetScheduleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetScheduleRequest struct {
+	UserIds   []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	StartTime *string   `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	EndTime   *string   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+}
+
+func (s GetScheduleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetScheduleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetScheduleRequest) SetUserIds(v []*string) *GetScheduleRequest {
+	s.UserIds = v
+	return s
+}
+
+func (s *GetScheduleRequest) SetStartTime(v string) *GetScheduleRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetScheduleRequest) SetEndTime(v string) *GetScheduleRequest {
+	s.EndTime = &v
+	return s
+}
+
+type GetScheduleResponseBody struct {
+	ScheduleInformation []*GetScheduleResponseBodyScheduleInformation `json:"scheduleInformation,omitempty" xml:"scheduleInformation,omitempty" type:"Repeated"`
+}
+
+func (s GetScheduleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetScheduleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetScheduleResponseBody) SetScheduleInformation(v []*GetScheduleResponseBodyScheduleInformation) *GetScheduleResponseBody {
+	s.ScheduleInformation = v
+	return s
+}
+
+type GetScheduleResponseBodyScheduleInformation struct {
+	UserId        *string                                                    `json:"userId,omitempty" xml:"userId,omitempty"`
+	Error         *string                                                    `json:"error,omitempty" xml:"error,omitempty"`
+	ScheduleItems []*GetScheduleResponseBodyScheduleInformationScheduleItems `json:"scheduleItems,omitempty" xml:"scheduleItems,omitempty" type:"Repeated"`
+}
+
+func (s GetScheduleResponseBodyScheduleInformation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetScheduleResponseBodyScheduleInformation) GoString() string {
+	return s.String()
+}
+
+func (s *GetScheduleResponseBodyScheduleInformation) SetUserId(v string) *GetScheduleResponseBodyScheduleInformation {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetScheduleResponseBodyScheduleInformation) SetError(v string) *GetScheduleResponseBodyScheduleInformation {
+	s.Error = &v
+	return s
+}
+
+func (s *GetScheduleResponseBodyScheduleInformation) SetScheduleItems(v []*GetScheduleResponseBodyScheduleInformationScheduleItems) *GetScheduleResponseBodyScheduleInformation {
+	s.ScheduleItems = v
+	return s
+}
+
+type GetScheduleResponseBodyScheduleInformationScheduleItems struct {
+	Status *string                                                       `json:"status,omitempty" xml:"status,omitempty"`
+	Start  *GetScheduleResponseBodyScheduleInformationScheduleItemsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	End    *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd   `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+}
+
+func (s GetScheduleResponseBodyScheduleInformationScheduleItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetScheduleResponseBodyScheduleInformationScheduleItems) GoString() string {
+	return s.String()
+}
+
+func (s *GetScheduleResponseBodyScheduleInformationScheduleItems) SetStatus(v string) *GetScheduleResponseBodyScheduleInformationScheduleItems {
+	s.Status = &v
+	return s
+}
+
+func (s *GetScheduleResponseBodyScheduleInformationScheduleItems) SetStart(v *GetScheduleResponseBodyScheduleInformationScheduleItemsStart) *GetScheduleResponseBodyScheduleInformationScheduleItems {
+	s.Start = v
+	return s
+}
+
+func (s *GetScheduleResponseBodyScheduleInformationScheduleItems) SetEnd(v *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd) *GetScheduleResponseBodyScheduleInformationScheduleItems {
+	s.End = v
+	return s
+}
+
+type GetScheduleResponseBodyScheduleInformationScheduleItemsStart struct {
+	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s GetScheduleResponseBodyScheduleInformationScheduleItemsStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetScheduleResponseBodyScheduleInformationScheduleItemsStart) GoString() string {
+	return s.String()
+}
+
+func (s *GetScheduleResponseBodyScheduleInformationScheduleItemsStart) SetDate(v string) *GetScheduleResponseBodyScheduleInformationScheduleItemsStart {
+	s.Date = &v
+	return s
+}
+
+func (s *GetScheduleResponseBodyScheduleInformationScheduleItemsStart) SetDateTime(v string) *GetScheduleResponseBodyScheduleInformationScheduleItemsStart {
+	s.DateTime = &v
+	return s
+}
+
+func (s *GetScheduleResponseBodyScheduleInformationScheduleItemsStart) SetTimeZone(v string) *GetScheduleResponseBodyScheduleInformationScheduleItemsStart {
+	s.TimeZone = &v
+	return s
+}
+
+type GetScheduleResponseBodyScheduleInformationScheduleItemsEnd struct {
+	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s GetScheduleResponseBodyScheduleInformationScheduleItemsEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetScheduleResponseBodyScheduleInformationScheduleItemsEnd) GoString() string {
+	return s.String()
+}
+
+func (s *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd) SetDate(v string) *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd {
+	s.Date = &v
+	return s
+}
+
+func (s *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd) SetDateTime(v string) *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd {
+	s.DateTime = &v
+	return s
+}
+
+func (s *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd) SetTimeZone(v string) *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd {
+	s.TimeZone = &v
+	return s
+}
+
+type GetScheduleResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetScheduleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetScheduleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetScheduleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetScheduleResponse) SetHeaders(v map[string]*string) *GetScheduleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetScheduleResponse) SetBody(v *GetScheduleResponseBody) *GetScheduleResponse {
+	s.Body = v
+	return s
+}
+
+type ConvertLegacyEventIdHeaders struct {
+	CommonHeaders map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	// 授权本次调用的企业id，该字段有值时认为本次调用已被授权访问该企业下的所有数据
+	DingOrgId *string `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	// 授权本次调用的用户id，该字段有值时认为本次调用已被授权访问该用户可以访问的所有数据
+	DingUid *string `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
+	// 授权类型
+	DingAccessTokenType     *string `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
+	XAcsDingtalkAccessToken *string `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ConvertLegacyEventIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConvertLegacyEventIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ConvertLegacyEventIdHeaders) SetCommonHeaders(v map[string]*string) *ConvertLegacyEventIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ConvertLegacyEventIdHeaders) SetDingOrgId(v string) *ConvertLegacyEventIdHeaders {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *ConvertLegacyEventIdHeaders) SetDingUid(v string) *ConvertLegacyEventIdHeaders {
+	s.DingUid = &v
+	return s
+}
+
+func (s *ConvertLegacyEventIdHeaders) SetDingAccessTokenType(v string) *ConvertLegacyEventIdHeaders {
+	s.DingAccessTokenType = &v
+	return s
+}
+
+func (s *ConvertLegacyEventIdHeaders) SetXAcsDingtalkAccessToken(v string) *ConvertLegacyEventIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ConvertLegacyEventIdRequest struct {
+	LegacyEventIds map[string]*string `json:"legacyEventIds,omitempty" xml:"legacyEventIds,omitempty"`
+}
+
+func (s ConvertLegacyEventIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConvertLegacyEventIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ConvertLegacyEventIdRequest) SetLegacyEventIds(v map[string]*string) *ConvertLegacyEventIdRequest {
+	s.LegacyEventIds = v
+	return s
+}
+
+type ConvertLegacyEventIdResponseBody struct {
+	// legacyEventIdMap
+	LegacyEventIdMap map[string]interface{} `json:"legacyEventIdMap,omitempty" xml:"legacyEventIdMap,omitempty"`
+}
+
+func (s ConvertLegacyEventIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConvertLegacyEventIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ConvertLegacyEventIdResponseBody) SetLegacyEventIdMap(v map[string]interface{}) *ConvertLegacyEventIdResponseBody {
+	s.LegacyEventIdMap = v
+	return s
+}
+
+type ConvertLegacyEventIdResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ConvertLegacyEventIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ConvertLegacyEventIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConvertLegacyEventIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ConvertLegacyEventIdResponse) SetHeaders(v map[string]*string) *ConvertLegacyEventIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ConvertLegacyEventIdResponse) SetBody(v *ConvertLegacyEventIdResponseBody) *ConvertLegacyEventIdResponse {
+	s.Body = v
+	return s
+}
+
+type RemoveAttendeeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RemoveAttendeeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveAttendeeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveAttendeeHeaders) SetCommonHeaders(v map[string]*string) *RemoveAttendeeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveAttendeeHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveAttendeeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RemoveAttendeeRequest struct {
+	AttendeesToRemove []*RemoveAttendeeRequestAttendeesToRemove `json:"attendeesToRemove,omitempty" xml:"attendeesToRemove,omitempty" type:"Repeated"`
+}
+
+func (s RemoveAttendeeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveAttendeeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveAttendeeRequest) SetAttendeesToRemove(v []*RemoveAttendeeRequestAttendeesToRemove) *RemoveAttendeeRequest {
+	s.AttendeesToRemove = v
+	return s
+}
+
+type RemoveAttendeeRequestAttendeesToRemove struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s RemoveAttendeeRequestAttendeesToRemove) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveAttendeeRequestAttendeesToRemove) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveAttendeeRequestAttendeesToRemove) SetId(v string) *RemoveAttendeeRequestAttendeesToRemove {
+	s.Id = &v
+	return s
+}
+
+type RemoveAttendeeResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s RemoveAttendeeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveAttendeeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveAttendeeResponse) SetHeaders(v map[string]*string) *RemoveAttendeeResponse {
+	s.Headers = v
+	return s
+}
+
+type AddAttendeeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddAttendeeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddAttendeeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddAttendeeHeaders) SetCommonHeaders(v map[string]*string) *AddAttendeeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddAttendeeHeaders) SetXAcsDingtalkAccessToken(v string) *AddAttendeeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddAttendeeRequest struct {
+	AttendeesToAdd []*AddAttendeeRequestAttendeesToAdd `json:"attendeesToAdd,omitempty" xml:"attendeesToAdd,omitempty" type:"Repeated"`
+}
+
+func (s AddAttendeeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddAttendeeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddAttendeeRequest) SetAttendeesToAdd(v []*AddAttendeeRequestAttendeesToAdd) *AddAttendeeRequest {
+	s.AttendeesToAdd = v
+	return s
+}
+
+type AddAttendeeRequestAttendeesToAdd struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s AddAttendeeRequestAttendeesToAdd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddAttendeeRequestAttendeesToAdd) GoString() string {
+	return s.String()
+}
+
+func (s *AddAttendeeRequestAttendeesToAdd) SetId(v string) *AddAttendeeRequestAttendeesToAdd {
+	s.Id = &v
+	return s
+}
+
+type AddAttendeeResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s AddAttendeeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddAttendeeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddAttendeeResponse) SetHeaders(v map[string]*string) *AddAttendeeResponse {
+	s.Headers = v
+	return s
+}
+
+type CreateEventHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateEventHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventHeaders) SetCommonHeaders(v map[string]*string) *CreateEventHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateEventHeaders) SetXAcsDingtalkAccessToken(v string) *CreateEventHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateEventRequest struct {
+	// 日程标题
+	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	// 日程描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 日程开始时间
+	Start *CreateEventRequestStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// 日程结束时间
+	End *CreateEventRequestEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	// 是否为全天日程
+	IsAllDay *bool `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
+	// 日程循环规则
+	Recurrence        *CreateEventRequestRecurrence        `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
+	Attendees         []*CreateEventRequestAttendees       `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Location          *CreateEventRequestLocation          `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
+	Reminders         []*CreateEventRequestReminders       `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
+	OnlineMeetingInfo *CreateEventRequestOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
+	// 扩展信息
+	Extra map[string]*string `json:"extra,omitempty" xml:"extra,omitempty"`
+}
+
+func (s CreateEventRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventRequest) SetSummary(v string) *CreateEventRequest {
+	s.Summary = &v
+	return s
+}
+
+func (s *CreateEventRequest) SetDescription(v string) *CreateEventRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *CreateEventRequest) SetStart(v *CreateEventRequestStart) *CreateEventRequest {
+	s.Start = v
+	return s
+}
+
+func (s *CreateEventRequest) SetEnd(v *CreateEventRequestEnd) *CreateEventRequest {
+	s.End = v
+	return s
+}
+
+func (s *CreateEventRequest) SetIsAllDay(v bool) *CreateEventRequest {
+	s.IsAllDay = &v
+	return s
+}
+
+func (s *CreateEventRequest) SetRecurrence(v *CreateEventRequestRecurrence) *CreateEventRequest {
+	s.Recurrence = v
+	return s
+}
+
+func (s *CreateEventRequest) SetAttendees(v []*CreateEventRequestAttendees) *CreateEventRequest {
+	s.Attendees = v
+	return s
+}
+
+func (s *CreateEventRequest) SetLocation(v *CreateEventRequestLocation) *CreateEventRequest {
+	s.Location = v
+	return s
+}
+
+func (s *CreateEventRequest) SetReminders(v []*CreateEventRequestReminders) *CreateEventRequest {
+	s.Reminders = v
+	return s
+}
+
+func (s *CreateEventRequest) SetOnlineMeetingInfo(v *CreateEventRequestOnlineMeetingInfo) *CreateEventRequest {
+	s.OnlineMeetingInfo = v
+	return s
+}
+
+func (s *CreateEventRequest) SetExtra(v map[string]*string) *CreateEventRequest {
+	s.Extra = v
+	return s
+}
+
+type CreateEventRequestStart struct {
+	// 日程开始日期，如果是全天日程必须有值，非全天日程必须留空，格式：yyyy-MM-dd
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// 日程开始时间，非全天日程必须有值，全天日程必须留空，格式为ISO-8601的date-time格式
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	// 日程开始时间所属时区，非全天日程必须有值，全天日程必须留空，tz database name格式，参考：https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s CreateEventRequestStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventRequestStart) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventRequestStart) SetDate(v string) *CreateEventRequestStart {
+	s.Date = &v
+	return s
+}
+
+func (s *CreateEventRequestStart) SetDateTime(v string) *CreateEventRequestStart {
+	s.DateTime = &v
+	return s
+}
+
+func (s *CreateEventRequestStart) SetTimeZone(v string) *CreateEventRequestStart {
+	s.TimeZone = &v
+	return s
+}
+
+type CreateEventRequestEnd struct {
+	// 日程结束日期，如果是全天日程必须有值，非全天日程必须留空，格式：yyyy-MM-dd
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// 日程结束时间，非全天日程必须有值，全天日程必须留空，格式为ISO-8601的date-time格式
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	// 日程结束时间所属时区，非全天日程必须有值，全天日程必须留空，tz database name格式，参考：https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s CreateEventRequestEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventRequestEnd) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventRequestEnd) SetDate(v string) *CreateEventRequestEnd {
+	s.Date = &v
+	return s
+}
+
+func (s *CreateEventRequestEnd) SetDateTime(v string) *CreateEventRequestEnd {
+	s.DateTime = &v
+	return s
+}
+
+func (s *CreateEventRequestEnd) SetTimeZone(v string) *CreateEventRequestEnd {
+	s.TimeZone = &v
+	return s
+}
+
+type CreateEventRequestRecurrence struct {
+	// 循环规则
+	Pattern *CreateEventRequestRecurrencePattern `json:"pattern,omitempty" xml:"pattern,omitempty" type:"Struct"`
+	Range   *CreateEventRequestRecurrenceRange   `json:"range,omitempty" xml:"range,omitempty" type:"Struct"`
+}
+
+func (s CreateEventRequestRecurrence) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventRequestRecurrence) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventRequestRecurrence) SetPattern(v *CreateEventRequestRecurrencePattern) *CreateEventRequestRecurrence {
+	s.Pattern = v
+	return s
+}
+
+func (s *CreateEventRequestRecurrence) SetRange(v *CreateEventRequestRecurrenceRange) *CreateEventRequestRecurrence {
+	s.Range = v
+	return s
+}
+
+type CreateEventRequestRecurrencePattern struct {
+	// 循环规则类型：  daily：每interval天 weekly：每interval周的第daysOfWeek天 absoluteMonthly：每interval月的第dayOfMonth天 relativeMonthly：每interval月的第index周的第daysOfWeek天 absoluteYearly：每interval年
+	//
+	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
+}
+
+func (s CreateEventRequestRecurrencePattern) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventRequestRecurrencePattern) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventRequestRecurrencePattern) SetType(v string) *CreateEventRequestRecurrencePattern {
+	s.Type = &v
+	return s
+}
+
+func (s *CreateEventRequestRecurrencePattern) SetDayOfMonth(v int32) *CreateEventRequestRecurrencePattern {
+	s.DayOfMonth = &v
+	return s
+}
+
+func (s *CreateEventRequestRecurrencePattern) SetDaysOfWeek(v string) *CreateEventRequestRecurrencePattern {
+	s.DaysOfWeek = &v
+	return s
+}
+
+func (s *CreateEventRequestRecurrencePattern) SetIndex(v string) *CreateEventRequestRecurrencePattern {
+	s.Index = &v
+	return s
+}
+
+func (s *CreateEventRequestRecurrencePattern) SetInterval(v int32) *CreateEventRequestRecurrencePattern {
+	s.Interval = &v
+	return s
+}
+
+type CreateEventRequestRecurrenceRange struct {
+	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
+	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
+}
+
+func (s CreateEventRequestRecurrenceRange) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventRequestRecurrenceRange) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventRequestRecurrenceRange) SetType(v string) *CreateEventRequestRecurrenceRange {
+	s.Type = &v
+	return s
+}
+
+func (s *CreateEventRequestRecurrenceRange) SetEndDate(v string) *CreateEventRequestRecurrenceRange {
+	s.EndDate = &v
+	return s
+}
+
+func (s *CreateEventRequestRecurrenceRange) SetNumberOfOccurrences(v int32) *CreateEventRequestRecurrenceRange {
+	s.NumberOfOccurrences = &v
+	return s
+}
+
+type CreateEventRequestAttendees struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s CreateEventRequestAttendees) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventRequestAttendees) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventRequestAttendees) SetId(v string) *CreateEventRequestAttendees {
+	s.Id = &v
+	return s
+}
+
+type CreateEventRequestLocation struct {
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+}
+
+func (s CreateEventRequestLocation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventRequestLocation) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventRequestLocation) SetDisplayName(v string) *CreateEventRequestLocation {
+	s.DisplayName = &v
+	return s
+}
+
+type CreateEventRequestReminders struct {
+	Method  *string `json:"method,omitempty" xml:"method,omitempty"`
+	Minutes *int32  `json:"minutes,omitempty" xml:"minutes,omitempty"`
+}
+
+func (s CreateEventRequestReminders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventRequestReminders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventRequestReminders) SetMethod(v string) *CreateEventRequestReminders {
+	s.Method = &v
+	return s
+}
+
+func (s *CreateEventRequestReminders) SetMinutes(v int32) *CreateEventRequestReminders {
+	s.Minutes = &v
+	return s
+}
+
+type CreateEventRequestOnlineMeetingInfo struct {
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s CreateEventRequestOnlineMeetingInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventRequestOnlineMeetingInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventRequestOnlineMeetingInfo) SetType(v string) *CreateEventRequestOnlineMeetingInfo {
+	s.Type = &v
+	return s
+}
+
+type CreateEventResponseBody struct {
+	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
+	Summary     *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 日程开始时间
+	Start      *CreateEventResponseBodyStart       `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	End        *CreateEventResponseBodyEnd         `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	IsAllDay   *bool                               `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
+	Recurrence *CreateEventResponseBodyRecurrence  `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
+	Attendees  []*CreateEventResponseBodyAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Organizer  *CreateEventResponseBodyOrganizer   `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
+	Location   *CreateEventResponseBodyLocation    `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
+	Reminders  []*CreateEventResponseBodyReminders `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 更新时间
+	UpdateTime        *string                                   `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	OnlineMeetingInfo *CreateEventResponseBodyOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
+}
+
+func (s CreateEventResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponseBody) SetId(v string) *CreateEventResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetSummary(v string) *CreateEventResponseBody {
+	s.Summary = &v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetDescription(v string) *CreateEventResponseBody {
+	s.Description = &v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetStart(v *CreateEventResponseBodyStart) *CreateEventResponseBody {
+	s.Start = v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetEnd(v *CreateEventResponseBodyEnd) *CreateEventResponseBody {
+	s.End = v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetIsAllDay(v bool) *CreateEventResponseBody {
+	s.IsAllDay = &v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetRecurrence(v *CreateEventResponseBodyRecurrence) *CreateEventResponseBody {
+	s.Recurrence = v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetAttendees(v []*CreateEventResponseBodyAttendees) *CreateEventResponseBody {
+	s.Attendees = v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetOrganizer(v *CreateEventResponseBodyOrganizer) *CreateEventResponseBody {
+	s.Organizer = v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetLocation(v *CreateEventResponseBodyLocation) *CreateEventResponseBody {
+	s.Location = v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetReminders(v []*CreateEventResponseBodyReminders) *CreateEventResponseBody {
+	s.Reminders = v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetCreateTime(v string) *CreateEventResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetUpdateTime(v string) *CreateEventResponseBody {
+	s.UpdateTime = &v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetOnlineMeetingInfo(v *CreateEventResponseBodyOnlineMeetingInfo) *CreateEventResponseBody {
+	s.OnlineMeetingInfo = v
+	return s
+}
+
+type CreateEventResponseBodyStart struct {
+	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s CreateEventResponseBodyStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponseBodyStart) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponseBodyStart) SetDate(v string) *CreateEventResponseBodyStart {
+	s.Date = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyStart) SetDateTime(v string) *CreateEventResponseBodyStart {
+	s.DateTime = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyStart) SetTimeZone(v string) *CreateEventResponseBodyStart {
+	s.TimeZone = &v
+	return s
+}
+
+type CreateEventResponseBodyEnd struct {
+	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s CreateEventResponseBodyEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponseBodyEnd) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponseBodyEnd) SetDate(v string) *CreateEventResponseBodyEnd {
+	s.Date = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyEnd) SetDateTime(v string) *CreateEventResponseBodyEnd {
+	s.DateTime = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyEnd) SetTimeZone(v string) *CreateEventResponseBodyEnd {
+	s.TimeZone = &v
+	return s
+}
+
+type CreateEventResponseBodyRecurrence struct {
+	Pattern *CreateEventResponseBodyRecurrencePattern `json:"pattern,omitempty" xml:"pattern,omitempty" type:"Struct"`
+	Range   *CreateEventResponseBodyRecurrenceRange   `json:"range,omitempty" xml:"range,omitempty" type:"Struct"`
+}
+
+func (s CreateEventResponseBodyRecurrence) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponseBodyRecurrence) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponseBodyRecurrence) SetPattern(v *CreateEventResponseBodyRecurrencePattern) *CreateEventResponseBodyRecurrence {
+	s.Pattern = v
+	return s
+}
+
+func (s *CreateEventResponseBodyRecurrence) SetRange(v *CreateEventResponseBodyRecurrenceRange) *CreateEventResponseBodyRecurrence {
+	s.Range = v
+	return s
+}
+
+type CreateEventResponseBodyRecurrencePattern struct {
+	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
+}
+
+func (s CreateEventResponseBodyRecurrencePattern) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponseBodyRecurrencePattern) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponseBodyRecurrencePattern) SetType(v string) *CreateEventResponseBodyRecurrencePattern {
+	s.Type = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyRecurrencePattern) SetDayOfMonth(v int32) *CreateEventResponseBodyRecurrencePattern {
+	s.DayOfMonth = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyRecurrencePattern) SetDaysOfWeek(v string) *CreateEventResponseBodyRecurrencePattern {
+	s.DaysOfWeek = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyRecurrencePattern) SetIndex(v string) *CreateEventResponseBodyRecurrencePattern {
+	s.Index = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyRecurrencePattern) SetInterval(v int32) *CreateEventResponseBodyRecurrencePattern {
+	s.Interval = &v
+	return s
+}
+
+type CreateEventResponseBodyRecurrenceRange struct {
+	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
+	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
+}
+
+func (s CreateEventResponseBodyRecurrenceRange) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponseBodyRecurrenceRange) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponseBodyRecurrenceRange) SetType(v string) *CreateEventResponseBodyRecurrenceRange {
+	s.Type = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyRecurrenceRange) SetEndDate(v string) *CreateEventResponseBodyRecurrenceRange {
+	s.EndDate = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyRecurrenceRange) SetNumberOfOccurrences(v int32) *CreateEventResponseBodyRecurrenceRange {
+	s.NumberOfOccurrences = &v
+	return s
+}
+
+type CreateEventResponseBodyAttendees struct {
+	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	// 回复状态
+	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
+	Self           *bool   `json:"self,omitempty" xml:"self,omitempty"`
+}
+
+func (s CreateEventResponseBodyAttendees) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponseBodyAttendees) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponseBodyAttendees) SetId(v string) *CreateEventResponseBodyAttendees {
+	s.Id = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyAttendees) SetDisplayName(v string) *CreateEventResponseBodyAttendees {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyAttendees) SetResponseStatus(v string) *CreateEventResponseBodyAttendees {
+	s.ResponseStatus = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyAttendees) SetSelf(v bool) *CreateEventResponseBodyAttendees {
+	s.Self = &v
+	return s
+}
+
+type CreateEventResponseBodyOrganizer struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 用户名
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	// 回复状态
+	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
+	Self           *bool   `json:"self,omitempty" xml:"self,omitempty"`
+}
+
+func (s CreateEventResponseBodyOrganizer) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponseBodyOrganizer) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponseBodyOrganizer) SetId(v string) *CreateEventResponseBodyOrganizer {
+	s.Id = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyOrganizer) SetDisplayName(v string) *CreateEventResponseBodyOrganizer {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyOrganizer) SetResponseStatus(v string) *CreateEventResponseBodyOrganizer {
+	s.ResponseStatus = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyOrganizer) SetSelf(v bool) *CreateEventResponseBodyOrganizer {
+	s.Self = &v
+	return s
+}
+
+type CreateEventResponseBodyLocation struct {
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+}
+
+func (s CreateEventResponseBodyLocation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponseBodyLocation) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponseBodyLocation) SetDisplayName(v string) *CreateEventResponseBodyLocation {
+	s.DisplayName = &v
+	return s
+}
+
+type CreateEventResponseBodyReminders struct {
+	Method  *string `json:"method,omitempty" xml:"method,omitempty"`
+	Minutes *string `json:"minutes,omitempty" xml:"minutes,omitempty"`
+}
+
+func (s CreateEventResponseBodyReminders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponseBodyReminders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponseBodyReminders) SetMethod(v string) *CreateEventResponseBodyReminders {
+	s.Method = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyReminders) SetMinutes(v string) *CreateEventResponseBodyReminders {
+	s.Minutes = &v
+	return s
+}
+
+type CreateEventResponseBodyOnlineMeetingInfo struct {
+	Type         *string                `json:"type,omitempty" xml:"type,omitempty"`
+	ConferenceId *string                `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	Url          *string                `json:"url,omitempty" xml:"url,omitempty"`
+	ExtraInfo    map[string]interface{} `json:"extraInfo,omitempty" xml:"extraInfo,omitempty"`
+}
+
+func (s CreateEventResponseBodyOnlineMeetingInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponseBodyOnlineMeetingInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponseBodyOnlineMeetingInfo) SetType(v string) *CreateEventResponseBodyOnlineMeetingInfo {
+	s.Type = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyOnlineMeetingInfo) SetConferenceId(v string) *CreateEventResponseBodyOnlineMeetingInfo {
+	s.ConferenceId = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyOnlineMeetingInfo) SetUrl(v string) *CreateEventResponseBodyOnlineMeetingInfo {
+	s.Url = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyOnlineMeetingInfo) SetExtraInfo(v map[string]interface{}) *CreateEventResponseBodyOnlineMeetingInfo {
+	s.ExtraInfo = v
+	return s
+}
+
+type CreateEventResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateEventResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponse) SetHeaders(v map[string]*string) *CreateEventResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateEventResponse) SetBody(v *CreateEventResponseBody) *CreateEventResponse {
+	s.Body = v
+	return s
+}
+
+type ListCalendarsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListCalendarsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCalendarsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListCalendarsHeaders) SetCommonHeaders(v map[string]*string) *ListCalendarsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListCalendarsHeaders) SetXAcsDingtalkAccessToken(v string) *ListCalendarsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListCalendarsResponseBody struct {
+	// 日历信息
+	Response *ListCalendarsResponseBodyResponse `json:"response,omitempty" xml:"response,omitempty" type:"Struct"`
+}
+
+func (s ListCalendarsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCalendarsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListCalendarsResponseBody) SetResponse(v *ListCalendarsResponseBodyResponse) *ListCalendarsResponseBody {
+	s.Response = v
+	return s
+}
+
+type ListCalendarsResponseBodyResponse struct {
+	Calendars []*ListCalendarsResponseBodyResponseCalendars `json:"calendars,omitempty" xml:"calendars,omitempty" type:"Repeated"`
+}
+
+func (s ListCalendarsResponseBodyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCalendarsResponseBodyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListCalendarsResponseBodyResponse) SetCalendars(v []*ListCalendarsResponseBodyResponseCalendars) *ListCalendarsResponseBodyResponse {
+	s.Calendars = v
+	return s
+}
+
+type ListCalendarsResponseBodyResponseCalendars struct {
+	// 日历id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 日历标题
+	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	// 日历描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 时区
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+	// Calendar资源的ETag，用于检测该Calendar以及内部的Event是否有被更新
+	ETag *string `json:"eTag,omitempty" xml:"eTag,omitempty"`
+	// 日历类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 权限信息
+	Privilege *string `json:"privilege,omitempty" xml:"privilege,omitempty"`
+}
+
+func (s ListCalendarsResponseBodyResponseCalendars) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCalendarsResponseBodyResponseCalendars) GoString() string {
+	return s.String()
+}
+
+func (s *ListCalendarsResponseBodyResponseCalendars) SetId(v string) *ListCalendarsResponseBodyResponseCalendars {
+	s.Id = &v
+	return s
+}
+
+func (s *ListCalendarsResponseBodyResponseCalendars) SetSummary(v string) *ListCalendarsResponseBodyResponseCalendars {
+	s.Summary = &v
+	return s
+}
+
+func (s *ListCalendarsResponseBodyResponseCalendars) SetDescription(v string) *ListCalendarsResponseBodyResponseCalendars {
+	s.Description = &v
+	return s
+}
+
+func (s *ListCalendarsResponseBodyResponseCalendars) SetTimeZone(v string) *ListCalendarsResponseBodyResponseCalendars {
+	s.TimeZone = &v
+	return s
+}
+
+func (s *ListCalendarsResponseBodyResponseCalendars) SetETag(v string) *ListCalendarsResponseBodyResponseCalendars {
+	s.ETag = &v
+	return s
+}
+
+func (s *ListCalendarsResponseBodyResponseCalendars) SetType(v string) *ListCalendarsResponseBodyResponseCalendars {
+	s.Type = &v
+	return s
+}
+
+func (s *ListCalendarsResponseBodyResponseCalendars) SetPrivilege(v string) *ListCalendarsResponseBodyResponseCalendars {
+	s.Privilege = &v
+	return s
+}
+
+type ListCalendarsResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListCalendarsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListCalendarsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCalendarsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListCalendarsResponse) SetHeaders(v map[string]*string) *ListCalendarsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListCalendarsResponse) SetBody(v *ListCalendarsResponseBody) *ListCalendarsResponse {
+	s.Body = v
+	return s
+}
+
+type ListReceiversHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListReceiversHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListReceiversHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListReceiversHeaders) SetCommonHeaders(v map[string]*string) *ListReceiversHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListReceiversHeaders) SetXAcsDingtalkAccessToken(v string) *ListReceiversHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListReceiversRequest struct {
+	// 上次查询返回的翻页token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 签到类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 返回个数(最大2000)
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+}
+
+func (s ListReceiversRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListReceiversRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListReceiversRequest) SetNextToken(v string) *ListReceiversRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListReceiversRequest) SetType(v string) *ListReceiversRequest {
+	s.Type = &v
+	return s
+}
+
+func (s *ListReceiversRequest) SetMaxResults(v int64) *ListReceiversRequest {
+	s.MaxResults = &v
+	return s
+}
+
+type ListReceiversResponseBody struct {
+	// 翻页token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 用户详情
+	Users []*ListReceiversResponseBodyUsers `json:"users,omitempty" xml:"users,omitempty" type:"Repeated"`
+}
+
+func (s ListReceiversResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListReceiversResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListReceiversResponseBody) SetNextToken(v string) *ListReceiversResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListReceiversResponseBody) SetUsers(v []*ListReceiversResponseBodyUsers) *ListReceiversResponseBody {
+	s.Users = v
+	return s
+}
+
+type ListReceiversResponseBodyUsers struct {
+	// 用户id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 用户名
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	// 签到状态
+	CheckInStatus *int64 `json:"checkInStatus,omitempty" xml:"checkInStatus,omitempty"`
+	// 签到时间
+	CheckInTime *int64 `json:"checkInTime,omitempty" xml:"checkInTime,omitempty"`
+}
+
+func (s ListReceiversResponseBodyUsers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListReceiversResponseBodyUsers) GoString() string {
+	return s.String()
+}
+
+func (s *ListReceiversResponseBodyUsers) SetId(v string) *ListReceiversResponseBodyUsers {
+	s.Id = &v
+	return s
+}
+
+func (s *ListReceiversResponseBodyUsers) SetDisplayName(v string) *ListReceiversResponseBodyUsers {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *ListReceiversResponseBodyUsers) SetCheckInStatus(v int64) *ListReceiversResponseBodyUsers {
+	s.CheckInStatus = &v
+	return s
+}
+
+func (s *ListReceiversResponseBodyUsers) SetCheckInTime(v int64) *ListReceiversResponseBodyUsers {
+	s.CheckInTime = &v
+	return s
+}
+
+type ListReceiversResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListReceiversResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListReceiversResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListReceiversResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListReceiversResponse) SetHeaders(v map[string]*string) *ListReceiversResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListReceiversResponse) SetBody(v *ListReceiversResponseBody) *ListReceiversResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteEventHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteEventHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteEventHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteEventHeaders) SetCommonHeaders(v map[string]*string) *DeleteEventHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteEventHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteEventHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteEventResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s DeleteEventResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteEventResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteEventResponse) SetHeaders(v map[string]*string) *DeleteEventResponse {
 	s.Headers = v
 	return s
 }
@@ -1154,585 +2756,6 @@ func (s *ListEventsViewResponse) SetHeaders(v map[string]*string) *ListEventsVie
 
 func (s *ListEventsViewResponse) SetBody(v *ListEventsViewResponseBody) *ListEventsViewResponse {
 	s.Body = v
-	return s
-}
-
-type GenerateCaldavAccountHeaders struct {
-	CommonHeaders map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	// 授权本次调用的用户id，该字段有值时认为本次调用已被授权访问该用户可以访问的所有数据
-	DingUid                 *string `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
-	XAcsDingtalkAccessToken *string `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s GenerateCaldavAccountHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GenerateCaldavAccountHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *GenerateCaldavAccountHeaders) SetCommonHeaders(v map[string]*string) *GenerateCaldavAccountHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *GenerateCaldavAccountHeaders) SetDingUid(v string) *GenerateCaldavAccountHeaders {
-	s.DingUid = &v
-	return s
-}
-
-func (s *GenerateCaldavAccountHeaders) SetXAcsDingtalkAccessToken(v string) *GenerateCaldavAccountHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type GenerateCaldavAccountRequest struct {
-	// 设备名称
-	Device *string `json:"device,omitempty" xml:"device,omitempty"`
-}
-
-func (s GenerateCaldavAccountRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GenerateCaldavAccountRequest) GoString() string {
-	return s.String()
-}
-
-func (s *GenerateCaldavAccountRequest) SetDevice(v string) *GenerateCaldavAccountRequest {
-	s.Device = &v
-	return s
-}
-
-type GenerateCaldavAccountResponseBody struct {
-	ServerAddress *string `json:"serverAddress,omitempty" xml:"serverAddress,omitempty"`
-	Username      *string `json:"username,omitempty" xml:"username,omitempty"`
-	Password      *string `json:"password,omitempty" xml:"password,omitempty"`
-}
-
-func (s GenerateCaldavAccountResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GenerateCaldavAccountResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *GenerateCaldavAccountResponseBody) SetServerAddress(v string) *GenerateCaldavAccountResponseBody {
-	s.ServerAddress = &v
-	return s
-}
-
-func (s *GenerateCaldavAccountResponseBody) SetUsername(v string) *GenerateCaldavAccountResponseBody {
-	s.Username = &v
-	return s
-}
-
-func (s *GenerateCaldavAccountResponseBody) SetPassword(v string) *GenerateCaldavAccountResponseBody {
-	s.Password = &v
-	return s
-}
-
-type GenerateCaldavAccountResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GenerateCaldavAccountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s GenerateCaldavAccountResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GenerateCaldavAccountResponse) GoString() string {
-	return s.String()
-}
-
-func (s *GenerateCaldavAccountResponse) SetHeaders(v map[string]*string) *GenerateCaldavAccountResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *GenerateCaldavAccountResponse) SetBody(v *GenerateCaldavAccountResponseBody) *GenerateCaldavAccountResponse {
-	s.Body = v
-	return s
-}
-
-type GetScheduleHeaders struct {
-	CommonHeaders map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	// 授权本次调用的企业id，该字段有值时认为本次调用已被授权访问该企业下的所有数据
-	DingOrgId *string `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	// 授权本次调用的用户id，该字段有值时认为本次调用已被授权访问该用户可以访问的所有数据
-	DingUid *string `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
-	// 授权类型
-	DingAccessTokenType     *string `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
-	XAcsDingtalkAccessToken *string `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s GetScheduleHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetScheduleHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *GetScheduleHeaders) SetCommonHeaders(v map[string]*string) *GetScheduleHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *GetScheduleHeaders) SetDingOrgId(v string) *GetScheduleHeaders {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *GetScheduleHeaders) SetDingUid(v string) *GetScheduleHeaders {
-	s.DingUid = &v
-	return s
-}
-
-func (s *GetScheduleHeaders) SetDingAccessTokenType(v string) *GetScheduleHeaders {
-	s.DingAccessTokenType = &v
-	return s
-}
-
-func (s *GetScheduleHeaders) SetXAcsDingtalkAccessToken(v string) *GetScheduleHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type GetScheduleRequest struct {
-	UserIds   []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
-	StartTime *string   `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	EndTime   *string   `json:"endTime,omitempty" xml:"endTime,omitempty"`
-}
-
-func (s GetScheduleRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetScheduleRequest) GoString() string {
-	return s.String()
-}
-
-func (s *GetScheduleRequest) SetUserIds(v []*string) *GetScheduleRequest {
-	s.UserIds = v
-	return s
-}
-
-func (s *GetScheduleRequest) SetStartTime(v string) *GetScheduleRequest {
-	s.StartTime = &v
-	return s
-}
-
-func (s *GetScheduleRequest) SetEndTime(v string) *GetScheduleRequest {
-	s.EndTime = &v
-	return s
-}
-
-type GetScheduleResponseBody struct {
-	ScheduleInformation []*GetScheduleResponseBodyScheduleInformation `json:"scheduleInformation,omitempty" xml:"scheduleInformation,omitempty" type:"Repeated"`
-}
-
-func (s GetScheduleResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetScheduleResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *GetScheduleResponseBody) SetScheduleInformation(v []*GetScheduleResponseBodyScheduleInformation) *GetScheduleResponseBody {
-	s.ScheduleInformation = v
-	return s
-}
-
-type GetScheduleResponseBodyScheduleInformation struct {
-	UserId        *string                                                    `json:"userId,omitempty" xml:"userId,omitempty"`
-	Error         *string                                                    `json:"error,omitempty" xml:"error,omitempty"`
-	ScheduleItems []*GetScheduleResponseBodyScheduleInformationScheduleItems `json:"scheduleItems,omitempty" xml:"scheduleItems,omitempty" type:"Repeated"`
-}
-
-func (s GetScheduleResponseBodyScheduleInformation) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetScheduleResponseBodyScheduleInformation) GoString() string {
-	return s.String()
-}
-
-func (s *GetScheduleResponseBodyScheduleInformation) SetUserId(v string) *GetScheduleResponseBodyScheduleInformation {
-	s.UserId = &v
-	return s
-}
-
-func (s *GetScheduleResponseBodyScheduleInformation) SetError(v string) *GetScheduleResponseBodyScheduleInformation {
-	s.Error = &v
-	return s
-}
-
-func (s *GetScheduleResponseBodyScheduleInformation) SetScheduleItems(v []*GetScheduleResponseBodyScheduleInformationScheduleItems) *GetScheduleResponseBodyScheduleInformation {
-	s.ScheduleItems = v
-	return s
-}
-
-type GetScheduleResponseBodyScheduleInformationScheduleItems struct {
-	Status *string                                                       `json:"status,omitempty" xml:"status,omitempty"`
-	Start  *GetScheduleResponseBodyScheduleInformationScheduleItemsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
-	End    *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd   `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
-}
-
-func (s GetScheduleResponseBodyScheduleInformationScheduleItems) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetScheduleResponseBodyScheduleInformationScheduleItems) GoString() string {
-	return s.String()
-}
-
-func (s *GetScheduleResponseBodyScheduleInformationScheduleItems) SetStatus(v string) *GetScheduleResponseBodyScheduleInformationScheduleItems {
-	s.Status = &v
-	return s
-}
-
-func (s *GetScheduleResponseBodyScheduleInformationScheduleItems) SetStart(v *GetScheduleResponseBodyScheduleInformationScheduleItemsStart) *GetScheduleResponseBodyScheduleInformationScheduleItems {
-	s.Start = v
-	return s
-}
-
-func (s *GetScheduleResponseBodyScheduleInformationScheduleItems) SetEnd(v *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd) *GetScheduleResponseBodyScheduleInformationScheduleItems {
-	s.End = v
-	return s
-}
-
-type GetScheduleResponseBodyScheduleInformationScheduleItemsStart struct {
-	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
-	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
-	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
-}
-
-func (s GetScheduleResponseBodyScheduleInformationScheduleItemsStart) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetScheduleResponseBodyScheduleInformationScheduleItemsStart) GoString() string {
-	return s.String()
-}
-
-func (s *GetScheduleResponseBodyScheduleInformationScheduleItemsStart) SetDate(v string) *GetScheduleResponseBodyScheduleInformationScheduleItemsStart {
-	s.Date = &v
-	return s
-}
-
-func (s *GetScheduleResponseBodyScheduleInformationScheduleItemsStart) SetDateTime(v string) *GetScheduleResponseBodyScheduleInformationScheduleItemsStart {
-	s.DateTime = &v
-	return s
-}
-
-func (s *GetScheduleResponseBodyScheduleInformationScheduleItemsStart) SetTimeZone(v string) *GetScheduleResponseBodyScheduleInformationScheduleItemsStart {
-	s.TimeZone = &v
-	return s
-}
-
-type GetScheduleResponseBodyScheduleInformationScheduleItemsEnd struct {
-	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
-	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
-	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
-}
-
-func (s GetScheduleResponseBodyScheduleInformationScheduleItemsEnd) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetScheduleResponseBodyScheduleInformationScheduleItemsEnd) GoString() string {
-	return s.String()
-}
-
-func (s *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd) SetDate(v string) *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd {
-	s.Date = &v
-	return s
-}
-
-func (s *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd) SetDateTime(v string) *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd {
-	s.DateTime = &v
-	return s
-}
-
-func (s *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd) SetTimeZone(v string) *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd {
-	s.TimeZone = &v
-	return s
-}
-
-type GetScheduleResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetScheduleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s GetScheduleResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetScheduleResponse) GoString() string {
-	return s.String()
-}
-
-func (s *GetScheduleResponse) SetHeaders(v map[string]*string) *GetScheduleResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *GetScheduleResponse) SetBody(v *GetScheduleResponseBody) *GetScheduleResponse {
-	s.Body = v
-	return s
-}
-
-type ConvertLegacyEventIdHeaders struct {
-	CommonHeaders map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	// 授权本次调用的企业id，该字段有值时认为本次调用已被授权访问该企业下的所有数据
-	DingOrgId *string `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	// 授权本次调用的用户id，该字段有值时认为本次调用已被授权访问该用户可以访问的所有数据
-	DingUid *string `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
-	// 授权类型
-	DingAccessTokenType     *string `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
-	XAcsDingtalkAccessToken *string `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s ConvertLegacyEventIdHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ConvertLegacyEventIdHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *ConvertLegacyEventIdHeaders) SetCommonHeaders(v map[string]*string) *ConvertLegacyEventIdHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *ConvertLegacyEventIdHeaders) SetDingOrgId(v string) *ConvertLegacyEventIdHeaders {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *ConvertLegacyEventIdHeaders) SetDingUid(v string) *ConvertLegacyEventIdHeaders {
-	s.DingUid = &v
-	return s
-}
-
-func (s *ConvertLegacyEventIdHeaders) SetDingAccessTokenType(v string) *ConvertLegacyEventIdHeaders {
-	s.DingAccessTokenType = &v
-	return s
-}
-
-func (s *ConvertLegacyEventIdHeaders) SetXAcsDingtalkAccessToken(v string) *ConvertLegacyEventIdHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type ConvertLegacyEventIdRequest struct {
-	LegacyEventIds map[string]*string `json:"legacyEventIds,omitempty" xml:"legacyEventIds,omitempty"`
-}
-
-func (s ConvertLegacyEventIdRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ConvertLegacyEventIdRequest) GoString() string {
-	return s.String()
-}
-
-func (s *ConvertLegacyEventIdRequest) SetLegacyEventIds(v map[string]*string) *ConvertLegacyEventIdRequest {
-	s.LegacyEventIds = v
-	return s
-}
-
-type ConvertLegacyEventIdResponseBody struct {
-	// legacyEventIdMap
-	LegacyEventIdMap map[string]interface{} `json:"legacyEventIdMap,omitempty" xml:"legacyEventIdMap,omitempty"`
-}
-
-func (s ConvertLegacyEventIdResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ConvertLegacyEventIdResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *ConvertLegacyEventIdResponseBody) SetLegacyEventIdMap(v map[string]interface{}) *ConvertLegacyEventIdResponseBody {
-	s.LegacyEventIdMap = v
-	return s
-}
-
-type ConvertLegacyEventIdResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ConvertLegacyEventIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s ConvertLegacyEventIdResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ConvertLegacyEventIdResponse) GoString() string {
-	return s.String()
-}
-
-func (s *ConvertLegacyEventIdResponse) SetHeaders(v map[string]*string) *ConvertLegacyEventIdResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *ConvertLegacyEventIdResponse) SetBody(v *ConvertLegacyEventIdResponseBody) *ConvertLegacyEventIdResponse {
-	s.Body = v
-	return s
-}
-
-type RemoveAttendeeHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s RemoveAttendeeHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s RemoveAttendeeHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *RemoveAttendeeHeaders) SetCommonHeaders(v map[string]*string) *RemoveAttendeeHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *RemoveAttendeeHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveAttendeeHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type RemoveAttendeeRequest struct {
-	AttendeesToRemove []*RemoveAttendeeRequestAttendeesToRemove `json:"attendeesToRemove,omitempty" xml:"attendeesToRemove,omitempty" type:"Repeated"`
-}
-
-func (s RemoveAttendeeRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s RemoveAttendeeRequest) GoString() string {
-	return s.String()
-}
-
-func (s *RemoveAttendeeRequest) SetAttendeesToRemove(v []*RemoveAttendeeRequestAttendeesToRemove) *RemoveAttendeeRequest {
-	s.AttendeesToRemove = v
-	return s
-}
-
-type RemoveAttendeeRequestAttendeesToRemove struct {
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-}
-
-func (s RemoveAttendeeRequestAttendeesToRemove) String() string {
-	return tea.Prettify(s)
-}
-
-func (s RemoveAttendeeRequestAttendeesToRemove) GoString() string {
-	return s.String()
-}
-
-func (s *RemoveAttendeeRequestAttendeesToRemove) SetId(v string) *RemoveAttendeeRequestAttendeesToRemove {
-	s.Id = &v
-	return s
-}
-
-type RemoveAttendeeResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-}
-
-func (s RemoveAttendeeResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s RemoveAttendeeResponse) GoString() string {
-	return s.String()
-}
-
-func (s *RemoveAttendeeResponse) SetHeaders(v map[string]*string) *RemoveAttendeeResponse {
-	s.Headers = v
-	return s
-}
-
-type AddAttendeeHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s AddAttendeeHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddAttendeeHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *AddAttendeeHeaders) SetCommonHeaders(v map[string]*string) *AddAttendeeHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *AddAttendeeHeaders) SetXAcsDingtalkAccessToken(v string) *AddAttendeeHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type AddAttendeeRequest struct {
-	AttendeesToAdd []*AddAttendeeRequestAttendeesToAdd `json:"attendeesToAdd,omitempty" xml:"attendeesToAdd,omitempty" type:"Repeated"`
-}
-
-func (s AddAttendeeRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddAttendeeRequest) GoString() string {
-	return s.String()
-}
-
-func (s *AddAttendeeRequest) SetAttendeesToAdd(v []*AddAttendeeRequestAttendeesToAdd) *AddAttendeeRequest {
-	s.AttendeesToAdd = v
-	return s
-}
-
-type AddAttendeeRequestAttendeesToAdd struct {
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-}
-
-func (s AddAttendeeRequestAttendeesToAdd) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddAttendeeRequestAttendeesToAdd) GoString() string {
-	return s.String()
-}
-
-func (s *AddAttendeeRequestAttendeesToAdd) SetId(v string) *AddAttendeeRequestAttendeesToAdd {
-	s.Id = &v
-	return s
-}
-
-type AddAttendeeResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-}
-
-func (s AddAttendeeResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddAttendeeResponse) GoString() string {
-	return s.String()
-}
-
-func (s *AddAttendeeResponse) SetHeaders(v map[string]*string) *AddAttendeeResponse {
-	s.Headers = v
 	return s
 }
 
@@ -2843,767 +3866,6 @@ func (s *PatchEventResponse) SetBody(v *PatchEventResponseBody) *PatchEventRespo
 	return s
 }
 
-type CreateEventHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s CreateEventHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventHeaders) SetCommonHeaders(v map[string]*string) *CreateEventHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *CreateEventHeaders) SetXAcsDingtalkAccessToken(v string) *CreateEventHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type CreateEventRequest struct {
-	// 日程标题
-	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
-	// 日程描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 日程开始时间
-	Start *CreateEventRequestStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
-	// 日程结束时间
-	End *CreateEventRequestEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
-	// 是否为全天日程
-	IsAllDay *bool `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
-	// 日程循环规则
-	Recurrence        *CreateEventRequestRecurrence        `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
-	Attendees         []*CreateEventRequestAttendees       `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
-	Location          *CreateEventRequestLocation          `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
-	Reminders         []*CreateEventRequestReminders       `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
-	OnlineMeetingInfo *CreateEventRequestOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
-	// 扩展信息
-	Extra map[string]*string `json:"extra,omitempty" xml:"extra,omitempty"`
-}
-
-func (s CreateEventRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventRequest) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventRequest) SetSummary(v string) *CreateEventRequest {
-	s.Summary = &v
-	return s
-}
-
-func (s *CreateEventRequest) SetDescription(v string) *CreateEventRequest {
-	s.Description = &v
-	return s
-}
-
-func (s *CreateEventRequest) SetStart(v *CreateEventRequestStart) *CreateEventRequest {
-	s.Start = v
-	return s
-}
-
-func (s *CreateEventRequest) SetEnd(v *CreateEventRequestEnd) *CreateEventRequest {
-	s.End = v
-	return s
-}
-
-func (s *CreateEventRequest) SetIsAllDay(v bool) *CreateEventRequest {
-	s.IsAllDay = &v
-	return s
-}
-
-func (s *CreateEventRequest) SetRecurrence(v *CreateEventRequestRecurrence) *CreateEventRequest {
-	s.Recurrence = v
-	return s
-}
-
-func (s *CreateEventRequest) SetAttendees(v []*CreateEventRequestAttendees) *CreateEventRequest {
-	s.Attendees = v
-	return s
-}
-
-func (s *CreateEventRequest) SetLocation(v *CreateEventRequestLocation) *CreateEventRequest {
-	s.Location = v
-	return s
-}
-
-func (s *CreateEventRequest) SetReminders(v []*CreateEventRequestReminders) *CreateEventRequest {
-	s.Reminders = v
-	return s
-}
-
-func (s *CreateEventRequest) SetOnlineMeetingInfo(v *CreateEventRequestOnlineMeetingInfo) *CreateEventRequest {
-	s.OnlineMeetingInfo = v
-	return s
-}
-
-func (s *CreateEventRequest) SetExtra(v map[string]*string) *CreateEventRequest {
-	s.Extra = v
-	return s
-}
-
-type CreateEventRequestStart struct {
-	// 日程开始日期，如果是全天日程必须有值，非全天日程必须留空，格式：yyyy-MM-dd
-	Date *string `json:"date,omitempty" xml:"date,omitempty"`
-	// 日程开始时间，非全天日程必须有值，全天日程必须留空，格式为ISO-8601的date-time格式
-	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
-	// 日程开始时间所属时区，非全天日程必须有值，全天日程必须留空，tz database name格式，参考：https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
-}
-
-func (s CreateEventRequestStart) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventRequestStart) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventRequestStart) SetDate(v string) *CreateEventRequestStart {
-	s.Date = &v
-	return s
-}
-
-func (s *CreateEventRequestStart) SetDateTime(v string) *CreateEventRequestStart {
-	s.DateTime = &v
-	return s
-}
-
-func (s *CreateEventRequestStart) SetTimeZone(v string) *CreateEventRequestStart {
-	s.TimeZone = &v
-	return s
-}
-
-type CreateEventRequestEnd struct {
-	// 日程结束日期，如果是全天日程必须有值，非全天日程必须留空，格式：yyyy-MM-dd
-	Date *string `json:"date,omitempty" xml:"date,omitempty"`
-	// 日程结束时间，非全天日程必须有值，全天日程必须留空，格式为ISO-8601的date-time格式
-	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
-	// 日程结束时间所属时区，非全天日程必须有值，全天日程必须留空，tz database name格式，参考：https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
-}
-
-func (s CreateEventRequestEnd) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventRequestEnd) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventRequestEnd) SetDate(v string) *CreateEventRequestEnd {
-	s.Date = &v
-	return s
-}
-
-func (s *CreateEventRequestEnd) SetDateTime(v string) *CreateEventRequestEnd {
-	s.DateTime = &v
-	return s
-}
-
-func (s *CreateEventRequestEnd) SetTimeZone(v string) *CreateEventRequestEnd {
-	s.TimeZone = &v
-	return s
-}
-
-type CreateEventRequestRecurrence struct {
-	// 循环规则
-	Pattern *CreateEventRequestRecurrencePattern `json:"pattern,omitempty" xml:"pattern,omitempty" type:"Struct"`
-	Range   *CreateEventRequestRecurrenceRange   `json:"range,omitempty" xml:"range,omitempty" type:"Struct"`
-}
-
-func (s CreateEventRequestRecurrence) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventRequestRecurrence) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventRequestRecurrence) SetPattern(v *CreateEventRequestRecurrencePattern) *CreateEventRequestRecurrence {
-	s.Pattern = v
-	return s
-}
-
-func (s *CreateEventRequestRecurrence) SetRange(v *CreateEventRequestRecurrenceRange) *CreateEventRequestRecurrence {
-	s.Range = v
-	return s
-}
-
-type CreateEventRequestRecurrencePattern struct {
-	// 循环规则类型：  daily：每interval天 weekly：每interval周的第daysOfWeek天 absoluteMonthly：每interval月的第dayOfMonth天 relativeMonthly：每interval月的第index周的第daysOfWeek天 absoluteYearly：每interval年
-	//
-	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
-	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
-	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
-	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
-	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
-}
-
-func (s CreateEventRequestRecurrencePattern) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventRequestRecurrencePattern) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventRequestRecurrencePattern) SetType(v string) *CreateEventRequestRecurrencePattern {
-	s.Type = &v
-	return s
-}
-
-func (s *CreateEventRequestRecurrencePattern) SetDayOfMonth(v int32) *CreateEventRequestRecurrencePattern {
-	s.DayOfMonth = &v
-	return s
-}
-
-func (s *CreateEventRequestRecurrencePattern) SetDaysOfWeek(v string) *CreateEventRequestRecurrencePattern {
-	s.DaysOfWeek = &v
-	return s
-}
-
-func (s *CreateEventRequestRecurrencePattern) SetIndex(v string) *CreateEventRequestRecurrencePattern {
-	s.Index = &v
-	return s
-}
-
-func (s *CreateEventRequestRecurrencePattern) SetInterval(v int32) *CreateEventRequestRecurrencePattern {
-	s.Interval = &v
-	return s
-}
-
-type CreateEventRequestRecurrenceRange struct {
-	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
-	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
-}
-
-func (s CreateEventRequestRecurrenceRange) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventRequestRecurrenceRange) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventRequestRecurrenceRange) SetType(v string) *CreateEventRequestRecurrenceRange {
-	s.Type = &v
-	return s
-}
-
-func (s *CreateEventRequestRecurrenceRange) SetEndDate(v string) *CreateEventRequestRecurrenceRange {
-	s.EndDate = &v
-	return s
-}
-
-func (s *CreateEventRequestRecurrenceRange) SetNumberOfOccurrences(v int32) *CreateEventRequestRecurrenceRange {
-	s.NumberOfOccurrences = &v
-	return s
-}
-
-type CreateEventRequestAttendees struct {
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-}
-
-func (s CreateEventRequestAttendees) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventRequestAttendees) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventRequestAttendees) SetId(v string) *CreateEventRequestAttendees {
-	s.Id = &v
-	return s
-}
-
-type CreateEventRequestLocation struct {
-	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
-}
-
-func (s CreateEventRequestLocation) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventRequestLocation) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventRequestLocation) SetDisplayName(v string) *CreateEventRequestLocation {
-	s.DisplayName = &v
-	return s
-}
-
-type CreateEventRequestReminders struct {
-	Method  *string `json:"method,omitempty" xml:"method,omitempty"`
-	Minutes *int32  `json:"minutes,omitempty" xml:"minutes,omitempty"`
-}
-
-func (s CreateEventRequestReminders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventRequestReminders) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventRequestReminders) SetMethod(v string) *CreateEventRequestReminders {
-	s.Method = &v
-	return s
-}
-
-func (s *CreateEventRequestReminders) SetMinutes(v int32) *CreateEventRequestReminders {
-	s.Minutes = &v
-	return s
-}
-
-type CreateEventRequestOnlineMeetingInfo struct {
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-}
-
-func (s CreateEventRequestOnlineMeetingInfo) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventRequestOnlineMeetingInfo) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventRequestOnlineMeetingInfo) SetType(v string) *CreateEventRequestOnlineMeetingInfo {
-	s.Type = &v
-	return s
-}
-
-type CreateEventResponseBody struct {
-	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
-	Summary     *string `json:"summary,omitempty" xml:"summary,omitempty"`
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 日程开始时间
-	Start      *CreateEventResponseBodyStart       `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
-	End        *CreateEventResponseBodyEnd         `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
-	IsAllDay   *bool                               `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
-	Recurrence *CreateEventResponseBodyRecurrence  `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
-	Attendees  []*CreateEventResponseBodyAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
-	Organizer  *CreateEventResponseBodyOrganizer   `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
-	Location   *CreateEventResponseBodyLocation    `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
-	Reminders  []*CreateEventResponseBodyReminders `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
-	// 创建时间
-	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 更新时间
-	UpdateTime        *string                                   `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
-	OnlineMeetingInfo *CreateEventResponseBodyOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
-}
-
-func (s CreateEventResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventResponseBody) SetId(v string) *CreateEventResponseBody {
-	s.Id = &v
-	return s
-}
-
-func (s *CreateEventResponseBody) SetSummary(v string) *CreateEventResponseBody {
-	s.Summary = &v
-	return s
-}
-
-func (s *CreateEventResponseBody) SetDescription(v string) *CreateEventResponseBody {
-	s.Description = &v
-	return s
-}
-
-func (s *CreateEventResponseBody) SetStart(v *CreateEventResponseBodyStart) *CreateEventResponseBody {
-	s.Start = v
-	return s
-}
-
-func (s *CreateEventResponseBody) SetEnd(v *CreateEventResponseBodyEnd) *CreateEventResponseBody {
-	s.End = v
-	return s
-}
-
-func (s *CreateEventResponseBody) SetIsAllDay(v bool) *CreateEventResponseBody {
-	s.IsAllDay = &v
-	return s
-}
-
-func (s *CreateEventResponseBody) SetRecurrence(v *CreateEventResponseBodyRecurrence) *CreateEventResponseBody {
-	s.Recurrence = v
-	return s
-}
-
-func (s *CreateEventResponseBody) SetAttendees(v []*CreateEventResponseBodyAttendees) *CreateEventResponseBody {
-	s.Attendees = v
-	return s
-}
-
-func (s *CreateEventResponseBody) SetOrganizer(v *CreateEventResponseBodyOrganizer) *CreateEventResponseBody {
-	s.Organizer = v
-	return s
-}
-
-func (s *CreateEventResponseBody) SetLocation(v *CreateEventResponseBodyLocation) *CreateEventResponseBody {
-	s.Location = v
-	return s
-}
-
-func (s *CreateEventResponseBody) SetReminders(v []*CreateEventResponseBodyReminders) *CreateEventResponseBody {
-	s.Reminders = v
-	return s
-}
-
-func (s *CreateEventResponseBody) SetCreateTime(v string) *CreateEventResponseBody {
-	s.CreateTime = &v
-	return s
-}
-
-func (s *CreateEventResponseBody) SetUpdateTime(v string) *CreateEventResponseBody {
-	s.UpdateTime = &v
-	return s
-}
-
-func (s *CreateEventResponseBody) SetOnlineMeetingInfo(v *CreateEventResponseBodyOnlineMeetingInfo) *CreateEventResponseBody {
-	s.OnlineMeetingInfo = v
-	return s
-}
-
-type CreateEventResponseBodyStart struct {
-	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
-	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
-	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
-}
-
-func (s CreateEventResponseBodyStart) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventResponseBodyStart) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventResponseBodyStart) SetDate(v string) *CreateEventResponseBodyStart {
-	s.Date = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyStart) SetDateTime(v string) *CreateEventResponseBodyStart {
-	s.DateTime = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyStart) SetTimeZone(v string) *CreateEventResponseBodyStart {
-	s.TimeZone = &v
-	return s
-}
-
-type CreateEventResponseBodyEnd struct {
-	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
-	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
-	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
-}
-
-func (s CreateEventResponseBodyEnd) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventResponseBodyEnd) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventResponseBodyEnd) SetDate(v string) *CreateEventResponseBodyEnd {
-	s.Date = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyEnd) SetDateTime(v string) *CreateEventResponseBodyEnd {
-	s.DateTime = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyEnd) SetTimeZone(v string) *CreateEventResponseBodyEnd {
-	s.TimeZone = &v
-	return s
-}
-
-type CreateEventResponseBodyRecurrence struct {
-	Pattern *CreateEventResponseBodyRecurrencePattern `json:"pattern,omitempty" xml:"pattern,omitempty" type:"Struct"`
-	Range   *CreateEventResponseBodyRecurrenceRange   `json:"range,omitempty" xml:"range,omitempty" type:"Struct"`
-}
-
-func (s CreateEventResponseBodyRecurrence) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventResponseBodyRecurrence) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventResponseBodyRecurrence) SetPattern(v *CreateEventResponseBodyRecurrencePattern) *CreateEventResponseBodyRecurrence {
-	s.Pattern = v
-	return s
-}
-
-func (s *CreateEventResponseBodyRecurrence) SetRange(v *CreateEventResponseBodyRecurrenceRange) *CreateEventResponseBodyRecurrence {
-	s.Range = v
-	return s
-}
-
-type CreateEventResponseBodyRecurrencePattern struct {
-	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
-	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
-	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
-	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
-	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
-}
-
-func (s CreateEventResponseBodyRecurrencePattern) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventResponseBodyRecurrencePattern) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventResponseBodyRecurrencePattern) SetType(v string) *CreateEventResponseBodyRecurrencePattern {
-	s.Type = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyRecurrencePattern) SetDayOfMonth(v int32) *CreateEventResponseBodyRecurrencePattern {
-	s.DayOfMonth = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyRecurrencePattern) SetDaysOfWeek(v string) *CreateEventResponseBodyRecurrencePattern {
-	s.DaysOfWeek = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyRecurrencePattern) SetIndex(v string) *CreateEventResponseBodyRecurrencePattern {
-	s.Index = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyRecurrencePattern) SetInterval(v int32) *CreateEventResponseBodyRecurrencePattern {
-	s.Interval = &v
-	return s
-}
-
-type CreateEventResponseBodyRecurrenceRange struct {
-	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
-	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
-}
-
-func (s CreateEventResponseBodyRecurrenceRange) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventResponseBodyRecurrenceRange) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventResponseBodyRecurrenceRange) SetType(v string) *CreateEventResponseBodyRecurrenceRange {
-	s.Type = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyRecurrenceRange) SetEndDate(v string) *CreateEventResponseBodyRecurrenceRange {
-	s.EndDate = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyRecurrenceRange) SetNumberOfOccurrences(v int32) *CreateEventResponseBodyRecurrenceRange {
-	s.NumberOfOccurrences = &v
-	return s
-}
-
-type CreateEventResponseBodyAttendees struct {
-	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
-	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
-	// 回复状态
-	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
-	Self           *bool   `json:"self,omitempty" xml:"self,omitempty"`
-}
-
-func (s CreateEventResponseBodyAttendees) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventResponseBodyAttendees) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventResponseBodyAttendees) SetId(v string) *CreateEventResponseBodyAttendees {
-	s.Id = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyAttendees) SetDisplayName(v string) *CreateEventResponseBodyAttendees {
-	s.DisplayName = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyAttendees) SetResponseStatus(v string) *CreateEventResponseBodyAttendees {
-	s.ResponseStatus = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyAttendees) SetSelf(v bool) *CreateEventResponseBodyAttendees {
-	s.Self = &v
-	return s
-}
-
-type CreateEventResponseBodyOrganizer struct {
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 用户名
-	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
-	// 回复状态
-	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
-	Self           *bool   `json:"self,omitempty" xml:"self,omitempty"`
-}
-
-func (s CreateEventResponseBodyOrganizer) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventResponseBodyOrganizer) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventResponseBodyOrganizer) SetId(v string) *CreateEventResponseBodyOrganizer {
-	s.Id = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyOrganizer) SetDisplayName(v string) *CreateEventResponseBodyOrganizer {
-	s.DisplayName = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyOrganizer) SetResponseStatus(v string) *CreateEventResponseBodyOrganizer {
-	s.ResponseStatus = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyOrganizer) SetSelf(v bool) *CreateEventResponseBodyOrganizer {
-	s.Self = &v
-	return s
-}
-
-type CreateEventResponseBodyLocation struct {
-	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
-}
-
-func (s CreateEventResponseBodyLocation) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventResponseBodyLocation) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventResponseBodyLocation) SetDisplayName(v string) *CreateEventResponseBodyLocation {
-	s.DisplayName = &v
-	return s
-}
-
-type CreateEventResponseBodyReminders struct {
-	Method  *string `json:"method,omitempty" xml:"method,omitempty"`
-	Minutes *string `json:"minutes,omitempty" xml:"minutes,omitempty"`
-}
-
-func (s CreateEventResponseBodyReminders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventResponseBodyReminders) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventResponseBodyReminders) SetMethod(v string) *CreateEventResponseBodyReminders {
-	s.Method = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyReminders) SetMinutes(v string) *CreateEventResponseBodyReminders {
-	s.Minutes = &v
-	return s
-}
-
-type CreateEventResponseBodyOnlineMeetingInfo struct {
-	Type         *string                `json:"type,omitempty" xml:"type,omitempty"`
-	ConferenceId *string                `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
-	Url          *string                `json:"url,omitempty" xml:"url,omitempty"`
-	ExtraInfo    map[string]interface{} `json:"extraInfo,omitempty" xml:"extraInfo,omitempty"`
-}
-
-func (s CreateEventResponseBodyOnlineMeetingInfo) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventResponseBodyOnlineMeetingInfo) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventResponseBodyOnlineMeetingInfo) SetType(v string) *CreateEventResponseBodyOnlineMeetingInfo {
-	s.Type = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyOnlineMeetingInfo) SetConferenceId(v string) *CreateEventResponseBodyOnlineMeetingInfo {
-	s.ConferenceId = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyOnlineMeetingInfo) SetUrl(v string) *CreateEventResponseBodyOnlineMeetingInfo {
-	s.Url = &v
-	return s
-}
-
-func (s *CreateEventResponseBodyOnlineMeetingInfo) SetExtraInfo(v map[string]interface{}) *CreateEventResponseBodyOnlineMeetingInfo {
-	s.ExtraInfo = v
-	return s
-}
-
-type CreateEventResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s CreateEventResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateEventResponse) GoString() string {
-	return s.String()
-}
-
-func (s *CreateEventResponse) SetHeaders(v map[string]*string) *CreateEventResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *CreateEventResponse) SetBody(v *CreateEventResponseBody) *CreateEventResponse {
-	s.Body = v
-	return s
-}
-
 type Client struct {
 	openapi.Client
 }
@@ -3625,40 +3887,6 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
-}
-
-func (client *Client) DeleteEvent(userId *string, calendarId *string, eventId *string) (_result *DeleteEventResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &DeleteEventHeaders{}
-	_result = &DeleteEventResponse{}
-	_body, _err := client.DeleteEventWithOptions(userId, calendarId, eventId, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) DeleteEventWithOptions(userId *string, calendarId *string, eventId *string, headers *DeleteEventHeaders, runtime *util.RuntimeOptions) (_result *DeleteEventResponse, _err error) {
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &DeleteEventResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteEvent"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)), tea.String("none"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
 }
 
 func (client *Client) RespondEvent(userId *string, calendarId *string, eventId *string, request *RespondEventRequest) (_result *RespondEventResponse, _err error) {
@@ -3698,126 +3926,6 @@ func (client *Client) RespondEventWithOptions(userId *string, calendarId *string
 	}
 	_result = &RespondEventResponse{}
 	_body, _err := client.DoROARequest(tea.String("RespondEvent"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/respond"), tea.String("none"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) ListEvents(userId *string, calendarId *string, request *ListEventsRequest) (_result *ListEventsResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &ListEventsHeaders{}
-	_result = &ListEventsResponse{}
-	_body, _err := client.ListEventsWithOptions(userId, calendarId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) ListEventsWithOptions(userId *string, calendarId *string, request *ListEventsRequest, headers *ListEventsHeaders, runtime *util.RuntimeOptions) (_result *ListEventsResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.TimeMin)) {
-		query["timeMin"] = request.TimeMin
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.TimeMax)) {
-		query["timeMax"] = request.TimeMax
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.ShowDeleted)) {
-		query["showDeleted"] = request.ShowDeleted
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
-		query["maxResults"] = request.MaxResults
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
-		query["nextToken"] = request.NextToken
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.SyncToken)) {
-		query["syncToken"] = request.SyncToken
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &ListEventsResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListEvents"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) ListEventsView(userId *string, calendarId *string, request *ListEventsViewRequest) (_result *ListEventsViewResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &ListEventsViewHeaders{}
-	_result = &ListEventsViewResponse{}
-	_body, _err := client.ListEventsViewWithOptions(userId, calendarId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) ListEventsViewWithOptions(userId *string, calendarId *string, request *ListEventsViewRequest, headers *ListEventsViewHeaders, runtime *util.RuntimeOptions) (_result *ListEventsViewResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.TimeMin)) {
-		query["timeMin"] = request.TimeMin
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.TimeMax)) {
-		query["timeMax"] = request.TimeMax
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
-		query["maxResults"] = request.MaxResults
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
-		query["nextToken"] = request.NextToken
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &ListEventsViewResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListEventsView"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/eventsview"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3908,18 +4016,6 @@ func (client *Client) GetScheduleWithOptions(userId *string, request *GetSchedul
 		realHeaders = headers.CommonHeaders
 	}
 
-	if !tea.BoolValue(util.IsUnset(headers.DingOrgId)) {
-		realHeaders["dingOrgId"] = headers.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingUid)) {
-		realHeaders["dingUid"] = headers.DingUid
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingAccessTokenType)) {
-		realHeaders["dingAccessTokenType"] = headers.DingAccessTokenType
-	}
-
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
 		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
 	}
@@ -3929,7 +4025,7 @@ func (client *Client) GetScheduleWithOptions(userId *string, request *GetSchedul
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &GetScheduleResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSchedule"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/getSchedule"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("GetSchedule"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/querySchedule"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4081,6 +4177,330 @@ func (client *Client) AddAttendeeWithOptions(userId *string, calendarId *string,
 	return _result, _err
 }
 
+func (client *Client) CreateEvent(userId *string, calendarId *string, request *CreateEventRequest) (_result *CreateEventResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateEventHeaders{}
+	_result = &CreateEventResponse{}
+	_body, _err := client.CreateEventWithOptions(userId, calendarId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateEventWithOptions(userId *string, calendarId *string, request *CreateEventRequest, headers *CreateEventHeaders, runtime *util.RuntimeOptions) (_result *CreateEventResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Summary)) {
+		body["summary"] = request.Summary
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Start))) {
+		body["start"] = request.Start
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.End))) {
+		body["end"] = request.End
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsAllDay)) {
+		body["isAllDay"] = request.IsAllDay
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Recurrence))) {
+		body["recurrence"] = request.Recurrence
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Attendees)) {
+		body["attendees"] = request.Attendees
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Location))) {
+		body["location"] = request.Location
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Reminders)) {
+		body["reminders"] = request.Reminders
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.OnlineMeetingInfo))) {
+		body["onlineMeetingInfo"] = request.OnlineMeetingInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extra)) {
+		body["extra"] = request.Extra
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateEventResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateEvent"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListCalendars(userId *string) (_result *ListCalendarsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListCalendarsHeaders{}
+	_result = &ListCalendarsResponse{}
+	_body, _err := client.ListCalendarsWithOptions(userId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListCalendarsWithOptions(userId *string, headers *ListCalendarsHeaders, runtime *util.RuntimeOptions) (_result *ListCalendarsResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &ListCalendarsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListCalendars"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListReceivers(userId *string, calendarId *string, eventId *string, request *ListReceiversRequest) (_result *ListReceiversResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListReceiversHeaders{}
+	_result = &ListReceiversResponse{}
+	_body, _err := client.ListReceiversWithOptions(userId, calendarId, eventId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListReceiversWithOptions(userId *string, calendarId *string, eventId *string, request *ListReceiversRequest, headers *ListReceiversHeaders, runtime *util.RuntimeOptions) (_result *ListReceiversResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		query["type"] = request.Type
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListReceiversResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListReceivers"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/receivers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteEvent(userId *string, calendarId *string, eventId *string) (_result *DeleteEventResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteEventHeaders{}
+	_result = &DeleteEventResponse{}
+	_body, _err := client.DeleteEventWithOptions(userId, calendarId, eventId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteEventWithOptions(userId *string, calendarId *string, eventId *string, headers *DeleteEventHeaders, runtime *util.RuntimeOptions) (_result *DeleteEventResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &DeleteEventResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteEvent"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListEvents(userId *string, calendarId *string, request *ListEventsRequest) (_result *ListEventsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListEventsHeaders{}
+	_result = &ListEventsResponse{}
+	_body, _err := client.ListEventsWithOptions(userId, calendarId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListEventsWithOptions(userId *string, calendarId *string, request *ListEventsRequest, headers *ListEventsHeaders, runtime *util.RuntimeOptions) (_result *ListEventsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TimeMin)) {
+		query["timeMin"] = request.TimeMin
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TimeMax)) {
+		query["timeMax"] = request.TimeMax
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ShowDeleted)) {
+		query["showDeleted"] = request.ShowDeleted
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SyncToken)) {
+		query["syncToken"] = request.SyncToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListEventsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListEvents"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListEventsView(userId *string, calendarId *string, request *ListEventsViewRequest) (_result *ListEventsViewResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListEventsViewHeaders{}
+	_result = &ListEventsViewResponse{}
+	_body, _err := client.ListEventsViewWithOptions(userId, calendarId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListEventsViewWithOptions(userId *string, calendarId *string, request *ListEventsViewRequest, headers *ListEventsViewHeaders, runtime *util.RuntimeOptions) (_result *ListEventsViewResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TimeMin)) {
+		query["timeMin"] = request.TimeMin
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TimeMax)) {
+		query["timeMax"] = request.TimeMax
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListEventsViewResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListEventsView"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/eventsview"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetEvent(userId *string, calendarId *string, eventId *string) (_result *GetEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetEventHeaders{}
@@ -4192,90 +4612,6 @@ func (client *Client) PatchEventWithOptions(userId *string, calendarId *string, 
 	}
 	_result = &PatchEventResponse{}
 	_body, _err := client.DoROARequest(tea.String("PatchEvent"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) CreateEvent(userId *string, calendarId *string, request *CreateEventRequest) (_result *CreateEventResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateEventHeaders{}
-	_result = &CreateEventResponse{}
-	_body, _err := client.CreateEventWithOptions(userId, calendarId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) CreateEventWithOptions(userId *string, calendarId *string, request *CreateEventRequest, headers *CreateEventHeaders, runtime *util.RuntimeOptions) (_result *CreateEventResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Summary)) {
-		body["summary"] = request.Summary
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Description)) {
-		body["description"] = request.Description
-	}
-
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Start))) {
-		body["start"] = request.Start
-	}
-
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.End))) {
-		body["end"] = request.End
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.IsAllDay)) {
-		body["isAllDay"] = request.IsAllDay
-	}
-
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Recurrence))) {
-		body["recurrence"] = request.Recurrence
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Attendees)) {
-		body["attendees"] = request.Attendees
-	}
-
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Location))) {
-		body["location"] = request.Location
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Reminders)) {
-		body["reminders"] = request.Reminders
-	}
-
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.OnlineMeetingInfo))) {
-		body["onlineMeetingInfo"] = request.OnlineMeetingInfo
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Extra)) {
-		body["extra"] = request.Extra
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &CreateEventResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateEvent"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

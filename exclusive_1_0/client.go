@@ -202,9 +202,9 @@ func (s *GetUserAppVersionSummaryHeaders) SetXAcsDingtalkAccessToken(v string) *
 
 type GetUserAppVersionSummaryRequest struct {
 	// 启始数据游标
-	PageStart *int64 `json:"pageStart,omitempty" xml:"pageStart,omitempty"`
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 每页包含的数据条数
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 }
 
 func (s GetUserAppVersionSummaryRequest) String() string {
@@ -215,13 +215,13 @@ func (s GetUserAppVersionSummaryRequest) GoString() string {
 	return s.String()
 }
 
-func (s *GetUserAppVersionSummaryRequest) SetPageStart(v int64) *GetUserAppVersionSummaryRequest {
-	s.PageStart = &v
+func (s *GetUserAppVersionSummaryRequest) SetNextToken(v int64) *GetUserAppVersionSummaryRequest {
+	s.NextToken = &v
 	return s
 }
 
-func (s *GetUserAppVersionSummaryRequest) SetPageSize(v int64) *GetUserAppVersionSummaryRequest {
-	s.PageSize = &v
+func (s *GetUserAppVersionSummaryRequest) SetMaxResults(v int64) *GetUserAppVersionSummaryRequest {
+	s.MaxResults = &v
 	return s
 }
 
@@ -229,7 +229,7 @@ type GetUserAppVersionSummaryResponseBody struct {
 	// 用户版本分布情况列表
 	Data []*GetUserAppVersionSummaryResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
 	// 下一次请求的分页游标
-	NextId *int64 `json:"nextId,omitempty" xml:"nextId,omitempty"`
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 是否有更多数据
 	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 }
@@ -247,8 +247,8 @@ func (s *GetUserAppVersionSummaryResponseBody) SetData(v []*GetUserAppVersionSum
 	return s
 }
 
-func (s *GetUserAppVersionSummaryResponseBody) SetNextId(v int64) *GetUserAppVersionSummaryResponseBody {
-	s.NextId = &v
+func (s *GetUserAppVersionSummaryResponseBody) SetNextToken(v int64) *GetUserAppVersionSummaryResponseBody {
+	s.NextToken = &v
 	return s
 }
 
@@ -702,9 +702,9 @@ func (s *GetPublisherSummaryHeaders) SetXAcsDingtalkAccessToken(v string) *GetPu
 
 type GetPublisherSummaryRequest struct {
 	// 启始数据游标
-	PageStart *int64 `json:"pageStart,omitempty" xml:"pageStart,omitempty"`
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 每页包含的数据条数
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 }
 
 func (s GetPublisherSummaryRequest) String() string {
@@ -715,13 +715,13 @@ func (s GetPublisherSummaryRequest) GoString() string {
 	return s.String()
 }
 
-func (s *GetPublisherSummaryRequest) SetPageStart(v int64) *GetPublisherSummaryRequest {
-	s.PageStart = &v
+func (s *GetPublisherSummaryRequest) SetNextToken(v int64) *GetPublisherSummaryRequest {
+	s.NextToken = &v
 	return s
 }
 
-func (s *GetPublisherSummaryRequest) SetPageSize(v int64) *GetPublisherSummaryRequest {
-	s.PageSize = &v
+func (s *GetPublisherSummaryRequest) SetMaxResults(v int64) *GetPublisherSummaryRequest {
+	s.MaxResults = &v
 	return s
 }
 
@@ -737,7 +737,7 @@ type GetPublisherSummaryResponseBody struct {
 	// 阅读量最高的5个文章
 	PublisherArticlePvTop5 []*GetPublisherSummaryResponseBodyPublisherArticlePvTop5 `json:"publisherArticlePvTop5,omitempty" xml:"publisherArticlePvTop5,omitempty" type:"Repeated"`
 	// 下一次请求的分页游标
-	NextId *int64 `json:"nextId,omitempty" xml:"nextId,omitempty"`
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 是否有更多数据
 	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 }
@@ -775,8 +775,8 @@ func (s *GetPublisherSummaryResponseBody) SetPublisherArticlePvTop5(v []*GetPubl
 	return s
 }
 
-func (s *GetPublisherSummaryResponseBody) SetNextId(v int64) *GetPublisherSummaryResponseBody {
-	s.NextId = &v
+func (s *GetPublisherSummaryResponseBody) SetNextToken(v int64) *GetPublisherSummaryResponseBody {
+	s.NextToken = &v
 	return s
 }
 
@@ -890,9 +890,9 @@ func (s *GetDocCreatedDeptSummaryHeaders) SetXAcsDingtalkAccessToken(v string) *
 
 type GetDocCreatedDeptSummaryRequest struct {
 	// 启始数据游标
-	PageStart *int64 `json:"pageStart,omitempty" xml:"pageStart,omitempty"`
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 每页包含的数据条数
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 }
 
 func (s GetDocCreatedDeptSummaryRequest) String() string {
@@ -903,13 +903,13 @@ func (s GetDocCreatedDeptSummaryRequest) GoString() string {
 	return s.String()
 }
 
-func (s *GetDocCreatedDeptSummaryRequest) SetPageStart(v int64) *GetDocCreatedDeptSummaryRequest {
-	s.PageStart = &v
+func (s *GetDocCreatedDeptSummaryRequest) SetNextToken(v int64) *GetDocCreatedDeptSummaryRequest {
+	s.NextToken = &v
 	return s
 }
 
-func (s *GetDocCreatedDeptSummaryRequest) SetPageSize(v int64) *GetDocCreatedDeptSummaryRequest {
-	s.PageSize = &v
+func (s *GetDocCreatedDeptSummaryRequest) SetMaxResults(v int64) *GetDocCreatedDeptSummaryRequest {
+	s.MaxResults = &v
 	return s
 }
 
@@ -917,7 +917,7 @@ type GetDocCreatedDeptSummaryResponseBody struct {
 	// 部门维度用户创建文档数
 	Data []*GetDocCreatedDeptSummaryResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
 	// 下一次请求的分页游标
-	NextId *int64 `json:"nextId,omitempty" xml:"nextId,omitempty"`
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 是否有更多数据
 	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 }
@@ -935,8 +935,8 @@ func (s *GetDocCreatedDeptSummaryResponseBody) SetData(v []*GetDocCreatedDeptSum
 	return s
 }
 
-func (s *GetDocCreatedDeptSummaryResponseBody) SetNextId(v int64) *GetDocCreatedDeptSummaryResponseBody {
-	s.NextId = &v
+func (s *GetDocCreatedDeptSummaryResponseBody) SetNextToken(v int64) *GetDocCreatedDeptSummaryResponseBody {
+	s.NextToken = &v
 	return s
 }
 
@@ -1656,9 +1656,9 @@ func (s *GetDingReportDeptSummaryHeaders) SetXAcsDingtalkAccessToken(v string) *
 
 type GetDingReportDeptSummaryRequest struct {
 	// 启始数据游标
-	PageStart *int64 `json:"pageStart,omitempty" xml:"pageStart,omitempty"`
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 每页包含的数据条数
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 }
 
 func (s GetDingReportDeptSummaryRequest) String() string {
@@ -1669,13 +1669,13 @@ func (s GetDingReportDeptSummaryRequest) GoString() string {
 	return s.String()
 }
 
-func (s *GetDingReportDeptSummaryRequest) SetPageStart(v int64) *GetDingReportDeptSummaryRequest {
-	s.PageStart = &v
+func (s *GetDingReportDeptSummaryRequest) SetNextToken(v int64) *GetDingReportDeptSummaryRequest {
+	s.NextToken = &v
 	return s
 }
 
-func (s *GetDingReportDeptSummaryRequest) SetPageSize(v int64) *GetDingReportDeptSummaryRequest {
-	s.PageSize = &v
+func (s *GetDingReportDeptSummaryRequest) SetMaxResults(v int64) *GetDingReportDeptSummaryRequest {
+	s.MaxResults = &v
 	return s
 }
 
@@ -1683,7 +1683,7 @@ type GetDingReportDeptSummaryResponseBody struct {
 	// 部门维度发布日志信息
 	Data []*GetDingReportDeptSummaryResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
 	// 下一次请求的分页游标
-	NextId *int64 `json:"nextId,omitempty" xml:"nextId,omitempty"`
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 是否有更多数据
 	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 }
@@ -1701,8 +1701,8 @@ func (s *GetDingReportDeptSummaryResponseBody) SetData(v []*GetDingReportDeptSum
 	return s
 }
 
-func (s *GetDingReportDeptSummaryResponseBody) SetNextId(v int64) *GetDingReportDeptSummaryResponseBody {
-	s.NextId = &v
+func (s *GetDingReportDeptSummaryResponseBody) SetNextToken(v int64) *GetDingReportDeptSummaryResponseBody {
+	s.NextToken = &v
 	return s
 }
 
@@ -1924,9 +1924,9 @@ func (s *GetGeneralFormCreatedDeptSummaryHeaders) SetXAcsDingtalkAccessToken(v s
 
 type GetGeneralFormCreatedDeptSummaryRequest struct {
 	// 启始数据游标
-	PageStart *int64 `json:"pageStart,omitempty" xml:"pageStart,omitempty"`
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 每页包含的数据条数
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 }
 
 func (s GetGeneralFormCreatedDeptSummaryRequest) String() string {
@@ -1937,13 +1937,13 @@ func (s GetGeneralFormCreatedDeptSummaryRequest) GoString() string {
 	return s.String()
 }
 
-func (s *GetGeneralFormCreatedDeptSummaryRequest) SetPageStart(v int64) *GetGeneralFormCreatedDeptSummaryRequest {
-	s.PageStart = &v
+func (s *GetGeneralFormCreatedDeptSummaryRequest) SetNextToken(v int64) *GetGeneralFormCreatedDeptSummaryRequest {
+	s.NextToken = &v
 	return s
 }
 
-func (s *GetGeneralFormCreatedDeptSummaryRequest) SetPageSize(v int64) *GetGeneralFormCreatedDeptSummaryRequest {
-	s.PageSize = &v
+func (s *GetGeneralFormCreatedDeptSummaryRequest) SetMaxResults(v int64) *GetGeneralFormCreatedDeptSummaryRequest {
+	s.MaxResults = &v
 	return s
 }
 
@@ -1951,7 +1951,7 @@ type GetGeneralFormCreatedDeptSummaryResponseBody struct {
 	// 用户版本分布情况列表
 	Data []*GetGeneralFormCreatedDeptSummaryResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
 	// 下一次请 求的分页游标
-	NextId *int64 `json:"nextId,omitempty" xml:"nextId,omitempty"`
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 是否有更多数据
 	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 }
@@ -1969,8 +1969,8 @@ func (s *GetGeneralFormCreatedDeptSummaryResponseBody) SetData(v []*GetGeneralFo
 	return s
 }
 
-func (s *GetGeneralFormCreatedDeptSummaryResponseBody) SetNextId(v int64) *GetGeneralFormCreatedDeptSummaryResponseBody {
-	s.NextId = &v
+func (s *GetGeneralFormCreatedDeptSummaryResponseBody) SetNextToken(v int64) *GetGeneralFormCreatedDeptSummaryResponseBody {
+	s.NextToken = &v
 	return s
 }
 
@@ -2774,12 +2774,12 @@ func (client *Client) GetUserAppVersionSummaryWithOptions(dataId *string, reques
 		return _result, _err
 	}
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.PageStart)) {
-		query["pageStart"] = request.PageStart
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
-		query["pageSize"] = request.PageSize
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
 	}
 
 	realHeaders := make(map[string]*string)
@@ -2890,12 +2890,12 @@ func (client *Client) GetPublisherSummaryWithOptions(dataId *string, request *Ge
 		return _result, _err
 	}
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.PageStart)) {
-		query["pageStart"] = request.PageStart
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
-		query["pageSize"] = request.PageSize
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
 	}
 
 	realHeaders := make(map[string]*string)
@@ -2938,12 +2938,12 @@ func (client *Client) GetDocCreatedDeptSummaryWithOptions(dataId *string, reques
 		return _result, _err
 	}
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.PageStart)) {
-		query["pageStart"] = request.PageStart
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
-		query["pageSize"] = request.PageSize
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
 	}
 
 	realHeaders := make(map[string]*string)
@@ -3294,12 +3294,12 @@ func (client *Client) GetDingReportDeptSummaryWithOptions(dataId *string, reques
 		return _result, _err
 	}
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.PageStart)) {
-		query["pageStart"] = request.PageStart
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
-		query["pageSize"] = request.PageSize
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
 	}
 
 	realHeaders := make(map[string]*string)
@@ -3386,12 +3386,12 @@ func (client *Client) GetGeneralFormCreatedDeptSummaryWithOptions(dataId *string
 		return _result, _err
 	}
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.PageStart)) {
-		query["pageStart"] = request.PageStart
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
-		query["pageSize"] = request.PageSize
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
 	}
 
 	realHeaders := make(map[string]*string)

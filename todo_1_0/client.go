@@ -1121,6 +1121,8 @@ type CreateTodoTaskRequest struct {
 	ParticipantIds []*string `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
 	// 详情页url跳转地址
 	DetailUrl *CreateTodoTaskRequestDetailUrl `json:"detailUrl,omitempty" xml:"detailUrl,omitempty" type:"Struct"`
+	// 通知提醒配置
+	NotifyConfigs *CreateTodoTaskRequestNotifyConfigs `json:"notifyConfigs,omitempty" xml:"notifyConfigs,omitempty" type:"Struct"`
 	// 当前操作者id，需传用户的unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
@@ -1173,6 +1175,11 @@ func (s *CreateTodoTaskRequest) SetDetailUrl(v *CreateTodoTaskRequestDetailUrl) 
 	return s
 }
 
+func (s *CreateTodoTaskRequest) SetNotifyConfigs(v *CreateTodoTaskRequestNotifyConfigs) *CreateTodoTaskRequest {
+	s.NotifyConfigs = v
+	return s
+}
+
 func (s *CreateTodoTaskRequest) SetOperatorId(v string) *CreateTodoTaskRequest {
 	s.OperatorId = &v
 	return s
@@ -1201,6 +1208,17 @@ func (s *CreateTodoTaskRequestDetailUrl) SetAppUrl(v string) *CreateTodoTaskRequ
 func (s *CreateTodoTaskRequestDetailUrl) SetPcUrl(v string) *CreateTodoTaskRequestDetailUrl {
 	s.PcUrl = &v
 	return s
+}
+
+type CreateTodoTaskRequestNotifyConfigs struct {
+}
+
+func (s CreateTodoTaskRequestNotifyConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTaskRequestNotifyConfigs) GoString() string {
+	return s.String()
 }
 
 type CreateTodoTaskResponseBody struct {
@@ -3224,6 +3242,10 @@ func (client *Client) CreateTodoTaskWithOptions(unionId *string, request *Create
 
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.DetailUrl))) {
 		body["detailUrl"] = request.DetailUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.NotifyConfigs))) {
+		body["notifyConfigs"] = request.NotifyConfigs
 	}
 
 	realHeaders := make(map[string]*string)

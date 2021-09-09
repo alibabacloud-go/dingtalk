@@ -332,6 +332,591 @@ func (s *NotifyPayCodePayResultResponse) SetBody(v *NotifyPayCodePayResultRespon
 	return s
 }
 
+type UpateUserCodeInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpateUserCodeInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpateUserCodeInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpateUserCodeInstanceHeaders) SetCommonHeaders(v map[string]*string) *UpateUserCodeInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpateUserCodeInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *UpateUserCodeInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpateUserCodeInstanceRequest struct {
+	// 用户码ID
+	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
+	// 码标识
+	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	// 码值
+	CodeValue *string `json:"codeValue,omitempty" xml:"codeValue,omitempty"`
+	// 状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 企业ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 用户和企业的关系类型，区分内部员工，外部联系人，无关系普通用户
+	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
+	// 用户身份标识，取值和用户企业关系类型相关，如果企业无关，传入手机号
+	UserIdentity *string `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
+	// 临时码，传入过期时间
+	GmtExpired *string `json:"gmtExpired,omitempty" xml:"gmtExpired,omitempty"`
+	// 有效时间列表，对于连续时间段，只需传入一个对象即可，注意过期时间必须晚于最晚结束时间
+	AvailableTimes []*UpateUserCodeInstanceRequestAvailableTimes `json:"availableTimes,omitempty" xml:"availableTimes,omitempty" type:"Repeated"`
+	// 扩展参数
+	ExtInfo      map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	DingOrgId    *int64                 `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId *int64                 `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+}
+
+func (s UpateUserCodeInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpateUserCodeInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpateUserCodeInstanceRequest) SetCodeId(v string) *UpateUserCodeInstanceRequest {
+	s.CodeId = &v
+	return s
+}
+
+func (s *UpateUserCodeInstanceRequest) SetCodeIdentity(v string) *UpateUserCodeInstanceRequest {
+	s.CodeIdentity = &v
+	return s
+}
+
+func (s *UpateUserCodeInstanceRequest) SetCodeValue(v string) *UpateUserCodeInstanceRequest {
+	s.CodeValue = &v
+	return s
+}
+
+func (s *UpateUserCodeInstanceRequest) SetStatus(v string) *UpateUserCodeInstanceRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *UpateUserCodeInstanceRequest) SetCorpId(v string) *UpateUserCodeInstanceRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *UpateUserCodeInstanceRequest) SetUserCorpRelationType(v string) *UpateUserCodeInstanceRequest {
+	s.UserCorpRelationType = &v
+	return s
+}
+
+func (s *UpateUserCodeInstanceRequest) SetUserIdentity(v string) *UpateUserCodeInstanceRequest {
+	s.UserIdentity = &v
+	return s
+}
+
+func (s *UpateUserCodeInstanceRequest) SetGmtExpired(v string) *UpateUserCodeInstanceRequest {
+	s.GmtExpired = &v
+	return s
+}
+
+func (s *UpateUserCodeInstanceRequest) SetAvailableTimes(v []*UpateUserCodeInstanceRequestAvailableTimes) *UpateUserCodeInstanceRequest {
+	s.AvailableTimes = v
+	return s
+}
+
+func (s *UpateUserCodeInstanceRequest) SetExtInfo(v map[string]interface{}) *UpateUserCodeInstanceRequest {
+	s.ExtInfo = v
+	return s
+}
+
+func (s *UpateUserCodeInstanceRequest) SetDingOrgId(v int64) *UpateUserCodeInstanceRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *UpateUserCodeInstanceRequest) SetDingIsvOrgId(v int64) *UpateUserCodeInstanceRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+type UpateUserCodeInstanceRequestAvailableTimes struct {
+	// 开始时间
+	GmtStart *string `json:"gmtStart,omitempty" xml:"gmtStart,omitempty"`
+	// 结束时间
+	GmtEnd *string `json:"gmtEnd,omitempty" xml:"gmtEnd,omitempty"`
+}
+
+func (s UpateUserCodeInstanceRequestAvailableTimes) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpateUserCodeInstanceRequestAvailableTimes) GoString() string {
+	return s.String()
+}
+
+func (s *UpateUserCodeInstanceRequestAvailableTimes) SetGmtStart(v string) *UpateUserCodeInstanceRequestAvailableTimes {
+	s.GmtStart = &v
+	return s
+}
+
+func (s *UpateUserCodeInstanceRequestAvailableTimes) SetGmtEnd(v string) *UpateUserCodeInstanceRequestAvailableTimes {
+	s.GmtEnd = &v
+	return s
+}
+
+type UpateUserCodeInstanceResponseBody struct {
+	// 码ID
+	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
+}
+
+func (s UpateUserCodeInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpateUserCodeInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpateUserCodeInstanceResponseBody) SetCodeId(v string) *UpateUserCodeInstanceResponseBody {
+	s.CodeId = &v
+	return s
+}
+
+type UpateUserCodeInstanceResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpateUserCodeInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpateUserCodeInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpateUserCodeInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpateUserCodeInstanceResponse) SetHeaders(v map[string]*string) *UpateUserCodeInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpateUserCodeInstanceResponse) SetBody(v *UpateUserCodeInstanceResponseBody) *UpateUserCodeInstanceResponse {
+	s.Body = v
+	return s
+}
+
+type DecodePayCodeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DecodePayCodeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DecodePayCodeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DecodePayCodeHeaders) SetCommonHeaders(v map[string]*string) *DecodePayCodeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DecodePayCodeHeaders) SetXAcsDingtalkAccessToken(v string) *DecodePayCodeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DecodePayCodeRequest struct {
+	// payCode
+	PayCode *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
+	// requestId
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s DecodePayCodeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DecodePayCodeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DecodePayCodeRequest) SetPayCode(v string) *DecodePayCodeRequest {
+	s.PayCode = &v
+	return s
+}
+
+func (s *DecodePayCodeRequest) SetRequestId(v string) *DecodePayCodeRequest {
+	s.RequestId = &v
+	return s
+}
+
+type DecodePayCodeResponseBody struct {
+	// 企业id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 用户是否还在组织内
+	UserInCorp *bool `json:"userInCorp,omitempty" xml:"userInCorp,omitempty"`
+	// 码类型
+	CodeType *string `json:"codeType,omitempty" xml:"codeType,omitempty"`
+	// 支付宝付款码
+	AlipayCode *string `json:"alipayCode,omitempty" xml:"alipayCode,omitempty"`
+	// 用户和企业关系
+	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
+}
+
+func (s DecodePayCodeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DecodePayCodeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DecodePayCodeResponseBody) SetCorpId(v string) *DecodePayCodeResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *DecodePayCodeResponseBody) SetUserId(v string) *DecodePayCodeResponseBody {
+	s.UserId = &v
+	return s
+}
+
+func (s *DecodePayCodeResponseBody) SetUserInCorp(v bool) *DecodePayCodeResponseBody {
+	s.UserInCorp = &v
+	return s
+}
+
+func (s *DecodePayCodeResponseBody) SetCodeType(v string) *DecodePayCodeResponseBody {
+	s.CodeType = &v
+	return s
+}
+
+func (s *DecodePayCodeResponseBody) SetAlipayCode(v string) *DecodePayCodeResponseBody {
+	s.AlipayCode = &v
+	return s
+}
+
+func (s *DecodePayCodeResponseBody) SetUserCorpRelationType(v string) *DecodePayCodeResponseBody {
+	s.UserCorpRelationType = &v
+	return s
+}
+
+type DecodePayCodeResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DecodePayCodeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DecodePayCodeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DecodePayCodeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DecodePayCodeResponse) SetHeaders(v map[string]*string) *DecodePayCodeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DecodePayCodeResponse) SetBody(v *DecodePayCodeResponseBody) *DecodePayCodeResponse {
+	s.Body = v
+	return s
+}
+
+type SaveCorpPayCodeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SaveCorpPayCodeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveCorpPayCodeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SaveCorpPayCodeHeaders) SetCommonHeaders(v map[string]*string) *SaveCorpPayCodeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SaveCorpPayCodeHeaders) SetXAcsDingtalkAccessToken(v string) *SaveCorpPayCodeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SaveCorpPayCodeRequest struct {
+	// 码标识，由钉钉颁发
+	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	// 开通的企业ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 状态，OPEN或CLOSED
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 扩展参数
+	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// 企业orgId
+	DingOrgId    *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingClientId *string `json:"dingClientId,omitempty" xml:"dingClientId,omitempty"`
+	DingIsvOrgId *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+}
+
+func (s SaveCorpPayCodeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveCorpPayCodeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SaveCorpPayCodeRequest) SetCodeIdentity(v string) *SaveCorpPayCodeRequest {
+	s.CodeIdentity = &v
+	return s
+}
+
+func (s *SaveCorpPayCodeRequest) SetCorpId(v string) *SaveCorpPayCodeRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *SaveCorpPayCodeRequest) SetStatus(v string) *SaveCorpPayCodeRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *SaveCorpPayCodeRequest) SetExtInfo(v map[string]interface{}) *SaveCorpPayCodeRequest {
+	s.ExtInfo = v
+	return s
+}
+
+func (s *SaveCorpPayCodeRequest) SetDingOrgId(v int64) *SaveCorpPayCodeRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *SaveCorpPayCodeRequest) SetDingClientId(v string) *SaveCorpPayCodeRequest {
+	s.DingClientId = &v
+	return s
+}
+
+func (s *SaveCorpPayCodeRequest) SetDingIsvOrgId(v int64) *SaveCorpPayCodeRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+type SaveCorpPayCodeResponseBody struct {
+	// 码标识
+	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	// 开通的企业ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 扩展参数
+	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+}
+
+func (s SaveCorpPayCodeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveCorpPayCodeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SaveCorpPayCodeResponseBody) SetCodeIdentity(v string) *SaveCorpPayCodeResponseBody {
+	s.CodeIdentity = &v
+	return s
+}
+
+func (s *SaveCorpPayCodeResponseBody) SetCorpId(v string) *SaveCorpPayCodeResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *SaveCorpPayCodeResponseBody) SetStatus(v string) *SaveCorpPayCodeResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *SaveCorpPayCodeResponseBody) SetExtInfo(v map[string]interface{}) *SaveCorpPayCodeResponseBody {
+	s.ExtInfo = v
+	return s
+}
+
+type SaveCorpPayCodeResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SaveCorpPayCodeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SaveCorpPayCodeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveCorpPayCodeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SaveCorpPayCodeResponse) SetHeaders(v map[string]*string) *SaveCorpPayCodeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SaveCorpPayCodeResponse) SetBody(v *SaveCorpPayCodeResponseBody) *SaveCorpPayCodeResponse {
+	s.Body = v
+	return s
+}
+
+type NotifyVerifyResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s NotifyVerifyResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s NotifyVerifyResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *NotifyVerifyResultHeaders) SetCommonHeaders(v map[string]*string) *NotifyVerifyResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *NotifyVerifyResultHeaders) SetXAcsDingtalkAccessToken(v string) *NotifyVerifyResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type NotifyVerifyResultRequest struct {
+	// 码值
+	PayCode *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
+	// 企业ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 用户和企业的关系类型，区分内部员工，外部联系人，无关系普通用户
+	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
+	// 用户身份标识
+	UserIdentity *string `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
+	// 验证时间
+	VerifyTime *string `json:"verifyTime,omitempty" xml:"verifyTime,omitempty"`
+	// 验证结果
+	VerifyResult *bool `json:"verifyResult,omitempty" xml:"verifyResult,omitempty"`
+	// 验证地点
+	VerifyLocation *string `json:"verifyLocation,omitempty" xml:"verifyLocation,omitempty"`
+	DingOrgId      *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId   *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+}
+
+func (s NotifyVerifyResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s NotifyVerifyResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *NotifyVerifyResultRequest) SetPayCode(v string) *NotifyVerifyResultRequest {
+	s.PayCode = &v
+	return s
+}
+
+func (s *NotifyVerifyResultRequest) SetCorpId(v string) *NotifyVerifyResultRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *NotifyVerifyResultRequest) SetUserCorpRelationType(v string) *NotifyVerifyResultRequest {
+	s.UserCorpRelationType = &v
+	return s
+}
+
+func (s *NotifyVerifyResultRequest) SetUserIdentity(v string) *NotifyVerifyResultRequest {
+	s.UserIdentity = &v
+	return s
+}
+
+func (s *NotifyVerifyResultRequest) SetVerifyTime(v string) *NotifyVerifyResultRequest {
+	s.VerifyTime = &v
+	return s
+}
+
+func (s *NotifyVerifyResultRequest) SetVerifyResult(v bool) *NotifyVerifyResultRequest {
+	s.VerifyResult = &v
+	return s
+}
+
+func (s *NotifyVerifyResultRequest) SetVerifyLocation(v string) *NotifyVerifyResultRequest {
+	s.VerifyLocation = &v
+	return s
+}
+
+func (s *NotifyVerifyResultRequest) SetDingOrgId(v int64) *NotifyVerifyResultRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *NotifyVerifyResultRequest) SetDingIsvOrgId(v int64) *NotifyVerifyResultRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+type NotifyVerifyResultResponseBody struct {
+	// 结果
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s NotifyVerifyResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s NotifyVerifyResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *NotifyVerifyResultResponseBody) SetResult(v string) *NotifyVerifyResultResponseBody {
+	s.Result = &v
+	return s
+}
+
+type NotifyVerifyResultResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *NotifyVerifyResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s NotifyVerifyResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s NotifyVerifyResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *NotifyVerifyResultResponse) SetHeaders(v map[string]*string) *NotifyVerifyResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *NotifyVerifyResultResponse) SetBody(v *NotifyVerifyResultResponseBody) *NotifyVerifyResultResponse {
+	s.Body = v
+	return s
+}
+
 type NotifyPayCodeRefundResultHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -597,262 +1182,184 @@ func (s *NotifyPayCodeRefundResultResponse) SetBody(v *NotifyPayCodeRefundResult
 	return s
 }
 
-type DecodePayCodeHeaders struct {
+type CreateUserCodeInstanceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s DecodePayCodeHeaders) String() string {
+func (s CreateUserCodeInstanceHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s DecodePayCodeHeaders) GoString() string {
+func (s CreateUserCodeInstanceHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *DecodePayCodeHeaders) SetCommonHeaders(v map[string]*string) *DecodePayCodeHeaders {
+func (s *CreateUserCodeInstanceHeaders) SetCommonHeaders(v map[string]*string) *CreateUserCodeInstanceHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *DecodePayCodeHeaders) SetXAcsDingtalkAccessToken(v string) *DecodePayCodeHeaders {
+func (s *CreateUserCodeInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *CreateUserCodeInstanceHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type DecodePayCodeRequest struct {
-	// payCode
-	PayCode *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
-	// requestId
+type CreateUserCodeInstanceRequest struct {
+	// 业务幂等ID
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// 码标识，由钉钉颁发
+	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	// 码值
+	CodeValue *string `json:"codeValue,omitempty" xml:"codeValue,omitempty"`
+	// 状态，传入关闭状态需要用户手动开启后才会渲染二维
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 企业ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 用户和企业的关系类型，区分内部员工，外部联系人，无关系普通用户
+	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
+	// 用户身份标识，取值和用户企业关系类型相关，如果企业无关，传入手机号
+	UserIdentity *string `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
+	// 临时码，传入过期时间
+	GmtExpired *string `json:"gmtExpired,omitempty" xml:"gmtExpired,omitempty"`
+	// 有效时间列表，对于连续时间段，只需传入一个对象即可，注意过期时间必须晚于最晚结束时间
+	AvailableTimes []*CreateUserCodeInstanceRequestAvailableTimes `json:"availableTimes,omitempty" xml:"availableTimes,omitempty" type:"Repeated"`
+	// 扩展参数
+	ExtInfo      map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	DingOrgId    *int64                 `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId *int64                 `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
 }
 
-func (s DecodePayCodeRequest) String() string {
+func (s CreateUserCodeInstanceRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s DecodePayCodeRequest) GoString() string {
+func (s CreateUserCodeInstanceRequest) GoString() string {
 	return s.String()
 }
 
-func (s *DecodePayCodeRequest) SetPayCode(v string) *DecodePayCodeRequest {
-	s.PayCode = &v
-	return s
-}
-
-func (s *DecodePayCodeRequest) SetRequestId(v string) *DecodePayCodeRequest {
+func (s *CreateUserCodeInstanceRequest) SetRequestId(v string) *CreateUserCodeInstanceRequest {
 	s.RequestId = &v
 	return s
 }
 
-type DecodePayCodeResponseBody struct {
-	// 企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 员工id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 用户是否还在组织内
-	UserInCorp *bool `json:"userInCorp,omitempty" xml:"userInCorp,omitempty"`
-	// 码类型
-	CodeType *string `json:"codeType,omitempty" xml:"codeType,omitempty"`
-	// 支付宝付款码
-	AlipayCode *string `json:"alipayCode,omitempty" xml:"alipayCode,omitempty"`
-}
-
-func (s DecodePayCodeResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DecodePayCodeResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *DecodePayCodeResponseBody) SetCorpId(v string) *DecodePayCodeResponseBody {
-	s.CorpId = &v
-	return s
-}
-
-func (s *DecodePayCodeResponseBody) SetUserId(v string) *DecodePayCodeResponseBody {
-	s.UserId = &v
-	return s
-}
-
-func (s *DecodePayCodeResponseBody) SetUserInCorp(v bool) *DecodePayCodeResponseBody {
-	s.UserInCorp = &v
-	return s
-}
-
-func (s *DecodePayCodeResponseBody) SetCodeType(v string) *DecodePayCodeResponseBody {
-	s.CodeType = &v
-	return s
-}
-
-func (s *DecodePayCodeResponseBody) SetAlipayCode(v string) *DecodePayCodeResponseBody {
-	s.AlipayCode = &v
-	return s
-}
-
-type DecodePayCodeResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DecodePayCodeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s DecodePayCodeResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DecodePayCodeResponse) GoString() string {
-	return s.String()
-}
-
-func (s *DecodePayCodeResponse) SetHeaders(v map[string]*string) *DecodePayCodeResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *DecodePayCodeResponse) SetBody(v *DecodePayCodeResponseBody) *DecodePayCodeResponse {
-	s.Body = v
-	return s
-}
-
-type SaveCorpPayCodeHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s SaveCorpPayCodeHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SaveCorpPayCodeHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *SaveCorpPayCodeHeaders) SetCommonHeaders(v map[string]*string) *SaveCorpPayCodeHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *SaveCorpPayCodeHeaders) SetXAcsDingtalkAccessToken(v string) *SaveCorpPayCodeHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type SaveCorpPayCodeRequest struct {
-	// 码标识，由钉钉颁发
-	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
-	// 开通的企业ID
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 状态，OPEN或CLOSED
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 扩展参数
-	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	// 企业orgId
-	DingOrgId    *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingClientId *string `json:"dingClientId,omitempty" xml:"dingClientId,omitempty"`
-	DingIsvOrgId *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
-}
-
-func (s SaveCorpPayCodeRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SaveCorpPayCodeRequest) GoString() string {
-	return s.String()
-}
-
-func (s *SaveCorpPayCodeRequest) SetCodeIdentity(v string) *SaveCorpPayCodeRequest {
+func (s *CreateUserCodeInstanceRequest) SetCodeIdentity(v string) *CreateUserCodeInstanceRequest {
 	s.CodeIdentity = &v
 	return s
 }
 
-func (s *SaveCorpPayCodeRequest) SetCorpId(v string) *SaveCorpPayCodeRequest {
-	s.CorpId = &v
+func (s *CreateUserCodeInstanceRequest) SetCodeValue(v string) *CreateUserCodeInstanceRequest {
+	s.CodeValue = &v
 	return s
 }
 
-func (s *SaveCorpPayCodeRequest) SetStatus(v string) *SaveCorpPayCodeRequest {
+func (s *CreateUserCodeInstanceRequest) SetStatus(v string) *CreateUserCodeInstanceRequest {
 	s.Status = &v
 	return s
 }
 
-func (s *SaveCorpPayCodeRequest) SetExtInfo(v map[string]interface{}) *SaveCorpPayCodeRequest {
+func (s *CreateUserCodeInstanceRequest) SetCorpId(v string) *CreateUserCodeInstanceRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *CreateUserCodeInstanceRequest) SetUserCorpRelationType(v string) *CreateUserCodeInstanceRequest {
+	s.UserCorpRelationType = &v
+	return s
+}
+
+func (s *CreateUserCodeInstanceRequest) SetUserIdentity(v string) *CreateUserCodeInstanceRequest {
+	s.UserIdentity = &v
+	return s
+}
+
+func (s *CreateUserCodeInstanceRequest) SetGmtExpired(v string) *CreateUserCodeInstanceRequest {
+	s.GmtExpired = &v
+	return s
+}
+
+func (s *CreateUserCodeInstanceRequest) SetAvailableTimes(v []*CreateUserCodeInstanceRequestAvailableTimes) *CreateUserCodeInstanceRequest {
+	s.AvailableTimes = v
+	return s
+}
+
+func (s *CreateUserCodeInstanceRequest) SetExtInfo(v map[string]interface{}) *CreateUserCodeInstanceRequest {
 	s.ExtInfo = v
 	return s
 }
 
-func (s *SaveCorpPayCodeRequest) SetDingOrgId(v int64) *SaveCorpPayCodeRequest {
+func (s *CreateUserCodeInstanceRequest) SetDingOrgId(v int64) *CreateUserCodeInstanceRequest {
 	s.DingOrgId = &v
 	return s
 }
 
-func (s *SaveCorpPayCodeRequest) SetDingClientId(v string) *SaveCorpPayCodeRequest {
-	s.DingClientId = &v
-	return s
-}
-
-func (s *SaveCorpPayCodeRequest) SetDingIsvOrgId(v int64) *SaveCorpPayCodeRequest {
+func (s *CreateUserCodeInstanceRequest) SetDingIsvOrgId(v int64) *CreateUserCodeInstanceRequest {
 	s.DingIsvOrgId = &v
 	return s
 }
 
-type SaveCorpPayCodeResponseBody struct {
-	// 码标识
-	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
-	// 开通的企业ID
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 扩展参数
-	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+type CreateUserCodeInstanceRequestAvailableTimes struct {
+	// 开始时间
+	GmtStart *string `json:"gmtStart,omitempty" xml:"gmtStart,omitempty"`
+	// 结束时间
+	GmtEnd *string `json:"gmtEnd,omitempty" xml:"gmtEnd,omitempty"`
 }
 
-func (s SaveCorpPayCodeResponseBody) String() string {
+func (s CreateUserCodeInstanceRequestAvailableTimes) String() string {
 	return tea.Prettify(s)
 }
 
-func (s SaveCorpPayCodeResponseBody) GoString() string {
+func (s CreateUserCodeInstanceRequestAvailableTimes) GoString() string {
 	return s.String()
 }
 
-func (s *SaveCorpPayCodeResponseBody) SetCodeIdentity(v string) *SaveCorpPayCodeResponseBody {
-	s.CodeIdentity = &v
+func (s *CreateUserCodeInstanceRequestAvailableTimes) SetGmtStart(v string) *CreateUserCodeInstanceRequestAvailableTimes {
+	s.GmtStart = &v
 	return s
 }
 
-func (s *SaveCorpPayCodeResponseBody) SetCorpId(v string) *SaveCorpPayCodeResponseBody {
-	s.CorpId = &v
+func (s *CreateUserCodeInstanceRequestAvailableTimes) SetGmtEnd(v string) *CreateUserCodeInstanceRequestAvailableTimes {
+	s.GmtEnd = &v
 	return s
 }
 
-func (s *SaveCorpPayCodeResponseBody) SetStatus(v string) *SaveCorpPayCodeResponseBody {
-	s.Status = &v
-	return s
+type CreateUserCodeInstanceResponseBody struct {
+	// 码ID
+	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
 }
 
-func (s *SaveCorpPayCodeResponseBody) SetExtInfo(v map[string]interface{}) *SaveCorpPayCodeResponseBody {
-	s.ExtInfo = v
-	return s
-}
-
-type SaveCorpPayCodeResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SaveCorpPayCodeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s SaveCorpPayCodeResponse) String() string {
+func (s CreateUserCodeInstanceResponseBody) String() string {
 	return tea.Prettify(s)
 }
 
-func (s SaveCorpPayCodeResponse) GoString() string {
+func (s CreateUserCodeInstanceResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *SaveCorpPayCodeResponse) SetHeaders(v map[string]*string) *SaveCorpPayCodeResponse {
+func (s *CreateUserCodeInstanceResponseBody) SetCodeId(v string) *CreateUserCodeInstanceResponseBody {
+	s.CodeId = &v
+	return s
+}
+
+type CreateUserCodeInstanceResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateUserCodeInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateUserCodeInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUserCodeInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUserCodeInstanceResponse) SetHeaders(v map[string]*string) *CreateUserCodeInstanceResponse {
 	s.Headers = v
 	return s
 }
 
-func (s *SaveCorpPayCodeResponse) SetBody(v *SaveCorpPayCodeResponseBody) *SaveCorpPayCodeResponse {
+func (s *CreateUserCodeInstanceResponse) SetBody(v *CreateUserCodeInstanceResponseBody) *CreateUserCodeInstanceResponse {
 	s.Body = v
 	return s
 }
@@ -992,11 +1499,11 @@ func (client *Client) NotifyPayCodePayResultWithOptions(request *NotifyPayCodePa
 	return _result, _err
 }
 
-func (client *Client) NotifyPayCodeRefundResult(request *NotifyPayCodeRefundResultRequest) (_result *NotifyPayCodeRefundResultResponse, _err error) {
+func (client *Client) UpateUserCodeInstance(request *UpateUserCodeInstanceRequest) (_result *UpateUserCodeInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &NotifyPayCodeRefundResultHeaders{}
-	_result = &NotifyPayCodeRefundResultResponse{}
-	_body, _err := client.NotifyPayCodeRefundResultWithOptions(request, headers, runtime)
+	headers := &UpateUserCodeInstanceHeaders{}
+	_result = &UpateUserCodeInstanceResponse{}
+	_body, _err := client.UpateUserCodeInstanceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1004,54 +1511,58 @@ func (client *Client) NotifyPayCodeRefundResult(request *NotifyPayCodeRefundResu
 	return _result, _err
 }
 
-func (client *Client) NotifyPayCodeRefundResultWithOptions(request *NotifyPayCodeRefundResultRequest, headers *NotifyPayCodeRefundResultHeaders, runtime *util.RuntimeOptions) (_result *NotifyPayCodeRefundResultResponse, _err error) {
+func (client *Client) UpateUserCodeInstanceWithOptions(request *UpateUserCodeInstanceRequest, headers *UpateUserCodeInstanceHeaders, runtime *util.RuntimeOptions) (_result *UpateUserCodeInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CodeId)) {
+		body["codeId"] = request.CodeId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CodeIdentity)) {
+		body["codeIdentity"] = request.CodeIdentity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CodeValue)) {
+		body["codeValue"] = request.CodeValue
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
 		body["corpId"] = request.CorpId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.UserId)) {
-		body["userId"] = request.UserId
+	if !tea.BoolValue(util.IsUnset(request.UserCorpRelationType)) {
+		body["userCorpRelationType"] = request.UserCorpRelationType
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TradeNo)) {
-		body["tradeNo"] = request.TradeNo
+	if !tea.BoolValue(util.IsUnset(request.UserIdentity)) {
+		body["userIdentity"] = request.UserIdentity
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.RefundOrderNo)) {
-		body["refundOrderNo"] = request.RefundOrderNo
+	if !tea.BoolValue(util.IsUnset(request.GmtExpired)) {
+		body["gmtExpired"] = request.GmtExpired
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Remark)) {
-		body["remark"] = request.Remark
+	if !tea.BoolValue(util.IsUnset(request.AvailableTimes)) {
+		body["availableTimes"] = request.AvailableTimes
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.RefundAmount)) {
-		body["refundAmount"] = request.RefundAmount
+	if !tea.BoolValue(util.IsUnset(request.ExtInfo)) {
+		body["extInfo"] = request.ExtInfo
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.RefundPromotionAmount)) {
-		body["refundPromotionAmount"] = request.RefundPromotionAmount
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.GmtRefund)) {
-		body["gmtRefund"] = request.GmtRefund
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.PayChannelDetailList)) {
-		body["payChannelDetailList"] = request.PayChannelDetailList
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
 		body["dingIsvOrgId"] = request.DingIsvOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.PayCode)) {
-		body["payCode"] = request.PayCode
 	}
 
 	realHeaders := make(map[string]*string)
@@ -1067,8 +1578,8 @@ func (client *Client) NotifyPayCodeRefundResultWithOptions(request *NotifyPayCod
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &NotifyPayCodeRefundResultResponse{}
-	_body, _err := client.DoROARequest(tea.String("NotifyPayCodeRefundResult"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/finance/payCodes/refundResults/notify"), tea.String("json"), req, runtime)
+	_result = &UpateUserCodeInstanceResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpateUserCodeInstance"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/finance/payCodes/userInstances"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1185,6 +1696,254 @@ func (client *Client) SaveCorpPayCodeWithOptions(request *SaveCorpPayCodeRequest
 	}
 	_result = &SaveCorpPayCodeResponse{}
 	_body, _err := client.DoROARequest(tea.String("SaveCorpPayCode"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/finance/payCodes/corpSettings"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) NotifyVerifyResult(request *NotifyVerifyResultRequest) (_result *NotifyVerifyResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &NotifyVerifyResultHeaders{}
+	_result = &NotifyVerifyResultResponse{}
+	_body, _err := client.NotifyVerifyResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) NotifyVerifyResultWithOptions(request *NotifyVerifyResultRequest, headers *NotifyVerifyResultHeaders, runtime *util.RuntimeOptions) (_result *NotifyVerifyResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PayCode)) {
+		body["payCode"] = request.PayCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserCorpRelationType)) {
+		body["userCorpRelationType"] = request.UserCorpRelationType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdentity)) {
+		body["userIdentity"] = request.UserIdentity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VerifyTime)) {
+		body["verifyTime"] = request.VerifyTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VerifyResult)) {
+		body["verifyResult"] = request.VerifyResult
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VerifyLocation)) {
+		body["verifyLocation"] = request.VerifyLocation
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &NotifyVerifyResultResponse{}
+	_body, _err := client.DoROARequest(tea.String("NotifyVerifyResult"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/finance/payCodes/verifyResults/notify"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) NotifyPayCodeRefundResult(request *NotifyPayCodeRefundResultRequest) (_result *NotifyPayCodeRefundResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &NotifyPayCodeRefundResultHeaders{}
+	_result = &NotifyPayCodeRefundResultResponse{}
+	_body, _err := client.NotifyPayCodeRefundResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) NotifyPayCodeRefundResultWithOptions(request *NotifyPayCodeRefundResultRequest, headers *NotifyPayCodeRefundResultHeaders, runtime *util.RuntimeOptions) (_result *NotifyPayCodeRefundResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TradeNo)) {
+		body["tradeNo"] = request.TradeNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RefundOrderNo)) {
+		body["refundOrderNo"] = request.RefundOrderNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RefundAmount)) {
+		body["refundAmount"] = request.RefundAmount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RefundPromotionAmount)) {
+		body["refundPromotionAmount"] = request.RefundPromotionAmount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GmtRefund)) {
+		body["gmtRefund"] = request.GmtRefund
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PayChannelDetailList)) {
+		body["payChannelDetailList"] = request.PayChannelDetailList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PayCode)) {
+		body["payCode"] = request.PayCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &NotifyPayCodeRefundResultResponse{}
+	_body, _err := client.DoROARequest(tea.String("NotifyPayCodeRefundResult"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/finance/payCodes/refundResults/notify"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateUserCodeInstance(request *CreateUserCodeInstanceRequest) (_result *CreateUserCodeInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateUserCodeInstanceHeaders{}
+	_result = &CreateUserCodeInstanceResponse{}
+	_body, _err := client.CreateUserCodeInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateUserCodeInstanceWithOptions(request *CreateUserCodeInstanceRequest, headers *CreateUserCodeInstanceHeaders, runtime *util.RuntimeOptions) (_result *CreateUserCodeInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		body["requestId"] = request.RequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CodeIdentity)) {
+		body["codeIdentity"] = request.CodeIdentity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CodeValue)) {
+		body["codeValue"] = request.CodeValue
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserCorpRelationType)) {
+		body["userCorpRelationType"] = request.UserCorpRelationType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdentity)) {
+		body["userIdentity"] = request.UserIdentity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GmtExpired)) {
+		body["gmtExpired"] = request.GmtExpired
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AvailableTimes)) {
+		body["availableTimes"] = request.AvailableTimes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtInfo)) {
+		body["extInfo"] = request.ExtInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateUserCodeInstanceResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateUserCodeInstance"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/finance/payCodes/userInstances"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

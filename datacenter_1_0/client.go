@@ -1631,6 +1631,127 @@ func (s *QueryOnlineUserStatisticalDataResponse) SetBody(v *QueryOnlineUserStati
 	return s
 }
 
+type QueryCompanyBasicInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCompanyBasicInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCompanyBasicInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCompanyBasicInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryCompanyBasicInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCompanyBasicInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCompanyBasicInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCompanyBasicInfoRequest struct {
+	Keyword    *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s QueryCompanyBasicInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCompanyBasicInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCompanyBasicInfoRequest) SetKeyword(v string) *QueryCompanyBasicInfoRequest {
+	s.Keyword = &v
+	return s
+}
+
+func (s *QueryCompanyBasicInfoRequest) SetPageNumber(v int64) *QueryCompanyBasicInfoRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryCompanyBasicInfoRequest) SetPageSize(v int64) *QueryCompanyBasicInfoRequest {
+	s.PageSize = &v
+	return s
+}
+
+type QueryCompanyBasicInfoResponseBody struct {
+	// message
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// traceId
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// total
+	Total *int32 `json:"total,omitempty" xml:"total,omitempty"`
+	// data
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// code
+	Code *int32 `json:"code,omitempty" xml:"code,omitempty"`
+}
+
+func (s QueryCompanyBasicInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCompanyBasicInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCompanyBasicInfoResponseBody) SetMessage(v string) *QueryCompanyBasicInfoResponseBody {
+	s.Message = &v
+	return s
+}
+
+func (s *QueryCompanyBasicInfoResponseBody) SetRequestId(v string) *QueryCompanyBasicInfoResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *QueryCompanyBasicInfoResponseBody) SetTotal(v int32) *QueryCompanyBasicInfoResponseBody {
+	s.Total = &v
+	return s
+}
+
+func (s *QueryCompanyBasicInfoResponseBody) SetData(v string) *QueryCompanyBasicInfoResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *QueryCompanyBasicInfoResponseBody) SetCode(v int32) *QueryCompanyBasicInfoResponseBody {
+	s.Code = &v
+	return s
+}
+
+type QueryCompanyBasicInfoResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryCompanyBasicInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryCompanyBasicInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCompanyBasicInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCompanyBasicInfoResponse) SetHeaders(v map[string]*string) *QueryCompanyBasicInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCompanyBasicInfoResponse) SetBody(v *QueryCompanyBasicInfoResponseBody) *QueryCompanyBasicInfoResponse {
+	s.Body = v
+	return s
+}
+
 type QueryApprovalStatisticalDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3895,6 +4016,58 @@ func (client *Client) QueryOnlineUserStatisticalDataWithOptions(request *QueryOn
 	}
 	_result = &QueryOnlineUserStatisticalDataResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryOnlineUserStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/onlineUserData"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryCompanyBasicInfo(request *QueryCompanyBasicInfoRequest) (_result *QueryCompanyBasicInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCompanyBasicInfoHeaders{}
+	_result = &QueryCompanyBasicInfoResponse{}
+	_body, _err := client.QueryCompanyBasicInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryCompanyBasicInfoWithOptions(request *QueryCompanyBasicInfoRequest, headers *QueryCompanyBasicInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryCompanyBasicInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
+		query["keyword"] = request.Keyword
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryCompanyBasicInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryCompanyBasicInfo"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/basicInfo"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

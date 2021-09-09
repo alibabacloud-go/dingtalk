@@ -864,6 +864,137 @@ func (s *GetFormDataByIDResponse) SetBody(v *GetFormDataByIDResponseBody) *GetFo
 	return s
 }
 
+type StartInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s StartInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *StartInstanceHeaders) SetCommonHeaders(v map[string]*string) *StartInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *StartInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *StartInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type StartInstanceRequest struct {
+	// 应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 应用秘钥。在应用数据中获取。
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 语言。可选值：zh_CN/en_US 默认：zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 表单唯一编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 表单数据
+	FormDataJson *string `json:"formDataJson,omitempty" xml:"formDataJson,omitempty"`
+	// 流程编码
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// 发起人所在部门编号
+	DepartmentId *string `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+}
+
+func (s StartInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *StartInstanceRequest) SetAppType(v string) *StartInstanceRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *StartInstanceRequest) SetSystemToken(v string) *StartInstanceRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *StartInstanceRequest) SetUserId(v string) *StartInstanceRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *StartInstanceRequest) SetLanguage(v string) *StartInstanceRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *StartInstanceRequest) SetFormUuid(v string) *StartInstanceRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *StartInstanceRequest) SetFormDataJson(v string) *StartInstanceRequest {
+	s.FormDataJson = &v
+	return s
+}
+
+func (s *StartInstanceRequest) SetProcessCode(v string) *StartInstanceRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *StartInstanceRequest) SetDepartmentId(v string) *StartInstanceRequest {
+	s.DepartmentId = &v
+	return s
+}
+
+type StartInstanceResponseBody struct {
+	// 流程实例ID
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s StartInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *StartInstanceResponseBody) SetResult(v string) *StartInstanceResponseBody {
+	s.Result = &v
+	return s
+}
+
+type StartInstanceResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *StartInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s StartInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *StartInstanceResponse) SetHeaders(v map[string]*string) *StartInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *StartInstanceResponse) SetBody(v *StartInstanceResponseBody) *StartInstanceResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -1140,6 +1271,78 @@ func (client *Client) GetFormDataByIDWithOptions(id *string, request *GetFormDat
 	}
 	_result = &GetFormDataByIDResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetFormDataByID"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/forms/instances/"+tea.StringValue(id)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) StartInstance(request *StartInstanceRequest) (_result *StartInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &StartInstanceHeaders{}
+	_result = &StartInstanceResponse{}
+	_body, _err := client.StartInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) StartInstanceWithOptions(request *StartInstanceRequest, headers *StartInstanceHeaders, runtime *util.RuntimeOptions) (_result *StartInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		body["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormDataJson)) {
+		body["formDataJson"] = request.FormDataJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DepartmentId)) {
+		body["departmentId"] = request.DepartmentId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &StartInstanceResponse{}
+	_body, _err := client.DoROARequest(tea.String("StartInstance"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/processes/instances/start"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -137,6 +137,8 @@ type CreateProcessRequestParticipants struct {
 	UserId           *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	AccountName      *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
 	OrgName          *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// 参与方签署位置信息列表
+	SignPosList []*CreateProcessRequestParticipantsSignPosList `json:"signPosList,omitempty" xml:"signPosList,omitempty" type:"Repeated"`
 }
 
 func (s CreateProcessRequestParticipants) String() string {
@@ -184,6 +186,95 @@ func (s *CreateProcessRequestParticipants) SetAccountName(v string) *CreateProce
 
 func (s *CreateProcessRequestParticipants) SetOrgName(v string) *CreateProcessRequestParticipants {
 	s.OrgName = &v
+	return s
+}
+
+func (s *CreateProcessRequestParticipants) SetSignPosList(v []*CreateProcessRequestParticipantsSignPosList) *CreateProcessRequestParticipants {
+	s.SignPosList = v
+	return s
+}
+
+type CreateProcessRequestParticipantsSignPosList struct {
+	// 文件id
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// 是否为骑缝章
+	IsCrossPage *bool `json:"isCrossPage,omitempty" xml:"isCrossPage,omitempty"`
+	// 是否需要显示签署时间
+	NeedSignDate *bool `json:"needSignDate,omitempty" xml:"needSignDate,omitempty"`
+	// 签署区页码
+	Page     *string                                              `json:"page,omitempty" xml:"page,omitempty"`
+	SignDate *CreateProcessRequestParticipantsSignPosListSignDate `json:"signDate,omitempty" xml:"signDate,omitempty" type:"Struct"`
+	// 签署要求,1-企业章 2-经办人
+	SignRequirement *string `json:"signRequirement,omitempty" xml:"signRequirement,omitempty"`
+	// 签署区x坐标
+	X *float64 `json:"x,omitempty" xml:"x,omitempty"`
+	// 签署区y坐标
+	Y *float64 `json:"y,omitempty" xml:"y,omitempty"`
+}
+
+func (s CreateProcessRequestParticipantsSignPosList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateProcessRequestParticipantsSignPosList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateProcessRequestParticipantsSignPosList) SetFileId(v string) *CreateProcessRequestParticipantsSignPosList {
+	s.FileId = &v
+	return s
+}
+
+func (s *CreateProcessRequestParticipantsSignPosList) SetIsCrossPage(v bool) *CreateProcessRequestParticipantsSignPosList {
+	s.IsCrossPage = &v
+	return s
+}
+
+func (s *CreateProcessRequestParticipantsSignPosList) SetNeedSignDate(v bool) *CreateProcessRequestParticipantsSignPosList {
+	s.NeedSignDate = &v
+	return s
+}
+
+func (s *CreateProcessRequestParticipantsSignPosList) SetPage(v string) *CreateProcessRequestParticipantsSignPosList {
+	s.Page = &v
+	return s
+}
+
+func (s *CreateProcessRequestParticipantsSignPosList) SetSignDate(v *CreateProcessRequestParticipantsSignPosListSignDate) *CreateProcessRequestParticipantsSignPosList {
+	s.SignDate = v
+	return s
+}
+
+func (s *CreateProcessRequestParticipantsSignPosList) SetSignRequirement(v string) *CreateProcessRequestParticipantsSignPosList {
+	s.SignRequirement = &v
+	return s
+}
+
+func (s *CreateProcessRequestParticipantsSignPosList) SetX(v float64) *CreateProcessRequestParticipantsSignPosList {
+	s.X = &v
+	return s
+}
+
+func (s *CreateProcessRequestParticipantsSignPosList) SetY(v float64) *CreateProcessRequestParticipantsSignPosList {
+	s.Y = &v
+	return s
+}
+
+type CreateProcessRequestParticipantsSignPosListSignDate struct {
+	// 签署区时间格式， 支持yyyy/MM/dd, yyyy-MM-dd, yyyy年MM月dd日
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+}
+
+func (s CreateProcessRequestParticipantsSignPosListSignDate) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateProcessRequestParticipantsSignPosListSignDate) GoString() string {
+	return s.String()
+}
+
+func (s *CreateProcessRequestParticipantsSignPosListSignDate) SetFormat(v string) *CreateProcessRequestParticipantsSignPosListSignDate {
+	s.Format = &v
 	return s
 }
 
