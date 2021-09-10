@@ -82,7 +82,7 @@ func (s *QueryCloudRecordTextRequest) SetNextToken(v int64) *QueryCloudRecordTex
 
 type QueryCloudRecordTextResponseBody struct {
 	// 是否有更多
-	HasNext *bool `json:"hasNext,omitempty" xml:"hasNext,omitempty"`
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 	// MP4格式下载链接
 	ParagraphList []*QueryCloudRecordTextResponseBodyParagraphList `json:"paragraphList,omitempty" xml:"paragraphList,omitempty" type:"Repeated"`
 }
@@ -95,8 +95,8 @@ func (s QueryCloudRecordTextResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *QueryCloudRecordTextResponseBody) SetHasNext(v bool) *QueryCloudRecordTextResponseBody {
-	s.HasNext = &v
+func (s *QueryCloudRecordTextResponseBody) SetHasMore(v bool) *QueryCloudRecordTextResponseBody {
+	s.HasMore = &v
 	return s
 }
 
@@ -107,7 +107,7 @@ func (s *QueryCloudRecordTextResponseBody) SetParagraphList(v []*QueryCloudRecor
 
 type QueryCloudRecordTextResponseBodyParagraphList struct {
 	// 游标，下次查询时使用
-	Token *int64 `json:"token,omitempty" xml:"token,omitempty"`
+	NextTtoken *int64 `json:"nextTtoken,omitempty" xml:"nextTtoken,omitempty"`
 	// 状态，暂不解析
 	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
 	// 发言人unionId
@@ -134,8 +134,8 @@ func (s QueryCloudRecordTextResponseBodyParagraphList) GoString() string {
 	return s.String()
 }
 
-func (s *QueryCloudRecordTextResponseBodyParagraphList) SetToken(v int64) *QueryCloudRecordTextResponseBodyParagraphList {
-	s.Token = &v
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetNextTtoken(v int64) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.NextTtoken = &v
 	return s
 }
 
@@ -472,7 +472,7 @@ type QueryCloudRecordVideoPlayInfoResponseBody struct {
 	// MP4格式下载链接
 	Mp4FileUrl *string `json:"mp4FileUrl,omitempty" xml:"mp4FileUrl,omitempty"`
 	// 大小
-	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
 	// 时长
 	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
 	// 状态
@@ -497,8 +497,8 @@ func (s *QueryCloudRecordVideoPlayInfoResponseBody) SetMp4FileUrl(v string) *Que
 	return s
 }
 
-func (s *QueryCloudRecordVideoPlayInfoResponseBody) SetSize(v int64) *QueryCloudRecordVideoPlayInfoResponseBody {
-	s.Size = &v
+func (s *QueryCloudRecordVideoPlayInfoResponseBody) SetFileSize(v int64) *QueryCloudRecordVideoPlayInfoResponseBody {
+	s.FileSize = &v
 	return s
 }
 
