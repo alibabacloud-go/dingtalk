@@ -75,6 +75,10 @@ type GetTodoTaskDetailResponseBody struct {
 	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
 	// requestId
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// 待办是否仅展示在执行人的待办列表中
+	IsOnlyShowExecutor *bool `json:"isOnlyShowExecutor,omitempty" xml:"isOnlyShowExecutor,omitempty"`
+	// 优先级, 较低:10, 普通:20, 紧急:30, 非常紧急:40
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
 	// 所属分类
 	Category *string `json:"category,omitempty" xml:"category,omitempty"`
 	// 所属组织信息
@@ -188,6 +192,16 @@ func (s *GetTodoTaskDetailResponseBody) SetBizTag(v string) *GetTodoTaskDetailRe
 
 func (s *GetTodoTaskDetailResponseBody) SetRequestId(v string) *GetTodoTaskDetailResponseBody {
 	s.RequestId = &v
+	return s
+}
+
+func (s *GetTodoTaskDetailResponseBody) SetIsOnlyShowExecutor(v bool) *GetTodoTaskDetailResponseBody {
+	s.IsOnlyShowExecutor = &v
+	return s
+}
+
+func (s *GetTodoTaskDetailResponseBody) SetPriority(v int32) *GetTodoTaskDetailResponseBody {
+	s.Priority = &v
 	return s
 }
 
@@ -370,6 +384,10 @@ type GetTodoTaskResponseBody struct {
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	// 待办卡片类型id
 	CardTypeId *string `json:"cardTypeId,omitempty" xml:"cardTypeId,omitempty"`
+	// 待办是否仅展示在执行人的待办列表中
+	IsOnlyShowExecutor *bool `json:"isOnlyShowExecutor,omitempty" xml:"isOnlyShowExecutor,omitempty"`
+	// 优先级, 较低:10, 普通:20, 紧急:30, 非常紧急:40
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
 }
 
 func (s GetTodoTaskResponseBody) String() string {
@@ -485,6 +503,16 @@ func (s *GetTodoTaskResponseBody) SetCardTypeId(v string) *GetTodoTaskResponseBo
 	return s
 }
 
+func (s *GetTodoTaskResponseBody) SetIsOnlyShowExecutor(v bool) *GetTodoTaskResponseBody {
+	s.IsOnlyShowExecutor = &v
+	return s
+}
+
+func (s *GetTodoTaskResponseBody) SetPriority(v int32) *GetTodoTaskResponseBody {
+	s.Priority = &v
+	return s
+}
+
 type GetTodoTaskResponseBodyDetailUrl struct {
 	// pc端详情页地址
 	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
@@ -597,6 +625,10 @@ type GetTodoTaskBySourceIdResponseBody struct {
 	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
 	// requestId
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// 待办是否仅展示在执行人的待办列表中
+	IsOnlyShowExecutor *bool `json:"isOnlyShowExecutor,omitempty" xml:"isOnlyShowExecutor,omitempty"`
+	// 优先级, 较低:10, 普通:20, 紧急:30, 非常紧急:40
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
 }
 
 func (s GetTodoTaskBySourceIdResponseBody) String() string {
@@ -704,6 +736,16 @@ func (s *GetTodoTaskBySourceIdResponseBody) SetBizTag(v string) *GetTodoTaskBySo
 
 func (s *GetTodoTaskBySourceIdResponseBody) SetRequestId(v string) *GetTodoTaskBySourceIdResponseBody {
 	s.RequestId = &v
+	return s
+}
+
+func (s *GetTodoTaskBySourceIdResponseBody) SetIsOnlyShowExecutor(v bool) *GetTodoTaskBySourceIdResponseBody {
+	s.IsOnlyShowExecutor = &v
+	return s
+}
+
+func (s *GetTodoTaskBySourceIdResponseBody) SetPriority(v int32) *GetTodoTaskBySourceIdResponseBody {
+	s.Priority = &v
 	return s
 }
 
@@ -1121,6 +1163,10 @@ type CreateTodoTaskRequest struct {
 	ParticipantIds []*string `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
 	// 详情页url跳转地址
 	DetailUrl *CreateTodoTaskRequestDetailUrl `json:"detailUrl,omitempty" xml:"detailUrl,omitempty" type:"Struct"`
+	// 生成的待办是否仅展示在执行者的待办列表中
+	IsOnlyShowExecutor *bool `json:"isOnlyShowExecutor,omitempty" xml:"isOnlyShowExecutor,omitempty"`
+	// 优先级
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
 	// 通知提醒配置
 	NotifyConfigs *CreateTodoTaskRequestNotifyConfigs `json:"notifyConfigs,omitempty" xml:"notifyConfigs,omitempty" type:"Struct"`
 	// 当前操作者id，需传用户的unionId
@@ -1172,6 +1218,16 @@ func (s *CreateTodoTaskRequest) SetParticipantIds(v []*string) *CreateTodoTaskRe
 
 func (s *CreateTodoTaskRequest) SetDetailUrl(v *CreateTodoTaskRequestDetailUrl) *CreateTodoTaskRequest {
 	s.DetailUrl = v
+	return s
+}
+
+func (s *CreateTodoTaskRequest) SetIsOnlyShowExecutor(v bool) *CreateTodoTaskRequest {
+	s.IsOnlyShowExecutor = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequest) SetPriority(v int32) *CreateTodoTaskRequest {
+	s.Priority = &v
 	return s
 }
 
@@ -1258,6 +1314,10 @@ type CreateTodoTaskResponseBody struct {
 	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
 	// requestId
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// 生成的待办是否仅展示在执行者的待办列表中
+	IsOnlyShowExecutor *bool `json:"isOnlyShowExecutor,omitempty" xml:"isOnlyShowExecutor,omitempty"`
+	// 优先级, 较低:10, 普通:20, 紧急:30, 非常紧急:40
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
 }
 
 func (s CreateTodoTaskResponseBody) String() string {
@@ -1355,6 +1415,16 @@ func (s *CreateTodoTaskResponseBody) SetBizTag(v string) *CreateTodoTaskResponse
 
 func (s *CreateTodoTaskResponseBody) SetRequestId(v string) *CreateTodoTaskResponseBody {
 	s.RequestId = &v
+	return s
+}
+
+func (s *CreateTodoTaskResponseBody) SetIsOnlyShowExecutor(v bool) *CreateTodoTaskResponseBody {
+	s.IsOnlyShowExecutor = &v
+	return s
+}
+
+func (s *CreateTodoTaskResponseBody) SetPriority(v int32) *CreateTodoTaskResponseBody {
+	s.Priority = &v
 	return s
 }
 
@@ -3242,6 +3312,14 @@ func (client *Client) CreateTodoTaskWithOptions(unionId *string, request *Create
 
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.DetailUrl))) {
 		body["detailUrl"] = request.DetailUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsOnlyShowExecutor)) {
+		body["isOnlyShowExecutor"] = request.IsOnlyShowExecutor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Priority)) {
+		body["priority"] = request.Priority
 	}
 
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.NotifyConfigs))) {

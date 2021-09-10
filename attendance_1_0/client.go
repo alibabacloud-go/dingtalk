@@ -297,6 +297,383 @@ func (s *CheckClosingAccountResponse) SetBody(v *CheckClosingAccountResponseBody
 	return s
 }
 
+type GetMachineHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetMachineHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMachineHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetMachineHeaders) SetCommonHeaders(v map[string]*string) *GetMachineHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetMachineHeaders) SetXAcsDingtalkAccessToken(v string) *GetMachineHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetMachineResponseBody struct {
+	// 查询结果
+	Result *GetMachineResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetMachineResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMachineResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetMachineResponseBody) SetResult(v *GetMachineResponseBodyResult) *GetMachineResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetMachineResponseBodyResult struct {
+	// 设备id (deviceUid加密之后)
+	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// 设备id (deviceId)
+	DevId *int64 `json:"devId,omitempty" xml:"devId,omitempty"`
+	// 设备名称
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// 设备类型名称
+	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	// 网络状态
+	NetStatus *string `json:"netStatus,omitempty" xml:"netStatus,omitempty"`
+	// 固件版本
+	ProductVersion *string `json:"productVersion,omitempty" xml:"productVersion,omitempty"`
+	// 设备sn号
+	DeviceSn *string `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
+	// 人脸容量
+	MaxFace *int32 `json:"maxFace,omitempty" xml:"maxFace,omitempty"`
+	// 音量模式
+	VoiceMode *int32 `json:"voiceMode,omitempty" xml:"voiceMode,omitempty"`
+	// 设备管理员列表
+	AtmManagerList []*string `json:"atmManagerList,omitempty" xml:"atmManagerList,omitempty" type:"Repeated"`
+	// 考勤机蓝牙相关设置信息
+	MachineBluetoothVO *GetMachineResponseBodyResultMachineBluetoothVO `json:"machineBluetoothVO,omitempty" xml:"machineBluetoothVO,omitempty" type:"Struct"`
+}
+
+func (s GetMachineResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMachineResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetMachineResponseBodyResult) SetDeviceId(v string) *GetMachineResponseBodyResult {
+	s.DeviceId = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResult) SetDevId(v int64) *GetMachineResponseBodyResult {
+	s.DevId = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResult) SetDeviceName(v string) *GetMachineResponseBodyResult {
+	s.DeviceName = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResult) SetProductName(v string) *GetMachineResponseBodyResult {
+	s.ProductName = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResult) SetNetStatus(v string) *GetMachineResponseBodyResult {
+	s.NetStatus = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResult) SetProductVersion(v string) *GetMachineResponseBodyResult {
+	s.ProductVersion = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResult) SetDeviceSn(v string) *GetMachineResponseBodyResult {
+	s.DeviceSn = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResult) SetMaxFace(v int32) *GetMachineResponseBodyResult {
+	s.MaxFace = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResult) SetVoiceMode(v int32) *GetMachineResponseBodyResult {
+	s.VoiceMode = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResult) SetAtmManagerList(v []*string) *GetMachineResponseBodyResult {
+	s.AtmManagerList = v
+	return s
+}
+
+func (s *GetMachineResponseBodyResult) SetMachineBluetoothVO(v *GetMachineResponseBodyResultMachineBluetoothVO) *GetMachineResponseBodyResult {
+	s.MachineBluetoothVO = v
+	return s
+}
+
+type GetMachineResponseBodyResultMachineBluetoothVO struct {
+	// 蓝牙打卡开关
+	BluetoothValue *bool `json:"bluetoothValue,omitempty" xml:"bluetoothValue,omitempty"`
+	// 蓝牙打卡人脸识别开关值
+	BluetoothCheckWithFace *bool `json:"bluetoothCheckWithFace,omitempty" xml:"bluetoothCheckWithFace,omitempty"`
+	// 蓝牙打卡范围
+	BluetoothDistanceMode *string `json:"bluetoothDistanceMode,omitempty" xml:"bluetoothDistanceMode,omitempty"`
+	// 蓝牙打卡范围描述
+	BluetoothDistanceModeDesc *string `json:"bluetoothDistanceModeDesc,omitempty" xml:"bluetoothDistanceModeDesc,omitempty"`
+	// 是否打开位置异常监控
+	MonitorLocationAbnormal *bool `json:"monitorLocationAbnormal,omitempty" xml:"monitorLocationAbnormal,omitempty"`
+	// 地址位置描述
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// 经度
+	Longitude *float64 `json:"longitude,omitempty" xml:"longitude,omitempty"`
+	// 纬度
+	Latitude *float64 `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	// 是否限制员工常用手机
+	LimitUserDeviceCount *bool `json:"limitUserDeviceCount,omitempty" xml:"limitUserDeviceCount,omitempty"`
+	// 员工常用手机数量
+	UserDeviceCount *int32 `json:"userDeviceCount,omitempty" xml:"userDeviceCount,omitempty"`
+}
+
+func (s GetMachineResponseBodyResultMachineBluetoothVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMachineResponseBodyResultMachineBluetoothVO) GoString() string {
+	return s.String()
+}
+
+func (s *GetMachineResponseBodyResultMachineBluetoothVO) SetBluetoothValue(v bool) *GetMachineResponseBodyResultMachineBluetoothVO {
+	s.BluetoothValue = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResultMachineBluetoothVO) SetBluetoothCheckWithFace(v bool) *GetMachineResponseBodyResultMachineBluetoothVO {
+	s.BluetoothCheckWithFace = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResultMachineBluetoothVO) SetBluetoothDistanceMode(v string) *GetMachineResponseBodyResultMachineBluetoothVO {
+	s.BluetoothDistanceMode = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResultMachineBluetoothVO) SetBluetoothDistanceModeDesc(v string) *GetMachineResponseBodyResultMachineBluetoothVO {
+	s.BluetoothDistanceModeDesc = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResultMachineBluetoothVO) SetMonitorLocationAbnormal(v bool) *GetMachineResponseBodyResultMachineBluetoothVO {
+	s.MonitorLocationAbnormal = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResultMachineBluetoothVO) SetAddress(v string) *GetMachineResponseBodyResultMachineBluetoothVO {
+	s.Address = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResultMachineBluetoothVO) SetLongitude(v float64) *GetMachineResponseBodyResultMachineBluetoothVO {
+	s.Longitude = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResultMachineBluetoothVO) SetLatitude(v float64) *GetMachineResponseBodyResultMachineBluetoothVO {
+	s.Latitude = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResultMachineBluetoothVO) SetLimitUserDeviceCount(v bool) *GetMachineResponseBodyResultMachineBluetoothVO {
+	s.LimitUserDeviceCount = &v
+	return s
+}
+
+func (s *GetMachineResponseBodyResultMachineBluetoothVO) SetUserDeviceCount(v int32) *GetMachineResponseBodyResultMachineBluetoothVO {
+	s.UserDeviceCount = &v
+	return s
+}
+
+type GetMachineResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetMachineResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetMachineResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMachineResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetMachineResponse) SetHeaders(v map[string]*string) *GetMachineResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetMachineResponse) SetBody(v *GetMachineResponseBody) *GetMachineResponse {
+	s.Body = v
+	return s
+}
+
+type GetMachineUserHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetMachineUserHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMachineUserHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetMachineUserHeaders) SetCommonHeaders(v map[string]*string) *GetMachineUserHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetMachineUserHeaders) SetXAcsDingtalkAccessToken(v string) *GetMachineUserHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetMachineUserRequest struct {
+	NextToken  *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+}
+
+func (s GetMachineUserRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMachineUserRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetMachineUserRequest) SetNextToken(v int32) *GetMachineUserRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetMachineUserRequest) SetMaxResults(v int32) *GetMachineUserRequest {
+	s.MaxResults = &v
+	return s
+}
+
+type GetMachineUserResponseBody struct {
+	// 查询结果
+	Result *GetMachineUserResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetMachineUserResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMachineUserResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetMachineUserResponseBody) SetResult(v *GetMachineUserResponseBodyResult) *GetMachineUserResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetMachineUserResponseBodyResult struct {
+	// 人员列表
+	UserList []*GetMachineUserResponseBodyResultUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+	// 更多
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+}
+
+func (s GetMachineUserResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMachineUserResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetMachineUserResponseBodyResult) SetUserList(v []*GetMachineUserResponseBodyResultUserList) *GetMachineUserResponseBodyResult {
+	s.UserList = v
+	return s
+}
+
+func (s *GetMachineUserResponseBodyResult) SetHasMore(v bool) *GetMachineUserResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+type GetMachineUserResponseBodyResultUserList struct {
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 员工名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 是否有人脸信息
+	HasFace *bool `json:"hasFace,omitempty" xml:"hasFace,omitempty"`
+}
+
+func (s GetMachineUserResponseBodyResultUserList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMachineUserResponseBodyResultUserList) GoString() string {
+	return s.String()
+}
+
+func (s *GetMachineUserResponseBodyResultUserList) SetUserId(v string) *GetMachineUserResponseBodyResultUserList {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetMachineUserResponseBodyResultUserList) SetName(v string) *GetMachineUserResponseBodyResultUserList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetMachineUserResponseBodyResultUserList) SetHasFace(v bool) *GetMachineUserResponseBodyResultUserList {
+	s.HasFace = &v
+	return s
+}
+
+type GetMachineUserResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetMachineUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetMachineUserResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMachineUserResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetMachineUserResponse) SetHeaders(v map[string]*string) *GetMachineUserResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetMachineUserResponse) SetBody(v *GetMachineUserResponseBody) *GetMachineUserResponse {
+	s.Body = v
+	return s
+}
+
 type GetUserHolidaysHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1438,6 +1815,88 @@ func (client *Client) CheckClosingAccountWithOptions(request *CheckClosingAccoun
 	}
 	_result = &CheckClosingAccountResponse{}
 	_body, _err := client.DoROARequest(tea.String("CheckClosingAccount"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/closingAccounts/status/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetMachine(devId *string) (_result *GetMachineResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetMachineHeaders{}
+	_result = &GetMachineResponse{}
+	_body, _err := client.GetMachineWithOptions(devId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetMachineWithOptions(devId *string, headers *GetMachineHeaders, runtime *util.RuntimeOptions) (_result *GetMachineResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetMachineResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetMachine"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/machines/"+tea.StringValue(devId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetMachineUser(devId *string, request *GetMachineUserRequest) (_result *GetMachineUserResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetMachineUserHeaders{}
+	_result = &GetMachineUserResponse{}
+	_body, _err := client.GetMachineUserWithOptions(devId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetMachineUserWithOptions(devId *string, request *GetMachineUserRequest, headers *GetMachineUserHeaders, runtime *util.RuntimeOptions) (_result *GetMachineUserResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetMachineUserResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetMachineUser"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/machines/getUser/"+tea.StringValue(devId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -11,6 +11,282 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type QueryCloudRecordTextHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCloudRecordTextHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordTextHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordTextHeaders) SetCommonHeaders(v map[string]*string) *QueryCloudRecordTextHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCloudRecordTextHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCloudRecordTextHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCloudRecordTextRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 0-向前查询，1-向后查询 。 向前查询：此次查询按照时间由小到大的顺序进行。
+	Direction *string `json:"direction,omitempty" xml:"direction,omitempty"`
+	// 单页查询的最大条目数，最多2000
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 游标，第一次查询可为空，之后每次带上一次的游标
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s QueryCloudRecordTextRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordTextRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordTextRequest) SetUnionId(v string) *QueryCloudRecordTextRequest {
+	s.UnionId = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextRequest) SetStartTime(v int64) *QueryCloudRecordTextRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextRequest) SetDirection(v string) *QueryCloudRecordTextRequest {
+	s.Direction = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextRequest) SetMaxResults(v int64) *QueryCloudRecordTextRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextRequest) SetNextToken(v int64) *QueryCloudRecordTextRequest {
+	s.NextToken = &v
+	return s
+}
+
+type QueryCloudRecordTextResponseBody struct {
+	// 是否有更多
+	HasNext *bool `json:"hasNext,omitempty" xml:"hasNext,omitempty"`
+	// MP4格式下载链接
+	ParagraphList []*QueryCloudRecordTextResponseBodyParagraphList `json:"paragraphList,omitempty" xml:"paragraphList,omitempty" type:"Repeated"`
+}
+
+func (s QueryCloudRecordTextResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordTextResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordTextResponseBody) SetHasNext(v bool) *QueryCloudRecordTextResponseBody {
+	s.HasNext = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBody) SetParagraphList(v []*QueryCloudRecordTextResponseBodyParagraphList) *QueryCloudRecordTextResponseBody {
+	s.ParagraphList = v
+	return s
+}
+
+type QueryCloudRecordTextResponseBodyParagraphList struct {
+	// 游标，下次查询时使用
+	Token *int64 `json:"token,omitempty" xml:"token,omitempty"`
+	// 状态，暂不解析
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+	// 发言人unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 发言人昵称
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// 云录制id
+	RecordId *int64 `json:"recordId,omitempty" xml:"recordId,omitempty"`
+	// 开始时间，毫秒
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 结束时间，毫秒
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 段落内容
+	Paragraph *string `json:"paragraph,omitempty" xml:"paragraph,omitempty"`
+	// 句子列表
+	SentenceList []*QueryCloudRecordTextResponseBodyParagraphListSentenceList `json:"sentenceList,omitempty" xml:"sentenceList,omitempty" type:"Repeated"`
+}
+
+func (s QueryCloudRecordTextResponseBodyParagraphList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordTextResponseBodyParagraphList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetToken(v int64) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.Token = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetStatus(v int64) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetUnionId(v string) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.UnionId = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetNickName(v string) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.NickName = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetRecordId(v int64) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.RecordId = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetStartTime(v int64) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetEndTime(v int64) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetParagraph(v string) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.Paragraph = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetSentenceList(v []*QueryCloudRecordTextResponseBodyParagraphListSentenceList) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.SentenceList = v
+	return s
+}
+
+type QueryCloudRecordTextResponseBodyParagraphListSentenceList struct {
+	// 用户unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 句子
+	Sentence *string `json:"sentence,omitempty" xml:"sentence,omitempty"`
+	// 开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 单词列表
+	WordList []*QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList `json:"wordList,omitempty" xml:"wordList,omitempty" type:"Repeated"`
+}
+
+func (s QueryCloudRecordTextResponseBodyParagraphListSentenceList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordTextResponseBodyParagraphListSentenceList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceList) SetUnionId(v string) *QueryCloudRecordTextResponseBodyParagraphListSentenceList {
+	s.UnionId = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceList) SetSentence(v string) *QueryCloudRecordTextResponseBodyParagraphListSentenceList {
+	s.Sentence = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceList) SetStartTime(v int64) *QueryCloudRecordTextResponseBodyParagraphListSentenceList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceList) SetEndTime(v int64) *QueryCloudRecordTextResponseBodyParagraphListSentenceList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceList) SetWordList(v []*QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) *QueryCloudRecordTextResponseBodyParagraphListSentenceList {
+	s.WordList = v
+	return s
+}
+
+type QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList struct {
+	// 单词
+	Word *string `json:"word,omitempty" xml:"word,omitempty"`
+	// 开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 单词id
+	WordId *string `json:"wordId,omitempty" xml:"wordId,omitempty"`
+}
+
+func (s QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) SetWord(v string) *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList {
+	s.Word = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) SetStartTime(v int64) *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) SetEndTime(v int64) *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) SetWordId(v string) *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList {
+	s.WordId = &v
+	return s
+}
+
+type QueryCloudRecordTextResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryCloudRecordTextResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryCloudRecordTextResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordTextResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordTextResponse) SetHeaders(v map[string]*string) *QueryCloudRecordTextResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponse) SetBody(v *QueryCloudRecordTextResponseBody) *QueryCloudRecordTextResponse {
+	s.Body = v
+	return s
+}
+
 type CreateVideoConferenceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -131,6 +407,130 @@ func (s *CreateVideoConferenceResponse) SetHeaders(v map[string]*string) *Create
 }
 
 func (s *CreateVideoConferenceResponse) SetBody(v *CreateVideoConferenceResponseBody) *CreateVideoConferenceResponse {
+	s.Body = v
+	return s
+}
+
+type QueryCloudRecordVideoPlayInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCloudRecordVideoPlayInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordVideoPlayInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordVideoPlayInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryCloudRecordVideoPlayInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCloudRecordVideoPlayInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCloudRecordVideoPlayInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCloudRecordVideoPlayInfoRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 媒体文件id
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// 集群id
+	RegionId *string `json:"regionId,omitempty" xml:"regionId,omitempty"`
+}
+
+func (s QueryCloudRecordVideoPlayInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordVideoPlayInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordVideoPlayInfoRequest) SetUnionId(v string) *QueryCloudRecordVideoPlayInfoRequest {
+	s.UnionId = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoPlayInfoRequest) SetMediaId(v string) *QueryCloudRecordVideoPlayInfoRequest {
+	s.MediaId = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoPlayInfoRequest) SetRegionId(v string) *QueryCloudRecordVideoPlayInfoRequest {
+	s.RegionId = &v
+	return s
+}
+
+type QueryCloudRecordVideoPlayInfoResponseBody struct {
+	// 在线播放链接
+	PlayUrl *string `json:"playUrl,omitempty" xml:"playUrl,omitempty"`
+	// MP4格式下载链接
+	Mp4FileUrl *string `json:"mp4FileUrl,omitempty" xml:"mp4FileUrl,omitempty"`
+	// 大小
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// 时长
+	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 状态
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QueryCloudRecordVideoPlayInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordVideoPlayInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordVideoPlayInfoResponseBody) SetPlayUrl(v string) *QueryCloudRecordVideoPlayInfoResponseBody {
+	s.PlayUrl = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoPlayInfoResponseBody) SetMp4FileUrl(v string) *QueryCloudRecordVideoPlayInfoResponseBody {
+	s.Mp4FileUrl = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoPlayInfoResponseBody) SetSize(v int64) *QueryCloudRecordVideoPlayInfoResponseBody {
+	s.Size = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoPlayInfoResponseBody) SetDuration(v int64) *QueryCloudRecordVideoPlayInfoResponseBody {
+	s.Duration = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoPlayInfoResponseBody) SetStatus(v int64) *QueryCloudRecordVideoPlayInfoResponseBody {
+	s.Status = &v
+	return s
+}
+
+type QueryCloudRecordVideoPlayInfoResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryCloudRecordVideoPlayInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryCloudRecordVideoPlayInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordVideoPlayInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordVideoPlayInfoResponse) SetHeaders(v map[string]*string) *QueryCloudRecordVideoPlayInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCloudRecordVideoPlayInfoResponse) SetBody(v *QueryCloudRecordVideoPlayInfoResponseBody) *QueryCloudRecordVideoPlayInfoResponse {
 	s.Body = v
 	return s
 }
@@ -898,6 +1298,162 @@ func (s *StartStreamOutResponse) SetBody(v *StartStreamOutResponseBody) *StartSt
 	return s
 }
 
+type QueryCloudRecordVideoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCloudRecordVideoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordVideoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordVideoHeaders) SetCommonHeaders(v map[string]*string) *QueryCloudRecordVideoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCloudRecordVideoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCloudRecordVideoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCloudRecordVideoRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryCloudRecordVideoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordVideoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordVideoRequest) SetUnionId(v string) *QueryCloudRecordVideoRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryCloudRecordVideoResponseBody struct {
+	// 视频列表
+	VideoList []*QueryCloudRecordVideoResponseBodyVideoList `json:"videoList,omitempty" xml:"videoList,omitempty" type:"Repeated"`
+}
+
+func (s QueryCloudRecordVideoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordVideoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordVideoResponseBody) SetVideoList(v []*QueryCloudRecordVideoResponseBodyVideoList) *QueryCloudRecordVideoResponseBody {
+	s.VideoList = v
+	return s
+}
+
+type QueryCloudRecordVideoResponseBodyVideoList struct {
+	// 音视频云录制Id，多份视频recordId一样
+	RecordId *string `json:"recordId,omitempty" xml:"recordId,omitempty"`
+	// 录制人UnionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 录制开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 记录类型,0-普通录制，1-合成的文件
+	RecordType *int64 `json:"recordType,omitempty" xml:"recordType,omitempty"`
+	// 录制持续时间
+	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 文件大小
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// 录制结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 媒体文件id，唯一
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// 媒体文件所在集群id
+	RegionId *string `json:"regionId,omitempty" xml:"regionId,omitempty"`
+}
+
+func (s QueryCloudRecordVideoResponseBodyVideoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordVideoResponseBodyVideoList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetRecordId(v string) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.RecordId = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetUnionId(v string) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.UnionId = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetStartTime(v int64) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetRecordType(v int64) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.RecordType = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetDuration(v int64) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.Duration = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetFileSize(v int64) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.FileSize = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetEndTime(v int64) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetMediaId(v string) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.MediaId = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetRegionId(v string) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.RegionId = &v
+	return s
+}
+
+type QueryCloudRecordVideoResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryCloudRecordVideoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryCloudRecordVideoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordVideoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordVideoResponse) SetHeaders(v map[string]*string) *QueryCloudRecordVideoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponse) SetBody(v *QueryCloudRecordVideoResponseBody) *QueryCloudRecordVideoResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -919,6 +1475,66 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) QueryCloudRecordText(conferenceId *string, request *QueryCloudRecordTextRequest) (_result *QueryCloudRecordTextResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCloudRecordTextHeaders{}
+	_result = &QueryCloudRecordTextResponse{}
+	_body, _err := client.QueryCloudRecordTextWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryCloudRecordTextWithOptions(conferenceId *string, request *QueryCloudRecordTextRequest, headers *QueryCloudRecordTextHeaders, runtime *util.RuntimeOptions) (_result *QueryCloudRecordTextResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Direction)) {
+		query["direction"] = request.Direction
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryCloudRecordTextResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryCloudRecordText"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)+"/cloudRecords/getTexts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) CreateVideoConference(request *CreateVideoConferenceRequest) (_result *CreateVideoConferenceResponse, _err error) {
@@ -966,6 +1582,58 @@ func (client *Client) CreateVideoConferenceWithOptions(request *CreateVideoConfe
 	}
 	_result = &CreateVideoConferenceResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateVideoConference"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryCloudRecordVideoPlayInfo(conferenceId *string, request *QueryCloudRecordVideoPlayInfoRequest) (_result *QueryCloudRecordVideoPlayInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCloudRecordVideoPlayInfoHeaders{}
+	_result = &QueryCloudRecordVideoPlayInfoResponse{}
+	_body, _err := client.QueryCloudRecordVideoPlayInfoWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryCloudRecordVideoPlayInfoWithOptions(conferenceId *string, request *QueryCloudRecordVideoPlayInfoRequest, headers *QueryCloudRecordVideoPlayInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryCloudRecordVideoPlayInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
+		query["mediaId"] = request.MediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RegionId)) {
+		query["regionId"] = request.RegionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryCloudRecordVideoPlayInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryCloudRecordVideoPlayInfo"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)+"/cloudRecords/videos/getPlayInfos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1300,6 +1968,50 @@ func (client *Client) StartStreamOutWithOptions(conferenceId *string, request *S
 	}
 	_result = &StartStreamOutResponse{}
 	_body, _err := client.DoROARequest(tea.String("StartStreamOut"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)+"/streamOuts/start"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryCloudRecordVideo(conferenceId *string, request *QueryCloudRecordVideoRequest) (_result *QueryCloudRecordVideoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCloudRecordVideoHeaders{}
+	_result = &QueryCloudRecordVideoResponse{}
+	_body, _err := client.QueryCloudRecordVideoWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryCloudRecordVideoWithOptions(conferenceId *string, request *QueryCloudRecordVideoRequest, headers *QueryCloudRecordVideoHeaders, runtime *util.RuntimeOptions) (_result *QueryCloudRecordVideoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryCloudRecordVideoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryCloudRecordVideo"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)+"/cloudRecords/getVideos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

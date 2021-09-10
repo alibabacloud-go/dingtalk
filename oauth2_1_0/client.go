@@ -359,6 +359,95 @@ func (s *GetCorpAccessTokenResponse) SetBody(v *GetCorpAccessTokenResponseBody) 
 	return s
 }
 
+type GetPersonalAuthRuleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPersonalAuthRuleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPersonalAuthRuleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPersonalAuthRuleHeaders) SetCommonHeaders(v map[string]*string) *GetPersonalAuthRuleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPersonalAuthRuleHeaders) SetXAcsDingtalkAccessToken(v string) *GetPersonalAuthRuleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPersonalAuthRuleResponseBody struct {
+	// list
+	Result []*GetPersonalAuthRuleResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetPersonalAuthRuleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPersonalAuthRuleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPersonalAuthRuleResponseBody) SetResult(v []*GetPersonalAuthRuleResponseBodyResult) *GetPersonalAuthRuleResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetPersonalAuthRuleResponseBodyResult struct {
+	// resource
+	Resource *string `json:"resource,omitempty" xml:"resource,omitempty"`
+	// authItems
+	AuthItems []*string `json:"authItems,omitempty" xml:"authItems,omitempty" type:"Repeated"`
+}
+
+func (s GetPersonalAuthRuleResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPersonalAuthRuleResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetPersonalAuthRuleResponseBodyResult) SetResource(v string) *GetPersonalAuthRuleResponseBodyResult {
+	s.Resource = &v
+	return s
+}
+
+func (s *GetPersonalAuthRuleResponseBodyResult) SetAuthItems(v []*string) *GetPersonalAuthRuleResponseBodyResult {
+	s.AuthItems = v
+	return s
+}
+
+type GetPersonalAuthRuleResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetPersonalAuthRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetPersonalAuthRuleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPersonalAuthRuleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPersonalAuthRuleResponse) SetHeaders(v map[string]*string) *GetPersonalAuthRuleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPersonalAuthRuleResponse) SetBody(v *GetPersonalAuthRuleResponseBody) *GetPersonalAuthRuleResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -555,6 +644,40 @@ func (client *Client) GetCorpAccessTokenWithOptions(request *GetCorpAccessTokenR
 	}
 	_result = &GetCorpAccessTokenResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetCorpAccessToken"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/oauth2/corpAccessToken"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetPersonalAuthRule() (_result *GetPersonalAuthRuleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPersonalAuthRuleHeaders{}
+	_result = &GetPersonalAuthRuleResponse{}
+	_body, _err := client.GetPersonalAuthRuleWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetPersonalAuthRuleWithOptions(headers *GetPersonalAuthRuleHeaders, runtime *util.RuntimeOptions) (_result *GetPersonalAuthRuleResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetPersonalAuthRuleResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetPersonalAuthRule"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/oauth2/authRules/user"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

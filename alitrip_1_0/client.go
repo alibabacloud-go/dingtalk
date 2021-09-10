@@ -11,6 +11,522 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type ApproveCityCarApplyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ApproveCityCarApplyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApproveCityCarApplyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ApproveCityCarApplyHeaders) SetCommonHeaders(v map[string]*string) *ApproveCityCarApplyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ApproveCityCarApplyHeaders) SetXAcsDingtalkAccessToken(v string) *ApproveCityCarApplyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ApproveCityCarApplyRequest struct {
+	// 第三方企业ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 审批时间
+	OperateTime *string `json:"operateTime,omitempty" xml:"operateTime,omitempty"`
+	// 审批备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// 审批结果：1-同意，2-拒绝
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+	// 第三方审批单ID
+	ThirdPartApplyId *string `json:"thirdPartApplyId,omitempty" xml:"thirdPartApplyId,omitempty"`
+	// 审批的第三方员工ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// suiteKey
+	DingSuiteKey *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	// account
+	DingCorpId *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	// tokenGrantType
+	DingTokenGrantType *int64 `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+}
+
+func (s ApproveCityCarApplyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApproveCityCarApplyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ApproveCityCarApplyRequest) SetCorpId(v string) *ApproveCityCarApplyRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ApproveCityCarApplyRequest) SetOperateTime(v string) *ApproveCityCarApplyRequest {
+	s.OperateTime = &v
+	return s
+}
+
+func (s *ApproveCityCarApplyRequest) SetRemark(v string) *ApproveCityCarApplyRequest {
+	s.Remark = &v
+	return s
+}
+
+func (s *ApproveCityCarApplyRequest) SetStatus(v int64) *ApproveCityCarApplyRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *ApproveCityCarApplyRequest) SetThirdPartApplyId(v string) *ApproveCityCarApplyRequest {
+	s.ThirdPartApplyId = &v
+	return s
+}
+
+func (s *ApproveCityCarApplyRequest) SetUserId(v string) *ApproveCityCarApplyRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *ApproveCityCarApplyRequest) SetDingSuiteKey(v string) *ApproveCityCarApplyRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *ApproveCityCarApplyRequest) SetDingCorpId(v string) *ApproveCityCarApplyRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *ApproveCityCarApplyRequest) SetDingTokenGrantType(v int64) *ApproveCityCarApplyRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+type ApproveCityCarApplyResponseBody struct {
+	// 审批结果
+	ApproveResult *bool `json:"approveResult,omitempty" xml:"approveResult,omitempty"`
+}
+
+func (s ApproveCityCarApplyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApproveCityCarApplyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ApproveCityCarApplyResponseBody) SetApproveResult(v bool) *ApproveCityCarApplyResponseBody {
+	s.ApproveResult = &v
+	return s
+}
+
+type ApproveCityCarApplyResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ApproveCityCarApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ApproveCityCarApplyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApproveCityCarApplyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ApproveCityCarApplyResponse) SetHeaders(v map[string]*string) *ApproveCityCarApplyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ApproveCityCarApplyResponse) SetBody(v *ApproveCityCarApplyResponseBody) *ApproveCityCarApplyResponse {
+	s.Body = v
+	return s
+}
+
+type GetFlightExceedApplyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFlightExceedApplyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFlightExceedApplyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFlightExceedApplyHeaders) SetCommonHeaders(v map[string]*string) *GetFlightExceedApplyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFlightExceedApplyHeaders) SetXAcsDingtalkAccessToken(v string) *GetFlightExceedApplyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFlightExceedApplyRequest struct {
+	// 第三方企业id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 商旅超标审批单id
+	ApplyId *string `json:"applyId,omitempty" xml:"applyId,omitempty"`
+}
+
+func (s GetFlightExceedApplyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFlightExceedApplyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFlightExceedApplyRequest) SetCorpId(v string) *GetFlightExceedApplyRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyRequest) SetApplyId(v string) *GetFlightExceedApplyRequest {
+	s.ApplyId = &v
+	return s
+}
+
+type GetFlightExceedApplyResponseBody struct {
+	// 第三方企业id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 商旅超标审批单id
+	ApplyId *int64 `json:"applyId,omitempty" xml:"applyId,omitempty"`
+	// 审批单状态 0:审批中 1:已同意 2:已拒绝
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 出差原因
+	BtripCause *string `json:"btripCause,omitempty" xml:"btripCause,omitempty"`
+	// 超标类型，1:折扣 2,8,10:时间 3,9,11:折扣和时间
+	ExceedType *int32 `json:"exceedType,omitempty" xml:"exceedType,omitempty"`
+	// 超标原因
+	ExceedReason *string `json:"exceedReason,omitempty" xml:"exceedReason,omitempty"`
+	// 原差旅标准
+	OriginStandard *string `json:"originStandard,omitempty" xml:"originStandard,omitempty"`
+	// 审批单提交时间
+	SubmitTime *string `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
+	// 第三方用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 意向出行信息
+	ApplyIntentionInfoDO *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO `json:"applyIntentionInfoDO,omitempty" xml:"applyIntentionInfoDO,omitempty" type:"Struct"`
+	// 第三方出差审批单号
+	ThirdpartApplyId *string `json:"thirdpartApplyId,omitempty" xml:"thirdpartApplyId,omitempty"`
+}
+
+func (s GetFlightExceedApplyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFlightExceedApplyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFlightExceedApplyResponseBody) SetCorpId(v string) *GetFlightExceedApplyResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBody) SetApplyId(v int64) *GetFlightExceedApplyResponseBody {
+	s.ApplyId = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBody) SetStatus(v int32) *GetFlightExceedApplyResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBody) SetBtripCause(v string) *GetFlightExceedApplyResponseBody {
+	s.BtripCause = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBody) SetExceedType(v int32) *GetFlightExceedApplyResponseBody {
+	s.ExceedType = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBody) SetExceedReason(v string) *GetFlightExceedApplyResponseBody {
+	s.ExceedReason = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBody) SetOriginStandard(v string) *GetFlightExceedApplyResponseBody {
+	s.OriginStandard = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBody) SetSubmitTime(v string) *GetFlightExceedApplyResponseBody {
+	s.SubmitTime = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBody) SetUserId(v string) *GetFlightExceedApplyResponseBody {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBody) SetApplyIntentionInfoDO(v *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) *GetFlightExceedApplyResponseBody {
+	s.ApplyIntentionInfoDO = v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBody) SetThirdpartApplyId(v string) *GetFlightExceedApplyResponseBody {
+	s.ThirdpartApplyId = &v
+	return s
+}
+
+type GetFlightExceedApplyResponseBodyApplyIntentionInfoDO struct {
+	// 到达城市三字码
+	ArrCity *string `json:"arrCity,omitempty" xml:"arrCity,omitempty"`
+	// 到达城市名称
+	ArrCityName *string `json:"arrCityName,omitempty" xml:"arrCityName,omitempty"`
+	// 到达时间
+	ArrTime *string `json:"arrTime,omitempty" xml:"arrTime,omitempty"`
+	// 超标的舱位，F：头等舱 C：商务舱 Y：经济舱 P：超值经济舱
+	Cabin *string `json:"cabin,omitempty" xml:"cabin,omitempty"`
+	// 申请超标的舱等 0：头等舱 1：商务舱 2：经济舱 3：超值经济舱
+	CabinClass *int32 `json:"cabinClass,omitempty" xml:"cabinClass,omitempty"`
+	// 舱等描述，头等舱，商务舱，经济舱，超值经济舱
+	CabinClassStr *string `json:"cabinClassStr,omitempty" xml:"cabinClassStr,omitempty"`
+	// 出发城市三字码
+	DepCity *string `json:"depCity,omitempty" xml:"depCity,omitempty"`
+	// 出发城市名称
+	DepCityName *string `json:"depCityName,omitempty" xml:"depCityName,omitempty"`
+	// 出发时间
+	DepTime *string `json:"depTime,omitempty" xml:"depTime,omitempty"`
+	// 折扣
+	Discount *float64 `json:"discount,omitempty" xml:"discount,omitempty"`
+	// 航班号
+	FlightNo *string `json:"flightNo,omitempty" xml:"flightNo,omitempty"`
+	// 意向航班价格（元）
+	Price *int64 `json:"price,omitempty" xml:"price,omitempty"`
+	// 超标类型，1:折扣 2,8,10:时间 3,9,11:折扣和时间
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) GoString() string {
+	return s.String()
+}
+
+func (s *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) SetArrCity(v string) *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.ArrCity = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) SetArrCityName(v string) *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.ArrCityName = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) SetArrTime(v string) *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.ArrTime = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) SetCabin(v string) *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.Cabin = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) SetCabinClass(v int32) *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.CabinClass = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) SetCabinClassStr(v string) *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.CabinClassStr = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) SetDepCity(v string) *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.DepCity = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) SetDepCityName(v string) *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.DepCityName = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) SetDepTime(v string) *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.DepTime = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) SetDiscount(v float64) *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.Discount = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) SetFlightNo(v string) *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.FlightNo = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) SetPrice(v int64) *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.Price = &v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO) SetType(v int32) *GetFlightExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.Type = &v
+	return s
+}
+
+type GetFlightExceedApplyResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetFlightExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetFlightExceedApplyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFlightExceedApplyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFlightExceedApplyResponse) SetHeaders(v map[string]*string) *GetFlightExceedApplyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFlightExceedApplyResponse) SetBody(v *GetFlightExceedApplyResponseBody) *GetFlightExceedApplyResponse {
+	s.Body = v
+	return s
+}
+
+type SyncExceedApplyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncExceedApplyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncExceedApplyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncExceedApplyHeaders) SetCommonHeaders(v map[string]*string) *SyncExceedApplyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncExceedApplyHeaders) SetXAcsDingtalkAccessToken(v string) *SyncExceedApplyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncExceedApplyRequest struct {
+	// 审批意见
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// 商旅超标审批单id
+	ApplyId *string `json:"applyId,omitempty" xml:"applyId,omitempty"`
+	// 企业id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 第三方流程实例id
+	ThirdpartyFlowId *string `json:"thirdpartyFlowId,omitempty" xml:"thirdpartyFlowId,omitempty"`
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 审批单状态 1同意2拒绝
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s SyncExceedApplyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncExceedApplyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncExceedApplyRequest) SetRemark(v string) *SyncExceedApplyRequest {
+	s.Remark = &v
+	return s
+}
+
+func (s *SyncExceedApplyRequest) SetApplyId(v string) *SyncExceedApplyRequest {
+	s.ApplyId = &v
+	return s
+}
+
+func (s *SyncExceedApplyRequest) SetCorpId(v string) *SyncExceedApplyRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *SyncExceedApplyRequest) SetThirdpartyFlowId(v string) *SyncExceedApplyRequest {
+	s.ThirdpartyFlowId = &v
+	return s
+}
+
+func (s *SyncExceedApplyRequest) SetUserId(v string) *SyncExceedApplyRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *SyncExceedApplyRequest) SetStatus(v int32) *SyncExceedApplyRequest {
+	s.Status = &v
+	return s
+}
+
+type SyncExceedApplyResponseBody struct {
+	// 是否同步成功
+	Module *bool `json:"module,omitempty" xml:"module,omitempty"`
+}
+
+func (s SyncExceedApplyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncExceedApplyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncExceedApplyResponseBody) SetModule(v bool) *SyncExceedApplyResponseBody {
+	s.Module = &v
+	return s
+}
+
+type SyncExceedApplyResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SyncExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SyncExceedApplyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncExceedApplyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncExceedApplyResponse) SetHeaders(v map[string]*string) *SyncExceedApplyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncExceedApplyResponse) SetBody(v *SyncExceedApplyResponseBody) *SyncExceedApplyResponse {
+	s.Body = v
+	return s
+}
+
 type AddCityCarApplyHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -219,140 +735,221 @@ func (s *AddCityCarApplyResponse) SetBody(v *AddCityCarApplyResponseBody) *AddCi
 	return s
 }
 
-type ApproveCityCarApplyHeaders struct {
+type GetHotelExceedApplyHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s ApproveCityCarApplyHeaders) String() string {
+func (s GetHotelExceedApplyHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ApproveCityCarApplyHeaders) GoString() string {
+func (s GetHotelExceedApplyHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *ApproveCityCarApplyHeaders) SetCommonHeaders(v map[string]*string) *ApproveCityCarApplyHeaders {
+func (s *GetHotelExceedApplyHeaders) SetCommonHeaders(v map[string]*string) *GetHotelExceedApplyHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *ApproveCityCarApplyHeaders) SetXAcsDingtalkAccessToken(v string) *ApproveCityCarApplyHeaders {
+func (s *GetHotelExceedApplyHeaders) SetXAcsDingtalkAccessToken(v string) *GetHotelExceedApplyHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type ApproveCityCarApplyRequest struct {
-	// 第三方企业ID
+type GetHotelExceedApplyRequest struct {
+	// 第三方企业id
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 审批时间
-	OperateTime *string `json:"operateTime,omitempty" xml:"operateTime,omitempty"`
-	// 审批备注
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 审批结果：1-同意，2-拒绝
-	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
-	// 第三方审批单ID
-	ThirdPartApplyId *string `json:"thirdPartApplyId,omitempty" xml:"thirdPartApplyId,omitempty"`
-	// 审批的第三方员工ID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// suiteKey
-	DingSuiteKey *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
-	// account
-	DingCorpId *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
-	// tokenGrantType
-	DingTokenGrantType *int64 `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	// 商旅超标审批单id
+	ApplyId *string `json:"applyId,omitempty" xml:"applyId,omitempty"`
 }
 
-func (s ApproveCityCarApplyRequest) String() string {
+func (s GetHotelExceedApplyRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ApproveCityCarApplyRequest) GoString() string {
+func (s GetHotelExceedApplyRequest) GoString() string {
 	return s.String()
 }
 
-func (s *ApproveCityCarApplyRequest) SetCorpId(v string) *ApproveCityCarApplyRequest {
+func (s *GetHotelExceedApplyRequest) SetCorpId(v string) *GetHotelExceedApplyRequest {
 	s.CorpId = &v
 	return s
 }
 
-func (s *ApproveCityCarApplyRequest) SetOperateTime(v string) *ApproveCityCarApplyRequest {
-	s.OperateTime = &v
+func (s *GetHotelExceedApplyRequest) SetApplyId(v string) *GetHotelExceedApplyRequest {
+	s.ApplyId = &v
 	return s
 }
 
-func (s *ApproveCityCarApplyRequest) SetRemark(v string) *ApproveCityCarApplyRequest {
-	s.Remark = &v
+type GetHotelExceedApplyResponseBody struct {
+	// 第三方企业id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 商旅超标审批单id
+	ApplyId *int64 `json:"applyId,omitempty" xml:"applyId,omitempty"`
+	// 审批单状态 0:审批中 1:已同意 2:已拒绝
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 出差原因
+	BtripCause *string `json:"btripCause,omitempty" xml:"btripCause,omitempty"`
+	// 超标类型，32：金额超标
+	ExceedType *int32 `json:"exceedType,omitempty" xml:"exceedType,omitempty"`
+	// 超标原因
+	ExceedReason *string `json:"exceedReason,omitempty" xml:"exceedReason,omitempty"`
+	// 原差旅标准
+	OriginStandard *string `json:"originStandard,omitempty" xml:"originStandard,omitempty"`
+	// 审批单提交时间
+	SubmitTime *string `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
+	// 第三方用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 意向出行信息
+	ApplyIntentionInfoDO *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO `json:"applyIntentionInfoDO,omitempty" xml:"applyIntentionInfoDO,omitempty" type:"Struct"`
+	// 第三方出差审批单号
+	ThirdpartApplyId *string `json:"thirdpartApplyId,omitempty" xml:"thirdpartApplyId,omitempty"`
+}
+
+func (s GetHotelExceedApplyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetHotelExceedApplyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetHotelExceedApplyResponseBody) SetCorpId(v string) *GetHotelExceedApplyResponseBody {
+	s.CorpId = &v
 	return s
 }
 
-func (s *ApproveCityCarApplyRequest) SetStatus(v int64) *ApproveCityCarApplyRequest {
+func (s *GetHotelExceedApplyResponseBody) SetApplyId(v int64) *GetHotelExceedApplyResponseBody {
+	s.ApplyId = &v
+	return s
+}
+
+func (s *GetHotelExceedApplyResponseBody) SetStatus(v int32) *GetHotelExceedApplyResponseBody {
 	s.Status = &v
 	return s
 }
 
-func (s *ApproveCityCarApplyRequest) SetThirdPartApplyId(v string) *ApproveCityCarApplyRequest {
-	s.ThirdPartApplyId = &v
+func (s *GetHotelExceedApplyResponseBody) SetBtripCause(v string) *GetHotelExceedApplyResponseBody {
+	s.BtripCause = &v
 	return s
 }
 
-func (s *ApproveCityCarApplyRequest) SetUserId(v string) *ApproveCityCarApplyRequest {
+func (s *GetHotelExceedApplyResponseBody) SetExceedType(v int32) *GetHotelExceedApplyResponseBody {
+	s.ExceedType = &v
+	return s
+}
+
+func (s *GetHotelExceedApplyResponseBody) SetExceedReason(v string) *GetHotelExceedApplyResponseBody {
+	s.ExceedReason = &v
+	return s
+}
+
+func (s *GetHotelExceedApplyResponseBody) SetOriginStandard(v string) *GetHotelExceedApplyResponseBody {
+	s.OriginStandard = &v
+	return s
+}
+
+func (s *GetHotelExceedApplyResponseBody) SetSubmitTime(v string) *GetHotelExceedApplyResponseBody {
+	s.SubmitTime = &v
+	return s
+}
+
+func (s *GetHotelExceedApplyResponseBody) SetUserId(v string) *GetHotelExceedApplyResponseBody {
 	s.UserId = &v
 	return s
 }
 
-func (s *ApproveCityCarApplyRequest) SetDingSuiteKey(v string) *ApproveCityCarApplyRequest {
-	s.DingSuiteKey = &v
+func (s *GetHotelExceedApplyResponseBody) SetApplyIntentionInfoDO(v *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO) *GetHotelExceedApplyResponseBody {
+	s.ApplyIntentionInfoDO = v
 	return s
 }
 
-func (s *ApproveCityCarApplyRequest) SetDingCorpId(v string) *ApproveCityCarApplyRequest {
-	s.DingCorpId = &v
+func (s *GetHotelExceedApplyResponseBody) SetThirdpartApplyId(v string) *GetHotelExceedApplyResponseBody {
+	s.ThirdpartApplyId = &v
 	return s
 }
 
-func (s *ApproveCityCarApplyRequest) SetDingTokenGrantType(v int64) *ApproveCityCarApplyRequest {
-	s.DingTokenGrantType = &v
-	return s
+type GetHotelExceedApplyResponseBodyApplyIntentionInfoDO struct {
+	// 入住日期
+	CheckIn *string `json:"checkIn,omitempty" xml:"checkIn,omitempty"`
+	// 离店日期
+	CheckOut *string `json:"checkOut,omitempty" xml:"checkOut,omitempty"`
+	// 入住城市三字码
+	CityCode *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// 入住城市名称
+	CityName *string `json:"cityName,omitempty" xml:"cityName,omitempty"`
+	// 意向酒店金额（分）
+	Price *int64 `json:"price,omitempty" xml:"price,omitempty"`
+	// 是否合住
+	Together *bool `json:"together,omitempty" xml:"together,omitempty"`
+	// 超标类型，32：金额超标
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
 }
 
-type ApproveCityCarApplyResponseBody struct {
-	// 审批结果
-	ApproveResult *bool `json:"approveResult,omitempty" xml:"approveResult,omitempty"`
-}
-
-func (s ApproveCityCarApplyResponseBody) String() string {
+func (s GetHotelExceedApplyResponseBodyApplyIntentionInfoDO) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ApproveCityCarApplyResponseBody) GoString() string {
+func (s GetHotelExceedApplyResponseBodyApplyIntentionInfoDO) GoString() string {
 	return s.String()
 }
 
-func (s *ApproveCityCarApplyResponseBody) SetApproveResult(v bool) *ApproveCityCarApplyResponseBody {
-	s.ApproveResult = &v
+func (s *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO) SetCheckIn(v string) *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.CheckIn = &v
 	return s
 }
 
-type ApproveCityCarApplyResponse struct {
+func (s *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO) SetCheckOut(v string) *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.CheckOut = &v
+	return s
+}
+
+func (s *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO) SetCityCode(v string) *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.CityCode = &v
+	return s
+}
+
+func (s *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO) SetCityName(v string) *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.CityName = &v
+	return s
+}
+
+func (s *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO) SetPrice(v int64) *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.Price = &v
+	return s
+}
+
+func (s *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO) SetTogether(v bool) *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.Together = &v
+	return s
+}
+
+func (s *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO) SetType(v int32) *GetHotelExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.Type = &v
+	return s
+}
+
+type GetHotelExceedApplyResponse struct {
 	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ApproveCityCarApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Body    *GetHotelExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
-func (s ApproveCityCarApplyResponse) String() string {
+func (s GetHotelExceedApplyResponse) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ApproveCityCarApplyResponse) GoString() string {
+func (s GetHotelExceedApplyResponse) GoString() string {
 	return s.String()
 }
 
-func (s *ApproveCityCarApplyResponse) SetHeaders(v map[string]*string) *ApproveCityCarApplyResponse {
+func (s *GetHotelExceedApplyResponse) SetHeaders(v map[string]*string) *GetHotelExceedApplyResponse {
 	s.Headers = v
 	return s
 }
 
-func (s *ApproveCityCarApplyResponse) SetBody(v *ApproveCityCarApplyResponseBody) *ApproveCityCarApplyResponse {
+func (s *GetHotelExceedApplyResponse) SetBody(v *GetHotelExceedApplyResponseBody) *GetHotelExceedApplyResponse {
 	s.Body = v
 	return s
 }
@@ -983,6 +1580,260 @@ func (s *QueryCityCarApplyResponse) SetBody(v *QueryCityCarApplyResponseBody) *Q
 	return s
 }
 
+type GetTrainExceedApplyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTrainExceedApplyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTrainExceedApplyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTrainExceedApplyHeaders) SetCommonHeaders(v map[string]*string) *GetTrainExceedApplyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTrainExceedApplyHeaders) SetXAcsDingtalkAccessToken(v string) *GetTrainExceedApplyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTrainExceedApplyRequest struct {
+	// 第三方企业id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 商旅超标审批单id
+	ApplyId *string `json:"applyId,omitempty" xml:"applyId,omitempty"`
+}
+
+func (s GetTrainExceedApplyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTrainExceedApplyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTrainExceedApplyRequest) SetCorpId(v string) *GetTrainExceedApplyRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyRequest) SetApplyId(v string) *GetTrainExceedApplyRequest {
+	s.ApplyId = &v
+	return s
+}
+
+type GetTrainExceedApplyResponseBody struct {
+	// 第三方企业id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 商旅超标审批单id
+	ApplyId *int64 `json:"applyId,omitempty" xml:"applyId,omitempty"`
+	// 审批单状态 0:审批中 1:已同意 2:已拒绝
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 出差原因
+	BtripCause *string `json:"btripCause,omitempty" xml:"btripCause,omitempty"`
+	// 超标类型，32：坐席超标
+	ExceedType *int32 `json:"exceedType,omitempty" xml:"exceedType,omitempty"`
+	// 超标原因
+	ExceedReason *string `json:"exceedReason,omitempty" xml:"exceedReason,omitempty"`
+	// 原差旅标准
+	OriginStandard *string `json:"originStandard,omitempty" xml:"originStandard,omitempty"`
+	// 审批单提交时间
+	SubmitTime *string `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
+	// 第三方用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 意向出行信息
+	ApplyIntentionInfoDO *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO `json:"applyIntentionInfoDO,omitempty" xml:"applyIntentionInfoDO,omitempty" type:"Struct"`
+	// 第三方出差审批单号
+	ThirdpartApplyId *string `json:"thirdpartApplyId,omitempty" xml:"thirdpartApplyId,omitempty"`
+}
+
+func (s GetTrainExceedApplyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTrainExceedApplyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTrainExceedApplyResponseBody) SetCorpId(v string) *GetTrainExceedApplyResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBody) SetApplyId(v int64) *GetTrainExceedApplyResponseBody {
+	s.ApplyId = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBody) SetStatus(v int32) *GetTrainExceedApplyResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBody) SetBtripCause(v string) *GetTrainExceedApplyResponseBody {
+	s.BtripCause = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBody) SetExceedType(v int32) *GetTrainExceedApplyResponseBody {
+	s.ExceedType = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBody) SetExceedReason(v string) *GetTrainExceedApplyResponseBody {
+	s.ExceedReason = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBody) SetOriginStandard(v string) *GetTrainExceedApplyResponseBody {
+	s.OriginStandard = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBody) SetSubmitTime(v string) *GetTrainExceedApplyResponseBody {
+	s.SubmitTime = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBody) SetUserId(v string) *GetTrainExceedApplyResponseBody {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBody) SetApplyIntentionInfoDO(v *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO) *GetTrainExceedApplyResponseBody {
+	s.ApplyIntentionInfoDO = v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBody) SetThirdpartApplyId(v string) *GetTrainExceedApplyResponseBody {
+	s.ThirdpartApplyId = &v
+	return s
+}
+
+type GetTrainExceedApplyResponseBodyApplyIntentionInfoDO struct {
+	// 意向坐席价格（分）
+	Price *int64 `json:"price,omitempty" xml:"price,omitempty"`
+	// 出发城市名
+	DepCityName *string `json:"depCityName,omitempty" xml:"depCityName,omitempty"`
+	// 到达城市名
+	ArrCityName *string `json:"arrCityName,omitempty" xml:"arrCityName,omitempty"`
+	// 出发城市三字码
+	DepCity *string `json:"depCity,omitempty" xml:"depCity,omitempty"`
+	// 到达城市三字码
+	ArrCity *string `json:"arrCity,omitempty" xml:"arrCity,omitempty"`
+	// 出发时间
+	DepTime *string `json:"depTime,omitempty" xml:"depTime,omitempty"`
+	// 到达时间
+	ArrTime *string `json:"arrTime,omitempty" xml:"arrTime,omitempty"`
+	// 到达站点名称
+	ArrStation *string `json:"arrStation,omitempty" xml:"arrStation,omitempty"`
+	// 出发站点名称
+	DepStation *string `json:"depStation,omitempty" xml:"depStation,omitempty"`
+	// 意向车次号
+	TrainNo *string `json:"trainNo,omitempty" xml:"trainNo,omitempty"`
+	// 意向车次类型
+	TrainTypeDesc *string `json:"trainTypeDesc,omitempty" xml:"trainTypeDesc,omitempty"`
+	// 意向坐席名称
+	SeatName *string `json:"seatName,omitempty" xml:"seatName,omitempty"`
+}
+
+func (s GetTrainExceedApplyResponseBodyApplyIntentionInfoDO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTrainExceedApplyResponseBodyApplyIntentionInfoDO) GoString() string {
+	return s.String()
+}
+
+func (s *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO) SetPrice(v int64) *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.Price = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO) SetDepCityName(v string) *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.DepCityName = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO) SetArrCityName(v string) *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.ArrCityName = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO) SetDepCity(v string) *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.DepCity = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO) SetArrCity(v string) *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.ArrCity = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO) SetDepTime(v string) *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.DepTime = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO) SetArrTime(v string) *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.ArrTime = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO) SetArrStation(v string) *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.ArrStation = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO) SetDepStation(v string) *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.DepStation = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO) SetTrainNo(v string) *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.TrainNo = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO) SetTrainTypeDesc(v string) *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.TrainTypeDesc = &v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO) SetSeatName(v string) *GetTrainExceedApplyResponseBodyApplyIntentionInfoDO {
+	s.SeatName = &v
+	return s
+}
+
+type GetTrainExceedApplyResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetTrainExceedApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetTrainExceedApplyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTrainExceedApplyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTrainExceedApplyResponse) SetHeaders(v map[string]*string) *GetTrainExceedApplyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTrainExceedApplyResponse) SetBody(v *GetTrainExceedApplyResponseBody) *GetTrainExceedApplyResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -1004,6 +1855,194 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) ApproveCityCarApply(request *ApproveCityCarApplyRequest) (_result *ApproveCityCarApplyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ApproveCityCarApplyHeaders{}
+	_result = &ApproveCityCarApplyResponse{}
+	_body, _err := client.ApproveCityCarApplyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ApproveCityCarApplyWithOptions(request *ApproveCityCarApplyRequest, headers *ApproveCityCarApplyHeaders, runtime *util.RuntimeOptions) (_result *ApproveCityCarApplyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperateTime)) {
+		body["operateTime"] = request.OperateTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ThirdPartApplyId)) {
+		body["thirdPartApplyId"] = request.ThirdPartApplyId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ApproveCityCarApplyResponse{}
+	_body, _err := client.DoROARequest(tea.String("ApproveCityCarApply"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/alitrip/cityCarApprovals"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetFlightExceedApply(request *GetFlightExceedApplyRequest) (_result *GetFlightExceedApplyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFlightExceedApplyHeaders{}
+	_result = &GetFlightExceedApplyResponse{}
+	_body, _err := client.GetFlightExceedApplyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetFlightExceedApplyWithOptions(request *GetFlightExceedApplyRequest, headers *GetFlightExceedApplyHeaders, runtime *util.RuntimeOptions) (_result *GetFlightExceedApplyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ApplyId)) {
+		query["applyId"] = request.ApplyId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetFlightExceedApplyResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetFlightExceedApply"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/alitrip/exceedapply/getFlight"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SyncExceedApply(request *SyncExceedApplyRequest) (_result *SyncExceedApplyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncExceedApplyHeaders{}
+	_result = &SyncExceedApplyResponse{}
+	_body, _err := client.SyncExceedApplyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SyncExceedApplyWithOptions(request *SyncExceedApplyRequest, headers *SyncExceedApplyHeaders, runtime *util.RuntimeOptions) (_result *SyncExceedApplyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		query["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ApplyId)) {
+		query["applyId"] = request.ApplyId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ThirdpartyFlowId)) {
+		query["thirdpartyFlowId"] = request.ThirdpartyFlowId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		query["status"] = request.Status
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &SyncExceedApplyResponse{}
+	_body, _err := client.DoROARequest(tea.String("SyncExceedApply"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/alitrip/exceedapply/sync"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) AddCityCarApply(request *AddCityCarApplyRequest) (_result *AddCityCarApplyResponse, _err error) {
@@ -1122,11 +2161,11 @@ func (client *Client) AddCityCarApplyWithOptions(request *AddCityCarApplyRequest
 	return _result, _err
 }
 
-func (client *Client) ApproveCityCarApply(request *ApproveCityCarApplyRequest) (_result *ApproveCityCarApplyResponse, _err error) {
+func (client *Client) GetHotelExceedApply(request *GetHotelExceedApplyRequest) (_result *GetHotelExceedApplyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ApproveCityCarApplyHeaders{}
-	_result = &ApproveCityCarApplyResponse{}
-	_body, _err := client.ApproveCityCarApplyWithOptions(request, headers, runtime)
+	headers := &GetHotelExceedApplyHeaders{}
+	_result = &GetHotelExceedApplyResponse{}
+	_body, _err := client.GetHotelExceedApplyWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1134,46 +2173,18 @@ func (client *Client) ApproveCityCarApply(request *ApproveCityCarApplyRequest) (
 	return _result, _err
 }
 
-func (client *Client) ApproveCityCarApplyWithOptions(request *ApproveCityCarApplyRequest, headers *ApproveCityCarApplyHeaders, runtime *util.RuntimeOptions) (_result *ApproveCityCarApplyResponse, _err error) {
+func (client *Client) GetHotelExceedApplyWithOptions(request *GetHotelExceedApplyRequest, headers *GetHotelExceedApplyHeaders, runtime *util.RuntimeOptions) (_result *GetHotelExceedApplyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	body := map[string]interface{}{}
+	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
-		body["corpId"] = request.CorpId
+		query["corpId"] = request.CorpId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.OperateTime)) {
-		body["operateTime"] = request.OperateTime
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Remark)) {
-		body["remark"] = request.Remark
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Status)) {
-		body["status"] = request.Status
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.ThirdPartApplyId)) {
-		body["thirdPartApplyId"] = request.ThirdPartApplyId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.UserId)) {
-		body["userId"] = request.UserId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
-		body["dingSuiteKey"] = request.DingSuiteKey
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
-		body["dingCorpId"] = request.DingCorpId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
-		body["dingTokenGrantType"] = request.DingTokenGrantType
+	if !tea.BoolValue(util.IsUnset(request.ApplyId)) {
+		query["applyId"] = request.ApplyId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -1187,10 +2198,10 @@ func (client *Client) ApproveCityCarApplyWithOptions(request *ApproveCityCarAppl
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
+		Query:   openapiutil.Query(query),
 	}
-	_result = &ApproveCityCarApplyResponse{}
-	_body, _err := client.DoROARequest(tea.String("ApproveCityCarApply"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/alitrip/cityCarApprovals"), tea.String("json"), req, runtime)
+	_result = &GetHotelExceedApplyResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetHotelExceedApply"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/alitrip/exceedapply/getHotel"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1311,6 +2322,54 @@ func (client *Client) QueryCityCarApplyWithOptions(request *QueryCityCarApplyReq
 	}
 	_result = &QueryCityCarApplyResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryCityCarApply"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/alitrip/cityCarApprovals"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetTrainExceedApply(request *GetTrainExceedApplyRequest) (_result *GetTrainExceedApplyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTrainExceedApplyHeaders{}
+	_result = &GetTrainExceedApplyResponse{}
+	_body, _err := client.GetTrainExceedApplyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetTrainExceedApplyWithOptions(request *GetTrainExceedApplyRequest, headers *GetTrainExceedApplyHeaders, runtime *util.RuntimeOptions) (_result *GetTrainExceedApplyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ApplyId)) {
+		query["applyId"] = request.ApplyId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetTrainExceedApplyResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetTrainExceedApply"), tea.String("alitrip_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/alitrip/exceedapply/getTrain"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
