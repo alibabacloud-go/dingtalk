@@ -554,8 +554,8 @@ func (s *GetMachineUserHeaders) SetXAcsDingtalkAccessToken(v string) *GetMachine
 }
 
 type GetMachineUserRequest struct {
-	NextToken  *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 }
 
 func (s GetMachineUserRequest) String() string {
@@ -566,7 +566,7 @@ func (s GetMachineUserRequest) GoString() string {
 	return s.String()
 }
 
-func (s *GetMachineUserRequest) SetNextToken(v int32) *GetMachineUserRequest {
+func (s *GetMachineUserRequest) SetNextToken(v string) *GetMachineUserRequest {
 	s.NextToken = &v
 	return s
 }
@@ -577,7 +577,6 @@ func (s *GetMachineUserRequest) SetMaxResults(v int32) *GetMachineUserRequest {
 }
 
 type GetMachineUserResponseBody struct {
-	// 查询结果
 	Result *GetMachineUserResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -595,10 +594,9 @@ func (s *GetMachineUserResponseBody) SetResult(v *GetMachineUserResponseBodyResu
 }
 
 type GetMachineUserResponseBodyResult struct {
-	// 人员列表
-	UserList []*GetMachineUserResponseBodyResultUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
-	// 更多
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	UserList  []*GetMachineUserResponseBodyResultUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+	HasMore   *bool                                       `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *string                                     `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GetMachineUserResponseBodyResult) String() string {
@@ -619,13 +617,15 @@ func (s *GetMachineUserResponseBodyResult) SetHasMore(v bool) *GetMachineUserRes
 	return s
 }
 
+func (s *GetMachineUserResponseBodyResult) SetNextToken(v string) *GetMachineUserResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
 type GetMachineUserResponseBodyResultUserList struct {
-	// 员工id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 员工名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 是否有人脸信息
-	HasFace *bool `json:"hasFace,omitempty" xml:"hasFace,omitempty"`
+	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+	HasFace *bool   `json:"hasFace,omitempty" xml:"hasFace,omitempty"`
 }
 
 func (s GetMachineUserResponseBodyResultUserList) String() string {
