@@ -2489,6 +2489,92 @@ func (s *DeleteManagementGroupResponse) SetHeaders(v map[string]*string) *Delete
 	return s
 }
 
+type TransformToExclusiveAccountHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TransformToExclusiveAccountHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TransformToExclusiveAccountHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TransformToExclusiveAccountHeaders) SetCommonHeaders(v map[string]*string) *TransformToExclusiveAccountHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TransformToExclusiveAccountHeaders) SetXAcsDingtalkAccessToken(v string) *TransformToExclusiveAccountHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TransformToExclusiveAccountRequest struct {
+	// transformType
+	TransformType *string `json:"transformType,omitempty" xml:"transformType,omitempty"`
+	// idpDingTalk
+	IdpDingTalk *bool `json:"idpDingTalk,omitempty" xml:"idpDingTalk,omitempty"`
+	// loginId
+	LoginId *string `json:"loginId,omitempty" xml:"loginId,omitempty"`
+	// initPassword
+	InitPassword *string `json:"initPassword,omitempty" xml:"initPassword,omitempty"`
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s TransformToExclusiveAccountRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TransformToExclusiveAccountRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TransformToExclusiveAccountRequest) SetTransformType(v string) *TransformToExclusiveAccountRequest {
+	s.TransformType = &v
+	return s
+}
+
+func (s *TransformToExclusiveAccountRequest) SetIdpDingTalk(v bool) *TransformToExclusiveAccountRequest {
+	s.IdpDingTalk = &v
+	return s
+}
+
+func (s *TransformToExclusiveAccountRequest) SetLoginId(v string) *TransformToExclusiveAccountRequest {
+	s.LoginId = &v
+	return s
+}
+
+func (s *TransformToExclusiveAccountRequest) SetInitPassword(v string) *TransformToExclusiveAccountRequest {
+	s.InitPassword = &v
+	return s
+}
+
+func (s *TransformToExclusiveAccountRequest) SetUserId(v string) *TransformToExclusiveAccountRequest {
+	s.UserId = &v
+	return s
+}
+
+type TransformToExclusiveAccountResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s TransformToExclusiveAccountResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TransformToExclusiveAccountResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TransformToExclusiveAccountResponse) SetHeaders(v map[string]*string) *TransformToExclusiveAccountResponse {
+	s.Headers = v
+	return s
+}
+
 type GetUnionIdByMigrationUnionIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3797,6 +3883,66 @@ func (client *Client) DeleteManagementGroupWithOptions(groupId *string, headers 
 	}
 	_result = &DeleteManagementGroupResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteManagementGroup"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/contact/managementGroups/"+tea.StringValue(groupId)), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) TransformToExclusiveAccount(request *TransformToExclusiveAccountRequest) (_result *TransformToExclusiveAccountResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TransformToExclusiveAccountHeaders{}
+	_result = &TransformToExclusiveAccountResponse{}
+	_body, _err := client.TransformToExclusiveAccountWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) TransformToExclusiveAccountWithOptions(request *TransformToExclusiveAccountRequest, headers *TransformToExclusiveAccountHeaders, runtime *util.RuntimeOptions) (_result *TransformToExclusiveAccountResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TransformType)) {
+		body["transformType"] = request.TransformType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IdpDingTalk)) {
+		body["idpDingTalk"] = request.IdpDingTalk
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LoginId)) {
+		body["loginId"] = request.LoginId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InitPassword)) {
+		body["initPassword"] = request.InitPassword
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &TransformToExclusiveAccountResponse{}
+	_body, _err := client.DoROARequest(tea.String("TransformToExclusiveAccount"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/orgAccount/transformToExclusiveAccounts"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

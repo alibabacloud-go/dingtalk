@@ -1211,7 +1211,7 @@ type QueryAllCustomerRequest struct {
 	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	// 分页游标，第一次调用传空或者null
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 数据类型
+	// 数据类型（私海个人客户：crm_customer_personal，私海企业客户：crm_customer，公海个人客户：open_customer_personal，公海企业客户：open_customer_org）
 	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
 }
 
