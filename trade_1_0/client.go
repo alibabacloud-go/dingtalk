@@ -210,6 +210,208 @@ func (s *QueryTradeOrderResponse) SetBody(v *QueryTradeOrderResponseBody) *Query
 	return s
 }
 
+type CreateOpportunityHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateOpportunityHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOpportunityHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOpportunityHeaders) SetCommonHeaders(v map[string]*string) *CreateOpportunityHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateOpportunityHeaders) SetXAcsDingtalkAccessToken(v string) *CreateOpportunityHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateOpportunityRequest struct {
+	// 企业CorpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 归属人电话号码
+	BelongToPhoneNum *string `json:"belongToPhoneNum,omitempty" xml:"belongToPhoneNum,omitempty"`
+	// 联系人电话
+	ContactPhoneNum *string `json:"contactPhoneNum,omitempty" xml:"contactPhoneNum,omitempty"`
+	// 部门Id
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 商品码
+	MarketCode   *string `json:"marketCode,omitempty" xml:"marketCode,omitempty"`
+	DingIsvOrgId *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+}
+
+func (s CreateOpportunityRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOpportunityRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOpportunityRequest) SetCorpId(v string) *CreateOpportunityRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *CreateOpportunityRequest) SetBelongToPhoneNum(v string) *CreateOpportunityRequest {
+	s.BelongToPhoneNum = &v
+	return s
+}
+
+func (s *CreateOpportunityRequest) SetContactPhoneNum(v string) *CreateOpportunityRequest {
+	s.ContactPhoneNum = &v
+	return s
+}
+
+func (s *CreateOpportunityRequest) SetDeptId(v int64) *CreateOpportunityRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *CreateOpportunityRequest) SetMarketCode(v string) *CreateOpportunityRequest {
+	s.MarketCode = &v
+	return s
+}
+
+func (s *CreateOpportunityRequest) SetDingIsvOrgId(v int64) *CreateOpportunityRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+type CreateOpportunityResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s CreateOpportunityResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOpportunityResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOpportunityResponse) SetHeaders(v map[string]*string) *CreateOpportunityResponse {
+	s.Headers = v
+	return s
+}
+
+type CheckOpportunityResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CheckOpportunityResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckOpportunityResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CheckOpportunityResultHeaders) SetCommonHeaders(v map[string]*string) *CheckOpportunityResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CheckOpportunityResultHeaders) SetXAcsDingtalkAccessToken(v string) *CheckOpportunityResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CheckOpportunityResultRequest struct {
+	// corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// belongToPhoneNum
+	BelongToPhoneNum *string `json:"belongToPhoneNum,omitempty" xml:"belongToPhoneNum,omitempty"`
+	// contactPhoneNum
+	ContactPhoneNum *string `json:"contactPhoneNum,omitempty" xml:"contactPhoneNum,omitempty"`
+	// deptId
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// marketCode
+	MarketCode *string `json:"marketCode,omitempty" xml:"marketCode,omitempty"`
+}
+
+func (s CheckOpportunityResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckOpportunityResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CheckOpportunityResultRequest) SetCorpId(v string) *CheckOpportunityResultRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *CheckOpportunityResultRequest) SetBelongToPhoneNum(v string) *CheckOpportunityResultRequest {
+	s.BelongToPhoneNum = &v
+	return s
+}
+
+func (s *CheckOpportunityResultRequest) SetContactPhoneNum(v string) *CheckOpportunityResultRequest {
+	s.ContactPhoneNum = &v
+	return s
+}
+
+func (s *CheckOpportunityResultRequest) SetDeptId(v int64) *CheckOpportunityResultRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *CheckOpportunityResultRequest) SetMarketCode(v string) *CheckOpportunityResultRequest {
+	s.MarketCode = &v
+	return s
+}
+
+type CheckOpportunityResultResponseBody struct {
+	// success
+	BizSuccess *bool `json:"bizSuccess,omitempty" xml:"bizSuccess,omitempty"`
+}
+
+func (s CheckOpportunityResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckOpportunityResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CheckOpportunityResultResponseBody) SetBizSuccess(v bool) *CheckOpportunityResultResponseBody {
+	s.BizSuccess = &v
+	return s
+}
+
+type CheckOpportunityResultResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CheckOpportunityResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CheckOpportunityResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckOpportunityResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CheckOpportunityResultResponse) SetHeaders(v map[string]*string) *CheckOpportunityResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CheckOpportunityResultResponse) SetBody(v *CheckOpportunityResultResponseBody) *CheckOpportunityResultResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -282,6 +484,130 @@ func (client *Client) QueryTradeOrderWithOptions(request *QueryTradeOrderRequest
 	}
 	_result = &QueryTradeOrderResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryTradeOrder"), tea.String("trade_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/trade/orders/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateOpportunity(request *CreateOpportunityRequest) (_result *CreateOpportunityResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateOpportunityHeaders{}
+	_result = &CreateOpportunityResponse{}
+	_body, _err := client.CreateOpportunityWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateOpportunityWithOptions(request *CreateOpportunityRequest, headers *CreateOpportunityHeaders, runtime *util.RuntimeOptions) (_result *CreateOpportunityResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BelongToPhoneNum)) {
+		body["belongToPhoneNum"] = request.BelongToPhoneNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContactPhoneNum)) {
+		body["contactPhoneNum"] = request.ContactPhoneNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MarketCode)) {
+		body["marketCode"] = request.MarketCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateOpportunityResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateOpportunity"), tea.String("trade_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/trade/opportunities"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CheckOpportunityResult(request *CheckOpportunityResultRequest) (_result *CheckOpportunityResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CheckOpportunityResultHeaders{}
+	_result = &CheckOpportunityResultResponse{}
+	_body, _err := client.CheckOpportunityResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CheckOpportunityResultWithOptions(request *CheckOpportunityResultRequest, headers *CheckOpportunityResultHeaders, runtime *util.RuntimeOptions) (_result *CheckOpportunityResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BelongToPhoneNum)) {
+		query["belongToPhoneNum"] = request.BelongToPhoneNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContactPhoneNum)) {
+		query["contactPhoneNum"] = request.ContactPhoneNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		query["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MarketCode)) {
+		query["marketCode"] = request.MarketCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &CheckOpportunityResultResponse{}
+	_body, _err := client.DoROARequest(tea.String("CheckOpportunityResult"), tea.String("trade_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/trade/opportunity/check"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
