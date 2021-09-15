@@ -2000,6 +2000,8 @@ type AddCrmPersonalCustomerRequest struct {
 	Permission *AddCrmPersonalCustomerRequestPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
 	// 跳过uk查重
 	SkipDuplicateCheck *bool `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
+	// 公海领取客户：publicDraw 公海分配客户：publicAssign 其余场景：（不用传）
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
 }
 
 func (s AddCrmPersonalCustomerRequest) String() string {
@@ -2037,6 +2039,11 @@ func (s *AddCrmPersonalCustomerRequest) SetPermission(v *AddCrmPersonalCustomerR
 
 func (s *AddCrmPersonalCustomerRequest) SetSkipDuplicateCheck(v bool) *AddCrmPersonalCustomerRequest {
 	s.SkipDuplicateCheck = &v
+	return s
+}
+
+func (s *AddCrmPersonalCustomerRequest) SetAction(v string) *AddCrmPersonalCustomerRequest {
+	s.Action = &v
 	return s
 }
 
@@ -2584,6 +2591,95 @@ func (s *DeleteCrmPersonalCustomerResponse) SetBody(v *DeleteCrmPersonalCustomer
 	return s
 }
 
+type AbandonCustomerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AbandonCustomerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AbandonCustomerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AbandonCustomerHeaders) SetCommonHeaders(v map[string]*string) *AbandonCustomerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AbandonCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *AbandonCustomerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AbandonCustomerRequest struct {
+	// 操作人staffId，一般为企业员工
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// 客户实例 id 数组
+	InstanceIdList []*string `json:"instanceIdList,omitempty" xml:"instanceIdList,omitempty" type:"Repeated"`
+}
+
+func (s AbandonCustomerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AbandonCustomerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AbandonCustomerRequest) SetOperatorUserId(v string) *AbandonCustomerRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *AbandonCustomerRequest) SetInstanceIdList(v []*string) *AbandonCustomerRequest {
+	s.InstanceIdList = v
+	return s
+}
+
+type AbandonCustomerResponseBody struct {
+	// 成功退回公海的客户实例 id 数组
+	InstanceIdList []*string `json:"instanceIdList,omitempty" xml:"instanceIdList,omitempty" type:"Repeated"`
+}
+
+func (s AbandonCustomerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AbandonCustomerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AbandonCustomerResponseBody) SetInstanceIdList(v []*string) *AbandonCustomerResponseBody {
+	s.InstanceIdList = v
+	return s
+}
+
+type AbandonCustomerResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AbandonCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AbandonCustomerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AbandonCustomerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AbandonCustomerResponse) SetHeaders(v map[string]*string) *AbandonCustomerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AbandonCustomerResponse) SetBody(v *AbandonCustomerResponseBody) *AbandonCustomerResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateCrmPersonalCustomerHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2616,6 +2712,8 @@ type UpdateCrmPersonalCustomerRequest struct {
 	Permission     *UpdateCrmPersonalCustomerRequestPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
 	// 跳过uk查重
 	SkipDuplicateCheck *bool `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
+	// 公海领取客户：publicDraw 公海分配客户：publicAssign 其余场景：（不用传）
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
 }
 
 func (s UpdateCrmPersonalCustomerRequest) String() string {
@@ -2658,6 +2756,11 @@ func (s *UpdateCrmPersonalCustomerRequest) SetPermission(v *UpdateCrmPersonalCus
 
 func (s *UpdateCrmPersonalCustomerRequest) SetSkipDuplicateCheck(v bool) *UpdateCrmPersonalCustomerRequest {
 	s.SkipDuplicateCheck = &v
+	return s
+}
+
+func (s *UpdateCrmPersonalCustomerRequest) SetAction(v string) *UpdateCrmPersonalCustomerRequest {
+	s.Action = &v
 	return s
 }
 
@@ -4112,6 +4215,10 @@ func (client *Client) AddCrmPersonalCustomerWithOptions(request *AddCrmPersonalC
 		body["skipDuplicateCheck"] = request.SkipDuplicateCheck
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Action)) {
+		body["action"] = request.Action
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4276,6 +4383,54 @@ func (client *Client) DeleteCrmPersonalCustomerWithOptions(dataId *string, reque
 	return _result, _err
 }
 
+func (client *Client) AbandonCustomer(request *AbandonCustomerRequest) (_result *AbandonCustomerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AbandonCustomerHeaders{}
+	_result = &AbandonCustomerResponse{}
+	_body, _err := client.AbandonCustomerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AbandonCustomerWithOptions(request *AbandonCustomerRequest, headers *AbandonCustomerHeaders, runtime *util.RuntimeOptions) (_result *AbandonCustomerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceIdList)) {
+		body["instanceIdList"] = request.InstanceIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AbandonCustomerResponse{}
+	_body, _err := client.DoROARequest(tea.String("AbandonCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/customers/abandon"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) UpdateCrmPersonalCustomer(request *UpdateCrmPersonalCustomerRequest) (_result *UpdateCrmPersonalCustomerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateCrmPersonalCustomerHeaders{}
@@ -4320,6 +4475,10 @@ func (client *Client) UpdateCrmPersonalCustomerWithOptions(request *UpdateCrmPer
 
 	if !tea.BoolValue(util.IsUnset(request.SkipDuplicateCheck)) {
 		body["skipDuplicateCheck"] = request.SkipDuplicateCheck
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Action)) {
+		body["action"] = request.Action
 	}
 
 	realHeaders := make(map[string]*string)

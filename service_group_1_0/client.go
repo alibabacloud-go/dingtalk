@@ -11,391 +11,6 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
-type DeleteKnowledgeHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s DeleteKnowledgeHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteKnowledgeHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteKnowledgeHeaders) SetCommonHeaders(v map[string]*string) *DeleteKnowledgeHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *DeleteKnowledgeHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteKnowledgeHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type DeleteKnowledgeRequest struct {
-	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
-	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
-	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
-	// 开放团队ID
-	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	// 知识库的唯一标识 比如:天工知识库ID
-	LibraryKey *string `json:"libraryKey,omitempty" xml:"libraryKey,omitempty"`
-	// 知识点来源 CCM:天工知识库
-	Source *string `json:"source,omitempty" xml:"source,omitempty"`
-	// 知识点唯一标识
-	SourcePrimaryKey *string `json:"sourcePrimaryKey,omitempty" xml:"sourcePrimaryKey,omitempty"`
-}
-
-func (s DeleteKnowledgeRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteKnowledgeRequest) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteKnowledgeRequest) SetDingIsvOrgId(v int64) *DeleteKnowledgeRequest {
-	s.DingIsvOrgId = &v
-	return s
-}
-
-func (s *DeleteKnowledgeRequest) SetDingOrgId(v int64) *DeleteKnowledgeRequest {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *DeleteKnowledgeRequest) SetDingSuiteKey(v string) *DeleteKnowledgeRequest {
-	s.DingSuiteKey = &v
-	return s
-}
-
-func (s *DeleteKnowledgeRequest) SetDingTokenGrantType(v int64) *DeleteKnowledgeRequest {
-	s.DingTokenGrantType = &v
-	return s
-}
-
-func (s *DeleteKnowledgeRequest) SetOpenTeamId(v string) *DeleteKnowledgeRequest {
-	s.OpenTeamId = &v
-	return s
-}
-
-func (s *DeleteKnowledgeRequest) SetLibraryKey(v string) *DeleteKnowledgeRequest {
-	s.LibraryKey = &v
-	return s
-}
-
-func (s *DeleteKnowledgeRequest) SetSource(v string) *DeleteKnowledgeRequest {
-	s.Source = &v
-	return s
-}
-
-func (s *DeleteKnowledgeRequest) SetSourcePrimaryKey(v string) *DeleteKnowledgeRequest {
-	s.SourcePrimaryKey = &v
-	return s
-}
-
-type DeleteKnowledgeResponseBody struct {
-	// 是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
-}
-
-func (s DeleteKnowledgeResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteKnowledgeResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteKnowledgeResponseBody) SetSuccess(v bool) *DeleteKnowledgeResponseBody {
-	s.Success = &v
-	return s
-}
-
-type DeleteKnowledgeResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DeleteKnowledgeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s DeleteKnowledgeResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s DeleteKnowledgeResponse) GoString() string {
-	return s.String()
-}
-
-func (s *DeleteKnowledgeResponse) SetHeaders(v map[string]*string) *DeleteKnowledgeResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *DeleteKnowledgeResponse) SetBody(v *DeleteKnowledgeResponseBody) *DeleteKnowledgeResponse {
-	s.Body = v
-	return s
-}
-
-type CreateTicketHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s CreateTicketHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateTicketHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *CreateTicketHeaders) SetCommonHeaders(v map[string]*string) *CreateTicketHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *CreateTicketHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTicketHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type CreateTicketRequest struct {
-	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
-	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
-	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
-	// 开放团队ID
-	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	// 工单创建人UnionId
-	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
-	// 工单处理人UnionId列表
-	ProcessorUnionIds []*string `json:"processorUnionIds,omitempty" xml:"processorUnionIds,omitempty" type:"Repeated"`
-	// 工单场景 SG 或 VOC
-	Scene *string `json:"scene,omitempty" xml:"scene,omitempty"`
-	// 工单场景信息
-	SceneContext *CreateTicketRequestSceneContext `json:"sceneContext,omitempty" xml:"sceneContext,omitempty" type:"Struct"`
-	// 工单模板业务ID
-	OpenTemplateBizId *string `json:"openTemplateBizId,omitempty" xml:"openTemplateBizId,omitempty"`
-	// 工单标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 自定义组件字段值(JSON格式)
-	CustomFields *string `json:"customFields,omitempty" xml:"customFields,omitempty"`
-	// 通知接收人配置
-	Notify *CreateTicketRequestNotify `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
-}
-
-func (s CreateTicketRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateTicketRequest) GoString() string {
-	return s.String()
-}
-
-func (s *CreateTicketRequest) SetDingIsvOrgId(v int64) *CreateTicketRequest {
-	s.DingIsvOrgId = &v
-	return s
-}
-
-func (s *CreateTicketRequest) SetDingOrgId(v int64) *CreateTicketRequest {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *CreateTicketRequest) SetDingSuiteKey(v string) *CreateTicketRequest {
-	s.DingSuiteKey = &v
-	return s
-}
-
-func (s *CreateTicketRequest) SetDingTokenGrantType(v int64) *CreateTicketRequest {
-	s.DingTokenGrantType = &v
-	return s
-}
-
-func (s *CreateTicketRequest) SetOpenTeamId(v string) *CreateTicketRequest {
-	s.OpenTeamId = &v
-	return s
-}
-
-func (s *CreateTicketRequest) SetCreatorUnionId(v string) *CreateTicketRequest {
-	s.CreatorUnionId = &v
-	return s
-}
-
-func (s *CreateTicketRequest) SetProcessorUnionIds(v []*string) *CreateTicketRequest {
-	s.ProcessorUnionIds = v
-	return s
-}
-
-func (s *CreateTicketRequest) SetScene(v string) *CreateTicketRequest {
-	s.Scene = &v
-	return s
-}
-
-func (s *CreateTicketRequest) SetSceneContext(v *CreateTicketRequestSceneContext) *CreateTicketRequest {
-	s.SceneContext = v
-	return s
-}
-
-func (s *CreateTicketRequest) SetOpenTemplateBizId(v string) *CreateTicketRequest {
-	s.OpenTemplateBizId = &v
-	return s
-}
-
-func (s *CreateTicketRequest) SetTitle(v string) *CreateTicketRequest {
-	s.Title = &v
-	return s
-}
-
-func (s *CreateTicketRequest) SetCustomFields(v string) *CreateTicketRequest {
-	s.CustomFields = &v
-	return s
-}
-
-func (s *CreateTicketRequest) SetNotify(v *CreateTicketRequestNotify) *CreateTicketRequest {
-	s.Notify = v
-	return s
-}
-
-type CreateTicketRequestSceneContext struct {
-	// 服务群openConversationId
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 工单相关人UnionId列表
-	RelevantorUnionIds []*string `json:"relevantorUnionIds,omitempty" xml:"relevantorUnionIds,omitempty" type:"Repeated"`
-	// 工单相关的群消息列表
-	GroupMsgs []*CreateTicketRequestSceneContextGroupMsgs `json:"groupMsgs,omitempty" xml:"groupMsgs,omitempty" type:"Repeated"`
-	// VOC类型工单，对应话题ID
-	TopicId *string `json:"topicId,omitempty" xml:"topicId,omitempty"`
-}
-
-func (s CreateTicketRequestSceneContext) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateTicketRequestSceneContext) GoString() string {
-	return s.String()
-}
-
-func (s *CreateTicketRequestSceneContext) SetOpenConversationId(v string) *CreateTicketRequestSceneContext {
-	s.OpenConversationId = &v
-	return s
-}
-
-func (s *CreateTicketRequestSceneContext) SetRelevantorUnionIds(v []*string) *CreateTicketRequestSceneContext {
-	s.RelevantorUnionIds = v
-	return s
-}
-
-func (s *CreateTicketRequestSceneContext) SetGroupMsgs(v []*CreateTicketRequestSceneContextGroupMsgs) *CreateTicketRequestSceneContext {
-	s.GroupMsgs = v
-	return s
-}
-
-func (s *CreateTicketRequestSceneContext) SetTopicId(v string) *CreateTicketRequestSceneContext {
-	s.TopicId = &v
-	return s
-}
-
-type CreateTicketRequestSceneContextGroupMsgs struct {
-	// 勾选消息openMsgId
-	OpenMsgId *string `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
-	// 是否为锚点消息
-	Anchor *bool `json:"anchor,omitempty" xml:"anchor,omitempty"`
-}
-
-func (s CreateTicketRequestSceneContextGroupMsgs) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateTicketRequestSceneContextGroupMsgs) GoString() string {
-	return s.String()
-}
-
-func (s *CreateTicketRequestSceneContextGroupMsgs) SetOpenMsgId(v string) *CreateTicketRequestSceneContextGroupMsgs {
-	s.OpenMsgId = &v
-	return s
-}
-
-func (s *CreateTicketRequestSceneContextGroupMsgs) SetAnchor(v bool) *CreateTicketRequestSceneContextGroupMsgs {
-	s.Anchor = &v
-	return s
-}
-
-type CreateTicketRequestNotify struct {
-	// 企业工作通知接收人（钉钉UnionId）
-	WorkNoticeReceiverUnionIds []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
-	// 服务群通知接收人（钉钉UnionId）
-	GroupNoticeReceiverUnionIds []*string `json:"groupNoticeReceiverUnionIds,omitempty" xml:"groupNoticeReceiverUnionIds,omitempty" type:"Repeated"`
-	// 是否向群内推送一个全员可见工单通知卡片
-	NoticeAllGroupMember *bool `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
-}
-
-func (s CreateTicketRequestNotify) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateTicketRequestNotify) GoString() string {
-	return s.String()
-}
-
-func (s *CreateTicketRequestNotify) SetWorkNoticeReceiverUnionIds(v []*string) *CreateTicketRequestNotify {
-	s.WorkNoticeReceiverUnionIds = v
-	return s
-}
-
-func (s *CreateTicketRequestNotify) SetGroupNoticeReceiverUnionIds(v []*string) *CreateTicketRequestNotify {
-	s.GroupNoticeReceiverUnionIds = v
-	return s
-}
-
-func (s *CreateTicketRequestNotify) SetNoticeAllGroupMember(v bool) *CreateTicketRequestNotify {
-	s.NoticeAllGroupMember = &v
-	return s
-}
-
-type CreateTicketResponseBody struct {
-	// 工单开放ID
-	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
-}
-
-func (s CreateTicketResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateTicketResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *CreateTicketResponseBody) SetOpenTicketId(v string) *CreateTicketResponseBody {
-	s.OpenTicketId = &v
-	return s
-}
-
-type CreateTicketResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateTicketResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s CreateTicketResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateTicketResponse) GoString() string {
-	return s.String()
-}
-
-func (s *CreateTicketResponse) SetHeaders(v map[string]*string) *CreateTicketResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *CreateTicketResponse) SetBody(v *CreateTicketResponseBody) *CreateTicketResponse {
-	s.Body = v
-	return s
-}
-
 type AssignTicketHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -591,398 +206,6 @@ func (s *AssignTicketResponse) SetHeaders(v map[string]*string) *AssignTicketRes
 	return s
 }
 
-type FinishTicketHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s FinishTicketHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s FinishTicketHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *FinishTicketHeaders) SetCommonHeaders(v map[string]*string) *FinishTicketHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *FinishTicketHeaders) SetXAcsDingtalkAccessToken(v string) *FinishTicketHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type FinishTicketRequest struct {
-	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
-	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
-	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	// 当前工单处理人
-	ProcessorUnionId *string `json:"processorUnionId,omitempty" xml:"processorUnionId,omitempty"`
-	// 工单开放id
-	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
-	// 备注
-	TicketMemo *FinishTicketRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
-	// 工单通知
-	Notify *FinishTicketRequestNotify `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
-}
-
-func (s FinishTicketRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s FinishTicketRequest) GoString() string {
-	return s.String()
-}
-
-func (s *FinishTicketRequest) SetDingIsvOrgId(v int64) *FinishTicketRequest {
-	s.DingIsvOrgId = &v
-	return s
-}
-
-func (s *FinishTicketRequest) SetDingOrgId(v int64) *FinishTicketRequest {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *FinishTicketRequest) SetDingSuiteKey(v string) *FinishTicketRequest {
-	s.DingSuiteKey = &v
-	return s
-}
-
-func (s *FinishTicketRequest) SetDingTokenGrantType(v int64) *FinishTicketRequest {
-	s.DingTokenGrantType = &v
-	return s
-}
-
-func (s *FinishTicketRequest) SetOpenTeamId(v string) *FinishTicketRequest {
-	s.OpenTeamId = &v
-	return s
-}
-
-func (s *FinishTicketRequest) SetProcessorUnionId(v string) *FinishTicketRequest {
-	s.ProcessorUnionId = &v
-	return s
-}
-
-func (s *FinishTicketRequest) SetOpenTicketId(v string) *FinishTicketRequest {
-	s.OpenTicketId = &v
-	return s
-}
-
-func (s *FinishTicketRequest) SetTicketMemo(v *FinishTicketRequestTicketMemo) *FinishTicketRequest {
-	s.TicketMemo = v
-	return s
-}
-
-func (s *FinishTicketRequest) SetNotify(v *FinishTicketRequestNotify) *FinishTicketRequest {
-	s.Notify = v
-	return s
-}
-
-type FinishTicketRequestTicketMemo struct {
-	// 备注文字
-	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
-	// 备注相关的附件
-	Attachments []*FinishTicketRequestTicketMemoAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-}
-
-func (s FinishTicketRequestTicketMemo) String() string {
-	return tea.Prettify(s)
-}
-
-func (s FinishTicketRequestTicketMemo) GoString() string {
-	return s.String()
-}
-
-func (s *FinishTicketRequestTicketMemo) SetMemo(v string) *FinishTicketRequestTicketMemo {
-	s.Memo = &v
-	return s
-}
-
-func (s *FinishTicketRequestTicketMemo) SetAttachments(v []*FinishTicketRequestTicketMemoAttachments) *FinishTicketRequestTicketMemo {
-	s.Attachments = v
-	return s
-}
-
-type FinishTicketRequestTicketMemoAttachments struct {
-	// 文件名
-	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	// 文件key
-	Key *string `json:"key,omitempty" xml:"key,omitempty"`
-}
-
-func (s FinishTicketRequestTicketMemoAttachments) String() string {
-	return tea.Prettify(s)
-}
-
-func (s FinishTicketRequestTicketMemoAttachments) GoString() string {
-	return s.String()
-}
-
-func (s *FinishTicketRequestTicketMemoAttachments) SetFileName(v string) *FinishTicketRequestTicketMemoAttachments {
-	s.FileName = &v
-	return s
-}
-
-func (s *FinishTicketRequestTicketMemoAttachments) SetKey(v string) *FinishTicketRequestTicketMemoAttachments {
-	s.Key = &v
-	return s
-}
-
-type FinishTicketRequestNotify struct {
-	// 企业工作通知接收人（钉钉UnionId）
-	WorkNoticeReceiverUnionIds []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
-	// 群中通知接收人（钉钉UnionId）
-	GroupNoticeReceiverUnionIds []*string `json:"groupNoticeReceiverUnionIds,omitempty" xml:"groupNoticeReceiverUnionIds,omitempty" type:"Repeated"`
-	// 是否向群内推送一个全员可见工单通知卡片
-	NoticeAllGroupMember *bool `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
-}
-
-func (s FinishTicketRequestNotify) String() string {
-	return tea.Prettify(s)
-}
-
-func (s FinishTicketRequestNotify) GoString() string {
-	return s.String()
-}
-
-func (s *FinishTicketRequestNotify) SetWorkNoticeReceiverUnionIds(v []*string) *FinishTicketRequestNotify {
-	s.WorkNoticeReceiverUnionIds = v
-	return s
-}
-
-func (s *FinishTicketRequestNotify) SetGroupNoticeReceiverUnionIds(v []*string) *FinishTicketRequestNotify {
-	s.GroupNoticeReceiverUnionIds = v
-	return s
-}
-
-func (s *FinishTicketRequestNotify) SetNoticeAllGroupMember(v bool) *FinishTicketRequestNotify {
-	s.NoticeAllGroupMember = &v
-	return s
-}
-
-type FinishTicketResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-}
-
-func (s FinishTicketResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s FinishTicketResponse) GoString() string {
-	return s.String()
-}
-
-func (s *FinishTicketResponse) SetHeaders(v map[string]*string) *FinishTicketResponse {
-	s.Headers = v
-	return s
-}
-
-type SearchGroupHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s SearchGroupHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SearchGroupHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *SearchGroupHeaders) SetCommonHeaders(v map[string]*string) *SearchGroupHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *SearchGroupHeaders) SetXAcsDingtalkAccessToken(v string) *SearchGroupHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type SearchGroupRequest struct {
-	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
-	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
-	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
-	// 开放群ID
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 群名称
-	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 开放团队ID
-	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	// 开群组ID
-	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	// 用来标记当前开始读取的位置，置空表示从头开始。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 本次读取的最大数据记录数量，此参数为可选参数，用户传入为空时，应该有默认值。应设置最大值限制，最大不超过100
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-}
-
-func (s SearchGroupRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SearchGroupRequest) GoString() string {
-	return s.String()
-}
-
-func (s *SearchGroupRequest) SetDingIsvOrgId(v int64) *SearchGroupRequest {
-	s.DingIsvOrgId = &v
-	return s
-}
-
-func (s *SearchGroupRequest) SetDingOrgId(v int64) *SearchGroupRequest {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *SearchGroupRequest) SetDingSuiteKey(v string) *SearchGroupRequest {
-	s.DingSuiteKey = &v
-	return s
-}
-
-func (s *SearchGroupRequest) SetDingTokenGrantType(v int64) *SearchGroupRequest {
-	s.DingTokenGrantType = &v
-	return s
-}
-
-func (s *SearchGroupRequest) SetOpenConversationId(v string) *SearchGroupRequest {
-	s.OpenConversationId = &v
-	return s
-}
-
-func (s *SearchGroupRequest) SetGroupName(v string) *SearchGroupRequest {
-	s.GroupName = &v
-	return s
-}
-
-func (s *SearchGroupRequest) SetOpenTeamId(v string) *SearchGroupRequest {
-	s.OpenTeamId = &v
-	return s
-}
-
-func (s *SearchGroupRequest) SetOpenGroupSetId(v string) *SearchGroupRequest {
-	s.OpenGroupSetId = &v
-	return s
-}
-
-func (s *SearchGroupRequest) SetNextToken(v string) *SearchGroupRequest {
-	s.NextToken = &v
-	return s
-}
-
-func (s *SearchGroupRequest) SetMaxResults(v int32) *SearchGroupRequest {
-	s.MaxResults = &v
-	return s
-}
-
-type SearchGroupResponseBody struct {
-	// 本次请求条件下的数据总量，此参数为可选参数，默认可不返回。本次请求条件下的数据总量，此参数为可选参数，默认可不返回
-	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
-	// 表示当前调用返回读取到的位置，空代表数据已经读取完毕
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 本次请求所返回的最大记录条数。
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 已读未读信息列表
-	Records []*SearchGroupResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
-}
-
-func (s SearchGroupResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SearchGroupResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *SearchGroupResponseBody) SetTotalCount(v int32) *SearchGroupResponseBody {
-	s.TotalCount = &v
-	return s
-}
-
-func (s *SearchGroupResponseBody) SetNextToken(v string) *SearchGroupResponseBody {
-	s.NextToken = &v
-	return s
-}
-
-func (s *SearchGroupResponseBody) SetMaxResults(v int32) *SearchGroupResponseBody {
-	s.MaxResults = &v
-	return s
-}
-
-func (s *SearchGroupResponseBody) SetRecords(v []*SearchGroupResponseBodyRecords) *SearchGroupResponseBody {
-	s.Records = v
-	return s
-}
-
-type SearchGroupResponseBodyRecords struct {
-	// 开放群ID
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 群名称
-	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 开放团队ID
-	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	// 开放群组ID
-	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-}
-
-func (s SearchGroupResponseBodyRecords) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SearchGroupResponseBodyRecords) GoString() string {
-	return s.String()
-}
-
-func (s *SearchGroupResponseBodyRecords) SetOpenConversationId(v string) *SearchGroupResponseBodyRecords {
-	s.OpenConversationId = &v
-	return s
-}
-
-func (s *SearchGroupResponseBodyRecords) SetGroupName(v string) *SearchGroupResponseBodyRecords {
-	s.GroupName = &v
-	return s
-}
-
-func (s *SearchGroupResponseBodyRecords) SetOpenTeamId(v string) *SearchGroupResponseBodyRecords {
-	s.OpenTeamId = &v
-	return s
-}
-
-func (s *SearchGroupResponseBodyRecords) SetOpenGroupSetId(v string) *SearchGroupResponseBodyRecords {
-	s.OpenGroupSetId = &v
-	return s
-}
-
-type SearchGroupResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SearchGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s SearchGroupResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SearchGroupResponse) GoString() string {
-	return s.String()
-}
-
-func (s *SearchGroupResponse) SetHeaders(v map[string]*string) *SearchGroupResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *SearchGroupResponse) SetBody(v *SearchGroupResponseBody) *SearchGroupResponse {
-	s.Body = v
-	return s
-}
-
 type UpdateTicketHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1139,357 +362,6 @@ func (s UpdateTicketResponse) GoString() string {
 }
 
 func (s *UpdateTicketResponse) SetHeaders(v map[string]*string) *UpdateTicketResponse {
-	s.Headers = v
-	return s
-}
-
-type CreateGroupHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s CreateGroupHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateGroupHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *CreateGroupHeaders) SetCommonHeaders(v map[string]*string) *CreateGroupHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *CreateGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGroupHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type CreateGroupRequest struct {
-	// 业务关联id
-	GroupBizId *string `json:"groupBizId,omitempty" xml:"groupBizId,omitempty"`
-	// 开放团队ID
-	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	// 开放群组ID
-	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	// 群名称
-	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 群主员工ID
-	OwnerStaffId *string `json:"ownerStaffId,omitempty" xml:"ownerStaffId,omitempty"`
-	// 群成员员工ID列表
-	MemberStaffIds []*string `json:"memberStaffIds,omitempty" xml:"memberStaffIds,omitempty" type:"Repeated"`
-	// 群标签
-	GroupTagNames      []*string `json:"groupTagNames,omitempty" xml:"groupTagNames,omitempty" type:"Repeated"`
-	DingIsvOrgId       *int64    `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
-	DingOrgId          *int64    `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingSuiteKey       *string   `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
-	DingTokenGrantType *int64    `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
-}
-
-func (s CreateGroupRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateGroupRequest) GoString() string {
-	return s.String()
-}
-
-func (s *CreateGroupRequest) SetGroupBizId(v string) *CreateGroupRequest {
-	s.GroupBizId = &v
-	return s
-}
-
-func (s *CreateGroupRequest) SetOpenTeamId(v string) *CreateGroupRequest {
-	s.OpenTeamId = &v
-	return s
-}
-
-func (s *CreateGroupRequest) SetOpenGroupSetId(v string) *CreateGroupRequest {
-	s.OpenGroupSetId = &v
-	return s
-}
-
-func (s *CreateGroupRequest) SetGroupName(v string) *CreateGroupRequest {
-	s.GroupName = &v
-	return s
-}
-
-func (s *CreateGroupRequest) SetOwnerStaffId(v string) *CreateGroupRequest {
-	s.OwnerStaffId = &v
-	return s
-}
-
-func (s *CreateGroupRequest) SetMemberStaffIds(v []*string) *CreateGroupRequest {
-	s.MemberStaffIds = v
-	return s
-}
-
-func (s *CreateGroupRequest) SetGroupTagNames(v []*string) *CreateGroupRequest {
-	s.GroupTagNames = v
-	return s
-}
-
-func (s *CreateGroupRequest) SetDingIsvOrgId(v int64) *CreateGroupRequest {
-	s.DingIsvOrgId = &v
-	return s
-}
-
-func (s *CreateGroupRequest) SetDingOrgId(v int64) *CreateGroupRequest {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *CreateGroupRequest) SetDingSuiteKey(v string) *CreateGroupRequest {
-	s.DingSuiteKey = &v
-	return s
-}
-
-func (s *CreateGroupRequest) SetDingTokenGrantType(v int64) *CreateGroupRequest {
-	s.DingTokenGrantType = &v
-	return s
-}
-
-type CreateGroupResponseBody struct {
-	// 开放群ID
-	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 入群url
-	GroupUrl *string `json:"groupUrl,omitempty" xml:"groupUrl,omitempty"`
-}
-
-func (s CreateGroupResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateGroupResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *CreateGroupResponseBody) SetOpenConversationId(v string) *CreateGroupResponseBody {
-	s.OpenConversationId = &v
-	return s
-}
-
-func (s *CreateGroupResponseBody) SetGroupUrl(v string) *CreateGroupResponseBody {
-	s.GroupUrl = &v
-	return s
-}
-
-type CreateGroupResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s CreateGroupResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateGroupResponse) GoString() string {
-	return s.String()
-}
-
-func (s *CreateGroupResponse) SetHeaders(v map[string]*string) *CreateGroupResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *CreateGroupResponse) SetBody(v *CreateGroupResponseBody) *CreateGroupResponse {
-	s.Body = v
-	return s
-}
-
-type TransferTicketHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s TransferTicketHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s TransferTicketHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *TransferTicketHeaders) SetCommonHeaders(v map[string]*string) *TransferTicketHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *TransferTicketHeaders) SetXAcsDingtalkAccessToken(v string) *TransferTicketHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type TransferTicketRequest struct {
-	// 工单处理人
-	ProcessorUnionId *string `json:"processorUnionId,omitempty" xml:"processorUnionId,omitempty"`
-	// 工单开放ID
-	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
-	// 被转单人UnionId列表
-	ProcessorUnionIds []*string `json:"processorUnionIds,omitempty" xml:"processorUnionIds,omitempty" type:"Repeated"`
-	// 工单备注
-	TicketMemo *TransferTicketRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
-	Notify     *TransferTicketRequestNotify     `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
-	// 开放团队ID
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
-	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
-	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
-}
-
-func (s TransferTicketRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s TransferTicketRequest) GoString() string {
-	return s.String()
-}
-
-func (s *TransferTicketRequest) SetProcessorUnionId(v string) *TransferTicketRequest {
-	s.ProcessorUnionId = &v
-	return s
-}
-
-func (s *TransferTicketRequest) SetOpenTicketId(v string) *TransferTicketRequest {
-	s.OpenTicketId = &v
-	return s
-}
-
-func (s *TransferTicketRequest) SetProcessorUnionIds(v []*string) *TransferTicketRequest {
-	s.ProcessorUnionIds = v
-	return s
-}
-
-func (s *TransferTicketRequest) SetTicketMemo(v *TransferTicketRequestTicketMemo) *TransferTicketRequest {
-	s.TicketMemo = v
-	return s
-}
-
-func (s *TransferTicketRequest) SetNotify(v *TransferTicketRequestNotify) *TransferTicketRequest {
-	s.Notify = v
-	return s
-}
-
-func (s *TransferTicketRequest) SetOpenTeamId(v string) *TransferTicketRequest {
-	s.OpenTeamId = &v
-	return s
-}
-
-func (s *TransferTicketRequest) SetDingIsvOrgId(v int64) *TransferTicketRequest {
-	s.DingIsvOrgId = &v
-	return s
-}
-
-func (s *TransferTicketRequest) SetDingOrgId(v int64) *TransferTicketRequest {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *TransferTicketRequest) SetDingSuiteKey(v string) *TransferTicketRequest {
-	s.DingSuiteKey = &v
-	return s
-}
-
-func (s *TransferTicketRequest) SetDingTokenGrantType(v int64) *TransferTicketRequest {
-	s.DingTokenGrantType = &v
-	return s
-}
-
-type TransferTicketRequestTicketMemo struct {
-	// 文字备注
-	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
-	// 备注相关的附件
-	Attachments []*TransferTicketRequestTicketMemoAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-}
-
-func (s TransferTicketRequestTicketMemo) String() string {
-	return tea.Prettify(s)
-}
-
-func (s TransferTicketRequestTicketMemo) GoString() string {
-	return s.String()
-}
-
-func (s *TransferTicketRequestTicketMemo) SetMemo(v string) *TransferTicketRequestTicketMemo {
-	s.Memo = &v
-	return s
-}
-
-func (s *TransferTicketRequestTicketMemo) SetAttachments(v []*TransferTicketRequestTicketMemoAttachments) *TransferTicketRequestTicketMemo {
-	s.Attachments = v
-	return s
-}
-
-type TransferTicketRequestTicketMemoAttachments struct {
-	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	Key      *string `json:"key,omitempty" xml:"key,omitempty"`
-}
-
-func (s TransferTicketRequestTicketMemoAttachments) String() string {
-	return tea.Prettify(s)
-}
-
-func (s TransferTicketRequestTicketMemoAttachments) GoString() string {
-	return s.String()
-}
-
-func (s *TransferTicketRequestTicketMemoAttachments) SetFileName(v string) *TransferTicketRequestTicketMemoAttachments {
-	s.FileName = &v
-	return s
-}
-
-func (s *TransferTicketRequestTicketMemoAttachments) SetKey(v string) *TransferTicketRequestTicketMemoAttachments {
-	s.Key = &v
-	return s
-}
-
-type TransferTicketRequestNotify struct {
-	// 企业工作通知接收人（钉钉UnionId）
-	WorkNoticeReceiverUnionIds []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
-	// 群中通知接收人（钉钉UnionId）
-	GroupNoticeReceiverUnionIds []*string `json:"groupNoticeReceiverUnionIds,omitempty" xml:"groupNoticeReceiverUnionIds,omitempty" type:"Repeated"`
-	// 是否向群内推送一个全员可见工单通知卡片
-	NoticeAllGroupMember *bool `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
-}
-
-func (s TransferTicketRequestNotify) String() string {
-	return tea.Prettify(s)
-}
-
-func (s TransferTicketRequestNotify) GoString() string {
-	return s.String()
-}
-
-func (s *TransferTicketRequestNotify) SetWorkNoticeReceiverUnionIds(v []*string) *TransferTicketRequestNotify {
-	s.WorkNoticeReceiverUnionIds = v
-	return s
-}
-
-func (s *TransferTicketRequestNotify) SetGroupNoticeReceiverUnionIds(v []*string) *TransferTicketRequestNotify {
-	s.GroupNoticeReceiverUnionIds = v
-	return s
-}
-
-func (s *TransferTicketRequestNotify) SetNoticeAllGroupMember(v bool) *TransferTicketRequestNotify {
-	s.NoticeAllGroupMember = &v
-	return s
-}
-
-type TransferTicketResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-}
-
-func (s TransferTicketResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s TransferTicketResponse) GoString() string {
-	return s.String()
-}
-
-func (s *TransferTicketResponse) SetHeaders(v map[string]*string) *TransferTicketResponse {
 	s.Headers = v
 	return s
 }
@@ -2013,6 +885,189 @@ func (s *ListTicketOperateRecordResponse) SetHeaders(v map[string]*string) *List
 
 func (s *ListTicketOperateRecordResponse) SetBody(v *ListTicketOperateRecordResponseBody) *ListTicketOperateRecordResponse {
 	s.Body = v
+	return s
+}
+
+type RetractTicketHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RetractTicketHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RetractTicketHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RetractTicketHeaders) SetCommonHeaders(v map[string]*string) *RetractTicketHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RetractTicketHeaders) SetXAcsDingtalkAccessToken(v string) *RetractTicketHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RetractTicketRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 工单开放ID
+	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
+	// 操作人ID
+	OperatorUnionId *string                         `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
+	TicketMemo      *RetractTicketRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
+	Notify          *RetractTicketRequestNotify     `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
+}
+
+func (s RetractTicketRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RetractTicketRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RetractTicketRequest) SetDingIsvOrgId(v int64) *RetractTicketRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *RetractTicketRequest) SetDingOrgId(v int64) *RetractTicketRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *RetractTicketRequest) SetDingTokenGrantType(v int64) *RetractTicketRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *RetractTicketRequest) SetDingSuiteKey(v string) *RetractTicketRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *RetractTicketRequest) SetOpenTeamId(v string) *RetractTicketRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *RetractTicketRequest) SetOpenTicketId(v string) *RetractTicketRequest {
+	s.OpenTicketId = &v
+	return s
+}
+
+func (s *RetractTicketRequest) SetOperatorUnionId(v string) *RetractTicketRequest {
+	s.OperatorUnionId = &v
+	return s
+}
+
+func (s *RetractTicketRequest) SetTicketMemo(v *RetractTicketRequestTicketMemo) *RetractTicketRequest {
+	s.TicketMemo = v
+	return s
+}
+
+func (s *RetractTicketRequest) SetNotify(v *RetractTicketRequestNotify) *RetractTicketRequest {
+	s.Notify = v
+	return s
+}
+
+type RetractTicketRequestTicketMemo struct {
+	Memo        *string                                      `json:"memo,omitempty" xml:"memo,omitempty"`
+	Attachments []*RetractTicketRequestTicketMemoAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+}
+
+func (s RetractTicketRequestTicketMemo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RetractTicketRequestTicketMemo) GoString() string {
+	return s.String()
+}
+
+func (s *RetractTicketRequestTicketMemo) SetMemo(v string) *RetractTicketRequestTicketMemo {
+	s.Memo = &v
+	return s
+}
+
+func (s *RetractTicketRequestTicketMemo) SetAttachments(v []*RetractTicketRequestTicketMemoAttachments) *RetractTicketRequestTicketMemo {
+	s.Attachments = v
+	return s
+}
+
+type RetractTicketRequestTicketMemoAttachments struct {
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	Key      *string `json:"key,omitempty" xml:"key,omitempty"`
+}
+
+func (s RetractTicketRequestTicketMemoAttachments) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RetractTicketRequestTicketMemoAttachments) GoString() string {
+	return s.String()
+}
+
+func (s *RetractTicketRequestTicketMemoAttachments) SetFileName(v string) *RetractTicketRequestTicketMemoAttachments {
+	s.FileName = &v
+	return s
+}
+
+func (s *RetractTicketRequestTicketMemoAttachments) SetKey(v string) *RetractTicketRequestTicketMemoAttachments {
+	s.Key = &v
+	return s
+}
+
+type RetractTicketRequestNotify struct {
+	WorkNoticeReceiverUnionIds  []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	GroupNoticeReceiverUnionIds []*string `json:"groupNoticeReceiverUnionIds,omitempty" xml:"groupNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	// 是否向群内推送一个全员可见工单通知卡片
+	NoticeAllGroupMember *bool `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
+}
+
+func (s RetractTicketRequestNotify) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RetractTicketRequestNotify) GoString() string {
+	return s.String()
+}
+
+func (s *RetractTicketRequestNotify) SetWorkNoticeReceiverUnionIds(v []*string) *RetractTicketRequestNotify {
+	s.WorkNoticeReceiverUnionIds = v
+	return s
+}
+
+func (s *RetractTicketRequestNotify) SetGroupNoticeReceiverUnionIds(v []*string) *RetractTicketRequestNotify {
+	s.GroupNoticeReceiverUnionIds = v
+	return s
+}
+
+func (s *RetractTicketRequestNotify) SetNoticeAllGroupMember(v bool) *RetractTicketRequestNotify {
+	s.NoticeAllGroupMember = &v
+	return s
+}
+
+type RetractTicketResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s RetractTicketResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RetractTicketResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RetractTicketResponse) SetHeaders(v map[string]*string) *RetractTicketResponse {
+	s.Headers = v
 	return s
 }
 
@@ -3068,109 +2123,6 @@ func (s *GetTicketResponse) SetBody(v *GetTicketResponseBody) *GetTicketResponse
 	return s
 }
 
-type GetOssTempUrlHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s GetOssTempUrlHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetOssTempUrlHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *GetOssTempUrlHeaders) SetCommonHeaders(v map[string]*string) *GetOssTempUrlHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *GetOssTempUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetOssTempUrlHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type GetOssTempUrlRequest struct {
-	// 团队开放ID
-	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	// oss文件key
-	Key *string `json:"key,omitempty" xml:"key,omitempty"`
-	// 文件名
-	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	// 访问模式 AUTO(自动，例如在浏览器中如果是图片，PDF等可以在线直接查看，不能在线看时自动下载)、DOWNLOAD（直接下载）
-	FetchMode *string `json:"fetchMode,omitempty" xml:"fetchMode,omitempty"`
-}
-
-func (s GetOssTempUrlRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetOssTempUrlRequest) GoString() string {
-	return s.String()
-}
-
-func (s *GetOssTempUrlRequest) SetOpenTeamId(v string) *GetOssTempUrlRequest {
-	s.OpenTeamId = &v
-	return s
-}
-
-func (s *GetOssTempUrlRequest) SetKey(v string) *GetOssTempUrlRequest {
-	s.Key = &v
-	return s
-}
-
-func (s *GetOssTempUrlRequest) SetFileName(v string) *GetOssTempUrlRequest {
-	s.FileName = &v
-	return s
-}
-
-func (s *GetOssTempUrlRequest) SetFetchMode(v string) *GetOssTempUrlRequest {
-	s.FetchMode = &v
-	return s
-}
-
-type GetOssTempUrlResponseBody struct {
-	// Id of the request
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-}
-
-func (s GetOssTempUrlResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetOssTempUrlResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *GetOssTempUrlResponseBody) SetUrl(v string) *GetOssTempUrlResponseBody {
-	s.Url = &v
-	return s
-}
-
-type GetOssTempUrlResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetOssTempUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s GetOssTempUrlResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetOssTempUrlResponse) GoString() string {
-	return s.String()
-}
-
-func (s *GetOssTempUrlResponse) SetHeaders(v map[string]*string) *GetOssTempUrlResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *GetOssTempUrlResponse) SetBody(v *GetOssTempUrlResponseBody) *GetOssTempUrlResponse {
-	s.Body = v
-	return s
-}
-
 type TakeTicketHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3318,6 +2270,8 @@ type SendServiceGroupMessageRequest struct {
 	BtnOrientation *string `json:"btnOrientation,omitempty" xml:"btnOrientation,omitempty"`
 	// actionCard按钮
 	Btns []*SendServiceGroupMessageRequestBtns `json:"btns,omitempty" xml:"btns,omitempty" type:"Repeated"`
+	// 如果正文内容包含链接，并且按钮链接和文本链接分开跳转，则传递true; 否则传递false
+	HasContentLinks *bool `json:"hasContentLinks,omitempty" xml:"hasContentLinks,omitempty"`
 }
 
 func (s SendServiceGroupMessageRequest) String() string {
@@ -3413,6 +2367,11 @@ func (s *SendServiceGroupMessageRequest) SetBtns(v []*SendServiceGroupMessageReq
 	return s
 }
 
+func (s *SendServiceGroupMessageRequest) SetHasContentLinks(v bool) *SendServiceGroupMessageRequest {
+	s.HasContentLinks = &v
+	return s
+}
+
 type SendServiceGroupMessageRequestBtns struct {
 	// 跳转地址
 	ActionURL *string `json:"actionURL,omitempty" xml:"actionURL,omitempty"`
@@ -3479,154 +2438,296 @@ func (s *SendServiceGroupMessageResponse) SetBody(v *SendServiceGroupMessageResp
 	return s
 }
 
-type GetStoragePolicyHeaders struct {
+type ResubmitTicketHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s GetStoragePolicyHeaders) String() string {
+func (s ResubmitTicketHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetStoragePolicyHeaders) GoString() string {
+func (s ResubmitTicketHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *GetStoragePolicyHeaders) SetCommonHeaders(v map[string]*string) *GetStoragePolicyHeaders {
+func (s *ResubmitTicketHeaders) SetCommonHeaders(v map[string]*string) *ResubmitTicketHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *GetStoragePolicyHeaders) SetXAcsDingtalkAccessToken(v string) *GetStoragePolicyHeaders {
+func (s *ResubmitTicketHeaders) SetXAcsDingtalkAccessToken(v string) *ResubmitTicketHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type GetStoragePolicyRequest struct {
+type ResubmitTicketRequest struct {
 	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
 	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
 	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
-	// 团队ID
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	// 开放团队ID
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	// 业务类型
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 文件大小，单位字节
-	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	// 文件名称
-	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// 工单创建人UnionId
+	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	// 工单处理人UnionId列表
+	ProcessorUnionIds []*string `json:"processorUnionIds,omitempty" xml:"processorUnionIds,omitempty" type:"Repeated"`
+	// 工单场景 SG 或 VOC
+	Scene *string `json:"scene,omitempty" xml:"scene,omitempty"`
+	// 工单场景信息
+	SceneContext *ResubmitTicketRequestSceneContext `json:"sceneContext,omitempty" xml:"sceneContext,omitempty" type:"Struct"`
+	// 工单标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 工单模板业务ID
+	OpenTemplateBizId *string `json:"openTemplateBizId,omitempty" xml:"openTemplateBizId,omitempty"`
+	// 自定义组件字段值(JSON格式)
+	CustomFields *string                      `json:"customFields,omitempty" xml:"customFields,omitempty"`
+	Notify       *ResubmitTicketRequestNotify `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
+	// 工单开放ID
+	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
+	// 备注
+	TicketMemo *ResubmitTicketRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
 }
 
-func (s GetStoragePolicyRequest) String() string {
+func (s ResubmitTicketRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetStoragePolicyRequest) GoString() string {
+func (s ResubmitTicketRequest) GoString() string {
 	return s.String()
 }
 
-func (s *GetStoragePolicyRequest) SetDingIsvOrgId(v int64) *GetStoragePolicyRequest {
+func (s *ResubmitTicketRequest) SetDingIsvOrgId(v int64) *ResubmitTicketRequest {
 	s.DingIsvOrgId = &v
 	return s
 }
 
-func (s *GetStoragePolicyRequest) SetDingOrgId(v int64) *GetStoragePolicyRequest {
+func (s *ResubmitTicketRequest) SetDingOrgId(v int64) *ResubmitTicketRequest {
 	s.DingOrgId = &v
 	return s
 }
 
-func (s *GetStoragePolicyRequest) SetDingSuiteKey(v string) *GetStoragePolicyRequest {
-	s.DingSuiteKey = &v
-	return s
-}
-
-func (s *GetStoragePolicyRequest) SetDingTokenGrantType(v int64) *GetStoragePolicyRequest {
+func (s *ResubmitTicketRequest) SetDingTokenGrantType(v int64) *ResubmitTicketRequest {
 	s.DingTokenGrantType = &v
 	return s
 }
 
-func (s *GetStoragePolicyRequest) SetOpenTeamId(v string) *GetStoragePolicyRequest {
+func (s *ResubmitTicketRequest) SetDingSuiteKey(v string) *ResubmitTicketRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *ResubmitTicketRequest) SetOpenTeamId(v string) *ResubmitTicketRequest {
 	s.OpenTeamId = &v
 	return s
 }
 
-func (s *GetStoragePolicyRequest) SetBizType(v string) *GetStoragePolicyRequest {
-	s.BizType = &v
+func (s *ResubmitTicketRequest) SetCreatorUnionId(v string) *ResubmitTicketRequest {
+	s.CreatorUnionId = &v
 	return s
 }
 
-func (s *GetStoragePolicyRequest) SetFileSize(v int64) *GetStoragePolicyRequest {
-	s.FileSize = &v
+func (s *ResubmitTicketRequest) SetProcessorUnionIds(v []*string) *ResubmitTicketRequest {
+	s.ProcessorUnionIds = v
 	return s
 }
 
-func (s *GetStoragePolicyRequest) SetFileName(v string) *GetStoragePolicyRequest {
+func (s *ResubmitTicketRequest) SetScene(v string) *ResubmitTicketRequest {
+	s.Scene = &v
+	return s
+}
+
+func (s *ResubmitTicketRequest) SetSceneContext(v *ResubmitTicketRequestSceneContext) *ResubmitTicketRequest {
+	s.SceneContext = v
+	return s
+}
+
+func (s *ResubmitTicketRequest) SetTitle(v string) *ResubmitTicketRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *ResubmitTicketRequest) SetOpenTemplateBizId(v string) *ResubmitTicketRequest {
+	s.OpenTemplateBizId = &v
+	return s
+}
+
+func (s *ResubmitTicketRequest) SetCustomFields(v string) *ResubmitTicketRequest {
+	s.CustomFields = &v
+	return s
+}
+
+func (s *ResubmitTicketRequest) SetNotify(v *ResubmitTicketRequestNotify) *ResubmitTicketRequest {
+	s.Notify = v
+	return s
+}
+
+func (s *ResubmitTicketRequest) SetOpenTicketId(v string) *ResubmitTicketRequest {
+	s.OpenTicketId = &v
+	return s
+}
+
+func (s *ResubmitTicketRequest) SetTicketMemo(v *ResubmitTicketRequestTicketMemo) *ResubmitTicketRequest {
+	s.TicketMemo = v
+	return s
+}
+
+type ResubmitTicketRequestSceneContext struct {
+	// 服务群openConversationId
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 工单相关人UnionId列表
+	RelevantorUnionIds []*string                                     `json:"relevantorUnionIds,omitempty" xml:"relevantorUnionIds,omitempty" type:"Repeated"`
+	GroupMsgs          []*ResubmitTicketRequestSceneContextGroupMsgs `json:"groupMsgs,omitempty" xml:"groupMsgs,omitempty" type:"Repeated"`
+}
+
+func (s ResubmitTicketRequestSceneContext) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResubmitTicketRequestSceneContext) GoString() string {
+	return s.String()
+}
+
+func (s *ResubmitTicketRequestSceneContext) SetOpenConversationId(v string) *ResubmitTicketRequestSceneContext {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *ResubmitTicketRequestSceneContext) SetRelevantorUnionIds(v []*string) *ResubmitTicketRequestSceneContext {
+	s.RelevantorUnionIds = v
+	return s
+}
+
+func (s *ResubmitTicketRequestSceneContext) SetGroupMsgs(v []*ResubmitTicketRequestSceneContextGroupMsgs) *ResubmitTicketRequestSceneContext {
+	s.GroupMsgs = v
+	return s
+}
+
+type ResubmitTicketRequestSceneContextGroupMsgs struct {
+	// 勾选消息openMsgId
+	OpenMsgId *string `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
+	Anchor    *bool   `json:"anchor,omitempty" xml:"anchor,omitempty"`
+	TopicId   *string `json:"topicId,omitempty" xml:"topicId,omitempty"`
+}
+
+func (s ResubmitTicketRequestSceneContextGroupMsgs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResubmitTicketRequestSceneContextGroupMsgs) GoString() string {
+	return s.String()
+}
+
+func (s *ResubmitTicketRequestSceneContextGroupMsgs) SetOpenMsgId(v string) *ResubmitTicketRequestSceneContextGroupMsgs {
+	s.OpenMsgId = &v
+	return s
+}
+
+func (s *ResubmitTicketRequestSceneContextGroupMsgs) SetAnchor(v bool) *ResubmitTicketRequestSceneContextGroupMsgs {
+	s.Anchor = &v
+	return s
+}
+
+func (s *ResubmitTicketRequestSceneContextGroupMsgs) SetTopicId(v string) *ResubmitTicketRequestSceneContextGroupMsgs {
+	s.TopicId = &v
+	return s
+}
+
+type ResubmitTicketRequestNotify struct {
+	// 企业工作通知接收人（钉钉UnionId）
+	WorkNoticeReceiverUnionIds []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	// 服务群通知接收人（钉钉UnionId）
+	GroupNoticeReceiverUnionIds []*string `json:"groupNoticeReceiverUnionIds,omitempty" xml:"groupNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	// 是否向群内推送一个全员可见工单通知卡片
+	NoticeAllGroupMember *bool `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
+}
+
+func (s ResubmitTicketRequestNotify) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResubmitTicketRequestNotify) GoString() string {
+	return s.String()
+}
+
+func (s *ResubmitTicketRequestNotify) SetWorkNoticeReceiverUnionIds(v []*string) *ResubmitTicketRequestNotify {
+	s.WorkNoticeReceiverUnionIds = v
+	return s
+}
+
+func (s *ResubmitTicketRequestNotify) SetGroupNoticeReceiverUnionIds(v []*string) *ResubmitTicketRequestNotify {
+	s.GroupNoticeReceiverUnionIds = v
+	return s
+}
+
+func (s *ResubmitTicketRequestNotify) SetNoticeAllGroupMember(v bool) *ResubmitTicketRequestNotify {
+	s.NoticeAllGroupMember = &v
+	return s
+}
+
+type ResubmitTicketRequestTicketMemo struct {
+	// 备注文字
+	Memo        *string                                       `json:"memo,omitempty" xml:"memo,omitempty"`
+	Attachments []*ResubmitTicketRequestTicketMemoAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+}
+
+func (s ResubmitTicketRequestTicketMemo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResubmitTicketRequestTicketMemo) GoString() string {
+	return s.String()
+}
+
+func (s *ResubmitTicketRequestTicketMemo) SetMemo(v string) *ResubmitTicketRequestTicketMemo {
+	s.Memo = &v
+	return s
+}
+
+func (s *ResubmitTicketRequestTicketMemo) SetAttachments(v []*ResubmitTicketRequestTicketMemoAttachments) *ResubmitTicketRequestTicketMemo {
+	s.Attachments = v
+	return s
+}
+
+type ResubmitTicketRequestTicketMemoAttachments struct {
+	// 文件名
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// 文件key
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+}
+
+func (s ResubmitTicketRequestTicketMemoAttachments) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResubmitTicketRequestTicketMemoAttachments) GoString() string {
+	return s.String()
+}
+
+func (s *ResubmitTicketRequestTicketMemoAttachments) SetFileName(v string) *ResubmitTicketRequestTicketMemoAttachments {
 	s.FileName = &v
 	return s
 }
 
-type GetStoragePolicyResponseBody struct {
-	// Id of the request
-	Key         *string `json:"key,omitempty" xml:"key,omitempty"`
-	Policy      *string `json:"policy,omitempty" xml:"policy,omitempty"`
-	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
-	Endpoint    *string `json:"endpoint,omitempty" xml:"endpoint,omitempty"`
-	Signature   *string `json:"signature,omitempty" xml:"signature,omitempty"`
-}
-
-func (s GetStoragePolicyResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetStoragePolicyResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *GetStoragePolicyResponseBody) SetKey(v string) *GetStoragePolicyResponseBody {
+func (s *ResubmitTicketRequestTicketMemoAttachments) SetKey(v string) *ResubmitTicketRequestTicketMemoAttachments {
 	s.Key = &v
 	return s
 }
 
-func (s *GetStoragePolicyResponseBody) SetPolicy(v string) *GetStoragePolicyResponseBody {
-	s.Policy = &v
-	return s
+type ResubmitTicketResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
 }
 
-func (s *GetStoragePolicyResponseBody) SetAccessKeyId(v string) *GetStoragePolicyResponseBody {
-	s.AccessKeyId = &v
-	return s
-}
-
-func (s *GetStoragePolicyResponseBody) SetEndpoint(v string) *GetStoragePolicyResponseBody {
-	s.Endpoint = &v
-	return s
-}
-
-func (s *GetStoragePolicyResponseBody) SetSignature(v string) *GetStoragePolicyResponseBody {
-	s.Signature = &v
-	return s
-}
-
-type GetStoragePolicyResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetStoragePolicyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s GetStoragePolicyResponse) String() string {
+func (s ResubmitTicketResponse) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetStoragePolicyResponse) GoString() string {
+func (s ResubmitTicketResponse) GoString() string {
 	return s.String()
 }
 
-func (s *GetStoragePolicyResponse) SetHeaders(v map[string]*string) *GetStoragePolicyResponse {
+func (s *ResubmitTicketResponse) SetHeaders(v map[string]*string) *ResubmitTicketResponse {
 	s.Headers = v
-	return s
-}
-
-func (s *GetStoragePolicyResponse) SetBody(v *GetStoragePolicyResponseBody) *GetStoragePolicyResponse {
-	s.Body = v
 	return s
 }
 
@@ -3872,6 +2973,1575 @@ func (s *AddTicketMemoResponse) SetHeaders(v map[string]*string) *AddTicketMemoR
 	return s
 }
 
+type DeleteKnowledgeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteKnowledgeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteKnowledgeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteKnowledgeHeaders) SetCommonHeaders(v map[string]*string) *DeleteKnowledgeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteKnowledgeHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteKnowledgeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteKnowledgeRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 知识库的唯一标识 比如:天工知识库ID
+	LibraryKey *string `json:"libraryKey,omitempty" xml:"libraryKey,omitempty"`
+	// 知识点来源 CCM:天工知识库
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// 知识点唯一标识
+	SourcePrimaryKey *string `json:"sourcePrimaryKey,omitempty" xml:"sourcePrimaryKey,omitempty"`
+}
+
+func (s DeleteKnowledgeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteKnowledgeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteKnowledgeRequest) SetDingIsvOrgId(v int64) *DeleteKnowledgeRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *DeleteKnowledgeRequest) SetDingOrgId(v int64) *DeleteKnowledgeRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *DeleteKnowledgeRequest) SetDingSuiteKey(v string) *DeleteKnowledgeRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *DeleteKnowledgeRequest) SetDingTokenGrantType(v int64) *DeleteKnowledgeRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *DeleteKnowledgeRequest) SetOpenTeamId(v string) *DeleteKnowledgeRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *DeleteKnowledgeRequest) SetLibraryKey(v string) *DeleteKnowledgeRequest {
+	s.LibraryKey = &v
+	return s
+}
+
+func (s *DeleteKnowledgeRequest) SetSource(v string) *DeleteKnowledgeRequest {
+	s.Source = &v
+	return s
+}
+
+func (s *DeleteKnowledgeRequest) SetSourcePrimaryKey(v string) *DeleteKnowledgeRequest {
+	s.SourcePrimaryKey = &v
+	return s
+}
+
+type DeleteKnowledgeResponseBody struct {
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteKnowledgeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteKnowledgeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteKnowledgeResponseBody) SetSuccess(v bool) *DeleteKnowledgeResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteKnowledgeResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteKnowledgeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteKnowledgeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteKnowledgeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteKnowledgeResponse) SetHeaders(v map[string]*string) *DeleteKnowledgeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteKnowledgeResponse) SetBody(v *DeleteKnowledgeResponseBody) *DeleteKnowledgeResponse {
+	s.Body = v
+	return s
+}
+
+type CreateTicketHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateTicketHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTicketHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTicketHeaders) SetCommonHeaders(v map[string]*string) *CreateTicketHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateTicketHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTicketHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateTicketRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 工单创建人UnionId
+	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	// 工单处理人UnionId列表
+	ProcessorUnionIds []*string `json:"processorUnionIds,omitempty" xml:"processorUnionIds,omitempty" type:"Repeated"`
+	// 工单场景 SG 或 VOC
+	Scene *string `json:"scene,omitempty" xml:"scene,omitempty"`
+	// 工单场景信息
+	SceneContext *CreateTicketRequestSceneContext `json:"sceneContext,omitempty" xml:"sceneContext,omitempty" type:"Struct"`
+	// 工单模板业务ID
+	OpenTemplateBizId *string `json:"openTemplateBizId,omitempty" xml:"openTemplateBizId,omitempty"`
+	// 工单标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 自定义组件字段值(JSON格式)
+	CustomFields *string `json:"customFields,omitempty" xml:"customFields,omitempty"`
+	// 通知接收人配置
+	Notify *CreateTicketRequestNotify `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
+}
+
+func (s CreateTicketRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTicketRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTicketRequest) SetDingIsvOrgId(v int64) *CreateTicketRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *CreateTicketRequest) SetDingOrgId(v int64) *CreateTicketRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *CreateTicketRequest) SetDingSuiteKey(v string) *CreateTicketRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *CreateTicketRequest) SetDingTokenGrantType(v int64) *CreateTicketRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *CreateTicketRequest) SetOpenTeamId(v string) *CreateTicketRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *CreateTicketRequest) SetCreatorUnionId(v string) *CreateTicketRequest {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *CreateTicketRequest) SetProcessorUnionIds(v []*string) *CreateTicketRequest {
+	s.ProcessorUnionIds = v
+	return s
+}
+
+func (s *CreateTicketRequest) SetScene(v string) *CreateTicketRequest {
+	s.Scene = &v
+	return s
+}
+
+func (s *CreateTicketRequest) SetSceneContext(v *CreateTicketRequestSceneContext) *CreateTicketRequest {
+	s.SceneContext = v
+	return s
+}
+
+func (s *CreateTicketRequest) SetOpenTemplateBizId(v string) *CreateTicketRequest {
+	s.OpenTemplateBizId = &v
+	return s
+}
+
+func (s *CreateTicketRequest) SetTitle(v string) *CreateTicketRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *CreateTicketRequest) SetCustomFields(v string) *CreateTicketRequest {
+	s.CustomFields = &v
+	return s
+}
+
+func (s *CreateTicketRequest) SetNotify(v *CreateTicketRequestNotify) *CreateTicketRequest {
+	s.Notify = v
+	return s
+}
+
+type CreateTicketRequestSceneContext struct {
+	// 服务群openConversationId
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 工单相关人UnionId列表
+	RelevantorUnionIds []*string `json:"relevantorUnionIds,omitempty" xml:"relevantorUnionIds,omitempty" type:"Repeated"`
+	// 工单相关的群消息列表
+	GroupMsgs []*CreateTicketRequestSceneContextGroupMsgs `json:"groupMsgs,omitempty" xml:"groupMsgs,omitempty" type:"Repeated"`
+	// VOC类型工单，对应话题ID
+	TopicId *string `json:"topicId,omitempty" xml:"topicId,omitempty"`
+}
+
+func (s CreateTicketRequestSceneContext) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTicketRequestSceneContext) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTicketRequestSceneContext) SetOpenConversationId(v string) *CreateTicketRequestSceneContext {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *CreateTicketRequestSceneContext) SetRelevantorUnionIds(v []*string) *CreateTicketRequestSceneContext {
+	s.RelevantorUnionIds = v
+	return s
+}
+
+func (s *CreateTicketRequestSceneContext) SetGroupMsgs(v []*CreateTicketRequestSceneContextGroupMsgs) *CreateTicketRequestSceneContext {
+	s.GroupMsgs = v
+	return s
+}
+
+func (s *CreateTicketRequestSceneContext) SetTopicId(v string) *CreateTicketRequestSceneContext {
+	s.TopicId = &v
+	return s
+}
+
+type CreateTicketRequestSceneContextGroupMsgs struct {
+	// 勾选消息openMsgId
+	OpenMsgId *string `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
+	// 是否为锚点消息
+	Anchor *bool `json:"anchor,omitempty" xml:"anchor,omitempty"`
+}
+
+func (s CreateTicketRequestSceneContextGroupMsgs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTicketRequestSceneContextGroupMsgs) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTicketRequestSceneContextGroupMsgs) SetOpenMsgId(v string) *CreateTicketRequestSceneContextGroupMsgs {
+	s.OpenMsgId = &v
+	return s
+}
+
+func (s *CreateTicketRequestSceneContextGroupMsgs) SetAnchor(v bool) *CreateTicketRequestSceneContextGroupMsgs {
+	s.Anchor = &v
+	return s
+}
+
+type CreateTicketRequestNotify struct {
+	// 企业工作通知接收人（钉钉UnionId）
+	WorkNoticeReceiverUnionIds []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	// 服务群通知接收人（钉钉UnionId）
+	GroupNoticeReceiverUnionIds []*string `json:"groupNoticeReceiverUnionIds,omitempty" xml:"groupNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	// 是否向群内推送一个全员可见工单通知卡片
+	NoticeAllGroupMember *bool `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
+}
+
+func (s CreateTicketRequestNotify) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTicketRequestNotify) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTicketRequestNotify) SetWorkNoticeReceiverUnionIds(v []*string) *CreateTicketRequestNotify {
+	s.WorkNoticeReceiverUnionIds = v
+	return s
+}
+
+func (s *CreateTicketRequestNotify) SetGroupNoticeReceiverUnionIds(v []*string) *CreateTicketRequestNotify {
+	s.GroupNoticeReceiverUnionIds = v
+	return s
+}
+
+func (s *CreateTicketRequestNotify) SetNoticeAllGroupMember(v bool) *CreateTicketRequestNotify {
+	s.NoticeAllGroupMember = &v
+	return s
+}
+
+type CreateTicketResponseBody struct {
+	// 工单开放ID
+	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
+}
+
+func (s CreateTicketResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTicketResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTicketResponseBody) SetOpenTicketId(v string) *CreateTicketResponseBody {
+	s.OpenTicketId = &v
+	return s
+}
+
+type CreateTicketResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateTicketResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateTicketResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTicketResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTicketResponse) SetHeaders(v map[string]*string) *CreateTicketResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateTicketResponse) SetBody(v *CreateTicketResponseBody) *CreateTicketResponse {
+	s.Body = v
+	return s
+}
+
+type FinishTicketHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s FinishTicketHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FinishTicketHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *FinishTicketHeaders) SetCommonHeaders(v map[string]*string) *FinishTicketHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *FinishTicketHeaders) SetXAcsDingtalkAccessToken(v string) *FinishTicketHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type FinishTicketRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 当前工单处理人
+	ProcessorUnionId *string `json:"processorUnionId,omitempty" xml:"processorUnionId,omitempty"`
+	// 工单开放id
+	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
+	// 备注
+	TicketMemo *FinishTicketRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
+	// 工单通知
+	Notify *FinishTicketRequestNotify `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
+}
+
+func (s FinishTicketRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FinishTicketRequest) GoString() string {
+	return s.String()
+}
+
+func (s *FinishTicketRequest) SetDingIsvOrgId(v int64) *FinishTicketRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *FinishTicketRequest) SetDingOrgId(v int64) *FinishTicketRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *FinishTicketRequest) SetDingSuiteKey(v string) *FinishTicketRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *FinishTicketRequest) SetDingTokenGrantType(v int64) *FinishTicketRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *FinishTicketRequest) SetOpenTeamId(v string) *FinishTicketRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *FinishTicketRequest) SetProcessorUnionId(v string) *FinishTicketRequest {
+	s.ProcessorUnionId = &v
+	return s
+}
+
+func (s *FinishTicketRequest) SetOpenTicketId(v string) *FinishTicketRequest {
+	s.OpenTicketId = &v
+	return s
+}
+
+func (s *FinishTicketRequest) SetTicketMemo(v *FinishTicketRequestTicketMemo) *FinishTicketRequest {
+	s.TicketMemo = v
+	return s
+}
+
+func (s *FinishTicketRequest) SetNotify(v *FinishTicketRequestNotify) *FinishTicketRequest {
+	s.Notify = v
+	return s
+}
+
+type FinishTicketRequestTicketMemo struct {
+	// 备注文字
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// 备注相关的附件
+	Attachments []*FinishTicketRequestTicketMemoAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+}
+
+func (s FinishTicketRequestTicketMemo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FinishTicketRequestTicketMemo) GoString() string {
+	return s.String()
+}
+
+func (s *FinishTicketRequestTicketMemo) SetMemo(v string) *FinishTicketRequestTicketMemo {
+	s.Memo = &v
+	return s
+}
+
+func (s *FinishTicketRequestTicketMemo) SetAttachments(v []*FinishTicketRequestTicketMemoAttachments) *FinishTicketRequestTicketMemo {
+	s.Attachments = v
+	return s
+}
+
+type FinishTicketRequestTicketMemoAttachments struct {
+	// 文件名
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// 文件key
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+}
+
+func (s FinishTicketRequestTicketMemoAttachments) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FinishTicketRequestTicketMemoAttachments) GoString() string {
+	return s.String()
+}
+
+func (s *FinishTicketRequestTicketMemoAttachments) SetFileName(v string) *FinishTicketRequestTicketMemoAttachments {
+	s.FileName = &v
+	return s
+}
+
+func (s *FinishTicketRequestTicketMemoAttachments) SetKey(v string) *FinishTicketRequestTicketMemoAttachments {
+	s.Key = &v
+	return s
+}
+
+type FinishTicketRequestNotify struct {
+	// 企业工作通知接收人（钉钉UnionId）
+	WorkNoticeReceiverUnionIds []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	// 群中通知接收人（钉钉UnionId）
+	GroupNoticeReceiverUnionIds []*string `json:"groupNoticeReceiverUnionIds,omitempty" xml:"groupNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	// 是否向群内推送一个全员可见工单通知卡片
+	NoticeAllGroupMember *bool `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
+}
+
+func (s FinishTicketRequestNotify) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FinishTicketRequestNotify) GoString() string {
+	return s.String()
+}
+
+func (s *FinishTicketRequestNotify) SetWorkNoticeReceiverUnionIds(v []*string) *FinishTicketRequestNotify {
+	s.WorkNoticeReceiverUnionIds = v
+	return s
+}
+
+func (s *FinishTicketRequestNotify) SetGroupNoticeReceiverUnionIds(v []*string) *FinishTicketRequestNotify {
+	s.GroupNoticeReceiverUnionIds = v
+	return s
+}
+
+func (s *FinishTicketRequestNotify) SetNoticeAllGroupMember(v bool) *FinishTicketRequestNotify {
+	s.NoticeAllGroupMember = &v
+	return s
+}
+
+type FinishTicketResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s FinishTicketResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FinishTicketResponse) GoString() string {
+	return s.String()
+}
+
+func (s *FinishTicketResponse) SetHeaders(v map[string]*string) *FinishTicketResponse {
+	s.Headers = v
+	return s
+}
+
+type SearchGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchGroupHeaders) SetCommonHeaders(v map[string]*string) *SearchGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchGroupHeaders) SetXAcsDingtalkAccessToken(v string) *SearchGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchGroupRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	// 开放群ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 群名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 开群组ID
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 用来标记当前开始读取的位置，置空表示从头开始。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 本次读取的最大数据记录数量，此参数为可选参数，用户传入为空时，应该有默认值。应设置最大值限制，最大不超过100
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+}
+
+func (s SearchGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchGroupRequest) SetDingIsvOrgId(v int64) *SearchGroupRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetDingOrgId(v int64) *SearchGroupRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetDingSuiteKey(v string) *SearchGroupRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetDingTokenGrantType(v int64) *SearchGroupRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetOpenConversationId(v string) *SearchGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetGroupName(v string) *SearchGroupRequest {
+	s.GroupName = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetOpenTeamId(v string) *SearchGroupRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetOpenGroupSetId(v string) *SearchGroupRequest {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetNextToken(v string) *SearchGroupRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetMaxResults(v int32) *SearchGroupRequest {
+	s.MaxResults = &v
+	return s
+}
+
+type SearchGroupResponseBody struct {
+	// 本次请求条件下的数据总量，此参数为可选参数，默认可不返回。本次请求条件下的数据总量，此参数为可选参数，默认可不返回
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 表示当前调用返回读取到的位置，空代表数据已经读取完毕
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 本次请求所返回的最大记录条数。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 已读未读信息列表
+	Records []*SearchGroupResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+}
+
+func (s SearchGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchGroupResponseBody) SetTotalCount(v int32) *SearchGroupResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *SearchGroupResponseBody) SetNextToken(v string) *SearchGroupResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchGroupResponseBody) SetMaxResults(v int32) *SearchGroupResponseBody {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchGroupResponseBody) SetRecords(v []*SearchGroupResponseBodyRecords) *SearchGroupResponseBody {
+	s.Records = v
+	return s
+}
+
+type SearchGroupResponseBodyRecords struct {
+	// 开放群ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 群名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 开放群组ID
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+}
+
+func (s SearchGroupResponseBodyRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchGroupResponseBodyRecords) GoString() string {
+	return s.String()
+}
+
+func (s *SearchGroupResponseBodyRecords) SetOpenConversationId(v string) *SearchGroupResponseBodyRecords {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SearchGroupResponseBodyRecords) SetGroupName(v string) *SearchGroupResponseBodyRecords {
+	s.GroupName = &v
+	return s
+}
+
+func (s *SearchGroupResponseBodyRecords) SetOpenTeamId(v string) *SearchGroupResponseBodyRecords {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *SearchGroupResponseBodyRecords) SetOpenGroupSetId(v string) *SearchGroupResponseBodyRecords {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+type SearchGroupResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchGroupResponse) SetHeaders(v map[string]*string) *SearchGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchGroupResponse) SetBody(v *SearchGroupResponseBody) *SearchGroupResponse {
+	s.Body = v
+	return s
+}
+
+type CreateGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupHeaders) SetCommonHeaders(v map[string]*string) *CreateGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateGroupRequest struct {
+	// 业务关联id
+	GroupBizId *string `json:"groupBizId,omitempty" xml:"groupBizId,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 开放群组ID
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 群名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 群主员工ID
+	OwnerStaffId *string `json:"ownerStaffId,omitempty" xml:"ownerStaffId,omitempty"`
+	// 群成员员工ID列表
+	MemberStaffIds []*string `json:"memberStaffIds,omitempty" xml:"memberStaffIds,omitempty" type:"Repeated"`
+	// 群标签
+	GroupTagNames      []*string `json:"groupTagNames,omitempty" xml:"groupTagNames,omitempty" type:"Repeated"`
+	DingIsvOrgId       *int64    `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64    `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string   `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64    `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+}
+
+func (s CreateGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupRequest) SetGroupBizId(v string) *CreateGroupRequest {
+	s.GroupBizId = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetOpenTeamId(v string) *CreateGroupRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetOpenGroupSetId(v string) *CreateGroupRequest {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetGroupName(v string) *CreateGroupRequest {
+	s.GroupName = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetOwnerStaffId(v string) *CreateGroupRequest {
+	s.OwnerStaffId = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetMemberStaffIds(v []*string) *CreateGroupRequest {
+	s.MemberStaffIds = v
+	return s
+}
+
+func (s *CreateGroupRequest) SetGroupTagNames(v []*string) *CreateGroupRequest {
+	s.GroupTagNames = v
+	return s
+}
+
+func (s *CreateGroupRequest) SetDingIsvOrgId(v int64) *CreateGroupRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetDingOrgId(v int64) *CreateGroupRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetDingSuiteKey(v string) *CreateGroupRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetDingTokenGrantType(v int64) *CreateGroupRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+type CreateGroupResponseBody struct {
+	// 开放群ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 入群url
+	GroupUrl *string `json:"groupUrl,omitempty" xml:"groupUrl,omitempty"`
+}
+
+func (s CreateGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupResponseBody) SetOpenConversationId(v string) *CreateGroupResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *CreateGroupResponseBody) SetGroupUrl(v string) *CreateGroupResponseBody {
+	s.GroupUrl = &v
+	return s
+}
+
+type CreateGroupResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupResponse) SetHeaders(v map[string]*string) *CreateGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateGroupResponse) SetBody(v *CreateGroupResponseBody) *CreateGroupResponse {
+	s.Body = v
+	return s
+}
+
+type TransferTicketHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TransferTicketHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TransferTicketHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TransferTicketHeaders) SetCommonHeaders(v map[string]*string) *TransferTicketHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TransferTicketHeaders) SetXAcsDingtalkAccessToken(v string) *TransferTicketHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TransferTicketRequest struct {
+	// 工单处理人
+	ProcessorUnionId *string `json:"processorUnionId,omitempty" xml:"processorUnionId,omitempty"`
+	// 工单开放ID
+	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
+	// 被转单人UnionId列表
+	ProcessorUnionIds []*string `json:"processorUnionIds,omitempty" xml:"processorUnionIds,omitempty" type:"Repeated"`
+	// 工单备注
+	TicketMemo *TransferTicketRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
+	Notify     *TransferTicketRequestNotify     `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
+	// 开放团队ID
+	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+}
+
+func (s TransferTicketRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TransferTicketRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TransferTicketRequest) SetProcessorUnionId(v string) *TransferTicketRequest {
+	s.ProcessorUnionId = &v
+	return s
+}
+
+func (s *TransferTicketRequest) SetOpenTicketId(v string) *TransferTicketRequest {
+	s.OpenTicketId = &v
+	return s
+}
+
+func (s *TransferTicketRequest) SetProcessorUnionIds(v []*string) *TransferTicketRequest {
+	s.ProcessorUnionIds = v
+	return s
+}
+
+func (s *TransferTicketRequest) SetTicketMemo(v *TransferTicketRequestTicketMemo) *TransferTicketRequest {
+	s.TicketMemo = v
+	return s
+}
+
+func (s *TransferTicketRequest) SetNotify(v *TransferTicketRequestNotify) *TransferTicketRequest {
+	s.Notify = v
+	return s
+}
+
+func (s *TransferTicketRequest) SetOpenTeamId(v string) *TransferTicketRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *TransferTicketRequest) SetDingIsvOrgId(v int64) *TransferTicketRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *TransferTicketRequest) SetDingOrgId(v int64) *TransferTicketRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *TransferTicketRequest) SetDingSuiteKey(v string) *TransferTicketRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *TransferTicketRequest) SetDingTokenGrantType(v int64) *TransferTicketRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+type TransferTicketRequestTicketMemo struct {
+	// 文字备注
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// 备注相关的附件
+	Attachments []*TransferTicketRequestTicketMemoAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+}
+
+func (s TransferTicketRequestTicketMemo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TransferTicketRequestTicketMemo) GoString() string {
+	return s.String()
+}
+
+func (s *TransferTicketRequestTicketMemo) SetMemo(v string) *TransferTicketRequestTicketMemo {
+	s.Memo = &v
+	return s
+}
+
+func (s *TransferTicketRequestTicketMemo) SetAttachments(v []*TransferTicketRequestTicketMemoAttachments) *TransferTicketRequestTicketMemo {
+	s.Attachments = v
+	return s
+}
+
+type TransferTicketRequestTicketMemoAttachments struct {
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	Key      *string `json:"key,omitempty" xml:"key,omitempty"`
+}
+
+func (s TransferTicketRequestTicketMemoAttachments) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TransferTicketRequestTicketMemoAttachments) GoString() string {
+	return s.String()
+}
+
+func (s *TransferTicketRequestTicketMemoAttachments) SetFileName(v string) *TransferTicketRequestTicketMemoAttachments {
+	s.FileName = &v
+	return s
+}
+
+func (s *TransferTicketRequestTicketMemoAttachments) SetKey(v string) *TransferTicketRequestTicketMemoAttachments {
+	s.Key = &v
+	return s
+}
+
+type TransferTicketRequestNotify struct {
+	// 企业工作通知接收人（钉钉UnionId）
+	WorkNoticeReceiverUnionIds []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	// 群中通知接收人（钉钉UnionId）
+	GroupNoticeReceiverUnionIds []*string `json:"groupNoticeReceiverUnionIds,omitempty" xml:"groupNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	// 是否向群内推送一个全员可见工单通知卡片
+	NoticeAllGroupMember *bool `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
+}
+
+func (s TransferTicketRequestNotify) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TransferTicketRequestNotify) GoString() string {
+	return s.String()
+}
+
+func (s *TransferTicketRequestNotify) SetWorkNoticeReceiverUnionIds(v []*string) *TransferTicketRequestNotify {
+	s.WorkNoticeReceiverUnionIds = v
+	return s
+}
+
+func (s *TransferTicketRequestNotify) SetGroupNoticeReceiverUnionIds(v []*string) *TransferTicketRequestNotify {
+	s.GroupNoticeReceiverUnionIds = v
+	return s
+}
+
+func (s *TransferTicketRequestNotify) SetNoticeAllGroupMember(v bool) *TransferTicketRequestNotify {
+	s.NoticeAllGroupMember = &v
+	return s
+}
+
+type TransferTicketResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s TransferTicketResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TransferTicketResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TransferTicketResponse) SetHeaders(v map[string]*string) *TransferTicketResponse {
+	s.Headers = v
+	return s
+}
+
+type GetOssTempUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetOssTempUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOssTempUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetOssTempUrlHeaders) SetCommonHeaders(v map[string]*string) *GetOssTempUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetOssTempUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetOssTempUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetOssTempUrlRequest struct {
+	// 团队开放ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// oss文件key
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// 文件名
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// 访问模式 AUTO(自动，例如在浏览器中如果是图片，PDF等可以在线直接查看，不能在线看时自动下载)、DOWNLOAD（直接下载）
+	FetchMode *string `json:"fetchMode,omitempty" xml:"fetchMode,omitempty"`
+}
+
+func (s GetOssTempUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOssTempUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetOssTempUrlRequest) SetOpenTeamId(v string) *GetOssTempUrlRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *GetOssTempUrlRequest) SetKey(v string) *GetOssTempUrlRequest {
+	s.Key = &v
+	return s
+}
+
+func (s *GetOssTempUrlRequest) SetFileName(v string) *GetOssTempUrlRequest {
+	s.FileName = &v
+	return s
+}
+
+func (s *GetOssTempUrlRequest) SetFetchMode(v string) *GetOssTempUrlRequest {
+	s.FetchMode = &v
+	return s
+}
+
+type GetOssTempUrlResponseBody struct {
+	// Id of the request
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s GetOssTempUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOssTempUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOssTempUrlResponseBody) SetUrl(v string) *GetOssTempUrlResponseBody {
+	s.Url = &v
+	return s
+}
+
+type GetOssTempUrlResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetOssTempUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetOssTempUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOssTempUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetOssTempUrlResponse) SetHeaders(v map[string]*string) *GetOssTempUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetOssTempUrlResponse) SetBody(v *GetOssTempUrlResponseBody) *GetOssTempUrlResponse {
+	s.Body = v
+	return s
+}
+
+type CancelTicketHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CancelTicketHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelTicketHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CancelTicketHeaders) SetCommonHeaders(v map[string]*string) *CancelTicketHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CancelTicketHeaders) SetXAcsDingtalkAccessToken(v string) *CancelTicketHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CancelTicketRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 工单开放ID
+	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
+	// 操作人unionId
+	OperatorUnionId *string                        `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
+	TicketMemo      *CancelTicketRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
+	Notify          *CancelTicketRequestNotify     `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
+}
+
+func (s CancelTicketRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelTicketRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CancelTicketRequest) SetDingIsvOrgId(v int64) *CancelTicketRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *CancelTicketRequest) SetDingOrgId(v int64) *CancelTicketRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *CancelTicketRequest) SetDingSuiteKey(v string) *CancelTicketRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *CancelTicketRequest) SetDingTokenGrantType(v int64) *CancelTicketRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *CancelTicketRequest) SetOpenTeamId(v string) *CancelTicketRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *CancelTicketRequest) SetOpenTicketId(v string) *CancelTicketRequest {
+	s.OpenTicketId = &v
+	return s
+}
+
+func (s *CancelTicketRequest) SetOperatorUnionId(v string) *CancelTicketRequest {
+	s.OperatorUnionId = &v
+	return s
+}
+
+func (s *CancelTicketRequest) SetTicketMemo(v *CancelTicketRequestTicketMemo) *CancelTicketRequest {
+	s.TicketMemo = v
+	return s
+}
+
+func (s *CancelTicketRequest) SetNotify(v *CancelTicketRequestNotify) *CancelTicketRequest {
+	s.Notify = v
+	return s
+}
+
+type CancelTicketRequestTicketMemo struct {
+	// 备注
+	Memo        *string                                     `json:"memo,omitempty" xml:"memo,omitempty"`
+	Attachments []*CancelTicketRequestTicketMemoAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+}
+
+func (s CancelTicketRequestTicketMemo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelTicketRequestTicketMemo) GoString() string {
+	return s.String()
+}
+
+func (s *CancelTicketRequestTicketMemo) SetMemo(v string) *CancelTicketRequestTicketMemo {
+	s.Memo = &v
+	return s
+}
+
+func (s *CancelTicketRequestTicketMemo) SetAttachments(v []*CancelTicketRequestTicketMemoAttachments) *CancelTicketRequestTicketMemo {
+	s.Attachments = v
+	return s
+}
+
+type CancelTicketRequestTicketMemoAttachments struct {
+	// 文件名
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// 文件key
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+}
+
+func (s CancelTicketRequestTicketMemoAttachments) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelTicketRequestTicketMemoAttachments) GoString() string {
+	return s.String()
+}
+
+func (s *CancelTicketRequestTicketMemoAttachments) SetFileName(v string) *CancelTicketRequestTicketMemoAttachments {
+	s.FileName = &v
+	return s
+}
+
+func (s *CancelTicketRequestTicketMemoAttachments) SetKey(v string) *CancelTicketRequestTicketMemoAttachments {
+	s.Key = &v
+	return s
+}
+
+type CancelTicketRequestNotify struct {
+	WorkNoticeReceiverUnionIds  []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	GroupNoticeReceiverUnionIds []*string `json:"groupNoticeReceiverUnionIds,omitempty" xml:"groupNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	// 是否向群内推送一个全员可见工单通知卡片
+	NoticeAllGroupMember *bool `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
+}
+
+func (s CancelTicketRequestNotify) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelTicketRequestNotify) GoString() string {
+	return s.String()
+}
+
+func (s *CancelTicketRequestNotify) SetWorkNoticeReceiverUnionIds(v []*string) *CancelTicketRequestNotify {
+	s.WorkNoticeReceiverUnionIds = v
+	return s
+}
+
+func (s *CancelTicketRequestNotify) SetGroupNoticeReceiverUnionIds(v []*string) *CancelTicketRequestNotify {
+	s.GroupNoticeReceiverUnionIds = v
+	return s
+}
+
+func (s *CancelTicketRequestNotify) SetNoticeAllGroupMember(v bool) *CancelTicketRequestNotify {
+	s.NoticeAllGroupMember = &v
+	return s
+}
+
+type CancelTicketResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s CancelTicketResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelTicketResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CancelTicketResponse) SetHeaders(v map[string]*string) *CancelTicketResponse {
+	s.Headers = v
+	return s
+}
+
+type GetStoragePolicyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetStoragePolicyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStoragePolicyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetStoragePolicyHeaders) SetCommonHeaders(v map[string]*string) *GetStoragePolicyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetStoragePolicyHeaders) SetXAcsDingtalkAccessToken(v string) *GetStoragePolicyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetStoragePolicyRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	// 团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 业务类型
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 文件大小，单位字节
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// 文件名称
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+}
+
+func (s GetStoragePolicyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStoragePolicyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetStoragePolicyRequest) SetDingIsvOrgId(v int64) *GetStoragePolicyRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *GetStoragePolicyRequest) SetDingOrgId(v int64) *GetStoragePolicyRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *GetStoragePolicyRequest) SetDingSuiteKey(v string) *GetStoragePolicyRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *GetStoragePolicyRequest) SetDingTokenGrantType(v int64) *GetStoragePolicyRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *GetStoragePolicyRequest) SetOpenTeamId(v string) *GetStoragePolicyRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *GetStoragePolicyRequest) SetBizType(v string) *GetStoragePolicyRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *GetStoragePolicyRequest) SetFileSize(v int64) *GetStoragePolicyRequest {
+	s.FileSize = &v
+	return s
+}
+
+func (s *GetStoragePolicyRequest) SetFileName(v string) *GetStoragePolicyRequest {
+	s.FileName = &v
+	return s
+}
+
+type GetStoragePolicyResponseBody struct {
+	// Id of the request
+	Key         *string `json:"key,omitempty" xml:"key,omitempty"`
+	Policy      *string `json:"policy,omitempty" xml:"policy,omitempty"`
+	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	Endpoint    *string `json:"endpoint,omitempty" xml:"endpoint,omitempty"`
+	Signature   *string `json:"signature,omitempty" xml:"signature,omitempty"`
+}
+
+func (s GetStoragePolicyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStoragePolicyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetStoragePolicyResponseBody) SetKey(v string) *GetStoragePolicyResponseBody {
+	s.Key = &v
+	return s
+}
+
+func (s *GetStoragePolicyResponseBody) SetPolicy(v string) *GetStoragePolicyResponseBody {
+	s.Policy = &v
+	return s
+}
+
+func (s *GetStoragePolicyResponseBody) SetAccessKeyId(v string) *GetStoragePolicyResponseBody {
+	s.AccessKeyId = &v
+	return s
+}
+
+func (s *GetStoragePolicyResponseBody) SetEndpoint(v string) *GetStoragePolicyResponseBody {
+	s.Endpoint = &v
+	return s
+}
+
+func (s *GetStoragePolicyResponseBody) SetSignature(v string) *GetStoragePolicyResponseBody {
+	s.Signature = &v
+	return s
+}
+
+type GetStoragePolicyResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetStoragePolicyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetStoragePolicyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStoragePolicyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetStoragePolicyResponse) SetHeaders(v map[string]*string) *GetStoragePolicyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetStoragePolicyResponse) SetBody(v *GetStoragePolicyResponseBody) *GetStoragePolicyResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -3893,170 +4563,6 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
-}
-
-func (client *Client) DeleteKnowledge(request *DeleteKnowledgeRequest) (_result *DeleteKnowledgeResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &DeleteKnowledgeHeaders{}
-	_result = &DeleteKnowledgeResponse{}
-	_body, _err := client.DeleteKnowledgeWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) DeleteKnowledgeWithOptions(request *DeleteKnowledgeRequest, headers *DeleteKnowledgeHeaders, runtime *util.RuntimeOptions) (_result *DeleteKnowledgeResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
-		body["dingIsvOrgId"] = request.DingIsvOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
-		body["dingOrgId"] = request.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
-		body["dingSuiteKey"] = request.DingSuiteKey
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
-		body["dingTokenGrantType"] = request.DingTokenGrantType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
-		body["openTeamId"] = request.OpenTeamId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.LibraryKey)) {
-		body["libraryKey"] = request.LibraryKey
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Source)) {
-		body["source"] = request.Source
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.SourcePrimaryKey)) {
-		body["sourcePrimaryKey"] = request.SourcePrimaryKey
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &DeleteKnowledgeResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteKnowledge"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/knowledges/batchDelete"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) CreateTicket(request *CreateTicketRequest) (_result *CreateTicketResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateTicketHeaders{}
-	_result = &CreateTicketResponse{}
-	_body, _err := client.CreateTicketWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) CreateTicketWithOptions(request *CreateTicketRequest, headers *CreateTicketHeaders, runtime *util.RuntimeOptions) (_result *CreateTicketResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
-		body["dingIsvOrgId"] = request.DingIsvOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
-		body["dingOrgId"] = request.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
-		body["dingSuiteKey"] = request.DingSuiteKey
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
-		body["dingTokenGrantType"] = request.DingTokenGrantType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
-		body["openTeamId"] = request.OpenTeamId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.CreatorUnionId)) {
-		body["creatorUnionId"] = request.CreatorUnionId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.ProcessorUnionIds)) {
-		body["processorUnionIds"] = request.ProcessorUnionIds
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Scene)) {
-		body["scene"] = request.Scene
-	}
-
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SceneContext))) {
-		body["sceneContext"] = request.SceneContext
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OpenTemplateBizId)) {
-		body["openTemplateBizId"] = request.OpenTemplateBizId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Title)) {
-		body["title"] = request.Title
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.CustomFields)) {
-		body["customFields"] = request.CustomFields
-	}
-
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
-		body["notify"] = request.Notify
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &CreateTicketResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
 }
 
 func (client *Client) AssignTicket(request *AssignTicketRequest) (_result *AssignTicketResponse, _err error) {
@@ -4139,162 +4645,6 @@ func (client *Client) AssignTicketWithOptions(request *AssignTicketRequest, head
 	return _result, _err
 }
 
-func (client *Client) FinishTicket(request *FinishTicketRequest) (_result *FinishTicketResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &FinishTicketHeaders{}
-	_result = &FinishTicketResponse{}
-	_body, _err := client.FinishTicketWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) FinishTicketWithOptions(request *FinishTicketRequest, headers *FinishTicketHeaders, runtime *util.RuntimeOptions) (_result *FinishTicketResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
-		body["dingIsvOrgId"] = request.DingIsvOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
-		body["dingOrgId"] = request.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
-		body["dingSuiteKey"] = request.DingSuiteKey
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
-		body["dingTokenGrantType"] = request.DingTokenGrantType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
-		body["openTeamId"] = request.OpenTeamId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.ProcessorUnionId)) {
-		body["processorUnionId"] = request.ProcessorUnionId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OpenTicketId)) {
-		body["openTicketId"] = request.OpenTicketId
-	}
-
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
-		body["ticketMemo"] = request.TicketMemo
-	}
-
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
-		body["notify"] = request.Notify
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &FinishTicketResponse{}
-	_body, _err := client.DoROARequest(tea.String("FinishTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets/finish"), tea.String("none"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) SearchGroup(request *SearchGroupRequest) (_result *SearchGroupResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &SearchGroupHeaders{}
-	_result = &SearchGroupResponse{}
-	_body, _err := client.SearchGroupWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) SearchGroupWithOptions(request *SearchGroupRequest, headers *SearchGroupHeaders, runtime *util.RuntimeOptions) (_result *SearchGroupResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
-		body["dingIsvOrgId"] = request.DingIsvOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
-		body["dingOrgId"] = request.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
-		body["dingSuiteKey"] = request.DingSuiteKey
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
-		body["dingTokenGrantType"] = request.DingTokenGrantType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
-		body["openConversationId"] = request.OpenConversationId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
-		body["groupName"] = request.GroupName
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
-		body["openTeamId"] = request.OpenTeamId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
-		body["openGroupSetId"] = request.OpenGroupSetId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
-		body["nextToken"] = request.NextToken
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
-		body["maxResults"] = request.MaxResults
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &SearchGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("SearchGroup"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/search"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
 func (client *Client) UpdateTicket(request *UpdateTicketRequest) (_result *UpdateTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateTicketHeaders{}
@@ -4364,170 +4714,6 @@ func (client *Client) UpdateTicketWithOptions(request *UpdateTicketRequest, head
 	}
 	_result = &UpdateTicketResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets"), tea.String("none"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateGroupResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateGroupHeaders{}
-	_result = &CreateGroupResponse{}
-	_body, _err := client.CreateGroupWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, headers *CreateGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.GroupBizId)) {
-		body["groupBizId"] = request.GroupBizId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
-		body["openTeamId"] = request.OpenTeamId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
-		body["openGroupSetId"] = request.OpenGroupSetId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
-		body["groupName"] = request.GroupName
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OwnerStaffId)) {
-		body["ownerStaffId"] = request.OwnerStaffId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.MemberStaffIds)) {
-		body["memberStaffIds"] = request.MemberStaffIds
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.GroupTagNames)) {
-		body["groupTagNames"] = request.GroupTagNames
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
-		body["dingIsvOrgId"] = request.DingIsvOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
-		body["dingOrgId"] = request.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
-		body["dingSuiteKey"] = request.DingSuiteKey
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
-		body["dingTokenGrantType"] = request.DingTokenGrantType
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &CreateGroupResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateGroup"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) TransferTicket(request *TransferTicketRequest) (_result *TransferTicketResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &TransferTicketHeaders{}
-	_result = &TransferTicketResponse{}
-	_body, _err := client.TransferTicketWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) TransferTicketWithOptions(request *TransferTicketRequest, headers *TransferTicketHeaders, runtime *util.RuntimeOptions) (_result *TransferTicketResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.ProcessorUnionId)) {
-		body["processorUnionId"] = request.ProcessorUnionId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OpenTicketId)) {
-		body["openTicketId"] = request.OpenTicketId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.ProcessorUnionIds)) {
-		body["processorUnionIds"] = request.ProcessorUnionIds
-	}
-
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
-		body["ticketMemo"] = request.TicketMemo
-	}
-
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
-		body["notify"] = request.Notify
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
-		body["openTeamId"] = request.OpenTeamId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
-		body["dingIsvOrgId"] = request.DingIsvOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
-		body["dingOrgId"] = request.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
-		body["dingSuiteKey"] = request.DingSuiteKey
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
-		body["dingTokenGrantType"] = request.DingTokenGrantType
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &TransferTicketResponse{}
-	_body, _err := client.DoROARequest(tea.String("TransferTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets/transfer"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4736,6 +4922,82 @@ func (client *Client) ListTicketOperateRecordWithOptions(request *ListTicketOper
 	}
 	_result = &ListTicketOperateRecordResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListTicketOperateRecord"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets/operateRecords"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RetractTicket(request *RetractTicketRequest) (_result *RetractTicketResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RetractTicketHeaders{}
+	_result = &RetractTicketResponse{}
+	_body, _err := client.RetractTicketWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RetractTicketWithOptions(request *RetractTicketRequest, headers *RetractTicketHeaders, runtime *util.RuntimeOptions) (_result *RetractTicketResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTicketId)) {
+		body["openTicketId"] = request.OpenTicketId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUnionId)) {
+		body["operatorUnionId"] = request.OperatorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
+		body["ticketMemo"] = request.TicketMemo
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
+		body["notify"] = request.Notify
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RetractTicketResponse{}
+	_body, _err := client.DoROARequest(tea.String("RetractTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets/retract"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5159,62 +5421,6 @@ func (client *Client) GetTicketWithOptions(request *GetTicketRequest, headers *G
 	return _result, _err
 }
 
-func (client *Client) GetOssTempUrl(request *GetOssTempUrlRequest) (_result *GetOssTempUrlResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetOssTempUrlHeaders{}
-	_result = &GetOssTempUrlResponse{}
-	_body, _err := client.GetOssTempUrlWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) GetOssTempUrlWithOptions(request *GetOssTempUrlRequest, headers *GetOssTempUrlHeaders, runtime *util.RuntimeOptions) (_result *GetOssTempUrlResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
-		query["openTeamId"] = request.OpenTeamId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Key)) {
-		query["key"] = request.Key
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.FileName)) {
-		query["fileName"] = request.FileName
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.FetchMode)) {
-		query["fetchMode"] = request.FetchMode
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &GetOssTempUrlResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetOssTempUrl"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/ossServices/tempUrls"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
 func (client *Client) TakeTicket(request *TakeTicketRequest) (_result *TakeTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &TakeTicketHeaders{}
@@ -5369,6 +5575,10 @@ func (client *Client) SendServiceGroupMessageWithOptions(request *SendServiceGro
 		body["btns"] = request.Btns
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.HasContentLinks)) {
+		body["hasContentLinks"] = request.HasContentLinks
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -5391,11 +5601,11 @@ func (client *Client) SendServiceGroupMessageWithOptions(request *SendServiceGro
 	return _result, _err
 }
 
-func (client *Client) GetStoragePolicy(request *GetStoragePolicyRequest) (_result *GetStoragePolicyResponse, _err error) {
+func (client *Client) ResubmitTicket(request *ResubmitTicketRequest) (_result *ResubmitTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetStoragePolicyHeaders{}
-	_result = &GetStoragePolicyResponse{}
-	_body, _err := client.GetStoragePolicyWithOptions(request, headers, runtime)
+	headers := &ResubmitTicketHeaders{}
+	_result = &ResubmitTicketResponse{}
+	_body, _err := client.ResubmitTicketWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5403,7 +5613,7 @@ func (client *Client) GetStoragePolicy(request *GetStoragePolicyRequest) (_resul
 	return _result, _err
 }
 
-func (client *Client) GetStoragePolicyWithOptions(request *GetStoragePolicyRequest, headers *GetStoragePolicyHeaders, runtime *util.RuntimeOptions) (_result *GetStoragePolicyResponse, _err error) {
+func (client *Client) ResubmitTicketWithOptions(request *ResubmitTicketRequest, headers *ResubmitTicketHeaders, runtime *util.RuntimeOptions) (_result *ResubmitTicketResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -5417,28 +5627,56 @@ func (client *Client) GetStoragePolicyWithOptions(request *GetStoragePolicyReque
 		body["dingOrgId"] = request.DingOrgId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
-		body["dingSuiteKey"] = request.DingSuiteKey
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
 		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
 		body["openTeamId"] = request.OpenTeamId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.BizType)) {
-		body["bizType"] = request.BizType
+	if !tea.BoolValue(util.IsUnset(request.CreatorUnionId)) {
+		body["creatorUnionId"] = request.CreatorUnionId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.FileSize)) {
-		body["fileSize"] = request.FileSize
+	if !tea.BoolValue(util.IsUnset(request.ProcessorUnionIds)) {
+		body["processorUnionIds"] = request.ProcessorUnionIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.FileName)) {
-		body["fileName"] = request.FileName
+	if !tea.BoolValue(util.IsUnset(request.Scene)) {
+		body["scene"] = request.Scene
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SceneContext))) {
+		body["sceneContext"] = request.SceneContext
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTemplateBizId)) {
+		body["openTemplateBizId"] = request.OpenTemplateBizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CustomFields)) {
+		body["customFields"] = request.CustomFields
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
+		body["notify"] = request.Notify
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTicketId)) {
+		body["openTicketId"] = request.OpenTicketId
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
+		body["ticketMemo"] = request.TicketMemo
 	}
 
 	realHeaders := make(map[string]*string)
@@ -5454,8 +5692,8 @@ func (client *Client) GetStoragePolicyWithOptions(request *GetStoragePolicyReque
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &GetStoragePolicyResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetStoragePolicy"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/ossServices/policies"), tea.String("json"), req, runtime)
+	_result = &ResubmitTicketResponse{}
+	_body, _err := client.DoROARequest(tea.String("ResubmitTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets/resubmit"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5562,6 +5800,694 @@ func (client *Client) AddTicketMemoWithOptions(request *AddTicketMemoRequest, he
 	}
 	_result = &AddTicketMemoResponse{}
 	_body, _err := client.DoROARequest(tea.String("AddTicketMemo"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets/memos"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteKnowledge(request *DeleteKnowledgeRequest) (_result *DeleteKnowledgeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteKnowledgeHeaders{}
+	_result = &DeleteKnowledgeResponse{}
+	_body, _err := client.DeleteKnowledgeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteKnowledgeWithOptions(request *DeleteKnowledgeRequest, headers *DeleteKnowledgeHeaders, runtime *util.RuntimeOptions) (_result *DeleteKnowledgeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LibraryKey)) {
+		body["libraryKey"] = request.LibraryKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Source)) {
+		body["source"] = request.Source
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourcePrimaryKey)) {
+		body["sourcePrimaryKey"] = request.SourcePrimaryKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DeleteKnowledgeResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteKnowledge"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/knowledges/batchDelete"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateTicket(request *CreateTicketRequest) (_result *CreateTicketResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateTicketHeaders{}
+	_result = &CreateTicketResponse{}
+	_body, _err := client.CreateTicketWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateTicketWithOptions(request *CreateTicketRequest, headers *CreateTicketHeaders, runtime *util.RuntimeOptions) (_result *CreateTicketResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreatorUnionId)) {
+		body["creatorUnionId"] = request.CreatorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessorUnionIds)) {
+		body["processorUnionIds"] = request.ProcessorUnionIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scene)) {
+		body["scene"] = request.Scene
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SceneContext))) {
+		body["sceneContext"] = request.SceneContext
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTemplateBizId)) {
+		body["openTemplateBizId"] = request.OpenTemplateBizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CustomFields)) {
+		body["customFields"] = request.CustomFields
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
+		body["notify"] = request.Notify
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateTicketResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) FinishTicket(request *FinishTicketRequest) (_result *FinishTicketResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &FinishTicketHeaders{}
+	_result = &FinishTicketResponse{}
+	_body, _err := client.FinishTicketWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) FinishTicketWithOptions(request *FinishTicketRequest, headers *FinishTicketHeaders, runtime *util.RuntimeOptions) (_result *FinishTicketResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessorUnionId)) {
+		body["processorUnionId"] = request.ProcessorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTicketId)) {
+		body["openTicketId"] = request.OpenTicketId
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
+		body["ticketMemo"] = request.TicketMemo
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
+		body["notify"] = request.Notify
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &FinishTicketResponse{}
+	_body, _err := client.DoROARequest(tea.String("FinishTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets/finish"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchGroup(request *SearchGroupRequest) (_result *SearchGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchGroupHeaders{}
+	_result = &SearchGroupResponse{}
+	_body, _err := client.SearchGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchGroupWithOptions(request *SearchGroupRequest, headers *SearchGroupHeaders, runtime *util.RuntimeOptions) (_result *SearchGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
+		body["groupName"] = request.GroupName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
+		body["openGroupSetId"] = request.OpenGroupSetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SearchGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchGroup"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateGroupHeaders{}
+	_result = &CreateGroupResponse{}
+	_body, _err := client.CreateGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, headers *CreateGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupBizId)) {
+		body["groupBizId"] = request.GroupBizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
+		body["openGroupSetId"] = request.OpenGroupSetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
+		body["groupName"] = request.GroupName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnerStaffId)) {
+		body["ownerStaffId"] = request.OwnerStaffId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MemberStaffIds)) {
+		body["memberStaffIds"] = request.MemberStaffIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupTagNames)) {
+		body["groupTagNames"] = request.GroupTagNames
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateGroup"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) TransferTicket(request *TransferTicketRequest) (_result *TransferTicketResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TransferTicketHeaders{}
+	_result = &TransferTicketResponse{}
+	_body, _err := client.TransferTicketWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) TransferTicketWithOptions(request *TransferTicketRequest, headers *TransferTicketHeaders, runtime *util.RuntimeOptions) (_result *TransferTicketResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProcessorUnionId)) {
+		body["processorUnionId"] = request.ProcessorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTicketId)) {
+		body["openTicketId"] = request.OpenTicketId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessorUnionIds)) {
+		body["processorUnionIds"] = request.ProcessorUnionIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
+		body["ticketMemo"] = request.TicketMemo
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
+		body["notify"] = request.Notify
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &TransferTicketResponse{}
+	_body, _err := client.DoROARequest(tea.String("TransferTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets/transfer"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetOssTempUrl(request *GetOssTempUrlRequest) (_result *GetOssTempUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOssTempUrlHeaders{}
+	_result = &GetOssTempUrlResponse{}
+	_body, _err := client.GetOssTempUrlWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetOssTempUrlWithOptions(request *GetOssTempUrlRequest, headers *GetOssTempUrlHeaders, runtime *util.RuntimeOptions) (_result *GetOssTempUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		query["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Key)) {
+		query["key"] = request.Key
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileName)) {
+		query["fileName"] = request.FileName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FetchMode)) {
+		query["fetchMode"] = request.FetchMode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetOssTempUrlResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetOssTempUrl"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/ossServices/tempUrls"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CancelTicket(request *CancelTicketRequest) (_result *CancelTicketResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CancelTicketHeaders{}
+	_result = &CancelTicketResponse{}
+	_body, _err := client.CancelTicketWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CancelTicketWithOptions(request *CancelTicketRequest, headers *CancelTicketHeaders, runtime *util.RuntimeOptions) (_result *CancelTicketResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTicketId)) {
+		body["openTicketId"] = request.OpenTicketId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUnionId)) {
+		body["operatorUnionId"] = request.OperatorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
+		body["ticketMemo"] = request.TicketMemo
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
+		body["notify"] = request.Notify
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CancelTicketResponse{}
+	_body, _err := client.DoROARequest(tea.String("CancelTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets/cancel"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetStoragePolicy(request *GetStoragePolicyRequest) (_result *GetStoragePolicyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetStoragePolicyHeaders{}
+	_result = &GetStoragePolicyResponse{}
+	_body, _err := client.GetStoragePolicyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetStoragePolicyWithOptions(request *GetStoragePolicyRequest, headers *GetStoragePolicyHeaders, runtime *util.RuntimeOptions) (_result *GetStoragePolicyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		body["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileSize)) {
+		body["fileSize"] = request.FileSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileName)) {
+		body["fileName"] = request.FileName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetStoragePolicyResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetStoragePolicy"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/ossServices/policies"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
