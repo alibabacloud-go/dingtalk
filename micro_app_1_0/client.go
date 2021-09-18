@@ -2389,6 +2389,7 @@ func (client *Client) GetInnerAppWithOptions(agentId *string, request *GetInnerA
 	if _err != nil {
 		return _result, _err
 	}
+	agentId = openapiutil.GetEncodeParam(agentId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpUnionId)) {
 		query["opUnionId"] = request.OpUnionId
@@ -2437,6 +2438,7 @@ func (client *Client) RegisterCustomAppRoleWithOptions(agentId *string, request 
 	if _err != nil {
 		return _result, _err
 	}
+	agentId = openapiutil.GetEncodeParam(agentId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
 		body["opUserId"] = request.OpUserId
@@ -2549,6 +2551,7 @@ func (client *Client) AddAppRolesToMemberWithOptions(agentId *string, request *A
 	if _err != nil {
 		return _result, _err
 	}
+	agentId = openapiutil.GetEncodeParam(agentId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
 		body["opUserId"] = request.OpUserId
@@ -2601,6 +2604,8 @@ func (client *Client) GetAppRoleScopeByRoleId(agentId *string, roleId *string) (
 }
 
 func (client *Client) GetAppRoleScopeByRoleIdWithOptions(agentId *string, roleId *string, headers *GetAppRoleScopeByRoleIdHeaders, runtime *util.RuntimeOptions) (_result *GetAppRoleScopeByRoleIdResponse, _err error) {
+	agentId = openapiutil.GetEncodeParam(agentId)
+	roleId = openapiutil.GetEncodeParam(roleId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -2635,6 +2640,8 @@ func (client *Client) ListRoleInfoByUser(agentId *string, userId *string) (_resu
 }
 
 func (client *Client) ListRoleInfoByUserWithOptions(agentId *string, userId *string, headers *ListRoleInfoByUserHeaders, runtime *util.RuntimeOptions) (_result *ListRoleInfoByUserResponse, _err error) {
+	agentId = openapiutil.GetEncodeParam(agentId)
+	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -2717,6 +2724,8 @@ func (client *Client) RemoveMemberForAppRoleWithOptions(agentId *string, roleId 
 	if _err != nil {
 		return _result, _err
 	}
+	agentId = openapiutil.GetEncodeParam(agentId)
+	roleId = openapiutil.GetEncodeParam(roleId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
 		body["opUserId"] = request.OpUserId
@@ -2773,6 +2782,7 @@ func (client *Client) UpdateInnerAppWithOptions(agentId *string, request *Update
 	if _err != nil {
 		return _result, _err
 	}
+	agentId = openapiutil.GetEncodeParam(agentId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpUnionId)) {
 		body["opUnionId"] = request.OpUnionId
@@ -2849,6 +2859,8 @@ func (client *Client) AddMemberToAppRoleWithOptions(agentId *string, roleId *str
 	if _err != nil {
 		return _result, _err
 	}
+	agentId = openapiutil.GetEncodeParam(agentId)
+	roleId = openapiutil.GetEncodeParam(roleId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
 		body["opUserId"] = request.OpUserId
@@ -2905,6 +2917,7 @@ func (client *Client) ListAppRoleScopesWithOptions(agentId *string, request *Lis
 	if _err != nil {
 		return _result, _err
 	}
+	agentId = openapiutil.GetEncodeParam(agentId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		query["nextToken"] = request.NextToken
@@ -2953,6 +2966,7 @@ func (client *Client) AddAppToWorkBenchGroupWithOptions(agentId *string, request
 	if _err != nil {
 		return _result, _err
 	}
+	agentId = openapiutil.GetEncodeParam(agentId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpUnionId)) {
 		body["opUnionId"] = request.OpUnionId
@@ -3005,6 +3019,8 @@ func (client *Client) RebuildRoleScopeForAppRoleWithOptions(agentId *string, rol
 	if _err != nil {
 		return _result, _err
 	}
+	agentId = openapiutil.GetEncodeParam(agentId)
+	roleId = openapiutil.GetEncodeParam(roleId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
 		body["opUserId"] = request.OpUserId
@@ -3113,6 +3129,8 @@ func (client *Client) DeleteAppRoleWithOptions(agentId *string, roleId *string, 
 	if _err != nil {
 		return _result, _err
 	}
+	agentId = openapiutil.GetEncodeParam(agentId)
+	roleId = openapiutil.GetEncodeParam(roleId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
 		query["opUserId"] = request.OpUserId
@@ -3245,6 +3263,7 @@ func (client *Client) DeleteInnerAppWithOptions(agentId *string, request *Delete
 	if _err != nil {
 		return _result, _err
 	}
+	agentId = openapiutil.GetEncodeParam(agentId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpUnionId)) {
 		query["opUnionId"] = request.OpUnionId
@@ -3293,6 +3312,8 @@ func (client *Client) UpdateAppRoleInfoWithOptions(agentId *string, roleId *stri
 	if _err != nil {
 		return _result, _err
 	}
+	agentId = openapiutil.GetEncodeParam(agentId)
+	roleId = openapiutil.GetEncodeParam(roleId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
 		body["opUserId"] = request.OpUserId

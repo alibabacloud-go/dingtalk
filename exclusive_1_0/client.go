@@ -2735,6 +2735,7 @@ func (client *Client) GetConferenceDetail(conferenceId *string) (_result *GetCon
 }
 
 func (client *Client) GetConferenceDetailWithOptions(conferenceId *string, headers *GetConferenceDetailHeaders, runtime *util.RuntimeOptions) (_result *GetConferenceDetailResponse, _err error) {
+	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -2773,6 +2774,7 @@ func (client *Client) GetUserAppVersionSummaryWithOptions(dataId *string, reques
 	if _err != nil {
 		return _result, _err
 	}
+	dataId = openapiutil.GetEncodeParam(dataId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		query["nextToken"] = request.NextToken
@@ -2817,6 +2819,8 @@ func (client *Client) DeleteComment(publisherId *string, commentId *string) (_re
 }
 
 func (client *Client) DeleteCommentWithOptions(publisherId *string, commentId *string, headers *DeleteCommentHeaders, runtime *util.RuntimeOptions) (_result *DeleteCommentResponse, _err error) {
+	publisherId = openapiutil.GetEncodeParam(publisherId)
+	commentId = openapiutil.GetEncodeParam(commentId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -2889,6 +2893,7 @@ func (client *Client) GetPublisherSummaryWithOptions(dataId *string, request *Ge
 	if _err != nil {
 		return _result, _err
 	}
+	dataId = openapiutil.GetEncodeParam(dataId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		query["nextToken"] = request.NextToken
@@ -2937,6 +2942,7 @@ func (client *Client) GetDocCreatedDeptSummaryWithOptions(dataId *string, reques
 	if _err != nil {
 		return _result, _err
 	}
+	dataId = openapiutil.GetEncodeParam(dataId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		query["nextToken"] = request.NextToken
@@ -2981,6 +2987,7 @@ func (client *Client) GetGeneralFormCreatedSummary(dataId *string) (_result *Get
 }
 
 func (client *Client) GetGeneralFormCreatedSummaryWithOptions(dataId *string, headers *GetGeneralFormCreatedSummaryHeaders, runtime *util.RuntimeOptions) (_result *GetGeneralFormCreatedSummaryResponse, _err error) {
+	dataId = openapiutil.GetEncodeParam(dataId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3071,6 +3078,7 @@ func (client *Client) GetDocCreatedSummary(dataId *string) (_result *GetDocCreat
 }
 
 func (client *Client) GetDocCreatedSummaryWithOptions(dataId *string, headers *GetDocCreatedSummaryHeaders, runtime *util.RuntimeOptions) (_result *GetDocCreatedSummaryResponse, _err error) {
+	dataId = openapiutil.GetEncodeParam(dataId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3105,6 +3113,7 @@ func (client *Client) GetPartnerTypeByParentId(parentId *string) (_result *GetPa
 }
 
 func (client *Client) GetPartnerTypeByParentIdWithOptions(parentId *string, headers *GetPartnerTypeByParentIdHeaders, runtime *util.RuntimeOptions) (_result *GetPartnerTypeByParentIdResponse, _err error) {
+	parentId = openapiutil.GetEncodeParam(parentId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3191,6 +3200,7 @@ func (client *Client) GetActiveUserSummary(dataId *string) (_result *GetActiveUs
 }
 
 func (client *Client) GetActiveUserSummaryWithOptions(dataId *string, headers *GetActiveUserSummaryHeaders, runtime *util.RuntimeOptions) (_result *GetActiveUserSummaryResponse, _err error) {
+	dataId = openapiutil.GetEncodeParam(dataId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3293,6 +3303,7 @@ func (client *Client) GetDingReportDeptSummaryWithOptions(dataId *string, reques
 	if _err != nil {
 		return _result, _err
 	}
+	dataId = openapiutil.GetEncodeParam(dataId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		query["nextToken"] = request.NextToken
@@ -3385,6 +3396,7 @@ func (client *Client) GetGeneralFormCreatedDeptSummaryWithOptions(dataId *string
 	if _err != nil {
 		return _result, _err
 	}
+	dataId = openapiutil.GetEncodeParam(dataId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		query["nextToken"] = request.NextToken
@@ -3521,6 +3533,7 @@ func (client *Client) GetCalenderSummary(dataId *string) (_result *GetCalenderSu
 }
 
 func (client *Client) GetCalenderSummaryWithOptions(dataId *string, headers *GetCalenderSummaryHeaders, runtime *util.RuntimeOptions) (_result *GetCalenderSummaryResponse, _err error) {
+	dataId = openapiutil.GetEncodeParam(dataId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3615,6 +3628,7 @@ func (client *Client) GetCommentListWithOptions(publisherId *string, request *Ge
 	if _err != nil {
 		return _result, _err
 	}
+	publisherId = openapiutil.GetEncodeParam(publisherId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
 		query["pageNumber"] = request.PageNumber

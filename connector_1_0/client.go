@@ -624,6 +624,7 @@ func (client *Client) PullDataByPkWithOptions(dataModelId *string, request *Pull
 	if _err != nil {
 		return _result, _err
 	}
+	dataModelId = openapiutil.GetEncodeParam(dataModelId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.PrimaryKey)) {
 		query["primaryKey"] = request.PrimaryKey

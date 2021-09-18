@@ -1848,6 +1848,7 @@ type ListEventsResponseBodyEvents struct {
 	// 日程状态
 	Status            *string                                        `json:"status,omitempty" xml:"status,omitempty"`
 	OnlineMeetingInfo *ListEventsResponseBodyEventsOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
+	Reminders         []*ListEventsResponseBodyEventsReminders       `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
 }
 
 func (s ListEventsResponseBodyEvents) String() string {
@@ -1930,6 +1931,11 @@ func (s *ListEventsResponseBodyEvents) SetStatus(v string) *ListEventsResponseBo
 
 func (s *ListEventsResponseBodyEvents) SetOnlineMeetingInfo(v *ListEventsResponseBodyEventsOnlineMeetingInfo) *ListEventsResponseBodyEvents {
 	s.OnlineMeetingInfo = v
+	return s
+}
+
+func (s *ListEventsResponseBodyEvents) SetReminders(v []*ListEventsResponseBodyEventsReminders) *ListEventsResponseBodyEvents {
+	s.Reminders = v
 	return s
 }
 
@@ -2219,6 +2225,29 @@ func (s *ListEventsResponseBodyEventsOnlineMeetingInfo) SetUrl(v string) *ListEv
 
 func (s *ListEventsResponseBodyEventsOnlineMeetingInfo) SetExtraInfo(v map[string]interface{}) *ListEventsResponseBodyEventsOnlineMeetingInfo {
 	s.ExtraInfo = v
+	return s
+}
+
+type ListEventsResponseBodyEventsReminders struct {
+	Method  *string `json:"method,omitempty" xml:"method,omitempty"`
+	Minutes *string `json:"minutes,omitempty" xml:"minutes,omitempty"`
+}
+
+func (s ListEventsResponseBodyEventsReminders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsResponseBodyEventsReminders) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsResponseBodyEventsReminders) SetMethod(v string) *ListEventsResponseBodyEventsReminders {
+	s.Method = &v
+	return s
+}
+
+func (s *ListEventsResponseBodyEventsReminders) SetMinutes(v string) *ListEventsResponseBodyEventsReminders {
+	s.Minutes = &v
 	return s
 }
 
@@ -2806,6 +2835,7 @@ type GetEventResponseBody struct {
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 更新时间
 	UpdateTime        *string                                `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	Reminders         []*GetEventResponseBodyReminders       `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
 	OnlineMeetingInfo *GetEventResponseBodyOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
 }
 
@@ -2884,6 +2914,11 @@ func (s *GetEventResponseBody) SetCreateTime(v string) *GetEventResponseBody {
 
 func (s *GetEventResponseBody) SetUpdateTime(v string) *GetEventResponseBody {
 	s.UpdateTime = &v
+	return s
+}
+
+func (s *GetEventResponseBody) SetReminders(v []*GetEventResponseBodyReminders) *GetEventResponseBody {
+	s.Reminders = v
 	return s
 }
 
@@ -3140,6 +3175,29 @@ func (s GetEventResponseBodyLocation) GoString() string {
 
 func (s *GetEventResponseBodyLocation) SetDisplayName(v string) *GetEventResponseBodyLocation {
 	s.DisplayName = &v
+	return s
+}
+
+type GetEventResponseBodyReminders struct {
+	Method  *string `json:"method,omitempty" xml:"method,omitempty"`
+	Minutes *string `json:"minutes,omitempty" xml:"minutes,omitempty"`
+}
+
+func (s GetEventResponseBodyReminders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEventResponseBodyReminders) GoString() string {
+	return s.String()
+}
+
+func (s *GetEventResponseBodyReminders) SetMethod(v string) *GetEventResponseBodyReminders {
+	s.Method = &v
+	return s
+}
+
+func (s *GetEventResponseBodyReminders) SetMinutes(v string) *GetEventResponseBodyReminders {
+	s.Minutes = &v
 	return s
 }
 
@@ -3525,6 +3583,7 @@ type PatchEventResponseBody struct {
 	Attendees  []*PatchEventResponseBodyAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
 	Organizer  *PatchEventResponseBodyOrganizer   `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
 	Location   *PatchEventResponseBodyLocation    `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
+	Reminders  []*PatchEventResponseBodyReminders `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 更新时间
@@ -3586,6 +3645,11 @@ func (s *PatchEventResponseBody) SetOrganizer(v *PatchEventResponseBodyOrganizer
 
 func (s *PatchEventResponseBody) SetLocation(v *PatchEventResponseBodyLocation) *PatchEventResponseBody {
 	s.Location = v
+	return s
+}
+
+func (s *PatchEventResponseBody) SetReminders(v []*PatchEventResponseBodyReminders) *PatchEventResponseBody {
+	s.Reminders = v
 	return s
 }
 
@@ -3843,6 +3907,29 @@ func (s *PatchEventResponseBodyLocation) SetDisplayName(v string) *PatchEventRes
 	return s
 }
 
+type PatchEventResponseBodyReminders struct {
+	Method  *string `json:"method,omitempty" xml:"method,omitempty"`
+	Minutes *string `json:"minutes,omitempty" xml:"minutes,omitempty"`
+}
+
+func (s PatchEventResponseBodyReminders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PatchEventResponseBodyReminders) GoString() string {
+	return s.String()
+}
+
+func (s *PatchEventResponseBodyReminders) SetMethod(v string) *PatchEventResponseBodyReminders {
+	s.Method = &v
+	return s
+}
+
+func (s *PatchEventResponseBodyReminders) SetMinutes(v string) *PatchEventResponseBodyReminders {
+	s.Minutes = &v
+	return s
+}
+
 type PatchEventResponse struct {
 	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
 	Body    *PatchEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
@@ -3906,6 +3993,9 @@ func (client *Client) RespondEventWithOptions(userId *string, calendarId *string
 	if _err != nil {
 		return _result, _err
 	}
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	eventId = openapiutil.GetEncodeParam(eventId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ResponseStatus)) {
 		body["responseStatus"] = request.ResponseStatus
@@ -3950,6 +4040,7 @@ func (client *Client) GenerateCaldavAccountWithOptions(userId *string, request *
 	if _err != nil {
 		return _result, _err
 	}
+	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Device)) {
 		body["device"] = request.Device
@@ -3998,6 +4089,7 @@ func (client *Client) GetScheduleWithOptions(userId *string, request *GetSchedul
 	if _err != nil {
 		return _result, _err
 	}
+	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
 		body["userIds"] = request.UserIds
@@ -4050,6 +4142,7 @@ func (client *Client) ConvertLegacyEventIdWithOptions(userId *string, request *C
 	if _err != nil {
 		return _result, _err
 	}
+	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.LegacyEventIds)) {
 		body["legacyEventIds"] = request.LegacyEventIds
@@ -4106,6 +4199,9 @@ func (client *Client) RemoveAttendeeWithOptions(userId *string, calendarId *stri
 	if _err != nil {
 		return _result, _err
 	}
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	eventId = openapiutil.GetEncodeParam(eventId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AttendeesToRemove)) {
 		body["attendeesToRemove"] = request.AttendeesToRemove
@@ -4150,6 +4246,9 @@ func (client *Client) AddAttendeeWithOptions(userId *string, calendarId *string,
 	if _err != nil {
 		return _result, _err
 	}
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	eventId = openapiutil.GetEncodeParam(eventId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AttendeesToAdd)) {
 		body["attendeesToAdd"] = request.AttendeesToAdd
@@ -4194,6 +4293,8 @@ func (client *Client) CreateEventWithOptions(userId *string, calendarId *string,
 	if _err != nil {
 		return _result, _err
 	}
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Summary)) {
 		body["summary"] = request.Summary
@@ -4274,6 +4375,7 @@ func (client *Client) ListCalendars(userId *string) (_result *ListCalendarsRespo
 }
 
 func (client *Client) ListCalendarsWithOptions(userId *string, headers *ListCalendarsHeaders, runtime *util.RuntimeOptions) (_result *ListCalendarsResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4312,6 +4414,9 @@ func (client *Client) ListReceiversWithOptions(userId *string, calendarId *strin
 	if _err != nil {
 		return _result, _err
 	}
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	eventId = openapiutil.GetEncodeParam(eventId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		query["nextToken"] = request.NextToken
@@ -4360,6 +4465,9 @@ func (client *Client) DeleteEvent(userId *string, calendarId *string, eventId *s
 }
 
 func (client *Client) DeleteEventWithOptions(userId *string, calendarId *string, eventId *string, headers *DeleteEventHeaders, runtime *util.RuntimeOptions) (_result *DeleteEventResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	eventId = openapiutil.GetEncodeParam(eventId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4398,6 +4506,8 @@ func (client *Client) ListEventsWithOptions(userId *string, calendarId *string, 
 	if _err != nil {
 		return _result, _err
 	}
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.TimeMin)) {
 		query["timeMin"] = request.TimeMin
@@ -4462,6 +4572,8 @@ func (client *Client) ListEventsViewWithOptions(userId *string, calendarId *stri
 	if _err != nil {
 		return _result, _err
 	}
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.TimeMin)) {
 		query["timeMin"] = request.TimeMin
@@ -4514,6 +4626,9 @@ func (client *Client) GetEvent(userId *string, calendarId *string, eventId *stri
 }
 
 func (client *Client) GetEventWithOptions(userId *string, calendarId *string, eventId *string, headers *GetEventHeaders, runtime *util.RuntimeOptions) (_result *GetEventResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	eventId = openapiutil.GetEncodeParam(eventId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4552,6 +4667,9 @@ func (client *Client) PatchEventWithOptions(userId *string, calendarId *string, 
 	if _err != nil {
 		return _result, _err
 	}
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	eventId = openapiutil.GetEncodeParam(eventId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Summary)) {
 		body["summary"] = request.Summary

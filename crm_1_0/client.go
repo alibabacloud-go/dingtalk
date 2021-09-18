@@ -3848,6 +3848,7 @@ func (client *Client) DeleteCrmFormInstanceWithOptions(instanceId *string, reque
 	if _err != nil {
 		return _result, _err
 	}
+	instanceId = openapiutil.GetEncodeParam(instanceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CurrentOperatorUserId)) {
 		query["currentOperatorUserId"] = request.CurrentOperatorUserId
@@ -3960,6 +3961,7 @@ func (client *Client) GetOfficialAccountContactInfo(userId *string) (_result *Ge
 }
 
 func (client *Client) GetOfficialAccountContactInfoWithOptions(userId *string, headers *GetOfficialAccountContactInfoHeaders, runtime *util.RuntimeOptions) (_result *GetOfficialAccountContactInfoResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4356,6 +4358,7 @@ func (client *Client) DeleteCrmPersonalCustomerWithOptions(dataId *string, reque
 	if _err != nil {
 		return _result, _err
 	}
+	dataId = openapiutil.GetEncodeParam(dataId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CurrentOperatorUserId)) {
 		query["currentOperatorUserId"] = request.CurrentOperatorUserId

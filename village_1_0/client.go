@@ -2667,6 +2667,7 @@ func (client *Client) GetVillageOrgInfo(subCorpId *string) (_result *GetVillageO
 }
 
 func (client *Client) GetVillageOrgInfoWithOptions(subCorpId *string, headers *GetVillageOrgInfoHeaders, runtime *util.RuntimeOptions) (_result *GetVillageOrgInfoResponse, _err error) {
+	subCorpId = openapiutil.GetEncodeParam(subCorpId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -2705,6 +2706,7 @@ func (client *Client) ListResidentDeptUsersWithOptions(departmentId *string, req
 	if _err != nil {
 		return _result, _err
 	}
+	departmentId = openapiutil.GetEncodeParam(departmentId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.SubCorpId)) {
 		query["subCorpId"] = request.SubCorpId
@@ -2761,6 +2763,7 @@ func (client *Client) ListDeptSimpleUsersWithOptions(departmentId *string, reque
 	if _err != nil {
 		return _result, _err
 	}
+	departmentId = openapiutil.GetEncodeParam(departmentId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Cursor)) {
 		query["cursor"] = request.Cursor
@@ -2877,6 +2880,7 @@ func (client *Client) GetResidentDeptWithOptions(departmentId *string, request *
 	if _err != nil {
 		return _result, _err
 	}
+	departmentId = openapiutil.GetEncodeParam(departmentId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.SubCorpId)) {
 		query["subCorpId"] = request.SubCorpId
@@ -2921,6 +2925,8 @@ func (client *Client) GetResidentUserInfoWithOptions(departmentId *string, userI
 	if _err != nil {
 		return _result, _err
 	}
+	departmentId = openapiutil.GetEncodeParam(departmentId)
+	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.SubCorpId)) {
 		query["subCorpId"] = request.SubCorpId
@@ -2965,6 +2971,7 @@ func (client *Client) GetDeptWithOptions(departmentId *string, request *GetDeptR
 	if _err != nil {
 		return _result, _err
 	}
+	departmentId = openapiutil.GetEncodeParam(departmentId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.SubCorpId)) {
 		query["subCorpId"] = request.SubCorpId
@@ -3061,6 +3068,7 @@ func (client *Client) ListDeptUserIdsWithOptions(departmentId *string, request *
 	if _err != nil {
 		return _result, _err
 	}
+	departmentId = openapiutil.GetEncodeParam(departmentId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.SubCorpId)) {
 		query["subCorpId"] = request.SubCorpId
@@ -3161,6 +3169,7 @@ func (client *Client) ListResidentSubDeptsWithOptions(departmentId *string, requ
 	if _err != nil {
 		return _result, _err
 	}
+	departmentId = openapiutil.GetEncodeParam(departmentId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.SubCorpId)) {
 		query["subCorpId"] = request.SubCorpId
@@ -3261,6 +3270,7 @@ func (client *Client) ListSubDeptWithOptions(departmentId *string, request *List
 	if _err != nil {
 		return _result, _err
 	}
+	departmentId = openapiutil.GetEncodeParam(departmentId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.SubCorpId)) {
 		query["subCorpId"] = request.SubCorpId
@@ -3309,6 +3319,7 @@ func (client *Client) GetUserWithOptions(userId *string, request *GetUserRequest
 	if _err != nil {
 		return _result, _err
 	}
+	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.SubCorpId)) {
 		query["subCorpId"] = request.SubCorpId
@@ -3357,6 +3368,7 @@ func (client *Client) ListDeptUsersWithOptions(departmentId *string, request *Li
 	if _err != nil {
 		return _result, _err
 	}
+	departmentId = openapiutil.GetEncodeParam(departmentId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Cursor)) {
 		query["cursor"] = request.Cursor
@@ -3475,6 +3487,7 @@ func (client *Client) ListSubDeptIdsWithOptions(departmentId *string, request *L
 	if _err != nil {
 		return _result, _err
 	}
+	departmentId = openapiutil.GetEncodeParam(departmentId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.SubCorpId)) {
 		query["subCorpId"] = request.SubCorpId

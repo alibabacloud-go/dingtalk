@@ -610,6 +610,128 @@ func (s *ListManagementGroupsResponse) SetBody(v *ListManagementGroupsResponseBo
 	return s
 }
 
+type ListSeniorSettingsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListSeniorSettingsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListSeniorSettingsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListSeniorSettingsHeaders) SetCommonHeaders(v map[string]*string) *ListSeniorSettingsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListSeniorSettingsHeaders) SetXAcsDingtalkAccessToken(v string) *ListSeniorSettingsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListSeniorSettingsRequest struct {
+	SeniorStaffId *string `json:"seniorStaffId,omitempty" xml:"seniorStaffId,omitempty"`
+}
+
+func (s ListSeniorSettingsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListSeniorSettingsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListSeniorSettingsRequest) SetSeniorStaffId(v string) *ListSeniorSettingsRequest {
+	s.SeniorStaffId = &v
+	return s
+}
+
+type ListSeniorSettingsResponseBody struct {
+	// Id of the request
+	SeniorStaffId   *string                                          `json:"seniorStaffId,omitempty" xml:"seniorStaffId,omitempty"`
+	ProtectScenes   []*string                                        `json:"protectScenes,omitempty" xml:"protectScenes,omitempty" type:"Repeated"`
+	SeniorWhiteList []*ListSeniorSettingsResponseBodySeniorWhiteList `json:"seniorWhiteList,omitempty" xml:"seniorWhiteList,omitempty" type:"Repeated"`
+}
+
+func (s ListSeniorSettingsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListSeniorSettingsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListSeniorSettingsResponseBody) SetSeniorStaffId(v string) *ListSeniorSettingsResponseBody {
+	s.SeniorStaffId = &v
+	return s
+}
+
+func (s *ListSeniorSettingsResponseBody) SetProtectScenes(v []*string) *ListSeniorSettingsResponseBody {
+	s.ProtectScenes = v
+	return s
+}
+
+func (s *ListSeniorSettingsResponseBody) SetSeniorWhiteList(v []*ListSeniorSettingsResponseBodySeniorWhiteList) *ListSeniorSettingsResponseBody {
+	s.SeniorWhiteList = v
+	return s
+}
+
+type ListSeniorSettingsResponseBodySeniorWhiteList struct {
+	Id   *string `json:"id,omitempty" xml:"id,omitempty"`
+	Type *int32  `json:"type,omitempty" xml:"type,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s ListSeniorSettingsResponseBodySeniorWhiteList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListSeniorSettingsResponseBodySeniorWhiteList) GoString() string {
+	return s.String()
+}
+
+func (s *ListSeniorSettingsResponseBodySeniorWhiteList) SetId(v string) *ListSeniorSettingsResponseBodySeniorWhiteList {
+	s.Id = &v
+	return s
+}
+
+func (s *ListSeniorSettingsResponseBodySeniorWhiteList) SetType(v int32) *ListSeniorSettingsResponseBodySeniorWhiteList {
+	s.Type = &v
+	return s
+}
+
+func (s *ListSeniorSettingsResponseBodySeniorWhiteList) SetName(v string) *ListSeniorSettingsResponseBodySeniorWhiteList {
+	s.Name = &v
+	return s
+}
+
+type ListSeniorSettingsResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListSeniorSettingsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListSeniorSettingsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListSeniorSettingsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListSeniorSettingsResponse) SetHeaders(v map[string]*string) *ListSeniorSettingsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListSeniorSettingsResponse) SetBody(v *ListSeniorSettingsResponseBody) *ListSeniorSettingsResponse {
+	s.Body = v
+	return s
+}
+
 type ListEmpAttributeVisibilityHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1901,7 +2023,9 @@ type TranslateFileRequest struct {
 	// 转译后文件名（含扩展名）
 	OutputFileName *string `json:"outputFileName,omitempty" xml:"outputFileName,omitempty"`
 	// unionId
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UnionId         *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	RequestId       *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	EagleEyeTraceId *string `json:"eagleEyeTraceId,omitempty" xml:"eagleEyeTraceId,omitempty"`
 }
 
 func (s TranslateFileRequest) String() string {
@@ -1947,6 +2071,16 @@ func (s *TranslateFileRequest) SetUnionId(v string) *TranslateFileRequest {
 	return s
 }
 
+func (s *TranslateFileRequest) SetRequestId(v string) *TranslateFileRequest {
+	s.RequestId = &v
+	return s
+}
+
+func (s *TranslateFileRequest) SetEagleEyeTraceId(v string) *TranslateFileRequest {
+	s.EagleEyeTraceId = &v
+	return s
+}
+
 type TranslateFileResponseBody struct {
 	// 异步转译任务id，最大长度为64字符
 	JobId *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
@@ -1985,6 +2119,93 @@ func (s *TranslateFileResponse) SetHeaders(v map[string]*string) *TranslateFileR
 
 func (s *TranslateFileResponse) SetBody(v *TranslateFileResponseBody) *TranslateFileResponse {
 	s.Body = v
+	return s
+}
+
+type UpdateSeniorSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateSeniorSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSeniorSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSeniorSettingHeaders) SetCommonHeaders(v map[string]*string) *UpdateSeniorSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateSeniorSettingHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateSeniorSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateSeniorSettingRequest struct {
+	SeniorStaffId  *string   `json:"seniorStaffId,omitempty" xml:"seniorStaffId,omitempty"`
+	Open           *bool     `json:"open,omitempty" xml:"open,omitempty"`
+	PermitStaffIds []*string `json:"permitStaffIds,omitempty" xml:"permitStaffIds,omitempty" type:"Repeated"`
+	PermitDeptIds  []*int64  `json:"permitDeptIds,omitempty" xml:"permitDeptIds,omitempty" type:"Repeated"`
+	PermitTagIds   []*int64  `json:"permitTagIds,omitempty" xml:"permitTagIds,omitempty" type:"Repeated"`
+	ProtectScenes  []*string `json:"protectScenes,omitempty" xml:"protectScenes,omitempty" type:"Repeated"`
+}
+
+func (s UpdateSeniorSettingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSeniorSettingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSeniorSettingRequest) SetSeniorStaffId(v string) *UpdateSeniorSettingRequest {
+	s.SeniorStaffId = &v
+	return s
+}
+
+func (s *UpdateSeniorSettingRequest) SetOpen(v bool) *UpdateSeniorSettingRequest {
+	s.Open = &v
+	return s
+}
+
+func (s *UpdateSeniorSettingRequest) SetPermitStaffIds(v []*string) *UpdateSeniorSettingRequest {
+	s.PermitStaffIds = v
+	return s
+}
+
+func (s *UpdateSeniorSettingRequest) SetPermitDeptIds(v []*int64) *UpdateSeniorSettingRequest {
+	s.PermitDeptIds = v
+	return s
+}
+
+func (s *UpdateSeniorSettingRequest) SetPermitTagIds(v []*int64) *UpdateSeniorSettingRequest {
+	s.PermitTagIds = v
+	return s
+}
+
+func (s *UpdateSeniorSettingRequest) SetProtectScenes(v []*string) *UpdateSeniorSettingRequest {
+	s.ProtectScenes = v
+	return s
+}
+
+type UpdateSeniorSettingResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s UpdateSeniorSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSeniorSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSeniorSettingResponse) SetHeaders(v map[string]*string) *UpdateSeniorSettingResponse {
+	s.Headers = v
 	return s
 }
 
@@ -2921,6 +3142,7 @@ func (client *Client) DeleteEmpAttributeVisibility(settingId *string) (_result *
 }
 
 func (client *Client) DeleteEmpAttributeVisibilityWithOptions(settingId *string, headers *DeleteEmpAttributeVisibilityHeaders, runtime *util.RuntimeOptions) (_result *DeleteEmpAttributeVisibilityResponse, _err error) {
+	settingId = openapiutil.GetEncodeParam(settingId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3039,6 +3261,50 @@ func (client *Client) ListManagementGroupsWithOptions(request *ListManagementGro
 	}
 	_result = &ListManagementGroupsResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListManagementGroups"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/managementGroups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListSeniorSettings(request *ListSeniorSettingsRequest) (_result *ListSeniorSettingsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListSeniorSettingsHeaders{}
+	_result = &ListSeniorSettingsResponse{}
+	_body, _err := client.ListSeniorSettingsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListSeniorSettingsWithOptions(request *ListSeniorSettingsRequest, headers *ListSeniorSettingsHeaders, runtime *util.RuntimeOptions) (_result *ListSeniorSettingsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SeniorStaffId)) {
+		query["seniorStaffId"] = request.SeniorStaffId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListSeniorSettingsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListSeniorSettings"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/seniorSettings"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3207,6 +3473,7 @@ func (client *Client) QueryUserManagementResources(userId *string) (_result *Que
 }
 
 func (client *Client) QueryUserManagementResourcesWithOptions(userId *string, headers *QueryUserManagementResourcesHeaders, runtime *util.RuntimeOptions) (_result *QueryUserManagementResourcesResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3245,6 +3512,7 @@ func (client *Client) UpdateUserOwnnessWithOptions(userId *string, request *Upda
 	if _err != nil {
 		return _result, _err
 	}
+	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OwnenssType)) {
 		body["ownenssType"] = request.OwnenssType
@@ -3389,6 +3657,7 @@ func (client *Client) GetCooperateOrgInviteInfo(cooperateCorpId *string) (_resul
 }
 
 func (client *Client) GetCooperateOrgInviteInfoWithOptions(cooperateCorpId *string, headers *GetCooperateOrgInviteInfoHeaders, runtime *util.RuntimeOptions) (_result *GetCooperateOrgInviteInfoResponse, _err error) {
+	cooperateCorpId = openapiutil.GetEncodeParam(cooperateCorpId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3427,6 +3696,7 @@ func (client *Client) UpdateManagementGroupWithOptions(groupId *string, request 
 	if _err != nil {
 		return _result, _err
 	}
+	groupId = openapiutil.GetEncodeParam(groupId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
 		body["groupName"] = request.GroupName
@@ -3533,6 +3803,7 @@ func (client *Client) GetUser(unionId *string) (_result *GetUserResponse, _err e
 }
 
 func (client *Client) GetUserWithOptions(unionId *string, headers *GetUserHeaders, runtime *util.RuntimeOptions) (_result *GetUserResponse, _err error) {
+	unionId = openapiutil.GetEncodeParam(unionId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3567,6 +3838,7 @@ func (client *Client) QueryResourceManagementMembers(resourceId *string) (_resul
 }
 
 func (client *Client) QueryResourceManagementMembersWithOptions(resourceId *string, headers *QueryResourceManagementMembersHeaders, runtime *util.RuntimeOptions) (_result *QueryResourceManagementMembersResponse, _err error) {
+	resourceId = openapiutil.GetEncodeParam(resourceId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3634,6 +3906,14 @@ func (client *Client) TranslateFileWithOptions(request *TranslateFileRequest, he
 		body["unionId"] = request.UnionId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		body["RequestId"] = request.RequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EagleEyeTraceId)) {
+		body["eagleEyeTraceId"] = request.EagleEyeTraceId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3649,6 +3929,70 @@ func (client *Client) TranslateFileWithOptions(request *TranslateFileRequest, he
 	}
 	_result = &TranslateFileResponse{}
 	_body, _err := client.DoROARequest(tea.String("TranslateFile"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/files/translate"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateSeniorSetting(request *UpdateSeniorSettingRequest) (_result *UpdateSeniorSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateSeniorSettingHeaders{}
+	_result = &UpdateSeniorSettingResponse{}
+	_body, _err := client.UpdateSeniorSettingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateSeniorSettingWithOptions(request *UpdateSeniorSettingRequest, headers *UpdateSeniorSettingHeaders, runtime *util.RuntimeOptions) (_result *UpdateSeniorSettingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SeniorStaffId)) {
+		body["seniorStaffId"] = request.SeniorStaffId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Open)) {
+		body["open"] = request.Open
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PermitStaffIds)) {
+		body["permitStaffIds"] = request.PermitStaffIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PermitDeptIds)) {
+		body["permitDeptIds"] = request.PermitDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PermitTagIds)) {
+		body["permitTagIds"] = request.PermitTagIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProtectScenes)) {
+		body["protectScenes"] = request.ProtectScenes
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateSeniorSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateSeniorSetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/seniorSettings"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3869,6 +4213,7 @@ func (client *Client) DeleteManagementGroup(groupId *string) (_result *DeleteMan
 }
 
 func (client *Client) DeleteManagementGroupWithOptions(groupId *string, headers *DeleteManagementGroupHeaders, runtime *util.RuntimeOptions) (_result *DeleteManagementGroupResponse, _err error) {
+	groupId = openapiutil.GetEncodeParam(groupId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders

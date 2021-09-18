@@ -5646,6 +5646,7 @@ func (client *Client) InitCoursesOfClassWithOptions(classId *string, request *In
 	if _err != nil {
 		return _result, _err
 	}
+	classId = openapiutil.GetEncodeParam(classId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
 		query["opUserId"] = request.OpUserId
@@ -5700,6 +5701,7 @@ func (client *Client) DeleteDeptWithOptions(deptId *string, request *DeleteDeptR
 	if _err != nil {
 		return _result, _err
 	}
+	deptId = openapiutil.GetEncodeParam(deptId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Operator)) {
 		query["operator"] = request.Operator
@@ -5744,6 +5746,8 @@ func (client *Client) DeleteGuardianWithOptions(classId *string, userId *string,
 	if _err != nil {
 		return _result, _err
 	}
+	classId = openapiutil.GetEncodeParam(classId)
+	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.StuId)) {
 		query["stuId"] = request.StuId
@@ -5854,6 +5858,8 @@ func (client *Client) DeleteTeacherWithOptions(classId *string, userId *string, 
 	if _err != nil {
 		return _result, _err
 	}
+	classId = openapiutil.GetEncodeParam(classId)
+	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Adviser)) {
 		query["adviser"] = request.Adviser
@@ -6094,6 +6100,7 @@ func (client *Client) GetOpenCourseDetail(courseId *string) (_result *GetOpenCou
 }
 
 func (client *Client) GetOpenCourseDetailWithOptions(courseId *string, headers *GetOpenCourseDetailHeaders, runtime *util.RuntimeOptions) (_result *GetOpenCourseDetailResponse, _err error) {
+	courseId = openapiutil.GetEncodeParam(courseId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -6132,6 +6139,8 @@ func (client *Client) DeleteStudentWithOptions(classId *string, userId *string, 
 	if _err != nil {
 		return _result, _err
 	}
+	classId = openapiutil.GetEncodeParam(classId)
+	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Operator)) {
 		query["operator"] = request.Operator
@@ -6228,6 +6237,7 @@ func (client *Client) UpdateCoursesOfClassWithOptions(classId *string, request *
 	if _err != nil {
 		return _result, _err
 	}
+	classId = openapiutil.GetEncodeParam(classId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
 		query["opUserId"] = request.OpUserId
@@ -6632,6 +6642,7 @@ func (client *Client) GetShareRoleMembers(shareRoleCode *string) (_result *GetSh
 }
 
 func (client *Client) GetShareRoleMembersWithOptions(shareRoleCode *string, headers *GetShareRoleMembersHeaders, runtime *util.RuntimeOptions) (_result *GetShareRoleMembersResponse, _err error) {
+	shareRoleCode = openapiutil.GetEncodeParam(shareRoleCode)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders

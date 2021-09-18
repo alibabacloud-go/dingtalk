@@ -6,6 +6,7 @@ package project_integration_1_0
 
 import (
 	openapi "github.com/alibabacloud-go/darabonba-openapi/client"
+	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
@@ -276,6 +277,7 @@ func (client *Client) SendInteractiveCard(userId *string) (_result *SendInteract
 }
 
 func (client *Client) SendInteractiveCardWithOptions(userId *string, headers *SendInteractiveCardHeaders, runtime *util.RuntimeOptions) (_result *SendInteractiveCardResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -310,6 +312,7 @@ func (client *Client) UpdateInteractiveCard(userId *string) (_result *UpdateInte
 }
 
 func (client *Client) UpdateInteractiveCardWithOptions(userId *string, headers *UpdateInteractiveCardHeaders, runtime *util.RuntimeOptions) (_result *UpdateInteractiveCardResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -344,6 +347,7 @@ func (client *Client) SendSingleInteractiveCard(userId *string) (_result *SendSi
 }
 
 func (client *Client) SendSingleInteractiveCardWithOptions(userId *string, headers *SendSingleInteractiveCardHeaders, runtime *util.RuntimeOptions) (_result *SendSingleInteractiveCardResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -378,6 +382,8 @@ func (client *Client) AddAttendeeToEventGroup(userId *string, groupId *string) (
 }
 
 func (client *Client) AddAttendeeToEventGroupWithOptions(userId *string, groupId *string, headers *AddAttendeeToEventGroupHeaders, runtime *util.RuntimeOptions) (_result *AddAttendeeToEventGroupResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
+	groupId = openapiutil.GetEncodeParam(groupId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -412,6 +418,7 @@ func (client *Client) CreateEventGroup(userId *string) (_result *CreateEventGrou
 }
 
 func (client *Client) CreateEventGroupWithOptions(userId *string, headers *CreateEventGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateEventGroupResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders

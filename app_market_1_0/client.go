@@ -535,6 +535,7 @@ func (client *Client) QueryMarketOrder(orderId *string) (_result *QueryMarketOrd
 }
 
 func (client *Client) QueryMarketOrderWithOptions(orderId *string, headers *QueryMarketOrderHeaders, runtime *util.RuntimeOptions) (_result *QueryMarketOrderResponse, _err error) {
+	orderId = openapiutil.GetEncodeParam(orderId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders

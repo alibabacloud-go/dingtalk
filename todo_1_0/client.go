@@ -3040,6 +3040,8 @@ func (client *Client) GetTodoTaskDetail(taskId *string, unionId *string) (_resul
 }
 
 func (client *Client) GetTodoTaskDetailWithOptions(taskId *string, unionId *string, headers *GetTodoTaskDetailHeaders, runtime *util.RuntimeOptions) (_result *GetTodoTaskDetailResponse, _err error) {
+	taskId = openapiutil.GetEncodeParam(taskId)
+	unionId = openapiutil.GetEncodeParam(unionId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3074,6 +3076,8 @@ func (client *Client) GetTodoTask(unionId *string, taskId *string) (_result *Get
 }
 
 func (client *Client) GetTodoTaskWithOptions(unionId *string, taskId *string, headers *GetTodoTaskHeaders, runtime *util.RuntimeOptions) (_result *GetTodoTaskResponse, _err error) {
+	unionId = openapiutil.GetEncodeParam(unionId)
+	taskId = openapiutil.GetEncodeParam(taskId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3108,6 +3112,8 @@ func (client *Client) GetTodoTaskBySourceId(unionId *string, sourceId *string) (
 }
 
 func (client *Client) GetTodoTaskBySourceIdWithOptions(unionId *string, sourceId *string, headers *GetTodoTaskBySourceIdHeaders, runtime *util.RuntimeOptions) (_result *GetTodoTaskBySourceIdResponse, _err error) {
+	unionId = openapiutil.GetEncodeParam(unionId)
+	sourceId = openapiutil.GetEncodeParam(sourceId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3146,6 +3152,7 @@ func (client *Client) CountTodoTasksWithOptions(unionId *string, request *CountT
 	if _err != nil {
 		return _result, _err
 	}
+	unionId = openapiutil.GetEncodeParam(unionId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.IsDone)) {
 		body["isDone"] = request.IsDone
@@ -3210,6 +3217,7 @@ func (client *Client) QueryOrgTodoTasksWithOptions(unionId *string, request *Que
 	if _err != nil {
 		return _result, _err
 	}
+	unionId = openapiutil.GetEncodeParam(unionId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		body["nextToken"] = request.NextToken
@@ -3258,6 +3266,7 @@ func (client *Client) CreateTodoTaskWithOptions(unionId *string, request *Create
 	if _err != nil {
 		return _result, _err
 	}
+	unionId = openapiutil.GetEncodeParam(unionId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
@@ -3340,6 +3349,8 @@ func (client *Client) GetTodoTypeConfig(unionId *string, cardTypeId *string) (_r
 }
 
 func (client *Client) GetTodoTypeConfigWithOptions(unionId *string, cardTypeId *string, headers *GetTodoTypeConfigHeaders, runtime *util.RuntimeOptions) (_result *GetTodoTypeConfigResponse, _err error) {
+	unionId = openapiutil.GetEncodeParam(unionId)
+	cardTypeId = openapiutil.GetEncodeParam(cardTypeId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3378,6 +3389,7 @@ func (client *Client) QueryTodoTasksWithOptions(unionId *string, request *QueryT
 	if _err != nil {
 		return _result, _err
 	}
+	unionId = openapiutil.GetEncodeParam(unionId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		body["nextToken"] = request.NextToken
@@ -3454,6 +3466,8 @@ func (client *Client) UpdateTodoTypeConfigWithOptions(unionId *string, cardTypeI
 	if _err != nil {
 		return _result, _err
 	}
+	unionId = openapiutil.GetEncodeParam(unionId)
+	cardTypeId = openapiutil.GetEncodeParam(cardTypeId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
@@ -3524,6 +3538,8 @@ func (client *Client) DeleteTodoTaskWithOptions(unionId *string, taskId *string,
 	if _err != nil {
 		return _result, _err
 	}
+	unionId = openapiutil.GetEncodeParam(unionId)
+	taskId = openapiutil.GetEncodeParam(taskId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
@@ -3568,6 +3584,8 @@ func (client *Client) UpdateTodoTaskExecutorStatusWithOptions(unionId *string, t
 	if _err != nil {
 		return _result, _err
 	}
+	unionId = openapiutil.GetEncodeParam(unionId)
+	taskId = openapiutil.GetEncodeParam(taskId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
@@ -3618,6 +3636,7 @@ func (client *Client) CreateTodoTypeConfigWithOptions(unionId *string, request *
 	if _err != nil {
 		return _result, _err
 	}
+	unionId = openapiutil.GetEncodeParam(unionId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
@@ -3688,6 +3707,8 @@ func (client *Client) UpdateTodoTaskWithOptions(unionId *string, taskId *string,
 	if _err != nil {
 		return _result, _err
 	}
+	unionId = openapiutil.GetEncodeParam(unionId)
+	taskId = openapiutil.GetEncodeParam(taskId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId

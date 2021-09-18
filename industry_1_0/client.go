@@ -2965,6 +2965,7 @@ func (client *Client) QueryUserInfo(userId *string) (_result *QueryUserInfoRespo
 }
 
 func (client *Client) QueryUserInfoWithOptions(userId *string, headers *QueryUserInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryUserInfoResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3003,6 +3004,7 @@ func (client *Client) QueryAllMemberByDeptWithOptions(deptId *string, request *Q
 	if _err != nil {
 		return _result, _err
 	}
+	deptId = openapiutil.GetEncodeParam(deptId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
 		query["pageSize"] = request.PageSize
@@ -3051,6 +3053,7 @@ func (client *Client) QueryAllMemberByGroupWithOptions(groupId *string, request 
 	if _err != nil {
 		return _result, _err
 	}
+	groupId = openapiutil.GetEncodeParam(groupId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
 		query["pageSize"] = request.PageSize
@@ -3095,6 +3098,7 @@ func (client *Client) QueryUserRoles(userId *string) (_result *QueryUserRolesRes
 }
 
 func (client *Client) QueryUserRolesWithOptions(userId *string, headers *QueryUserRolesHeaders, runtime *util.RuntimeOptions) (_result *QueryUserRolesResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3181,6 +3185,7 @@ func (client *Client) QueryAllGroupsInDeptWithOptions(deptId *string, request *Q
 	if _err != nil {
 		return _result, _err
 	}
+	deptId = openapiutil.GetEncodeParam(deptId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
 		query["pageSize"] = request.PageSize
@@ -3341,6 +3346,7 @@ func (client *Client) QueryDepartmentInfo(deptId *string) (_result *QueryDepartm
 }
 
 func (client *Client) QueryDepartmentInfoWithOptions(deptId *string, headers *QueryDepartmentInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryDepartmentInfoResponse, _err error) {
+	deptId = openapiutil.GetEncodeParam(deptId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3379,6 +3385,7 @@ func (client *Client) UpdateUserExtendInfoWithOptions(userId *string, request *U
 	if _err != nil {
 		return _result, _err
 	}
+	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.JobCode)) {
 		body["jobCode"] = request.JobCode
@@ -3479,6 +3486,7 @@ func (client *Client) QueryUserExtInfo(userId *string) (_result *QueryUserExtInf
 }
 
 func (client *Client) QueryUserExtInfoWithOptions(userId *string, headers *QueryUserExtInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryUserExtInfoResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3595,6 +3603,7 @@ func (client *Client) QueryGroupInfo(groupId *string) (_result *QueryGroupInfoRe
 }
 
 func (client *Client) QueryGroupInfoWithOptions(groupId *string, headers *QueryGroupInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryGroupInfoResponse, _err error) {
+	groupId = openapiutil.GetEncodeParam(groupId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders

@@ -38,7 +38,7 @@ type UpdateResideceGroupRequest struct {
 	// 组长userid
 	ManagerUserId *string `json:"managerUserId,omitempty" xml:"managerUserId,omitempty"`
 	// 组名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
 	// 组id
 	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
 }
@@ -56,8 +56,8 @@ func (s *UpdateResideceGroupRequest) SetManagerUserId(v string) *UpdateResideceG
 	return s
 }
 
-func (s *UpdateResideceGroupRequest) SetName(v string) *UpdateResideceGroupRequest {
-	s.Name = &v
+func (s *UpdateResideceGroupRequest) SetDepartmentName(v string) *UpdateResideceGroupRequest {
+	s.DepartmentName = &v
 	return s
 }
 
@@ -218,7 +218,7 @@ type AddResidentUsersRequest struct {
 	// 是否是租客
 	IsLeaseholder *bool `json:"isLeaseholder,omitempty" xml:"isLeaseholder,omitempty"`
 	// 居民名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 	// 手机号码
 	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
 	// 户/租户部门id
@@ -247,8 +247,8 @@ func (s *AddResidentUsersRequest) SetIsLeaseholder(v bool) *AddResidentUsersRequ
 	return s
 }
 
-func (s *AddResidentUsersRequest) SetName(v string) *AddResidentUsersRequest {
-	s.Name = &v
+func (s *AddResidentUsersRequest) SetUserName(v string) *AddResidentUsersRequest {
+	s.UserName = &v
 	return s
 }
 
@@ -365,7 +365,7 @@ type AddResidentDepartmentRequest struct {
 	// 是否为组
 	IsResidenceGroup *bool `json:"isResidenceGroup,omitempty" xml:"isResidenceGroup,omitempty"`
 	// 部门名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
 	// 父部门id
 	ParentDepartmentId *int64 `json:"parentDepartmentId,omitempty" xml:"parentDepartmentId,omitempty"`
 }
@@ -383,8 +383,8 @@ func (s *AddResidentDepartmentRequest) SetIsResidenceGroup(v bool) *AddResidentD
 	return s
 }
 
-func (s *AddResidentDepartmentRequest) SetName(v string) *AddResidentDepartmentRequest {
-	s.Name = &v
+func (s *AddResidentDepartmentRequest) SetDepartmentName(v string) *AddResidentDepartmentRequest {
+	s.DepartmentName = &v
 	return s
 }
 
@@ -550,7 +550,7 @@ type UpdateResidenceRequest struct {
 	// 家庭管理员用户id
 	ManagerUserId *string `json:"managerUserId,omitempty" xml:"managerUserId,omitempty"`
 	// 户名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
 	// 组id
 	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
 	// 所属网格
@@ -576,8 +576,8 @@ func (s *UpdateResidenceRequest) SetManagerUserId(v string) *UpdateResidenceRequ
 	return s
 }
 
-func (s *UpdateResidenceRequest) SetName(v string) *UpdateResidenceRequest {
-	s.Name = &v
+func (s *UpdateResidenceRequest) SetDepartmentName(v string) *UpdateResidenceRequest {
+	s.DepartmentName = &v
 	return s
 }
 
@@ -676,7 +676,7 @@ type UpdateResidentUserRequest struct {
 	// 是否保留原部门
 	IsRetainOldDept *bool `json:"isRetainOldDept,omitempty" xml:"isRetainOldDept,omitempty"`
 	// 居民名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 	// 手机号码
 	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
 	// 所在新的户/租户部门id
@@ -709,8 +709,8 @@ func (s *UpdateResidentUserRequest) SetIsRetainOldDept(v bool) *UpdateResidentUs
 	return s
 }
 
-func (s *UpdateResidentUserRequest) SetName(v string) *UpdateResidentUserRequest {
-	s.Name = &v
+func (s *UpdateResidentUserRequest) SetUserName(v string) *UpdateResidentUserRequest {
+	s.UserName = &v
 	return s
 }
 
@@ -855,8 +855,8 @@ func (client *Client) UpdateResideceGroupWithOptions(request *UpdateResideceGrou
 		query["managerUserId"] = request.ManagerUserId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Name)) {
-		query["name"] = request.Name
+	if !tea.BoolValue(util.IsUnset(request.DepartmentName)) {
+		query["departmentName"] = request.DepartmentName
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.DepartmentId)) {
@@ -955,8 +955,8 @@ func (client *Client) AddResidentUsersWithOptions(request *AddResidentUsersReque
 		query["isLeaseholder"] = request.IsLeaseholder
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Name)) {
-		query["name"] = request.Name
+	if !tea.BoolValue(util.IsUnset(request.UserName)) {
+		query["userName"] = request.UserName
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Mobile)) {
@@ -1019,8 +1019,8 @@ func (client *Client) AddResidentDepartmentWithOptions(request *AddResidentDepar
 		query["isResidenceGroup"] = request.IsResidenceGroup
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Name)) {
-		query["name"] = request.Name
+	if !tea.BoolValue(util.IsUnset(request.DepartmentName)) {
+		query["departmentName"] = request.DepartmentName
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ParentDepartmentId)) {
@@ -1119,8 +1119,8 @@ func (client *Client) UpdateResidenceWithOptions(request *UpdateResidenceRequest
 		query["managerUserId"] = request.ManagerUserId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Name)) {
-		query["name"] = request.Name
+	if !tea.BoolValue(util.IsUnset(request.DepartmentName)) {
+		query["departmentName"] = request.DepartmentName
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.DepartmentId)) {
@@ -1191,8 +1191,8 @@ func (client *Client) UpdateResidentUserWithOptions(request *UpdateResidentUserR
 		query["isRetainOldDept"] = request.IsRetainOldDept
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Name)) {
-		query["name"] = request.Name
+	if !tea.BoolValue(util.IsUnset(request.UserName)) {
+		query["userName"] = request.UserName
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Mobile)) {

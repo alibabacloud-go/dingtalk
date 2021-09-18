@@ -1835,6 +1835,7 @@ func (client *Client) GetMachine(devId *string) (_result *GetMachineResponse, _e
 }
 
 func (client *Client) GetMachineWithOptions(devId *string, headers *GetMachineHeaders, runtime *util.RuntimeOptions) (_result *GetMachineResponse, _err error) {
+	devId = openapiutil.GetEncodeParam(devId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1873,6 +1874,7 @@ func (client *Client) GetMachineUserWithOptions(devId *string, request *GetMachi
 	if _err != nil {
 		return _result, _err
 	}
+	devId = openapiutil.GetEncodeParam(devId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		query["nextToken"] = request.NextToken

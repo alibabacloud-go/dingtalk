@@ -1354,6 +1354,7 @@ func (client *Client) PageListActionWithOptions(ticketId *string, request *PageL
 	if _err != nil {
 		return _result, _err
 	}
+	ticketId = openapiutil.GetEncodeParam(ticketId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpenInstanceId)) {
 		query["openInstanceId"] = request.OpenInstanceId
@@ -1410,6 +1411,7 @@ func (client *Client) ExecuteActivityWithOptions(ticketId *string, request *Exec
 	if _err != nil {
 		return _result, _err
 	}
+	ticketId = openapiutil.GetEncodeParam(ticketId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.SourceId)) {
 		body["sourceId"] = request.SourceId

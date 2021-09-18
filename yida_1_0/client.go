@@ -1239,6 +1239,7 @@ func (client *Client) GetFormDataByIDWithOptions(id *string, request *GetFormDat
 	if _err != nil {
 		return _result, _err
 	}
+	id = openapiutil.GetEncodeParam(id)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AppType)) {
 		query["appType"] = request.AppType

@@ -3027,6 +3027,7 @@ func (client *Client) GetFile(fileId *string) (_result *GetFileResponse, _err er
 }
 
 func (client *Client) GetFileWithOptions(fileId *string, headers *GetFileHeaders, runtime *util.RuntimeOptions) (_result *GetFileResponse, _err error) {
+	fileId = openapiutil.GetEncodeParam(fileId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3559,6 +3560,7 @@ func (client *Client) GetUserInfo(userId *string) (_result *GetUserInfoResponse,
 }
 
 func (client *Client) GetUserInfoWithOptions(userId *string, headers *GetUserInfoHeaders, runtime *util.RuntimeOptions) (_result *GetUserInfoResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders

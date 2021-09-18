@@ -2910,6 +2910,7 @@ func (client *Client) GetSignDetail(taskId *string) (_result *GetSignDetailRespo
 }
 
 func (client *Client) GetSignDetailWithOptions(taskId *string, headers *GetSignDetailHeaders, runtime *util.RuntimeOptions) (_result *GetSignDetailResponse, _err error) {
+	taskId = openapiutil.GetEncodeParam(taskId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -2948,6 +2949,7 @@ func (client *Client) GetAttachsApproval(instanceId *string) (_result *GetAttach
 }
 
 func (client *Client) GetAttachsApprovalWithOptions(instanceId *string, headers *GetAttachsApprovalHeaders, runtime *util.RuntimeOptions) (_result *GetAttachsApprovalResponse, _err error) {
+	instanceId = openapiutil.GetEncodeParam(instanceId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3070,6 +3072,7 @@ func (client *Client) ApprovalList(taskId *string) (_result *ApprovalListRespons
 }
 
 func (client *Client) ApprovalListWithOptions(taskId *string, headers *ApprovalListHeaders, runtime *util.RuntimeOptions) (_result *ApprovalListResponse, _err error) {
+	taskId = openapiutil.GetEncodeParam(taskId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3198,6 +3201,7 @@ func (client *Client) GetFileInfo(fileId *string) (_result *GetFileInfoResponse,
 }
 
 func (client *Client) GetFileInfoWithOptions(fileId *string, headers *GetFileInfoHeaders, runtime *util.RuntimeOptions) (_result *GetFileInfoResponse, _err error) {
+	fileId = openapiutil.GetEncodeParam(fileId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3530,6 +3534,7 @@ func (client *Client) GetFlowDocs(taskId *string) (_result *GetFlowDocsResponse,
 }
 
 func (client *Client) GetFlowDocsWithOptions(taskId *string, headers *GetFlowDocsHeaders, runtime *util.RuntimeOptions) (_result *GetFlowDocsResponse, _err error) {
+	taskId = openapiutil.GetEncodeParam(taskId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3624,6 +3629,7 @@ func (client *Client) GetFlowDetail(taskId *string) (_result *GetFlowDetailRespo
 }
 
 func (client *Client) GetFlowDetailWithOptions(taskId *string, headers *GetFlowDetailHeaders, runtime *util.RuntimeOptions) (_result *GetFlowDetailResponse, _err error) {
+	taskId = openapiutil.GetEncodeParam(taskId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3700,6 +3706,7 @@ func (client *Client) GetUserInfo(userId *string) (_result *GetUserInfoResponse,
 }
 
 func (client *Client) GetUserInfoWithOptions(userId *string, headers *GetUserInfoHeaders, runtime *util.RuntimeOptions) (_result *GetUserInfoResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders

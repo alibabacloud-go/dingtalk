@@ -933,6 +933,7 @@ func (client *Client) EditFeedReplayWithOptions(feedId *string, request *EditFee
 	if _err != nil {
 		return _result, _err
 	}
+	feedId = openapiutil.GetEncodeParam(feedId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		body["userId"] = request.UserId
@@ -985,6 +986,7 @@ func (client *Client) QueryFeedWhiteListWithOptions(feedId *string, request *Que
 	if _err != nil {
 		return _result, _err
 	}
+	feedId = openapiutil.GetEncodeParam(feedId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		query["userId"] = request.UserId
@@ -1093,6 +1095,7 @@ func (client *Client) DeleteLiveFeedWithOptions(feedId *string, request *DeleteL
 	if _err != nil {
 		return _result, _err
 	}
+	feedId = openapiutil.GetEncodeParam(feedId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		query["userId"] = request.UserId
@@ -1137,6 +1140,7 @@ func (client *Client) StartCloudFeedWithOptions(feedId *string, request *StartCl
 	if _err != nil {
 		return _result, _err
 	}
+	feedId = openapiutil.GetEncodeParam(feedId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		body["userId"] = request.UserId
@@ -1181,6 +1185,7 @@ func (client *Client) StopCloudFeedWithOptions(feedId *string, request *StopClou
 	if _err != nil {
 		return _result, _err
 	}
+	feedId = openapiutil.GetEncodeParam(feedId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		body["userId"] = request.UserId
@@ -1225,6 +1230,7 @@ func (client *Client) ModifyFeedWhiteListWithOptions(feedId *string, tmpReq *Mod
 	if _err != nil {
 		return _result, _err
 	}
+	feedId = openapiutil.GetEncodeParam(feedId)
 	request := &ModifyFeedWhiteListShrinkRequest{}
 	openapiutil.Convert(tmpReq, request)
 	if !tea.BoolValue(util.IsUnset(tmpReq.ModifyUserList)) {
@@ -1283,6 +1289,7 @@ func (client *Client) UpdateLiveFeedWithOptions(feedId *string, request *UpdateL
 	if _err != nil {
 		return _result, _err
 	}
+	feedId = openapiutil.GetEncodeParam(feedId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		query["userId"] = request.UserId
@@ -1343,6 +1350,7 @@ func (client *Client) AddShareCidListWithOptions(feedId *string, request *AddSha
 	if _err != nil {
 		return _result, _err
 	}
+	feedId = openapiutil.GetEncodeParam(feedId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		body["userId"] = request.UserId

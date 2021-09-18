@@ -1691,9 +1691,9 @@ type QueryCompanyBasicInfoResponseBody struct {
 	// total
 	Total *int32 `json:"total,omitempty" xml:"total,omitempty"`
 	// data
-	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	Data []map[string]*string `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
 	// code
-	Code *int32 `json:"code,omitempty" xml:"code,omitempty"`
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
 }
 
 func (s QueryCompanyBasicInfoResponseBody) String() string {
@@ -1719,12 +1719,12 @@ func (s *QueryCompanyBasicInfoResponseBody) SetTotal(v int32) *QueryCompanyBasic
 	return s
 }
 
-func (s *QueryCompanyBasicInfoResponseBody) SetData(v string) *QueryCompanyBasicInfoResponseBody {
-	s.Data = &v
+func (s *QueryCompanyBasicInfoResponseBody) SetData(v []map[string]*string) *QueryCompanyBasicInfoResponseBody {
+	s.Data = v
 	return s
 }
 
-func (s *QueryCompanyBasicInfoResponseBody) SetCode(v int32) *QueryCompanyBasicInfoResponseBody {
+func (s *QueryCompanyBasicInfoResponseBody) SetCode(v string) *QueryCompanyBasicInfoResponseBody {
 	s.Code = &v
 	return s
 }

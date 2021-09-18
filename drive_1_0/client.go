@@ -90,6 +90,8 @@ func (s *AddFileRequest) SetUnionId(v string) *AddFileRequest {
 type AddFileResponseBody struct {
 	// 空间id
 	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 父目录id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
 	// 文件id
 	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
 	// 文件名称
@@ -102,10 +104,16 @@ type AddFileResponseBody struct {
 	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
 	// 文件后缀
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
+	// 文件大小
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 修改时间
 	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	// 创建者
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// 修改者
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
 }
 
 func (s AddFileResponseBody) String() string {
@@ -118,6 +126,11 @@ func (s AddFileResponseBody) GoString() string {
 
 func (s *AddFileResponseBody) SetSpaceId(v string) *AddFileResponseBody {
 	s.SpaceId = &v
+	return s
+}
+
+func (s *AddFileResponseBody) SetParentId(v string) *AddFileResponseBody {
+	s.ParentId = &v
 	return s
 }
 
@@ -151,6 +164,11 @@ func (s *AddFileResponseBody) SetFileExtension(v string) *AddFileResponseBody {
 	return s
 }
 
+func (s *AddFileResponseBody) SetFileSize(v int64) *AddFileResponseBody {
+	s.FileSize = &v
+	return s
+}
+
 func (s *AddFileResponseBody) SetCreateTime(v string) *AddFileResponseBody {
 	s.CreateTime = &v
 	return s
@@ -158,6 +176,16 @@ func (s *AddFileResponseBody) SetCreateTime(v string) *AddFileResponseBody {
 
 func (s *AddFileResponseBody) SetModifyTime(v string) *AddFileResponseBody {
 	s.ModifyTime = &v
+	return s
+}
+
+func (s *AddFileResponseBody) SetCreator(v string) *AddFileResponseBody {
+	s.Creator = &v
+	return s
+}
+
+func (s *AddFileResponseBody) SetModifier(v string) *AddFileResponseBody {
+	s.Modifier = &v
 	return s
 }
 
@@ -315,6 +343,8 @@ type AddSpaceResponseBody struct {
 	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
 	// 空间已使用额度
 	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// 授权模式
+	PermissionMode *string `json:"permissionMode,omitempty" xml:"permissionMode,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 修改时间
@@ -351,6 +381,11 @@ func (s *AddSpaceResponseBody) SetQuota(v int64) *AddSpaceResponseBody {
 
 func (s *AddSpaceResponseBody) SetUsedQuota(v int64) *AddSpaceResponseBody {
 	s.UsedQuota = &v
+	return s
+}
+
+func (s *AddSpaceResponseBody) SetPermissionMode(v string) *AddSpaceResponseBody {
+	s.PermissionMode = &v
 	return s
 }
 
@@ -606,6 +641,8 @@ func (s *GetFileInfoRequest) SetUnionId(v string) *GetFileInfoRequest {
 type GetFileInfoResponseBody struct {
 	// 空间id
 	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 父目录id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
 	// 文件id
 	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
 	// 文件名称
@@ -618,10 +655,16 @@ type GetFileInfoResponseBody struct {
 	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
 	// 文件后缀
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
+	// 文件大小
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 修改时间
 	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	// 创建者
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// 修改者
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
 }
 
 func (s GetFileInfoResponseBody) String() string {
@@ -634,6 +677,11 @@ func (s GetFileInfoResponseBody) GoString() string {
 
 func (s *GetFileInfoResponseBody) SetSpaceId(v string) *GetFileInfoResponseBody {
 	s.SpaceId = &v
+	return s
+}
+
+func (s *GetFileInfoResponseBody) SetParentId(v string) *GetFileInfoResponseBody {
+	s.ParentId = &v
 	return s
 }
 
@@ -667,6 +715,11 @@ func (s *GetFileInfoResponseBody) SetFileExtension(v string) *GetFileInfoRespons
 	return s
 }
 
+func (s *GetFileInfoResponseBody) SetFileSize(v int64) *GetFileInfoResponseBody {
+	s.FileSize = &v
+	return s
+}
+
 func (s *GetFileInfoResponseBody) SetCreateTime(v string) *GetFileInfoResponseBody {
 	s.CreateTime = &v
 	return s
@@ -674,6 +727,16 @@ func (s *GetFileInfoResponseBody) SetCreateTime(v string) *GetFileInfoResponseBo
 
 func (s *GetFileInfoResponseBody) SetModifyTime(v string) *GetFileInfoResponseBody {
 	s.ModifyTime = &v
+	return s
+}
+
+func (s *GetFileInfoResponseBody) SetCreator(v string) *GetFileInfoResponseBody {
+	s.Creator = &v
+	return s
+}
+
+func (s *GetFileInfoResponseBody) SetModifier(v string) *GetFileInfoResponseBody {
+	s.Modifier = &v
 	return s
 }
 
@@ -752,6 +815,8 @@ type InfoSpaceResponseBody struct {
 	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
 	// 已使用容量
 	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// 授权模式
+	PermissionMode *string `json:"permissionMode,omitempty" xml:"permissionMode,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 修改时间
@@ -788,6 +853,11 @@ func (s *InfoSpaceResponseBody) SetQuota(v int64) *InfoSpaceResponseBody {
 
 func (s *InfoSpaceResponseBody) SetUsedQuota(v int64) *InfoSpaceResponseBody {
 	s.UsedQuota = &v
+	return s
+}
+
+func (s *InfoSpaceResponseBody) SetPermissionMode(v string) *InfoSpaceResponseBody {
+	s.PermissionMode = &v
 	return s
 }
 
@@ -1059,6 +1129,8 @@ func (s *RenameFileRequest) SetUnionId(v string) *RenameFileRequest {
 type RenameFileResponseBody struct {
 	// 空间id
 	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 父目录id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
 	// 文件id
 	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
 	// 文件名称
@@ -1071,10 +1143,16 @@ type RenameFileResponseBody struct {
 	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
 	// 文件后缀
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
+	// 文件大小
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 修改时间
 	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	// 创建者
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// 修改者
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
 }
 
 func (s RenameFileResponseBody) String() string {
@@ -1087,6 +1165,11 @@ func (s RenameFileResponseBody) GoString() string {
 
 func (s *RenameFileResponseBody) SetSpaceId(v string) *RenameFileResponseBody {
 	s.SpaceId = &v
+	return s
+}
+
+func (s *RenameFileResponseBody) SetParentId(v string) *RenameFileResponseBody {
+	s.ParentId = &v
 	return s
 }
 
@@ -1120,6 +1203,11 @@ func (s *RenameFileResponseBody) SetFileExtension(v string) *RenameFileResponseB
 	return s
 }
 
+func (s *RenameFileResponseBody) SetFileSize(v int64) *RenameFileResponseBody {
+	s.FileSize = &v
+	return s
+}
+
 func (s *RenameFileResponseBody) SetCreateTime(v string) *RenameFileResponseBody {
 	s.CreateTime = &v
 	return s
@@ -1127,6 +1215,16 @@ func (s *RenameFileResponseBody) SetCreateTime(v string) *RenameFileResponseBody
 
 func (s *RenameFileResponseBody) SetModifyTime(v string) *RenameFileResponseBody {
 	s.ModifyTime = &v
+	return s
+}
+
+func (s *RenameFileResponseBody) SetCreator(v string) *RenameFileResponseBody {
+	s.Creator = &v
+	return s
+}
+
+func (s *RenameFileResponseBody) SetModifier(v string) *RenameFileResponseBody {
+	s.Modifier = &v
 	return s
 }
 
@@ -1149,6 +1247,130 @@ func (s *RenameFileResponse) SetHeaders(v map[string]*string) *RenameFileRespons
 }
 
 func (s *RenameFileResponse) SetBody(v *RenameFileResponseBody) *RenameFileResponse {
+	s.Body = v
+	return s
+}
+
+type GetAsyncTaskInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAsyncTaskInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAsyncTaskInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAsyncTaskInfoHeaders) SetCommonHeaders(v map[string]*string) *GetAsyncTaskInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAsyncTaskInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetAsyncTaskInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAsyncTaskInfoRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetAsyncTaskInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAsyncTaskInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAsyncTaskInfoRequest) SetUnionId(v string) *GetAsyncTaskInfoRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetAsyncTaskInfoResponseBody struct {
+	// 异步任务id
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// 任务总数
+	Total *int32 `json:"total,omitempty" xml:"total,omitempty"`
+	// 完成个数
+	Success *int32 `json:"success,omitempty" xml:"success,omitempty"`
+	// 失败个数
+	Failed *int32 `json:"failed,omitempty" xml:"failed,omitempty"`
+	// 任务状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 任务开始时间
+	BeginTime *string `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
+	// 任务结束时间
+	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+}
+
+func (s GetAsyncTaskInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAsyncTaskInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAsyncTaskInfoResponseBody) SetTaskId(v string) *GetAsyncTaskInfoResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetAsyncTaskInfoResponseBody) SetTotal(v int32) *GetAsyncTaskInfoResponseBody {
+	s.Total = &v
+	return s
+}
+
+func (s *GetAsyncTaskInfoResponseBody) SetSuccess(v int32) *GetAsyncTaskInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *GetAsyncTaskInfoResponseBody) SetFailed(v int32) *GetAsyncTaskInfoResponseBody {
+	s.Failed = &v
+	return s
+}
+
+func (s *GetAsyncTaskInfoResponseBody) SetStatus(v string) *GetAsyncTaskInfoResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *GetAsyncTaskInfoResponseBody) SetBeginTime(v string) *GetAsyncTaskInfoResponseBody {
+	s.BeginTime = &v
+	return s
+}
+
+func (s *GetAsyncTaskInfoResponseBody) SetEndTime(v string) *GetAsyncTaskInfoResponseBody {
+	s.EndTime = &v
+	return s
+}
+
+type GetAsyncTaskInfoResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetAsyncTaskInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAsyncTaskInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAsyncTaskInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAsyncTaskInfoResponse) SetHeaders(v map[string]*string) *GetAsyncTaskInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAsyncTaskInfoResponse) SetBody(v *GetAsyncTaskInfoResponseBody) *GetAsyncTaskInfoResponse {
 	s.Body = v
 	return s
 }
@@ -1185,6 +1407,8 @@ type ListFilesRequest struct {
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 分页长度
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 排序类型
+	OrderType *string `json:"orderType,omitempty" xml:"orderType,omitempty"`
 }
 
 func (s ListFilesRequest) String() string {
@@ -1212,6 +1436,11 @@ func (s *ListFilesRequest) SetNextToken(v string) *ListFilesRequest {
 
 func (s *ListFilesRequest) SetMaxResults(v int32) *ListFilesRequest {
 	s.MaxResults = &v
+	return s
+}
+
+func (s *ListFilesRequest) SetOrderType(v string) *ListFilesRequest {
+	s.OrderType = &v
 	return s
 }
 
@@ -1243,6 +1472,8 @@ func (s *ListFilesResponseBody) SetNextToken(v string) *ListFilesResponseBody {
 type ListFilesResponseBodyFiles struct {
 	// 空间id
 	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 父目录id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
 	// 文件id
 	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
 	// 文件名称
@@ -1255,10 +1486,16 @@ type ListFilesResponseBodyFiles struct {
 	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
 	// 文件后缀
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
+	// 文件大小
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 修改时间
 	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	// 创建者
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// 修改者
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
 }
 
 func (s ListFilesResponseBodyFiles) String() string {
@@ -1271,6 +1508,11 @@ func (s ListFilesResponseBodyFiles) GoString() string {
 
 func (s *ListFilesResponseBodyFiles) SetSpaceId(v string) *ListFilesResponseBodyFiles {
 	s.SpaceId = &v
+	return s
+}
+
+func (s *ListFilesResponseBodyFiles) SetParentId(v string) *ListFilesResponseBodyFiles {
+	s.ParentId = &v
 	return s
 }
 
@@ -1304,6 +1546,11 @@ func (s *ListFilesResponseBodyFiles) SetFileExtension(v string) *ListFilesRespon
 	return s
 }
 
+func (s *ListFilesResponseBodyFiles) SetFileSize(v int64) *ListFilesResponseBodyFiles {
+	s.FileSize = &v
+	return s
+}
+
 func (s *ListFilesResponseBodyFiles) SetCreateTime(v string) *ListFilesResponseBodyFiles {
 	s.CreateTime = &v
 	return s
@@ -1311,6 +1558,16 @@ func (s *ListFilesResponseBodyFiles) SetCreateTime(v string) *ListFilesResponseB
 
 func (s *ListFilesResponseBodyFiles) SetModifyTime(v string) *ListFilesResponseBodyFiles {
 	s.ModifyTime = &v
+	return s
+}
+
+func (s *ListFilesResponseBodyFiles) SetCreator(v string) *ListFilesResponseBodyFiles {
+	s.Creator = &v
+	return s
+}
+
+func (s *ListFilesResponseBodyFiles) SetModifier(v string) *ListFilesResponseBodyFiles {
+	s.Modifier = &v
 	return s
 }
 
@@ -1822,6 +2079,8 @@ func (s *MoveFileRequest) SetUnionId(v string) *MoveFileRequest {
 type MoveFileResponseBody struct {
 	// 空间id
 	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 父目录id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
 	// 文件id
 	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
 	// 文件名称
@@ -1834,10 +2093,16 @@ type MoveFileResponseBody struct {
 	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
 	// 文件后缀
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
+	// 文件大小
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 修改时间
 	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	// 创建者
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// 修改者
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
 }
 
 func (s MoveFileResponseBody) String() string {
@@ -1850,6 +2115,11 @@ func (s MoveFileResponseBody) GoString() string {
 
 func (s *MoveFileResponseBody) SetSpaceId(v string) *MoveFileResponseBody {
 	s.SpaceId = &v
+	return s
+}
+
+func (s *MoveFileResponseBody) SetParentId(v string) *MoveFileResponseBody {
+	s.ParentId = &v
 	return s
 }
 
@@ -1883,6 +2153,11 @@ func (s *MoveFileResponseBody) SetFileExtension(v string) *MoveFileResponseBody 
 	return s
 }
 
+func (s *MoveFileResponseBody) SetFileSize(v int64) *MoveFileResponseBody {
+	s.FileSize = &v
+	return s
+}
+
 func (s *MoveFileResponseBody) SetCreateTime(v string) *MoveFileResponseBody {
 	s.CreateTime = &v
 	return s
@@ -1890,6 +2165,16 @@ func (s *MoveFileResponseBody) SetCreateTime(v string) *MoveFileResponseBody {
 
 func (s *MoveFileResponseBody) SetModifyTime(v string) *MoveFileResponseBody {
 	s.ModifyTime = &v
+	return s
+}
+
+func (s *MoveFileResponseBody) SetCreator(v string) *MoveFileResponseBody {
+	s.Creator = &v
+	return s
+}
+
+func (s *MoveFileResponseBody) SetModifier(v string) *MoveFileResponseBody {
+	s.Modifier = &v
 	return s
 }
 
@@ -2303,6 +2588,8 @@ type ListSpacesResponseBodySpaces struct {
 	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
 	// 空间已使用额度
 	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// 授权模式
+	PermissionMode *string `json:"permissionMode,omitempty" xml:"permissionMode,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 修改时间
@@ -2339,6 +2626,11 @@ func (s *ListSpacesResponseBodySpaces) SetQuota(v int64) *ListSpacesResponseBody
 
 func (s *ListSpacesResponseBodySpaces) SetUsedQuota(v int64) *ListSpacesResponseBodySpaces {
 	s.UsedQuota = &v
+	return s
+}
+
+func (s *ListSpacesResponseBodySpaces) SetPermissionMode(v string) *ListSpacesResponseBodySpaces {
+	s.PermissionMode = &v
 	return s
 }
 
@@ -2504,6 +2796,10 @@ func (s *AddCustomSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *AddCustomS
 type AddCustomSpaceRequest struct {
 	// 空间标识
 	Identifier *string `json:"identifier,omitempty" xml:"identifier,omitempty"`
+	// 业务类型
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 授权模式
+	PermissionMode *string `json:"permissionMode,omitempty" xml:"permissionMode,omitempty"`
 	// 用户id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
@@ -2518,6 +2814,16 @@ func (s AddCustomSpaceRequest) GoString() string {
 
 func (s *AddCustomSpaceRequest) SetIdentifier(v string) *AddCustomSpaceRequest {
 	s.Identifier = &v
+	return s
+}
+
+func (s *AddCustomSpaceRequest) SetBizType(v string) *AddCustomSpaceRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *AddCustomSpaceRequest) SetPermissionMode(v string) *AddCustomSpaceRequest {
+	s.PermissionMode = &v
 	return s
 }
 
@@ -2537,6 +2843,8 @@ type AddCustomSpaceResponseBody struct {
 	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
 	// 空间已使用额度
 	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// 授权模式
+	PermissionMode *string `json:"permissionMode,omitempty" xml:"permissionMode,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 修改时间
@@ -2576,6 +2884,11 @@ func (s *AddCustomSpaceResponseBody) SetUsedQuota(v int64) *AddCustomSpaceRespon
 	return s
 }
 
+func (s *AddCustomSpaceResponseBody) SetPermissionMode(v string) *AddCustomSpaceResponseBody {
+	s.PermissionMode = &v
+	return s
+}
+
 func (s *AddCustomSpaceResponseBody) SetCreateTime(v string) *AddCustomSpaceResponseBody {
 	s.CreateTime = &v
 	return s
@@ -2605,6 +2918,218 @@ func (s *AddCustomSpaceResponse) SetHeaders(v map[string]*string) *AddCustomSpac
 }
 
 func (s *AddCustomSpaceResponse) SetBody(v *AddCustomSpaceResponseBody) *AddCustomSpaceResponse {
+	s.Body = v
+	return s
+}
+
+type CopyFileHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CopyFileHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyFileHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CopyFileHeaders) SetCommonHeaders(v map[string]*string) *CopyFileHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CopyFileHeaders) SetXAcsDingtalkAccessToken(v string) *CopyFileHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CopyFileRequest struct {
+	// 目标空间id
+	TargetSpaceId *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
+	// 目标父目录id
+	TargetParentId *string `json:"targetParentId,omitempty" xml:"targetParentId,omitempty"`
+	// 文件名冲突策略
+	AddConflictPolicy *string `json:"addConflictPolicy,omitempty" xml:"addConflictPolicy,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s CopyFileRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyFileRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CopyFileRequest) SetTargetSpaceId(v string) *CopyFileRequest {
+	s.TargetSpaceId = &v
+	return s
+}
+
+func (s *CopyFileRequest) SetTargetParentId(v string) *CopyFileRequest {
+	s.TargetParentId = &v
+	return s
+}
+
+func (s *CopyFileRequest) SetAddConflictPolicy(v string) *CopyFileRequest {
+	s.AddConflictPolicy = &v
+	return s
+}
+
+func (s *CopyFileRequest) SetUnionId(v string) *CopyFileRequest {
+	s.UnionId = &v
+	return s
+}
+
+type CopyFileResponseBody struct {
+	// 文件信息
+	File *CopyFileResponseBodyFile `json:"file,omitempty" xml:"file,omitempty" type:"Struct"`
+	// 异步任务id
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s CopyFileResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyFileResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CopyFileResponseBody) SetFile(v *CopyFileResponseBodyFile) *CopyFileResponseBody {
+	s.File = v
+	return s
+}
+
+func (s *CopyFileResponseBody) SetTaskId(v string) *CopyFileResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+type CopyFileResponseBodyFile struct {
+	// 空间id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 父目录id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// 文件id
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// 文件名称
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// 文件路径
+	FilePath *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
+	// 文件类型
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// 文件内容类型
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	// 文件后缀
+	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
+	// 文件大小
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 修改时间
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	// 创建者
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// 修改者
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+}
+
+func (s CopyFileResponseBodyFile) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyFileResponseBodyFile) GoString() string {
+	return s.String()
+}
+
+func (s *CopyFileResponseBodyFile) SetSpaceId(v string) *CopyFileResponseBodyFile {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *CopyFileResponseBodyFile) SetParentId(v string) *CopyFileResponseBodyFile {
+	s.ParentId = &v
+	return s
+}
+
+func (s *CopyFileResponseBodyFile) SetFileId(v string) *CopyFileResponseBodyFile {
+	s.FileId = &v
+	return s
+}
+
+func (s *CopyFileResponseBodyFile) SetFileName(v string) *CopyFileResponseBodyFile {
+	s.FileName = &v
+	return s
+}
+
+func (s *CopyFileResponseBodyFile) SetFilePath(v string) *CopyFileResponseBodyFile {
+	s.FilePath = &v
+	return s
+}
+
+func (s *CopyFileResponseBodyFile) SetFileType(v string) *CopyFileResponseBodyFile {
+	s.FileType = &v
+	return s
+}
+
+func (s *CopyFileResponseBodyFile) SetContentType(v string) *CopyFileResponseBodyFile {
+	s.ContentType = &v
+	return s
+}
+
+func (s *CopyFileResponseBodyFile) SetFileExtension(v string) *CopyFileResponseBodyFile {
+	s.FileExtension = &v
+	return s
+}
+
+func (s *CopyFileResponseBodyFile) SetFileSize(v int64) *CopyFileResponseBodyFile {
+	s.FileSize = &v
+	return s
+}
+
+func (s *CopyFileResponseBodyFile) SetCreateTime(v string) *CopyFileResponseBodyFile {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *CopyFileResponseBodyFile) SetModifyTime(v string) *CopyFileResponseBodyFile {
+	s.ModifyTime = &v
+	return s
+}
+
+func (s *CopyFileResponseBodyFile) SetCreator(v string) *CopyFileResponseBodyFile {
+	s.Creator = &v
+	return s
+}
+
+func (s *CopyFileResponseBodyFile) SetModifier(v string) *CopyFileResponseBodyFile {
+	s.Modifier = &v
+	return s
+}
+
+type CopyFileResponse struct {
+	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CopyFileResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CopyFileResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyFileResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CopyFileResponse) SetHeaders(v map[string]*string) *CopyFileResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CopyFileResponse) SetBody(v *CopyFileResponseBody) *CopyFileResponse {
 	s.Body = v
 	return s
 }
@@ -2861,6 +3386,7 @@ func (client *Client) AddFileWithOptions(spaceId *string, request *AddFileReques
 	if _err != nil {
 		return _result, _err
 	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ParentId)) {
 		body["parentId"] = request.ParentId
@@ -3077,6 +3603,8 @@ func (client *Client) AddPermissionWithOptions(spaceId *string, fileId *string, 
 	if _err != nil {
 		return _result, _err
 	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	fileId = openapiutil.GetEncodeParam(fileId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Role)) {
 		body["role"] = request.Role
@@ -3129,6 +3657,8 @@ func (client *Client) GetFileInfoWithOptions(spaceId *string, fileId *string, re
 	if _err != nil {
 		return _result, _err
 	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	fileId = openapiutil.GetEncodeParam(fileId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -3173,6 +3703,7 @@ func (client *Client) InfoSpaceWithOptions(spaceId *string, request *InfoSpaceRe
 	if _err != nil {
 		return _result, _err
 	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -3277,6 +3808,8 @@ func (client *Client) RenameFileWithOptions(spaceId *string, fileId *string, req
 	if _err != nil {
 		return _result, _err
 	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	fileId = openapiutil.GetEncodeParam(fileId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.NewFileName)) {
 		body["newFileName"] = request.NewFileName
@@ -3308,6 +3841,51 @@ func (client *Client) RenameFileWithOptions(spaceId *string, fileId *string, req
 	return _result, _err
 }
 
+func (client *Client) GetAsyncTaskInfo(taskId *string, request *GetAsyncTaskInfoRequest) (_result *GetAsyncTaskInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAsyncTaskInfoHeaders{}
+	_result = &GetAsyncTaskInfoResponse{}
+	_body, _err := client.GetAsyncTaskInfoWithOptions(taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAsyncTaskInfoWithOptions(taskId *string, request *GetAsyncTaskInfoRequest, headers *GetAsyncTaskInfoHeaders, runtime *util.RuntimeOptions) (_result *GetAsyncTaskInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	taskId = openapiutil.GetEncodeParam(taskId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetAsyncTaskInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetAsyncTaskInfo"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/tasks/"+tea.StringValue(taskId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ListFiles(spaceId *string, request *ListFilesRequest) (_result *ListFilesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListFilesHeaders{}
@@ -3325,6 +3903,7 @@ func (client *Client) ListFilesWithOptions(spaceId *string, request *ListFilesRe
 	if _err != nil {
 		return _result, _err
 	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -3340,6 +3919,10 @@ func (client *Client) ListFilesWithOptions(spaceId *string, request *ListFilesRe
 
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderType)) {
+		query["orderType"] = request.OrderType
 	}
 
 	realHeaders := make(map[string]*string)
@@ -3381,6 +3964,8 @@ func (client *Client) ModifyPermissionWithOptions(spaceId *string, fileId *strin
 	if _err != nil {
 		return _result, _err
 	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	fileId = openapiutil.GetEncodeParam(fileId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Role)) {
 		body["role"] = request.Role
@@ -3433,6 +4018,8 @@ func (client *Client) ListPermissionsWithOptions(spaceId *string, fileId *string
 	if _err != nil {
 		return _result, _err
 	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	fileId = openapiutil.GetEncodeParam(fileId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -3477,6 +4064,7 @@ func (client *Client) GrantPrivilegeOfCustomSpaceWithOptions(spaceId *string, re
 	if _err != nil {
 		return _result, _err
 	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Type)) {
 		body["type"] = request.Type
@@ -3537,6 +4125,8 @@ func (client *Client) MoveFileWithOptions(spaceId *string, fileId *string, reque
 	if _err != nil {
 		return _result, _err
 	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	fileId = openapiutil.GetEncodeParam(fileId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.TargetSpaceId)) {
 		body["targetSpaceId"] = request.TargetSpaceId
@@ -3593,6 +4183,8 @@ func (client *Client) GetDownloadInfoWithOptions(spaceId *string, fileId *string
 	if _err != nil {
 		return _result, _err
 	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	fileId = openapiutil.GetEncodeParam(fileId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -3637,6 +4229,8 @@ func (client *Client) GetUploadInfoWithOptions(spaceId *string, parentId *string
 	if _err != nil {
 		return _result, _err
 	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	parentId = openapiutil.GetEncodeParam(parentId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -3757,6 +4351,8 @@ func (client *Client) DeletePermissionWithOptions(spaceId *string, fileId *strin
 	if _err != nil {
 		return _result, _err
 	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	fileId = openapiutil.GetEncodeParam(fileId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Role)) {
 		body["role"] = request.Role
@@ -3814,6 +4410,14 @@ func (client *Client) AddCustomSpaceWithOptions(request *AddCustomSpaceRequest, 
 		body["identifier"] = request.Identifier
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		body["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PermissionMode)) {
+		body["permissionMode"] = request.PermissionMode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		body["unionId"] = request.UnionId
 	}
@@ -3840,6 +4444,64 @@ func (client *Client) AddCustomSpaceWithOptions(request *AddCustomSpaceRequest, 
 	return _result, _err
 }
 
+func (client *Client) CopyFile(spaceId *string, fileId *string, request *CopyFileRequest) (_result *CopyFileResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CopyFileHeaders{}
+	_result = &CopyFileResponse{}
+	_body, _err := client.CopyFileWithOptions(spaceId, fileId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CopyFileWithOptions(spaceId *string, fileId *string, request *CopyFileRequest, headers *CopyFileHeaders, runtime *util.RuntimeOptions) (_result *CopyFileResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	fileId = openapiutil.GetEncodeParam(fileId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TargetSpaceId)) {
+		body["targetSpaceId"] = request.TargetSpaceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetParentId)) {
+		body["targetParentId"] = request.TargetParentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AddConflictPolicy)) {
+		body["addConflictPolicy"] = request.AddConflictPolicy
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CopyFileResponse{}
+	_body, _err := client.DoROARequest(tea.String("CopyFile"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)+"/copy"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteSpace(spaceId *string, request *DeleteSpaceRequest) (_result *DeleteSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteSpaceHeaders{}
@@ -3857,6 +4519,7 @@ func (client *Client) DeleteSpaceWithOptions(spaceId *string, request *DeleteSpa
 	if _err != nil {
 		return _result, _err
 	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -3949,6 +4612,8 @@ func (client *Client) DeleteFileWithOptions(spaceId *string, fileId *string, req
 	if _err != nil {
 		return _result, _err
 	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	fileId = openapiutil.GetEncodeParam(fileId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId

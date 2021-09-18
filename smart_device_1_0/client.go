@@ -406,6 +406,8 @@ func (client *Client) QueryDeviceVideoConferenceBook(deviceId *string, bookId *s
 }
 
 func (client *Client) QueryDeviceVideoConferenceBookWithOptions(deviceId *string, bookId *string, headers *QueryDeviceVideoConferenceBookHeaders, runtime *util.RuntimeOptions) (_result *QueryDeviceVideoConferenceBookResponse, _err error) {
+	deviceId = openapiutil.GetEncodeParam(deviceId)
+	bookId = openapiutil.GetEncodeParam(bookId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -444,6 +446,8 @@ func (client *Client) AddDeviceVideoConferenceMembersWithOptions(deviceId *strin
 	if _err != nil {
 		return _result, _err
 	}
+	deviceId = openapiutil.GetEncodeParam(deviceId)
+	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
 		body["userIds"] = request.UserIds
@@ -488,6 +492,7 @@ func (client *Client) CreateDeviceVideoConferenceWithOptions(deviceId *string, r
 	if _err != nil {
 		return _result, _err
 	}
+	deviceId = openapiutil.GetEncodeParam(deviceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
 		body["userIds"] = request.UserIds
@@ -532,6 +537,8 @@ func (client *Client) KickDeviceVideoConferenceMembersWithOptions(deviceId *stri
 	if _err != nil {
 		return _result, _err
 	}
+	deviceId = openapiutil.GetEncodeParam(deviceId)
+	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
 		body["userIds"] = request.UserIds
