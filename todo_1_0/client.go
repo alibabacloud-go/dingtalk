@@ -1167,6 +1167,8 @@ type CreateTodoTaskRequest struct {
 	IsOnlyShowExecutor *bool `json:"isOnlyShowExecutor,omitempty" xml:"isOnlyShowExecutor,omitempty"`
 	// 优先级
 	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 通知提醒配置
+	NotifyConfigs *CreateTodoTaskRequestNotifyConfigs `json:"notifyConfigs,omitempty" xml:"notifyConfigs,omitempty" type:"Struct"`
 	// 当前操作者id，需传用户的unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
@@ -1229,6 +1231,11 @@ func (s *CreateTodoTaskRequest) SetPriority(v int32) *CreateTodoTaskRequest {
 	return s
 }
 
+func (s *CreateTodoTaskRequest) SetNotifyConfigs(v *CreateTodoTaskRequestNotifyConfigs) *CreateTodoTaskRequest {
+	s.NotifyConfigs = v
+	return s
+}
+
 func (s *CreateTodoTaskRequest) SetOperatorId(v string) *CreateTodoTaskRequest {
 	s.OperatorId = &v
 	return s
@@ -1256,6 +1263,24 @@ func (s *CreateTodoTaskRequestDetailUrl) SetAppUrl(v string) *CreateTodoTaskRequ
 
 func (s *CreateTodoTaskRequestDetailUrl) SetPcUrl(v string) *CreateTodoTaskRequestDetailUrl {
 	s.PcUrl = &v
+	return s
+}
+
+type CreateTodoTaskRequestNotifyConfigs struct {
+	// ding通知配置：1钉弹框通知
+	DingNotify *string `json:"dingNotify,omitempty" xml:"dingNotify,omitempty"`
+}
+
+func (s CreateTodoTaskRequestNotifyConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTaskRequestNotifyConfigs) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTodoTaskRequestNotifyConfigs) SetDingNotify(v string) *CreateTodoTaskRequestNotifyConfigs {
+	s.DingNotify = &v
 	return s
 }
 
@@ -1300,6 +1325,8 @@ type CreateTodoTaskResponseBody struct {
 	IsOnlyShowExecutor *bool `json:"isOnlyShowExecutor,omitempty" xml:"isOnlyShowExecutor,omitempty"`
 	// 优先级, 较低:10, 普通:20, 紧急:30, 非常紧急:40
 	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 待办通知配置
+	NotifyConfigs *CreateTodoTaskResponseBodyNotifyConfigs `json:"notifyConfigs,omitempty" xml:"notifyConfigs,omitempty" type:"Struct"`
 }
 
 func (s CreateTodoTaskResponseBody) String() string {
@@ -1410,6 +1437,11 @@ func (s *CreateTodoTaskResponseBody) SetPriority(v int32) *CreateTodoTaskRespons
 	return s
 }
 
+func (s *CreateTodoTaskResponseBody) SetNotifyConfigs(v *CreateTodoTaskResponseBodyNotifyConfigs) *CreateTodoTaskResponseBody {
+	s.NotifyConfigs = v
+	return s
+}
+
 type CreateTodoTaskResponseBodyDetailUrl struct {
 	// pc端详情页地址
 	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
@@ -1432,6 +1464,24 @@ func (s *CreateTodoTaskResponseBodyDetailUrl) SetPcUrl(v string) *CreateTodoTask
 
 func (s *CreateTodoTaskResponseBodyDetailUrl) SetAppUrl(v string) *CreateTodoTaskResponseBodyDetailUrl {
 	s.AppUrl = &v
+	return s
+}
+
+type CreateTodoTaskResponseBodyNotifyConfigs struct {
+	// ding通知配置：value:"channel"（1钉弹框通知，2钉短信通知，3钉电话通知）
+	DingNotify *string `json:"dingNotify,omitempty" xml:"dingNotify,omitempty"`
+}
+
+func (s CreateTodoTaskResponseBodyNotifyConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTaskResponseBodyNotifyConfigs) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTodoTaskResponseBodyNotifyConfigs) SetDingNotify(v string) *CreateTodoTaskResponseBodyNotifyConfigs {
+	s.DingNotify = &v
 	return s
 }
 
@@ -3311,6 +3361,10 @@ func (client *Client) CreateTodoTaskWithOptions(unionId *string, request *Create
 
 	if !tea.BoolValue(util.IsUnset(request.Priority)) {
 		body["priority"] = request.Priority
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.NotifyConfigs))) {
+		body["notifyConfigs"] = request.NotifyConfigs
 	}
 
 	realHeaders := make(map[string]*string)

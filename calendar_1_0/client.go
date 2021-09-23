@@ -1528,144 +1528,135 @@ func (s *ListCalendarsResponse) SetBody(v *ListCalendarsResponseBody) *ListCalen
 	return s
 }
 
-type ListReceiversHeaders struct {
+type GetSignInListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s ListReceiversHeaders) String() string {
+func (s GetSignInListHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ListReceiversHeaders) GoString() string {
+func (s GetSignInListHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *ListReceiversHeaders) SetCommonHeaders(v map[string]*string) *ListReceiversHeaders {
+func (s *GetSignInListHeaders) SetCommonHeaders(v map[string]*string) *GetSignInListHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *ListReceiversHeaders) SetXAcsDingtalkAccessToken(v string) *ListReceiversHeaders {
+func (s *GetSignInListHeaders) SetXAcsDingtalkAccessToken(v string) *GetSignInListHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type ListReceiversRequest struct {
-	// 上次查询返回的翻页token
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 签到类型
+type GetSignInListRequest struct {
+	// 查询返回结果数（上限200）
+	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 签到信息类型（check_in，not_yet_check_in)
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 返回个数(最大2000)
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 }
 
-func (s ListReceiversRequest) String() string {
+func (s GetSignInListRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ListReceiversRequest) GoString() string {
+func (s GetSignInListRequest) GoString() string {
 	return s.String()
 }
 
-func (s *ListReceiversRequest) SetNextToken(v string) *ListReceiversRequest {
-	s.NextToken = &v
-	return s
-}
-
-func (s *ListReceiversRequest) SetType(v string) *ListReceiversRequest {
-	s.Type = &v
-	return s
-}
-
-func (s *ListReceiversRequest) SetMaxResults(v int64) *ListReceiversRequest {
+func (s *GetSignInListRequest) SetMaxResults(v int64) *GetSignInListRequest {
 	s.MaxResults = &v
 	return s
 }
 
-type ListReceiversResponseBody struct {
-	// 翻页token
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 用户详情
-	Users []*ListReceiversResponseBodyUsers `json:"users,omitempty" xml:"users,omitempty" type:"Repeated"`
-}
-
-func (s ListReceiversResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ListReceiversResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *ListReceiversResponseBody) SetNextToken(v string) *ListReceiversResponseBody {
+func (s *GetSignInListRequest) SetNextToken(v string) *GetSignInListRequest {
 	s.NextToken = &v
 	return s
 }
 
-func (s *ListReceiversResponseBody) SetUsers(v []*ListReceiversResponseBodyUsers) *ListReceiversResponseBody {
+func (s *GetSignInListRequest) SetType(v string) *GetSignInListRequest {
+	s.Type = &v
+	return s
+}
+
+type GetSignInListResponseBody struct {
+	// 翻页token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 签到信息
+	Users []*GetSignInListResponseBodyUsers `json:"users,omitempty" xml:"users,omitempty" type:"Repeated"`
+}
+
+func (s GetSignInListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignInListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignInListResponseBody) SetNextToken(v string) *GetSignInListResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetSignInListResponseBody) SetUsers(v []*GetSignInListResponseBodyUsers) *GetSignInListResponseBody {
 	s.Users = v
 	return s
 }
 
-type ListReceiversResponseBodyUsers struct {
-	// 用户id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+type GetSignInListResponseBodyUsers struct {
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	// 用户名
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
-	// 签到状态
-	CheckInStatus *int64 `json:"checkInStatus,omitempty" xml:"checkInStatus,omitempty"`
 	// 签到时间
 	CheckInTime *int64 `json:"checkInTime,omitempty" xml:"checkInTime,omitempty"`
 }
 
-func (s ListReceiversResponseBodyUsers) String() string {
+func (s GetSignInListResponseBodyUsers) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ListReceiversResponseBodyUsers) GoString() string {
+func (s GetSignInListResponseBodyUsers) GoString() string {
 	return s.String()
 }
 
-func (s *ListReceiversResponseBodyUsers) SetId(v string) *ListReceiversResponseBodyUsers {
-	s.Id = &v
+func (s *GetSignInListResponseBodyUsers) SetUserId(v string) *GetSignInListResponseBodyUsers {
+	s.UserId = &v
 	return s
 }
 
-func (s *ListReceiversResponseBodyUsers) SetDisplayName(v string) *ListReceiversResponseBodyUsers {
+func (s *GetSignInListResponseBodyUsers) SetDisplayName(v string) *GetSignInListResponseBodyUsers {
 	s.DisplayName = &v
 	return s
 }
 
-func (s *ListReceiversResponseBodyUsers) SetCheckInStatus(v int64) *ListReceiversResponseBodyUsers {
-	s.CheckInStatus = &v
-	return s
-}
-
-func (s *ListReceiversResponseBodyUsers) SetCheckInTime(v int64) *ListReceiversResponseBodyUsers {
+func (s *GetSignInListResponseBodyUsers) SetCheckInTime(v int64) *GetSignInListResponseBodyUsers {
 	s.CheckInTime = &v
 	return s
 }
 
-type ListReceiversResponse struct {
+type GetSignInListResponse struct {
 	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListReceiversResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Body    *GetSignInListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
-func (s ListReceiversResponse) String() string {
+func (s GetSignInListResponse) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ListReceiversResponse) GoString() string {
+func (s GetSignInListResponse) GoString() string {
 	return s.String()
 }
 
-func (s *ListReceiversResponse) SetHeaders(v map[string]*string) *ListReceiversResponse {
+func (s *GetSignInListResponse) SetHeaders(v map[string]*string) *GetSignInListResponse {
 	s.Headers = v
 	return s
 }
 
-func (s *ListReceiversResponse) SetBody(v *ListReceiversResponseBody) *ListReceiversResponse {
+func (s *GetSignInListResponse) SetBody(v *GetSignInListResponseBody) *GetSignInListResponse {
 	s.Body = v
 	return s
 }
@@ -4397,11 +4388,11 @@ func (client *Client) ListCalendarsWithOptions(userId *string, headers *ListCale
 	return _result, _err
 }
 
-func (client *Client) ListReceivers(userId *string, calendarId *string, eventId *string, request *ListReceiversRequest) (_result *ListReceiversResponse, _err error) {
+func (client *Client) GetSignInList(userId *string, calendarId *string, eventId *string, request *GetSignInListRequest) (_result *GetSignInListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListReceiversHeaders{}
-	_result = &ListReceiversResponse{}
-	_body, _err := client.ListReceiversWithOptions(userId, calendarId, eventId, request, headers, runtime)
+	headers := &GetSignInListHeaders{}
+	_result = &GetSignInListResponse{}
+	_body, _err := client.GetSignInListWithOptions(userId, calendarId, eventId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4409,7 +4400,7 @@ func (client *Client) ListReceivers(userId *string, calendarId *string, eventId 
 	return _result, _err
 }
 
-func (client *Client) ListReceiversWithOptions(userId *string, calendarId *string, eventId *string, request *ListReceiversRequest, headers *ListReceiversHeaders, runtime *util.RuntimeOptions) (_result *ListReceiversResponse, _err error) {
+func (client *Client) GetSignInListWithOptions(userId *string, calendarId *string, eventId *string, request *GetSignInListRequest, headers *GetSignInListHeaders, runtime *util.RuntimeOptions) (_result *GetSignInListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -4418,16 +4409,16 @@ func (client *Client) ListReceiversWithOptions(userId *string, calendarId *strin
 	calendarId = openapiutil.GetEncodeParam(calendarId)
 	eventId = openapiutil.GetEncodeParam(eventId)
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		query["nextToken"] = request.NextToken
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Type)) {
 		query["type"] = request.Type
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
-		query["maxResults"] = request.MaxResults
 	}
 
 	realHeaders := make(map[string]*string)
@@ -4443,8 +4434,8 @@ func (client *Client) ListReceiversWithOptions(userId *string, calendarId *strin
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
-	_result = &ListReceiversResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListReceivers"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/receivers"), tea.String("json"), req, runtime)
+	_result = &GetSignInListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetSignInList"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/signin"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
