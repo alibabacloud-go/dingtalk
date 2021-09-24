@@ -1218,8 +1218,10 @@ type SendTemplateInteractiveCardRequest struct {
 	DingIsvOrgId *int64 `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
 	// 卡片内容模板ID，响应模板目前有：TuWenCard01、TuWenCard02、TuWenCard03、TuWenCard04 4种
 	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
-	// 接收卡片的加密群ID
+	// 【openConversationId & singleChatReceiver 二选一必填】接收卡片的加密群ID，特指多人群会话（非单聊）
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 【openConversationId & singleChatReceiver 二选一必填】单聊会话接受者json串
+	SingleChatReceiver *string `json:"singleChatReceiver,omitempty" xml:"singleChatReceiver,omitempty"`
 	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
 	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）【备注：同一个outTrackId重复创建，卡片数据不覆盖更新】
 	OutTrackId   *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
@@ -1256,6 +1258,11 @@ func (s *SendTemplateInteractiveCardRequest) SetCardTemplateId(v string) *SendTe
 
 func (s *SendTemplateInteractiveCardRequest) SetOpenConversationId(v string) *SendTemplateInteractiveCardRequest {
 	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SendTemplateInteractiveCardRequest) SetSingleChatReceiver(v string) *SendTemplateInteractiveCardRequest {
+	s.SingleChatReceiver = &v
 	return s
 }
 
@@ -1307,8 +1314,12 @@ func (s *SendTemplateInteractiveCardRequest) SetSendOptions(v *SendTemplateInter
 type SendTemplateInteractiveCardRequestSendOptions struct {
 	// 消息@人，JSON格式：[{"nickName":"张三","userId":"userId0001"},{"nickName":"李四","unionId":"unionId001"}]
 	AtUserListJson *string `json:"atUserListJson,omitempty" xml:"atUserListJson,omitempty"`
+	// 是否@所有人
+	AtAll *bool `json:"atAll,omitempty" xml:"atAll,omitempty"`
 	// 消息仅部分人可见的接收人列表【可空：为空则群所有人可见】，JSON格式：[{"userId":"userId0001"},{"unionId":"unionId001"}]
 	ReceiverListJson *string `json:"receiverListJson,omitempty" xml:"receiverListJson,omitempty"`
+	// 卡片特殊属性json串
+	CardPropertyJson *string `json:"cardPropertyJson,omitempty" xml:"cardPropertyJson,omitempty"`
 }
 
 func (s SendTemplateInteractiveCardRequestSendOptions) String() string {
@@ -1324,8 +1335,18 @@ func (s *SendTemplateInteractiveCardRequestSendOptions) SetAtUserListJson(v stri
 	return s
 }
 
+func (s *SendTemplateInteractiveCardRequestSendOptions) SetAtAll(v bool) *SendTemplateInteractiveCardRequestSendOptions {
+	s.AtAll = &v
+	return s
+}
+
 func (s *SendTemplateInteractiveCardRequestSendOptions) SetReceiverListJson(v string) *SendTemplateInteractiveCardRequestSendOptions {
 	s.ReceiverListJson = &v
+	return s
+}
+
+func (s *SendTemplateInteractiveCardRequestSendOptions) SetCardPropertyJson(v string) *SendTemplateInteractiveCardRequestSendOptions {
+	s.CardPropertyJson = &v
 	return s
 }
 
@@ -2094,6 +2115,10 @@ func (client *Client) SendTemplateInteractiveCardWithOptions(request *SendTempla
 
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
 		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SingleChatReceiver)) {
+		body["singleChatReceiver"] = request.SingleChatReceiver
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
