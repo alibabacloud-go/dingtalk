@@ -192,9 +192,12 @@ func (s *GetScheduleHeaders) SetXAcsDingtalkAccessToken(v string) *GetScheduleHe
 }
 
 type GetScheduleRequest struct {
-	UserIds   []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
-	StartTime *string   `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	EndTime   *string   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 待查询的用户列表
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// 查询开始时间
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 查询结束时间
+	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
 }
 
 func (s GetScheduleRequest) String() string {
@@ -221,6 +224,7 @@ func (s *GetScheduleRequest) SetEndTime(v string) *GetScheduleRequest {
 }
 
 type GetScheduleResponseBody struct {
+	// 闲忙信息
 	ScheduleInformation []*GetScheduleResponseBodyScheduleInformation `json:"scheduleInformation,omitempty" xml:"scheduleInformation,omitempty" type:"Repeated"`
 }
 
@@ -238,7 +242,9 @@ func (s *GetScheduleResponseBody) SetScheduleInformation(v []*GetScheduleRespons
 }
 
 type GetScheduleResponseBodyScheduleInformation struct {
-	UserId        *string                                                    `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 用户userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 异常描述
 	Error         *string                                                    `json:"error,omitempty" xml:"error,omitempty"`
 	ScheduleItems []*GetScheduleResponseBodyScheduleInformationScheduleItems `json:"scheduleItems,omitempty" xml:"scheduleItems,omitempty" type:"Repeated"`
 }
@@ -267,9 +273,12 @@ func (s *GetScheduleResponseBodyScheduleInformation) SetScheduleItems(v []*GetSc
 }
 
 type GetScheduleResponseBodyScheduleInformationScheduleItems struct {
-	Status *string                                                       `json:"status,omitempty" xml:"status,omitempty"`
-	Start  *GetScheduleResponseBodyScheduleInformationScheduleItemsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
-	End    *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd   `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	// 状态: - BUSY：繁忙, - TENTATIVE：暂定繁忙
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 开始时间，表示一个日期，或者一个带时区的时间戳
+	Start *GetScheduleResponseBodyScheduleInformationScheduleItemsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// 结束时间，表示一个日期，或者一个带时区的时间戳
+	End *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
 }
 
 func (s GetScheduleResponseBodyScheduleInformationScheduleItems) String() string {
@@ -296,8 +305,11 @@ func (s *GetScheduleResponseBodyScheduleInformationScheduleItems) SetEnd(v *GetS
 }
 
 type GetScheduleResponseBodyScheduleInformationScheduleItemsStart struct {
-	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	// 开始日期
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// 开始时间戳，按照ISO 8601格式
 	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	// 所属时区
 	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
 }
 
@@ -325,8 +337,11 @@ func (s *GetScheduleResponseBodyScheduleInformationScheduleItemsStart) SetTimeZo
 }
 
 type GetScheduleResponseBodyScheduleInformationScheduleItemsEnd struct {
-	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	// 结束日期
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// 结束时间戳，按照ISO 8601格式
 	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	// 时间戳所属时区
 	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
 }
 

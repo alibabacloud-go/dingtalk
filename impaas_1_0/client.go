@@ -401,7 +401,7 @@ func (s *UpdateGroupOwnerHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateGr
 }
 
 type UpdateGroupOwnerRequest struct {
-	OwnerId        *string `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
+	OwnerUid       *string `json:"ownerUid,omitempty" xml:"ownerUid,omitempty"`
 	OperatorUid    *string `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
 }
@@ -414,8 +414,8 @@ func (s UpdateGroupOwnerRequest) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateGroupOwnerRequest) SetOwnerId(v string) *UpdateGroupOwnerRequest {
-	s.OwnerId = &v
+func (s *UpdateGroupOwnerRequest) SetOwnerUid(v string) *UpdateGroupOwnerRequest {
+	s.OwnerUid = &v
 	return s
 }
 
@@ -1543,8 +1543,8 @@ func (client *Client) UpdateGroupOwnerWithOptions(request *UpdateGroupOwnerReque
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OwnerId)) {
-		body["ownerId"] = request.OwnerId
+	if !tea.BoolValue(util.IsUnset(request.OwnerUid)) {
+		body["ownerUid"] = request.OwnerUid
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OperatorUid)) {
