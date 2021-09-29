@@ -2619,6 +2619,10 @@ type AbandonCustomerRequest struct {
 	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
 	// 客户实例 id 数组
 	InstanceIdList []*string `json:"instanceIdList,omitempty" xml:"instanceIdList,omitempty" type:"Repeated"`
+	// 自定义动态描述
+	CustomTrackDesc *string `json:"customTrackDesc,omitempty" xml:"customTrackDesc,omitempty"`
+	// 释放类型：returnPool-退回公海（默认），innerAbandon-仅清除负责人
+	OptType *string `json:"optType,omitempty" xml:"optType,omitempty"`
 }
 
 func (s AbandonCustomerRequest) String() string {
@@ -2636,6 +2640,16 @@ func (s *AbandonCustomerRequest) SetOperatorUserId(v string) *AbandonCustomerReq
 
 func (s *AbandonCustomerRequest) SetInstanceIdList(v []*string) *AbandonCustomerRequest {
 	s.InstanceIdList = v
+	return s
+}
+
+func (s *AbandonCustomerRequest) SetCustomTrackDesc(v string) *AbandonCustomerRequest {
+	s.CustomTrackDesc = &v
+	return s
+}
+
+func (s *AbandonCustomerRequest) SetOptType(v string) *AbandonCustomerRequest {
+	s.OptType = &v
 	return s
 }
 
@@ -4410,6 +4424,14 @@ func (client *Client) AbandonCustomerWithOptions(request *AbandonCustomerRequest
 
 	if !tea.BoolValue(util.IsUnset(request.InstanceIdList)) {
 		body["instanceIdList"] = request.InstanceIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CustomTrackDesc)) {
+		body["customTrackDesc"] = request.CustomTrackDesc
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OptType)) {
+		body["optType"] = request.OptType
 	}
 
 	realHeaders := make(map[string]*string)

@@ -589,8 +589,26 @@ func (s *AddWorkspaceMembersRequestMembers) SetRoleType(v string) *AddWorkspaceM
 	return s
 }
 
+type AddWorkspaceMembersResponseBody struct {
+	NotInOrgList []*string `json:"notInOrgList,omitempty" xml:"notInOrgList,omitempty" type:"Repeated"`
+}
+
+func (s AddWorkspaceMembersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddWorkspaceMembersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddWorkspaceMembersResponseBody) SetNotInOrgList(v []*string) *AddWorkspaceMembersResponseBody {
+	s.NotInOrgList = v
+	return s
+}
+
 type AddWorkspaceMembersResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddWorkspaceMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AddWorkspaceMembersResponse) String() string {
@@ -603,6 +621,11 @@ func (s AddWorkspaceMembersResponse) GoString() string {
 
 func (s *AddWorkspaceMembersResponse) SetHeaders(v map[string]*string) *AddWorkspaceMembersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AddWorkspaceMembersResponse) SetBody(v *AddWorkspaceMembersResponseBody) *AddWorkspaceMembersResponse {
+	s.Body = v
 	return s
 }
 
@@ -639,6 +662,7 @@ type CreateWorkspaceRequest struct {
 	DingOrgId           *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
 	DingUid             *int64  `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
 	DingAccessTokenType *string `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
+	DingIsvOrgId        *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
 }
 
 func (s CreateWorkspaceRequest) String() string {
@@ -676,6 +700,11 @@ func (s *CreateWorkspaceRequest) SetDingUid(v int64) *CreateWorkspaceRequest {
 
 func (s *CreateWorkspaceRequest) SetDingAccessTokenType(v string) *CreateWorkspaceRequest {
 	s.DingAccessTokenType = &v
+	return s
+}
+
+func (s *CreateWorkspaceRequest) SetDingIsvOrgId(v int64) *CreateWorkspaceRequest {
+	s.DingIsvOrgId = &v
 	return s
 }
 
@@ -828,6 +857,81 @@ func (s DeleteWorkspaceDocMembersResponse) GoString() string {
 
 func (s *DeleteWorkspaceDocMembersResponse) SetHeaders(v map[string]*string) *DeleteWorkspaceDocMembersResponse {
 	s.Headers = v
+	return s
+}
+
+type GetWorkspaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetWorkspaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWorkspaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetWorkspaceHeaders) SetCommonHeaders(v map[string]*string) *GetWorkspaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetWorkspaceHeaders) SetXAcsDingtalkAccessToken(v string) *GetWorkspaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetWorkspaceResponseBody struct {
+	Url       *string `json:"url,omitempty" xml:"url,omitempty"`
+	IsDeleted *bool   `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	Owner     *string `json:"owner,omitempty" xml:"owner,omitempty"`
+}
+
+func (s GetWorkspaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWorkspaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetWorkspaceResponseBody) SetUrl(v string) *GetWorkspaceResponseBody {
+	s.Url = &v
+	return s
+}
+
+func (s *GetWorkspaceResponseBody) SetIsDeleted(v bool) *GetWorkspaceResponseBody {
+	s.IsDeleted = &v
+	return s
+}
+
+func (s *GetWorkspaceResponseBody) SetOwner(v string) *GetWorkspaceResponseBody {
+	s.Owner = &v
+	return s
+}
+
+type GetWorkspaceResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetWorkspaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetWorkspaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWorkspaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetWorkspaceResponse) SetHeaders(v map[string]*string) *GetWorkspaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetWorkspaceResponse) SetBody(v *GetWorkspaceResponseBody) *GetWorkspaceResponse {
+	s.Body = v
 	return s
 }
 
@@ -1146,7 +1250,7 @@ func (client *Client) AddWorkspaceMembersWithOptions(workspaceId *string, reques
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &AddWorkspaceMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddWorkspaceMembers"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/members"), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("AddWorkspaceMembers"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/members"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1194,6 +1298,10 @@ func (client *Client) CreateWorkspaceWithOptions(request *CreateWorkspaceRequest
 
 	if !tea.BoolValue(util.IsUnset(request.DingAccessTokenType)) {
 		body["dingAccessTokenType"] = request.DingAccessTokenType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -1261,6 +1369,41 @@ func (client *Client) DeleteWorkspaceDocMembersWithOptions(workspaceId *string, 
 	}
 	_result = &DeleteWorkspaceDocMembersResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteWorkspaceDocMembers"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/docs/"+tea.StringValue(nodeId)+"/members/remove"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetWorkspace(workspaceId *string) (_result *GetWorkspaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetWorkspaceHeaders{}
+	_result = &GetWorkspaceResponse{}
+	_body, _err := client.GetWorkspaceWithOptions(workspaceId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetWorkspaceWithOptions(workspaceId *string, headers *GetWorkspaceHeaders, runtime *util.RuntimeOptions) (_result *GetWorkspaceResponse, _err error) {
+	workspaceId = openapiutil.GetEncodeParam(workspaceId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetWorkspaceResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetWorkspace"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

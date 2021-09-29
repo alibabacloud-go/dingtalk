@@ -11,186 +11,6 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
-type ValidateOrderUpgradeHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s ValidateOrderUpgradeHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ValidateOrderUpgradeHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *ValidateOrderUpgradeHeaders) SetCommonHeaders(v map[string]*string) *ValidateOrderUpgradeHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *ValidateOrderUpgradeHeaders) SetXAcsDingtalkAccessToken(v string) *ValidateOrderUpgradeHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type ValidateOrderUpgradeRequest struct {
-	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	AccessKey  *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
-	CallerUid  *string `json:"callerUid,omitempty" xml:"callerUid,omitempty"`
-}
-
-func (s ValidateOrderUpgradeRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ValidateOrderUpgradeRequest) GoString() string {
-	return s.String()
-}
-
-func (s *ValidateOrderUpgradeRequest) SetInstanceId(v string) *ValidateOrderUpgradeRequest {
-	s.InstanceId = &v
-	return s
-}
-
-func (s *ValidateOrderUpgradeRequest) SetAccessKey(v string) *ValidateOrderUpgradeRequest {
-	s.AccessKey = &v
-	return s
-}
-
-func (s *ValidateOrderUpgradeRequest) SetCallerUid(v string) *ValidateOrderUpgradeRequest {
-	s.CallerUid = &v
-	return s
-}
-
-type ValidateOrderUpgradeResponseBody struct {
-	// message
-	Message *string `json:"message,omitempty" xml:"message,omitempty"`
-	// status
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
-}
-
-func (s ValidateOrderUpgradeResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ValidateOrderUpgradeResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *ValidateOrderUpgradeResponseBody) SetMessage(v string) *ValidateOrderUpgradeResponseBody {
-	s.Message = &v
-	return s
-}
-
-func (s *ValidateOrderUpgradeResponseBody) SetStatus(v int32) *ValidateOrderUpgradeResponseBody {
-	s.Status = &v
-	return s
-}
-
-type ValidateOrderUpgradeResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ValidateOrderUpgradeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s ValidateOrderUpgradeResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ValidateOrderUpgradeResponse) GoString() string {
-	return s.String()
-}
-
-func (s *ValidateOrderUpgradeResponse) SetHeaders(v map[string]*string) *ValidateOrderUpgradeResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *ValidateOrderUpgradeResponse) SetBody(v *ValidateOrderUpgradeResponseBody) *ValidateOrderUpgradeResponse {
-	s.Body = v
-	return s
-}
-
-type GetCorpLevelByAccountIdHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s GetCorpLevelByAccountIdHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetCorpLevelByAccountIdHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *GetCorpLevelByAccountIdHeaders) SetCommonHeaders(v map[string]*string) *GetCorpLevelByAccountIdHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *GetCorpLevelByAccountIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetCorpLevelByAccountIdHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type GetCorpLevelByAccountIdRequest struct {
-	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-}
-
-func (s GetCorpLevelByAccountIdRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetCorpLevelByAccountIdRequest) GoString() string {
-	return s.String()
-}
-
-func (s *GetCorpLevelByAccountIdRequest) SetAccountId(v string) *GetCorpLevelByAccountIdRequest {
-	s.AccountId = &v
-	return s
-}
-
-type GetCorpLevelByAccountIdResponseBody struct {
-	Result *string `json:"result,omitempty" xml:"result,omitempty"`
-}
-
-func (s GetCorpLevelByAccountIdResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetCorpLevelByAccountIdResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *GetCorpLevelByAccountIdResponseBody) SetResult(v string) *GetCorpLevelByAccountIdResponseBody {
-	s.Result = &v
-	return s
-}
-
-type GetCorpLevelByAccountIdResponse struct {
-	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetCorpLevelByAccountIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s GetCorpLevelByAccountIdResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetCorpLevelByAccountIdResponse) GoString() string {
-	return s.String()
-}
-
-func (s *GetCorpLevelByAccountIdResponse) SetHeaders(v map[string]*string) *GetCorpLevelByAccountIdResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *GetCorpLevelByAccountIdResponse) SetBody(v *GetCorpLevelByAccountIdResponseBody) *GetCorpLevelByAccountIdResponse {
-	s.Body = v
-	return s
-}
-
 type UpdateStatusHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -284,117 +104,329 @@ func (s *UpdateStatusResponse) SetHeaders(v map[string]*string) *UpdateStatusRes
 	return s
 }
 
-type ExecutePlatformTaskHeaders struct {
+type GetInstancesByIdListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s ExecutePlatformTaskHeaders) String() string {
+func (s GetInstancesByIdListHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ExecutePlatformTaskHeaders) GoString() string {
+func (s GetInstancesByIdListHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *ExecutePlatformTaskHeaders) SetCommonHeaders(v map[string]*string) *ExecutePlatformTaskHeaders {
+func (s *GetInstancesByIdListHeaders) SetCommonHeaders(v map[string]*string) *GetInstancesByIdListHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *ExecutePlatformTaskHeaders) SetXAcsDingtalkAccessToken(v string) *ExecutePlatformTaskHeaders {
+func (s *GetInstancesByIdListHeaders) SetXAcsDingtalkAccessToken(v string) *GetInstancesByIdListHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type ExecutePlatformTaskRequest struct {
-	// 审批结果
-	OutResult *string `json:"outResult,omitempty" xml:"outResult,omitempty"`
-	// 是否不执行校验&关联操作
-	NoExecuteExpressions *string `json:"noExecuteExpressions,omitempty" xml:"noExecuteExpressions,omitempty"`
+type GetInstancesByIdListRequest struct {
 	// 应用ID
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	// 更新的表单数据
-	FormDataJson *string `json:"formDataJson,omitempty" xml:"formDataJson,omitempty"`
 	// 应用秘钥
 	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	// 语言
-	Language *string `json:"language,omitempty" xml:"language,omitempty"`
-	// 审批意见
-	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	// 流程实例ID
-	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
 	// 钉钉的userId
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 语言
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 流程实例ID列表，多个用,分割
+	ProcessInstanceIds *string `json:"processInstanceIds,omitempty" xml:"processInstanceIds,omitempty"`
 }
 
-func (s ExecutePlatformTaskRequest) String() string {
+func (s GetInstancesByIdListRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ExecutePlatformTaskRequest) GoString() string {
+func (s GetInstancesByIdListRequest) GoString() string {
 	return s.String()
 }
 
-func (s *ExecutePlatformTaskRequest) SetOutResult(v string) *ExecutePlatformTaskRequest {
-	s.OutResult = &v
-	return s
-}
-
-func (s *ExecutePlatformTaskRequest) SetNoExecuteExpressions(v string) *ExecutePlatformTaskRequest {
-	s.NoExecuteExpressions = &v
-	return s
-}
-
-func (s *ExecutePlatformTaskRequest) SetAppType(v string) *ExecutePlatformTaskRequest {
+func (s *GetInstancesByIdListRequest) SetAppType(v string) *GetInstancesByIdListRequest {
 	s.AppType = &v
 	return s
 }
 
-func (s *ExecutePlatformTaskRequest) SetFormDataJson(v string) *ExecutePlatformTaskRequest {
-	s.FormDataJson = &v
-	return s
-}
-
-func (s *ExecutePlatformTaskRequest) SetSystemToken(v string) *ExecutePlatformTaskRequest {
+func (s *GetInstancesByIdListRequest) SetSystemToken(v string) *GetInstancesByIdListRequest {
 	s.SystemToken = &v
 	return s
 }
 
-func (s *ExecutePlatformTaskRequest) SetLanguage(v string) *ExecutePlatformTaskRequest {
-	s.Language = &v
-	return s
-}
-
-func (s *ExecutePlatformTaskRequest) SetRemark(v string) *ExecutePlatformTaskRequest {
-	s.Remark = &v
-	return s
-}
-
-func (s *ExecutePlatformTaskRequest) SetProcessInstanceId(v string) *ExecutePlatformTaskRequest {
-	s.ProcessInstanceId = &v
-	return s
-}
-
-func (s *ExecutePlatformTaskRequest) SetUserId(v string) *ExecutePlatformTaskRequest {
+func (s *GetInstancesByIdListRequest) SetUserId(v string) *GetInstancesByIdListRequest {
 	s.UserId = &v
 	return s
 }
 
-type ExecutePlatformTaskResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+func (s *GetInstancesByIdListRequest) SetLanguage(v string) *GetInstancesByIdListRequest {
+	s.Language = &v
+	return s
 }
 
-func (s ExecutePlatformTaskResponse) String() string {
+func (s *GetInstancesByIdListRequest) SetProcessInstanceIds(v string) *GetInstancesByIdListRequest {
+	s.ProcessInstanceIds = &v
+	return s
+}
+
+type GetInstancesByIdListResponseBody struct {
+	// 流程实例列表
+	Result []*GetInstancesByIdListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetInstancesByIdListResponseBody) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ExecutePlatformTaskResponse) GoString() string {
+func (s GetInstancesByIdListResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *ExecutePlatformTaskResponse) SetHeaders(v map[string]*string) *ExecutePlatformTaskResponse {
+func (s *GetInstancesByIdListResponseBody) SetResult(v []*GetInstancesByIdListResponseBodyResult) *GetInstancesByIdListResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetInstancesByIdListResponseBodyResult struct {
+	// 流程实例当前任务执行人列表
+	ActionExecutor []*GetInstancesByIdListResponseBodyResultActionExecutor `json:"actionExecutor,omitempty" xml:"actionExecutor,omitempty" type:"Repeated"`
+	// 实例ID
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// 流程表单ID
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 流程Code
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// 实例标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 实例状态
+	InstanceStatus *string `json:"instanceStatus,omitempty" xml:"instanceStatus,omitempty"`
+	// 流程结束时的审批结论
+	ApprovedResult *string `json:"approvedResult,omitempty" xml:"approvedResult,omitempty"`
+	// 发起人信息
+	Originator *GetInstancesByIdListResponseBodyResultOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
+	// 表单数据
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+}
+
+func (s GetInstancesByIdListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesByIdListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesByIdListResponseBodyResult) SetActionExecutor(v []*GetInstancesByIdListResponseBodyResultActionExecutor) *GetInstancesByIdListResponseBodyResult {
+	s.ActionExecutor = v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResult) SetProcessInstanceId(v string) *GetInstancesByIdListResponseBodyResult {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResult) SetFormUuid(v string) *GetInstancesByIdListResponseBodyResult {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResult) SetProcessCode(v string) *GetInstancesByIdListResponseBodyResult {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResult) SetTitle(v string) *GetInstancesByIdListResponseBodyResult {
+	s.Title = &v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResult) SetInstanceStatus(v string) *GetInstancesByIdListResponseBodyResult {
+	s.InstanceStatus = &v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResult) SetApprovedResult(v string) *GetInstancesByIdListResponseBodyResult {
+	s.ApprovedResult = &v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResult) SetOriginator(v *GetInstancesByIdListResponseBodyResultOriginator) *GetInstancesByIdListResponseBodyResult {
+	s.Originator = v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResult) SetData(v map[string]interface{}) *GetInstancesByIdListResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+type GetInstancesByIdListResponseBodyResultActionExecutor struct {
+	// 用户工号
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 用户名
+	Name *GetInstancesByIdListResponseBodyResultActionExecutorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// 部门名称
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// 邮箱
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+}
+
+func (s GetInstancesByIdListResponseBodyResultActionExecutor) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesByIdListResponseBodyResultActionExecutor) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesByIdListResponseBodyResultActionExecutor) SetUserId(v string) *GetInstancesByIdListResponseBodyResultActionExecutor {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResultActionExecutor) SetName(v *GetInstancesByIdListResponseBodyResultActionExecutorName) *GetInstancesByIdListResponseBodyResultActionExecutor {
+	s.Name = v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResultActionExecutor) SetDepartmentName(v string) *GetInstancesByIdListResponseBodyResultActionExecutor {
+	s.DepartmentName = &v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResultActionExecutor) SetEmail(v string) *GetInstancesByIdListResponseBodyResultActionExecutor {
+	s.Email = &v
+	return s
+}
+
+type GetInstancesByIdListResponseBodyResultActionExecutorName struct {
+	// 中文名称
+	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// 英文名称
+	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
+	// 国际化
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s GetInstancesByIdListResponseBodyResultActionExecutorName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesByIdListResponseBodyResultActionExecutorName) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesByIdListResponseBodyResultActionExecutorName) SetNameInChinese(v string) *GetInstancesByIdListResponseBodyResultActionExecutorName {
+	s.NameInChinese = &v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResultActionExecutorName) SetNameInEnglish(v string) *GetInstancesByIdListResponseBodyResultActionExecutorName {
+	s.NameInEnglish = &v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResultActionExecutorName) SetType(v string) *GetInstancesByIdListResponseBodyResultActionExecutorName {
+	s.Type = &v
+	return s
+}
+
+type GetInstancesByIdListResponseBodyResultOriginator struct {
+	// 用户工号
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 用户名
+	Name *GetInstancesByIdListResponseBodyResultOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// 部门名称
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// 邮箱
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+}
+
+func (s GetInstancesByIdListResponseBodyResultOriginator) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesByIdListResponseBodyResultOriginator) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesByIdListResponseBodyResultOriginator) SetUserId(v string) *GetInstancesByIdListResponseBodyResultOriginator {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResultOriginator) SetName(v *GetInstancesByIdListResponseBodyResultOriginatorName) *GetInstancesByIdListResponseBodyResultOriginator {
+	s.Name = v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResultOriginator) SetDepartmentName(v string) *GetInstancesByIdListResponseBodyResultOriginator {
+	s.DepartmentName = &v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResultOriginator) SetEmail(v string) *GetInstancesByIdListResponseBodyResultOriginator {
+	s.Email = &v
+	return s
+}
+
+type GetInstancesByIdListResponseBodyResultOriginatorName struct {
+	// 中文名称
+	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// 英文名称
+	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
+	// 国际化
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s GetInstancesByIdListResponseBodyResultOriginatorName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesByIdListResponseBodyResultOriginatorName) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesByIdListResponseBodyResultOriginatorName) SetNameInChinese(v string) *GetInstancesByIdListResponseBodyResultOriginatorName {
+	s.NameInChinese = &v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResultOriginatorName) SetNameInEnglish(v string) *GetInstancesByIdListResponseBodyResultOriginatorName {
+	s.NameInEnglish = &v
+	return s
+}
+
+func (s *GetInstancesByIdListResponseBodyResultOriginatorName) SetType(v string) *GetInstancesByIdListResponseBodyResultOriginatorName {
+	s.Type = &v
+	return s
+}
+
+type GetInstancesByIdListResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetInstancesByIdListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetInstancesByIdListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesByIdListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesByIdListResponse) SetHeaders(v map[string]*string) *GetInstancesByIdListResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetInstancesByIdListResponse) SetBody(v *GetInstancesByIdListResponseBody) *GetInstancesByIdListResponse {
+	s.Body = v
 	return s
 }
 
@@ -526,6 +558,5894 @@ func (s *SaveFormRemarkResponse) SetHeaders(v map[string]*string) *SaveFormRemar
 
 func (s *SaveFormRemarkResponse) SetBody(v *SaveFormRemarkResponseBody) *SaveFormRemarkResponse {
 	s.Body = v
+	return s
+}
+
+type ListTableDataByFormInstanceIdTableIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListTableDataByFormInstanceIdTableIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTableDataByFormInstanceIdTableIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListTableDataByFormInstanceIdTableIdHeaders) SetCommonHeaders(v map[string]*string) *ListTableDataByFormInstanceIdTableIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListTableDataByFormInstanceIdTableIdHeaders) SetXAcsDingtalkAccessToken(v string) *ListTableDataByFormInstanceIdTableIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListTableDataByFormInstanceIdTableIdRequest struct {
+	// 表单ID
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 需要查找的子表单组件的唯一标识
+	TableFieldId *string `json:"tableFieldId,omitempty" xml:"tableFieldId,omitempty"`
+	// 当前页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页记录数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListTableDataByFormInstanceIdTableIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTableDataByFormInstanceIdTableIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListTableDataByFormInstanceIdTableIdRequest) SetFormUuid(v string) *ListTableDataByFormInstanceIdTableIdRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *ListTableDataByFormInstanceIdTableIdRequest) SetTableFieldId(v string) *ListTableDataByFormInstanceIdTableIdRequest {
+	s.TableFieldId = &v
+	return s
+}
+
+func (s *ListTableDataByFormInstanceIdTableIdRequest) SetPageNumber(v int32) *ListTableDataByFormInstanceIdTableIdRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ListTableDataByFormInstanceIdTableIdRequest) SetPageSize(v int32) *ListTableDataByFormInstanceIdTableIdRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ListTableDataByFormInstanceIdTableIdRequest) SetSystemToken(v string) *ListTableDataByFormInstanceIdTableIdRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *ListTableDataByFormInstanceIdTableIdRequest) SetUserId(v string) *ListTableDataByFormInstanceIdTableIdRequest {
+	s.UserId = &v
+	return s
+}
+
+type ListTableDataByFormInstanceIdTableIdResponseBody struct {
+	// 总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 当前第几页
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// data
+	Data []map[string]interface{} `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s ListTableDataByFormInstanceIdTableIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTableDataByFormInstanceIdTableIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListTableDataByFormInstanceIdTableIdResponseBody) SetTotalCount(v int64) *ListTableDataByFormInstanceIdTableIdResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *ListTableDataByFormInstanceIdTableIdResponseBody) SetPageNumber(v int64) *ListTableDataByFormInstanceIdTableIdResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ListTableDataByFormInstanceIdTableIdResponseBody) SetData(v []map[string]interface{}) *ListTableDataByFormInstanceIdTableIdResponseBody {
+	s.Data = v
+	return s
+}
+
+type ListTableDataByFormInstanceIdTableIdResponse struct {
+	Headers map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListTableDataByFormInstanceIdTableIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListTableDataByFormInstanceIdTableIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTableDataByFormInstanceIdTableIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListTableDataByFormInstanceIdTableIdResponse) SetHeaders(v map[string]*string) *ListTableDataByFormInstanceIdTableIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListTableDataByFormInstanceIdTableIdResponse) SetBody(v *ListTableDataByFormInstanceIdTableIdResponseBody) *ListTableDataByFormInstanceIdTableIdResponse {
+	s.Body = v
+	return s
+}
+
+type GetTaskCopiesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTaskCopiesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskCopiesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskCopiesHeaders) SetCommonHeaders(v map[string]*string) *GetTaskCopiesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTaskCopiesHeaders) SetXAcsDingtalkAccessToken(v string) *GetTaskCopiesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTaskCopiesRequest struct {
+	// 应用ID
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 验权token
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 每页记录数; 必须大于0 默认10 最大值：100
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 语言环境; 可选值：zh_CN/en_US
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 当前页; 必须大于0 默认1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 关键词
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// 钉钉的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 流程code列表
+	ProcessCodes *string `json:"processCodes,omitempty" xml:"processCodes,omitempty"`
+	// 创建时间开始; 时间戳
+	CreateFromTimeGMT *int64 `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// 创建时间结束; 时间戳
+	CreateToTimeGMT *int64 `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+}
+
+func (s GetTaskCopiesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskCopiesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskCopiesRequest) SetAppType(v string) *GetTaskCopiesRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetTaskCopiesRequest) SetSystemToken(v string) *GetTaskCopiesRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *GetTaskCopiesRequest) SetPageSize(v int32) *GetTaskCopiesRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetTaskCopiesRequest) SetLanguage(v string) *GetTaskCopiesRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *GetTaskCopiesRequest) SetPageNumber(v int32) *GetTaskCopiesRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetTaskCopiesRequest) SetKeyword(v string) *GetTaskCopiesRequest {
+	s.Keyword = &v
+	return s
+}
+
+func (s *GetTaskCopiesRequest) SetUserId(v string) *GetTaskCopiesRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetTaskCopiesRequest) SetProcessCodes(v string) *GetTaskCopiesRequest {
+	s.ProcessCodes = &v
+	return s
+}
+
+func (s *GetTaskCopiesRequest) SetCreateFromTimeGMT(v int64) *GetTaskCopiesRequest {
+	s.CreateFromTimeGMT = &v
+	return s
+}
+
+func (s *GetTaskCopiesRequest) SetCreateToTimeGMT(v int64) *GetTaskCopiesRequest {
+	s.CreateToTimeGMT = &v
+	return s
+}
+
+type GetTaskCopiesResponseBody struct {
+	// 当前第几页
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 数据
+	Data []*GetTaskCopiesResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s GetTaskCopiesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskCopiesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskCopiesResponseBody) SetPageNumber(v int64) *GetTaskCopiesResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBody) SetTotalCount(v int64) *GetTaskCopiesResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBody) SetData(v []*GetTaskCopiesResponseBodyData) *GetTaskCopiesResponseBody {
+	s.Data = v
+	return s
+}
+
+type GetTaskCopiesResponseBodyData struct {
+	// actionerId
+	ActionExecutorId []*string `json:"actionExecutorId,omitempty" xml:"actionExecutorId,omitempty" type:"Repeated"`
+	// processInstanceId
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// formUuid
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 序列号
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	// processInstanceStatus
+	ProcessInstanceStatus *string `json:"processInstanceStatus,omitempty" xml:"processInstanceStatus,omitempty"`
+	// originatorDisplayName
+	OriginatorDisplayName *string `json:"originatorDisplayName,omitempty" xml:"originatorDisplayName,omitempty"`
+	// modifiedTime
+	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	// carbonActivityId
+	CarbonActivityId *string `json:"carbonActivityId,omitempty" xml:"carbonActivityId,omitempty"`
+	// dataType
+	DataType *string `json:"dataType,omitempty" xml:"dataType,omitempty"`
+	// actionerName
+	ActionExecutorName []*string `json:"actionExecutorName,omitempty" xml:"actionExecutorName,omitempty" type:"Repeated"`
+	// originatorAvatar
+	OriginatorAvatar *string `json:"originatorAvatar,omitempty" xml:"originatorAvatar,omitempty"`
+	// processInstanceStatusText
+	ProcessInstanceStatusText *string `json:"processInstanceStatusText,omitempty" xml:"processInstanceStatusText,omitempty"`
+	// processApprovedResultText
+	ProcessApprovedResultText *string `json:"processApprovedResultText,omitempty" xml:"processApprovedResultText,omitempty"`
+	// formInstanceId
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// 标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 版本
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+	// 实例数据
+	InstanceValue *string `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
+	// 创建时间
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// processApprovedResult
+	ProcessApprovedResult *string `json:"processApprovedResult,omitempty" xml:"processApprovedResult,omitempty"`
+	// 流程id
+	ProcessId *int64 `json:"processId,omitempty" xml:"processId,omitempty"`
+	// processName
+	ProcessName *string `json:"processName,omitempty" xml:"processName,omitempty"`
+	// processCode
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// appType
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// dataMap
+	DataMap map[string]interface{} `json:"dataMap,omitempty" xml:"dataMap,omitempty"`
+	// currentActivityInstances
+	CurrentActivityInstances []*GetTaskCopiesResponseBodyDataCurrentActivityInstances `json:"currentActivityInstances,omitempty" xml:"currentActivityInstances,omitempty" type:"Repeated"`
+	// 结束时间
+	FinishTimeGMT *string `json:"finishTimeGMT,omitempty" xml:"finishTimeGMT,omitempty"`
+	// originatorId
+	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+}
+
+func (s GetTaskCopiesResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskCopiesResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetActionExecutorId(v []*string) *GetTaskCopiesResponseBodyData {
+	s.ActionExecutorId = v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetProcessInstanceId(v string) *GetTaskCopiesResponseBodyData {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetFormUuid(v string) *GetTaskCopiesResponseBodyData {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetSerialNumber(v string) *GetTaskCopiesResponseBodyData {
+	s.SerialNumber = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetProcessInstanceStatus(v string) *GetTaskCopiesResponseBodyData {
+	s.ProcessInstanceStatus = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetOriginatorDisplayName(v string) *GetTaskCopiesResponseBodyData {
+	s.OriginatorDisplayName = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetModifiedTimeGMT(v string) *GetTaskCopiesResponseBodyData {
+	s.ModifiedTimeGMT = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetCarbonActivityId(v string) *GetTaskCopiesResponseBodyData {
+	s.CarbonActivityId = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetDataType(v string) *GetTaskCopiesResponseBodyData {
+	s.DataType = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetActionExecutorName(v []*string) *GetTaskCopiesResponseBodyData {
+	s.ActionExecutorName = v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetOriginatorAvatar(v string) *GetTaskCopiesResponseBodyData {
+	s.OriginatorAvatar = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetProcessInstanceStatusText(v string) *GetTaskCopiesResponseBodyData {
+	s.ProcessInstanceStatusText = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetProcessApprovedResultText(v string) *GetTaskCopiesResponseBodyData {
+	s.ProcessApprovedResultText = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetFormInstanceId(v string) *GetTaskCopiesResponseBodyData {
+	s.FormInstanceId = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetTitle(v string) *GetTaskCopiesResponseBodyData {
+	s.Title = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetVersion(v int64) *GetTaskCopiesResponseBodyData {
+	s.Version = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetInstanceValue(v string) *GetTaskCopiesResponseBodyData {
+	s.InstanceValue = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetCreateTimeGMT(v string) *GetTaskCopiesResponseBodyData {
+	s.CreateTimeGMT = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetProcessApprovedResult(v string) *GetTaskCopiesResponseBodyData {
+	s.ProcessApprovedResult = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetProcessId(v int64) *GetTaskCopiesResponseBodyData {
+	s.ProcessId = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetProcessName(v string) *GetTaskCopiesResponseBodyData {
+	s.ProcessName = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetProcessCode(v string) *GetTaskCopiesResponseBodyData {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetAppType(v string) *GetTaskCopiesResponseBodyData {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetDataMap(v map[string]interface{}) *GetTaskCopiesResponseBodyData {
+	s.DataMap = v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetCurrentActivityInstances(v []*GetTaskCopiesResponseBodyDataCurrentActivityInstances) *GetTaskCopiesResponseBodyData {
+	s.CurrentActivityInstances = v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetFinishTimeGMT(v string) *GetTaskCopiesResponseBodyData {
+	s.FinishTimeGMT = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyData) SetOriginatorId(v string) *GetTaskCopiesResponseBodyData {
+	s.OriginatorId = &v
+	return s
+}
+
+type GetTaskCopiesResponseBodyDataCurrentActivityInstances struct {
+	// 节点名称
+	ActivityName *string `json:"activityName,omitempty" xml:"activityName,omitempty"`
+	// 节点英文名称
+	ActivityNameInEnglish *string `json:"activityNameInEnglish,omitempty" xml:"activityNameInEnglish,omitempty"`
+	// 节点id
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// 数据id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 节点实例状态
+	ActivityInstanceStatus *string `json:"activityInstanceStatus,omitempty" xml:"activityInstanceStatus,omitempty"`
+}
+
+func (s GetTaskCopiesResponseBodyDataCurrentActivityInstances) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskCopiesResponseBodyDataCurrentActivityInstances) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskCopiesResponseBodyDataCurrentActivityInstances) SetActivityName(v string) *GetTaskCopiesResponseBodyDataCurrentActivityInstances {
+	s.ActivityName = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyDataCurrentActivityInstances) SetActivityNameInEnglish(v string) *GetTaskCopiesResponseBodyDataCurrentActivityInstances {
+	s.ActivityNameInEnglish = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyDataCurrentActivityInstances) SetActivityId(v string) *GetTaskCopiesResponseBodyDataCurrentActivityInstances {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyDataCurrentActivityInstances) SetId(v int64) *GetTaskCopiesResponseBodyDataCurrentActivityInstances {
+	s.Id = &v
+	return s
+}
+
+func (s *GetTaskCopiesResponseBodyDataCurrentActivityInstances) SetActivityInstanceStatus(v string) *GetTaskCopiesResponseBodyDataCurrentActivityInstances {
+	s.ActivityInstanceStatus = &v
+	return s
+}
+
+type GetTaskCopiesResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetTaskCopiesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetTaskCopiesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskCopiesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskCopiesResponse) SetHeaders(v map[string]*string) *GetTaskCopiesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTaskCopiesResponse) SetBody(v *GetTaskCopiesResponseBody) *GetTaskCopiesResponse {
+	s.Body = v
+	return s
+}
+
+type GetRunningTasksHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetRunningTasksHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRunningTasksHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetRunningTasksHeaders) SetCommonHeaders(v map[string]*string) *GetRunningTasksHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetRunningTasksHeaders) SetXAcsDingtalkAccessToken(v string) *GetRunningTasksHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetRunningTasksRequest struct {
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	AppType           *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	SystemToken       *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	Language          *string `json:"language,omitempty" xml:"language,omitempty"`
+	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetRunningTasksRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRunningTasksRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetRunningTasksRequest) SetProcessInstanceId(v string) *GetRunningTasksRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *GetRunningTasksRequest) SetAppType(v string) *GetRunningTasksRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetRunningTasksRequest) SetSystemToken(v string) *GetRunningTasksRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *GetRunningTasksRequest) SetLanguage(v string) *GetRunningTasksRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *GetRunningTasksRequest) SetUserId(v string) *GetRunningTasksRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetRunningTasksResponseBody struct {
+	Result []*GetRunningTasksResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetRunningTasksResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRunningTasksResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetRunningTasksResponseBody) SetResult(v []*GetRunningTasksResponseBodyResult) *GetRunningTasksResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetRunningTasksResponseBodyResult struct {
+	// createTime
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// activityId
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// processInstanceId
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// taskType
+	TaskType *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	// titleEn
+	TitleInEnglish *string `json:"titleInEnglish,omitempty" xml:"titleInEnglish,omitempty"`
+	// activeTime
+	ActiveTimeGMT *string `json:"activeTimeGMT,omitempty" xml:"activeTimeGMT,omitempty"`
+	// actualActionerId
+	ActualActionerId *string `json:"actualActionerId,omitempty" xml:"actualActionerId,omitempty"`
+	// originatorId
+	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	// finishTime
+	FinishTimeGMT *string `json:"finishTimeGMT,omitempty" xml:"finishTimeGMT,omitempty"`
+	// title
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// taskId
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// status
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetRunningTasksResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRunningTasksResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetRunningTasksResponseBodyResult) SetCreateTimeGMT(v string) *GetRunningTasksResponseBodyResult {
+	s.CreateTimeGMT = &v
+	return s
+}
+
+func (s *GetRunningTasksResponseBodyResult) SetActivityId(v string) *GetRunningTasksResponseBodyResult {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *GetRunningTasksResponseBodyResult) SetProcessInstanceId(v string) *GetRunningTasksResponseBodyResult {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *GetRunningTasksResponseBodyResult) SetTaskType(v string) *GetRunningTasksResponseBodyResult {
+	s.TaskType = &v
+	return s
+}
+
+func (s *GetRunningTasksResponseBodyResult) SetTitleInEnglish(v string) *GetRunningTasksResponseBodyResult {
+	s.TitleInEnglish = &v
+	return s
+}
+
+func (s *GetRunningTasksResponseBodyResult) SetActiveTimeGMT(v string) *GetRunningTasksResponseBodyResult {
+	s.ActiveTimeGMT = &v
+	return s
+}
+
+func (s *GetRunningTasksResponseBodyResult) SetActualActionerId(v string) *GetRunningTasksResponseBodyResult {
+	s.ActualActionerId = &v
+	return s
+}
+
+func (s *GetRunningTasksResponseBodyResult) SetOriginatorId(v string) *GetRunningTasksResponseBodyResult {
+	s.OriginatorId = &v
+	return s
+}
+
+func (s *GetRunningTasksResponseBodyResult) SetFinishTimeGMT(v string) *GetRunningTasksResponseBodyResult {
+	s.FinishTimeGMT = &v
+	return s
+}
+
+func (s *GetRunningTasksResponseBodyResult) SetTitle(v string) *GetRunningTasksResponseBodyResult {
+	s.Title = &v
+	return s
+}
+
+func (s *GetRunningTasksResponseBodyResult) SetTaskId(v string) *GetRunningTasksResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetRunningTasksResponseBodyResult) SetStatus(v string) *GetRunningTasksResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+type GetRunningTasksResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetRunningTasksResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetRunningTasksResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRunningTasksResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetRunningTasksResponse) SetHeaders(v map[string]*string) *GetRunningTasksResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetRunningTasksResponse) SetBody(v *GetRunningTasksResponseBody) *GetRunningTasksResponse {
+	s.Body = v
+	return s
+}
+
+type ListNavigationByFormTypeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListNavigationByFormTypeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListNavigationByFormTypeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListNavigationByFormTypeHeaders) SetCommonHeaders(v map[string]*string) *ListNavigationByFormTypeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListNavigationByFormTypeHeaders) SetXAcsDingtalkAccessToken(v string) *ListNavigationByFormTypeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListNavigationByFormTypeRequest struct {
+	// 应用ID
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 评论人钉钉的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 语言
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 页面类型
+	FormType *string `json:"formType,omitempty" xml:"formType,omitempty"`
+}
+
+func (s ListNavigationByFormTypeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListNavigationByFormTypeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListNavigationByFormTypeRequest) SetAppType(v string) *ListNavigationByFormTypeRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *ListNavigationByFormTypeRequest) SetSystemToken(v string) *ListNavigationByFormTypeRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *ListNavigationByFormTypeRequest) SetUserId(v string) *ListNavigationByFormTypeRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *ListNavigationByFormTypeRequest) SetLanguage(v string) *ListNavigationByFormTypeRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *ListNavigationByFormTypeRequest) SetFormType(v string) *ListNavigationByFormTypeRequest {
+	s.FormType = &v
+	return s
+}
+
+type ListNavigationByFormTypeResponseBody struct {
+	Result []*ListNavigationByFormTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s ListNavigationByFormTypeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListNavigationByFormTypeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListNavigationByFormTypeResponseBody) SetResult(v []*ListNavigationByFormTypeResponseBodyResult) *ListNavigationByFormTypeResponseBody {
+	s.Result = v
+	return s
+}
+
+type ListNavigationByFormTypeResponseBodyResult struct {
+	// title
+	Title *ListNavigationByFormTypeResponseBodyResultTitle `json:"title,omitempty" xml:"title,omitempty" type:"Struct"`
+	// processCode
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// formUuid
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+}
+
+func (s ListNavigationByFormTypeResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListNavigationByFormTypeResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListNavigationByFormTypeResponseBodyResult) SetTitle(v *ListNavigationByFormTypeResponseBodyResultTitle) *ListNavigationByFormTypeResponseBodyResult {
+	s.Title = v
+	return s
+}
+
+func (s *ListNavigationByFormTypeResponseBodyResult) SetProcessCode(v string) *ListNavigationByFormTypeResponseBodyResult {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *ListNavigationByFormTypeResponseBodyResult) SetFormUuid(v string) *ListNavigationByFormTypeResponseBodyResult {
+	s.FormUuid = &v
+	return s
+}
+
+type ListNavigationByFormTypeResponseBodyResultTitle struct {
+	// 英文名称
+	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
+	// type
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 中文名称
+	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+}
+
+func (s ListNavigationByFormTypeResponseBodyResultTitle) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListNavigationByFormTypeResponseBodyResultTitle) GoString() string {
+	return s.String()
+}
+
+func (s *ListNavigationByFormTypeResponseBodyResultTitle) SetNameInEnglish(v string) *ListNavigationByFormTypeResponseBodyResultTitle {
+	s.NameInEnglish = &v
+	return s
+}
+
+func (s *ListNavigationByFormTypeResponseBodyResultTitle) SetType(v string) *ListNavigationByFormTypeResponseBodyResultTitle {
+	s.Type = &v
+	return s
+}
+
+func (s *ListNavigationByFormTypeResponseBodyResultTitle) SetNameInChinese(v string) *ListNavigationByFormTypeResponseBodyResultTitle {
+	s.NameInChinese = &v
+	return s
+}
+
+type ListNavigationByFormTypeResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListNavigationByFormTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListNavigationByFormTypeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListNavigationByFormTypeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListNavigationByFormTypeResponse) SetHeaders(v map[string]*string) *ListNavigationByFormTypeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListNavigationByFormTypeResponse) SetBody(v *ListNavigationByFormTypeResponseBody) *ListNavigationByFormTypeResponse {
+	s.Body = v
+	return s
+}
+
+type TerminateInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TerminateInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TerminateInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TerminateInstanceHeaders) SetCommonHeaders(v map[string]*string) *TerminateInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TerminateInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *TerminateInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TerminateInstanceRequest struct {
+	// 应用ID
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 语言
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 流程实例ID
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+}
+
+func (s TerminateInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TerminateInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TerminateInstanceRequest) SetAppType(v string) *TerminateInstanceRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *TerminateInstanceRequest) SetSystemToken(v string) *TerminateInstanceRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *TerminateInstanceRequest) SetUserId(v string) *TerminateInstanceRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *TerminateInstanceRequest) SetLanguage(v string) *TerminateInstanceRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *TerminateInstanceRequest) SetProcessInstanceId(v string) *TerminateInstanceRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+type TerminateInstanceResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s TerminateInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TerminateInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TerminateInstanceResponse) SetHeaders(v map[string]*string) *TerminateInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+type CheckCloudAccountStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CheckCloudAccountStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckCloudAccountStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CheckCloudAccountStatusHeaders) SetCommonHeaders(v map[string]*string) *CheckCloudAccountStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CheckCloudAccountStatusHeaders) SetXAcsDingtalkAccessToken(v string) *CheckCloudAccountStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CheckCloudAccountStatusRequest struct {
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+}
+
+func (s CheckCloudAccountStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckCloudAccountStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CheckCloudAccountStatusRequest) SetAccessKey(v string) *CheckCloudAccountStatusRequest {
+	s.AccessKey = &v
+	return s
+}
+
+type CheckCloudAccountStatusResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CheckCloudAccountStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckCloudAccountStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CheckCloudAccountStatusResponseBody) SetResult(v bool) *CheckCloudAccountStatusResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CheckCloudAccountStatusResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CheckCloudAccountStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CheckCloudAccountStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckCloudAccountStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CheckCloudAccountStatusResponse) SetHeaders(v map[string]*string) *CheckCloudAccountStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CheckCloudAccountStatusResponse) SetBody(v *CheckCloudAccountStatusResponseBody) *CheckCloudAccountStatusResponse {
+	s.Body = v
+	return s
+}
+
+type GetCorpAccomplishmentTasksHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCorpAccomplishmentTasksHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorpAccomplishmentTasksHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorpAccomplishmentTasksHeaders) SetCommonHeaders(v map[string]*string) *GetCorpAccomplishmentTasksHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksHeaders) SetXAcsDingtalkAccessToken(v string) *GetCorpAccomplishmentTasksHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCorpAccomplishmentTasksRequest struct {
+	// 每页记录数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 语言环境
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 当前页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 关键词
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// 应用标识列表
+	AppTypes *string `json:"appTypes,omitempty" xml:"appTypes,omitempty"`
+	// 流程code列表
+	ProcessCodes *string `json:"processCodes,omitempty" xml:"processCodes,omitempty"`
+	// 创建时间开始
+	CreateFromTimeGMT *int64 `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// 创建时间结束
+	CreateToTimeGMT *int64 `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// 验权token
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+}
+
+func (s GetCorpAccomplishmentTasksRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorpAccomplishmentTasksRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorpAccomplishmentTasksRequest) SetPageSize(v int32) *GetCorpAccomplishmentTasksRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksRequest) SetLanguage(v string) *GetCorpAccomplishmentTasksRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksRequest) SetPageNumber(v int32) *GetCorpAccomplishmentTasksRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksRequest) SetKeyword(v string) *GetCorpAccomplishmentTasksRequest {
+	s.Keyword = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksRequest) SetAppTypes(v string) *GetCorpAccomplishmentTasksRequest {
+	s.AppTypes = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksRequest) SetProcessCodes(v string) *GetCorpAccomplishmentTasksRequest {
+	s.ProcessCodes = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksRequest) SetCreateFromTimeGMT(v int64) *GetCorpAccomplishmentTasksRequest {
+	s.CreateFromTimeGMT = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksRequest) SetCreateToTimeGMT(v int64) *GetCorpAccomplishmentTasksRequest {
+	s.CreateToTimeGMT = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksRequest) SetToken(v string) *GetCorpAccomplishmentTasksRequest {
+	s.Token = &v
+	return s
+}
+
+type GetCorpAccomplishmentTasksResponseBody struct {
+	// 总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 当前第几页
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// data
+	Data []*GetCorpAccomplishmentTasksResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s GetCorpAccomplishmentTasksResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorpAccomplishmentTasksResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBody) SetTotalCount(v int64) *GetCorpAccomplishmentTasksResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBody) SetPageNumber(v int64) *GetCorpAccomplishmentTasksResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBody) SetData(v []*GetCorpAccomplishmentTasksResponseBodyData) *GetCorpAccomplishmentTasksResponseBody {
+	s.Data = v
+	return s
+}
+
+type GetCorpAccomplishmentTasksResponseBodyData struct {
+	// originatorNickName
+	OriginatorNickName *string `json:"originatorNickName,omitempty" xml:"originatorNickName,omitempty"`
+	// processInstanceId
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// originatorName
+	OriginatorName *string `json:"originatorName,omitempty" xml:"originatorName,omitempty"`
+	// finishTime
+	FinishTimeGMT *string `json:"finishTimeGMT,omitempty" xml:"finishTimeGMT,omitempty"`
+	// activeTime
+	ActiveTimeGMT *string `json:"activeTimeGMT,omitempty" xml:"activeTimeGMT,omitempty"`
+	// actualActionerId
+	ActualActionerId *string `json:"actualActionerId,omitempty" xml:"actualActionerId,omitempty"`
+	// originatorEmail
+	OriginatorEmail *string `json:"originatorEmail,omitempty" xml:"originatorEmail,omitempty"`
+	// title
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// outResultName
+	OutResultName *string `json:"outResultName,omitempty" xml:"outResultName,omitempty"`
+	// outResult
+	OutResult *string `json:"outResult,omitempty" xml:"outResult,omitempty"`
+	// originatorPhoto
+	OriginatorPhoto *string `json:"originatorPhoto,omitempty" xml:"originatorPhoto,omitempty"`
+	// taskType
+	TaskType *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	// originatorNickNameEn
+	OriginatorNickNameInEnglish *string `json:"originatorNickNameInEnglish,omitempty" xml:"originatorNickNameInEnglish,omitempty"`
+	// createTime
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// titleEn
+	TitleInEnglish *string `json:"titleInEnglish,omitempty" xml:"titleInEnglish,omitempty"`
+	// appType
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// originatorNameEn
+	OriginatorNameInEnglish *string `json:"originatorNameInEnglish,omitempty" xml:"originatorNameInEnglish,omitempty"`
+	// originatorId
+	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	// taskId
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// status
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetCorpAccomplishmentTasksResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorpAccomplishmentTasksResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetOriginatorNickName(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.OriginatorNickName = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetProcessInstanceId(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetOriginatorName(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.OriginatorName = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetFinishTimeGMT(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.FinishTimeGMT = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetActiveTimeGMT(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.ActiveTimeGMT = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetActualActionerId(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.ActualActionerId = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetOriginatorEmail(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.OriginatorEmail = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetTitle(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.Title = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetOutResultName(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.OutResultName = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetOutResult(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.OutResult = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetOriginatorPhoto(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.OriginatorPhoto = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetTaskType(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.TaskType = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetOriginatorNickNameInEnglish(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.OriginatorNickNameInEnglish = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetCreateTimeGMT(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.CreateTimeGMT = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetTitleInEnglish(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.TitleInEnglish = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetAppType(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetOriginatorNameInEnglish(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.OriginatorNameInEnglish = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetOriginatorId(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.OriginatorId = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetTaskId(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponseBodyData) SetStatus(v string) *GetCorpAccomplishmentTasksResponseBodyData {
+	s.Status = &v
+	return s
+}
+
+type GetCorpAccomplishmentTasksResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCorpAccomplishmentTasksResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCorpAccomplishmentTasksResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorpAccomplishmentTasksResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorpAccomplishmentTasksResponse) SetHeaders(v map[string]*string) *GetCorpAccomplishmentTasksResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksResponse) SetBody(v *GetCorpAccomplishmentTasksResponseBody) *GetCorpAccomplishmentTasksResponse {
+	s.Body = v
+	return s
+}
+
+type GetInstancesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetInstancesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesHeaders) SetCommonHeaders(v map[string]*string) *GetInstancesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *GetInstancesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetInstancesRequest struct {
+	// 应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 应用秘钥。在应用数据中获取。
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 语言。可选值：zh_CN/en_US 默认：zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 表单ID
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 根据表单内组件值查询
+	SearchFieldJson *string `json:"searchFieldJson,omitempty" xml:"searchFieldJson,omitempty"`
+	// 根据数据提交人工号查询
+	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	// createFrom和createTo两个时间构造一个时间段。查询在该时间段创建的数据列表, 字符串格式，且为yyyy-MM-DD格式
+	CreateFromTimeGMT *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// createFrom和createTo两个时间构造一个时间段。查询在该时间段创建的数据列表。字符串格式，且为yyyy-MM-DD格式。 和createFrom一起，相当于查询在 2018-01-01到2018-01-31之间(包含01和31号)创建的数据。
+	CreateToTimeGMT *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// modifiedFrom和modifiedTo构成一个时间段，查询在该时间段有修改的数据列表。字符串格式，且为yyyy-MM-DD格式
+	ModifiedFromTimeGMT *string `json:"modifiedFromTimeGMT,omitempty" xml:"modifiedFromTimeGMT,omitempty"`
+	// modifiedFrom和modifiedTo构成一个时间段，查询在该时间段有修改的数据列表。字符串格式，且为yyyy-MM-DD格式。 和modifiedFrom一起，相当于查询在 2018-01-01到2018-01-31之间(包含01和31号)被修改的数据。
+	ModifiedToTimeGMT *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
+	// 任务ID。一般用不到。
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// 实例状态, 可选值为：RUNNING,TERMINATED,COMPLETED,ERROR。 分别代表：运行中，已终止，已完成，异常。
+	InstanceStatus *string `json:"instanceStatus,omitempty" xml:"instanceStatus,omitempty"`
+	// 审批结果。可选值为：agree, disagree。 分别表示：同意， 拒绝。
+	ApprovedResult *string `json:"approvedResult,omitempty" xml:"approvedResult,omitempty"`
+	PageNumber     *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize       *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s GetInstancesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesRequest) SetAppType(v string) *GetInstancesRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetInstancesRequest) SetSystemToken(v string) *GetInstancesRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *GetInstancesRequest) SetUserId(v string) *GetInstancesRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetInstancesRequest) SetLanguage(v string) *GetInstancesRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *GetInstancesRequest) SetFormUuid(v string) *GetInstancesRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *GetInstancesRequest) SetSearchFieldJson(v string) *GetInstancesRequest {
+	s.SearchFieldJson = &v
+	return s
+}
+
+func (s *GetInstancesRequest) SetOriginatorId(v string) *GetInstancesRequest {
+	s.OriginatorId = &v
+	return s
+}
+
+func (s *GetInstancesRequest) SetCreateFromTimeGMT(v string) *GetInstancesRequest {
+	s.CreateFromTimeGMT = &v
+	return s
+}
+
+func (s *GetInstancesRequest) SetCreateToTimeGMT(v string) *GetInstancesRequest {
+	s.CreateToTimeGMT = &v
+	return s
+}
+
+func (s *GetInstancesRequest) SetModifiedFromTimeGMT(v string) *GetInstancesRequest {
+	s.ModifiedFromTimeGMT = &v
+	return s
+}
+
+func (s *GetInstancesRequest) SetModifiedToTimeGMT(v string) *GetInstancesRequest {
+	s.ModifiedToTimeGMT = &v
+	return s
+}
+
+func (s *GetInstancesRequest) SetTaskId(v string) *GetInstancesRequest {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetInstancesRequest) SetInstanceStatus(v string) *GetInstancesRequest {
+	s.InstanceStatus = &v
+	return s
+}
+
+func (s *GetInstancesRequest) SetApprovedResult(v string) *GetInstancesRequest {
+	s.ApprovedResult = &v
+	return s
+}
+
+func (s *GetInstancesRequest) SetPageNumber(v int32) *GetInstancesRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetInstancesRequest) SetPageSize(v int32) *GetInstancesRequest {
+	s.PageSize = &v
+	return s
+}
+
+type GetInstancesResponseBody struct {
+	// 总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 当前第几页
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// data
+	Data []*GetInstancesResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s GetInstancesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesResponseBody) SetTotalCount(v int64) *GetInstancesResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *GetInstancesResponseBody) SetPageNumber(v int64) *GetInstancesResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetInstancesResponseBody) SetData(v []*GetInstancesResponseBodyData) *GetInstancesResponseBody {
+	s.Data = v
+	return s
+}
+
+type GetInstancesResponseBodyData struct {
+	// 创建时间
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// processInstanceId
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// actioners
+	ActionExecutor []*GetInstancesResponseBodyDataActionExecutor `json:"actionExecutor,omitempty" xml:"actionExecutor,omitempty" type:"Repeated"`
+	// approvedResult
+	ApprovedResult *string `json:"approvedResult,omitempty" xml:"approvedResult,omitempty"`
+	// formUuid
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// data
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	// processCode
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// 修改时间
+	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	// originator
+	Originator *GetInstancesResponseBodyDataOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
+	// title
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// instanceStatus
+	InstanceStatus *string `json:"instanceStatus,omitempty" xml:"instanceStatus,omitempty"`
+	// version
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s GetInstancesResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesResponseBodyData) SetCreateTimeGMT(v string) *GetInstancesResponseBodyData {
+	s.CreateTimeGMT = &v
+	return s
+}
+
+func (s *GetInstancesResponseBodyData) SetProcessInstanceId(v string) *GetInstancesResponseBodyData {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *GetInstancesResponseBodyData) SetActionExecutor(v []*GetInstancesResponseBodyDataActionExecutor) *GetInstancesResponseBodyData {
+	s.ActionExecutor = v
+	return s
+}
+
+func (s *GetInstancesResponseBodyData) SetApprovedResult(v string) *GetInstancesResponseBodyData {
+	s.ApprovedResult = &v
+	return s
+}
+
+func (s *GetInstancesResponseBodyData) SetFormUuid(v string) *GetInstancesResponseBodyData {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *GetInstancesResponseBodyData) SetData(v map[string]interface{}) *GetInstancesResponseBodyData {
+	s.Data = v
+	return s
+}
+
+func (s *GetInstancesResponseBodyData) SetProcessCode(v string) *GetInstancesResponseBodyData {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *GetInstancesResponseBodyData) SetModifiedTimeGMT(v string) *GetInstancesResponseBodyData {
+	s.ModifiedTimeGMT = &v
+	return s
+}
+
+func (s *GetInstancesResponseBodyData) SetOriginator(v *GetInstancesResponseBodyDataOriginator) *GetInstancesResponseBodyData {
+	s.Originator = v
+	return s
+}
+
+func (s *GetInstancesResponseBodyData) SetTitle(v string) *GetInstancesResponseBodyData {
+	s.Title = &v
+	return s
+}
+
+func (s *GetInstancesResponseBodyData) SetInstanceStatus(v string) *GetInstancesResponseBodyData {
+	s.InstanceStatus = &v
+	return s
+}
+
+func (s *GetInstancesResponseBodyData) SetVersion(v int64) *GetInstancesResponseBodyData {
+	s.Version = &v
+	return s
+}
+
+type GetInstancesResponseBodyDataActionExecutor struct {
+	// name
+	Name *GetInstancesResponseBodyDataActionExecutorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// deptName
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// email
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+}
+
+func (s GetInstancesResponseBodyDataActionExecutor) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesResponseBodyDataActionExecutor) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesResponseBodyDataActionExecutor) SetName(v *GetInstancesResponseBodyDataActionExecutorName) *GetInstancesResponseBodyDataActionExecutor {
+	s.Name = v
+	return s
+}
+
+func (s *GetInstancesResponseBodyDataActionExecutor) SetDeptName(v string) *GetInstancesResponseBodyDataActionExecutor {
+	s.DeptName = &v
+	return s
+}
+
+func (s *GetInstancesResponseBodyDataActionExecutor) SetUserId(v string) *GetInstancesResponseBodyDataActionExecutor {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetInstancesResponseBodyDataActionExecutor) SetEmail(v string) *GetInstancesResponseBodyDataActionExecutor {
+	s.Email = &v
+	return s
+}
+
+type GetInstancesResponseBodyDataActionExecutorName struct {
+	// 英文名称
+	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
+	// type
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 中文名称
+	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+}
+
+func (s GetInstancesResponseBodyDataActionExecutorName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesResponseBodyDataActionExecutorName) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesResponseBodyDataActionExecutorName) SetNameInEnglish(v string) *GetInstancesResponseBodyDataActionExecutorName {
+	s.NameInEnglish = &v
+	return s
+}
+
+func (s *GetInstancesResponseBodyDataActionExecutorName) SetType(v string) *GetInstancesResponseBodyDataActionExecutorName {
+	s.Type = &v
+	return s
+}
+
+func (s *GetInstancesResponseBodyDataActionExecutorName) SetNameInChinese(v string) *GetInstancesResponseBodyDataActionExecutorName {
+	s.NameInChinese = &v
+	return s
+}
+
+type GetInstancesResponseBodyDataOriginator struct {
+	// name
+	Name *GetInstancesResponseBodyDataOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// deptName
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// email
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+}
+
+func (s GetInstancesResponseBodyDataOriginator) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesResponseBodyDataOriginator) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesResponseBodyDataOriginator) SetName(v *GetInstancesResponseBodyDataOriginatorName) *GetInstancesResponseBodyDataOriginator {
+	s.Name = v
+	return s
+}
+
+func (s *GetInstancesResponseBodyDataOriginator) SetDeptName(v string) *GetInstancesResponseBodyDataOriginator {
+	s.DeptName = &v
+	return s
+}
+
+func (s *GetInstancesResponseBodyDataOriginator) SetUserId(v string) *GetInstancesResponseBodyDataOriginator {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetInstancesResponseBodyDataOriginator) SetEmail(v string) *GetInstancesResponseBodyDataOriginator {
+	s.Email = &v
+	return s
+}
+
+type GetInstancesResponseBodyDataOriginatorName struct {
+	// 英文名称
+	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
+	// type
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 中文名称
+	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+}
+
+func (s GetInstancesResponseBodyDataOriginatorName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesResponseBodyDataOriginatorName) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesResponseBodyDataOriginatorName) SetNameInEnglish(v string) *GetInstancesResponseBodyDataOriginatorName {
+	s.NameInEnglish = &v
+	return s
+}
+
+func (s *GetInstancesResponseBodyDataOriginatorName) SetType(v string) *GetInstancesResponseBodyDataOriginatorName {
+	s.Type = &v
+	return s
+}
+
+func (s *GetInstancesResponseBodyDataOriginatorName) SetNameInChinese(v string) *GetInstancesResponseBodyDataOriginatorName {
+	s.NameInChinese = &v
+	return s
+}
+
+type GetInstancesResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetInstancesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesResponse) SetHeaders(v map[string]*string) *GetInstancesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetInstancesResponse) SetBody(v *GetInstancesResponseBody) *GetInstancesResponse {
+	s.Body = v
+	return s
+}
+
+type ListApplicationAuthorizationServiceConnectorInformationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListApplicationAuthorizationServiceConnectorInformationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationAuthorizationServiceConnectorInformationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationHeaders) SetCommonHeaders(v map[string]*string) *ListApplicationAuthorizationServiceConnectorInformationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationHeaders) SetXAcsDingtalkAccessToken(v string) *ListApplicationAuthorizationServiceConnectorInformationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListApplicationAuthorizationServiceConnectorInformationRequest struct {
+	AccessKey  *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	CallerUid  *string `json:"callerUid,omitempty" xml:"callerUid,omitempty"`
+	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+}
+
+func (s ListApplicationAuthorizationServiceConnectorInformationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationAuthorizationServiceConnectorInformationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationRequest) SetAccessKey(v string) *ListApplicationAuthorizationServiceConnectorInformationRequest {
+	s.AccessKey = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationRequest) SetPageSize(v int32) *ListApplicationAuthorizationServiceConnectorInformationRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationRequest) SetCallerUid(v string) *ListApplicationAuthorizationServiceConnectorInformationRequest {
+	s.CallerUid = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationRequest) SetPageNumber(v int32) *ListApplicationAuthorizationServiceConnectorInformationRequest {
+	s.PageNumber = &v
+	return s
+}
+
+type ListApplicationAuthorizationServiceConnectorInformationResponseBody struct {
+	// 分页大小
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 当前第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// pluginInfos
+	PlugInformation []*ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation `json:"plugInformation,omitempty" xml:"plugInformation,omitempty" type:"Repeated"`
+}
+
+func (s ListApplicationAuthorizationServiceConnectorInformationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationAuthorizationServiceConnectorInformationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationResponseBody) SetPageSize(v int32) *ListApplicationAuthorizationServiceConnectorInformationResponseBody {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationResponseBody) SetPageNumber(v int32) *ListApplicationAuthorizationServiceConnectorInformationResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationResponseBody) SetTotalCount(v int64) *ListApplicationAuthorizationServiceConnectorInformationResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationResponseBody) SetPlugInformation(v []*ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation) *ListApplicationAuthorizationServiceConnectorInformationResponseBody {
+	s.PlugInformation = v
+	return s
+}
+
+type ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation struct {
+	// pluginUuid
+	PlugUuid *string `json:"plugUuid,omitempty" xml:"plugUuid,omitempty"`
+	// pluginTotalAmount
+	PlugTotalAmount *int64 `json:"plugTotalAmount,omitempty" xml:"plugTotalAmount,omitempty"`
+	// pluginName
+	PlugName *string `json:"plugName,omitempty" xml:"plugName,omitempty"`
+	// iconUrl
+	IconUrl *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
+	// pluginPayType
+	PlugPayType *int32 `json:"plugPayType,omitempty" xml:"plugPayType,omitempty"`
+	// pluginUsageAmount
+	PlugUsageAmount *int64 `json:"plugUsageAmount,omitempty" xml:"plugUsageAmount,omitempty"`
+	// pluginStatus
+	PlugStatus *int32 `json:"plugStatus,omitempty" xml:"plugStatus,omitempty"`
+	// apps
+	Applications []*ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformationApplications `json:"applications,omitempty" xml:"applications,omitempty" type:"Repeated"`
+}
+
+func (s ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation) SetPlugUuid(v string) *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation {
+	s.PlugUuid = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation) SetPlugTotalAmount(v int64) *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation {
+	s.PlugTotalAmount = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation) SetPlugName(v string) *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation {
+	s.PlugName = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation) SetIconUrl(v string) *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation {
+	s.IconUrl = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation) SetPlugPayType(v int32) *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation {
+	s.PlugPayType = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation) SetPlugUsageAmount(v int64) *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation {
+	s.PlugUsageAmount = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation) SetPlugStatus(v int32) *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation {
+	s.PlugStatus = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation) SetApplications(v []*ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformationApplications) *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation {
+	s.Applications = v
+	return s
+}
+
+type ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformationApplications struct {
+	// appName
+	AppName *string `json:"appName,omitempty" xml:"appName,omitempty"`
+}
+
+func (s ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformationApplications) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformationApplications) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformationApplications) SetAppName(v string) *ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformationApplications {
+	s.AppName = &v
+	return s
+}
+
+type ListApplicationAuthorizationServiceConnectorInformationResponse struct {
+	Headers map[string]*string                                                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListApplicationAuthorizationServiceConnectorInformationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListApplicationAuthorizationServiceConnectorInformationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationAuthorizationServiceConnectorInformationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationResponse) SetHeaders(v map[string]*string) *ListApplicationAuthorizationServiceConnectorInformationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceConnectorInformationResponse) SetBody(v *ListApplicationAuthorizationServiceConnectorInformationResponseBody) *ListApplicationAuthorizationServiceConnectorInformationResponse {
+	s.Body = v
+	return s
+}
+
+type ValidateOrderBuyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ValidateOrderBuyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateOrderBuyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateOrderBuyHeaders) SetCommonHeaders(v map[string]*string) *ValidateOrderBuyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ValidateOrderBuyHeaders) SetXAcsDingtalkAccessToken(v string) *ValidateOrderBuyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ValidateOrderBuyRequest struct {
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	CallerUid *string `json:"callerUid,omitempty" xml:"callerUid,omitempty"`
+}
+
+func (s ValidateOrderBuyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateOrderBuyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateOrderBuyRequest) SetAccessKey(v string) *ValidateOrderBuyRequest {
+	s.AccessKey = &v
+	return s
+}
+
+func (s *ValidateOrderBuyRequest) SetCallerUid(v string) *ValidateOrderBuyRequest {
+	s.CallerUid = &v
+	return s
+}
+
+type ValidateOrderBuyResponseBody struct {
+	// message
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// status
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s ValidateOrderBuyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateOrderBuyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateOrderBuyResponseBody) SetMessage(v string) *ValidateOrderBuyResponseBody {
+	s.Message = &v
+	return s
+}
+
+func (s *ValidateOrderBuyResponseBody) SetStatus(v int32) *ValidateOrderBuyResponseBody {
+	s.Status = &v
+	return s
+}
+
+type ValidateOrderBuyResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ValidateOrderBuyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ValidateOrderBuyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateOrderBuyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateOrderBuyResponse) SetHeaders(v map[string]*string) *ValidateOrderBuyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ValidateOrderBuyResponse) SetBody(v *ValidateOrderBuyResponseBody) *ValidateOrderBuyResponse {
+	s.Body = v
+	return s
+}
+
+type RenewTenantOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RenewTenantOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RenewTenantOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RenewTenantOrderHeaders) SetCommonHeaders(v map[string]*string) *RenewTenantOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RenewTenantOrderHeaders) SetXAcsDingtalkAccessToken(v string) *RenewTenantOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RenewTenantOrderRequest struct {
+	// 访问秘钥
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// 调用者unionId
+	CallerUnionId *string `json:"callerUnionId,omitempty" xml:"callerUnionId,omitempty"`
+	// 结束时间
+	EndTimeGMT *int64 `json:"endTimeGMT,omitempty" xml:"endTimeGMT,omitempty"`
+}
+
+func (s RenewTenantOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RenewTenantOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RenewTenantOrderRequest) SetAccessKey(v string) *RenewTenantOrderRequest {
+	s.AccessKey = &v
+	return s
+}
+
+func (s *RenewTenantOrderRequest) SetCallerUnionId(v string) *RenewTenantOrderRequest {
+	s.CallerUnionId = &v
+	return s
+}
+
+func (s *RenewTenantOrderRequest) SetEndTimeGMT(v int64) *RenewTenantOrderRequest {
+	s.EndTimeGMT = &v
+	return s
+}
+
+type RenewTenantOrderResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s RenewTenantOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RenewTenantOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RenewTenantOrderResponseBody) SetResult(v bool) *RenewTenantOrderResponseBody {
+	s.Result = &v
+	return s
+}
+
+type RenewTenantOrderResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RenewTenantOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RenewTenantOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RenewTenantOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RenewTenantOrderResponse) SetHeaders(v map[string]*string) *RenewTenantOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RenewTenantOrderResponse) SetBody(v *RenewTenantOrderResponseBody) *RenewTenantOrderResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInstanceHeaders) SetCommonHeaders(v map[string]*string) *UpdateInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateInstanceRequest struct {
+	// 实例ID
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// 应用ID
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 更新的表单数据
+	UpdateFormDataJson *string `json:"updateFormDataJson,omitempty" xml:"updateFormDataJson,omitempty"`
+	// 应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 语言环境
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 钉钉的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInstanceRequest) SetProcessInstanceId(v string) *UpdateInstanceRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *UpdateInstanceRequest) SetAppType(v string) *UpdateInstanceRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *UpdateInstanceRequest) SetUpdateFormDataJson(v string) *UpdateInstanceRequest {
+	s.UpdateFormDataJson = &v
+	return s
+}
+
+func (s *UpdateInstanceRequest) SetSystemToken(v string) *UpdateInstanceRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *UpdateInstanceRequest) SetLanguage(v string) *UpdateInstanceRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *UpdateInstanceRequest) SetUserId(v string) *UpdateInstanceRequest {
+	s.UserId = &v
+	return s
+}
+
+type UpdateInstanceResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s UpdateInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInstanceResponse) SetHeaders(v map[string]*string) *UpdateInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+type BuyAuthorizationOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BuyAuthorizationOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BuyAuthorizationOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BuyAuthorizationOrderHeaders) SetCommonHeaders(v map[string]*string) *BuyAuthorizationOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BuyAuthorizationOrderHeaders) SetXAcsDingtalkAccessToken(v string) *BuyAuthorizationOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BuyAuthorizationOrderRequest struct {
+	// 阿里云产品码
+	ProduceCode *string `json:"produceCode,omitempty" xml:"produceCode,omitempty"`
+	// 实例id
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// 实例名称
+	InstanceName *string `json:"instanceName,omitempty" xml:"instanceName,omitempty"`
+	// 访问秘钥
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// 调用者unionId
+	CallerUnionId *string `json:"callerUnionId,omitempty" xml:"callerUnionId,omitempty"`
+	// 收费类型
+	ChargeType *string `json:"chargeType,omitempty" xml:"chargeType,omitempty"`
+	// 结束时间
+	EndTimeGMT *int64 `json:"endTimeGMT,omitempty" xml:"endTimeGMT,omitempty"`
+	// 开始时间
+	BeginTimeGMT *int64 `json:"beginTimeGMT,omitempty" xml:"beginTimeGMT,omitempty"`
+	// 账户号
+	AccountNumber *string `json:"accountNumber,omitempty" xml:"accountNumber,omitempty"`
+	// 商业类型
+	CommerceType *string `json:"commerceType,omitempty" xml:"commerceType,omitempty"`
+	// 商品类型
+	CommodityType *string `json:"commodityType,omitempty" xml:"commodityType,omitempty"`
+}
+
+func (s BuyAuthorizationOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BuyAuthorizationOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BuyAuthorizationOrderRequest) SetProduceCode(v string) *BuyAuthorizationOrderRequest {
+	s.ProduceCode = &v
+	return s
+}
+
+func (s *BuyAuthorizationOrderRequest) SetInstanceId(v string) *BuyAuthorizationOrderRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *BuyAuthorizationOrderRequest) SetInstanceName(v string) *BuyAuthorizationOrderRequest {
+	s.InstanceName = &v
+	return s
+}
+
+func (s *BuyAuthorizationOrderRequest) SetAccessKey(v string) *BuyAuthorizationOrderRequest {
+	s.AccessKey = &v
+	return s
+}
+
+func (s *BuyAuthorizationOrderRequest) SetCallerUnionId(v string) *BuyAuthorizationOrderRequest {
+	s.CallerUnionId = &v
+	return s
+}
+
+func (s *BuyAuthorizationOrderRequest) SetChargeType(v string) *BuyAuthorizationOrderRequest {
+	s.ChargeType = &v
+	return s
+}
+
+func (s *BuyAuthorizationOrderRequest) SetEndTimeGMT(v int64) *BuyAuthorizationOrderRequest {
+	s.EndTimeGMT = &v
+	return s
+}
+
+func (s *BuyAuthorizationOrderRequest) SetBeginTimeGMT(v int64) *BuyAuthorizationOrderRequest {
+	s.BeginTimeGMT = &v
+	return s
+}
+
+func (s *BuyAuthorizationOrderRequest) SetAccountNumber(v string) *BuyAuthorizationOrderRequest {
+	s.AccountNumber = &v
+	return s
+}
+
+func (s *BuyAuthorizationOrderRequest) SetCommerceType(v string) *BuyAuthorizationOrderRequest {
+	s.CommerceType = &v
+	return s
+}
+
+func (s *BuyAuthorizationOrderRequest) SetCommodityType(v string) *BuyAuthorizationOrderRequest {
+	s.CommodityType = &v
+	return s
+}
+
+type BuyAuthorizationOrderResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s BuyAuthorizationOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BuyAuthorizationOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BuyAuthorizationOrderResponseBody) SetResult(v bool) *BuyAuthorizationOrderResponseBody {
+	s.Result = &v
+	return s
+}
+
+type BuyAuthorizationOrderResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BuyAuthorizationOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BuyAuthorizationOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BuyAuthorizationOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BuyAuthorizationOrderResponse) SetHeaders(v map[string]*string) *BuyAuthorizationOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BuyAuthorizationOrderResponse) SetBody(v *BuyAuthorizationOrderResponseBody) *BuyAuthorizationOrderResponse {
+	s.Body = v
+	return s
+}
+
+type ValidateApplicationServiceOrderUpgradeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ValidateApplicationServiceOrderUpgradeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateApplicationServiceOrderUpgradeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateApplicationServiceOrderUpgradeHeaders) SetCommonHeaders(v map[string]*string) *ValidateApplicationServiceOrderUpgradeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ValidateApplicationServiceOrderUpgradeHeaders) SetXAcsDingtalkAccessToken(v string) *ValidateApplicationServiceOrderUpgradeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ValidateApplicationServiceOrderUpgradeRequest struct {
+	// accessKey
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+}
+
+func (s ValidateApplicationServiceOrderUpgradeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateApplicationServiceOrderUpgradeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateApplicationServiceOrderUpgradeRequest) SetAccessKey(v string) *ValidateApplicationServiceOrderUpgradeRequest {
+	s.AccessKey = &v
+	return s
+}
+
+type ValidateApplicationServiceOrderUpgradeResponseBody struct {
+	// message
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// status
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s ValidateApplicationServiceOrderUpgradeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateApplicationServiceOrderUpgradeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateApplicationServiceOrderUpgradeResponseBody) SetMessage(v string) *ValidateApplicationServiceOrderUpgradeResponseBody {
+	s.Message = &v
+	return s
+}
+
+func (s *ValidateApplicationServiceOrderUpgradeResponseBody) SetStatus(v int32) *ValidateApplicationServiceOrderUpgradeResponseBody {
+	s.Status = &v
+	return s
+}
+
+type ValidateApplicationServiceOrderUpgradeResponse struct {
+	Headers map[string]*string                                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ValidateApplicationServiceOrderUpgradeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ValidateApplicationServiceOrderUpgradeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateApplicationServiceOrderUpgradeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateApplicationServiceOrderUpgradeResponse) SetHeaders(v map[string]*string) *ValidateApplicationServiceOrderUpgradeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ValidateApplicationServiceOrderUpgradeResponse) SetBody(v *ValidateApplicationServiceOrderUpgradeResponseBody) *ValidateApplicationServiceOrderUpgradeResponse {
+	s.Body = v
+	return s
+}
+
+type GetCorpTasksHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCorpTasksHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorpTasksHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorpTasksHeaders) SetCommonHeaders(v map[string]*string) *GetCorpTasksHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCorpTasksHeaders) SetXAcsDingtalkAccessToken(v string) *GetCorpTasksHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCorpTasksRequest struct {
+	// 企业ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 每页记录数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 语言环境
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 当前页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 关键词
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// 应用标识列表
+	AppTypes *string `json:"appTypes,omitempty" xml:"appTypes,omitempty"`
+	// 流程code列表
+	ProcessCodes *string `json:"processCodes,omitempty" xml:"processCodes,omitempty"`
+	// 创建时间开始
+	CreateFromTimeGMT *int64 `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// 创建时间结束
+	CreateToTimeGMT *int64 `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// 钉钉的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 验权token
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+}
+
+func (s GetCorpTasksRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorpTasksRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorpTasksRequest) SetCorpId(v string) *GetCorpTasksRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetCorpTasksRequest) SetPageSize(v int32) *GetCorpTasksRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetCorpTasksRequest) SetLanguage(v string) *GetCorpTasksRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *GetCorpTasksRequest) SetPageNumber(v int32) *GetCorpTasksRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetCorpTasksRequest) SetKeyword(v string) *GetCorpTasksRequest {
+	s.Keyword = &v
+	return s
+}
+
+func (s *GetCorpTasksRequest) SetAppTypes(v string) *GetCorpTasksRequest {
+	s.AppTypes = &v
+	return s
+}
+
+func (s *GetCorpTasksRequest) SetProcessCodes(v string) *GetCorpTasksRequest {
+	s.ProcessCodes = &v
+	return s
+}
+
+func (s *GetCorpTasksRequest) SetCreateFromTimeGMT(v int64) *GetCorpTasksRequest {
+	s.CreateFromTimeGMT = &v
+	return s
+}
+
+func (s *GetCorpTasksRequest) SetCreateToTimeGMT(v int64) *GetCorpTasksRequest {
+	s.CreateToTimeGMT = &v
+	return s
+}
+
+func (s *GetCorpTasksRequest) SetUserId(v string) *GetCorpTasksRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetCorpTasksRequest) SetToken(v string) *GetCorpTasksRequest {
+	s.Token = &v
+	return s
+}
+
+type GetCorpTasksResponseBody struct {
+	// 总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 当前第几页
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// data
+	Data []*GetCorpTasksResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s GetCorpTasksResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorpTasksResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorpTasksResponseBody) SetTotalCount(v int64) *GetCorpTasksResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBody) SetPageNumber(v int64) *GetCorpTasksResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBody) SetData(v []*GetCorpTasksResponseBodyData) *GetCorpTasksResponseBody {
+	s.Data = v
+	return s
+}
+
+type GetCorpTasksResponseBodyData struct {
+	// originatorNickName
+	OriginatorNickName *string `json:"originatorNickName,omitempty" xml:"originatorNickName,omitempty"`
+	// processInstanceId
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// originatorName
+	OriginatorName *string `json:"originatorName,omitempty" xml:"originatorName,omitempty"`
+	// finishTime
+	FinishTimeGMT *string `json:"finishTimeGMT,omitempty" xml:"finishTimeGMT,omitempty"`
+	// activeTime
+	ActiveTimeGMT *string `json:"activeTimeGMT,omitempty" xml:"activeTimeGMT,omitempty"`
+	// actualActionerId
+	ActualActionerId *string `json:"actualActionerId,omitempty" xml:"actualActionerId,omitempty"`
+	// originatorEmail
+	OriginatorEmail *string `json:"originatorEmail,omitempty" xml:"originatorEmail,omitempty"`
+	// title
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// outResultName
+	OutResultName *string `json:"outResultName,omitempty" xml:"outResultName,omitempty"`
+	// outResult
+	OutResult *string `json:"outResult,omitempty" xml:"outResult,omitempty"`
+	// originatorPhoto
+	OriginatorPhoto *string `json:"originatorPhoto,omitempty" xml:"originatorPhoto,omitempty"`
+	// taskType
+	TaskType *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	// originatorNickNameEn
+	OriginatorNickNameEn *string `json:"originatorNickNameEn,omitempty" xml:"originatorNickNameEn,omitempty"`
+	// createTime
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// titleEn
+	TitleInEnglish *string `json:"titleInEnglish,omitempty" xml:"titleInEnglish,omitempty"`
+	// appType
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// originatorNameEn
+	OriginatorNameInEnglish *string `json:"originatorNameInEnglish,omitempty" xml:"originatorNameInEnglish,omitempty"`
+	// originatorId
+	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	// taskId
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// status
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetCorpTasksResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorpTasksResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorpTasksResponseBodyData) SetOriginatorNickName(v string) *GetCorpTasksResponseBodyData {
+	s.OriginatorNickName = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetProcessInstanceId(v string) *GetCorpTasksResponseBodyData {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetOriginatorName(v string) *GetCorpTasksResponseBodyData {
+	s.OriginatorName = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetFinishTimeGMT(v string) *GetCorpTasksResponseBodyData {
+	s.FinishTimeGMT = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetActiveTimeGMT(v string) *GetCorpTasksResponseBodyData {
+	s.ActiveTimeGMT = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetActualActionerId(v string) *GetCorpTasksResponseBodyData {
+	s.ActualActionerId = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetOriginatorEmail(v string) *GetCorpTasksResponseBodyData {
+	s.OriginatorEmail = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetTitle(v string) *GetCorpTasksResponseBodyData {
+	s.Title = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetOutResultName(v string) *GetCorpTasksResponseBodyData {
+	s.OutResultName = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetOutResult(v string) *GetCorpTasksResponseBodyData {
+	s.OutResult = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetOriginatorPhoto(v string) *GetCorpTasksResponseBodyData {
+	s.OriginatorPhoto = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetTaskType(v string) *GetCorpTasksResponseBodyData {
+	s.TaskType = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetOriginatorNickNameEn(v string) *GetCorpTasksResponseBodyData {
+	s.OriginatorNickNameEn = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetCreateTimeGMT(v string) *GetCorpTasksResponseBodyData {
+	s.CreateTimeGMT = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetTitleInEnglish(v string) *GetCorpTasksResponseBodyData {
+	s.TitleInEnglish = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetAppType(v string) *GetCorpTasksResponseBodyData {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetOriginatorNameInEnglish(v string) *GetCorpTasksResponseBodyData {
+	s.OriginatorNameInEnglish = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetOriginatorId(v string) *GetCorpTasksResponseBodyData {
+	s.OriginatorId = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetTaskId(v string) *GetCorpTasksResponseBodyData {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetCorpTasksResponseBodyData) SetStatus(v string) *GetCorpTasksResponseBodyData {
+	s.Status = &v
+	return s
+}
+
+type GetCorpTasksResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCorpTasksResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCorpTasksResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorpTasksResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorpTasksResponse) SetHeaders(v map[string]*string) *GetCorpTasksResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCorpTasksResponse) SetBody(v *GetCorpTasksResponseBody) *GetCorpTasksResponse {
+	s.Body = v
+	return s
+}
+
+type ListCommodityHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListCommodityHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCommodityHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListCommodityHeaders) SetCommonHeaders(v map[string]*string) *ListCommodityHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListCommodityHeaders) SetXAcsDingtalkAccessToken(v string) *ListCommodityHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListCommodityRequest struct {
+	// accessKey
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// pageSize
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// callerUid
+	CallerUid *string `json:"callerUid,omitempty" xml:"callerUid,omitempty"`
+	// currentPage
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+}
+
+func (s ListCommodityRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCommodityRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListCommodityRequest) SetAccessKey(v string) *ListCommodityRequest {
+	s.AccessKey = &v
+	return s
+}
+
+func (s *ListCommodityRequest) SetPageSize(v int32) *ListCommodityRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ListCommodityRequest) SetCallerUid(v string) *ListCommodityRequest {
+	s.CallerUid = &v
+	return s
+}
+
+func (s *ListCommodityRequest) SetPageNumber(v int32) *ListCommodityRequest {
+	s.PageNumber = &v
+	return s
+}
+
+type ListCommodityResponseBody struct {
+	// 分页大小
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// commodityVOList
+	CommodityVOList []*ListCommodityResponseBodyCommodityVOList `json:"commodityVOList,omitempty" xml:"commodityVOList,omitempty" type:"Repeated"`
+	// 当前第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 总数量
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s ListCommodityResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCommodityResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListCommodityResponseBody) SetPageSize(v int32) *ListCommodityResponseBody {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ListCommodityResponseBody) SetCommodityVOList(v []*ListCommodityResponseBodyCommodityVOList) *ListCommodityResponseBody {
+	s.CommodityVOList = v
+	return s
+}
+
+func (s *ListCommodityResponseBody) SetPageNumber(v int32) *ListCommodityResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ListCommodityResponseBody) SetTotalCount(v int32) *ListCommodityResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type ListCommodityResponseBodyCommodityVOList struct {
+	// instanceId
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// buyDate
+	BuyDateGMT *string `json:"buyDateGMT,omitempty" xml:"buyDateGMT,omitempty"`
+	// expireDate
+	ExpireDateGMT *string `json:"expireDateGMT,omitempty" xml:"expireDateGMT,omitempty"`
+	// activationCode
+	ActivationCode *string `json:"activationCode,omitempty" xml:"activationCode,omitempty"`
+	// accountNum
+	AccountNumber *int32 `json:"accountNumber,omitempty" xml:"accountNumber,omitempty"`
+	// accountDistributionNumber
+	AccountDistributionNumber *int32 `json:"accountDistributionNumber,omitempty" xml:"accountDistributionNumber,omitempty"`
+	// version
+	Version *int32 `json:"version,omitempty" xml:"version,omitempty"`
+	// status
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s ListCommodityResponseBodyCommodityVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCommodityResponseBodyCommodityVOList) GoString() string {
+	return s.String()
+}
+
+func (s *ListCommodityResponseBodyCommodityVOList) SetInstanceId(v string) *ListCommodityResponseBodyCommodityVOList {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *ListCommodityResponseBodyCommodityVOList) SetBuyDateGMT(v string) *ListCommodityResponseBodyCommodityVOList {
+	s.BuyDateGMT = &v
+	return s
+}
+
+func (s *ListCommodityResponseBodyCommodityVOList) SetExpireDateGMT(v string) *ListCommodityResponseBodyCommodityVOList {
+	s.ExpireDateGMT = &v
+	return s
+}
+
+func (s *ListCommodityResponseBodyCommodityVOList) SetActivationCode(v string) *ListCommodityResponseBodyCommodityVOList {
+	s.ActivationCode = &v
+	return s
+}
+
+func (s *ListCommodityResponseBodyCommodityVOList) SetAccountNumber(v int32) *ListCommodityResponseBodyCommodityVOList {
+	s.AccountNumber = &v
+	return s
+}
+
+func (s *ListCommodityResponseBodyCommodityVOList) SetAccountDistributionNumber(v int32) *ListCommodityResponseBodyCommodityVOList {
+	s.AccountDistributionNumber = &v
+	return s
+}
+
+func (s *ListCommodityResponseBodyCommodityVOList) SetVersion(v int32) *ListCommodityResponseBodyCommodityVOList {
+	s.Version = &v
+	return s
+}
+
+func (s *ListCommodityResponseBodyCommodityVOList) SetStatus(v string) *ListCommodityResponseBodyCommodityVOList {
+	s.Status = &v
+	return s
+}
+
+type ListCommodityResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListCommodityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListCommodityResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCommodityResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListCommodityResponse) SetHeaders(v map[string]*string) *ListCommodityResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListCommodityResponse) SetBody(v *ListCommodityResponseBody) *ListCommodityResponse {
+	s.Body = v
+	return s
+}
+
+type NotifyAuthorizationResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s NotifyAuthorizationResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s NotifyAuthorizationResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *NotifyAuthorizationResultHeaders) SetCommonHeaders(v map[string]*string) *NotifyAuthorizationResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *NotifyAuthorizationResultHeaders) SetXAcsDingtalkAccessToken(v string) *NotifyAuthorizationResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type NotifyAuthorizationResultRequest struct {
+	InstanceId    *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	AccountNumber *string `json:"accountNumber,omitempty" xml:"accountNumber,omitempty"`
+	InstanceName  *string `json:"instanceName,omitempty" xml:"instanceName,omitempty"`
+	AccessKey     *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	ChargeType    *string `json:"chargeType,omitempty" xml:"chargeType,omitempty"`
+	EndTimeGMT    *int64  `json:"endTimeGMT,omitempty" xml:"endTimeGMT,omitempty"`
+	BeginTimeGMT  *int64  `json:"beginTimeGMT,omitempty" xml:"beginTimeGMT,omitempty"`
+	CallerUid     *string `json:"callerUid,omitempty" xml:"callerUid,omitempty"`
+	CommerceType  *string `json:"commerceType,omitempty" xml:"commerceType,omitempty"`
+	CommodityType *string `json:"commodityType,omitempty" xml:"commodityType,omitempty"`
+	// 阿里云产品code
+	ProduceCode *string `json:"produceCode,omitempty" xml:"produceCode,omitempty"`
+}
+
+func (s NotifyAuthorizationResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s NotifyAuthorizationResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *NotifyAuthorizationResultRequest) SetInstanceId(v string) *NotifyAuthorizationResultRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *NotifyAuthorizationResultRequest) SetAccountNumber(v string) *NotifyAuthorizationResultRequest {
+	s.AccountNumber = &v
+	return s
+}
+
+func (s *NotifyAuthorizationResultRequest) SetInstanceName(v string) *NotifyAuthorizationResultRequest {
+	s.InstanceName = &v
+	return s
+}
+
+func (s *NotifyAuthorizationResultRequest) SetAccessKey(v string) *NotifyAuthorizationResultRequest {
+	s.AccessKey = &v
+	return s
+}
+
+func (s *NotifyAuthorizationResultRequest) SetChargeType(v string) *NotifyAuthorizationResultRequest {
+	s.ChargeType = &v
+	return s
+}
+
+func (s *NotifyAuthorizationResultRequest) SetEndTimeGMT(v int64) *NotifyAuthorizationResultRequest {
+	s.EndTimeGMT = &v
+	return s
+}
+
+func (s *NotifyAuthorizationResultRequest) SetBeginTimeGMT(v int64) *NotifyAuthorizationResultRequest {
+	s.BeginTimeGMT = &v
+	return s
+}
+
+func (s *NotifyAuthorizationResultRequest) SetCallerUid(v string) *NotifyAuthorizationResultRequest {
+	s.CallerUid = &v
+	return s
+}
+
+func (s *NotifyAuthorizationResultRequest) SetCommerceType(v string) *NotifyAuthorizationResultRequest {
+	s.CommerceType = &v
+	return s
+}
+
+func (s *NotifyAuthorizationResultRequest) SetCommodityType(v string) *NotifyAuthorizationResultRequest {
+	s.CommodityType = &v
+	return s
+}
+
+func (s *NotifyAuthorizationResultRequest) SetProduceCode(v string) *NotifyAuthorizationResultRequest {
+	s.ProduceCode = &v
+	return s
+}
+
+type NotifyAuthorizationResultResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s NotifyAuthorizationResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s NotifyAuthorizationResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *NotifyAuthorizationResultResponseBody) SetResult(v bool) *NotifyAuthorizationResultResponseBody {
+	s.Result = &v
+	return s
+}
+
+type NotifyAuthorizationResultResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *NotifyAuthorizationResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s NotifyAuthorizationResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s NotifyAuthorizationResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *NotifyAuthorizationResultResponse) SetHeaders(v map[string]*string) *NotifyAuthorizationResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *NotifyAuthorizationResultResponse) SetBody(v *NotifyAuthorizationResultResponseBody) *NotifyAuthorizationResultResponse {
+	s.Body = v
+	return s
+}
+
+type BuyFreshOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BuyFreshOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BuyFreshOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BuyFreshOrderHeaders) SetCommonHeaders(v map[string]*string) *BuyFreshOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BuyFreshOrderHeaders) SetXAcsDingtalkAccessToken(v string) *BuyFreshOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BuyFreshOrderRequest struct {
+	// 阿里云产品码
+	ProduceCode *string `json:"produceCode,omitempty" xml:"produceCode,omitempty"`
+	// 实例id
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// 实例名称
+	InstanceName *string `json:"instanceName,omitempty" xml:"instanceName,omitempty"`
+	// 访问秘钥
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// 调用者unionId
+	CallerUnionId *string `json:"callerUnionId,omitempty" xml:"callerUnionId,omitempty"`
+	// 收费类型
+	ChargeType *string `json:"chargeType,omitempty" xml:"chargeType,omitempty"`
+	// 结束时间
+	EndTimeGMT *int64 `json:"endTimeGMT,omitempty" xml:"endTimeGMT,omitempty"`
+	// 开始时间
+	BeginTimeGMT *int64 `json:"beginTimeGMT,omitempty" xml:"beginTimeGMT,omitempty"`
+	// 账户号
+	AccountNumber *string `json:"accountNumber,omitempty" xml:"accountNumber,omitempty"`
+	// 商业类型
+	CommerceType *string `json:"commerceType,omitempty" xml:"commerceType,omitempty"`
+	// 商品类型
+	CommodityType *string `json:"commodityType,omitempty" xml:"commodityType,omitempty"`
+}
+
+func (s BuyFreshOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BuyFreshOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BuyFreshOrderRequest) SetProduceCode(v string) *BuyFreshOrderRequest {
+	s.ProduceCode = &v
+	return s
+}
+
+func (s *BuyFreshOrderRequest) SetInstanceId(v string) *BuyFreshOrderRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *BuyFreshOrderRequest) SetInstanceName(v string) *BuyFreshOrderRequest {
+	s.InstanceName = &v
+	return s
+}
+
+func (s *BuyFreshOrderRequest) SetAccessKey(v string) *BuyFreshOrderRequest {
+	s.AccessKey = &v
+	return s
+}
+
+func (s *BuyFreshOrderRequest) SetCallerUnionId(v string) *BuyFreshOrderRequest {
+	s.CallerUnionId = &v
+	return s
+}
+
+func (s *BuyFreshOrderRequest) SetChargeType(v string) *BuyFreshOrderRequest {
+	s.ChargeType = &v
+	return s
+}
+
+func (s *BuyFreshOrderRequest) SetEndTimeGMT(v int64) *BuyFreshOrderRequest {
+	s.EndTimeGMT = &v
+	return s
+}
+
+func (s *BuyFreshOrderRequest) SetBeginTimeGMT(v int64) *BuyFreshOrderRequest {
+	s.BeginTimeGMT = &v
+	return s
+}
+
+func (s *BuyFreshOrderRequest) SetAccountNumber(v string) *BuyFreshOrderRequest {
+	s.AccountNumber = &v
+	return s
+}
+
+func (s *BuyFreshOrderRequest) SetCommerceType(v string) *BuyFreshOrderRequest {
+	s.CommerceType = &v
+	return s
+}
+
+func (s *BuyFreshOrderRequest) SetCommodityType(v string) *BuyFreshOrderRequest {
+	s.CommodityType = &v
+	return s
+}
+
+type BuyFreshOrderResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s BuyFreshOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BuyFreshOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BuyFreshOrderResponseBody) SetResult(v bool) *BuyFreshOrderResponseBody {
+	s.Result = &v
+	return s
+}
+
+type BuyFreshOrderResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BuyFreshOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BuyFreshOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BuyFreshOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BuyFreshOrderResponse) SetHeaders(v map[string]*string) *BuyFreshOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BuyFreshOrderResponse) SetBody(v *BuyFreshOrderResponseBody) *BuyFreshOrderResponse {
+	s.Body = v
+	return s
+}
+
+type RemoveTenantResourceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RemoveTenantResourceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveTenantResourceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveTenantResourceHeaders) SetCommonHeaders(v map[string]*string) *RemoveTenantResourceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveTenantResourceHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveTenantResourceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RemoveTenantResourceRequest struct {
+	// accessKey
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+}
+
+func (s RemoveTenantResourceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveTenantResourceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveTenantResourceRequest) SetAccessKey(v string) *RemoveTenantResourceRequest {
+	s.AccessKey = &v
+	return s
+}
+
+type RemoveTenantResourceResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s RemoveTenantResourceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveTenantResourceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveTenantResourceResponseBody) SetResult(v bool) *RemoveTenantResourceResponseBody {
+	s.Result = &v
+	return s
+}
+
+type RemoveTenantResourceResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RemoveTenantResourceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RemoveTenantResourceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveTenantResourceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveTenantResourceResponse) SetHeaders(v map[string]*string) *RemoveTenantResourceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RemoveTenantResourceResponse) SetBody(v *RemoveTenantResourceResponseBody) *RemoveTenantResourceResponse {
+	s.Body = v
+	return s
+}
+
+type RenewApplicationAuthorizationServiceOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RenewApplicationAuthorizationServiceOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RenewApplicationAuthorizationServiceOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RenewApplicationAuthorizationServiceOrderHeaders) SetCommonHeaders(v map[string]*string) *RenewApplicationAuthorizationServiceOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RenewApplicationAuthorizationServiceOrderHeaders) SetXAcsDingtalkAccessToken(v string) *RenewApplicationAuthorizationServiceOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RenewApplicationAuthorizationServiceOrderRequest struct {
+	// 实例id
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// 访问秘钥
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// 调用者unionId
+	CallerUnionId *string `json:"callerUnionId,omitempty" xml:"callerUnionId,omitempty"`
+	// 结束时间
+	EndTimeGMT *int64 `json:"endTimeGMT,omitempty" xml:"endTimeGMT,omitempty"`
+}
+
+func (s RenewApplicationAuthorizationServiceOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RenewApplicationAuthorizationServiceOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RenewApplicationAuthorizationServiceOrderRequest) SetInstanceId(v string) *RenewApplicationAuthorizationServiceOrderRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *RenewApplicationAuthorizationServiceOrderRequest) SetAccessKey(v string) *RenewApplicationAuthorizationServiceOrderRequest {
+	s.AccessKey = &v
+	return s
+}
+
+func (s *RenewApplicationAuthorizationServiceOrderRequest) SetCallerUnionId(v string) *RenewApplicationAuthorizationServiceOrderRequest {
+	s.CallerUnionId = &v
+	return s
+}
+
+func (s *RenewApplicationAuthorizationServiceOrderRequest) SetEndTimeGMT(v int64) *RenewApplicationAuthorizationServiceOrderRequest {
+	s.EndTimeGMT = &v
+	return s
+}
+
+type RenewApplicationAuthorizationServiceOrderResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s RenewApplicationAuthorizationServiceOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RenewApplicationAuthorizationServiceOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RenewApplicationAuthorizationServiceOrderResponseBody) SetResult(v bool) *RenewApplicationAuthorizationServiceOrderResponseBody {
+	s.Result = &v
+	return s
+}
+
+type RenewApplicationAuthorizationServiceOrderResponse struct {
+	Headers map[string]*string                                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RenewApplicationAuthorizationServiceOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RenewApplicationAuthorizationServiceOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RenewApplicationAuthorizationServiceOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RenewApplicationAuthorizationServiceOrderResponse) SetHeaders(v map[string]*string) *RenewApplicationAuthorizationServiceOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RenewApplicationAuthorizationServiceOrderResponse) SetBody(v *RenewApplicationAuthorizationServiceOrderResponseBody) *RenewApplicationAuthorizationServiceOrderResponse {
+	s.Body = v
+	return s
+}
+
+type GetProcessDefinitionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetProcessDefinitionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDefinitionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDefinitionHeaders) SetCommonHeaders(v map[string]*string) *GetProcessDefinitionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetProcessDefinitionHeaders) SetXAcsDingtalkAccessToken(v string) *GetProcessDefinitionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetProcessDefinitionRequest struct {
+	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	GroupId     *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	AppType     *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	OrderNumber *string `json:"orderNumber,omitempty" xml:"orderNumber,omitempty"`
+	SystemType  *string `json:"systemType,omitempty" xml:"systemType,omitempty"`
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	NameSpace   *string `json:"nameSpace,omitempty" xml:"nameSpace,omitempty"`
+	Language    *string `json:"language,omitempty" xml:"language,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetProcessDefinitionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDefinitionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDefinitionRequest) SetCorpId(v string) *GetProcessDefinitionRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetProcessDefinitionRequest) SetGroupId(v string) *GetProcessDefinitionRequest {
+	s.GroupId = &v
+	return s
+}
+
+func (s *GetProcessDefinitionRequest) SetAppType(v string) *GetProcessDefinitionRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetProcessDefinitionRequest) SetOrderNumber(v string) *GetProcessDefinitionRequest {
+	s.OrderNumber = &v
+	return s
+}
+
+func (s *GetProcessDefinitionRequest) SetSystemType(v string) *GetProcessDefinitionRequest {
+	s.SystemType = &v
+	return s
+}
+
+func (s *GetProcessDefinitionRequest) SetSystemToken(v string) *GetProcessDefinitionRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *GetProcessDefinitionRequest) SetNameSpace(v string) *GetProcessDefinitionRequest {
+	s.NameSpace = &v
+	return s
+}
+
+func (s *GetProcessDefinitionRequest) SetLanguage(v string) *GetProcessDefinitionRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *GetProcessDefinitionRequest) SetUserId(v string) *GetProcessDefinitionRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetProcessDefinitionResponseBody struct {
+	// outResult
+	OutResult *string `json:"outResult,omitempty" xml:"outResult,omitempty"`
+	// processInstanceId
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// variables
+	Variables map[string]interface{} `json:"variables,omitempty" xml:"variables,omitempty"`
+	// formUuid
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// processId
+	ProcessId *string `json:"processId,omitempty" xml:"processId,omitempty"`
+	// owners
+	Owners []*GetProcessDefinitionResponseBodyOwners `json:"owners,omitempty" xml:"owners,omitempty" type:"Repeated"`
+	// originator
+	Originator *GetProcessDefinitionResponseBodyOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
+	// title
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// tasks
+	Tasks []*GetProcessDefinitionResponseBodyTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+	// status
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetProcessDefinitionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDefinitionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDefinitionResponseBody) SetOutResult(v string) *GetProcessDefinitionResponseBody {
+	s.OutResult = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBody) SetProcessInstanceId(v string) *GetProcessDefinitionResponseBody {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBody) SetVariables(v map[string]interface{}) *GetProcessDefinitionResponseBody {
+	s.Variables = v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBody) SetFormUuid(v string) *GetProcessDefinitionResponseBody {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBody) SetProcessId(v string) *GetProcessDefinitionResponseBody {
+	s.ProcessId = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBody) SetOwners(v []*GetProcessDefinitionResponseBodyOwners) *GetProcessDefinitionResponseBody {
+	s.Owners = v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBody) SetOriginator(v *GetProcessDefinitionResponseBodyOriginator) *GetProcessDefinitionResponseBody {
+	s.Originator = v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBody) SetTitle(v string) *GetProcessDefinitionResponseBody {
+	s.Title = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBody) SetTasks(v []*GetProcessDefinitionResponseBodyTasks) *GetProcessDefinitionResponseBody {
+	s.Tasks = v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBody) SetStatus(v string) *GetProcessDefinitionResponseBody {
+	s.Status = &v
+	return s
+}
+
+type GetProcessDefinitionResponseBodyOwners struct {
+	// userInfo
+	UserInfo *string `json:"userInfo,omitempty" xml:"userInfo,omitempty"`
+	// tbWang
+	TbWang *string `json:"tbWang,omitempty" xml:"tbWang,omitempty"`
+	// orderNum
+	OrderNumber *string `json:"orderNumber,omitempty" xml:"orderNumber,omitempty"`
+	// departmentDescription
+	DepartmentDescription *string `json:"departmentDescription,omitempty" xml:"departmentDescription,omitempty"`
+	// displayName
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	// masterDataDepartments
+	MasterDataDepartments []*GetProcessDefinitionResponseBodyOwnersMasterDataDepartments `json:"masterDataDepartments,omitempty" xml:"masterDataDepartments,omitempty" type:"Repeated"`
+	// displayEnName
+	DisplayEnName *string `json:"displayEnName,omitempty" xml:"displayEnName,omitempty"`
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// personalPhoto
+	PersonalPhoto *string `json:"personalPhoto,omitempty" xml:"personalPhoto,omitempty"`
+	// status
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetProcessDefinitionResponseBodyOwners) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDefinitionResponseBodyOwners) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDefinitionResponseBodyOwners) SetUserInfo(v string) *GetProcessDefinitionResponseBodyOwners {
+	s.UserInfo = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOwners) SetTbWang(v string) *GetProcessDefinitionResponseBodyOwners {
+	s.TbWang = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOwners) SetOrderNumber(v string) *GetProcessDefinitionResponseBodyOwners {
+	s.OrderNumber = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOwners) SetDepartmentDescription(v string) *GetProcessDefinitionResponseBodyOwners {
+	s.DepartmentDescription = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOwners) SetDisplayName(v string) *GetProcessDefinitionResponseBodyOwners {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOwners) SetMasterDataDepartments(v []*GetProcessDefinitionResponseBodyOwnersMasterDataDepartments) *GetProcessDefinitionResponseBodyOwners {
+	s.MasterDataDepartments = v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOwners) SetDisplayEnName(v string) *GetProcessDefinitionResponseBodyOwners {
+	s.DisplayEnName = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOwners) SetUserId(v string) *GetProcessDefinitionResponseBodyOwners {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOwners) SetPersonalPhoto(v string) *GetProcessDefinitionResponseBodyOwners {
+	s.PersonalPhoto = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOwners) SetStatus(v string) *GetProcessDefinitionResponseBodyOwners {
+	s.Status = &v
+	return s
+}
+
+type GetProcessDefinitionResponseBodyOwnersMasterDataDepartments struct {
+	// humanSourceGroupOrderNum
+	HumanSourceGroupOrderNumber *string `json:"humanSourceGroupOrderNumber,omitempty" xml:"humanSourceGroupOrderNumber,omitempty"`
+	// deptPath
+	DeptPath *string `json:"deptPath,omitempty" xml:"deptPath,omitempty"`
+	// deptName
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// deptNameEn
+	DeptNameInEnglish *string `json:"deptNameInEnglish,omitempty" xml:"deptNameInEnglish,omitempty"`
+	// humanSourceGroupWorkNo
+	HumanSourceGroupWorkNo *string `json:"humanSourceGroupWorkNo,omitempty" xml:"humanSourceGroupWorkNo,omitempty"`
+	// id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// masterWorkNo
+	MasterWorkNo *string `json:"masterWorkNo,omitempty" xml:"masterWorkNo,omitempty"`
+	// deptNo
+	DeptNo *string `json:"deptNo,omitempty" xml:"deptNo,omitempty"`
+}
+
+func (s GetProcessDefinitionResponseBodyOwnersMasterDataDepartments) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDefinitionResponseBodyOwnersMasterDataDepartments) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDefinitionResponseBodyOwnersMasterDataDepartments) SetHumanSourceGroupOrderNumber(v string) *GetProcessDefinitionResponseBodyOwnersMasterDataDepartments {
+	s.HumanSourceGroupOrderNumber = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOwnersMasterDataDepartments) SetDeptPath(v string) *GetProcessDefinitionResponseBodyOwnersMasterDataDepartments {
+	s.DeptPath = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOwnersMasterDataDepartments) SetDeptName(v string) *GetProcessDefinitionResponseBodyOwnersMasterDataDepartments {
+	s.DeptName = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOwnersMasterDataDepartments) SetDeptNameInEnglish(v string) *GetProcessDefinitionResponseBodyOwnersMasterDataDepartments {
+	s.DeptNameInEnglish = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOwnersMasterDataDepartments) SetHumanSourceGroupWorkNo(v string) *GetProcessDefinitionResponseBodyOwnersMasterDataDepartments {
+	s.HumanSourceGroupWorkNo = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOwnersMasterDataDepartments) SetId(v int64) *GetProcessDefinitionResponseBodyOwnersMasterDataDepartments {
+	s.Id = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOwnersMasterDataDepartments) SetMasterWorkNo(v string) *GetProcessDefinitionResponseBodyOwnersMasterDataDepartments {
+	s.MasterWorkNo = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOwnersMasterDataDepartments) SetDeptNo(v string) *GetProcessDefinitionResponseBodyOwnersMasterDataDepartments {
+	s.DeptNo = &v
+	return s
+}
+
+type GetProcessDefinitionResponseBodyOriginator struct {
+	// userInfo
+	UserInfo *string `json:"userInfo,omitempty" xml:"userInfo,omitempty"`
+	// tbWang
+	TbWang *string `json:"tbWang,omitempty" xml:"tbWang,omitempty"`
+	// orderNum
+	OrderNumber *string `json:"orderNumber,omitempty" xml:"orderNumber,omitempty"`
+	// departmentDescription
+	DepartmentDescription *string `json:"departmentDescription,omitempty" xml:"departmentDescription,omitempty"`
+	// displayName
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	// masterDataDepartments
+	MasterDataDepartments []*GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments `json:"masterDataDepartments,omitempty" xml:"masterDataDepartments,omitempty" type:"Repeated"`
+	// displayEnName
+	DisplayEnName *string `json:"displayEnName,omitempty" xml:"displayEnName,omitempty"`
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// personalPhoto
+	PersonalPhoto *string `json:"personalPhoto,omitempty" xml:"personalPhoto,omitempty"`
+	// status
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetProcessDefinitionResponseBodyOriginator) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDefinitionResponseBodyOriginator) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginator) SetUserInfo(v string) *GetProcessDefinitionResponseBodyOriginator {
+	s.UserInfo = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginator) SetTbWang(v string) *GetProcessDefinitionResponseBodyOriginator {
+	s.TbWang = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginator) SetOrderNumber(v string) *GetProcessDefinitionResponseBodyOriginator {
+	s.OrderNumber = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginator) SetDepartmentDescription(v string) *GetProcessDefinitionResponseBodyOriginator {
+	s.DepartmentDescription = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginator) SetDisplayName(v string) *GetProcessDefinitionResponseBodyOriginator {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginator) SetMasterDataDepartments(v []*GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments) *GetProcessDefinitionResponseBodyOriginator {
+	s.MasterDataDepartments = v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginator) SetDisplayEnName(v string) *GetProcessDefinitionResponseBodyOriginator {
+	s.DisplayEnName = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginator) SetUserId(v string) *GetProcessDefinitionResponseBodyOriginator {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginator) SetPersonalPhoto(v string) *GetProcessDefinitionResponseBodyOriginator {
+	s.PersonalPhoto = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginator) SetStatus(v string) *GetProcessDefinitionResponseBodyOriginator {
+	s.Status = &v
+	return s
+}
+
+type GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments struct {
+	// humanSourceGroupOrderNum
+	HumanSourceGroupOrderNumber *string `json:"humanSourceGroupOrderNumber,omitempty" xml:"humanSourceGroupOrderNumber,omitempty"`
+	// deptPath
+	DeptPath *string `json:"deptPath,omitempty" xml:"deptPath,omitempty"`
+	// deptName
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// deptNameEn
+	DeptNameInEnglish *string `json:"deptNameInEnglish,omitempty" xml:"deptNameInEnglish,omitempty"`
+	// humanSourceGroupWorkNo
+	HumanSourceGroupWorkNo *string `json:"humanSourceGroupWorkNo,omitempty" xml:"humanSourceGroupWorkNo,omitempty"`
+	// id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// masterWorkNo
+	MasterWorkNo *string `json:"masterWorkNo,omitempty" xml:"masterWorkNo,omitempty"`
+	// deptNo
+	DeptNo *string `json:"deptNo,omitempty" xml:"deptNo,omitempty"`
+}
+
+func (s GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments) SetHumanSourceGroupOrderNumber(v string) *GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments {
+	s.HumanSourceGroupOrderNumber = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments) SetDeptPath(v string) *GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments {
+	s.DeptPath = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments) SetDeptName(v string) *GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments {
+	s.DeptName = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments) SetDeptNameInEnglish(v string) *GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments {
+	s.DeptNameInEnglish = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments) SetHumanSourceGroupWorkNo(v string) *GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments {
+	s.HumanSourceGroupWorkNo = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments) SetId(v int64) *GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments {
+	s.Id = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments) SetMasterWorkNo(v string) *GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments {
+	s.MasterWorkNo = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments) SetDeptNo(v string) *GetProcessDefinitionResponseBodyOriginatorMasterDataDepartments {
+	s.DeptNo = &v
+	return s
+}
+
+type GetProcessDefinitionResponseBodyTasks struct {
+	// actioner
+	ActionerId *string `json:"actionerId,omitempty" xml:"actionerId,omitempty"`
+	// activity
+	Activity *GetProcessDefinitionResponseBodyTasksActivity `json:"activity,omitempty" xml:"activity,omitempty" type:"Struct"`
+	// taskId
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// status
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetProcessDefinitionResponseBodyTasks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDefinitionResponseBodyTasks) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDefinitionResponseBodyTasks) SetActionerId(v string) *GetProcessDefinitionResponseBodyTasks {
+	s.ActionerId = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyTasks) SetActivity(v *GetProcessDefinitionResponseBodyTasksActivity) *GetProcessDefinitionResponseBodyTasks {
+	s.Activity = v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyTasks) SetTaskId(v int64) *GetProcessDefinitionResponseBodyTasks {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyTasks) SetStatus(v string) *GetProcessDefinitionResponseBodyTasks {
+	s.Status = &v
+	return s
+}
+
+type GetProcessDefinitionResponseBodyTasksActivity struct {
+	// activityName
+	ActivityName *string `json:"activityName,omitempty" xml:"activityName,omitempty"`
+	// activityNameEn
+	ActivityNameInEnglish *string `json:"activityNameInEnglish,omitempty" xml:"activityNameInEnglish,omitempty"`
+	// activityId
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// activityInstanceStatus
+	ActivityInstanceStatus *string `json:"activityInstanceStatus,omitempty" xml:"activityInstanceStatus,omitempty"`
+}
+
+func (s GetProcessDefinitionResponseBodyTasksActivity) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDefinitionResponseBodyTasksActivity) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDefinitionResponseBodyTasksActivity) SetActivityName(v string) *GetProcessDefinitionResponseBodyTasksActivity {
+	s.ActivityName = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyTasksActivity) SetActivityNameInEnglish(v string) *GetProcessDefinitionResponseBodyTasksActivity {
+	s.ActivityNameInEnglish = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyTasksActivity) SetActivityId(v string) *GetProcessDefinitionResponseBodyTasksActivity {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyTasksActivity) SetId(v int64) *GetProcessDefinitionResponseBodyTasksActivity {
+	s.Id = &v
+	return s
+}
+
+func (s *GetProcessDefinitionResponseBodyTasksActivity) SetActivityInstanceStatus(v string) *GetProcessDefinitionResponseBodyTasksActivity {
+	s.ActivityInstanceStatus = &v
+	return s
+}
+
+type GetProcessDefinitionResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetProcessDefinitionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetProcessDefinitionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDefinitionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDefinitionResponse) SetHeaders(v map[string]*string) *GetProcessDefinitionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetProcessDefinitionResponse) SetBody(v *GetProcessDefinitionResponseBody) *GetProcessDefinitionResponse {
+	s.Body = v
+	return s
+}
+
+type UpgradeTenantInformationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpgradeTenantInformationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpgradeTenantInformationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpgradeTenantInformationHeaders) SetCommonHeaders(v map[string]*string) *UpgradeTenantInformationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpgradeTenantInformationHeaders) SetXAcsDingtalkAccessToken(v string) *UpgradeTenantInformationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpgradeTenantInformationRequest struct {
+	// 访问秘钥
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// 调用者unionId
+	CallerUnionId *string `json:"callerUnionId,omitempty" xml:"callerUnionId,omitempty"`
+	// 账户号
+	AccountNumber *string `json:"accountNumber,omitempty" xml:"accountNumber,omitempty"`
+	// 商品类型
+	CommodityType *string `json:"commodityType,omitempty" xml:"commodityType,omitempty"`
+}
+
+func (s UpgradeTenantInformationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpgradeTenantInformationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpgradeTenantInformationRequest) SetAccessKey(v string) *UpgradeTenantInformationRequest {
+	s.AccessKey = &v
+	return s
+}
+
+func (s *UpgradeTenantInformationRequest) SetCallerUnionId(v string) *UpgradeTenantInformationRequest {
+	s.CallerUnionId = &v
+	return s
+}
+
+func (s *UpgradeTenantInformationRequest) SetAccountNumber(v string) *UpgradeTenantInformationRequest {
+	s.AccountNumber = &v
+	return s
+}
+
+func (s *UpgradeTenantInformationRequest) SetCommodityType(v string) *UpgradeTenantInformationRequest {
+	s.CommodityType = &v
+	return s
+}
+
+type UpgradeTenantInformationResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpgradeTenantInformationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpgradeTenantInformationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpgradeTenantInformationResponseBody) SetResult(v bool) *UpgradeTenantInformationResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpgradeTenantInformationResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpgradeTenantInformationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpgradeTenantInformationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpgradeTenantInformationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpgradeTenantInformationResponse) SetHeaders(v map[string]*string) *UpgradeTenantInformationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpgradeTenantInformationResponse) SetBody(v *UpgradeTenantInformationResponseBody) *UpgradeTenantInformationResponse {
+	s.Body = v
+	return s
+}
+
+type GetApplicationAuthorizationServicePlatformResourceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetApplicationAuthorizationServicePlatformResourceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetApplicationAuthorizationServicePlatformResourceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetApplicationAuthorizationServicePlatformResourceHeaders) SetCommonHeaders(v map[string]*string) *GetApplicationAuthorizationServicePlatformResourceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetApplicationAuthorizationServicePlatformResourceHeaders) SetXAcsDingtalkAccessToken(v string) *GetApplicationAuthorizationServicePlatformResourceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetApplicationAuthorizationServicePlatformResourceRequest struct {
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	AccessKey  *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	CallerUid  *string `json:"callerUid,omitempty" xml:"callerUid,omitempty"`
+}
+
+func (s GetApplicationAuthorizationServicePlatformResourceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetApplicationAuthorizationServicePlatformResourceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetApplicationAuthorizationServicePlatformResourceRequest) SetInstanceId(v string) *GetApplicationAuthorizationServicePlatformResourceRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *GetApplicationAuthorizationServicePlatformResourceRequest) SetAccessKey(v string) *GetApplicationAuthorizationServicePlatformResourceRequest {
+	s.AccessKey = &v
+	return s
+}
+
+func (s *GetApplicationAuthorizationServicePlatformResourceRequest) SetCallerUid(v string) *GetApplicationAuthorizationServicePlatformResourceRequest {
+	s.CallerUid = &v
+	return s
+}
+
+type GetApplicationAuthorizationServicePlatformResourceResponseBody struct {
+	// appTotalAmount
+	AppTotalAmount *int32 `json:"appTotalAmount,omitempty" xml:"appTotalAmount,omitempty"`
+	// instanceId
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// instanceTotalAmount
+	InstanceTotalAmount *int64 `json:"instanceTotalAmount,omitempty" xml:"instanceTotalAmount,omitempty"`
+	// instanceUsageAmount
+	InstanceUsageAmount *int64 `json:"instanceUsageAmount,omitempty" xml:"instanceUsageAmount,omitempty"`
+	// accountUsageAmount
+	AccountUsageAmount *int32 `json:"accountUsageAmount,omitempty" xml:"accountUsageAmount,omitempty"`
+	// accountTotalAmount
+	AccountTotalAmount *int32 `json:"accountTotalAmount,omitempty" xml:"accountTotalAmount,omitempty"`
+	// pluginUsageAmount
+	PluginUsageAmount *int64 `json:"pluginUsageAmount,omitempty" xml:"pluginUsageAmount,omitempty"`
+	// attachmentTotalAmount
+	AttachmentTotalAmount *int64 `json:"attachmentTotalAmount,omitempty" xml:"attachmentTotalAmount,omitempty"`
+	// attachmentUsageAmount
+	AttachmentUsageAmount *int64 `json:"attachmentUsageAmount,omitempty" xml:"attachmentUsageAmount,omitempty"`
+}
+
+func (s GetApplicationAuthorizationServicePlatformResourceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetApplicationAuthorizationServicePlatformResourceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetAppTotalAmount(v int32) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
+	s.AppTotalAmount = &v
+	return s
+}
+
+func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetInstanceId(v string) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetInstanceTotalAmount(v int64) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
+	s.InstanceTotalAmount = &v
+	return s
+}
+
+func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetInstanceUsageAmount(v int64) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
+	s.InstanceUsageAmount = &v
+	return s
+}
+
+func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetAccountUsageAmount(v int32) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
+	s.AccountUsageAmount = &v
+	return s
+}
+
+func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetAccountTotalAmount(v int32) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
+	s.AccountTotalAmount = &v
+	return s
+}
+
+func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetPluginUsageAmount(v int64) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
+	s.PluginUsageAmount = &v
+	return s
+}
+
+func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetAttachmentTotalAmount(v int64) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
+	s.AttachmentTotalAmount = &v
+	return s
+}
+
+func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetAttachmentUsageAmount(v int64) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
+	s.AttachmentUsageAmount = &v
+	return s
+}
+
+type GetApplicationAuthorizationServicePlatformResourceResponse struct {
+	Headers map[string]*string                                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetApplicationAuthorizationServicePlatformResourceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetApplicationAuthorizationServicePlatformResourceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetApplicationAuthorizationServicePlatformResourceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetApplicationAuthorizationServicePlatformResourceResponse) SetHeaders(v map[string]*string) *GetApplicationAuthorizationServicePlatformResourceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetApplicationAuthorizationServicePlatformResourceResponse) SetBody(v *GetApplicationAuthorizationServicePlatformResourceResponseBody) *GetApplicationAuthorizationServicePlatformResourceResponse {
+	s.Body = v
+	return s
+}
+
+type ListApplicationAuthorizationServiceApplicationInformationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListApplicationAuthorizationServiceApplicationInformationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationAuthorizationServiceApplicationInformationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationHeaders) SetCommonHeaders(v map[string]*string) *ListApplicationAuthorizationServiceApplicationInformationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationHeaders) SetXAcsDingtalkAccessToken(v string) *ListApplicationAuthorizationServiceApplicationInformationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListApplicationAuthorizationServiceApplicationInformationRequest struct {
+	AccessKey     *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	PageSize      *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	CallerUnionId *string `json:"callerUnionId,omitempty" xml:"callerUnionId,omitempty"`
+	PageNumber    *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+}
+
+func (s ListApplicationAuthorizationServiceApplicationInformationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationAuthorizationServiceApplicationInformationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationRequest) SetAccessKey(v string) *ListApplicationAuthorizationServiceApplicationInformationRequest {
+	s.AccessKey = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationRequest) SetPageSize(v int32) *ListApplicationAuthorizationServiceApplicationInformationRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationRequest) SetCallerUnionId(v string) *ListApplicationAuthorizationServiceApplicationInformationRequest {
+	s.CallerUnionId = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationRequest) SetPageNumber(v int32) *ListApplicationAuthorizationServiceApplicationInformationRequest {
+	s.PageNumber = &v
+	return s
+}
+
+type ListApplicationAuthorizationServiceApplicationInformationResponseBody struct {
+	// 分页大小
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// applicationInformation
+	ApplicationInformation []*ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformation `json:"applicationInformation,omitempty" xml:"applicationInformation,omitempty" type:"Repeated"`
+	// 当前第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 总数量
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s ListApplicationAuthorizationServiceApplicationInformationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationAuthorizationServiceApplicationInformationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationResponseBody) SetPageSize(v int32) *ListApplicationAuthorizationServiceApplicationInformationResponseBody {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationResponseBody) SetApplicationInformation(v []*ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformation) *ListApplicationAuthorizationServiceApplicationInformationResponseBody {
+	s.ApplicationInformation = v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationResponseBody) SetPageNumber(v int32) *ListApplicationAuthorizationServiceApplicationInformationResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationResponseBody) SetTotalCount(v int32) *ListApplicationAuthorizationServiceApplicationInformationResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformation struct {
+	// usagePlugins
+	UsagePlugins []*ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformationUsagePlugins `json:"usagePlugins,omitempty" xml:"usagePlugins,omitempty" type:"Repeated"`
+	// appName
+	AppName *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	// appType
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// instanceUsageAmount
+	InstanceUsageAmount *int64 `json:"instanceUsageAmount,omitempty" xml:"instanceUsageAmount,omitempty"`
+	// attachmentUsageAmount
+	AttachmentUsageAmount *int64 `json:"attachmentUsageAmount,omitempty" xml:"attachmentUsageAmount,omitempty"`
+}
+
+func (s ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformation) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformation) SetUsagePlugins(v []*ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformationUsagePlugins) *ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformation {
+	s.UsagePlugins = v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformation) SetAppName(v string) *ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformation {
+	s.AppName = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformation) SetAppType(v string) *ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformation {
+	s.AppType = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformation) SetInstanceUsageAmount(v int64) *ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformation {
+	s.InstanceUsageAmount = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformation) SetAttachmentUsageAmount(v int64) *ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformation {
+	s.AttachmentUsageAmount = &v
+	return s
+}
+
+type ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformationUsagePlugins struct {
+	// pluginName
+	PluginName *string `json:"pluginName,omitempty" xml:"pluginName,omitempty"`
+	// iconUrl
+	IconUrl *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
+}
+
+func (s ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformationUsagePlugins) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformationUsagePlugins) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformationUsagePlugins) SetPluginName(v string) *ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformationUsagePlugins {
+	s.PluginName = &v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformationUsagePlugins) SetIconUrl(v string) *ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformationUsagePlugins {
+	s.IconUrl = &v
+	return s
+}
+
+type ListApplicationAuthorizationServiceApplicationInformationResponse struct {
+	Headers map[string]*string                                                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListApplicationAuthorizationServiceApplicationInformationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListApplicationAuthorizationServiceApplicationInformationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationAuthorizationServiceApplicationInformationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationResponse) SetHeaders(v map[string]*string) *ListApplicationAuthorizationServiceApplicationInformationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListApplicationAuthorizationServiceApplicationInformationResponse) SetBody(v *ListApplicationAuthorizationServiceApplicationInformationResponseBody) *ListApplicationAuthorizationServiceApplicationInformationResponse {
+	s.Body = v
+	return s
+}
+
+type ValidateApplicationAuthorizationServiceOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ValidateApplicationAuthorizationServiceOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateApplicationAuthorizationServiceOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateApplicationAuthorizationServiceOrderHeaders) SetCommonHeaders(v map[string]*string) *ValidateApplicationAuthorizationServiceOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ValidateApplicationAuthorizationServiceOrderHeaders) SetXAcsDingtalkAccessToken(v string) *ValidateApplicationAuthorizationServiceOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ValidateApplicationAuthorizationServiceOrderRequest struct {
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+}
+
+func (s ValidateApplicationAuthorizationServiceOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateApplicationAuthorizationServiceOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateApplicationAuthorizationServiceOrderRequest) SetAccessKey(v string) *ValidateApplicationAuthorizationServiceOrderRequest {
+	s.AccessKey = &v
+	return s
+}
+
+type ValidateApplicationAuthorizationServiceOrderResponseBody struct {
+	// message
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// status
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s ValidateApplicationAuthorizationServiceOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateApplicationAuthorizationServiceOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateApplicationAuthorizationServiceOrderResponseBody) SetMessage(v string) *ValidateApplicationAuthorizationServiceOrderResponseBody {
+	s.Message = &v
+	return s
+}
+
+func (s *ValidateApplicationAuthorizationServiceOrderResponseBody) SetStatus(v int32) *ValidateApplicationAuthorizationServiceOrderResponseBody {
+	s.Status = &v
+	return s
+}
+
+type ValidateApplicationAuthorizationServiceOrderResponse struct {
+	Headers map[string]*string                                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ValidateApplicationAuthorizationServiceOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ValidateApplicationAuthorizationServiceOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateApplicationAuthorizationServiceOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateApplicationAuthorizationServiceOrderResponse) SetHeaders(v map[string]*string) *ValidateApplicationAuthorizationServiceOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ValidateApplicationAuthorizationServiceOrderResponse) SetBody(v *ValidateApplicationAuthorizationServiceOrderResponseBody) *ValidateApplicationAuthorizationServiceOrderResponse {
+	s.Body = v
+	return s
+}
+
+type GetActivityListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetActivityListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetActivityListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetActivityListHeaders) SetCommonHeaders(v map[string]*string) *GetActivityListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetActivityListHeaders) SetXAcsDingtalkAccessToken(v string) *GetActivityListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetActivityListRequest struct {
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	AppType     *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	Language    *string `json:"language,omitempty" xml:"language,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetActivityListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetActivityListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetActivityListRequest) SetProcessCode(v string) *GetActivityListRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *GetActivityListRequest) SetAppType(v string) *GetActivityListRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetActivityListRequest) SetSystemToken(v string) *GetActivityListRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *GetActivityListRequest) SetLanguage(v string) *GetActivityListRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *GetActivityListRequest) SetUserId(v string) *GetActivityListRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetActivityListResponseBody struct {
+	// Id of the request
+	Result []*GetActivityListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetActivityListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetActivityListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetActivityListResponseBody) SetResult(v []*GetActivityListResponseBodyResult) *GetActivityListResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetActivityListResponseBodyResult struct {
+	// activityName
+	ActivityName *string `json:"activityName,omitempty" xml:"activityName,omitempty"`
+	// activityNameEn
+	ActivityNameInEnglish *string `json:"activityNameInEnglish,omitempty" xml:"activityNameInEnglish,omitempty"`
+	// activityId
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+}
+
+func (s GetActivityListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetActivityListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetActivityListResponseBodyResult) SetActivityName(v string) *GetActivityListResponseBodyResult {
+	s.ActivityName = &v
+	return s
+}
+
+func (s *GetActivityListResponseBodyResult) SetActivityNameInEnglish(v string) *GetActivityListResponseBodyResult {
+	s.ActivityNameInEnglish = &v
+	return s
+}
+
+func (s *GetActivityListResponseBodyResult) SetActivityId(v string) *GetActivityListResponseBodyResult {
+	s.ActivityId = &v
+	return s
+}
+
+type GetActivityListResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetActivityListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetActivityListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetActivityListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetActivityListResponse) SetHeaders(v map[string]*string) *GetActivityListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetActivityListResponse) SetBody(v *GetActivityListResponseBody) *GetActivityListResponse {
+	s.Body = v
+	return s
+}
+
+type ExecuteCustomApiHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ExecuteCustomApiHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteCustomApiHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteCustomApiHeaders) SetCommonHeaders(v map[string]*string) *ExecuteCustomApiHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ExecuteCustomApiHeaders) SetXAcsDingtalkAccessToken(v string) *ExecuteCustomApiHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ExecuteCustomApiRequest struct {
+	Data        *string `json:"data,omitempty" xml:"data,omitempty"`
+	AppType     *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	Language    *string `json:"language,omitempty" xml:"language,omitempty"`
+	ServiceId   *string `json:"serviceId,omitempty" xml:"serviceId,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ExecuteCustomApiRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteCustomApiRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteCustomApiRequest) SetData(v string) *ExecuteCustomApiRequest {
+	s.Data = &v
+	return s
+}
+
+func (s *ExecuteCustomApiRequest) SetAppType(v string) *ExecuteCustomApiRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *ExecuteCustomApiRequest) SetSystemToken(v string) *ExecuteCustomApiRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *ExecuteCustomApiRequest) SetLanguage(v string) *ExecuteCustomApiRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *ExecuteCustomApiRequest) SetServiceId(v string) *ExecuteCustomApiRequest {
+	s.ServiceId = &v
+	return s
+}
+
+func (s *ExecuteCustomApiRequest) SetUserId(v string) *ExecuteCustomApiRequest {
+	s.UserId = &v
+	return s
+}
+
+type ExecuteCustomApiResponseBody struct {
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s ExecuteCustomApiResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteCustomApiResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteCustomApiResponseBody) SetResult(v string) *ExecuteCustomApiResponseBody {
+	s.Result = &v
+	return s
+}
+
+type ExecuteCustomApiResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ExecuteCustomApiResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ExecuteCustomApiResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteCustomApiResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteCustomApiResponse) SetHeaders(v map[string]*string) *ExecuteCustomApiResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ExecuteCustomApiResponse) SetBody(v *ExecuteCustomApiResponseBody) *ExecuteCustomApiResponse {
+	s.Body = v
+	return s
+}
+
+type LoginCodeGenHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s LoginCodeGenHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LoginCodeGenHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *LoginCodeGenHeaders) SetCommonHeaders(v map[string]*string) *LoginCodeGenHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *LoginCodeGenHeaders) SetXAcsDingtalkAccessToken(v string) *LoginCodeGenHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type LoginCodeGenRequest struct {
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s LoginCodeGenRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LoginCodeGenRequest) GoString() string {
+	return s.String()
+}
+
+func (s *LoginCodeGenRequest) SetUserId(v string) *LoginCodeGenRequest {
+	s.UserId = &v
+	return s
+}
+
+type LoginCodeGenResponseBody struct {
+	// result
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s LoginCodeGenResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LoginCodeGenResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *LoginCodeGenResponseBody) SetResult(v string) *LoginCodeGenResponseBody {
+	s.Result = &v
+	return s
+}
+
+type LoginCodeGenResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *LoginCodeGenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s LoginCodeGenResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LoginCodeGenResponse) GoString() string {
+	return s.String()
+}
+
+func (s *LoginCodeGenResponse) SetHeaders(v map[string]*string) *LoginCodeGenResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *LoginCodeGenResponse) SetBody(v *LoginCodeGenResponseBody) *LoginCodeGenResponse {
+	s.Body = v
+	return s
+}
+
+type TerminateCloudAuthorizationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TerminateCloudAuthorizationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TerminateCloudAuthorizationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TerminateCloudAuthorizationHeaders) SetCommonHeaders(v map[string]*string) *TerminateCloudAuthorizationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TerminateCloudAuthorizationHeaders) SetXAcsDingtalkAccessToken(v string) *TerminateCloudAuthorizationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TerminateCloudAuthorizationRequest struct {
+	// 实例id
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// 访问秘钥
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// 调用者unionId
+	CallerUnionId *string `json:"callerUnionId,omitempty" xml:"callerUnionId,omitempty"`
+}
+
+func (s TerminateCloudAuthorizationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TerminateCloudAuthorizationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TerminateCloudAuthorizationRequest) SetInstanceId(v string) *TerminateCloudAuthorizationRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *TerminateCloudAuthorizationRequest) SetAccessKey(v string) *TerminateCloudAuthorizationRequest {
+	s.AccessKey = &v
+	return s
+}
+
+func (s *TerminateCloudAuthorizationRequest) SetCallerUnionId(v string) *TerminateCloudAuthorizationRequest {
+	s.CallerUnionId = &v
+	return s
+}
+
+type TerminateCloudAuthorizationResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s TerminateCloudAuthorizationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TerminateCloudAuthorizationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TerminateCloudAuthorizationResponseBody) SetResult(v bool) *TerminateCloudAuthorizationResponseBody {
+	s.Result = &v
+	return s
+}
+
+type TerminateCloudAuthorizationResponse struct {
+	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *TerminateCloudAuthorizationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s TerminateCloudAuthorizationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TerminateCloudAuthorizationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TerminateCloudAuthorizationResponse) SetHeaders(v map[string]*string) *TerminateCloudAuthorizationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TerminateCloudAuthorizationResponse) SetBody(v *TerminateCloudAuthorizationResponseBody) *TerminateCloudAuthorizationResponse {
+	s.Body = v
+	return s
+}
+
+type GetActivityButtonListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetActivityButtonListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetActivityButtonListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetActivityButtonListHeaders) SetCommonHeaders(v map[string]*string) *GetActivityButtonListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetActivityButtonListHeaders) SetXAcsDingtalkAccessToken(v string) *GetActivityButtonListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetActivityButtonListRequest struct {
+	// 应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 语言环境
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+}
+
+func (s GetActivityButtonListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetActivityButtonListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetActivityButtonListRequest) SetSystemToken(v string) *GetActivityButtonListRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *GetActivityButtonListRequest) SetUserId(v string) *GetActivityButtonListRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetActivityButtonListRequest) SetLanguage(v string) *GetActivityButtonListRequest {
+	s.Language = &v
+	return s
+}
+
+type GetActivityButtonListResponseBody struct {
+	Result []*GetActivityButtonListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetActivityButtonListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetActivityButtonListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetActivityButtonListResponseBody) SetResult(v []*GetActivityButtonListResponseBodyResult) *GetActivityButtonListResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetActivityButtonListResponseBodyResult struct {
+	// aliasEn
+	AliasInEnglish *string `json:"aliasInEnglish,omitempty" xml:"aliasInEnglish,omitempty"`
+	// alias
+	AliasInChinese *string `json:"aliasInChinese,omitempty" xml:"aliasInChinese,omitempty"`
+}
+
+func (s GetActivityButtonListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetActivityButtonListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetActivityButtonListResponseBodyResult) SetAliasInEnglish(v string) *GetActivityButtonListResponseBodyResult {
+	s.AliasInEnglish = &v
+	return s
+}
+
+func (s *GetActivityButtonListResponseBodyResult) SetAliasInChinese(v string) *GetActivityButtonListResponseBodyResult {
+	s.AliasInChinese = &v
+	return s
+}
+
+type GetActivityButtonListResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetActivityButtonListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetActivityButtonListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetActivityButtonListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetActivityButtonListResponse) SetHeaders(v map[string]*string) *GetActivityButtonListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetActivityButtonListResponse) SetBody(v *GetActivityButtonListResponseBody) *GetActivityButtonListResponse {
+	s.Body = v
+	return s
+}
+
+type StartInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s StartInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *StartInstanceHeaders) SetCommonHeaders(v map[string]*string) *StartInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *StartInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *StartInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type StartInstanceRequest struct {
+	// 应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 应用秘钥。在应用数据中获取。
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 语言。可选值：zh_CN/en_US 默认：zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 表单唯一编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 表单数据
+	FormDataJson *string `json:"formDataJson,omitempty" xml:"formDataJson,omitempty"`
+	// 流程编码
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// 发起人所在部门编号
+	DepartmentId *string `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+}
+
+func (s StartInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *StartInstanceRequest) SetAppType(v string) *StartInstanceRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *StartInstanceRequest) SetSystemToken(v string) *StartInstanceRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *StartInstanceRequest) SetUserId(v string) *StartInstanceRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *StartInstanceRequest) SetLanguage(v string) *StartInstanceRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *StartInstanceRequest) SetFormUuid(v string) *StartInstanceRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *StartInstanceRequest) SetFormDataJson(v string) *StartInstanceRequest {
+	s.FormDataJson = &v
+	return s
+}
+
+func (s *StartInstanceRequest) SetProcessCode(v string) *StartInstanceRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *StartInstanceRequest) SetDepartmentId(v string) *StartInstanceRequest {
+	s.DepartmentId = &v
+	return s
+}
+
+type StartInstanceResponseBody struct {
+	// 流程实例ID
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s StartInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *StartInstanceResponseBody) SetResult(v string) *StartInstanceResponseBody {
+	s.Result = &v
+	return s
+}
+
+type StartInstanceResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *StartInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s StartInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *StartInstanceResponse) SetHeaders(v map[string]*string) *StartInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *StartInstanceResponse) SetBody(v *StartInstanceResponseBody) *StartInstanceResponse {
+	s.Body = v
+	return s
+}
+
+type ListApplicationInformationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListApplicationInformationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationInformationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationInformationHeaders) SetCommonHeaders(v map[string]*string) *ListApplicationInformationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListApplicationInformationHeaders) SetXAcsDingtalkAccessToken(v string) *ListApplicationInformationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListApplicationInformationRequest struct {
+	AccessKey  *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	CallerUid  *string `json:"callerUid,omitempty" xml:"callerUid,omitempty"`
+	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+}
+
+func (s ListApplicationInformationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationInformationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationInformationRequest) SetAccessKey(v string) *ListApplicationInformationRequest {
+	s.AccessKey = &v
+	return s
+}
+
+func (s *ListApplicationInformationRequest) SetPageSize(v int32) *ListApplicationInformationRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ListApplicationInformationRequest) SetCallerUid(v string) *ListApplicationInformationRequest {
+	s.CallerUid = &v
+	return s
+}
+
+func (s *ListApplicationInformationRequest) SetPageNumber(v int32) *ListApplicationInformationRequest {
+	s.PageNumber = &v
+	return s
+}
+
+type ListApplicationInformationResponseBody struct {
+	// 分页大小
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// applicationInformation
+	ApplicationInformation []*ListApplicationInformationResponseBodyApplicationInformation `json:"applicationInformation,omitempty" xml:"applicationInformation,omitempty" type:"Repeated"`
+	// 当前第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 总数量
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s ListApplicationInformationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationInformationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationInformationResponseBody) SetPageSize(v int32) *ListApplicationInformationResponseBody {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ListApplicationInformationResponseBody) SetApplicationInformation(v []*ListApplicationInformationResponseBodyApplicationInformation) *ListApplicationInformationResponseBody {
+	s.ApplicationInformation = v
+	return s
+}
+
+func (s *ListApplicationInformationResponseBody) SetPageNumber(v int32) *ListApplicationInformationResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ListApplicationInformationResponseBody) SetTotalCount(v int32) *ListApplicationInformationResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type ListApplicationInformationResponseBodyApplicationInformation struct {
+	// usagePlugins
+	UsagePlugins []*ListApplicationInformationResponseBodyApplicationInformationUsagePlugins `json:"usagePlugins,omitempty" xml:"usagePlugins,omitempty" type:"Repeated"`
+	// appName
+	AppName *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	// appType
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// instanceUsageAmount
+	InstanceUsageAmount *int64 `json:"instanceUsageAmount,omitempty" xml:"instanceUsageAmount,omitempty"`
+	// attachmentUsageAmount
+	AttachmentUsageAmount *int64 `json:"attachmentUsageAmount,omitempty" xml:"attachmentUsageAmount,omitempty"`
+}
+
+func (s ListApplicationInformationResponseBodyApplicationInformation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationInformationResponseBodyApplicationInformation) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationInformationResponseBodyApplicationInformation) SetUsagePlugins(v []*ListApplicationInformationResponseBodyApplicationInformationUsagePlugins) *ListApplicationInformationResponseBodyApplicationInformation {
+	s.UsagePlugins = v
+	return s
+}
+
+func (s *ListApplicationInformationResponseBodyApplicationInformation) SetAppName(v string) *ListApplicationInformationResponseBodyApplicationInformation {
+	s.AppName = &v
+	return s
+}
+
+func (s *ListApplicationInformationResponseBodyApplicationInformation) SetAppType(v string) *ListApplicationInformationResponseBodyApplicationInformation {
+	s.AppType = &v
+	return s
+}
+
+func (s *ListApplicationInformationResponseBodyApplicationInformation) SetInstanceUsageAmount(v int64) *ListApplicationInformationResponseBodyApplicationInformation {
+	s.InstanceUsageAmount = &v
+	return s
+}
+
+func (s *ListApplicationInformationResponseBodyApplicationInformation) SetAttachmentUsageAmount(v int64) *ListApplicationInformationResponseBodyApplicationInformation {
+	s.AttachmentUsageAmount = &v
+	return s
+}
+
+type ListApplicationInformationResponseBodyApplicationInformationUsagePlugins struct {
+	// pluginName
+	PluginName *string `json:"pluginName,omitempty" xml:"pluginName,omitempty"`
+	// iconUrl
+	IconUrl *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
+}
+
+func (s ListApplicationInformationResponseBodyApplicationInformationUsagePlugins) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationInformationResponseBodyApplicationInformationUsagePlugins) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationInformationResponseBodyApplicationInformationUsagePlugins) SetPluginName(v string) *ListApplicationInformationResponseBodyApplicationInformationUsagePlugins {
+	s.PluginName = &v
+	return s
+}
+
+func (s *ListApplicationInformationResponseBodyApplicationInformationUsagePlugins) SetIconUrl(v string) *ListApplicationInformationResponseBodyApplicationInformationUsagePlugins {
+	s.IconUrl = &v
+	return s
+}
+
+type ListApplicationInformationResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListApplicationInformationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListApplicationInformationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationInformationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationInformationResponse) SetHeaders(v map[string]*string) *ListApplicationInformationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListApplicationInformationResponse) SetBody(v *ListApplicationInformationResponseBody) *ListApplicationInformationResponse {
+	s.Body = v
+	return s
+}
+
+type ValidateOrderUpgradeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ValidateOrderUpgradeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateOrderUpgradeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateOrderUpgradeHeaders) SetCommonHeaders(v map[string]*string) *ValidateOrderUpgradeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ValidateOrderUpgradeHeaders) SetXAcsDingtalkAccessToken(v string) *ValidateOrderUpgradeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ValidateOrderUpgradeRequest struct {
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	AccessKey  *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	CallerUid  *string `json:"callerUid,omitempty" xml:"callerUid,omitempty"`
+}
+
+func (s ValidateOrderUpgradeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateOrderUpgradeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateOrderUpgradeRequest) SetInstanceId(v string) *ValidateOrderUpgradeRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *ValidateOrderUpgradeRequest) SetAccessKey(v string) *ValidateOrderUpgradeRequest {
+	s.AccessKey = &v
+	return s
+}
+
+func (s *ValidateOrderUpgradeRequest) SetCallerUid(v string) *ValidateOrderUpgradeRequest {
+	s.CallerUid = &v
+	return s
+}
+
+type ValidateOrderUpgradeResponseBody struct {
+	// message
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// status
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s ValidateOrderUpgradeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateOrderUpgradeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateOrderUpgradeResponseBody) SetMessage(v string) *ValidateOrderUpgradeResponseBody {
+	s.Message = &v
+	return s
+}
+
+func (s *ValidateOrderUpgradeResponseBody) SetStatus(v int32) *ValidateOrderUpgradeResponseBody {
+	s.Status = &v
+	return s
+}
+
+type ValidateOrderUpgradeResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ValidateOrderUpgradeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ValidateOrderUpgradeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateOrderUpgradeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateOrderUpgradeResponse) SetHeaders(v map[string]*string) *ValidateOrderUpgradeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ValidateOrderUpgradeResponse) SetBody(v *ValidateOrderUpgradeResponseBody) *ValidateOrderUpgradeResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateCloudAccountInformationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateCloudAccountInformationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCloudAccountInformationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCloudAccountInformationHeaders) SetCommonHeaders(v map[string]*string) *UpdateCloudAccountInformationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateCloudAccountInformationHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateCloudAccountInformationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateCloudAccountInformationRequest struct {
+	// 访问秘钥
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// 调用者unionId
+	CallerUnionId *string `json:"callerUnionId,omitempty" xml:"callerUnionId,omitempty"`
+	// 账户号
+	AccountNumber *string `json:"accountNumber,omitempty" xml:"accountNumber,omitempty"`
+	// 商品类型
+	CommodityType *string `json:"commodityType,omitempty" xml:"commodityType,omitempty"`
+}
+
+func (s UpdateCloudAccountInformationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCloudAccountInformationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCloudAccountInformationRequest) SetAccessKey(v string) *UpdateCloudAccountInformationRequest {
+	s.AccessKey = &v
+	return s
+}
+
+func (s *UpdateCloudAccountInformationRequest) SetCallerUnionId(v string) *UpdateCloudAccountInformationRequest {
+	s.CallerUnionId = &v
+	return s
+}
+
+func (s *UpdateCloudAccountInformationRequest) SetAccountNumber(v string) *UpdateCloudAccountInformationRequest {
+	s.AccountNumber = &v
+	return s
+}
+
+func (s *UpdateCloudAccountInformationRequest) SetCommodityType(v string) *UpdateCloudAccountInformationRequest {
+	s.CommodityType = &v
+	return s
+}
+
+type UpdateCloudAccountInformationResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateCloudAccountInformationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCloudAccountInformationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCloudAccountInformationResponseBody) SetResult(v bool) *UpdateCloudAccountInformationResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateCloudAccountInformationResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateCloudAccountInformationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateCloudAccountInformationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCloudAccountInformationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCloudAccountInformationResponse) SetHeaders(v map[string]*string) *UpdateCloudAccountInformationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateCloudAccountInformationResponse) SetBody(v *UpdateCloudAccountInformationResponseBody) *UpdateCloudAccountInformationResponse {
+	s.Body = v
+	return s
+}
+
+type GetCorpLevelByAccountIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCorpLevelByAccountIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorpLevelByAccountIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorpLevelByAccountIdHeaders) SetCommonHeaders(v map[string]*string) *GetCorpLevelByAccountIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCorpLevelByAccountIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetCorpLevelByAccountIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCorpLevelByAccountIdRequest struct {
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+}
+
+func (s GetCorpLevelByAccountIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorpLevelByAccountIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorpLevelByAccountIdRequest) SetAccountId(v string) *GetCorpLevelByAccountIdRequest {
+	s.AccountId = &v
+	return s
+}
+
+type GetCorpLevelByAccountIdResponseBody struct {
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s GetCorpLevelByAccountIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorpLevelByAccountIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorpLevelByAccountIdResponseBody) SetResult(v string) *GetCorpLevelByAccountIdResponseBody {
+	s.Result = &v
+	return s
+}
+
+type GetCorpLevelByAccountIdResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCorpLevelByAccountIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCorpLevelByAccountIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorpLevelByAccountIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorpLevelByAccountIdResponse) SetHeaders(v map[string]*string) *GetCorpLevelByAccountIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCorpLevelByAccountIdResponse) SetBody(v *GetCorpLevelByAccountIdResponseBody) *GetCorpLevelByAccountIdResponse {
+	s.Body = v
+	return s
+}
+
+type ExecutePlatformTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ExecutePlatformTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecutePlatformTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ExecutePlatformTaskHeaders) SetCommonHeaders(v map[string]*string) *ExecutePlatformTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ExecutePlatformTaskHeaders) SetXAcsDingtalkAccessToken(v string) *ExecutePlatformTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ExecutePlatformTaskRequest struct {
+	// 审批结果
+	OutResult *string `json:"outResult,omitempty" xml:"outResult,omitempty"`
+	// 是否不执行校验&关联操作
+	NoExecuteExpressions *string `json:"noExecuteExpressions,omitempty" xml:"noExecuteExpressions,omitempty"`
+	// 应用ID
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 更新的表单数据
+	FormDataJson *string `json:"formDataJson,omitempty" xml:"formDataJson,omitempty"`
+	// 应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 语言
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 审批意见
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// 流程实例ID
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// 钉钉的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ExecutePlatformTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecutePlatformTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExecutePlatformTaskRequest) SetOutResult(v string) *ExecutePlatformTaskRequest {
+	s.OutResult = &v
+	return s
+}
+
+func (s *ExecutePlatformTaskRequest) SetNoExecuteExpressions(v string) *ExecutePlatformTaskRequest {
+	s.NoExecuteExpressions = &v
+	return s
+}
+
+func (s *ExecutePlatformTaskRequest) SetAppType(v string) *ExecutePlatformTaskRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *ExecutePlatformTaskRequest) SetFormDataJson(v string) *ExecutePlatformTaskRequest {
+	s.FormDataJson = &v
+	return s
+}
+
+func (s *ExecutePlatformTaskRequest) SetSystemToken(v string) *ExecutePlatformTaskRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *ExecutePlatformTaskRequest) SetLanguage(v string) *ExecutePlatformTaskRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *ExecutePlatformTaskRequest) SetRemark(v string) *ExecutePlatformTaskRequest {
+	s.Remark = &v
+	return s
+}
+
+func (s *ExecutePlatformTaskRequest) SetProcessInstanceId(v string) *ExecutePlatformTaskRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *ExecutePlatformTaskRequest) SetUserId(v string) *ExecutePlatformTaskRequest {
+	s.UserId = &v
+	return s
+}
+
+type ExecutePlatformTaskResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s ExecutePlatformTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecutePlatformTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExecutePlatformTaskResponse) SetHeaders(v map[string]*string) *ExecutePlatformTaskResponse {
+	s.Headers = v
 	return s
 }
 
@@ -1344,6 +7264,205 @@ func (s *UpdateFormDataResponse) SetHeaders(v map[string]*string) *UpdateFormDat
 	return s
 }
 
+type GetInstanceIdListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetInstanceIdListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstanceIdListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstanceIdListHeaders) SetCommonHeaders(v map[string]*string) *GetInstanceIdListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetInstanceIdListHeaders) SetXAcsDingtalkAccessToken(v string) *GetInstanceIdListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetInstanceIdListRequest struct {
+	// 表单ID
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// modifiedFrom和modifiedTo构成一个时间段，查询在该时间段有修改的数据列表。
+	ModifiedToTimeGMT *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
+	// 应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// modifiedFrom和modifiedTo构成一个时间段，查询在该时间段有修改的数据列表
+	ModifiedFromTimeGMT *string `json:"modifiedFromTimeGMT,omitempty" xml:"modifiedFromTimeGMT,omitempty"`
+	// 语言
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 根据表单内组件值查询
+	SearchFieldJson *string `json:"searchFieldJson,omitempty" xml:"searchFieldJson,omitempty"`
+	// 钉钉的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 实例状态
+	InstanceStatus *string `json:"instanceStatus,omitempty" xml:"instanceStatus,omitempty"`
+	// 流程审批结果
+	ApprovedResult *string `json:"approvedResult,omitempty" xml:"approvedResult,omitempty"`
+	// 应用ID
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 根据流程发起人工号查询
+	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	// createFrom和createTo两个时间构造一个时间段。查询在该时间段创建的数据列表。
+	CreateToTimeGMT *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// 任务ID
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// createFrom和createTo两个时间构造一个时间段。查询在该时间段创建的数据列表
+	CreateFromTimeGMT *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	PageSize          *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	PageNumber        *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+}
+
+func (s GetInstanceIdListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstanceIdListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstanceIdListRequest) SetFormUuid(v string) *GetInstanceIdListRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *GetInstanceIdListRequest) SetModifiedToTimeGMT(v string) *GetInstanceIdListRequest {
+	s.ModifiedToTimeGMT = &v
+	return s
+}
+
+func (s *GetInstanceIdListRequest) SetSystemToken(v string) *GetInstanceIdListRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *GetInstanceIdListRequest) SetModifiedFromTimeGMT(v string) *GetInstanceIdListRequest {
+	s.ModifiedFromTimeGMT = &v
+	return s
+}
+
+func (s *GetInstanceIdListRequest) SetLanguage(v string) *GetInstanceIdListRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *GetInstanceIdListRequest) SetSearchFieldJson(v string) *GetInstanceIdListRequest {
+	s.SearchFieldJson = &v
+	return s
+}
+
+func (s *GetInstanceIdListRequest) SetUserId(v string) *GetInstanceIdListRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetInstanceIdListRequest) SetInstanceStatus(v string) *GetInstanceIdListRequest {
+	s.InstanceStatus = &v
+	return s
+}
+
+func (s *GetInstanceIdListRequest) SetApprovedResult(v string) *GetInstanceIdListRequest {
+	s.ApprovedResult = &v
+	return s
+}
+
+func (s *GetInstanceIdListRequest) SetAppType(v string) *GetInstanceIdListRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetInstanceIdListRequest) SetOriginatorId(v string) *GetInstanceIdListRequest {
+	s.OriginatorId = &v
+	return s
+}
+
+func (s *GetInstanceIdListRequest) SetCreateToTimeGMT(v string) *GetInstanceIdListRequest {
+	s.CreateToTimeGMT = &v
+	return s
+}
+
+func (s *GetInstanceIdListRequest) SetTaskId(v string) *GetInstanceIdListRequest {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetInstanceIdListRequest) SetCreateFromTimeGMT(v string) *GetInstanceIdListRequest {
+	s.CreateFromTimeGMT = &v
+	return s
+}
+
+func (s *GetInstanceIdListRequest) SetPageSize(v int32) *GetInstanceIdListRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetInstanceIdListRequest) SetPageNumber(v int32) *GetInstanceIdListRequest {
+	s.PageNumber = &v
+	return s
+}
+
+type GetInstanceIdListResponseBody struct {
+	// 总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 当前第几页
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// data
+	Data []*string `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s GetInstanceIdListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstanceIdListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstanceIdListResponseBody) SetTotalCount(v int64) *GetInstanceIdListResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *GetInstanceIdListResponseBody) SetPageNumber(v int64) *GetInstanceIdListResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetInstanceIdListResponseBody) SetData(v []*string) *GetInstanceIdListResponseBody {
+	s.Data = v
+	return s
+}
+
+type GetInstanceIdListResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetInstanceIdListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetInstanceIdListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstanceIdListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstanceIdListResponse) SetHeaders(v map[string]*string) *GetInstanceIdListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetInstanceIdListResponse) SetBody(v *GetInstanceIdListResponseBody) *GetInstanceIdListResponse {
+	s.Body = v
+	return s
+}
+
 type GetOperationRecordsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1775,461 +7894,579 @@ func (s *GetPlatformResourceResponse) SetBody(v *GetPlatformResourceResponseBody
 	return s
 }
 
-type GetRunningTasksHeaders struct {
+type ListConnectorInformationHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s GetRunningTasksHeaders) String() string {
+func (s ListConnectorInformationHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetRunningTasksHeaders) GoString() string {
+func (s ListConnectorInformationHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *GetRunningTasksHeaders) SetCommonHeaders(v map[string]*string) *GetRunningTasksHeaders {
+func (s *ListConnectorInformationHeaders) SetCommonHeaders(v map[string]*string) *ListConnectorInformationHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *GetRunningTasksHeaders) SetXAcsDingtalkAccessToken(v string) *GetRunningTasksHeaders {
+func (s *ListConnectorInformationHeaders) SetXAcsDingtalkAccessToken(v string) *ListConnectorInformationHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type GetRunningTasksRequest struct {
-	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	AppType           *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	SystemToken       *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	Language          *string `json:"language,omitempty" xml:"language,omitempty"`
-	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
+type ListConnectorInformationRequest struct {
+	AccessKey  *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	CallerUid  *string `json:"callerUid,omitempty" xml:"callerUid,omitempty"`
+	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
 }
 
-func (s GetRunningTasksRequest) String() string {
+func (s ListConnectorInformationRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetRunningTasksRequest) GoString() string {
+func (s ListConnectorInformationRequest) GoString() string {
 	return s.String()
 }
 
-func (s *GetRunningTasksRequest) SetProcessInstanceId(v string) *GetRunningTasksRequest {
-	s.ProcessInstanceId = &v
+func (s *ListConnectorInformationRequest) SetAccessKey(v string) *ListConnectorInformationRequest {
+	s.AccessKey = &v
 	return s
 }
 
-func (s *GetRunningTasksRequest) SetAppType(v string) *GetRunningTasksRequest {
-	s.AppType = &v
+func (s *ListConnectorInformationRequest) SetPageSize(v int32) *ListConnectorInformationRequest {
+	s.PageSize = &v
 	return s
 }
 
-func (s *GetRunningTasksRequest) SetSystemToken(v string) *GetRunningTasksRequest {
-	s.SystemToken = &v
+func (s *ListConnectorInformationRequest) SetCallerUid(v string) *ListConnectorInformationRequest {
+	s.CallerUid = &v
 	return s
 }
 
-func (s *GetRunningTasksRequest) SetLanguage(v string) *GetRunningTasksRequest {
+func (s *ListConnectorInformationRequest) SetPageNumber(v int32) *ListConnectorInformationRequest {
+	s.PageNumber = &v
+	return s
+}
+
+type ListConnectorInformationResponseBody struct {
+	// 分页大小
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 当前第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// pluginInfos
+	PluginInfos []*ListConnectorInformationResponseBodyPluginInfos `json:"pluginInfos,omitempty" xml:"pluginInfos,omitempty" type:"Repeated"`
+}
+
+func (s ListConnectorInformationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListConnectorInformationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListConnectorInformationResponseBody) SetPageSize(v int32) *ListConnectorInformationResponseBody {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ListConnectorInformationResponseBody) SetPageNumber(v int32) *ListConnectorInformationResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ListConnectorInformationResponseBody) SetTotalCount(v int64) *ListConnectorInformationResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *ListConnectorInformationResponseBody) SetPluginInfos(v []*ListConnectorInformationResponseBodyPluginInfos) *ListConnectorInformationResponseBody {
+	s.PluginInfos = v
+	return s
+}
+
+type ListConnectorInformationResponseBodyPluginInfos struct {
+	// pluginUuid
+	PluginUuid *string `json:"pluginUuid,omitempty" xml:"pluginUuid,omitempty"`
+	// pluginTotalAmount
+	PluginTotalAmount *int64 `json:"pluginTotalAmount,omitempty" xml:"pluginTotalAmount,omitempty"`
+	// pluginName
+	PluginName *string `json:"pluginName,omitempty" xml:"pluginName,omitempty"`
+	// iconUrl
+	IconUrl *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
+	// pluginPayType
+	PluginPayType *int32 `json:"pluginPayType,omitempty" xml:"pluginPayType,omitempty"`
+	// pluginUsageAmount
+	PluginUsageAmount *int64 `json:"pluginUsageAmount,omitempty" xml:"pluginUsageAmount,omitempty"`
+	// pluginStatus
+	PluginStatus *int32 `json:"pluginStatus,omitempty" xml:"pluginStatus,omitempty"`
+	// apps
+	Apps []*ListConnectorInformationResponseBodyPluginInfosApps `json:"apps,omitempty" xml:"apps,omitempty" type:"Repeated"`
+}
+
+func (s ListConnectorInformationResponseBodyPluginInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListConnectorInformationResponseBodyPluginInfos) GoString() string {
+	return s.String()
+}
+
+func (s *ListConnectorInformationResponseBodyPluginInfos) SetPluginUuid(v string) *ListConnectorInformationResponseBodyPluginInfos {
+	s.PluginUuid = &v
+	return s
+}
+
+func (s *ListConnectorInformationResponseBodyPluginInfos) SetPluginTotalAmount(v int64) *ListConnectorInformationResponseBodyPluginInfos {
+	s.PluginTotalAmount = &v
+	return s
+}
+
+func (s *ListConnectorInformationResponseBodyPluginInfos) SetPluginName(v string) *ListConnectorInformationResponseBodyPluginInfos {
+	s.PluginName = &v
+	return s
+}
+
+func (s *ListConnectorInformationResponseBodyPluginInfos) SetIconUrl(v string) *ListConnectorInformationResponseBodyPluginInfos {
+	s.IconUrl = &v
+	return s
+}
+
+func (s *ListConnectorInformationResponseBodyPluginInfos) SetPluginPayType(v int32) *ListConnectorInformationResponseBodyPluginInfos {
+	s.PluginPayType = &v
+	return s
+}
+
+func (s *ListConnectorInformationResponseBodyPluginInfos) SetPluginUsageAmount(v int64) *ListConnectorInformationResponseBodyPluginInfos {
+	s.PluginUsageAmount = &v
+	return s
+}
+
+func (s *ListConnectorInformationResponseBodyPluginInfos) SetPluginStatus(v int32) *ListConnectorInformationResponseBodyPluginInfos {
+	s.PluginStatus = &v
+	return s
+}
+
+func (s *ListConnectorInformationResponseBodyPluginInfos) SetApps(v []*ListConnectorInformationResponseBodyPluginInfosApps) *ListConnectorInformationResponseBodyPluginInfos {
+	s.Apps = v
+	return s
+}
+
+type ListConnectorInformationResponseBodyPluginInfosApps struct {
+	// appName
+	AppName *string `json:"appName,omitempty" xml:"appName,omitempty"`
+}
+
+func (s ListConnectorInformationResponseBodyPluginInfosApps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListConnectorInformationResponseBodyPluginInfosApps) GoString() string {
+	return s.String()
+}
+
+func (s *ListConnectorInformationResponseBodyPluginInfosApps) SetAppName(v string) *ListConnectorInformationResponseBodyPluginInfosApps {
+	s.AppName = &v
+	return s
+}
+
+type ListConnectorInformationResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListConnectorInformationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListConnectorInformationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListConnectorInformationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListConnectorInformationResponse) SetHeaders(v map[string]*string) *ListConnectorInformationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListConnectorInformationResponse) SetBody(v *ListConnectorInformationResponseBody) *ListConnectorInformationResponse {
+	s.Body = v
+	return s
+}
+
+type RegisterAccountsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RegisterAccountsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegisterAccountsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RegisterAccountsHeaders) SetCommonHeaders(v map[string]*string) *RegisterAccountsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RegisterAccountsHeaders) SetXAcsDingtalkAccessToken(v string) *RegisterAccountsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RegisterAccountsRequest struct {
+	// 组织id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 访问秘钥
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// 激活码
+	ActiveCode *string `json:"activeCode,omitempty" xml:"activeCode,omitempty"`
+}
+
+func (s RegisterAccountsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegisterAccountsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RegisterAccountsRequest) SetCorpId(v string) *RegisterAccountsRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *RegisterAccountsRequest) SetAccessKey(v string) *RegisterAccountsRequest {
+	s.AccessKey = &v
+	return s
+}
+
+func (s *RegisterAccountsRequest) SetActiveCode(v string) *RegisterAccountsRequest {
+	s.ActiveCode = &v
+	return s
+}
+
+type RegisterAccountsResponseBody struct {
+	// 实例id
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+}
+
+func (s RegisterAccountsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegisterAccountsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RegisterAccountsResponseBody) SetInstanceId(v string) *RegisterAccountsResponseBody {
+	s.InstanceId = &v
+	return s
+}
+
+type RegisterAccountsResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RegisterAccountsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RegisterAccountsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegisterAccountsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RegisterAccountsResponse) SetHeaders(v map[string]*string) *RegisterAccountsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RegisterAccountsResponse) SetBody(v *RegisterAccountsResponseBody) *RegisterAccountsResponse {
+	s.Body = v
+	return s
+}
+
+type GetNotifyMeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetNotifyMeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNotifyMeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetNotifyMeHeaders) SetCommonHeaders(v map[string]*string) *GetNotifyMeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetNotifyMeHeaders) SetXAcsDingtalkAccessToken(v string) *GetNotifyMeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetNotifyMeRequest struct {
+	// 企业ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 验权token
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// 当前页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页记录数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 语言环境
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 表单中组件数据模糊搜
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// 应用标识列表
+	AppTypes *string `json:"appTypes,omitempty" xml:"appTypes,omitempty"`
+	// 流程code列表
+	ProcessCodes *string `json:"processCodes,omitempty" xml:"processCodes,omitempty"`
+	// 数据提交时间开始
+	InstanceCreateFromTimeGMT *int64 `json:"instanceCreateFromTimeGMT,omitempty" xml:"instanceCreateFromTimeGMT,omitempty"`
+	// 数据提交时间结束
+	InstanceCreateToTimeGMT *int64 `json:"instanceCreateToTimeGMT,omitempty" xml:"instanceCreateToTimeGMT,omitempty"`
+	// 抄送到达时间开始
+	CreateFromTimeGMT *int64 `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// 抄送到达时间结束
+	CreateToTimeGMT *int64 `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+}
+
+func (s GetNotifyMeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNotifyMeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetNotifyMeRequest) SetCorpId(v string) *GetNotifyMeRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetNotifyMeRequest) SetToken(v string) *GetNotifyMeRequest {
+	s.Token = &v
+	return s
+}
+
+func (s *GetNotifyMeRequest) SetPageNumber(v int32) *GetNotifyMeRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetNotifyMeRequest) SetPageSize(v int32) *GetNotifyMeRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetNotifyMeRequest) SetLanguage(v string) *GetNotifyMeRequest {
 	s.Language = &v
 	return s
 }
 
-func (s *GetRunningTasksRequest) SetUserId(v string) *GetRunningTasksRequest {
-	s.UserId = &v
+func (s *GetNotifyMeRequest) SetKeyword(v string) *GetNotifyMeRequest {
+	s.Keyword = &v
 	return s
 }
 
-type GetRunningTasksResponseBody struct {
-	Result []*GetRunningTasksResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+func (s *GetNotifyMeRequest) SetAppTypes(v string) *GetNotifyMeRequest {
+	s.AppTypes = &v
+	return s
 }
 
-func (s GetRunningTasksResponseBody) String() string {
+func (s *GetNotifyMeRequest) SetProcessCodes(v string) *GetNotifyMeRequest {
+	s.ProcessCodes = &v
+	return s
+}
+
+func (s *GetNotifyMeRequest) SetInstanceCreateFromTimeGMT(v int64) *GetNotifyMeRequest {
+	s.InstanceCreateFromTimeGMT = &v
+	return s
+}
+
+func (s *GetNotifyMeRequest) SetInstanceCreateToTimeGMT(v int64) *GetNotifyMeRequest {
+	s.InstanceCreateToTimeGMT = &v
+	return s
+}
+
+func (s *GetNotifyMeRequest) SetCreateFromTimeGMT(v int64) *GetNotifyMeRequest {
+	s.CreateFromTimeGMT = &v
+	return s
+}
+
+func (s *GetNotifyMeRequest) SetCreateToTimeGMT(v int64) *GetNotifyMeRequest {
+	s.CreateToTimeGMT = &v
+	return s
+}
+
+type GetNotifyMeResponseBody struct {
+	// 总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 当前第几页
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// data
+	Data []*GetNotifyMeResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s GetNotifyMeResponseBody) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetRunningTasksResponseBody) GoString() string {
+func (s GetNotifyMeResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *GetRunningTasksResponseBody) SetResult(v []*GetRunningTasksResponseBodyResult) *GetRunningTasksResponseBody {
-	s.Result = v
+func (s *GetNotifyMeResponseBody) SetTotalCount(v int64) *GetNotifyMeResponseBody {
+	s.TotalCount = &v
 	return s
 }
 
-type GetRunningTasksResponseBodyResult struct {
-	// createTime
+func (s *GetNotifyMeResponseBody) SetPageNumber(v int64) *GetNotifyMeResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetNotifyMeResponseBody) SetData(v []*GetNotifyMeResponseBodyData) *GetNotifyMeResponseBody {
+	s.Data = v
+	return s
+}
+
+type GetNotifyMeResponseBodyData struct {
+	// 创建时间
 	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
 	// activityId
 	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	// processInstanceId
-	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	// taskType
-	TaskType *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	// 创建者的userId
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// titleEn
 	TitleInEnglish *string `json:"titleInEnglish,omitempty" xml:"titleInEnglish,omitempty"`
-	// activeTime
-	ActiveTimeGMT *string `json:"activeTimeGMT,omitempty" xml:"activeTimeGMT,omitempty"`
-	// actualActionerId
-	ActualActionerId *string `json:"actualActionerId,omitempty" xml:"actualActionerId,omitempty"`
-	// originatorId
-	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
-	// finishTime
-	FinishTimeGMT *string `json:"finishTimeGMT,omitempty" xml:"finishTimeGMT,omitempty"`
+	// 修改时间
+	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	// appType
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// processCode
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// mobileUrl
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// 流程实例id
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// instStatus
+	InstStatus *string `json:"instStatus,omitempty" xml:"instStatus,omitempty"`
 	// title
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// taskId
-	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	// status
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
-func (s GetRunningTasksResponseBodyResult) String() string {
+func (s GetNotifyMeResponseBodyData) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetRunningTasksResponseBodyResult) GoString() string {
+func (s GetNotifyMeResponseBodyData) GoString() string {
 	return s.String()
 }
 
-func (s *GetRunningTasksResponseBodyResult) SetCreateTimeGMT(v string) *GetRunningTasksResponseBodyResult {
+func (s *GetNotifyMeResponseBodyData) SetCreateTimeGMT(v string) *GetNotifyMeResponseBodyData {
 	s.CreateTimeGMT = &v
 	return s
 }
 
-func (s *GetRunningTasksResponseBodyResult) SetActivityId(v string) *GetRunningTasksResponseBodyResult {
+func (s *GetNotifyMeResponseBodyData) SetActivityId(v string) *GetNotifyMeResponseBodyData {
 	s.ActivityId = &v
 	return s
 }
 
-func (s *GetRunningTasksResponseBodyResult) SetProcessInstanceId(v string) *GetRunningTasksResponseBodyResult {
-	s.ProcessInstanceId = &v
+func (s *GetNotifyMeResponseBodyData) SetCreatorUserId(v string) *GetNotifyMeResponseBodyData {
+	s.CreatorUserId = &v
 	return s
 }
 
-func (s *GetRunningTasksResponseBodyResult) SetTaskType(v string) *GetRunningTasksResponseBodyResult {
-	s.TaskType = &v
+func (s *GetNotifyMeResponseBodyData) SetCorpId(v string) *GetNotifyMeResponseBodyData {
+	s.CorpId = &v
 	return s
 }
 
-func (s *GetRunningTasksResponseBodyResult) SetTitleInEnglish(v string) *GetRunningTasksResponseBodyResult {
+func (s *GetNotifyMeResponseBodyData) SetTitleInEnglish(v string) *GetNotifyMeResponseBodyData {
 	s.TitleInEnglish = &v
 	return s
 }
 
-func (s *GetRunningTasksResponseBodyResult) SetActiveTimeGMT(v string) *GetRunningTasksResponseBodyResult {
-	s.ActiveTimeGMT = &v
+func (s *GetNotifyMeResponseBodyData) SetModifiedTimeGMT(v string) *GetNotifyMeResponseBodyData {
+	s.ModifiedTimeGMT = &v
 	return s
 }
 
-func (s *GetRunningTasksResponseBodyResult) SetActualActionerId(v string) *GetRunningTasksResponseBodyResult {
-	s.ActualActionerId = &v
-	return s
-}
-
-func (s *GetRunningTasksResponseBodyResult) SetOriginatorId(v string) *GetRunningTasksResponseBodyResult {
-	s.OriginatorId = &v
-	return s
-}
-
-func (s *GetRunningTasksResponseBodyResult) SetFinishTimeGMT(v string) *GetRunningTasksResponseBodyResult {
-	s.FinishTimeGMT = &v
-	return s
-}
-
-func (s *GetRunningTasksResponseBodyResult) SetTitle(v string) *GetRunningTasksResponseBodyResult {
-	s.Title = &v
-	return s
-}
-
-func (s *GetRunningTasksResponseBodyResult) SetTaskId(v string) *GetRunningTasksResponseBodyResult {
-	s.TaskId = &v
-	return s
-}
-
-func (s *GetRunningTasksResponseBodyResult) SetStatus(v string) *GetRunningTasksResponseBodyResult {
-	s.Status = &v
-	return s
-}
-
-type GetRunningTasksResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetRunningTasksResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s GetRunningTasksResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetRunningTasksResponse) GoString() string {
-	return s.String()
-}
-
-func (s *GetRunningTasksResponse) SetHeaders(v map[string]*string) *GetRunningTasksResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *GetRunningTasksResponse) SetBody(v *GetRunningTasksResponseBody) *GetRunningTasksResponse {
-	s.Body = v
-	return s
-}
-
-type ListNavigationByFormTypeHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s ListNavigationByFormTypeHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ListNavigationByFormTypeHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *ListNavigationByFormTypeHeaders) SetCommonHeaders(v map[string]*string) *ListNavigationByFormTypeHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *ListNavigationByFormTypeHeaders) SetXAcsDingtalkAccessToken(v string) *ListNavigationByFormTypeHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type ListNavigationByFormTypeRequest struct {
-	// 应用ID
-	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	// 应用秘钥
-	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	// 评论人钉钉的userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 语言
-	Language *string `json:"language,omitempty" xml:"language,omitempty"`
-	// 页面类型
-	FormType *string `json:"formType,omitempty" xml:"formType,omitempty"`
-}
-
-func (s ListNavigationByFormTypeRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ListNavigationByFormTypeRequest) GoString() string {
-	return s.String()
-}
-
-func (s *ListNavigationByFormTypeRequest) SetAppType(v string) *ListNavigationByFormTypeRequest {
+func (s *GetNotifyMeResponseBodyData) SetAppType(v string) *GetNotifyMeResponseBodyData {
 	s.AppType = &v
 	return s
 }
 
-func (s *ListNavigationByFormTypeRequest) SetSystemToken(v string) *ListNavigationByFormTypeRequest {
-	s.SystemToken = &v
-	return s
-}
-
-func (s *ListNavigationByFormTypeRequest) SetUserId(v string) *ListNavigationByFormTypeRequest {
-	s.UserId = &v
-	return s
-}
-
-func (s *ListNavigationByFormTypeRequest) SetLanguage(v string) *ListNavigationByFormTypeRequest {
-	s.Language = &v
-	return s
-}
-
-func (s *ListNavigationByFormTypeRequest) SetFormType(v string) *ListNavigationByFormTypeRequest {
-	s.FormType = &v
-	return s
-}
-
-type ListNavigationByFormTypeResponseBody struct {
-	Result []*ListNavigationByFormTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-}
-
-func (s ListNavigationByFormTypeResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ListNavigationByFormTypeResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *ListNavigationByFormTypeResponseBody) SetResult(v []*ListNavigationByFormTypeResponseBodyResult) *ListNavigationByFormTypeResponseBody {
-	s.Result = v
-	return s
-}
-
-type ListNavigationByFormTypeResponseBodyResult struct {
-	// title
-	Title *ListNavigationByFormTypeResponseBodyResultTitle `json:"title,omitempty" xml:"title,omitempty" type:"Struct"`
-	// processCode
-	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	// formUuid
-	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-}
-
-func (s ListNavigationByFormTypeResponseBodyResult) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ListNavigationByFormTypeResponseBodyResult) GoString() string {
-	return s.String()
-}
-
-func (s *ListNavigationByFormTypeResponseBodyResult) SetTitle(v *ListNavigationByFormTypeResponseBodyResultTitle) *ListNavigationByFormTypeResponseBodyResult {
-	s.Title = v
-	return s
-}
-
-func (s *ListNavigationByFormTypeResponseBodyResult) SetProcessCode(v string) *ListNavigationByFormTypeResponseBodyResult {
+func (s *GetNotifyMeResponseBodyData) SetProcessCode(v string) *GetNotifyMeResponseBodyData {
 	s.ProcessCode = &v
 	return s
 }
 
-func (s *ListNavigationByFormTypeResponseBodyResult) SetFormUuid(v string) *ListNavigationByFormTypeResponseBodyResult {
-	s.FormUuid = &v
+func (s *GetNotifyMeResponseBodyData) SetMobileUrl(v string) *GetNotifyMeResponseBodyData {
+	s.MobileUrl = &v
 	return s
 }
 
-type ListNavigationByFormTypeResponseBodyResultTitle struct {
-	// 英文名称
-	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
-	// type
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 中文名称
-	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+func (s *GetNotifyMeResponseBodyData) SetFormInstanceId(v string) *GetNotifyMeResponseBodyData {
+	s.FormInstanceId = &v
+	return s
 }
 
-func (s ListNavigationByFormTypeResponseBodyResultTitle) String() string {
+func (s *GetNotifyMeResponseBodyData) SetInstStatus(v string) *GetNotifyMeResponseBodyData {
+	s.InstStatus = &v
+	return s
+}
+
+func (s *GetNotifyMeResponseBodyData) SetTitle(v string) *GetNotifyMeResponseBodyData {
+	s.Title = &v
+	return s
+}
+
+func (s *GetNotifyMeResponseBodyData) SetUrl(v string) *GetNotifyMeResponseBodyData {
+	s.Url = &v
+	return s
+}
+
+type GetNotifyMeResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetNotifyMeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetNotifyMeResponse) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ListNavigationByFormTypeResponseBodyResultTitle) GoString() string {
+func (s GetNotifyMeResponse) GoString() string {
 	return s.String()
 }
 
-func (s *ListNavigationByFormTypeResponseBodyResultTitle) SetNameInEnglish(v string) *ListNavigationByFormTypeResponseBodyResultTitle {
-	s.NameInEnglish = &v
-	return s
-}
-
-func (s *ListNavigationByFormTypeResponseBodyResultTitle) SetType(v string) *ListNavigationByFormTypeResponseBodyResultTitle {
-	s.Type = &v
-	return s
-}
-
-func (s *ListNavigationByFormTypeResponseBodyResultTitle) SetNameInChinese(v string) *ListNavigationByFormTypeResponseBodyResultTitle {
-	s.NameInChinese = &v
-	return s
-}
-
-type ListNavigationByFormTypeResponse struct {
-	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListNavigationByFormTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s ListNavigationByFormTypeResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ListNavigationByFormTypeResponse) GoString() string {
-	return s.String()
-}
-
-func (s *ListNavigationByFormTypeResponse) SetHeaders(v map[string]*string) *ListNavigationByFormTypeResponse {
+func (s *GetNotifyMeResponse) SetHeaders(v map[string]*string) *GetNotifyMeResponse {
 	s.Headers = v
 	return s
 }
 
-func (s *ListNavigationByFormTypeResponse) SetBody(v *ListNavigationByFormTypeResponseBody) *ListNavigationByFormTypeResponse {
+func (s *GetNotifyMeResponse) SetBody(v *GetNotifyMeResponseBody) *GetNotifyMeResponse {
 	s.Body = v
-	return s
-}
-
-type TerminateInstanceHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s TerminateInstanceHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s TerminateInstanceHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *TerminateInstanceHeaders) SetCommonHeaders(v map[string]*string) *TerminateInstanceHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *TerminateInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *TerminateInstanceHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type TerminateInstanceRequest struct {
-	// 应用ID
-	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	// 应用秘钥
-	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	// 钉钉的userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 语言
-	Language *string `json:"language,omitempty" xml:"language,omitempty"`
-	// 流程实例ID
-	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-}
-
-func (s TerminateInstanceRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s TerminateInstanceRequest) GoString() string {
-	return s.String()
-}
-
-func (s *TerminateInstanceRequest) SetAppType(v string) *TerminateInstanceRequest {
-	s.AppType = &v
-	return s
-}
-
-func (s *TerminateInstanceRequest) SetSystemToken(v string) *TerminateInstanceRequest {
-	s.SystemToken = &v
-	return s
-}
-
-func (s *TerminateInstanceRequest) SetUserId(v string) *TerminateInstanceRequest {
-	s.UserId = &v
-	return s
-}
-
-func (s *TerminateInstanceRequest) SetLanguage(v string) *TerminateInstanceRequest {
-	s.Language = &v
-	return s
-}
-
-func (s *TerminateInstanceRequest) SetProcessInstanceId(v string) *TerminateInstanceRequest {
-	s.ProcessInstanceId = &v
-	return s
-}
-
-type TerminateInstanceResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-}
-
-func (s TerminateInstanceResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s TerminateInstanceResponse) GoString() string {
-	return s.String()
-}
-
-func (s *TerminateInstanceResponse) SetHeaders(v map[string]*string) *TerminateInstanceResponse {
-	s.Headers = v
 	return s
 }
 
@@ -2333,96 +8570,680 @@ func (s *ExpireCommodityResponse) SetBody(v *ExpireCommodityResponseBody) *Expir
 	return s
 }
 
-type ValidateOrderBuyHeaders struct {
+type GetInstanceByIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s ValidateOrderBuyHeaders) String() string {
+func (s GetInstanceByIdHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ValidateOrderBuyHeaders) GoString() string {
+func (s GetInstanceByIdHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *ValidateOrderBuyHeaders) SetCommonHeaders(v map[string]*string) *ValidateOrderBuyHeaders {
+func (s *GetInstanceByIdHeaders) SetCommonHeaders(v map[string]*string) *GetInstanceByIdHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *ValidateOrderBuyHeaders) SetXAcsDingtalkAccessToken(v string) *ValidateOrderBuyHeaders {
+func (s *GetInstanceByIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetInstanceByIdHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type ValidateOrderBuyRequest struct {
+type GetInstanceByIdRequest struct {
+	// 应用ID
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 语言
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+}
+
+func (s GetInstanceByIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstanceByIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstanceByIdRequest) SetAppType(v string) *GetInstanceByIdRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetInstanceByIdRequest) SetSystemToken(v string) *GetInstanceByIdRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *GetInstanceByIdRequest) SetUserId(v string) *GetInstanceByIdRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetInstanceByIdRequest) SetLanguage(v string) *GetInstanceByIdRequest {
+	s.Language = &v
+	return s
+}
+
+type GetInstanceByIdResponseBody struct {
+	// 创建时间
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// processInstanceId
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// actionExecutor
+	ActionExecutor []*GetInstanceByIdResponseBodyActionExecutor `json:"actionExecutor,omitempty" xml:"actionExecutor,omitempty" type:"Repeated"`
+	// approvedResult
+	ApprovedResult *string `json:"approvedResult,omitempty" xml:"approvedResult,omitempty"`
+	// formUuid
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// data
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	// 修改时间
+	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	// processCode
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// originator
+	Originator *GetInstanceByIdResponseBodyOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
+	// title
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// instanceStatus
+	InstanceStatus *string `json:"instanceStatus,omitempty" xml:"instanceStatus,omitempty"`
+	// version
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s GetInstanceByIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstanceByIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstanceByIdResponseBody) SetCreateTimeGMT(v string) *GetInstanceByIdResponseBody {
+	s.CreateTimeGMT = &v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBody) SetProcessInstanceId(v string) *GetInstanceByIdResponseBody {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBody) SetActionExecutor(v []*GetInstanceByIdResponseBodyActionExecutor) *GetInstanceByIdResponseBody {
+	s.ActionExecutor = v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBody) SetApprovedResult(v string) *GetInstanceByIdResponseBody {
+	s.ApprovedResult = &v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBody) SetFormUuid(v string) *GetInstanceByIdResponseBody {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBody) SetData(v map[string]interface{}) *GetInstanceByIdResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBody) SetModifiedTimeGMT(v string) *GetInstanceByIdResponseBody {
+	s.ModifiedTimeGMT = &v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBody) SetProcessCode(v string) *GetInstanceByIdResponseBody {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBody) SetOriginator(v *GetInstanceByIdResponseBodyOriginator) *GetInstanceByIdResponseBody {
+	s.Originator = v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBody) SetTitle(v string) *GetInstanceByIdResponseBody {
+	s.Title = &v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBody) SetInstanceStatus(v string) *GetInstanceByIdResponseBody {
+	s.InstanceStatus = &v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBody) SetVersion(v int64) *GetInstanceByIdResponseBody {
+	s.Version = &v
+	return s
+}
+
+type GetInstanceByIdResponseBodyActionExecutor struct {
+	// name
+	Name *GetInstanceByIdResponseBodyActionExecutorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// deptName
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// email
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+}
+
+func (s GetInstanceByIdResponseBodyActionExecutor) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstanceByIdResponseBodyActionExecutor) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstanceByIdResponseBodyActionExecutor) SetName(v *GetInstanceByIdResponseBodyActionExecutorName) *GetInstanceByIdResponseBodyActionExecutor {
+	s.Name = v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBodyActionExecutor) SetDeptName(v string) *GetInstanceByIdResponseBodyActionExecutor {
+	s.DeptName = &v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBodyActionExecutor) SetUserId(v string) *GetInstanceByIdResponseBodyActionExecutor {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBodyActionExecutor) SetEmail(v string) *GetInstanceByIdResponseBodyActionExecutor {
+	s.Email = &v
+	return s
+}
+
+type GetInstanceByIdResponseBodyActionExecutorName struct {
+	// 英文名称
+	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
+	// type
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 中文名称
+	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+}
+
+func (s GetInstanceByIdResponseBodyActionExecutorName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstanceByIdResponseBodyActionExecutorName) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstanceByIdResponseBodyActionExecutorName) SetNameInEnglish(v string) *GetInstanceByIdResponseBodyActionExecutorName {
+	s.NameInEnglish = &v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBodyActionExecutorName) SetType(v string) *GetInstanceByIdResponseBodyActionExecutorName {
+	s.Type = &v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBodyActionExecutorName) SetNameInChinese(v string) *GetInstanceByIdResponseBodyActionExecutorName {
+	s.NameInChinese = &v
+	return s
+}
+
+type GetInstanceByIdResponseBodyOriginator struct {
+	// name
+	Name *GetInstanceByIdResponseBodyOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// deptName
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// email
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+}
+
+func (s GetInstanceByIdResponseBodyOriginator) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstanceByIdResponseBodyOriginator) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstanceByIdResponseBodyOriginator) SetName(v *GetInstanceByIdResponseBodyOriginatorName) *GetInstanceByIdResponseBodyOriginator {
+	s.Name = v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBodyOriginator) SetDeptName(v string) *GetInstanceByIdResponseBodyOriginator {
+	s.DeptName = &v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBodyOriginator) SetUserId(v string) *GetInstanceByIdResponseBodyOriginator {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBodyOriginator) SetEmail(v string) *GetInstanceByIdResponseBodyOriginator {
+	s.Email = &v
+	return s
+}
+
+type GetInstanceByIdResponseBodyOriginatorName struct {
+	// 英文名称
+	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
+	// type
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 中文名称
+	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+}
+
+func (s GetInstanceByIdResponseBodyOriginatorName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstanceByIdResponseBodyOriginatorName) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstanceByIdResponseBodyOriginatorName) SetNameInEnglish(v string) *GetInstanceByIdResponseBodyOriginatorName {
+	s.NameInEnglish = &v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBodyOriginatorName) SetType(v string) *GetInstanceByIdResponseBodyOriginatorName {
+	s.Type = &v
+	return s
+}
+
+func (s *GetInstanceByIdResponseBodyOriginatorName) SetNameInChinese(v string) *GetInstanceByIdResponseBodyOriginatorName {
+	s.NameInChinese = &v
+	return s
+}
+
+type GetInstanceByIdResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetInstanceByIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetInstanceByIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstanceByIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstanceByIdResponse) SetHeaders(v map[string]*string) *GetInstanceByIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetInstanceByIdResponse) SetBody(v *GetInstanceByIdResponseBody) *GetInstanceByIdResponse {
+	s.Body = v
+	return s
+}
+
+type RedirectTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RedirectTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RedirectTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RedirectTaskHeaders) SetCommonHeaders(v map[string]*string) *RedirectTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RedirectTaskHeaders) SetXAcsDingtalkAccessToken(v string) *RedirectTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RedirectTaskRequest struct {
+	// 实例ID
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// 是否应用管理员进行转交; ●
+	// 可选项 : y/n
+	//
+	// ●
+	// y,则userId必须传应用管理员工号，或者yida_pub_account
+	//
+	// ●
+	// n, userId必须传任务的当前执行人
+	ByManager *string `json:"byManager,omitempty" xml:"byManager,omitempty"`
+	// 应用ID
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 验权token; 在应用数据中获取。
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 语言环境; 可选值：zh_CN/en_US
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 转交备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// 新的任务处理人工号
+	NowActionExecutorId *string `json:"nowActionExecutorId,omitempty" xml:"nowActionExecutorId,omitempty"`
+	// 钉钉的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 任务ID
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s RedirectTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RedirectTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RedirectTaskRequest) SetProcessInstanceId(v string) *RedirectTaskRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *RedirectTaskRequest) SetByManager(v string) *RedirectTaskRequest {
+	s.ByManager = &v
+	return s
+}
+
+func (s *RedirectTaskRequest) SetAppType(v string) *RedirectTaskRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *RedirectTaskRequest) SetSystemToken(v string) *RedirectTaskRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *RedirectTaskRequest) SetLanguage(v string) *RedirectTaskRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *RedirectTaskRequest) SetRemark(v string) *RedirectTaskRequest {
+	s.Remark = &v
+	return s
+}
+
+func (s *RedirectTaskRequest) SetNowActionExecutorId(v string) *RedirectTaskRequest {
+	s.NowActionExecutorId = &v
+	return s
+}
+
+func (s *RedirectTaskRequest) SetUserId(v string) *RedirectTaskRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *RedirectTaskRequest) SetTaskId(v int64) *RedirectTaskRequest {
+	s.TaskId = &v
+	return s
+}
+
+type RedirectTaskResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s RedirectTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RedirectTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RedirectTaskResponse) SetHeaders(v map[string]*string) *RedirectTaskResponse {
+	s.Headers = v
+	return s
+}
+
+type ValidateOrderUpdateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ValidateOrderUpdateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateOrderUpdateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateOrderUpdateHeaders) SetCommonHeaders(v map[string]*string) *ValidateOrderUpdateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ValidateOrderUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *ValidateOrderUpdateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ValidateOrderUpdateRequest struct {
 	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
 	CallerUid *string `json:"callerUid,omitempty" xml:"callerUid,omitempty"`
 }
 
-func (s ValidateOrderBuyRequest) String() string {
+func (s ValidateOrderUpdateRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ValidateOrderBuyRequest) GoString() string {
+func (s ValidateOrderUpdateRequest) GoString() string {
 	return s.String()
 }
 
-func (s *ValidateOrderBuyRequest) SetAccessKey(v string) *ValidateOrderBuyRequest {
+func (s *ValidateOrderUpdateRequest) SetAccessKey(v string) *ValidateOrderUpdateRequest {
 	s.AccessKey = &v
 	return s
 }
 
-func (s *ValidateOrderBuyRequest) SetCallerUid(v string) *ValidateOrderBuyRequest {
+func (s *ValidateOrderUpdateRequest) SetCallerUid(v string) *ValidateOrderUpdateRequest {
 	s.CallerUid = &v
 	return s
 }
 
-type ValidateOrderBuyResponseBody struct {
+type ValidateOrderUpdateResponseBody struct {
 	// message
 	Message *string `json:"message,omitempty" xml:"message,omitempty"`
 	// status
 	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
-func (s ValidateOrderBuyResponseBody) String() string {
+func (s ValidateOrderUpdateResponseBody) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ValidateOrderBuyResponseBody) GoString() string {
+func (s ValidateOrderUpdateResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *ValidateOrderBuyResponseBody) SetMessage(v string) *ValidateOrderBuyResponseBody {
+func (s *ValidateOrderUpdateResponseBody) SetMessage(v string) *ValidateOrderUpdateResponseBody {
 	s.Message = &v
 	return s
 }
 
-func (s *ValidateOrderBuyResponseBody) SetStatus(v int32) *ValidateOrderBuyResponseBody {
+func (s *ValidateOrderUpdateResponseBody) SetStatus(v int32) *ValidateOrderUpdateResponseBody {
 	s.Status = &v
 	return s
 }
 
-type ValidateOrderBuyResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ValidateOrderBuyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+type ValidateOrderUpdateResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ValidateOrderUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
-func (s ValidateOrderBuyResponse) String() string {
+func (s ValidateOrderUpdateResponse) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ValidateOrderBuyResponse) GoString() string {
+func (s ValidateOrderUpdateResponse) GoString() string {
 	return s.String()
 }
 
-func (s *ValidateOrderBuyResponse) SetHeaders(v map[string]*string) *ValidateOrderBuyResponse {
+func (s *ValidateOrderUpdateResponse) SetHeaders(v map[string]*string) *ValidateOrderUpdateResponse {
 	s.Headers = v
 	return s
 }
 
-func (s *ValidateOrderBuyResponse) SetBody(v *ValidateOrderBuyResponseBody) *ValidateOrderBuyResponse {
+func (s *ValidateOrderUpdateResponse) SetBody(v *ValidateOrderUpdateResponseBody) *ValidateOrderUpdateResponse {
+	s.Body = v
+	return s
+}
+
+type GetFormComponentDefinitionListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFormComponentDefinitionListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFormComponentDefinitionListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFormComponentDefinitionListHeaders) SetCommonHeaders(v map[string]*string) *GetFormComponentDefinitionListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFormComponentDefinitionListHeaders) SetXAcsDingtalkAccessToken(v string) *GetFormComponentDefinitionListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFormComponentDefinitionListRequest struct {
+	// 应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 语言
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 表单版本
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s GetFormComponentDefinitionListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFormComponentDefinitionListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFormComponentDefinitionListRequest) SetSystemToken(v string) *GetFormComponentDefinitionListRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *GetFormComponentDefinitionListRequest) SetUserId(v string) *GetFormComponentDefinitionListRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetFormComponentDefinitionListRequest) SetLanguage(v string) *GetFormComponentDefinitionListRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *GetFormComponentDefinitionListRequest) SetVersion(v int64) *GetFormComponentDefinitionListRequest {
+	s.Version = &v
+	return s
+}
+
+type GetFormComponentDefinitionListResponseBody struct {
+	Result []*GetFormComponentDefinitionListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetFormComponentDefinitionListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFormComponentDefinitionListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFormComponentDefinitionListResponseBody) SetResult(v []*GetFormComponentDefinitionListResponseBodyResult) *GetFormComponentDefinitionListResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetFormComponentDefinitionListResponseBodyResult struct {
+	// label
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// componentName
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// key
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// parentId
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+}
+
+func (s GetFormComponentDefinitionListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFormComponentDefinitionListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetFormComponentDefinitionListResponseBodyResult) SetLabel(v string) *GetFormComponentDefinitionListResponseBodyResult {
+	s.Label = &v
+	return s
+}
+
+func (s *GetFormComponentDefinitionListResponseBodyResult) SetComponentName(v string) *GetFormComponentDefinitionListResponseBodyResult {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *GetFormComponentDefinitionListResponseBodyResult) SetFieldId(v string) *GetFormComponentDefinitionListResponseBodyResult {
+	s.FieldId = &v
+	return s
+}
+
+func (s *GetFormComponentDefinitionListResponseBodyResult) SetParentId(v string) *GetFormComponentDefinitionListResponseBodyResult {
+	s.ParentId = &v
+	return s
+}
+
+type GetFormComponentDefinitionListResponse struct {
+	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetFormComponentDefinitionListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetFormComponentDefinitionListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFormComponentDefinitionListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFormComponentDefinitionListResponse) SetHeaders(v map[string]*string) *GetFormComponentDefinitionListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFormComponentDefinitionListResponse) SetBody(v *GetFormComponentDefinitionListResponseBody) *GetFormComponentDefinitionListResponse {
 	s.Body = v
 	return s
 }
@@ -2544,6 +9365,541 @@ func (s *SaveFormDataResponse) SetBody(v *SaveFormDataResponseBody) *SaveFormDat
 	return s
 }
 
+type GetMeCorpSubmissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetMeCorpSubmissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMeCorpSubmissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetMeCorpSubmissionHeaders) SetCommonHeaders(v map[string]*string) *GetMeCorpSubmissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetMeCorpSubmissionHeaders) SetXAcsDingtalkAccessToken(v string) *GetMeCorpSubmissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetMeCorpSubmissionRequest struct {
+	// 企业ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 每页记录数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 语言环境
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 当前页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 关键词
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// 应用标识列表
+	AppTypes *string `json:"appTypes,omitempty" xml:"appTypes,omitempty"`
+	// 流程code列表
+	ProcessCodes *string `json:"processCodes,omitempty" xml:"processCodes,omitempty"`
+	// 创建时间开始
+	CreateFromTimeGMT *int64 `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// 创建时间结束
+	CreateToTimeGMT *int64 `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// 验权token
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+}
+
+func (s GetMeCorpSubmissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMeCorpSubmissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetMeCorpSubmissionRequest) SetCorpId(v string) *GetMeCorpSubmissionRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionRequest) SetPageSize(v int32) *GetMeCorpSubmissionRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionRequest) SetLanguage(v string) *GetMeCorpSubmissionRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionRequest) SetPageNumber(v int32) *GetMeCorpSubmissionRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionRequest) SetKeyword(v string) *GetMeCorpSubmissionRequest {
+	s.Keyword = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionRequest) SetAppTypes(v string) *GetMeCorpSubmissionRequest {
+	s.AppTypes = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionRequest) SetProcessCodes(v string) *GetMeCorpSubmissionRequest {
+	s.ProcessCodes = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionRequest) SetCreateFromTimeGMT(v int64) *GetMeCorpSubmissionRequest {
+	s.CreateFromTimeGMT = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionRequest) SetCreateToTimeGMT(v int64) *GetMeCorpSubmissionRequest {
+	s.CreateToTimeGMT = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionRequest) SetToken(v string) *GetMeCorpSubmissionRequest {
+	s.Token = &v
+	return s
+}
+
+type GetMeCorpSubmissionResponseBody struct {
+	// 总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 当前第几页
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// data
+	Data []*GetMeCorpSubmissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s GetMeCorpSubmissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMeCorpSubmissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetMeCorpSubmissionResponseBody) SetTotalCount(v int64) *GetMeCorpSubmissionResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBody) SetPageNumber(v int64) *GetMeCorpSubmissionResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBody) SetData(v []*GetMeCorpSubmissionResponseBodyData) *GetMeCorpSubmissionResponseBody {
+	s.Data = v
+	return s
+}
+
+type GetMeCorpSubmissionResponseBodyData struct {
+	// actionerName
+	ActionerName []*string `json:"actionerName,omitempty" xml:"actionerName,omitempty" type:"Repeated"`
+	// processInstanceId
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// modifiedTime
+	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	// finishTime
+	FinishTimeGMT *string `json:"finishTimeGMT,omitempty" xml:"finishTimeGMT,omitempty"`
+	// formUuid
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// processInstanceStatus
+	ProcessInstanceStatus *string `json:"processInstanceStatus,omitempty" xml:"processInstanceStatus,omitempty"`
+	// originatorDisplayName
+	OriginatorDisplayName *string `json:"originatorDisplayName,omitempty" xml:"originatorDisplayName,omitempty"`
+	// dataType
+	DataType *string `json:"dataType,omitempty" xml:"dataType,omitempty"`
+	// originatorAvatar
+	OriginatorAvatar *string `json:"originatorAvatar,omitempty" xml:"originatorAvatar,omitempty"`
+	// processInstanceStatusText
+	ProcessInstanceStatusText *string `json:"processInstanceStatusText,omitempty" xml:"processInstanceStatusText,omitempty"`
+	// actioner
+	Actioner []*GetMeCorpSubmissionResponseBodyDataActioner `json:"actioner,omitempty" xml:"actioner,omitempty" type:"Repeated"`
+	// processApprovedResultText
+	ProcessApprovedResultText *string `json:"processApprovedResultText,omitempty" xml:"processApprovedResultText,omitempty"`
+	// formInstanceId
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// title
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// version
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+	// instValue
+	InstanceValue *string `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
+	// processApprovedResult
+	ProcessApprovedResult *string `json:"processApprovedResult,omitempty" xml:"processApprovedResult,omitempty"`
+	// createTime
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// processId
+	ProcessId *int64 `json:"processId,omitempty" xml:"processId,omitempty"`
+	// processName
+	ProcessName *string `json:"processName,omitempty" xml:"processName,omitempty"`
+	// processCode
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// appType
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// actionerId
+	ActionerId []*string `json:"actionerId,omitempty" xml:"actionerId,omitempty" type:"Repeated"`
+	// dataMap
+	DataMap map[string]interface{} `json:"dataMap,omitempty" xml:"dataMap,omitempty"`
+	// currentActivityInstances
+	CurrentActivityInstances []*GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances `json:"currentActivityInstances,omitempty" xml:"currentActivityInstances,omitempty" type:"Repeated"`
+	// originatorId
+	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+}
+
+func (s GetMeCorpSubmissionResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMeCorpSubmissionResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetActionerName(v []*string) *GetMeCorpSubmissionResponseBodyData {
+	s.ActionerName = v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetProcessInstanceId(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetModifiedTimeGMT(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.ModifiedTimeGMT = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetFinishTimeGMT(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.FinishTimeGMT = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetFormUuid(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetProcessInstanceStatus(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.ProcessInstanceStatus = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetOriginatorDisplayName(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.OriginatorDisplayName = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetDataType(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.DataType = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetOriginatorAvatar(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.OriginatorAvatar = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetProcessInstanceStatusText(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.ProcessInstanceStatusText = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetActioner(v []*GetMeCorpSubmissionResponseBodyDataActioner) *GetMeCorpSubmissionResponseBodyData {
+	s.Actioner = v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetProcessApprovedResultText(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.ProcessApprovedResultText = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetFormInstanceId(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.FormInstanceId = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetTitle(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.Title = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetVersion(v int64) *GetMeCorpSubmissionResponseBodyData {
+	s.Version = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetInstanceValue(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.InstanceValue = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetProcessApprovedResult(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.ProcessApprovedResult = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetCreateTimeGMT(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.CreateTimeGMT = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetProcessId(v int64) *GetMeCorpSubmissionResponseBodyData {
+	s.ProcessId = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetProcessName(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.ProcessName = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetProcessCode(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetAppType(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetActionerId(v []*string) *GetMeCorpSubmissionResponseBodyData {
+	s.ActionerId = v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetDataMap(v map[string]interface{}) *GetMeCorpSubmissionResponseBodyData {
+	s.DataMap = v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetCurrentActivityInstances(v []*GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances) *GetMeCorpSubmissionResponseBodyData {
+	s.CurrentActivityInstances = v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyData) SetOriginatorId(v string) *GetMeCorpSubmissionResponseBodyData {
+	s.OriginatorId = &v
+	return s
+}
+
+type GetMeCorpSubmissionResponseBodyDataActioner struct {
+	// employeeTypeInformation
+	EmployeeTypeInformation *string `json:"employeeTypeInformation,omitempty" xml:"employeeTypeInformation,omitempty"`
+	// empType
+	EmployeeType *string `json:"employeeType,omitempty" xml:"employeeType,omitempty"`
+	// level
+	Level *string `json:"level,omitempty" xml:"level,omitempty"`
+	// nickName
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// orderNum
+	OrderNumber *string `json:"orderNumber,omitempty" xml:"orderNumber,omitempty"`
+	// pinyinNick
+	PinyinNickName *string `json:"pinyinNickName,omitempty" xml:"pinyinNickName,omitempty"`
+	// superUserId
+	SuperUserId *string `json:"superUserId,omitempty" xml:"superUserId,omitempty"`
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// buName
+	BuName *string `json:"buName,omitempty" xml:"buName,omitempty"`
+	// tbWang
+	TbWang *string `json:"tbWang,omitempty" xml:"tbWang,omitempty"`
+	// hrgWorkNo
+	HumanResourceGroupWorkNumber *string `json:"humanResourceGroupWorkNumber,omitempty" xml:"humanResourceGroupWorkNumber,omitempty"`
+	// pinyinNameAll
+	PinyinNameAll *string `json:"pinyinNameAll,omitempty" xml:"pinyinNameAll,omitempty"`
+	// name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// state
+	State *string `json:"state,omitempty" xml:"state,omitempty"`
+	// personalPhotoUrl
+	PersonalPhotoUrl *string `json:"personalPhotoUrl,omitempty" xml:"personalPhotoUrl,omitempty"`
+	// isSystemAdmin
+	IsSystemAdmin *bool `json:"isSystemAdmin,omitempty" xml:"isSystemAdmin,omitempty"`
+	// email
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+	// personalPhoto
+	PersonalPhoto *string `json:"personalPhoto,omitempty" xml:"personalPhoto,omitempty"`
+}
+
+func (s GetMeCorpSubmissionResponseBodyDataActioner) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMeCorpSubmissionResponseBodyDataActioner) GoString() string {
+	return s.String()
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetEmployeeTypeInformation(v string) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.EmployeeTypeInformation = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetEmployeeType(v string) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.EmployeeType = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetLevel(v string) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.Level = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetNickName(v string) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.NickName = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetOrderNumber(v string) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.OrderNumber = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetPinyinNickName(v string) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.PinyinNickName = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetSuperUserId(v string) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.SuperUserId = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetUserId(v string) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetBuName(v string) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.BuName = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetTbWang(v string) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.TbWang = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetHumanResourceGroupWorkNumber(v string) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.HumanResourceGroupWorkNumber = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetPinyinNameAll(v string) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.PinyinNameAll = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetName(v string) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.Name = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetState(v string) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.State = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetPersonalPhotoUrl(v string) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.PersonalPhotoUrl = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetIsSystemAdmin(v bool) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.IsSystemAdmin = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetEmail(v string) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.Email = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataActioner) SetPersonalPhoto(v string) *GetMeCorpSubmissionResponseBodyDataActioner {
+	s.PersonalPhoto = &v
+	return s
+}
+
+type GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances struct {
+	// activityName
+	ActivityName *string `json:"activityName,omitempty" xml:"activityName,omitempty"`
+	// activityNameEn
+	ActivityNameEn *string `json:"activityNameEn,omitempty" xml:"activityNameEn,omitempty"`
+	// activityId
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// activityInstanceStatus
+	ActivityInstanceStatus *string `json:"activityInstanceStatus,omitempty" xml:"activityInstanceStatus,omitempty"`
+}
+
+func (s GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances) GoString() string {
+	return s.String()
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances) SetActivityName(v string) *GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances {
+	s.ActivityName = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances) SetActivityNameEn(v string) *GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances {
+	s.ActivityNameEn = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances) SetActivityId(v string) *GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances) SetId(v int64) *GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances {
+	s.Id = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances) SetActivityInstanceStatus(v string) *GetMeCorpSubmissionResponseBodyDataCurrentActivityInstances {
+	s.ActivityInstanceStatus = &v
+	return s
+}
+
+type GetMeCorpSubmissionResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetMeCorpSubmissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetMeCorpSubmissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMeCorpSubmissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetMeCorpSubmissionResponse) SetHeaders(v map[string]*string) *GetMeCorpSubmissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetMeCorpSubmissionResponse) SetBody(v *GetMeCorpSubmissionResponseBody) *GetMeCorpSubmissionResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteFormDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2630,572 +9986,246 @@ func (s *DeleteFormDataResponse) SetHeaders(v map[string]*string) *DeleteFormDat
 	return s
 }
 
-type UpdateInstanceHeaders struct {
+type SearchFormDataIdListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s UpdateInstanceHeaders) String() string {
+func (s SearchFormDataIdListHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s UpdateInstanceHeaders) GoString() string {
+func (s SearchFormDataIdListHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateInstanceHeaders) SetCommonHeaders(v map[string]*string) *UpdateInstanceHeaders {
+func (s *SearchFormDataIdListHeaders) SetCommonHeaders(v map[string]*string) *SearchFormDataIdListHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *UpdateInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateInstanceHeaders {
+func (s *SearchFormDataIdListHeaders) SetXAcsDingtalkAccessToken(v string) *SearchFormDataIdListHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type UpdateInstanceRequest struct {
-	// 实例ID
-	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	// 应用ID
-	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	// 更新的表单数据
-	UpdateFormDataJson *string `json:"updateFormDataJson,omitempty" xml:"updateFormDataJson,omitempty"`
+type SearchFormDataIdListRequest struct {
+	// modifiedFrom和modifiedTo构成一个时间段，查询在该时间段有修改的数据列表。
+	ModifiedToTimeGMT *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
 	// 应用秘钥
 	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	// 语言环境
+	// modifiedFrom和modifiedTo构成一个时间段，查询在该时间段有修改的数据列表
+	ModifiedFromTimeGMT *string `json:"modifiedFromTimeGMT,omitempty" xml:"modifiedFromTimeGMT,omitempty"`
+	// 语言
 	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 根据表单内组件值查询
+	SearchFieldJson *string `json:"searchFieldJson,omitempty" xml:"searchFieldJson,omitempty"`
 	// 钉钉的userId
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 根据数据提交人工号查询
+	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	// createFrom和createTo两个时间构造一个时间段。查询在该时间段创建的数据列表。
+	CreateToTimeGMT *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// createFrom和createTo两个时间构造一个时间段。查询在该时间段创建的数据列表
+	CreateFromTimeGMT *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	PageNumber        *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize          *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
-func (s UpdateInstanceRequest) String() string {
+func (s SearchFormDataIdListRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s UpdateInstanceRequest) GoString() string {
+func (s SearchFormDataIdListRequest) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateInstanceRequest) SetProcessInstanceId(v string) *UpdateInstanceRequest {
-	s.ProcessInstanceId = &v
+func (s *SearchFormDataIdListRequest) SetModifiedToTimeGMT(v string) *SearchFormDataIdListRequest {
+	s.ModifiedToTimeGMT = &v
 	return s
 }
 
-func (s *UpdateInstanceRequest) SetAppType(v string) *UpdateInstanceRequest {
-	s.AppType = &v
-	return s
-}
-
-func (s *UpdateInstanceRequest) SetUpdateFormDataJson(v string) *UpdateInstanceRequest {
-	s.UpdateFormDataJson = &v
-	return s
-}
-
-func (s *UpdateInstanceRequest) SetSystemToken(v string) *UpdateInstanceRequest {
+func (s *SearchFormDataIdListRequest) SetSystemToken(v string) *SearchFormDataIdListRequest {
 	s.SystemToken = &v
 	return s
 }
 
-func (s *UpdateInstanceRequest) SetLanguage(v string) *UpdateInstanceRequest {
+func (s *SearchFormDataIdListRequest) SetModifiedFromTimeGMT(v string) *SearchFormDataIdListRequest {
+	s.ModifiedFromTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataIdListRequest) SetLanguage(v string) *SearchFormDataIdListRequest {
 	s.Language = &v
 	return s
 }
 
-func (s *UpdateInstanceRequest) SetUserId(v string) *UpdateInstanceRequest {
+func (s *SearchFormDataIdListRequest) SetSearchFieldJson(v string) *SearchFormDataIdListRequest {
+	s.SearchFieldJson = &v
+	return s
+}
+
+func (s *SearchFormDataIdListRequest) SetUserId(v string) *SearchFormDataIdListRequest {
 	s.UserId = &v
 	return s
 }
 
-type UpdateInstanceResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-}
-
-func (s UpdateInstanceResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateInstanceResponse) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateInstanceResponse) SetHeaders(v map[string]*string) *UpdateInstanceResponse {
-	s.Headers = v
+func (s *SearchFormDataIdListRequest) SetOriginatorId(v string) *SearchFormDataIdListRequest {
+	s.OriginatorId = &v
 	return s
 }
 
-type ListCommodityHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s ListCommodityHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ListCommodityHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *ListCommodityHeaders) SetCommonHeaders(v map[string]*string) *ListCommodityHeaders {
-	s.CommonHeaders = v
+func (s *SearchFormDataIdListRequest) SetCreateToTimeGMT(v string) *SearchFormDataIdListRequest {
+	s.CreateToTimeGMT = &v
 	return s
 }
 
-func (s *ListCommodityHeaders) SetXAcsDingtalkAccessToken(v string) *ListCommodityHeaders {
-	s.XAcsDingtalkAccessToken = &v
+func (s *SearchFormDataIdListRequest) SetCreateFromTimeGMT(v string) *SearchFormDataIdListRequest {
+	s.CreateFromTimeGMT = &v
 	return s
 }
 
-type ListCommodityRequest struct {
-	// accessKey
-	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
-	// pageSize
-	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// callerUid
-	CallerUid *string `json:"callerUid,omitempty" xml:"callerUid,omitempty"`
-	// currentPage
-	CurrentPage *int32 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
-}
-
-func (s ListCommodityRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ListCommodityRequest) GoString() string {
-	return s.String()
-}
-
-func (s *ListCommodityRequest) SetAccessKey(v string) *ListCommodityRequest {
-	s.AccessKey = &v
+func (s *SearchFormDataIdListRequest) SetPageNumber(v int32) *SearchFormDataIdListRequest {
+	s.PageNumber = &v
 	return s
 }
 
-func (s *ListCommodityRequest) SetPageSize(v int32) *ListCommodityRequest {
+func (s *SearchFormDataIdListRequest) SetPageSize(v int32) *SearchFormDataIdListRequest {
 	s.PageSize = &v
 	return s
 }
 
-func (s *ListCommodityRequest) SetCallerUid(v string) *ListCommodityRequest {
-	s.CallerUid = &v
-	return s
-}
-
-func (s *ListCommodityRequest) SetCurrentPage(v int32) *ListCommodityRequest {
-	s.CurrentPage = &v
-	return s
-}
-
-type ListCommodityResponseBody struct {
-	// 分页大小
-	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// commodityVOList
-	CommodityVOList []*ListCommodityResponseBodyCommodityVOList `json:"commodityVOList,omitempty" xml:"commodityVOList,omitempty" type:"Repeated"`
-	// 当前第几页
-	CurrentPage *int32 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+type SearchFormDataIdListResponseBody struct {
 	// 总数量
-	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 当前第几页
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// data
+	Data []*string `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
 }
 
-func (s ListCommodityResponseBody) String() string {
+func (s SearchFormDataIdListResponseBody) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ListCommodityResponseBody) GoString() string {
+func (s SearchFormDataIdListResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *ListCommodityResponseBody) SetPageSize(v int32) *ListCommodityResponseBody {
-	s.PageSize = &v
-	return s
-}
-
-func (s *ListCommodityResponseBody) SetCommodityVOList(v []*ListCommodityResponseBodyCommodityVOList) *ListCommodityResponseBody {
-	s.CommodityVOList = v
-	return s
-}
-
-func (s *ListCommodityResponseBody) SetCurrentPage(v int32) *ListCommodityResponseBody {
-	s.CurrentPage = &v
-	return s
-}
-
-func (s *ListCommodityResponseBody) SetTotalCount(v int32) *ListCommodityResponseBody {
+func (s *SearchFormDataIdListResponseBody) SetTotalCount(v int64) *SearchFormDataIdListResponseBody {
 	s.TotalCount = &v
 	return s
 }
 
-type ListCommodityResponseBodyCommodityVOList struct {
-	// instanceId
-	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	// buyDate
-	BuyDateGMT *string `json:"buyDateGMT,omitempty" xml:"buyDateGMT,omitempty"`
-	// expireDate
-	ExpireDateGMT *string `json:"expireDateGMT,omitempty" xml:"expireDateGMT,omitempty"`
-	// activationCode
-	ActivationCode *string `json:"activationCode,omitempty" xml:"activationCode,omitempty"`
-	// accountNum
-	AccountNumber *int32 `json:"accountNumber,omitempty" xml:"accountNumber,omitempty"`
-	// accountDistributionNumber
-	AccountDistributionNumber *int32 `json:"accountDistributionNumber,omitempty" xml:"accountDistributionNumber,omitempty"`
-	// version
-	Version *int32 `json:"version,omitempty" xml:"version,omitempty"`
-	// status
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+func (s *SearchFormDataIdListResponseBody) SetPageNumber(v int64) *SearchFormDataIdListResponseBody {
+	s.PageNumber = &v
+	return s
 }
 
-func (s ListCommodityResponseBodyCommodityVOList) String() string {
+func (s *SearchFormDataIdListResponseBody) SetData(v []*string) *SearchFormDataIdListResponseBody {
+	s.Data = v
+	return s
+}
+
+type SearchFormDataIdListResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchFormDataIdListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchFormDataIdListResponse) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ListCommodityResponseBodyCommodityVOList) GoString() string {
+func (s SearchFormDataIdListResponse) GoString() string {
 	return s.String()
 }
 
-func (s *ListCommodityResponseBodyCommodityVOList) SetInstanceId(v string) *ListCommodityResponseBodyCommodityVOList {
-	s.InstanceId = &v
-	return s
-}
-
-func (s *ListCommodityResponseBodyCommodityVOList) SetBuyDateGMT(v string) *ListCommodityResponseBodyCommodityVOList {
-	s.BuyDateGMT = &v
-	return s
-}
-
-func (s *ListCommodityResponseBodyCommodityVOList) SetExpireDateGMT(v string) *ListCommodityResponseBodyCommodityVOList {
-	s.ExpireDateGMT = &v
-	return s
-}
-
-func (s *ListCommodityResponseBodyCommodityVOList) SetActivationCode(v string) *ListCommodityResponseBodyCommodityVOList {
-	s.ActivationCode = &v
-	return s
-}
-
-func (s *ListCommodityResponseBodyCommodityVOList) SetAccountNumber(v int32) *ListCommodityResponseBodyCommodityVOList {
-	s.AccountNumber = &v
-	return s
-}
-
-func (s *ListCommodityResponseBodyCommodityVOList) SetAccountDistributionNumber(v int32) *ListCommodityResponseBodyCommodityVOList {
-	s.AccountDistributionNumber = &v
-	return s
-}
-
-func (s *ListCommodityResponseBodyCommodityVOList) SetVersion(v int32) *ListCommodityResponseBodyCommodityVOList {
-	s.Version = &v
-	return s
-}
-
-func (s *ListCommodityResponseBodyCommodityVOList) SetStatus(v string) *ListCommodityResponseBodyCommodityVOList {
-	s.Status = &v
-	return s
-}
-
-type ListCommodityResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ListCommodityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s ListCommodityResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ListCommodityResponse) GoString() string {
-	return s.String()
-}
-
-func (s *ListCommodityResponse) SetHeaders(v map[string]*string) *ListCommodityResponse {
+func (s *SearchFormDataIdListResponse) SetHeaders(v map[string]*string) *SearchFormDataIdListResponse {
 	s.Headers = v
 	return s
 }
 
-func (s *ListCommodityResponse) SetBody(v *ListCommodityResponseBody) *ListCommodityResponse {
+func (s *SearchFormDataIdListResponse) SetBody(v *SearchFormDataIdListResponseBody) *SearchFormDataIdListResponse {
 	s.Body = v
 	return s
 }
 
-type GetApplicationAuthorizationServicePlatformResourceHeaders struct {
+type GetActivationCodeByCallerUnionIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s GetApplicationAuthorizationServicePlatformResourceHeaders) String() string {
+func (s GetActivationCodeByCallerUnionIdHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetApplicationAuthorizationServicePlatformResourceHeaders) GoString() string {
+func (s GetActivationCodeByCallerUnionIdHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *GetApplicationAuthorizationServicePlatformResourceHeaders) SetCommonHeaders(v map[string]*string) *GetApplicationAuthorizationServicePlatformResourceHeaders {
+func (s *GetActivationCodeByCallerUnionIdHeaders) SetCommonHeaders(v map[string]*string) *GetActivationCodeByCallerUnionIdHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *GetApplicationAuthorizationServicePlatformResourceHeaders) SetXAcsDingtalkAccessToken(v string) *GetApplicationAuthorizationServicePlatformResourceHeaders {
+func (s *GetActivationCodeByCallerUnionIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetActivationCodeByCallerUnionIdHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type GetApplicationAuthorizationServicePlatformResourceRequest struct {
-	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	AccessKey  *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
-	CallerUid  *string `json:"callerUid,omitempty" xml:"callerUid,omitempty"`
+type GetActivationCodeByCallerUnionIdRequest struct {
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
 }
 
-func (s GetApplicationAuthorizationServicePlatformResourceRequest) String() string {
+func (s GetActivationCodeByCallerUnionIdRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetApplicationAuthorizationServicePlatformResourceRequest) GoString() string {
+func (s GetActivationCodeByCallerUnionIdRequest) GoString() string {
 	return s.String()
 }
 
-func (s *GetApplicationAuthorizationServicePlatformResourceRequest) SetInstanceId(v string) *GetApplicationAuthorizationServicePlatformResourceRequest {
-	s.InstanceId = &v
-	return s
-}
-
-func (s *GetApplicationAuthorizationServicePlatformResourceRequest) SetAccessKey(v string) *GetApplicationAuthorizationServicePlatformResourceRequest {
+func (s *GetActivationCodeByCallerUnionIdRequest) SetAccessKey(v string) *GetActivationCodeByCallerUnionIdRequest {
 	s.AccessKey = &v
 	return s
 }
 
-func (s *GetApplicationAuthorizationServicePlatformResourceRequest) SetCallerUid(v string) *GetApplicationAuthorizationServicePlatformResourceRequest {
-	s.CallerUid = &v
-	return s
+type GetActivationCodeByCallerUnionIdResponseBody struct {
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
-type GetApplicationAuthorizationServicePlatformResourceResponseBody struct {
-	// appTotalAmount
-	AppTotalAmount *int32 `json:"appTotalAmount,omitempty" xml:"appTotalAmount,omitempty"`
-	// instanceId
-	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	// instanceTotalAmount
-	InstanceTotalAmount *int64 `json:"instanceTotalAmount,omitempty" xml:"instanceTotalAmount,omitempty"`
-	// instanceUsageAmount
-	InstanceUsageAmount *int64 `json:"instanceUsageAmount,omitempty" xml:"instanceUsageAmount,omitempty"`
-	// accountUsageAmount
-	AccountUsageAmount *int32 `json:"accountUsageAmount,omitempty" xml:"accountUsageAmount,omitempty"`
-	// accountTotalAmount
-	AccountTotalAmount *int32 `json:"accountTotalAmount,omitempty" xml:"accountTotalAmount,omitempty"`
-	// pluginUsageAmount
-	PluginUsageAmount *int64 `json:"pluginUsageAmount,omitempty" xml:"pluginUsageAmount,omitempty"`
-	// attachmentTotalAmount
-	AttachmentTotalAmount *int64 `json:"attachmentTotalAmount,omitempty" xml:"attachmentTotalAmount,omitempty"`
-	// attachmentUsageAmount
-	AttachmentUsageAmount *int64 `json:"attachmentUsageAmount,omitempty" xml:"attachmentUsageAmount,omitempty"`
-}
-
-func (s GetApplicationAuthorizationServicePlatformResourceResponseBody) String() string {
+func (s GetActivationCodeByCallerUnionIdResponseBody) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetApplicationAuthorizationServicePlatformResourceResponseBody) GoString() string {
+func (s GetActivationCodeByCallerUnionIdResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetAppTotalAmount(v int32) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
-	s.AppTotalAmount = &v
+func (s *GetActivationCodeByCallerUnionIdResponseBody) SetResult(v string) *GetActivationCodeByCallerUnionIdResponseBody {
+	s.Result = &v
 	return s
 }
 
-func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetInstanceId(v string) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
-	s.InstanceId = &v
-	return s
+type GetActivationCodeByCallerUnionIdResponse struct {
+	Headers map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetActivationCodeByCallerUnionIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
-func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetInstanceTotalAmount(v int64) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
-	s.InstanceTotalAmount = &v
-	return s
-}
-
-func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetInstanceUsageAmount(v int64) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
-	s.InstanceUsageAmount = &v
-	return s
-}
-
-func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetAccountUsageAmount(v int32) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
-	s.AccountUsageAmount = &v
-	return s
-}
-
-func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetAccountTotalAmount(v int32) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
-	s.AccountTotalAmount = &v
-	return s
-}
-
-func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetPluginUsageAmount(v int64) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
-	s.PluginUsageAmount = &v
-	return s
-}
-
-func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetAttachmentTotalAmount(v int64) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
-	s.AttachmentTotalAmount = &v
-	return s
-}
-
-func (s *GetApplicationAuthorizationServicePlatformResourceResponseBody) SetAttachmentUsageAmount(v int64) *GetApplicationAuthorizationServicePlatformResourceResponseBody {
-	s.AttachmentUsageAmount = &v
-	return s
-}
-
-type GetApplicationAuthorizationServicePlatformResourceResponse struct {
-	Headers map[string]*string                                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetApplicationAuthorizationServicePlatformResourceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s GetApplicationAuthorizationServicePlatformResourceResponse) String() string {
+func (s GetActivationCodeByCallerUnionIdResponse) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetApplicationAuthorizationServicePlatformResourceResponse) GoString() string {
+func (s GetActivationCodeByCallerUnionIdResponse) GoString() string {
 	return s.String()
 }
 
-func (s *GetApplicationAuthorizationServicePlatformResourceResponse) SetHeaders(v map[string]*string) *GetApplicationAuthorizationServicePlatformResourceResponse {
+func (s *GetActivationCodeByCallerUnionIdResponse) SetHeaders(v map[string]*string) *GetActivationCodeByCallerUnionIdResponse {
 	s.Headers = v
 	return s
 }
 
-func (s *GetApplicationAuthorizationServicePlatformResourceResponse) SetBody(v *GetApplicationAuthorizationServicePlatformResourceResponseBody) *GetApplicationAuthorizationServicePlatformResourceResponse {
-	s.Body = v
-	return s
-}
-
-type GetActivityListHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s GetActivityListHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetActivityListHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *GetActivityListHeaders) SetCommonHeaders(v map[string]*string) *GetActivityListHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *GetActivityListHeaders) SetXAcsDingtalkAccessToken(v string) *GetActivityListHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type GetActivityListRequest struct {
-	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	AppType     *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	Language    *string `json:"language,omitempty" xml:"language,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
-}
-
-func (s GetActivityListRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetActivityListRequest) GoString() string {
-	return s.String()
-}
-
-func (s *GetActivityListRequest) SetProcessCode(v string) *GetActivityListRequest {
-	s.ProcessCode = &v
-	return s
-}
-
-func (s *GetActivityListRequest) SetAppType(v string) *GetActivityListRequest {
-	s.AppType = &v
-	return s
-}
-
-func (s *GetActivityListRequest) SetSystemToken(v string) *GetActivityListRequest {
-	s.SystemToken = &v
-	return s
-}
-
-func (s *GetActivityListRequest) SetLanguage(v string) *GetActivityListRequest {
-	s.Language = &v
-	return s
-}
-
-func (s *GetActivityListRequest) SetUserId(v string) *GetActivityListRequest {
-	s.UserId = &v
-	return s
-}
-
-type GetActivityListResponseBody struct {
-	// Id of the request
-	Result []*GetActivityListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-}
-
-func (s GetActivityListResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetActivityListResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *GetActivityListResponseBody) SetResult(v []*GetActivityListResponseBodyResult) *GetActivityListResponseBody {
-	s.Result = v
-	return s
-}
-
-type GetActivityListResponseBodyResult struct {
-	// activityName
-	ActivityName *string `json:"activityName,omitempty" xml:"activityName,omitempty"`
-	// activityNameEn
-	ActivityNameInEnglish *string `json:"activityNameInEnglish,omitempty" xml:"activityNameInEnglish,omitempty"`
-	// activityId
-	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
-}
-
-func (s GetActivityListResponseBodyResult) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetActivityListResponseBodyResult) GoString() string {
-	return s.String()
-}
-
-func (s *GetActivityListResponseBodyResult) SetActivityName(v string) *GetActivityListResponseBodyResult {
-	s.ActivityName = &v
-	return s
-}
-
-func (s *GetActivityListResponseBodyResult) SetActivityNameInEnglish(v string) *GetActivityListResponseBodyResult {
-	s.ActivityNameInEnglish = &v
-	return s
-}
-
-func (s *GetActivityListResponseBodyResult) SetActivityId(v string) *GetActivityListResponseBodyResult {
-	s.ActivityId = &v
-	return s
-}
-
-type GetActivityListResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetActivityListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s GetActivityListResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetActivityListResponse) GoString() string {
-	return s.String()
-}
-
-func (s *GetActivityListResponse) SetHeaders(v map[string]*string) *GetActivityListResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *GetActivityListResponse) SetBody(v *GetActivityListResponseBody) *GetActivityListResponse {
+func (s *GetActivationCodeByCallerUnionIdResponse) SetBody(v *GetActivationCodeByCallerUnionIdResponseBody) *GetActivationCodeByCallerUnionIdResponse {
 	s.Body = v
 	return s
 }
@@ -3398,116 +10428,6 @@ func (s *GetFormDataByIDResponse) SetHeaders(v map[string]*string) *GetFormDataB
 }
 
 func (s *GetFormDataByIDResponse) SetBody(v *GetFormDataByIDResponseBody) *GetFormDataByIDResponse {
-	s.Body = v
-	return s
-}
-
-type ExecuteCustomApiHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s ExecuteCustomApiHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ExecuteCustomApiHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *ExecuteCustomApiHeaders) SetCommonHeaders(v map[string]*string) *ExecuteCustomApiHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *ExecuteCustomApiHeaders) SetXAcsDingtalkAccessToken(v string) *ExecuteCustomApiHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type ExecuteCustomApiRequest struct {
-	Data        *string `json:"data,omitempty" xml:"data,omitempty"`
-	AppType     *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	Language    *string `json:"language,omitempty" xml:"language,omitempty"`
-	ServiceId   *string `json:"serviceId,omitempty" xml:"serviceId,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
-}
-
-func (s ExecuteCustomApiRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ExecuteCustomApiRequest) GoString() string {
-	return s.String()
-}
-
-func (s *ExecuteCustomApiRequest) SetData(v string) *ExecuteCustomApiRequest {
-	s.Data = &v
-	return s
-}
-
-func (s *ExecuteCustomApiRequest) SetAppType(v string) *ExecuteCustomApiRequest {
-	s.AppType = &v
-	return s
-}
-
-func (s *ExecuteCustomApiRequest) SetSystemToken(v string) *ExecuteCustomApiRequest {
-	s.SystemToken = &v
-	return s
-}
-
-func (s *ExecuteCustomApiRequest) SetLanguage(v string) *ExecuteCustomApiRequest {
-	s.Language = &v
-	return s
-}
-
-func (s *ExecuteCustomApiRequest) SetServiceId(v string) *ExecuteCustomApiRequest {
-	s.ServiceId = &v
-	return s
-}
-
-func (s *ExecuteCustomApiRequest) SetUserId(v string) *ExecuteCustomApiRequest {
-	s.UserId = &v
-	return s
-}
-
-type ExecuteCustomApiResponseBody struct {
-	Result *string `json:"result,omitempty" xml:"result,omitempty"`
-}
-
-func (s ExecuteCustomApiResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ExecuteCustomApiResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *ExecuteCustomApiResponseBody) SetResult(v string) *ExecuteCustomApiResponseBody {
-	s.Result = &v
-	return s
-}
-
-type ExecuteCustomApiResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *ExecuteCustomApiResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s ExecuteCustomApiResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ExecuteCustomApiResponse) GoString() string {
-	return s.String()
-}
-
-func (s *ExecuteCustomApiResponse) SetHeaders(v map[string]*string) *ExecuteCustomApiResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *ExecuteCustomApiResponse) SetBody(v *ExecuteCustomApiResponseBody) *ExecuteCustomApiResponse {
 	s.Body = v
 	return s
 }
@@ -3793,84 +10713,247 @@ func (s *ReleaseCommodityResponse) SetBody(v *ReleaseCommodityResponseBody) *Rel
 	return s
 }
 
-type LoginCodeGenHeaders struct {
+type RenderBatchCallbackHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s LoginCodeGenHeaders) String() string {
+func (s RenderBatchCallbackHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s LoginCodeGenHeaders) GoString() string {
+func (s RenderBatchCallbackHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *LoginCodeGenHeaders) SetCommonHeaders(v map[string]*string) *LoginCodeGenHeaders {
+func (s *RenderBatchCallbackHeaders) SetCommonHeaders(v map[string]*string) *RenderBatchCallbackHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *LoginCodeGenHeaders) SetXAcsDingtalkAccessToken(v string) *LoginCodeGenHeaders {
+func (s *RenderBatchCallbackHeaders) SetXAcsDingtalkAccessToken(v string) *RenderBatchCallbackHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type LoginCodeGenRequest struct {
+type RenderBatchCallbackRequest struct {
+	// oss文件链接
+	OssUrl *string `json:"ossUrl,omitempty" xml:"ossUrl,omitempty"`
+	// 组织id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 文件大小
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// appType
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// systemToken
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 名称空间
+	Namespace *string `json:"namespace,omitempty" xml:"namespace,omitempty"`
+	// 时间区域
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+	// language
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 源
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// 流水号
+	SequenceId *string `json:"sequenceId,omitempty" xml:"sequenceId,omitempty"`
 	// userId
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
-func (s LoginCodeGenRequest) String() string {
+func (s RenderBatchCallbackRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s LoginCodeGenRequest) GoString() string {
+func (s RenderBatchCallbackRequest) GoString() string {
 	return s.String()
 }
 
-func (s *LoginCodeGenRequest) SetUserId(v string) *LoginCodeGenRequest {
+func (s *RenderBatchCallbackRequest) SetOssUrl(v string) *RenderBatchCallbackRequest {
+	s.OssUrl = &v
+	return s
+}
+
+func (s *RenderBatchCallbackRequest) SetCorpId(v string) *RenderBatchCallbackRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *RenderBatchCallbackRequest) SetFileSize(v int64) *RenderBatchCallbackRequest {
+	s.FileSize = &v
+	return s
+}
+
+func (s *RenderBatchCallbackRequest) SetAppType(v string) *RenderBatchCallbackRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *RenderBatchCallbackRequest) SetSystemToken(v string) *RenderBatchCallbackRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *RenderBatchCallbackRequest) SetNamespace(v string) *RenderBatchCallbackRequest {
+	s.Namespace = &v
+	return s
+}
+
+func (s *RenderBatchCallbackRequest) SetTimeZone(v string) *RenderBatchCallbackRequest {
+	s.TimeZone = &v
+	return s
+}
+
+func (s *RenderBatchCallbackRequest) SetLanguage(v string) *RenderBatchCallbackRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *RenderBatchCallbackRequest) SetSource(v string) *RenderBatchCallbackRequest {
+	s.Source = &v
+	return s
+}
+
+func (s *RenderBatchCallbackRequest) SetSequenceId(v string) *RenderBatchCallbackRequest {
+	s.SequenceId = &v
+	return s
+}
+
+func (s *RenderBatchCallbackRequest) SetUserId(v string) *RenderBatchCallbackRequest {
 	s.UserId = &v
 	return s
 }
 
-type LoginCodeGenResponseBody struct {
-	// result
-	Result *string `json:"result,omitempty" xml:"result,omitempty"`
-}
-
-func (s LoginCodeGenResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s LoginCodeGenResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *LoginCodeGenResponseBody) SetResult(v string) *LoginCodeGenResponseBody {
-	s.Result = &v
+func (s *RenderBatchCallbackRequest) SetStatus(v string) *RenderBatchCallbackRequest {
+	s.Status = &v
 	return s
 }
 
-type LoginCodeGenResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *LoginCodeGenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+type RenderBatchCallbackResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
 }
 
-func (s LoginCodeGenResponse) String() string {
+func (s RenderBatchCallbackResponse) String() string {
 	return tea.Prettify(s)
 }
 
-func (s LoginCodeGenResponse) GoString() string {
+func (s RenderBatchCallbackResponse) GoString() string {
 	return s.String()
 }
 
-func (s *LoginCodeGenResponse) SetHeaders(v map[string]*string) *LoginCodeGenResponse {
+func (s *RenderBatchCallbackResponse) SetHeaders(v map[string]*string) *RenderBatchCallbackResponse {
 	s.Headers = v
 	return s
 }
 
-func (s *LoginCodeGenResponse) SetBody(v *LoginCodeGenResponseBody) *LoginCodeGenResponse {
+type GetOpenUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetOpenUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOpenUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetOpenUrlHeaders) SetCommonHeaders(v map[string]*string) *GetOpenUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetOpenUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetOpenUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetOpenUrlRequest struct {
+	// 应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 语言
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 宜搭附件地址
+	FileUrl *string `json:"fileUrl,omitempty" xml:"fileUrl,omitempty"`
+	// 临时地址多久失效,单位毫秒
+	Timeout *int64 `json:"timeout,omitempty" xml:"timeout,omitempty"`
+}
+
+func (s GetOpenUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOpenUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetOpenUrlRequest) SetSystemToken(v string) *GetOpenUrlRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *GetOpenUrlRequest) SetUserId(v string) *GetOpenUrlRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetOpenUrlRequest) SetLanguage(v string) *GetOpenUrlRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *GetOpenUrlRequest) SetFileUrl(v string) *GetOpenUrlRequest {
+	s.FileUrl = &v
+	return s
+}
+
+func (s *GetOpenUrlRequest) SetTimeout(v int64) *GetOpenUrlRequest {
+	s.Timeout = &v
+	return s
+}
+
+type GetOpenUrlResponseBody struct {
+	// 临时免登地址url
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s GetOpenUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOpenUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOpenUrlResponseBody) SetResult(v string) *GetOpenUrlResponseBody {
+	s.Result = &v
+	return s
+}
+
+type GetOpenUrlResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetOpenUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetOpenUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOpenUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetOpenUrlResponse) SetHeaders(v map[string]*string) *GetOpenUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetOpenUrlResponse) SetBody(v *GetOpenUrlResponseBody) *GetOpenUrlResponse {
 	s.Body = v
 	return s
 }
@@ -4021,6 +11104,100 @@ func (s *GetSaleUserInfoByUserIdResponse) SetBody(v *GetSaleUserInfoByUserIdResp
 	return s
 }
 
+type ValidateApplicationAuthorizationOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ValidateApplicationAuthorizationOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateApplicationAuthorizationOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateApplicationAuthorizationOrderHeaders) SetCommonHeaders(v map[string]*string) *ValidateApplicationAuthorizationOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ValidateApplicationAuthorizationOrderHeaders) SetXAcsDingtalkAccessToken(v string) *ValidateApplicationAuthorizationOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ValidateApplicationAuthorizationOrderRequest struct {
+	AccessKey     *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	CallerUnionId *string `json:"callerUnionId,omitempty" xml:"callerUnionId,omitempty"`
+}
+
+func (s ValidateApplicationAuthorizationOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateApplicationAuthorizationOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateApplicationAuthorizationOrderRequest) SetAccessKey(v string) *ValidateApplicationAuthorizationOrderRequest {
+	s.AccessKey = &v
+	return s
+}
+
+func (s *ValidateApplicationAuthorizationOrderRequest) SetCallerUnionId(v string) *ValidateApplicationAuthorizationOrderRequest {
+	s.CallerUnionId = &v
+	return s
+}
+
+type ValidateApplicationAuthorizationOrderResponseBody struct {
+	// message
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// status
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s ValidateApplicationAuthorizationOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateApplicationAuthorizationOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateApplicationAuthorizationOrderResponseBody) SetMessage(v string) *ValidateApplicationAuthorizationOrderResponseBody {
+	s.Message = &v
+	return s
+}
+
+func (s *ValidateApplicationAuthorizationOrderResponseBody) SetStatus(v int32) *ValidateApplicationAuthorizationOrderResponseBody {
+	s.Status = &v
+	return s
+}
+
+type ValidateApplicationAuthorizationOrderResponse struct {
+	Headers map[string]*string                                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ValidateApplicationAuthorizationOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ValidateApplicationAuthorizationOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ValidateApplicationAuthorizationOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ValidateApplicationAuthorizationOrderResponse) SetHeaders(v map[string]*string) *ValidateApplicationAuthorizationOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ValidateApplicationAuthorizationOrderResponse) SetBody(v *ValidateApplicationAuthorizationOrderResponseBody) *ValidateApplicationAuthorizationOrderResponse {
+	s.Body = v
+	return s
+}
+
 type ExecuteTaskHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4142,137 +11319,6 @@ func (s *ExecuteTaskResponse) SetHeaders(v map[string]*string) *ExecuteTaskRespo
 	return s
 }
 
-type StartInstanceHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s StartInstanceHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s StartInstanceHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *StartInstanceHeaders) SetCommonHeaders(v map[string]*string) *StartInstanceHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *StartInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *StartInstanceHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type StartInstanceRequest struct {
-	// 应用编码
-	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	// 应用秘钥。在应用数据中获取。
-	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	// 钉钉userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 语言。可选值：zh_CN/en_US 默认：zh_CN
-	Language *string `json:"language,omitempty" xml:"language,omitempty"`
-	// 表单唯一编码
-	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	// 表单数据
-	FormDataJson *string `json:"formDataJson,omitempty" xml:"formDataJson,omitempty"`
-	// 流程编码
-	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	// 发起人所在部门编号
-	DepartmentId *string `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-}
-
-func (s StartInstanceRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s StartInstanceRequest) GoString() string {
-	return s.String()
-}
-
-func (s *StartInstanceRequest) SetAppType(v string) *StartInstanceRequest {
-	s.AppType = &v
-	return s
-}
-
-func (s *StartInstanceRequest) SetSystemToken(v string) *StartInstanceRequest {
-	s.SystemToken = &v
-	return s
-}
-
-func (s *StartInstanceRequest) SetUserId(v string) *StartInstanceRequest {
-	s.UserId = &v
-	return s
-}
-
-func (s *StartInstanceRequest) SetLanguage(v string) *StartInstanceRequest {
-	s.Language = &v
-	return s
-}
-
-func (s *StartInstanceRequest) SetFormUuid(v string) *StartInstanceRequest {
-	s.FormUuid = &v
-	return s
-}
-
-func (s *StartInstanceRequest) SetFormDataJson(v string) *StartInstanceRequest {
-	s.FormDataJson = &v
-	return s
-}
-
-func (s *StartInstanceRequest) SetProcessCode(v string) *StartInstanceRequest {
-	s.ProcessCode = &v
-	return s
-}
-
-func (s *StartInstanceRequest) SetDepartmentId(v string) *StartInstanceRequest {
-	s.DepartmentId = &v
-	return s
-}
-
-type StartInstanceResponseBody struct {
-	// 流程实例ID
-	Result *string `json:"result,omitempty" xml:"result,omitempty"`
-}
-
-func (s StartInstanceResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s StartInstanceResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *StartInstanceResponseBody) SetResult(v string) *StartInstanceResponseBody {
-	s.Result = &v
-	return s
-}
-
-type StartInstanceResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *StartInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s StartInstanceResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s StartInstanceResponse) GoString() string {
-	return s.String()
-}
-
-func (s *StartInstanceResponse) SetHeaders(v map[string]*string) *StartInstanceResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *StartInstanceResponse) SetBody(v *StartInstanceResponseBody) *StartInstanceResponse {
-	s.Body = v
-	return s
-}
-
 type DeleteInstanceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4382,102 +11428,6 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
-func (client *Client) ValidateOrderUpgrade(request *ValidateOrderUpgradeRequest) (_result *ValidateOrderUpgradeResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &ValidateOrderUpgradeHeaders{}
-	_result = &ValidateOrderUpgradeResponse{}
-	_body, _err := client.ValidateOrderUpgradeWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) ValidateOrderUpgradeWithOptions(request *ValidateOrderUpgradeRequest, headers *ValidateOrderUpgradeHeaders, runtime *util.RuntimeOptions) (_result *ValidateOrderUpgradeResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
-		query["instanceId"] = request.InstanceId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
-		query["accessKey"] = request.AccessKey
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.CallerUid)) {
-		query["callerUid"] = request.CallerUid
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &ValidateOrderUpgradeResponse{}
-	_body, _err := client.DoROARequest(tea.String("ValidateOrderUpgrade"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/apps/orderUpgrade/validate"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) GetCorpLevelByAccountId(request *GetCorpLevelByAccountIdRequest) (_result *GetCorpLevelByAccountIdResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetCorpLevelByAccountIdHeaders{}
-	_result = &GetCorpLevelByAccountIdResponse{}
-	_body, _err := client.GetCorpLevelByAccountIdWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) GetCorpLevelByAccountIdWithOptions(request *GetCorpLevelByAccountIdRequest, headers *GetCorpLevelByAccountIdHeaders, runtime *util.RuntimeOptions) (_result *GetCorpLevelByAccountIdResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.AccountId)) {
-		query["accountId"] = request.AccountId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &GetCorpLevelByAccountIdResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetCorpLevelByAccountId"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/apps/corpLevel"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
 func (client *Client) UpdateStatus(request *UpdateStatusRequest) (_result *UpdateStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateStatusHeaders{}
@@ -4539,6 +11489,2294 @@ func (client *Client) UpdateStatusWithOptions(request *UpdateStatusRequest, head
 	}
 	_result = &UpdateStatusResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateStatus"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/yida/forms/status"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetInstancesByIdList(request *GetInstancesByIdListRequest) (_result *GetInstancesByIdListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetInstancesByIdListHeaders{}
+	_result = &GetInstancesByIdListResponse{}
+	_body, _err := client.GetInstancesByIdListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetInstancesByIdListWithOptions(request *GetInstancesByIdListRequest, headers *GetInstancesByIdListHeaders, runtime *util.RuntimeOptions) (_result *GetInstancesByIdListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		query["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceIds)) {
+		query["processInstanceIds"] = request.ProcessInstanceIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetInstancesByIdListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetInstancesByIdList"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/processes/instances/searchWithIds"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SaveFormRemark(request *SaveFormRemarkRequest) (_result *SaveFormRemarkResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SaveFormRemarkHeaders{}
+	_result = &SaveFormRemarkResponse{}
+	_body, _err := client.SaveFormRemarkWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SaveFormRemarkWithOptions(request *SaveFormRemarkRequest, headers *SaveFormRemarkHeaders, runtime *util.RuntimeOptions) (_result *SaveFormRemarkResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReplyId)) {
+		body["replyId"] = request.ReplyId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		body["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormInstanceId)) {
+		body["formInstanceId"] = request.FormInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AtUserId)) {
+		body["atUserId"] = request.AtUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SaveFormRemarkResponse{}
+	_body, _err := client.DoROARequest(tea.String("SaveFormRemark"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/forms/remarks"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListTableDataByFormInstanceIdTableId(formInstanceId *string, request *ListTableDataByFormInstanceIdTableIdRequest) (_result *ListTableDataByFormInstanceIdTableIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListTableDataByFormInstanceIdTableIdHeaders{}
+	_result = &ListTableDataByFormInstanceIdTableIdResponse{}
+	_body, _err := client.ListTableDataByFormInstanceIdTableIdWithOptions(formInstanceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListTableDataByFormInstanceIdTableIdWithOptions(formInstanceId *string, request *ListTableDataByFormInstanceIdTableIdRequest, headers *ListTableDataByFormInstanceIdTableIdHeaders, runtime *util.RuntimeOptions) (_result *ListTableDataByFormInstanceIdTableIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	formInstanceId = openapiutil.GetEncodeParam(formInstanceId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		query["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TableFieldId)) {
+		query["tableFieldId"] = request.TableFieldId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListTableDataByFormInstanceIdTableIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListTableDataByFormInstanceIdTableId"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/forms/innerTables/"+tea.StringValue(formInstanceId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetTaskCopies(request *GetTaskCopiesRequest) (_result *GetTaskCopiesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTaskCopiesHeaders{}
+	_result = &GetTaskCopiesResponse{}
+	_body, _err := client.GetTaskCopiesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetTaskCopiesWithOptions(request *GetTaskCopiesRequest, headers *GetTaskCopiesHeaders, runtime *util.RuntimeOptions) (_result *GetTaskCopiesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		query["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
+		query["keyword"] = request.Keyword
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCodes)) {
+		query["processCodes"] = request.ProcessCodes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateFromTimeGMT)) {
+		query["createFromTimeGMT"] = request.CreateFromTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
+		query["createToTimeGMT"] = request.CreateToTimeGMT
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetTaskCopiesResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetTaskCopies"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/tasks/taskCopies"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetRunningTasks(request *GetRunningTasksRequest) (_result *GetRunningTasksResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetRunningTasksHeaders{}
+	_result = &GetRunningTasksResponse{}
+	_body, _err := client.GetRunningTasksWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetRunningTasksWithOptions(request *GetRunningTasksRequest, headers *GetRunningTasksHeaders, runtime *util.RuntimeOptions) (_result *GetRunningTasksResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		query["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		query["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetRunningTasksResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetRunningTasks"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/processes/tasks/getRunningTasks"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListNavigationByFormType(request *ListNavigationByFormTypeRequest) (_result *ListNavigationByFormTypeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListNavigationByFormTypeHeaders{}
+	_result = &ListNavigationByFormTypeResponse{}
+	_body, _err := client.ListNavigationByFormTypeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListNavigationByFormTypeWithOptions(request *ListNavigationByFormTypeRequest, headers *ListNavigationByFormTypeHeaders, runtime *util.RuntimeOptions) (_result *ListNavigationByFormTypeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		query["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormType)) {
+		query["formType"] = request.FormType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListNavigationByFormTypeResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListNavigationByFormType"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/apps/navigations"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) TerminateInstance(request *TerminateInstanceRequest) (_result *TerminateInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TerminateInstanceHeaders{}
+	_result = &TerminateInstanceResponse{}
+	_body, _err := client.TerminateInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) TerminateInstanceWithOptions(request *TerminateInstanceRequest, headers *TerminateInstanceHeaders, runtime *util.RuntimeOptions) (_result *TerminateInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		query["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		query["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &TerminateInstanceResponse{}
+	_body, _err := client.DoROARequest(tea.String("TerminateInstance"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/yida/processes/instances/terminate"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CheckCloudAccountStatus(callerUid *string, request *CheckCloudAccountStatusRequest) (_result *CheckCloudAccountStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CheckCloudAccountStatusHeaders{}
+	_result = &CheckCloudAccountStatusResponse{}
+	_body, _err := client.CheckCloudAccountStatusWithOptions(callerUid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CheckCloudAccountStatusWithOptions(callerUid *string, request *CheckCloudAccountStatusRequest, headers *CheckCloudAccountStatusHeaders, runtime *util.RuntimeOptions) (_result *CheckCloudAccountStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	callerUid = openapiutil.GetEncodeParam(callerUid)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		query["accessKey"] = request.AccessKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &CheckCloudAccountStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("CheckCloudAccountStatus"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/apps/cloudAccountStatus/"+tea.StringValue(callerUid)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetCorpAccomplishmentTasks(corpId *string, userId *string, request *GetCorpAccomplishmentTasksRequest) (_result *GetCorpAccomplishmentTasksResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCorpAccomplishmentTasksHeaders{}
+	_result = &GetCorpAccomplishmentTasksResponse{}
+	_body, _err := client.GetCorpAccomplishmentTasksWithOptions(corpId, userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetCorpAccomplishmentTasksWithOptions(corpId *string, userId *string, request *GetCorpAccomplishmentTasksRequest, headers *GetCorpAccomplishmentTasksHeaders, runtime *util.RuntimeOptions) (_result *GetCorpAccomplishmentTasksResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	corpId = openapiutil.GetEncodeParam(corpId)
+	userId = openapiutil.GetEncodeParam(userId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		query["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
+		query["keyword"] = request.Keyword
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppTypes)) {
+		query["appTypes"] = request.AppTypes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCodes)) {
+		query["processCodes"] = request.ProcessCodes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateFromTimeGMT)) {
+		query["createFromTimeGMT"] = request.CreateFromTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
+		query["createToTimeGMT"] = request.CreateToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		query["token"] = request.Token
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetCorpAccomplishmentTasksResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetCorpAccomplishmentTasks"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/tasks/completedTasks/"+tea.StringValue(corpId)+"/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetInstances(request *GetInstancesRequest) (_result *GetInstancesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetInstancesHeaders{}
+	_result = &GetInstancesResponse{}
+	_body, _err := client.GetInstancesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetInstancesWithOptions(request *GetInstancesRequest, headers *GetInstancesHeaders, runtime *util.RuntimeOptions) (_result *GetInstancesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		body["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchFieldJson)) {
+		body["searchFieldJson"] = request.SearchFieldJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OriginatorId)) {
+		body["originatorId"] = request.OriginatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateFromTimeGMT)) {
+		body["createFromTimeGMT"] = request.CreateFromTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
+		body["createToTimeGMT"] = request.CreateToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModifiedFromTimeGMT)) {
+		body["modifiedFromTimeGMT"] = request.ModifiedFromTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModifiedToTimeGMT)) {
+		body["modifiedToTimeGMT"] = request.ModifiedToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceStatus)) {
+		body["instanceStatus"] = request.InstanceStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ApprovedResult)) {
+		body["approvedResult"] = request.ApprovedResult
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetInstancesResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetInstances"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/processes/instances"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListApplicationAuthorizationServiceConnectorInformation(instanceId *string, request *ListApplicationAuthorizationServiceConnectorInformationRequest) (_result *ListApplicationAuthorizationServiceConnectorInformationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListApplicationAuthorizationServiceConnectorInformationHeaders{}
+	_result = &ListApplicationAuthorizationServiceConnectorInformationResponse{}
+	_body, _err := client.ListApplicationAuthorizationServiceConnectorInformationWithOptions(instanceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListApplicationAuthorizationServiceConnectorInformationWithOptions(instanceId *string, request *ListApplicationAuthorizationServiceConnectorInformationRequest, headers *ListApplicationAuthorizationServiceConnectorInformationHeaders, runtime *util.RuntimeOptions) (_result *ListApplicationAuthorizationServiceConnectorInformationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	instanceId = openapiutil.GetEncodeParam(instanceId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		query["accessKey"] = request.AccessKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallerUid)) {
+		query["callerUid"] = request.CallerUid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListApplicationAuthorizationServiceConnectorInformationResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListApplicationAuthorizationServiceConnectorInformation"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/applicationAuthorizations/plugs/"+tea.StringValue(instanceId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ValidateOrderBuy(request *ValidateOrderBuyRequest) (_result *ValidateOrderBuyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ValidateOrderBuyHeaders{}
+	_result = &ValidateOrderBuyResponse{}
+	_body, _err := client.ValidateOrderBuyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ValidateOrderBuyWithOptions(request *ValidateOrderBuyRequest, headers *ValidateOrderBuyHeaders, runtime *util.RuntimeOptions) (_result *ValidateOrderBuyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		query["accessKey"] = request.AccessKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallerUid)) {
+		query["callerUid"] = request.CallerUid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ValidateOrderBuyResponse{}
+	_body, _err := client.DoROARequest(tea.String("ValidateOrderBuy"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/apps/orderBuy/validate"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RenewTenantOrder(request *RenewTenantOrderRequest) (_result *RenewTenantOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RenewTenantOrderHeaders{}
+	_result = &RenewTenantOrderResponse{}
+	_body, _err := client.RenewTenantOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RenewTenantOrderWithOptions(request *RenewTenantOrderRequest, headers *RenewTenantOrderHeaders, runtime *util.RuntimeOptions) (_result *RenewTenantOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		body["accessKey"] = request.AccessKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallerUnionId)) {
+		body["callerUnionId"] = request.CallerUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTimeGMT)) {
+		body["endTimeGMT"] = request.EndTimeGMT
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RenewTenantOrderResponse{}
+	_body, _err := client.DoROARequest(tea.String("RenewTenantOrder"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/apps/tenants/reorder"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateInstance(request *UpdateInstanceRequest) (_result *UpdateInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateInstanceHeaders{}
+	_result = &UpdateInstanceResponse{}
+	_body, _err := client.UpdateInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateInstanceWithOptions(request *UpdateInstanceRequest, headers *UpdateInstanceHeaders, runtime *util.RuntimeOptions) (_result *UpdateInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UpdateFormDataJson)) {
+		body["updateFormDataJson"] = request.UpdateFormDataJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		body["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateInstanceResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateInstance"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/yida/processes/instances"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BuyAuthorizationOrder(request *BuyAuthorizationOrderRequest) (_result *BuyAuthorizationOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BuyAuthorizationOrderHeaders{}
+	_result = &BuyAuthorizationOrderResponse{}
+	_body, _err := client.BuyAuthorizationOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BuyAuthorizationOrderWithOptions(request *BuyAuthorizationOrderRequest, headers *BuyAuthorizationOrderHeaders, runtime *util.RuntimeOptions) (_result *BuyAuthorizationOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProduceCode)) {
+		body["produceCode"] = request.ProduceCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		body["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceName)) {
+		body["instanceName"] = request.InstanceName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		body["accessKey"] = request.AccessKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallerUnionId)) {
+		body["callerUnionId"] = request.CallerUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ChargeType)) {
+		body["chargeType"] = request.ChargeType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTimeGMT)) {
+		body["endTimeGMT"] = request.EndTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BeginTimeGMT)) {
+		body["beginTimeGMT"] = request.BeginTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccountNumber)) {
+		body["accountNumber"] = request.AccountNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CommerceType)) {
+		body["commerceType"] = request.CommerceType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CommodityType)) {
+		body["commodityType"] = request.CommodityType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BuyAuthorizationOrderResponse{}
+	_body, _err := client.DoROARequest(tea.String("BuyAuthorizationOrder"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/appAuthorizations/order"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ValidateApplicationServiceOrderUpgrade(callerUnionid *string, request *ValidateApplicationServiceOrderUpgradeRequest) (_result *ValidateApplicationServiceOrderUpgradeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ValidateApplicationServiceOrderUpgradeHeaders{}
+	_result = &ValidateApplicationServiceOrderUpgradeResponse{}
+	_body, _err := client.ValidateApplicationServiceOrderUpgradeWithOptions(callerUnionid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ValidateApplicationServiceOrderUpgradeWithOptions(callerUnionid *string, request *ValidateApplicationServiceOrderUpgradeRequest, headers *ValidateApplicationServiceOrderUpgradeHeaders, runtime *util.RuntimeOptions) (_result *ValidateApplicationServiceOrderUpgradeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	callerUnionid = openapiutil.GetEncodeParam(callerUnionid)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		query["accessKey"] = request.AccessKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ValidateApplicationServiceOrderUpgradeResponse{}
+	_body, _err := client.DoROARequest(tea.String("ValidateApplicationServiceOrderUpgrade"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/applications/orderValidations/"+tea.StringValue(callerUnionid)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetCorpTasks(request *GetCorpTasksRequest) (_result *GetCorpTasksResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCorpTasksHeaders{}
+	_result = &GetCorpTasksResponse{}
+	_body, _err := client.GetCorpTasksWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetCorpTasksWithOptions(request *GetCorpTasksRequest, headers *GetCorpTasksHeaders, runtime *util.RuntimeOptions) (_result *GetCorpTasksResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		query["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
+		query["keyword"] = request.Keyword
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppTypes)) {
+		query["appTypes"] = request.AppTypes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCodes)) {
+		query["processCodes"] = request.ProcessCodes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateFromTimeGMT)) {
+		query["createFromTimeGMT"] = request.CreateFromTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
+		query["createToTimeGMT"] = request.CreateToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		query["token"] = request.Token
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetCorpTasksResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetCorpTasks"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/corpTasks"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListCommodity(request *ListCommodityRequest) (_result *ListCommodityResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListCommodityHeaders{}
+	_result = &ListCommodityResponse{}
+	_body, _err := client.ListCommodityWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListCommodityWithOptions(request *ListCommodityRequest, headers *ListCommodityHeaders, runtime *util.RuntimeOptions) (_result *ListCommodityResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		query["accessKey"] = request.AccessKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallerUid)) {
+		query["callerUid"] = request.CallerUid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListCommodityResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListCommodity"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/appAuth/commodities"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) NotifyAuthorizationResult(request *NotifyAuthorizationResultRequest) (_result *NotifyAuthorizationResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &NotifyAuthorizationResultHeaders{}
+	_result = &NotifyAuthorizationResultResponse{}
+	_body, _err := client.NotifyAuthorizationResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) NotifyAuthorizationResultWithOptions(request *NotifyAuthorizationResultRequest, headers *NotifyAuthorizationResultHeaders, runtime *util.RuntimeOptions) (_result *NotifyAuthorizationResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		body["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccountNumber)) {
+		body["accountNumber"] = request.AccountNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceName)) {
+		body["instanceName"] = request.InstanceName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		body["accessKey"] = request.AccessKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ChargeType)) {
+		body["chargeType"] = request.ChargeType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTimeGMT)) {
+		body["endTimeGMT"] = request.EndTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BeginTimeGMT)) {
+		body["beginTimeGMT"] = request.BeginTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallerUid)) {
+		body["callerUid"] = request.CallerUid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CommerceType)) {
+		body["commerceType"] = request.CommerceType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CommodityType)) {
+		body["commodityType"] = request.CommodityType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProduceCode)) {
+		body["produceCode"] = request.ProduceCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &NotifyAuthorizationResultResponse{}
+	_body, _err := client.DoROARequest(tea.String("NotifyAuthorizationResult"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/apps/authorizationResults/notify"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BuyFreshOrder(request *BuyFreshOrderRequest) (_result *BuyFreshOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BuyFreshOrderHeaders{}
+	_result = &BuyFreshOrderResponse{}
+	_body, _err := client.BuyFreshOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BuyFreshOrderWithOptions(request *BuyFreshOrderRequest, headers *BuyFreshOrderHeaders, runtime *util.RuntimeOptions) (_result *BuyFreshOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProduceCode)) {
+		body["produceCode"] = request.ProduceCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		body["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceName)) {
+		body["instanceName"] = request.InstanceName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		body["accessKey"] = request.AccessKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallerUnionId)) {
+		body["callerUnionId"] = request.CallerUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ChargeType)) {
+		body["chargeType"] = request.ChargeType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTimeGMT)) {
+		body["endTimeGMT"] = request.EndTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BeginTimeGMT)) {
+		body["beginTimeGMT"] = request.BeginTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccountNumber)) {
+		body["accountNumber"] = request.AccountNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CommerceType)) {
+		body["commerceType"] = request.CommerceType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CommodityType)) {
+		body["commodityType"] = request.CommodityType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BuyFreshOrderResponse{}
+	_body, _err := client.DoROARequest(tea.String("BuyFreshOrder"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/apps/freshOrders"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RemoveTenantResource(callerUid *string, request *RemoveTenantResourceRequest) (_result *RemoveTenantResourceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RemoveTenantResourceHeaders{}
+	_result = &RemoveTenantResourceResponse{}
+	_body, _err := client.RemoveTenantResourceWithOptions(callerUid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RemoveTenantResourceWithOptions(callerUid *string, request *RemoveTenantResourceRequest, headers *RemoveTenantResourceHeaders, runtime *util.RuntimeOptions) (_result *RemoveTenantResourceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	callerUid = openapiutil.GetEncodeParam(callerUid)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		query["accessKey"] = request.AccessKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &RemoveTenantResourceResponse{}
+	_body, _err := client.DoROARequest(tea.String("RemoveTenantResource"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/yida/applications/tenantRelatedResources/"+tea.StringValue(callerUid)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RenewApplicationAuthorizationServiceOrder(request *RenewApplicationAuthorizationServiceOrderRequest) (_result *RenewApplicationAuthorizationServiceOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RenewApplicationAuthorizationServiceOrderHeaders{}
+	_result = &RenewApplicationAuthorizationServiceOrderResponse{}
+	_body, _err := client.RenewApplicationAuthorizationServiceOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RenewApplicationAuthorizationServiceOrderWithOptions(request *RenewApplicationAuthorizationServiceOrderRequest, headers *RenewApplicationAuthorizationServiceOrderHeaders, runtime *util.RuntimeOptions) (_result *RenewApplicationAuthorizationServiceOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		body["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		body["accessKey"] = request.AccessKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallerUnionId)) {
+		body["callerUnionId"] = request.CallerUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTimeGMT)) {
+		body["endTimeGMT"] = request.EndTimeGMT
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RenewApplicationAuthorizationServiceOrderResponse{}
+	_body, _err := client.DoROARequest(tea.String("RenewApplicationAuthorizationServiceOrder"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/applicationAuthorizations/orders/renew"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetProcessDefinition(processInstanceId *string, request *GetProcessDefinitionRequest) (_result *GetProcessDefinitionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetProcessDefinitionHeaders{}
+	_result = &GetProcessDefinitionResponse{}
+	_body, _err := client.GetProcessDefinitionWithOptions(processInstanceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetProcessDefinitionWithOptions(processInstanceId *string, request *GetProcessDefinitionRequest, headers *GetProcessDefinitionHeaders, runtime *util.RuntimeOptions) (_result *GetProcessDefinitionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	processInstanceId = openapiutil.GetEncodeParam(processInstanceId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupId)) {
+		query["groupId"] = request.GroupId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderNumber)) {
+		query["orderNumber"] = request.OrderNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemType)) {
+		query["systemType"] = request.SystemType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NameSpace)) {
+		query["nameSpace"] = request.NameSpace
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		query["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetProcessDefinitionResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetProcessDefinition"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/processes/definitions/"+tea.StringValue(processInstanceId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpgradeTenantInformation(request *UpgradeTenantInformationRequest) (_result *UpgradeTenantInformationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpgradeTenantInformationHeaders{}
+	_result = &UpgradeTenantInformationResponse{}
+	_body, _err := client.UpgradeTenantInformationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpgradeTenantInformationWithOptions(request *UpgradeTenantInformationRequest, headers *UpgradeTenantInformationHeaders, runtime *util.RuntimeOptions) (_result *UpgradeTenantInformationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		body["accessKey"] = request.AccessKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallerUnionId)) {
+		body["callerUnionId"] = request.CallerUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccountNumber)) {
+		body["accountNumber"] = request.AccountNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CommodityType)) {
+		body["commodityType"] = request.CommodityType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpgradeTenantInformationResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpgradeTenantInformation"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/yida/apps/tenantInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetApplicationAuthorizationServicePlatformResource(request *GetApplicationAuthorizationServicePlatformResourceRequest) (_result *GetApplicationAuthorizationServicePlatformResourceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetApplicationAuthorizationServicePlatformResourceHeaders{}
+	_result = &GetApplicationAuthorizationServicePlatformResourceResponse{}
+	_body, _err := client.GetApplicationAuthorizationServicePlatformResourceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetApplicationAuthorizationServicePlatformResourceWithOptions(request *GetApplicationAuthorizationServicePlatformResourceRequest, headers *GetApplicationAuthorizationServicePlatformResourceHeaders, runtime *util.RuntimeOptions) (_result *GetApplicationAuthorizationServicePlatformResourceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		query["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		query["accessKey"] = request.AccessKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallerUid)) {
+		query["callerUid"] = request.CallerUid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetApplicationAuthorizationServicePlatformResourceResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetApplicationAuthorizationServicePlatformResource"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/authorization/platformResources"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListApplicationAuthorizationServiceApplicationInformation(instanceId *string, request *ListApplicationAuthorizationServiceApplicationInformationRequest) (_result *ListApplicationAuthorizationServiceApplicationInformationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListApplicationAuthorizationServiceApplicationInformationHeaders{}
+	_result = &ListApplicationAuthorizationServiceApplicationInformationResponse{}
+	_body, _err := client.ListApplicationAuthorizationServiceApplicationInformationWithOptions(instanceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListApplicationAuthorizationServiceApplicationInformationWithOptions(instanceId *string, request *ListApplicationAuthorizationServiceApplicationInformationRequest, headers *ListApplicationAuthorizationServiceApplicationInformationHeaders, runtime *util.RuntimeOptions) (_result *ListApplicationAuthorizationServiceApplicationInformationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	instanceId = openapiutil.GetEncodeParam(instanceId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		query["accessKey"] = request.AccessKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallerUnionId)) {
+		query["callerUnionId"] = request.CallerUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListApplicationAuthorizationServiceApplicationInformationResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListApplicationAuthorizationServiceApplicationInformation"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/authorizations/applicationInfos/"+tea.StringValue(instanceId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ValidateApplicationAuthorizationServiceOrder(callerUid *string, request *ValidateApplicationAuthorizationServiceOrderRequest) (_result *ValidateApplicationAuthorizationServiceOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ValidateApplicationAuthorizationServiceOrderHeaders{}
+	_result = &ValidateApplicationAuthorizationServiceOrderResponse{}
+	_body, _err := client.ValidateApplicationAuthorizationServiceOrderWithOptions(callerUid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ValidateApplicationAuthorizationServiceOrderWithOptions(callerUid *string, request *ValidateApplicationAuthorizationServiceOrderRequest, headers *ValidateApplicationAuthorizationServiceOrderHeaders, runtime *util.RuntimeOptions) (_result *ValidateApplicationAuthorizationServiceOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	callerUid = openapiutil.GetEncodeParam(callerUid)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		query["accessKey"] = request.AccessKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ValidateApplicationAuthorizationServiceOrderResponse{}
+	_body, _err := client.DoROARequest(tea.String("ValidateApplicationAuthorizationServiceOrder"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/appsAuthorizations/freshOrderInfoReviews/"+tea.StringValue(callerUid)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetActivityList(request *GetActivityListRequest) (_result *GetActivityListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetActivityListHeaders{}
+	_result = &GetActivityListResponse{}
+	_body, _err := client.GetActivityListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetActivityListWithOptions(request *GetActivityListRequest, headers *GetActivityListHeaders, runtime *util.RuntimeOptions) (_result *GetActivityListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		query["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		query["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetActivityListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetActivityList"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/processes/activities"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ExecuteCustomApi(request *ExecuteCustomApiRequest) (_result *ExecuteCustomApiResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ExecuteCustomApiHeaders{}
+	_result = &ExecuteCustomApiResponse{}
+	_body, _err := client.ExecuteCustomApiWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ExecuteCustomApiWithOptions(request *ExecuteCustomApiRequest, headers *ExecuteCustomApiHeaders, runtime *util.RuntimeOptions) (_result *ExecuteCustomApiResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Data)) {
+		query["data"] = request.Data
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		query["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ServiceId)) {
+		query["serviceId"] = request.ServiceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ExecuteCustomApiResponse{}
+	_body, _err := client.DoROARequest(tea.String("ExecuteCustomApi"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/apps/customApi/execute"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) LoginCodeGen(request *LoginCodeGenRequest) (_result *LoginCodeGenResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &LoginCodeGenHeaders{}
+	_result = &LoginCodeGenResponse{}
+	_body, _err := client.LoginCodeGenWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) LoginCodeGenWithOptions(request *LoginCodeGenRequest, headers *LoginCodeGenHeaders, runtime *util.RuntimeOptions) (_result *LoginCodeGenResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &LoginCodeGenResponse{}
+	_body, _err := client.DoROARequest(tea.String("LoginCodeGen"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/authorizations/loginCodes"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) TerminateCloudAuthorization(request *TerminateCloudAuthorizationRequest) (_result *TerminateCloudAuthorizationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TerminateCloudAuthorizationHeaders{}
+	_result = &TerminateCloudAuthorizationResponse{}
+	_body, _err := client.TerminateCloudAuthorizationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) TerminateCloudAuthorizationWithOptions(request *TerminateCloudAuthorizationRequest, headers *TerminateCloudAuthorizationHeaders, runtime *util.RuntimeOptions) (_result *TerminateCloudAuthorizationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		body["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		body["accessKey"] = request.AccessKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallerUnionId)) {
+		body["callerUnionId"] = request.CallerUnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &TerminateCloudAuthorizationResponse{}
+	_body, _err := client.DoROARequest(tea.String("TerminateCloudAuthorization"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/apps/cloudAuthorizations/terminate"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetActivityButtonList(appType *string, processCode *string, activityId *string, request *GetActivityButtonListRequest) (_result *GetActivityButtonListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetActivityButtonListHeaders{}
+	_result = &GetActivityButtonListResponse{}
+	_body, _err := client.GetActivityButtonListWithOptions(appType, processCode, activityId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetActivityButtonListWithOptions(appType *string, processCode *string, activityId *string, request *GetActivityButtonListRequest, headers *GetActivityButtonListHeaders, runtime *util.RuntimeOptions) (_result *GetActivityButtonListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	appType = openapiutil.GetEncodeParam(appType)
+	processCode = openapiutil.GetEncodeParam(processCode)
+	activityId = openapiutil.GetEncodeParam(activityId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		query["language"] = request.Language
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetActivityButtonListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetActivityButtonList"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/processDefinitions/buttons/"+tea.StringValue(appType)+"/"+tea.StringValue(processCode)+"/"+tea.StringValue(activityId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) StartInstance(request *StartInstanceRequest) (_result *StartInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &StartInstanceHeaders{}
+	_result = &StartInstanceResponse{}
+	_body, _err := client.StartInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) StartInstanceWithOptions(request *StartInstanceRequest, headers *StartInstanceHeaders, runtime *util.RuntimeOptions) (_result *StartInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		body["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormDataJson)) {
+		body["formDataJson"] = request.FormDataJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DepartmentId)) {
+		body["departmentId"] = request.DepartmentId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &StartInstanceResponse{}
+	_body, _err := client.DoROARequest(tea.String("StartInstance"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/processes/instances/start"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListApplicationInformation(instanceId *string, request *ListApplicationInformationRequest) (_result *ListApplicationInformationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListApplicationInformationHeaders{}
+	_result = &ListApplicationInformationResponse{}
+	_body, _err := client.ListApplicationInformationWithOptions(instanceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListApplicationInformationWithOptions(instanceId *string, request *ListApplicationInformationRequest, headers *ListApplicationInformationHeaders, runtime *util.RuntimeOptions) (_result *ListApplicationInformationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	instanceId = openapiutil.GetEncodeParam(instanceId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		query["accessKey"] = request.AccessKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallerUid)) {
+		query["callerUid"] = request.CallerUid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListApplicationInformationResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListApplicationInformation"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/apps/infos/"+tea.StringValue(instanceId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ValidateOrderUpgrade(request *ValidateOrderUpgradeRequest) (_result *ValidateOrderUpgradeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ValidateOrderUpgradeHeaders{}
+	_result = &ValidateOrderUpgradeResponse{}
+	_body, _err := client.ValidateOrderUpgradeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ValidateOrderUpgradeWithOptions(request *ValidateOrderUpgradeRequest, headers *ValidateOrderUpgradeHeaders, runtime *util.RuntimeOptions) (_result *ValidateOrderUpgradeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		query["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		query["accessKey"] = request.AccessKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallerUid)) {
+		query["callerUid"] = request.CallerUid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ValidateOrderUpgradeResponse{}
+	_body, _err := client.DoROARequest(tea.String("ValidateOrderUpgrade"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/apps/orderUpgrade/validate"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateCloudAccountInformation(request *UpdateCloudAccountInformationRequest) (_result *UpdateCloudAccountInformationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateCloudAccountInformationHeaders{}
+	_result = &UpdateCloudAccountInformationResponse{}
+	_body, _err := client.UpdateCloudAccountInformationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateCloudAccountInformationWithOptions(request *UpdateCloudAccountInformationRequest, headers *UpdateCloudAccountInformationHeaders, runtime *util.RuntimeOptions) (_result *UpdateCloudAccountInformationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		body["accessKey"] = request.AccessKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallerUnionId)) {
+		body["callerUnionId"] = request.CallerUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccountNumber)) {
+		body["accountNumber"] = request.AccountNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CommodityType)) {
+		body["commodityType"] = request.CommodityType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateCloudAccountInformationResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateCloudAccountInformation"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/yida/apps/cloudAccountInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetCorpLevelByAccountId(request *GetCorpLevelByAccountIdRequest) (_result *GetCorpLevelByAccountIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCorpLevelByAccountIdHeaders{}
+	_result = &GetCorpLevelByAccountIdResponse{}
+	_body, _err := client.GetCorpLevelByAccountIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetCorpLevelByAccountIdWithOptions(request *GetCorpLevelByAccountIdRequest, headers *GetCorpLevelByAccountIdHeaders, runtime *util.RuntimeOptions) (_result *GetCorpLevelByAccountIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccountId)) {
+		query["accountId"] = request.AccountId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetCorpLevelByAccountIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetCorpLevelByAccountId"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/apps/corpLevel"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4615,78 +13853,6 @@ func (client *Client) ExecutePlatformTaskWithOptions(request *ExecutePlatformTas
 	}
 	_result = &ExecutePlatformTaskResponse{}
 	_body, _err := client.DoROARequest(tea.String("ExecutePlatformTask"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/tasks/platformTasks/execute"), tea.String("none"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) SaveFormRemark(request *SaveFormRemarkRequest) (_result *SaveFormRemarkResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &SaveFormRemarkHeaders{}
-	_result = &SaveFormRemarkResponse{}
-	_body, _err := client.SaveFormRemarkWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) SaveFormRemarkWithOptions(request *SaveFormRemarkRequest, headers *SaveFormRemarkHeaders, runtime *util.RuntimeOptions) (_result *SaveFormRemarkResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.AppType)) {
-		body["appType"] = request.AppType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
-		body["systemToken"] = request.SystemToken
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.ReplyId)) {
-		body["replyId"] = request.ReplyId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Language)) {
-		body["language"] = request.Language
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.FormInstanceId)) {
-		body["formInstanceId"] = request.FormInstanceId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.UserId)) {
-		body["userId"] = request.UserId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.AtUserId)) {
-		body["atUserId"] = request.AtUserId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Content)) {
-		body["content"] = request.Content
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &SaveFormRemarkResponse{}
-	_body, _err := client.DoROARequest(tea.String("SaveFormRemark"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/forms/remarks"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4994,6 +14160,112 @@ func (client *Client) UpdateFormDataWithOptions(request *UpdateFormDataRequest, 
 	return _result, _err
 }
 
+func (client *Client) GetInstanceIdList(request *GetInstanceIdListRequest) (_result *GetInstanceIdListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetInstanceIdListHeaders{}
+	_result = &GetInstanceIdListResponse{}
+	_body, _err := client.GetInstanceIdListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetInstanceIdListWithOptions(request *GetInstanceIdListRequest, headers *GetInstanceIdListHeaders, runtime *util.RuntimeOptions) (_result *GetInstanceIdListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModifiedToTimeGMT)) {
+		body["modifiedToTimeGMT"] = request.ModifiedToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModifiedFromTimeGMT)) {
+		body["modifiedFromTimeGMT"] = request.ModifiedFromTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		body["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchFieldJson)) {
+		body["searchFieldJson"] = request.SearchFieldJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceStatus)) {
+		body["instanceStatus"] = request.InstanceStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ApprovedResult)) {
+		body["approvedResult"] = request.ApprovedResult
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OriginatorId)) {
+		body["originatorId"] = request.OriginatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
+		body["createToTimeGMT"] = request.CreateToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateFromTimeGMT)) {
+		body["createFromTimeGMT"] = request.CreateFromTimeGMT
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetInstanceIdListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetInstanceIdList"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/processes/instanceIds"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetOperationRecords(request *GetOperationRecordsRequest) (_result *GetOperationRecordsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOperationRecordsHeaders{}
@@ -5106,11 +14378,11 @@ func (client *Client) GetPlatformResourceWithOptions(request *GetPlatformResourc
 	return _result, _err
 }
 
-func (client *Client) GetRunningTasks(request *GetRunningTasksRequest) (_result *GetRunningTasksResponse, _err error) {
+func (client *Client) ListConnectorInformation(instanceId *string, request *ListConnectorInformationRequest) (_result *ListConnectorInformationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetRunningTasksHeaders{}
-	_result = &GetRunningTasksResponse{}
-	_body, _err := client.GetRunningTasksWithOptions(request, headers, runtime)
+	headers := &ListConnectorInformationHeaders{}
+	_result = &ListConnectorInformationResponse{}
+	_body, _err := client.ListConnectorInformationWithOptions(instanceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5118,30 +14390,27 @@ func (client *Client) GetRunningTasks(request *GetRunningTasksRequest) (_result 
 	return _result, _err
 }
 
-func (client *Client) GetRunningTasksWithOptions(request *GetRunningTasksRequest, headers *GetRunningTasksHeaders, runtime *util.RuntimeOptions) (_result *GetRunningTasksResponse, _err error) {
+func (client *Client) ListConnectorInformationWithOptions(instanceId *string, request *ListConnectorInformationRequest, headers *ListConnectorInformationHeaders, runtime *util.RuntimeOptions) (_result *ListConnectorInformationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
+	instanceId = openapiutil.GetEncodeParam(instanceId)
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
-		query["processInstanceId"] = request.ProcessInstanceId
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		query["accessKey"] = request.AccessKey
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.AppType)) {
-		query["appType"] = request.AppType
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
-		query["systemToken"] = request.SystemToken
+	if !tea.BoolValue(util.IsUnset(request.CallerUid)) {
+		query["callerUid"] = request.CallerUid
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Language)) {
-		query["language"] = request.Language
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.UserId)) {
-		query["userId"] = request.UserId
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
 	}
 
 	realHeaders := make(map[string]*string)
@@ -5157,8 +14426,8 @@ func (client *Client) GetRunningTasksWithOptions(request *GetRunningTasksRequest
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
-	_result = &GetRunningTasksResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetRunningTasks"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/processes/tasks/getRunningTasks"), tea.String("json"), req, runtime)
+	_result = &ListConnectorInformationResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListConnectorInformation"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/plugins/infos/"+tea.StringValue(instanceId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5166,11 +14435,11 @@ func (client *Client) GetRunningTasksWithOptions(request *GetRunningTasksRequest
 	return _result, _err
 }
 
-func (client *Client) ListNavigationByFormType(request *ListNavigationByFormTypeRequest) (_result *ListNavigationByFormTypeResponse, _err error) {
+func (client *Client) RegisterAccounts(request *RegisterAccountsRequest) (_result *RegisterAccountsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ListNavigationByFormTypeHeaders{}
-	_result = &ListNavigationByFormTypeResponse{}
-	_body, _err := client.ListNavigationByFormTypeWithOptions(request, headers, runtime)
+	headers := &RegisterAccountsHeaders{}
+	_result = &RegisterAccountsResponse{}
+	_body, _err := client.RegisterAccountsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5178,30 +14447,22 @@ func (client *Client) ListNavigationByFormType(request *ListNavigationByFormType
 	return _result, _err
 }
 
-func (client *Client) ListNavigationByFormTypeWithOptions(request *ListNavigationByFormTypeRequest, headers *ListNavigationByFormTypeHeaders, runtime *util.RuntimeOptions) (_result *ListNavigationByFormTypeResponse, _err error) {
+func (client *Client) RegisterAccountsWithOptions(request *RegisterAccountsRequest, headers *RegisterAccountsHeaders, runtime *util.RuntimeOptions) (_result *RegisterAccountsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.AppType)) {
-		query["appType"] = request.AppType
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
-		query["systemToken"] = request.SystemToken
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		body["accessKey"] = request.AccessKey
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.UserId)) {
-		query["userId"] = request.UserId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Language)) {
-		query["language"] = request.Language
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.FormType)) {
-		query["formType"] = request.FormType
+	if !tea.BoolValue(util.IsUnset(request.ActiveCode)) {
+		body["activeCode"] = request.ActiveCode
 	}
 
 	realHeaders := make(map[string]*string)
@@ -5215,10 +14476,10 @@ func (client *Client) ListNavigationByFormTypeWithOptions(request *ListNavigatio
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &ListNavigationByFormTypeResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListNavigationByFormType"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/apps/navigations"), tea.String("json"), req, runtime)
+	_result = &RegisterAccountsResponse{}
+	_body, _err := client.DoROARequest(tea.String("RegisterAccounts"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/applicationAuthorizations/accounts/register"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5226,11 +14487,11 @@ func (client *Client) ListNavigationByFormTypeWithOptions(request *ListNavigatio
 	return _result, _err
 }
 
-func (client *Client) TerminateInstance(request *TerminateInstanceRequest) (_result *TerminateInstanceResponse, _err error) {
+func (client *Client) GetNotifyMe(userId *string, request *GetNotifyMeRequest) (_result *GetNotifyMeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &TerminateInstanceHeaders{}
-	_result = &TerminateInstanceResponse{}
-	_body, _err := client.TerminateInstanceWithOptions(request, headers, runtime)
+	headers := &GetNotifyMeHeaders{}
+	_result = &GetNotifyMeResponse{}
+	_body, _err := client.GetNotifyMeWithOptions(userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5238,30 +14499,59 @@ func (client *Client) TerminateInstance(request *TerminateInstanceRequest) (_res
 	return _result, _err
 }
 
-func (client *Client) TerminateInstanceWithOptions(request *TerminateInstanceRequest, headers *TerminateInstanceHeaders, runtime *util.RuntimeOptions) (_result *TerminateInstanceResponse, _err error) {
+func (client *Client) GetNotifyMeWithOptions(userId *string, request *GetNotifyMeRequest, headers *GetNotifyMeHeaders, runtime *util.RuntimeOptions) (_result *GetNotifyMeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
+	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.AppType)) {
-		query["appType"] = request.AppType
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
-		query["systemToken"] = request.SystemToken
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		query["token"] = request.Token
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.UserId)) {
-		query["userId"] = request.UserId
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Language)) {
 		query["language"] = request.Language
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
-		query["processInstanceId"] = request.ProcessInstanceId
+	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
+		query["keyword"] = request.Keyword
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppTypes)) {
+		query["appTypes"] = request.AppTypes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCodes)) {
+		query["processCodes"] = request.ProcessCodes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceCreateFromTimeGMT)) {
+		query["instanceCreateFromTimeGMT"] = request.InstanceCreateFromTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceCreateToTimeGMT)) {
+		query["instanceCreateToTimeGMT"] = request.InstanceCreateToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateFromTimeGMT)) {
+		query["createFromTimeGMT"] = request.CreateFromTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
+		query["createToTimeGMT"] = request.CreateToTimeGMT
 	}
 
 	realHeaders := make(map[string]*string)
@@ -5277,8 +14567,8 @@ func (client *Client) TerminateInstanceWithOptions(request *TerminateInstanceReq
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
-	_result = &TerminateInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("TerminateInstance"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/yida/processes/instances/terminate"), tea.String("none"), req, runtime)
+	_result = &GetNotifyMeResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetNotifyMe"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/corpNotifications/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5338,11 +14628,11 @@ func (client *Client) ExpireCommodityWithOptions(request *ExpireCommodityRequest
 	return _result, _err
 }
 
-func (client *Client) ValidateOrderBuy(request *ValidateOrderBuyRequest) (_result *ValidateOrderBuyResponse, _err error) {
+func (client *Client) GetInstanceById(id *string, request *GetInstanceByIdRequest) (_result *GetInstanceByIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &ValidateOrderBuyHeaders{}
-	_result = &ValidateOrderBuyResponse{}
-	_body, _err := client.ValidateOrderBuyWithOptions(request, headers, runtime)
+	headers := &GetInstanceByIdHeaders{}
+	_result = &GetInstanceByIdResponse{}
+	_body, _err := client.GetInstanceByIdWithOptions(id, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5350,11 +14640,145 @@ func (client *Client) ValidateOrderBuy(request *ValidateOrderBuyRequest) (_resul
 	return _result, _err
 }
 
-func (client *Client) ValidateOrderBuyWithOptions(request *ValidateOrderBuyRequest, headers *ValidateOrderBuyHeaders, runtime *util.RuntimeOptions) (_result *ValidateOrderBuyResponse, _err error) {
+func (client *Client) GetInstanceByIdWithOptions(id *string, request *GetInstanceByIdRequest, headers *GetInstanceByIdHeaders, runtime *util.RuntimeOptions) (_result *GetInstanceByIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
+	id = openapiutil.GetEncodeParam(id)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		query["language"] = request.Language
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetInstanceByIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetInstanceById"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/processes/instancesInfos/"+tea.StringValue(id)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RedirectTask(request *RedirectTaskRequest) (_result *RedirectTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RedirectTaskHeaders{}
+	_result = &RedirectTaskResponse{}
+	_body, _err := client.RedirectTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RedirectTaskWithOptions(request *RedirectTaskRequest, headers *RedirectTaskHeaders, runtime *util.RuntimeOptions) (_result *RedirectTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ByManager)) {
+		body["byManager"] = request.ByManager
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		body["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NowActionExecutorId)) {
+		body["nowActionExecutorId"] = request.NowActionExecutorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RedirectTaskResponse{}
+	_body, _err := client.DoROARequest(tea.String("RedirectTask"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/tasks/redirect"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ValidateOrderUpdate(instanceId *string, request *ValidateOrderUpdateRequest) (_result *ValidateOrderUpdateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ValidateOrderUpdateHeaders{}
+	_result = &ValidateOrderUpdateResponse{}
+	_body, _err := client.ValidateOrderUpdateWithOptions(instanceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ValidateOrderUpdateWithOptions(instanceId *string, request *ValidateOrderUpdateRequest, headers *ValidateOrderUpdateHeaders, runtime *util.RuntimeOptions) (_result *ValidateOrderUpdateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	instanceId = openapiutil.GetEncodeParam(instanceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
 		query["accessKey"] = request.AccessKey
@@ -5377,8 +14801,66 @@ func (client *Client) ValidateOrderBuyWithOptions(request *ValidateOrderBuyReque
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
-	_result = &ValidateOrderBuyResponse{}
-	_body, _err := client.DoROARequest(tea.String("ValidateOrderBuy"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/apps/orderBuy/validate"), tea.String("json"), req, runtime)
+	_result = &ValidateOrderUpdateResponse{}
+	_body, _err := client.DoROARequest(tea.String("ValidateOrderUpdate"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/orders/renewalReviews/"+tea.StringValue(instanceId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetFormComponentDefinitionList(appType *string, formUuid *string, request *GetFormComponentDefinitionListRequest) (_result *GetFormComponentDefinitionListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFormComponentDefinitionListHeaders{}
+	_result = &GetFormComponentDefinitionListResponse{}
+	_body, _err := client.GetFormComponentDefinitionListWithOptions(appType, formUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetFormComponentDefinitionListWithOptions(appType *string, formUuid *string, request *GetFormComponentDefinitionListRequest, headers *GetFormComponentDefinitionListHeaders, runtime *util.RuntimeOptions) (_result *GetFormComponentDefinitionListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	appType = openapiutil.GetEncodeParam(appType)
+	formUuid = openapiutil.GetEncodeParam(formUuid)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		query["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Version)) {
+		query["version"] = request.Version
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetFormComponentDefinitionListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetFormComponentDefinitionList"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/forms/definitions/"+tea.StringValue(appType)+"/"+tea.StringValue(formUuid)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5450,6 +14932,87 @@ func (client *Client) SaveFormDataWithOptions(request *SaveFormDataRequest, head
 	return _result, _err
 }
 
+func (client *Client) GetMeCorpSubmission(userId *string, request *GetMeCorpSubmissionRequest) (_result *GetMeCorpSubmissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetMeCorpSubmissionHeaders{}
+	_result = &GetMeCorpSubmissionResponse{}
+	_body, _err := client.GetMeCorpSubmissionWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetMeCorpSubmissionWithOptions(userId *string, request *GetMeCorpSubmissionRequest, headers *GetMeCorpSubmissionHeaders, runtime *util.RuntimeOptions) (_result *GetMeCorpSubmissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		query["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
+		query["keyword"] = request.Keyword
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppTypes)) {
+		query["appTypes"] = request.AppTypes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCodes)) {
+		query["processCodes"] = request.ProcessCodes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateFromTimeGMT)) {
+		query["createFromTimeGMT"] = request.CreateFromTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
+		query["createToTimeGMT"] = request.CreateToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		query["token"] = request.Token
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetMeCorpSubmissionResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetMeCorpSubmission"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/tasks/myCorpSubmission/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteFormData(request *DeleteFormDataRequest) (_result *DeleteFormDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteFormDataHeaders{}
@@ -5510,11 +15073,11 @@ func (client *Client) DeleteFormDataWithOptions(request *DeleteFormDataRequest, 
 	return _result, _err
 }
 
-func (client *Client) UpdateInstance(request *UpdateInstanceRequest) (_result *UpdateInstanceResponse, _err error) {
+func (client *Client) SearchFormDataIdList(appType *string, formUuid *string, request *SearchFormDataIdListRequest) (_result *SearchFormDataIdListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateInstanceHeaders{}
-	_result = &UpdateInstanceResponse{}
-	_body, _err := client.UpdateInstanceWithOptions(request, headers, runtime)
+	headers := &SearchFormDataIdListHeaders{}
+	_result = &SearchFormDataIdListResponse{}
+	_body, _err := client.SearchFormDataIdListWithOptions(appType, formUuid, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5522,90 +15085,57 @@ func (client *Client) UpdateInstance(request *UpdateInstanceRequest) (_result *U
 	return _result, _err
 }
 
-func (client *Client) UpdateInstanceWithOptions(request *UpdateInstanceRequest, headers *UpdateInstanceHeaders, runtime *util.RuntimeOptions) (_result *UpdateInstanceResponse, _err error) {
+func (client *Client) SearchFormDataIdListWithOptions(appType *string, formUuid *string, request *SearchFormDataIdListRequest, headers *SearchFormDataIdListHeaders, runtime *util.RuntimeOptions) (_result *SearchFormDataIdListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
-		body["processInstanceId"] = request.ProcessInstanceId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.AppType)) {
-		body["appType"] = request.AppType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.UpdateFormDataJson)) {
-		body["updateFormDataJson"] = request.UpdateFormDataJson
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
-		body["systemToken"] = request.SystemToken
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Language)) {
-		body["language"] = request.Language
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.UserId)) {
-		body["userId"] = request.UserId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &UpdateInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateInstance"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/yida/processes/instances"), tea.String("none"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) ListCommodity(request *ListCommodityRequest) (_result *ListCommodityResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &ListCommodityHeaders{}
-	_result = &ListCommodityResponse{}
-	_body, _err := client.ListCommodityWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) ListCommodityWithOptions(request *ListCommodityRequest, headers *ListCommodityHeaders, runtime *util.RuntimeOptions) (_result *ListCommodityResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
+	appType = openapiutil.GetEncodeParam(appType)
+	formUuid = openapiutil.GetEncodeParam(formUuid)
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
-		query["accessKey"] = request.AccessKey
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
 		query["pageSize"] = request.PageSize
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CallerUid)) {
-		query["callerUid"] = request.CallerUid
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ModifiedToTimeGMT)) {
+		body["modifiedToTimeGMT"] = request.ModifiedToTimeGMT
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CurrentPage)) {
-		query["currentPage"] = request.CurrentPage
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModifiedFromTimeGMT)) {
+		body["modifiedFromTimeGMT"] = request.ModifiedFromTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		body["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchFieldJson)) {
+		body["searchFieldJson"] = request.SearchFieldJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OriginatorId)) {
+		body["originatorId"] = request.OriginatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
+		body["createToTimeGMT"] = request.CreateToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateFromTimeGMT)) {
+		body["createFromTimeGMT"] = request.CreateFromTimeGMT
 	}
 
 	realHeaders := make(map[string]*string)
@@ -5620,9 +15150,10 @@ func (client *Client) ListCommodityWithOptions(request *ListCommodityRequest, he
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &ListCommodityResponse{}
-	_body, _err := client.DoROARequest(tea.String("ListCommodity"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/appAuth/commodities"), tea.String("json"), req, runtime)
+	_result = &SearchFormDataIdListResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchFormDataIdList"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/forms/instances/ids/"+tea.StringValue(appType)+"/"+tea.StringValue(formUuid)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5630,11 +15161,11 @@ func (client *Client) ListCommodityWithOptions(request *ListCommodityRequest, he
 	return _result, _err
 }
 
-func (client *Client) GetApplicationAuthorizationServicePlatformResource(request *GetApplicationAuthorizationServicePlatformResourceRequest) (_result *GetApplicationAuthorizationServicePlatformResourceResponse, _err error) {
+func (client *Client) GetActivationCodeByCallerUnionId(callerUid *string, request *GetActivationCodeByCallerUnionIdRequest) (_result *GetActivationCodeByCallerUnionIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &GetApplicationAuthorizationServicePlatformResourceHeaders{}
-	_result = &GetApplicationAuthorizationServicePlatformResourceResponse{}
-	_body, _err := client.GetApplicationAuthorizationServicePlatformResourceWithOptions(request, headers, runtime)
+	headers := &GetActivationCodeByCallerUnionIdHeaders{}
+	_result = &GetActivationCodeByCallerUnionIdResponse{}
+	_body, _err := client.GetActivationCodeByCallerUnionIdWithOptions(callerUid, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5642,24 +15173,17 @@ func (client *Client) GetApplicationAuthorizationServicePlatformResource(request
 	return _result, _err
 }
 
-func (client *Client) GetApplicationAuthorizationServicePlatformResourceWithOptions(request *GetApplicationAuthorizationServicePlatformResourceRequest, headers *GetApplicationAuthorizationServicePlatformResourceHeaders, runtime *util.RuntimeOptions) (_result *GetApplicationAuthorizationServicePlatformResourceResponse, _err error) {
+func (client *Client) GetActivationCodeByCallerUnionIdWithOptions(callerUid *string, request *GetActivationCodeByCallerUnionIdRequest, headers *GetActivationCodeByCallerUnionIdHeaders, runtime *util.RuntimeOptions) (_result *GetActivationCodeByCallerUnionIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
+	callerUid = openapiutil.GetEncodeParam(callerUid)
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
-		query["instanceId"] = request.InstanceId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
 		query["accessKey"] = request.AccessKey
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CallerUid)) {
-		query["callerUid"] = request.CallerUid
-	}
-
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -5673,68 +15197,8 @@ func (client *Client) GetApplicationAuthorizationServicePlatformResourceWithOpti
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
-	_result = &GetApplicationAuthorizationServicePlatformResourceResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetApplicationAuthorizationServicePlatformResource"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/authorization/platformResources"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) GetActivityList(request *GetActivityListRequest) (_result *GetActivityListResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetActivityListHeaders{}
-	_result = &GetActivityListResponse{}
-	_body, _err := client.GetActivityListWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) GetActivityListWithOptions(request *GetActivityListRequest, headers *GetActivityListHeaders, runtime *util.RuntimeOptions) (_result *GetActivityListResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
-		query["processCode"] = request.ProcessCode
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.AppType)) {
-		query["appType"] = request.AppType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
-		query["systemToken"] = request.SystemToken
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Language)) {
-		query["language"] = request.Language
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.UserId)) {
-		query["userId"] = request.UserId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &GetActivityListResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetActivityList"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/processes/activities"), tea.String("json"), req, runtime)
+	_result = &GetActivationCodeByCallerUnionIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetActivationCodeByCallerUnionId"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/applications/activationCodes/"+tea.StringValue(callerUid)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5792,70 +15256,6 @@ func (client *Client) GetFormDataByIDWithOptions(id *string, request *GetFormDat
 	}
 	_result = &GetFormDataByIDResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetFormDataByID"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/forms/instances/"+tea.StringValue(id)), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) ExecuteCustomApi(request *ExecuteCustomApiRequest) (_result *ExecuteCustomApiResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &ExecuteCustomApiHeaders{}
-	_result = &ExecuteCustomApiResponse{}
-	_body, _err := client.ExecuteCustomApiWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) ExecuteCustomApiWithOptions(request *ExecuteCustomApiRequest, headers *ExecuteCustomApiHeaders, runtime *util.RuntimeOptions) (_result *ExecuteCustomApiResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Data)) {
-		query["data"] = request.Data
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.AppType)) {
-		query["appType"] = request.AppType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
-		query["systemToken"] = request.SystemToken
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Language)) {
-		query["language"] = request.Language
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.ServiceId)) {
-		query["serviceId"] = request.ServiceId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.UserId)) {
-		query["userId"] = request.UserId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &ExecuteCustomApiResponse{}
-	_body, _err := client.DoROARequest(tea.String("ExecuteCustomApi"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/apps/customApi/execute"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6027,11 +15427,11 @@ func (client *Client) ReleaseCommodityWithOptions(request *ReleaseCommodityReque
 	return _result, _err
 }
 
-func (client *Client) LoginCodeGen(request *LoginCodeGenRequest) (_result *LoginCodeGenResponse, _err error) {
+func (client *Client) RenderBatchCallback(request *RenderBatchCallbackRequest) (_result *RenderBatchCallbackResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &LoginCodeGenHeaders{}
-	_result = &LoginCodeGenResponse{}
-	_body, _err := client.LoginCodeGenWithOptions(request, headers, runtime)
+	headers := &RenderBatchCallbackHeaders{}
+	_result = &RenderBatchCallbackResponse{}
+	_body, _err := client.RenderBatchCallbackWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6039,14 +15439,119 @@ func (client *Client) LoginCodeGen(request *LoginCodeGenRequest) (_result *Login
 	return _result, _err
 }
 
-func (client *Client) LoginCodeGenWithOptions(request *LoginCodeGenRequest, headers *LoginCodeGenHeaders, runtime *util.RuntimeOptions) (_result *LoginCodeGenResponse, _err error) {
+func (client *Client) RenderBatchCallbackWithOptions(request *RenderBatchCallbackRequest, headers *RenderBatchCallbackHeaders, runtime *util.RuntimeOptions) (_result *RenderBatchCallbackResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OssUrl)) {
+		body["ossUrl"] = request.OssUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileSize)) {
+		body["fileSize"] = request.FileSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Namespace)) {
+		body["namespace"] = request.Namespace
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TimeZone)) {
+		body["timeZone"] = request.TimeZone
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		body["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Source)) {
+		body["source"] = request.Source
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SequenceId)) {
+		body["sequenceId"] = request.SequenceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RenderBatchCallbackResponse{}
+	_body, _err := client.DoROARequest(tea.String("RenderBatchCallback"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/printings/callbacks/batch"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetOpenUrl(appType *string, request *GetOpenUrlRequest) (_result *GetOpenUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOpenUrlHeaders{}
+	_result = &GetOpenUrlResponse{}
+	_body, _err := client.GetOpenUrlWithOptions(appType, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetOpenUrlWithOptions(appType *string, request *GetOpenUrlRequest, headers *GetOpenUrlHeaders, runtime *util.RuntimeOptions) (_result *GetOpenUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	appType = openapiutil.GetEncodeParam(appType)
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		query["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileUrl)) {
+		query["fileUrl"] = request.FileUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Timeout)) {
+		query["timeout"] = request.Timeout
 	}
 
 	realHeaders := make(map[string]*string)
@@ -6062,8 +15567,8 @@ func (client *Client) LoginCodeGenWithOptions(request *LoginCodeGenRequest, head
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
-	_result = &LoginCodeGenResponse{}
-	_body, _err := client.DoROARequest(tea.String("LoginCodeGen"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/authorizations/loginCodes"), tea.String("json"), req, runtime)
+	_result = &GetOpenUrlResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetOpenUrl"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/apps/temporaryUrls/"+tea.StringValue(appType)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6116,6 +15621,55 @@ func (client *Client) GetSaleUserInfoByUserIdWithOptions(request *GetSaleUserInf
 	}
 	_result = &GetSaleUserInfoByUserIdResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetSaleUserInfoByUserId"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/apps/saleUserInfo"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ValidateApplicationAuthorizationOrder(instanceId *string, request *ValidateApplicationAuthorizationOrderRequest) (_result *ValidateApplicationAuthorizationOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ValidateApplicationAuthorizationOrderHeaders{}
+	_result = &ValidateApplicationAuthorizationOrderResponse{}
+	_body, _err := client.ValidateApplicationAuthorizationOrderWithOptions(instanceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ValidateApplicationAuthorizationOrderWithOptions(instanceId *string, request *ValidateApplicationAuthorizationOrderRequest, headers *ValidateApplicationAuthorizationOrderHeaders, runtime *util.RuntimeOptions) (_result *ValidateApplicationAuthorizationOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	instanceId = openapiutil.GetEncodeParam(instanceId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
+		query["accessKey"] = request.AccessKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallerUnionId)) {
+		query["callerUnionId"] = request.CallerUnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ValidateApplicationAuthorizationOrderResponse{}
+	_body, _err := client.DoROARequest(tea.String("ValidateApplicationAuthorizationOrder"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/applicationOrderUpdateAuthorizations/"+tea.StringValue(instanceId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6196,78 +15750,6 @@ func (client *Client) ExecuteTaskWithOptions(request *ExecuteTaskRequest, header
 	}
 	_result = &ExecuteTaskResponse{}
 	_body, _err := client.DoROARequest(tea.String("ExecuteTask"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/tasks/execute"), tea.String("none"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) StartInstance(request *StartInstanceRequest) (_result *StartInstanceResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &StartInstanceHeaders{}
-	_result = &StartInstanceResponse{}
-	_body, _err := client.StartInstanceWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) StartInstanceWithOptions(request *StartInstanceRequest, headers *StartInstanceHeaders, runtime *util.RuntimeOptions) (_result *StartInstanceResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.AppType)) {
-		body["appType"] = request.AppType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
-		body["systemToken"] = request.SystemToken
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.UserId)) {
-		body["userId"] = request.UserId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Language)) {
-		body["language"] = request.Language
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
-		body["formUuid"] = request.FormUuid
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.FormDataJson)) {
-		body["formDataJson"] = request.FormDataJson
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
-		body["processCode"] = request.ProcessCode
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DepartmentId)) {
-		body["departmentId"] = request.DepartmentId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &StartInstanceResponse{}
-	_body, _err := client.DoROARequest(tea.String("StartInstance"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/processes/instances/start"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

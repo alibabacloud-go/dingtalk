@@ -1230,6 +1230,71 @@ func (s *GetDocCreatedSummaryResponse) SetBody(v *GetDocCreatedSummaryResponseBo
 	return s
 }
 
+type SendAppDingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendAppDingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendAppDingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendAppDingHeaders) SetCommonHeaders(v map[string]*string) *SendAppDingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendAppDingHeaders) SetXAcsDingtalkAccessToken(v string) *SendAppDingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendAppDingRequest struct {
+	// 接收DING消息的用户列表
+	Userids []*string `json:"userids,omitempty" xml:"userids,omitempty" type:"Repeated"`
+	// 消息内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s SendAppDingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendAppDingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendAppDingRequest) SetUserids(v []*string) *SendAppDingRequest {
+	s.Userids = v
+	return s
+}
+
+func (s *SendAppDingRequest) SetContent(v string) *SendAppDingRequest {
+	s.Content = &v
+	return s
+}
+
+type SendAppDingResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s SendAppDingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendAppDingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendAppDingResponse) SetHeaders(v map[string]*string) *SendAppDingResponse {
+	s.Headers = v
+	return s
+}
+
 type GetPartnerTypeByParentIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3093,6 +3158,54 @@ func (client *Client) GetDocCreatedSummaryWithOptions(dataId *string, headers *G
 	}
 	_result = &GetDocCreatedSummaryResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetDocCreatedSummary"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/data/doc/org/"+tea.StringValue(dataId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendAppDing(request *SendAppDingRequest) (_result *SendAppDingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendAppDingHeaders{}
+	_result = &SendAppDingResponse{}
+	_body, _err := client.SendAppDingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendAppDingWithOptions(request *SendAppDingRequest, headers *SendAppDingHeaders, runtime *util.RuntimeOptions) (_result *SendAppDingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Userids)) {
+		body["userids"] = request.Userids
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendAppDingResponse{}
+	_body, _err := client.DoROARequest(tea.String("SendAppDing"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/appDings/send"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

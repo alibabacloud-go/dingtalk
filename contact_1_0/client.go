@@ -106,6 +106,333 @@ func (s *SortUserResponse) SetBody(v *SortUserResponseBody) *SortUserResponse {
 	return s
 }
 
+type ListContactHideSettingsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListContactHideSettingsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListContactHideSettingsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListContactHideSettingsHeaders) SetCommonHeaders(v map[string]*string) *ListContactHideSettingsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListContactHideSettingsHeaders) SetXAcsDingtalkAccessToken(v string) *ListContactHideSettingsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListContactHideSettingsRequest struct {
+	NextToken  *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+}
+
+func (s ListContactHideSettingsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListContactHideSettingsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListContactHideSettingsRequest) SetNextToken(v int64) *ListContactHideSettingsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListContactHideSettingsRequest) SetMaxResults(v int32) *ListContactHideSettingsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+type ListContactHideSettingsResponseBody struct {
+	// 是否还有数据
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 下一次拉取数据时的offset
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 设置列表
+	List []*ListContactHideSettingsResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s ListContactHideSettingsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListContactHideSettingsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListContactHideSettingsResponseBody) SetHasMore(v bool) *ListContactHideSettingsResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *ListContactHideSettingsResponseBody) SetNextToken(v int64) *ListContactHideSettingsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListContactHideSettingsResponseBody) SetList(v []*ListContactHideSettingsResponseBodyList) *ListContactHideSettingsResponseBody {
+	s.List = v
+	return s
+}
+
+type ListContactHideSettingsResponseBodyList struct {
+	// 设置名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 设置描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 要隐藏的员工列表
+	ObjectStaffIds []*string `json:"objectStaffIds,omitempty" xml:"objectStaffIds,omitempty" type:"Repeated"`
+	// 要隐藏的部门列表
+	ObjectDeptIds []*int64 `json:"objectDeptIds,omitempty" xml:"objectDeptIds,omitempty" type:"Repeated"`
+	// 要影藏的角色列表
+	ObjectTagIds []*int64 `json:"objectTagIds,omitempty" xml:"objectTagIds,omitempty" type:"Repeated"`
+	// 白名单用户列表
+	ExcludeStaffIds []*string `json:"excludeStaffIds,omitempty" xml:"excludeStaffIds,omitempty" type:"Repeated"`
+	// 白名单部门列表
+	ExcludeDeptIds []*int64 `json:"excludeDeptIds,omitempty" xml:"excludeDeptIds,omitempty" type:"Repeated"`
+	// 白名单角色列表
+	ExcludeTagIds []*int64 `json:"excludeTagIds,omitempty" xml:"excludeTagIds,omitempty" type:"Repeated"`
+	// 规则是否生效
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+	// settingId
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s ListContactHideSettingsResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListContactHideSettingsResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *ListContactHideSettingsResponseBodyList) SetName(v string) *ListContactHideSettingsResponseBodyList {
+	s.Name = &v
+	return s
+}
+
+func (s *ListContactHideSettingsResponseBodyList) SetDescription(v string) *ListContactHideSettingsResponseBodyList {
+	s.Description = &v
+	return s
+}
+
+func (s *ListContactHideSettingsResponseBodyList) SetObjectStaffIds(v []*string) *ListContactHideSettingsResponseBodyList {
+	s.ObjectStaffIds = v
+	return s
+}
+
+func (s *ListContactHideSettingsResponseBodyList) SetObjectDeptIds(v []*int64) *ListContactHideSettingsResponseBodyList {
+	s.ObjectDeptIds = v
+	return s
+}
+
+func (s *ListContactHideSettingsResponseBodyList) SetObjectTagIds(v []*int64) *ListContactHideSettingsResponseBodyList {
+	s.ObjectTagIds = v
+	return s
+}
+
+func (s *ListContactHideSettingsResponseBodyList) SetExcludeStaffIds(v []*string) *ListContactHideSettingsResponseBodyList {
+	s.ExcludeStaffIds = v
+	return s
+}
+
+func (s *ListContactHideSettingsResponseBodyList) SetExcludeDeptIds(v []*int64) *ListContactHideSettingsResponseBodyList {
+	s.ExcludeDeptIds = v
+	return s
+}
+
+func (s *ListContactHideSettingsResponseBodyList) SetExcludeTagIds(v []*int64) *ListContactHideSettingsResponseBodyList {
+	s.ExcludeTagIds = v
+	return s
+}
+
+func (s *ListContactHideSettingsResponseBodyList) SetActive(v bool) *ListContactHideSettingsResponseBodyList {
+	s.Active = &v
+	return s
+}
+
+func (s *ListContactHideSettingsResponseBodyList) SetId(v int64) *ListContactHideSettingsResponseBodyList {
+	s.Id = &v
+	return s
+}
+
+type ListContactHideSettingsResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListContactHideSettingsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListContactHideSettingsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListContactHideSettingsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListContactHideSettingsResponse) SetHeaders(v map[string]*string) *ListContactHideSettingsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListContactHideSettingsResponse) SetBody(v *ListContactHideSettingsResponseBody) *ListContactHideSettingsResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateContactHideSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateContactHideSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateContactHideSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateContactHideSettingHeaders) SetCommonHeaders(v map[string]*string) *UpdateContactHideSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateContactHideSettingHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateContactHideSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateContactHideSettingRequest struct {
+	// 设置名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 设置描述信息
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 隐藏员工列表
+	ObjectStaffIds []*string `json:"objectStaffIds,omitempty" xml:"objectStaffIds,omitempty" type:"Repeated"`
+	// 影藏部门列表
+	ObjectDeptIds []*int64 `json:"objectDeptIds,omitempty" xml:"objectDeptIds,omitempty" type:"Repeated"`
+	// 影藏角色列表
+	ObjectTagIds []*int64 `json:"objectTagIds,omitempty" xml:"objectTagIds,omitempty" type:"Repeated"`
+	// 白名单员工列表
+	ExcludeStaffIds []*string `json:"excludeStaffIds,omitempty" xml:"excludeStaffIds,omitempty" type:"Repeated"`
+	// 白名单部门列表
+	ExcludeDeptIds []*int64 `json:"excludeDeptIds,omitempty" xml:"excludeDeptIds,omitempty" type:"Repeated"`
+	// 白名单角色列表
+	ExcludeTagIds []*int64 `json:"excludeTagIds,omitempty" xml:"excludeTagIds,omitempty" type:"Repeated"`
+	// 是否激活
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+	// settingId
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s UpdateContactHideSettingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateContactHideSettingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateContactHideSettingRequest) SetName(v string) *UpdateContactHideSettingRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateContactHideSettingRequest) SetDescription(v string) *UpdateContactHideSettingRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *UpdateContactHideSettingRequest) SetObjectStaffIds(v []*string) *UpdateContactHideSettingRequest {
+	s.ObjectStaffIds = v
+	return s
+}
+
+func (s *UpdateContactHideSettingRequest) SetObjectDeptIds(v []*int64) *UpdateContactHideSettingRequest {
+	s.ObjectDeptIds = v
+	return s
+}
+
+func (s *UpdateContactHideSettingRequest) SetObjectTagIds(v []*int64) *UpdateContactHideSettingRequest {
+	s.ObjectTagIds = v
+	return s
+}
+
+func (s *UpdateContactHideSettingRequest) SetExcludeStaffIds(v []*string) *UpdateContactHideSettingRequest {
+	s.ExcludeStaffIds = v
+	return s
+}
+
+func (s *UpdateContactHideSettingRequest) SetExcludeDeptIds(v []*int64) *UpdateContactHideSettingRequest {
+	s.ExcludeDeptIds = v
+	return s
+}
+
+func (s *UpdateContactHideSettingRequest) SetExcludeTagIds(v []*int64) *UpdateContactHideSettingRequest {
+	s.ExcludeTagIds = v
+	return s
+}
+
+func (s *UpdateContactHideSettingRequest) SetActive(v bool) *UpdateContactHideSettingRequest {
+	s.Active = &v
+	return s
+}
+
+func (s *UpdateContactHideSettingRequest) SetId(v int64) *UpdateContactHideSettingRequest {
+	s.Id = &v
+	return s
+}
+
+type UpdateContactHideSettingResponseBody struct {
+	// settingId
+	Result *int64 `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateContactHideSettingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateContactHideSettingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateContactHideSettingResponseBody) SetResult(v int64) *UpdateContactHideSettingResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateContactHideSettingResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateContactHideSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateContactHideSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateContactHideSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateContactHideSettingResponse) SetHeaders(v map[string]*string) *UpdateContactHideSettingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateContactHideSettingResponse) SetBody(v *UpdateContactHideSettingResponseBody) *UpdateContactHideSettingResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateEmpAttrbuteVisibilitySettingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1199,6 +1526,46 @@ func (s *QueryUserManagementResourcesResponse) SetHeaders(v map[string]*string) 
 
 func (s *QueryUserManagementResourcesResponse) SetBody(v *QueryUserManagementResourcesResponseBody) *QueryUserManagementResourcesResponse {
 	s.Body = v
+	return s
+}
+
+type DeleteContactHideSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteContactHideSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteContactHideSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteContactHideSettingHeaders) SetCommonHeaders(v map[string]*string) *DeleteContactHideSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteContactHideSettingHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteContactHideSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteContactHideSettingResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s DeleteContactHideSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteContactHideSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteContactHideSettingResponse) SetHeaders(v map[string]*string) *DeleteContactHideSettingResponse {
+	s.Headers = v
 	return s
 }
 
@@ -3045,6 +3412,134 @@ func (client *Client) SortUserWithOptions(request *SortUserRequest, headers *Sor
 	return _result, _err
 }
 
+func (client *Client) ListContactHideSettings(request *ListContactHideSettingsRequest) (_result *ListContactHideSettingsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListContactHideSettingsHeaders{}
+	_result = &ListContactHideSettingsResponse{}
+	_body, _err := client.ListContactHideSettingsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListContactHideSettingsWithOptions(request *ListContactHideSettingsRequest, headers *ListContactHideSettingsHeaders, runtime *util.RuntimeOptions) (_result *ListContactHideSettingsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListContactHideSettingsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListContactHideSettings"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/contactHideSettings"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateContactHideSetting(request *UpdateContactHideSettingRequest) (_result *UpdateContactHideSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateContactHideSettingHeaders{}
+	_result = &UpdateContactHideSettingResponse{}
+	_body, _err := client.UpdateContactHideSettingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateContactHideSettingWithOptions(request *UpdateContactHideSettingRequest, headers *UpdateContactHideSettingHeaders, runtime *util.RuntimeOptions) (_result *UpdateContactHideSettingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectStaffIds)) {
+		body["objectStaffIds"] = request.ObjectStaffIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectDeptIds)) {
+		body["objectDeptIds"] = request.ObjectDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectTagIds)) {
+		body["objectTagIds"] = request.ObjectTagIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeStaffIds)) {
+		body["excludeStaffIds"] = request.ExcludeStaffIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeDeptIds)) {
+		body["excludeDeptIds"] = request.ExcludeDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeTagIds)) {
+		body["excludeTagIds"] = request.ExcludeTagIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Active)) {
+		body["active"] = request.Active
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Id)) {
+		body["id"] = request.Id
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateContactHideSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateContactHideSetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/contact/contactHideSettings"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) UpdateEmpAttrbuteVisibilitySetting(request *UpdateEmpAttrbuteVisibilitySettingRequest) (_result *UpdateEmpAttrbuteVisibilitySettingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateEmpAttrbuteVisibilitySettingHeaders{}
@@ -3488,6 +3983,41 @@ func (client *Client) QueryUserManagementResourcesWithOptions(userId *string, he
 	}
 	_result = &QueryUserManagementResourcesResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryUserManagementResources"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/users/"+tea.StringValue(userId)+"/managemementResources"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteContactHideSetting(settingId *string) (_result *DeleteContactHideSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteContactHideSettingHeaders{}
+	_result = &DeleteContactHideSettingResponse{}
+	_body, _err := client.DeleteContactHideSettingWithOptions(settingId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteContactHideSettingWithOptions(settingId *string, headers *DeleteContactHideSettingHeaders, runtime *util.RuntimeOptions) (_result *DeleteContactHideSettingResponse, _err error) {
+	settingId = openapiutil.GetEncodeParam(settingId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &DeleteContactHideSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteContactHideSetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/contact/contactHideSettings/"+tea.StringValue(settingId)), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

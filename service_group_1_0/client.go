@@ -366,6 +366,109 @@ func (s *UpdateTicketResponse) SetHeaders(v map[string]*string) *UpdateTicketRes
 	return s
 }
 
+type UpgradeNormalGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpgradeNormalGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpgradeNormalGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpgradeNormalGroupHeaders) SetCommonHeaders(v map[string]*string) *UpgradeNormalGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpgradeNormalGroupHeaders) SetXAcsDingtalkAccessToken(v string) *UpgradeNormalGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpgradeNormalGroupRequest struct {
+	// 升级的目标群组id
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 升级的目标模板id
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// 群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 升级的目标团队id
+	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+}
+
+func (s UpgradeNormalGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpgradeNormalGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpgradeNormalGroupRequest) SetOpenGroupSetId(v string) *UpgradeNormalGroupRequest {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *UpgradeNormalGroupRequest) SetTemplateId(v string) *UpgradeNormalGroupRequest {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *UpgradeNormalGroupRequest) SetOpenConversationId(v string) *UpgradeNormalGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *UpgradeNormalGroupRequest) SetOpenTeamId(v string) *UpgradeNormalGroupRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *UpgradeNormalGroupRequest) SetDingOrgId(v int64) *UpgradeNormalGroupRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *UpgradeNormalGroupRequest) SetDingSuiteKey(v string) *UpgradeNormalGroupRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *UpgradeNormalGroupRequest) SetDingTokenGrantType(v int64) *UpgradeNormalGroupRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *UpgradeNormalGroupRequest) SetDingIsvOrgId(v int64) *UpgradeNormalGroupRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+type UpgradeNormalGroupResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s UpgradeNormalGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpgradeNormalGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpgradeNormalGroupResponse) SetHeaders(v map[string]*string) *UpgradeNormalGroupResponse {
+	s.Headers = v
+	return s
+}
+
 type AddKnowledgeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2438,6 +2541,116 @@ func (s *SendServiceGroupMessageResponse) SetBody(v *SendServiceGroupMessageResp
 	return s
 }
 
+type UpgradeCloudGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpgradeCloudGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpgradeCloudGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpgradeCloudGroupHeaders) SetCommonHeaders(v map[string]*string) *UpgradeCloudGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpgradeCloudGroupHeaders) SetXAcsDingtalkAccessToken(v string) *UpgradeCloudGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpgradeCloudGroupRequest struct {
+	// 钉钉群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 升级的目标模板id
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// 升级的目标群组id
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 云客服租户id
+	CcsInstanceId      *string `json:"ccsInstanceId,omitempty" xml:"ccsInstanceId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	// 升级的目标团队id
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s UpgradeCloudGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpgradeCloudGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpgradeCloudGroupRequest) SetOpenConversationId(v string) *UpgradeCloudGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *UpgradeCloudGroupRequest) SetTemplateId(v string) *UpgradeCloudGroupRequest {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *UpgradeCloudGroupRequest) SetOpenGroupSetId(v string) *UpgradeCloudGroupRequest {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *UpgradeCloudGroupRequest) SetCcsInstanceId(v string) *UpgradeCloudGroupRequest {
+	s.CcsInstanceId = &v
+	return s
+}
+
+func (s *UpgradeCloudGroupRequest) SetDingOrgId(v int64) *UpgradeCloudGroupRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *UpgradeCloudGroupRequest) SetDingSuiteKey(v string) *UpgradeCloudGroupRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *UpgradeCloudGroupRequest) SetDingTokenGrantType(v int64) *UpgradeCloudGroupRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *UpgradeCloudGroupRequest) SetDingIsvOrgId(v int64) *UpgradeCloudGroupRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *UpgradeCloudGroupRequest) SetOpenTeamId(v string) *UpgradeCloudGroupRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type UpgradeCloudGroupResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s UpgradeCloudGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpgradeCloudGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpgradeCloudGroupResponse) SetHeaders(v map[string]*string) *UpgradeCloudGroupResponse {
+	s.Headers = v
+	return s
+}
+
 type ResubmitTicketHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4101,6 +4314,155 @@ func (s *TransferTicketResponse) SetHeaders(v map[string]*string) *TransferTicke
 	return s
 }
 
+type QueryActiveUsersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryActiveUsersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryActiveUsersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryActiveUsersHeaders) SetCommonHeaders(v map[string]*string) *QueryActiveUsersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryActiveUsersHeaders) SetXAcsDingtalkAccessToken(v string) *QueryActiveUsersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryActiveUsersRequest struct {
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 开放群ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s QueryActiveUsersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryActiveUsersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryActiveUsersRequest) SetOpenTeamId(v string) *QueryActiveUsersRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *QueryActiveUsersRequest) SetOpenConversationId(v string) *QueryActiveUsersRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type QueryActiveUsersResponseBody struct {
+	// 活跃用户列表
+	ActiveUserInfos []*QueryActiveUsersResponseBodyActiveUserInfos `json:"activeUserInfos,omitempty" xml:"activeUserInfos,omitempty" type:"Repeated"`
+}
+
+func (s QueryActiveUsersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryActiveUsersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryActiveUsersResponseBody) SetActiveUserInfos(v []*QueryActiveUsersResponseBodyActiveUserInfos) *QueryActiveUsersResponseBody {
+	s.ActiveUserInfos = v
+	return s
+}
+
+type QueryActiveUsersResponseBodyActiveUserInfos struct {
+	// 钉钉用户unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 昵称
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// 最近一周的行为指数
+	ActionIndexL7d *float64 `json:"actionIndexL7d,omitempty" xml:"actionIndexL7d,omitempty"`
+	// 最近二周的行为指数
+	ActionIndexL14d *float64 `json:"actionIndexL14d,omitempty" xml:"actionIndexL14d,omitempty"`
+	// 最近一个月的行为指数
+	ActionIndexL30d *float64 `json:"actionIndexL30d,omitempty" xml:"actionIndexL30d,omitempty"`
+	// 活跃度
+	ActiveScore *float64 `json:"activeScore,omitempty" xml:"activeScore,omitempty"`
+	// 排名
+	Ranking *int64 `json:"ranking,omitempty" xml:"ranking,omitempty"`
+}
+
+func (s QueryActiveUsersResponseBodyActiveUserInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryActiveUsersResponseBodyActiveUserInfos) GoString() string {
+	return s.String()
+}
+
+func (s *QueryActiveUsersResponseBodyActiveUserInfos) SetUnionId(v string) *QueryActiveUsersResponseBodyActiveUserInfos {
+	s.UnionId = &v
+	return s
+}
+
+func (s *QueryActiveUsersResponseBodyActiveUserInfos) SetNickName(v string) *QueryActiveUsersResponseBodyActiveUserInfos {
+	s.NickName = &v
+	return s
+}
+
+func (s *QueryActiveUsersResponseBodyActiveUserInfos) SetActionIndexL7d(v float64) *QueryActiveUsersResponseBodyActiveUserInfos {
+	s.ActionIndexL7d = &v
+	return s
+}
+
+func (s *QueryActiveUsersResponseBodyActiveUserInfos) SetActionIndexL14d(v float64) *QueryActiveUsersResponseBodyActiveUserInfos {
+	s.ActionIndexL14d = &v
+	return s
+}
+
+func (s *QueryActiveUsersResponseBodyActiveUserInfos) SetActionIndexL30d(v float64) *QueryActiveUsersResponseBodyActiveUserInfos {
+	s.ActionIndexL30d = &v
+	return s
+}
+
+func (s *QueryActiveUsersResponseBodyActiveUserInfos) SetActiveScore(v float64) *QueryActiveUsersResponseBodyActiveUserInfos {
+	s.ActiveScore = &v
+	return s
+}
+
+func (s *QueryActiveUsersResponseBodyActiveUserInfos) SetRanking(v int64) *QueryActiveUsersResponseBodyActiveUserInfos {
+	s.Ranking = &v
+	return s
+}
+
+type QueryActiveUsersResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryActiveUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryActiveUsersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryActiveUsersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryActiveUsersResponse) SetHeaders(v map[string]*string) *QueryActiveUsersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryActiveUsersResponse) SetBody(v *QueryActiveUsersResponseBody) *QueryActiveUsersResponse {
+	s.Body = v
+	return s
+}
+
 type GetOssTempUrlHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4714,6 +5076,78 @@ func (client *Client) UpdateTicketWithOptions(request *UpdateTicketRequest, head
 	}
 	_result = &UpdateTicketResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpgradeNormalGroup(request *UpgradeNormalGroupRequest) (_result *UpgradeNormalGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpgradeNormalGroupHeaders{}
+	_result = &UpgradeNormalGroupResponse{}
+	_body, _err := client.UpgradeNormalGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpgradeNormalGroupWithOptions(request *UpgradeNormalGroupRequest, headers *UpgradeNormalGroupHeaders, runtime *util.RuntimeOptions) (_result *UpgradeNormalGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
+		body["openGroupSetId"] = request.OpenGroupSetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpgradeNormalGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpgradeNormalGroup"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/normalGroups/upgrade"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5601,6 +6035,82 @@ func (client *Client) SendServiceGroupMessageWithOptions(request *SendServiceGro
 	return _result, _err
 }
 
+func (client *Client) UpgradeCloudGroup(request *UpgradeCloudGroupRequest) (_result *UpgradeCloudGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpgradeCloudGroupHeaders{}
+	_result = &UpgradeCloudGroupResponse{}
+	_body, _err := client.UpgradeCloudGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpgradeCloudGroupWithOptions(request *UpgradeCloudGroupRequest, headers *UpgradeCloudGroupHeaders, runtime *util.RuntimeOptions) (_result *UpgradeCloudGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
+		body["openGroupSetId"] = request.OpenGroupSetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CcsInstanceId)) {
+		body["ccsInstanceId"] = request.CcsInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpgradeCloudGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpgradeCloudGroup"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/cloudGroups/upgrade"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ResubmitTicket(request *ResubmitTicketRequest) (_result *ResubmitTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ResubmitTicketHeaders{}
@@ -6285,6 +6795,54 @@ func (client *Client) TransferTicketWithOptions(request *TransferTicketRequest, 
 	}
 	_result = &TransferTicketResponse{}
 	_body, _err := client.DoROARequest(tea.String("TransferTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets/transfer"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryActiveUsers(request *QueryActiveUsersRequest) (_result *QueryActiveUsersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryActiveUsersHeaders{}
+	_result = &QueryActiveUsersResponse{}
+	_body, _err := client.QueryActiveUsersWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryActiveUsersWithOptions(request *QueryActiveUsersRequest, headers *QueryActiveUsersHeaders, runtime *util.RuntimeOptions) (_result *QueryActiveUsersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		query["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		query["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryActiveUsersResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryActiveUsers"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/queryActiveUsers"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
