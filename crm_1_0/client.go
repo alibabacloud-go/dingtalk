@@ -3642,6 +3642,8 @@ type QueryAllTracksResponseBodyValues struct {
 	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
 	// 动态外键
 	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// 动态加密主键
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
 func (s QueryAllTracksResponseBodyValues) String() string {
@@ -3684,6 +3686,11 @@ func (s *QueryAllTracksResponseBodyValues) SetCreator(v string) *QueryAllTracksR
 
 func (s *QueryAllTracksResponseBodyValues) SetBizId(v string) *QueryAllTracksResponseBodyValues {
 	s.BizId = &v
+	return s
+}
+
+func (s *QueryAllTracksResponseBodyValues) SetId(v string) *QueryAllTracksResponseBodyValues {
+	s.Id = &v
 	return s
 }
 

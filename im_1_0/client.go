@@ -261,7 +261,7 @@ type SendInteractiveCardRequest struct {
 	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
 	// 接收卡片的群的openConversationId
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 接收人userId列表
+	// 互动卡片消息需要群会话部分人可见时的接收人列表，不填写默认群会话所有人可见
 	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
 	DingTokenGrantType *int64    `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
 	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）
@@ -273,14 +273,15 @@ type SendInteractiveCardRequest struct {
 	// 发送的会话类型：单聊-0, 群聊-1（单聊时：openConversationId不用填写；receiverUserIdList填写有且一个员工号）
 	ConversationType *int32 `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
 	// 可控制卡片回调时的路由Key，用于指定特定的callbackUrl【可空：不填写默认用企业的回调地址】
-	CallbackRouteKey *string                             `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
-	CardData         *SendInteractiveCardRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
-	// 指定用户可见的按钮列表（key：用户userId；value：用户数据）
+	CallbackRouteKey *string `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	// 卡片公共主体部分数据
+	CardData *SendInteractiveCardRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	// 卡片用户私有差异部分数据（如卡片不同人显示不同按钮；key：用户userId；value：用户数据变量）
 	PrivateData    map[string]*PrivateDataValue `json:"privateData,omitempty" xml:"privateData,omitempty"`
 	DingOauthAppId *int64                       `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
 	// 【robotCode & chatBotId二选一必填】机器人ID（企业机器人）
 	ChatBotId *string `json:"chatBotId,omitempty" xml:"chatBotId,omitempty"`
-	// 用户ID类型：1：staffId模式【默认】；2：unionId模式；对应receiverUserIdList、privateData字段关于用户id的值填写方式
+	// 用户ID类型：1：userId模式【默认】；2：unionId模式；对应receiverUserIdList、privateData字段关于用户id的值填写方式
 	UserIdType *int32 `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 	// 消息@人，{123456:"钉三多"}，key：根据userIdType来设置，【特殊设置：如果key、value都为"@ALL"则判断at所有人】
 	AtOpenIds map[string]*string `json:"atOpenIds,omitempty" xml:"atOpenIds,omitempty"`
@@ -495,16 +496,20 @@ func (s *UpdateInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string) *Upd
 
 type UpdateInteractiveCardRequest struct {
 	// 唯一标识一张卡片的外部ID
-	OutTrackId         *string                               `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	CardData           *UpdateInteractiveCardRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
-	PrivateData        map[string]*PrivateDataValue          `json:"privateData,omitempty" xml:"privateData,omitempty"`
-	DingTokenGrantType *int64                                `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
-	DingOrgId          *int64                                `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingIsvOrgId       *int64                                `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
-	DingSuiteKey       *string                               `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
-	DingOauthAppId     *int64                                `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
-	// 用户ID类型：1：staffId模式【默认】；2：unionId模式；对应receiverUserIdList、privateData字段关于用户id的值填写方式
+	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	// 卡片公共主体部分数据
+	CardData *UpdateInteractiveCardRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	// 卡片用户私有差异部分数据（如卡片不同人显示不同按钮；key：用户userId；value：用户数据变量）
+	PrivateData        map[string]*PrivateDataValue `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	DingTokenGrantType *int64                       `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingOrgId          *int64                       `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId       *int64                       `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingSuiteKey       *string                      `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingOauthAppId     *int64                       `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
+	// 用户ID类型：1：userId模式【默认】；2：unionId模式；对应receiverUserIdList、privateData字段关于用户id的值填写方式
 	UserIdType *int32 `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+	// 发送可交互卡片的一些功能选项
+	CardOptions *UpdateInteractiveCardRequestCardOptions `json:"cardOptions,omitempty" xml:"cardOptions,omitempty" type:"Struct"`
 }
 
 func (s UpdateInteractiveCardRequest) String() string {
@@ -560,8 +565,15 @@ func (s *UpdateInteractiveCardRequest) SetUserIdType(v int32) *UpdateInteractive
 	return s
 }
 
+func (s *UpdateInteractiveCardRequest) SetCardOptions(v *UpdateInteractiveCardRequestCardOptions) *UpdateInteractiveCardRequest {
+	s.CardOptions = v
+	return s
+}
+
 type UpdateInteractiveCardRequestCardData struct {
-	CardParamMap        map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
+	// 卡片模板内容替换参数-普通文本类型
+	CardParamMap map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
+	// 卡片模板内容替换参数-多媒体类型
 	CardMediaIdParamMap map[string]*string `json:"cardMediaIdParamMap,omitempty" xml:"cardMediaIdParamMap,omitempty"`
 }
 
@@ -580,6 +592,31 @@ func (s *UpdateInteractiveCardRequestCardData) SetCardParamMap(v map[string]*str
 
 func (s *UpdateInteractiveCardRequestCardData) SetCardMediaIdParamMap(v map[string]*string) *UpdateInteractiveCardRequestCardData {
 	s.CardMediaIdParamMap = v
+	return s
+}
+
+type UpdateInteractiveCardRequestCardOptions struct {
+	// 按key更新cardData数据(不填默认覆盖更新)
+	UpdateCardDataByKey *bool `json:"updateCardDataByKey,omitempty" xml:"updateCardDataByKey,omitempty"`
+	// 按key更新privateData用户数据(不填默认覆盖更新)
+	UpdatePrivateDataByKey *bool `json:"updatePrivateDataByKey,omitempty" xml:"updatePrivateDataByKey,omitempty"`
+}
+
+func (s UpdateInteractiveCardRequestCardOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInteractiveCardRequestCardOptions) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInteractiveCardRequestCardOptions) SetUpdateCardDataByKey(v bool) *UpdateInteractiveCardRequestCardOptions {
+	s.UpdateCardDataByKey = &v
+	return s
+}
+
+func (s *UpdateInteractiveCardRequestCardOptions) SetUpdatePrivateDataByKey(v bool) *UpdateInteractiveCardRequestCardOptions {
+	s.UpdatePrivateDataByKey = &v
 	return s
 }
 
@@ -1739,6 +1776,10 @@ func (client *Client) UpdateInteractiveCardWithOptions(request *UpdateInteractiv
 
 	if !tea.BoolValue(util.IsUnset(request.UserIdType)) {
 		body["userIdType"] = request.UserIdType
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardOptions))) {
+		body["cardOptions"] = request.CardOptions
 	}
 
 	realHeaders := make(map[string]*string)

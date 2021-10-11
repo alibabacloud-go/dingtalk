@@ -43,7 +43,7 @@ type GetSearchTabResponseBody struct {
 	TabId *int32 `json:"tabId,omitempty" xml:"tabId,omitempty"`
 	// 数据源名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 数据源优先级，数值越大优先级越高
+	// 数据源优先级，数值越小优先级越高
 	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
 	// 数据源状态，1表示上线，0表示下线
 	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
@@ -382,7 +382,7 @@ func (s *CreateSearchTabHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSea
 type CreateSearchTabRequest struct {
 	// 数据源名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 数据源优先级，数值越大优先级越高
+	// 数据源优先级，数值越小优先级越高
 	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
 	// 数据源状态，1表示上线，0表示下线
 	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
@@ -518,7 +518,7 @@ func (s *UpdateSearchTabHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateSea
 type UpdateSearchTabRequest struct {
 	// 数据源名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 数据源优先级，数值越大优先级越高
+	// 数据源优先级，数值越小优先级越高
 	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
 	// 数据源状态，1表示上线，0表示下线
 	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
