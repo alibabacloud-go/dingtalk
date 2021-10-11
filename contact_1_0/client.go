@@ -1721,8 +1721,8 @@ func (s *GetMigrationUnionIdByUnionIdRequest) SetUnionId(v string) *GetMigration
 }
 
 type GetMigrationUnionIdByUnionIdResponseBody struct {
-	// migrationUnionId
-	MigrationUnionId *string `json:"migrationUnionId,omitempty" xml:"migrationUnionId,omitempty"`
+	// migrationUnionIdList
+	MigrationUnionIdList map[string]interface{} `json:"migrationUnionIdList,omitempty" xml:"migrationUnionIdList,omitempty"`
 }
 
 func (s GetMigrationUnionIdByUnionIdResponseBody) String() string {
@@ -1733,8 +1733,8 @@ func (s GetMigrationUnionIdByUnionIdResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *GetMigrationUnionIdByUnionIdResponseBody) SetMigrationUnionId(v string) *GetMigrationUnionIdByUnionIdResponseBody {
-	s.MigrationUnionId = &v
+func (s *GetMigrationUnionIdByUnionIdResponseBody) SetMigrationUnionIdList(v map[string]interface{}) *GetMigrationUnionIdByUnionIdResponseBody {
+	s.MigrationUnionIdList = v
 	return s
 }
 
@@ -2385,9 +2385,9 @@ type TranslateFileRequest struct {
 	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
 	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
 	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
-	// 钉盘mediaId，#号开头。可以通过单步上传api获取
-	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	// 转译后文件名（含扩展名）
+	// key为钉盘文件mediaId，#号开头。只支持xlsx，xls，csv，txt文件。 value为文件名，包含文件扩展名。 不超过20个文件，可以调用单步文件上传接口获取。
+	Medias map[string]*string `json:"medias,omitempty" xml:"medias,omitempty"`
+	// 若medias中文件个数大于1，则该字段必填。 转译完打包的文件名，不需带后缀。钉钉后台会打包成zip压缩文件，并自动拼接上.zip后缀。
 	OutputFileName *string `json:"outputFileName,omitempty" xml:"outputFileName,omitempty"`
 	// unionId
 	UnionId         *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
@@ -2423,8 +2423,8 @@ func (s *TranslateFileRequest) SetDingSuiteKey(v string) *TranslateFileRequest {
 	return s
 }
 
-func (s *TranslateFileRequest) SetMediaId(v string) *TranslateFileRequest {
-	s.MediaId = &v
+func (s *TranslateFileRequest) SetMedias(v map[string]*string) *TranslateFileRequest {
+	s.Medias = v
 	return s
 }
 
@@ -2845,8 +2845,8 @@ func (s *GetMigrationDingIdByDingIdRequest) SetDingId(v string) *GetMigrationDin
 }
 
 type GetMigrationDingIdByDingIdResponseBody struct {
-	// migrationDingId
-	MigrationDingId *string `json:"migrationDingId,omitempty" xml:"migrationDingId,omitempty"`
+	// migrationDingIdList
+	MigrationDingIdList map[string]interface{} `json:"migrationDingIdList,omitempty" xml:"migrationDingIdList,omitempty"`
 }
 
 func (s GetMigrationDingIdByDingIdResponseBody) String() string {
@@ -2857,8 +2857,8 @@ func (s GetMigrationDingIdByDingIdResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *GetMigrationDingIdByDingIdResponseBody) SetMigrationDingId(v string) *GetMigrationDingIdByDingIdResponseBody {
-	s.MigrationDingId = &v
+func (s *GetMigrationDingIdByDingIdResponseBody) SetMigrationDingIdList(v map[string]interface{}) *GetMigrationDingIdByDingIdResponseBody {
+	s.MigrationDingIdList = v
 	return s
 }
 
@@ -4424,8 +4424,8 @@ func (client *Client) TranslateFileWithOptions(request *TranslateFileRequest, he
 		body["dingSuiteKey"] = request.DingSuiteKey
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
-		body["mediaId"] = request.MediaId
+	if !tea.BoolValue(util.IsUnset(request.Medias)) {
+		body["medias"] = request.Medias
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OutputFileName)) {
