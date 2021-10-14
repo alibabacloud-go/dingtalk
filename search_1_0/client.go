@@ -600,7 +600,6 @@ func (client *Client) GetSearchTab(tabId *string) (_result *GetSearchTabResponse
 }
 
 func (client *Client) GetSearchTabWithOptions(tabId *string, headers *GetSearchTabHeaders, runtime *util.RuntimeOptions) (_result *GetSearchTabResponse, _err error) {
-	tabId = openapiutil.GetEncodeParam(tabId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -635,8 +634,6 @@ func (client *Client) GetSearchItem(tabId *string, itemId *string) (_result *Get
 }
 
 func (client *Client) GetSearchItemWithOptions(tabId *string, itemId *string, headers *GetSearchItemHeaders, runtime *util.RuntimeOptions) (_result *GetSearchItemResponse, _err error) {
-	tabId = openapiutil.GetEncodeParam(tabId)
-	itemId = openapiutil.GetEncodeParam(itemId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -671,8 +668,6 @@ func (client *Client) DeleteSearchItem(tabId *string, itemId *string) (_result *
 }
 
 func (client *Client) DeleteSearchItemWithOptions(tabId *string, itemId *string, headers *DeleteSearchItemHeaders, runtime *util.RuntimeOptions) (_result *DeleteSearchItemResponse, _err error) {
-	tabId = openapiutil.GetEncodeParam(tabId)
-	itemId = openapiutil.GetEncodeParam(itemId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -711,7 +706,6 @@ func (client *Client) InsertSearchItemWithOptions(tabId *string, request *Insert
 	if _err != nil {
 		return _result, _err
 	}
-	tabId = openapiutil.GetEncodeParam(tabId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ItemId)) {
 		body["itemId"] = request.ItemId
@@ -824,7 +818,6 @@ func (client *Client) DeleteSearchTab(tabId *string) (_result *DeleteSearchTabRe
 }
 
 func (client *Client) DeleteSearchTabWithOptions(tabId *string, headers *DeleteSearchTabHeaders, runtime *util.RuntimeOptions) (_result *DeleteSearchTabResponse, _err error) {
-	tabId = openapiutil.GetEncodeParam(tabId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -863,7 +856,6 @@ func (client *Client) UpdateSearchTabWithOptions(tabId *string, request *UpdateS
 	if _err != nil {
 		return _result, _err
 	}
-	tabId = openapiutil.GetEncodeParam(tabId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
 		body["name"] = request.Name

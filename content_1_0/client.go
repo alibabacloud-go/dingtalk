@@ -1126,7 +1126,6 @@ func (client *Client) GetFeedWithOptions(feedId *string, request *GetFeedRequest
 	if _err != nil {
 		return _result, _err
 	}
-	feedId = openapiutil.GetEncodeParam(feedId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.McnId)) {
 		query["mcnId"] = request.McnId
@@ -1276,7 +1275,6 @@ func (client *Client) ListItemUserDataWithOptions(itemId *string, request *ListI
 	if _err != nil {
 		return _result, _err
 	}
-	itemId = openapiutil.GetEncodeParam(itemId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders

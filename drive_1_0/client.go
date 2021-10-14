@@ -3386,7 +3386,6 @@ func (client *Client) AddFileWithOptions(spaceId *string, request *AddFileReques
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ParentId)) {
 		body["parentId"] = request.ParentId
@@ -3603,8 +3602,6 @@ func (client *Client) AddPermissionWithOptions(spaceId *string, fileId *string, 
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
-	fileId = openapiutil.GetEncodeParam(fileId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Role)) {
 		body["role"] = request.Role
@@ -3657,8 +3654,6 @@ func (client *Client) GetFileInfoWithOptions(spaceId *string, fileId *string, re
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
-	fileId = openapiutil.GetEncodeParam(fileId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -3703,7 +3698,6 @@ func (client *Client) InfoSpaceWithOptions(spaceId *string, request *InfoSpaceRe
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -3808,8 +3802,6 @@ func (client *Client) RenameFileWithOptions(spaceId *string, fileId *string, req
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
-	fileId = openapiutil.GetEncodeParam(fileId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.NewFileName)) {
 		body["newFileName"] = request.NewFileName
@@ -3858,7 +3850,6 @@ func (client *Client) GetAsyncTaskInfoWithOptions(taskId *string, request *GetAs
 	if _err != nil {
 		return _result, _err
 	}
-	taskId = openapiutil.GetEncodeParam(taskId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -3903,7 +3894,6 @@ func (client *Client) ListFilesWithOptions(spaceId *string, request *ListFilesRe
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -3964,8 +3954,6 @@ func (client *Client) ModifyPermissionWithOptions(spaceId *string, fileId *strin
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
-	fileId = openapiutil.GetEncodeParam(fileId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Role)) {
 		body["role"] = request.Role
@@ -4018,8 +4006,6 @@ func (client *Client) ListPermissionsWithOptions(spaceId *string, fileId *string
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
-	fileId = openapiutil.GetEncodeParam(fileId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -4064,7 +4050,6 @@ func (client *Client) GrantPrivilegeOfCustomSpaceWithOptions(spaceId *string, re
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Type)) {
 		body["type"] = request.Type
@@ -4125,8 +4110,6 @@ func (client *Client) MoveFileWithOptions(spaceId *string, fileId *string, reque
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
-	fileId = openapiutil.GetEncodeParam(fileId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.TargetSpaceId)) {
 		body["targetSpaceId"] = request.TargetSpaceId
@@ -4183,8 +4166,6 @@ func (client *Client) GetDownloadInfoWithOptions(spaceId *string, fileId *string
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
-	fileId = openapiutil.GetEncodeParam(fileId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -4229,8 +4210,6 @@ func (client *Client) GetUploadInfoWithOptions(spaceId *string, parentId *string
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
-	parentId = openapiutil.GetEncodeParam(parentId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -4351,8 +4330,6 @@ func (client *Client) DeletePermissionWithOptions(spaceId *string, fileId *strin
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
-	fileId = openapiutil.GetEncodeParam(fileId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Role)) {
 		body["role"] = request.Role
@@ -4461,8 +4438,6 @@ func (client *Client) CopyFileWithOptions(spaceId *string, fileId *string, reque
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
-	fileId = openapiutil.GetEncodeParam(fileId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.TargetSpaceId)) {
 		body["targetSpaceId"] = request.TargetSpaceId
@@ -4519,7 +4494,6 @@ func (client *Client) DeleteSpaceWithOptions(spaceId *string, request *DeleteSpa
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -4612,8 +4586,6 @@ func (client *Client) DeleteFileWithOptions(spaceId *string, fileId *string, req
 	if _err != nil {
 		return _result, _err
 	}
-	spaceId = openapiutil.GetEncodeParam(spaceId)
-	fileId = openapiutil.GetEncodeParam(fileId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId

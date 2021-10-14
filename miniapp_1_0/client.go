@@ -1666,7 +1666,6 @@ func (client *Client) GetSettingByMiniAppId(miniAppId *string) (_result *GetSett
 }
 
 func (client *Client) GetSettingByMiniAppIdWithOptions(miniAppId *string, headers *GetSettingByMiniAppIdHeaders, runtime *util.RuntimeOptions) (_result *GetSettingByMiniAppIdResponse, _err error) {
-	miniAppId = openapiutil.GetEncodeParam(miniAppId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders

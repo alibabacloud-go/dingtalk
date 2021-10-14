@@ -975,7 +975,6 @@ func (client *Client) DeleteWorkspaceMembersWithOptions(workspaceId *string, req
 	if _err != nil {
 		return _result, _err
 	}
-	workspaceId = openapiutil.GetEncodeParam(workspaceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		body["operatorId"] = request.OperatorId
@@ -1024,8 +1023,6 @@ func (client *Client) AddWorkspaceDocMembersWithOptions(workspaceId *string, nod
 	if _err != nil {
 		return _result, _err
 	}
-	workspaceId = openapiutil.GetEncodeParam(workspaceId)
-	nodeId = openapiutil.GetEncodeParam(nodeId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		body["operatorId"] = request.OperatorId
@@ -1074,7 +1071,6 @@ func (client *Client) UpdateWorkspaceMembersWithOptions(workspaceId *string, req
 	if _err != nil {
 		return _result, _err
 	}
-	workspaceId = openapiutil.GetEncodeParam(workspaceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		body["operatorId"] = request.OperatorId
@@ -1123,8 +1119,6 @@ func (client *Client) UpdateWorkspaceDocMembersWithOptions(workspaceId *string, 
 	if _err != nil {
 		return _result, _err
 	}
-	workspaceId = openapiutil.GetEncodeParam(workspaceId)
-	nodeId = openapiutil.GetEncodeParam(nodeId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		body["operatorId"] = request.OperatorId
@@ -1173,7 +1167,6 @@ func (client *Client) CreateWorkspaceDocWithOptions(workspaceId *string, request
 	if _err != nil {
 		return _result, _err
 	}
-	workspaceId = openapiutil.GetEncodeParam(workspaceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
 		body["name"] = request.Name
@@ -1226,7 +1219,6 @@ func (client *Client) AddWorkspaceMembersWithOptions(workspaceId *string, reques
 	if _err != nil {
 		return _result, _err
 	}
-	workspaceId = openapiutil.GetEncodeParam(workspaceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		body["operatorId"] = request.OperatorId
@@ -1343,8 +1335,6 @@ func (client *Client) DeleteWorkspaceDocMembersWithOptions(workspaceId *string, 
 	if _err != nil {
 		return _result, _err
 	}
-	workspaceId = openapiutil.GetEncodeParam(workspaceId)
-	nodeId = openapiutil.GetEncodeParam(nodeId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		body["operatorId"] = request.OperatorId
@@ -1389,7 +1379,6 @@ func (client *Client) GetWorkspace(workspaceId *string) (_result *GetWorkspaceRe
 }
 
 func (client *Client) GetWorkspaceWithOptions(workspaceId *string, headers *GetWorkspaceHeaders, runtime *util.RuntimeOptions) (_result *GetWorkspaceResponse, _err error) {
-	workspaceId = openapiutil.GetEncodeParam(workspaceId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders

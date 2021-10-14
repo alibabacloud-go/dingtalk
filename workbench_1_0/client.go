@@ -740,7 +740,6 @@ func (client *Client) QueryComponentScopes(componentId *string) (_result *QueryC
 }
 
 func (client *Client) QueryComponentScopesWithOptions(componentId *string, headers *QueryComponentScopesHeaders, runtime *util.RuntimeOptions) (_result *QueryComponentScopesResponse, _err error) {
-	componentId = openapiutil.GetEncodeParam(componentId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -775,7 +774,6 @@ func (client *Client) QueryShortcutScopes(shortcutKey *string) (_result *QuerySh
 }
 
 func (client *Client) QueryShortcutScopesWithOptions(shortcutKey *string, headers *QueryShortcutScopesHeaders, runtime *util.RuntimeOptions) (_result *QueryShortcutScopesResponse, _err error) {
-	shortcutKey = openapiutil.GetEncodeParam(shortcutKey)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -902,8 +900,6 @@ func (client *Client) UpdateDingPortalPageScopeWithOptions(pageUuid *string, app
 	if _err != nil {
 		return _result, _err
 	}
-	pageUuid = openapiutil.GetEncodeParam(pageUuid)
-	appUuid = openapiutil.GetEncodeParam(appUuid)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Userids)) {
 		body["userids"] = request.Userids
@@ -956,7 +952,6 @@ func (client *Client) GetDingPortalDetail(appUuid *string) (_result *GetDingPort
 }
 
 func (client *Client) GetDingPortalDetailWithOptions(appUuid *string, headers *GetDingPortalDetailHeaders, runtime *util.RuntimeOptions) (_result *GetDingPortalDetailResponse, _err error) {
-	appUuid = openapiutil.GetEncodeParam(appUuid)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders

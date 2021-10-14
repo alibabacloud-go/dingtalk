@@ -3999,9 +3999,6 @@ func (client *Client) RespondEventWithOptions(userId *string, calendarId *string
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	calendarId = openapiutil.GetEncodeParam(calendarId)
-	eventId = openapiutil.GetEncodeParam(eventId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ResponseStatus)) {
 		body["responseStatus"] = request.ResponseStatus
@@ -4046,7 +4043,6 @@ func (client *Client) GenerateCaldavAccountWithOptions(userId *string, request *
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Device)) {
 		body["device"] = request.Device
@@ -4095,7 +4091,6 @@ func (client *Client) GetScheduleWithOptions(userId *string, request *GetSchedul
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
 		body["userIds"] = request.UserIds
@@ -4148,7 +4143,6 @@ func (client *Client) ConvertLegacyEventIdWithOptions(userId *string, request *C
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.LegacyEventIds)) {
 		body["legacyEventIds"] = request.LegacyEventIds
@@ -4205,9 +4199,6 @@ func (client *Client) RemoveAttendeeWithOptions(userId *string, calendarId *stri
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	calendarId = openapiutil.GetEncodeParam(calendarId)
-	eventId = openapiutil.GetEncodeParam(eventId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AttendeesToRemove)) {
 		body["attendeesToRemove"] = request.AttendeesToRemove
@@ -4252,9 +4243,6 @@ func (client *Client) AddAttendeeWithOptions(userId *string, calendarId *string,
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	calendarId = openapiutil.GetEncodeParam(calendarId)
-	eventId = openapiutil.GetEncodeParam(eventId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AttendeesToAdd)) {
 		body["attendeesToAdd"] = request.AttendeesToAdd
@@ -4299,8 +4287,6 @@ func (client *Client) CreateEventWithOptions(userId *string, calendarId *string,
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	calendarId = openapiutil.GetEncodeParam(calendarId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Summary)) {
 		body["summary"] = request.Summary
@@ -4381,7 +4367,6 @@ func (client *Client) ListCalendars(userId *string) (_result *ListCalendarsRespo
 }
 
 func (client *Client) ListCalendarsWithOptions(userId *string, headers *ListCalendarsHeaders, runtime *util.RuntimeOptions) (_result *ListCalendarsResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4420,9 +4405,6 @@ func (client *Client) GetSignInListWithOptions(userId *string, calendarId *strin
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	calendarId = openapiutil.GetEncodeParam(calendarId)
-	eventId = openapiutil.GetEncodeParam(eventId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
@@ -4471,9 +4453,6 @@ func (client *Client) DeleteEvent(userId *string, calendarId *string, eventId *s
 }
 
 func (client *Client) DeleteEventWithOptions(userId *string, calendarId *string, eventId *string, headers *DeleteEventHeaders, runtime *util.RuntimeOptions) (_result *DeleteEventResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
-	calendarId = openapiutil.GetEncodeParam(calendarId)
-	eventId = openapiutil.GetEncodeParam(eventId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4512,8 +4491,6 @@ func (client *Client) ListEventsWithOptions(userId *string, calendarId *string, 
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	calendarId = openapiutil.GetEncodeParam(calendarId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.TimeMin)) {
 		query["timeMin"] = request.TimeMin
@@ -4578,8 +4555,6 @@ func (client *Client) ListEventsViewWithOptions(userId *string, calendarId *stri
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	calendarId = openapiutil.GetEncodeParam(calendarId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.TimeMin)) {
 		query["timeMin"] = request.TimeMin
@@ -4632,9 +4607,6 @@ func (client *Client) GetEvent(userId *string, calendarId *string, eventId *stri
 }
 
 func (client *Client) GetEventWithOptions(userId *string, calendarId *string, eventId *string, headers *GetEventHeaders, runtime *util.RuntimeOptions) (_result *GetEventResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
-	calendarId = openapiutil.GetEncodeParam(calendarId)
-	eventId = openapiutil.GetEncodeParam(eventId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4673,9 +4645,6 @@ func (client *Client) PatchEventWithOptions(userId *string, calendarId *string, 
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
-	calendarId = openapiutil.GetEncodeParam(calendarId)
-	eventId = openapiutil.GetEncodeParam(eventId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Summary)) {
 		body["summary"] = request.Summary

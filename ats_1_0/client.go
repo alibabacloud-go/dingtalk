@@ -1739,7 +1739,6 @@ func (client *Client) FinishBeginnerTaskWithOptions(taskCode *string, request *F
 	if _err != nil {
 		return _result, _err
 	}
-	taskCode = openapiutil.GetEncodeParam(taskCode)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		query["userId"] = request.UserId
@@ -1788,7 +1787,6 @@ func (client *Client) GetApplicationRegFormByFlowIdWithOptions(flowId *string, r
 	if _err != nil {
 		return _result, _err
 	}
-	flowId = openapiutil.GetEncodeParam(flowId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
 		query["bizCode"] = request.BizCode
@@ -1833,7 +1831,6 @@ func (client *Client) UpdateApplicationRegFormWithOptions(flowId *string, reques
 	if _err != nil {
 		return _result, _err
 	}
-	flowId = openapiutil.GetEncodeParam(flowId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
 		query["bizCode"] = request.BizCode
@@ -1936,7 +1933,6 @@ func (client *Client) UpdateInterviewSignInInfoWithOptions(interviewId *string, 
 	if _err != nil {
 		return _result, _err
 	}
-	interviewId = openapiutil.GetEncodeParam(interviewId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
 		query["bizCode"] = request.BizCode
@@ -1987,7 +1983,6 @@ func (client *Client) GetJobAuthWithOptions(jobId *string, request *GetJobAuthRe
 	if _err != nil {
 		return _result, _err
 	}
-	jobId = openapiutil.GetEncodeParam(jobId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
 		query["opUserId"] = request.OpUserId

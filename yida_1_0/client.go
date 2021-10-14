@@ -11645,7 +11645,6 @@ func (client *Client) ListTableDataByFormInstanceIdTableIdWithOptions(formInstan
 	if _err != nil {
 		return _result, _err
 	}
-	formInstanceId = openapiutil.GetEncodeParam(formInstanceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
 		query["formUuid"] = request.FormUuid
@@ -11970,7 +11969,6 @@ func (client *Client) CheckCloudAccountStatusWithOptions(callerUid *string, requ
 	if _err != nil {
 		return _result, _err
 	}
-	callerUid = openapiutil.GetEncodeParam(callerUid)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
 		query["accessKey"] = request.AccessKey
@@ -12015,8 +12013,6 @@ func (client *Client) GetCorpAccomplishmentTasksWithOptions(corpId *string, user
 	if _err != nil {
 		return _result, _err
 	}
-	corpId = openapiutil.GetEncodeParam(corpId)
-	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
 		query["pageSize"] = request.PageSize
@@ -12199,7 +12195,6 @@ func (client *Client) ListApplicationAuthorizationServiceConnectorInformationWit
 	if _err != nil {
 		return _result, _err
 	}
-	instanceId = openapiutil.GetEncodeParam(instanceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
 		query["accessKey"] = request.AccessKey
@@ -12504,7 +12499,6 @@ func (client *Client) ValidateApplicationServiceOrderUpgradeWithOptions(callerUn
 	if _err != nil {
 		return _result, _err
 	}
-	callerUnionid = openapiutil.GetEncodeParam(callerUnionid)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
 		query["accessKey"] = request.AccessKey
@@ -12857,7 +12851,6 @@ func (client *Client) RemoveTenantResourceWithOptions(callerUid *string, request
 	if _err != nil {
 		return _result, _err
 	}
-	callerUid = openapiutil.GetEncodeParam(callerUid)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
 		query["accessKey"] = request.AccessKey
@@ -12958,7 +12951,6 @@ func (client *Client) GetProcessDefinitionWithOptions(processInstanceId *string,
 	if _err != nil {
 		return _result, _err
 	}
-	processInstanceId = openapiutil.GetEncodeParam(processInstanceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
 		query["corpId"] = request.CorpId
@@ -13143,7 +13135,6 @@ func (client *Client) ListApplicationAuthorizationServiceApplicationInformationW
 	if _err != nil {
 		return _result, _err
 	}
-	instanceId = openapiutil.GetEncodeParam(instanceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
 		query["accessKey"] = request.AccessKey
@@ -13200,7 +13191,6 @@ func (client *Client) ValidateApplicationAuthorizationServiceOrderWithOptions(ca
 	if _err != nil {
 		return _result, _err
 	}
-	callerUid = openapiutil.GetEncodeParam(callerUid)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
 		query["accessKey"] = request.AccessKey
@@ -13465,9 +13455,6 @@ func (client *Client) GetActivityButtonListWithOptions(appType *string, processC
 	if _err != nil {
 		return _result, _err
 	}
-	appType = openapiutil.GetEncodeParam(appType)
-	processCode = openapiutil.GetEncodeParam(processCode)
-	activityId = openapiutil.GetEncodeParam(activityId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
 		query["systemToken"] = request.SystemToken
@@ -13592,7 +13579,6 @@ func (client *Client) ListApplicationInformationWithOptions(instanceId *string, 
 	if _err != nil {
 		return _result, _err
 	}
-	instanceId = openapiutil.GetEncodeParam(instanceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
 		query["accessKey"] = request.AccessKey
@@ -14395,7 +14381,6 @@ func (client *Client) ListConnectorInformationWithOptions(instanceId *string, re
 	if _err != nil {
 		return _result, _err
 	}
-	instanceId = openapiutil.GetEncodeParam(instanceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
 		query["accessKey"] = request.AccessKey
@@ -14504,7 +14489,6 @@ func (client *Client) GetNotifyMeWithOptions(userId *string, request *GetNotifyM
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
 		query["corpId"] = request.CorpId
@@ -14645,7 +14629,6 @@ func (client *Client) GetInstanceByIdWithOptions(id *string, request *GetInstanc
 	if _err != nil {
 		return _result, _err
 	}
-	id = openapiutil.GetEncodeParam(id)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AppType)) {
 		query["appType"] = request.AppType
@@ -14778,7 +14761,6 @@ func (client *Client) ValidateOrderUpdateWithOptions(instanceId *string, request
 	if _err != nil {
 		return _result, _err
 	}
-	instanceId = openapiutil.GetEncodeParam(instanceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
 		query["accessKey"] = request.AccessKey
@@ -14827,8 +14809,6 @@ func (client *Client) GetFormComponentDefinitionListWithOptions(appType *string,
 	if _err != nil {
 		return _result, _err
 	}
-	appType = openapiutil.GetEncodeParam(appType)
-	formUuid = openapiutil.GetEncodeParam(formUuid)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
 		query["systemToken"] = request.SystemToken
@@ -14949,7 +14929,6 @@ func (client *Client) GetMeCorpSubmissionWithOptions(userId *string, request *Ge
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
 		query["corpId"] = request.CorpId
@@ -15090,8 +15069,6 @@ func (client *Client) SearchFormDataIdListWithOptions(appType *string, formUuid 
 	if _err != nil {
 		return _result, _err
 	}
-	appType = openapiutil.GetEncodeParam(appType)
-	formUuid = openapiutil.GetEncodeParam(formUuid)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
 		query["pageNumber"] = request.PageNumber
@@ -15178,7 +15155,6 @@ func (client *Client) GetActivationCodeByCallerUnionIdWithOptions(callerUid *str
 	if _err != nil {
 		return _result, _err
 	}
-	callerUid = openapiutil.GetEncodeParam(callerUid)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
 		query["accessKey"] = request.AccessKey
@@ -15223,7 +15199,6 @@ func (client *Client) GetFormDataByIDWithOptions(id *string, request *GetFormDat
 	if _err != nil {
 		return _result, _err
 	}
-	id = openapiutil.GetEncodeParam(id)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AppType)) {
 		query["appType"] = request.AppType
@@ -15532,7 +15507,6 @@ func (client *Client) GetOpenUrlWithOptions(appType *string, request *GetOpenUrl
 	if _err != nil {
 		return _result, _err
 	}
-	appType = openapiutil.GetEncodeParam(appType)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
 		query["systemToken"] = request.SystemToken
@@ -15645,7 +15619,6 @@ func (client *Client) ValidateApplicationAuthorizationOrderWithOptions(instanceI
 	if _err != nil {
 		return _result, _err
 	}
-	instanceId = openapiutil.GetEncodeParam(instanceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AccessKey)) {
 		query["accessKey"] = request.AccessKey

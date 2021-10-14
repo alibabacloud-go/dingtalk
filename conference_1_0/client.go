@@ -1494,7 +1494,6 @@ func (client *Client) QueryCloudRecordTextWithOptions(conferenceId *string, requ
 	if _err != nil {
 		return _result, _err
 	}
-	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -1607,7 +1606,6 @@ func (client *Client) QueryCloudRecordVideoPlayInfoWithOptions(conferenceId *str
 	if _err != nil {
 		return _result, _err
 	}
-	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -1704,7 +1702,6 @@ func (client *Client) StopCloudRecordWithOptions(conferenceId *string, request *
 	if _err != nil {
 		return _result, _err
 	}
-	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		body["unionId"] = request.UnionId
@@ -1745,7 +1742,6 @@ func (client *Client) UpdateVideoConferenceExtInfo(conferenceId *string) (_resul
 }
 
 func (client *Client) UpdateVideoConferenceExtInfoWithOptions(conferenceId *string, headers *UpdateVideoConferenceExtInfoHeaders, runtime *util.RuntimeOptions) (_result *UpdateVideoConferenceExtInfoResponse, _err error) {
-	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1784,7 +1780,6 @@ func (client *Client) CloseVideoConferenceWithOptions(conferenceId *string, requ
 	if _err != nil {
 		return _result, _err
 	}
-	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
@@ -1829,7 +1824,6 @@ func (client *Client) StopStreamOutWithOptions(conferenceId *string, request *St
 	if _err != nil {
 		return _result, _err
 	}
-	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.StreamId)) {
 		body["streamId"] = request.StreamId
@@ -1882,7 +1876,6 @@ func (client *Client) StartCloudRecordWithOptions(conferenceId *string, request 
 	if _err != nil {
 		return _result, _err
 	}
-	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		body["unionId"] = request.UnionId
@@ -1935,7 +1928,6 @@ func (client *Client) StartStreamOutWithOptions(conferenceId *string, request *S
 	if _err != nil {
 		return _result, _err
 	}
-	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		body["unionId"] = request.UnionId
@@ -2000,7 +1992,6 @@ func (client *Client) QueryCloudRecordVideoWithOptions(conferenceId *string, req
 	if _err != nil {
 		return _result, _err
 	}
-	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId

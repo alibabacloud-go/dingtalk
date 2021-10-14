@@ -3637,7 +3637,6 @@ func (client *Client) DeleteEmpAttributeVisibility(settingId *string) (_result *
 }
 
 func (client *Client) DeleteEmpAttributeVisibilityWithOptions(settingId *string, headers *DeleteEmpAttributeVisibilityHeaders, runtime *util.RuntimeOptions) (_result *DeleteEmpAttributeVisibilityResponse, _err error) {
-	settingId = openapiutil.GetEncodeParam(settingId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3968,7 +3967,6 @@ func (client *Client) QueryUserManagementResources(userId *string) (_result *Que
 }
 
 func (client *Client) QueryUserManagementResourcesWithOptions(userId *string, headers *QueryUserManagementResourcesHeaders, runtime *util.RuntimeOptions) (_result *QueryUserManagementResourcesResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4003,7 +4001,6 @@ func (client *Client) DeleteContactHideSetting(settingId *string) (_result *Dele
 }
 
 func (client *Client) DeleteContactHideSettingWithOptions(settingId *string, headers *DeleteContactHideSettingHeaders, runtime *util.RuntimeOptions) (_result *DeleteContactHideSettingResponse, _err error) {
-	settingId = openapiutil.GetEncodeParam(settingId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4042,7 +4039,6 @@ func (client *Client) UpdateUserOwnnessWithOptions(userId *string, request *Upda
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OwnenssType)) {
 		body["ownenssType"] = request.OwnenssType
@@ -4187,7 +4183,6 @@ func (client *Client) GetCooperateOrgInviteInfo(cooperateCorpId *string) (_resul
 }
 
 func (client *Client) GetCooperateOrgInviteInfoWithOptions(cooperateCorpId *string, headers *GetCooperateOrgInviteInfoHeaders, runtime *util.RuntimeOptions) (_result *GetCooperateOrgInviteInfoResponse, _err error) {
-	cooperateCorpId = openapiutil.GetEncodeParam(cooperateCorpId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4226,7 +4221,6 @@ func (client *Client) UpdateManagementGroupWithOptions(groupId *string, request 
 	if _err != nil {
 		return _result, _err
 	}
-	groupId = openapiutil.GetEncodeParam(groupId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
 		body["groupName"] = request.GroupName
@@ -4333,7 +4327,6 @@ func (client *Client) GetUser(unionId *string) (_result *GetUserResponse, _err e
 }
 
 func (client *Client) GetUserWithOptions(unionId *string, headers *GetUserHeaders, runtime *util.RuntimeOptions) (_result *GetUserResponse, _err error) {
-	unionId = openapiutil.GetEncodeParam(unionId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4368,7 +4361,6 @@ func (client *Client) QueryResourceManagementMembers(resourceId *string) (_resul
 }
 
 func (client *Client) QueryResourceManagementMembersWithOptions(resourceId *string, headers *QueryResourceManagementMembersHeaders, runtime *util.RuntimeOptions) (_result *QueryResourceManagementMembersResponse, _err error) {
-	resourceId = openapiutil.GetEncodeParam(resourceId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4743,7 +4735,6 @@ func (client *Client) DeleteManagementGroup(groupId *string) (_result *DeleteMan
 }
 
 func (client *Client) DeleteManagementGroupWithOptions(groupId *string, headers *DeleteManagementGroupHeaders, runtime *util.RuntimeOptions) (_result *DeleteManagementGroupResponse, _err error) {
-	groupId = openapiutil.GetEncodeParam(groupId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders

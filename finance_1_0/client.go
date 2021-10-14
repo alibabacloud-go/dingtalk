@@ -514,6 +514,356 @@ func (s *UpateUserCodeInstanceResponse) SetBody(v *UpateUserCodeInstanceResponse
 	return s
 }
 
+type ApplyBatchPayHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ApplyBatchPayHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApplyBatchPayHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ApplyBatchPayHeaders) SetCommonHeaders(v map[string]*string) *ApplyBatchPayHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ApplyBatchPayHeaders) SetXAcsDingtalkAccessToken(v string) *ApplyBatchPayHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ApplyBatchPayRequest struct {
+	// 企业corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 支付发起人staffId
+	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
+	// 支付账号唯一id
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// 钉钉订单号(和商户批次号一一对应)
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// 订单总金额（必填）, 单位为：元
+	TransAmount *string `json:"transAmount,omitempty" xml:"transAmount,omitempty"`
+	// 回调url
+	ReturnUrl *string `json:"returnUrl,omitempty" xml:"returnUrl,omitempty"`
+	// 公用回传参数，如果请求时传递了该参数，则异步通知商户时会回传该参数
+	PassBackParams map[string]interface{} `json:"passBackParams,omitempty" xml:"passBackParams,omitempty"`
+	// 支付终端
+	PayTerminal *string `json:"payTerminal,omitempty" xml:"payTerminal,omitempty"`
+	// 转账过期时间
+	TransExpireTime *string `json:"transExpireTime,omitempty" xml:"transExpireTime,omitempty"`
+}
+
+func (s ApplyBatchPayRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApplyBatchPayRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ApplyBatchPayRequest) SetCorpId(v string) *ApplyBatchPayRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ApplyBatchPayRequest) SetStaffId(v string) *ApplyBatchPayRequest {
+	s.StaffId = &v
+	return s
+}
+
+func (s *ApplyBatchPayRequest) SetAccountId(v string) *ApplyBatchPayRequest {
+	s.AccountId = &v
+	return s
+}
+
+func (s *ApplyBatchPayRequest) SetOrderNo(v string) *ApplyBatchPayRequest {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *ApplyBatchPayRequest) SetTransAmount(v string) *ApplyBatchPayRequest {
+	s.TransAmount = &v
+	return s
+}
+
+func (s *ApplyBatchPayRequest) SetReturnUrl(v string) *ApplyBatchPayRequest {
+	s.ReturnUrl = &v
+	return s
+}
+
+func (s *ApplyBatchPayRequest) SetPassBackParams(v map[string]interface{}) *ApplyBatchPayRequest {
+	s.PassBackParams = v
+	return s
+}
+
+func (s *ApplyBatchPayRequest) SetPayTerminal(v string) *ApplyBatchPayRequest {
+	s.PayTerminal = &v
+	return s
+}
+
+func (s *ApplyBatchPayRequest) SetTransExpireTime(v string) *ApplyBatchPayRequest {
+	s.TransExpireTime = &v
+	return s
+}
+
+type ApplyBatchPayResponseBody struct {
+	// 支付确认页数据
+	PayData *string `json:"payData,omitempty" xml:"payData,omitempty"`
+	// 钉钉支付的批次号
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+}
+
+func (s ApplyBatchPayResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApplyBatchPayResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ApplyBatchPayResponseBody) SetPayData(v string) *ApplyBatchPayResponseBody {
+	s.PayData = &v
+	return s
+}
+
+func (s *ApplyBatchPayResponseBody) SetOrderNo(v string) *ApplyBatchPayResponseBody {
+	s.OrderNo = &v
+	return s
+}
+
+type ApplyBatchPayResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ApplyBatchPayResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ApplyBatchPayResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApplyBatchPayResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ApplyBatchPayResponse) SetHeaders(v map[string]*string) *ApplyBatchPayResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ApplyBatchPayResponse) SetBody(v *ApplyBatchPayResponseBody) *ApplyBatchPayResponse {
+	s.Body = v
+	return s
+}
+
+type QueryBatchTradeOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryBatchTradeOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBatchTradeOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBatchTradeOrderHeaders) SetCommonHeaders(v map[string]*string) *QueryBatchTradeOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryBatchTradeOrderHeaders) SetXAcsDingtalkAccessToken(v string) *QueryBatchTradeOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryBatchTradeOrderRequest struct {
+	// ISV/企业自建应用suiteId
+	SuiteId *string `json:"suiteId,omitempty" xml:"suiteId,omitempty"`
+	// ISV的cropId
+	IsvCorpId *string `json:"isvCorpId,omitempty" xml:"isvCorpId,omitempty"`
+	// 外部商户批次号列表
+	OutBatchNos []*string `json:"outBatchNos,omitempty" xml:"outBatchNos,omitempty" type:"Repeated"`
+}
+
+func (s QueryBatchTradeOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBatchTradeOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBatchTradeOrderRequest) SetSuiteId(v string) *QueryBatchTradeOrderRequest {
+	s.SuiteId = &v
+	return s
+}
+
+func (s *QueryBatchTradeOrderRequest) SetIsvCorpId(v string) *QueryBatchTradeOrderRequest {
+	s.IsvCorpId = &v
+	return s
+}
+
+func (s *QueryBatchTradeOrderRequest) SetOutBatchNos(v []*string) *QueryBatchTradeOrderRequest {
+	s.OutBatchNos = v
+	return s
+}
+
+type QueryBatchTradeOrderResponseBody struct {
+	// 批量交易订单VO
+	BatchTradeOrderVOs []*QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs `json:"batchTradeOrderVOs,omitempty" xml:"batchTradeOrderVOs,omitempty" type:"Repeated"`
+}
+
+func (s QueryBatchTradeOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBatchTradeOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBatchTradeOrderResponseBody) SetBatchTradeOrderVOs(v []*QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) *QueryBatchTradeOrderResponseBody {
+	s.BatchTradeOrderVOs = v
+	return s
+}
+
+type QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs struct {
+	// 批次号
+	OutBatchNo *string `json:"outBatchNo,omitempty" xml:"outBatchNo,omitempty"`
+	// 支付宝批次订单号
+	AlipayTransId *string `json:"alipayTransId,omitempty" xml:"alipayTransId,omitempty"`
+	// 状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 成功笔数
+	SuccessCount *int64 `json:"successCount,omitempty" xml:"successCount,omitempty"`
+	// 成功金额（元）
+	SuccessAmount *string `json:"successAmount,omitempty" xml:"successAmount,omitempty"`
+	// 失败笔数
+	FailCount *int64 `json:"failCount,omitempty" xml:"failCount,omitempty"`
+	// 明细处理失败的支付汇总金额
+	FailAmount *string `json:"failAmount,omitempty" xml:"failAmount,omitempty"`
+	// 批次的总金额（元）
+	TotalAmount *string `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
+	// 批次完成交易时间
+	GmtFinish *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
+	// 批次受理交易时间
+	GmtSubmit *string `json:"gmtSubmit,omitempty" xml:"gmtSubmit,omitempty"`
+	// 失败原因
+	FailReason *string `json:"failReason,omitempty" xml:"failReason,omitempty"`
+	// 付款方需要支付的金额（元）
+	PaymentAmount *string `json:"paymentAmount,omitempty" xml:"paymentAmount,omitempty"`
+	// 支付币种
+	PaymentCurrency *string `json:"paymentCurrency,omitempty" xml:"paymentCurrency,omitempty"`
+	// 付款人staffId
+	PayerStaffId *string `json:"payerStaffId,omitempty" xml:"payerStaffId,omitempty"`
+}
+
+func (s QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) SetOutBatchNo(v string) *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs {
+	s.OutBatchNo = &v
+	return s
+}
+
+func (s *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) SetAlipayTransId(v string) *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs {
+	s.AlipayTransId = &v
+	return s
+}
+
+func (s *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) SetStatus(v string) *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) SetSuccessCount(v int64) *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs {
+	s.SuccessCount = &v
+	return s
+}
+
+func (s *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) SetSuccessAmount(v string) *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs {
+	s.SuccessAmount = &v
+	return s
+}
+
+func (s *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) SetFailCount(v int64) *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs {
+	s.FailCount = &v
+	return s
+}
+
+func (s *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) SetFailAmount(v string) *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs {
+	s.FailAmount = &v
+	return s
+}
+
+func (s *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) SetTotalAmount(v string) *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs {
+	s.TotalAmount = &v
+	return s
+}
+
+func (s *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) SetGmtFinish(v string) *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs {
+	s.GmtFinish = &v
+	return s
+}
+
+func (s *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) SetGmtSubmit(v string) *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs {
+	s.GmtSubmit = &v
+	return s
+}
+
+func (s *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) SetFailReason(v string) *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs {
+	s.FailReason = &v
+	return s
+}
+
+func (s *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) SetPaymentAmount(v string) *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs {
+	s.PaymentAmount = &v
+	return s
+}
+
+func (s *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) SetPaymentCurrency(v string) *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs {
+	s.PaymentCurrency = &v
+	return s
+}
+
+func (s *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) SetPayerStaffId(v string) *QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs {
+	s.PayerStaffId = &v
+	return s
+}
+
+type QueryBatchTradeOrderResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryBatchTradeOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryBatchTradeOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBatchTradeOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBatchTradeOrderResponse) SetHeaders(v map[string]*string) *QueryBatchTradeOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryBatchTradeOrderResponse) SetBody(v *QueryBatchTradeOrderResponseBody) *QueryBatchTradeOrderResponse {
+	s.Body = v
+	return s
+}
+
 type DecodePayCodeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -917,6 +1267,232 @@ func (s *NotifyVerifyResultResponse) SetBody(v *NotifyVerifyResultResponseBody) 
 	return s
 }
 
+type CreateBatchTradeOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateBatchTradeOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateBatchTradeOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateBatchTradeOrderHeaders) SetCommonHeaders(v map[string]*string) *CreateBatchTradeOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateBatchTradeOrderHeaders) SetXAcsDingtalkAccessToken(v string) *CreateBatchTradeOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateBatchTradeOrderRequest struct {
+	// ISV/企业自建应用suiteId
+	SuiteId *string `json:"suiteId,omitempty" xml:"suiteId,omitempty"`
+	// 企业corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 员工staffId
+	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
+	// 付款账号唯一id
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// 付款账号(注意：用户上送的是脱敏数据)
+	AccountNo *string `json:"accountNo,omitempty" xml:"accountNo,omitempty"`
+	// 交易抬头
+	TradeTitle *string `json:"tradeTitle,omitempty" xml:"tradeTitle,omitempty"`
+	// 外部商户批次号
+	OutBatchNo *string `json:"outBatchNo,omitempty" xml:"outBatchNo,omitempty"`
+	// 批次备注
+	BatchRemark *string `json:"batchRemark,omitempty" xml:"batchRemark,omitempty"`
+	// 总笔数（必填）
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 总金额（必填，单位：元）
+	TotalAmount *string `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
+	// 交易明细列表
+	BatchTradeDetails []*CreateBatchTradeOrderRequestBatchTradeDetails `json:"batchTradeDetails,omitempty" xml:"batchTradeDetails,omitempty" type:"Repeated"`
+	// Isv corpId
+	IsvCorpId *string `json:"isvCorpId,omitempty" xml:"isvCorpId,omitempty"`
+}
+
+func (s CreateBatchTradeOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateBatchTradeOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateBatchTradeOrderRequest) SetSuiteId(v string) *CreateBatchTradeOrderRequest {
+	s.SuiteId = &v
+	return s
+}
+
+func (s *CreateBatchTradeOrderRequest) SetCorpId(v string) *CreateBatchTradeOrderRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *CreateBatchTradeOrderRequest) SetStaffId(v string) *CreateBatchTradeOrderRequest {
+	s.StaffId = &v
+	return s
+}
+
+func (s *CreateBatchTradeOrderRequest) SetAccountId(v string) *CreateBatchTradeOrderRequest {
+	s.AccountId = &v
+	return s
+}
+
+func (s *CreateBatchTradeOrderRequest) SetAccountNo(v string) *CreateBatchTradeOrderRequest {
+	s.AccountNo = &v
+	return s
+}
+
+func (s *CreateBatchTradeOrderRequest) SetTradeTitle(v string) *CreateBatchTradeOrderRequest {
+	s.TradeTitle = &v
+	return s
+}
+
+func (s *CreateBatchTradeOrderRequest) SetOutBatchNo(v string) *CreateBatchTradeOrderRequest {
+	s.OutBatchNo = &v
+	return s
+}
+
+func (s *CreateBatchTradeOrderRequest) SetBatchRemark(v string) *CreateBatchTradeOrderRequest {
+	s.BatchRemark = &v
+	return s
+}
+
+func (s *CreateBatchTradeOrderRequest) SetTotalCount(v int64) *CreateBatchTradeOrderRequest {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *CreateBatchTradeOrderRequest) SetTotalAmount(v string) *CreateBatchTradeOrderRequest {
+	s.TotalAmount = &v
+	return s
+}
+
+func (s *CreateBatchTradeOrderRequest) SetBatchTradeDetails(v []*CreateBatchTradeOrderRequestBatchTradeDetails) *CreateBatchTradeOrderRequest {
+	s.BatchTradeDetails = v
+	return s
+}
+
+func (s *CreateBatchTradeOrderRequest) SetIsvCorpId(v string) *CreateBatchTradeOrderRequest {
+	s.IsvCorpId = &v
+	return s
+}
+
+type CreateBatchTradeOrderRequestBatchTradeDetails struct {
+	// 序号（必填）
+	SerialNo *int64 `json:"serialNo,omitempty" xml:"serialNo,omitempty"`
+	// 金额（必填，单位：元）
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 收款方户名（必填）
+	PayeeAccountName *string `json:"payeeAccountName,omitempty" xml:"payeeAccountName,omitempty"`
+	// 收款方账号（必填）
+	PayeeAccountNo *string `json:"payeeAccountNo,omitempty" xml:"payeeAccountNo,omitempty"`
+	// 收款方账号类型（必填）
+	PayeeAccountType *string `json:"payeeAccountType,omitempty" xml:"payeeAccountType,omitempty"`
+	// 备注（选填）
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
+}
+
+func (s CreateBatchTradeOrderRequestBatchTradeDetails) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateBatchTradeOrderRequestBatchTradeDetails) GoString() string {
+	return s.String()
+}
+
+func (s *CreateBatchTradeOrderRequestBatchTradeDetails) SetSerialNo(v int64) *CreateBatchTradeOrderRequestBatchTradeDetails {
+	s.SerialNo = &v
+	return s
+}
+
+func (s *CreateBatchTradeOrderRequestBatchTradeDetails) SetAmount(v string) *CreateBatchTradeOrderRequestBatchTradeDetails {
+	s.Amount = &v
+	return s
+}
+
+func (s *CreateBatchTradeOrderRequestBatchTradeDetails) SetPayeeAccountName(v string) *CreateBatchTradeOrderRequestBatchTradeDetails {
+	s.PayeeAccountName = &v
+	return s
+}
+
+func (s *CreateBatchTradeOrderRequestBatchTradeDetails) SetPayeeAccountNo(v string) *CreateBatchTradeOrderRequestBatchTradeDetails {
+	s.PayeeAccountNo = &v
+	return s
+}
+
+func (s *CreateBatchTradeOrderRequestBatchTradeDetails) SetPayeeAccountType(v string) *CreateBatchTradeOrderRequestBatchTradeDetails {
+	s.PayeeAccountType = &v
+	return s
+}
+
+func (s *CreateBatchTradeOrderRequestBatchTradeDetails) SetMemo(v string) *CreateBatchTradeOrderRequestBatchTradeDetails {
+	s.Memo = &v
+	return s
+}
+
+type CreateBatchTradeOrderResponseBody struct {
+	// 钉钉批次单号
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// 商户批次号
+	OutBatchNo *string `json:"outBatchNo,omitempty" xml:"outBatchNo,omitempty"`
+	// 批次订单状态
+	OrderStatus *string `json:"orderStatus,omitempty" xml:"orderStatus,omitempty"`
+}
+
+func (s CreateBatchTradeOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateBatchTradeOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateBatchTradeOrderResponseBody) SetOrderNo(v string) *CreateBatchTradeOrderResponseBody {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *CreateBatchTradeOrderResponseBody) SetOutBatchNo(v string) *CreateBatchTradeOrderResponseBody {
+	s.OutBatchNo = &v
+	return s
+}
+
+func (s *CreateBatchTradeOrderResponseBody) SetOrderStatus(v string) *CreateBatchTradeOrderResponseBody {
+	s.OrderStatus = &v
+	return s
+}
+
+type CreateBatchTradeOrderResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateBatchTradeOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateBatchTradeOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateBatchTradeOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateBatchTradeOrderResponse) SetHeaders(v map[string]*string) *CreateBatchTradeOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateBatchTradeOrderResponse) SetBody(v *CreateBatchTradeOrderResponseBody) *CreateBatchTradeOrderResponse {
+	s.Body = v
+	return s
+}
+
 type NotifyPayCodeRefundResultHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1178,6 +1754,374 @@ func (s *NotifyPayCodeRefundResultResponse) SetHeaders(v map[string]*string) *No
 }
 
 func (s *NotifyPayCodeRefundResultResponse) SetBody(v *NotifyPayCodeRefundResultResponseBody) *NotifyPayCodeRefundResultResponse {
+	s.Body = v
+	return s
+}
+
+type QueryBatchTradeDetailListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryBatchTradeDetailListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBatchTradeDetailListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBatchTradeDetailListHeaders) SetCommonHeaders(v map[string]*string) *QueryBatchTradeDetailListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryBatchTradeDetailListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryBatchTradeDetailListRequest struct {
+	// isv corpId
+	IsvCorpId *string `json:"isvCorpId,omitempty" xml:"isvCorpId,omitempty"`
+	// 外部商户批次号
+	OutBatchNo *string `json:"outBatchNo,omitempty" xml:"outBatchNo,omitempty"`
+	// 当前页数
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页记录数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// ISV/企业自建应用suiteId
+	SuiteId *string `json:"suiteId,omitempty" xml:"suiteId,omitempty"`
+}
+
+func (s QueryBatchTradeDetailListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBatchTradeDetailListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBatchTradeDetailListRequest) SetIsvCorpId(v string) *QueryBatchTradeDetailListRequest {
+	s.IsvCorpId = &v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListRequest) SetOutBatchNo(v string) *QueryBatchTradeDetailListRequest {
+	s.OutBatchNo = &v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListRequest) SetPageNumber(v int32) *QueryBatchTradeDetailListRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListRequest) SetPageSize(v int32) *QueryBatchTradeDetailListRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListRequest) SetSuiteId(v string) *QueryBatchTradeDetailListRequest {
+	s.SuiteId = &v
+	return s
+}
+
+type QueryBatchTradeDetailListResponseBody struct {
+	// 总记录数
+	Total *int32 `json:"total,omitempty" xml:"total,omitempty"`
+	// 单页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 总页数
+	TotalPageNumber *int32 `json:"totalPageNumber,omitempty" xml:"totalPageNumber,omitempty"`
+	// 当前页数
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 明细列表
+	BatchTradeDetailList []*QueryBatchTradeDetailListResponseBodyBatchTradeDetailList `json:"batchTradeDetailList,omitempty" xml:"batchTradeDetailList,omitempty" type:"Repeated"`
+}
+
+func (s QueryBatchTradeDetailListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBatchTradeDetailListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBatchTradeDetailListResponseBody) SetTotal(v int32) *QueryBatchTradeDetailListResponseBody {
+	s.Total = &v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListResponseBody) SetPageSize(v int32) *QueryBatchTradeDetailListResponseBody {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListResponseBody) SetTotalPageNumber(v int32) *QueryBatchTradeDetailListResponseBody {
+	s.TotalPageNumber = &v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListResponseBody) SetPageNumber(v int32) *QueryBatchTradeDetailListResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListResponseBody) SetBatchTradeDetailList(v []*QueryBatchTradeDetailListResponseBodyBatchTradeDetailList) *QueryBatchTradeDetailListResponseBody {
+	s.BatchTradeDetailList = v
+	return s
+}
+
+type QueryBatchTradeDetailListResponseBodyBatchTradeDetailList struct {
+	// 序号
+	SerialNo *int64 `json:"serialNo,omitempty" xml:"serialNo,omitempty"`
+	// 明细单号
+	DetailNo *string `json:"detailNo,omitempty" xml:"detailNo,omitempty"`
+	// 收款人账号
+	PayeeAccountNo *string `json:"payeeAccountNo,omitempty" xml:"payeeAccountNo,omitempty"`
+	// 收款账号类型
+	PayeeAccountType *string `json:"payeeAccountType,omitempty" xml:"payeeAccountType,omitempty"`
+	// 状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 收款方电子钱包持有者姓名
+	PayeeAccountName *string `json:"payeeAccountName,omitempty" xml:"payeeAccountName,omitempty"`
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 备注
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// 订单时间时间
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 支付完成时间
+	GmtFinish *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
+}
+
+func (s QueryBatchTradeDetailListResponseBodyBatchTradeDetailList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBatchTradeDetailListResponseBodyBatchTradeDetailList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList) SetSerialNo(v int64) *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList {
+	s.SerialNo = &v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList) SetDetailNo(v string) *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList {
+	s.DetailNo = &v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList) SetPayeeAccountNo(v string) *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList {
+	s.PayeeAccountNo = &v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList) SetPayeeAccountType(v string) *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList {
+	s.PayeeAccountType = &v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList) SetStatus(v string) *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList) SetPayeeAccountName(v string) *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList {
+	s.PayeeAccountName = &v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList) SetAmount(v string) *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList {
+	s.Amount = &v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList) SetMemo(v string) *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList {
+	s.Memo = &v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList) SetGmtCreate(v string) *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList) SetGmtFinish(v string) *QueryBatchTradeDetailListResponseBodyBatchTradeDetailList {
+	s.GmtFinish = &v
+	return s
+}
+
+type QueryBatchTradeDetailListResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryBatchTradeDetailListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryBatchTradeDetailListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBatchTradeDetailListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBatchTradeDetailListResponse) SetHeaders(v map[string]*string) *QueryBatchTradeDetailListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryBatchTradeDetailListResponse) SetBody(v *QueryBatchTradeDetailListResponseBody) *QueryBatchTradeDetailListResponse {
+	s.Body = v
+	return s
+}
+
+type QueryPayAccountListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryPayAccountListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPayAccountListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPayAccountListHeaders) SetCommonHeaders(v map[string]*string) *QueryPayAccountListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryPayAccountListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryPayAccountListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryPayAccountListRequest struct {
+	// Isv coprId
+	IsvCorpId *string `json:"isvCorpId,omitempty" xml:"isvCorpId,omitempty"`
+	// 应用suiteId
+	SuiteId *string `json:"suiteId,omitempty" xml:"suiteId,omitempty"`
+	// 组织corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+}
+
+func (s QueryPayAccountListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPayAccountListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPayAccountListRequest) SetIsvCorpId(v string) *QueryPayAccountListRequest {
+	s.IsvCorpId = &v
+	return s
+}
+
+func (s *QueryPayAccountListRequest) SetSuiteId(v string) *QueryPayAccountListRequest {
+	s.SuiteId = &v
+	return s
+}
+
+func (s *QueryPayAccountListRequest) SetCorpId(v string) *QueryPayAccountListRequest {
+	s.CorpId = &v
+	return s
+}
+
+type QueryPayAccountListResponseBody struct {
+	// 账号列表
+	PayAccountVOList []*QueryPayAccountListResponseBodyPayAccountVOList `json:"payAccountVOList,omitempty" xml:"payAccountVOList,omitempty" type:"Repeated"`
+}
+
+func (s QueryPayAccountListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPayAccountListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPayAccountListResponseBody) SetPayAccountVOList(v []*QueryPayAccountListResponseBodyPayAccountVOList) *QueryPayAccountListResponseBody {
+	s.PayAccountVOList = v
+	return s
+}
+
+type QueryPayAccountListResponseBodyPayAccountVOList struct {
+	// 付款账号（脱敏）
+	AccountNo *string `json:"accountNo,omitempty" xml:"accountNo,omitempty"`
+	// 账号名称
+	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
+	// 账户类型
+	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
+	// 账户备注
+	AccountRemark *string `json:"accountRemark,omitempty" xml:"accountRemark,omitempty"`
+	// 账号唯一id
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// 账户分类
+	AccountClass *string `json:"accountClass,omitempty" xml:"accountClass,omitempty"`
+}
+
+func (s QueryPayAccountListResponseBodyPayAccountVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPayAccountListResponseBodyPayAccountVOList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPayAccountListResponseBodyPayAccountVOList) SetAccountNo(v string) *QueryPayAccountListResponseBodyPayAccountVOList {
+	s.AccountNo = &v
+	return s
+}
+
+func (s *QueryPayAccountListResponseBodyPayAccountVOList) SetAccountName(v string) *QueryPayAccountListResponseBodyPayAccountVOList {
+	s.AccountName = &v
+	return s
+}
+
+func (s *QueryPayAccountListResponseBodyPayAccountVOList) SetAccountType(v string) *QueryPayAccountListResponseBodyPayAccountVOList {
+	s.AccountType = &v
+	return s
+}
+
+func (s *QueryPayAccountListResponseBodyPayAccountVOList) SetAccountRemark(v string) *QueryPayAccountListResponseBodyPayAccountVOList {
+	s.AccountRemark = &v
+	return s
+}
+
+func (s *QueryPayAccountListResponseBodyPayAccountVOList) SetAccountId(v string) *QueryPayAccountListResponseBodyPayAccountVOList {
+	s.AccountId = &v
+	return s
+}
+
+func (s *QueryPayAccountListResponseBodyPayAccountVOList) SetAccountClass(v string) *QueryPayAccountListResponseBodyPayAccountVOList {
+	s.AccountClass = &v
+	return s
+}
+
+type QueryPayAccountListResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryPayAccountListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryPayAccountListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPayAccountListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPayAccountListResponse) SetHeaders(v map[string]*string) *QueryPayAccountListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryPayAccountListResponse) SetBody(v *QueryPayAccountListResponseBody) *QueryPayAccountListResponse {
 	s.Body = v
 	return s
 }
@@ -1587,6 +2531,134 @@ func (client *Client) UpateUserCodeInstanceWithOptions(request *UpateUserCodeIns
 	return _result, _err
 }
 
+func (client *Client) ApplyBatchPay(request *ApplyBatchPayRequest) (_result *ApplyBatchPayResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ApplyBatchPayHeaders{}
+	_result = &ApplyBatchPayResponse{}
+	_body, _err := client.ApplyBatchPayWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ApplyBatchPayWithOptions(request *ApplyBatchPayRequest, headers *ApplyBatchPayHeaders, runtime *util.RuntimeOptions) (_result *ApplyBatchPayResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StaffId)) {
+		body["staffId"] = request.StaffId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccountId)) {
+		body["accountId"] = request.AccountId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderNo)) {
+		body["orderNo"] = request.OrderNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TransAmount)) {
+		body["transAmount"] = request.TransAmount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReturnUrl)) {
+		body["returnUrl"] = request.ReturnUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PassBackParams)) {
+		body["passBackParams"] = request.PassBackParams
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PayTerminal)) {
+		body["payTerminal"] = request.PayTerminal
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TransExpireTime)) {
+		body["transExpireTime"] = request.TransExpireTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ApplyBatchPayResponse{}
+	_body, _err := client.DoROARequest(tea.String("ApplyBatchPay"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/finance/batchTrades/orders/pay"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryBatchTradeOrder(request *QueryBatchTradeOrderRequest) (_result *QueryBatchTradeOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryBatchTradeOrderHeaders{}
+	_result = &QueryBatchTradeOrderResponse{}
+	_body, _err := client.QueryBatchTradeOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryBatchTradeOrderWithOptions(request *QueryBatchTradeOrderRequest, headers *QueryBatchTradeOrderHeaders, runtime *util.RuntimeOptions) (_result *QueryBatchTradeOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SuiteId)) {
+		body["suiteId"] = request.SuiteId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsvCorpId)) {
+		body["isvCorpId"] = request.IsvCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutBatchNos)) {
+		body["outBatchNos"] = request.OutBatchNos
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryBatchTradeOrderResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryBatchTradeOrder"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/finance/batchTrades/orders/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DecodePayCode(request *DecodePayCodeRequest) (_result *DecodePayCodeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DecodePayCodeHeaders{}
@@ -1779,6 +2851,94 @@ func (client *Client) NotifyVerifyResultWithOptions(request *NotifyVerifyResultR
 	return _result, _err
 }
 
+func (client *Client) CreateBatchTradeOrder(request *CreateBatchTradeOrderRequest) (_result *CreateBatchTradeOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateBatchTradeOrderHeaders{}
+	_result = &CreateBatchTradeOrderResponse{}
+	_body, _err := client.CreateBatchTradeOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateBatchTradeOrderWithOptions(request *CreateBatchTradeOrderRequest, headers *CreateBatchTradeOrderHeaders, runtime *util.RuntimeOptions) (_result *CreateBatchTradeOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SuiteId)) {
+		body["suiteId"] = request.SuiteId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StaffId)) {
+		body["staffId"] = request.StaffId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccountId)) {
+		body["accountId"] = request.AccountId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccountNo)) {
+		body["accountNo"] = request.AccountNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TradeTitle)) {
+		body["tradeTitle"] = request.TradeTitle
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutBatchNo)) {
+		body["outBatchNo"] = request.OutBatchNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BatchRemark)) {
+		body["batchRemark"] = request.BatchRemark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TotalCount)) {
+		body["totalCount"] = request.TotalCount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TotalAmount)) {
+		body["totalAmount"] = request.TotalAmount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BatchTradeDetails)) {
+		body["batchTradeDetails"] = request.BatchTradeDetails
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsvCorpId)) {
+		body["isvCorpId"] = request.IsvCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateBatchTradeOrderResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateBatchTradeOrder"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/finance/batchTrades/orders"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) NotifyPayCodeRefundResult(request *NotifyPayCodeRefundResultRequest) (_result *NotifyPayCodeRefundResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &NotifyPayCodeRefundResultHeaders{}
@@ -1856,6 +3016,118 @@ func (client *Client) NotifyPayCodeRefundResultWithOptions(request *NotifyPayCod
 	}
 	_result = &NotifyPayCodeRefundResultResponse{}
 	_body, _err := client.DoROARequest(tea.String("NotifyPayCodeRefundResult"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/finance/payCodes/refundResults/notify"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryBatchTradeDetailList(request *QueryBatchTradeDetailListRequest) (_result *QueryBatchTradeDetailListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryBatchTradeDetailListHeaders{}
+	_result = &QueryBatchTradeDetailListResponse{}
+	_body, _err := client.QueryBatchTradeDetailListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryBatchTradeDetailListWithOptions(request *QueryBatchTradeDetailListRequest, headers *QueryBatchTradeDetailListHeaders, runtime *util.RuntimeOptions) (_result *QueryBatchTradeDetailListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IsvCorpId)) {
+		query["isvCorpId"] = request.IsvCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutBatchNo)) {
+		query["outBatchNo"] = request.OutBatchNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SuiteId)) {
+		query["suiteId"] = request.SuiteId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryBatchTradeDetailListResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryBatchTradeDetailList"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/finance/batchTrades/details"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryPayAccountList(request *QueryPayAccountListRequest) (_result *QueryPayAccountListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryPayAccountListHeaders{}
+	_result = &QueryPayAccountListResponse{}
+	_body, _err := client.QueryPayAccountListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryPayAccountListWithOptions(request *QueryPayAccountListRequest, headers *QueryPayAccountListHeaders, runtime *util.RuntimeOptions) (_result *QueryPayAccountListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IsvCorpId)) {
+		query["isvCorpId"] = request.IsvCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SuiteId)) {
+		query["suiteId"] = request.SuiteId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryPayAccountListResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryPayAccountList"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/finance/payAccounts"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

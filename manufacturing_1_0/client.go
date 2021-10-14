@@ -458,7 +458,6 @@ func (client *Client) IndustrializeManufactureJobBookWithOptions(userId *string,
 	if _err != nil {
 		return _result, _err
 	}
-	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ScrappedQuantity)) {
 		body["scrappedQuantity"] = request.ScrappedQuantity
