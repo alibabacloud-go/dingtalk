@@ -433,6 +433,63 @@ func (s *UpdateContactHideSettingResponse) SetBody(v *UpdateContactHideSettingRe
 	return s
 }
 
+type UpdateDeptSettngTailFirstHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateDeptSettngTailFirstHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateDeptSettngTailFirstHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateDeptSettngTailFirstHeaders) SetCommonHeaders(v map[string]*string) *UpdateDeptSettngTailFirstHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateDeptSettngTailFirstHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateDeptSettngTailFirstHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateDeptSettngTailFirstRequest struct {
+	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
+}
+
+func (s UpdateDeptSettngTailFirstRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateDeptSettngTailFirstRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateDeptSettngTailFirstRequest) SetEnable(v bool) *UpdateDeptSettngTailFirstRequest {
+	s.Enable = &v
+	return s
+}
+
+type UpdateDeptSettngTailFirstResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s UpdateDeptSettngTailFirstResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateDeptSettngTailFirstResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateDeptSettngTailFirstResponse) SetHeaders(v map[string]*string) *UpdateDeptSettngTailFirstResponse {
+	s.Headers = v
+	return s
+}
+
 type UpdateEmpAttrbuteVisibilitySettingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1293,6 +1350,8 @@ type SearchUserRequest struct {
 	Offset *int32 `json:"offset,omitempty" xml:"offset,omitempty"`
 	// 分页长度
 	Size *int32 `json:"size,omitempty" xml:"size,omitempty"`
+	// 精确匹配的字段。1：匹配用户名称。不填则为模糊匹配
+	FullMatchField *int32 `json:"fullMatchField,omitempty" xml:"fullMatchField,omitempty"`
 }
 
 func (s SearchUserRequest) String() string {
@@ -1320,6 +1379,11 @@ func (s *SearchUserRequest) SetOffset(v int32) *SearchUserRequest {
 
 func (s *SearchUserRequest) SetSize(v int32) *SearchUserRequest {
 	s.Size = &v
+	return s
+}
+
+func (s *SearchUserRequest) SetFullMatchField(v int32) *SearchUserRequest {
+	s.FullMatchField = &v
 	return s
 }
 
@@ -3540,6 +3604,50 @@ func (client *Client) UpdateContactHideSettingWithOptions(request *UpdateContact
 	return _result, _err
 }
 
+func (client *Client) UpdateDeptSettngTailFirst(request *UpdateDeptSettngTailFirstRequest) (_result *UpdateDeptSettngTailFirstResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateDeptSettngTailFirstHeaders{}
+	_result = &UpdateDeptSettngTailFirstResponse{}
+	_body, _err := client.UpdateDeptSettngTailFirstWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateDeptSettngTailFirstWithOptions(request *UpdateDeptSettngTailFirstRequest, headers *UpdateDeptSettngTailFirstHeaders, runtime *util.RuntimeOptions) (_result *UpdateDeptSettngTailFirstResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Enable)) {
+		body["enable"] = request.Enable
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateDeptSettngTailFirstResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateDeptSettngTailFirst"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/depts/settings/priorities"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) UpdateEmpAttrbuteVisibilitySetting(request *UpdateEmpAttrbuteVisibilitySettingRequest) (_result *UpdateEmpAttrbuteVisibilitySettingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateEmpAttrbuteVisibilitySettingHeaders{}
@@ -3886,6 +3994,10 @@ func (client *Client) SearchUserWithOptions(request *SearchUserRequest, headers 
 
 	if !tea.BoolValue(util.IsUnset(request.Size)) {
 		body["size"] = request.Size
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FullMatchField)) {
+		body["fullMatchField"] = request.FullMatchField
 	}
 
 	realHeaders := make(map[string]*string)
