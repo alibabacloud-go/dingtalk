@@ -662,180 +662,6 @@ func (s *QueryCustomEntryProcessesResponse) SetBody(v *QueryCustomEntryProcesses
 	return s
 }
 
-type AddHrmPreentryHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s AddHrmPreentryHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddHrmPreentryHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *AddHrmPreentryHeaders) SetCommonHeaders(v map[string]*string) *AddHrmPreentryHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *AddHrmPreentryHeaders) SetXAcsDingtalkAccessToken(v string) *AddHrmPreentryHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type AddHrmPreentryRequest struct {
-	PreEntryTime *int64                         `json:"preEntryTime,omitempty" xml:"preEntryTime,omitempty"`
-	Name         *string                        `json:"name,omitempty" xml:"name,omitempty"`
-	Mobile       *string                        `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	AgentId      *int64                         `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	Groups       []*AddHrmPreentryRequestGroups `json:"groups,omitempty" xml:"groups,omitempty" type:"Repeated"`
-}
-
-func (s AddHrmPreentryRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddHrmPreentryRequest) GoString() string {
-	return s.String()
-}
-
-func (s *AddHrmPreentryRequest) SetPreEntryTime(v int64) *AddHrmPreentryRequest {
-	s.PreEntryTime = &v
-	return s
-}
-
-func (s *AddHrmPreentryRequest) SetName(v string) *AddHrmPreentryRequest {
-	s.Name = &v
-	return s
-}
-
-func (s *AddHrmPreentryRequest) SetMobile(v string) *AddHrmPreentryRequest {
-	s.Mobile = &v
-	return s
-}
-
-func (s *AddHrmPreentryRequest) SetAgentId(v int64) *AddHrmPreentryRequest {
-	s.AgentId = &v
-	return s
-}
-
-func (s *AddHrmPreentryRequest) SetGroups(v []*AddHrmPreentryRequestGroups) *AddHrmPreentryRequest {
-	s.Groups = v
-	return s
-}
-
-type AddHrmPreentryRequestGroups struct {
-	GroupId  *string                                `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	Sections []*AddHrmPreentryRequestGroupsSections `json:"sections,omitempty" xml:"sections,omitempty" type:"Repeated"`
-}
-
-func (s AddHrmPreentryRequestGroups) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddHrmPreentryRequestGroups) GoString() string {
-	return s.String()
-}
-
-func (s *AddHrmPreentryRequestGroups) SetGroupId(v string) *AddHrmPreentryRequestGroups {
-	s.GroupId = &v
-	return s
-}
-
-func (s *AddHrmPreentryRequestGroups) SetSections(v []*AddHrmPreentryRequestGroupsSections) *AddHrmPreentryRequestGroups {
-	s.Sections = v
-	return s
-}
-
-type AddHrmPreentryRequestGroupsSections struct {
-	OldIndex       *int32                                               `json:"oldIndex,omitempty" xml:"oldIndex,omitempty"`
-	EmpFieldVOList []*AddHrmPreentryRequestGroupsSectionsEmpFieldVOList `json:"empFieldVOList,omitempty" xml:"empFieldVOList,omitempty" type:"Repeated"`
-}
-
-func (s AddHrmPreentryRequestGroupsSections) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddHrmPreentryRequestGroupsSections) GoString() string {
-	return s.String()
-}
-
-func (s *AddHrmPreentryRequestGroupsSections) SetOldIndex(v int32) *AddHrmPreentryRequestGroupsSections {
-	s.OldIndex = &v
-	return s
-}
-
-func (s *AddHrmPreentryRequestGroupsSections) SetEmpFieldVOList(v []*AddHrmPreentryRequestGroupsSectionsEmpFieldVOList) *AddHrmPreentryRequestGroupsSections {
-	s.EmpFieldVOList = v
-	return s
-}
-
-type AddHrmPreentryRequestGroupsSectionsEmpFieldVOList struct {
-	Value     *string `json:"value,omitempty" xml:"value,omitempty"`
-	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
-}
-
-func (s AddHrmPreentryRequestGroupsSectionsEmpFieldVOList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddHrmPreentryRequestGroupsSectionsEmpFieldVOList) GoString() string {
-	return s.String()
-}
-
-func (s *AddHrmPreentryRequestGroupsSectionsEmpFieldVOList) SetValue(v string) *AddHrmPreentryRequestGroupsSectionsEmpFieldVOList {
-	s.Value = &v
-	return s
-}
-
-func (s *AddHrmPreentryRequestGroupsSectionsEmpFieldVOList) SetFieldCode(v string) *AddHrmPreentryRequestGroupsSectionsEmpFieldVOList {
-	s.FieldCode = &v
-	return s
-}
-
-type AddHrmPreentryResponseBody struct {
-	// result
-	TmpUserId *string `json:"tmpUserId,omitempty" xml:"tmpUserId,omitempty"`
-}
-
-func (s AddHrmPreentryResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddHrmPreentryResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *AddHrmPreentryResponseBody) SetTmpUserId(v string) *AddHrmPreentryResponseBody {
-	s.TmpUserId = &v
-	return s
-}
-
-type AddHrmPreentryResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddHrmPreentryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s AddHrmPreentryResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddHrmPreentryResponse) GoString() string {
-	return s.String()
-}
-
-func (s *AddHrmPreentryResponse) SetHeaders(v map[string]*string) *AddHrmPreentryResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *AddHrmPreentryResponse) SetBody(v *AddHrmPreentryResponseBody) *AddHrmPreentryResponse {
-	s.Body = v
-	return s
-}
-
 type QueryPositionsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1016,6 +842,593 @@ func (s *QueryPositionsResponse) SetHeaders(v map[string]*string) *QueryPosition
 }
 
 func (s *QueryPositionsResponse) SetBody(v *QueryPositionsResponseBody) *QueryPositionsResponse {
+	s.Body = v
+	return s
+}
+
+type MasterDataQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s MasterDataQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataQueryHeaders) SetCommonHeaders(v map[string]*string) *MasterDataQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *MasterDataQueryHeaders) SetXAcsDingtalkAccessToken(v string) *MasterDataQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type MasterDataQueryRequest struct {
+	Body *MasterDataQueryRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Struct"`
+}
+
+func (s MasterDataQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataQueryRequest) SetBody(v *MasterDataQueryRequestBody) *MasterDataQueryRequest {
+	s.Body = v
+	return s
+}
+
+type MasterDataQueryRequestBody struct {
+	ScopeCode      *string   `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	ViewEntityCode *string   `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
+	TenantId       *int64    `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+	BizUK          *string   `json:"bizUK,omitempty" xml:"bizUK,omitempty"`
+	RelationIds    []*string `json:"relationIds,omitempty" xml:"relationIds,omitempty" type:"Repeated"`
+	OptUserId      *string   `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+	NextToken      *int32    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	MaxResults     *int32    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+}
+
+func (s MasterDataQueryRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataQueryRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataQueryRequestBody) SetScopeCode(v string) *MasterDataQueryRequestBody {
+	s.ScopeCode = &v
+	return s
+}
+
+func (s *MasterDataQueryRequestBody) SetViewEntityCode(v string) *MasterDataQueryRequestBody {
+	s.ViewEntityCode = &v
+	return s
+}
+
+func (s *MasterDataQueryRequestBody) SetTenantId(v int64) *MasterDataQueryRequestBody {
+	s.TenantId = &v
+	return s
+}
+
+func (s *MasterDataQueryRequestBody) SetBizUK(v string) *MasterDataQueryRequestBody {
+	s.BizUK = &v
+	return s
+}
+
+func (s *MasterDataQueryRequestBody) SetRelationIds(v []*string) *MasterDataQueryRequestBody {
+	s.RelationIds = v
+	return s
+}
+
+func (s *MasterDataQueryRequestBody) SetOptUserId(v string) *MasterDataQueryRequestBody {
+	s.OptUserId = &v
+	return s
+}
+
+func (s *MasterDataQueryRequestBody) SetNextToken(v int32) *MasterDataQueryRequestBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *MasterDataQueryRequestBody) SetMaxResults(v int32) *MasterDataQueryRequestBody {
+	s.MaxResults = &v
+	return s
+}
+
+type MasterDataQueryShrinkRequest struct {
+	BodyShrink *string `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s MasterDataQueryShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataQueryShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataQueryShrinkRequest) SetBodyShrink(v string) *MasterDataQueryShrinkRequest {
+	s.BodyShrink = &v
+	return s
+}
+
+type MasterDataQueryResponseBody struct {
+	Total     *int64                               `json:"total,omitempty" xml:"total,omitempty"`
+	HasMore   *bool                                `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *int64                               `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Success   *bool                                `json:"success,omitempty" xml:"success,omitempty"`
+	Result    []*MasterDataQueryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s MasterDataQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataQueryResponseBody) SetTotal(v int64) *MasterDataQueryResponseBody {
+	s.Total = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBody) SetHasMore(v bool) *MasterDataQueryResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBody) SetNextToken(v int64) *MasterDataQueryResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBody) SetSuccess(v bool) *MasterDataQueryResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBody) SetResult(v []*MasterDataQueryResponseBodyResult) *MasterDataQueryResponseBody {
+	s.Result = v
+	return s
+}
+
+type MasterDataQueryResponseBodyResult struct {
+	OuterId                    *string                                                        `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	ScopeCode                  *string                                                        `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	ViewEntityCode             *string                                                        `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
+	ViewEntityFieldVOList      []*MasterDataQueryResponseBodyResultViewEntityFieldVOList      `json:"viewEntityFieldVOList,omitempty" xml:"viewEntityFieldVOList,omitempty" type:"Repeated"`
+	ViewEntityMultiFieldVOList []*MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList `json:"viewEntityMultiFieldVOList,omitempty" xml:"viewEntityMultiFieldVOList,omitempty" type:"Repeated"`
+}
+
+func (s MasterDataQueryResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataQueryResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataQueryResponseBodyResult) SetOuterId(v string) *MasterDataQueryResponseBodyResult {
+	s.OuterId = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResult) SetScopeCode(v string) *MasterDataQueryResponseBodyResult {
+	s.ScopeCode = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResult) SetViewEntityCode(v string) *MasterDataQueryResponseBodyResult {
+	s.ViewEntityCode = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResult) SetViewEntityFieldVOList(v []*MasterDataQueryResponseBodyResultViewEntityFieldVOList) *MasterDataQueryResponseBodyResult {
+	s.ViewEntityFieldVOList = v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResult) SetViewEntityMultiFieldVOList(v []*MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList) *MasterDataQueryResponseBodyResult {
+	s.ViewEntityMultiFieldVOList = v
+	return s
+}
+
+type MasterDataQueryResponseBodyResultViewEntityFieldVOList struct {
+	FieldCode   *string                                                            `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	FieldDataVO *MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO `json:"fieldDataVO,omitempty" xml:"fieldDataVO,omitempty" type:"Struct"`
+	FieldName   *string                                                            `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	FieldType   *string                                                            `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	Attrs       map[string]map[string]interface{}                                  `json:"attrs,omitempty" xml:"attrs,omitempty"`
+}
+
+func (s MasterDataQueryResponseBodyResultViewEntityFieldVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataQueryResponseBodyResultViewEntityFieldVOList) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityFieldVOList) SetFieldCode(v string) *MasterDataQueryResponseBodyResultViewEntityFieldVOList {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityFieldVOList) SetFieldDataVO(v *MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO) *MasterDataQueryResponseBodyResultViewEntityFieldVOList {
+	s.FieldDataVO = v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityFieldVOList) SetFieldName(v string) *MasterDataQueryResponseBodyResultViewEntityFieldVOList {
+	s.FieldName = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityFieldVOList) SetFieldType(v string) *MasterDataQueryResponseBodyResultViewEntityFieldVOList {
+	s.FieldType = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityFieldVOList) SetAttrs(v map[string]map[string]interface{}) *MasterDataQueryResponseBodyResultViewEntityFieldVOList {
+	s.Attrs = v
+	return s
+}
+
+type MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO struct {
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO) SetKey(v string) *MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO {
+	s.Key = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO) SetValue(v string) *MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO {
+	s.Value = &v
+	return s
+}
+
+type MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList struct {
+	FieldCode *string                                                                 `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	FieldName *string                                                                 `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	FieldType *string                                                                 `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	RowFields []*MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields `json:"rowFields,omitempty" xml:"rowFields,omitempty" type:"Repeated"`
+}
+
+func (s MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList) SetFieldCode(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList) SetFieldName(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList {
+	s.FieldName = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList) SetFieldType(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList {
+	s.FieldType = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList) SetRowFields(v []*MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList {
+	s.RowFields = v
+	return s
+}
+
+type MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields struct {
+	FieldCode           *string                                                                                    `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	FieldName           *string                                                                                    `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	ViewEntityFieldList []*MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList `json:"viewEntityFieldList,omitempty" xml:"viewEntityFieldList,omitempty" type:"Repeated"`
+}
+
+func (s MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields) SetFieldCode(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields) SetFieldName(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields {
+	s.FieldName = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields) SetViewEntityFieldList(v []*MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields {
+	s.ViewEntityFieldList = v
+	return s
+}
+
+type MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList struct {
+	FieldCode   *string                                                                                             `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	FieldName   *string                                                                                             `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	FieldDataVO *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO `json:"fieldDataVO,omitempty" xml:"fieldDataVO,omitempty" type:"Struct"`
+	FieldType   *string                                                                                             `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	Attrs       map[string]map[string]interface{}                                                                   `json:"attrs,omitempty" xml:"attrs,omitempty"`
+}
+
+func (s MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList) SetFieldCode(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList) SetFieldName(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList {
+	s.FieldName = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList) SetFieldDataVO(v *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList {
+	s.FieldDataVO = v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList) SetFieldType(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList {
+	s.FieldType = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList) SetAttrs(v map[string]map[string]interface{}) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList {
+	s.Attrs = v
+	return s
+}
+
+type MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO struct {
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO) SetKey(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO {
+	s.Key = &v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO) SetValue(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO {
+	s.Value = &v
+	return s
+}
+
+type MasterDataQueryResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *MasterDataQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s MasterDataQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataQueryResponse) SetHeaders(v map[string]*string) *MasterDataQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *MasterDataQueryResponse) SetBody(v *MasterDataQueryResponseBody) *MasterDataQueryResponse {
+	s.Body = v
+	return s
+}
+
+type AddHrmPreentryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddHrmPreentryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddHrmPreentryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddHrmPreentryHeaders) SetCommonHeaders(v map[string]*string) *AddHrmPreentryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddHrmPreentryHeaders) SetXAcsDingtalkAccessToken(v string) *AddHrmPreentryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddHrmPreentryRequest struct {
+	PreEntryTime *int64                         `json:"preEntryTime,omitempty" xml:"preEntryTime,omitempty"`
+	Name         *string                        `json:"name,omitempty" xml:"name,omitempty"`
+	Mobile       *string                        `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	AgentId      *int64                         `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	Groups       []*AddHrmPreentryRequestGroups `json:"groups,omitempty" xml:"groups,omitempty" type:"Repeated"`
+}
+
+func (s AddHrmPreentryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddHrmPreentryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddHrmPreentryRequest) SetPreEntryTime(v int64) *AddHrmPreentryRequest {
+	s.PreEntryTime = &v
+	return s
+}
+
+func (s *AddHrmPreentryRequest) SetName(v string) *AddHrmPreentryRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *AddHrmPreentryRequest) SetMobile(v string) *AddHrmPreentryRequest {
+	s.Mobile = &v
+	return s
+}
+
+func (s *AddHrmPreentryRequest) SetAgentId(v int64) *AddHrmPreentryRequest {
+	s.AgentId = &v
+	return s
+}
+
+func (s *AddHrmPreentryRequest) SetGroups(v []*AddHrmPreentryRequestGroups) *AddHrmPreentryRequest {
+	s.Groups = v
+	return s
+}
+
+type AddHrmPreentryRequestGroups struct {
+	GroupId  *string                                `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	Sections []*AddHrmPreentryRequestGroupsSections `json:"sections,omitempty" xml:"sections,omitempty" type:"Repeated"`
+}
+
+func (s AddHrmPreentryRequestGroups) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddHrmPreentryRequestGroups) GoString() string {
+	return s.String()
+}
+
+func (s *AddHrmPreentryRequestGroups) SetGroupId(v string) *AddHrmPreentryRequestGroups {
+	s.GroupId = &v
+	return s
+}
+
+func (s *AddHrmPreentryRequestGroups) SetSections(v []*AddHrmPreentryRequestGroupsSections) *AddHrmPreentryRequestGroups {
+	s.Sections = v
+	return s
+}
+
+type AddHrmPreentryRequestGroupsSections struct {
+	OldIndex       *int32                                               `json:"oldIndex,omitempty" xml:"oldIndex,omitempty"`
+	EmpFieldVOList []*AddHrmPreentryRequestGroupsSectionsEmpFieldVOList `json:"empFieldVOList,omitempty" xml:"empFieldVOList,omitempty" type:"Repeated"`
+}
+
+func (s AddHrmPreentryRequestGroupsSections) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddHrmPreentryRequestGroupsSections) GoString() string {
+	return s.String()
+}
+
+func (s *AddHrmPreentryRequestGroupsSections) SetOldIndex(v int32) *AddHrmPreentryRequestGroupsSections {
+	s.OldIndex = &v
+	return s
+}
+
+func (s *AddHrmPreentryRequestGroupsSections) SetEmpFieldVOList(v []*AddHrmPreentryRequestGroupsSectionsEmpFieldVOList) *AddHrmPreentryRequestGroupsSections {
+	s.EmpFieldVOList = v
+	return s
+}
+
+type AddHrmPreentryRequestGroupsSectionsEmpFieldVOList struct {
+	Value     *string `json:"value,omitempty" xml:"value,omitempty"`
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+}
+
+func (s AddHrmPreentryRequestGroupsSectionsEmpFieldVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddHrmPreentryRequestGroupsSectionsEmpFieldVOList) GoString() string {
+	return s.String()
+}
+
+func (s *AddHrmPreentryRequestGroupsSectionsEmpFieldVOList) SetValue(v string) *AddHrmPreentryRequestGroupsSectionsEmpFieldVOList {
+	s.Value = &v
+	return s
+}
+
+func (s *AddHrmPreentryRequestGroupsSectionsEmpFieldVOList) SetFieldCode(v string) *AddHrmPreentryRequestGroupsSectionsEmpFieldVOList {
+	s.FieldCode = &v
+	return s
+}
+
+type AddHrmPreentryResponseBody struct {
+	// result
+	TmpUserId *string `json:"tmpUserId,omitempty" xml:"tmpUserId,omitempty"`
+}
+
+func (s AddHrmPreentryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddHrmPreentryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddHrmPreentryResponseBody) SetTmpUserId(v string) *AddHrmPreentryResponseBody {
+	s.TmpUserId = &v
+	return s
+}
+
+type AddHrmPreentryResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddHrmPreentryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddHrmPreentryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddHrmPreentryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddHrmPreentryResponse) SetHeaders(v map[string]*string) *AddHrmPreentryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddHrmPreentryResponse) SetBody(v *AddHrmPreentryResponseBody) *AddHrmPreentryResponse {
 	s.Body = v
 	return s
 }
@@ -1251,66 +1664,6 @@ func (client *Client) QueryCustomEntryProcessesWithOptions(request *QueryCustomE
 	return _result, _err
 }
 
-func (client *Client) AddHrmPreentry(request *AddHrmPreentryRequest) (_result *AddHrmPreentryResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &AddHrmPreentryHeaders{}
-	_result = &AddHrmPreentryResponse{}
-	_body, _err := client.AddHrmPreentryWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) AddHrmPreentryWithOptions(request *AddHrmPreentryRequest, headers *AddHrmPreentryHeaders, runtime *util.RuntimeOptions) (_result *AddHrmPreentryResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.PreEntryTime)) {
-		body["preEntryTime"] = request.PreEntryTime
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Name)) {
-		body["name"] = request.Name
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Mobile)) {
-		body["mobile"] = request.Mobile
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.AgentId)) {
-		body["agentId"] = request.AgentId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Groups)) {
-		body["groups"] = request.Groups
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &AddHrmPreentryResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddHrmPreentry"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/preentries"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
 func (client *Client) QueryPositions(request *QueryPositionsRequest) (_result *QueryPositionsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryPositionsHeaders{}
@@ -1366,6 +1719,116 @@ func (client *Client) QueryPositionsWithOptions(request *QueryPositionsRequest, 
 	}
 	_result = &QueryPositionsResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryPositions"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/positions/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) MasterDataQuery(request *MasterDataQueryRequest) (_result *MasterDataQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &MasterDataQueryHeaders{}
+	_result = &MasterDataQueryResponse{}
+	_body, _err := client.MasterDataQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) MasterDataQueryWithOptions(tmpReq *MasterDataQueryRequest, headers *MasterDataQueryHeaders, runtime *util.RuntimeOptions) (_result *MasterDataQueryResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &MasterDataQueryShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(tmpReq.Body))) {
+		request.BodyShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tea.ToMap(tmpReq.Body), tea.String("body"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BodyShrink)) {
+		query["body"] = request.BodyShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &MasterDataQueryResponse{}
+	_body, _err := client.DoROARequest(tea.String("MasterDataQuery"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/masters/datas/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddHrmPreentry(request *AddHrmPreentryRequest) (_result *AddHrmPreentryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddHrmPreentryHeaders{}
+	_result = &AddHrmPreentryResponse{}
+	_body, _err := client.AddHrmPreentryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddHrmPreentryWithOptions(request *AddHrmPreentryRequest, headers *AddHrmPreentryHeaders, runtime *util.RuntimeOptions) (_result *AddHrmPreentryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PreEntryTime)) {
+		body["preEntryTime"] = request.PreEntryTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Mobile)) {
+		body["mobile"] = request.Mobile
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AgentId)) {
+		body["agentId"] = request.AgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Groups)) {
+		body["groups"] = request.Groups
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddHrmPreentryResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddHrmPreentry"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/preentries"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

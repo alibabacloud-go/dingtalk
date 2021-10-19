@@ -662,8 +662,6 @@ func (s *ProcessStartHeaders) SetXAcsDingtalkAccessToken(v string) *ProcessStart
 }
 
 type ProcessStartRequest struct {
-	// 是否跳过发起签署页直接发起
-	AutoStart *string `json:"autoStart,omitempty" xml:"autoStart,omitempty"`
 	// 发起方userId
 	InitiatorUserId *string `json:"initiatorUserId,omitempty" xml:"initiatorUserId,omitempty"`
 	DingCorpId      *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
@@ -679,6 +677,8 @@ type ProcessStartRequest struct {
 	Ccs []*ProcessStartRequestCcs `json:"ccs,omitempty" xml:"ccs,omitempty" type:"Repeated"`
 	// 来源信息(目前支持传入审批信息和跳转地址)
 	SourceInfo *ProcessStartRequestSourceInfo `json:"sourceInfo,omitempty" xml:"sourceInfo,omitempty" type:"Struct"`
+	// 是否自动发起
+	AutoStart *string `json:"autoStart,omitempty" xml:"autoStart,omitempty"`
 }
 
 func (s ProcessStartRequest) String() string {
@@ -687,11 +687,6 @@ func (s ProcessStartRequest) String() string {
 
 func (s ProcessStartRequest) GoString() string {
 	return s.String()
-}
-
-func (s *ProcessStartRequest) SetAutoStart(v string) *ProcessStartRequest {
-	s.AutoStart = &v
-	return s
 }
 
 func (s *ProcessStartRequest) SetInitiatorUserId(v string) *ProcessStartRequest {
@@ -731,6 +726,11 @@ func (s *ProcessStartRequest) SetCcs(v []*ProcessStartRequestCcs) *ProcessStartR
 
 func (s *ProcessStartRequest) SetSourceInfo(v *ProcessStartRequestSourceInfo) *ProcessStartRequest {
 	s.SourceInfo = v
+	return s
+}
+
+func (s *ProcessStartRequest) SetAutoStart(v string) *ProcessStartRequest {
+	s.AutoStart = &v
 	return s
 }
 
@@ -2995,10 +2995,6 @@ func (client *Client) ProcessStartWithOptions(request *ProcessStartRequest, head
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.AutoStart)) {
-		body["autoStart"] = request.AutoStart
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.InitiatorUserId)) {
 		body["initiatorUserId"] = request.InitiatorUserId
 	}
@@ -3029,6 +3025,10 @@ func (client *Client) ProcessStartWithOptions(request *ProcessStartRequest, head
 
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SourceInfo))) {
 		body["sourceInfo"] = request.SourceInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AutoStart)) {
+		body["autoStart"] = request.AutoStart
 	}
 
 	realHeaders := make(map[string]*string)

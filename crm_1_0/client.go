@@ -681,6 +681,308 @@ func (s *DeleteCrmFormInstanceResponse) SetBody(v *DeleteCrmFormInstanceResponse
 	return s
 }
 
+type GetCrmRolePermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCrmRolePermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmRolePermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmRolePermissionHeaders) SetCommonHeaders(v map[string]*string) *GetCrmRolePermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCrmRolePermissionHeaders) SetXAcsDingtalkAccessToken(v string) *GetCrmRolePermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCrmRolePermissionRequest struct {
+	// 表单标识（formCode & bizType二选一）
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// 表单业务标识（formCode & bizType二选一）
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+}
+
+func (s GetCrmRolePermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmRolePermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmRolePermissionRequest) SetFormCode(v string) *GetCrmRolePermissionRequest {
+	s.FormCode = &v
+	return s
+}
+
+func (s *GetCrmRolePermissionRequest) SetBizType(v string) *GetCrmRolePermissionRequest {
+	s.BizType = &v
+	return s
+}
+
+type GetCrmRolePermissionResponseBody struct {
+	// CRM表单权限配置
+	Permissions []*GetCrmRolePermissionResponseBodyPermissions `json:"permissions,omitempty" xml:"permissions,omitempty" type:"Repeated"`
+}
+
+func (s GetCrmRolePermissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmRolePermissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmRolePermissionResponseBody) SetPermissions(v []*GetCrmRolePermissionResponseBodyPermissions) *GetCrmRolePermissionResponseBody {
+	s.Permissions = v
+	return s
+}
+
+type GetCrmRolePermissionResponseBodyPermissions struct {
+	// 权限组配置
+	RoleMemberList []*GetCrmRolePermissionResponseBodyPermissionsRoleMemberList `json:"roleMemberList,omitempty" xml:"roleMemberList,omitempty" type:"Repeated"`
+	// 权限组适用范围配置
+	ManagingScopeList []*GetCrmRolePermissionResponseBodyPermissionsManagingScopeList `json:"managingScopeList,omitempty" xml:"managingScopeList,omitempty" type:"Repeated"`
+	// 是否是默认权限
+	DefaultRole *bool `json:"defaultRole,omitempty" xml:"defaultRole,omitempty"`
+	// 资源id
+	ResourceId *string `json:"resourceId,omitempty" xml:"resourceId,omitempty"`
+	// 权限组名称
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// 权限组id
+	RoleId *float64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// 操作范围
+	OperateScopes []*GetCrmRolePermissionResponseBodyPermissionsOperateScopes `json:"operateScopes,omitempty" xml:"operateScopes,omitempty" type:"Repeated"`
+	// 字段权限
+	FieldScopes []*GetCrmRolePermissionResponseBodyPermissionsFieldScopes `json:"fieldScopes,omitempty" xml:"fieldScopes,omitempty" type:"Repeated"`
+}
+
+func (s GetCrmRolePermissionResponseBodyPermissions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmRolePermissionResponseBodyPermissions) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissions) SetRoleMemberList(v []*GetCrmRolePermissionResponseBodyPermissionsRoleMemberList) *GetCrmRolePermissionResponseBodyPermissions {
+	s.RoleMemberList = v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissions) SetManagingScopeList(v []*GetCrmRolePermissionResponseBodyPermissionsManagingScopeList) *GetCrmRolePermissionResponseBodyPermissions {
+	s.ManagingScopeList = v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissions) SetDefaultRole(v bool) *GetCrmRolePermissionResponseBodyPermissions {
+	s.DefaultRole = &v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissions) SetResourceId(v string) *GetCrmRolePermissionResponseBodyPermissions {
+	s.ResourceId = &v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissions) SetRoleName(v string) *GetCrmRolePermissionResponseBodyPermissions {
+	s.RoleName = &v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissions) SetRoleId(v float64) *GetCrmRolePermissionResponseBodyPermissions {
+	s.RoleId = &v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissions) SetOperateScopes(v []*GetCrmRolePermissionResponseBodyPermissionsOperateScopes) *GetCrmRolePermissionResponseBodyPermissions {
+	s.OperateScopes = v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissions) SetFieldScopes(v []*GetCrmRolePermissionResponseBodyPermissionsFieldScopes) *GetCrmRolePermissionResponseBodyPermissions {
+	s.FieldScopes = v
+	return s
+}
+
+type GetCrmRolePermissionResponseBodyPermissionsRoleMemberList struct {
+	// 角色名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 角色的userId
+	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
+	// 角色类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 角色值
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+}
+
+func (s GetCrmRolePermissionResponseBodyPermissionsRoleMemberList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmRolePermissionResponseBodyPermissionsRoleMemberList) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList) SetName(v string) *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList) SetStaffId(v string) *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList {
+	s.StaffId = &v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList) SetType(v string) *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList {
+	s.Type = &v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList) SetMemberId(v string) *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList {
+	s.MemberId = &v
+	return s
+}
+
+type GetCrmRolePermissionResponseBodyPermissionsManagingScopeList struct {
+	// 管理范围类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 是否是主管
+	Manager *bool `json:"manager,omitempty" xml:"manager,omitempty"`
+	// 扩展信息
+	Ext *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt `json:"ext,omitempty" xml:"ext,omitempty" type:"Struct"`
+}
+
+func (s GetCrmRolePermissionResponseBodyPermissionsManagingScopeList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmRolePermissionResponseBodyPermissionsManagingScopeList) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissionsManagingScopeList) SetType(v string) *GetCrmRolePermissionResponseBodyPermissionsManagingScopeList {
+	s.Type = &v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissionsManagingScopeList) SetManager(v bool) *GetCrmRolePermissionResponseBodyPermissionsManagingScopeList {
+	s.Manager = &v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissionsManagingScopeList) SetExt(v *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt) *GetCrmRolePermissionResponseBodyPermissionsManagingScopeList {
+	s.Ext = v
+	return s
+}
+
+type GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt struct {
+	// 管理员工列表
+	StaffIdList []*string `json:"staffIdList,omitempty" xml:"staffIdList,omitempty" type:"Repeated"`
+	// 管理部门列表
+	DeptIdList []*float64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
+}
+
+func (s GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt) SetStaffIdList(v []*string) *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt {
+	s.StaffIdList = v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt) SetDeptIdList(v []*float64) *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt {
+	s.DeptIdList = v
+	return s
+}
+
+type GetCrmRolePermissionResponseBodyPermissionsOperateScopes struct {
+	// 操作范围类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 是否有权限
+	HasAuth *bool `json:"hasAuth,omitempty" xml:"hasAuth,omitempty"`
+}
+
+func (s GetCrmRolePermissionResponseBodyPermissionsOperateScopes) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmRolePermissionResponseBodyPermissionsOperateScopes) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissionsOperateScopes) SetType(v string) *GetCrmRolePermissionResponseBodyPermissionsOperateScopes {
+	s.Type = &v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissionsOperateScopes) SetHasAuth(v bool) *GetCrmRolePermissionResponseBodyPermissionsOperateScopes {
+	s.HasAuth = &v
+	return s
+}
+
+type GetCrmRolePermissionResponseBodyPermissionsFieldScopes struct {
+	// 字段id
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// 字段权限点
+	FieldActions []*string `json:"fieldActions,omitempty" xml:"fieldActions,omitempty" type:"Repeated"`
+}
+
+func (s GetCrmRolePermissionResponseBodyPermissionsFieldScopes) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmRolePermissionResponseBodyPermissionsFieldScopes) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissionsFieldScopes) SetFieldId(v string) *GetCrmRolePermissionResponseBodyPermissionsFieldScopes {
+	s.FieldId = &v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissionsFieldScopes) SetFieldActions(v []*string) *GetCrmRolePermissionResponseBodyPermissionsFieldScopes {
+	s.FieldActions = v
+	return s
+}
+
+type GetCrmRolePermissionResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCrmRolePermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCrmRolePermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmRolePermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmRolePermissionResponse) SetHeaders(v map[string]*string) *GetCrmRolePermissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponse) SetBody(v *GetCrmRolePermissionResponseBody) *GetCrmRolePermissionResponse {
+	s.Body = v
+	return s
+}
+
 type BatchSendOfficialAccountOTOMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3893,6 +4195,54 @@ func (client *Client) DeleteCrmFormInstanceWithOptions(instanceId *string, reque
 	}
 	_result = &DeleteCrmFormInstanceResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteCrmFormInstance"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/crm/formInstances/"+tea.StringValue(instanceId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetCrmRolePermission(request *GetCrmRolePermissionRequest) (_result *GetCrmRolePermissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCrmRolePermissionHeaders{}
+	_result = &GetCrmRolePermissionResponse{}
+	_body, _err := client.GetCrmRolePermissionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetCrmRolePermissionWithOptions(request *GetCrmRolePermissionRequest, headers *GetCrmRolePermissionHeaders, runtime *util.RuntimeOptions) (_result *GetCrmRolePermissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormCode)) {
+		query["formCode"] = request.FormCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		query["bizType"] = request.BizType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetCrmRolePermissionResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetCrmRolePermission"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/permissions"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
