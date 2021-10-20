@@ -980,6 +980,29 @@ func (s *PushIntelligentRobotMessageResponse) SetBody(v *PushIntelligentRobotMes
 	return s
 }
 
+type AddRobotInstanceToGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddRobotInstanceToGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRobotInstanceToGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddRobotInstanceToGroupHeaders) SetCommonHeaders(v map[string]*string) *AddRobotInstanceToGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddRobotInstanceToGroupHeaders) SetXAcsDingtalkAccessToken(v string) *AddRobotInstanceToGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
 type AddRobotInstanceToGroupRequest struct {
 	// 企业id
 	DingCorpId *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
@@ -1891,7 +1914,7 @@ func (client *Client) PushIntelligentRobotMessageWithOptions(request *PushIntell
 
 func (client *Client) AddRobotInstanceToGroup(request *AddRobotInstanceToGroupRequest) (_result *AddRobotInstanceToGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := make(map[string]*string)
+	headers := &AddRobotInstanceToGroupHeaders{}
 	_result = &AddRobotInstanceToGroupResponse{}
 	_body, _err := client.AddRobotInstanceToGroupWithOptions(request, headers, runtime)
 	if _err != nil {
@@ -1901,7 +1924,7 @@ func (client *Client) AddRobotInstanceToGroup(request *AddRobotInstanceToGroupRe
 	return _result, _err
 }
 
-func (client *Client) AddRobotInstanceToGroupWithOptions(request *AddRobotInstanceToGroupRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *AddRobotInstanceToGroupResponse, _err error) {
+func (client *Client) AddRobotInstanceToGroupWithOptions(request *AddRobotInstanceToGroupRequest, headers *AddRobotInstanceToGroupHeaders, runtime *util.RuntimeOptions) (_result *AddRobotInstanceToGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -1919,8 +1942,17 @@ func (client *Client) AddRobotInstanceToGroupWithOptions(request *AddRobotInstan
 		body["openConversationId"] = request.OpenConversationId
 	}
 
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
 	req := &openapi.OpenApiRequest{
-		Headers: headers,
+		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &AddRobotInstanceToGroupResponse{}
