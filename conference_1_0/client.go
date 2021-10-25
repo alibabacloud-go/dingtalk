@@ -83,7 +83,7 @@ func (s *QueryCloudRecordTextRequest) SetNextToken(v int64) *QueryCloudRecordTex
 type QueryCloudRecordTextResponseBody struct {
 	// 是否有更多
 	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// MP4格式下载链接
+	// 段落列表
 	ParagraphList []*QueryCloudRecordTextResponseBodyParagraphList `json:"paragraphList,omitempty" xml:"paragraphList,omitempty" type:"Repeated"`
 }
 

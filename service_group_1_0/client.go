@@ -1317,6 +1317,10 @@ type QueryServiceGroupMessageReadStatusResponseBodyRecords struct {
 	ReceiverName *string `json:"receiverName,omitempty" xml:"receiverName,omitempty"`
 	// 接收者dingtalkId
 	ReceiverDingTalkId *string `json:"receiverDingTalkId,omitempty" xml:"receiverDingTalkId,omitempty"`
+	// 发送时间
+	SendTimeStr *string `json:"sendTimeStr,omitempty" xml:"sendTimeStr,omitempty"`
+	// 已读时间
+	ReadTimeStr *string `json:"readTimeStr,omitempty" xml:"readTimeStr,omitempty"`
 }
 
 func (s QueryServiceGroupMessageReadStatusResponseBodyRecords) String() string {
@@ -1349,6 +1353,16 @@ func (s *QueryServiceGroupMessageReadStatusResponseBodyRecords) SetReceiverName(
 
 func (s *QueryServiceGroupMessageReadStatusResponseBodyRecords) SetReceiverDingTalkId(v string) *QueryServiceGroupMessageReadStatusResponseBodyRecords {
 	s.ReceiverDingTalkId = &v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusResponseBodyRecords) SetSendTimeStr(v string) *QueryServiceGroupMessageReadStatusResponseBodyRecords {
+	s.SendTimeStr = &v
+	return s
+}
+
+func (s *QueryServiceGroupMessageReadStatusResponseBodyRecords) SetReadTimeStr(v string) *QueryServiceGroupMessageReadStatusResponseBodyRecords {
+	s.ReadTimeStr = &v
 	return s
 }
 
@@ -3802,6 +3816,8 @@ type SearchGroupRequest struct {
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 本次读取的最大数据记录数量，此参数为可选参数，用户传入为空时，应该有默认值。应设置最大值限制，最大不超过100
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 搜索类型
+	SearchType *string `json:"searchType,omitempty" xml:"searchType,omitempty"`
 }
 
 func (s SearchGroupRequest) String() string {
@@ -3859,6 +3875,11 @@ func (s *SearchGroupRequest) SetNextToken(v string) *SearchGroupRequest {
 
 func (s *SearchGroupRequest) SetMaxResults(v int32) *SearchGroupRequest {
 	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchGroupRequest) SetSearchType(v string) *SearchGroupRequest {
+	s.SearchType = &v
 	return s
 }
 
@@ -4749,6 +4770,101 @@ func (s CancelTicketResponse) GoString() string {
 }
 
 func (s *CancelTicketResponse) SetHeaders(v map[string]*string) *CancelTicketResponse {
+	s.Headers = v
+	return s
+}
+
+type UpdateGroupTagHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateGroupTagHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupTagHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupTagHeaders) SetCommonHeaders(v map[string]*string) *UpdateGroupTagHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateGroupTagHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateGroupTagHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateGroupTagRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	// 群会话ID集合
+	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
+	TagNames            []*string `json:"tagNames,omitempty" xml:"tagNames,omitempty" type:"Repeated"`
+	// 更新类型，APPEND、NOTAPPEND、DELETE三种类型
+	UpdateType *string `json:"updateType,omitempty" xml:"updateType,omitempty"`
+}
+
+func (s UpdateGroupTagRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupTagRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupTagRequest) SetDingIsvOrgId(v int64) *UpdateGroupTagRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *UpdateGroupTagRequest) SetDingOrgId(v int64) *UpdateGroupTagRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *UpdateGroupTagRequest) SetDingSuiteKey(v string) *UpdateGroupTagRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *UpdateGroupTagRequest) SetDingTokenGrantType(v int64) *UpdateGroupTagRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *UpdateGroupTagRequest) SetOpenConversationIds(v []*string) *UpdateGroupTagRequest {
+	s.OpenConversationIds = v
+	return s
+}
+
+func (s *UpdateGroupTagRequest) SetTagNames(v []*string) *UpdateGroupTagRequest {
+	s.TagNames = v
+	return s
+}
+
+func (s *UpdateGroupTagRequest) SetUpdateType(v string) *UpdateGroupTagRequest {
+	s.UpdateType = &v
+	return s
+}
+
+type UpdateGroupTagResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s UpdateGroupTagResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupTagResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupTagResponse) SetHeaders(v map[string]*string) *UpdateGroupTagResponse {
 	s.Headers = v
 	return s
 }
@@ -6615,6 +6731,10 @@ func (client *Client) SearchGroupWithOptions(request *SearchGroupRequest, header
 		body["maxResults"] = request.MaxResults
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.SearchType)) {
+		body["searchType"] = request.SearchType
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -6974,6 +7094,74 @@ func (client *Client) CancelTicketWithOptions(request *CancelTicketRequest, head
 	}
 	_result = &CancelTicketResponse{}
 	_body, _err := client.DoROARequest(tea.String("CancelTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets/cancel"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateGroupTag(request *UpdateGroupTagRequest) (_result *UpdateGroupTagResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateGroupTagHeaders{}
+	_result = &UpdateGroupTagResponse{}
+	_body, _err := client.UpdateGroupTagWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateGroupTagWithOptions(request *UpdateGroupTagRequest, headers *UpdateGroupTagHeaders, runtime *util.RuntimeOptions) (_result *UpdateGroupTagResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationIds)) {
+		body["openConversationIds"] = request.OpenConversationIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TagNames)) {
+		body["tagNames"] = request.TagNames
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UpdateType)) {
+		body["updateType"] = request.UpdateType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateGroupTagResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateGroupTag"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tags"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
