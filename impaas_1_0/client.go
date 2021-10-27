@@ -328,6 +328,7 @@ func (s *CreateGroupRequest) SetProperties(v map[string]*string) *CreateGroupReq
 type CreateGroupResponseBody struct {
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
 	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	ChatId         *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
 }
 
 func (s CreateGroupResponseBody) String() string {
@@ -345,6 +346,11 @@ func (s *CreateGroupResponseBody) SetConversationId(v string) *CreateGroupRespon
 
 func (s *CreateGroupResponseBody) SetCreateTime(v int64) *CreateGroupResponseBody {
 	s.CreateTime = &v
+	return s
+}
+
+func (s *CreateGroupResponseBody) SetChatId(v string) *CreateGroupResponseBody {
+	s.ChatId = &v
 	return s
 }
 

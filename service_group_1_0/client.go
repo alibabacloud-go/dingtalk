@@ -511,6 +511,12 @@ type AddKnowledgeRequest struct {
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 	// 知识点内容
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 知识点扩展问(多个用英文逗号隔开)
+	ExtTitle *string `json:"extTitle,omitempty" xml:"extTitle,omitempty"`
+	// 关键字(多个用英文逗号隔开)
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// 附件列表
+	AttachmentList []*AddKnowledgeRequestAttachmentList `json:"attachmentList,omitempty" xml:"attachmentList,omitempty" type:"Repeated"`
 	// CCM的知识点外链
 	LinkUrl *string `json:"linkUrl,omitempty" xml:"linkUrl,omitempty"`
 	// 知识点版本号
@@ -580,6 +586,21 @@ func (s *AddKnowledgeRequest) SetContent(v string) *AddKnowledgeRequest {
 	return s
 }
 
+func (s *AddKnowledgeRequest) SetExtTitle(v string) *AddKnowledgeRequest {
+	s.ExtTitle = &v
+	return s
+}
+
+func (s *AddKnowledgeRequest) SetKeyword(v string) *AddKnowledgeRequest {
+	s.Keyword = &v
+	return s
+}
+
+func (s *AddKnowledgeRequest) SetAttachmentList(v []*AddKnowledgeRequestAttachmentList) *AddKnowledgeRequest {
+	s.AttachmentList = v
+	return s
+}
+
 func (s *AddKnowledgeRequest) SetLinkUrl(v string) *AddKnowledgeRequest {
 	s.LinkUrl = &v
 	return s
@@ -587,6 +608,52 @@ func (s *AddKnowledgeRequest) SetLinkUrl(v string) *AddKnowledgeRequest {
 
 func (s *AddKnowledgeRequest) SetVersion(v string) *AddKnowledgeRequest {
 	s.Version = &v
+	return s
+}
+
+type AddKnowledgeRequestAttachmentList struct {
+	// 附件名称
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 附件URL
+	Path *string `json:"path,omitempty" xml:"path,omitempty"`
+	// 附件大小
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// 附件扩展名
+	Suffix *string `json:"suffix,omitempty" xml:"suffix,omitempty"`
+	// 多媒体类型
+	MimeType *string `json:"mime_type,omitempty" xml:"mime_type,omitempty"`
+}
+
+func (s AddKnowledgeRequestAttachmentList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddKnowledgeRequestAttachmentList) GoString() string {
+	return s.String()
+}
+
+func (s *AddKnowledgeRequestAttachmentList) SetTitle(v string) *AddKnowledgeRequestAttachmentList {
+	s.Title = &v
+	return s
+}
+
+func (s *AddKnowledgeRequestAttachmentList) SetPath(v string) *AddKnowledgeRequestAttachmentList {
+	s.Path = &v
+	return s
+}
+
+func (s *AddKnowledgeRequestAttachmentList) SetSize(v int64) *AddKnowledgeRequestAttachmentList {
+	s.Size = &v
+	return s
+}
+
+func (s *AddKnowledgeRequestAttachmentList) SetSuffix(v string) *AddKnowledgeRequestAttachmentList {
+	s.Suffix = &v
+	return s
+}
+
+func (s *AddKnowledgeRequestAttachmentList) SetMimeType(v string) *AddKnowledgeRequestAttachmentList {
+	s.MimeType = &v
 	return s
 }
 
@@ -4335,6 +4402,193 @@ func (s *TransferTicketResponse) SetHeaders(v map[string]*string) *TransferTicke
 	return s
 }
 
+type AddOpenLibraryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddOpenLibraryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOpenLibraryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddOpenLibraryHeaders) SetCommonHeaders(v map[string]*string) *AddOpenLibraryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddOpenLibraryHeaders) SetXAcsDingtalkAccessToken(v string) *AddOpenLibraryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddOpenLibraryRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	// 团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 用户昵称或姓名
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// 知识库名称
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 知识库描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 知识库类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 知识库来源
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+}
+
+func (s AddOpenLibraryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOpenLibraryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddOpenLibraryRequest) SetDingIsvOrgId(v int64) *AddOpenLibraryRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *AddOpenLibraryRequest) SetDingTokenGrantType(v int64) *AddOpenLibraryRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *AddOpenLibraryRequest) SetDingSuiteKey(v string) *AddOpenLibraryRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *AddOpenLibraryRequest) SetDingOrgId(v int64) *AddOpenLibraryRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *AddOpenLibraryRequest) SetOpenTeamId(v string) *AddOpenLibraryRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *AddOpenLibraryRequest) SetUserId(v string) *AddOpenLibraryRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *AddOpenLibraryRequest) SetUserName(v string) *AddOpenLibraryRequest {
+	s.UserName = &v
+	return s
+}
+
+func (s *AddOpenLibraryRequest) SetTitle(v string) *AddOpenLibraryRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *AddOpenLibraryRequest) SetDescription(v string) *AddOpenLibraryRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *AddOpenLibraryRequest) SetType(v string) *AddOpenLibraryRequest {
+	s.Type = &v
+	return s
+}
+
+func (s *AddOpenLibraryRequest) SetSource(v string) *AddOpenLibraryRequest {
+	s.Source = &v
+	return s
+}
+
+type AddOpenLibraryResponseBody struct {
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 返回结果
+	Result *AddOpenLibraryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s AddOpenLibraryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOpenLibraryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddOpenLibraryResponseBody) SetSuccess(v bool) *AddOpenLibraryResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *AddOpenLibraryResponseBody) SetResult(v *AddOpenLibraryResponseBodyResult) *AddOpenLibraryResponseBody {
+	s.Result = v
+	return s
+}
+
+type AddOpenLibraryResponseBodyResult struct {
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 知识库ID
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 失败时错误消息
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+}
+
+func (s AddOpenLibraryResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOpenLibraryResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AddOpenLibraryResponseBodyResult) SetSuccess(v bool) *AddOpenLibraryResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+func (s *AddOpenLibraryResponseBodyResult) SetId(v int64) *AddOpenLibraryResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *AddOpenLibraryResponseBodyResult) SetMessage(v string) *AddOpenLibraryResponseBodyResult {
+	s.Message = &v
+	return s
+}
+
+type AddOpenLibraryResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddOpenLibraryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddOpenLibraryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOpenLibraryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddOpenLibraryResponse) SetHeaders(v map[string]*string) *AddOpenLibraryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddOpenLibraryResponse) SetBody(v *AddOpenLibraryResponseBody) *AddOpenLibraryResponse {
+	s.Body = v
+	return s
+}
+
 type QueryActiveUsersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4480,6 +4734,186 @@ func (s *QueryActiveUsersResponse) SetHeaders(v map[string]*string) *QueryActive
 }
 
 func (s *QueryActiveUsersResponse) SetBody(v *QueryActiveUsersResponseBody) *QueryActiveUsersResponse {
+	s.Body = v
+	return s
+}
+
+type AddOpenCategoryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddOpenCategoryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOpenCategoryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddOpenCategoryHeaders) SetCommonHeaders(v map[string]*string) *AddOpenCategoryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddOpenCategoryHeaders) SetXAcsDingtalkAccessToken(v string) *AddOpenCategoryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddOpenCategoryRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	// 团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 用户昵称或姓名
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// 类目标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 父类目ID
+	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// 所属知识库ID
+	LibraryId *int64 `json:"libraryId,omitempty" xml:"libraryId,omitempty"`
+}
+
+func (s AddOpenCategoryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOpenCategoryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddOpenCategoryRequest) SetDingIsvOrgId(v int64) *AddOpenCategoryRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *AddOpenCategoryRequest) SetDingTokenGrantType(v int64) *AddOpenCategoryRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *AddOpenCategoryRequest) SetDingSuiteKey(v string) *AddOpenCategoryRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *AddOpenCategoryRequest) SetDingOrgId(v int64) *AddOpenCategoryRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *AddOpenCategoryRequest) SetOpenTeamId(v string) *AddOpenCategoryRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *AddOpenCategoryRequest) SetUserId(v string) *AddOpenCategoryRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *AddOpenCategoryRequest) SetUserName(v string) *AddOpenCategoryRequest {
+	s.UserName = &v
+	return s
+}
+
+func (s *AddOpenCategoryRequest) SetTitle(v string) *AddOpenCategoryRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *AddOpenCategoryRequest) SetParentId(v int64) *AddOpenCategoryRequest {
+	s.ParentId = &v
+	return s
+}
+
+func (s *AddOpenCategoryRequest) SetLibraryId(v int64) *AddOpenCategoryRequest {
+	s.LibraryId = &v
+	return s
+}
+
+type AddOpenCategoryResponseBody struct {
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 返回结果
+	Result *AddOpenCategoryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s AddOpenCategoryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOpenCategoryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddOpenCategoryResponseBody) SetSuccess(v bool) *AddOpenCategoryResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *AddOpenCategoryResponseBody) SetResult(v *AddOpenCategoryResponseBodyResult) *AddOpenCategoryResponseBody {
+	s.Result = v
+	return s
+}
+
+type AddOpenCategoryResponseBodyResult struct {
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 添加成类目ID
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 失败时的错误消息
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+}
+
+func (s AddOpenCategoryResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOpenCategoryResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AddOpenCategoryResponseBodyResult) SetSuccess(v bool) *AddOpenCategoryResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+func (s *AddOpenCategoryResponseBodyResult) SetId(v int64) *AddOpenCategoryResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *AddOpenCategoryResponseBodyResult) SetMessage(v string) *AddOpenCategoryResponseBodyResult {
+	s.Message = &v
+	return s
+}
+
+type AddOpenCategoryResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddOpenCategoryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddOpenCategoryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOpenCategoryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddOpenCategoryResponse) SetHeaders(v map[string]*string) *AddOpenCategoryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddOpenCategoryResponse) SetBody(v *AddOpenCategoryResponseBody) *AddOpenCategoryResponse {
 	s.Body = v
 	return s
 }
@@ -4866,6 +5300,295 @@ func (s UpdateGroupTagResponse) GoString() string {
 
 func (s *UpdateGroupTagResponse) SetHeaders(v map[string]*string) *UpdateGroupTagResponse {
 	s.Headers = v
+	return s
+}
+
+type AddOpenKnowledgeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddOpenKnowledgeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOpenKnowledgeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddOpenKnowledgeHeaders) SetCommonHeaders(v map[string]*string) *AddOpenKnowledgeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddOpenKnowledgeHeaders) SetXAcsDingtalkAccessToken(v string) *AddOpenKnowledgeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddOpenKnowledgeRequest struct {
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	// 所属团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 用户昵称或姓名
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// 附件列表
+	Attachments []*AddOpenKnowledgeRequestAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+	// 所属知识库唯一标识id
+	LibraryId *int64 `json:"libraryId,omitempty" xml:"libraryId,omitempty"`
+	// 知识点来源
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// 知识点标准问
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 知识点类型()
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 知识点正文
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 扩展问法(多个英文逗号隔开)
+	ExtTitle *string `json:"extTitle,omitempty" xml:"extTitle,omitempty"`
+	// 关键词(多个逗号隔开)
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// 标签(多个可逗号隔开)
+	Tags *string `json:"tags,omitempty" xml:"tags,omitempty"`
+	// 生效开始时间(默认1980-01-01 00:00:00)
+	EffectTimestart *string `json:"effectTimestart,omitempty" xml:"effectTimestart,omitempty"`
+	// 生效结束时间(默认2100-01-01 23:59:59)
+	EffectTimeend *string `json:"effectTimeend,omitempty" xml:"effectTimeend,omitempty"`
+	// 知识点所属类目ID
+	CategoryId *int64 `json:"categoryId,omitempty" xml:"categoryId,omitempty"`
+}
+
+func (s AddOpenKnowledgeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOpenKnowledgeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddOpenKnowledgeRequest) SetDingTokenGrantType(v int64) *AddOpenKnowledgeRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetDingIsvOrgId(v int64) *AddOpenKnowledgeRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetDingSuiteKey(v string) *AddOpenKnowledgeRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetDingOrgId(v int64) *AddOpenKnowledgeRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetOpenTeamId(v string) *AddOpenKnowledgeRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetUserId(v string) *AddOpenKnowledgeRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetUserName(v string) *AddOpenKnowledgeRequest {
+	s.UserName = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetAttachments(v []*AddOpenKnowledgeRequestAttachments) *AddOpenKnowledgeRequest {
+	s.Attachments = v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetLibraryId(v int64) *AddOpenKnowledgeRequest {
+	s.LibraryId = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetSource(v string) *AddOpenKnowledgeRequest {
+	s.Source = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetTitle(v string) *AddOpenKnowledgeRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetType(v string) *AddOpenKnowledgeRequest {
+	s.Type = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetContent(v string) *AddOpenKnowledgeRequest {
+	s.Content = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetExtTitle(v string) *AddOpenKnowledgeRequest {
+	s.ExtTitle = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetKeyword(v string) *AddOpenKnowledgeRequest {
+	s.Keyword = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetTags(v string) *AddOpenKnowledgeRequest {
+	s.Tags = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetEffectTimestart(v string) *AddOpenKnowledgeRequest {
+	s.EffectTimestart = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetEffectTimeend(v string) *AddOpenKnowledgeRequest {
+	s.EffectTimeend = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequest) SetCategoryId(v int64) *AddOpenKnowledgeRequest {
+	s.CategoryId = &v
+	return s
+}
+
+type AddOpenKnowledgeRequestAttachments struct {
+	// 附件名称
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 这个是附件URL
+	Path *string `json:"path,omitempty" xml:"path,omitempty"`
+	// 附件大小
+	Size *float64 `json:"size,omitempty" xml:"size,omitempty"`
+	// 附件扩展名
+	Suffix *string `json:"suffix,omitempty" xml:"suffix,omitempty"`
+	// 媒体类型
+	MimeType *string `json:"mimeType,omitempty" xml:"mimeType,omitempty"`
+}
+
+func (s AddOpenKnowledgeRequestAttachments) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOpenKnowledgeRequestAttachments) GoString() string {
+	return s.String()
+}
+
+func (s *AddOpenKnowledgeRequestAttachments) SetTitle(v string) *AddOpenKnowledgeRequestAttachments {
+	s.Title = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequestAttachments) SetPath(v string) *AddOpenKnowledgeRequestAttachments {
+	s.Path = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequestAttachments) SetSize(v float64) *AddOpenKnowledgeRequestAttachments {
+	s.Size = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequestAttachments) SetSuffix(v string) *AddOpenKnowledgeRequestAttachments {
+	s.Suffix = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeRequestAttachments) SetMimeType(v string) *AddOpenKnowledgeRequestAttachments {
+	s.MimeType = &v
+	return s
+}
+
+type AddOpenKnowledgeResponseBody struct {
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 返回结果
+	Result *AddOpenKnowledgeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s AddOpenKnowledgeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOpenKnowledgeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddOpenKnowledgeResponseBody) SetSuccess(v bool) *AddOpenKnowledgeResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeResponseBody) SetResult(v *AddOpenKnowledgeResponseBodyResult) *AddOpenKnowledgeResponseBody {
+	s.Result = v
+	return s
+}
+
+type AddOpenKnowledgeResponseBodyResult struct {
+	// 操作标识
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 知识点ID
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 失败错误消息
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+}
+
+func (s AddOpenKnowledgeResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOpenKnowledgeResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AddOpenKnowledgeResponseBodyResult) SetSuccess(v bool) *AddOpenKnowledgeResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeResponseBodyResult) SetId(v int64) *AddOpenKnowledgeResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *AddOpenKnowledgeResponseBodyResult) SetMessage(v string) *AddOpenKnowledgeResponseBodyResult {
+	s.Message = &v
+	return s
+}
+
+type AddOpenKnowledgeResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddOpenKnowledgeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddOpenKnowledgeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOpenKnowledgeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddOpenKnowledgeResponse) SetHeaders(v map[string]*string) *AddOpenKnowledgeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddOpenKnowledgeResponse) SetBody(v *AddOpenKnowledgeResponseBody) *AddOpenKnowledgeResponse {
+	s.Body = v
 	return s
 }
 
@@ -5331,6 +6054,18 @@ func (client *Client) AddKnowledgeWithOptions(request *AddKnowledgeRequest, head
 
 	if !tea.BoolValue(util.IsUnset(request.Content)) {
 		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtTitle)) {
+		body["extTitle"] = request.ExtTitle
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
+		body["keyword"] = request.Keyword
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AttachmentList)) {
+		body["attachmentList"] = request.AttachmentList
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.LinkUrl)) {
@@ -6921,6 +7656,90 @@ func (client *Client) TransferTicketWithOptions(request *TransferTicketRequest, 
 	return _result, _err
 }
 
+func (client *Client) AddOpenLibrary(request *AddOpenLibraryRequest) (_result *AddOpenLibraryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddOpenLibraryHeaders{}
+	_result = &AddOpenLibraryResponse{}
+	_body, _err := client.AddOpenLibraryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddOpenLibraryWithOptions(request *AddOpenLibraryRequest, headers *AddOpenLibraryHeaders, runtime *util.RuntimeOptions) (_result *AddOpenLibraryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserName)) {
+		body["userName"] = request.UserName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Source)) {
+		body["source"] = request.Source
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddOpenLibraryResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddOpenLibrary"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/openLibraries"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryActiveUsers(request *QueryActiveUsersRequest) (_result *QueryActiveUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryActiveUsersHeaders{}
@@ -6962,6 +7781,86 @@ func (client *Client) QueryActiveUsersWithOptions(request *QueryActiveUsersReque
 	}
 	_result = &QueryActiveUsersResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryActiveUsers"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/queryActiveUsers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddOpenCategory(request *AddOpenCategoryRequest) (_result *AddOpenCategoryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddOpenCategoryHeaders{}
+	_result = &AddOpenCategoryResponse{}
+	_body, _err := client.AddOpenCategoryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddOpenCategoryWithOptions(request *AddOpenCategoryRequest, headers *AddOpenCategoryHeaders, runtime *util.RuntimeOptions) (_result *AddOpenCategoryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserName)) {
+		body["userName"] = request.UserName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ParentId)) {
+		body["parentId"] = request.ParentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LibraryId)) {
+		body["libraryId"] = request.LibraryId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddOpenCategoryResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddOpenCategory"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/openCategories"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7162,6 +8061,122 @@ func (client *Client) UpdateGroupTagWithOptions(request *UpdateGroupTagRequest, 
 	}
 	_result = &UpdateGroupTagResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateGroupTag"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tags"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddOpenKnowledge(request *AddOpenKnowledgeRequest) (_result *AddOpenKnowledgeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddOpenKnowledgeHeaders{}
+	_result = &AddOpenKnowledgeResponse{}
+	_body, _err := client.AddOpenKnowledgeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddOpenKnowledgeWithOptions(request *AddOpenKnowledgeRequest, headers *AddOpenKnowledgeHeaders, runtime *util.RuntimeOptions) (_result *AddOpenKnowledgeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserName)) {
+		body["userName"] = request.UserName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Attachments)) {
+		body["attachments"] = request.Attachments
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LibraryId)) {
+		body["libraryId"] = request.LibraryId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Source)) {
+		body["source"] = request.Source
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtTitle)) {
+		body["extTitle"] = request.ExtTitle
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
+		body["keyword"] = request.Keyword
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Tags)) {
+		body["tags"] = request.Tags
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EffectTimestart)) {
+		body["effectTimestart"] = request.EffectTimestart
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EffectTimeend)) {
+		body["effectTimeend"] = request.EffectTimeend
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CategoryId)) {
+		body["categoryId"] = request.CategoryId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddOpenKnowledgeResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddOpenKnowledge"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/openKnowledges"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
