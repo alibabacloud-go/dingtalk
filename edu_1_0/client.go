@@ -11,6 +11,246 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type GetRemoteClassCourseHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetRemoteClassCourseHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRemoteClassCourseHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetRemoteClassCourseHeaders) SetCommonHeaders(v map[string]*string) *GetRemoteClassCourseHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetRemoteClassCourseHeaders) SetXAcsDingtalkAccessToken(v string) *GetRemoteClassCourseHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetRemoteClassCourseRequest struct {
+	// 操作者用户ID
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+}
+
+func (s GetRemoteClassCourseRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRemoteClassCourseRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetRemoteClassCourseRequest) SetOperator(v string) *GetRemoteClassCourseRequest {
+	s.Operator = &v
+	return s
+}
+
+type GetRemoteClassCourseResponseBody struct {
+	// 是否成功
+	Success *bool                                   `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *GetRemoteClassCourseResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetRemoteClassCourseResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRemoteClassCourseResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetRemoteClassCourseResponseBody) SetSuccess(v bool) *GetRemoteClassCourseResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBody) SetResult(v *GetRemoteClassCourseResponseBodyResult) *GetRemoteClassCourseResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetRemoteClassCourseResponseBodyResult struct {
+	// 课程code
+	CourseCode *string `json:"courseCode,omitempty" xml:"courseCode,omitempty"`
+	// 课程名称
+	CourseName *string `json:"courseName,omitempty" xml:"courseName,omitempty"`
+	// 开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 课程状态：0: 未开始；1: 已开始；2: 已结束
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 课堂当前状态：0: 未进行；1: 进行中
+	RoomStatus *int32 `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
+	// 课程是否可以编辑或删除
+	CanEdit *bool `json:"canEdit,omitempty" xml:"canEdit,omitempty"`
+	// 授课设备
+	TeachingParticipant *GetRemoteClassCourseResponseBodyResultTeachingParticipant `json:"teachingParticipant,omitempty" xml:"teachingParticipant,omitempty" type:"Struct"`
+	// 听课设备列表
+	AttendParticipants []*GetRemoteClassCourseResponseBodyResultAttendParticipants `json:"attendParticipants,omitempty" xml:"attendParticipants,omitempty" type:"Repeated"`
+}
+
+func (s GetRemoteClassCourseResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRemoteClassCourseResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetRemoteClassCourseResponseBodyResult) SetCourseCode(v string) *GetRemoteClassCourseResponseBodyResult {
+	s.CourseCode = &v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResult) SetCourseName(v string) *GetRemoteClassCourseResponseBodyResult {
+	s.CourseName = &v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResult) SetStartTime(v int64) *GetRemoteClassCourseResponseBodyResult {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResult) SetEndTime(v int64) *GetRemoteClassCourseResponseBodyResult {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResult) SetStatus(v int32) *GetRemoteClassCourseResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResult) SetRoomStatus(v int32) *GetRemoteClassCourseResponseBodyResult {
+	s.RoomStatus = &v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResult) SetCanEdit(v bool) *GetRemoteClassCourseResponseBodyResult {
+	s.CanEdit = &v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResult) SetTeachingParticipant(v *GetRemoteClassCourseResponseBodyResultTeachingParticipant) *GetRemoteClassCourseResponseBodyResult {
+	s.TeachingParticipant = v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResult) SetAttendParticipants(v []*GetRemoteClassCourseResponseBodyResultAttendParticipants) *GetRemoteClassCourseResponseBodyResult {
+	s.AttendParticipants = v
+	return s
+}
+
+type GetRemoteClassCourseResponseBodyResultTeachingParticipant struct {
+	// 参与方ID
+	ParticipantId *string `json:"participantId,omitempty" xml:"participantId,omitempty"`
+	// 参与方名称
+	ParticipantName *string `json:"participantName,omitempty" xml:"participantName,omitempty"`
+	// 组织ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 组织名称
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+}
+
+func (s GetRemoteClassCourseResponseBodyResultTeachingParticipant) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRemoteClassCourseResponseBodyResultTeachingParticipant) GoString() string {
+	return s.String()
+}
+
+func (s *GetRemoteClassCourseResponseBodyResultTeachingParticipant) SetParticipantId(v string) *GetRemoteClassCourseResponseBodyResultTeachingParticipant {
+	s.ParticipantId = &v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResultTeachingParticipant) SetParticipantName(v string) *GetRemoteClassCourseResponseBodyResultTeachingParticipant {
+	s.ParticipantName = &v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResultTeachingParticipant) SetCorpId(v string) *GetRemoteClassCourseResponseBodyResultTeachingParticipant {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResultTeachingParticipant) SetOrgName(v string) *GetRemoteClassCourseResponseBodyResultTeachingParticipant {
+	s.OrgName = &v
+	return s
+}
+
+type GetRemoteClassCourseResponseBodyResultAttendParticipants struct {
+	// 参与方ID
+	ParticipantId *string `json:"participantId,omitempty" xml:"participantId,omitempty"`
+	// 参与方名称
+	ParticipantName *string `json:"participantName,omitempty" xml:"participantName,omitempty"`
+	// 组织ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 组织名称
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+}
+
+func (s GetRemoteClassCourseResponseBodyResultAttendParticipants) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRemoteClassCourseResponseBodyResultAttendParticipants) GoString() string {
+	return s.String()
+}
+
+func (s *GetRemoteClassCourseResponseBodyResultAttendParticipants) SetParticipantId(v string) *GetRemoteClassCourseResponseBodyResultAttendParticipants {
+	s.ParticipantId = &v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResultAttendParticipants) SetParticipantName(v string) *GetRemoteClassCourseResponseBodyResultAttendParticipants {
+	s.ParticipantName = &v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResultAttendParticipants) SetCorpId(v string) *GetRemoteClassCourseResponseBodyResultAttendParticipants {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResultAttendParticipants) SetOrgName(v string) *GetRemoteClassCourseResponseBodyResultAttendParticipants {
+	s.OrgName = &v
+	return s
+}
+
+type GetRemoteClassCourseResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetRemoteClassCourseResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetRemoteClassCourseResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRemoteClassCourseResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetRemoteClassCourseResponse) SetHeaders(v map[string]*string) *GetRemoteClassCourseResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponse) SetBody(v *GetRemoteClassCourseResponseBody) *GetRemoteClassCourseResponse {
+	s.Body = v
+	return s
+}
+
 type QueryStatisticsDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1918,6 +2158,151 @@ func (s *InitCoursesOfClassResponse) SetBody(v *InitCoursesOfClassResponseBody) 
 	return s
 }
 
+type CreateInviteUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateInviteUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInviteUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInviteUrlHeaders) SetCommonHeaders(v map[string]*string) *CreateInviteUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateInviteUrlHeaders) SetXAcsDingtalkAccessToken(v string) *CreateInviteUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateInviteUrlRequest struct {
+	DingCorpId         *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int32  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingOauthAppId     *int64  `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
+	TargetCorpId       *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	AuthCode           *string `json:"authCode,omitempty" xml:"authCode,omitempty"`
+	TargetOperator     *string `json:"targetOperator,omitempty" xml:"targetOperator,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+}
+
+func (s CreateInviteUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInviteUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInviteUrlRequest) SetDingCorpId(v string) *CreateInviteUrlRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *CreateInviteUrlRequest) SetDingSuiteKey(v string) *CreateInviteUrlRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *CreateInviteUrlRequest) SetDingTokenGrantType(v int32) *CreateInviteUrlRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *CreateInviteUrlRequest) SetDingOauthAppId(v int64) *CreateInviteUrlRequest {
+	s.DingOauthAppId = &v
+	return s
+}
+
+func (s *CreateInviteUrlRequest) SetTargetCorpId(v string) *CreateInviteUrlRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+func (s *CreateInviteUrlRequest) SetAuthCode(v string) *CreateInviteUrlRequest {
+	s.AuthCode = &v
+	return s
+}
+
+func (s *CreateInviteUrlRequest) SetTargetOperator(v string) *CreateInviteUrlRequest {
+	s.TargetOperator = &v
+	return s
+}
+
+func (s *CreateInviteUrlRequest) SetDingIsvOrgId(v int64) *CreateInviteUrlRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+type CreateInviteUrlResponseBody struct {
+	Success *bool                              `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *CreateInviteUrlResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s CreateInviteUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInviteUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInviteUrlResponseBody) SetSuccess(v bool) *CreateInviteUrlResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *CreateInviteUrlResponseBody) SetResult(v *CreateInviteUrlResponseBodyResult) *CreateInviteUrlResponseBody {
+	s.Result = v
+	return s
+}
+
+type CreateInviteUrlResponseBodyResult struct {
+	InviteUrl *string `json:"inviteUrl,omitempty" xml:"inviteUrl,omitempty"`
+}
+
+func (s CreateInviteUrlResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInviteUrlResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInviteUrlResponseBodyResult) SetInviteUrl(v string) *CreateInviteUrlResponseBodyResult {
+	s.InviteUrl = &v
+	return s
+}
+
+type CreateInviteUrlResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateInviteUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateInviteUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInviteUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInviteUrlResponse) SetHeaders(v map[string]*string) *CreateInviteUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateInviteUrlResponse) SetBody(v *CreateInviteUrlResponseBody) *CreateInviteUrlResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteDeptHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2448,6 +2833,244 @@ func (s *DeleteTeacherResponse) SetBody(v *DeleteTeacherResponseBody) *DeleteTea
 	return s
 }
 
+type QueryDeviceListByCorpIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryDeviceListByCorpIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceListByCorpIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceListByCorpIdHeaders) SetCommonHeaders(v map[string]*string) *QueryDeviceListByCorpIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryDeviceListByCorpIdHeaders) SetXAcsDingtalkAccessToken(v string) *QueryDeviceListByCorpIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryDeviceListByCorpIdRequest struct {
+	Operator   *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s QueryDeviceListByCorpIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceListByCorpIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceListByCorpIdRequest) SetOperator(v string) *QueryDeviceListByCorpIdRequest {
+	s.Operator = &v
+	return s
+}
+
+func (s *QueryDeviceListByCorpIdRequest) SetPageNumber(v int32) *QueryDeviceListByCorpIdRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryDeviceListByCorpIdRequest) SetPageSize(v int32) *QueryDeviceListByCorpIdRequest {
+	s.PageSize = &v
+	return s
+}
+
+type QueryDeviceListByCorpIdResponseBody struct {
+	// Id of the request
+	Success *bool                                      `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *QueryDeviceListByCorpIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryDeviceListByCorpIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceListByCorpIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceListByCorpIdResponseBody) SetSuccess(v bool) *QueryDeviceListByCorpIdResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *QueryDeviceListByCorpIdResponseBody) SetResult(v *QueryDeviceListByCorpIdResponseBodyResult) *QueryDeviceListByCorpIdResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryDeviceListByCorpIdResponseBodyResult struct {
+	HasMore *bool                                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*QueryDeviceListByCorpIdResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s QueryDeviceListByCorpIdResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceListByCorpIdResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceListByCorpIdResponseBodyResult) SetHasMore(v bool) *QueryDeviceListByCorpIdResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryDeviceListByCorpIdResponseBodyResult) SetList(v []*QueryDeviceListByCorpIdResponseBodyResultList) *QueryDeviceListByCorpIdResponseBodyResult {
+	s.List = v
+	return s
+}
+
+type QueryDeviceListByCorpIdResponseBodyResultList struct {
+	AppStatus  *int32  `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
+	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+}
+
+func (s QueryDeviceListByCorpIdResponseBodyResultList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceListByCorpIdResponseBodyResultList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceListByCorpIdResponseBodyResultList) SetAppStatus(v int32) *QueryDeviceListByCorpIdResponseBodyResultList {
+	s.AppStatus = &v
+	return s
+}
+
+func (s *QueryDeviceListByCorpIdResponseBodyResultList) SetDeviceCode(v string) *QueryDeviceListByCorpIdResponseBodyResultList {
+	s.DeviceCode = &v
+	return s
+}
+
+func (s *QueryDeviceListByCorpIdResponseBodyResultList) SetDeviceName(v string) *QueryDeviceListByCorpIdResponseBodyResultList {
+	s.DeviceName = &v
+	return s
+}
+
+type QueryDeviceListByCorpIdResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryDeviceListByCorpIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryDeviceListByCorpIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceListByCorpIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceListByCorpIdResponse) SetHeaders(v map[string]*string) *QueryDeviceListByCorpIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryDeviceListByCorpIdResponse) SetBody(v *QueryDeviceListByCorpIdResponseBody) *QueryDeviceListByCorpIdResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteDeviceOrgHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteDeviceOrgHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDeviceOrgHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDeviceOrgHeaders) SetCommonHeaders(v map[string]*string) *DeleteDeviceOrgHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteDeviceOrgHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteDeviceOrgHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteDeviceOrgRequest struct {
+	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	AuthCode   *string `json:"authCode,omitempty" xml:"authCode,omitempty"`
+}
+
+func (s DeleteDeviceOrgRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDeviceOrgRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDeviceOrgRequest) SetDeviceCode(v string) *DeleteDeviceOrgRequest {
+	s.DeviceCode = &v
+	return s
+}
+
+func (s *DeleteDeviceOrgRequest) SetAuthCode(v string) *DeleteDeviceOrgRequest {
+	s.AuthCode = &v
+	return s
+}
+
+type DeleteDeviceOrgResponseBody struct {
+	// Id of the request
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteDeviceOrgResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDeviceOrgResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDeviceOrgResponseBody) SetSuccess(v bool) *DeleteDeviceOrgResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteDeviceOrgResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteDeviceOrgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteDeviceOrgResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDeviceOrgResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDeviceOrgResponse) SetHeaders(v map[string]*string) *DeleteDeviceOrgResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteDeviceOrgResponse) SetBody(v *DeleteDeviceOrgResponseBody) *DeleteDeviceOrgResponse {
+	s.Body = v
+	return s
+}
+
 type BatchOrgCreateHWHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2801,6 +3424,88 @@ func (s *BatchOrgCreateHWResponse) SetHeaders(v map[string]*string) *BatchOrgCre
 }
 
 func (s *BatchOrgCreateHWResponse) SetBody(v *BatchOrgCreateHWResponseBody) *BatchOrgCreateHWResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteRemoteClassCourseHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteRemoteClassCourseHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteRemoteClassCourseHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteRemoteClassCourseHeaders) SetCommonHeaders(v map[string]*string) *DeleteRemoteClassCourseHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteRemoteClassCourseHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteRemoteClassCourseHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteRemoteClassCourseRequest struct {
+	// 免登码
+	AuthCode *string `json:"authCode,omitempty" xml:"authCode,omitempty"`
+}
+
+func (s DeleteRemoteClassCourseRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteRemoteClassCourseRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteRemoteClassCourseRequest) SetAuthCode(v string) *DeleteRemoteClassCourseRequest {
+	s.AuthCode = &v
+	return s
+}
+
+type DeleteRemoteClassCourseResponseBody struct {
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteRemoteClassCourseResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteRemoteClassCourseResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteRemoteClassCourseResponseBody) SetSuccess(v bool) *DeleteRemoteClassCourseResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteRemoteClassCourseResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteRemoteClassCourseResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteRemoteClassCourseResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteRemoteClassCourseResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteRemoteClassCourseResponse) SetHeaders(v map[string]*string) *DeleteRemoteClassCourseResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteRemoteClassCourseResponse) SetBody(v *DeleteRemoteClassCourseResponseBody) *DeleteRemoteClassCourseResponse {
 	s.Body = v
 	return s
 }
@@ -4262,6 +4967,253 @@ func (s *QuerySubjectTeachersResponse) SetBody(v *QuerySubjectTeachersResponseBo
 	return s
 }
 
+type QueryRemoteClassCourseHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryRemoteClassCourseHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRemoteClassCourseHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRemoteClassCourseHeaders) SetCommonHeaders(v map[string]*string) *QueryRemoteClassCourseHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryRemoteClassCourseHeaders) SetXAcsDingtalkAccessToken(v string) *QueryRemoteClassCourseHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryRemoteClassCourseRequest struct {
+	// 操作者用户ID
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	// 开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+}
+
+func (s QueryRemoteClassCourseRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRemoteClassCourseRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRemoteClassCourseRequest) SetOperator(v string) *QueryRemoteClassCourseRequest {
+	s.Operator = &v
+	return s
+}
+
+func (s *QueryRemoteClassCourseRequest) SetStartTime(v int64) *QueryRemoteClassCourseRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryRemoteClassCourseRequest) SetEndTime(v int64) *QueryRemoteClassCourseRequest {
+	s.EndTime = &v
+	return s
+}
+
+type QueryRemoteClassCourseResponseBody struct {
+	// 是否成功
+	Success *bool                                       `json:"success,omitempty" xml:"success,omitempty"`
+	Result  []*QueryRemoteClassCourseResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s QueryRemoteClassCourseResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRemoteClassCourseResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRemoteClassCourseResponseBody) SetSuccess(v bool) *QueryRemoteClassCourseResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *QueryRemoteClassCourseResponseBody) SetResult(v []*QueryRemoteClassCourseResponseBodyResult) *QueryRemoteClassCourseResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryRemoteClassCourseResponseBodyResult struct {
+	// 课程code
+	CourseCode *string `json:"courseCode,omitempty" xml:"courseCode,omitempty"`
+	// 课程名称
+	CourseName *string `json:"courseName,omitempty" xml:"courseName,omitempty"`
+	// 课程状态：0: 未开始；1: 已开始；2: 已结束
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 课程是否可以编辑或删除
+	CanEdit *bool `json:"canEdit,omitempty" xml:"canEdit,omitempty"`
+	// 授课设备
+	TeachingParticipant *QueryRemoteClassCourseResponseBodyResultTeachingParticipant `json:"teachingParticipant,omitempty" xml:"teachingParticipant,omitempty" type:"Struct"`
+	// 听课设备列表
+	AttendParticipants []*QueryRemoteClassCourseResponseBodyResultAttendParticipants `json:"attendParticipants,omitempty" xml:"attendParticipants,omitempty" type:"Repeated"`
+}
+
+func (s QueryRemoteClassCourseResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRemoteClassCourseResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRemoteClassCourseResponseBodyResult) SetCourseCode(v string) *QueryRemoteClassCourseResponseBodyResult {
+	s.CourseCode = &v
+	return s
+}
+
+func (s *QueryRemoteClassCourseResponseBodyResult) SetCourseName(v string) *QueryRemoteClassCourseResponseBodyResult {
+	s.CourseName = &v
+	return s
+}
+
+func (s *QueryRemoteClassCourseResponseBodyResult) SetStatus(v int32) *QueryRemoteClassCourseResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryRemoteClassCourseResponseBodyResult) SetStartTime(v int64) *QueryRemoteClassCourseResponseBodyResult {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryRemoteClassCourseResponseBodyResult) SetEndTime(v int64) *QueryRemoteClassCourseResponseBodyResult {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryRemoteClassCourseResponseBodyResult) SetCanEdit(v bool) *QueryRemoteClassCourseResponseBodyResult {
+	s.CanEdit = &v
+	return s
+}
+
+func (s *QueryRemoteClassCourseResponseBodyResult) SetTeachingParticipant(v *QueryRemoteClassCourseResponseBodyResultTeachingParticipant) *QueryRemoteClassCourseResponseBodyResult {
+	s.TeachingParticipant = v
+	return s
+}
+
+func (s *QueryRemoteClassCourseResponseBodyResult) SetAttendParticipants(v []*QueryRemoteClassCourseResponseBodyResultAttendParticipants) *QueryRemoteClassCourseResponseBodyResult {
+	s.AttendParticipants = v
+	return s
+}
+
+type QueryRemoteClassCourseResponseBodyResultTeachingParticipant struct {
+	// 参与方名称
+	ParticipantName *string `json:"participantName,omitempty" xml:"participantName,omitempty"`
+	// 参与方ID
+	ParticipantId *string `json:"participantId,omitempty" xml:"participantId,omitempty"`
+	// 组织ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 组织名称
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+}
+
+func (s QueryRemoteClassCourseResponseBodyResultTeachingParticipant) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRemoteClassCourseResponseBodyResultTeachingParticipant) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRemoteClassCourseResponseBodyResultTeachingParticipant) SetParticipantName(v string) *QueryRemoteClassCourseResponseBodyResultTeachingParticipant {
+	s.ParticipantName = &v
+	return s
+}
+
+func (s *QueryRemoteClassCourseResponseBodyResultTeachingParticipant) SetParticipantId(v string) *QueryRemoteClassCourseResponseBodyResultTeachingParticipant {
+	s.ParticipantId = &v
+	return s
+}
+
+func (s *QueryRemoteClassCourseResponseBodyResultTeachingParticipant) SetCorpId(v string) *QueryRemoteClassCourseResponseBodyResultTeachingParticipant {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryRemoteClassCourseResponseBodyResultTeachingParticipant) SetOrgName(v string) *QueryRemoteClassCourseResponseBodyResultTeachingParticipant {
+	s.OrgName = &v
+	return s
+}
+
+type QueryRemoteClassCourseResponseBodyResultAttendParticipants struct {
+	// 参与方名称
+	ParticipantName *string `json:"participantName,omitempty" xml:"participantName,omitempty"`
+	// 参与方ID
+	ParticipantId *string `json:"participantId,omitempty" xml:"participantId,omitempty"`
+	// 组织ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 组织名称
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+}
+
+func (s QueryRemoteClassCourseResponseBodyResultAttendParticipants) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRemoteClassCourseResponseBodyResultAttendParticipants) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRemoteClassCourseResponseBodyResultAttendParticipants) SetParticipantName(v string) *QueryRemoteClassCourseResponseBodyResultAttendParticipants {
+	s.ParticipantName = &v
+	return s
+}
+
+func (s *QueryRemoteClassCourseResponseBodyResultAttendParticipants) SetParticipantId(v string) *QueryRemoteClassCourseResponseBodyResultAttendParticipants {
+	s.ParticipantId = &v
+	return s
+}
+
+func (s *QueryRemoteClassCourseResponseBodyResultAttendParticipants) SetCorpId(v string) *QueryRemoteClassCourseResponseBodyResultAttendParticipants {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryRemoteClassCourseResponseBodyResultAttendParticipants) SetOrgName(v string) *QueryRemoteClassCourseResponseBodyResultAttendParticipants {
+	s.OrgName = &v
+	return s
+}
+
+type QueryRemoteClassCourseResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryRemoteClassCourseResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryRemoteClassCourseResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRemoteClassCourseResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRemoteClassCourseResponse) SetHeaders(v map[string]*string) *QueryRemoteClassCourseResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryRemoteClassCourseResponse) SetBody(v *QueryRemoteClassCourseResponseBody) *QueryRemoteClassCourseResponse {
+	s.Body = v
+	return s
+}
+
 type QueryClassScheduleHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4792,6 +5744,318 @@ func (s *QueryClassScheduleResponse) SetBody(v *QueryClassScheduleResponseBody) 
 	return s
 }
 
+type DeleteOrgRelationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteOrgRelationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteOrgRelationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteOrgRelationHeaders) SetCommonHeaders(v map[string]*string) *DeleteOrgRelationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteOrgRelationHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteOrgRelationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteOrgRelationRequest struct {
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	AuthCode     *string `json:"authCode,omitempty" xml:"authCode,omitempty"`
+}
+
+func (s DeleteOrgRelationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteOrgRelationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteOrgRelationRequest) SetTargetCorpId(v string) *DeleteOrgRelationRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+func (s *DeleteOrgRelationRequest) SetAuthCode(v string) *DeleteOrgRelationRequest {
+	s.AuthCode = &v
+	return s
+}
+
+type DeleteOrgRelationResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteOrgRelationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteOrgRelationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteOrgRelationResponseBody) SetSuccess(v bool) *DeleteOrgRelationResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteOrgRelationResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteOrgRelationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteOrgRelationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteOrgRelationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteOrgRelationResponse) SetHeaders(v map[string]*string) *DeleteOrgRelationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteOrgRelationResponse) SetBody(v *DeleteOrgRelationResponseBody) *DeleteOrgRelationResponse {
+	s.Body = v
+	return s
+}
+
+type CreateRemoteClassCourseHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateRemoteClassCourseHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRemoteClassCourseHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRemoteClassCourseHeaders) SetCommonHeaders(v map[string]*string) *CreateRemoteClassCourseHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateRemoteClassCourseHeaders) SetXAcsDingtalkAccessToken(v string) *CreateRemoteClassCourseHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateRemoteClassCourseRequest struct {
+	// 课程名称
+	CourseName *string `json:"courseName,omitempty" xml:"courseName,omitempty"`
+	// 开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 授课设备
+	TeachingParticipant *CreateRemoteClassCourseRequestTeachingParticipant `json:"teachingParticipant,omitempty" xml:"teachingParticipant,omitempty" type:"Struct"`
+	// 听课设备列表
+	AttendParticipants []*CreateRemoteClassCourseRequestAttendParticipants `json:"attendParticipants,omitempty" xml:"attendParticipants,omitempty" type:"Repeated"`
+	// 免登码
+	AuthCode           *string `json:"authCode,omitempty" xml:"authCode,omitempty"`
+	DingClientId       *string `json:"dingClientId,omitempty" xml:"dingClientId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int32  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingOauthAppId     *int64  `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingCorpId         *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+}
+
+func (s CreateRemoteClassCourseRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRemoteClassCourseRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRemoteClassCourseRequest) SetCourseName(v string) *CreateRemoteClassCourseRequest {
+	s.CourseName = &v
+	return s
+}
+
+func (s *CreateRemoteClassCourseRequest) SetStartTime(v int64) *CreateRemoteClassCourseRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *CreateRemoteClassCourseRequest) SetEndTime(v int64) *CreateRemoteClassCourseRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *CreateRemoteClassCourseRequest) SetTeachingParticipant(v *CreateRemoteClassCourseRequestTeachingParticipant) *CreateRemoteClassCourseRequest {
+	s.TeachingParticipant = v
+	return s
+}
+
+func (s *CreateRemoteClassCourseRequest) SetAttendParticipants(v []*CreateRemoteClassCourseRequestAttendParticipants) *CreateRemoteClassCourseRequest {
+	s.AttendParticipants = v
+	return s
+}
+
+func (s *CreateRemoteClassCourseRequest) SetAuthCode(v string) *CreateRemoteClassCourseRequest {
+	s.AuthCode = &v
+	return s
+}
+
+func (s *CreateRemoteClassCourseRequest) SetDingClientId(v string) *CreateRemoteClassCourseRequest {
+	s.DingClientId = &v
+	return s
+}
+
+func (s *CreateRemoteClassCourseRequest) SetDingSuiteKey(v string) *CreateRemoteClassCourseRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *CreateRemoteClassCourseRequest) SetDingTokenGrantType(v int32) *CreateRemoteClassCourseRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *CreateRemoteClassCourseRequest) SetDingOauthAppId(v int64) *CreateRemoteClassCourseRequest {
+	s.DingOauthAppId = &v
+	return s
+}
+
+func (s *CreateRemoteClassCourseRequest) SetDingIsvOrgId(v int64) *CreateRemoteClassCourseRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *CreateRemoteClassCourseRequest) SetDingCorpId(v string) *CreateRemoteClassCourseRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+type CreateRemoteClassCourseRequestTeachingParticipant struct {
+	// 参与方ID
+	ParticipantId *string `json:"participantId,omitempty" xml:"participantId,omitempty"`
+	// 组织ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+}
+
+func (s CreateRemoteClassCourseRequestTeachingParticipant) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRemoteClassCourseRequestTeachingParticipant) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRemoteClassCourseRequestTeachingParticipant) SetParticipantId(v string) *CreateRemoteClassCourseRequestTeachingParticipant {
+	s.ParticipantId = &v
+	return s
+}
+
+func (s *CreateRemoteClassCourseRequestTeachingParticipant) SetCorpId(v string) *CreateRemoteClassCourseRequestTeachingParticipant {
+	s.CorpId = &v
+	return s
+}
+
+type CreateRemoteClassCourseRequestAttendParticipants struct {
+	// 参与方ID
+	ParticipantId *string `json:"participantId,omitempty" xml:"participantId,omitempty"`
+	// 组织ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+}
+
+func (s CreateRemoteClassCourseRequestAttendParticipants) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRemoteClassCourseRequestAttendParticipants) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRemoteClassCourseRequestAttendParticipants) SetParticipantId(v string) *CreateRemoteClassCourseRequestAttendParticipants {
+	s.ParticipantId = &v
+	return s
+}
+
+func (s *CreateRemoteClassCourseRequestAttendParticipants) SetCorpId(v string) *CreateRemoteClassCourseRequestAttendParticipants {
+	s.CorpId = &v
+	return s
+}
+
+type CreateRemoteClassCourseResponseBody struct {
+	Success *bool                                      `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *CreateRemoteClassCourseResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s CreateRemoteClassCourseResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRemoteClassCourseResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRemoteClassCourseResponseBody) SetSuccess(v bool) *CreateRemoteClassCourseResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *CreateRemoteClassCourseResponseBody) SetResult(v *CreateRemoteClassCourseResponseBodyResult) *CreateRemoteClassCourseResponseBody {
+	s.Result = v
+	return s
+}
+
+type CreateRemoteClassCourseResponseBodyResult struct {
+	// 课程码
+	CourseCode *string `json:"courseCode,omitempty" xml:"courseCode,omitempty"`
+}
+
+func (s CreateRemoteClassCourseResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRemoteClassCourseResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRemoteClassCourseResponseBodyResult) SetCourseCode(v string) *CreateRemoteClassCourseResponseBodyResult {
+	s.CourseCode = &v
+	return s
+}
+
+type CreateRemoteClassCourseResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateRemoteClassCourseResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateRemoteClassCourseResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRemoteClassCourseResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRemoteClassCourseResponse) SetHeaders(v map[string]*string) *CreateRemoteClassCourseResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateRemoteClassCourseResponse) SetBody(v *CreateRemoteClassCourseResponseBody) *CreateRemoteClassCourseResponse {
+	s.Body = v
+	return s
+}
+
 type CreateCustomClassHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4967,6 +6231,222 @@ func (s *CreateCustomClassResponse) SetBody(v *CreateCustomClassResponseBody) *C
 	return s
 }
 
+type UpdateRemoteClassCourseHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateRemoteClassCourseHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRemoteClassCourseHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRemoteClassCourseHeaders) SetCommonHeaders(v map[string]*string) *UpdateRemoteClassCourseHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateRemoteClassCourseHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRemoteClassCourseHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateRemoteClassCourseRequest struct {
+	// 课程名称
+	CourseName *string `json:"courseName,omitempty" xml:"courseName,omitempty"`
+	// 课程开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 课程结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 授课设备
+	TeachingParticipant *UpdateRemoteClassCourseRequestTeachingParticipant `json:"teachingParticipant,omitempty" xml:"teachingParticipant,omitempty" type:"Struct"`
+	// 听课设备
+	AttendParticipants []*UpdateRemoteClassCourseRequestAttendParticipants `json:"attendParticipants,omitempty" xml:"attendParticipants,omitempty" type:"Repeated"`
+	// 课程码
+	CourseCode         *string `json:"courseCode,omitempty" xml:"courseCode,omitempty"`
+	DingClientId       *string `json:"dingClientId,omitempty" xml:"dingClientId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int32  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingOauthAppId     *int64  `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
+	DingCorpId         *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	AuthCode           *string `json:"authCode,omitempty" xml:"authCode,omitempty"`
+}
+
+func (s UpdateRemoteClassCourseRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRemoteClassCourseRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRemoteClassCourseRequest) SetCourseName(v string) *UpdateRemoteClassCourseRequest {
+	s.CourseName = &v
+	return s
+}
+
+func (s *UpdateRemoteClassCourseRequest) SetStartTime(v int64) *UpdateRemoteClassCourseRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *UpdateRemoteClassCourseRequest) SetEndTime(v int64) *UpdateRemoteClassCourseRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *UpdateRemoteClassCourseRequest) SetTeachingParticipant(v *UpdateRemoteClassCourseRequestTeachingParticipant) *UpdateRemoteClassCourseRequest {
+	s.TeachingParticipant = v
+	return s
+}
+
+func (s *UpdateRemoteClassCourseRequest) SetAttendParticipants(v []*UpdateRemoteClassCourseRequestAttendParticipants) *UpdateRemoteClassCourseRequest {
+	s.AttendParticipants = v
+	return s
+}
+
+func (s *UpdateRemoteClassCourseRequest) SetCourseCode(v string) *UpdateRemoteClassCourseRequest {
+	s.CourseCode = &v
+	return s
+}
+
+func (s *UpdateRemoteClassCourseRequest) SetDingClientId(v string) *UpdateRemoteClassCourseRequest {
+	s.DingClientId = &v
+	return s
+}
+
+func (s *UpdateRemoteClassCourseRequest) SetDingSuiteKey(v string) *UpdateRemoteClassCourseRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *UpdateRemoteClassCourseRequest) SetDingTokenGrantType(v int32) *UpdateRemoteClassCourseRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *UpdateRemoteClassCourseRequest) SetDingOauthAppId(v int64) *UpdateRemoteClassCourseRequest {
+	s.DingOauthAppId = &v
+	return s
+}
+
+func (s *UpdateRemoteClassCourseRequest) SetDingCorpId(v string) *UpdateRemoteClassCourseRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *UpdateRemoteClassCourseRequest) SetDingIsvOrgId(v int64) *UpdateRemoteClassCourseRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *UpdateRemoteClassCourseRequest) SetAuthCode(v string) *UpdateRemoteClassCourseRequest {
+	s.AuthCode = &v
+	return s
+}
+
+type UpdateRemoteClassCourseRequestTeachingParticipant struct {
+	// 参与方ID
+	ParticipantId *string `json:"participantId,omitempty" xml:"participantId,omitempty"`
+	// 组织ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+}
+
+func (s UpdateRemoteClassCourseRequestTeachingParticipant) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRemoteClassCourseRequestTeachingParticipant) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRemoteClassCourseRequestTeachingParticipant) SetParticipantId(v string) *UpdateRemoteClassCourseRequestTeachingParticipant {
+	s.ParticipantId = &v
+	return s
+}
+
+func (s *UpdateRemoteClassCourseRequestTeachingParticipant) SetCorpId(v string) *UpdateRemoteClassCourseRequestTeachingParticipant {
+	s.CorpId = &v
+	return s
+}
+
+type UpdateRemoteClassCourseRequestAttendParticipants struct {
+	// 参与方ID
+	ParticipantId *string `json:"participantId,omitempty" xml:"participantId,omitempty"`
+	// 组织ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+}
+
+func (s UpdateRemoteClassCourseRequestAttendParticipants) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRemoteClassCourseRequestAttendParticipants) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRemoteClassCourseRequestAttendParticipants) SetParticipantId(v string) *UpdateRemoteClassCourseRequestAttendParticipants {
+	s.ParticipantId = &v
+	return s
+}
+
+func (s *UpdateRemoteClassCourseRequestAttendParticipants) SetCorpId(v string) *UpdateRemoteClassCourseRequestAttendParticipants {
+	s.CorpId = &v
+	return s
+}
+
+type UpdateRemoteClassCourseResponseBody struct {
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// result
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateRemoteClassCourseResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRemoteClassCourseResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRemoteClassCourseResponseBody) SetSuccess(v bool) *UpdateRemoteClassCourseResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *UpdateRemoteClassCourseResponseBody) SetResult(v string) *UpdateRemoteClassCourseResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateRemoteClassCourseResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateRemoteClassCourseResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateRemoteClassCourseResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRemoteClassCourseResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRemoteClassCourseResponse) SetHeaders(v map[string]*string) *UpdateRemoteClassCourseResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateRemoteClassCourseResponse) SetBody(v *UpdateRemoteClassCourseResponseBody) *UpdateRemoteClassCourseResponse {
+	s.Body = v
+	return s
+}
+
 type SearchTeachersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5082,6 +6562,122 @@ func (s *SearchTeachersResponse) SetHeaders(v map[string]*string) *SearchTeacher
 }
 
 func (s *SearchTeachersResponse) SetBody(v *SearchTeachersResponseBody) *SearchTeachersResponse {
+	s.Body = v
+	return s
+}
+
+type QueryOrgRelationListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryOrgRelationListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgRelationListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgRelationListHeaders) SetCommonHeaders(v map[string]*string) *QueryOrgRelationListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryOrgRelationListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryOrgRelationListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryOrgRelationListRequest struct {
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+}
+
+func (s QueryOrgRelationListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgRelationListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgRelationListRequest) SetOperator(v string) *QueryOrgRelationListRequest {
+	s.Operator = &v
+	return s
+}
+
+type QueryOrgRelationListResponseBody struct {
+	// Id of the request
+	Success *bool                                     `json:"success,omitempty" xml:"success,omitempty"`
+	Result  []*QueryOrgRelationListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s QueryOrgRelationListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgRelationListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgRelationListResponseBody) SetSuccess(v bool) *QueryOrgRelationListResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *QueryOrgRelationListResponseBody) SetResult(v []*QueryOrgRelationListResponseBodyResult) *QueryOrgRelationListResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryOrgRelationListResponseBodyResult struct {
+	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	DeviceCount *int32  `json:"deviceCount,omitempty" xml:"deviceCount,omitempty"`
+}
+
+func (s QueryOrgRelationListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgRelationListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgRelationListResponseBodyResult) SetCorpId(v string) *QueryOrgRelationListResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryOrgRelationListResponseBodyResult) SetName(v string) *QueryOrgRelationListResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryOrgRelationListResponseBodyResult) SetDeviceCount(v int32) *QueryOrgRelationListResponseBodyResult {
+	s.DeviceCount = &v
+	return s
+}
+
+type QueryOrgRelationListResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryOrgRelationListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryOrgRelationListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgRelationListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgRelationListResponse) SetHeaders(v map[string]*string) *QueryOrgRelationListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryOrgRelationListResponse) SetBody(v *QueryOrgRelationListResponseBody) *QueryOrgRelationListResponse {
 	s.Body = v
 	return s
 }
@@ -5259,6 +6855,50 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) GetRemoteClassCourse(courseCode *string, request *GetRemoteClassCourseRequest) (_result *GetRemoteClassCourseResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetRemoteClassCourseHeaders{}
+	_result = &GetRemoteClassCourseResponse{}
+	_body, _err := client.GetRemoteClassCourseWithOptions(courseCode, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetRemoteClassCourseWithOptions(courseCode *string, request *GetRemoteClassCourseRequest, headers *GetRemoteClassCourseHeaders, runtime *util.RuntimeOptions) (_result *GetRemoteClassCourseResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		query["operator"] = request.Operator
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetRemoteClassCourseResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetRemoteClassCourse"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/remoteClasses/courses/"+tea.StringValue(courseCode)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) QueryStatisticsData(request *QueryStatisticsDataRequest) (_result *QueryStatisticsDataResponse, _err error) {
@@ -5683,6 +7323,78 @@ func (client *Client) InitCoursesOfClassWithOptions(classId *string, request *In
 	return _result, _err
 }
 
+func (client *Client) CreateInviteUrl(request *CreateInviteUrlRequest) (_result *CreateInviteUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateInviteUrlHeaders{}
+	_result = &CreateInviteUrlResponse{}
+	_body, _err := client.CreateInviteUrlWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateInviteUrlWithOptions(request *CreateInviteUrlRequest, headers *CreateInviteUrlHeaders, runtime *util.RuntimeOptions) (_result *CreateInviteUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOauthAppId)) {
+		body["dingOauthAppId"] = request.DingOauthAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		body["targetCorpId"] = request.TargetCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AuthCode)) {
+		body["authCode"] = request.AuthCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetOperator)) {
+		body["targetOperator"] = request.TargetOperator
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateInviteUrlResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateInviteUrl"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/remoteClasses/orgRelations/inviteUrls"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteDept(deptId *string, request *DeleteDeptRequest) (_result *DeleteDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteDeptHeaders{}
@@ -5885,6 +7597,106 @@ func (client *Client) DeleteTeacherWithOptions(classId *string, userId *string, 
 	return _result, _err
 }
 
+func (client *Client) QueryDeviceListByCorpId(request *QueryDeviceListByCorpIdRequest) (_result *QueryDeviceListByCorpIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryDeviceListByCorpIdHeaders{}
+	_result = &QueryDeviceListByCorpIdResponse{}
+	_body, _err := client.QueryDeviceListByCorpIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryDeviceListByCorpIdWithOptions(request *QueryDeviceListByCorpIdRequest, headers *QueryDeviceListByCorpIdHeaders, runtime *util.RuntimeOptions) (_result *QueryDeviceListByCorpIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		query["operator"] = request.Operator
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryDeviceListByCorpIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryDeviceListByCorpId"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/remoteClasses/devices"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteDeviceOrg(request *DeleteDeviceOrgRequest) (_result *DeleteDeviceOrgResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteDeviceOrgHeaders{}
+	_result = &DeleteDeviceOrgResponse{}
+	_body, _err := client.DeleteDeviceOrgWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteDeviceOrgWithOptions(request *DeleteDeviceOrgRequest, headers *DeleteDeviceOrgHeaders, runtime *util.RuntimeOptions) (_result *DeleteDeviceOrgResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceCode)) {
+		query["deviceCode"] = request.DeviceCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AuthCode)) {
+		query["authCode"] = request.AuthCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteDeviceOrgResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteDeviceOrg"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/remoteClasses/deviceOrgs"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) BatchOrgCreateHW(request *BatchOrgCreateHWRequest) (_result *BatchOrgCreateHWResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchOrgCreateHWHeaders{}
@@ -5998,6 +7810,50 @@ func (client *Client) BatchOrgCreateHWWithOptions(request *BatchOrgCreateHWReque
 	}
 	_result = &BatchOrgCreateHWResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchOrgCreateHW"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/homeworks"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteRemoteClassCourse(courseCode *string, request *DeleteRemoteClassCourseRequest) (_result *DeleteRemoteClassCourseResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteRemoteClassCourseHeaders{}
+	_result = &DeleteRemoteClassCourseResponse{}
+	_body, _err := client.DeleteRemoteClassCourseWithOptions(courseCode, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteRemoteClassCourseWithOptions(courseCode *string, request *DeleteRemoteClassCourseRequest, headers *DeleteRemoteClassCourseHeaders, runtime *util.RuntimeOptions) (_result *DeleteRemoteClassCourseResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AuthCode)) {
+		query["authCode"] = request.AuthCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteRemoteClassCourseResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteRemoteClassCourse"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/remoteClasses/courses/"+tea.StringValue(courseCode)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6399,6 +8255,58 @@ func (client *Client) QuerySubjectTeachersWithOptions(request *QuerySubjectTeach
 	return _result, _err
 }
 
+func (client *Client) QueryRemoteClassCourse(request *QueryRemoteClassCourseRequest) (_result *QueryRemoteClassCourseResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryRemoteClassCourseHeaders{}
+	_result = &QueryRemoteClassCourseResponse{}
+	_body, _err := client.QueryRemoteClassCourseWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryRemoteClassCourseWithOptions(request *QueryRemoteClassCourseRequest, headers *QueryRemoteClassCourseHeaders, runtime *util.RuntimeOptions) (_result *QueryRemoteClassCourseResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		query["operator"] = request.Operator
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryRemoteClassCourseResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryRemoteClassCourse"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/remoteClasses/courses"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryClassSchedule(request *QueryClassScheduleRequest) (_result *QueryClassScheduleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryClassScheduleHeaders{}
@@ -6458,6 +8366,142 @@ func (client *Client) QueryClassScheduleWithOptions(request *QueryClassScheduleR
 	}
 	_result = &QueryClassScheduleResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryClassSchedule"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/classes/schedules/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteOrgRelation(request *DeleteOrgRelationRequest) (_result *DeleteOrgRelationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteOrgRelationHeaders{}
+	_result = &DeleteOrgRelationResponse{}
+	_body, _err := client.DeleteOrgRelationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteOrgRelationWithOptions(request *DeleteOrgRelationRequest, headers *DeleteOrgRelationHeaders, runtime *util.RuntimeOptions) (_result *DeleteOrgRelationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		query["targetCorpId"] = request.TargetCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AuthCode)) {
+		query["authCode"] = request.AuthCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteOrgRelationResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteOrgRelation"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/remoteClasses/orgRelations"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateRemoteClassCourse(request *CreateRemoteClassCourseRequest) (_result *CreateRemoteClassCourseResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateRemoteClassCourseHeaders{}
+	_result = &CreateRemoteClassCourseResponse{}
+	_body, _err := client.CreateRemoteClassCourseWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateRemoteClassCourseWithOptions(request *CreateRemoteClassCourseRequest, headers *CreateRemoteClassCourseHeaders, runtime *util.RuntimeOptions) (_result *CreateRemoteClassCourseResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CourseName)) {
+		body["courseName"] = request.CourseName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TeachingParticipant))) {
+		body["teachingParticipant"] = request.TeachingParticipant
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AttendParticipants)) {
+		body["attendParticipants"] = request.AttendParticipants
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AuthCode)) {
+		body["authCode"] = request.AuthCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingClientId)) {
+		body["dingClientId"] = request.DingClientId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOauthAppId)) {
+		body["dingOauthAppId"] = request.DingOauthAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateRemoteClassCourseResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateRemoteClassCourse"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/remoteClasses/courses"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6541,6 +8585,98 @@ func (client *Client) CreateCustomClassWithOptions(request *CreateCustomClassReq
 	return _result, _err
 }
 
+func (client *Client) UpdateRemoteClassCourse(request *UpdateRemoteClassCourseRequest) (_result *UpdateRemoteClassCourseResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateRemoteClassCourseHeaders{}
+	_result = &UpdateRemoteClassCourseResponse{}
+	_body, _err := client.UpdateRemoteClassCourseWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateRemoteClassCourseWithOptions(request *UpdateRemoteClassCourseRequest, headers *UpdateRemoteClassCourseHeaders, runtime *util.RuntimeOptions) (_result *UpdateRemoteClassCourseResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CourseName)) {
+		body["courseName"] = request.CourseName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TeachingParticipant))) {
+		body["teachingParticipant"] = request.TeachingParticipant
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AttendParticipants)) {
+		body["attendParticipants"] = request.AttendParticipants
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CourseCode)) {
+		body["courseCode"] = request.CourseCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingClientId)) {
+		body["dingClientId"] = request.DingClientId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOauthAppId)) {
+		body["dingOauthAppId"] = request.DingOauthAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AuthCode)) {
+		body["authCode"] = request.AuthCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateRemoteClassCourseResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateRemoteClassCourse"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/edu/remoteClasses/courses"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) SearchTeachers(request *SearchTeachersRequest) (_result *SearchTeachersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchTeachersHeaders{}
@@ -6578,6 +8714,50 @@ func (client *Client) SearchTeachersWithOptions(request *SearchTeachersRequest, 
 	}
 	_result = &SearchTeachersResponse{}
 	_body, _err := client.DoROARequest(tea.String("SearchTeachers"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/teachers/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryOrgRelationList(request *QueryOrgRelationListRequest) (_result *QueryOrgRelationListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryOrgRelationListHeaders{}
+	_result = &QueryOrgRelationListResponse{}
+	_body, _err := client.QueryOrgRelationListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryOrgRelationListWithOptions(request *QueryOrgRelationListRequest, headers *QueryOrgRelationListHeaders, runtime *util.RuntimeOptions) (_result *QueryOrgRelationListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		query["operator"] = request.Operator
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryOrgRelationListResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryOrgRelationList"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/remoteClasses/orgRelations"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -538,8 +538,6 @@ func (s *ApplyBatchPayHeaders) SetXAcsDingtalkAccessToken(v string) *ApplyBatchP
 }
 
 type ApplyBatchPayRequest struct {
-	// 企业corpId
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 支付发起人staffId
 	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
 	// 支付账号唯一id
@@ -564,11 +562,6 @@ func (s ApplyBatchPayRequest) String() string {
 
 func (s ApplyBatchPayRequest) GoString() string {
 	return s.String()
-}
-
-func (s *ApplyBatchPayRequest) SetCorpId(v string) *ApplyBatchPayRequest {
-	s.CorpId = &v
-	return s
 }
 
 func (s *ApplyBatchPayRequest) SetStaffId(v string) *ApplyBatchPayRequest {
@@ -683,10 +676,6 @@ func (s *QueryBatchTradeOrderHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryBatchTradeOrderRequest struct {
-	// ISV/企业自建应用suiteId
-	SuiteId *string `json:"suiteId,omitempty" xml:"suiteId,omitempty"`
-	// ISV的cropId
-	IsvCorpId *string `json:"isvCorpId,omitempty" xml:"isvCorpId,omitempty"`
 	// 外部商户批次号列表
 	OutBatchNos []*string `json:"outBatchNos,omitempty" xml:"outBatchNos,omitempty" type:"Repeated"`
 }
@@ -697,16 +686,6 @@ func (s QueryBatchTradeOrderRequest) String() string {
 
 func (s QueryBatchTradeOrderRequest) GoString() string {
 	return s.String()
-}
-
-func (s *QueryBatchTradeOrderRequest) SetSuiteId(v string) *QueryBatchTradeOrderRequest {
-	s.SuiteId = &v
-	return s
-}
-
-func (s *QueryBatchTradeOrderRequest) SetIsvCorpId(v string) *QueryBatchTradeOrderRequest {
-	s.IsvCorpId = &v
-	return s
 }
 
 func (s *QueryBatchTradeOrderRequest) SetOutBatchNos(v []*string) *QueryBatchTradeOrderRequest {
@@ -1782,16 +1761,12 @@ func (s *QueryBatchTradeDetailListHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type QueryBatchTradeDetailListRequest struct {
-	// isv corpId
-	IsvCorpId *string `json:"isvCorpId,omitempty" xml:"isvCorpId,omitempty"`
 	// 外部商户批次号
 	OutBatchNo *string `json:"outBatchNo,omitempty" xml:"outBatchNo,omitempty"`
 	// 当前页数
 	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
 	// 每页记录数
 	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// ISV/企业自建应用suiteId
-	SuiteId *string `json:"suiteId,omitempty" xml:"suiteId,omitempty"`
 }
 
 func (s QueryBatchTradeDetailListRequest) String() string {
@@ -1800,11 +1775,6 @@ func (s QueryBatchTradeDetailListRequest) String() string {
 
 func (s QueryBatchTradeDetailListRequest) GoString() string {
 	return s.String()
-}
-
-func (s *QueryBatchTradeDetailListRequest) SetIsvCorpId(v string) *QueryBatchTradeDetailListRequest {
-	s.IsvCorpId = &v
-	return s
 }
 
 func (s *QueryBatchTradeDetailListRequest) SetOutBatchNo(v string) *QueryBatchTradeDetailListRequest {
@@ -1819,11 +1789,6 @@ func (s *QueryBatchTradeDetailListRequest) SetPageNumber(v int32) *QueryBatchTra
 
 func (s *QueryBatchTradeDetailListRequest) SetPageSize(v int32) *QueryBatchTradeDetailListRequest {
 	s.PageSize = &v
-	return s
-}
-
-func (s *QueryBatchTradeDetailListRequest) SetSuiteId(v string) *QueryBatchTradeDetailListRequest {
-	s.SuiteId = &v
 	return s
 }
 
@@ -1997,38 +1962,6 @@ func (s *QueryPayAccountListHeaders) SetCommonHeaders(v map[string]*string) *Que
 
 func (s *QueryPayAccountListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryPayAccountListHeaders {
 	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type QueryPayAccountListRequest struct {
-	// Isv coprId
-	IsvCorpId *string `json:"isvCorpId,omitempty" xml:"isvCorpId,omitempty"`
-	// 应用suiteId
-	SuiteId *string `json:"suiteId,omitempty" xml:"suiteId,omitempty"`
-	// 组织corpId
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-}
-
-func (s QueryPayAccountListRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryPayAccountListRequest) GoString() string {
-	return s.String()
-}
-
-func (s *QueryPayAccountListRequest) SetIsvCorpId(v string) *QueryPayAccountListRequest {
-	s.IsvCorpId = &v
-	return s
-}
-
-func (s *QueryPayAccountListRequest) SetSuiteId(v string) *QueryPayAccountListRequest {
-	s.SuiteId = &v
-	return s
-}
-
-func (s *QueryPayAccountListRequest) SetCorpId(v string) *QueryPayAccountListRequest {
-	s.CorpId = &v
 	return s
 }
 
@@ -2549,10 +2482,6 @@ func (client *Client) ApplyBatchPayWithOptions(request *ApplyBatchPayRequest, he
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
-		body["corpId"] = request.CorpId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.StaffId)) {
 		body["staffId"] = request.StaffId
 	}
@@ -2625,14 +2554,6 @@ func (client *Client) QueryBatchTradeOrderWithOptions(request *QueryBatchTradeOr
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.SuiteId)) {
-		body["suiteId"] = request.SuiteId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.IsvCorpId)) {
-		body["isvCorpId"] = request.IsvCorpId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.OutBatchNos)) {
 		body["outBatchNos"] = request.OutBatchNos
 	}
@@ -3041,10 +2962,6 @@ func (client *Client) QueryBatchTradeDetailListWithOptions(request *QueryBatchTr
 		return _result, _err
 	}
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.IsvCorpId)) {
-		query["isvCorpId"] = request.IsvCorpId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.OutBatchNo)) {
 		query["outBatchNo"] = request.OutBatchNo
 	}
@@ -3055,10 +2972,6 @@ func (client *Client) QueryBatchTradeDetailListWithOptions(request *QueryBatchTr
 
 	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
 		query["pageSize"] = request.PageSize
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.SuiteId)) {
-		query["suiteId"] = request.SuiteId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -3083,11 +2996,11 @@ func (client *Client) QueryBatchTradeDetailListWithOptions(request *QueryBatchTr
 	return _result, _err
 }
 
-func (client *Client) QueryPayAccountList(request *QueryPayAccountListRequest) (_result *QueryPayAccountListResponse, _err error) {
+func (client *Client) QueryPayAccountList() (_result *QueryPayAccountListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryPayAccountListHeaders{}
 	_result = &QueryPayAccountListResponse{}
-	_body, _err := client.QueryPayAccountListWithOptions(request, headers, runtime)
+	_body, _err := client.QueryPayAccountListWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3095,24 +3008,7 @@ func (client *Client) QueryPayAccountList(request *QueryPayAccountListRequest) (
 	return _result, _err
 }
 
-func (client *Client) QueryPayAccountListWithOptions(request *QueryPayAccountListRequest, headers *QueryPayAccountListHeaders, runtime *util.RuntimeOptions) (_result *QueryPayAccountListResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.IsvCorpId)) {
-		query["isvCorpId"] = request.IsvCorpId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.SuiteId)) {
-		query["suiteId"] = request.SuiteId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
-		query["corpId"] = request.CorpId
-	}
-
+func (client *Client) QueryPayAccountListWithOptions(headers *QueryPayAccountListHeaders, runtime *util.RuntimeOptions) (_result *QueryPayAccountListResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3124,7 +3020,6 @@ func (client *Client) QueryPayAccountListWithOptions(request *QueryPayAccountLis
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
 	}
 	_result = &QueryPayAccountListResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryPayAccountList"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/finance/payAccounts"), tea.String("json"), req, runtime)
