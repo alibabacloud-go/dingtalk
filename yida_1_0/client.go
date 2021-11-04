@@ -2768,6 +2768,109 @@ func (s *RenewTenantOrderResponse) SetBody(v *RenewTenantOrderResponseBody) *Ren
 	return s
 }
 
+type GetPrintDictionaryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPrintDictionaryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrintDictionaryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrintDictionaryHeaders) SetCommonHeaders(v map[string]*string) *GetPrintDictionaryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPrintDictionaryHeaders) SetXAcsDingtalkAccessToken(v string) *GetPrintDictionaryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPrintDictionaryRequest struct {
+	// 表单id
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 应用代码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 版本
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetPrintDictionaryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrintDictionaryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrintDictionaryRequest) SetFormUuid(v string) *GetPrintDictionaryRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *GetPrintDictionaryRequest) SetAppType(v string) *GetPrintDictionaryRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetPrintDictionaryRequest) SetVersion(v int64) *GetPrintDictionaryRequest {
+	s.Version = &v
+	return s
+}
+
+func (s *GetPrintDictionaryRequest) SetUserId(v string) *GetPrintDictionaryRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetPrintDictionaryResponseBody struct {
+	// Id of the request
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s GetPrintDictionaryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrintDictionaryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrintDictionaryResponseBody) SetResult(v string) *GetPrintDictionaryResponseBody {
+	s.Result = &v
+	return s
+}
+
+type GetPrintDictionaryResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetPrintDictionaryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetPrintDictionaryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrintDictionaryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrintDictionaryResponse) SetHeaders(v map[string]*string) *GetPrintDictionaryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPrintDictionaryResponse) SetBody(v *GetPrintDictionaryResponseBody) *GetPrintDictionaryResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateInstanceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7018,6 +7121,151 @@ func (s *SearchActivationCodeResponse) SetBody(v *SearchActivationCodeResponseBo
 	return s
 }
 
+type SavePrintTplDetailInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SavePrintTplDetailInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SavePrintTplDetailInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SavePrintTplDetailInfoHeaders) SetCommonHeaders(v map[string]*string) *SavePrintTplDetailInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SavePrintTplDetailInfoHeaders) SetXAcsDingtalkAccessToken(v string) *SavePrintTplDetailInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SavePrintTplDetailInfoRequest struct {
+	// 表单id
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 应用代码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 模板的VM
+	Vm *string `json:"vm,omitempty" xml:"vm,omitempty"`
+	// 表单版本
+	FormVersion *int32 `json:"formVersion,omitempty" xml:"formVersion,omitempty"`
+	// 打印模板id
+	TemplateId *int64 `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 模板的其他配置信息
+	Setting *string `json:"setting,omitempty" xml:"setting,omitempty"`
+	// 模板标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 模板描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 文件名配置
+	FileNameConfig *string `json:"fileNameConfig,omitempty" xml:"fileNameConfig,omitempty"`
+}
+
+func (s SavePrintTplDetailInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SavePrintTplDetailInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SavePrintTplDetailInfoRequest) SetFormUuid(v string) *SavePrintTplDetailInfoRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *SavePrintTplDetailInfoRequest) SetAppType(v string) *SavePrintTplDetailInfoRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *SavePrintTplDetailInfoRequest) SetVm(v string) *SavePrintTplDetailInfoRequest {
+	s.Vm = &v
+	return s
+}
+
+func (s *SavePrintTplDetailInfoRequest) SetFormVersion(v int32) *SavePrintTplDetailInfoRequest {
+	s.FormVersion = &v
+	return s
+}
+
+func (s *SavePrintTplDetailInfoRequest) SetTemplateId(v int64) *SavePrintTplDetailInfoRequest {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *SavePrintTplDetailInfoRequest) SetUserId(v string) *SavePrintTplDetailInfoRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *SavePrintTplDetailInfoRequest) SetSetting(v string) *SavePrintTplDetailInfoRequest {
+	s.Setting = &v
+	return s
+}
+
+func (s *SavePrintTplDetailInfoRequest) SetTitle(v string) *SavePrintTplDetailInfoRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *SavePrintTplDetailInfoRequest) SetDescription(v string) *SavePrintTplDetailInfoRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *SavePrintTplDetailInfoRequest) SetFileNameConfig(v string) *SavePrintTplDetailInfoRequest {
+	s.FileNameConfig = &v
+	return s
+}
+
+type SavePrintTplDetailInfoResponseBody struct {
+	// 模板id
+	Result *int64 `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SavePrintTplDetailInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SavePrintTplDetailInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SavePrintTplDetailInfoResponseBody) SetResult(v int64) *SavePrintTplDetailInfoResponseBody {
+	s.Result = &v
+	return s
+}
+
+type SavePrintTplDetailInfoResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SavePrintTplDetailInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SavePrintTplDetailInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SavePrintTplDetailInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SavePrintTplDetailInfoResponse) SetHeaders(v map[string]*string) *SavePrintTplDetailInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SavePrintTplDetailInfoResponse) SetBody(v *SavePrintTplDetailInfoResponseBody) *SavePrintTplDetailInfoResponse {
+	s.Body = v
+	return s
+}
+
 type SearchEmployeeFieldValuesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9244,6 +9492,158 @@ func (s *GetFormComponentDefinitionListResponse) SetHeaders(v map[string]*string
 }
 
 func (s *GetFormComponentDefinitionListResponse) SetBody(v *GetFormComponentDefinitionListResponseBody) *GetFormComponentDefinitionListResponse {
+	s.Body = v
+	return s
+}
+
+type GetPrintAppInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPrintAppInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrintAppInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrintAppInfoHeaders) SetCommonHeaders(v map[string]*string) *GetPrintAppInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPrintAppInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetPrintAppInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPrintAppInfoRequest struct {
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 搜索关键字
+	NameLike *string `json:"nameLike,omitempty" xml:"nameLike,omitempty"`
+}
+
+func (s GetPrintAppInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrintAppInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrintAppInfoRequest) SetUserId(v string) *GetPrintAppInfoRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetPrintAppInfoRequest) SetNameLike(v string) *GetPrintAppInfoRequest {
+	s.NameLike = &v
+	return s
+}
+
+type GetPrintAppInfoResponseBody struct {
+	Result []*GetPrintAppInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetPrintAppInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrintAppInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrintAppInfoResponseBody) SetResult(v []*GetPrintAppInfoResponseBodyResult) *GetPrintAppInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetPrintAppInfoResponseBodyResult struct {
+	// formInfoList
+	FormInfoList []*GetPrintAppInfoResponseBodyResultFormInfoList `json:"formInfoList,omitempty" xml:"formInfoList,omitempty" type:"Repeated"`
+	// appType
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 应用名称
+	AppName *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	// 图标链接
+	IconUrl *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
+}
+
+func (s GetPrintAppInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrintAppInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrintAppInfoResponseBodyResult) SetFormInfoList(v []*GetPrintAppInfoResponseBodyResultFormInfoList) *GetPrintAppInfoResponseBodyResult {
+	s.FormInfoList = v
+	return s
+}
+
+func (s *GetPrintAppInfoResponseBodyResult) SetAppType(v string) *GetPrintAppInfoResponseBodyResult {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetPrintAppInfoResponseBodyResult) SetAppName(v string) *GetPrintAppInfoResponseBodyResult {
+	s.AppName = &v
+	return s
+}
+
+func (s *GetPrintAppInfoResponseBodyResult) SetIconUrl(v string) *GetPrintAppInfoResponseBodyResult {
+	s.IconUrl = &v
+	return s
+}
+
+type GetPrintAppInfoResponseBodyResultFormInfoList struct {
+	// formUuid
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// formName
+	FormName *string `json:"formName,omitempty" xml:"formName,omitempty"`
+}
+
+func (s GetPrintAppInfoResponseBodyResultFormInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrintAppInfoResponseBodyResultFormInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrintAppInfoResponseBodyResultFormInfoList) SetFormUuid(v string) *GetPrintAppInfoResponseBodyResultFormInfoList {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *GetPrintAppInfoResponseBodyResultFormInfoList) SetFormName(v string) *GetPrintAppInfoResponseBodyResultFormInfoList {
+	s.FormName = &v
+	return s
+}
+
+type GetPrintAppInfoResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetPrintAppInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetPrintAppInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrintAppInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrintAppInfoResponse) SetHeaders(v map[string]*string) *GetPrintAppInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPrintAppInfoResponse) SetBody(v *GetPrintAppInfoResponseBody) *GetPrintAppInfoResponse {
 	s.Body = v
 	return s
 }
@@ -12334,6 +12734,62 @@ func (client *Client) RenewTenantOrderWithOptions(request *RenewTenantOrderReque
 	return _result, _err
 }
 
+func (client *Client) GetPrintDictionary(request *GetPrintDictionaryRequest) (_result *GetPrintDictionaryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPrintDictionaryHeaders{}
+	_result = &GetPrintDictionaryResponse{}
+	_body, _err := client.GetPrintDictionaryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetPrintDictionaryWithOptions(request *GetPrintDictionaryRequest, headers *GetPrintDictionaryHeaders, runtime *util.RuntimeOptions) (_result *GetPrintDictionaryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		query["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Version)) {
+		query["version"] = request.Version
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetPrintDictionaryResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetPrintDictionary"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/printTemplates/printDictionaries"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) UpdateInstance(request *UpdateInstanceRequest) (_result *UpdateInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateInstanceHeaders{}
@@ -13990,6 +14446,86 @@ func (client *Client) SearchActivationCodeWithOptions(request *SearchActivationC
 	return _result, _err
 }
 
+func (client *Client) SavePrintTplDetailInfo(request *SavePrintTplDetailInfoRequest) (_result *SavePrintTplDetailInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SavePrintTplDetailInfoHeaders{}
+	_result = &SavePrintTplDetailInfoResponse{}
+	_body, _err := client.SavePrintTplDetailInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SavePrintTplDetailInfoWithOptions(request *SavePrintTplDetailInfoRequest, headers *SavePrintTplDetailInfoHeaders, runtime *util.RuntimeOptions) (_result *SavePrintTplDetailInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Vm)) {
+		body["vm"] = request.Vm
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormVersion)) {
+		body["formVersion"] = request.FormVersion
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Setting)) {
+		body["setting"] = request.Setting
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileNameConfig)) {
+		body["fileNameConfig"] = request.FileNameConfig
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SavePrintTplDetailInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("SavePrintTplDetailInfo"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/printTemplates/printTplDetailInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) SearchEmployeeFieldValues(request *SearchEmployeeFieldValuesRequest) (_result *SearchEmployeeFieldValuesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchEmployeeFieldValuesHeaders{}
@@ -14841,6 +15377,54 @@ func (client *Client) GetFormComponentDefinitionListWithOptions(appType *string,
 	}
 	_result = &GetFormComponentDefinitionListResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetFormComponentDefinitionList"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/forms/definitions/"+tea.StringValue(appType)+"/"+tea.StringValue(formUuid)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetPrintAppInfo(request *GetPrintAppInfoRequest) (_result *GetPrintAppInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPrintAppInfoHeaders{}
+	_result = &GetPrintAppInfoResponse{}
+	_body, _err := client.GetPrintAppInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetPrintAppInfoWithOptions(request *GetPrintAppInfoRequest, headers *GetPrintAppInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPrintAppInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NameLike)) {
+		query["nameLike"] = request.NameLike
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetPrintAppInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetPrintAppInfo"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/printTemplates/printAppInfos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

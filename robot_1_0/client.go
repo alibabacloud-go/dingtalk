@@ -128,6 +128,205 @@ func (s *BatchSendOTOResponse) SetBody(v *BatchSendOTOResponseBody) *BatchSendOT
 	return s
 }
 
+type BatchRecallOTOHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchRecallOTOHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRecallOTOHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRecallOTOHeaders) SetCommonHeaders(v map[string]*string) *BatchRecallOTOHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchRecallOTOHeaders) SetXAcsDingtalkAccessToken(v string) *BatchRecallOTOHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchRecallOTORequest struct {
+	// 机器人的robotCode
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// 消息id
+	ProcessQueryKeys []*string `json:"processQueryKeys,omitempty" xml:"processQueryKeys,omitempty" type:"Repeated"`
+}
+
+func (s BatchRecallOTORequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRecallOTORequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRecallOTORequest) SetRobotCode(v string) *BatchRecallOTORequest {
+	s.RobotCode = &v
+	return s
+}
+
+func (s *BatchRecallOTORequest) SetProcessQueryKeys(v []*string) *BatchRecallOTORequest {
+	s.ProcessQueryKeys = v
+	return s
+}
+
+type BatchRecallOTOResponseBody struct {
+	// 撤回成功的消息id
+	SuccessResult []*string `json:"successResult,omitempty" xml:"successResult,omitempty" type:"Repeated"`
+	// 撤回失败的消息id及对应的失败原因
+	FailedResult map[string]*string `json:"failedResult,omitempty" xml:"failedResult,omitempty"`
+}
+
+func (s BatchRecallOTOResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRecallOTOResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRecallOTOResponseBody) SetSuccessResult(v []*string) *BatchRecallOTOResponseBody {
+	s.SuccessResult = v
+	return s
+}
+
+func (s *BatchRecallOTOResponseBody) SetFailedResult(v map[string]*string) *BatchRecallOTOResponseBody {
+	s.FailedResult = v
+	return s
+}
+
+type BatchRecallOTOResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchRecallOTOResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchRecallOTOResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRecallOTOResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRecallOTOResponse) SetHeaders(v map[string]*string) *BatchRecallOTOResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchRecallOTOResponse) SetBody(v *BatchRecallOTOResponseBody) *BatchRecallOTOResponse {
+	s.Body = v
+	return s
+}
+
+type BatchRecallGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchRecallGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRecallGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRecallGroupHeaders) SetCommonHeaders(v map[string]*string) *BatchRecallGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchRecallGroupHeaders) SetXAcsDingtalkAccessToken(v string) *BatchRecallGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchRecallGroupRequest struct {
+	// 开放的群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 机器人的robotCode
+	ChatbotId *string `json:"chatbotId,omitempty" xml:"chatbotId,omitempty"`
+	// 消息id
+	ProcessQueryKeys []*string `json:"processQueryKeys,omitempty" xml:"processQueryKeys,omitempty" type:"Repeated"`
+}
+
+func (s BatchRecallGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRecallGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRecallGroupRequest) SetOpenConversationId(v string) *BatchRecallGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *BatchRecallGroupRequest) SetChatbotId(v string) *BatchRecallGroupRequest {
+	s.ChatbotId = &v
+	return s
+}
+
+func (s *BatchRecallGroupRequest) SetProcessQueryKeys(v []*string) *BatchRecallGroupRequest {
+	s.ProcessQueryKeys = v
+	return s
+}
+
+type BatchRecallGroupResponseBody struct {
+	// 撤回成功的消息id
+	SuccessResult []*string `json:"successResult,omitempty" xml:"successResult,omitempty" type:"Repeated"`
+	// 撤回失败的消息id及原因
+	FailedResult map[string]*string `json:"failedResult,omitempty" xml:"failedResult,omitempty"`
+}
+
+func (s BatchRecallGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRecallGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRecallGroupResponseBody) SetSuccessResult(v []*string) *BatchRecallGroupResponseBody {
+	s.SuccessResult = v
+	return s
+}
+
+func (s *BatchRecallGroupResponseBody) SetFailedResult(v map[string]*string) *BatchRecallGroupResponseBody {
+	s.FailedResult = v
+	return s
+}
+
+type BatchRecallGroupResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchRecallGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchRecallGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRecallGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRecallGroupResponse) SetHeaders(v map[string]*string) *BatchRecallGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchRecallGroupResponse) SetBody(v *BatchRecallGroupResponseBody) *BatchRecallGroupResponse {
+	s.Body = v
+	return s
+}
+
 type BatchOTOQueryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -445,6 +644,106 @@ func (client *Client) BatchSendOTOWithOptions(request *BatchSendOTORequest, head
 	}
 	_result = &BatchSendOTOResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchSendOTO"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/oToMessages/batchSend"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchRecallOTO(request *BatchRecallOTORequest) (_result *BatchRecallOTOResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchRecallOTOHeaders{}
+	_result = &BatchRecallOTOResponse{}
+	_body, _err := client.BatchRecallOTOWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchRecallOTOWithOptions(request *BatchRecallOTORequest, headers *BatchRecallOTOHeaders, runtime *util.RuntimeOptions) (_result *BatchRecallOTOResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessQueryKeys)) {
+		body["processQueryKeys"] = request.ProcessQueryKeys
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchRecallOTOResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchRecallOTO"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/otoMessages/batchRecall"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchRecallGroup(request *BatchRecallGroupRequest) (_result *BatchRecallGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchRecallGroupHeaders{}
+	_result = &BatchRecallGroupResponse{}
+	_body, _err := client.BatchRecallGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchRecallGroupWithOptions(request *BatchRecallGroupRequest, headers *BatchRecallGroupHeaders, runtime *util.RuntimeOptions) (_result *BatchRecallGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ChatbotId)) {
+		body["chatbotId"] = request.ChatbotId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessQueryKeys)) {
+		body["processQueryKeys"] = request.ProcessQueryKeys
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchRecallGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchRecallGroup"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/groupMessages/batchRecall"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

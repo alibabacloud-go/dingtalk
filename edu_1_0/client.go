@@ -251,6 +251,293 @@ func (s *GetRemoteClassCourseResponse) SetBody(v *GetRemoteClassCourseResponseBo
 	return s
 }
 
+type QueryUniversityCourseGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryUniversityCourseGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUniversityCourseGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUniversityCourseGroupHeaders) SetCommonHeaders(v map[string]*string) *QueryUniversityCourseGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUniversityCourseGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryUniversityCourseGroupRequest struct {
+	// 操作人
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 课程编码
+	CourseGroupCode *string `json:"courseGroupCode,omitempty" xml:"courseGroupCode,omitempty"`
+}
+
+func (s QueryUniversityCourseGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUniversityCourseGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUniversityCourseGroupRequest) SetOpUserId(v string) *QueryUniversityCourseGroupRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupRequest) SetCourseGroupCode(v string) *QueryUniversityCourseGroupRequest {
+	s.CourseGroupCode = &v
+	return s
+}
+
+type QueryUniversityCourseGroupResponseBody struct {
+	// 课程组信息
+	UniversityCourseGroupInfo *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo `json:"universityCourseGroupInfo,omitempty" xml:"universityCourseGroupInfo,omitempty" type:"Struct"`
+}
+
+func (s QueryUniversityCourseGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUniversityCourseGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUniversityCourseGroupResponseBody) SetUniversityCourseGroupInfo(v *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo) *QueryUniversityCourseGroupResponseBody {
+	s.UniversityCourseGroupInfo = v
+	return s
+}
+
+type QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo struct {
+	// 合作方课程组code
+	IsvCourseGroupCode *string `json:"isvCourseGroupCode,omitempty" xml:"isvCourseGroupCode,omitempty"`
+	// 课程组编码
+	CourseGroupCode *string `json:"courseGroupCode,omitempty" xml:"courseGroupCode,omitempty"`
+	// 课程组名称
+	CourseGroupName *string `json:"courseGroupName,omitempty" xml:"courseGroupName,omitempty"`
+	// 课程组介绍
+	CourseGroupIntroduce *string `json:"courseGroupIntroduce,omitempty" xml:"courseGroupIntroduce,omitempty"`
+	// 学年
+	SchoolYear *string `json:"schoolYear,omitempty" xml:"schoolYear,omitempty"`
+	// 学期
+	Semester *int32 `json:"semester,omitempty" xml:"semester,omitempty"`
+	// 学段编码
+	PeriodCode *string `json:"periodCode,omitempty" xml:"periodCode,omitempty"`
+	// 学科名称
+	SubjectName *string `json:"subjectName,omitempty" xml:"subjectName,omitempty"`
+	// 课程组详细
+	CourserGroupItemModels []*QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels `json:"courserGroupItemModels,omitempty" xml:"courserGroupItemModels,omitempty" type:"Repeated"`
+}
+
+func (s QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo) SetIsvCourseGroupCode(v string) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo {
+	s.IsvCourseGroupCode = &v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo) SetCourseGroupCode(v string) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo {
+	s.CourseGroupCode = &v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo) SetCourseGroupName(v string) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo {
+	s.CourseGroupName = &v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo) SetCourseGroupIntroduce(v string) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo {
+	s.CourseGroupIntroduce = &v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo) SetSchoolYear(v string) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo {
+	s.SchoolYear = &v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo) SetSemester(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo {
+	s.Semester = &v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo) SetPeriodCode(v string) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo {
+	s.PeriodCode = &v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo) SetSubjectName(v string) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo {
+	s.SubjectName = &v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo) SetCourserGroupItemModels(v []*QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfo {
+	s.CourserGroupItemModels = v
+	return s
+}
+
+type QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels struct {
+	// 教室主键
+	ClassroomId *int64 `json:"classroomId,omitempty" xml:"classroomId,omitempty"`
+	// 上课周期
+	ClassPeriodType *int32 `json:"classPeriodType,omitempty" xml:"classPeriodType,omitempty"`
+	// 一周的第几天
+	DayOfWeek *int32 `json:"dayOfWeek,omitempty" xml:"dayOfWeek,omitempty"`
+	// 课节
+	SectionIndex []*int32 `json:"sectionIndex,omitempty" xml:"sectionIndex,omitempty" type:"Repeated"`
+	// 开始时间
+	Start *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// 结束时间
+	End *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	// 课程类型
+	CourseType *int32 `json:"courseType,omitempty" xml:"courseType,omitempty"`
+}
+
+func (s QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels) SetClassroomId(v int64) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels {
+	s.ClassroomId = &v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels) SetClassPeriodType(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels {
+	s.ClassPeriodType = &v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels) SetDayOfWeek(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels {
+	s.DayOfWeek = &v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels) SetSectionIndex(v []*int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels {
+	s.SectionIndex = v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels) SetStart(v *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels {
+	s.Start = v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels) SetEnd(v *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels {
+	s.End = v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels) SetCourseType(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels {
+	s.CourseType = &v
+	return s
+}
+
+type QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart struct {
+	// 年
+	Year *int32 `json:"year,omitempty" xml:"year,omitempty"`
+	// 月
+	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
+	// 日
+	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+}
+
+func (s QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart) SetYear(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart {
+	s.Year = &v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart) SetMonth(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart {
+	s.Month = &v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart) SetDayOfMonth(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart {
+	s.DayOfMonth = &v
+	return s
+}
+
+type QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd struct {
+	// 年
+	Year *int32 `json:"year,omitempty" xml:"year,omitempty"`
+	// 月
+	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
+	// 日
+	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+}
+
+func (s QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd) SetYear(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd {
+	s.Year = &v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd) SetMonth(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd {
+	s.Month = &v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd) SetDayOfMonth(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd {
+	s.DayOfMonth = &v
+	return s
+}
+
+type QueryUniversityCourseGroupResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryUniversityCourseGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryUniversityCourseGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUniversityCourseGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUniversityCourseGroupResponse) SetHeaders(v map[string]*string) *QueryUniversityCourseGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryUniversityCourseGroupResponse) SetBody(v *QueryUniversityCourseGroupResponseBody) *QueryUniversityCourseGroupResponse {
+	s.Body = v
+	return s
+}
+
 type QueryStatisticsDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1359,6 +1646,95 @@ func (s *CourseSchedulingComplimentNoticeResponse) SetHeaders(v map[string]*stri
 }
 
 func (s *CourseSchedulingComplimentNoticeResponse) SetBody(v *CourseSchedulingComplimentNoticeResponseBody) *CourseSchedulingComplimentNoticeResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteUniversityCourseGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteUniversityCourseGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteUniversityCourseGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteUniversityCourseGroupHeaders) SetCommonHeaders(v map[string]*string) *DeleteUniversityCourseGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteUniversityCourseGroupHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteUniversityCourseGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteUniversityCourseGroupRequest struct {
+	// 操作人
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 课程组编码
+	CourseGroupCode *string `json:"courseGroupCode,omitempty" xml:"courseGroupCode,omitempty"`
+}
+
+func (s DeleteUniversityCourseGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteUniversityCourseGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteUniversityCourseGroupRequest) SetOpUserId(v string) *DeleteUniversityCourseGroupRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *DeleteUniversityCourseGroupRequest) SetCourseGroupCode(v string) *DeleteUniversityCourseGroupRequest {
+	s.CourseGroupCode = &v
+	return s
+}
+
+type DeleteUniversityCourseGroupResponseBody struct {
+	// 操作结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteUniversityCourseGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteUniversityCourseGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteUniversityCourseGroupResponseBody) SetResult(v bool) *DeleteUniversityCourseGroupResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeleteUniversityCourseGroupResponse struct {
+	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteUniversityCourseGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteUniversityCourseGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteUniversityCourseGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteUniversityCourseGroupResponse) SetHeaders(v map[string]*string) *DeleteUniversityCourseGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteUniversityCourseGroupResponse) SetBody(v *DeleteUniversityCourseGroupResponseBody) *DeleteUniversityCourseGroupResponse {
 	s.Body = v
 	return s
 }
@@ -3071,6 +3447,247 @@ func (s *DeleteDeviceOrgResponse) SetBody(v *DeleteDeviceOrgResponseBody) *Delet
 	return s
 }
 
+type UpdateUniversityCourseGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateUniversityCourseGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateUniversityCourseGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateUniversityCourseGroupHeaders) SetCommonHeaders(v map[string]*string) *UpdateUniversityCourseGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateUniversityCourseGroupHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateUniversityCourseGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateUniversityCourseGroupRequest struct {
+	// opUserId
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 扩展信息
+	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
+	// 课程组编码
+	CourseGroupCode *string `json:"courseGroupCode,omitempty" xml:"courseGroupCode,omitempty"`
+	// 课程组介绍
+	CourseGroupIntroduce *string `json:"courseGroupIntroduce,omitempty" xml:"courseGroupIntroduce,omitempty"`
+	// 课程组名称
+	CourseGroupName *string `json:"courseGroupName,omitempty" xml:"courseGroupName,omitempty"`
+	// 课程组详细
+	CourserGroupItemModels []*UpdateUniversityCourseGroupRequestCourserGroupItemModels `json:"courserGroupItemModels,omitempty" xml:"courserGroupItemModels,omitempty" type:"Repeated"`
+}
+
+func (s UpdateUniversityCourseGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateUniversityCourseGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateUniversityCourseGroupRequest) SetOpUserId(v string) *UpdateUniversityCourseGroupRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *UpdateUniversityCourseGroupRequest) SetExt(v string) *UpdateUniversityCourseGroupRequest {
+	s.Ext = &v
+	return s
+}
+
+func (s *UpdateUniversityCourseGroupRequest) SetCourseGroupCode(v string) *UpdateUniversityCourseGroupRequest {
+	s.CourseGroupCode = &v
+	return s
+}
+
+func (s *UpdateUniversityCourseGroupRequest) SetCourseGroupIntroduce(v string) *UpdateUniversityCourseGroupRequest {
+	s.CourseGroupIntroduce = &v
+	return s
+}
+
+func (s *UpdateUniversityCourseGroupRequest) SetCourseGroupName(v string) *UpdateUniversityCourseGroupRequest {
+	s.CourseGroupName = &v
+	return s
+}
+
+func (s *UpdateUniversityCourseGroupRequest) SetCourserGroupItemModels(v []*UpdateUniversityCourseGroupRequestCourserGroupItemModels) *UpdateUniversityCourseGroupRequest {
+	s.CourserGroupItemModels = v
+	return s
+}
+
+type UpdateUniversityCourseGroupRequestCourserGroupItemModels struct {
+	// 一周的第几天
+	DayOfWeek *int32 `json:"dayOfWeek,omitempty" xml:"dayOfWeek,omitempty"`
+	// 上课周期
+	ClassPeriodType *int32 `json:"classPeriodType,omitempty" xml:"classPeriodType,omitempty"`
+	// 开始时间
+	Start *UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// 课节
+	SectionIndex []*int32 `json:"sectionIndex,omitempty" xml:"sectionIndex,omitempty" type:"Repeated"`
+	// 结束时间
+	End *UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	// 课程类型
+	CourseType *int32 `json:"courseType,omitempty" xml:"courseType,omitempty"`
+	// classroomId
+	ClassroomId *int64 `json:"classroomId,omitempty" xml:"classroomId,omitempty"`
+}
+
+func (s UpdateUniversityCourseGroupRequestCourserGroupItemModels) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateUniversityCourseGroupRequestCourserGroupItemModels) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModels) SetDayOfWeek(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.DayOfWeek = &v
+	return s
+}
+
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModels) SetClassPeriodType(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.ClassPeriodType = &v
+	return s
+}
+
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModels) SetStart(v *UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart) *UpdateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.Start = v
+	return s
+}
+
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModels) SetSectionIndex(v []*int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.SectionIndex = v
+	return s
+}
+
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModels) SetEnd(v *UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd) *UpdateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.End = v
+	return s
+}
+
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModels) SetCourseType(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.CourseType = &v
+	return s
+}
+
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModels) SetClassroomId(v int64) *UpdateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.ClassroomId = &v
+	return s
+}
+
+type UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart struct {
+	// 月
+	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
+	// 年
+	Year *int32 `json:"year,omitempty" xml:"year,omitempty"`
+	// 一月的第几天
+	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+}
+
+func (s UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart) SetMonth(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart {
+	s.Month = &v
+	return s
+}
+
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart) SetYear(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart {
+	s.Year = &v
+	return s
+}
+
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart) SetDayOfMonth(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart {
+	s.DayOfMonth = &v
+	return s
+}
+
+type UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd struct {
+	// 月
+	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
+	// 年
+	Year *int32 `json:"year,omitempty" xml:"year,omitempty"`
+	// 一月的第几天
+	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+}
+
+func (s UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd) SetMonth(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd {
+	s.Month = &v
+	return s
+}
+
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd) SetYear(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd {
+	s.Year = &v
+	return s
+}
+
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd) SetDayOfMonth(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd {
+	s.DayOfMonth = &v
+	return s
+}
+
+type UpdateUniversityCourseGroupResponseBody struct {
+	// 是否成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateUniversityCourseGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateUniversityCourseGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateUniversityCourseGroupResponseBody) SetResult(v bool) *UpdateUniversityCourseGroupResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateUniversityCourseGroupResponse struct {
+	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateUniversityCourseGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateUniversityCourseGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateUniversityCourseGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateUniversityCourseGroupResponse) SetHeaders(v map[string]*string) *UpdateUniversityCourseGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateUniversityCourseGroupResponse) SetBody(v *UpdateUniversityCourseGroupResponseBody) *UpdateUniversityCourseGroupResponse {
+	s.Body = v
+	return s
+}
+
 type BatchOrgCreateHWHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4723,6 +5340,393 @@ func (s *QueryTeachSubjectsResponse) SetBody(v *QueryTeachSubjectsResponseBody) 
 	return s
 }
 
+type CreateSectionConfigHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateSectionConfigHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSectionConfigHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSectionConfigHeaders) SetCommonHeaders(v map[string]*string) *CreateSectionConfigHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateSectionConfigHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSectionConfigHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateSectionConfigRequest struct {
+	// 扩展参数
+	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
+	// 课表模板信息
+	SectionConfigs []*CreateSectionConfigRequestSectionConfigs `json:"sectionConfigs,omitempty" xml:"sectionConfigs,omitempty" type:"Repeated"`
+	// 操作人的userid。
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s CreateSectionConfigRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSectionConfigRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSectionConfigRequest) SetExt(v string) *CreateSectionConfigRequest {
+	s.Ext = &v
+	return s
+}
+
+func (s *CreateSectionConfigRequest) SetSectionConfigs(v []*CreateSectionConfigRequestSectionConfigs) *CreateSectionConfigRequest {
+	s.SectionConfigs = v
+	return s
+}
+
+func (s *CreateSectionConfigRequest) SetOpUserId(v string) *CreateSectionConfigRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type CreateSectionConfigRequestSectionConfigs struct {
+	// 学期
+	Semester *int32 `json:"semester,omitempty" xml:"semester,omitempty"`
+	// 开始时间（精确到日）
+	Start *CreateSectionConfigRequestSectionConfigsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// 学年
+	SchoolYear *string `json:"schoolYear,omitempty" xml:"schoolYear,omitempty"`
+	// 课表名称
+	ScheduleName *string `json:"scheduleName,omitempty" xml:"scheduleName,omitempty"`
+	// 节次模型
+	SectionModels []*CreateSectionConfigRequestSectionConfigsSectionModels `json:"sectionModels,omitempty" xml:"sectionModels,omitempty" type:"Repeated"`
+	// 结束时间
+	End *CreateSectionConfigRequestSectionConfigsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	// 学期开始时间
+	SemesterStart *CreateSectionConfigRequestSectionConfigsSemesterStart `json:"semesterStart,omitempty" xml:"semesterStart,omitempty" type:"Struct"`
+	// 学期结束时间
+	SemesterEnd *CreateSectionConfigRequestSectionConfigsSemesterEnd `json:"semesterEnd,omitempty" xml:"semesterEnd,omitempty" type:"Struct"`
+}
+
+func (s CreateSectionConfigRequestSectionConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSectionConfigRequestSectionConfigs) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSectionConfigRequestSectionConfigs) SetSemester(v int32) *CreateSectionConfigRequestSectionConfigs {
+	s.Semester = &v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigs) SetStart(v *CreateSectionConfigRequestSectionConfigsStart) *CreateSectionConfigRequestSectionConfigs {
+	s.Start = v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigs) SetSchoolYear(v string) *CreateSectionConfigRequestSectionConfigs {
+	s.SchoolYear = &v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigs) SetScheduleName(v string) *CreateSectionConfigRequestSectionConfigs {
+	s.ScheduleName = &v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigs) SetSectionModels(v []*CreateSectionConfigRequestSectionConfigsSectionModels) *CreateSectionConfigRequestSectionConfigs {
+	s.SectionModels = v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigs) SetEnd(v *CreateSectionConfigRequestSectionConfigsEnd) *CreateSectionConfigRequestSectionConfigs {
+	s.End = v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigs) SetSemesterStart(v *CreateSectionConfigRequestSectionConfigsSemesterStart) *CreateSectionConfigRequestSectionConfigs {
+	s.SemesterStart = v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigs) SetSemesterEnd(v *CreateSectionConfigRequestSectionConfigsSemesterEnd) *CreateSectionConfigRequestSectionConfigs {
+	s.SemesterEnd = v
+	return s
+}
+
+type CreateSectionConfigRequestSectionConfigsStart struct {
+	// 月份。
+	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
+	// 年份。
+	Year *int32 `json:"year,omitempty" xml:"year,omitempty"`
+	// 每个月的第几天。
+	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+}
+
+func (s CreateSectionConfigRequestSectionConfigsStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSectionConfigRequestSectionConfigsStart) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsStart) SetMonth(v int32) *CreateSectionConfigRequestSectionConfigsStart {
+	s.Month = &v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsStart) SetYear(v int32) *CreateSectionConfigRequestSectionConfigsStart {
+	s.Year = &v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsStart) SetDayOfMonth(v int32) *CreateSectionConfigRequestSectionConfigsStart {
+	s.DayOfMonth = &v
+	return s
+}
+
+type CreateSectionConfigRequestSectionConfigsSectionModels struct {
+	// 节次类型枚举：COURSE/REST
+	SectionType *string `json:"sectionType,omitempty" xml:"sectionType,omitempty"`
+	// 开始时间
+	Start *CreateSectionConfigRequestSectionConfigsSectionModelsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// 第几节。
+	SectionIndex *int32 `json:"sectionIndex,omitempty" xml:"sectionIndex,omitempty"`
+	// 结束时间
+	End *CreateSectionConfigRequestSectionConfigsSectionModelsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	// 节次名称
+	SectionName *string `json:"sectionName,omitempty" xml:"sectionName,omitempty"`
+}
+
+func (s CreateSectionConfigRequestSectionConfigsSectionModels) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSectionConfigRequestSectionConfigsSectionModels) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsSectionModels) SetSectionType(v string) *CreateSectionConfigRequestSectionConfigsSectionModels {
+	s.SectionType = &v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsSectionModels) SetStart(v *CreateSectionConfigRequestSectionConfigsSectionModelsStart) *CreateSectionConfigRequestSectionConfigsSectionModels {
+	s.Start = v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsSectionModels) SetSectionIndex(v int32) *CreateSectionConfigRequestSectionConfigsSectionModels {
+	s.SectionIndex = &v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsSectionModels) SetEnd(v *CreateSectionConfigRequestSectionConfigsSectionModelsEnd) *CreateSectionConfigRequestSectionConfigsSectionModels {
+	s.End = v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsSectionModels) SetSectionName(v string) *CreateSectionConfigRequestSectionConfigsSectionModels {
+	s.SectionName = &v
+	return s
+}
+
+type CreateSectionConfigRequestSectionConfigsSectionModelsStart struct {
+	// 分
+	Min *int32 `json:"min,omitempty" xml:"min,omitempty"`
+	// 小时
+	Hour *int32 `json:"hour,omitempty" xml:"hour,omitempty"`
+}
+
+func (s CreateSectionConfigRequestSectionConfigsSectionModelsStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSectionConfigRequestSectionConfigsSectionModelsStart) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsSectionModelsStart) SetMin(v int32) *CreateSectionConfigRequestSectionConfigsSectionModelsStart {
+	s.Min = &v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsSectionModelsStart) SetHour(v int32) *CreateSectionConfigRequestSectionConfigsSectionModelsStart {
+	s.Hour = &v
+	return s
+}
+
+type CreateSectionConfigRequestSectionConfigsSectionModelsEnd struct {
+	// 分
+	Min *int32 `json:"min,omitempty" xml:"min,omitempty"`
+	// 小时
+	Hour *int32 `json:"hour,omitempty" xml:"hour,omitempty"`
+}
+
+func (s CreateSectionConfigRequestSectionConfigsSectionModelsEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSectionConfigRequestSectionConfigsSectionModelsEnd) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsSectionModelsEnd) SetMin(v int32) *CreateSectionConfigRequestSectionConfigsSectionModelsEnd {
+	s.Min = &v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsSectionModelsEnd) SetHour(v int32) *CreateSectionConfigRequestSectionConfigsSectionModelsEnd {
+	s.Hour = &v
+	return s
+}
+
+type CreateSectionConfigRequestSectionConfigsEnd struct {
+	// 月
+	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
+	// 年
+	Year *int32 `json:"year,omitempty" xml:"year,omitempty"`
+	// 日
+	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+}
+
+func (s CreateSectionConfigRequestSectionConfigsEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSectionConfigRequestSectionConfigsEnd) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsEnd) SetMonth(v int32) *CreateSectionConfigRequestSectionConfigsEnd {
+	s.Month = &v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsEnd) SetYear(v int32) *CreateSectionConfigRequestSectionConfigsEnd {
+	s.Year = &v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsEnd) SetDayOfMonth(v int32) *CreateSectionConfigRequestSectionConfigsEnd {
+	s.DayOfMonth = &v
+	return s
+}
+
+type CreateSectionConfigRequestSectionConfigsSemesterStart struct {
+	// 月
+	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
+	// 年
+	Year *int32 `json:"year,omitempty" xml:"year,omitempty"`
+	// 日
+	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+}
+
+func (s CreateSectionConfigRequestSectionConfigsSemesterStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSectionConfigRequestSectionConfigsSemesterStart) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsSemesterStart) SetMonth(v int32) *CreateSectionConfigRequestSectionConfigsSemesterStart {
+	s.Month = &v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsSemesterStart) SetYear(v int32) *CreateSectionConfigRequestSectionConfigsSemesterStart {
+	s.Year = &v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsSemesterStart) SetDayOfMonth(v int32) *CreateSectionConfigRequestSectionConfigsSemesterStart {
+	s.DayOfMonth = &v
+	return s
+}
+
+type CreateSectionConfigRequestSectionConfigsSemesterEnd struct {
+	// 月
+	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
+	// 年
+	Year *int32 `json:"year,omitempty" xml:"year,omitempty"`
+	// 每月第几天
+	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+}
+
+func (s CreateSectionConfigRequestSectionConfigsSemesterEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSectionConfigRequestSectionConfigsSemesterEnd) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsSemesterEnd) SetMonth(v int32) *CreateSectionConfigRequestSectionConfigsSemesterEnd {
+	s.Month = &v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsSemesterEnd) SetYear(v int32) *CreateSectionConfigRequestSectionConfigsSemesterEnd {
+	s.Year = &v
+	return s
+}
+
+func (s *CreateSectionConfigRequestSectionConfigsSemesterEnd) SetDayOfMonth(v int32) *CreateSectionConfigRequestSectionConfigsSemesterEnd {
+	s.DayOfMonth = &v
+	return s
+}
+
+type CreateSectionConfigResponseBody struct {
+	// 初始化是否成功。
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CreateSectionConfigResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSectionConfigResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSectionConfigResponseBody) SetResult(v bool) *CreateSectionConfigResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CreateSectionConfigResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateSectionConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateSectionConfigResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSectionConfigResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSectionConfigResponse) SetHeaders(v map[string]*string) *CreateSectionConfigResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateSectionConfigResponse) SetBody(v *CreateSectionConfigResponseBody) *CreateSectionConfigResponse {
+	s.Body = v
+	return s
+}
+
 type GetShareRolesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5210,6 +6214,137 @@ func (s *QueryRemoteClassCourseResponse) SetHeaders(v map[string]*string) *Query
 }
 
 func (s *QueryRemoteClassCourseResponse) SetBody(v *QueryRemoteClassCourseResponseBody) *QueryRemoteClassCourseResponse {
+	s.Body = v
+	return s
+}
+
+type CreatePhysicalClassroomHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreatePhysicalClassroomHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePhysicalClassroomHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePhysicalClassroomHeaders) SetCommonHeaders(v map[string]*string) *CreatePhysicalClassroomHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreatePhysicalClassroomHeaders) SetXAcsDingtalkAccessToken(v string) *CreatePhysicalClassroomHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreatePhysicalClassroomRequest struct {
+	// opUserId
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 教室楼层
+	ClassroomFloor *string `json:"classroomFloor,omitempty" xml:"classroomFloor,omitempty"`
+	// 扩展信息
+	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
+	// 教室教学楼
+	ClassroomBuilding *string `json:"classroomBuilding,omitempty" xml:"classroomBuilding,omitempty"`
+	// 是否支持直播
+	DirectBroadcast *string `json:"directBroadcast,omitempty" xml:"directBroadcast,omitempty"`
+	// 教室名称
+	ClassroomName *string `json:"classroomName,omitempty" xml:"classroomName,omitempty"`
+	// 教室校区
+	ClassroomCampus *string `json:"classroomCampus,omitempty" xml:"classroomCampus,omitempty"`
+	// 教室房间号
+	ClassroomNumber *string `json:"classroomNumber,omitempty" xml:"classroomNumber,omitempty"`
+}
+
+func (s CreatePhysicalClassroomRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePhysicalClassroomRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePhysicalClassroomRequest) SetOpUserId(v string) *CreatePhysicalClassroomRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *CreatePhysicalClassroomRequest) SetClassroomFloor(v string) *CreatePhysicalClassroomRequest {
+	s.ClassroomFloor = &v
+	return s
+}
+
+func (s *CreatePhysicalClassroomRequest) SetExt(v string) *CreatePhysicalClassroomRequest {
+	s.Ext = &v
+	return s
+}
+
+func (s *CreatePhysicalClassroomRequest) SetClassroomBuilding(v string) *CreatePhysicalClassroomRequest {
+	s.ClassroomBuilding = &v
+	return s
+}
+
+func (s *CreatePhysicalClassroomRequest) SetDirectBroadcast(v string) *CreatePhysicalClassroomRequest {
+	s.DirectBroadcast = &v
+	return s
+}
+
+func (s *CreatePhysicalClassroomRequest) SetClassroomName(v string) *CreatePhysicalClassroomRequest {
+	s.ClassroomName = &v
+	return s
+}
+
+func (s *CreatePhysicalClassroomRequest) SetClassroomCampus(v string) *CreatePhysicalClassroomRequest {
+	s.ClassroomCampus = &v
+	return s
+}
+
+func (s *CreatePhysicalClassroomRequest) SetClassroomNumber(v string) *CreatePhysicalClassroomRequest {
+	s.ClassroomNumber = &v
+	return s
+}
+
+type CreatePhysicalClassroomResponseBody struct {
+	// 教室id
+	ClassroomId *int64 `json:"classroomId,omitempty" xml:"classroomId,omitempty"`
+}
+
+func (s CreatePhysicalClassroomResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePhysicalClassroomResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePhysicalClassroomResponseBody) SetClassroomId(v int64) *CreatePhysicalClassroomResponseBody {
+	s.ClassroomId = &v
+	return s
+}
+
+type CreatePhysicalClassroomResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreatePhysicalClassroomResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreatePhysicalClassroomResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePhysicalClassroomResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePhysicalClassroomResponse) SetHeaders(v map[string]*string) *CreatePhysicalClassroomResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreatePhysicalClassroomResponse) SetBody(v *CreatePhysicalClassroomResponseBody) *CreatePhysicalClassroomResponse {
 	s.Body = v
 	return s
 }
@@ -6056,6 +7191,162 @@ func (s *CreateRemoteClassCourseResponse) SetBody(v *CreateRemoteClassCourseResp
 	return s
 }
 
+type QueryPhysicalClassroomHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryPhysicalClassroomHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPhysicalClassroomHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPhysicalClassroomHeaders) SetCommonHeaders(v map[string]*string) *QueryPhysicalClassroomHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryPhysicalClassroomHeaders) SetXAcsDingtalkAccessToken(v string) *QueryPhysicalClassroomHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryPhysicalClassroomRequest struct {
+	// 操作人id
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 教室id
+	ClassroomId *int64 `json:"classroomId,omitempty" xml:"classroomId,omitempty"`
+}
+
+func (s QueryPhysicalClassroomRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPhysicalClassroomRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPhysicalClassroomRequest) SetOpUserId(v string) *QueryPhysicalClassroomRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *QueryPhysicalClassroomRequest) SetClassroomId(v int64) *QueryPhysicalClassroomRequest {
+	s.ClassroomId = &v
+	return s
+}
+
+type QueryPhysicalClassroomResponseBody struct {
+	// 请求是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 返回结果
+	Result *QueryPhysicalClassroomResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryPhysicalClassroomResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPhysicalClassroomResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPhysicalClassroomResponseBody) SetSuccess(v bool) *QueryPhysicalClassroomResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *QueryPhysicalClassroomResponseBody) SetResult(v *QueryPhysicalClassroomResponseBodyResult) *QueryPhysicalClassroomResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryPhysicalClassroomResponseBodyResult struct {
+	// 教室ID
+	ClassroomId *int64 `json:"classroomId,omitempty" xml:"classroomId,omitempty"`
+	// 教室名称
+	ClassroomName *string `json:"classroomName,omitempty" xml:"classroomName,omitempty"`
+	// 教室校区
+	ClassroomCampus *string `json:"classroomCampus,omitempty" xml:"classroomCampus,omitempty"`
+	// 教室教学楼
+	ClassroomBuilding *string `json:"classroomBuilding,omitempty" xml:"classroomBuilding,omitempty"`
+	// 教室楼层
+	ClassroomFloor *string `json:"classroomFloor,omitempty" xml:"classroomFloor,omitempty"`
+	// 教室房间号
+	ClassroomNumber *string `json:"classroomNumber,omitempty" xml:"classroomNumber,omitempty"`
+	// 是否支持直播
+	DirectBroadcast *string `json:"directBroadcast,omitempty" xml:"directBroadcast,omitempty"`
+}
+
+func (s QueryPhysicalClassroomResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPhysicalClassroomResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPhysicalClassroomResponseBodyResult) SetClassroomId(v int64) *QueryPhysicalClassroomResponseBodyResult {
+	s.ClassroomId = &v
+	return s
+}
+
+func (s *QueryPhysicalClassroomResponseBodyResult) SetClassroomName(v string) *QueryPhysicalClassroomResponseBodyResult {
+	s.ClassroomName = &v
+	return s
+}
+
+func (s *QueryPhysicalClassroomResponseBodyResult) SetClassroomCampus(v string) *QueryPhysicalClassroomResponseBodyResult {
+	s.ClassroomCampus = &v
+	return s
+}
+
+func (s *QueryPhysicalClassroomResponseBodyResult) SetClassroomBuilding(v string) *QueryPhysicalClassroomResponseBodyResult {
+	s.ClassroomBuilding = &v
+	return s
+}
+
+func (s *QueryPhysicalClassroomResponseBodyResult) SetClassroomFloor(v string) *QueryPhysicalClassroomResponseBodyResult {
+	s.ClassroomFloor = &v
+	return s
+}
+
+func (s *QueryPhysicalClassroomResponseBodyResult) SetClassroomNumber(v string) *QueryPhysicalClassroomResponseBodyResult {
+	s.ClassroomNumber = &v
+	return s
+}
+
+func (s *QueryPhysicalClassroomResponseBodyResult) SetDirectBroadcast(v string) *QueryPhysicalClassroomResponseBodyResult {
+	s.DirectBroadcast = &v
+	return s
+}
+
+type QueryPhysicalClassroomResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryPhysicalClassroomResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryPhysicalClassroomResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPhysicalClassroomResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPhysicalClassroomResponse) SetHeaders(v map[string]*string) *QueryPhysicalClassroomResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryPhysicalClassroomResponse) SetBody(v *QueryPhysicalClassroomResponseBody) *QueryPhysicalClassroomResponse {
+	s.Body = v
+	return s
+}
+
 type CreateCustomClassHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6447,6 +7738,113 @@ func (s *UpdateRemoteClassCourseResponse) SetBody(v *UpdateRemoteClassCourseResp
 	return s
 }
 
+type QueryOrgSecretKeyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryOrgSecretKeyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgSecretKeyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgSecretKeyHeaders) SetCommonHeaders(v map[string]*string) *QueryOrgSecretKeyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryOrgSecretKeyHeaders) SetXAcsDingtalkAccessToken(v string) *QueryOrgSecretKeyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryOrgSecretKeyRequest struct {
+	// 合作方编码
+	IsvCode *string `json:"isvCode,omitempty" xml:"isvCode,omitempty"`
+	// 操作人
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s QueryOrgSecretKeyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgSecretKeyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgSecretKeyRequest) SetIsvCode(v string) *QueryOrgSecretKeyRequest {
+	s.IsvCode = &v
+	return s
+}
+
+func (s *QueryOrgSecretKeyRequest) SetOpUserId(v string) *QueryOrgSecretKeyRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type QueryOrgSecretKeyResponseBody struct {
+	// 秘钥信息
+	UniversitySecretKeyInfo *QueryOrgSecretKeyResponseBodyUniversitySecretKeyInfo `json:"universitySecretKeyInfo,omitempty" xml:"universitySecretKeyInfo,omitempty" type:"Struct"`
+}
+
+func (s QueryOrgSecretKeyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgSecretKeyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgSecretKeyResponseBody) SetUniversitySecretKeyInfo(v *QueryOrgSecretKeyResponseBodyUniversitySecretKeyInfo) *QueryOrgSecretKeyResponseBody {
+	s.UniversitySecretKeyInfo = v
+	return s
+}
+
+type QueryOrgSecretKeyResponseBodyUniversitySecretKeyInfo struct {
+	// 秘钥key
+	SecretKey *string `json:"secretKey,omitempty" xml:"secretKey,omitempty"`
+}
+
+func (s QueryOrgSecretKeyResponseBodyUniversitySecretKeyInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgSecretKeyResponseBodyUniversitySecretKeyInfo) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgSecretKeyResponseBodyUniversitySecretKeyInfo) SetSecretKey(v string) *QueryOrgSecretKeyResponseBodyUniversitySecretKeyInfo {
+	s.SecretKey = &v
+	return s
+}
+
+type QueryOrgSecretKeyResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryOrgSecretKeyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryOrgSecretKeyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgSecretKeyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgSecretKeyResponse) SetHeaders(v map[string]*string) *QueryOrgSecretKeyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryOrgSecretKeyResponse) SetBody(v *QueryOrgSecretKeyResponseBody) *QueryOrgSecretKeyResponse {
+	s.Body = v
+	return s
+}
+
 type SearchTeachersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6562,6 +7960,233 @@ func (s *SearchTeachersResponse) SetHeaders(v map[string]*string) *SearchTeacher
 }
 
 func (s *SearchTeachersResponse) SetBody(v *SearchTeachersResponseBody) *SearchTeachersResponse {
+	s.Body = v
+	return s
+}
+
+type UpdatePhysicalClassroomHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdatePhysicalClassroomHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePhysicalClassroomHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePhysicalClassroomHeaders) SetCommonHeaders(v map[string]*string) *UpdatePhysicalClassroomHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdatePhysicalClassroomHeaders) SetXAcsDingtalkAccessToken(v string) *UpdatePhysicalClassroomHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdatePhysicalClassroomRequest struct {
+	// 操作人id
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 教室楼层
+	ClassroomFloor *string `json:"classroomFloor,omitempty" xml:"classroomFloor,omitempty"`
+	// 扩展信息
+	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
+	// 教室教学楼
+	ClassroomBuilding *string `json:"classroomBuilding,omitempty" xml:"classroomBuilding,omitempty"`
+	// 是否支持直播
+	DirectBroadcast *string `json:"directBroadcast,omitempty" xml:"directBroadcast,omitempty"`
+	// 教室名称
+	ClassroomName *string `json:"classroomName,omitempty" xml:"classroomName,omitempty"`
+	// 教室校区
+	ClassroomCampus *string `json:"classroomCampus,omitempty" xml:"classroomCampus,omitempty"`
+	// 教室房间号
+	ClassroomNumber *string `json:"classroomNumber,omitempty" xml:"classroomNumber,omitempty"`
+	// 教室id
+	ClassroomId *int64 `json:"classroomId,omitempty" xml:"classroomId,omitempty"`
+}
+
+func (s UpdatePhysicalClassroomRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePhysicalClassroomRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePhysicalClassroomRequest) SetOpUserId(v string) *UpdatePhysicalClassroomRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *UpdatePhysicalClassroomRequest) SetClassroomFloor(v string) *UpdatePhysicalClassroomRequest {
+	s.ClassroomFloor = &v
+	return s
+}
+
+func (s *UpdatePhysicalClassroomRequest) SetExt(v string) *UpdatePhysicalClassroomRequest {
+	s.Ext = &v
+	return s
+}
+
+func (s *UpdatePhysicalClassroomRequest) SetClassroomBuilding(v string) *UpdatePhysicalClassroomRequest {
+	s.ClassroomBuilding = &v
+	return s
+}
+
+func (s *UpdatePhysicalClassroomRequest) SetDirectBroadcast(v string) *UpdatePhysicalClassroomRequest {
+	s.DirectBroadcast = &v
+	return s
+}
+
+func (s *UpdatePhysicalClassroomRequest) SetClassroomName(v string) *UpdatePhysicalClassroomRequest {
+	s.ClassroomName = &v
+	return s
+}
+
+func (s *UpdatePhysicalClassroomRequest) SetClassroomCampus(v string) *UpdatePhysicalClassroomRequest {
+	s.ClassroomCampus = &v
+	return s
+}
+
+func (s *UpdatePhysicalClassroomRequest) SetClassroomNumber(v string) *UpdatePhysicalClassroomRequest {
+	s.ClassroomNumber = &v
+	return s
+}
+
+func (s *UpdatePhysicalClassroomRequest) SetClassroomId(v int64) *UpdatePhysicalClassroomRequest {
+	s.ClassroomId = &v
+	return s
+}
+
+type UpdatePhysicalClassroomResponseBody struct {
+	// 是否成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdatePhysicalClassroomResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePhysicalClassroomResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePhysicalClassroomResponseBody) SetResult(v bool) *UpdatePhysicalClassroomResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdatePhysicalClassroomResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdatePhysicalClassroomResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdatePhysicalClassroomResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePhysicalClassroomResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePhysicalClassroomResponse) SetHeaders(v map[string]*string) *UpdatePhysicalClassroomResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdatePhysicalClassroomResponse) SetBody(v *UpdatePhysicalClassroomResponseBody) *UpdatePhysicalClassroomResponse {
+	s.Body = v
+	return s
+}
+
+type DeletePhysicalClassroomHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeletePhysicalClassroomHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePhysicalClassroomHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePhysicalClassroomHeaders) SetCommonHeaders(v map[string]*string) *DeletePhysicalClassroomHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeletePhysicalClassroomHeaders) SetXAcsDingtalkAccessToken(v string) *DeletePhysicalClassroomHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeletePhysicalClassroomRequest struct {
+	// 操作人id
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 教室id
+	ClassroomId *int64 `json:"classroomId,omitempty" xml:"classroomId,omitempty"`
+}
+
+func (s DeletePhysicalClassroomRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePhysicalClassroomRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePhysicalClassroomRequest) SetOpUserId(v string) *DeletePhysicalClassroomRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *DeletePhysicalClassroomRequest) SetClassroomId(v int64) *DeletePhysicalClassroomRequest {
+	s.ClassroomId = &v
+	return s
+}
+
+type DeletePhysicalClassroomResponseBody struct {
+	// 是否成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeletePhysicalClassroomResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePhysicalClassroomResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePhysicalClassroomResponseBody) SetResult(v bool) *DeletePhysicalClassroomResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeletePhysicalClassroomResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeletePhysicalClassroomResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeletePhysicalClassroomResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePhysicalClassroomResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePhysicalClassroomResponse) SetHeaders(v map[string]*string) *DeletePhysicalClassroomResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeletePhysicalClassroomResponse) SetBody(v *DeletePhysicalClassroomResponseBody) *DeletePhysicalClassroomResponse {
 	s.Body = v
 	return s
 }
@@ -6746,6 +8371,325 @@ func (s *QueryOrgTypeResponse) SetBody(v *QueryOrgTypeResponseBody) *QueryOrgTyp
 	return s
 }
 
+type CreateUniversityCourseGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateUniversityCourseGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUniversityCourseGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUniversityCourseGroupHeaders) SetCommonHeaders(v map[string]*string) *CreateUniversityCourseGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateUniversityCourseGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateUniversityCourseGroupRequest struct {
+	// 操作人
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 合作方课程组code
+	IsvCourseGroupCode *string `json:"isvCourseGroupCode,omitempty" xml:"isvCourseGroupCode,omitempty"`
+	// 扩展参数
+	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
+	// 课程组介绍
+	CourseGroupIntroduce *string `json:"courseGroupIntroduce,omitempty" xml:"courseGroupIntroduce,omitempty"`
+	// 学期
+	Semester *int32 `json:"semester,omitempty" xml:"semester,omitempty"`
+	// 学科
+	SubjectName *string `json:"subjectName,omitempty" xml:"subjectName,omitempty"`
+	// 课程组名称
+	CourseGroupName *string `json:"courseGroupName,omitempty" xml:"courseGroupName,omitempty"`
+	// 学年
+	SchoolYear *string `json:"schoolYear,omitempty" xml:"schoolYear,omitempty"`
+	// 学段code
+	PeriodCode *string `json:"periodCode,omitempty" xml:"periodCode,omitempty"`
+	// 教师信息
+	TeacherInfos []*CreateUniversityCourseGroupRequestTeacherInfos `json:"teacherInfos,omitempty" xml:"teacherInfos,omitempty" type:"Repeated"`
+	// 课程详细
+	CourserGroupItemModels []*CreateUniversityCourseGroupRequestCourserGroupItemModels `json:"courserGroupItemModels,omitempty" xml:"courserGroupItemModels,omitempty" type:"Repeated"`
+}
+
+func (s CreateUniversityCourseGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUniversityCourseGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUniversityCourseGroupRequest) SetOpUserId(v string) *CreateUniversityCourseGroupRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequest) SetIsvCourseGroupCode(v string) *CreateUniversityCourseGroupRequest {
+	s.IsvCourseGroupCode = &v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequest) SetExt(v string) *CreateUniversityCourseGroupRequest {
+	s.Ext = &v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequest) SetCourseGroupIntroduce(v string) *CreateUniversityCourseGroupRequest {
+	s.CourseGroupIntroduce = &v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequest) SetSemester(v int32) *CreateUniversityCourseGroupRequest {
+	s.Semester = &v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequest) SetSubjectName(v string) *CreateUniversityCourseGroupRequest {
+	s.SubjectName = &v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequest) SetCourseGroupName(v string) *CreateUniversityCourseGroupRequest {
+	s.CourseGroupName = &v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequest) SetSchoolYear(v string) *CreateUniversityCourseGroupRequest {
+	s.SchoolYear = &v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequest) SetPeriodCode(v string) *CreateUniversityCourseGroupRequest {
+	s.PeriodCode = &v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequest) SetTeacherInfos(v []*CreateUniversityCourseGroupRequestTeacherInfos) *CreateUniversityCourseGroupRequest {
+	s.TeacherInfos = v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequest) SetCourserGroupItemModels(v []*CreateUniversityCourseGroupRequestCourserGroupItemModels) *CreateUniversityCourseGroupRequest {
+	s.CourserGroupItemModels = v
+	return s
+}
+
+type CreateUniversityCourseGroupRequestTeacherInfos struct {
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 角色类型
+	ParticipantRole *string `json:"participantRole,omitempty" xml:"participantRole,omitempty"`
+}
+
+func (s CreateUniversityCourseGroupRequestTeacherInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUniversityCourseGroupRequestTeacherInfos) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUniversityCourseGroupRequestTeacherInfos) SetUserId(v string) *CreateUniversityCourseGroupRequestTeacherInfos {
+	s.UserId = &v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequestTeacherInfos) SetParticipantRole(v string) *CreateUniversityCourseGroupRequestTeacherInfos {
+	s.ParticipantRole = &v
+	return s
+}
+
+type CreateUniversityCourseGroupRequestCourserGroupItemModels struct {
+	// 一周的第几天
+	DayOfWeek *int32 `json:"dayOfWeek,omitempty" xml:"dayOfWeek,omitempty"`
+	// 上课周期
+	ClassPeriodType *int32 `json:"classPeriodType,omitempty" xml:"classPeriodType,omitempty"`
+	// 开始时间
+	Start *CreateUniversityCourseGroupRequestCourserGroupItemModelsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// 课节
+	SectionIndex []*int32 `json:"sectionIndex,omitempty" xml:"sectionIndex,omitempty" type:"Repeated"`
+	// 结束时间
+	End *CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	// 课程类型
+	CourseType *int32 `json:"courseType,omitempty" xml:"courseType,omitempty"`
+	// 教室id
+	ClassroomId *int64 `json:"classroomId,omitempty" xml:"classroomId,omitempty"`
+}
+
+func (s CreateUniversityCourseGroupRequestCourserGroupItemModels) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUniversityCourseGroupRequestCourserGroupItemModels) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModels) SetDayOfWeek(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.DayOfWeek = &v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModels) SetClassPeriodType(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.ClassPeriodType = &v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModels) SetStart(v *CreateUniversityCourseGroupRequestCourserGroupItemModelsStart) *CreateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.Start = v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModels) SetSectionIndex(v []*int32) *CreateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.SectionIndex = v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModels) SetEnd(v *CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd) *CreateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.End = v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModels) SetCourseType(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.CourseType = &v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModels) SetClassroomId(v int64) *CreateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.ClassroomId = &v
+	return s
+}
+
+type CreateUniversityCourseGroupRequestCourserGroupItemModelsStart struct {
+	// 月
+	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
+	// 年
+	Year *int32 `json:"year,omitempty" xml:"year,omitempty"`
+	// 一月的第几天
+	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+}
+
+func (s CreateUniversityCourseGroupRequestCourserGroupItemModelsStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUniversityCourseGroupRequestCourserGroupItemModelsStart) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsStart) SetMonth(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsStart {
+	s.Month = &v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsStart) SetYear(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsStart {
+	s.Year = &v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsStart) SetDayOfMonth(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsStart {
+	s.DayOfMonth = &v
+	return s
+}
+
+type CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd struct {
+	// 月
+	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
+	// 年
+	Year *int32 `json:"year,omitempty" xml:"year,omitempty"`
+	// 一月的第几天
+	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+}
+
+func (s CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd) SetMonth(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd {
+	s.Month = &v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd) SetYear(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd {
+	s.Year = &v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd) SetDayOfMonth(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd {
+	s.DayOfMonth = &v
+	return s
+}
+
+type CreateUniversityCourseGroupResponseBody struct {
+	// 课程组信息
+	CourseGroupInfo *CreateUniversityCourseGroupResponseBodyCourseGroupInfo `json:"courseGroupInfo,omitempty" xml:"courseGroupInfo,omitempty" type:"Struct"`
+}
+
+func (s CreateUniversityCourseGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUniversityCourseGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUniversityCourseGroupResponseBody) SetCourseGroupInfo(v *CreateUniversityCourseGroupResponseBodyCourseGroupInfo) *CreateUniversityCourseGroupResponseBody {
+	s.CourseGroupInfo = v
+	return s
+}
+
+type CreateUniversityCourseGroupResponseBodyCourseGroupInfo struct {
+	// 课程组编码
+	CourseGroupCode *string `json:"courseGroupCode,omitempty" xml:"courseGroupCode,omitempty"`
+}
+
+func (s CreateUniversityCourseGroupResponseBodyCourseGroupInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUniversityCourseGroupResponseBodyCourseGroupInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUniversityCourseGroupResponseBodyCourseGroupInfo) SetCourseGroupCode(v string) *CreateUniversityCourseGroupResponseBodyCourseGroupInfo {
+	s.CourseGroupCode = &v
+	return s
+}
+
+type CreateUniversityCourseGroupResponse struct {
+	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateUniversityCourseGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateUniversityCourseGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUniversityCourseGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUniversityCourseGroupResponse) SetHeaders(v map[string]*string) *CreateUniversityCourseGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateUniversityCourseGroupResponse) SetBody(v *CreateUniversityCourseGroupResponseBody) *CreateUniversityCourseGroupResponse {
+	s.Body = v
+	return s
+}
+
 type GetShareRoleMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6894,6 +8838,54 @@ func (client *Client) GetRemoteClassCourseWithOptions(courseCode *string, reques
 	}
 	_result = &GetRemoteClassCourseResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetRemoteClassCourse"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/remoteClasses/courses/"+tea.StringValue(courseCode)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryUniversityCourseGroup(request *QueryUniversityCourseGroupRequest) (_result *QueryUniversityCourseGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryUniversityCourseGroupHeaders{}
+	_result = &QueryUniversityCourseGroupResponse{}
+	_body, _err := client.QueryUniversityCourseGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryUniversityCourseGroupWithOptions(request *QueryUniversityCourseGroupRequest, headers *QueryUniversityCourseGroupHeaders, runtime *util.RuntimeOptions) (_result *QueryUniversityCourseGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CourseGroupCode)) {
+		query["courseGroupCode"] = request.CourseGroupCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryUniversityCourseGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryUniversityCourseGroup"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/universities/courseGroups"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7194,6 +9186,54 @@ func (client *Client) CourseSchedulingComplimentNoticeWithOptions(request *Cours
 	}
 	_result = &CourseSchedulingComplimentNoticeResponse{}
 	_body, _err := client.DoROARequest(tea.String("CourseSchedulingComplimentNotice"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/schedules/finishNotify"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteUniversityCourseGroup(request *DeleteUniversityCourseGroupRequest) (_result *DeleteUniversityCourseGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteUniversityCourseGroupHeaders{}
+	_result = &DeleteUniversityCourseGroupResponse{}
+	_body, _err := client.DeleteUniversityCourseGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteUniversityCourseGroupWithOptions(request *DeleteUniversityCourseGroupRequest, headers *DeleteUniversityCourseGroupHeaders, runtime *util.RuntimeOptions) (_result *DeleteUniversityCourseGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CourseGroupCode)) {
+		query["courseGroupCode"] = request.CourseGroupCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteUniversityCourseGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteUniversityCourseGroup"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/universities/courseGroups"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7697,6 +9737,72 @@ func (client *Client) DeleteDeviceOrgWithOptions(request *DeleteDeviceOrgRequest
 	return _result, _err
 }
 
+func (client *Client) UpdateUniversityCourseGroup(request *UpdateUniversityCourseGroupRequest) (_result *UpdateUniversityCourseGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateUniversityCourseGroupHeaders{}
+	_result = &UpdateUniversityCourseGroupResponse{}
+	_body, _err := client.UpdateUniversityCourseGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateUniversityCourseGroupWithOptions(request *UpdateUniversityCourseGroupRequest, headers *UpdateUniversityCourseGroupHeaders, runtime *util.RuntimeOptions) (_result *UpdateUniversityCourseGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Ext)) {
+		body["ext"] = request.Ext
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CourseGroupCode)) {
+		body["courseGroupCode"] = request.CourseGroupCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CourseGroupIntroduce)) {
+		body["courseGroupIntroduce"] = request.CourseGroupIntroduce
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CourseGroupName)) {
+		body["courseGroupName"] = request.CourseGroupName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CourserGroupItemModels)) {
+		body["courserGroupItemModels"] = request.CourserGroupItemModels
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateUniversityCourseGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateUniversityCourseGroup"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/edu/universities/courseGroups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) BatchOrgCreateHW(request *BatchOrgCreateHWRequest) (_result *BatchOrgCreateHWResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchOrgCreateHWHeaders{}
@@ -8169,6 +10275,60 @@ func (client *Client) QueryTeachSubjectsWithOptions(request *QueryTeachSubjectsR
 	return _result, _err
 }
 
+func (client *Client) CreateSectionConfig(request *CreateSectionConfigRequest) (_result *CreateSectionConfigResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateSectionConfigHeaders{}
+	_result = &CreateSectionConfigResponse{}
+	_body, _err := client.CreateSectionConfigWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateSectionConfigWithOptions(request *CreateSectionConfigRequest, headers *CreateSectionConfigHeaders, runtime *util.RuntimeOptions) (_result *CreateSectionConfigResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Ext)) {
+		body["ext"] = request.Ext
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SectionConfigs)) {
+		body["sectionConfigs"] = request.SectionConfigs
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateSectionConfigResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateSectionConfig"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/universities/sectionConfigs"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetShareRoles() (_result *GetShareRolesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetShareRolesHeaders{}
@@ -8300,6 +10460,80 @@ func (client *Client) QueryRemoteClassCourseWithOptions(request *QueryRemoteClas
 	}
 	_result = &QueryRemoteClassCourseResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryRemoteClassCourse"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/remoteClasses/courses"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreatePhysicalClassroom(request *CreatePhysicalClassroomRequest) (_result *CreatePhysicalClassroomResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreatePhysicalClassroomHeaders{}
+	_result = &CreatePhysicalClassroomResponse{}
+	_body, _err := client.CreatePhysicalClassroomWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreatePhysicalClassroomWithOptions(request *CreatePhysicalClassroomRequest, headers *CreatePhysicalClassroomHeaders, runtime *util.RuntimeOptions) (_result *CreatePhysicalClassroomResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ClassroomFloor)) {
+		body["classroomFloor"] = request.ClassroomFloor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Ext)) {
+		body["ext"] = request.Ext
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ClassroomBuilding)) {
+		body["classroomBuilding"] = request.ClassroomBuilding
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DirectBroadcast)) {
+		body["directBroadcast"] = request.DirectBroadcast
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ClassroomName)) {
+		body["classroomName"] = request.ClassroomName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ClassroomCampus)) {
+		body["classroomCampus"] = request.ClassroomCampus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ClassroomNumber)) {
+		body["classroomNumber"] = request.ClassroomNumber
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreatePhysicalClassroomResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreatePhysicalClassroom"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/physicalClassrooms"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8509,6 +10743,54 @@ func (client *Client) CreateRemoteClassCourseWithOptions(request *CreateRemoteCl
 	return _result, _err
 }
 
+func (client *Client) QueryPhysicalClassroom(request *QueryPhysicalClassroomRequest) (_result *QueryPhysicalClassroomResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryPhysicalClassroomHeaders{}
+	_result = &QueryPhysicalClassroomResponse{}
+	_body, _err := client.QueryPhysicalClassroomWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryPhysicalClassroomWithOptions(request *QueryPhysicalClassroomRequest, headers *QueryPhysicalClassroomHeaders, runtime *util.RuntimeOptions) (_result *QueryPhysicalClassroomResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ClassroomId)) {
+		query["classroomId"] = request.ClassroomId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryPhysicalClassroomResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryPhysicalClassroom"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/physicalClassrooms"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateCustomClass(request *CreateCustomClassRequest) (_result *CreateCustomClassResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateCustomClassHeaders{}
@@ -8677,6 +10959,54 @@ func (client *Client) UpdateRemoteClassCourseWithOptions(request *UpdateRemoteCl
 	return _result, _err
 }
 
+func (client *Client) QueryOrgSecretKey(request *QueryOrgSecretKeyRequest) (_result *QueryOrgSecretKeyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryOrgSecretKeyHeaders{}
+	_result = &QueryOrgSecretKeyResponse{}
+	_body, _err := client.QueryOrgSecretKeyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryOrgSecretKeyWithOptions(request *QueryOrgSecretKeyRequest, headers *QueryOrgSecretKeyHeaders, runtime *util.RuntimeOptions) (_result *QueryOrgSecretKeyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IsvCode)) {
+		query["isvCode"] = request.IsvCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryOrgSecretKeyResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryOrgSecretKey"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/universities/secretKeys"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) SearchTeachers(request *SearchTeachersRequest) (_result *SearchTeachersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchTeachersHeaders{}
@@ -8714,6 +11044,134 @@ func (client *Client) SearchTeachersWithOptions(request *SearchTeachersRequest, 
 	}
 	_result = &SearchTeachersResponse{}
 	_body, _err := client.DoROARequest(tea.String("SearchTeachers"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/teachers/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdatePhysicalClassroom(request *UpdatePhysicalClassroomRequest) (_result *UpdatePhysicalClassroomResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdatePhysicalClassroomHeaders{}
+	_result = &UpdatePhysicalClassroomResponse{}
+	_body, _err := client.UpdatePhysicalClassroomWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdatePhysicalClassroomWithOptions(request *UpdatePhysicalClassroomRequest, headers *UpdatePhysicalClassroomHeaders, runtime *util.RuntimeOptions) (_result *UpdatePhysicalClassroomResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ClassroomFloor)) {
+		body["classroomFloor"] = request.ClassroomFloor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Ext)) {
+		body["ext"] = request.Ext
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ClassroomBuilding)) {
+		body["classroomBuilding"] = request.ClassroomBuilding
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DirectBroadcast)) {
+		body["directBroadcast"] = request.DirectBroadcast
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ClassroomName)) {
+		body["classroomName"] = request.ClassroomName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ClassroomCampus)) {
+		body["classroomCampus"] = request.ClassroomCampus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ClassroomNumber)) {
+		body["classroomNumber"] = request.ClassroomNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ClassroomId)) {
+		body["classroomId"] = request.ClassroomId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdatePhysicalClassroomResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdatePhysicalClassroom"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/edu/physicalClassrooms"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeletePhysicalClassroom(request *DeletePhysicalClassroomRequest) (_result *DeletePhysicalClassroomResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeletePhysicalClassroomHeaders{}
+	_result = &DeletePhysicalClassroomResponse{}
+	_body, _err := client.DeletePhysicalClassroomWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeletePhysicalClassroomWithOptions(request *DeletePhysicalClassroomRequest, headers *DeletePhysicalClassroomHeaders, runtime *util.RuntimeOptions) (_result *DeletePhysicalClassroomResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ClassroomId)) {
+		body["classroomId"] = request.ClassroomId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DeletePhysicalClassroomResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeletePhysicalClassroom"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/physicalClassrooms"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8792,6 +11250,92 @@ func (client *Client) QueryOrgTypeWithOptions(headers *QueryOrgTypeHeaders, runt
 	}
 	_result = &QueryOrgTypeResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryOrgType"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/orgTypes"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateUniversityCourseGroup(request *CreateUniversityCourseGroupRequest) (_result *CreateUniversityCourseGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateUniversityCourseGroupHeaders{}
+	_result = &CreateUniversityCourseGroupResponse{}
+	_body, _err := client.CreateUniversityCourseGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateUniversityCourseGroupWithOptions(request *CreateUniversityCourseGroupRequest, headers *CreateUniversityCourseGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateUniversityCourseGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IsvCourseGroupCode)) {
+		body["isvCourseGroupCode"] = request.IsvCourseGroupCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Ext)) {
+		body["ext"] = request.Ext
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CourseGroupIntroduce)) {
+		body["courseGroupIntroduce"] = request.CourseGroupIntroduce
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Semester)) {
+		body["semester"] = request.Semester
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubjectName)) {
+		body["subjectName"] = request.SubjectName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CourseGroupName)) {
+		body["courseGroupName"] = request.CourseGroupName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SchoolYear)) {
+		body["schoolYear"] = request.SchoolYear
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PeriodCode)) {
+		body["periodCode"] = request.PeriodCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TeacherInfos)) {
+		body["teacherInfos"] = request.TeacherInfos
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CourserGroupItemModels)) {
+		body["courserGroupItemModels"] = request.CourserGroupItemModels
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateUniversityCourseGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateUniversityCourseGroup"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/universities/courseGroups"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
