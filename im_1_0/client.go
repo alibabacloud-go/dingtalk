@@ -867,6 +867,138 @@ func (s *InteractiveCardCreateInstanceResponse) SetBody(v *InteractiveCardCreate
 	return s
 }
 
+type UpdateGroupSubAdminHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateGroupSubAdminHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupSubAdminHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupSubAdminHeaders) SetCommonHeaders(v map[string]*string) *UpdateGroupSubAdminHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateGroupSubAdminHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateGroupSubAdminHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateGroupSubAdminRequest struct {
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingOauthAppId     *int64  `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
+	DingClientId       *string `json:"dingClientId,omitempty" xml:"dingClientId,omitempty"`
+	// 开放群ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 用户ID清单
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// 2-群管理员 3-普通群成员
+	Role *int64 `json:"role,omitempty" xml:"role,omitempty"`
+}
+
+func (s UpdateGroupSubAdminRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupSubAdminRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupSubAdminRequest) SetDingTokenGrantType(v int64) *UpdateGroupSubAdminRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *UpdateGroupSubAdminRequest) SetDingOrgId(v int64) *UpdateGroupSubAdminRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *UpdateGroupSubAdminRequest) SetDingIsvOrgId(v int64) *UpdateGroupSubAdminRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *UpdateGroupSubAdminRequest) SetDingSuiteKey(v string) *UpdateGroupSubAdminRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *UpdateGroupSubAdminRequest) SetDingOauthAppId(v int64) *UpdateGroupSubAdminRequest {
+	s.DingOauthAppId = &v
+	return s
+}
+
+func (s *UpdateGroupSubAdminRequest) SetDingClientId(v string) *UpdateGroupSubAdminRequest {
+	s.DingClientId = &v
+	return s
+}
+
+func (s *UpdateGroupSubAdminRequest) SetOpenConversationId(v string) *UpdateGroupSubAdminRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *UpdateGroupSubAdminRequest) SetUserIds(v []*string) *UpdateGroupSubAdminRequest {
+	s.UserIds = v
+	return s
+}
+
+func (s *UpdateGroupSubAdminRequest) SetRole(v int64) *UpdateGroupSubAdminRequest {
+	s.Role = &v
+	return s
+}
+
+type UpdateGroupSubAdminResponseBody struct {
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateGroupSubAdminResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupSubAdminResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupSubAdminResponseBody) SetSuccess(v bool) *UpdateGroupSubAdminResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateGroupSubAdminResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateGroupSubAdminResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateGroupSubAdminResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupSubAdminResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupSubAdminResponse) SetHeaders(v map[string]*string) *UpdateGroupSubAdminResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateGroupSubAdminResponse) SetBody(v *UpdateGroupSubAdminResponseBody) *UpdateGroupSubAdminResponse {
+	s.Body = v
+	return s
+}
+
 type QueryMembersOfGroupRoleHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1224,6 +1356,138 @@ func (s *UpdateTheGroupRolesOfGroupMemberResponse) SetHeaders(v map[string]*stri
 }
 
 func (s *UpdateTheGroupRolesOfGroupMemberResponse) SetBody(v *UpdateTheGroupRolesOfGroupMemberResponseBody) *UpdateTheGroupRolesOfGroupMemberResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateMemberGroupNickHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateMemberGroupNickHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMemberGroupNickHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMemberGroupNickHeaders) SetCommonHeaders(v map[string]*string) *UpdateMemberGroupNickHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateMemberGroupNickHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateMemberGroupNickHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateMemberGroupNickRequest struct {
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingOauthAppId     *int64  `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
+	DingClientId       *string `json:"dingClientId,omitempty" xml:"dingClientId,omitempty"`
+	// 开放群ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 群昵称
+	GroupNick *string `json:"groupNick,omitempty" xml:"groupNick,omitempty"`
+}
+
+func (s UpdateMemberGroupNickRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMemberGroupNickRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMemberGroupNickRequest) SetDingTokenGrantType(v int64) *UpdateMemberGroupNickRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *UpdateMemberGroupNickRequest) SetDingOrgId(v int64) *UpdateMemberGroupNickRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *UpdateMemberGroupNickRequest) SetDingIsvOrgId(v int64) *UpdateMemberGroupNickRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *UpdateMemberGroupNickRequest) SetDingSuiteKey(v string) *UpdateMemberGroupNickRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *UpdateMemberGroupNickRequest) SetDingOauthAppId(v int64) *UpdateMemberGroupNickRequest {
+	s.DingOauthAppId = &v
+	return s
+}
+
+func (s *UpdateMemberGroupNickRequest) SetDingClientId(v string) *UpdateMemberGroupNickRequest {
+	s.DingClientId = &v
+	return s
+}
+
+func (s *UpdateMemberGroupNickRequest) SetOpenConversationId(v string) *UpdateMemberGroupNickRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *UpdateMemberGroupNickRequest) SetUserId(v string) *UpdateMemberGroupNickRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *UpdateMemberGroupNickRequest) SetGroupNick(v string) *UpdateMemberGroupNickRequest {
+	s.GroupNick = &v
+	return s
+}
+
+type UpdateMemberGroupNickResponseBody struct {
+	// result
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateMemberGroupNickResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMemberGroupNickResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMemberGroupNickResponseBody) SetSuccess(v bool) *UpdateMemberGroupNickResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateMemberGroupNickResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateMemberGroupNickResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateMemberGroupNickResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMemberGroupNickResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMemberGroupNickResponse) SetHeaders(v map[string]*string) *UpdateMemberGroupNickResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateMemberGroupNickResponse) SetBody(v *UpdateMemberGroupNickResponseBody) *UpdateMemberGroupNickResponse {
 	s.Body = v
 	return s
 }
@@ -1908,6 +2172,82 @@ func (client *Client) InteractiveCardCreateInstanceWithOptions(request *Interact
 	return _result, _err
 }
 
+func (client *Client) UpdateGroupSubAdmin(request *UpdateGroupSubAdminRequest) (_result *UpdateGroupSubAdminResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateGroupSubAdminHeaders{}
+	_result = &UpdateGroupSubAdminResponse{}
+	_body, _err := client.UpdateGroupSubAdminWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateGroupSubAdminWithOptions(request *UpdateGroupSubAdminRequest, headers *UpdateGroupSubAdminHeaders, runtime *util.RuntimeOptions) (_result *UpdateGroupSubAdminResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOauthAppId)) {
+		body["dingOauthAppId"] = request.DingOauthAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingClientId)) {
+		body["dingClientId"] = request.DingClientId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Role)) {
+		body["role"] = request.Role
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateGroupSubAdminResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateGroupSubAdmin"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/subAdmins"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryMembersOfGroupRole(request *QueryMembersOfGroupRoleRequest) (_result *QueryMembersOfGroupRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryMembersOfGroupRoleHeaders{}
@@ -2121,6 +2461,82 @@ func (client *Client) UpdateTheGroupRolesOfGroupMemberWithOptions(request *Updat
 	}
 	_result = &UpdateTheGroupRolesOfGroupMemberResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateTheGroupRolesOfGroupMember"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/members/groupRoles"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateMemberGroupNick(request *UpdateMemberGroupNickRequest) (_result *UpdateMemberGroupNickResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateMemberGroupNickHeaders{}
+	_result = &UpdateMemberGroupNickResponse{}
+	_body, _err := client.UpdateMemberGroupNickWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateMemberGroupNickWithOptions(request *UpdateMemberGroupNickRequest, headers *UpdateMemberGroupNickHeaders, runtime *util.RuntimeOptions) (_result *UpdateMemberGroupNickResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOauthAppId)) {
+		body["dingOauthAppId"] = request.DingOauthAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingClientId)) {
+		body["dingClientId"] = request.DingClientId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupNick)) {
+		body["groupNick"] = request.GroupNick
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateMemberGroupNickResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateMemberGroupNick"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/members/groupNicks"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

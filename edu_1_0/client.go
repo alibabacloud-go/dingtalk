@@ -401,9 +401,9 @@ type QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroup
 	// 课节
 	SectionIndex []*int32 `json:"sectionIndex,omitempty" xml:"sectionIndex,omitempty" type:"Repeated"`
 	// 开始时间
-	Start *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	CourserGroupItemStartDate *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemStartDate `json:"courserGroupItemStartDate,omitempty" xml:"courserGroupItemStartDate,omitempty" type:"Struct"`
 	// 结束时间
-	End *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	CourserGroupItemEndDate *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemEndDate `json:"courserGroupItemEndDate,omitempty" xml:"courserGroupItemEndDate,omitempty" type:"Struct"`
 	// 课程类型
 	CourseType *int32 `json:"courseType,omitempty" xml:"courseType,omitempty"`
 }
@@ -436,13 +436,13 @@ func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserG
 	return s
 }
 
-func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels) SetStart(v *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels {
-	s.Start = v
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels) SetCourserGroupItemStartDate(v *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemStartDate) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels {
+	s.CourserGroupItemStartDate = v
 	return s
 }
 
-func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels) SetEnd(v *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels {
-	s.End = v
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels) SetCourserGroupItemEndDate(v *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemEndDate) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModels {
+	s.CourserGroupItemEndDate = v
 	return s
 }
 
@@ -451,7 +451,7 @@ func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserG
 	return s
 }
 
-type QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart struct {
+type QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemStartDate struct {
 	// 年
 	Year *int32 `json:"year,omitempty" xml:"year,omitempty"`
 	// 月
@@ -460,30 +460,30 @@ type QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroup
 	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
 }
 
-func (s QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart) String() string {
+func (s QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemStartDate) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart) GoString() string {
+func (s QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemStartDate) GoString() string {
 	return s.String()
 }
 
-func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart) SetYear(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart {
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemStartDate) SetYear(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemStartDate {
 	s.Year = &v
 	return s
 }
 
-func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart) SetMonth(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart {
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemStartDate) SetMonth(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemStartDate {
 	s.Month = &v
 	return s
 }
 
-func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart) SetDayOfMonth(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsStart {
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemStartDate) SetDayOfMonth(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemStartDate {
 	s.DayOfMonth = &v
 	return s
 }
 
-type QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd struct {
+type QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemEndDate struct {
 	// 年
 	Year *int32 `json:"year,omitempty" xml:"year,omitempty"`
 	// 月
@@ -492,25 +492,25 @@ type QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroup
 	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
 }
 
-func (s QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd) String() string {
+func (s QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemEndDate) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd) GoString() string {
+func (s QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemEndDate) GoString() string {
 	return s.String()
 }
 
-func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd) SetYear(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd {
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemEndDate) SetYear(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemEndDate {
 	s.Year = &v
 	return s
 }
 
-func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd) SetMonth(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd {
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemEndDate) SetMonth(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemEndDate {
 	s.Month = &v
 	return s
 }
 
-func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd) SetDayOfMonth(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsEnd {
+func (s *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemEndDate) SetDayOfMonth(v int32) *QueryUniversityCourseGroupResponseBodyUniversityCourseGroupInfoCourserGroupItemModelsCourserGroupItemEndDate {
 	s.DayOfMonth = &v
 	return s
 }
@@ -3529,11 +3529,11 @@ type UpdateUniversityCourseGroupRequestCourserGroupItemModels struct {
 	// 上课周期
 	ClassPeriodType *int32 `json:"classPeriodType,omitempty" xml:"classPeriodType,omitempty"`
 	// 开始时间
-	Start *UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	CourserGroupItemStartDate *UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate `json:"courserGroupItemStartDate,omitempty" xml:"courserGroupItemStartDate,omitempty" type:"Struct"`
 	// 课节
 	SectionIndex []*int32 `json:"sectionIndex,omitempty" xml:"sectionIndex,omitempty" type:"Repeated"`
 	// 结束时间
-	End *UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	CourserGroupItemEndDate *UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate `json:"courserGroupItemEndDate,omitempty" xml:"courserGroupItemEndDate,omitempty" type:"Struct"`
 	// 课程类型
 	CourseType *int32 `json:"courseType,omitempty" xml:"courseType,omitempty"`
 	// classroomId
@@ -3558,8 +3558,8 @@ func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModels) SetClassPerio
 	return s
 }
 
-func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModels) SetStart(v *UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart) *UpdateUniversityCourseGroupRequestCourserGroupItemModels {
-	s.Start = v
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModels) SetCourserGroupItemStartDate(v *UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate) *UpdateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.CourserGroupItemStartDate = v
 	return s
 }
 
@@ -3568,8 +3568,8 @@ func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModels) SetSectionInd
 	return s
 }
 
-func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModels) SetEnd(v *UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd) *UpdateUniversityCourseGroupRequestCourserGroupItemModels {
-	s.End = v
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModels) SetCourserGroupItemEndDate(v *UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate) *UpdateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.CourserGroupItemEndDate = v
 	return s
 }
 
@@ -3583,7 +3583,7 @@ func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModels) SetClassroomI
 	return s
 }
 
-type UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart struct {
+type UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate struct {
 	// 月
 	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
 	// 年
@@ -3592,30 +3592,30 @@ type UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart struct {
 	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
 }
 
-func (s UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart) String() string {
+func (s UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate) String() string {
 	return tea.Prettify(s)
 }
 
-func (s UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart) GoString() string {
+func (s UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart) SetMonth(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart {
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate) SetMonth(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate {
 	s.Month = &v
 	return s
 }
 
-func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart) SetYear(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart {
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate) SetYear(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate {
 	s.Year = &v
 	return s
 }
 
-func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart) SetDayOfMonth(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsStart {
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate) SetDayOfMonth(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate {
 	s.DayOfMonth = &v
 	return s
 }
 
-type UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd struct {
+type UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate struct {
 	// 月
 	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
 	// 年
@@ -3624,25 +3624,25 @@ type UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd struct {
 	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
 }
 
-func (s UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd) String() string {
+func (s UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate) String() string {
 	return tea.Prettify(s)
 }
 
-func (s UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd) GoString() string {
+func (s UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd) SetMonth(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd {
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate) SetMonth(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate {
 	s.Month = &v
 	return s
 }
 
-func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd) SetYear(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd {
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate) SetYear(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate {
 	s.Year = &v
 	return s
 }
 
-func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd) SetDayOfMonth(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsEnd {
+func (s *UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate) SetDayOfMonth(v int32) *UpdateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate {
 	s.DayOfMonth = &v
 	return s
 }
@@ -5399,7 +5399,7 @@ type CreateSectionConfigRequestSectionConfigs struct {
 	// 学期
 	Semester *int32 `json:"semester,omitempty" xml:"semester,omitempty"`
 	// 开始时间（精确到日）
-	Start *CreateSectionConfigRequestSectionConfigsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	SectionStartDate *CreateSectionConfigRequestSectionConfigsSectionStartDate `json:"sectionStartDate,omitempty" xml:"sectionStartDate,omitempty" type:"Struct"`
 	// 学年
 	SchoolYear *string `json:"schoolYear,omitempty" xml:"schoolYear,omitempty"`
 	// 课表名称
@@ -5407,11 +5407,11 @@ type CreateSectionConfigRequestSectionConfigs struct {
 	// 节次模型
 	SectionModels []*CreateSectionConfigRequestSectionConfigsSectionModels `json:"sectionModels,omitempty" xml:"sectionModels,omitempty" type:"Repeated"`
 	// 结束时间
-	End *CreateSectionConfigRequestSectionConfigsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	SectionEndDate *CreateSectionConfigRequestSectionConfigsSectionEndDate `json:"sectionEndDate,omitempty" xml:"sectionEndDate,omitempty" type:"Struct"`
 	// 学期开始时间
-	SemesterStart *CreateSectionConfigRequestSectionConfigsSemesterStart `json:"semesterStart,omitempty" xml:"semesterStart,omitempty" type:"Struct"`
+	SemesterStartDate *CreateSectionConfigRequestSectionConfigsSemesterStartDate `json:"semesterStartDate,omitempty" xml:"semesterStartDate,omitempty" type:"Struct"`
 	// 学期结束时间
-	SemesterEnd *CreateSectionConfigRequestSectionConfigsSemesterEnd `json:"semesterEnd,omitempty" xml:"semesterEnd,omitempty" type:"Struct"`
+	SemesterEndDate *CreateSectionConfigRequestSectionConfigsSemesterEndDate `json:"semesterEndDate,omitempty" xml:"semesterEndDate,omitempty" type:"Struct"`
 }
 
 func (s CreateSectionConfigRequestSectionConfigs) String() string {
@@ -5427,8 +5427,8 @@ func (s *CreateSectionConfigRequestSectionConfigs) SetSemester(v int32) *CreateS
 	return s
 }
 
-func (s *CreateSectionConfigRequestSectionConfigs) SetStart(v *CreateSectionConfigRequestSectionConfigsStart) *CreateSectionConfigRequestSectionConfigs {
-	s.Start = v
+func (s *CreateSectionConfigRequestSectionConfigs) SetSectionStartDate(v *CreateSectionConfigRequestSectionConfigsSectionStartDate) *CreateSectionConfigRequestSectionConfigs {
+	s.SectionStartDate = v
 	return s
 }
 
@@ -5447,22 +5447,22 @@ func (s *CreateSectionConfigRequestSectionConfigs) SetSectionModels(v []*CreateS
 	return s
 }
 
-func (s *CreateSectionConfigRequestSectionConfigs) SetEnd(v *CreateSectionConfigRequestSectionConfigsEnd) *CreateSectionConfigRequestSectionConfigs {
-	s.End = v
+func (s *CreateSectionConfigRequestSectionConfigs) SetSectionEndDate(v *CreateSectionConfigRequestSectionConfigsSectionEndDate) *CreateSectionConfigRequestSectionConfigs {
+	s.SectionEndDate = v
 	return s
 }
 
-func (s *CreateSectionConfigRequestSectionConfigs) SetSemesterStart(v *CreateSectionConfigRequestSectionConfigsSemesterStart) *CreateSectionConfigRequestSectionConfigs {
-	s.SemesterStart = v
+func (s *CreateSectionConfigRequestSectionConfigs) SetSemesterStartDate(v *CreateSectionConfigRequestSectionConfigsSemesterStartDate) *CreateSectionConfigRequestSectionConfigs {
+	s.SemesterStartDate = v
 	return s
 }
 
-func (s *CreateSectionConfigRequestSectionConfigs) SetSemesterEnd(v *CreateSectionConfigRequestSectionConfigsSemesterEnd) *CreateSectionConfigRequestSectionConfigs {
-	s.SemesterEnd = v
+func (s *CreateSectionConfigRequestSectionConfigs) SetSemesterEndDate(v *CreateSectionConfigRequestSectionConfigsSemesterEndDate) *CreateSectionConfigRequestSectionConfigs {
+	s.SemesterEndDate = v
 	return s
 }
 
-type CreateSectionConfigRequestSectionConfigsStart struct {
+type CreateSectionConfigRequestSectionConfigsSectionStartDate struct {
 	// 月份。
 	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
 	// 年份。
@@ -5471,25 +5471,25 @@ type CreateSectionConfigRequestSectionConfigsStart struct {
 	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
 }
 
-func (s CreateSectionConfigRequestSectionConfigsStart) String() string {
+func (s CreateSectionConfigRequestSectionConfigsSectionStartDate) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CreateSectionConfigRequestSectionConfigsStart) GoString() string {
+func (s CreateSectionConfigRequestSectionConfigsSectionStartDate) GoString() string {
 	return s.String()
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsStart) SetMonth(v int32) *CreateSectionConfigRequestSectionConfigsStart {
+func (s *CreateSectionConfigRequestSectionConfigsSectionStartDate) SetMonth(v int32) *CreateSectionConfigRequestSectionConfigsSectionStartDate {
 	s.Month = &v
 	return s
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsStart) SetYear(v int32) *CreateSectionConfigRequestSectionConfigsStart {
+func (s *CreateSectionConfigRequestSectionConfigsSectionStartDate) SetYear(v int32) *CreateSectionConfigRequestSectionConfigsSectionStartDate {
 	s.Year = &v
 	return s
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsStart) SetDayOfMonth(v int32) *CreateSectionConfigRequestSectionConfigsStart {
+func (s *CreateSectionConfigRequestSectionConfigsSectionStartDate) SetDayOfMonth(v int32) *CreateSectionConfigRequestSectionConfigsSectionStartDate {
 	s.DayOfMonth = &v
 	return s
 }
@@ -5498,11 +5498,11 @@ type CreateSectionConfigRequestSectionConfigsSectionModels struct {
 	// 节次类型枚举：COURSE/REST
 	SectionType *string `json:"sectionType,omitempty" xml:"sectionType,omitempty"`
 	// 开始时间
-	Start *CreateSectionConfigRequestSectionConfigsSectionModelsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	SectionStartTime *CreateSectionConfigRequestSectionConfigsSectionModelsSectionStartTime `json:"sectionStartTime,omitempty" xml:"sectionStartTime,omitempty" type:"Struct"`
 	// 第几节。
 	SectionIndex *int32 `json:"sectionIndex,omitempty" xml:"sectionIndex,omitempty"`
 	// 结束时间
-	End *CreateSectionConfigRequestSectionConfigsSectionModelsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	SectionEndTime *CreateSectionConfigRequestSectionConfigsSectionModelsSectionEndTime `json:"sectionEndTime,omitempty" xml:"sectionEndTime,omitempty" type:"Struct"`
 	// 节次名称
 	SectionName *string `json:"sectionName,omitempty" xml:"sectionName,omitempty"`
 }
@@ -5520,8 +5520,8 @@ func (s *CreateSectionConfigRequestSectionConfigsSectionModels) SetSectionType(v
 	return s
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsSectionModels) SetStart(v *CreateSectionConfigRequestSectionConfigsSectionModelsStart) *CreateSectionConfigRequestSectionConfigsSectionModels {
-	s.Start = v
+func (s *CreateSectionConfigRequestSectionConfigsSectionModels) SetSectionStartTime(v *CreateSectionConfigRequestSectionConfigsSectionModelsSectionStartTime) *CreateSectionConfigRequestSectionConfigsSectionModels {
+	s.SectionStartTime = v
 	return s
 }
 
@@ -5530,8 +5530,8 @@ func (s *CreateSectionConfigRequestSectionConfigsSectionModels) SetSectionIndex(
 	return s
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsSectionModels) SetEnd(v *CreateSectionConfigRequestSectionConfigsSectionModelsEnd) *CreateSectionConfigRequestSectionConfigsSectionModels {
-	s.End = v
+func (s *CreateSectionConfigRequestSectionConfigsSectionModels) SetSectionEndTime(v *CreateSectionConfigRequestSectionConfigsSectionModelsSectionEndTime) *CreateSectionConfigRequestSectionConfigsSectionModels {
+	s.SectionEndTime = v
 	return s
 }
 
@@ -5540,57 +5540,57 @@ func (s *CreateSectionConfigRequestSectionConfigsSectionModels) SetSectionName(v
 	return s
 }
 
-type CreateSectionConfigRequestSectionConfigsSectionModelsStart struct {
+type CreateSectionConfigRequestSectionConfigsSectionModelsSectionStartTime struct {
 	// 分
 	Min *int32 `json:"min,omitempty" xml:"min,omitempty"`
 	// 小时
 	Hour *int32 `json:"hour,omitempty" xml:"hour,omitempty"`
 }
 
-func (s CreateSectionConfigRequestSectionConfigsSectionModelsStart) String() string {
+func (s CreateSectionConfigRequestSectionConfigsSectionModelsSectionStartTime) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CreateSectionConfigRequestSectionConfigsSectionModelsStart) GoString() string {
+func (s CreateSectionConfigRequestSectionConfigsSectionModelsSectionStartTime) GoString() string {
 	return s.String()
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsSectionModelsStart) SetMin(v int32) *CreateSectionConfigRequestSectionConfigsSectionModelsStart {
+func (s *CreateSectionConfigRequestSectionConfigsSectionModelsSectionStartTime) SetMin(v int32) *CreateSectionConfigRequestSectionConfigsSectionModelsSectionStartTime {
 	s.Min = &v
 	return s
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsSectionModelsStart) SetHour(v int32) *CreateSectionConfigRequestSectionConfigsSectionModelsStart {
+func (s *CreateSectionConfigRequestSectionConfigsSectionModelsSectionStartTime) SetHour(v int32) *CreateSectionConfigRequestSectionConfigsSectionModelsSectionStartTime {
 	s.Hour = &v
 	return s
 }
 
-type CreateSectionConfigRequestSectionConfigsSectionModelsEnd struct {
+type CreateSectionConfigRequestSectionConfigsSectionModelsSectionEndTime struct {
 	// 分
 	Min *int32 `json:"min,omitempty" xml:"min,omitempty"`
 	// 小时
 	Hour *int32 `json:"hour,omitempty" xml:"hour,omitempty"`
 }
 
-func (s CreateSectionConfigRequestSectionConfigsSectionModelsEnd) String() string {
+func (s CreateSectionConfigRequestSectionConfigsSectionModelsSectionEndTime) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CreateSectionConfigRequestSectionConfigsSectionModelsEnd) GoString() string {
+func (s CreateSectionConfigRequestSectionConfigsSectionModelsSectionEndTime) GoString() string {
 	return s.String()
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsSectionModelsEnd) SetMin(v int32) *CreateSectionConfigRequestSectionConfigsSectionModelsEnd {
+func (s *CreateSectionConfigRequestSectionConfigsSectionModelsSectionEndTime) SetMin(v int32) *CreateSectionConfigRequestSectionConfigsSectionModelsSectionEndTime {
 	s.Min = &v
 	return s
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsSectionModelsEnd) SetHour(v int32) *CreateSectionConfigRequestSectionConfigsSectionModelsEnd {
+func (s *CreateSectionConfigRequestSectionConfigsSectionModelsSectionEndTime) SetHour(v int32) *CreateSectionConfigRequestSectionConfigsSectionModelsSectionEndTime {
 	s.Hour = &v
 	return s
 }
 
-type CreateSectionConfigRequestSectionConfigsEnd struct {
+type CreateSectionConfigRequestSectionConfigsSectionEndDate struct {
 	// 月
 	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
 	// 年
@@ -5599,30 +5599,30 @@ type CreateSectionConfigRequestSectionConfigsEnd struct {
 	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
 }
 
-func (s CreateSectionConfigRequestSectionConfigsEnd) String() string {
+func (s CreateSectionConfigRequestSectionConfigsSectionEndDate) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CreateSectionConfigRequestSectionConfigsEnd) GoString() string {
+func (s CreateSectionConfigRequestSectionConfigsSectionEndDate) GoString() string {
 	return s.String()
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsEnd) SetMonth(v int32) *CreateSectionConfigRequestSectionConfigsEnd {
+func (s *CreateSectionConfigRequestSectionConfigsSectionEndDate) SetMonth(v int32) *CreateSectionConfigRequestSectionConfigsSectionEndDate {
 	s.Month = &v
 	return s
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsEnd) SetYear(v int32) *CreateSectionConfigRequestSectionConfigsEnd {
+func (s *CreateSectionConfigRequestSectionConfigsSectionEndDate) SetYear(v int32) *CreateSectionConfigRequestSectionConfigsSectionEndDate {
 	s.Year = &v
 	return s
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsEnd) SetDayOfMonth(v int32) *CreateSectionConfigRequestSectionConfigsEnd {
+func (s *CreateSectionConfigRequestSectionConfigsSectionEndDate) SetDayOfMonth(v int32) *CreateSectionConfigRequestSectionConfigsSectionEndDate {
 	s.DayOfMonth = &v
 	return s
 }
 
-type CreateSectionConfigRequestSectionConfigsSemesterStart struct {
+type CreateSectionConfigRequestSectionConfigsSemesterStartDate struct {
 	// 月
 	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
 	// 年
@@ -5631,30 +5631,30 @@ type CreateSectionConfigRequestSectionConfigsSemesterStart struct {
 	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
 }
 
-func (s CreateSectionConfigRequestSectionConfigsSemesterStart) String() string {
+func (s CreateSectionConfigRequestSectionConfigsSemesterStartDate) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CreateSectionConfigRequestSectionConfigsSemesterStart) GoString() string {
+func (s CreateSectionConfigRequestSectionConfigsSemesterStartDate) GoString() string {
 	return s.String()
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsSemesterStart) SetMonth(v int32) *CreateSectionConfigRequestSectionConfigsSemesterStart {
+func (s *CreateSectionConfigRequestSectionConfigsSemesterStartDate) SetMonth(v int32) *CreateSectionConfigRequestSectionConfigsSemesterStartDate {
 	s.Month = &v
 	return s
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsSemesterStart) SetYear(v int32) *CreateSectionConfigRequestSectionConfigsSemesterStart {
+func (s *CreateSectionConfigRequestSectionConfigsSemesterStartDate) SetYear(v int32) *CreateSectionConfigRequestSectionConfigsSemesterStartDate {
 	s.Year = &v
 	return s
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsSemesterStart) SetDayOfMonth(v int32) *CreateSectionConfigRequestSectionConfigsSemesterStart {
+func (s *CreateSectionConfigRequestSectionConfigsSemesterStartDate) SetDayOfMonth(v int32) *CreateSectionConfigRequestSectionConfigsSemesterStartDate {
 	s.DayOfMonth = &v
 	return s
 }
 
-type CreateSectionConfigRequestSectionConfigsSemesterEnd struct {
+type CreateSectionConfigRequestSectionConfigsSemesterEndDate struct {
 	// 月
 	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
 	// 年
@@ -5663,25 +5663,25 @@ type CreateSectionConfigRequestSectionConfigsSemesterEnd struct {
 	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
 }
 
-func (s CreateSectionConfigRequestSectionConfigsSemesterEnd) String() string {
+func (s CreateSectionConfigRequestSectionConfigsSemesterEndDate) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CreateSectionConfigRequestSectionConfigsSemesterEnd) GoString() string {
+func (s CreateSectionConfigRequestSectionConfigsSemesterEndDate) GoString() string {
 	return s.String()
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsSemesterEnd) SetMonth(v int32) *CreateSectionConfigRequestSectionConfigsSemesterEnd {
+func (s *CreateSectionConfigRequestSectionConfigsSemesterEndDate) SetMonth(v int32) *CreateSectionConfigRequestSectionConfigsSemesterEndDate {
 	s.Month = &v
 	return s
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsSemesterEnd) SetYear(v int32) *CreateSectionConfigRequestSectionConfigsSemesterEnd {
+func (s *CreateSectionConfigRequestSectionConfigsSemesterEndDate) SetYear(v int32) *CreateSectionConfigRequestSectionConfigsSemesterEndDate {
 	s.Year = &v
 	return s
 }
 
-func (s *CreateSectionConfigRequestSectionConfigsSemesterEnd) SetDayOfMonth(v int32) *CreateSectionConfigRequestSectionConfigsSemesterEnd {
+func (s *CreateSectionConfigRequestSectionConfigsSemesterEndDate) SetDayOfMonth(v int32) *CreateSectionConfigRequestSectionConfigsSemesterEndDate {
 	s.DayOfMonth = &v
 	return s
 }
@@ -8128,7 +8128,7 @@ func (s *DeletePhysicalClassroomHeaders) SetXAcsDingtalkAccessToken(v string) *D
 type DeletePhysicalClassroomRequest struct {
 	// 操作人id
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	// 教室id
+	// 教室主键
 	ClassroomId *int64 `json:"classroomId,omitempty" xml:"classroomId,omitempty"`
 }
 
@@ -8512,12 +8512,12 @@ type CreateUniversityCourseGroupRequestCourserGroupItemModels struct {
 	DayOfWeek *int32 `json:"dayOfWeek,omitempty" xml:"dayOfWeek,omitempty"`
 	// 上课周期
 	ClassPeriodType *int32 `json:"classPeriodType,omitempty" xml:"classPeriodType,omitempty"`
-	// 开始时间
-	Start *CreateUniversityCourseGroupRequestCourserGroupItemModelsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// 课程组详细开始时间
+	CourserGroupItemStartDate *CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate `json:"courserGroupItemStartDate,omitempty" xml:"courserGroupItemStartDate,omitempty" type:"Struct"`
 	// 课节
 	SectionIndex []*int32 `json:"sectionIndex,omitempty" xml:"sectionIndex,omitempty" type:"Repeated"`
-	// 结束时间
-	End *CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	// 课程组详细结束时间
+	CourserGroupItemEndDate *CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate `json:"courserGroupItemEndDate,omitempty" xml:"courserGroupItemEndDate,omitempty" type:"Struct"`
 	// 课程类型
 	CourseType *int32 `json:"courseType,omitempty" xml:"courseType,omitempty"`
 	// 教室id
@@ -8542,8 +8542,8 @@ func (s *CreateUniversityCourseGroupRequestCourserGroupItemModels) SetClassPerio
 	return s
 }
 
-func (s *CreateUniversityCourseGroupRequestCourserGroupItemModels) SetStart(v *CreateUniversityCourseGroupRequestCourserGroupItemModelsStart) *CreateUniversityCourseGroupRequestCourserGroupItemModels {
-	s.Start = v
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModels) SetCourserGroupItemStartDate(v *CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate) *CreateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.CourserGroupItemStartDate = v
 	return s
 }
 
@@ -8552,8 +8552,8 @@ func (s *CreateUniversityCourseGroupRequestCourserGroupItemModels) SetSectionInd
 	return s
 }
 
-func (s *CreateUniversityCourseGroupRequestCourserGroupItemModels) SetEnd(v *CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd) *CreateUniversityCourseGroupRequestCourserGroupItemModels {
-	s.End = v
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModels) SetCourserGroupItemEndDate(v *CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate) *CreateUniversityCourseGroupRequestCourserGroupItemModels {
+	s.CourserGroupItemEndDate = v
 	return s
 }
 
@@ -8567,7 +8567,7 @@ func (s *CreateUniversityCourseGroupRequestCourserGroupItemModels) SetClassroomI
 	return s
 }
 
-type CreateUniversityCourseGroupRequestCourserGroupItemModelsStart struct {
+type CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate struct {
 	// 月
 	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
 	// 年
@@ -8576,30 +8576,30 @@ type CreateUniversityCourseGroupRequestCourserGroupItemModelsStart struct {
 	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
 }
 
-func (s CreateUniversityCourseGroupRequestCourserGroupItemModelsStart) String() string {
+func (s CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CreateUniversityCourseGroupRequestCourserGroupItemModelsStart) GoString() string {
+func (s CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate) GoString() string {
 	return s.String()
 }
 
-func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsStart) SetMonth(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsStart {
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate) SetMonth(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate {
 	s.Month = &v
 	return s
 }
 
-func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsStart) SetYear(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsStart {
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate) SetYear(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate {
 	s.Year = &v
 	return s
 }
 
-func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsStart) SetDayOfMonth(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsStart {
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate) SetDayOfMonth(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemStartDate {
 	s.DayOfMonth = &v
 	return s
 }
 
-type CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd struct {
+type CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate struct {
 	// 月
 	Month *int32 `json:"month,omitempty" xml:"month,omitempty"`
 	// 年
@@ -8608,25 +8608,25 @@ type CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd struct {
 	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
 }
 
-func (s CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd) String() string {
+func (s CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd) GoString() string {
+func (s CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate) GoString() string {
 	return s.String()
 }
 
-func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd) SetMonth(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd {
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate) SetMonth(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate {
 	s.Month = &v
 	return s
 }
 
-func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd) SetYear(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd {
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate) SetYear(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate {
 	s.Year = &v
 	return s
 }
 
-func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd) SetDayOfMonth(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsEnd {
+func (s *CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate) SetDayOfMonth(v int32) *CreateUniversityCourseGroupRequestCourserGroupItemModelsCourserGroupItemEndDate {
 	s.DayOfMonth = &v
 	return s
 }
@@ -11151,9 +11151,8 @@ func (client *Client) DeletePhysicalClassroomWithOptions(request *DeletePhysical
 		query["opUserId"] = request.OpUserId
 	}
 
-	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ClassroomId)) {
-		body["classroomId"] = request.ClassroomId
+		query["classroomId"] = request.ClassroomId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -11168,7 +11167,6 @@ func (client *Client) DeletePhysicalClassroomWithOptions(request *DeletePhysical
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
-		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &DeletePhysicalClassroomResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeletePhysicalClassroom"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/physicalClassrooms"), tea.String("json"), req, runtime)

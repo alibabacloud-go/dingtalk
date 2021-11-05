@@ -107,6 +107,106 @@ func (s *UpdateResideceGroupResponse) SetBody(v *UpdateResideceGroupResponseBody
 	return s
 }
 
+type AddPointHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddPointHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddPointHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddPointHeaders) SetCommonHeaders(v map[string]*string) *AddPointHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddPointHeaders) SetXAcsDingtalkAccessToken(v string) *AddPointHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddPointRequest struct {
+	// 是否查询全员圈积分
+	IsCircle *bool `json:"isCircle,omitempty" xml:"isCircle,omitempty"`
+	// 加积分的唯一幂等标志
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// 成员id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 规则代码（可空）,如果不为空的话，score值使用ruleCode对应的score增加分数
+	RuleCode *string `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
+	// 规则名字
+	RuleName *string `json:"ruleName,omitempty" xml:"ruleName,omitempty"`
+	// 增加积分的时间戳毫秒数，如果为空使用系统当前毫秒数
+	ActionTime *int64 `json:"actionTime,omitempty" xml:"actionTime,omitempty"`
+	// 本次增加积分：正数表示增加/负数表示扣减
+	Score *int32 `json:"score,omitempty" xml:"score,omitempty"`
+}
+
+func (s AddPointRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddPointRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddPointRequest) SetIsCircle(v bool) *AddPointRequest {
+	s.IsCircle = &v
+	return s
+}
+
+func (s *AddPointRequest) SetUuid(v string) *AddPointRequest {
+	s.Uuid = &v
+	return s
+}
+
+func (s *AddPointRequest) SetUserId(v string) *AddPointRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *AddPointRequest) SetRuleCode(v string) *AddPointRequest {
+	s.RuleCode = &v
+	return s
+}
+
+func (s *AddPointRequest) SetRuleName(v string) *AddPointRequest {
+	s.RuleName = &v
+	return s
+}
+
+func (s *AddPointRequest) SetActionTime(v int64) *AddPointRequest {
+	s.ActionTime = &v
+	return s
+}
+
+func (s *AddPointRequest) SetScore(v int32) *AddPointRequest {
+	s.Score = &v
+	return s
+}
+
+type AddPointResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s AddPointResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddPointResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddPointResponse) SetHeaders(v map[string]*string) *AddPointResponse {
+	s.Headers = v
+	return s
+}
+
 type DeleteResidentDepartmentHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -434,6 +534,204 @@ func (s *AddResidentDepartmentResponse) SetBody(v *AddResidentDepartmentResponse
 	return s
 }
 
+type PagePointHistoryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PagePointHistoryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagePointHistoryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PagePointHistoryHeaders) SetCommonHeaders(v map[string]*string) *PagePointHistoryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PagePointHistoryHeaders) SetXAcsDingtalkAccessToken(v string) *PagePointHistoryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PagePointHistoryRequest struct {
+	// 是否查询全员圈积分
+	IsCircle *bool `json:"isCircle,omitempty" xml:"isCircle,omitempty"`
+	// 用户userid，可空，不传表示查询组织内所有用户的流水数据
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 用来标记当前开始读取的位置
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 本次读取的最大数据记录数量，最大20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 起始时间Unix时间戳，可空
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 结束时间Unix时间戳（不包含），可空
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+}
+
+func (s PagePointHistoryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagePointHistoryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PagePointHistoryRequest) SetIsCircle(v bool) *PagePointHistoryRequest {
+	s.IsCircle = &v
+	return s
+}
+
+func (s *PagePointHistoryRequest) SetUserId(v string) *PagePointHistoryRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *PagePointHistoryRequest) SetNextToken(v int64) *PagePointHistoryRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *PagePointHistoryRequest) SetMaxResults(v int32) *PagePointHistoryRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *PagePointHistoryRequest) SetStartTime(v int64) *PagePointHistoryRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *PagePointHistoryRequest) SetEndTime(v int64) *PagePointHistoryRequest {
+	s.EndTime = &v
+	return s
+}
+
+type PagePointHistoryResponseBody struct {
+	// 查询所得积分流水集合
+	PointRecordList []*PagePointHistoryResponseBodyPointRecordList `json:"pointRecordList,omitempty" xml:"pointRecordList,omitempty" type:"Repeated"`
+	// 是否有下一页
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 下一个游标值
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 总数，如果为-1则不计算总数
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s PagePointHistoryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagePointHistoryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PagePointHistoryResponseBody) SetPointRecordList(v []*PagePointHistoryResponseBodyPointRecordList) *PagePointHistoryResponseBody {
+	s.PointRecordList = v
+	return s
+}
+
+func (s *PagePointHistoryResponseBody) SetHasMore(v bool) *PagePointHistoryResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *PagePointHistoryResponseBody) SetNextToken(v int64) *PagePointHistoryResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *PagePointHistoryResponseBody) SetTotalCount(v int64) *PagePointHistoryResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type PagePointHistoryResponseBodyPointRecordList struct {
+	// 组织id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 成员id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 增加或减少的分数（增加为正数，减少为负数）
+	Score *int32 `json:"score,omitempty" xml:"score,omitempty"`
+	// 创建时间（精确到毫秒数）
+	CreateAt *int64 `json:"createAt,omitempty" xml:"createAt,omitempty"`
+	// 幂等键
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// 对应的行为代码（可空）
+	RuleCode *string `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
+	// 对应的行为名字
+	RuleName *string `json:"ruleName,omitempty" xml:"ruleName,omitempty"`
+}
+
+func (s PagePointHistoryResponseBodyPointRecordList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagePointHistoryResponseBodyPointRecordList) GoString() string {
+	return s.String()
+}
+
+func (s *PagePointHistoryResponseBodyPointRecordList) SetCorpId(v string) *PagePointHistoryResponseBodyPointRecordList {
+	s.CorpId = &v
+	return s
+}
+
+func (s *PagePointHistoryResponseBodyPointRecordList) SetUserId(v string) *PagePointHistoryResponseBodyPointRecordList {
+	s.UserId = &v
+	return s
+}
+
+func (s *PagePointHistoryResponseBodyPointRecordList) SetScore(v int32) *PagePointHistoryResponseBodyPointRecordList {
+	s.Score = &v
+	return s
+}
+
+func (s *PagePointHistoryResponseBodyPointRecordList) SetCreateAt(v int64) *PagePointHistoryResponseBodyPointRecordList {
+	s.CreateAt = &v
+	return s
+}
+
+func (s *PagePointHistoryResponseBodyPointRecordList) SetUuid(v string) *PagePointHistoryResponseBodyPointRecordList {
+	s.Uuid = &v
+	return s
+}
+
+func (s *PagePointHistoryResponseBodyPointRecordList) SetRuleCode(v string) *PagePointHistoryResponseBodyPointRecordList {
+	s.RuleCode = &v
+	return s
+}
+
+func (s *PagePointHistoryResponseBodyPointRecordList) SetRuleName(v string) *PagePointHistoryResponseBodyPointRecordList {
+	s.RuleName = &v
+	return s
+}
+
+type PagePointHistoryResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PagePointHistoryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PagePointHistoryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagePointHistoryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PagePointHistoryResponse) SetHeaders(v map[string]*string) *PagePointHistoryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PagePointHistoryResponse) SetBody(v *PagePointHistoryResponseBody) *PagePointHistoryResponse {
+	s.Body = v
+	return s
+}
+
 type RemoveResidentUserHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -643,6 +941,162 @@ func (s *UpdateResidenceResponse) SetHeaders(v map[string]*string) *UpdateReside
 }
 
 func (s *UpdateResidenceResponse) SetBody(v *UpdateResidenceResponseBody) *UpdateResidenceResponse {
+	s.Body = v
+	return s
+}
+
+type ListPointRulesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListPointRulesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPointRulesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListPointRulesHeaders) SetCommonHeaders(v map[string]*string) *ListPointRulesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListPointRulesHeaders) SetXAcsDingtalkAccessToken(v string) *ListPointRulesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListPointRulesRequest struct {
+	// 是否查询全员圈积分
+	IsCircle *bool `json:"isCircle,omitempty" xml:"isCircle,omitempty"`
+}
+
+func (s ListPointRulesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPointRulesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListPointRulesRequest) SetIsCircle(v bool) *ListPointRulesRequest {
+	s.IsCircle = &v
+	return s
+}
+
+type ListPointRulesResponseBody struct {
+	// 查询所得积分规则集合
+	PointRuleList []*ListPointRulesResponseBodyPointRuleList `json:"pointRuleList,omitempty" xml:"pointRuleList,omitempty" type:"Repeated"`
+}
+
+func (s ListPointRulesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPointRulesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListPointRulesResponseBody) SetPointRuleList(v []*ListPointRulesResponseBodyPointRuleList) *ListPointRulesResponseBody {
+	s.PointRuleList = v
+	return s
+}
+
+type ListPointRulesResponseBodyPointRuleList struct {
+	// 组织id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 增加或减少的分数（增加为正数，减少为负数）
+	Score *int32 `json:"score,omitempty" xml:"score,omitempty"`
+	// 单日计次上限，0表示无上限
+	DayLimitTimes *int32 `json:"dayLimitTimes,omitempty" xml:"dayLimitTimes,omitempty"`
+	// 生效状态 0：不生效，1：生效
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 对应的行为代码（可空）
+	RuleCode *string `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
+	// 对应的行为名字
+	RuleName *string `json:"ruleName,omitempty" xml:"ruleName,omitempty"`
+	// 扩展字段
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// 分组ID, 默认写入为0
+	GroupId *int32 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// 排序ID
+	OrderId *int32 `json:"orderId,omitempty" xml:"orderId,omitempty"`
+}
+
+func (s ListPointRulesResponseBodyPointRuleList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPointRulesResponseBodyPointRuleList) GoString() string {
+	return s.String()
+}
+
+func (s *ListPointRulesResponseBodyPointRuleList) SetCorpId(v string) *ListPointRulesResponseBodyPointRuleList {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ListPointRulesResponseBodyPointRuleList) SetScore(v int32) *ListPointRulesResponseBodyPointRuleList {
+	s.Score = &v
+	return s
+}
+
+func (s *ListPointRulesResponseBodyPointRuleList) SetDayLimitTimes(v int32) *ListPointRulesResponseBodyPointRuleList {
+	s.DayLimitTimes = &v
+	return s
+}
+
+func (s *ListPointRulesResponseBodyPointRuleList) SetStatus(v int32) *ListPointRulesResponseBodyPointRuleList {
+	s.Status = &v
+	return s
+}
+
+func (s *ListPointRulesResponseBodyPointRuleList) SetRuleCode(v string) *ListPointRulesResponseBodyPointRuleList {
+	s.RuleCode = &v
+	return s
+}
+
+func (s *ListPointRulesResponseBodyPointRuleList) SetRuleName(v string) *ListPointRulesResponseBodyPointRuleList {
+	s.RuleName = &v
+	return s
+}
+
+func (s *ListPointRulesResponseBodyPointRuleList) SetExtension(v string) *ListPointRulesResponseBodyPointRuleList {
+	s.Extension = &v
+	return s
+}
+
+func (s *ListPointRulesResponseBodyPointRuleList) SetGroupId(v int32) *ListPointRulesResponseBodyPointRuleList {
+	s.GroupId = &v
+	return s
+}
+
+func (s *ListPointRulesResponseBodyPointRuleList) SetOrderId(v int32) *ListPointRulesResponseBodyPointRuleList {
+	s.OrderId = &v
+	return s
+}
+
+type ListPointRulesResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListPointRulesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListPointRulesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPointRulesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListPointRulesResponse) SetHeaders(v map[string]*string) *ListPointRulesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListPointRulesResponse) SetBody(v *ListPointRulesResponseBody) *ListPointRulesResponse {
 	s.Body = v
 	return s
 }
@@ -885,6 +1339,74 @@ func (client *Client) UpdateResideceGroupWithOptions(request *UpdateResideceGrou
 	return _result, _err
 }
 
+func (client *Client) AddPoint(request *AddPointRequest) (_result *AddPointResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddPointHeaders{}
+	_result = &AddPointResponse{}
+	_body, _err := client.AddPointWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddPointWithOptions(request *AddPointRequest, headers *AddPointHeaders, runtime *util.RuntimeOptions) (_result *AddPointResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IsCircle)) {
+		query["isCircle"] = request.IsCircle
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		query["uuid"] = request.Uuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RuleCode)) {
+		query["ruleCode"] = request.RuleCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RuleName)) {
+		query["ruleName"] = request.RuleName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ActionTime)) {
+		query["actionTime"] = request.ActionTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Score)) {
+		query["score"] = request.Score
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &AddPointResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddPoint"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/points"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteResidentDepartment(request *DeleteResidentDepartmentRequest) (_result *DeleteResidentDepartmentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteResidentDepartmentHeaders{}
@@ -1049,6 +1571,70 @@ func (client *Client) AddResidentDepartmentWithOptions(request *AddResidentDepar
 	return _result, _err
 }
 
+func (client *Client) PagePointHistory(request *PagePointHistoryRequest) (_result *PagePointHistoryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PagePointHistoryHeaders{}
+	_result = &PagePointHistoryResponse{}
+	_body, _err := client.PagePointHistoryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PagePointHistoryWithOptions(request *PagePointHistoryRequest, headers *PagePointHistoryHeaders, runtime *util.RuntimeOptions) (_result *PagePointHistoryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IsCircle)) {
+		query["isCircle"] = request.IsCircle
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &PagePointHistoryResponse{}
+	_body, _err := client.DoROARequest(tea.String("PagePointHistory"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/points/records"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) RemoveResidentUser(request *RemoveResidentUserRequest) (_result *RemoveResidentUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RemoveResidentUserHeaders{}
@@ -1158,6 +1744,50 @@ func (client *Client) UpdateResidenceWithOptions(request *UpdateResidenceRequest
 	}
 	_result = &UpdateResidenceResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateResidence"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/resident/departments/updateResidece"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListPointRules(request *ListPointRulesRequest) (_result *ListPointRulesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListPointRulesHeaders{}
+	_result = &ListPointRulesResponse{}
+	_body, _err := client.ListPointRulesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListPointRulesWithOptions(request *ListPointRulesRequest, headers *ListPointRulesHeaders, runtime *util.RuntimeOptions) (_result *ListPointRulesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IsCircle)) {
+		query["isCircle"] = request.IsCircle
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListPointRulesResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListPointRules"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/points/rules"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
