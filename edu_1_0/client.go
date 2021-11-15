@@ -8191,6 +8191,145 @@ func (s *DeletePhysicalClassroomResponse) SetBody(v *DeletePhysicalClassroomResp
 	return s
 }
 
+type MoveStudentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s MoveStudentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MoveStudentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *MoveStudentHeaders) SetCommonHeaders(v map[string]*string) *MoveStudentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *MoveStudentHeaders) SetXAcsDingtalkAccessToken(v string) *MoveStudentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type MoveStudentRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingCorpId         *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	DingOauthAppId     *int64  `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int32  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	// 管理员id
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	// 学生id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 愿班级id
+	OriginClassId *int64 `json:"originClassId,omitempty" xml:"originClassId,omitempty"`
+	// 目标班级id
+	TargetClassId *int64 `json:"targetClassId,omitempty" xml:"targetClassId,omitempty"`
+}
+
+func (s MoveStudentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MoveStudentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *MoveStudentRequest) SetDingIsvOrgId(v int64) *MoveStudentRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *MoveStudentRequest) SetDingCorpId(v string) *MoveStudentRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *MoveStudentRequest) SetDingOauthAppId(v int64) *MoveStudentRequest {
+	s.DingOauthAppId = &v
+	return s
+}
+
+func (s *MoveStudentRequest) SetDingSuiteKey(v string) *MoveStudentRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *MoveStudentRequest) SetDingTokenGrantType(v int32) *MoveStudentRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *MoveStudentRequest) SetDingOrgId(v int64) *MoveStudentRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *MoveStudentRequest) SetOperator(v string) *MoveStudentRequest {
+	s.Operator = &v
+	return s
+}
+
+func (s *MoveStudentRequest) SetUserId(v string) *MoveStudentRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *MoveStudentRequest) SetOriginClassId(v int64) *MoveStudentRequest {
+	s.OriginClassId = &v
+	return s
+}
+
+func (s *MoveStudentRequest) SetTargetClassId(v int64) *MoveStudentRequest {
+	s.TargetClassId = &v
+	return s
+}
+
+type MoveStudentResponseBody struct {
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s MoveStudentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MoveStudentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *MoveStudentResponseBody) SetSuccess(v bool) *MoveStudentResponseBody {
+	s.Success = &v
+	return s
+}
+
+type MoveStudentResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *MoveStudentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s MoveStudentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MoveStudentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *MoveStudentResponse) SetHeaders(v map[string]*string) *MoveStudentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *MoveStudentResponse) SetBody(v *MoveStudentResponseBody) *MoveStudentResponse {
+	s.Body = v
+	return s
+}
+
 type QueryOrgRelationListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11170,6 +11309,86 @@ func (client *Client) DeletePhysicalClassroomWithOptions(request *DeletePhysical
 	}
 	_result = &DeletePhysicalClassroomResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeletePhysicalClassroom"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/physicalClassrooms"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) MoveStudent(request *MoveStudentRequest) (_result *MoveStudentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &MoveStudentHeaders{}
+	_result = &MoveStudentResponse{}
+	_body, _err := client.MoveStudentWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) MoveStudentWithOptions(request *MoveStudentRequest, headers *MoveStudentHeaders, runtime *util.RuntimeOptions) (_result *MoveStudentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOauthAppId)) {
+		body["dingOauthAppId"] = request.DingOauthAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OriginClassId)) {
+		body["originClassId"] = request.OriginClassId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetClassId)) {
+		body["targetClassId"] = request.TargetClassId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &MoveStudentResponse{}
+	_body, _err := client.DoROARequest(tea.String("MoveStudent"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/students/move"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

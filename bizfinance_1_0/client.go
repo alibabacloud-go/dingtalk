@@ -11,6 +11,159 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type DeleteReceiptHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteReceiptHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteReceiptHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteReceiptHeaders) SetCommonHeaders(v map[string]*string) *DeleteReceiptHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteReceiptHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteReceiptHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteReceiptRequest struct {
+	// 单据列表，最长不超过10条
+	Receipts []*DeleteReceiptRequestReceipts `json:"receipts,omitempty" xml:"receipts,omitempty" type:"Repeated"`
+}
+
+func (s DeleteReceiptRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteReceiptRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteReceiptRequest) SetReceipts(v []*DeleteReceiptRequestReceipts) *DeleteReceiptRequest {
+	s.Receipts = v
+	return s
+}
+
+type DeleteReceiptRequestReceipts struct {
+	// 修改者工号
+	DeleteUserId *string `json:"deleteUserId,omitempty" xml:"deleteUserId,omitempty"`
+	// 单据唯一编号
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 单据类型：1付款单，2收款单
+	ReceiptType *int64 `json:"receiptType,omitempty" xml:"receiptType,omitempty"`
+}
+
+func (s DeleteReceiptRequestReceipts) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteReceiptRequestReceipts) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteReceiptRequestReceipts) SetDeleteUserId(v string) *DeleteReceiptRequestReceipts {
+	s.DeleteUserId = &v
+	return s
+}
+
+func (s *DeleteReceiptRequestReceipts) SetCode(v string) *DeleteReceiptRequestReceipts {
+	s.Code = &v
+	return s
+}
+
+func (s *DeleteReceiptRequestReceipts) SetReceiptType(v int64) *DeleteReceiptRequestReceipts {
+	s.ReceiptType = &v
+	return s
+}
+
+type DeleteReceiptResponseBody struct {
+	// 结果列表
+	Results []*DeleteReceiptResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
+}
+
+func (s DeleteReceiptResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteReceiptResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteReceiptResponseBody) SetResults(v []*DeleteReceiptResponseBodyResults) *DeleteReceiptResponseBody {
+	s.Results = v
+	return s
+}
+
+type DeleteReceiptResponseBodyResults struct {
+	// 数据唯一编号
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 错误码
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// 错误信息
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+}
+
+func (s DeleteReceiptResponseBodyResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteReceiptResponseBodyResults) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteReceiptResponseBodyResults) SetCode(v string) *DeleteReceiptResponseBodyResults {
+	s.Code = &v
+	return s
+}
+
+func (s *DeleteReceiptResponseBodyResults) SetSuccess(v bool) *DeleteReceiptResponseBodyResults {
+	s.Success = &v
+	return s
+}
+
+func (s *DeleteReceiptResponseBodyResults) SetErrorCode(v string) *DeleteReceiptResponseBodyResults {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *DeleteReceiptResponseBodyResults) SetErrorMsg(v string) *DeleteReceiptResponseBodyResults {
+	s.ErrorMsg = &v
+	return s
+}
+
+type DeleteReceiptResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteReceiptResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteReceiptResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteReceiptResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteReceiptResponse) SetHeaders(v map[string]*string) *DeleteReceiptResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteReceiptResponse) SetBody(v *DeleteReceiptResponseBody) *DeleteReceiptResponse {
+	s.Body = v
+	return s
+}
+
 type QueryProjectByPageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -167,116 +320,6 @@ func (s *QueryProjectByPageResponse) SetBody(v *QueryProjectByPageResponseBody) 
 	return s
 }
 
-type GetCustomerHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s GetCustomerHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetCustomerHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *GetCustomerHeaders) SetCommonHeaders(v map[string]*string) *GetCustomerHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *GetCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *GetCustomerHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type GetCustomerRequest struct {
-	// 客户code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-}
-
-func (s GetCustomerRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetCustomerRequest) GoString() string {
-	return s.String()
-}
-
-func (s *GetCustomerRequest) SetCode(v string) *GetCustomerRequest {
-	s.Code = &v
-	return s
-}
-
-type GetCustomerResponseBody struct {
-	// 客户Code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 客户名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 客户描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 创建时间(单位MS)
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 状态：启用(valid), 停用(invalid), 删除(deleted)
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-}
-
-func (s GetCustomerResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetCustomerResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *GetCustomerResponseBody) SetCode(v string) *GetCustomerResponseBody {
-	s.Code = &v
-	return s
-}
-
-func (s *GetCustomerResponseBody) SetName(v string) *GetCustomerResponseBody {
-	s.Name = &v
-	return s
-}
-
-func (s *GetCustomerResponseBody) SetDescription(v string) *GetCustomerResponseBody {
-	s.Description = &v
-	return s
-}
-
-func (s *GetCustomerResponseBody) SetCreateTime(v int64) *GetCustomerResponseBody {
-	s.CreateTime = &v
-	return s
-}
-
-func (s *GetCustomerResponseBody) SetStatus(v string) *GetCustomerResponseBody {
-	s.Status = &v
-	return s
-}
-
-type GetCustomerResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s GetCustomerResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetCustomerResponse) GoString() string {
-	return s.String()
-}
-
-func (s *GetCustomerResponse) SetHeaders(v map[string]*string) *GetCustomerResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *GetCustomerResponse) SetBody(v *GetCustomerResponseBody) *GetCustomerResponse {
-	s.Body = v
-	return s
-}
-
 type QueryCategoryByPageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -429,559 +472,6 @@ func (s *QueryCategoryByPageResponse) SetHeaders(v map[string]*string) *QueryCat
 }
 
 func (s *QueryCategoryByPageResponse) SetBody(v *QueryCategoryByPageResponseBody) *QueryCategoryByPageResponse {
-	s.Body = v
-	return s
-}
-
-type GetCategoryHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s GetCategoryHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetCategoryHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *GetCategoryHeaders) SetCommonHeaders(v map[string]*string) *GetCategoryHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *GetCategoryHeaders) SetXAcsDingtalkAccessToken(v string) *GetCategoryHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type GetCategoryRequest struct {
-	// 类别code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-}
-
-func (s GetCategoryRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetCategoryRequest) GoString() string {
-	return s.String()
-}
-
-func (s *GetCategoryRequest) SetCode(v string) *GetCategoryRequest {
-	s.Code = &v
-	return s
-}
-
-type GetCategoryResponseBody struct {
-	// 类别code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 类型：income收入，expense支出
-	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 是否为目录
-	IsDir *bool `json:"isDir,omitempty" xml:"isDir,omitempty"`
-	// 父类别code
-	ParentCode *string `json:"parentCode,omitempty" xml:"parentCode,omitempty"`
-	// 状态:valid,invalid,deleted
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-}
-
-func (s GetCategoryResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetCategoryResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *GetCategoryResponseBody) SetCode(v string) *GetCategoryResponseBody {
-	s.Code = &v
-	return s
-}
-
-func (s *GetCategoryResponseBody) SetType(v string) *GetCategoryResponseBody {
-	s.Type = &v
-	return s
-}
-
-func (s *GetCategoryResponseBody) SetName(v string) *GetCategoryResponseBody {
-	s.Name = &v
-	return s
-}
-
-func (s *GetCategoryResponseBody) SetIsDir(v bool) *GetCategoryResponseBody {
-	s.IsDir = &v
-	return s
-}
-
-func (s *GetCategoryResponseBody) SetParentCode(v string) *GetCategoryResponseBody {
-	s.ParentCode = &v
-	return s
-}
-
-func (s *GetCategoryResponseBody) SetStatus(v string) *GetCategoryResponseBody {
-	s.Status = &v
-	return s
-}
-
-type GetCategoryResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetCategoryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s GetCategoryResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetCategoryResponse) GoString() string {
-	return s.String()
-}
-
-func (s *GetCategoryResponse) SetHeaders(v map[string]*string) *GetCategoryResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *GetCategoryResponse) SetBody(v *GetCategoryResponseBody) *GetCategoryResponse {
-	s.Body = v
-	return s
-}
-
-type GetFinanceAccountHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s GetFinanceAccountHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetFinanceAccountHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *GetFinanceAccountHeaders) SetCommonHeaders(v map[string]*string) *GetFinanceAccountHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *GetFinanceAccountHeaders) SetXAcsDingtalkAccessToken(v string) *GetFinanceAccountHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type GetFinanceAccountRequest struct {
-	// 账户code
-	AccountCode *string `json:"accountCode,omitempty" xml:"accountCode,omitempty"`
-}
-
-func (s GetFinanceAccountRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetFinanceAccountRequest) GoString() string {
-	return s.String()
-}
-
-func (s *GetFinanceAccountRequest) SetAccountCode(v string) *GetFinanceAccountRequest {
-	s.AccountCode = &v
-	return s
-}
-
-type GetFinanceAccountResponseBody struct {
-	// 账户code
-	AccountCode *string `json:"accountCode,omitempty" xml:"accountCode,omitempty"`
-	// 关联资金账户id
-	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	// 账户类型:ALIPAY, BANKCARD, CASH, WECHAT
-	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	// 账户名称
-	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
-	// 备注
-	AccountRemark *string `json:"accountRemark,omitempty" xml:"accountRemark,omitempty"`
-	// 账户总额，保留2位小数
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 创建人工号
-	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
-	// 创建时间
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-}
-
-func (s GetFinanceAccountResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetFinanceAccountResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *GetFinanceAccountResponseBody) SetAccountCode(v string) *GetFinanceAccountResponseBody {
-	s.AccountCode = &v
-	return s
-}
-
-func (s *GetFinanceAccountResponseBody) SetAccountId(v string) *GetFinanceAccountResponseBody {
-	s.AccountId = &v
-	return s
-}
-
-func (s *GetFinanceAccountResponseBody) SetAccountType(v string) *GetFinanceAccountResponseBody {
-	s.AccountType = &v
-	return s
-}
-
-func (s *GetFinanceAccountResponseBody) SetAccountName(v string) *GetFinanceAccountResponseBody {
-	s.AccountName = &v
-	return s
-}
-
-func (s *GetFinanceAccountResponseBody) SetAccountRemark(v string) *GetFinanceAccountResponseBody {
-	s.AccountRemark = &v
-	return s
-}
-
-func (s *GetFinanceAccountResponseBody) SetAmount(v string) *GetFinanceAccountResponseBody {
-	s.Amount = &v
-	return s
-}
-
-func (s *GetFinanceAccountResponseBody) SetCreator(v string) *GetFinanceAccountResponseBody {
-	s.Creator = &v
-	return s
-}
-
-func (s *GetFinanceAccountResponseBody) SetCreateTime(v int64) *GetFinanceAccountResponseBody {
-	s.CreateTime = &v
-	return s
-}
-
-type GetFinanceAccountResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetFinanceAccountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s GetFinanceAccountResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetFinanceAccountResponse) GoString() string {
-	return s.String()
-}
-
-func (s *GetFinanceAccountResponse) SetHeaders(v map[string]*string) *GetFinanceAccountResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *GetFinanceAccountResponse) SetBody(v *GetFinanceAccountResponseBody) *GetFinanceAccountResponse {
-	s.Body = v
-	return s
-}
-
-type QuerySupplierByPageHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s QuerySupplierByPageHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QuerySupplierByPageHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *QuerySupplierByPageHeaders) SetCommonHeaders(v map[string]*string) *QuerySupplierByPageHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *QuerySupplierByPageHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySupplierByPageHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type QuerySupplierByPageRequest struct {
-	// 分页，从1开始
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 分页大小，默认10
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-}
-
-func (s QuerySupplierByPageRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QuerySupplierByPageRequest) GoString() string {
-	return s.String()
-}
-
-func (s *QuerySupplierByPageRequest) SetPageNumber(v int64) *QuerySupplierByPageRequest {
-	s.PageNumber = &v
-	return s
-}
-
-func (s *QuerySupplierByPageRequest) SetPageSize(v int64) *QuerySupplierByPageRequest {
-	s.PageSize = &v
-	return s
-}
-
-type QuerySupplierByPageResponseBody struct {
-	// resultList
-	List []*QuerySupplierByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 是否还有更多数据
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-}
-
-func (s QuerySupplierByPageResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QuerySupplierByPageResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *QuerySupplierByPageResponseBody) SetList(v []*QuerySupplierByPageResponseBodyList) *QuerySupplierByPageResponseBody {
-	s.List = v
-	return s
-}
-
-func (s *QuerySupplierByPageResponseBody) SetHasMore(v bool) *QuerySupplierByPageResponseBody {
-	s.HasMore = &v
-	return s
-}
-
-type QuerySupplierByPageResponseBodyList struct {
-	// 供应商Code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 供应商名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 供应商描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 创建时间(单位MS)
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 状态：启用(valid), 停用(invalid), 删除(deleted)
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-}
-
-func (s QuerySupplierByPageResponseBodyList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QuerySupplierByPageResponseBodyList) GoString() string {
-	return s.String()
-}
-
-func (s *QuerySupplierByPageResponseBodyList) SetCode(v string) *QuerySupplierByPageResponseBodyList {
-	s.Code = &v
-	return s
-}
-
-func (s *QuerySupplierByPageResponseBodyList) SetName(v string) *QuerySupplierByPageResponseBodyList {
-	s.Name = &v
-	return s
-}
-
-func (s *QuerySupplierByPageResponseBodyList) SetDescription(v string) *QuerySupplierByPageResponseBodyList {
-	s.Description = &v
-	return s
-}
-
-func (s *QuerySupplierByPageResponseBodyList) SetCreateTime(v int64) *QuerySupplierByPageResponseBodyList {
-	s.CreateTime = &v
-	return s
-}
-
-func (s *QuerySupplierByPageResponseBodyList) SetStatus(v string) *QuerySupplierByPageResponseBodyList {
-	s.Status = &v
-	return s
-}
-
-type QuerySupplierByPageResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QuerySupplierByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s QuerySupplierByPageResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QuerySupplierByPageResponse) GoString() string {
-	return s.String()
-}
-
-func (s *QuerySupplierByPageResponse) SetHeaders(v map[string]*string) *QuerySupplierByPageResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *QuerySupplierByPageResponse) SetBody(v *QuerySupplierByPageResponseBody) *QuerySupplierByPageResponse {
-	s.Body = v
-	return s
-}
-
-type QueryEnterpriseAccountByPageHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s QueryEnterpriseAccountByPageHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryEnterpriseAccountByPageHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *QueryEnterpriseAccountByPageHeaders) SetCommonHeaders(v map[string]*string) *QueryEnterpriseAccountByPageHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *QueryEnterpriseAccountByPageHeaders) SetXAcsDingtalkAccessToken(v string) *QueryEnterpriseAccountByPageHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type QueryEnterpriseAccountByPageRequest struct {
-	// 分页，从1开始
-	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 分页大小，默认10
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-}
-
-func (s QueryEnterpriseAccountByPageRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryEnterpriseAccountByPageRequest) GoString() string {
-	return s.String()
-}
-
-func (s *QueryEnterpriseAccountByPageRequest) SetPageNumber(v int64) *QueryEnterpriseAccountByPageRequest {
-	s.PageNumber = &v
-	return s
-}
-
-func (s *QueryEnterpriseAccountByPageRequest) SetPageSize(v int64) *QueryEnterpriseAccountByPageRequest {
-	s.PageSize = &v
-	return s
-}
-
-type QueryEnterpriseAccountByPageResponseBody struct {
-	// resultList
-	List []*QueryEnterpriseAccountByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 是否还有更多数据
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-}
-
-func (s QueryEnterpriseAccountByPageResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryEnterpriseAccountByPageResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *QueryEnterpriseAccountByPageResponseBody) SetList(v []*QueryEnterpriseAccountByPageResponseBodyList) *QueryEnterpriseAccountByPageResponseBody {
-	s.List = v
-	return s
-}
-
-func (s *QueryEnterpriseAccountByPageResponseBody) SetHasMore(v bool) *QueryEnterpriseAccountByPageResponseBody {
-	s.HasMore = &v
-	return s
-}
-
-type QueryEnterpriseAccountByPageResponseBodyList struct {
-	// 账户code
-	AccountCode *string `json:"accountCode,omitempty" xml:"accountCode,omitempty"`
-	// 关联资金账号id
-	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	// 账户类型:ALIPAY, BANKCARD, CASH, WECHAT
-	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	// 账户名称
-	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
-	// 备注
-	AccountRemark *string `json:"accountRemark,omitempty" xml:"accountRemark,omitempty"`
-	// 账户总额，保留2位小数
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 创建人工号
-	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
-	// 创建时间
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-}
-
-func (s QueryEnterpriseAccountByPageResponseBodyList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryEnterpriseAccountByPageResponseBodyList) GoString() string {
-	return s.String()
-}
-
-func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAccountCode(v string) *QueryEnterpriseAccountByPageResponseBodyList {
-	s.AccountCode = &v
-	return s
-}
-
-func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAccountId(v string) *QueryEnterpriseAccountByPageResponseBodyList {
-	s.AccountId = &v
-	return s
-}
-
-func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAccountType(v string) *QueryEnterpriseAccountByPageResponseBodyList {
-	s.AccountType = &v
-	return s
-}
-
-func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAccountName(v string) *QueryEnterpriseAccountByPageResponseBodyList {
-	s.AccountName = &v
-	return s
-}
-
-func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAccountRemark(v string) *QueryEnterpriseAccountByPageResponseBodyList {
-	s.AccountRemark = &v
-	return s
-}
-
-func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAmount(v string) *QueryEnterpriseAccountByPageResponseBodyList {
-	s.Amount = &v
-	return s
-}
-
-func (s *QueryEnterpriseAccountByPageResponseBodyList) SetCreator(v string) *QueryEnterpriseAccountByPageResponseBodyList {
-	s.Creator = &v
-	return s
-}
-
-func (s *QueryEnterpriseAccountByPageResponseBodyList) SetCreateTime(v int64) *QueryEnterpriseAccountByPageResponseBodyList {
-	s.CreateTime = &v
-	return s
-}
-
-type QueryEnterpriseAccountByPageResponse struct {
-	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryEnterpriseAccountByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s QueryEnterpriseAccountByPageResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryEnterpriseAccountByPageResponse) GoString() string {
-	return s.String()
-}
-
-func (s *QueryEnterpriseAccountByPageResponse) SetHeaders(v map[string]*string) *QueryEnterpriseAccountByPageResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *QueryEnterpriseAccountByPageResponse) SetBody(v *QueryEnterpriseAccountByPageResponseBody) *QueryEnterpriseAccountByPageResponse {
 	s.Body = v
 	return s
 }
@@ -1252,6 +742,1129 @@ func (s *GetProjectResponse) SetBody(v *GetProjectResponseBody) *GetProjectRespo
 	return s
 }
 
+type GetCustomerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCustomerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerHeaders) SetCommonHeaders(v map[string]*string) *GetCustomerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *GetCustomerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCustomerRequest struct {
+	// 客户code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+}
+
+func (s GetCustomerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerRequest) SetCode(v string) *GetCustomerRequest {
+	s.Code = &v
+	return s
+}
+
+type GetCustomerResponseBody struct {
+	// 客户Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 客户名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 客户描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 创建时间(单位MS)
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 状态：启用(valid), 停用(invalid), 删除(deleted)
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetCustomerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerResponseBody) SetCode(v string) *GetCustomerResponseBody {
+	s.Code = &v
+	return s
+}
+
+func (s *GetCustomerResponseBody) SetName(v string) *GetCustomerResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *GetCustomerResponseBody) SetDescription(v string) *GetCustomerResponseBody {
+	s.Description = &v
+	return s
+}
+
+func (s *GetCustomerResponseBody) SetCreateTime(v int64) *GetCustomerResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetCustomerResponseBody) SetStatus(v string) *GetCustomerResponseBody {
+	s.Status = &v
+	return s
+}
+
+type GetCustomerResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCustomerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerResponse) SetHeaders(v map[string]*string) *GetCustomerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCustomerResponse) SetBody(v *GetCustomerResponseBody) *GetCustomerResponse {
+	s.Body = v
+	return s
+}
+
+type GetCategoryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCategoryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCategoryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCategoryHeaders) SetCommonHeaders(v map[string]*string) *GetCategoryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCategoryHeaders) SetXAcsDingtalkAccessToken(v string) *GetCategoryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCategoryRequest struct {
+	// 类别code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+}
+
+func (s GetCategoryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCategoryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetCategoryRequest) SetCode(v string) *GetCategoryRequest {
+	s.Code = &v
+	return s
+}
+
+type GetCategoryResponseBody struct {
+	// 类别code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 类型：income收入，expense支出
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 是否为目录
+	IsDir *bool `json:"isDir,omitempty" xml:"isDir,omitempty"`
+	// 父类别code
+	ParentCode *string `json:"parentCode,omitempty" xml:"parentCode,omitempty"`
+	// 状态:valid,invalid,deleted
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetCategoryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCategoryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCategoryResponseBody) SetCode(v string) *GetCategoryResponseBody {
+	s.Code = &v
+	return s
+}
+
+func (s *GetCategoryResponseBody) SetType(v string) *GetCategoryResponseBody {
+	s.Type = &v
+	return s
+}
+
+func (s *GetCategoryResponseBody) SetName(v string) *GetCategoryResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *GetCategoryResponseBody) SetIsDir(v bool) *GetCategoryResponseBody {
+	s.IsDir = &v
+	return s
+}
+
+func (s *GetCategoryResponseBody) SetParentCode(v string) *GetCategoryResponseBody {
+	s.ParentCode = &v
+	return s
+}
+
+func (s *GetCategoryResponseBody) SetStatus(v string) *GetCategoryResponseBody {
+	s.Status = &v
+	return s
+}
+
+type GetCategoryResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCategoryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCategoryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCategoryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCategoryResponse) SetHeaders(v map[string]*string) *GetCategoryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCategoryResponse) SetBody(v *GetCategoryResponseBody) *GetCategoryResponse {
+	s.Body = v
+	return s
+}
+
+type GetFinanceAccountHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFinanceAccountHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFinanceAccountHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFinanceAccountHeaders) SetCommonHeaders(v map[string]*string) *GetFinanceAccountHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFinanceAccountHeaders) SetXAcsDingtalkAccessToken(v string) *GetFinanceAccountHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFinanceAccountRequest struct {
+	// 账户code
+	AccountCode *string `json:"accountCode,omitempty" xml:"accountCode,omitempty"`
+}
+
+func (s GetFinanceAccountRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFinanceAccountRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFinanceAccountRequest) SetAccountCode(v string) *GetFinanceAccountRequest {
+	s.AccountCode = &v
+	return s
+}
+
+type GetFinanceAccountResponseBody struct {
+	// 账户code
+	AccountCode *string `json:"accountCode,omitempty" xml:"accountCode,omitempty"`
+	// 关联资金账户id
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// 账户类型:ALIPAY, BANKCARD, CASH, WECHAT
+	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
+	// 账户名称
+	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
+	// 备注
+	AccountRemark *string `json:"accountRemark,omitempty" xml:"accountRemark,omitempty"`
+	// 账户总额，保留2位小数
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 创建人工号
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// 创建时间
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+}
+
+func (s GetFinanceAccountResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFinanceAccountResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFinanceAccountResponseBody) SetAccountCode(v string) *GetFinanceAccountResponseBody {
+	s.AccountCode = &v
+	return s
+}
+
+func (s *GetFinanceAccountResponseBody) SetAccountId(v string) *GetFinanceAccountResponseBody {
+	s.AccountId = &v
+	return s
+}
+
+func (s *GetFinanceAccountResponseBody) SetAccountType(v string) *GetFinanceAccountResponseBody {
+	s.AccountType = &v
+	return s
+}
+
+func (s *GetFinanceAccountResponseBody) SetAccountName(v string) *GetFinanceAccountResponseBody {
+	s.AccountName = &v
+	return s
+}
+
+func (s *GetFinanceAccountResponseBody) SetAccountRemark(v string) *GetFinanceAccountResponseBody {
+	s.AccountRemark = &v
+	return s
+}
+
+func (s *GetFinanceAccountResponseBody) SetAmount(v string) *GetFinanceAccountResponseBody {
+	s.Amount = &v
+	return s
+}
+
+func (s *GetFinanceAccountResponseBody) SetCreator(v string) *GetFinanceAccountResponseBody {
+	s.Creator = &v
+	return s
+}
+
+func (s *GetFinanceAccountResponseBody) SetCreateTime(v int64) *GetFinanceAccountResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+type GetFinanceAccountResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetFinanceAccountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetFinanceAccountResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFinanceAccountResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFinanceAccountResponse) SetHeaders(v map[string]*string) *GetFinanceAccountResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFinanceAccountResponse) SetBody(v *GetFinanceAccountResponseBody) *GetFinanceAccountResponse {
+	s.Body = v
+	return s
+}
+
+type CreateReceiptHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateReceiptHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateReceiptHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateReceiptHeaders) SetCommonHeaders(v map[string]*string) *CreateReceiptHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateReceiptHeaders) SetXAcsDingtalkAccessToken(v string) *CreateReceiptHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateReceiptRequest struct {
+	// 单据列表，不超过10条数据
+	Receipts []*CreateReceiptRequestReceipts `json:"receipts,omitempty" xml:"receipts,omitempty" type:"Repeated"`
+}
+
+func (s CreateReceiptRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateReceiptRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateReceiptRequest) SetReceipts(v []*CreateReceiptRequestReceipts) *CreateReceiptRequest {
+	s.Receipts = v
+	return s
+}
+
+type CreateReceiptRequestReceipts struct {
+	// 创建人工号
+	CreateUserId *string `json:"createUserId,omitempty" xml:"createUserId,omitempty"`
+	// 单据唯一编号
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 单据标题，不传由系统默认生成
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 单据创建时间，默认当前时间
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 业务发生时间，默认当前时间
+	OccurDate *int64 `json:"occurDate,omitempty" xml:"occurDate,omitempty"`
+	// 单据金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 单据类型：1付款单，2收款单
+	ReceiptType *int64 `json:"receiptType,omitempty" xml:"receiptType,omitempty"`
+	// 负责人工号，传空代表不修改
+	PrincipalId *string `json:"principalId,omitempty" xml:"principalId,omitempty"`
+	// 关联收支类别code
+	CategoryCode *string `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
+	// 关联项目code
+	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	// 关联客户code
+	CustomerCode *string `json:"customerCode,omitempty" xml:"customerCode,omitempty"`
+	// 关联供应商code
+	SupplierCode *string `json:"supplierCode,omitempty" xml:"supplierCode,omitempty"`
+	// 关联企业账户code
+	EnterpriseAcountCode *string `json:"enterpriseAcountCode,omitempty" xml:"enterpriseAcountCode,omitempty"`
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+}
+
+func (s CreateReceiptRequestReceipts) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateReceiptRequestReceipts) GoString() string {
+	return s.String()
+}
+
+func (s *CreateReceiptRequestReceipts) SetCreateUserId(v string) *CreateReceiptRequestReceipts {
+	s.CreateUserId = &v
+	return s
+}
+
+func (s *CreateReceiptRequestReceipts) SetCode(v string) *CreateReceiptRequestReceipts {
+	s.Code = &v
+	return s
+}
+
+func (s *CreateReceiptRequestReceipts) SetTitle(v string) *CreateReceiptRequestReceipts {
+	s.Title = &v
+	return s
+}
+
+func (s *CreateReceiptRequestReceipts) SetCreateTime(v int64) *CreateReceiptRequestReceipts {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *CreateReceiptRequestReceipts) SetOccurDate(v int64) *CreateReceiptRequestReceipts {
+	s.OccurDate = &v
+	return s
+}
+
+func (s *CreateReceiptRequestReceipts) SetAmount(v string) *CreateReceiptRequestReceipts {
+	s.Amount = &v
+	return s
+}
+
+func (s *CreateReceiptRequestReceipts) SetReceiptType(v int64) *CreateReceiptRequestReceipts {
+	s.ReceiptType = &v
+	return s
+}
+
+func (s *CreateReceiptRequestReceipts) SetPrincipalId(v string) *CreateReceiptRequestReceipts {
+	s.PrincipalId = &v
+	return s
+}
+
+func (s *CreateReceiptRequestReceipts) SetCategoryCode(v string) *CreateReceiptRequestReceipts {
+	s.CategoryCode = &v
+	return s
+}
+
+func (s *CreateReceiptRequestReceipts) SetProjectCode(v string) *CreateReceiptRequestReceipts {
+	s.ProjectCode = &v
+	return s
+}
+
+func (s *CreateReceiptRequestReceipts) SetCustomerCode(v string) *CreateReceiptRequestReceipts {
+	s.CustomerCode = &v
+	return s
+}
+
+func (s *CreateReceiptRequestReceipts) SetSupplierCode(v string) *CreateReceiptRequestReceipts {
+	s.SupplierCode = &v
+	return s
+}
+
+func (s *CreateReceiptRequestReceipts) SetEnterpriseAcountCode(v string) *CreateReceiptRequestReceipts {
+	s.EnterpriseAcountCode = &v
+	return s
+}
+
+func (s *CreateReceiptRequestReceipts) SetRemark(v string) *CreateReceiptRequestReceipts {
+	s.Remark = &v
+	return s
+}
+
+type CreateReceiptResponseBody struct {
+	// 结果列表
+	Results []*CreateReceiptResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
+}
+
+func (s CreateReceiptResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateReceiptResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateReceiptResponseBody) SetResults(v []*CreateReceiptResponseBodyResults) *CreateReceiptResponseBody {
+	s.Results = v
+	return s
+}
+
+type CreateReceiptResponseBodyResults struct {
+	// 数据唯一编号
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 错误码
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// 错误信息
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+}
+
+func (s CreateReceiptResponseBodyResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateReceiptResponseBodyResults) GoString() string {
+	return s.String()
+}
+
+func (s *CreateReceiptResponseBodyResults) SetCode(v string) *CreateReceiptResponseBodyResults {
+	s.Code = &v
+	return s
+}
+
+func (s *CreateReceiptResponseBodyResults) SetSuccess(v bool) *CreateReceiptResponseBodyResults {
+	s.Success = &v
+	return s
+}
+
+func (s *CreateReceiptResponseBodyResults) SetErrorCode(v string) *CreateReceiptResponseBodyResults {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *CreateReceiptResponseBodyResults) SetErrorMsg(v string) *CreateReceiptResponseBodyResults {
+	s.ErrorMsg = &v
+	return s
+}
+
+type CreateReceiptResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateReceiptResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateReceiptResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateReceiptResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateReceiptResponse) SetHeaders(v map[string]*string) *CreateReceiptResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateReceiptResponse) SetBody(v *CreateReceiptResponseBody) *CreateReceiptResponse {
+	s.Body = v
+	return s
+}
+
+type QuerySupplierByPageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QuerySupplierByPageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySupplierByPageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySupplierByPageHeaders) SetCommonHeaders(v map[string]*string) *QuerySupplierByPageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QuerySupplierByPageHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySupplierByPageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QuerySupplierByPageRequest struct {
+	// 分页，从1开始
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小，默认10
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s QuerySupplierByPageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySupplierByPageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySupplierByPageRequest) SetPageNumber(v int64) *QuerySupplierByPageRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QuerySupplierByPageRequest) SetPageSize(v int64) *QuerySupplierByPageRequest {
+	s.PageSize = &v
+	return s
+}
+
+type QuerySupplierByPageResponseBody struct {
+	// resultList
+	List []*QuerySupplierByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// 是否还有更多数据
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+}
+
+func (s QuerySupplierByPageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySupplierByPageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySupplierByPageResponseBody) SetList(v []*QuerySupplierByPageResponseBodyList) *QuerySupplierByPageResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *QuerySupplierByPageResponseBody) SetHasMore(v bool) *QuerySupplierByPageResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+type QuerySupplierByPageResponseBodyList struct {
+	// 供应商Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 供应商名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 供应商描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 创建时间(单位MS)
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 状态：启用(valid), 停用(invalid), 删除(deleted)
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QuerySupplierByPageResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySupplierByPageResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySupplierByPageResponseBodyList) SetCode(v string) *QuerySupplierByPageResponseBodyList {
+	s.Code = &v
+	return s
+}
+
+func (s *QuerySupplierByPageResponseBodyList) SetName(v string) *QuerySupplierByPageResponseBodyList {
+	s.Name = &v
+	return s
+}
+
+func (s *QuerySupplierByPageResponseBodyList) SetDescription(v string) *QuerySupplierByPageResponseBodyList {
+	s.Description = &v
+	return s
+}
+
+func (s *QuerySupplierByPageResponseBodyList) SetCreateTime(v int64) *QuerySupplierByPageResponseBodyList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QuerySupplierByPageResponseBodyList) SetStatus(v string) *QuerySupplierByPageResponseBodyList {
+	s.Status = &v
+	return s
+}
+
+type QuerySupplierByPageResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QuerySupplierByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QuerySupplierByPageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySupplierByPageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySupplierByPageResponse) SetHeaders(v map[string]*string) *QuerySupplierByPageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QuerySupplierByPageResponse) SetBody(v *QuerySupplierByPageResponseBody) *QuerySupplierByPageResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateReceiptHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateReceiptHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateReceiptHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateReceiptHeaders) SetCommonHeaders(v map[string]*string) *UpdateReceiptHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateReceiptHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateReceiptHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateReceiptRequest struct {
+	// 单据列表 ，最长10
+	Receipts []*UpdateReceiptRequestReceipts `json:"receipts,omitempty" xml:"receipts,omitempty" type:"Repeated"`
+}
+
+func (s UpdateReceiptRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateReceiptRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateReceiptRequest) SetReceipts(v []*UpdateReceiptRequestReceipts) *UpdateReceiptRequest {
+	s.Receipts = v
+	return s
+}
+
+type UpdateReceiptRequestReceipts struct {
+	// 修改者工号
+	UpdateUserId *string `json:"updateUserId,omitempty" xml:"updateUserId,omitempty"`
+	// 单据唯一编号
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 单据标题，传空代表不修改
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 单据更新时间
+	UpdateTime *int64 `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	// 业务发生时间，传空代表不修改
+	OccurDate *int64 `json:"occurDate,omitempty" xml:"occurDate,omitempty"`
+	// 总金额，传空代表不修改
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 单据类型：1付款单，2收款单
+	ReceiptType *int64 `json:"receiptType,omitempty" xml:"receiptType,omitempty"`
+	// 负责人工号，传空代表不修改
+	PrincipalId *string `json:"principalId,omitempty" xml:"principalId,omitempty"`
+	// 关联收支类别，传空代表不修改
+	CategoryCode *string `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
+	// 关联项目code，传空代表不修改
+	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	// 关联客户code，传空代表不修改
+	CustomerCode *string `json:"customerCode,omitempty" xml:"customerCode,omitempty"`
+	// 关联供应商code，传空代表不修改
+	SupplierCode *string `json:"supplierCode,omitempty" xml:"supplierCode,omitempty"`
+	// 关联企业账户code，传空代表不修改
+	EnterpriseAcountCode *string `json:"enterpriseAcountCode,omitempty" xml:"enterpriseAcountCode,omitempty"`
+	// 备注，传空代表不修改
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+}
+
+func (s UpdateReceiptRequestReceipts) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateReceiptRequestReceipts) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateReceiptRequestReceipts) SetUpdateUserId(v string) *UpdateReceiptRequestReceipts {
+	s.UpdateUserId = &v
+	return s
+}
+
+func (s *UpdateReceiptRequestReceipts) SetCode(v string) *UpdateReceiptRequestReceipts {
+	s.Code = &v
+	return s
+}
+
+func (s *UpdateReceiptRequestReceipts) SetTitle(v string) *UpdateReceiptRequestReceipts {
+	s.Title = &v
+	return s
+}
+
+func (s *UpdateReceiptRequestReceipts) SetUpdateTime(v int64) *UpdateReceiptRequestReceipts {
+	s.UpdateTime = &v
+	return s
+}
+
+func (s *UpdateReceiptRequestReceipts) SetOccurDate(v int64) *UpdateReceiptRequestReceipts {
+	s.OccurDate = &v
+	return s
+}
+
+func (s *UpdateReceiptRequestReceipts) SetAmount(v string) *UpdateReceiptRequestReceipts {
+	s.Amount = &v
+	return s
+}
+
+func (s *UpdateReceiptRequestReceipts) SetReceiptType(v int64) *UpdateReceiptRequestReceipts {
+	s.ReceiptType = &v
+	return s
+}
+
+func (s *UpdateReceiptRequestReceipts) SetPrincipalId(v string) *UpdateReceiptRequestReceipts {
+	s.PrincipalId = &v
+	return s
+}
+
+func (s *UpdateReceiptRequestReceipts) SetCategoryCode(v string) *UpdateReceiptRequestReceipts {
+	s.CategoryCode = &v
+	return s
+}
+
+func (s *UpdateReceiptRequestReceipts) SetProjectCode(v string) *UpdateReceiptRequestReceipts {
+	s.ProjectCode = &v
+	return s
+}
+
+func (s *UpdateReceiptRequestReceipts) SetCustomerCode(v string) *UpdateReceiptRequestReceipts {
+	s.CustomerCode = &v
+	return s
+}
+
+func (s *UpdateReceiptRequestReceipts) SetSupplierCode(v string) *UpdateReceiptRequestReceipts {
+	s.SupplierCode = &v
+	return s
+}
+
+func (s *UpdateReceiptRequestReceipts) SetEnterpriseAcountCode(v string) *UpdateReceiptRequestReceipts {
+	s.EnterpriseAcountCode = &v
+	return s
+}
+
+func (s *UpdateReceiptRequestReceipts) SetRemark(v string) *UpdateReceiptRequestReceipts {
+	s.Remark = &v
+	return s
+}
+
+type UpdateReceiptResponseBody struct {
+	// 结果列表
+	Results []*UpdateReceiptResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
+}
+
+func (s UpdateReceiptResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateReceiptResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateReceiptResponseBody) SetResults(v []*UpdateReceiptResponseBodyResults) *UpdateReceiptResponseBody {
+	s.Results = v
+	return s
+}
+
+type UpdateReceiptResponseBodyResults struct {
+	// 数据唯一编号
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 错误码
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// 错误信息
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+}
+
+func (s UpdateReceiptResponseBodyResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateReceiptResponseBodyResults) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateReceiptResponseBodyResults) SetCode(v string) *UpdateReceiptResponseBodyResults {
+	s.Code = &v
+	return s
+}
+
+func (s *UpdateReceiptResponseBodyResults) SetSuccess(v bool) *UpdateReceiptResponseBodyResults {
+	s.Success = &v
+	return s
+}
+
+func (s *UpdateReceiptResponseBodyResults) SetErrorCode(v string) *UpdateReceiptResponseBodyResults {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *UpdateReceiptResponseBodyResults) SetErrorMsg(v string) *UpdateReceiptResponseBodyResults {
+	s.ErrorMsg = &v
+	return s
+}
+
+type UpdateReceiptResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateReceiptResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateReceiptResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateReceiptResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateReceiptResponse) SetHeaders(v map[string]*string) *UpdateReceiptResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateReceiptResponse) SetBody(v *UpdateReceiptResponseBody) *UpdateReceiptResponse {
+	s.Body = v
+	return s
+}
+
+type QueryEnterpriseAccountByPageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryEnterpriseAccountByPageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEnterpriseAccountByPageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEnterpriseAccountByPageHeaders) SetCommonHeaders(v map[string]*string) *QueryEnterpriseAccountByPageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageHeaders) SetXAcsDingtalkAccessToken(v string) *QueryEnterpriseAccountByPageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryEnterpriseAccountByPageRequest struct {
+	// 分页，从1开始
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小，默认10
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s QueryEnterpriseAccountByPageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEnterpriseAccountByPageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEnterpriseAccountByPageRequest) SetPageNumber(v int64) *QueryEnterpriseAccountByPageRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageRequest) SetPageSize(v int64) *QueryEnterpriseAccountByPageRequest {
+	s.PageSize = &v
+	return s
+}
+
+type QueryEnterpriseAccountByPageResponseBody struct {
+	// resultList
+	List []*QueryEnterpriseAccountByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// 是否还有更多数据
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+}
+
+func (s QueryEnterpriseAccountByPageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEnterpriseAccountByPageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBody) SetList(v []*QueryEnterpriseAccountByPageResponseBodyList) *QueryEnterpriseAccountByPageResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBody) SetHasMore(v bool) *QueryEnterpriseAccountByPageResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+type QueryEnterpriseAccountByPageResponseBodyList struct {
+	// 账户code
+	AccountCode *string `json:"accountCode,omitempty" xml:"accountCode,omitempty"`
+	// 关联资金账号id
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// 账户类型:ALIPAY, BANKCARD, CASH, WECHAT
+	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
+	// 账户名称
+	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
+	// 备注
+	AccountRemark *string `json:"accountRemark,omitempty" xml:"accountRemark,omitempty"`
+	// 账户总额，保留2位小数
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 创建人工号
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// 创建时间
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+}
+
+func (s QueryEnterpriseAccountByPageResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEnterpriseAccountByPageResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAccountCode(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.AccountCode = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAccountId(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.AccountId = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAccountType(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.AccountType = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAccountName(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.AccountName = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAccountRemark(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.AccountRemark = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetAmount(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.Amount = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetCreator(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.Creator = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetCreateTime(v int64) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.CreateTime = &v
+	return s
+}
+
+type QueryEnterpriseAccountByPageResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryEnterpriseAccountByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryEnterpriseAccountByPageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEnterpriseAccountByPageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEnterpriseAccountByPageResponse) SetHeaders(v map[string]*string) *QueryEnterpriseAccountByPageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponse) SetBody(v *QueryEnterpriseAccountByPageResponseBody) *QueryEnterpriseAccountByPageResponse {
+	s.Body = v
+	return s
+}
+
 type GetSupplierHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1385,6 +1998,50 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) DeleteReceipt(request *DeleteReceiptRequest) (_result *DeleteReceiptResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteReceiptHeaders{}
+	_result = &DeleteReceiptResponse{}
+	_body, _err := client.DeleteReceiptWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteReceiptWithOptions(request *DeleteReceiptRequest, headers *DeleteReceiptHeaders, runtime *util.RuntimeOptions) (_result *DeleteReceiptResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Receipts)) {
+		body["receipts"] = request.Receipts
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DeleteReceiptResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteReceipt"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/receipts/remove"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryProjectByPage(request *QueryProjectByPageRequest) (_result *QueryProjectByPageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryProjectByPageHeaders{}
@@ -1426,50 +2083,6 @@ func (client *Client) QueryProjectByPageWithOptions(request *QueryProjectByPageR
 	}
 	_result = &QueryProjectByPageResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryProjectByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/projects/list"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) GetCustomer(request *GetCustomerRequest) (_result *GetCustomerResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetCustomerHeaders{}
-	_result = &GetCustomerResponse{}
-	_body, _err := client.GetCustomerWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) GetCustomerWithOptions(request *GetCustomerRequest, headers *GetCustomerHeaders, runtime *util.RuntimeOptions) (_result *GetCustomerResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Code)) {
-		query["code"] = request.Code
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &GetCustomerResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetCustomer"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/customers/details"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1522,6 +2135,142 @@ func (client *Client) QueryCategoryByPageWithOptions(request *QueryCategoryByPag
 	}
 	_result = &QueryCategoryByPageResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryCategoryByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/categories/list"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryCustomerByPage(request *QueryCustomerByPageRequest) (_result *QueryCustomerByPageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCustomerByPageHeaders{}
+	_result = &QueryCustomerByPageResponse{}
+	_body, _err := client.QueryCustomerByPageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryCustomerByPageWithOptions(request *QueryCustomerByPageRequest, headers *QueryCustomerByPageHeaders, runtime *util.RuntimeOptions) (_result *QueryCustomerByPageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryCustomerByPageResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryCustomerByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/customers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetProject(request *GetProjectRequest) (_result *GetProjectResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetProjectHeaders{}
+	_result = &GetProjectResponse{}
+	_body, _err := client.GetProjectWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetProjectWithOptions(request *GetProjectRequest, headers *GetProjectHeaders, runtime *util.RuntimeOptions) (_result *GetProjectResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		query["code"] = request.Code
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetProjectResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetProject"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/projects/get"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetCustomer(request *GetCustomerRequest) (_result *GetCustomerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCustomerHeaders{}
+	_result = &GetCustomerResponse{}
+	_body, _err := client.GetCustomerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetCustomerWithOptions(request *GetCustomerRequest, headers *GetCustomerHeaders, runtime *util.RuntimeOptions) (_result *GetCustomerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		query["code"] = request.Code
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetCustomerResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetCustomer"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/customers/details"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1617,6 +2366,50 @@ func (client *Client) GetFinanceAccountWithOptions(request *GetFinanceAccountReq
 	return _result, _err
 }
 
+func (client *Client) CreateReceipt(request *CreateReceiptRequest) (_result *CreateReceiptResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateReceiptHeaders{}
+	_result = &CreateReceiptResponse{}
+	_body, _err := client.CreateReceiptWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateReceiptWithOptions(request *CreateReceiptRequest, headers *CreateReceiptHeaders, runtime *util.RuntimeOptions) (_result *CreateReceiptResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Receipts)) {
+		body["receipts"] = request.Receipts
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateReceiptResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateReceipt"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/receipts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QuerySupplierByPage(request *QuerySupplierByPageRequest) (_result *QuerySupplierByPageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QuerySupplierByPageHeaders{}
@@ -1665,6 +2458,50 @@ func (client *Client) QuerySupplierByPageWithOptions(request *QuerySupplierByPag
 	return _result, _err
 }
 
+func (client *Client) UpdateReceipt(request *UpdateReceiptRequest) (_result *UpdateReceiptResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateReceiptHeaders{}
+	_result = &UpdateReceiptResponse{}
+	_body, _err := client.UpdateReceiptWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateReceiptWithOptions(request *UpdateReceiptRequest, headers *UpdateReceiptHeaders, runtime *util.RuntimeOptions) (_result *UpdateReceiptResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Receipts)) {
+		body["receipts"] = request.Receipts
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateReceiptResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateReceipt"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/receipts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryEnterpriseAccountByPage(request *QueryEnterpriseAccountByPageRequest) (_result *QueryEnterpriseAccountByPageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryEnterpriseAccountByPageHeaders{}
@@ -1706,98 +2543,6 @@ func (client *Client) QueryEnterpriseAccountByPageWithOptions(request *QueryEnte
 	}
 	_result = &QueryEnterpriseAccountByPageResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryEnterpriseAccountByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/financeAccounts/list"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) QueryCustomerByPage(request *QueryCustomerByPageRequest) (_result *QueryCustomerByPageResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &QueryCustomerByPageHeaders{}
-	_result = &QueryCustomerByPageResponse{}
-	_body, _err := client.QueryCustomerByPageWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) QueryCustomerByPageWithOptions(request *QueryCustomerByPageRequest, headers *QueryCustomerByPageHeaders, runtime *util.RuntimeOptions) (_result *QueryCustomerByPageResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
-		query["pageNumber"] = request.PageNumber
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
-		query["pageSize"] = request.PageSize
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &QueryCustomerByPageResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryCustomerByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/customers"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) GetProject(request *GetProjectRequest) (_result *GetProjectResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetProjectHeaders{}
-	_result = &GetProjectResponse{}
-	_body, _err := client.GetProjectWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) GetProjectWithOptions(request *GetProjectRequest, headers *GetProjectHeaders, runtime *util.RuntimeOptions) (_result *GetProjectResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Code)) {
-		query["code"] = request.Code
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &GetProjectResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetProject"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/projects/get"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
