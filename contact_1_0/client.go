@@ -106,6 +106,69 @@ func (s *SortUserResponse) SetBody(v *SortUserResponseBody) *SortUserResponse {
 	return s
 }
 
+type SignOutHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SignOutHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SignOutHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SignOutHeaders) SetCommonHeaders(v map[string]*string) *SignOutHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SignOutHeaders) SetXAcsDingtalkAccessToken(v string) *SignOutHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SignOutRequest struct {
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	Reason *string `json:"reason,omitempty" xml:"reason,omitempty"`
+}
+
+func (s SignOutRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SignOutRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SignOutRequest) SetUserId(v string) *SignOutRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *SignOutRequest) SetReason(v string) *SignOutRequest {
+	s.Reason = &v
+	return s
+}
+
+type SignOutResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s SignOutResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SignOutResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SignOutResponse) SetHeaders(v map[string]*string) *SignOutResponse {
+	s.Headers = v
+	return s
+}
+
 type ListContactHideSettingsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1529,6 +1592,88 @@ func (s *GetTranslateFileJobResultResponse) SetBody(v *GetTranslateFileJobResult
 	return s
 }
 
+type QueryStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryStatusHeaders) SetCommonHeaders(v map[string]*string) *QueryStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryStatusHeaders) SetXAcsDingtalkAccessToken(v string) *QueryStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryStatusRequest struct {
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryStatusRequest) SetUserId(v string) *QueryStatusRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryStatusResponseBody struct {
+	// disable
+	Disable *bool `json:"disable,omitempty" xml:"disable,omitempty"`
+}
+
+func (s QueryStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryStatusResponseBody) SetDisable(v bool) *QueryStatusResponseBody {
+	s.Disable = &v
+	return s
+}
+
+type QueryStatusResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryStatusResponse) SetHeaders(v map[string]*string) *QueryStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryStatusResponse) SetBody(v *QueryStatusResponseBody) *QueryStatusResponse {
+	s.Body = v
+	return s
+}
+
 type QueryUserManagementResourcesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2640,6 +2785,71 @@ func (s *UpdateSeniorSettingResponse) SetHeaders(v map[string]*string) *UpdateSe
 	return s
 }
 
+type SetDisableHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetDisableHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetDisableHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetDisableHeaders) SetCommonHeaders(v map[string]*string) *SetDisableHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetDisableHeaders) SetXAcsDingtalkAccessToken(v string) *SetDisableHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetDisableRequest struct {
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// reason
+	Reason *string `json:"reason,omitempty" xml:"reason,omitempty"`
+}
+
+func (s SetDisableRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetDisableRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetDisableRequest) SetUserId(v string) *SetDisableRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *SetDisableRequest) SetReason(v string) *SetDisableRequest {
+	s.Reason = &v
+	return s
+}
+
+type SetDisableResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s SetDisableResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetDisableResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetDisableResponse) SetHeaders(v map[string]*string) *SetDisableResponse {
+	s.Headers = v
+	return s
+}
+
 type GetApplyInviteInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2946,6 +3156,64 @@ func (s *GetMigrationDingIdByDingIdResponse) SetHeaders(v map[string]*string) *G
 
 func (s *GetMigrationDingIdByDingIdResponse) SetBody(v *GetMigrationDingIdByDingIdResponseBody) *GetMigrationDingIdByDingIdResponse {
 	s.Body = v
+	return s
+}
+
+type SetEnableHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetEnableHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetEnableHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetEnableHeaders) SetCommonHeaders(v map[string]*string) *SetEnableHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetEnableHeaders) SetXAcsDingtalkAccessToken(v string) *SetEnableHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetEnableRequest struct {
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SetEnableRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetEnableRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetEnableRequest) SetUserId(v string) *SetEnableRequest {
+	s.UserId = &v
+	return s
+}
+
+type SetEnableResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s SetEnableResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetEnableResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetEnableResponse) SetHeaders(v map[string]*string) *SetEnableResponse {
+	s.Headers = v
 	return s
 }
 
@@ -3469,6 +3737,54 @@ func (client *Client) SortUserWithOptions(request *SortUserRequest, headers *Sor
 	}
 	_result = &SortUserResponse{}
 	_body, _err := client.DoROARequest(tea.String("SortUser"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/users/sort"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SignOut(request *SignOutRequest) (_result *SignOutResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SignOutHeaders{}
+	_result = &SignOutResponse{}
+	_body, _err := client.SignOutWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SignOutWithOptions(request *SignOutRequest, headers *SignOutHeaders, runtime *util.RuntimeOptions) (_result *SignOutResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Reason)) {
+		body["reason"] = request.Reason
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SignOutResponse{}
+	_body, _err := client.DoROARequest(tea.String("SignOut"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/orgAccounts/signOut"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4066,6 +4382,50 @@ func (client *Client) GetTranslateFileJobResultWithOptions(request *GetTranslate
 	return _result, _err
 }
 
+func (client *Client) QueryStatus(request *QueryStatusRequest) (_result *QueryStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryStatusHeaders{}
+	_result = &QueryStatusResponse{}
+	_body, _err := client.QueryStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryStatusWithOptions(request *QueryStatusRequest, headers *QueryStatusHeaders, runtime *util.RuntimeOptions) (_result *QueryStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryStatus"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/orgAccounts/status"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryUserManagementResources(userId *string) (_result *QueryUserManagementResourcesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryUserManagementResourcesHeaders{}
@@ -4634,6 +4994,54 @@ func (client *Client) UpdateSeniorSettingWithOptions(request *UpdateSeniorSettin
 	return _result, _err
 }
 
+func (client *Client) SetDisable(request *SetDisableRequest) (_result *SetDisableResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetDisableHeaders{}
+	_result = &SetDisableResponse{}
+	_body, _err := client.SetDisableWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SetDisableWithOptions(request *SetDisableRequest, headers *SetDisableHeaders, runtime *util.RuntimeOptions) (_result *SetDisableResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Reason)) {
+		body["reason"] = request.Reason
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SetDisableResponse{}
+	_body, _err := client.DoROARequest(tea.String("SetDisable"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/orgAccounts/disable"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetApplyInviteInfo(request *GetApplyInviteInfoRequest) (_result *GetApplyInviteInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetApplyInviteInfoHeaders{}
@@ -4771,6 +5179,50 @@ func (client *Client) GetMigrationDingIdByDingIdWithOptions(request *GetMigratio
 	}
 	_result = &GetMigrationDingIdByDingIdResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetMigrationDingIdByDingId"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/orgAccount/getMigrationDingIdByDingIds"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SetEnable(request *SetEnableRequest) (_result *SetEnableResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetEnableHeaders{}
+	_result = &SetEnableResponse{}
+	_body, _err := client.SetEnableWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SetEnableWithOptions(request *SetEnableRequest, headers *SetEnableHeaders, runtime *util.RuntimeOptions) (_result *SetEnableResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SetEnableResponse{}
+	_body, _err := client.DoROARequest(tea.String("SetEnable"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/orgAccounts/enable"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

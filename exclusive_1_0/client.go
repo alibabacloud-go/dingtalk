@@ -2457,6 +2457,176 @@ func (s *GetDingReportDeptSummaryResponse) SetBody(v *GetDingReportDeptSummaryRe
 	return s
 }
 
+type GetInActiveUserListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetInActiveUserListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInActiveUserListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetInActiveUserListHeaders) SetCommonHeaders(v map[string]*string) *GetInActiveUserListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetInActiveUserListHeaders) SetXAcsDingtalkAccessToken(v string) *GetInActiveUserListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetInActiveUserListRequest struct {
+	StatDate       *string   `json:"statDate,omitempty" xml:"statDate,omitempty"`
+	ServiceId      *int64    `json:"serviceId,omitempty" xml:"serviceId,omitempty"`
+	DingOauthAppId *int64    `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
+	DingOrgId      *int64    `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	PageNumber     *int64    `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize       *int64    `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	DeptIds        []*string `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+}
+
+func (s GetInActiveUserListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInActiveUserListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetInActiveUserListRequest) SetStatDate(v string) *GetInActiveUserListRequest {
+	s.StatDate = &v
+	return s
+}
+
+func (s *GetInActiveUserListRequest) SetServiceId(v int64) *GetInActiveUserListRequest {
+	s.ServiceId = &v
+	return s
+}
+
+func (s *GetInActiveUserListRequest) SetDingOauthAppId(v int64) *GetInActiveUserListRequest {
+	s.DingOauthAppId = &v
+	return s
+}
+
+func (s *GetInActiveUserListRequest) SetDingOrgId(v int64) *GetInActiveUserListRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *GetInActiveUserListRequest) SetPageNumber(v int64) *GetInActiveUserListRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetInActiveUserListRequest) SetPageSize(v int64) *GetInActiveUserListRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetInActiveUserListRequest) SetDeptIds(v []*string) *GetInActiveUserListRequest {
+	s.DeptIds = v
+	return s
+}
+
+type GetInActiveUserListResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*GetInActiveUserListResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s GetInActiveUserListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInActiveUserListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetInActiveUserListResponseBody) SetDataList(v []map[string]interface{}) *GetInActiveUserListResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *GetInActiveUserListResponseBody) SetMetaList(v []*GetInActiveUserListResponseBodyMetaList) *GetInActiveUserListResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type GetInActiveUserListResponseBodyMetaList struct {
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+}
+
+func (s GetInActiveUserListResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInActiveUserListResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *GetInActiveUserListResponseBodyMetaList) SetKpiId(v string) *GetInActiveUserListResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *GetInActiveUserListResponseBodyMetaList) SetKpiName(v string) *GetInActiveUserListResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *GetInActiveUserListResponseBodyMetaList) SetUnit(v string) *GetInActiveUserListResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+func (s *GetInActiveUserListResponseBodyMetaList) SetKpiCaliber(v string) *GetInActiveUserListResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *GetInActiveUserListResponseBodyMetaList) SetPeriod(v string) *GetInActiveUserListResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+type GetInActiveUserListResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetInActiveUserListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetInActiveUserListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInActiveUserListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetInActiveUserListResponse) SetHeaders(v map[string]*string) *GetInActiveUserListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetInActiveUserListResponse) SetBody(v *GetInActiveUserListResponseBody) *GetInActiveUserListResponse {
+	s.Body = v
+	return s
+}
+
 type GetTrustDeviceListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4300,6 +4470,74 @@ func (client *Client) GetDingReportDeptSummaryWithOptions(dataId *string, reques
 	}
 	_result = &GetDingReportDeptSummaryResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetDingReportDeptSummary"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/data/report/dept/"+tea.StringValue(dataId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetInActiveUserList(request *GetInActiveUserListRequest) (_result *GetInActiveUserListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetInActiveUserListHeaders{}
+	_result = &GetInActiveUserListResponse{}
+	_body, _err := client.GetInActiveUserListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetInActiveUserListWithOptions(request *GetInActiveUserListRequest, headers *GetInActiveUserListHeaders, runtime *util.RuntimeOptions) (_result *GetInActiveUserListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		body["statDate"] = request.StatDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ServiceId)) {
+		body["serviceId"] = request.ServiceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOauthAppId)) {
+		body["dingOauthAppId"] = request.DingOauthAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptIds)) {
+		body["deptIds"] = request.DeptIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetInActiveUserListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetInActiveUserList"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/inactives/users/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -1270,10 +1270,6 @@ func (s *CreateBatchTradeOrderHeaders) SetXAcsDingtalkAccessToken(v string) *Cre
 }
 
 type CreateBatchTradeOrderRequest struct {
-	// ISV/企业自建应用suiteId
-	SuiteId *string `json:"suiteId,omitempty" xml:"suiteId,omitempty"`
-	// 企业corpId
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 员工staffId
 	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
 	// 付款账号唯一id
@@ -1292,8 +1288,6 @@ type CreateBatchTradeOrderRequest struct {
 	TotalAmount *string `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
 	// 交易明细列表
 	BatchTradeDetails []*CreateBatchTradeOrderRequestBatchTradeDetails `json:"batchTradeDetails,omitempty" xml:"batchTradeDetails,omitempty" type:"Repeated"`
-	// Isv corpId
-	IsvCorpId *string `json:"isvCorpId,omitempty" xml:"isvCorpId,omitempty"`
 }
 
 func (s CreateBatchTradeOrderRequest) String() string {
@@ -1302,16 +1296,6 @@ func (s CreateBatchTradeOrderRequest) String() string {
 
 func (s CreateBatchTradeOrderRequest) GoString() string {
 	return s.String()
-}
-
-func (s *CreateBatchTradeOrderRequest) SetSuiteId(v string) *CreateBatchTradeOrderRequest {
-	s.SuiteId = &v
-	return s
-}
-
-func (s *CreateBatchTradeOrderRequest) SetCorpId(v string) *CreateBatchTradeOrderRequest {
-	s.CorpId = &v
-	return s
 }
 
 func (s *CreateBatchTradeOrderRequest) SetStaffId(v string) *CreateBatchTradeOrderRequest {
@@ -1356,11 +1340,6 @@ func (s *CreateBatchTradeOrderRequest) SetTotalAmount(v string) *CreateBatchTrad
 
 func (s *CreateBatchTradeOrderRequest) SetBatchTradeDetails(v []*CreateBatchTradeOrderRequestBatchTradeDetails) *CreateBatchTradeOrderRequest {
 	s.BatchTradeDetails = v
-	return s
-}
-
-func (s *CreateBatchTradeOrderRequest) SetIsvCorpId(v string) *CreateBatchTradeOrderRequest {
-	s.IsvCorpId = &v
 	return s
 }
 
@@ -2790,14 +2769,6 @@ func (client *Client) CreateBatchTradeOrderWithOptions(request *CreateBatchTrade
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.SuiteId)) {
-		body["suiteId"] = request.SuiteId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
-		body["corpId"] = request.CorpId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.StaffId)) {
 		body["staffId"] = request.StaffId
 	}
@@ -2832,10 +2803,6 @@ func (client *Client) CreateBatchTradeOrderWithOptions(request *CreateBatchTrade
 
 	if !tea.BoolValue(util.IsUnset(request.BatchTradeDetails)) {
 		body["batchTradeDetails"] = request.BatchTradeDetails
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.IsvCorpId)) {
-		body["isvCorpId"] = request.IsvCorpId
 	}
 
 	realHeaders := make(map[string]*string)
