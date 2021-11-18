@@ -1729,6 +1729,178 @@ func (s *CreateInviteUrlResponse) SetBody(v *CreateInviteUrlResponseBody) *Creat
 	return s
 }
 
+type PollingConfirmStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PollingConfirmStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PollingConfirmStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PollingConfirmStatusHeaders) SetCommonHeaders(v map[string]*string) *PollingConfirmStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PollingConfirmStatusHeaders) SetXAcsDingtalkAccessToken(v string) *PollingConfirmStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PollingConfirmStatusRequest struct {
+	// ext
+	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
+	// isvCode
+	IsvCode *string `json:"isvCode,omitempty" xml:"isvCode,omitempty"`
+	// courseCode
+	CourseCode *string `json:"courseCode,omitempty" xml:"courseCode,omitempty"`
+	// opUserId
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s PollingConfirmStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PollingConfirmStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PollingConfirmStatusRequest) SetExt(v string) *PollingConfirmStatusRequest {
+	s.Ext = &v
+	return s
+}
+
+func (s *PollingConfirmStatusRequest) SetIsvCode(v string) *PollingConfirmStatusRequest {
+	s.IsvCode = &v
+	return s
+}
+
+func (s *PollingConfirmStatusRequest) SetCourseCode(v string) *PollingConfirmStatusRequest {
+	s.CourseCode = &v
+	return s
+}
+
+func (s *PollingConfirmStatusRequest) SetOpUserId(v string) *PollingConfirmStatusRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type PollingConfirmStatusResponseBody struct {
+	UniversityPollingCourseStatusResponse *PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponse `json:"universityPollingCourseStatusResponse,omitempty" xml:"universityPollingCourseStatusResponse,omitempty" type:"Struct"`
+}
+
+func (s PollingConfirmStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PollingConfirmStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PollingConfirmStatusResponseBody) SetUniversityPollingCourseStatusResponse(v *PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponse) *PollingConfirmStatusResponseBody {
+	s.UniversityPollingCourseStatusResponse = v
+	return s
+}
+
+type PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponse struct {
+	// 确认状态
+	ConfirmStatus *bool `json:"confirmStatus,omitempty" xml:"confirmStatus,omitempty"`
+	// 课程编码
+	CourseCode       *string                                                                                  `json:"courseCode,omitempty" xml:"courseCode,omitempty"`
+	LivePlayInfoList []*PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponseLivePlayInfoList `json:"livePlayInfoList,omitempty" xml:"livePlayInfoList,omitempty" type:"Repeated"`
+}
+
+func (s PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponse) SetConfirmStatus(v bool) *PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponse {
+	s.ConfirmStatus = &v
+	return s
+}
+
+func (s *PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponse) SetCourseCode(v string) *PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponse {
+	s.CourseCode = &v
+	return s
+}
+
+func (s *PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponse) SetLivePlayInfoList(v []*PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponseLivePlayInfoList) *PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponse {
+	s.LivePlayInfoList = v
+	return s
+}
+
+type PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponseLivePlayInfoList struct {
+	// 推流地址
+	LiveInputUrl *string `json:"liveInputUrl,omitempty" xml:"liveInputUrl,omitempty"`
+	// 直播拉流地址
+	LiveOutputUrl *string `json:"liveOutputUrl,omitempty" xml:"liveOutputUrl,omitempty"`
+	// 视频流类型
+	LiveType *int64 `json:"liveType,omitempty" xml:"liveType,omitempty"`
+	// 视频回放地址
+	ReplayUrl *string `json:"replayUrl,omitempty" xml:"replayUrl,omitempty"`
+}
+
+func (s PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponseLivePlayInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponseLivePlayInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponseLivePlayInfoList) SetLiveInputUrl(v string) *PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponseLivePlayInfoList {
+	s.LiveInputUrl = &v
+	return s
+}
+
+func (s *PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponseLivePlayInfoList) SetLiveOutputUrl(v string) *PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponseLivePlayInfoList {
+	s.LiveOutputUrl = &v
+	return s
+}
+
+func (s *PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponseLivePlayInfoList) SetLiveType(v int64) *PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponseLivePlayInfoList {
+	s.LiveType = &v
+	return s
+}
+
+func (s *PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponseLivePlayInfoList) SetReplayUrl(v string) *PollingConfirmStatusResponseBodyUniversityPollingCourseStatusResponseLivePlayInfoList {
+	s.ReplayUrl = &v
+	return s
+}
+
+type PollingConfirmStatusResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PollingConfirmStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PollingConfirmStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PollingConfirmStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PollingConfirmStatusResponse) SetHeaders(v map[string]*string) *PollingConfirmStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PollingConfirmStatusResponse) SetBody(v *PollingConfirmStatusResponseBody) *PollingConfirmStatusResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteTeacherHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7323,6 +7495,161 @@ func (s *CreateCustomDeptResponse) SetBody(v *CreateCustomDeptResponseBody) *Cre
 	return s
 }
 
+type StartCoursePrepareHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s StartCoursePrepareHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartCoursePrepareHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *StartCoursePrepareHeaders) SetCommonHeaders(v map[string]*string) *StartCoursePrepareHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *StartCoursePrepareHeaders) SetXAcsDingtalkAccessToken(v string) *StartCoursePrepareHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type StartCoursePrepareRequest struct {
+	// 拓展信息
+	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
+	// 课程组编号
+	CourseGroupCode *string `json:"courseGroupCode,omitempty" xml:"courseGroupCode,omitempty"`
+	// 课节信息
+	SectionIndex []*int32 `json:"sectionIndex,omitempty" xml:"sectionIndex,omitempty" type:"Repeated"`
+	// 设备id
+	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// 封面url
+	LiveCoverImage *string `json:"liveCoverImage,omitempty" xml:"liveCoverImage,omitempty"`
+	// 上课日期
+	CourseDate *string `json:"courseDate,omitempty" xml:"courseDate,omitempty"`
+	// isv编号
+	IsvCode *string `json:"isvCode,omitempty" xml:"isvCode,omitempty"`
+	// 操作人
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s StartCoursePrepareRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartCoursePrepareRequest) GoString() string {
+	return s.String()
+}
+
+func (s *StartCoursePrepareRequest) SetExt(v string) *StartCoursePrepareRequest {
+	s.Ext = &v
+	return s
+}
+
+func (s *StartCoursePrepareRequest) SetCourseGroupCode(v string) *StartCoursePrepareRequest {
+	s.CourseGroupCode = &v
+	return s
+}
+
+func (s *StartCoursePrepareRequest) SetSectionIndex(v []*int32) *StartCoursePrepareRequest {
+	s.SectionIndex = v
+	return s
+}
+
+func (s *StartCoursePrepareRequest) SetDeviceId(v string) *StartCoursePrepareRequest {
+	s.DeviceId = &v
+	return s
+}
+
+func (s *StartCoursePrepareRequest) SetLiveCoverImage(v string) *StartCoursePrepareRequest {
+	s.LiveCoverImage = &v
+	return s
+}
+
+func (s *StartCoursePrepareRequest) SetCourseDate(v string) *StartCoursePrepareRequest {
+	s.CourseDate = &v
+	return s
+}
+
+func (s *StartCoursePrepareRequest) SetIsvCode(v string) *StartCoursePrepareRequest {
+	s.IsvCode = &v
+	return s
+}
+
+func (s *StartCoursePrepareRequest) SetOpUserId(v string) *StartCoursePrepareRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type StartCoursePrepareResponseBody struct {
+	UniversityCourseCommonResponse *StartCoursePrepareResponseBodyUniversityCourseCommonResponse `json:"universityCourseCommonResponse,omitempty" xml:"universityCourseCommonResponse,omitempty" type:"Struct"`
+}
+
+func (s StartCoursePrepareResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartCoursePrepareResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *StartCoursePrepareResponseBody) SetUniversityCourseCommonResponse(v *StartCoursePrepareResponseBodyUniversityCourseCommonResponse) *StartCoursePrepareResponseBody {
+	s.UniversityCourseCommonResponse = v
+	return s
+}
+
+type StartCoursePrepareResponseBodyUniversityCourseCommonResponse struct {
+	// 调用是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 课程编码
+	CourseCode *string `json:"courseCode,omitempty" xml:"courseCode,omitempty"`
+}
+
+func (s StartCoursePrepareResponseBodyUniversityCourseCommonResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartCoursePrepareResponseBodyUniversityCourseCommonResponse) GoString() string {
+	return s.String()
+}
+
+func (s *StartCoursePrepareResponseBodyUniversityCourseCommonResponse) SetSuccess(v bool) *StartCoursePrepareResponseBodyUniversityCourseCommonResponse {
+	s.Success = &v
+	return s
+}
+
+func (s *StartCoursePrepareResponseBodyUniversityCourseCommonResponse) SetCourseCode(v string) *StartCoursePrepareResponseBodyUniversityCourseCommonResponse {
+	s.CourseCode = &v
+	return s
+}
+
+type StartCoursePrepareResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *StartCoursePrepareResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s StartCoursePrepareResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartCoursePrepareResponse) GoString() string {
+	return s.String()
+}
+
+func (s *StartCoursePrepareResponse) SetHeaders(v map[string]*string) *StartCoursePrepareResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *StartCoursePrepareResponse) SetBody(v *StartCoursePrepareResponseBody) *StartCoursePrepareResponse {
+	s.Body = v
+	return s
+}
+
 type QueryClassScheduleByTimeSchoolHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8054,6 +8381,156 @@ func (s *DeleteOrgRelationResponse) SetHeaders(v map[string]*string) *DeleteOrgR
 }
 
 func (s *DeleteOrgRelationResponse) SetBody(v *DeleteOrgRelationResponseBody) *DeleteOrgRelationResponse {
+	s.Body = v
+	return s
+}
+
+type StartCourseRequest struct {
+	// opUserId
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 拓展字段
+	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
+	// 课程编码
+	CourseCode *string `json:"courseCode,omitempty" xml:"courseCode,omitempty"`
+	// livePlayInfoList
+	LivePlayInfoList []*StartCourseRequestLivePlayInfoList `json:"livePlayInfoList,omitempty" xml:"livePlayInfoList,omitempty" type:"Repeated"`
+	// isvCode
+	IsvCode *string `json:"isvCode,omitempty" xml:"isvCode,omitempty"`
+}
+
+func (s StartCourseRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartCourseRequest) GoString() string {
+	return s.String()
+}
+
+func (s *StartCourseRequest) SetOpUserId(v string) *StartCourseRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *StartCourseRequest) SetExt(v string) *StartCourseRequest {
+	s.Ext = &v
+	return s
+}
+
+func (s *StartCourseRequest) SetCourseCode(v string) *StartCourseRequest {
+	s.CourseCode = &v
+	return s
+}
+
+func (s *StartCourseRequest) SetLivePlayInfoList(v []*StartCourseRequestLivePlayInfoList) *StartCourseRequest {
+	s.LivePlayInfoList = v
+	return s
+}
+
+func (s *StartCourseRequest) SetIsvCode(v string) *StartCourseRequest {
+	s.IsvCode = &v
+	return s
+}
+
+type StartCourseRequestLivePlayInfoList struct {
+	// 直播拉流地址
+	LiveOutputUrl *string `json:"liveOutputUrl,omitempty" xml:"liveOutputUrl,omitempty"`
+	// 直播流类型
+	LiveType *int32 `json:"liveType,omitempty" xml:"liveType,omitempty"`
+	// 直播推流地址
+	LiveInputUrl *string `json:"liveInputUrl,omitempty" xml:"liveInputUrl,omitempty"`
+	// 视频回放地址
+	ReplayUrl *string `json:"replayUrl,omitempty" xml:"replayUrl,omitempty"`
+}
+
+func (s StartCourseRequestLivePlayInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartCourseRequestLivePlayInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *StartCourseRequestLivePlayInfoList) SetLiveOutputUrl(v string) *StartCourseRequestLivePlayInfoList {
+	s.LiveOutputUrl = &v
+	return s
+}
+
+func (s *StartCourseRequestLivePlayInfoList) SetLiveType(v int32) *StartCourseRequestLivePlayInfoList {
+	s.LiveType = &v
+	return s
+}
+
+func (s *StartCourseRequestLivePlayInfoList) SetLiveInputUrl(v string) *StartCourseRequestLivePlayInfoList {
+	s.LiveInputUrl = &v
+	return s
+}
+
+func (s *StartCourseRequestLivePlayInfoList) SetReplayUrl(v string) *StartCourseRequestLivePlayInfoList {
+	s.ReplayUrl = &v
+	return s
+}
+
+type StartCourseResponseBody struct {
+	UniversityCourseCommonResponse *StartCourseResponseBodyUniversityCourseCommonResponse `json:"universityCourseCommonResponse,omitempty" xml:"universityCourseCommonResponse,omitempty" type:"Struct"`
+}
+
+func (s StartCourseResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartCourseResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *StartCourseResponseBody) SetUniversityCourseCommonResponse(v *StartCourseResponseBodyUniversityCourseCommonResponse) *StartCourseResponseBody {
+	s.UniversityCourseCommonResponse = v
+	return s
+}
+
+type StartCourseResponseBodyUniversityCourseCommonResponse struct {
+	// 调用是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 课程编码
+	CourseCode *string `json:"courseCode,omitempty" xml:"courseCode,omitempty"`
+}
+
+func (s StartCourseResponseBodyUniversityCourseCommonResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartCourseResponseBodyUniversityCourseCommonResponse) GoString() string {
+	return s.String()
+}
+
+func (s *StartCourseResponseBodyUniversityCourseCommonResponse) SetSuccess(v bool) *StartCourseResponseBodyUniversityCourseCommonResponse {
+	s.Success = &v
+	return s
+}
+
+func (s *StartCourseResponseBodyUniversityCourseCommonResponse) SetCourseCode(v string) *StartCourseResponseBodyUniversityCourseCommonResponse {
+	s.CourseCode = &v
+	return s
+}
+
+type StartCourseResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *StartCourseResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s StartCourseResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartCourseResponse) GoString() string {
+	return s.String()
+}
+
+func (s *StartCourseResponse) SetHeaders(v map[string]*string) *StartCourseResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *StartCourseResponse) SetBody(v *StartCourseResponseBody) *StartCourseResponse {
 	s.Body = v
 	return s
 }
@@ -9021,6 +9498,179 @@ func (s *QueryOrgTypeResponse) SetBody(v *QueryOrgTypeResponseBody) *QueryOrgTyp
 	return s
 }
 
+type EndCourseHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s EndCourseHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EndCourseHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *EndCourseHeaders) SetCommonHeaders(v map[string]*string) *EndCourseHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *EndCourseHeaders) SetXAcsDingtalkAccessToken(v string) *EndCourseHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type EndCourseRequest struct {
+	// 用户id
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 拓展字段
+	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
+	// 课程编码
+	CourseCode *string `json:"courseCode,omitempty" xml:"courseCode,omitempty"`
+	// 直播流信息
+	LivePlayInfoList []*EndCourseRequestLivePlayInfoList `json:"livePlayInfoList,omitempty" xml:"livePlayInfoList,omitempty" type:"Repeated"`
+	// isv编码
+	IsvCode *string `json:"isvCode,omitempty" xml:"isvCode,omitempty"`
+}
+
+func (s EndCourseRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EndCourseRequest) GoString() string {
+	return s.String()
+}
+
+func (s *EndCourseRequest) SetOpUserId(v string) *EndCourseRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *EndCourseRequest) SetExt(v string) *EndCourseRequest {
+	s.Ext = &v
+	return s
+}
+
+func (s *EndCourseRequest) SetCourseCode(v string) *EndCourseRequest {
+	s.CourseCode = &v
+	return s
+}
+
+func (s *EndCourseRequest) SetLivePlayInfoList(v []*EndCourseRequestLivePlayInfoList) *EndCourseRequest {
+	s.LivePlayInfoList = v
+	return s
+}
+
+func (s *EndCourseRequest) SetIsvCode(v string) *EndCourseRequest {
+	s.IsvCode = &v
+	return s
+}
+
+type EndCourseRequestLivePlayInfoList struct {
+	// 直播拉流地址
+	LiveOutputUrl *string `json:"liveOutputUrl,omitempty" xml:"liveOutputUrl,omitempty"`
+	// 直播流类型
+	LiveType *int32 `json:"liveType,omitempty" xml:"liveType,omitempty"`
+	// 直播推流地址
+	LiveInputUrl *string `json:"liveInputUrl,omitempty" xml:"liveInputUrl,omitempty"`
+	// 回放视频地址
+	ReplayUrl *string `json:"replayUrl,omitempty" xml:"replayUrl,omitempty"`
+}
+
+func (s EndCourseRequestLivePlayInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EndCourseRequestLivePlayInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *EndCourseRequestLivePlayInfoList) SetLiveOutputUrl(v string) *EndCourseRequestLivePlayInfoList {
+	s.LiveOutputUrl = &v
+	return s
+}
+
+func (s *EndCourseRequestLivePlayInfoList) SetLiveType(v int32) *EndCourseRequestLivePlayInfoList {
+	s.LiveType = &v
+	return s
+}
+
+func (s *EndCourseRequestLivePlayInfoList) SetLiveInputUrl(v string) *EndCourseRequestLivePlayInfoList {
+	s.LiveInputUrl = &v
+	return s
+}
+
+func (s *EndCourseRequestLivePlayInfoList) SetReplayUrl(v string) *EndCourseRequestLivePlayInfoList {
+	s.ReplayUrl = &v
+	return s
+}
+
+type EndCourseResponseBody struct {
+	UniversityCourseCommonResponse *EndCourseResponseBodyUniversityCourseCommonResponse `json:"universityCourseCommonResponse,omitempty" xml:"universityCourseCommonResponse,omitempty" type:"Struct"`
+}
+
+func (s EndCourseResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EndCourseResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *EndCourseResponseBody) SetUniversityCourseCommonResponse(v *EndCourseResponseBodyUniversityCourseCommonResponse) *EndCourseResponseBody {
+	s.UniversityCourseCommonResponse = v
+	return s
+}
+
+type EndCourseResponseBodyUniversityCourseCommonResponse struct {
+	// 调用是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 课程编码
+	CourseCode *string `json:"courseCode,omitempty" xml:"courseCode,omitempty"`
+}
+
+func (s EndCourseResponseBodyUniversityCourseCommonResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EndCourseResponseBodyUniversityCourseCommonResponse) GoString() string {
+	return s.String()
+}
+
+func (s *EndCourseResponseBodyUniversityCourseCommonResponse) SetSuccess(v bool) *EndCourseResponseBodyUniversityCourseCommonResponse {
+	s.Success = &v
+	return s
+}
+
+func (s *EndCourseResponseBodyUniversityCourseCommonResponse) SetCourseCode(v string) *EndCourseResponseBodyUniversityCourseCommonResponse {
+	s.CourseCode = &v
+	return s
+}
+
+type EndCourseResponse struct {
+	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *EndCourseResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s EndCourseResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EndCourseResponse) GoString() string {
+	return s.String()
+}
+
+func (s *EndCourseResponse) SetHeaders(v map[string]*string) *EndCourseResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *EndCourseResponse) SetBody(v *EndCourseResponseBody) *EndCourseResponse {
+	s.Body = v
+	return s
+}
+
 type GetShareRoleMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9517,6 +10167,62 @@ func (client *Client) CreateInviteUrlWithOptions(request *CreateInviteUrlRequest
 	}
 	_result = &CreateInviteUrlResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateInviteUrl"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/remoteClasses/orgRelations/inviteUrls"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PollingConfirmStatus(request *PollingConfirmStatusRequest) (_result *PollingConfirmStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PollingConfirmStatusHeaders{}
+	_result = &PollingConfirmStatusResponse{}
+	_body, _err := client.PollingConfirmStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PollingConfirmStatusWithOptions(request *PollingConfirmStatusRequest, headers *PollingConfirmStatusHeaders, runtime *util.RuntimeOptions) (_result *PollingConfirmStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Ext)) {
+		query["ext"] = request.Ext
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsvCode)) {
+		query["isvCode"] = request.IsvCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CourseCode)) {
+		query["courseCode"] = request.CourseCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &PollingConfirmStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("PollingConfirmStatus"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/universities/courses/pollingConfirmStatus"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11212,6 +11918,80 @@ func (client *Client) CreateCustomDeptWithOptions(request *CreateCustomDeptReque
 	return _result, _err
 }
 
+func (client *Client) StartCoursePrepare(request *StartCoursePrepareRequest) (_result *StartCoursePrepareResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &StartCoursePrepareHeaders{}
+	_result = &StartCoursePrepareResponse{}
+	_body, _err := client.StartCoursePrepareWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) StartCoursePrepareWithOptions(request *StartCoursePrepareRequest, headers *StartCoursePrepareHeaders, runtime *util.RuntimeOptions) (_result *StartCoursePrepareResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Ext)) {
+		body["ext"] = request.Ext
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CourseGroupCode)) {
+		body["courseGroupCode"] = request.CourseGroupCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SectionIndex)) {
+		body["sectionIndex"] = request.SectionIndex
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceId)) {
+		body["deviceId"] = request.DeviceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LiveCoverImage)) {
+		body["liveCoverImage"] = request.LiveCoverImage
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CourseDate)) {
+		body["courseDate"] = request.CourseDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsvCode)) {
+		body["isvCode"] = request.IsvCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &StartCoursePrepareResponse{}
+	_body, _err := client.DoROARequest(tea.String("StartCoursePrepare"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/universities/courses/prepare"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryClassScheduleByTimeSchool(request *QueryClassScheduleByTimeSchoolRequest) (_result *QueryClassScheduleByTimeSchoolResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryClassScheduleByTimeSchoolHeaders{}
@@ -11441,6 +12221,59 @@ func (client *Client) DeleteOrgRelationWithOptions(request *DeleteOrgRelationReq
 	}
 	_result = &DeleteOrgRelationResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteOrgRelation"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/remoteClasses/orgRelations"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) StartCourse(request *StartCourseRequest) (_result *StartCourseResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &StartCourseResponse{}
+	_body, _err := client.StartCourseWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) StartCourseWithOptions(request *StartCourseRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *StartCourseResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Ext)) {
+		body["ext"] = request.Ext
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CourseCode)) {
+		body["courseCode"] = request.CourseCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LivePlayInfoList)) {
+		body["livePlayInfoList"] = request.LivePlayInfoList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsvCode)) {
+		body["isvCode"] = request.IsvCode
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &StartCourseResponse{}
+	_body, _err := client.DoROARequest(tea.String("StartCourse"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/universities/courses/start"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11853,6 +12686,68 @@ func (client *Client) QueryOrgTypeWithOptions(headers *QueryOrgTypeHeaders, runt
 	}
 	_result = &QueryOrgTypeResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryOrgType"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/orgTypes"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) EndCourse(request *EndCourseRequest) (_result *EndCourseResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &EndCourseHeaders{}
+	_result = &EndCourseResponse{}
+	_body, _err := client.EndCourseWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) EndCourseWithOptions(request *EndCourseRequest, headers *EndCourseHeaders, runtime *util.RuntimeOptions) (_result *EndCourseResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Ext)) {
+		body["ext"] = request.Ext
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CourseCode)) {
+		body["courseCode"] = request.CourseCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LivePlayInfoList)) {
+		body["livePlayInfoList"] = request.LivePlayInfoList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsvCode)) {
+		body["isvCode"] = request.IsvCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &EndCourseResponse{}
+	_body, _err := client.DoROARequest(tea.String("EndCourse"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/universities/courses/end"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

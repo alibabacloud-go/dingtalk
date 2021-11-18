@@ -998,11 +998,10 @@ type SaveCorpPayCodeRequest struct {
 	// 状态，OPEN或CLOSED
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// 扩展参数
-	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	ExtInfo map[string]*string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
 	// 企业orgId
-	DingOrgId    *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingClientId *string `json:"dingClientId,omitempty" xml:"dingClientId,omitempty"`
-	DingIsvOrgId *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId    *int64 `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId *int64 `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
 }
 
 func (s SaveCorpPayCodeRequest) String() string {
@@ -1028,18 +1027,13 @@ func (s *SaveCorpPayCodeRequest) SetStatus(v string) *SaveCorpPayCodeRequest {
 	return s
 }
 
-func (s *SaveCorpPayCodeRequest) SetExtInfo(v map[string]interface{}) *SaveCorpPayCodeRequest {
+func (s *SaveCorpPayCodeRequest) SetExtInfo(v map[string]*string) *SaveCorpPayCodeRequest {
 	s.ExtInfo = v
 	return s
 }
 
 func (s *SaveCorpPayCodeRequest) SetDingOrgId(v int64) *SaveCorpPayCodeRequest {
 	s.DingOrgId = &v
-	return s
-}
-
-func (s *SaveCorpPayCodeRequest) SetDingClientId(v string) *SaveCorpPayCodeRequest {
-	s.DingClientId = &v
 	return s
 }
 
@@ -1056,7 +1050,7 @@ type SaveCorpPayCodeResponseBody struct {
 	// 状态
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// 扩展参数
-	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	ExtInfo map[string]*string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
 }
 
 func (s SaveCorpPayCodeResponseBody) String() string {
@@ -1082,7 +1076,7 @@ func (s *SaveCorpPayCodeResponseBody) SetStatus(v string) *SaveCorpPayCodeRespon
 	return s
 }
 
-func (s *SaveCorpPayCodeResponseBody) SetExtInfo(v map[string]interface{}) *SaveCorpPayCodeResponseBody {
+func (s *SaveCorpPayCodeResponseBody) SetExtInfo(v map[string]*string) *SaveCorpPayCodeResponseBody {
 	s.ExtInfo = v
 	return s
 }
@@ -2643,10 +2637,6 @@ func (client *Client) SaveCorpPayCodeWithOptions(request *SaveCorpPayCodeRequest
 
 	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
 		body["dingOrgId"] = request.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingClientId)) {
-		body["dingClientId"] = request.DingClientId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {

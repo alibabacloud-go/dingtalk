@@ -738,10 +738,6 @@ type QueryAllFormInstancesRequest struct {
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 翻页size
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 开始时间戳
-	StartTimeInMills *int64 `json:"startTimeInMills,omitempty" xml:"startTimeInMills,omitempty"`
-	// 结束时间戳
-	EndTimeInMills *int64 `json:"endTimeInMills,omitempty" xml:"endTimeInMills,omitempty"`
 	// 应用搭建id
 	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
 	// 表单模板id
@@ -763,16 +759,6 @@ func (s *QueryAllFormInstancesRequest) SetNextToken(v string) *QueryAllFormInsta
 
 func (s *QueryAllFormInstancesRequest) SetMaxResults(v int32) *QueryAllFormInstancesRequest {
 	s.MaxResults = &v
-	return s
-}
-
-func (s *QueryAllFormInstancesRequest) SetStartTimeInMills(v int64) *QueryAllFormInstancesRequest {
-	s.StartTimeInMills = &v
-	return s
-}
-
-func (s *QueryAllFormInstancesRequest) SetEndTimeInMills(v int64) *QueryAllFormInstancesRequest {
-	s.EndTimeInMills = &v
 	return s
 }
 
@@ -1225,14 +1211,6 @@ func (client *Client) QueryAllFormInstancesWithOptions(request *QueryAllFormInst
 
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.StartTimeInMills)) {
-		query["startTimeInMills"] = request.StartTimeInMills
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.EndTimeInMills)) {
-		query["endTimeInMills"] = request.EndTimeInMills
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.AppUuid)) {

@@ -866,7 +866,7 @@ type SaveBadgeCodeCorpInstanceRequest struct {
 	// 状态，OPEN或CLOSED
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// 扩展参数
-	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	ExtInfo map[string]*string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
 	// 组织ID
 	DingOrgId *int64 `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
 	// ISV组织ID
@@ -896,7 +896,7 @@ func (s *SaveBadgeCodeCorpInstanceRequest) SetStatus(v string) *SaveBadgeCodeCor
 	return s
 }
 
-func (s *SaveBadgeCodeCorpInstanceRequest) SetExtInfo(v map[string]interface{}) *SaveBadgeCodeCorpInstanceRequest {
+func (s *SaveBadgeCodeCorpInstanceRequest) SetExtInfo(v map[string]*string) *SaveBadgeCodeCorpInstanceRequest {
 	s.ExtInfo = v
 	return s
 }
@@ -919,7 +919,7 @@ type SaveBadgeCodeCorpInstanceResponseBody struct {
 	// 状态
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// 扩展参数
-	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	ExtInfo map[string]*string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
 }
 
 func (s SaveBadgeCodeCorpInstanceResponseBody) String() string {
@@ -945,7 +945,7 @@ func (s *SaveBadgeCodeCorpInstanceResponseBody) SetStatus(v string) *SaveBadgeCo
 	return s
 }
 
-func (s *SaveBadgeCodeCorpInstanceResponseBody) SetExtInfo(v map[string]interface{}) *SaveBadgeCodeCorpInstanceResponseBody {
+func (s *SaveBadgeCodeCorpInstanceResponseBody) SetExtInfo(v map[string]*string) *SaveBadgeCodeCorpInstanceResponseBody {
 	s.ExtInfo = v
 	return s
 }
@@ -969,6 +969,121 @@ func (s *SaveBadgeCodeCorpInstanceResponse) SetHeaders(v map[string]*string) *Sa
 }
 
 func (s *SaveBadgeCodeCorpInstanceResponse) SetBody(v *SaveBadgeCodeCorpInstanceResponseBody) *SaveBadgeCodeCorpInstanceResponse {
+	s.Body = v
+	return s
+}
+
+type CreateBadgeNotifyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateBadgeNotifyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateBadgeNotifyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateBadgeNotifyHeaders) SetCommonHeaders(v map[string]*string) *CreateBadgeNotifyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateBadgeNotifyHeaders) SetXAcsDingtalkAccessToken(v string) *CreateBadgeNotifyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateBadgeNotifyRequest struct {
+	// 员工ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 消息ID
+	MsgId *string `json:"msgId,omitempty" xml:"msgId,omitempty"`
+	// 消息类型
+	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
+	// 通知内容
+	Content      *string `json:"content,omitempty" xml:"content,omitempty"`
+	DingOrgId    *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+}
+
+func (s CreateBadgeNotifyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateBadgeNotifyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateBadgeNotifyRequest) SetUserId(v string) *CreateBadgeNotifyRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *CreateBadgeNotifyRequest) SetMsgId(v string) *CreateBadgeNotifyRequest {
+	s.MsgId = &v
+	return s
+}
+
+func (s *CreateBadgeNotifyRequest) SetMsgType(v string) *CreateBadgeNotifyRequest {
+	s.MsgType = &v
+	return s
+}
+
+func (s *CreateBadgeNotifyRequest) SetContent(v string) *CreateBadgeNotifyRequest {
+	s.Content = &v
+	return s
+}
+
+func (s *CreateBadgeNotifyRequest) SetDingOrgId(v int64) *CreateBadgeNotifyRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *CreateBadgeNotifyRequest) SetDingIsvOrgId(v int64) *CreateBadgeNotifyRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+type CreateBadgeNotifyResponseBody struct {
+	// 处理结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CreateBadgeNotifyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateBadgeNotifyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateBadgeNotifyResponseBody) SetResult(v bool) *CreateBadgeNotifyResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CreateBadgeNotifyResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateBadgeNotifyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateBadgeNotifyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateBadgeNotifyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateBadgeNotifyResponse) SetHeaders(v map[string]*string) *CreateBadgeNotifyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateBadgeNotifyResponse) SetBody(v *CreateBadgeNotifyResponseBody) *CreateBadgeNotifyResponse {
 	s.Body = v
 	return s
 }
@@ -1811,6 +1926,70 @@ func (client *Client) SaveBadgeCodeCorpInstanceWithOptions(request *SaveBadgeCod
 	}
 	_result = &SaveBadgeCodeCorpInstanceResponse{}
 	_body, _err := client.DoROARequest(tea.String("SaveBadgeCodeCorpInstance"), tea.String("badge_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/badge/codes/corpInstances"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateBadgeNotify(request *CreateBadgeNotifyRequest) (_result *CreateBadgeNotifyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateBadgeNotifyHeaders{}
+	_result = &CreateBadgeNotifyResponse{}
+	_body, _err := client.CreateBadgeNotifyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateBadgeNotifyWithOptions(request *CreateBadgeNotifyRequest, headers *CreateBadgeNotifyHeaders, runtime *util.RuntimeOptions) (_result *CreateBadgeNotifyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgId)) {
+		body["msgId"] = request.MsgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgType)) {
+		body["msgType"] = request.MsgType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateBadgeNotifyResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateBadgeNotify"), tea.String("badge_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/badge/notices"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

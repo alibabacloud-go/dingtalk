@@ -759,9 +759,9 @@ type SearchWorkspaceDocsRequest struct {
 	// 搜索关键字
 	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
 	// 搜索数量
-	Size *int32 `json:"size,omitempty" xml:"size,omitempty"`
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	// 翻页Id
-	LoadMoreId *string `json:"loadMoreId,omitempty" xml:"loadMoreId,omitempty"`
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s SearchWorkspaceDocsRequest) String() string {
@@ -782,21 +782,21 @@ func (s *SearchWorkspaceDocsRequest) SetKeyword(v string) *SearchWorkspaceDocsRe
 	return s
 }
 
-func (s *SearchWorkspaceDocsRequest) SetSize(v int32) *SearchWorkspaceDocsRequest {
-	s.Size = &v
+func (s *SearchWorkspaceDocsRequest) SetMaxResults(v int32) *SearchWorkspaceDocsRequest {
+	s.MaxResults = &v
 	return s
 }
 
-func (s *SearchWorkspaceDocsRequest) SetLoadMoreId(v string) *SearchWorkspaceDocsRequest {
-	s.LoadMoreId = &v
+func (s *SearchWorkspaceDocsRequest) SetNextToken(v string) *SearchWorkspaceDocsRequest {
+	s.NextToken = &v
 	return s
 }
 
 type SearchWorkspaceDocsResponseBody struct {
 	// 是否还有可搜索内容
-	HasMore    *bool                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	LoadMoreId *string                                `json:"loadMoreId,omitempty" xml:"loadMoreId,omitempty"`
-	Docs       []*SearchWorkspaceDocsResponseBodyDocs `json:"docs,omitempty" xml:"docs,omitempty" type:"Repeated"`
+	HasMore   *bool                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *string                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Docs      []*SearchWorkspaceDocsResponseBodyDocs `json:"docs,omitempty" xml:"docs,omitempty" type:"Repeated"`
 }
 
 func (s SearchWorkspaceDocsResponseBody) String() string {
@@ -812,8 +812,8 @@ func (s *SearchWorkspaceDocsResponseBody) SetHasMore(v bool) *SearchWorkspaceDoc
 	return s
 }
 
-func (s *SearchWorkspaceDocsResponseBody) SetLoadMoreId(v string) *SearchWorkspaceDocsResponseBody {
-	s.LoadMoreId = &v
+func (s *SearchWorkspaceDocsResponseBody) SetNextToken(v string) *SearchWorkspaceDocsResponseBody {
+	s.NextToken = &v
 	return s
 }
 
@@ -1639,8 +1639,8 @@ type GetRecentEditDocsRequest struct {
 	// 发起操作用户unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 	// 查询size
-	Size       *int32  `json:"size,omitempty" xml:"size,omitempty"`
-	LoadMoreId *string `json:"loadMoreId,omitempty" xml:"loadMoreId,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GetRecentEditDocsRequest) String() string {
@@ -1656,20 +1656,20 @@ func (s *GetRecentEditDocsRequest) SetOperatorId(v string) *GetRecentEditDocsReq
 	return s
 }
 
-func (s *GetRecentEditDocsRequest) SetSize(v int32) *GetRecentEditDocsRequest {
-	s.Size = &v
+func (s *GetRecentEditDocsRequest) SetMaxResults(v int32) *GetRecentEditDocsRequest {
+	s.MaxResults = &v
 	return s
 }
 
-func (s *GetRecentEditDocsRequest) SetLoadMoreId(v string) *GetRecentEditDocsRequest {
-	s.LoadMoreId = &v
+func (s *GetRecentEditDocsRequest) SetNextToken(v string) *GetRecentEditDocsRequest {
+	s.NextToken = &v
 	return s
 }
 
 type GetRecentEditDocsResponseBody struct {
 	// 查询结果
 	RecentList []*GetRecentEditDocsResponseBodyRecentList `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
-	LoadMoreId *string                                    `json:"loadMoreId,omitempty" xml:"loadMoreId,omitempty"`
+	NextToken  *string                                    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GetRecentEditDocsResponseBody) String() string {
@@ -1685,8 +1685,8 @@ func (s *GetRecentEditDocsResponseBody) SetRecentList(v []*GetRecentEditDocsResp
 	return s
 }
 
-func (s *GetRecentEditDocsResponseBody) SetLoadMoreId(v string) *GetRecentEditDocsResponseBody {
-	s.LoadMoreId = &v
+func (s *GetRecentEditDocsResponseBody) SetNextToken(v string) *GetRecentEditDocsResponseBody {
+	s.NextToken = &v
 	return s
 }
 
@@ -1965,9 +1965,9 @@ func (s *GetWorkspaceNodeRequest) SetOperatorId(v string) *GetWorkspaceNodeReque
 
 type GetWorkspaceNodeResponseBody struct {
 	// 节点信息
-	NodeBO map[string]interface{} `json:"nodeBO,omitempty" xml:"nodeBO,omitempty"`
+	NodeBO *GetWorkspaceNodeResponseBodyNodeBO `json:"nodeBO,omitempty" xml:"nodeBO,omitempty" type:"Struct"`
 	// 节点所属团队空间信息
-	WorkspaceBO map[string]interface{} `json:"workspaceBO,omitempty" xml:"workspaceBO,omitempty"`
+	WorkspaceBO *GetWorkspaceNodeResponseBodyWorkspaceBO `json:"workspaceBO,omitempty" xml:"workspaceBO,omitempty" type:"Struct"`
 	// 是否有权限
 	HasPermission *bool `json:"hasPermission,omitempty" xml:"hasPermission,omitempty"`
 }
@@ -1980,18 +1980,75 @@ func (s GetWorkspaceNodeResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *GetWorkspaceNodeResponseBody) SetNodeBO(v map[string]interface{}) *GetWorkspaceNodeResponseBody {
+func (s *GetWorkspaceNodeResponseBody) SetNodeBO(v *GetWorkspaceNodeResponseBodyNodeBO) *GetWorkspaceNodeResponseBody {
 	s.NodeBO = v
 	return s
 }
 
-func (s *GetWorkspaceNodeResponseBody) SetWorkspaceBO(v map[string]interface{}) *GetWorkspaceNodeResponseBody {
+func (s *GetWorkspaceNodeResponseBody) SetWorkspaceBO(v *GetWorkspaceNodeResponseBodyWorkspaceBO) *GetWorkspaceNodeResponseBody {
 	s.WorkspaceBO = v
 	return s
 }
 
 func (s *GetWorkspaceNodeResponseBody) SetHasPermission(v bool) *GetWorkspaceNodeResponseBody {
 	s.HasPermission = &v
+	return s
+}
+
+type GetWorkspaceNodeResponseBodyNodeBO struct {
+	// 节点名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 节点Id
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// 节点打开url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s GetWorkspaceNodeResponseBodyNodeBO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWorkspaceNodeResponseBodyNodeBO) GoString() string {
+	return s.String()
+}
+
+func (s *GetWorkspaceNodeResponseBodyNodeBO) SetName(v string) *GetWorkspaceNodeResponseBodyNodeBO {
+	s.Name = &v
+	return s
+}
+
+func (s *GetWorkspaceNodeResponseBodyNodeBO) SetNodeId(v string) *GetWorkspaceNodeResponseBodyNodeBO {
+	s.NodeId = &v
+	return s
+}
+
+func (s *GetWorkspaceNodeResponseBodyNodeBO) SetUrl(v string) *GetWorkspaceNodeResponseBodyNodeBO {
+	s.Url = &v
+	return s
+}
+
+type GetWorkspaceNodeResponseBodyWorkspaceBO struct {
+	// 团队空间Id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	// 团队空间名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetWorkspaceNodeResponseBodyWorkspaceBO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWorkspaceNodeResponseBodyWorkspaceBO) GoString() string {
+	return s.String()
+}
+
+func (s *GetWorkspaceNodeResponseBodyWorkspaceBO) SetWorkspaceId(v string) *GetWorkspaceNodeResponseBodyWorkspaceBO {
+	s.WorkspaceId = &v
+	return s
+}
+
+func (s *GetWorkspaceNodeResponseBodyWorkspaceBO) SetName(v string) *GetWorkspaceNodeResponseBodyWorkspaceBO {
+	s.Name = &v
 	return s
 }
 
@@ -2381,12 +2438,12 @@ func (client *Client) SearchWorkspaceDocsWithOptions(workspaceId *string, reques
 		query["keyword"] = request.Keyword
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Size)) {
-		query["size"] = request.Size
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.LoadMoreId)) {
-		query["loadMoreId"] = request.LoadMoreId
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
 	}
 
 	realHeaders := make(map[string]*string)
@@ -2693,12 +2750,12 @@ func (client *Client) GetRecentEditDocsWithOptions(request *GetRecentEditDocsReq
 		query["operatorId"] = request.OperatorId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Size)) {
-		query["size"] = request.Size
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.LoadMoreId)) {
-		query["loadMoreId"] = request.LoadMoreId
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
 	}
 
 	realHeaders := make(map[string]*string)
