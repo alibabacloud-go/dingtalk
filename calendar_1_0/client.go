@@ -11,6 +11,287 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type CreateAclsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateAclsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAclsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAclsHeaders) SetCommonHeaders(v map[string]*string) *CreateAclsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateAclsHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAclsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateAclsRequest struct {
+	// 对日历的访问权限
+	Privilege *string `json:"privilege,omitempty" xml:"privilege,omitempty"`
+	// 是否向授权人发消息
+	SendMsg *bool `json:"sendMsg,omitempty" xml:"sendMsg,omitempty"`
+	// 权限范围
+	Scope *CreateAclsRequestScope `json:"scope,omitempty" xml:"scope,omitempty" type:"Struct"`
+}
+
+func (s CreateAclsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAclsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAclsRequest) SetPrivilege(v string) *CreateAclsRequest {
+	s.Privilege = &v
+	return s
+}
+
+func (s *CreateAclsRequest) SetSendMsg(v bool) *CreateAclsRequest {
+	s.SendMsg = &v
+	return s
+}
+
+func (s *CreateAclsRequest) SetScope(v *CreateAclsRequestScope) *CreateAclsRequest {
+	s.Scope = v
+	return s
+}
+
+type CreateAclsRequestScope struct {
+	// 权限类型
+	ScopeType *string `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateAclsRequestScope) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAclsRequestScope) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAclsRequestScope) SetScopeType(v string) *CreateAclsRequestScope {
+	s.ScopeType = &v
+	return s
+}
+
+func (s *CreateAclsRequestScope) SetUserId(v string) *CreateAclsRequestScope {
+	s.UserId = &v
+	return s
+}
+
+type CreateAclsResponseBody struct {
+	// 对日历的访问权限
+	Privilege *string `json:"privilege,omitempty" xml:"privilege,omitempty"`
+	// acl资源ID
+	AclId *string `json:"aclId,omitempty" xml:"aclId,omitempty"`
+	// 权限范围
+	Scope *CreateAclsResponseBodyScope `json:"scope,omitempty" xml:"scope,omitempty" type:"Struct"`
+}
+
+func (s CreateAclsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAclsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAclsResponseBody) SetPrivilege(v string) *CreateAclsResponseBody {
+	s.Privilege = &v
+	return s
+}
+
+func (s *CreateAclsResponseBody) SetAclId(v string) *CreateAclsResponseBody {
+	s.AclId = &v
+	return s
+}
+
+func (s *CreateAclsResponseBody) SetScope(v *CreateAclsResponseBodyScope) *CreateAclsResponseBody {
+	s.Scope = v
+	return s
+}
+
+type CreateAclsResponseBodyScope struct {
+	// 权限类型
+	ScopeType *string `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateAclsResponseBodyScope) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAclsResponseBodyScope) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAclsResponseBodyScope) SetScopeType(v string) *CreateAclsResponseBodyScope {
+	s.ScopeType = &v
+	return s
+}
+
+func (s *CreateAclsResponseBodyScope) SetUserId(v string) *CreateAclsResponseBodyScope {
+	s.UserId = &v
+	return s
+}
+
+type CreateAclsResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateAclsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateAclsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAclsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAclsResponse) SetHeaders(v map[string]*string) *CreateAclsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateAclsResponse) SetBody(v *CreateAclsResponseBody) *CreateAclsResponse {
+	s.Body = v
+	return s
+}
+
+type ListAclsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListAclsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAclsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListAclsHeaders) SetCommonHeaders(v map[string]*string) *ListAclsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListAclsHeaders) SetXAcsDingtalkAccessToken(v string) *ListAclsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListAclsResponseBody struct {
+	// 访问控制列表
+	Acls []*ListAclsResponseBodyAcls `json:"acls,omitempty" xml:"acls,omitempty" type:"Repeated"`
+}
+
+func (s ListAclsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAclsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListAclsResponseBody) SetAcls(v []*ListAclsResponseBodyAcls) *ListAclsResponseBody {
+	s.Acls = v
+	return s
+}
+
+type ListAclsResponseBodyAcls struct {
+	// 权限信息
+	Privilege *string `json:"privilege,omitempty" xml:"privilege,omitempty"`
+	// acl资源ID
+	AclId *string `json:"aclId,omitempty" xml:"aclId,omitempty"`
+	// 权限范围
+	Scope *ListAclsResponseBodyAclsScope `json:"scope,omitempty" xml:"scope,omitempty" type:"Struct"`
+}
+
+func (s ListAclsResponseBodyAcls) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAclsResponseBodyAcls) GoString() string {
+	return s.String()
+}
+
+func (s *ListAclsResponseBodyAcls) SetPrivilege(v string) *ListAclsResponseBodyAcls {
+	s.Privilege = &v
+	return s
+}
+
+func (s *ListAclsResponseBodyAcls) SetAclId(v string) *ListAclsResponseBodyAcls {
+	s.AclId = &v
+	return s
+}
+
+func (s *ListAclsResponseBodyAcls) SetScope(v *ListAclsResponseBodyAclsScope) *ListAclsResponseBodyAcls {
+	s.Scope = v
+	return s
+}
+
+type ListAclsResponseBodyAclsScope struct {
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 权限类型
+	ScopeType *string `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+}
+
+func (s ListAclsResponseBodyAclsScope) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAclsResponseBodyAclsScope) GoString() string {
+	return s.String()
+}
+
+func (s *ListAclsResponseBodyAclsScope) SetUserId(v string) *ListAclsResponseBodyAclsScope {
+	s.UserId = &v
+	return s
+}
+
+func (s *ListAclsResponseBodyAclsScope) SetScopeType(v string) *ListAclsResponseBodyAclsScope {
+	s.ScopeType = &v
+	return s
+}
+
+type ListAclsResponse struct {
+	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListAclsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListAclsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAclsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListAclsResponse) SetHeaders(v map[string]*string) *ListAclsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListAclsResponse) SetBody(v *ListAclsResponseBody) *ListAclsResponse {
+	s.Body = v
+	return s
+}
+
 type RespondEventHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1673,6 +1954,46 @@ func (s *GetSignInListResponse) SetHeaders(v map[string]*string) *GetSignInListR
 
 func (s *GetSignInListResponse) SetBody(v *GetSignInListResponseBody) *GetSignInListResponse {
 	s.Body = v
+	return s
+}
+
+type DeleteAclHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteAclHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteAclHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteAclHeaders) SetCommonHeaders(v map[string]*string) *DeleteAclHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteAclHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteAclHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteAclResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s DeleteAclResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteAclResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteAclResponse) SetHeaders(v map[string]*string) *DeleteAclResponse {
+	s.Headers = v
 	return s
 }
 
@@ -3982,6 +4303,92 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) CreateAcls(userId *string, calendarId *string, request *CreateAclsRequest) (_result *CreateAclsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateAclsHeaders{}
+	_result = &CreateAclsResponse{}
+	_body, _err := client.CreateAclsWithOptions(userId, calendarId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateAclsWithOptions(userId *string, calendarId *string, request *CreateAclsRequest, headers *CreateAclsHeaders, runtime *util.RuntimeOptions) (_result *CreateAclsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Privilege)) {
+		body["privilege"] = request.Privilege
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SendMsg)) {
+		body["sendMsg"] = request.SendMsg
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Scope))) {
+		body["scope"] = request.Scope
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateAclsResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateAcls"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/acls"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListAcls(userId *string, calendarId *string) (_result *ListAclsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListAclsHeaders{}
+	_result = &ListAclsResponse{}
+	_body, _err := client.ListAclsWithOptions(userId, calendarId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListAclsWithOptions(userId *string, calendarId *string, headers *ListAclsHeaders, runtime *util.RuntimeOptions) (_result *ListAclsResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &ListAclsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListAcls"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/acls"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) RespondEvent(userId *string, calendarId *string, eventId *string, request *RespondEventRequest) (_result *RespondEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RespondEventHeaders{}
@@ -4433,6 +4840,40 @@ func (client *Client) GetSignInListWithOptions(userId *string, calendarId *strin
 	}
 	_result = &GetSignInListResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetSignInList"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/signin"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteAcl(userId *string, calendarId *string, aclId *string) (_result *DeleteAclResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteAclHeaders{}
+	_result = &DeleteAclResponse{}
+	_body, _err := client.DeleteAclWithOptions(userId, calendarId, aclId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteAclWithOptions(userId *string, calendarId *string, aclId *string, headers *DeleteAclHeaders, runtime *util.RuntimeOptions) (_result *DeleteAclResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &DeleteAclResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteAcl"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/acls/"+tea.StringValue(aclId)), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

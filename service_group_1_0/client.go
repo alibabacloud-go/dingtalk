@@ -3267,6 +3267,129 @@ func (s *AddTicketMemoResponse) SetHeaders(v map[string]*string) *AddTicketMemoR
 	return s
 }
 
+type QueryGroupSetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryGroupSetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupSetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupSetHeaders) SetCommonHeaders(v map[string]*string) *QueryGroupSetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryGroupSetHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGroupSetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryGroupSetRequest struct {
+	// openTeamId
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s QueryGroupSetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupSetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupSetRequest) SetOpenTeamId(v string) *QueryGroupSetRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type QueryGroupSetResponseBody struct {
+	// records
+	Records []*QueryGroupSetResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+}
+
+func (s QueryGroupSetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupSetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupSetResponseBody) SetRecords(v []*QueryGroupSetResponseBodyRecords) *QueryGroupSetResponseBody {
+	s.Records = v
+	return s
+}
+
+type QueryGroupSetResponseBodyRecords struct {
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	GroupSetName   *string `json:"groupSetName,omitempty" xml:"groupSetName,omitempty"`
+	TemplateId     *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	GmtCreate      *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified    *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+}
+
+func (s QueryGroupSetResponseBodyRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupSetResponseBodyRecords) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupSetResponseBodyRecords) SetOpenGroupSetId(v string) *QueryGroupSetResponseBodyRecords {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *QueryGroupSetResponseBodyRecords) SetGroupSetName(v string) *QueryGroupSetResponseBodyRecords {
+	s.GroupSetName = &v
+	return s
+}
+
+func (s *QueryGroupSetResponseBodyRecords) SetTemplateId(v string) *QueryGroupSetResponseBodyRecords {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *QueryGroupSetResponseBodyRecords) SetGmtCreate(v string) *QueryGroupSetResponseBodyRecords {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QueryGroupSetResponseBodyRecords) SetGmtModified(v string) *QueryGroupSetResponseBodyRecords {
+	s.GmtModified = &v
+	return s
+}
+
+type QueryGroupSetResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryGroupSetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryGroupSetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupSetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupSetResponse) SetHeaders(v map[string]*string) *QueryGroupSetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryGroupSetResponse) SetBody(v *QueryGroupSetResponseBody) *QueryGroupSetResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteKnowledgeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3998,6 +4121,8 @@ type SearchGroupResponseBodyRecords struct {
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 	// 开放群组ID
 	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 入群链接
+	GroupUrl *string `json:"groupUrl,omitempty" xml:"groupUrl,omitempty"`
 }
 
 func (s SearchGroupResponseBodyRecords) String() string {
@@ -4025,6 +4150,11 @@ func (s *SearchGroupResponseBodyRecords) SetOpenTeamId(v string) *SearchGroupRes
 
 func (s *SearchGroupResponseBodyRecords) SetOpenGroupSetId(v string) *SearchGroupResponseBodyRecords {
 	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *SearchGroupResponseBodyRecords) SetGroupUrl(v string) *SearchGroupResponseBodyRecords {
+	s.GroupUrl = &v
 	return s
 }
 
@@ -4918,6 +5048,269 @@ func (s *AddOpenCategoryResponse) SetBody(v *AddOpenCategoryResponseBody) *AddOp
 	return s
 }
 
+type CreateGroupSetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateGroupSetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupSetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupSetHeaders) SetCommonHeaders(v map[string]*string) *CreateGroupSetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateGroupSetHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGroupSetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateGroupSetRequest struct {
+	// openTeamId
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// dingIsvOrgId
+	DingIsvOrgId *int64 `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	// dingOrgId
+	DingOrgId *int64 `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	// dingSuiteKey
+	DingSuiteKey *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	// dingTokenGrantType
+	DingTokenGrantType *int64 `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	// groupSetName
+	GroupSetName    *string `json:"groupSetName,omitempty" xml:"groupSetName,omitempty"`
+	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
+}
+
+func (s CreateGroupSetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupSetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupSetRequest) SetOpenTeamId(v string) *CreateGroupSetRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *CreateGroupSetRequest) SetDingIsvOrgId(v int64) *CreateGroupSetRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *CreateGroupSetRequest) SetDingOrgId(v int64) *CreateGroupSetRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *CreateGroupSetRequest) SetDingSuiteKey(v string) *CreateGroupSetRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *CreateGroupSetRequest) SetDingTokenGrantType(v int64) *CreateGroupSetRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *CreateGroupSetRequest) SetGroupSetName(v string) *CreateGroupSetRequest {
+	s.GroupSetName = &v
+	return s
+}
+
+func (s *CreateGroupSetRequest) SetGroupTemplateId(v string) *CreateGroupSetRequest {
+	s.GroupTemplateId = &v
+	return s
+}
+
+type CreateGroupSetResponseBody struct {
+	// 群分组id
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CreateGroupSetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupSetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupSetResponseBody) SetResult(v string) *CreateGroupSetResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CreateGroupSetResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateGroupSetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateGroupSetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupSetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupSetResponse) SetHeaders(v map[string]*string) *CreateGroupSetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateGroupSetResponse) SetBody(v *CreateGroupSetResponseBody) *CreateGroupSetResponse {
+	s.Body = v
+	return s
+}
+
+type BoundTemplateToTeamHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BoundTemplateToTeamHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BoundTemplateToTeamHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BoundTemplateToTeamHeaders) SetCommonHeaders(v map[string]*string) *BoundTemplateToTeamHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BoundTemplateToTeamHeaders) SetXAcsDingtalkAccessToken(v string) *BoundTemplateToTeamHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BoundTemplateToTeamRequest struct {
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	// 目标团队id
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 模板id
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// 模板名字
+	TemplateName *string `json:"templateName,omitempty" xml:"templateName,omitempty"`
+	// 模板类型
+	TemplateType *string `json:"templateType,omitempty" xml:"templateType,omitempty"`
+	// 模板描述信息
+	TemplateDesc *string `json:"templateDesc,omitempty" xml:"templateDesc,omitempty"`
+	// 模板中的机器人配置信息
+	RobotConfig *string `json:"robotConfig,omitempty" xml:"robotConfig,omitempty"`
+}
+
+func (s BoundTemplateToTeamRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BoundTemplateToTeamRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BoundTemplateToTeamRequest) SetDingOrgId(v int64) *BoundTemplateToTeamRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *BoundTemplateToTeamRequest) SetDingSuiteKey(v string) *BoundTemplateToTeamRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *BoundTemplateToTeamRequest) SetDingTokenGrantType(v int64) *BoundTemplateToTeamRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *BoundTemplateToTeamRequest) SetDingIsvOrgId(v int64) *BoundTemplateToTeamRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *BoundTemplateToTeamRequest) SetOpenTeamId(v string) *BoundTemplateToTeamRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *BoundTemplateToTeamRequest) SetTemplateId(v string) *BoundTemplateToTeamRequest {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *BoundTemplateToTeamRequest) SetTemplateName(v string) *BoundTemplateToTeamRequest {
+	s.TemplateName = &v
+	return s
+}
+
+func (s *BoundTemplateToTeamRequest) SetTemplateType(v string) *BoundTemplateToTeamRequest {
+	s.TemplateType = &v
+	return s
+}
+
+func (s *BoundTemplateToTeamRequest) SetTemplateDesc(v string) *BoundTemplateToTeamRequest {
+	s.TemplateDesc = &v
+	return s
+}
+
+func (s *BoundTemplateToTeamRequest) SetRobotConfig(v string) *BoundTemplateToTeamRequest {
+	s.RobotConfig = &v
+	return s
+}
+
+type BoundTemplateToTeamResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s BoundTemplateToTeamResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BoundTemplateToTeamResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BoundTemplateToTeamResponseBody) SetResult(v bool) *BoundTemplateToTeamResponseBody {
+	s.Result = &v
+	return s
+}
+
+type BoundTemplateToTeamResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BoundTemplateToTeamResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BoundTemplateToTeamResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BoundTemplateToTeamResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BoundTemplateToTeamResponse) SetHeaders(v map[string]*string) *BoundTemplateToTeamResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BoundTemplateToTeamResponse) SetBody(v *BoundTemplateToTeamResponseBody) *BoundTemplateToTeamResponse {
+	s.Body = v
+	return s
+}
+
 type GetOssTempUrlHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5588,6 +5981,119 @@ func (s *AddOpenKnowledgeResponse) SetHeaders(v map[string]*string) *AddOpenKnow
 }
 
 func (s *AddOpenKnowledgeResponse) SetBody(v *AddOpenKnowledgeResponseBody) *AddOpenKnowledgeResponse {
+	s.Body = v
+	return s
+}
+
+type CreateTeamHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateTeamHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTeamHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTeamHeaders) SetCommonHeaders(v map[string]*string) *CreateTeamHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateTeamHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTeamHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateTeamRequest struct {
+	// 团队管理员钉钉uid
+	CreatorDingUid *int64 `json:"creatorDingUid,omitempty" xml:"creatorDingUid,omitempty"`
+	// 团队名字
+	TeamName           *string `json:"teamName,omitempty" xml:"teamName,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+}
+
+func (s CreateTeamRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTeamRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTeamRequest) SetCreatorDingUid(v int64) *CreateTeamRequest {
+	s.CreatorDingUid = &v
+	return s
+}
+
+func (s *CreateTeamRequest) SetTeamName(v string) *CreateTeamRequest {
+	s.TeamName = &v
+	return s
+}
+
+func (s *CreateTeamRequest) SetDingIsvOrgId(v int64) *CreateTeamRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *CreateTeamRequest) SetDingOrgId(v int64) *CreateTeamRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *CreateTeamRequest) SetDingSuiteKey(v string) *CreateTeamRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *CreateTeamRequest) SetDingTokenGrantType(v int64) *CreateTeamRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+type CreateTeamResponseBody struct {
+	// 团队id
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CreateTeamResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTeamResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTeamResponseBody) SetResult(v string) *CreateTeamResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CreateTeamResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateTeamResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateTeamResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTeamResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTeamResponse) SetHeaders(v map[string]*string) *CreateTeamResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateTeamResponse) SetBody(v *CreateTeamResponseBody) *CreateTeamResponse {
 	s.Body = v
 	return s
 }
@@ -7168,6 +7674,50 @@ func (client *Client) AddTicketMemoWithOptions(request *AddTicketMemoRequest, he
 	return _result, _err
 }
 
+func (client *Client) QueryGroupSet(request *QueryGroupSetRequest) (_result *QueryGroupSetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryGroupSetHeaders{}
+	_result = &QueryGroupSetResponse{}
+	_body, _err := client.QueryGroupSetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryGroupSetWithOptions(request *QueryGroupSetRequest, headers *QueryGroupSetHeaders, runtime *util.RuntimeOptions) (_result *QueryGroupSetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		query["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryGroupSetResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryGroupSet"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groupSets"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteKnowledge(request *DeleteKnowledgeRequest) (_result *DeleteKnowledgeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteKnowledgeHeaders{}
@@ -7868,6 +8418,154 @@ func (client *Client) AddOpenCategoryWithOptions(request *AddOpenCategoryRequest
 	return _result, _err
 }
 
+func (client *Client) CreateGroupSet(request *CreateGroupSetRequest) (_result *CreateGroupSetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateGroupSetHeaders{}
+	_result = &CreateGroupSetResponse{}
+	_body, _err := client.CreateGroupSetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateGroupSetWithOptions(request *CreateGroupSetRequest, headers *CreateGroupSetHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupSetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupSetName)) {
+		body["groupSetName"] = request.GroupSetName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupTemplateId)) {
+		body["groupTemplateId"] = request.GroupTemplateId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateGroupSetResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateGroupSet"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groupSets"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BoundTemplateToTeam(request *BoundTemplateToTeamRequest) (_result *BoundTemplateToTeamResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BoundTemplateToTeamHeaders{}
+	_result = &BoundTemplateToTeamResponse{}
+	_body, _err := client.BoundTemplateToTeamWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BoundTemplateToTeamWithOptions(request *BoundTemplateToTeamRequest, headers *BoundTemplateToTeamHeaders, runtime *util.RuntimeOptions) (_result *BoundTemplateToTeamResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateName)) {
+		body["templateName"] = request.TemplateName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateType)) {
+		body["templateType"] = request.TemplateType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateDesc)) {
+		body["templateDesc"] = request.TemplateDesc
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotConfig)) {
+		body["robotConfig"] = request.RobotConfig
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BoundTemplateToTeamResponse{}
+	_body, _err := client.DoROARequest(tea.String("BoundTemplateToTeam"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/teams/templates/bound"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetOssTempUrl(request *GetOssTempUrlRequest) (_result *GetOssTempUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOssTempUrlHeaders{}
@@ -8177,6 +8875,70 @@ func (client *Client) AddOpenKnowledgeWithOptions(request *AddOpenKnowledgeReque
 	}
 	_result = &AddOpenKnowledgeResponse{}
 	_body, _err := client.DoROARequest(tea.String("AddOpenKnowledge"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/openKnowledges"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateTeam(request *CreateTeamRequest) (_result *CreateTeamResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateTeamHeaders{}
+	_result = &CreateTeamResponse{}
+	_body, _err := client.CreateTeamWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateTeamWithOptions(request *CreateTeamRequest, headers *CreateTeamHeaders, runtime *util.RuntimeOptions) (_result *CreateTeamResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CreatorDingUid)) {
+		body["creatorDingUid"] = request.CreatorDingUid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TeamName)) {
+		body["teamName"] = request.TeamName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateTeamResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateTeam"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/teams"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
