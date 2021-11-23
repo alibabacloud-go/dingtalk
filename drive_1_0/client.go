@@ -3673,7 +3673,8 @@ func (s *GetUploadInfoRequest) SetMediaId(v string) *GetUploadInfoRequest {
 }
 
 type GetUploadInfoResponseBody struct {
-	StsUploadInfo *GetUploadInfoResponseBodyStsUploadInfo `json:"stsUploadInfo,omitempty" xml:"stsUploadInfo,omitempty" type:"Struct"`
+	StsUploadInfo             *GetUploadInfoResponseBodyStsUploadInfo             `json:"stsUploadInfo,omitempty" xml:"stsUploadInfo,omitempty" type:"Struct"`
+	HeaderSignatureUploadInfo *GetUploadInfoResponseBodyHeaderSignatureUploadInfo `json:"headerSignatureUploadInfo,omitempty" xml:"headerSignatureUploadInfo,omitempty" type:"Struct"`
 }
 
 func (s GetUploadInfoResponseBody) String() string {
@@ -3686,6 +3687,11 @@ func (s GetUploadInfoResponseBody) GoString() string {
 
 func (s *GetUploadInfoResponseBody) SetStsUploadInfo(v *GetUploadInfoResponseBodyStsUploadInfo) *GetUploadInfoResponseBody {
 	s.StsUploadInfo = v
+	return s
+}
+
+func (s *GetUploadInfoResponseBody) SetHeaderSignatureUploadInfo(v *GetUploadInfoResponseBodyHeaderSignatureUploadInfo) *GetUploadInfoResponseBody {
+	s.HeaderSignatureUploadInfo = v
 	return s
 }
 
@@ -3746,6 +3752,38 @@ func (s *GetUploadInfoResponseBodyStsUploadInfo) SetAccessTokenExpirationMillis(
 
 func (s *GetUploadInfoResponseBodyStsUploadInfo) SetMediaId(v string) *GetUploadInfoResponseBodyStsUploadInfo {
 	s.MediaId = &v
+	return s
+}
+
+type GetUploadInfoResponseBodyHeaderSignatureUploadInfo struct {
+	// 上传地址
+	ResourceUrl *string `json:"resourceUrl,omitempty" xml:"resourceUrl,omitempty"`
+	// 过期秒数
+	ExpirationSeconds *int32 `json:"expirationSeconds,omitempty" xml:"expirationSeconds,omitempty"`
+	// header加签信息
+	Headers map[string]interface{} `json:"headers,omitempty" xml:"headers,omitempty"`
+}
+
+func (s GetUploadInfoResponseBodyHeaderSignatureUploadInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUploadInfoResponseBodyHeaderSignatureUploadInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetUploadInfoResponseBodyHeaderSignatureUploadInfo) SetResourceUrl(v string) *GetUploadInfoResponseBodyHeaderSignatureUploadInfo {
+	s.ResourceUrl = &v
+	return s
+}
+
+func (s *GetUploadInfoResponseBodyHeaderSignatureUploadInfo) SetExpirationSeconds(v int32) *GetUploadInfoResponseBodyHeaderSignatureUploadInfo {
+	s.ExpirationSeconds = &v
+	return s
+}
+
+func (s *GetUploadInfoResponseBodyHeaderSignatureUploadInfo) SetHeaders(v map[string]interface{}) *GetUploadInfoResponseBodyHeaderSignatureUploadInfo {
+	s.Headers = v
 	return s
 }
 

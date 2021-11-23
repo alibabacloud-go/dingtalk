@@ -2558,6 +2558,10 @@ type DescribeCrmPersonalCustomerObjectMetaResponseBody struct {
 	Customized *bool `json:"customized,omitempty" xml:"customized,omitempty"`
 	// 字段列表
 	Fields []*DescribeCrmPersonalCustomerObjectMetaResponseBodyFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	// 表单状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 表单code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
 }
 
 func (s DescribeCrmPersonalCustomerObjectMetaResponseBody) String() string {
@@ -2580,6 +2584,16 @@ func (s *DescribeCrmPersonalCustomerObjectMetaResponseBody) SetCustomized(v bool
 
 func (s *DescribeCrmPersonalCustomerObjectMetaResponseBody) SetFields(v []*DescribeCrmPersonalCustomerObjectMetaResponseBodyFields) *DescribeCrmPersonalCustomerObjectMetaResponseBody {
 	s.Fields = v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBody) SetStatus(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaResponseBody) SetCode(v string) *DescribeCrmPersonalCustomerObjectMetaResponseBody {
+	s.Code = &v
 	return s
 }
 

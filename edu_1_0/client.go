@@ -3365,6 +3365,8 @@ type QueryRemoteClassCourseResponseBodyResult struct {
 	TeachingParticipant *QueryRemoteClassCourseResponseBodyResultTeachingParticipant `json:"teachingParticipant,omitempty" xml:"teachingParticipant,omitempty" type:"Struct"`
 	// 听课设备列表
 	AttendParticipants []*QueryRemoteClassCourseResponseBodyResultAttendParticipants `json:"attendParticipants,omitempty" xml:"attendParticipants,omitempty" type:"Repeated"`
+	// 当前组织在课程中的角色列表：TEACHING：授课方；ATTEND：听课方
+	CourseWays []*string `json:"courseWays,omitempty" xml:"courseWays,omitempty" type:"Repeated"`
 }
 
 func (s QueryRemoteClassCourseResponseBodyResult) String() string {
@@ -3412,6 +3414,11 @@ func (s *QueryRemoteClassCourseResponseBodyResult) SetTeachingParticipant(v *Que
 
 func (s *QueryRemoteClassCourseResponseBodyResult) SetAttendParticipants(v []*QueryRemoteClassCourseResponseBodyResultAttendParticipants) *QueryRemoteClassCourseResponseBodyResult {
 	s.AttendParticipants = v
+	return s
+}
+
+func (s *QueryRemoteClassCourseResponseBodyResult) SetCourseWays(v []*string) *QueryRemoteClassCourseResponseBodyResult {
+	s.CourseWays = v
 	return s
 }
 
@@ -5258,6 +5265,10 @@ type GetRemoteClassCourseResponseBodyResult struct {
 	TeachingParticipant *GetRemoteClassCourseResponseBodyResultTeachingParticipant `json:"teachingParticipant,omitempty" xml:"teachingParticipant,omitempty" type:"Struct"`
 	// 听课设备列表
 	AttendParticipants []*GetRemoteClassCourseResponseBodyResultAttendParticipants `json:"attendParticipants,omitempty" xml:"attendParticipants,omitempty" type:"Repeated"`
+	// 直播观看URL（如果有）
+	LiveUrl *string `json:"liveUrl,omitempty" xml:"liveUrl,omitempty"`
+	// 录制信息列表（如果有）。根据录制端的不同，有不同时长的延迟
+	RecordInfos []*GetRemoteClassCourseResponseBodyResultRecordInfos `json:"recordInfos,omitempty" xml:"recordInfos,omitempty" type:"Repeated"`
 }
 
 func (s GetRemoteClassCourseResponseBodyResult) String() string {
@@ -5310,6 +5321,16 @@ func (s *GetRemoteClassCourseResponseBodyResult) SetTeachingParticipant(v *GetRe
 
 func (s *GetRemoteClassCourseResponseBodyResult) SetAttendParticipants(v []*GetRemoteClassCourseResponseBodyResultAttendParticipants) *GetRemoteClassCourseResponseBodyResult {
 	s.AttendParticipants = v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResult) SetLiveUrl(v string) *GetRemoteClassCourseResponseBodyResult {
+	s.LiveUrl = &v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResult) SetRecordInfos(v []*GetRemoteClassCourseResponseBodyResultRecordInfos) *GetRemoteClassCourseResponseBodyResult {
+	s.RecordInfos = v
 	return s
 }
 
@@ -5388,6 +5409,38 @@ func (s *GetRemoteClassCourseResponseBodyResultAttendParticipants) SetCorpId(v s
 
 func (s *GetRemoteClassCourseResponseBodyResultAttendParticipants) SetOrgName(v string) *GetRemoteClassCourseResponseBodyResultAttendParticipants {
 	s.OrgName = &v
+	return s
+}
+
+type GetRemoteClassCourseResponseBodyResultRecordInfos struct {
+	// 录制文件地址（文件有效期7天）
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 录制开始时间（UTC/GMT格式）
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 录制结束时间（UTC/GMT格式）
+	StopTime *string `json:"stopTime,omitempty" xml:"stopTime,omitempty"`
+}
+
+func (s GetRemoteClassCourseResponseBodyResultRecordInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRemoteClassCourseResponseBodyResultRecordInfos) GoString() string {
+	return s.String()
+}
+
+func (s *GetRemoteClassCourseResponseBodyResultRecordInfos) SetUrl(v string) *GetRemoteClassCourseResponseBodyResultRecordInfos {
+	s.Url = &v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResultRecordInfos) SetStartTime(v string) *GetRemoteClassCourseResponseBodyResultRecordInfos {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetRemoteClassCourseResponseBodyResultRecordInfos) SetStopTime(v string) *GetRemoteClassCourseResponseBodyResultRecordInfos {
+	s.StopTime = &v
 	return s
 }
 

@@ -3577,6 +3577,64 @@ func (s *GetUnionIdByMigrationUnionIdResponse) SetBody(v *GetUnionIdByMigrationU
 	return s
 }
 
+type MultiOrgPermissionGrantHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s MultiOrgPermissionGrantHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MultiOrgPermissionGrantHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *MultiOrgPermissionGrantHeaders) SetCommonHeaders(v map[string]*string) *MultiOrgPermissionGrantHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *MultiOrgPermissionGrantHeaders) SetXAcsDingtalkAccessToken(v string) *MultiOrgPermissionGrantHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type MultiOrgPermissionGrantRequest struct {
+	// 授权加入的组织corpId
+	JoinCorpId *string `json:"joinCorpId,omitempty" xml:"joinCorpId,omitempty"`
+}
+
+func (s MultiOrgPermissionGrantRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MultiOrgPermissionGrantRequest) GoString() string {
+	return s.String()
+}
+
+func (s *MultiOrgPermissionGrantRequest) SetJoinCorpId(v string) *MultiOrgPermissionGrantRequest {
+	s.JoinCorpId = &v
+	return s
+}
+
+type MultiOrgPermissionGrantResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s MultiOrgPermissionGrantResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MultiOrgPermissionGrantResponse) GoString() string {
+	return s.String()
+}
+
+func (s *MultiOrgPermissionGrantResponse) SetHeaders(v map[string]*string) *MultiOrgPermissionGrantResponse {
+	s.Headers = v
+	return s
+}
+
 type GetLatestDingIndexHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5417,6 +5475,50 @@ func (client *Client) GetUnionIdByMigrationUnionIdWithOptions(request *GetUnionI
 	}
 	_result = &GetUnionIdByMigrationUnionIdResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetUnionIdByMigrationUnionId"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/orgAccount/getUnionIdByMigrationUnionIds"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) MultiOrgPermissionGrant(request *MultiOrgPermissionGrantRequest) (_result *MultiOrgPermissionGrantResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &MultiOrgPermissionGrantHeaders{}
+	_result = &MultiOrgPermissionGrantResponse{}
+	_body, _err := client.MultiOrgPermissionGrantWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) MultiOrgPermissionGrantWithOptions(request *MultiOrgPermissionGrantRequest, headers *MultiOrgPermissionGrantHeaders, runtime *util.RuntimeOptions) (_result *MultiOrgPermissionGrantResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.JoinCorpId)) {
+		body["joinCorpId"] = request.JoinCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &MultiOrgPermissionGrantResponse{}
+	_body, _err := client.DoROARequest(tea.String("MultiOrgPermissionGrant"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/orgAccounts/multiOrgPermissions/auth"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
