@@ -6009,8 +6009,8 @@ func (s *CreateTeamHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTeamHead
 }
 
 type CreateTeamRequest struct {
-	// 团队管理员钉钉uid
-	CreatorDingUid *int64 `json:"creatorDingUid,omitempty" xml:"creatorDingUid,omitempty"`
+	// 团队管理员钉钉unionId
+	CreatorDingUnionId *string `json:"creatorDingUnionId,omitempty" xml:"creatorDingUnionId,omitempty"`
 	// 团队名字
 	TeamName           *string `json:"teamName,omitempty" xml:"teamName,omitempty"`
 	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
@@ -6027,8 +6027,8 @@ func (s CreateTeamRequest) GoString() string {
 	return s.String()
 }
 
-func (s *CreateTeamRequest) SetCreatorDingUid(v int64) *CreateTeamRequest {
-	s.CreatorDingUid = &v
+func (s *CreateTeamRequest) SetCreatorDingUnionId(v string) *CreateTeamRequest {
+	s.CreatorDingUnionId = &v
 	return s
 }
 
@@ -8900,8 +8900,8 @@ func (client *Client) CreateTeamWithOptions(request *CreateTeamRequest, headers 
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.CreatorDingUid)) {
-		body["creatorDingUid"] = request.CreatorDingUid
+	if !tea.BoolValue(util.IsUnset(request.CreatorDingUnionId)) {
+		body["creatorDingUnionId"] = request.CreatorDingUnionId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.TeamName)) {

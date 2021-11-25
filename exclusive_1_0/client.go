@@ -2122,6 +2122,120 @@ func (s *UpdateMiniAppVersionStatusResponse) SetBody(v *UpdateMiniAppVersionStat
 	return s
 }
 
+type UpdateRoleVisibilityHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateRoleVisibilityHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRoleVisibilityHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRoleVisibilityHeaders) SetCommonHeaders(v map[string]*string) *UpdateRoleVisibilityHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateRoleVisibilityHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRoleVisibilityHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateRoleVisibilityRequest struct {
+	// 标签id
+	LabelId *int64 `json:"labelId,omitempty" xml:"labelId,omitempty"`
+	// 可见的部门id
+	DeptIds []*int64 `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	// 可见的员工id
+	UserIds            []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	DingClientId       *string   `json:"dingClientId,omitempty" xml:"dingClientId,omitempty"`
+	DingTokenGrantType *int64    `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingOrgId          *int64    `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId       *int64    `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingSuiteKey       *string   `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingCorpId         *string   `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+}
+
+func (s UpdateRoleVisibilityRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRoleVisibilityRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRoleVisibilityRequest) SetLabelId(v int64) *UpdateRoleVisibilityRequest {
+	s.LabelId = &v
+	return s
+}
+
+func (s *UpdateRoleVisibilityRequest) SetDeptIds(v []*int64) *UpdateRoleVisibilityRequest {
+	s.DeptIds = v
+	return s
+}
+
+func (s *UpdateRoleVisibilityRequest) SetUserIds(v []*string) *UpdateRoleVisibilityRequest {
+	s.UserIds = v
+	return s
+}
+
+func (s *UpdateRoleVisibilityRequest) SetDingClientId(v string) *UpdateRoleVisibilityRequest {
+	s.DingClientId = &v
+	return s
+}
+
+func (s *UpdateRoleVisibilityRequest) SetDingTokenGrantType(v int64) *UpdateRoleVisibilityRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *UpdateRoleVisibilityRequest) SetDingOrgId(v int64) *UpdateRoleVisibilityRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *UpdateRoleVisibilityRequest) SetDingIsvOrgId(v int64) *UpdateRoleVisibilityRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *UpdateRoleVisibilityRequest) SetDingSuiteKey(v string) *UpdateRoleVisibilityRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *UpdateRoleVisibilityRequest) SetDingCorpId(v string) *UpdateRoleVisibilityRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+type UpdateRoleVisibilityResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *bool              `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateRoleVisibilityResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRoleVisibilityResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRoleVisibilityResponse) SetHeaders(v map[string]*string) *UpdateRoleVisibilityResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateRoleVisibilityResponse) SetBody(v bool) *UpdateRoleVisibilityResponse {
+	s.Body = &v
+	return s
+}
+
 type GetGeneralFormCreatedSummaryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2312,6 +2426,120 @@ func (s SendAppDingResponse) GoString() string {
 
 func (s *SendAppDingResponse) SetHeaders(v map[string]*string) *SendAppDingResponse {
 	s.Headers = v
+	return s
+}
+
+type UpdatePartnerVisibilityHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdatePartnerVisibilityHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePartnerVisibilityHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePartnerVisibilityHeaders) SetCommonHeaders(v map[string]*string) *UpdatePartnerVisibilityHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdatePartnerVisibilityHeaders) SetXAcsDingtalkAccessToken(v string) *UpdatePartnerVisibilityHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdatePartnerVisibilityRequest struct {
+	// 标签id
+	LabelId *int64 `json:"labelId,omitempty" xml:"labelId,omitempty"`
+	// 可见的部门id
+	DeptIds []*int64 `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	// 可见的员工id
+	UserIds            []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	DingClientId       *string   `json:"dingClientId,omitempty" xml:"dingClientId,omitempty"`
+	DingTokenGrantType *int64    `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingOrgId          *int64    `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId       *int64    `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingSuiteKey       *string   `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingCorpId         *string   `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+}
+
+func (s UpdatePartnerVisibilityRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePartnerVisibilityRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePartnerVisibilityRequest) SetLabelId(v int64) *UpdatePartnerVisibilityRequest {
+	s.LabelId = &v
+	return s
+}
+
+func (s *UpdatePartnerVisibilityRequest) SetDeptIds(v []*int64) *UpdatePartnerVisibilityRequest {
+	s.DeptIds = v
+	return s
+}
+
+func (s *UpdatePartnerVisibilityRequest) SetUserIds(v []*string) *UpdatePartnerVisibilityRequest {
+	s.UserIds = v
+	return s
+}
+
+func (s *UpdatePartnerVisibilityRequest) SetDingClientId(v string) *UpdatePartnerVisibilityRequest {
+	s.DingClientId = &v
+	return s
+}
+
+func (s *UpdatePartnerVisibilityRequest) SetDingTokenGrantType(v int64) *UpdatePartnerVisibilityRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *UpdatePartnerVisibilityRequest) SetDingOrgId(v int64) *UpdatePartnerVisibilityRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *UpdatePartnerVisibilityRequest) SetDingIsvOrgId(v int64) *UpdatePartnerVisibilityRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *UpdatePartnerVisibilityRequest) SetDingSuiteKey(v string) *UpdatePartnerVisibilityRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *UpdatePartnerVisibilityRequest) SetDingCorpId(v string) *UpdatePartnerVisibilityRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+type UpdatePartnerVisibilityResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *bool              `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdatePartnerVisibilityResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePartnerVisibilityResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePartnerVisibilityResponse) SetHeaders(v map[string]*string) *UpdatePartnerVisibilityResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdatePartnerVisibilityResponse) SetBody(v bool) *UpdatePartnerVisibilityResponse {
+	s.Body = &v
 	return s
 }
 
@@ -3186,6 +3414,92 @@ func (s *SearchOrgInnerGroupInfoResponse) SetHeaders(v map[string]*string) *Sear
 
 func (s *SearchOrgInnerGroupInfoResponse) SetBody(v *SearchOrgInnerGroupInfoResponseBody) *SearchOrgInnerGroupInfoResponse {
 	s.Body = v
+	return s
+}
+
+type SendInvitationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendInvitationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendInvitationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendInvitationHeaders) SetCommonHeaders(v map[string]*string) *SendInvitationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendInvitationHeaders) SetXAcsDingtalkAccessToken(v string) *SendInvitationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendInvitationRequest struct {
+	// 部门id
+	DeptId *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 伙伴编码
+	PartnerNum *string `json:"partnerNum,omitempty" xml:"partnerNum,omitempty"`
+	// 伙伴标签id
+	PartnerLabelId *int64 `json:"partnerLabelId,omitempty" xml:"partnerLabelId,omitempty"`
+	// 手机号
+	Phone *string `json:"phone,omitempty" xml:"phone,omitempty"`
+	// 组织别名
+	OrgAlias *string `json:"orgAlias,omitempty" xml:"orgAlias,omitempty"`
+}
+
+func (s SendInvitationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendInvitationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendInvitationRequest) SetDeptId(v string) *SendInvitationRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *SendInvitationRequest) SetPartnerNum(v string) *SendInvitationRequest {
+	s.PartnerNum = &v
+	return s
+}
+
+func (s *SendInvitationRequest) SetPartnerLabelId(v int64) *SendInvitationRequest {
+	s.PartnerLabelId = &v
+	return s
+}
+
+func (s *SendInvitationRequest) SetPhone(v string) *SendInvitationRequest {
+	s.Phone = &v
+	return s
+}
+
+func (s *SendInvitationRequest) SetOrgAlias(v string) *SendInvitationRequest {
+	s.OrgAlias = &v
+	return s
+}
+
+type SendInvitationResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s SendInvitationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendInvitationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendInvitationResponse) SetHeaders(v map[string]*string) *SendInvitationResponse {
+	s.Headers = v
 	return s
 }
 
@@ -4313,6 +4627,82 @@ func (client *Client) UpdateMiniAppVersionStatusWithOptions(request *UpdateMiniA
 	return _result, _err
 }
 
+func (client *Client) UpdateRoleVisibility(request *UpdateRoleVisibilityRequest) (_result *UpdateRoleVisibilityResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateRoleVisibilityHeaders{}
+	_result = &UpdateRoleVisibilityResponse{}
+	_body, _err := client.UpdateRoleVisibilityWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateRoleVisibilityWithOptions(request *UpdateRoleVisibilityRequest, headers *UpdateRoleVisibilityHeaders, runtime *util.RuntimeOptions) (_result *UpdateRoleVisibilityResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LabelId)) {
+		body["labelId"] = request.LabelId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptIds)) {
+		body["deptIds"] = request.DeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingClientId)) {
+		body["dingClientId"] = request.DingClientId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateRoleVisibilityResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateRoleVisibility"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/exclusive/partnerDepartments/visibilityRoles"), tea.String("boolean"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetGeneralFormCreatedSummary(dataId *string) (_result *GetGeneralFormCreatedSummaryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetGeneralFormCreatedSummaryHeaders{}
@@ -4422,6 +4812,82 @@ func (client *Client) SendAppDingWithOptions(request *SendAppDingRequest, header
 	}
 	_result = &SendAppDingResponse{}
 	_body, _err := client.DoROARequest(tea.String("SendAppDing"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/appDings/send"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdatePartnerVisibility(request *UpdatePartnerVisibilityRequest) (_result *UpdatePartnerVisibilityResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdatePartnerVisibilityHeaders{}
+	_result = &UpdatePartnerVisibilityResponse{}
+	_body, _err := client.UpdatePartnerVisibilityWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdatePartnerVisibilityWithOptions(request *UpdatePartnerVisibilityRequest, headers *UpdatePartnerVisibilityHeaders, runtime *util.RuntimeOptions) (_result *UpdatePartnerVisibilityResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LabelId)) {
+		body["labelId"] = request.LabelId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptIds)) {
+		body["deptIds"] = request.DeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingClientId)) {
+		body["dingClientId"] = request.DingClientId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdatePartnerVisibilityResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdatePartnerVisibility"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/exclusive/partnerDepartments/visibilityPartners"), tea.String("boolean"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4754,6 +5220,66 @@ func (client *Client) SearchOrgInnerGroupInfoWithOptions(request *SearchOrgInner
 	}
 	_result = &SearchOrgInnerGroupInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("SearchOrgInnerGroupInfo"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/securities/orgGroupInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendInvitation(request *SendInvitationRequest) (_result *SendInvitationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendInvitationHeaders{}
+	_result = &SendInvitationResponse{}
+	_body, _err := client.SendInvitationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendInvitationWithOptions(request *SendInvitationRequest, headers *SendInvitationHeaders, runtime *util.RuntimeOptions) (_result *SendInvitationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PartnerNum)) {
+		body["partnerNum"] = request.PartnerNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PartnerLabelId)) {
+		body["partnerLabelId"] = request.PartnerLabelId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Phone)) {
+		body["phone"] = request.Phone
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrgAlias)) {
+		body["orgAlias"] = request.OrgAlias
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendInvitationResponse{}
+	_body, _err := client.DoROARequest(tea.String("SendInvitation"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/partnerDepartments/invitations/send"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
