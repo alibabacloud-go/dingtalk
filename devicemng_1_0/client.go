@@ -290,6 +290,108 @@ func (s *BatchRegisterDeviceResponse) SetBody(v *BatchRegisterDeviceResponseBody
 	return s
 }
 
+type DeviceDingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeviceDingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeviceDingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeviceDingHeaders) SetCommonHeaders(v map[string]*string) *DeviceDingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeviceDingHeaders) SetXAcsDingtalkAccessToken(v string) *DeviceDingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeviceDingRequest struct {
+	// 钉钉组织id
+	DingCorpId *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	// 消息体动态参数
+	ParamsJson *string `json:"paramsJson,omitempty" xml:"paramsJson,omitempty"`
+	// 设备标识
+	DeviceKey *string `json:"deviceKey,omitempty" xml:"deviceKey,omitempty"`
+	// staffId列表
+	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
+}
+
+func (s DeviceDingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeviceDingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeviceDingRequest) SetDingCorpId(v string) *DeviceDingRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *DeviceDingRequest) SetParamsJson(v string) *DeviceDingRequest {
+	s.ParamsJson = &v
+	return s
+}
+
+func (s *DeviceDingRequest) SetDeviceKey(v string) *DeviceDingRequest {
+	s.DeviceKey = &v
+	return s
+}
+
+func (s *DeviceDingRequest) SetReceiverUserIdList(v []*string) *DeviceDingRequest {
+	s.ReceiverUserIdList = v
+	return s
+}
+
+type DeviceDingResponseBody struct {
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeviceDingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeviceDingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeviceDingResponseBody) SetResult(v string) *DeviceDingResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeviceDingResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeviceDingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeviceDingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeviceDingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeviceDingResponse) SetHeaders(v map[string]*string) *DeviceDingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeviceDingResponse) SetBody(v *DeviceDingResponseBody) *DeviceDingResponse {
+	s.Body = v
+	return s
+}
+
 type CreateDepartmentHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -568,6 +670,62 @@ func (client *Client) BatchRegisterDeviceWithOptions(request *BatchRegisterDevic
 	}
 	_result = &BatchRegisterDeviceResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchRegisterDevice"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/devices/batch"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeviceDing(request *DeviceDingRequest) (_result *DeviceDingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeviceDingHeaders{}
+	_result = &DeviceDingResponse{}
+	_body, _err := client.DeviceDingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeviceDingWithOptions(request *DeviceDingRequest, headers *DeviceDingHeaders, runtime *util.RuntimeOptions) (_result *DeviceDingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ParamsJson)) {
+		body["paramsJson"] = request.ParamsJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceKey)) {
+		body["deviceKey"] = request.DeviceKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverUserIdList)) {
+		body["receiverUserIdList"] = request.ReceiverUserIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DeviceDingResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeviceDing"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/ding"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

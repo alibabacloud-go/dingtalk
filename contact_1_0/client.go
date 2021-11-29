@@ -11,6 +11,109 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type UpdateBranchVisibleSettingInCooperateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateBranchVisibleSettingInCooperateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateBranchVisibleSettingInCooperateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateBranchVisibleSettingInCooperateHeaders) SetCommonHeaders(v map[string]*string) *UpdateBranchVisibleSettingInCooperateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateBranchVisibleSettingInCooperateHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateBranchVisibleSettingInCooperateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateBranchVisibleSettingInCooperateRequest struct {
+	Body []*UpdateBranchVisibleSettingInCooperateRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+}
+
+func (s UpdateBranchVisibleSettingInCooperateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateBranchVisibleSettingInCooperateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateBranchVisibleSettingInCooperateRequest) SetBody(v []*UpdateBranchVisibleSettingInCooperateRequestBody) *UpdateBranchVisibleSettingInCooperateRequest {
+	s.Body = v
+	return s
+}
+
+type UpdateBranchVisibleSettingInCooperateRequestBody struct {
+	// 分支的企业ID
+	BranchCorpId *string `json:"branchCorpId,omitempty" xml:"branchCorpId,omitempty"`
+	// 设置可见性类型 0 ：在主干通讯录隐藏分支(其它分支包含主组织都看不到,额外设置可以看到) 1 ： 仅可见分支所在部门(只能看到自己企业加入的成员，额外设置可以看到其它成员)
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
+	// 是否开启 true：开启，false：关闭
+	Open *bool `json:"open,omitempty" xml:"open,omitempty"`
+	// 设置例外的加入合作空间/关联组织的分支企业CorpId列表
+	VisibleBranchCorpIds []*string `json:"visibleBranchCorpIds,omitempty" xml:"visibleBranchCorpIds,omitempty" type:"Repeated"`
+	// 设置例外的部门ID列表
+	VisibleDeptIds []*int64 `json:"visibleDeptIds,omitempty" xml:"visibleDeptIds,omitempty" type:"Repeated"`
+}
+
+func (s UpdateBranchVisibleSettingInCooperateRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateBranchVisibleSettingInCooperateRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateBranchVisibleSettingInCooperateRequestBody) SetBranchCorpId(v string) *UpdateBranchVisibleSettingInCooperateRequestBody {
+	s.BranchCorpId = &v
+	return s
+}
+
+func (s *UpdateBranchVisibleSettingInCooperateRequestBody) SetType(v int64) *UpdateBranchVisibleSettingInCooperateRequestBody {
+	s.Type = &v
+	return s
+}
+
+func (s *UpdateBranchVisibleSettingInCooperateRequestBody) SetOpen(v bool) *UpdateBranchVisibleSettingInCooperateRequestBody {
+	s.Open = &v
+	return s
+}
+
+func (s *UpdateBranchVisibleSettingInCooperateRequestBody) SetVisibleBranchCorpIds(v []*string) *UpdateBranchVisibleSettingInCooperateRequestBody {
+	s.VisibleBranchCorpIds = v
+	return s
+}
+
+func (s *UpdateBranchVisibleSettingInCooperateRequestBody) SetVisibleDeptIds(v []*int64) *UpdateBranchVisibleSettingInCooperateRequestBody {
+	s.VisibleDeptIds = v
+	return s
+}
+
+type UpdateBranchVisibleSettingInCooperateResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s UpdateBranchVisibleSettingInCooperateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateBranchVisibleSettingInCooperateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateBranchVisibleSettingInCooperateResponse) SetHeaders(v map[string]*string) *UpdateBranchVisibleSettingInCooperateResponse {
+	s.Headers = v
+	return s
+}
+
 type SortUserHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2566,6 +2669,95 @@ func (s *QueryResourceManagementMembersResponse) SetBody(v *QueryResourceManagem
 	return s
 }
 
+type UpdateBranchAttributesInCooperateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateBranchAttributesInCooperateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateBranchAttributesInCooperateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateBranchAttributesInCooperateHeaders) SetCommonHeaders(v map[string]*string) *UpdateBranchAttributesInCooperateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateBranchAttributesInCooperateHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateBranchAttributesInCooperateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateBranchAttributesInCooperateRequest struct {
+	Body []*UpdateBranchAttributesInCooperateRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+}
+
+func (s UpdateBranchAttributesInCooperateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateBranchAttributesInCooperateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateBranchAttributesInCooperateRequest) SetBody(v []*UpdateBranchAttributesInCooperateRequestBody) *UpdateBranchAttributesInCooperateRequest {
+	s.Body = v
+	return s
+}
+
+type UpdateBranchAttributesInCooperateRequestBody struct {
+	// 分支的企业ID
+	BranchCorpId *string `json:"branchCorpId,omitempty" xml:"branchCorpId,omitempty"`
+	// （分支/合作伙伴）在（集团/合作空间）的别名
+	UnionRootName *string `json:"unionRootName,omitempty" xml:"unionRootName,omitempty"`
+	// 挂载节点部门ID
+	LinkDeptId *int64 `json:"linkDeptId,omitempty" xml:"linkDeptId,omitempty"`
+}
+
+func (s UpdateBranchAttributesInCooperateRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateBranchAttributesInCooperateRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateBranchAttributesInCooperateRequestBody) SetBranchCorpId(v string) *UpdateBranchAttributesInCooperateRequestBody {
+	s.BranchCorpId = &v
+	return s
+}
+
+func (s *UpdateBranchAttributesInCooperateRequestBody) SetUnionRootName(v string) *UpdateBranchAttributesInCooperateRequestBody {
+	s.UnionRootName = &v
+	return s
+}
+
+func (s *UpdateBranchAttributesInCooperateRequestBody) SetLinkDeptId(v int64) *UpdateBranchAttributesInCooperateRequestBody {
+	s.LinkDeptId = &v
+	return s
+}
+
+type UpdateBranchAttributesInCooperateResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s UpdateBranchAttributesInCooperateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateBranchAttributesInCooperateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateBranchAttributesInCooperateResponse) SetHeaders(v map[string]*string) *UpdateBranchAttributesInCooperateResponse {
+	s.Headers = v
+	return s
+}
+
 type TranslateFileHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3750,6 +3942,45 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) UpdateBranchVisibleSettingInCooperate(request *UpdateBranchVisibleSettingInCooperateRequest) (_result *UpdateBranchVisibleSettingInCooperateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateBranchVisibleSettingInCooperateHeaders{}
+	_result = &UpdateBranchVisibleSettingInCooperateResponse{}
+	_body, _err := client.UpdateBranchVisibleSettingInCooperateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateBranchVisibleSettingInCooperateWithOptions(request *UpdateBranchVisibleSettingInCooperateRequest, headers *UpdateBranchVisibleSettingInCooperateHeaders, runtime *util.RuntimeOptions) (_result *UpdateBranchVisibleSettingInCooperateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    util.ToArray(request.Body),
+	}
+	_result = &UpdateBranchVisibleSettingInCooperateResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateBranchVisibleSettingInCooperate"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/contact/cooperateCorps/branchVisibleSettings"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) SortUser(request *SortUserRequest) (_result *SortUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SortUserHeaders{}
@@ -4905,6 +5136,45 @@ func (client *Client) QueryResourceManagementMembersWithOptions(resourceId *stri
 	}
 	_result = &QueryResourceManagementMembersResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryResourceManagementMembers"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/resources/"+tea.StringValue(resourceId)+"/managementMembers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateBranchAttributesInCooperate(request *UpdateBranchAttributesInCooperateRequest) (_result *UpdateBranchAttributesInCooperateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateBranchAttributesInCooperateHeaders{}
+	_result = &UpdateBranchAttributesInCooperateResponse{}
+	_body, _err := client.UpdateBranchAttributesInCooperateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateBranchAttributesInCooperateWithOptions(request *UpdateBranchAttributesInCooperateRequest, headers *UpdateBranchAttributesInCooperateHeaders, runtime *util.RuntimeOptions) (_result *UpdateBranchAttributesInCooperateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    util.ToArray(request.Body),
+	}
+	_result = &UpdateBranchAttributesInCooperateResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateBranchAttributesInCooperate"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/contact/cooperateCorps/branchAttributes"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

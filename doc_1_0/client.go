@@ -754,6 +754,8 @@ func (s *SearchWorkspaceDocsHeaders) SetXAcsDingtalkAccessToken(v string) *Searc
 }
 
 type SearchWorkspaceDocsRequest struct {
+	// 团队空间Id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 	// 发起操作用户unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 	// 搜索关键字
@@ -770,6 +772,11 @@ func (s SearchWorkspaceDocsRequest) String() string {
 
 func (s SearchWorkspaceDocsRequest) GoString() string {
 	return s.String()
+}
+
+func (s *SearchWorkspaceDocsRequest) SetWorkspaceId(v string) *SearchWorkspaceDocsRequest {
+	s.WorkspaceId = &v
+	return s
 }
 
 func (s *SearchWorkspaceDocsRequest) SetOperatorId(v string) *SearchWorkspaceDocsRequest {
@@ -1065,6 +1072,8 @@ type BatchGetWorkspacesResponseBodyWorkspacesWorkspace struct {
 	RecentList []*BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
 	// 是否全员公开
 	OrgPublished *bool `json:"orgPublished,omitempty" xml:"orgPublished,omitempty"`
+	// 团队空间创建时间
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
 }
 
 func (s BatchGetWorkspacesResponseBodyWorkspacesWorkspace) String() string {
@@ -1097,6 +1106,11 @@ func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspace) SetRecentList(v []*B
 
 func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspace) SetOrgPublished(v bool) *BatchGetWorkspacesResponseBodyWorkspacesWorkspace {
 	s.OrgPublished = &v
+	return s
+}
+
+func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspace) SetCreateTime(v int64) *BatchGetWorkspacesResponseBodyWorkspacesWorkspace {
+	s.CreateTime = &v
 	return s
 }
 
@@ -1517,6 +1531,8 @@ type GetRelatedWorkspacesResponseBodyWorkspaces struct {
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 团队空间最近访问文档列表
 	RecentList []*GetRelatedWorkspacesResponseBodyWorkspacesRecentList `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
+	// 团队空间创建时间
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
 }
 
 func (s GetRelatedWorkspacesResponseBodyWorkspaces) String() string {
@@ -1554,6 +1570,11 @@ func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetName(v string) *GetRelat
 
 func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetRecentList(v []*GetRelatedWorkspacesResponseBodyWorkspacesRecentList) *GetRelatedWorkspacesResponseBodyWorkspaces {
 	s.RecentList = v
+	return s
+}
+
+func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetCreateTime(v int64) *GetRelatedWorkspacesResponseBodyWorkspaces {
+	s.CreateTime = &v
 	return s
 }
 
@@ -2412,11 +2433,11 @@ func (client *Client) GetWorkspaceWithOptions(workspaceId *string, headers *GetW
 	return _result, _err
 }
 
-func (client *Client) SearchWorkspaceDocs(workspaceId *string, request *SearchWorkspaceDocsRequest) (_result *SearchWorkspaceDocsResponse, _err error) {
+func (client *Client) SearchWorkspaceDocs(request *SearchWorkspaceDocsRequest) (_result *SearchWorkspaceDocsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchWorkspaceDocsHeaders{}
 	_result = &SearchWorkspaceDocsResponse{}
-	_body, _err := client.SearchWorkspaceDocsWithOptions(workspaceId, request, headers, runtime)
+	_body, _err := client.SearchWorkspaceDocsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2424,12 +2445,16 @@ func (client *Client) SearchWorkspaceDocs(workspaceId *string, request *SearchWo
 	return _result, _err
 }
 
-func (client *Client) SearchWorkspaceDocsWithOptions(workspaceId *string, request *SearchWorkspaceDocsRequest, headers *SearchWorkspaceDocsHeaders, runtime *util.RuntimeOptions) (_result *SearchWorkspaceDocsResponse, _err error) {
+func (client *Client) SearchWorkspaceDocsWithOptions(request *SearchWorkspaceDocsRequest, headers *SearchWorkspaceDocsHeaders, runtime *util.RuntimeOptions) (_result *SearchWorkspaceDocsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.WorkspaceId)) {
+		query["workspaceId"] = request.WorkspaceId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
 	}
@@ -2460,7 +2485,7 @@ func (client *Client) SearchWorkspaceDocsWithOptions(workspaceId *string, reques
 		Query:   openapiutil.Query(query),
 	}
 	_result = &SearchWorkspaceDocsResponse{}
-	_body, _err := client.DoROARequest(tea.String("SearchWorkspaceDocs"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/docs"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("SearchWorkspaceDocs"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/docs"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

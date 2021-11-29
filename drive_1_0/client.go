@@ -2999,6 +2999,106 @@ func (s *AddFileResponse) SetBody(v *AddFileResponseBody) *AddFileResponse {
 	return s
 }
 
+type GetPreviewInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPreviewInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPreviewInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPreviewInfoHeaders) SetCommonHeaders(v map[string]*string) *GetPreviewInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPreviewInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetPreviewInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPreviewInfoRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetPreviewInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPreviewInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPreviewInfoRequest) SetUnionId(v string) *GetPreviewInfoRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetPreviewInfoResponseBody struct {
+	// 预览信息
+	Info *GetPreviewInfoResponseBodyInfo `json:"info,omitempty" xml:"info,omitempty" type:"Struct"`
+}
+
+func (s GetPreviewInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPreviewInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPreviewInfoResponseBody) SetInfo(v *GetPreviewInfoResponseBodyInfo) *GetPreviewInfoResponseBody {
+	s.Info = v
+	return s
+}
+
+type GetPreviewInfoResponseBodyInfo struct {
+	// 预览url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s GetPreviewInfoResponseBodyInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPreviewInfoResponseBodyInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetPreviewInfoResponseBodyInfo) SetUrl(v string) *GetPreviewInfoResponseBodyInfo {
+	s.Url = &v
+	return s
+}
+
+type GetPreviewInfoResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetPreviewInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetPreviewInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPreviewInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPreviewInfoResponse) SetHeaders(v map[string]*string) *GetPreviewInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPreviewInfoResponse) SetBody(v *GetPreviewInfoResponseBody) *GetPreviewInfoResponse {
+	s.Body = v
+	return s
+}
+
 type InfoSpaceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5462,6 +5562,50 @@ func (client *Client) AddFileWithOptions(spaceId *string, request *AddFileReques
 	}
 	_result = &AddFileResponse{}
 	_body, _err := client.DoROARequest(tea.String("AddFile"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetPreviewInfo(spaceId *string, fileId *string, request *GetPreviewInfoRequest) (_result *GetPreviewInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPreviewInfoHeaders{}
+	_result = &GetPreviewInfoResponse{}
+	_body, _err := client.GetPreviewInfoWithOptions(spaceId, fileId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetPreviewInfoWithOptions(spaceId *string, fileId *string, request *GetPreviewInfoRequest, headers *GetPreviewInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPreviewInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetPreviewInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetPreviewInfo"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)+"/previewInfos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
