@@ -119,6 +119,478 @@ func (s *GetUserTokenResponse) SetBody(v *GetUserTokenResponseBody) *GetUserToke
 	return s
 }
 
+type CreateJsapiTicketHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateJsapiTicketHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateJsapiTicketHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateJsapiTicketHeaders) SetCommonHeaders(v map[string]*string) *CreateJsapiTicketHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateJsapiTicketHeaders) SetXAcsDingtalkAccessToken(v string) *CreateJsapiTicketHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateJsapiTicketRequest struct {
+	AgentId            *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	DingTokenGrantType *int32  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingOauthAppId     *int64  `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+}
+
+func (s CreateJsapiTicketRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateJsapiTicketRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateJsapiTicketRequest) SetAgentId(v int64) *CreateJsapiTicketRequest {
+	s.AgentId = &v
+	return s
+}
+
+func (s *CreateJsapiTicketRequest) SetDingTokenGrantType(v int32) *CreateJsapiTicketRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *CreateJsapiTicketRequest) SetDingOauthAppId(v int64) *CreateJsapiTicketRequest {
+	s.DingOauthAppId = &v
+	return s
+}
+
+func (s *CreateJsapiTicketRequest) SetDingSuiteKey(v string) *CreateJsapiTicketRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+type CreateJsapiTicketResponseBody struct {
+	// jsapi ticket
+	JsapiTicket *string `json:"jsapiTicket,omitempty" xml:"jsapiTicket,omitempty"`
+	// 超时时间
+	ExpireIn *int64 `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
+}
+
+func (s CreateJsapiTicketResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateJsapiTicketResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateJsapiTicketResponseBody) SetJsapiTicket(v string) *CreateJsapiTicketResponseBody {
+	s.JsapiTicket = &v
+	return s
+}
+
+func (s *CreateJsapiTicketResponseBody) SetExpireIn(v int64) *CreateJsapiTicketResponseBody {
+	s.ExpireIn = &v
+	return s
+}
+
+type CreateJsapiTicketResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateJsapiTicketResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateJsapiTicketResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateJsapiTicketResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateJsapiTicketResponse) SetHeaders(v map[string]*string) *CreateJsapiTicketResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateJsapiTicketResponse) SetBody(v *CreateJsapiTicketResponseBody) *CreateJsapiTicketResponse {
+	s.Body = v
+	return s
+}
+
+type GetAuthInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAuthInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAuthInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAuthInfoHeaders) SetCommonHeaders(v map[string]*string) *GetAuthInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAuthInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetAuthInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAuthInfoRequest struct {
+	AuthCorpId *string `json:"authCorpId,omitempty" xml:"authCorpId,omitempty"`
+}
+
+func (s GetAuthInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAuthInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAuthInfoRequest) SetAuthCorpId(v string) *GetAuthInfoRequest {
+	s.AuthCorpId = &v
+	return s
+}
+
+type GetAuthInfoResponseBody struct {
+	// 授权应用信息
+	AuthAppInfo *GetAuthInfoResponseBodyAuthAppInfo `json:"authAppInfo,omitempty" xml:"authAppInfo,omitempty" type:"Struct"`
+	// 应用企业信息
+	AuthCorpInfo *GetAuthInfoResponseBodyAuthCorpInfo `json:"authCorpInfo,omitempty" xml:"authCorpInfo,omitempty" type:"Struct"`
+	// 授权用户信息
+	AuthUserInfo *GetAuthInfoResponseBodyAuthUserInfo `json:"authUserInfo,omitempty" xml:"authUserInfo,omitempty" type:"Struct"`
+}
+
+func (s GetAuthInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAuthInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAuthInfoResponseBody) SetAuthAppInfo(v *GetAuthInfoResponseBodyAuthAppInfo) *GetAuthInfoResponseBody {
+	s.AuthAppInfo = v
+	return s
+}
+
+func (s *GetAuthInfoResponseBody) SetAuthCorpInfo(v *GetAuthInfoResponseBodyAuthCorpInfo) *GetAuthInfoResponseBody {
+	s.AuthCorpInfo = v
+	return s
+}
+
+func (s *GetAuthInfoResponseBody) SetAuthUserInfo(v *GetAuthInfoResponseBodyAuthUserInfo) *GetAuthInfoResponseBody {
+	s.AuthUserInfo = v
+	return s
+}
+
+type GetAuthInfoResponseBodyAuthAppInfo struct {
+	AgentList []*GetAuthInfoResponseBodyAuthAppInfoAgentList `json:"agentList,omitempty" xml:"agentList,omitempty" type:"Repeated"`
+}
+
+func (s GetAuthInfoResponseBodyAuthAppInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAuthInfoResponseBodyAuthAppInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetAuthInfoResponseBodyAuthAppInfo) SetAgentList(v []*GetAuthInfoResponseBodyAuthAppInfoAgentList) *GetAuthInfoResponseBodyAuthAppInfo {
+	s.AgentList = v
+	return s
+}
+
+type GetAuthInfoResponseBodyAuthAppInfoAgentList struct {
+	// 应用id
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// 应用名称
+	AgentName *string `json:"agentName,omitempty" xml:"agentName,omitempty"`
+	// 三方应用id
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// 对此微应用有管理权限的管理员列表
+	AdminList []*string `json:"adminList,omitempty" xml:"adminList,omitempty" type:"Repeated"`
+}
+
+func (s GetAuthInfoResponseBodyAuthAppInfoAgentList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAuthInfoResponseBodyAuthAppInfoAgentList) GoString() string {
+	return s.String()
+}
+
+func (s *GetAuthInfoResponseBodyAuthAppInfoAgentList) SetAgentId(v int64) *GetAuthInfoResponseBodyAuthAppInfoAgentList {
+	s.AgentId = &v
+	return s
+}
+
+func (s *GetAuthInfoResponseBodyAuthAppInfoAgentList) SetAgentName(v string) *GetAuthInfoResponseBodyAuthAppInfoAgentList {
+	s.AgentName = &v
+	return s
+}
+
+func (s *GetAuthInfoResponseBodyAuthAppInfoAgentList) SetAppId(v int64) *GetAuthInfoResponseBodyAuthAppInfoAgentList {
+	s.AppId = &v
+	return s
+}
+
+func (s *GetAuthInfoResponseBodyAuthAppInfoAgentList) SetAdminList(v []*string) *GetAuthInfoResponseBodyAuthAppInfoAgentList {
+	s.AdminList = v
+	return s
+}
+
+type GetAuthInfoResponseBodyAuthCorpInfo struct {
+	// 邀请码，只有自己邀请的企业才会返回邀请码，可用该邀请码统计不同渠道的拉新，否则值为空字符串。
+	InviteCode *string `json:"inviteCode,omitempty" xml:"inviteCode,omitempty"`
+	// 企业所属行业。
+	Industry *string `json:"industry,omitempty" xml:"industry,omitempty"`
+	// 授权方企业名称。
+	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
+	// 序列号。
+	LicenseCode *string `json:"licenseCode,omitempty" xml:"licenseCode,omitempty"`
+	// 渠道码。
+	AuthChannel *string `json:"authChannel,omitempty" xml:"authChannel,omitempty"`
+	// 渠道类型。  为了避免渠道码重复，可与渠道码共同确认渠道。可能为空，非空时当前只有满天星类型，值为STAR_ACTIVITY。
+	AuthChannelType *string `json:"authChannelType,omitempty" xml:"authChannelType,omitempty"`
+	// 企业认证等级：  0：未认证  1：高级认证  2：中级认证  3：初级认证
+	AuthLevel *int64 `json:"authLevel,omitempty" xml:"authLevel,omitempty"`
+	// 企业邀请链接。
+	InviteUrl *string `json:"inviteUrl,omitempty" xml:"inviteUrl,omitempty"`
+	// 企业logo。
+	CorpLogoUrl *string `json:"corpLogoUrl,omitempty" xml:"corpLogoUrl,omitempty"`
+}
+
+func (s GetAuthInfoResponseBodyAuthCorpInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAuthInfoResponseBodyAuthCorpInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetAuthInfoResponseBodyAuthCorpInfo) SetInviteCode(v string) *GetAuthInfoResponseBodyAuthCorpInfo {
+	s.InviteCode = &v
+	return s
+}
+
+func (s *GetAuthInfoResponseBodyAuthCorpInfo) SetIndustry(v string) *GetAuthInfoResponseBodyAuthCorpInfo {
+	s.Industry = &v
+	return s
+}
+
+func (s *GetAuthInfoResponseBodyAuthCorpInfo) SetCorpName(v string) *GetAuthInfoResponseBodyAuthCorpInfo {
+	s.CorpName = &v
+	return s
+}
+
+func (s *GetAuthInfoResponseBodyAuthCorpInfo) SetLicenseCode(v string) *GetAuthInfoResponseBodyAuthCorpInfo {
+	s.LicenseCode = &v
+	return s
+}
+
+func (s *GetAuthInfoResponseBodyAuthCorpInfo) SetAuthChannel(v string) *GetAuthInfoResponseBodyAuthCorpInfo {
+	s.AuthChannel = &v
+	return s
+}
+
+func (s *GetAuthInfoResponseBodyAuthCorpInfo) SetAuthChannelType(v string) *GetAuthInfoResponseBodyAuthCorpInfo {
+	s.AuthChannelType = &v
+	return s
+}
+
+func (s *GetAuthInfoResponseBodyAuthCorpInfo) SetAuthLevel(v int64) *GetAuthInfoResponseBodyAuthCorpInfo {
+	s.AuthLevel = &v
+	return s
+}
+
+func (s *GetAuthInfoResponseBodyAuthCorpInfo) SetInviteUrl(v string) *GetAuthInfoResponseBodyAuthCorpInfo {
+	s.InviteUrl = &v
+	return s
+}
+
+func (s *GetAuthInfoResponseBodyAuthCorpInfo) SetCorpLogoUrl(v string) *GetAuthInfoResponseBodyAuthCorpInfo {
+	s.CorpLogoUrl = &v
+	return s
+}
+
+type GetAuthInfoResponseBodyAuthUserInfo struct {
+	// 授权管理员id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetAuthInfoResponseBodyAuthUserInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAuthInfoResponseBodyAuthUserInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetAuthInfoResponseBodyAuthUserInfo) SetUserId(v string) *GetAuthInfoResponseBodyAuthUserInfo {
+	s.UserId = &v
+	return s
+}
+
+type GetAuthInfoResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetAuthInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAuthInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAuthInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAuthInfoResponse) SetHeaders(v map[string]*string) *GetAuthInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAuthInfoResponse) SetBody(v *GetAuthInfoResponseBody) *GetAuthInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetSsoUserInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSsoUserInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSsoUserInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSsoUserInfoHeaders) SetCommonHeaders(v map[string]*string) *GetSsoUserInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSsoUserInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetSsoUserInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSsoUserInfoRequest struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+}
+
+func (s GetSsoUserInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSsoUserInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSsoUserInfoRequest) SetCode(v string) *GetSsoUserInfoRequest {
+	s.Code = &v
+	return s
+}
+
+type GetSsoUserInfoResponseBody struct {
+	// 微应用免登用户所在企业id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 微应用免登用户所在企业名称
+	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 用户邮箱
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+	// 用户名称
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// 用户头像链接
+	Avatar *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
+	// 是否为企业管理员
+	IsAdmin *bool `json:"isAdmin,omitempty" xml:"isAdmin,omitempty"`
+}
+
+func (s GetSsoUserInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSsoUserInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSsoUserInfoResponseBody) SetCorpId(v string) *GetSsoUserInfoResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetSsoUserInfoResponseBody) SetCorpName(v string) *GetSsoUserInfoResponseBody {
+	s.CorpName = &v
+	return s
+}
+
+func (s *GetSsoUserInfoResponseBody) SetUserId(v string) *GetSsoUserInfoResponseBody {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetSsoUserInfoResponseBody) SetEmail(v string) *GetSsoUserInfoResponseBody {
+	s.Email = &v
+	return s
+}
+
+func (s *GetSsoUserInfoResponseBody) SetUserName(v string) *GetSsoUserInfoResponseBody {
+	s.UserName = &v
+	return s
+}
+
+func (s *GetSsoUserInfoResponseBody) SetAvatar(v string) *GetSsoUserInfoResponseBody {
+	s.Avatar = &v
+	return s
+}
+
+func (s *GetSsoUserInfoResponseBody) SetIsAdmin(v bool) *GetSsoUserInfoResponseBody {
+	s.IsAdmin = &v
+	return s
+}
+
+type GetSsoUserInfoResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetSsoUserInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSsoUserInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSsoUserInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSsoUserInfoResponse) SetHeaders(v map[string]*string) *GetSsoUserInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSsoUserInfoResponse) SetBody(v *GetSsoUserInfoResponseBody) *GetSsoUserInfoResponse {
+	s.Body = v
+	return s
+}
+
 type GetAccessTokenRequest struct {
 	// 应用id
 	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
@@ -448,6 +920,79 @@ func (s *GetPersonalAuthRuleResponse) SetBody(v *GetPersonalAuthRuleResponseBody
 	return s
 }
 
+type GetSsoAccessTokenRequest struct {
+	// 企业id
+	Corpid *string `json:"corpid,omitempty" xml:"corpid,omitempty"`
+	// sso密码
+	SsoSecret *string `json:"ssoSecret,omitempty" xml:"ssoSecret,omitempty"`
+}
+
+func (s GetSsoAccessTokenRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSsoAccessTokenRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSsoAccessTokenRequest) SetCorpid(v string) *GetSsoAccessTokenRequest {
+	s.Corpid = &v
+	return s
+}
+
+func (s *GetSsoAccessTokenRequest) SetSsoSecret(v string) *GetSsoAccessTokenRequest {
+	s.SsoSecret = &v
+	return s
+}
+
+type GetSsoAccessTokenResponseBody struct {
+	// accessToken
+	AccessToken *string `json:"accessToken,omitempty" xml:"accessToken,omitempty"`
+	// 超时时间
+	ExpireIn *int64 `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
+}
+
+func (s GetSsoAccessTokenResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSsoAccessTokenResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSsoAccessTokenResponseBody) SetAccessToken(v string) *GetSsoAccessTokenResponseBody {
+	s.AccessToken = &v
+	return s
+}
+
+func (s *GetSsoAccessTokenResponseBody) SetExpireIn(v int64) *GetSsoAccessTokenResponseBody {
+	s.ExpireIn = &v
+	return s
+}
+
+type GetSsoAccessTokenResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetSsoAccessTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSsoAccessTokenResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSsoAccessTokenResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSsoAccessTokenResponse) SetHeaders(v map[string]*string) *GetSsoAccessTokenResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSsoAccessTokenResponse) SetBody(v *GetSsoAccessTokenResponseBody) *GetSsoAccessTokenResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -515,6 +1060,150 @@ func (client *Client) GetUserTokenWithOptions(request *GetUserTokenRequest, head
 	}
 	_result = &GetUserTokenResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetUserToken"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/oauth2/userAccessToken"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateJsapiTicket(request *CreateJsapiTicketRequest) (_result *CreateJsapiTicketResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateJsapiTicketHeaders{}
+	_result = &CreateJsapiTicketResponse{}
+	_body, _err := client.CreateJsapiTicketWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateJsapiTicketWithOptions(request *CreateJsapiTicketRequest, headers *CreateJsapiTicketHeaders, runtime *util.RuntimeOptions) (_result *CreateJsapiTicketResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentId)) {
+		body["agentId"] = request.AgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOauthAppId)) {
+		body["dingOauthAppId"] = request.DingOauthAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateJsapiTicketResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateJsapiTicket"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/oauth2/jsapiTickets"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetAuthInfo(request *GetAuthInfoRequest) (_result *GetAuthInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAuthInfoHeaders{}
+	_result = &GetAuthInfoResponse{}
+	_body, _err := client.GetAuthInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAuthInfoWithOptions(request *GetAuthInfoRequest, headers *GetAuthInfoHeaders, runtime *util.RuntimeOptions) (_result *GetAuthInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AuthCorpId)) {
+		query["authCorpId"] = request.AuthCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetAuthInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetAuthInfo"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/oauth2/apps/authInfo"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSsoUserInfo(request *GetSsoUserInfoRequest) (_result *GetSsoUserInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSsoUserInfoHeaders{}
+	_result = &GetSsoUserInfoResponse{}
+	_body, _err := client.GetSsoUserInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSsoUserInfoWithOptions(request *GetSsoUserInfoRequest, headers *GetSsoUserInfoHeaders, runtime *util.RuntimeOptions) (_result *GetSsoUserInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		query["code"] = request.Code
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetSsoUserInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetSsoUserInfo"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/oauth2/ssoUserInfo"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -678,6 +1367,45 @@ func (client *Client) GetPersonalAuthRuleWithOptions(headers *GetPersonalAuthRul
 	}
 	_result = &GetPersonalAuthRuleResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetPersonalAuthRule"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/oauth2/authRules/user"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSsoAccessToken(request *GetSsoAccessTokenRequest) (_result *GetSsoAccessTokenResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &GetSsoAccessTokenResponse{}
+	_body, _err := client.GetSsoAccessTokenWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSsoAccessTokenWithOptions(request *GetSsoAccessTokenRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *GetSsoAccessTokenResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Corpid)) {
+		body["corpid"] = request.Corpid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SsoSecret)) {
+		body["ssoSecret"] = request.SsoSecret
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetSsoAccessTokenResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetSsoAccessToken"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/oauth2/ssoAccessToken"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

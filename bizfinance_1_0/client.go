@@ -476,6 +476,279 @@ func (s *QueryCategoryByPageResponse) SetBody(v *QueryCategoryByPageResponseBody
 	return s
 }
 
+type GetReceiptHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetReceiptHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetReceiptHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetReceiptHeaders) SetCommonHeaders(v map[string]*string) *GetReceiptHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetReceiptHeaders) SetXAcsDingtalkAccessToken(v string) *GetReceiptHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetReceiptRequest struct {
+	// 模型id
+	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	// 单据号
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+}
+
+func (s GetReceiptRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetReceiptRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetReceiptRequest) SetModelId(v string) *GetReceiptRequest {
+	s.ModelId = &v
+	return s
+}
+
+func (s *GetReceiptRequest) SetCode(v string) *GetReceiptRequest {
+	s.Code = &v
+	return s
+}
+
+type GetReceiptResponseBody struct {
+	// 数据模型id
+	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	// 数据来源：审批(approval)，开放接口(openapi)
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// 数据来源于开放时，对应的微应用id
+	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	// 单据数据体json
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+}
+
+func (s GetReceiptResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetReceiptResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetReceiptResponseBody) SetModelId(v string) *GetReceiptResponseBody {
+	s.ModelId = &v
+	return s
+}
+
+func (s *GetReceiptResponseBody) SetSource(v string) *GetReceiptResponseBody {
+	s.Source = &v
+	return s
+}
+
+func (s *GetReceiptResponseBody) SetAppId(v string) *GetReceiptResponseBody {
+	s.AppId = &v
+	return s
+}
+
+func (s *GetReceiptResponseBody) SetData(v string) *GetReceiptResponseBody {
+	s.Data = &v
+	return s
+}
+
+type GetReceiptResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetReceiptResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetReceiptResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetReceiptResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetReceiptResponse) SetHeaders(v map[string]*string) *GetReceiptResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetReceiptResponse) SetBody(v *GetReceiptResponseBody) *GetReceiptResponse {
+	s.Body = v
+	return s
+}
+
+type QueryReceiptsByPageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryReceiptsByPageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptsByPageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptsByPageHeaders) SetCommonHeaders(v map[string]*string) *QueryReceiptsByPageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryReceiptsByPageHeaders) SetXAcsDingtalkAccessToken(v string) *QueryReceiptsByPageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryReceiptsByPageRequest struct {
+	// 数据模型id
+	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	// 分页，从1开始
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小，默认10，最大100
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 检索开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 检索结束时间，默认当前时间，离开始时间最长不超过180天
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 检索排序时间类型：创建时间(gmt_create)，更新时间(gmt_modified)
+	TimeFilterField *string `json:"timeFilterField,omitempty" xml:"timeFilterField,omitempty"`
+}
+
+func (s QueryReceiptsByPageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptsByPageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptsByPageRequest) SetModelId(v string) *QueryReceiptsByPageRequest {
+	s.ModelId = &v
+	return s
+}
+
+func (s *QueryReceiptsByPageRequest) SetPageNumber(v int64) *QueryReceiptsByPageRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryReceiptsByPageRequest) SetPageSize(v int64) *QueryReceiptsByPageRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryReceiptsByPageRequest) SetStartTime(v int64) *QueryReceiptsByPageRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryReceiptsByPageRequest) SetEndTime(v int64) *QueryReceiptsByPageRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryReceiptsByPageRequest) SetTimeFilterField(v string) *QueryReceiptsByPageRequest {
+	s.TimeFilterField = &v
+	return s
+}
+
+type QueryReceiptsByPageResponseBody struct {
+	// 数据列表
+	List []*QueryReceiptsByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// 是否还有更多数据
+	HasMore *string `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+}
+
+func (s QueryReceiptsByPageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptsByPageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptsByPageResponseBody) SetList(v []*QueryReceiptsByPageResponseBodyList) *QueryReceiptsByPageResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *QueryReceiptsByPageResponseBody) SetHasMore(v string) *QueryReceiptsByPageResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+type QueryReceiptsByPageResponseBodyList struct {
+	// 模型id
+	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	// 数据来源：审批(approval)，开放接口(openapi)
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// 数据来源于开放时，对应的微应用id
+	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	// 单据数据体json
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+}
+
+func (s QueryReceiptsByPageResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptsByPageResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptsByPageResponseBodyList) SetModelId(v string) *QueryReceiptsByPageResponseBodyList {
+	s.ModelId = &v
+	return s
+}
+
+func (s *QueryReceiptsByPageResponseBodyList) SetSource(v string) *QueryReceiptsByPageResponseBodyList {
+	s.Source = &v
+	return s
+}
+
+func (s *QueryReceiptsByPageResponseBodyList) SetAppId(v string) *QueryReceiptsByPageResponseBodyList {
+	s.AppId = &v
+	return s
+}
+
+func (s *QueryReceiptsByPageResponseBodyList) SetData(v string) *QueryReceiptsByPageResponseBodyList {
+	s.Data = &v
+	return s
+}
+
+type QueryReceiptsByPageResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryReceiptsByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryReceiptsByPageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptsByPageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptsByPageResponse) SetHeaders(v map[string]*string) *QueryReceiptsByPageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryReceiptsByPageResponse) SetBody(v *QueryReceiptsByPageResponseBody) *QueryReceiptsByPageResponse {
+	s.Body = v
+	return s
+}
+
 type QueryCustomerByPageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2135,6 +2408,118 @@ func (client *Client) QueryCategoryByPageWithOptions(request *QueryCategoryByPag
 	}
 	_result = &QueryCategoryByPageResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryCategoryByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/categories/list"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetReceipt(request *GetReceiptRequest) (_result *GetReceiptResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetReceiptHeaders{}
+	_result = &GetReceiptResponse{}
+	_body, _err := client.GetReceiptWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetReceiptWithOptions(request *GetReceiptRequest, headers *GetReceiptHeaders, runtime *util.RuntimeOptions) (_result *GetReceiptResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ModelId)) {
+		query["modelId"] = request.ModelId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		query["code"] = request.Code
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetReceiptResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetReceipt"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/receipts/details"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryReceiptsByPage(request *QueryReceiptsByPageRequest) (_result *QueryReceiptsByPageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryReceiptsByPageHeaders{}
+	_result = &QueryReceiptsByPageResponse{}
+	_body, _err := client.QueryReceiptsByPageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryReceiptsByPageWithOptions(request *QueryReceiptsByPageRequest, headers *QueryReceiptsByPageHeaders, runtime *util.RuntimeOptions) (_result *QueryReceiptsByPageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ModelId)) {
+		query["modelId"] = request.ModelId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TimeFilterField)) {
+		query["timeFilterField"] = request.TimeFilterField
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryReceiptsByPageResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryReceiptsByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/receipts"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -1492,6 +1492,137 @@ func (s *UpdateMemberGroupNickResponse) SetBody(v *UpdateMemberGroupNickResponse
 	return s
 }
 
+type GetInterconnectionUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetInterconnectionUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInterconnectionUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetInterconnectionUrlHeaders) SetCommonHeaders(v map[string]*string) *GetInterconnectionUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetInterconnectionUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetInterconnectionUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetInterconnectionUrlRequest struct {
+	// appUserId
+	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
+	// appUserName
+	AppUserName *string `json:"appUserName,omitempty" xml:"appUserName,omitempty"`
+	// appUserAvatar
+	AppUserAvatar *string `json:"appUserAvatar,omitempty" xml:"appUserAvatar,omitempty"`
+	// appUserAvatarType
+	AppUserAvatarType *int32 `json:"appUserAvatarType,omitempty" xml:"appUserAvatarType,omitempty"`
+	// appUserMobileNumber
+	AppUserMobileNumber *string `json:"appUserMobileNumber,omitempty" xml:"appUserMobileNumber,omitempty"`
+	// dingCorpId
+	DingCorpId *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	// dingUserId
+	DingUserId *string `json:"dingUserId,omitempty" xml:"dingUserId,omitempty"`
+	// msgPageSettingId
+	MsgPageSettingId *int64 `json:"msgPageSettingId,omitempty" xml:"msgPageSettingId,omitempty"`
+}
+
+func (s GetInterconnectionUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInterconnectionUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetInterconnectionUrlRequest) SetAppUserId(v string) *GetInterconnectionUrlRequest {
+	s.AppUserId = &v
+	return s
+}
+
+func (s *GetInterconnectionUrlRequest) SetAppUserName(v string) *GetInterconnectionUrlRequest {
+	s.AppUserName = &v
+	return s
+}
+
+func (s *GetInterconnectionUrlRequest) SetAppUserAvatar(v string) *GetInterconnectionUrlRequest {
+	s.AppUserAvatar = &v
+	return s
+}
+
+func (s *GetInterconnectionUrlRequest) SetAppUserAvatarType(v int32) *GetInterconnectionUrlRequest {
+	s.AppUserAvatarType = &v
+	return s
+}
+
+func (s *GetInterconnectionUrlRequest) SetAppUserMobileNumber(v string) *GetInterconnectionUrlRequest {
+	s.AppUserMobileNumber = &v
+	return s
+}
+
+func (s *GetInterconnectionUrlRequest) SetDingCorpId(v string) *GetInterconnectionUrlRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *GetInterconnectionUrlRequest) SetDingUserId(v string) *GetInterconnectionUrlRequest {
+	s.DingUserId = &v
+	return s
+}
+
+func (s *GetInterconnectionUrlRequest) SetMsgPageSettingId(v int64) *GetInterconnectionUrlRequest {
+	s.MsgPageSettingId = &v
+	return s
+}
+
+type GetInterconnectionUrlResponseBody struct {
+	// 会话url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s GetInterconnectionUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInterconnectionUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetInterconnectionUrlResponseBody) SetUrl(v string) *GetInterconnectionUrlResponseBody {
+	s.Url = &v
+	return s
+}
+
+type GetInterconnectionUrlResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetInterconnectionUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetInterconnectionUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInterconnectionUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetInterconnectionUrlResponse) SetHeaders(v map[string]*string) *GetInterconnectionUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetInterconnectionUrlResponse) SetBody(v *GetInterconnectionUrlResponseBody) *GetInterconnectionUrlResponse {
+	s.Body = v
+	return s
+}
+
 type SendTemplateInteractiveCardHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2537,6 +2668,78 @@ func (client *Client) UpdateMemberGroupNickWithOptions(request *UpdateMemberGrou
 	}
 	_result = &UpdateMemberGroupNickResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateMemberGroupNick"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/members/groupNicks"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetInterconnectionUrl(request *GetInterconnectionUrlRequest) (_result *GetInterconnectionUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetInterconnectionUrlHeaders{}
+	_result = &GetInterconnectionUrlResponse{}
+	_body, _err := client.GetInterconnectionUrlWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetInterconnectionUrlWithOptions(request *GetInterconnectionUrlRequest, headers *GetInterconnectionUrlHeaders, runtime *util.RuntimeOptions) (_result *GetInterconnectionUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppUserId)) {
+		body["appUserId"] = request.AppUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppUserName)) {
+		body["appUserName"] = request.AppUserName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppUserAvatar)) {
+		body["appUserAvatar"] = request.AppUserAvatar
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppUserAvatarType)) {
+		body["appUserAvatarType"] = request.AppUserAvatarType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppUserMobileNumber)) {
+		body["appUserMobileNumber"] = request.AppUserMobileNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingUserId)) {
+		body["dingUserId"] = request.DingUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgPageSettingId)) {
+		body["msgPageSettingId"] = request.MsgPageSettingId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetInterconnectionUrlResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetInterconnectionUrl"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/sessions/urls"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

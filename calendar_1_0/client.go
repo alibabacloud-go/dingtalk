@@ -3115,6 +3115,70 @@ func (s *ListEventsViewResponse) SetBody(v *ListEventsViewResponseBody) *ListEve
 	return s
 }
 
+type SignInHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SignInHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SignInHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SignInHeaders) SetCommonHeaders(v map[string]*string) *SignInHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SignInHeaders) SetXAcsDingtalkAccessToken(v string) *SignInHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SignInResponseBody struct {
+	// 签到时间戳
+	CheckInTime *int64 `json:"checkInTime,omitempty" xml:"checkInTime,omitempty"`
+}
+
+func (s SignInResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SignInResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SignInResponseBody) SetCheckInTime(v int64) *SignInResponseBody {
+	s.CheckInTime = &v
+	return s
+}
+
+type SignInResponse struct {
+	Headers map[string]*string  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SignInResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SignInResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SignInResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SignInResponse) SetHeaders(v map[string]*string) *SignInResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SignInResponse) SetBody(v *SignInResponseBody) *SignInResponse {
+	s.Body = v
+	return s
+}
+
 type GetEventHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3582,6 +3646,70 @@ func (s *GetEventResponse) SetHeaders(v map[string]*string) *GetEventResponse {
 }
 
 func (s *GetEventResponse) SetBody(v *GetEventResponseBody) *GetEventResponse {
+	s.Body = v
+	return s
+}
+
+type CheckInHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CheckInHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckInHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CheckInHeaders) SetCommonHeaders(v map[string]*string) *CheckInHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CheckInHeaders) SetXAcsDingtalkAccessToken(v string) *CheckInHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CheckInResponseBody struct {
+	// 签到时间戳
+	CheckInTime *int64 `json:"checkInTime,omitempty" xml:"checkInTime,omitempty"`
+}
+
+func (s CheckInResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckInResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CheckInResponseBody) SetCheckInTime(v int64) *CheckInResponseBody {
+	s.CheckInTime = &v
+	return s
+}
+
+type CheckInResponse struct {
+	Headers map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CheckInResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CheckInResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckInResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CheckInResponse) SetHeaders(v map[string]*string) *CheckInResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CheckInResponse) SetBody(v *CheckInResponseBody) *CheckInResponse {
 	s.Body = v
 	return s
 }
@@ -5035,6 +5163,40 @@ func (client *Client) ListEventsViewWithOptions(userId *string, calendarId *stri
 	return _result, _err
 }
 
+func (client *Client) SignIn(userId *string, calendarId *string, eventId *string) (_result *SignInResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SignInHeaders{}
+	_result = &SignInResponse{}
+	_body, _err := client.SignInWithOptions(userId, calendarId, eventId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SignInWithOptions(userId *string, calendarId *string, eventId *string, headers *SignInHeaders, runtime *util.RuntimeOptions) (_result *SignInResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &SignInResponse{}
+	_body, _err := client.DoROARequest(tea.String("SignIn"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/signIn"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetEvent(userId *string, calendarId *string, eventId *string) (_result *GetEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetEventHeaders{}
@@ -5062,6 +5224,40 @@ func (client *Client) GetEventWithOptions(userId *string, calendarId *string, ev
 	}
 	_result = &GetEventResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetEvent"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CheckIn(userId *string, calendarId *string, eventId *string) (_result *CheckInResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CheckInHeaders{}
+	_result = &CheckInResponse{}
+	_body, _err := client.CheckInWithOptions(userId, calendarId, eventId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CheckInWithOptions(userId *string, calendarId *string, eventId *string, headers *CheckInHeaders, runtime *util.RuntimeOptions) (_result *CheckInResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &CheckInResponse{}
+	_body, _err := client.DoROARequest(tea.String("CheckIn"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/checkIn"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -1901,6 +1901,179 @@ func (s *PollingConfirmStatusResponse) SetBody(v *PollingConfirmStatusResponseBo
 	return s
 }
 
+type CreateEduAssetSpaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateEduAssetSpaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEduAssetSpaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEduAssetSpaceHeaders) SetCommonHeaders(v map[string]*string) *CreateEduAssetSpaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateEduAssetSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *CreateEduAssetSpaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateEduAssetSpaceRequest struct {
+	// 空间名称
+	SpaceName *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	// 空间描述
+	SpaceDesc *string `json:"spaceDesc,omitempty" xml:"spaceDesc,omitempty"`
+	// 空间图标
+	SpaceIcon *string `json:"spaceIcon,omitempty" xml:"spaceIcon,omitempty"`
+	// 用户staffId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 业务类型编码
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// 组织corpId
+	DingCorpId *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	// 组织id
+	DingOrgId *int64 `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+}
+
+func (s CreateEduAssetSpaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEduAssetSpaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEduAssetSpaceRequest) SetSpaceName(v string) *CreateEduAssetSpaceRequest {
+	s.SpaceName = &v
+	return s
+}
+
+func (s *CreateEduAssetSpaceRequest) SetSpaceDesc(v string) *CreateEduAssetSpaceRequest {
+	s.SpaceDesc = &v
+	return s
+}
+
+func (s *CreateEduAssetSpaceRequest) SetSpaceIcon(v string) *CreateEduAssetSpaceRequest {
+	s.SpaceIcon = &v
+	return s
+}
+
+func (s *CreateEduAssetSpaceRequest) SetUserId(v string) *CreateEduAssetSpaceRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *CreateEduAssetSpaceRequest) SetBizCode(v string) *CreateEduAssetSpaceRequest {
+	s.BizCode = &v
+	return s
+}
+
+func (s *CreateEduAssetSpaceRequest) SetDingCorpId(v string) *CreateEduAssetSpaceRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *CreateEduAssetSpaceRequest) SetDingOrgId(v int64) *CreateEduAssetSpaceRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+type CreateEduAssetSpaceResponseBody struct {
+	// 空间id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 空间名称
+	SpaceName *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	// 空间类型
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// 总容量
+	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
+	// 已使用容量
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// 权限模型
+	PermissionMode *string `json:"permissionMode,omitempty" xml:"permissionMode,omitempty"`
+	// 创建时间戳
+	CreateTimeMillis *int64 `json:"createTimeMillis,omitempty" xml:"createTimeMillis,omitempty"`
+	// 修改时间戳
+	ModifyTimeMillis *int64 `json:"modifyTimeMillis,omitempty" xml:"modifyTimeMillis,omitempty"`
+}
+
+func (s CreateEduAssetSpaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEduAssetSpaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEduAssetSpaceResponseBody) SetSpaceId(v string) *CreateEduAssetSpaceResponseBody {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *CreateEduAssetSpaceResponseBody) SetSpaceName(v string) *CreateEduAssetSpaceResponseBody {
+	s.SpaceName = &v
+	return s
+}
+
+func (s *CreateEduAssetSpaceResponseBody) SetSpaceType(v string) *CreateEduAssetSpaceResponseBody {
+	s.SpaceType = &v
+	return s
+}
+
+func (s *CreateEduAssetSpaceResponseBody) SetQuota(v int64) *CreateEduAssetSpaceResponseBody {
+	s.Quota = &v
+	return s
+}
+
+func (s *CreateEduAssetSpaceResponseBody) SetUsedQuota(v int64) *CreateEduAssetSpaceResponseBody {
+	s.UsedQuota = &v
+	return s
+}
+
+func (s *CreateEduAssetSpaceResponseBody) SetPermissionMode(v string) *CreateEduAssetSpaceResponseBody {
+	s.PermissionMode = &v
+	return s
+}
+
+func (s *CreateEduAssetSpaceResponseBody) SetCreateTimeMillis(v int64) *CreateEduAssetSpaceResponseBody {
+	s.CreateTimeMillis = &v
+	return s
+}
+
+func (s *CreateEduAssetSpaceResponseBody) SetModifyTimeMillis(v int64) *CreateEduAssetSpaceResponseBody {
+	s.ModifyTimeMillis = &v
+	return s
+}
+
+type CreateEduAssetSpaceResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateEduAssetSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateEduAssetSpaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEduAssetSpaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEduAssetSpaceResponse) SetHeaders(v map[string]*string) *CreateEduAssetSpaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateEduAssetSpaceResponse) SetBody(v *CreateEduAssetSpaceResponseBody) *CreateEduAssetSpaceResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteTeacherHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4858,6 +5031,183 @@ func (s *MoveStudentResponse) SetHeaders(v map[string]*string) *MoveStudentRespo
 }
 
 func (s *MoveStudentResponse) SetBody(v *MoveStudentResponseBody) *MoveStudentResponse {
+	s.Body = v
+	return s
+}
+
+type QueryEduAssetSpacesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryEduAssetSpacesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEduAssetSpacesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEduAssetSpacesHeaders) SetCommonHeaders(v map[string]*string) *QueryEduAssetSpacesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryEduAssetSpacesHeaders) SetXAcsDingtalkAccessToken(v string) *QueryEduAssetSpacesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryEduAssetSpacesRequest struct {
+	// 标记当前开始读取的位置，置空表示从头开始
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 本次读取的最大数据记录数量
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 业务编码
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+}
+
+func (s QueryEduAssetSpacesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEduAssetSpacesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEduAssetSpacesRequest) SetNextToken(v int64) *QueryEduAssetSpacesRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryEduAssetSpacesRequest) SetMaxResults(v int32) *QueryEduAssetSpacesRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryEduAssetSpacesRequest) SetBizCode(v string) *QueryEduAssetSpacesRequest {
+	s.BizCode = &v
+	return s
+}
+
+type QueryEduAssetSpacesResponseBody struct {
+	// 表示当前调用返回读取到的位置，空代表数据已经读取完毕
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 是否还有数据
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 空间结果集
+	Spaces []*QueryEduAssetSpacesResponseBodySpaces `json:"spaces,omitempty" xml:"spaces,omitempty" type:"Repeated"`
+}
+
+func (s QueryEduAssetSpacesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEduAssetSpacesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEduAssetSpacesResponseBody) SetNextToken(v string) *QueryEduAssetSpacesResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryEduAssetSpacesResponseBody) SetHasMore(v bool) *QueryEduAssetSpacesResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryEduAssetSpacesResponseBody) SetSpaces(v []*QueryEduAssetSpacesResponseBodySpaces) *QueryEduAssetSpacesResponseBody {
+	s.Spaces = v
+	return s
+}
+
+type QueryEduAssetSpacesResponseBodySpaces struct {
+	// 空间id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 空间名称
+	SpaceName *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	// 空间类型
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// 空间容量
+	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
+	// 已使用容量
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// 权限类型acl：acl授权；custom：自定义授权
+	PermissionMode *string `json:"permissionMode,omitempty" xml:"permissionMode,omitempty"`
+	// 创建时间的时间戳
+	CreateTimeMillis *int64 `json:"createTimeMillis,omitempty" xml:"createTimeMillis,omitempty"`
+	// 修改时间的时间戳
+	ModifyTimeMillis *int64 `json:"modifyTimeMillis,omitempty" xml:"modifyTimeMillis,omitempty"`
+}
+
+func (s QueryEduAssetSpacesResponseBodySpaces) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEduAssetSpacesResponseBodySpaces) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEduAssetSpacesResponseBodySpaces) SetSpaceId(v string) *QueryEduAssetSpacesResponseBodySpaces {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *QueryEduAssetSpacesResponseBodySpaces) SetSpaceName(v string) *QueryEduAssetSpacesResponseBodySpaces {
+	s.SpaceName = &v
+	return s
+}
+
+func (s *QueryEduAssetSpacesResponseBodySpaces) SetSpaceType(v string) *QueryEduAssetSpacesResponseBodySpaces {
+	s.SpaceType = &v
+	return s
+}
+
+func (s *QueryEduAssetSpacesResponseBodySpaces) SetQuota(v int64) *QueryEduAssetSpacesResponseBodySpaces {
+	s.Quota = &v
+	return s
+}
+
+func (s *QueryEduAssetSpacesResponseBodySpaces) SetUsedQuota(v int64) *QueryEduAssetSpacesResponseBodySpaces {
+	s.UsedQuota = &v
+	return s
+}
+
+func (s *QueryEduAssetSpacesResponseBodySpaces) SetPermissionMode(v string) *QueryEduAssetSpacesResponseBodySpaces {
+	s.PermissionMode = &v
+	return s
+}
+
+func (s *QueryEduAssetSpacesResponseBodySpaces) SetCreateTimeMillis(v int64) *QueryEduAssetSpacesResponseBodySpaces {
+	s.CreateTimeMillis = &v
+	return s
+}
+
+func (s *QueryEduAssetSpacesResponseBodySpaces) SetModifyTimeMillis(v int64) *QueryEduAssetSpacesResponseBodySpaces {
+	s.ModifyTimeMillis = &v
+	return s
+}
+
+type QueryEduAssetSpacesResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryEduAssetSpacesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryEduAssetSpacesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEduAssetSpacesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEduAssetSpacesResponse) SetHeaders(v map[string]*string) *QueryEduAssetSpacesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryEduAssetSpacesResponse) SetBody(v *QueryEduAssetSpacesResponseBody) *QueryEduAssetSpacesResponse {
 	s.Body = v
 	return s
 }
@@ -8438,6 +8788,29 @@ func (s *DeleteOrgRelationResponse) SetBody(v *DeleteOrgRelationResponseBody) *D
 	return s
 }
 
+type StartCourseHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s StartCourseHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartCourseHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *StartCourseHeaders) SetCommonHeaders(v map[string]*string) *StartCourseHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *StartCourseHeaders) SetXAcsDingtalkAccessToken(v string) *StartCourseHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
 type StartCourseRequest struct {
 	// opUserId
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
@@ -10283,6 +10656,74 @@ func (client *Client) PollingConfirmStatusWithOptions(request *PollingConfirmSta
 	return _result, _err
 }
 
+func (client *Client) CreateEduAssetSpace(request *CreateEduAssetSpaceRequest) (_result *CreateEduAssetSpaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateEduAssetSpaceHeaders{}
+	_result = &CreateEduAssetSpaceResponse{}
+	_body, _err := client.CreateEduAssetSpaceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateEduAssetSpaceWithOptions(request *CreateEduAssetSpaceRequest, headers *CreateEduAssetSpaceHeaders, runtime *util.RuntimeOptions) (_result *CreateEduAssetSpaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SpaceName)) {
+		body["spaceName"] = request.SpaceName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SpaceDesc)) {
+		body["spaceDesc"] = request.SpaceDesc
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SpaceIcon)) {
+		body["spaceIcon"] = request.SpaceIcon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		body["bizCode"] = request.BizCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateEduAssetSpaceResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateEduAssetSpace"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/assets/spaces"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteTeacher(classId *string, userId *string, request *DeleteTeacherRequest) (_result *DeleteTeacherResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteTeacherHeaders{}
@@ -11168,6 +11609,58 @@ func (client *Client) MoveStudentWithOptions(request *MoveStudentRequest, header
 	}
 	_result = &MoveStudentResponse{}
 	_body, _err := client.DoROARequest(tea.String("MoveStudent"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/students/move"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryEduAssetSpaces(request *QueryEduAssetSpacesRequest) (_result *QueryEduAssetSpacesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryEduAssetSpacesHeaders{}
+	_result = &QueryEduAssetSpacesResponse{}
+	_body, _err := client.QueryEduAssetSpacesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryEduAssetSpacesWithOptions(request *QueryEduAssetSpacesRequest, headers *QueryEduAssetSpacesHeaders, runtime *util.RuntimeOptions) (_result *QueryEduAssetSpacesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		query["bizCode"] = request.BizCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryEduAssetSpacesResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryEduAssetSpaces"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/assets/spaces"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12283,7 +12776,7 @@ func (client *Client) DeleteOrgRelationWithOptions(request *DeleteOrgRelationReq
 
 func (client *Client) StartCourse(request *StartCourseRequest) (_result *StartCourseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := make(map[string]*string)
+	headers := &StartCourseHeaders{}
 	_result = &StartCourseResponse{}
 	_body, _err := client.StartCourseWithOptions(request, headers, runtime)
 	if _err != nil {
@@ -12293,7 +12786,7 @@ func (client *Client) StartCourse(request *StartCourseRequest) (_result *StartCo
 	return _result, _err
 }
 
-func (client *Client) StartCourseWithOptions(request *StartCourseRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *StartCourseResponse, _err error) {
+func (client *Client) StartCourseWithOptions(request *StartCourseRequest, headers *StartCourseHeaders, runtime *util.RuntimeOptions) (_result *StartCourseResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -12320,8 +12813,17 @@ func (client *Client) StartCourseWithOptions(request *StartCourseRequest, header
 		body["isvCode"] = request.IsvCode
 	}
 
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
 	req := &openapi.OpenApiRequest{
-		Headers: headers,
+		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}

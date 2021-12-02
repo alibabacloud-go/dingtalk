@@ -963,11 +963,16 @@ func (s *MasterDataQueryShrinkRequest) SetBodyShrink(v string) *MasterDataQueryS
 }
 
 type MasterDataQueryResponseBody struct {
-	Total     *int64                               `json:"total,omitempty" xml:"total,omitempty"`
-	HasMore   *bool                                `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextToken *int64                               `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Success   *bool                                `json:"success,omitempty" xml:"success,omitempty"`
-	Result    []*MasterDataQueryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// 总条目数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+	// 是否还有更多
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 分页游标
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 结果
+	Result []*MasterDataQueryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
 func (s MasterDataQueryResponseBody) String() string {
@@ -1004,11 +1009,14 @@ func (s *MasterDataQueryResponseBody) SetResult(v []*MasterDataQueryResponseBody
 }
 
 type MasterDataQueryResponseBodyResult struct {
-	OuterId                    *string                                                        `json:"outerId,omitempty" xml:"outerId,omitempty"`
-	ScopeCode                  *string                                                        `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
-	ViewEntityCode             *string                                                        `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
-	ViewEntityFieldVOList      []*MasterDataQueryResponseBodyResultViewEntityFieldVOList      `json:"viewEntityFieldVOList,omitempty" xml:"viewEntityFieldVOList,omitempty" type:"Repeated"`
-	ViewEntityMultiFieldVOList []*MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList `json:"viewEntityMultiFieldVOList,omitempty" xml:"viewEntityMultiFieldVOList,omitempty" type:"Repeated"`
+	// 唯一id
+	OuterId *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	// 领域
+	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	// 编码
+	ViewEntityCode *string `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
+	// 字段列表
+	ViewEntityFieldVOList []*MasterDataQueryResponseBodyResultViewEntityFieldVOList `json:"viewEntityFieldVOList,omitempty" xml:"viewEntityFieldVOList,omitempty" type:"Repeated"`
 }
 
 func (s MasterDataQueryResponseBodyResult) String() string {
@@ -1039,17 +1047,15 @@ func (s *MasterDataQueryResponseBodyResult) SetViewEntityFieldVOList(v []*Master
 	return s
 }
 
-func (s *MasterDataQueryResponseBodyResult) SetViewEntityMultiFieldVOList(v []*MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList) *MasterDataQueryResponseBodyResult {
-	s.ViewEntityMultiFieldVOList = v
-	return s
-}
-
 type MasterDataQueryResponseBodyResultViewEntityFieldVOList struct {
-	FieldCode   *string                                                            `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// 字段code
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// 字段值
 	FieldDataVO *MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO `json:"fieldDataVO,omitempty" xml:"fieldDataVO,omitempty" type:"Struct"`
-	FieldName   *string                                                            `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
-	FieldType   *string                                                            `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
-	Attrs       map[string]map[string]interface{}                                  `json:"attrs,omitempty" xml:"attrs,omitempty"`
+	// 字段名称
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// 字段类型
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
 }
 
 func (s MasterDataQueryResponseBodyResultViewEntityFieldVOList) String() string {
@@ -1080,13 +1086,10 @@ func (s *MasterDataQueryResponseBodyResultViewEntityFieldVOList) SetFieldType(v 
 	return s
 }
 
-func (s *MasterDataQueryResponseBodyResultViewEntityFieldVOList) SetAttrs(v map[string]map[string]interface{}) *MasterDataQueryResponseBodyResultViewEntityFieldVOList {
-	s.Attrs = v
-	return s
-}
-
 type MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO struct {
-	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	// 字段值的key
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// 字段值的文本
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -1104,134 +1107,6 @@ func (s *MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO) SetK
 }
 
 func (s *MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO) SetValue(v string) *MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO {
-	s.Value = &v
-	return s
-}
-
-type MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList struct {
-	FieldCode *string                                                                 `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
-	FieldName *string                                                                 `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
-	FieldType *string                                                                 `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
-	RowFields []*MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields `json:"rowFields,omitempty" xml:"rowFields,omitempty" type:"Repeated"`
-}
-
-func (s MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList) GoString() string {
-	return s.String()
-}
-
-func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList) SetFieldCode(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList {
-	s.FieldCode = &v
-	return s
-}
-
-func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList) SetFieldName(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList {
-	s.FieldName = &v
-	return s
-}
-
-func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList) SetFieldType(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList {
-	s.FieldType = &v
-	return s
-}
-
-func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList) SetRowFields(v []*MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOList {
-	s.RowFields = v
-	return s
-}
-
-type MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields struct {
-	FieldCode           *string                                                                                    `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
-	FieldName           *string                                                                                    `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
-	ViewEntityFieldList []*MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList `json:"viewEntityFieldList,omitempty" xml:"viewEntityFieldList,omitempty" type:"Repeated"`
-}
-
-func (s MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields) String() string {
-	return tea.Prettify(s)
-}
-
-func (s MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields) GoString() string {
-	return s.String()
-}
-
-func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields) SetFieldCode(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields {
-	s.FieldCode = &v
-	return s
-}
-
-func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields) SetFieldName(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields {
-	s.FieldName = &v
-	return s
-}
-
-func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields) SetViewEntityFieldList(v []*MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFields {
-	s.ViewEntityFieldList = v
-	return s
-}
-
-type MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList struct {
-	FieldCode   *string                                                                                             `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
-	FieldName   *string                                                                                             `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
-	FieldDataVO *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO `json:"fieldDataVO,omitempty" xml:"fieldDataVO,omitempty" type:"Struct"`
-	FieldType   *string                                                                                             `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
-	Attrs       map[string]map[string]interface{}                                                                   `json:"attrs,omitempty" xml:"attrs,omitempty"`
-}
-
-func (s MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList) GoString() string {
-	return s.String()
-}
-
-func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList) SetFieldCode(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList {
-	s.FieldCode = &v
-	return s
-}
-
-func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList) SetFieldName(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList {
-	s.FieldName = &v
-	return s
-}
-
-func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList) SetFieldDataVO(v *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList {
-	s.FieldDataVO = v
-	return s
-}
-
-func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList) SetFieldType(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList {
-	s.FieldType = &v
-	return s
-}
-
-func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList) SetAttrs(v map[string]map[string]interface{}) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldList {
-	s.Attrs = v
-	return s
-}
-
-type MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO struct {
-	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
-}
-
-func (s MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO) String() string {
-	return tea.Prettify(s)
-}
-
-func (s MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO) GoString() string {
-	return s.String()
-}
-
-func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO) SetKey(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO {
-	s.Key = &v
-	return s
-}
-
-func (s *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO) SetValue(v string) *MasterDataQueryResponseBodyResultViewEntityMultiFieldVOListRowFieldsViewEntityFieldListFieldDataVO {
 	s.Value = &v
 	return s
 }

@@ -3269,6 +3269,208 @@ func (s *CreateCooperateOrgResponse) SetBody(v *CreateCooperateOrgResponseBody) 
 	return s
 }
 
+type ListEmpLeaveRecordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListEmpLeaveRecordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEmpLeaveRecordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListEmpLeaveRecordsHeaders) SetCommonHeaders(v map[string]*string) *ListEmpLeaveRecordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListEmpLeaveRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *ListEmpLeaveRecordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListEmpLeaveRecordsRequest struct {
+	// 开始时间
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 结束时间
+	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 分页token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 分页大小
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+}
+
+func (s ListEmpLeaveRecordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEmpLeaveRecordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListEmpLeaveRecordsRequest) SetStartTime(v string) *ListEmpLeaveRecordsRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *ListEmpLeaveRecordsRequest) SetEndTime(v string) *ListEmpLeaveRecordsRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *ListEmpLeaveRecordsRequest) SetNextToken(v string) *ListEmpLeaveRecordsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListEmpLeaveRecordsRequest) SetMaxResults(v int32) *ListEmpLeaveRecordsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+type ListEmpLeaveRecordsResponseBody struct {
+	// errorMsg
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// dingOpenErrcode
+	DingOpenErrcode *int32 `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// result
+	Result *ListEmpLeaveRecordsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s ListEmpLeaveRecordsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEmpLeaveRecordsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListEmpLeaveRecordsResponseBody) SetErrorMsg(v string) *ListEmpLeaveRecordsResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *ListEmpLeaveRecordsResponseBody) SetDingOpenErrcode(v int32) *ListEmpLeaveRecordsResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *ListEmpLeaveRecordsResponseBody) SetSuccess(v bool) *ListEmpLeaveRecordsResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *ListEmpLeaveRecordsResponseBody) SetResult(v *ListEmpLeaveRecordsResponseBodyResult) *ListEmpLeaveRecordsResponseBody {
+	s.Result = v
+	return s
+}
+
+type ListEmpLeaveRecordsResponseBodyResult struct {
+	// 分页token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 离职记录列表
+	Records []*ListEmpLeaveRecordsResponseBodyResultRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+}
+
+func (s ListEmpLeaveRecordsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEmpLeaveRecordsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListEmpLeaveRecordsResponseBodyResult) SetNextToken(v string) *ListEmpLeaveRecordsResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListEmpLeaveRecordsResponseBodyResult) SetRecords(v []*ListEmpLeaveRecordsResponseBodyResultRecords) *ListEmpLeaveRecordsResponseBodyResult {
+	s.Records = v
+	return s
+}
+
+type ListEmpLeaveRecordsResponseBodyResultRecords struct {
+	// 员工userid
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 员工名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 国际电话区号
+	StateCode *string `json:"stateCode,omitempty" xml:"stateCode,omitempty"`
+	// 手机号码
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// 离职时间
+	LeaveTime *string `json:"leaveTime,omitempty" xml:"leaveTime,omitempty"`
+	// 离职原因(oapi-开放平台删除，cancel-注销，leave-主动离职，unknown-未知原因，delete-管理员删除）
+	LeaveReason *string `json:"leaveReason,omitempty" xml:"leaveReason,omitempty"`
+}
+
+func (s ListEmpLeaveRecordsResponseBodyResultRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEmpLeaveRecordsResponseBodyResultRecords) GoString() string {
+	return s.String()
+}
+
+func (s *ListEmpLeaveRecordsResponseBodyResultRecords) SetUserId(v string) *ListEmpLeaveRecordsResponseBodyResultRecords {
+	s.UserId = &v
+	return s
+}
+
+func (s *ListEmpLeaveRecordsResponseBodyResultRecords) SetName(v string) *ListEmpLeaveRecordsResponseBodyResultRecords {
+	s.Name = &v
+	return s
+}
+
+func (s *ListEmpLeaveRecordsResponseBodyResultRecords) SetStateCode(v string) *ListEmpLeaveRecordsResponseBodyResultRecords {
+	s.StateCode = &v
+	return s
+}
+
+func (s *ListEmpLeaveRecordsResponseBodyResultRecords) SetMobile(v string) *ListEmpLeaveRecordsResponseBodyResultRecords {
+	s.Mobile = &v
+	return s
+}
+
+func (s *ListEmpLeaveRecordsResponseBodyResultRecords) SetLeaveTime(v string) *ListEmpLeaveRecordsResponseBodyResultRecords {
+	s.LeaveTime = &v
+	return s
+}
+
+func (s *ListEmpLeaveRecordsResponseBodyResultRecords) SetLeaveReason(v string) *ListEmpLeaveRecordsResponseBodyResultRecords {
+	s.LeaveReason = &v
+	return s
+}
+
+type ListEmpLeaveRecordsResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListEmpLeaveRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListEmpLeaveRecordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEmpLeaveRecordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListEmpLeaveRecordsResponse) SetHeaders(v map[string]*string) *ListEmpLeaveRecordsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListEmpLeaveRecordsResponse) SetBody(v *ListEmpLeaveRecordsResponseBody) *ListEmpLeaveRecordsResponse {
+	s.Body = v
+	return s
+}
+
 type GetMigrationDingIdByDingIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5463,6 +5665,62 @@ func (client *Client) CreateCooperateOrgWithOptions(request *CreateCooperateOrgR
 	}
 	_result = &CreateCooperateOrgResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateCooperateOrg"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/cooperateCorps"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListEmpLeaveRecords(request *ListEmpLeaveRecordsRequest) (_result *ListEmpLeaveRecordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListEmpLeaveRecordsHeaders{}
+	_result = &ListEmpLeaveRecordsResponse{}
+	_body, _err := client.ListEmpLeaveRecordsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListEmpLeaveRecordsWithOptions(request *ListEmpLeaveRecordsRequest, headers *ListEmpLeaveRecordsHeaders, runtime *util.RuntimeOptions) (_result *ListEmpLeaveRecordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListEmpLeaveRecordsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListEmpLeaveRecords"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/empLeaveRecords"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
