@@ -682,6 +682,8 @@ type GetWorkspaceResponseBody struct {
 	Url       *string `json:"url,omitempty" xml:"url,omitempty"`
 	IsDeleted *bool   `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
 	Owner     *string `json:"owner,omitempty" xml:"owner,omitempty"`
+	// 团队空间所属企业id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s GetWorkspaceResponseBody) String() string {
@@ -704,6 +706,11 @@ func (s *GetWorkspaceResponseBody) SetIsDeleted(v bool) *GetWorkspaceResponseBod
 
 func (s *GetWorkspaceResponseBody) SetOwner(v string) *GetWorkspaceResponseBody {
 	s.Owner = &v
+	return s
+}
+
+func (s *GetWorkspaceResponseBody) SetCorpId(v string) *GetWorkspaceResponseBody {
+	s.CorpId = &v
 	return s
 }
 
@@ -1121,6 +1128,8 @@ type BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList struct {
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 文档打开url
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 最近编辑时间
+	LastEditTime *string `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
 }
 
 func (s BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) String() string {
@@ -1143,6 +1152,11 @@ func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) SetName(v 
 
 func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) SetUrl(v string) *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList {
 	s.Url = &v
+	return s
+}
+
+func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) SetLastEditTime(v string) *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList {
+	s.LastEditTime = &v
 	return s
 }
 
@@ -1527,6 +1541,8 @@ type GetRelatedWorkspacesResponseBodyWorkspaces struct {
 	// 团队空间是否被删除
 	Deleted *bool   `json:"deleted,omitempty" xml:"deleted,omitempty"`
 	Owner   *string `json:"owner,omitempty" xml:"owner,omitempty"`
+	// 用户的角色
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
 	// 团队空间名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 团队空间最近访问文档列表
@@ -1563,6 +1579,11 @@ func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetOwner(v string) *GetRela
 	return s
 }
 
+func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetRole(v string) *GetRelatedWorkspacesResponseBodyWorkspaces {
+	s.Role = &v
+	return s
+}
+
 func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetName(v string) *GetRelatedWorkspacesResponseBodyWorkspaces {
 	s.Name = &v
 	return s
@@ -1585,6 +1606,8 @@ type GetRelatedWorkspacesResponseBodyWorkspacesRecentList struct {
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 文档打开url
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 文档最后编辑时间
+	LastEditTime *int64 `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
 }
 
 func (s GetRelatedWorkspacesResponseBodyWorkspacesRecentList) String() string {
@@ -1607,6 +1630,11 @@ func (s *GetRelatedWorkspacesResponseBodyWorkspacesRecentList) SetName(v string)
 
 func (s *GetRelatedWorkspacesResponseBodyWorkspacesRecentList) SetUrl(v string) *GetRelatedWorkspacesResponseBodyWorkspacesRecentList {
 	s.Url = &v
+	return s
+}
+
+func (s *GetRelatedWorkspacesResponseBodyWorkspacesRecentList) SetLastEditTime(v int64) *GetRelatedWorkspacesResponseBodyWorkspacesRecentList {
+	s.LastEditTime = &v
 	return s
 }
 
