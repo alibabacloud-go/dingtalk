@@ -128,6 +128,159 @@ func (s *BatchSendOTOResponse) SetBody(v *BatchSendOTOResponseBody) *BatchSendOT
 	return s
 }
 
+type OrgGroupSendHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s OrgGroupSendHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgGroupSendHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *OrgGroupSendHeaders) SetCommonHeaders(v map[string]*string) *OrgGroupSendHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *OrgGroupSendHeaders) SetXAcsDingtalkAccessToken(v string) *OrgGroupSendHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type OrgGroupSendRequest struct {
+	// 消息体
+	MsgParam *string `json:"msgParam,omitempty" xml:"msgParam,omitempty"`
+	// 消息类型的key
+	MsgKey *string `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
+	// 开放的群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 群内机器人的code
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// 群内机器人的webhook中的Token
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// 酷应用的code
+	CoolAppCode        *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingCorpId         *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingClientId       *string `json:"dingClientId,omitempty" xml:"dingClientId,omitempty"`
+}
+
+func (s OrgGroupSendRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgGroupSendRequest) GoString() string {
+	return s.String()
+}
+
+func (s *OrgGroupSendRequest) SetMsgParam(v string) *OrgGroupSendRequest {
+	s.MsgParam = &v
+	return s
+}
+
+func (s *OrgGroupSendRequest) SetMsgKey(v string) *OrgGroupSendRequest {
+	s.MsgKey = &v
+	return s
+}
+
+func (s *OrgGroupSendRequest) SetOpenConversationId(v string) *OrgGroupSendRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *OrgGroupSendRequest) SetRobotCode(v string) *OrgGroupSendRequest {
+	s.RobotCode = &v
+	return s
+}
+
+func (s *OrgGroupSendRequest) SetToken(v string) *OrgGroupSendRequest {
+	s.Token = &v
+	return s
+}
+
+func (s *OrgGroupSendRequest) SetCoolAppCode(v string) *OrgGroupSendRequest {
+	s.CoolAppCode = &v
+	return s
+}
+
+func (s *OrgGroupSendRequest) SetDingTokenGrantType(v int64) *OrgGroupSendRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *OrgGroupSendRequest) SetDingOrgId(v int64) *OrgGroupSendRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *OrgGroupSendRequest) SetDingCorpId(v string) *OrgGroupSendRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *OrgGroupSendRequest) SetDingIsvOrgId(v int64) *OrgGroupSendRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *OrgGroupSendRequest) SetDingSuiteKey(v string) *OrgGroupSendRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *OrgGroupSendRequest) SetDingClientId(v string) *OrgGroupSendRequest {
+	s.DingClientId = &v
+	return s
+}
+
+type OrgGroupSendResponseBody struct {
+	// 加密消息id
+	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
+}
+
+func (s OrgGroupSendResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgGroupSendResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *OrgGroupSendResponseBody) SetProcessQueryKey(v string) *OrgGroupSendResponseBody {
+	s.ProcessQueryKey = &v
+	return s
+}
+
+type OrgGroupSendResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *OrgGroupSendResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s OrgGroupSendResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgGroupSendResponse) GoString() string {
+	return s.String()
+}
+
+func (s *OrgGroupSendResponse) SetHeaders(v map[string]*string) *OrgGroupSendResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *OrgGroupSendResponse) SetBody(v *OrgGroupSendResponseBody) *OrgGroupSendResponse {
+	s.Body = v
+	return s
+}
+
 type BatchRecallOTOHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -644,6 +797,94 @@ func (client *Client) BatchSendOTOWithOptions(request *BatchSendOTORequest, head
 	}
 	_result = &BatchSendOTOResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchSendOTO"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/oToMessages/batchSend"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) OrgGroupSend(request *OrgGroupSendRequest) (_result *OrgGroupSendResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &OrgGroupSendHeaders{}
+	_result = &OrgGroupSendResponse{}
+	_body, _err := client.OrgGroupSendWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) OrgGroupSendWithOptions(request *OrgGroupSendRequest, headers *OrgGroupSendHeaders, runtime *util.RuntimeOptions) (_result *OrgGroupSendResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MsgParam)) {
+		body["msgParam"] = request.MsgParam
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgKey)) {
+		body["msgKey"] = request.MsgKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		body["token"] = request.Token
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CoolAppCode)) {
+		body["coolAppCode"] = request.CoolAppCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingClientId)) {
+		body["dingClientId"] = request.DingClientId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &OrgGroupSendResponse{}
+	_body, _err := client.DoROARequest(tea.String("OrgGroupSend"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/groupMessages/send"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

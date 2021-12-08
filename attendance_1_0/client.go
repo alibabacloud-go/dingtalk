@@ -1002,9 +1002,10 @@ func (s *SyncScheduleInfoRequest) SetOpUserId(v string) *SyncScheduleInfoRequest
 }
 
 type SyncScheduleInfoRequestScheduleInfos struct {
-	PlanId       *int64    `json:"planId,omitempty" xml:"planId,omitempty"`
-	WifiKeys     []*string `json:"wifiKeys,omitempty" xml:"wifiKeys,omitempty" type:"Repeated"`
-	PositionKeys []*string `json:"positionKeys,omitempty" xml:"positionKeys,omitempty" type:"Repeated"`
+	PlanId                *int64    `json:"planId,omitempty" xml:"planId,omitempty"`
+	WifiKeys              []*string `json:"wifiKeys,omitempty" xml:"wifiKeys,omitempty" type:"Repeated"`
+	PositionKeys          []*string `json:"positionKeys,omitempty" xml:"positionKeys,omitempty" type:"Repeated"`
+	RetainAttendanceCheck *bool     `json:"retainAttendanceCheck,omitempty" xml:"retainAttendanceCheck,omitempty"`
 }
 
 func (s SyncScheduleInfoRequestScheduleInfos) String() string {
@@ -1027,6 +1028,11 @@ func (s *SyncScheduleInfoRequestScheduleInfos) SetWifiKeys(v []*string) *SyncSch
 
 func (s *SyncScheduleInfoRequestScheduleInfos) SetPositionKeys(v []*string) *SyncScheduleInfoRequestScheduleInfos {
 	s.PositionKeys = v
+	return s
+}
+
+func (s *SyncScheduleInfoRequestScheduleInfos) SetRetainAttendanceCheck(v bool) *SyncScheduleInfoRequestScheduleInfos {
+	s.RetainAttendanceCheck = &v
 	return s
 }
 

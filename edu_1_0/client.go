@@ -789,6 +789,130 @@ func (s *GetOpenCoursesResponse) SetBody(v *GetOpenCoursesResponseBody) *GetOpen
 	return s
 }
 
+type CreateUniversityStudentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateUniversityStudentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUniversityStudentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUniversityStudentHeaders) SetCommonHeaders(v map[string]*string) *CreateUniversityStudentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateUniversityStudentHeaders) SetXAcsDingtalkAccessToken(v string) *CreateUniversityStudentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateUniversityStudentRequest struct {
+	// 学号
+	StudentNumber *string `json:"studentNumber,omitempty" xml:"studentNumber,omitempty"`
+	// 班级id
+	ClassId *int64 `json:"classId,omitempty" xml:"classId,omitempty"`
+	// 性别
+	Gender *string `json:"gender,omitempty" xml:"gender,omitempty"`
+	// 电话
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// 名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 身份证号
+	IdentityNumber *string `json:"identityNumber,omitempty" xml:"identityNumber,omitempty"`
+	// opUserId
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s CreateUniversityStudentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUniversityStudentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUniversityStudentRequest) SetStudentNumber(v string) *CreateUniversityStudentRequest {
+	s.StudentNumber = &v
+	return s
+}
+
+func (s *CreateUniversityStudentRequest) SetClassId(v int64) *CreateUniversityStudentRequest {
+	s.ClassId = &v
+	return s
+}
+
+func (s *CreateUniversityStudentRequest) SetGender(v string) *CreateUniversityStudentRequest {
+	s.Gender = &v
+	return s
+}
+
+func (s *CreateUniversityStudentRequest) SetMobile(v string) *CreateUniversityStudentRequest {
+	s.Mobile = &v
+	return s
+}
+
+func (s *CreateUniversityStudentRequest) SetName(v string) *CreateUniversityStudentRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateUniversityStudentRequest) SetIdentityNumber(v string) *CreateUniversityStudentRequest {
+	s.IdentityNumber = &v
+	return s
+}
+
+func (s *CreateUniversityStudentRequest) SetOpUserId(v string) *CreateUniversityStudentRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type CreateUniversityStudentResponseBody struct {
+	// 是否成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CreateUniversityStudentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUniversityStudentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUniversityStudentResponseBody) SetResult(v bool) *CreateUniversityStudentResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CreateUniversityStudentResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateUniversityStudentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateUniversityStudentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUniversityStudentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUniversityStudentResponse) SetHeaders(v map[string]*string) *CreateUniversityStudentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateUniversityStudentResponse) SetBody(v *CreateUniversityStudentResponseBody) *CreateUniversityStudentResponse {
+	s.Body = v
+	return s
+}
+
 type BatchCreateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2159,6 +2283,109 @@ func (s *DeleteTeacherResponse) SetHeaders(v map[string]*string) *DeleteTeacherR
 }
 
 func (s *DeleteTeacherResponse) SetBody(v *DeleteTeacherResponseBody) *DeleteTeacherResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteUniversityTeacherHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteUniversityTeacherHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteUniversityTeacherHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteUniversityTeacherHeaders) SetCommonHeaders(v map[string]*string) *DeleteUniversityTeacherHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteUniversityTeacherHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteUniversityTeacherHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteUniversityTeacherRequest struct {
+	// 班级id
+	ClassId *int64 `json:"classId,omitempty" xml:"classId,omitempty"`
+	// 角色
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
+	// 教师用户ID
+	TeacherUserId *string `json:"teacherUserId,omitempty" xml:"teacherUserId,omitempty"`
+	// opUserId
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s DeleteUniversityTeacherRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteUniversityTeacherRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteUniversityTeacherRequest) SetClassId(v int64) *DeleteUniversityTeacherRequest {
+	s.ClassId = &v
+	return s
+}
+
+func (s *DeleteUniversityTeacherRequest) SetRole(v string) *DeleteUniversityTeacherRequest {
+	s.Role = &v
+	return s
+}
+
+func (s *DeleteUniversityTeacherRequest) SetTeacherUserId(v string) *DeleteUniversityTeacherRequest {
+	s.TeacherUserId = &v
+	return s
+}
+
+func (s *DeleteUniversityTeacherRequest) SetOpUserId(v string) *DeleteUniversityTeacherRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type DeleteUniversityTeacherResponseBody struct {
+	// 返回结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteUniversityTeacherResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteUniversityTeacherResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteUniversityTeacherResponseBody) SetResult(v bool) *DeleteUniversityTeacherResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeleteUniversityTeacherResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteUniversityTeacherResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteUniversityTeacherResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteUniversityTeacherResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteUniversityTeacherResponse) SetHeaders(v map[string]*string) *DeleteUniversityTeacherResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteUniversityTeacherResponse) SetBody(v *DeleteUniversityTeacherResponseBody) *DeleteUniversityTeacherResponse {
 	s.Body = v
 	return s
 }
@@ -9924,6 +10151,102 @@ func (s *QueryOrgTypeResponse) SetBody(v *QueryOrgTypeResponseBody) *QueryOrgTyp
 	return s
 }
 
+type DeleteUniversityStudentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteUniversityStudentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteUniversityStudentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteUniversityStudentHeaders) SetCommonHeaders(v map[string]*string) *DeleteUniversityStudentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteUniversityStudentHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteUniversityStudentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteUniversityStudentRequest struct {
+	// 班级ID
+	ClassId *int64 `json:"classId,omitempty" xml:"classId,omitempty"`
+	// 学生用户ID
+	StudentUserId *string `json:"studentUserId,omitempty" xml:"studentUserId,omitempty"`
+	// 操作人用户ID
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s DeleteUniversityStudentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteUniversityStudentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteUniversityStudentRequest) SetClassId(v int64) *DeleteUniversityStudentRequest {
+	s.ClassId = &v
+	return s
+}
+
+func (s *DeleteUniversityStudentRequest) SetStudentUserId(v string) *DeleteUniversityStudentRequest {
+	s.StudentUserId = &v
+	return s
+}
+
+func (s *DeleteUniversityStudentRequest) SetOpUserId(v string) *DeleteUniversityStudentRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type DeleteUniversityStudentResponseBody struct {
+	// 返回结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteUniversityStudentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteUniversityStudentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteUniversityStudentResponseBody) SetResult(v bool) *DeleteUniversityStudentResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeleteUniversityStudentResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteUniversityStudentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteUniversityStudentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteUniversityStudentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteUniversityStudentResponse) SetHeaders(v map[string]*string) *DeleteUniversityStudentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteUniversityStudentResponse) SetBody(v *DeleteUniversityStudentResponseBody) *DeleteUniversityStudentResponse {
+	s.Body = v
+	return s
+}
+
 type EndCourseHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10185,6 +10508,130 @@ func (s *GetShareRoleMembersResponse) SetBody(v *GetShareRoleMembersResponseBody
 	return s
 }
 
+type CreateUniversityTeacherHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateUniversityTeacherHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUniversityTeacherHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUniversityTeacherHeaders) SetCommonHeaders(v map[string]*string) *CreateUniversityTeacherHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateUniversityTeacherHeaders) SetXAcsDingtalkAccessToken(v string) *CreateUniversityTeacherHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateUniversityTeacherRequest struct {
+	// isvOrgId
+	DingIsvOrgId *int64 `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	// 班级ID
+	ClassId *int64 `json:"classId,omitempty" xml:"classId,omitempty"`
+	// 角色
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
+	// 教师用户ID
+	TeacherUserId *string `json:"teacherUserId,omitempty" xml:"teacherUserId,omitempty"`
+	// suiteKey
+	DingSuiteKey *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	// 操作人用户ID
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// opOrgId
+	DingOrgId *int64 `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+}
+
+func (s CreateUniversityTeacherRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUniversityTeacherRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUniversityTeacherRequest) SetDingIsvOrgId(v int64) *CreateUniversityTeacherRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *CreateUniversityTeacherRequest) SetClassId(v int64) *CreateUniversityTeacherRequest {
+	s.ClassId = &v
+	return s
+}
+
+func (s *CreateUniversityTeacherRequest) SetRole(v string) *CreateUniversityTeacherRequest {
+	s.Role = &v
+	return s
+}
+
+func (s *CreateUniversityTeacherRequest) SetTeacherUserId(v string) *CreateUniversityTeacherRequest {
+	s.TeacherUserId = &v
+	return s
+}
+
+func (s *CreateUniversityTeacherRequest) SetDingSuiteKey(v string) *CreateUniversityTeacherRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *CreateUniversityTeacherRequest) SetOpUserId(v string) *CreateUniversityTeacherRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *CreateUniversityTeacherRequest) SetDingOrgId(v int64) *CreateUniversityTeacherRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+type CreateUniversityTeacherResponseBody struct {
+	// 返回结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CreateUniversityTeacherResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUniversityTeacherResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUniversityTeacherResponseBody) SetResult(v bool) *CreateUniversityTeacherResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CreateUniversityTeacherResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateUniversityTeacherResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateUniversityTeacherResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUniversityTeacherResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUniversityTeacherResponse) SetHeaders(v map[string]*string) *CreateUniversityTeacherResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateUniversityTeacherResponse) SetBody(v *CreateUniversityTeacherResponseBody) *CreateUniversityTeacherResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -10399,6 +10846,76 @@ func (client *Client) GetOpenCoursesWithOptions(request *GetOpenCoursesRequest, 
 	}
 	_result = &GetOpenCoursesResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetOpenCourses"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/openCourses"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateUniversityStudent(request *CreateUniversityStudentRequest) (_result *CreateUniversityStudentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateUniversityStudentHeaders{}
+	_result = &CreateUniversityStudentResponse{}
+	_body, _err := client.CreateUniversityStudentWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateUniversityStudentWithOptions(request *CreateUniversityStudentRequest, headers *CreateUniversityStudentHeaders, runtime *util.RuntimeOptions) (_result *CreateUniversityStudentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StudentNumber)) {
+		body["studentNumber"] = request.StudentNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ClassId)) {
+		body["classId"] = request.ClassId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Gender)) {
+		body["gender"] = request.Gender
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Mobile)) {
+		body["mobile"] = request.Mobile
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IdentityNumber)) {
+		body["identityNumber"] = request.IdentityNumber
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateUniversityStudentResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateUniversityStudent"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/universities/students"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10765,6 +11282,62 @@ func (client *Client) DeleteTeacherWithOptions(classId *string, userId *string, 
 	}
 	_result = &DeleteTeacherResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteTeacher"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/classes/"+tea.StringValue(classId)+"/teachers/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteUniversityTeacher(request *DeleteUniversityTeacherRequest) (_result *DeleteUniversityTeacherResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteUniversityTeacherHeaders{}
+	_result = &DeleteUniversityTeacherResponse{}
+	_body, _err := client.DeleteUniversityTeacherWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteUniversityTeacherWithOptions(request *DeleteUniversityTeacherRequest, headers *DeleteUniversityTeacherHeaders, runtime *util.RuntimeOptions) (_result *DeleteUniversityTeacherResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ClassId)) {
+		query["classId"] = request.ClassId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Role)) {
+		query["role"] = request.Role
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TeacherUserId)) {
+		query["teacherUserId"] = request.TeacherUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteUniversityTeacherResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteUniversityTeacher"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/universities/teachers"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13248,6 +13821,58 @@ func (client *Client) QueryOrgTypeWithOptions(headers *QueryOrgTypeHeaders, runt
 	return _result, _err
 }
 
+func (client *Client) DeleteUniversityStudent(request *DeleteUniversityStudentRequest) (_result *DeleteUniversityStudentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteUniversityStudentHeaders{}
+	_result = &DeleteUniversityStudentResponse{}
+	_body, _err := client.DeleteUniversityStudentWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteUniversityStudentWithOptions(request *DeleteUniversityStudentRequest, headers *DeleteUniversityStudentHeaders, runtime *util.RuntimeOptions) (_result *DeleteUniversityStudentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ClassId)) {
+		query["classId"] = request.ClassId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StudentUserId)) {
+		query["studentUserId"] = request.StudentUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteUniversityStudentResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteUniversityStudent"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/universities/students"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) EndCourse(request *EndCourseRequest) (_result *EndCourseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EndCourseHeaders{}
@@ -13337,6 +13962,74 @@ func (client *Client) GetShareRoleMembersWithOptions(shareRoleCode *string, head
 	}
 	_result = &GetShareRoleMembersResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetShareRoleMembers"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/shareRoles/"+tea.StringValue(shareRoleCode)+"/members"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateUniversityTeacher(request *CreateUniversityTeacherRequest) (_result *CreateUniversityTeacherResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateUniversityTeacherHeaders{}
+	_result = &CreateUniversityTeacherResponse{}
+	_body, _err := client.CreateUniversityTeacherWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateUniversityTeacherWithOptions(request *CreateUniversityTeacherRequest, headers *CreateUniversityTeacherHeaders, runtime *util.RuntimeOptions) (_result *CreateUniversityTeacherResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ClassId)) {
+		body["classId"] = request.ClassId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Role)) {
+		body["role"] = request.Role
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TeacherUserId)) {
+		body["teacherUserId"] = request.TeacherUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateUniversityTeacherResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateUniversityTeacher"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/universities/teachers"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

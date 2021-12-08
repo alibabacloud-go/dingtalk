@@ -870,7 +870,24 @@ func (s *MasterDataQueryHeaders) SetXAcsDingtalkAccessToken(v string) *MasterDat
 }
 
 type MasterDataQueryRequest struct {
-	Body *MasterDataQueryRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Struct"`
+	// 领域code 由钉钉分配
+	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	// 实体code
+	ViewEntityCode *string `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
+	// 数据生产方的租户id，由钉钉分配
+	TenantId *int64 `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+	// 数据唯一键
+	BizUK *string `json:"bizUK,omitempty" xml:"bizUK,omitempty"`
+	// 关联id列表，一般为userId
+	RelationIds []*string `json:"relationIds,omitempty" xml:"relationIds,omitempty" type:"Repeated"`
+	// 当前操作人userId
+	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+	// 分页查询的游标
+	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 分页查询每页数据条数
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 其他查询条件
+	QueryParams []*MasterDataQueryRequestQueryParams `json:"queryParams,omitempty" xml:"queryParams,omitempty" type:"Repeated"`
 }
 
 func (s MasterDataQueryRequest) String() string {
@@ -881,84 +898,105 @@ func (s MasterDataQueryRequest) GoString() string {
 	return s.String()
 }
 
-func (s *MasterDataQueryRequest) SetBody(v *MasterDataQueryRequestBody) *MasterDataQueryRequest {
-	s.Body = v
-	return s
-}
-
-type MasterDataQueryRequestBody struct {
-	ScopeCode      *string   `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
-	ViewEntityCode *string   `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
-	TenantId       *int64    `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
-	BizUK          *string   `json:"bizUK,omitempty" xml:"bizUK,omitempty"`
-	RelationIds    []*string `json:"relationIds,omitempty" xml:"relationIds,omitempty" type:"Repeated"`
-	OptUserId      *string   `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
-	NextToken      *int32    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	MaxResults     *int32    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-}
-
-func (s MasterDataQueryRequestBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s MasterDataQueryRequestBody) GoString() string {
-	return s.String()
-}
-
-func (s *MasterDataQueryRequestBody) SetScopeCode(v string) *MasterDataQueryRequestBody {
+func (s *MasterDataQueryRequest) SetScopeCode(v string) *MasterDataQueryRequest {
 	s.ScopeCode = &v
 	return s
 }
 
-func (s *MasterDataQueryRequestBody) SetViewEntityCode(v string) *MasterDataQueryRequestBody {
+func (s *MasterDataQueryRequest) SetViewEntityCode(v string) *MasterDataQueryRequest {
 	s.ViewEntityCode = &v
 	return s
 }
 
-func (s *MasterDataQueryRequestBody) SetTenantId(v int64) *MasterDataQueryRequestBody {
+func (s *MasterDataQueryRequest) SetTenantId(v int64) *MasterDataQueryRequest {
 	s.TenantId = &v
 	return s
 }
 
-func (s *MasterDataQueryRequestBody) SetBizUK(v string) *MasterDataQueryRequestBody {
+func (s *MasterDataQueryRequest) SetBizUK(v string) *MasterDataQueryRequest {
 	s.BizUK = &v
 	return s
 }
 
-func (s *MasterDataQueryRequestBody) SetRelationIds(v []*string) *MasterDataQueryRequestBody {
+func (s *MasterDataQueryRequest) SetRelationIds(v []*string) *MasterDataQueryRequest {
 	s.RelationIds = v
 	return s
 }
 
-func (s *MasterDataQueryRequestBody) SetOptUserId(v string) *MasterDataQueryRequestBody {
+func (s *MasterDataQueryRequest) SetOptUserId(v string) *MasterDataQueryRequest {
 	s.OptUserId = &v
 	return s
 }
 
-func (s *MasterDataQueryRequestBody) SetNextToken(v int32) *MasterDataQueryRequestBody {
+func (s *MasterDataQueryRequest) SetNextToken(v int32) *MasterDataQueryRequest {
 	s.NextToken = &v
 	return s
 }
 
-func (s *MasterDataQueryRequestBody) SetMaxResults(v int32) *MasterDataQueryRequestBody {
+func (s *MasterDataQueryRequest) SetMaxResults(v int32) *MasterDataQueryRequest {
 	s.MaxResults = &v
 	return s
 }
 
-type MasterDataQueryShrinkRequest struct {
-	BodyShrink *string `json:"body,omitempty" xml:"body,omitempty"`
+func (s *MasterDataQueryRequest) SetQueryParams(v []*MasterDataQueryRequestQueryParams) *MasterDataQueryRequest {
+	s.QueryParams = v
+	return s
 }
 
-func (s MasterDataQueryShrinkRequest) String() string {
+type MasterDataQueryRequestQueryParams struct {
+	// 需要筛选的字段
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// 筛选条件连接类型
+	JoinType *string `json:"joinType,omitempty" xml:"joinType,omitempty"`
+	// 筛选条件
+	ConditionList []*MasterDataQueryRequestQueryParamsConditionList `json:"conditionList,omitempty" xml:"conditionList,omitempty" type:"Repeated"`
+}
+
+func (s MasterDataQueryRequestQueryParams) String() string {
 	return tea.Prettify(s)
 }
 
-func (s MasterDataQueryShrinkRequest) GoString() string {
+func (s MasterDataQueryRequestQueryParams) GoString() string {
 	return s.String()
 }
 
-func (s *MasterDataQueryShrinkRequest) SetBodyShrink(v string) *MasterDataQueryShrinkRequest {
-	s.BodyShrink = &v
+func (s *MasterDataQueryRequestQueryParams) SetFieldCode(v string) *MasterDataQueryRequestQueryParams {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *MasterDataQueryRequestQueryParams) SetJoinType(v string) *MasterDataQueryRequestQueryParams {
+	s.JoinType = &v
+	return s
+}
+
+func (s *MasterDataQueryRequestQueryParams) SetConditionList(v []*MasterDataQueryRequestQueryParamsConditionList) *MasterDataQueryRequestQueryParams {
+	s.ConditionList = v
+	return s
+}
+
+type MasterDataQueryRequestQueryParamsConditionList struct {
+	// 字段关系符
+	Operate *string `json:"operate,omitempty" xml:"operate,omitempty"`
+	// 操作值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s MasterDataQueryRequestQueryParamsConditionList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataQueryRequestQueryParamsConditionList) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataQueryRequestQueryParamsConditionList) SetOperate(v string) *MasterDataQueryRequestQueryParamsConditionList {
+	s.Operate = &v
+	return s
+}
+
+func (s *MasterDataQueryRequestQueryParamsConditionList) SetValue(v string) *MasterDataQueryRequestQueryParamsConditionList {
+	s.Value = &v
 	return s
 }
 
@@ -1613,20 +1651,46 @@ func (client *Client) MasterDataQuery(request *MasterDataQueryRequest) (_result 
 	return _result, _err
 }
 
-func (client *Client) MasterDataQueryWithOptions(tmpReq *MasterDataQueryRequest, headers *MasterDataQueryHeaders, runtime *util.RuntimeOptions) (_result *MasterDataQueryResponse, _err error) {
-	_err = util.ValidateModel(tmpReq)
+func (client *Client) MasterDataQueryWithOptions(request *MasterDataQueryRequest, headers *MasterDataQueryHeaders, runtime *util.RuntimeOptions) (_result *MasterDataQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	request := &MasterDataQueryShrinkRequest{}
-	openapiutil.Convert(tmpReq, request)
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(tmpReq.Body))) {
-		request.BodyShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tea.ToMap(tmpReq.Body), tea.String("body"), tea.String("json"))
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ScopeCode)) {
+		body["scopeCode"] = request.ScopeCode
 	}
 
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.BodyShrink)) {
-		query["body"] = request.BodyShrink
+	if !tea.BoolValue(util.IsUnset(request.ViewEntityCode)) {
+		body["viewEntityCode"] = request.ViewEntityCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TenantId)) {
+		body["tenantId"] = request.TenantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizUK)) {
+		body["bizUK"] = request.BizUK
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationIds)) {
+		body["relationIds"] = request.RelationIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OptUserId)) {
+		body["optUserId"] = request.OptUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QueryParams)) {
+		body["queryParams"] = request.QueryParams
 	}
 
 	realHeaders := make(map[string]*string)
@@ -1640,7 +1704,7 @@ func (client *Client) MasterDataQueryWithOptions(tmpReq *MasterDataQueryRequest,
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &MasterDataQueryResponse{}
 	_body, _err := client.DoROARequest(tea.String("MasterDataQuery"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/masters/datas/query"), tea.String("json"), req, runtime)

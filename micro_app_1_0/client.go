@@ -37,8 +37,6 @@ func (s *CreateInnerAppHeaders) SetXAcsDingtalkAccessToken(v string) *CreateInne
 type CreateInnerAppRequest struct {
 	// 创建人unionId
 	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
-	// 关联组织corpId
-	EcologicalCorpId *string `json:"ecologicalCorpId,omitempty" xml:"ecologicalCorpId,omitempty"`
 	// 应用名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 应用描述
@@ -67,11 +65,6 @@ func (s CreateInnerAppRequest) GoString() string {
 
 func (s *CreateInnerAppRequest) SetOpUnionId(v string) *CreateInnerAppRequest {
 	s.OpUnionId = &v
-	return s
-}
-
-func (s *CreateInnerAppRequest) SetEcologicalCorpId(v string) *CreateInnerAppRequest {
-	s.EcologicalCorpId = &v
 	return s
 }
 
@@ -1178,8 +1171,6 @@ func (s *UpdateInnerAppHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateInne
 type UpdateInnerAppRequest struct {
 	// 创建人unionId
 	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
-	// 关联组织corpId
-	EcologicalCorpId *string `json:"ecologicalCorpId,omitempty" xml:"ecologicalCorpId,omitempty"`
 	// 应用名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 应用描述
@@ -1206,11 +1197,6 @@ func (s UpdateInnerAppRequest) GoString() string {
 
 func (s *UpdateInnerAppRequest) SetOpUnionId(v string) *UpdateInnerAppRequest {
 	s.OpUnionId = &v
-	return s
-}
-
-func (s *UpdateInnerAppRequest) SetEcologicalCorpId(v string) *UpdateInnerAppRequest {
-	s.EcologicalCorpId = &v
 	return s
 }
 
@@ -1286,6 +1272,144 @@ func (s *UpdateInnerAppResponse) SetHeaders(v map[string]*string) *UpdateInnerAp
 }
 
 func (s *UpdateInnerAppResponse) SetBody(v *UpdateInnerAppResponseBody) *UpdateInnerAppResponse {
+	s.Body = v
+	return s
+}
+
+type ListUserVilebleAppHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListUserVilebleAppHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserVilebleAppHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserVilebleAppHeaders) SetCommonHeaders(v map[string]*string) *ListUserVilebleAppHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListUserVilebleAppHeaders) SetXAcsDingtalkAccessToken(v string) *ListUserVilebleAppHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListUserVilebleAppResponseBody struct {
+	// 应用列表
+	AppList []*ListUserVilebleAppResponseBodyAppList `json:"appList,omitempty" xml:"appList,omitempty" type:"Repeated"`
+}
+
+func (s ListUserVilebleAppResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserVilebleAppResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserVilebleAppResponseBody) SetAppList(v []*ListUserVilebleAppResponseBodyAppList) *ListUserVilebleAppResponseBody {
+	s.AppList = v
+	return s
+}
+
+type ListUserVilebleAppResponseBodyAppList struct {
+	// 应用id
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// 应用名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 应用描述
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// 应用图标
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 应用移动端首页地址
+	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	// 应用PC端首页地址
+	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
+	// 应用管理后台地址
+	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	// 三方应用id，如果是企业内部应用，返回0
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// 应用状态，0：停用，1：启用 ，3：过期
+	AppStatus *int32 `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
+}
+
+func (s ListUserVilebleAppResponseBodyAppList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserVilebleAppResponseBodyAppList) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserVilebleAppResponseBodyAppList) SetAgentId(v int64) *ListUserVilebleAppResponseBodyAppList {
+	s.AgentId = &v
+	return s
+}
+
+func (s *ListUserVilebleAppResponseBodyAppList) SetName(v string) *ListUserVilebleAppResponseBodyAppList {
+	s.Name = &v
+	return s
+}
+
+func (s *ListUserVilebleAppResponseBodyAppList) SetDesc(v string) *ListUserVilebleAppResponseBodyAppList {
+	s.Desc = &v
+	return s
+}
+
+func (s *ListUserVilebleAppResponseBodyAppList) SetIcon(v string) *ListUserVilebleAppResponseBodyAppList {
+	s.Icon = &v
+	return s
+}
+
+func (s *ListUserVilebleAppResponseBodyAppList) SetHomepageLink(v string) *ListUserVilebleAppResponseBodyAppList {
+	s.HomepageLink = &v
+	return s
+}
+
+func (s *ListUserVilebleAppResponseBodyAppList) SetPcHomepageLink(v string) *ListUserVilebleAppResponseBodyAppList {
+	s.PcHomepageLink = &v
+	return s
+}
+
+func (s *ListUserVilebleAppResponseBodyAppList) SetOmpLink(v string) *ListUserVilebleAppResponseBodyAppList {
+	s.OmpLink = &v
+	return s
+}
+
+func (s *ListUserVilebleAppResponseBodyAppList) SetAppId(v int64) *ListUserVilebleAppResponseBodyAppList {
+	s.AppId = &v
+	return s
+}
+
+func (s *ListUserVilebleAppResponseBodyAppList) SetAppStatus(v int32) *ListUserVilebleAppResponseBodyAppList {
+	s.AppStatus = &v
+	return s
+}
+
+type ListUserVilebleAppResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListUserVilebleAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListUserVilebleAppResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserVilebleAppResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserVilebleAppResponse) SetHeaders(v map[string]*string) *ListUserVilebleAppResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListUserVilebleAppResponse) SetBody(v *ListUserVilebleAppResponseBody) *ListUserVilebleAppResponse {
 	s.Body = v
 	return s
 }
@@ -1552,6 +1676,144 @@ func (s *ListAppRoleScopesResponse) SetHeaders(v map[string]*string) *ListAppRol
 }
 
 func (s *ListAppRoleScopesResponse) SetBody(v *ListAppRoleScopesResponseBody) *ListAppRoleScopesResponse {
+	s.Body = v
+	return s
+}
+
+type ListAllAppHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListAllAppHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllAppHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllAppHeaders) SetCommonHeaders(v map[string]*string) *ListAllAppHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListAllAppHeaders) SetXAcsDingtalkAccessToken(v string) *ListAllAppHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListAllAppResponseBody struct {
+	// 应用列表
+	AppList []*ListAllAppResponseBodyAppList `json:"appList,omitempty" xml:"appList,omitempty" type:"Repeated"`
+}
+
+func (s ListAllAppResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllAppResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllAppResponseBody) SetAppList(v []*ListAllAppResponseBodyAppList) *ListAllAppResponseBody {
+	s.AppList = v
+	return s
+}
+
+type ListAllAppResponseBodyAppList struct {
+	// 应用id
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// 应用名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 应用描述
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// 应用图标
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 应用移动端首页地址
+	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	// 应用PC端首页地址
+	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
+	// 应用管理后台地址
+	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	// 三方应用id，如果是企业内部应用，返回0
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// 应用状态，0：停用，1：启用 ，3：过期
+	AppStatus *int32 `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
+}
+
+func (s ListAllAppResponseBodyAppList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllAppResponseBodyAppList) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllAppResponseBodyAppList) SetAgentId(v int64) *ListAllAppResponseBodyAppList {
+	s.AgentId = &v
+	return s
+}
+
+func (s *ListAllAppResponseBodyAppList) SetName(v string) *ListAllAppResponseBodyAppList {
+	s.Name = &v
+	return s
+}
+
+func (s *ListAllAppResponseBodyAppList) SetDesc(v string) *ListAllAppResponseBodyAppList {
+	s.Desc = &v
+	return s
+}
+
+func (s *ListAllAppResponseBodyAppList) SetIcon(v string) *ListAllAppResponseBodyAppList {
+	s.Icon = &v
+	return s
+}
+
+func (s *ListAllAppResponseBodyAppList) SetHomepageLink(v string) *ListAllAppResponseBodyAppList {
+	s.HomepageLink = &v
+	return s
+}
+
+func (s *ListAllAppResponseBodyAppList) SetPcHomepageLink(v string) *ListAllAppResponseBodyAppList {
+	s.PcHomepageLink = &v
+	return s
+}
+
+func (s *ListAllAppResponseBodyAppList) SetOmpLink(v string) *ListAllAppResponseBodyAppList {
+	s.OmpLink = &v
+	return s
+}
+
+func (s *ListAllAppResponseBodyAppList) SetAppId(v int64) *ListAllAppResponseBodyAppList {
+	s.AppId = &v
+	return s
+}
+
+func (s *ListAllAppResponseBodyAppList) SetAppStatus(v int32) *ListAllAppResponseBodyAppList {
+	s.AppStatus = &v
+	return s
+}
+
+type ListAllAppResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListAllAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListAllAppResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllAppResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllAppResponse) SetHeaders(v map[string]*string) *ListAllAppResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListAllAppResponse) SetBody(v *ListAllAppResponseBody) *ListAllAppResponse {
 	s.Body = v
 	return s
 }
@@ -2110,8 +2372,6 @@ func (s *DeleteInnerAppHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteInne
 type DeleteInnerAppRequest struct {
 	// 操作人unionId
 	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
-	// 合作空间corpId
-	EcologicalCorpId *string `json:"ecologicalCorpId,omitempty" xml:"ecologicalCorpId,omitempty"`
 }
 
 func (s DeleteInnerAppRequest) String() string {
@@ -2124,11 +2384,6 @@ func (s DeleteInnerAppRequest) GoString() string {
 
 func (s *DeleteInnerAppRequest) SetOpUnionId(v string) *DeleteInnerAppRequest {
 	s.OpUnionId = &v
-	return s
-}
-
-func (s *DeleteInnerAppRequest) SetEcologicalCorpId(v string) *DeleteInnerAppRequest {
-	s.EcologicalCorpId = &v
 	return s
 }
 
@@ -2312,10 +2567,6 @@ func (client *Client) CreateInnerAppWithOptions(request *CreateInnerAppRequest, 
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpUnionId)) {
 		body["opUnionId"] = request.OpUnionId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.EcologicalCorpId)) {
-		body["ecologicalCorpId"] = request.EcologicalCorpId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
@@ -2778,10 +3029,6 @@ func (client *Client) UpdateInnerAppWithOptions(agentId *string, request *Update
 		body["opUnionId"] = request.OpUnionId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.EcologicalCorpId)) {
-		body["ecologicalCorpId"] = request.EcologicalCorpId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
 		body["name"] = request.Name
 	}
@@ -2825,6 +3072,40 @@ func (client *Client) UpdateInnerAppWithOptions(agentId *string, request *Update
 	}
 	_result = &UpdateInnerAppResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateInnerApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListUserVilebleApp(userId *string) (_result *ListUserVilebleAppResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListUserVilebleAppHeaders{}
+	_result = &ListUserVilebleAppResponse{}
+	_body, _err := client.ListUserVilebleAppWithOptions(userId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListUserVilebleAppWithOptions(userId *string, headers *ListUserVilebleAppHeaders, runtime *util.RuntimeOptions) (_result *ListUserVilebleAppResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &ListUserVilebleAppResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListUserVilebleApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/users/"+tea.StringValue(userId)+"/apps"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2929,6 +3210,40 @@ func (client *Client) ListAppRoleScopesWithOptions(agentId *string, request *Lis
 	}
 	_result = &ListAppRoleScopesResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListAppRoleScopes"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/roles"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListAllApp() (_result *ListAllAppResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListAllAppHeaders{}
+	_result = &ListAllAppResponse{}
+	_body, _err := client.ListAllAppWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListAllAppWithOptions(headers *ListAllAppHeaders, runtime *util.RuntimeOptions) (_result *ListAllAppResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &ListAllAppResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListAllApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/allApps"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3248,10 +3563,6 @@ func (client *Client) DeleteInnerAppWithOptions(agentId *string, request *Delete
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpUnionId)) {
 		query["opUnionId"] = request.OpUnionId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.EcologicalCorpId)) {
-		query["ecologicalCorpId"] = request.EcologicalCorpId
 	}
 
 	realHeaders := make(map[string]*string)

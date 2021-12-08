@@ -3293,9 +3293,9 @@ func (s *ListEmpLeaveRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *ListE
 }
 
 type ListEmpLeaveRecordsRequest struct {
-	// 开始时间
+	// 开始时间，YYYY-MM-DDTHH:mm:ssZ (ISO 8601/RFC 3339)
 	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 结束时间
+	// 结束时间，YYYY-MM-DDTHH:mm:ssZ (ISO 8601/RFC 3339)
 	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
 	// 分页token
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
@@ -3332,14 +3332,10 @@ func (s *ListEmpLeaveRecordsRequest) SetMaxResults(v int32) *ListEmpLeaveRecords
 }
 
 type ListEmpLeaveRecordsResponseBody struct {
-	// errorMsg
-	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	// dingOpenErrcode
-	DingOpenErrcode *int32 `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
-	// success
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
-	// result
-	Result *ListEmpLeaveRecordsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// 分页token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 离职记录列表
+	Records []*ListEmpLeaveRecordsResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
 }
 
 func (s ListEmpLeaveRecordsResponseBody) String() string {
@@ -3350,52 +3346,17 @@ func (s ListEmpLeaveRecordsResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *ListEmpLeaveRecordsResponseBody) SetErrorMsg(v string) *ListEmpLeaveRecordsResponseBody {
-	s.ErrorMsg = &v
-	return s
-}
-
-func (s *ListEmpLeaveRecordsResponseBody) SetDingOpenErrcode(v int32) *ListEmpLeaveRecordsResponseBody {
-	s.DingOpenErrcode = &v
-	return s
-}
-
-func (s *ListEmpLeaveRecordsResponseBody) SetSuccess(v bool) *ListEmpLeaveRecordsResponseBody {
-	s.Success = &v
-	return s
-}
-
-func (s *ListEmpLeaveRecordsResponseBody) SetResult(v *ListEmpLeaveRecordsResponseBodyResult) *ListEmpLeaveRecordsResponseBody {
-	s.Result = v
-	return s
-}
-
-type ListEmpLeaveRecordsResponseBodyResult struct {
-	// 分页token
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 离职记录列表
-	Records []*ListEmpLeaveRecordsResponseBodyResultRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
-}
-
-func (s ListEmpLeaveRecordsResponseBodyResult) String() string {
-	return tea.Prettify(s)
-}
-
-func (s ListEmpLeaveRecordsResponseBodyResult) GoString() string {
-	return s.String()
-}
-
-func (s *ListEmpLeaveRecordsResponseBodyResult) SetNextToken(v string) *ListEmpLeaveRecordsResponseBodyResult {
+func (s *ListEmpLeaveRecordsResponseBody) SetNextToken(v string) *ListEmpLeaveRecordsResponseBody {
 	s.NextToken = &v
 	return s
 }
 
-func (s *ListEmpLeaveRecordsResponseBodyResult) SetRecords(v []*ListEmpLeaveRecordsResponseBodyResultRecords) *ListEmpLeaveRecordsResponseBodyResult {
+func (s *ListEmpLeaveRecordsResponseBody) SetRecords(v []*ListEmpLeaveRecordsResponseBodyRecords) *ListEmpLeaveRecordsResponseBody {
 	s.Records = v
 	return s
 }
 
-type ListEmpLeaveRecordsResponseBodyResultRecords struct {
+type ListEmpLeaveRecordsResponseBodyRecords struct {
 	// 员工userid
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	// 员工名称
@@ -3410,40 +3371,40 @@ type ListEmpLeaveRecordsResponseBodyResultRecords struct {
 	LeaveReason *string `json:"leaveReason,omitempty" xml:"leaveReason,omitempty"`
 }
 
-func (s ListEmpLeaveRecordsResponseBodyResultRecords) String() string {
+func (s ListEmpLeaveRecordsResponseBodyRecords) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ListEmpLeaveRecordsResponseBodyResultRecords) GoString() string {
+func (s ListEmpLeaveRecordsResponseBodyRecords) GoString() string {
 	return s.String()
 }
 
-func (s *ListEmpLeaveRecordsResponseBodyResultRecords) SetUserId(v string) *ListEmpLeaveRecordsResponseBodyResultRecords {
+func (s *ListEmpLeaveRecordsResponseBodyRecords) SetUserId(v string) *ListEmpLeaveRecordsResponseBodyRecords {
 	s.UserId = &v
 	return s
 }
 
-func (s *ListEmpLeaveRecordsResponseBodyResultRecords) SetName(v string) *ListEmpLeaveRecordsResponseBodyResultRecords {
+func (s *ListEmpLeaveRecordsResponseBodyRecords) SetName(v string) *ListEmpLeaveRecordsResponseBodyRecords {
 	s.Name = &v
 	return s
 }
 
-func (s *ListEmpLeaveRecordsResponseBodyResultRecords) SetStateCode(v string) *ListEmpLeaveRecordsResponseBodyResultRecords {
+func (s *ListEmpLeaveRecordsResponseBodyRecords) SetStateCode(v string) *ListEmpLeaveRecordsResponseBodyRecords {
 	s.StateCode = &v
 	return s
 }
 
-func (s *ListEmpLeaveRecordsResponseBodyResultRecords) SetMobile(v string) *ListEmpLeaveRecordsResponseBodyResultRecords {
+func (s *ListEmpLeaveRecordsResponseBodyRecords) SetMobile(v string) *ListEmpLeaveRecordsResponseBodyRecords {
 	s.Mobile = &v
 	return s
 }
 
-func (s *ListEmpLeaveRecordsResponseBodyResultRecords) SetLeaveTime(v string) *ListEmpLeaveRecordsResponseBodyResultRecords {
+func (s *ListEmpLeaveRecordsResponseBodyRecords) SetLeaveTime(v string) *ListEmpLeaveRecordsResponseBodyRecords {
 	s.LeaveTime = &v
 	return s
 }
 
-func (s *ListEmpLeaveRecordsResponseBodyResultRecords) SetLeaveReason(v string) *ListEmpLeaveRecordsResponseBodyResultRecords {
+func (s *ListEmpLeaveRecordsResponseBodyRecords) SetLeaveReason(v string) *ListEmpLeaveRecordsResponseBodyRecords {
 	s.LeaveReason = &v
 	return s
 }

@@ -1897,6 +1897,10 @@ type QueryAllDoctorsResponseBodyContent struct {
 	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
 	// 状态0-有效，1-删除
 	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 考核医疗组id
+	AssessGroupId *string `json:"assessGroupId,omitempty" xml:"assessGroupId,omitempty"`
+	// 考核医疗组名称
+	AssessGroupName *string `json:"assessGroupName,omitempty" xml:"assessGroupName,omitempty"`
 }
 
 func (s QueryAllDoctorsResponseBodyContent) String() string {
@@ -1954,6 +1958,16 @@ func (s *QueryAllDoctorsResponseBodyContent) SetDeptCode(v string) *QueryAllDoct
 
 func (s *QueryAllDoctorsResponseBodyContent) SetStatus(v int32) *QueryAllDoctorsResponseBodyContent {
 	s.Status = &v
+	return s
+}
+
+func (s *QueryAllDoctorsResponseBodyContent) SetAssessGroupId(v string) *QueryAllDoctorsResponseBodyContent {
+	s.AssessGroupId = &v
+	return s
+}
+
+func (s *QueryAllDoctorsResponseBodyContent) SetAssessGroupName(v string) *QueryAllDoctorsResponseBodyContent {
+	s.AssessGroupName = &v
 	return s
 }
 

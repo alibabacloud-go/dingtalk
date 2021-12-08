@@ -142,41 +142,6 @@ func (s *CreateJsapiTicketHeaders) SetXAcsDingtalkAccessToken(v string) *CreateJ
 	return s
 }
 
-type CreateJsapiTicketRequest struct {
-	AgentId            *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	DingTokenGrantType *int32  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
-	DingOauthAppId     *int64  `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
-	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
-}
-
-func (s CreateJsapiTicketRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateJsapiTicketRequest) GoString() string {
-	return s.String()
-}
-
-func (s *CreateJsapiTicketRequest) SetAgentId(v int64) *CreateJsapiTicketRequest {
-	s.AgentId = &v
-	return s
-}
-
-func (s *CreateJsapiTicketRequest) SetDingTokenGrantType(v int32) *CreateJsapiTicketRequest {
-	s.DingTokenGrantType = &v
-	return s
-}
-
-func (s *CreateJsapiTicketRequest) SetDingOauthAppId(v int64) *CreateJsapiTicketRequest {
-	s.DingOauthAppId = &v
-	return s
-}
-
-func (s *CreateJsapiTicketRequest) SetDingSuiteKey(v string) *CreateJsapiTicketRequest {
-	s.DingSuiteKey = &v
-	return s
-}
-
 type CreateJsapiTicketResponseBody struct {
 	// jsapi ticket
 	JsapiTicket *string `json:"jsapiTicket,omitempty" xml:"jsapiTicket,omitempty"`
@@ -1067,11 +1032,11 @@ func (client *Client) GetUserTokenWithOptions(request *GetUserTokenRequest, head
 	return _result, _err
 }
 
-func (client *Client) CreateJsapiTicket(request *CreateJsapiTicketRequest) (_result *CreateJsapiTicketResponse, _err error) {
+func (client *Client) CreateJsapiTicket() (_result *CreateJsapiTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateJsapiTicketHeaders{}
 	_result = &CreateJsapiTicketResponse{}
-	_body, _err := client.CreateJsapiTicketWithOptions(request, headers, runtime)
+	_body, _err := client.CreateJsapiTicketWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1079,28 +1044,7 @@ func (client *Client) CreateJsapiTicket(request *CreateJsapiTicketRequest) (_res
 	return _result, _err
 }
 
-func (client *Client) CreateJsapiTicketWithOptions(request *CreateJsapiTicketRequest, headers *CreateJsapiTicketHeaders, runtime *util.RuntimeOptions) (_result *CreateJsapiTicketResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.AgentId)) {
-		body["agentId"] = request.AgentId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
-		body["dingTokenGrantType"] = request.DingTokenGrantType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingOauthAppId)) {
-		body["dingOauthAppId"] = request.DingOauthAppId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
-		body["dingSuiteKey"] = request.DingSuiteKey
-	}
-
+func (client *Client) CreateJsapiTicketWithOptions(headers *CreateJsapiTicketHeaders, runtime *util.RuntimeOptions) (_result *CreateJsapiTicketResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1112,7 +1056,6 @@ func (client *Client) CreateJsapiTicketWithOptions(request *CreateJsapiTicketReq
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &CreateJsapiTicketResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateJsapiTicket"), tea.String("oauth2_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/oauth2/jsapiTickets"), tea.String("json"), req, runtime)
