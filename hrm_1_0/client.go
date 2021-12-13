@@ -1055,6 +1055,8 @@ type MasterDataQueryResponseBodyResult struct {
 	ViewEntityCode *string `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
 	// 字段列表
 	ViewEntityFieldVOList []*MasterDataQueryResponseBodyResultViewEntityFieldVOList `json:"viewEntityFieldVOList,omitempty" xml:"viewEntityFieldVOList,omitempty" type:"Repeated"`
+	// 关联id列表，一般为userId
+	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
 }
 
 func (s MasterDataQueryResponseBodyResult) String() string {
@@ -1082,6 +1084,11 @@ func (s *MasterDataQueryResponseBodyResult) SetViewEntityCode(v string) *MasterD
 
 func (s *MasterDataQueryResponseBodyResult) SetViewEntityFieldVOList(v []*MasterDataQueryResponseBodyResultViewEntityFieldVOList) *MasterDataQueryResponseBodyResult {
 	s.ViewEntityFieldVOList = v
+	return s
+}
+
+func (s *MasterDataQueryResponseBodyResult) SetRelationId(v string) *MasterDataQueryResponseBodyResult {
+	s.RelationId = &v
 	return s
 }
 

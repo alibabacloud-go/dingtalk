@@ -1773,6 +1773,8 @@ type GetRecentEditDocsResponseBodyRecentListNodeBO struct {
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 	// 最后编辑时间
 	LastEditTime *int64 `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
+	// 是否被删除
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
 }
 
 func (s GetRecentEditDocsResponseBodyRecentListNodeBO) String() string {
@@ -1800,6 +1802,11 @@ func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetUrl(v string) *GetRec
 
 func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetLastEditTime(v int64) *GetRecentEditDocsResponseBodyRecentListNodeBO {
 	s.LastEditTime = &v
+	return s
+}
+
+func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetIsDeleted(v bool) *GetRecentEditDocsResponseBodyRecentListNodeBO {
+	s.IsDeleted = &v
 	return s
 }
 

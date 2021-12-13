@@ -82,6 +82,115 @@ func (s *QueryDeviceVideoConferenceBookResponse) SetBody(v *QueryDeviceVideoConf
 	return s
 }
 
+type MachineUsersUpdateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s MachineUsersUpdateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MachineUsersUpdateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *MachineUsersUpdateHeaders) SetCommonHeaders(v map[string]*string) *MachineUsersUpdateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *MachineUsersUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *MachineUsersUpdateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type MachineUsersUpdateRequest struct {
+	// 移除的员工id列表
+	DelUserIds []*string `json:"delUserIds,omitempty" xml:"delUserIds,omitempty" type:"Repeated"`
+	// 设备唯一标识id列表，字符串数组
+	DeviceIds []*string `json:"deviceIds,omitempty" xml:"deviceIds,omitempty" type:"Repeated"`
+	// 新增的员工id列表
+	AddUserIds []*string `json:"addUserIds,omitempty" xml:"addUserIds,omitempty" type:"Repeated"`
+	// 设备唯一标识id列表，Long数组
+	DevIds             []*int64 `json:"devIds,omitempty" xml:"devIds,omitempty" type:"Repeated"`
+	DingTokenGrantType *int64   `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingSuiteKey       *string  `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingCorpId         *string  `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	DingOrgId          *int64   `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId       *int64   `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+}
+
+func (s MachineUsersUpdateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MachineUsersUpdateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *MachineUsersUpdateRequest) SetDelUserIds(v []*string) *MachineUsersUpdateRequest {
+	s.DelUserIds = v
+	return s
+}
+
+func (s *MachineUsersUpdateRequest) SetDeviceIds(v []*string) *MachineUsersUpdateRequest {
+	s.DeviceIds = v
+	return s
+}
+
+func (s *MachineUsersUpdateRequest) SetAddUserIds(v []*string) *MachineUsersUpdateRequest {
+	s.AddUserIds = v
+	return s
+}
+
+func (s *MachineUsersUpdateRequest) SetDevIds(v []*int64) *MachineUsersUpdateRequest {
+	s.DevIds = v
+	return s
+}
+
+func (s *MachineUsersUpdateRequest) SetDingTokenGrantType(v int64) *MachineUsersUpdateRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *MachineUsersUpdateRequest) SetDingSuiteKey(v string) *MachineUsersUpdateRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *MachineUsersUpdateRequest) SetDingCorpId(v string) *MachineUsersUpdateRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *MachineUsersUpdateRequest) SetDingOrgId(v int64) *MachineUsersUpdateRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *MachineUsersUpdateRequest) SetDingIsvOrgId(v int64) *MachineUsersUpdateRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+type MachineUsersUpdateResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s MachineUsersUpdateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MachineUsersUpdateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *MachineUsersUpdateResponse) SetHeaders(v map[string]*string) *MachineUsersUpdateResponse {
+	s.Headers = v
+	return s
+}
+
 type AddDeviceVideoConferenceMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -420,6 +529,82 @@ func (client *Client) QueryDeviceVideoConferenceBookWithOptions(deviceId *string
 	}
 	_result = &QueryDeviceVideoConferenceBookResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryDeviceVideoConferenceBook"), tea.String("smartDevice_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/smartDevice/devices/"+tea.StringValue(deviceId)+"/books/"+tea.StringValue(bookId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) MachineUsersUpdate(request *MachineUsersUpdateRequest) (_result *MachineUsersUpdateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &MachineUsersUpdateHeaders{}
+	_result = &MachineUsersUpdateResponse{}
+	_body, _err := client.MachineUsersUpdateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) MachineUsersUpdateWithOptions(request *MachineUsersUpdateRequest, headers *MachineUsersUpdateHeaders, runtime *util.RuntimeOptions) (_result *MachineUsersUpdateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DelUserIds)) {
+		body["delUserIds"] = request.DelUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceIds)) {
+		body["deviceIds"] = request.DeviceIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AddUserIds)) {
+		body["addUserIds"] = request.AddUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DevIds)) {
+		body["devIds"] = request.DevIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &MachineUsersUpdateResponse{}
+	_body, _err := client.DoROARequest(tea.String("MachineUsersUpdate"), tea.String("smartDevice_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/smartDevice/atmachines/users"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -871,6 +871,10 @@ type DecodePayCodeRequest struct {
 	PayCode *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
 	// requestId
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// ISV组织ID
+	DingIsvOrgId *int64 `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	// 组织ID
+	DingOrgId *int64 `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
 }
 
 func (s DecodePayCodeRequest) String() string {
@@ -888,6 +892,16 @@ func (s *DecodePayCodeRequest) SetPayCode(v string) *DecodePayCodeRequest {
 
 func (s *DecodePayCodeRequest) SetRequestId(v string) *DecodePayCodeRequest {
 	s.RequestId = &v
+	return s
+}
+
+func (s *DecodePayCodeRequest) SetDingIsvOrgId(v int64) *DecodePayCodeRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *DecodePayCodeRequest) SetDingOrgId(v int64) *DecodePayCodeRequest {
+	s.DingOrgId = &v
 	return s
 }
 
@@ -2577,6 +2591,14 @@ func (client *Client) DecodePayCodeWithOptions(request *DecodePayCodeRequest, he
 
 	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
 		body["requestId"] = request.RequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
 	}
 
 	realHeaders := make(map[string]*string)

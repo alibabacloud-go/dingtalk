@@ -1849,6 +1849,8 @@ type SendOfficialAccountOTOMessageRequestDetail struct {
 	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 	// 消息接收人id
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 消息接收人unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	// 消息体
 	MessageBody *SendOfficialAccountOTOMessageRequestDetailMessageBody `json:"messageBody,omitempty" xml:"messageBody,omitempty" type:"Struct"`
 }
@@ -1873,6 +1875,11 @@ func (s *SendOfficialAccountOTOMessageRequestDetail) SetUuid(v string) *SendOffi
 
 func (s *SendOfficialAccountOTOMessageRequestDetail) SetUserId(v string) *SendOfficialAccountOTOMessageRequestDetail {
 	s.UserId = &v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetail) SetUnionId(v string) *SendOfficialAccountOTOMessageRequestDetail {
+	s.UnionId = &v
 	return s
 }
 
