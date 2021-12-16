@@ -1763,6 +1763,1346 @@ func (s *QueryAllCustomerResponse) SetBody(v *QueryAllCustomerResponseBody) *Que
 	return s
 }
 
+type UpdateRelationMetaFieldHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldHeaders) SetCommonHeaders(v map[string]*string) *UpdateRelationMetaFieldHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRelationMetaFieldHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateRelationMetaFieldRequest struct {
+	Tenant         *string                                       `json:"tenant,omitempty" xml:"tenant,omitempty"`
+	OperatorUserId *string                                       `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	RelationType   *string                                       `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	FieldDTOList   []*UpdateRelationMetaFieldRequestFieldDTOList `json:"fieldDTOList,omitempty" xml:"fieldDTOList,omitempty" type:"Repeated"`
+}
+
+func (s UpdateRelationMetaFieldRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldRequest) SetTenant(v string) *UpdateRelationMetaFieldRequest {
+	s.Tenant = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequest) SetOperatorUserId(v string) *UpdateRelationMetaFieldRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequest) SetRelationType(v string) *UpdateRelationMetaFieldRequest {
+	s.RelationType = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequest) SetFieldDTOList(v []*UpdateRelationMetaFieldRequestFieldDTOList) *UpdateRelationMetaFieldRequest {
+	s.FieldDTOList = v
+	return s
+}
+
+type UpdateRelationMetaFieldRequestFieldDTOList struct {
+	ComponentName *string                                          `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	Props         *UpdateRelationMetaFieldRequestFieldDTOListProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+}
+
+func (s UpdateRelationMetaFieldRequestFieldDTOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldRequestFieldDTOList) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOList) SetComponentName(v string) *UpdateRelationMetaFieldRequestFieldDTOList {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOList) SetProps(v *UpdateRelationMetaFieldRequestFieldDTOListProps) *UpdateRelationMetaFieldRequestFieldDTOList {
+	s.Props = v
+	return s
+}
+
+type UpdateRelationMetaFieldRequestFieldDTOListProps struct {
+	FieldId                *string                                                   `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Label                  *string                                                   `json:"label,omitempty" xml:"label,omitempty"`
+	LabelEditableFreeze    *bool                                                     `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	Required               *bool                                                     `json:"required,omitempty" xml:"required,omitempty"`
+	RequiredEditableFreeze *bool                                                     `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	NotPrint               *string                                                   `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	Content                *string                                                   `json:"content,omitempty" xml:"content,omitempty"`
+	Format                 *string                                                   `json:"format,omitempty" xml:"format,omitempty"`
+	Options                []*UpdateRelationMetaFieldRequestFieldDTOListPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	NotUpper               *string                                                   `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	Unit                   *string                                                   `json:"unit,omitempty" xml:"unit,omitempty"`
+	Placeholder            *string                                                   `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	BizAlias               *string                                                   `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	Duration               *bool                                                     `json:"duration,omitempty" xml:"duration,omitempty"`
+	Choice                 *int64                                                    `json:"choice,omitempty" xml:"choice,omitempty"`
+	Disabled               *bool                                                     `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	Align                  *string                                                   `json:"align,omitempty" xml:"align,omitempty"`
+	Invisible              *bool                                                     `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	PayEnable              *bool                                                     `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	Link                   *string                                                   `json:"link,omitempty" xml:"link,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldRequestFieldDTOListProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldRequestFieldDTOListProps) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetFieldId(v string) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.FieldId = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetLabel(v string) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.Label = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetLabelEditableFreeze(v bool) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.LabelEditableFreeze = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetRequired(v bool) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.Required = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetRequiredEditableFreeze(v bool) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.RequiredEditableFreeze = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetNotPrint(v string) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.NotPrint = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetContent(v string) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.Content = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetFormat(v string) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.Format = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetOptions(v []*UpdateRelationMetaFieldRequestFieldDTOListPropsOptions) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.Options = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetNotUpper(v string) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetUnit(v string) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetPlaceholder(v string) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetBizAlias(v string) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetDuration(v bool) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetChoice(v int64) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetDisabled(v bool) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetAlign(v string) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.Align = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetInvisible(v bool) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetPayEnable(v bool) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListProps) SetLink(v string) *UpdateRelationMetaFieldRequestFieldDTOListProps {
+	s.Link = &v
+	return s
+}
+
+type UpdateRelationMetaFieldRequestFieldDTOListPropsOptions struct {
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldRequestFieldDTOListPropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldRequestFieldDTOListPropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListPropsOptions) SetKey(v string) *UpdateRelationMetaFieldRequestFieldDTOListPropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldRequestFieldDTOListPropsOptions) SetValue(v string) *UpdateRelationMetaFieldRequestFieldDTOListPropsOptions {
+	s.Value = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBody struct {
+	RelationMetaDTO *UpdateRelationMetaFieldResponseBodyRelationMetaDTO `json:"relationMetaDTO,omitempty" xml:"relationMetaDTO,omitempty" type:"Struct"`
+}
+
+func (s UpdateRelationMetaFieldResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBody) SetRelationMetaDTO(v *UpdateRelationMetaFieldResponseBodyRelationMetaDTO) *UpdateRelationMetaFieldResponseBody {
+	s.RelationMetaDTO = v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTO struct {
+	Desc         *string                                                    `json:"desc,omitempty" xml:"desc,omitempty"`
+	Items        []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	Name         *string                                                    `json:"name,omitempty" xml:"name,omitempty"`
+	RelationType *string                                                    `json:"relationType,omitempty" xml:"relationType,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTO) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTO) SetDesc(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTO {
+	s.Desc = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTO) SetItems(v []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItems) *UpdateRelationMetaFieldResponseBodyRelationMetaDTO {
+	s.Items = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTO) SetName(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTO {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTO) SetRelationType(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTO {
+	s.RelationType = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItems struct {
+	Children      []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+	ComponentName *string                                                            `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	Props         []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps    `json:"props,omitempty" xml:"props,omitempty" type:"Repeated"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItems) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItems) SetChildren(v []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildren) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItems {
+	s.Children = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItems) SetComponentName(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItems {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItems) SetProps(v []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItems {
+	s.Props = v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildren struct {
+	ComponentName *string                                                               `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	Props         *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildren) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildren) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildren) SetComponentName(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildren {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildren) SetProps(v *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildren {
+	s.Props = v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps struct {
+	Align                  *string                                                                          `json:"align,omitempty" xml:"align,omitempty"`
+	BizAlias               *string                                                                          `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	Choice                 *int64                                                                           `json:"choice,omitempty" xml:"choice,omitempty"`
+	Content                *string                                                                          `json:"content,omitempty" xml:"content,omitempty"`
+	DataSource             *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSource  `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
+	Disabled               *bool                                                                            `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	Duration               *bool                                                                            `json:"duration,omitempty" xml:"duration,omitempty"`
+	Fields                 []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFields    `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	Format                 *string                                                                          `json:"format,omitempty" xml:"format,omitempty"`
+	Formula                *string                                                                          `json:"formula,omitempty" xml:"formula,omitempty"`
+	FieldId                *string                                                                          `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Invisible              *bool                                                                            `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	Label                  *string                                                                          `json:"label,omitempty" xml:"label,omitempty"`
+	LabelEditableFreeze    *bool                                                                            `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	Link                   *string                                                                          `json:"link,omitempty" xml:"link,omitempty"`
+	NotPrint               *string                                                                          `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	NotUpper               *string                                                                          `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	Options                []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsOptions   `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	PayEnable              *bool                                                                            `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	Placeholder            *string                                                                          `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	Required               *bool                                                                            `json:"required,omitempty" xml:"required,omitempty"`
+	RequiredEditableFreeze *bool                                                                            `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	StatField              []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	Unit                   *string                                                                          `json:"unit,omitempty" xml:"unit,omitempty"`
+	VerticalPrint          *bool                                                                            `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetAlign(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.Align = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetBizAlias(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetChoice(v int64) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetContent(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.Content = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetDataSource(v *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSource) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.DataSource = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetDisabled(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetDuration(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetFields(v []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFields) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.Fields = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetFormat(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.Format = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetFormula(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.Formula = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetFieldId(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.FieldId = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetInvisible(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetLabel(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.Label = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetLabelEditableFreeze(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.LabelEditableFreeze = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetLink(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.Link = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetNotPrint(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.NotPrint = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetNotUpper(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetOptions(v []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsOptions) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.Options = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetPayEnable(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetPlaceholder(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetRequired(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.Required = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetRequiredEditableFreeze(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.RequiredEditableFreeze = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetStatField(v []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsStatField) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.StatField = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetUnit(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps) SetVerticalPrint(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSource struct {
+	Target *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSourceTarget `json:"target,omitempty" xml:"target,omitempty" type:"Struct"`
+	Type   *string                                                                               `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSource) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSource) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSource) SetTarget(v *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSourceTarget) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSource {
+	s.Target = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSource) SetType(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSource {
+	s.Type = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSourceTarget struct {
+	AppType  *int64  `json:"appType,omitempty" xml:"appType,omitempty"`
+	AppUuid  *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	BizType  *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSourceTarget) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSourceTarget) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSourceTarget) SetAppType(v int64) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSourceTarget {
+	s.AppType = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSourceTarget) SetAppUuid(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSourceTarget {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSourceTarget) SetBizType(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSourceTarget {
+	s.BizType = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSourceTarget) SetFormCode(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsDataSourceTarget {
+	s.FormCode = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFields struct {
+	ComponentName *string                                                                                `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	RelateProps   *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps `json:"relateProps,omitempty" xml:"relateProps,omitempty" type:"Struct"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFields) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFields) SetComponentName(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFields {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFields) SetRelateProps(v *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFields {
+	s.RelateProps = v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps struct {
+	Align         *string                                                                                           `json:"align,omitempty" xml:"align,omitempty"`
+	BizAlias      *string                                                                                           `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	Choice        *int64                                                                                            `json:"choice,omitempty" xml:"choice,omitempty"`
+	Content       *string                                                                                           `json:"content,omitempty" xml:"content,omitempty"`
+	Disabled      *bool                                                                                             `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	Duration      *bool                                                                                             `json:"duration,omitempty" xml:"duration,omitempty"`
+	Format        *string                                                                                           `json:"format,omitempty" xml:"format,omitempty"`
+	Formula       *string                                                                                           `json:"formula,omitempty" xml:"formula,omitempty"`
+	FieldId       *string                                                                                           `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Invisible     *bool                                                                                             `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	Label         *string                                                                                           `json:"label,omitempty" xml:"label,omitempty"`
+	Link          *string                                                                                           `json:"link,omitempty" xml:"link,omitempty"`
+	NotUpper      *string                                                                                           `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	Options       []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsOptions   `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	PayEnable     *bool                                                                                             `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	Placeholder   *string                                                                                           `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	Required      *bool                                                                                             `json:"required,omitempty" xml:"required,omitempty"`
+	StatField     []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	Unit          *string                                                                                           `json:"unit,omitempty" xml:"unit,omitempty"`
+	VerticalPrint *bool                                                                                             `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetAlign(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.Align = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetBizAlias(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetChoice(v int64) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetContent(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.Content = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetDisabled(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetDuration(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetFormat(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.Format = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetFormula(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.Formula = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetFieldId(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.FieldId = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetInvisible(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetLabel(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.Label = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetLink(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.Link = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetNotUpper(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetOptions(v []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsOptions) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.Options = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetPayEnable(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetPlaceholder(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetRequired(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.Required = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetStatField(v []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsStatField) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.StatField = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetUnit(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps) SetVerticalPrint(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelateProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsOptions struct {
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsOptions) SetKey(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsOptions) SetValue(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsOptions {
+	s.Value = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsStatField struct {
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Label   *string `json:"label,omitempty" xml:"label,omitempty"`
+	Unit    *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	Upper   *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsStatField) SetFieldId(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsStatField {
+	s.FieldId = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsStatField) SetLabel(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsStatField) SetUnit(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsStatField {
+	s.Unit = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsStatField) SetUpper(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsFieldsRelatePropsStatField {
+	s.Upper = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsOptions struct {
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsOptions) SetKey(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsOptions) SetValue(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsOptions {
+	s.Value = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsStatField struct {
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Label   *string `json:"label,omitempty" xml:"label,omitempty"`
+	Unit    *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	Upper   *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsStatField) SetFieldId(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsStatField {
+	s.FieldId = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsStatField) SetLabel(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsStatField) SetUnit(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsStatField {
+	s.Unit = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsStatField) SetUpper(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsChildrenPropsStatField {
+	s.Upper = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps struct {
+	Align                  *string                                                                  `json:"align,omitempty" xml:"align,omitempty"`
+	BizAlias               *string                                                                  `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	Choice                 *int64                                                                   `json:"choice,omitempty" xml:"choice,omitempty"`
+	Content                *string                                                                  `json:"content,omitempty" xml:"content,omitempty"`
+	DataSource             *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSource  `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
+	Disabled               *bool                                                                    `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	Duration               *bool                                                                    `json:"duration,omitempty" xml:"duration,omitempty"`
+	Fields                 []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFields    `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	Format                 *string                                                                  `json:"format,omitempty" xml:"format,omitempty"`
+	Formula                *string                                                                  `json:"formula,omitempty" xml:"formula,omitempty"`
+	FieldId                *string                                                                  `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Invisible              *bool                                                                    `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	Label                  *string                                                                  `json:"label,omitempty" xml:"label,omitempty"`
+	LabelEditableFreeze    *bool                                                                    `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	Link                   *string                                                                  `json:"link,omitempty" xml:"link,omitempty"`
+	NotPrint               *string                                                                  `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	NotUpper               *string                                                                  `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	Options                []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsOptions   `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	PayEnable              *bool                                                                    `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	Placeholder            *string                                                                  `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	Required               *bool                                                                    `json:"required,omitempty" xml:"required,omitempty"`
+	RequiredEditableFreeze *bool                                                                    `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	StatField              []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	Unit                   *string                                                                  `json:"unit,omitempty" xml:"unit,omitempty"`
+	VerticalPrint          *bool                                                                    `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetAlign(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.Align = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetBizAlias(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetChoice(v int64) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetContent(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.Content = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetDataSource(v *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSource) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.DataSource = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetDisabled(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetDuration(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetFields(v []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFields) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.Fields = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetFormat(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.Format = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetFormula(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.Formula = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetFieldId(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.FieldId = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetInvisible(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetLabel(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.Label = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetLabelEditableFreeze(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.LabelEditableFreeze = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetLink(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.Link = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetNotPrint(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.NotPrint = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetNotUpper(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetOptions(v []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsOptions) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.Options = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetPayEnable(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetPlaceholder(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetRequired(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.Required = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetRequiredEditableFreeze(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.RequiredEditableFreeze = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetStatField(v []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsStatField) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.StatField = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetUnit(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps) SetVerticalPrint(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSource struct {
+	Target *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSourceTarget `json:"target,omitempty" xml:"target,omitempty" type:"Struct"`
+	Type   *string                                                                       `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSource) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSource) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSource) SetTarget(v *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSourceTarget) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSource {
+	s.Target = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSource) SetType(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSource {
+	s.Type = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSourceTarget struct {
+	AppType  *int64  `json:"appType,omitempty" xml:"appType,omitempty"`
+	AppUuid  *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	BizType  *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSourceTarget) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSourceTarget) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSourceTarget) SetAppType(v int64) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSourceTarget {
+	s.AppType = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSourceTarget) SetAppUuid(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSourceTarget {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSourceTarget) SetBizType(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSourceTarget {
+	s.BizType = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSourceTarget) SetFormCode(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsDataSourceTarget {
+	s.FormCode = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFields struct {
+	ComponentName *string                                                                        `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	RelateProps   *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps `json:"relateProps,omitempty" xml:"relateProps,omitempty" type:"Struct"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFields) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFields) SetComponentName(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFields {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFields) SetRelateProps(v *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFields {
+	s.RelateProps = v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps struct {
+	Align         *string                                                                                   `json:"align,omitempty" xml:"align,omitempty"`
+	BizAlias      *string                                                                                   `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	Choice        *int64                                                                                    `json:"choice,omitempty" xml:"choice,omitempty"`
+	Content       *string                                                                                   `json:"content,omitempty" xml:"content,omitempty"`
+	Disabled      *bool                                                                                     `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	Duration      *string                                                                                   `json:"duration,omitempty" xml:"duration,omitempty"`
+	Format        *string                                                                                   `json:"format,omitempty" xml:"format,omitempty"`
+	Formula       *string                                                                                   `json:"formula,omitempty" xml:"formula,omitempty"`
+	FieldId       *string                                                                                   `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Invisible     *bool                                                                                     `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	Label         *string                                                                                   `json:"label,omitempty" xml:"label,omitempty"`
+	Link          *string                                                                                   `json:"link,omitempty" xml:"link,omitempty"`
+	NotUpper      *string                                                                                   `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	Options       []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsOptions   `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	PayEnable     *bool                                                                                     `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	Placeholder   *string                                                                                   `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	Required      *bool                                                                                     `json:"required,omitempty" xml:"required,omitempty"`
+	StatField     []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	Unit          *string                                                                                   `json:"unit,omitempty" xml:"unit,omitempty"`
+	VerticalPrint *bool                                                                                     `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetAlign(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.Align = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetBizAlias(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetChoice(v int64) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetContent(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.Content = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetDisabled(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetDuration(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetFormat(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.Format = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetFormula(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.Formula = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetFieldId(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.FieldId = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetInvisible(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetLabel(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.Label = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetLink(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.Link = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetNotUpper(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetOptions(v []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsOptions) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.Options = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetPayEnable(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetPlaceholder(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetRequired(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.Required = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetStatField(v []*UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsStatField) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.StatField = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetUnit(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps) SetVerticalPrint(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelateProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsOptions struct {
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsOptions) SetKey(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsOptions) SetValue(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsOptions {
+	s.Value = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsStatField struct {
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Label   *string `json:"label,omitempty" xml:"label,omitempty"`
+	Unit    *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	Upper   *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsStatField) SetFieldId(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsStatField {
+	s.FieldId = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsStatField) SetLabel(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsStatField) SetUnit(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsStatField {
+	s.Unit = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsStatField) SetUpper(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsFieldsRelatePropsStatField {
+	s.Upper = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsOptions struct {
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsOptions) SetKey(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsOptions) SetValue(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsOptions {
+	s.Value = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsStatField struct {
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Label   *string `json:"label,omitempty" xml:"label,omitempty"`
+	Unit    *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	Upper   *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsStatField) SetFieldId(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsStatField {
+	s.FieldId = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsStatField) SetLabel(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsStatField) SetUnit(v string) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsStatField {
+	s.Unit = &v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsStatField) SetUpper(v bool) *UpdateRelationMetaFieldResponseBodyRelationMetaDTOItemsPropsStatField {
+	s.Upper = &v
+	return s
+}
+
+type UpdateRelationMetaFieldResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateRelationMetaFieldResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateRelationMetaFieldResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRelationMetaFieldResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRelationMetaFieldResponse) SetHeaders(v map[string]*string) *UpdateRelationMetaFieldResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateRelationMetaFieldResponse) SetBody(v *UpdateRelationMetaFieldResponseBody) *UpdateRelationMetaFieldResponse {
+	s.Body = v
+	return s
+}
+
 type SendOfficialAccountOTOMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2269,6 +3609,1227 @@ func (s *GetOfficialAccountOTOMessageResultResponse) SetHeaders(v map[string]*st
 }
 
 func (s *GetOfficialAccountOTOMessageResultResponse) SetBody(v *GetOfficialAccountOTOMessageResultResponseBody) *GetOfficialAccountOTOMessageResultResponse {
+	s.Body = v
+	return s
+}
+
+type DescribeRelationMetaHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DescribeRelationMetaHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaHeaders) SetCommonHeaders(v map[string]*string) *DescribeRelationMetaHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DescribeRelationMetaHeaders) SetXAcsDingtalkAccessToken(v string) *DescribeRelationMetaHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DescribeRelationMetaRequest struct {
+	Tenant         *string   `json:"tenant,omitempty" xml:"tenant,omitempty"`
+	OperatorUserId *string   `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	RelationTypes  []*string `json:"relationTypes,omitempty" xml:"relationTypes,omitempty" type:"Repeated"`
+}
+
+func (s DescribeRelationMetaRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaRequest) SetTenant(v string) *DescribeRelationMetaRequest {
+	s.Tenant = &v
+	return s
+}
+
+func (s *DescribeRelationMetaRequest) SetOperatorUserId(v string) *DescribeRelationMetaRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *DescribeRelationMetaRequest) SetRelationTypes(v []*string) *DescribeRelationMetaRequest {
+	s.RelationTypes = v
+	return s
+}
+
+type DescribeRelationMetaResponseBody struct {
+	RelationMetaDTOList []*DescribeRelationMetaResponseBodyRelationMetaDTOList `json:"relationMetaDTOList,omitempty" xml:"relationMetaDTOList,omitempty" type:"Repeated"`
+}
+
+func (s DescribeRelationMetaResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBody) SetRelationMetaDTOList(v []*DescribeRelationMetaResponseBodyRelationMetaDTOList) *DescribeRelationMetaResponseBody {
+	s.RelationMetaDTOList = v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOList struct {
+	// 关系类型
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// 模型结构名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 模型结构描述
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// 模型结构字段集合
+	Items []*DescribeRelationMetaResponseBodyRelationMetaDTOListItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOList) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOList) SetRelationType(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOList {
+	s.RelationType = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOList) SetName(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOList {
+	s.Name = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOList) SetDesc(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOList {
+	s.Desc = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOList) SetItems(v []*DescribeRelationMetaResponseBodyRelationMetaDTOListItems) *DescribeRelationMetaResponseBodyRelationMetaDTOList {
+	s.Items = v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItems struct {
+	// 字段类型
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// 字段属性
+	Props []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps `json:"props,omitempty" xml:"props,omitempty" type:"Repeated"`
+	// 子字段列表
+	Children []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItems) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItems) SetComponentName(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItems {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItems) SetProps(v []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) *DescribeRelationMetaResponseBodyRelationMetaDTOListItems {
+	s.Props = v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItems) SetChildren(v []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildren) *DescribeRelationMetaResponseBodyRelationMetaDTOListItems {
+	s.Children = v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps struct {
+	// 字段id
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// 字段标题
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// 字段标题是否可修改
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// 字段是否必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// 字段必填是否修改
+	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	// 是否参与打印
+	NotPrint *string `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	// 说明文字内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 时间格式
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// 选项内容列表
+	Options []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// 是否需要大写 默认是需要
+	NotUpper *string `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	// 数字组件/日期区间组件单位属性
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 界面空值提示占位符 前后端统一用placeholder
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// 字段别名
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 是否自动计算时长
+	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 内部联系人choice
+	Choice *int64 `json:"choice,omitempty" xml:"choice,omitempty"`
+	// 是否可编辑
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// textnote的样式
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// 关联表单的关联控件显示
+	Fields []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	// 关联表单的数据源配置
+	DataSource *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
+	// 隐藏字段
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// 是否有支付属性
+	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	// 需要计算总和的明细组件
+	StatField []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// 说明文案的链接地址
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// 明细打印排版方式
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// 公式
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetFieldId(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetLabel(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetLabelEditableFreeze(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.LabelEditableFreeze = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetRequired(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.Required = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetRequiredEditableFreeze(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.RequiredEditableFreeze = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetNotPrint(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.NotPrint = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetContent(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.Content = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetFormat(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.Format = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetOptions(v []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsOptions) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.Options = v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetNotUpper(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetUnit(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetPlaceholder(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetBizAlias(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetDuration(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetChoice(v int64) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetDisabled(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetAlign(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.Align = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetFields(v []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFields) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.Fields = v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetDataSource(v *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.DataSource = v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetInvisible(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetPayEnable(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetStatField(v []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsStatField) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.StatField = v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetLink(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.Link = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetVerticalPrint(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetFormula(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.Formula = &v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsOptions struct {
+	// 选项数据主键
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// 选项显示内容
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsOptions) SetKey(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsOptions) SetValue(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsOptions {
+	s.Value = &v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFields struct {
+	// 字段类型
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// 字段属性
+	RelateProps *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps `json:"relateProps,omitempty" xml:"relateProps,omitempty" type:"Struct"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFields) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFields) SetComponentName(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFields {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFields) SetRelateProps(v *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFields {
+	s.RelateProps = v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps struct {
+	// 字段id
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// 字段标题
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// 字段是否必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// 说明文字内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 时间格式
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// 选项内容列表
+	Options []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// 是否需要大写 默认是需要
+	NotUpper *string `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	// 数字组件/日期区间组件单位属性
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 界面空值提示占位符 前后端统一用placeholder
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// 字段别名
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 是否自动计算时长
+	Duration *string `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 内部联系人choice
+	Choice *int64 `json:"choice,omitempty" xml:"choice,omitempty"`
+	// 是否可编辑
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// textnote的样式
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// 隐藏字段
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// 是否有支付属性
+	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	// 需要计算总和的明细组件
+	StatField []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// 说明文案的链接地址
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// 明细打印排版方式
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// 公式
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetFieldId(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetLabel(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetRequired(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.Required = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetContent(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.Content = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetFormat(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.Format = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetOptions(v []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsOptions) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.Options = v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetNotUpper(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetUnit(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetPlaceholder(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetBizAlias(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetDuration(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetChoice(v int64) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetDisabled(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetAlign(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.Align = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetInvisible(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetPayEnable(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetStatField(v []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsStatField) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.StatField = v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetLink(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.Link = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetVerticalPrint(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) SetFormula(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps {
+	s.Formula = &v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsOptions struct {
+	// 选项数据主键
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// 选项显示内容
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsOptions) SetKey(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsOptions) SetValue(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsOptions {
+	s.Value = &v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsStatField struct {
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Label   *string `json:"label,omitempty" xml:"label,omitempty"`
+	Upper   *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+	Unit    *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsStatField) SetFieldId(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsStatField {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsStatField) SetLabel(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsStatField) SetUpper(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsStatField {
+	s.Upper = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsStatField) SetUnit(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsStatField {
+	s.Unit = &v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource struct {
+	// 关联类型{ "form": 关联表单 }
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 关联表单的业务标识
+	Target *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceTarget `json:"target,omitempty" xml:"target,omitempty" type:"Struct"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource) SetType(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource {
+	s.Type = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource) SetTarget(v *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceTarget) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource {
+	s.Target = v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceTarget struct {
+	// 应用搭建id
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// 应用类型
+	AppType *int64 `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 表单业务标识
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 被关联表单的formCode
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceTarget) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceTarget) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceTarget) SetAppUuid(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceTarget {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceTarget) SetAppType(v int64) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceTarget {
+	s.AppType = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceTarget) SetBizType(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceTarget {
+	s.BizType = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceTarget) SetFormCode(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceTarget {
+	s.FormCode = &v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsStatField struct {
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Label   *string `json:"label,omitempty" xml:"label,omitempty"`
+	Upper   *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+	Unit    *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsStatField) SetFieldId(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsStatField {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsStatField) SetLabel(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsStatField) SetUpper(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsStatField {
+	s.Upper = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsStatField) SetUnit(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsStatField {
+	s.Unit = &v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildren struct {
+	ComponentName *string                                                                `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	Props         *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildren) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildren) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildren) SetComponentName(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildren {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildren) SetProps(v *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildren {
+	s.Props = v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps struct {
+	FieldId                *string                                                                           `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Label                  *string                                                                           `json:"label,omitempty" xml:"label,omitempty"`
+	LabelEditableFreeze    *bool                                                                             `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	Required               *bool                                                                             `json:"required,omitempty" xml:"required,omitempty"`
+	RequiredEditableFreeze *bool                                                                             `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	NotPrint               *string                                                                           `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	Content                *string                                                                           `json:"content,omitempty" xml:"content,omitempty"`
+	Format                 *string                                                                           `json:"format,omitempty" xml:"format,omitempty"`
+	Options                []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOptions   `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	NotUpper               *string                                                                           `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	Unit                   *string                                                                           `json:"unit,omitempty" xml:"unit,omitempty"`
+	Placeholder            *string                                                                           `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	BizAlias               *string                                                                           `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	Duration               *bool                                                                             `json:"duration,omitempty" xml:"duration,omitempty"`
+	Choice                 *int64                                                                            `json:"choice,omitempty" xml:"choice,omitempty"`
+	Disabled               *bool                                                                             `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	Align                  *string                                                                           `json:"align,omitempty" xml:"align,omitempty"`
+	Fields                 []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFields    `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	DataSource             *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource  `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
+	Invisible              *bool                                                                             `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	PayEnable              *bool                                                                             `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	StatField              []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	Link                   *string                                                                           `json:"link,omitempty" xml:"link,omitempty"`
+	VerticalPrint          *bool                                                                             `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	Formula                *string                                                                           `json:"formula,omitempty" xml:"formula,omitempty"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetFieldId(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetLabel(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetLabelEditableFreeze(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.LabelEditableFreeze = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetRequired(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.Required = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetRequiredEditableFreeze(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.RequiredEditableFreeze = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetNotPrint(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.NotPrint = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetContent(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.Content = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetFormat(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.Format = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetOptions(v []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOptions) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.Options = v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetNotUpper(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetUnit(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetPlaceholder(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetBizAlias(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetDuration(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetChoice(v int64) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetDisabled(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetAlign(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.Align = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetFields(v []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFields) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.Fields = v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetDataSource(v *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.DataSource = v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetInvisible(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetPayEnable(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetStatField(v []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.StatField = v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetLink(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.Link = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetVerticalPrint(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetFormula(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.Formula = &v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOptions struct {
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOptions) SetKey(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOptions) SetValue(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOptions {
+	s.Value = &v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFields struct {
+	ComponentName *string                                                                                 `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	RelateProps   *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps `json:"relateProps,omitempty" xml:"relateProps,omitempty" type:"Struct"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFields) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFields) SetComponentName(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFields {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFields) SetRelateProps(v *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFields {
+	s.RelateProps = v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps struct {
+	FieldId       *string                                                                                            `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Label         *string                                                                                            `json:"label,omitempty" xml:"label,omitempty"`
+	Required      *bool                                                                                              `json:"required,omitempty" xml:"required,omitempty"`
+	Content       *string                                                                                            `json:"content,omitempty" xml:"content,omitempty"`
+	Format        *string                                                                                            `json:"format,omitempty" xml:"format,omitempty"`
+	Options       []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsOptions   `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	NotUpper      *string                                                                                            `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	Unit          *string                                                                                            `json:"unit,omitempty" xml:"unit,omitempty"`
+	Placeholder   *string                                                                                            `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	BizAlias      *string                                                                                            `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	Duration      *bool                                                                                              `json:"duration,omitempty" xml:"duration,omitempty"`
+	Choice        *int64                                                                                             `json:"choice,omitempty" xml:"choice,omitempty"`
+	Disabled      *bool                                                                                              `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	Align         *string                                                                                            `json:"align,omitempty" xml:"align,omitempty"`
+	Invisible     *bool                                                                                              `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	PayEnable     *bool                                                                                              `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	StatField     []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	Link          *string                                                                                            `json:"link,omitempty" xml:"link,omitempty"`
+	VerticalPrint *bool                                                                                              `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	Formula       *string                                                                                            `json:"formula,omitempty" xml:"formula,omitempty"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetFieldId(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetLabel(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetRequired(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Required = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetContent(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Content = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetFormat(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Format = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetOptions(v []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsOptions) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Options = v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetNotUpper(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetUnit(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetPlaceholder(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetBizAlias(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetDuration(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetChoice(v int64) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetDisabled(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetAlign(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Align = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetInvisible(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetPayEnable(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetStatField(v []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsStatField) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.StatField = v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetLink(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Link = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetVerticalPrint(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) SetFormula(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Formula = &v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsOptions struct {
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsOptions) SetKey(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsOptions) SetValue(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsOptions {
+	s.Value = &v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsStatField struct {
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Label   *string `json:"label,omitempty" xml:"label,omitempty"`
+	Upper   *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+	Unit    *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsStatField) SetFieldId(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsStatField {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsStatField) SetLabel(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsStatField) SetUpper(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsStatField {
+	s.Upper = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsStatField) SetUnit(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsStatField {
+	s.Unit = &v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource struct {
+	Type   *string                                                                                `json:"type,omitempty" xml:"type,omitempty"`
+	Target *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceTarget `json:"target,omitempty" xml:"target,omitempty" type:"Struct"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource) SetType(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource {
+	s.Type = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource) SetTarget(v *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceTarget) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource {
+	s.Target = v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceTarget struct {
+	AppUuid  *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	AppType  *int64  `json:"appType,omitempty" xml:"appType,omitempty"`
+	BizType  *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceTarget) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceTarget) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceTarget) SetAppUuid(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceTarget {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceTarget) SetAppType(v int64) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceTarget {
+	s.AppType = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceTarget) SetBizType(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceTarget {
+	s.BizType = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceTarget) SetFormCode(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceTarget {
+	s.FormCode = &v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField struct {
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Label   *string `json:"label,omitempty" xml:"label,omitempty"`
+	Upper   *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+	Unit    *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField) SetFieldId(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField) SetLabel(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField) SetUpper(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField {
+	s.Upper = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField) SetUnit(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField {
+	s.Unit = &v
+	return s
+}
+
+type DescribeRelationMetaResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DescribeRelationMetaResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DescribeRelationMetaResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponse) SetHeaders(v map[string]*string) *DescribeRelationMetaResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DescribeRelationMetaResponse) SetBody(v *DescribeRelationMetaResponseBody) *DescribeRelationMetaResponse {
 	s.Body = v
 	return s
 }
@@ -4449,6 +7010,62 @@ func (client *Client) QueryAllCustomerWithOptions(request *QueryAllCustomerReque
 	return _result, _err
 }
 
+func (client *Client) UpdateRelationMetaField(request *UpdateRelationMetaFieldRequest) (_result *UpdateRelationMetaFieldResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateRelationMetaFieldHeaders{}
+	_result = &UpdateRelationMetaFieldResponse{}
+	_body, _err := client.UpdateRelationMetaFieldWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateRelationMetaFieldWithOptions(request *UpdateRelationMetaFieldRequest, headers *UpdateRelationMetaFieldHeaders, runtime *util.RuntimeOptions) (_result *UpdateRelationMetaFieldResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Tenant)) {
+		body["tenant"] = request.Tenant
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		body["relationType"] = request.RelationType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FieldDTOList)) {
+		body["fieldDTOList"] = request.FieldDTOList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateRelationMetaFieldResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateRelationMetaField"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/crm/relations/metas/fields"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) SendOfficialAccountOTOMessage(request *SendOfficialAccountOTOMessageRequest) (_result *SendOfficialAccountOTOMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendOfficialAccountOTOMessageHeaders{}
@@ -4558,6 +7175,58 @@ func (client *Client) GetOfficialAccountOTOMessageResultWithOptions(request *Get
 	}
 	_result = &GetOfficialAccountOTOMessageResultResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetOfficialAccountOTOMessageResult"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/officialAccounts/oToMessages/sendResults"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DescribeRelationMeta(request *DescribeRelationMetaRequest) (_result *DescribeRelationMetaResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DescribeRelationMetaHeaders{}
+	_result = &DescribeRelationMetaResponse{}
+	_body, _err := client.DescribeRelationMetaWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DescribeRelationMetaWithOptions(request *DescribeRelationMetaRequest, headers *DescribeRelationMetaHeaders, runtime *util.RuntimeOptions) (_result *DescribeRelationMetaResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Tenant)) {
+		body["tenant"] = request.Tenant
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationTypes)) {
+		body["relationTypes"] = request.RelationTypes
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DescribeRelationMetaResponse{}
+	_body, _err := client.DoROARequest(tea.String("DescribeRelationMeta"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/relations/metas/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

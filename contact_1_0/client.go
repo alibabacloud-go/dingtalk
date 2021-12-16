@@ -656,6 +656,126 @@ func (s *UpdateDeptSettngTailFirstResponse) SetHeaders(v map[string]*string) *Up
 	return s
 }
 
+type GetCardInUserHolderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCardInUserHolderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCardInUserHolderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCardInUserHolderHeaders) SetCommonHeaders(v map[string]*string) *GetCardInUserHolderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCardInUserHolderHeaders) SetXAcsDingtalkAccessToken(v string) *GetCardInUserHolderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCardInUserHolderResponseBody struct {
+	// 名片ID
+	CardId *string `json:"cardId,omitempty" xml:"cardId,omitempty"`
+	// 名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 头像
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// 组织名称
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// 职位
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 行业
+	IndustryName *string `json:"industryName,omitempty" xml:"industryName,omitempty"`
+	// 简介
+	Introduce *string `json:"introduce,omitempty" xml:"introduce,omitempty"`
+	// 模板ID
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// 扩展信息
+	Extension map[string]interface{} `json:"extension,omitempty" xml:"extension,omitempty"`
+}
+
+func (s GetCardInUserHolderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCardInUserHolderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCardInUserHolderResponseBody) SetCardId(v string) *GetCardInUserHolderResponseBody {
+	s.CardId = &v
+	return s
+}
+
+func (s *GetCardInUserHolderResponseBody) SetName(v string) *GetCardInUserHolderResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *GetCardInUserHolderResponseBody) SetAvatarUrl(v string) *GetCardInUserHolderResponseBody {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *GetCardInUserHolderResponseBody) SetOrgName(v string) *GetCardInUserHolderResponseBody {
+	s.OrgName = &v
+	return s
+}
+
+func (s *GetCardInUserHolderResponseBody) SetTitle(v string) *GetCardInUserHolderResponseBody {
+	s.Title = &v
+	return s
+}
+
+func (s *GetCardInUserHolderResponseBody) SetIndustryName(v string) *GetCardInUserHolderResponseBody {
+	s.IndustryName = &v
+	return s
+}
+
+func (s *GetCardInUserHolderResponseBody) SetIntroduce(v string) *GetCardInUserHolderResponseBody {
+	s.Introduce = &v
+	return s
+}
+
+func (s *GetCardInUserHolderResponseBody) SetTemplateId(v string) *GetCardInUserHolderResponseBody {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *GetCardInUserHolderResponseBody) SetExtension(v map[string]interface{}) *GetCardInUserHolderResponseBody {
+	s.Extension = v
+	return s
+}
+
+type GetCardInUserHolderResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCardInUserHolderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCardInUserHolderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCardInUserHolderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCardInUserHolderResponse) SetHeaders(v map[string]*string) *GetCardInUserHolderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCardInUserHolderResponse) SetBody(v *GetCardInUserHolderResponseBody) *GetCardInUserHolderResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateEmpAttrbuteVisibilitySettingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1773,6 +1893,180 @@ func (s *QueryStatusResponse) SetHeaders(v map[string]*string) *QueryStatusRespo
 }
 
 func (s *QueryStatusResponse) SetBody(v *QueryStatusResponseBody) *QueryStatusResponse {
+	s.Body = v
+	return s
+}
+
+type GetCorpCardStyleListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCorpCardStyleListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorpCardStyleListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorpCardStyleListHeaders) SetCommonHeaders(v map[string]*string) *GetCorpCardStyleListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCorpCardStyleListHeaders) SetXAcsDingtalkAccessToken(v string) *GetCorpCardStyleListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCorpCardStyleListResponseBody struct {
+	// Id of the request
+	Result []map[string]interface{} `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetCorpCardStyleListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorpCardStyleListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorpCardStyleListResponseBody) SetResult(v []map[string]interface{}) *GetCorpCardStyleListResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetCorpCardStyleListResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCorpCardStyleListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCorpCardStyleListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorpCardStyleListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorpCardStyleListResponse) SetHeaders(v map[string]*string) *GetCorpCardStyleListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCorpCardStyleListResponse) SetBody(v *GetCorpCardStyleListResponseBody) *GetCorpCardStyleListResponse {
+	s.Body = v
+	return s
+}
+
+type IsvCardEventPushHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IsvCardEventPushHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsvCardEventPushHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IsvCardEventPushHeaders) SetCommonHeaders(v map[string]*string) *IsvCardEventPushHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IsvCardEventPushHeaders) SetXAcsDingtalkAccessToken(v string) *IsvCardEventPushHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IsvCardEventPushRequest struct {
+	// ISV用户iD
+	IsvUid *string `json:"isvUid,omitempty" xml:"isvUid,omitempty"`
+	// ISV名片ID
+	IsvCardId *string `json:"isvCardId,omitempty" xml:"isvCardId,omitempty"`
+	// ISV用户TOKEN
+	IsvToken *string `json:"isvToken,omitempty" xml:"isvToken,omitempty"`
+	// 事件类型
+	EventType *string `json:"eventType,omitempty" xml:"eventType,omitempty"`
+	// 事件参数
+	EventParams map[string]interface{} `json:"eventParams,omitempty" xml:"eventParams,omitempty"`
+}
+
+func (s IsvCardEventPushRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsvCardEventPushRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IsvCardEventPushRequest) SetIsvUid(v string) *IsvCardEventPushRequest {
+	s.IsvUid = &v
+	return s
+}
+
+func (s *IsvCardEventPushRequest) SetIsvCardId(v string) *IsvCardEventPushRequest {
+	s.IsvCardId = &v
+	return s
+}
+
+func (s *IsvCardEventPushRequest) SetIsvToken(v string) *IsvCardEventPushRequest {
+	s.IsvToken = &v
+	return s
+}
+
+func (s *IsvCardEventPushRequest) SetEventType(v string) *IsvCardEventPushRequest {
+	s.EventType = &v
+	return s
+}
+
+func (s *IsvCardEventPushRequest) SetEventParams(v map[string]interface{}) *IsvCardEventPushRequest {
+	s.EventParams = v
+	return s
+}
+
+type IsvCardEventPushResponseBody struct {
+	// 执行结果
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s IsvCardEventPushResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsvCardEventPushResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IsvCardEventPushResponseBody) SetSuccess(v bool) *IsvCardEventPushResponseBody {
+	s.Success = &v
+	return s
+}
+
+type IsvCardEventPushResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *IsvCardEventPushResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IsvCardEventPushResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsvCardEventPushResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IsvCardEventPushResponse) SetHeaders(v map[string]*string) *IsvCardEventPushResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IsvCardEventPushResponse) SetBody(v *IsvCardEventPushResponseBody) *IsvCardEventPushResponse {
 	s.Body = v
 	return s
 }
@@ -3432,6 +3726,337 @@ func (s *ListEmpLeaveRecordsResponse) SetBody(v *ListEmpLeaveRecordsResponseBody
 	return s
 }
 
+type GetCardInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCardInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCardInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCardInfoHeaders) SetCommonHeaders(v map[string]*string) *GetCardInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCardInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetCardInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCardInfoResponseBody struct {
+	// 名片ID
+	CardId *string `json:"cardId,omitempty" xml:"cardId,omitempty"`
+	// 名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 头像
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// 组织名称
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// 职位
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 行业
+	IndustryName *string `json:"industryName,omitempty" xml:"industryName,omitempty"`
+	// 是否主名片
+	Introduce *bool `json:"introduce,omitempty" xml:"introduce,omitempty"`
+	// 模板ID
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// 扩展信息
+	Extension *GetCardInfoResponseBodyExtension `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
+}
+
+func (s GetCardInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCardInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCardInfoResponseBody) SetCardId(v string) *GetCardInfoResponseBody {
+	s.CardId = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBody) SetName(v string) *GetCardInfoResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBody) SetAvatarUrl(v string) *GetCardInfoResponseBody {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBody) SetOrgName(v string) *GetCardInfoResponseBody {
+	s.OrgName = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBody) SetTitle(v string) *GetCardInfoResponseBody {
+	s.Title = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBody) SetIndustryName(v string) *GetCardInfoResponseBody {
+	s.IndustryName = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBody) SetIntroduce(v bool) *GetCardInfoResponseBody {
+	s.Introduce = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBody) SetTemplateId(v string) *GetCardInfoResponseBody {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBody) SetExtension(v *GetCardInfoResponseBodyExtension) *GetCardInfoResponseBody {
+	s.Extension = v
+	return s
+}
+
+type GetCardInfoResponseBodyExtension struct {
+	// 企业是否认证
+	OrgAuthed *bool `json:"orgAuthed,omitempty" xml:"orgAuthed,omitempty"`
+	// 企业认证等级
+	OrgAuthLevel *int64 `json:"orgAuthLevel,omitempty" xml:"orgAuthLevel,omitempty"`
+	// 企业corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 企业LOGO
+	OrgLogo *string `json:"orgLogo,omitempty" xml:"orgLogo,omitempty"`
+	// 视频信息
+	VideoMediaId *string `json:"videoMediaId,omitempty" xml:"videoMediaId,omitempty"`
+	// 联系信息
+	CardContactInfo *GetCardInfoResponseBodyExtensionCardContactInfo `json:"cardContactInfo,omitempty" xml:"cardContactInfo,omitempty" type:"Struct"`
+}
+
+func (s GetCardInfoResponseBodyExtension) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCardInfoResponseBodyExtension) GoString() string {
+	return s.String()
+}
+
+func (s *GetCardInfoResponseBodyExtension) SetOrgAuthed(v bool) *GetCardInfoResponseBodyExtension {
+	s.OrgAuthed = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtension) SetOrgAuthLevel(v int64) *GetCardInfoResponseBodyExtension {
+	s.OrgAuthLevel = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtension) SetCorpId(v string) *GetCardInfoResponseBodyExtension {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtension) SetOrgLogo(v string) *GetCardInfoResponseBodyExtension {
+	s.OrgLogo = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtension) SetVideoMediaId(v string) *GetCardInfoResponseBodyExtension {
+	s.VideoMediaId = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtension) SetCardContactInfo(v *GetCardInfoResponseBodyExtensionCardContactInfo) *GetCardInfoResponseBodyExtension {
+	s.CardContactInfo = v
+	return s
+}
+
+type GetCardInfoResponseBodyExtensionCardContactInfo struct {
+	// 电话
+	Telephone []*GetCardInfoResponseBodyExtensionCardContactInfoTelephone `json:"telephone,omitempty" xml:"telephone,omitempty" type:"Repeated"`
+	// 微信
+	Wechat []*GetCardInfoResponseBodyExtensionCardContactInfoWechat `json:"wechat,omitempty" xml:"wechat,omitempty" type:"Repeated"`
+	// 邮箱
+	Email []*GetCardInfoResponseBodyExtensionCardContactInfoEmail `json:"email,omitempty" xml:"email,omitempty" type:"Repeated"`
+	// 地址
+	Address []*GetCardInfoResponseBodyExtensionCardContactInfoAddress `json:"address,omitempty" xml:"address,omitempty" type:"Repeated"`
+}
+
+func (s GetCardInfoResponseBodyExtensionCardContactInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCardInfoResponseBodyExtensionCardContactInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfo) SetTelephone(v []*GetCardInfoResponseBodyExtensionCardContactInfoTelephone) *GetCardInfoResponseBodyExtensionCardContactInfo {
+	s.Telephone = v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfo) SetWechat(v []*GetCardInfoResponseBodyExtensionCardContactInfoWechat) *GetCardInfoResponseBodyExtensionCardContactInfo {
+	s.Wechat = v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfo) SetEmail(v []*GetCardInfoResponseBodyExtensionCardContactInfoEmail) *GetCardInfoResponseBodyExtensionCardContactInfo {
+	s.Email = v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfo) SetAddress(v []*GetCardInfoResponseBodyExtensionCardContactInfoAddress) *GetCardInfoResponseBodyExtensionCardContactInfo {
+	s.Address = v
+	return s
+}
+
+type GetCardInfoResponseBodyExtensionCardContactInfoTelephone struct {
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetCardInfoResponseBodyExtensionCardContactInfoTelephone) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCardInfoResponseBodyExtensionCardContactInfoTelephone) GoString() string {
+	return s.String()
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfoTelephone) SetLabel(v string) *GetCardInfoResponseBodyExtensionCardContactInfoTelephone {
+	s.Label = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfoTelephone) SetValue(v string) *GetCardInfoResponseBodyExtensionCardContactInfoTelephone {
+	s.Value = &v
+	return s
+}
+
+type GetCardInfoResponseBodyExtensionCardContactInfoWechat struct {
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetCardInfoResponseBodyExtensionCardContactInfoWechat) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCardInfoResponseBodyExtensionCardContactInfoWechat) GoString() string {
+	return s.String()
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfoWechat) SetLabel(v string) *GetCardInfoResponseBodyExtensionCardContactInfoWechat {
+	s.Label = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfoWechat) SetValue(v string) *GetCardInfoResponseBodyExtensionCardContactInfoWechat {
+	s.Value = &v
+	return s
+}
+
+type GetCardInfoResponseBodyExtensionCardContactInfoEmail struct {
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetCardInfoResponseBodyExtensionCardContactInfoEmail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCardInfoResponseBodyExtensionCardContactInfoEmail) GoString() string {
+	return s.String()
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfoEmail) SetLabel(v string) *GetCardInfoResponseBodyExtensionCardContactInfoEmail {
+	s.Label = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfoEmail) SetValue(v string) *GetCardInfoResponseBodyExtensionCardContactInfoEmail {
+	s.Value = &v
+	return s
+}
+
+type GetCardInfoResponseBodyExtensionCardContactInfoAddress struct {
+	// 区域
+	Area *GetCardInfoResponseBodyExtensionCardContactInfoAddressArea `json:"area,omitempty" xml:"area,omitempty" type:"Struct"`
+	// 详细地址
+	Detail *string `json:"detail,omitempty" xml:"detail,omitempty"`
+}
+
+func (s GetCardInfoResponseBodyExtensionCardContactInfoAddress) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCardInfoResponseBodyExtensionCardContactInfoAddress) GoString() string {
+	return s.String()
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfoAddress) SetArea(v *GetCardInfoResponseBodyExtensionCardContactInfoAddressArea) *GetCardInfoResponseBodyExtensionCardContactInfoAddress {
+	s.Area = v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfoAddress) SetDetail(v string) *GetCardInfoResponseBodyExtensionCardContactInfoAddress {
+	s.Detail = &v
+	return s
+}
+
+type GetCardInfoResponseBodyExtensionCardContactInfoAddressArea struct {
+	// 地区
+	Region *string `json:"region,omitempty" xml:"region,omitempty"`
+	// 地区详细数据
+	RegionFullName *string `json:"regionFullName,omitempty" xml:"regionFullName,omitempty"`
+}
+
+func (s GetCardInfoResponseBodyExtensionCardContactInfoAddressArea) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCardInfoResponseBodyExtensionCardContactInfoAddressArea) GoString() string {
+	return s.String()
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfoAddressArea) SetRegion(v string) *GetCardInfoResponseBodyExtensionCardContactInfoAddressArea {
+	s.Region = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtensionCardContactInfoAddressArea) SetRegionFullName(v string) *GetCardInfoResponseBodyExtensionCardContactInfoAddressArea {
+	s.RegionFullName = &v
+	return s
+}
+
+type GetCardInfoResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCardInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCardInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCardInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCardInfoResponse) SetHeaders(v map[string]*string) *GetCardInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCardInfoResponse) SetBody(v *GetCardInfoResponseBody) *GetCardInfoResponse {
+	s.Body = v
+	return s
+}
+
 type GetMigrationDingIdByDingIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3847,6 +4472,190 @@ func (s TransformToExclusiveAccountResponse) GoString() string {
 
 func (s *TransformToExclusiveAccountResponse) SetHeaders(v map[string]*string) *TransformToExclusiveAccountResponse {
 	s.Headers = v
+	return s
+}
+
+type GetUserCardHolderListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetUserCardHolderListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserCardHolderListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserCardHolderListHeaders) SetCommonHeaders(v map[string]*string) *GetUserCardHolderListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetUserCardHolderListHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserCardHolderListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetUserCardHolderListRequest struct {
+	// 标记当前开始读取的位置，置空表示从头开始
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 每页返回个数
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+}
+
+func (s GetUserCardHolderListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserCardHolderListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserCardHolderListRequest) SetNextToken(v int64) *GetUserCardHolderListRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetUserCardHolderListRequest) SetMaxResults(v int32) *GetUserCardHolderListRequest {
+	s.MaxResults = &v
+	return s
+}
+
+type GetUserCardHolderListResponseBody struct {
+	// TotalCount本次请求条件下的数据总量，此参数为可选参数，默认可不返回
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 表示当前调用返回读取到的位置，空代表数据已经读取完毕
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 是否还有数据
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 名片夹列表
+	List []*GetUserCardHolderListResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s GetUserCardHolderListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserCardHolderListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserCardHolderListResponseBody) SetTotalCount(v int32) *GetUserCardHolderListResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *GetUserCardHolderListResponseBody) SetNextToken(v int64) *GetUserCardHolderListResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetUserCardHolderListResponseBody) SetHasMore(v bool) *GetUserCardHolderListResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetUserCardHolderListResponseBody) SetList(v []*GetUserCardHolderListResponseBodyList) *GetUserCardHolderListResponseBody {
+	s.List = v
+	return s
+}
+
+type GetUserCardHolderListResponseBodyList struct {
+	// 名片ID
+	CardId *string `json:"cardId,omitempty" xml:"cardId,omitempty"`
+	// 名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 头像
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// 组织名称
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// 职位
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 行业名称
+	IndustryName *string `json:"industryName,omitempty" xml:"industryName,omitempty"`
+	// 个人介绍
+	Introduce *string `json:"introduce,omitempty" xml:"introduce,omitempty"`
+	// 模板ID
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// 扩展信息
+	Extension map[string]interface{} `json:"extension,omitempty" xml:"extension,omitempty"`
+}
+
+func (s GetUserCardHolderListResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserCardHolderListResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserCardHolderListResponseBodyList) SetCardId(v string) *GetUserCardHolderListResponseBodyList {
+	s.CardId = &v
+	return s
+}
+
+func (s *GetUserCardHolderListResponseBodyList) SetName(v string) *GetUserCardHolderListResponseBodyList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetUserCardHolderListResponseBodyList) SetAvatarUrl(v string) *GetUserCardHolderListResponseBodyList {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *GetUserCardHolderListResponseBodyList) SetOrgName(v string) *GetUserCardHolderListResponseBodyList {
+	s.OrgName = &v
+	return s
+}
+
+func (s *GetUserCardHolderListResponseBodyList) SetTitle(v string) *GetUserCardHolderListResponseBodyList {
+	s.Title = &v
+	return s
+}
+
+func (s *GetUserCardHolderListResponseBodyList) SetIndustryName(v string) *GetUserCardHolderListResponseBodyList {
+	s.IndustryName = &v
+	return s
+}
+
+func (s *GetUserCardHolderListResponseBodyList) SetIntroduce(v string) *GetUserCardHolderListResponseBodyList {
+	s.Introduce = &v
+	return s
+}
+
+func (s *GetUserCardHolderListResponseBodyList) SetTemplateId(v string) *GetUserCardHolderListResponseBodyList {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *GetUserCardHolderListResponseBodyList) SetExtension(v map[string]interface{}) *GetUserCardHolderListResponseBodyList {
+	s.Extension = v
+	return s
+}
+
+type GetUserCardHolderListResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetUserCardHolderListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetUserCardHolderListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserCardHolderListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserCardHolderListResponse) SetHeaders(v map[string]*string) *GetUserCardHolderListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetUserCardHolderListResponse) SetBody(v *GetUserCardHolderListResponseBody) *GetUserCardHolderListResponse {
+	s.Body = v
 	return s
 }
 
@@ -4416,6 +5225,40 @@ func (client *Client) UpdateDeptSettngTailFirstWithOptions(request *UpdateDeptSe
 	return _result, _err
 }
 
+func (client *Client) GetCardInUserHolder(cardId *string) (_result *GetCardInUserHolderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCardInUserHolderHeaders{}
+	_result = &GetCardInUserHolderResponse{}
+	_body, _err := client.GetCardInUserHolderWithOptions(cardId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetCardInUserHolderWithOptions(cardId *string, headers *GetCardInUserHolderHeaders, runtime *util.RuntimeOptions) (_result *GetCardInUserHolderResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetCardInUserHolderResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetCardInUserHolder"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/cards/holders/infos/"+tea.StringValue(cardId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) UpdateEmpAttrbuteVisibilitySetting(request *UpdateEmpAttrbuteVisibilitySettingRequest) (_result *UpdateEmpAttrbuteVisibilitySettingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateEmpAttrbuteVisibilitySettingHeaders{}
@@ -4871,6 +5714,102 @@ func (client *Client) QueryStatusWithOptions(request *QueryStatusRequest, header
 	}
 	_result = &QueryStatusResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryStatus"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/orgAccounts/status"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetCorpCardStyleList() (_result *GetCorpCardStyleListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCorpCardStyleListHeaders{}
+	_result = &GetCorpCardStyleListResponse{}
+	_body, _err := client.GetCorpCardStyleListWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetCorpCardStyleListWithOptions(headers *GetCorpCardStyleListHeaders, runtime *util.RuntimeOptions) (_result *GetCorpCardStyleListResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetCorpCardStyleListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetCorpCardStyleList"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/cards/styles/lists"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) IsvCardEventPush(request *IsvCardEventPushRequest) (_result *IsvCardEventPushResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IsvCardEventPushHeaders{}
+	_result = &IsvCardEventPushResponse{}
+	_body, _err := client.IsvCardEventPushWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IsvCardEventPushWithOptions(request *IsvCardEventPushRequest, headers *IsvCardEventPushHeaders, runtime *util.RuntimeOptions) (_result *IsvCardEventPushResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IsvUid)) {
+		query["isvUid"] = request.IsvUid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsvCardId)) {
+		query["isvCardId"] = request.IsvCardId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsvToken)) {
+		query["isvToken"] = request.IsvToken
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EventType)) {
+		body["eventType"] = request.EventType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EventParams)) {
+		body["eventParams"] = request.EventParams
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &IsvCardEventPushResponse{}
+	_body, _err := client.DoROARequest(tea.String("IsvCardEventPush"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/cards/events/push"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5689,6 +6628,40 @@ func (client *Client) ListEmpLeaveRecordsWithOptions(request *ListEmpLeaveRecord
 	return _result, _err
 }
 
+func (client *Client) GetCardInfo(cardId *string) (_result *GetCardInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCardInfoHeaders{}
+	_result = &GetCardInfoResponse{}
+	_body, _err := client.GetCardInfoWithOptions(cardId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetCardInfoWithOptions(cardId *string, headers *GetCardInfoHeaders, runtime *util.RuntimeOptions) (_result *GetCardInfoResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetCardInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetCardInfo"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/cards/infos/"+tea.StringValue(cardId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetMigrationDingIdByDingId(request *GetMigrationDingIdByDingIdRequest) (_result *GetMigrationDingIdByDingIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetMigrationDingIdByDingIdHeaders{}
@@ -5920,6 +6893,54 @@ func (client *Client) TransformToExclusiveAccountWithOptions(request *TransformT
 	}
 	_result = &TransformToExclusiveAccountResponse{}
 	_body, _err := client.DoROARequest(tea.String("TransformToExclusiveAccount"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/orgAccount/transformToExclusiveAccounts"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetUserCardHolderList(request *GetUserCardHolderListRequest) (_result *GetUserCardHolderListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetUserCardHolderListHeaders{}
+	_result = &GetUserCardHolderListResponse{}
+	_body, _err := client.GetUserCardHolderListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetUserCardHolderListWithOptions(request *GetUserCardHolderListRequest, headers *GetUserCardHolderListHeaders, runtime *util.RuntimeOptions) (_result *GetUserCardHolderListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetUserCardHolderListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetUserCardHolderList"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/cards/holders/lists"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

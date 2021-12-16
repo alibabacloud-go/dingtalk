@@ -1440,6 +1440,8 @@ type ListFilesRequest struct {
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	// 排序类型
 	OrderType *string `json:"orderType,omitempty" xml:"orderType,omitempty"`
+	// 是否返回文件图标
+	WithIcon *bool `json:"withIcon,omitempty" xml:"withIcon,omitempty"`
 }
 
 func (s ListFilesRequest) String() string {
@@ -1472,6 +1474,11 @@ func (s *ListFilesRequest) SetMaxResults(v int32) *ListFilesRequest {
 
 func (s *ListFilesRequest) SetOrderType(v string) *ListFilesRequest {
 	s.OrderType = &v
+	return s
+}
+
+func (s *ListFilesRequest) SetWithIcon(v bool) *ListFilesRequest {
+	s.WithIcon = &v
 	return s
 }
 
@@ -1519,6 +1526,10 @@ type ListFilesResponseBodyFiles struct {
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
 	// 文件大小
 	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// 文件缩略图
+	Thumbnail *string `json:"thumbnail,omitempty" xml:"thumbnail,omitempty"`
+	// 文件图标
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 修改时间
@@ -1579,6 +1590,16 @@ func (s *ListFilesResponseBodyFiles) SetFileExtension(v string) *ListFilesRespon
 
 func (s *ListFilesResponseBodyFiles) SetFileSize(v int64) *ListFilesResponseBodyFiles {
 	s.FileSize = &v
+	return s
+}
+
+func (s *ListFilesResponseBodyFiles) SetThumbnail(v string) *ListFilesResponseBodyFiles {
+	s.Thumbnail = &v
+	return s
+}
+
+func (s *ListFilesResponseBodyFiles) SetIcon(v string) *ListFilesResponseBodyFiles {
+	s.Icon = &v
 	return s
 }
 
@@ -3608,6 +3629,10 @@ func (s *GetDownloadInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetDownlo
 type GetDownloadInfoRequest struct {
 	// 用户id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 是否返回区域信息
+	WithRegion *bool `json:"withRegion,omitempty" xml:"withRegion,omitempty"`
+	// 是否返回内网加签url
+	WithInternalResourceUrl *bool `json:"withInternalResourceUrl,omitempty" xml:"withInternalResourceUrl,omitempty"`
 }
 
 func (s GetDownloadInfoRequest) String() string {
@@ -3623,9 +3648,21 @@ func (s *GetDownloadInfoRequest) SetUnionId(v string) *GetDownloadInfoRequest {
 	return s
 }
 
+func (s *GetDownloadInfoRequest) SetWithRegion(v bool) *GetDownloadInfoRequest {
+	s.WithRegion = &v
+	return s
+}
+
+func (s *GetDownloadInfoRequest) SetWithInternalResourceUrl(v bool) *GetDownloadInfoRequest {
+	s.WithInternalResourceUrl = &v
+	return s
+}
+
 type GetDownloadInfoResponseBody struct {
 	// 下载加签url信息
 	DownloadInfo *GetDownloadInfoResponseBodyDownloadInfo `json:"downloadInfo,omitempty" xml:"downloadInfo,omitempty" type:"Struct"`
+	// 文件所存储的区域
+	Region *string `json:"region,omitempty" xml:"region,omitempty"`
 }
 
 func (s GetDownloadInfoResponseBody) String() string {
@@ -3641,9 +3678,16 @@ func (s *GetDownloadInfoResponseBody) SetDownloadInfo(v *GetDownloadInfoResponse
 	return s
 }
 
+func (s *GetDownloadInfoResponseBody) SetRegion(v string) *GetDownloadInfoResponseBody {
+	s.Region = &v
+	return s
+}
+
 type GetDownloadInfoResponseBodyDownloadInfo struct {
 	// 加签url
 	ResourceUrl *string `json:"resourceUrl,omitempty" xml:"resourceUrl,omitempty"`
+	// 内网加签url
+	InternalResourceUrl *string `json:"internalResourceUrl,omitempty" xml:"internalResourceUrl,omitempty"`
 	// 加签url过期时间
 	ExpirationSeconds *int32 `json:"expirationSeconds,omitempty" xml:"expirationSeconds,omitempty"`
 	// headers
@@ -3660,6 +3704,11 @@ func (s GetDownloadInfoResponseBodyDownloadInfo) GoString() string {
 
 func (s *GetDownloadInfoResponseBodyDownloadInfo) SetResourceUrl(v string) *GetDownloadInfoResponseBodyDownloadInfo {
 	s.ResourceUrl = &v
+	return s
+}
+
+func (s *GetDownloadInfoResponseBodyDownloadInfo) SetInternalResourceUrl(v string) *GetDownloadInfoResponseBodyDownloadInfo {
+	s.InternalResourceUrl = &v
 	return s
 }
 
@@ -3732,6 +3781,12 @@ type GetUploadInfoRequest struct {
 	AddConflictPolicy *string `json:"addConflictPolicy,omitempty" xml:"addConflictPolicy,omitempty"`
 	// mediaId
 	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// 是否返回区域
+	WithRegion *bool `json:"withRegion,omitempty" xml:"withRegion,omitempty"`
+	// 是否返回OSS内网访问域名
+	WithInternalEndPoint *bool `json:"withInternalEndPoint,omitempty" xml:"withInternalEndPoint,omitempty"`
+	// 调用方所处区域
+	CallerRegion *string `json:"callerRegion,omitempty" xml:"callerRegion,omitempty"`
 }
 
 func (s GetUploadInfoRequest) String() string {
@@ -3772,9 +3827,26 @@ func (s *GetUploadInfoRequest) SetMediaId(v string) *GetUploadInfoRequest {
 	return s
 }
 
+func (s *GetUploadInfoRequest) SetWithRegion(v bool) *GetUploadInfoRequest {
+	s.WithRegion = &v
+	return s
+}
+
+func (s *GetUploadInfoRequest) SetWithInternalEndPoint(v bool) *GetUploadInfoRequest {
+	s.WithInternalEndPoint = &v
+	return s
+}
+
+func (s *GetUploadInfoRequest) SetCallerRegion(v string) *GetUploadInfoRequest {
+	s.CallerRegion = &v
+	return s
+}
+
 type GetUploadInfoResponseBody struct {
 	StsUploadInfo             *GetUploadInfoResponseBodyStsUploadInfo             `json:"stsUploadInfo,omitempty" xml:"stsUploadInfo,omitempty" type:"Struct"`
 	HeaderSignatureUploadInfo *GetUploadInfoResponseBodyHeaderSignatureUploadInfo `json:"headerSignatureUploadInfo,omitempty" xml:"headerSignatureUploadInfo,omitempty" type:"Struct"`
+	// 文件所存储的区域
+	Region *string `json:"region,omitempty" xml:"region,omitempty"`
 }
 
 func (s GetUploadInfoResponseBody) String() string {
@@ -3795,11 +3867,18 @@ func (s *GetUploadInfoResponseBody) SetHeaderSignatureUploadInfo(v *GetUploadInf
 	return s
 }
 
+func (s *GetUploadInfoResponseBody) SetRegion(v string) *GetUploadInfoResponseBody {
+	s.Region = &v
+	return s
+}
+
 type GetUploadInfoResponseBodyStsUploadInfo struct {
 	// bucket
 	Bucket *string `json:"bucket,omitempty" xml:"bucket,omitempty"`
 	// endPoint
 	EndPoint *string `json:"endPoint,omitempty" xml:"endPoint,omitempty"`
+	// 内网endPoint
+	InternalEndPoint *string `json:"internalEndPoint,omitempty" xml:"internalEndPoint,omitempty"`
 	// accessKeyId
 	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
 	// accessKeySecret
@@ -3827,6 +3906,11 @@ func (s *GetUploadInfoResponseBodyStsUploadInfo) SetBucket(v string) *GetUploadI
 
 func (s *GetUploadInfoResponseBodyStsUploadInfo) SetEndPoint(v string) *GetUploadInfoResponseBodyStsUploadInfo {
 	s.EndPoint = &v
+	return s
+}
+
+func (s *GetUploadInfoResponseBodyStsUploadInfo) SetInternalEndPoint(v string) *GetUploadInfoResponseBodyStsUploadInfo {
+	s.InternalEndPoint = &v
 	return s
 }
 
@@ -3858,6 +3942,8 @@ func (s *GetUploadInfoResponseBodyStsUploadInfo) SetMediaId(v string) *GetUpload
 type GetUploadInfoResponseBodyHeaderSignatureUploadInfo struct {
 	// 上传地址
 	ResourceUrl *string `json:"resourceUrl,omitempty" xml:"resourceUrl,omitempty"`
+	// 内网上传地址
+	InternalResourceUrl *string `json:"internalResourceUrl,omitempty" xml:"internalResourceUrl,omitempty"`
 	// 过期秒数
 	ExpirationSeconds *int32 `json:"expirationSeconds,omitempty" xml:"expirationSeconds,omitempty"`
 	// header加签信息
@@ -3874,6 +3960,11 @@ func (s GetUploadInfoResponseBodyHeaderSignatureUploadInfo) GoString() string {
 
 func (s *GetUploadInfoResponseBodyHeaderSignatureUploadInfo) SetResourceUrl(v string) *GetUploadInfoResponseBodyHeaderSignatureUploadInfo {
 	s.ResourceUrl = &v
+	return s
+}
+
+func (s *GetUploadInfoResponseBodyHeaderSignatureUploadInfo) SetInternalResourceUrl(v string) *GetUploadInfoResponseBodyHeaderSignatureUploadInfo {
+	s.InternalResourceUrl = &v
 	return s
 }
 
@@ -5083,6 +5174,10 @@ func (client *Client) ListFilesWithOptions(spaceId *string, request *ListFilesRe
 		query["orderType"] = request.OrderType
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.WithIcon)) {
+		query["withIcon"] = request.WithIcon
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -5843,6 +5938,14 @@ func (client *Client) GetDownloadInfoWithOptions(spaceId *string, fileId *string
 		query["unionId"] = request.UnionId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.WithRegion)) {
+		query["withRegion"] = request.WithRegion
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WithInternalResourceUrl)) {
+		query["withInternalResourceUrl"] = request.WithInternalResourceUrl
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -5905,6 +6008,18 @@ func (client *Client) GetUploadInfoWithOptions(spaceId *string, parentId *string
 
 	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
 		query["mediaId"] = request.MediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WithRegion)) {
+		query["withRegion"] = request.WithRegion
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WithInternalEndPoint)) {
+		query["withInternalEndPoint"] = request.WithInternalEndPoint
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallerRegion)) {
+		query["callerRegion"] = request.CallerRegion
 	}
 
 	realHeaders := make(map[string]*string)

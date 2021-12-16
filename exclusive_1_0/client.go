@@ -1291,6 +1291,85 @@ func (s *RollbackMiniAppVersionResponse) SetBody(v *RollbackMiniAppVersionRespon
 	return s
 }
 
+type PublishFileChangeNoticeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PublishFileChangeNoticeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PublishFileChangeNoticeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PublishFileChangeNoticeHeaders) SetCommonHeaders(v map[string]*string) *PublishFileChangeNoticeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PublishFileChangeNoticeHeaders) SetXAcsDingtalkAccessToken(v string) *PublishFileChangeNoticeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PublishFileChangeNoticeRequest struct {
+	// 钉盘文件id
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// 钉盘spaceId
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 操作人unionId
+	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
+	// 操作类型: 1-添加 2-修改
+	OperateType *string `json:"operateType,omitempty" xml:"operateType,omitempty"`
+}
+
+func (s PublishFileChangeNoticeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PublishFileChangeNoticeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PublishFileChangeNoticeRequest) SetFileId(v string) *PublishFileChangeNoticeRequest {
+	s.FileId = &v
+	return s
+}
+
+func (s *PublishFileChangeNoticeRequest) SetSpaceId(v string) *PublishFileChangeNoticeRequest {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *PublishFileChangeNoticeRequest) SetOperatorUnionId(v string) *PublishFileChangeNoticeRequest {
+	s.OperatorUnionId = &v
+	return s
+}
+
+func (s *PublishFileChangeNoticeRequest) SetOperateType(v string) *PublishFileChangeNoticeRequest {
+	s.OperateType = &v
+	return s
+}
+
+type PublishFileChangeNoticeResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s PublishFileChangeNoticeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PublishFileChangeNoticeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PublishFileChangeNoticeResponse) SetHeaders(v map[string]*string) *PublishFileChangeNoticeResponse {
+	s.Headers = v
+	return s
+}
+
 type GetGeneralFormCreatedDeptSummaryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4380,6 +4459,62 @@ func (client *Client) RollbackMiniAppVersionWithOptions(request *RollbackMiniApp
 	}
 	_result = &RollbackMiniAppVersionResponse{}
 	_body, _err := client.DoROARequest(tea.String("RollbackMiniAppVersion"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/miniApps/versions/rollback"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PublishFileChangeNotice(request *PublishFileChangeNoticeRequest) (_result *PublishFileChangeNoticeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PublishFileChangeNoticeHeaders{}
+	_result = &PublishFileChangeNoticeResponse{}
+	_body, _err := client.PublishFileChangeNoticeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PublishFileChangeNoticeWithOptions(request *PublishFileChangeNoticeRequest, headers *PublishFileChangeNoticeHeaders, runtime *util.RuntimeOptions) (_result *PublishFileChangeNoticeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FileId)) {
+		body["fileId"] = request.FileId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SpaceId)) {
+		body["spaceId"] = request.SpaceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUnionId)) {
+		body["operatorUnionId"] = request.OperatorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperateType)) {
+		body["operateType"] = request.OperateType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &PublishFileChangeNoticeResponse{}
+	_body, _err := client.DoROARequest(tea.String("PublishFileChangeNotice"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/comments/send"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

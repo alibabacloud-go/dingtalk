@@ -242,6 +242,344 @@ func (s *LoadBizFieldsResponse) SetBody(v *LoadBizFieldsResponseBody) *LoadBizFi
 	return s
 }
 
+type CancelProcessInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CancelProcessInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelProcessInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CancelProcessInstanceHeaders) SetCommonHeaders(v map[string]*string) *CancelProcessInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CancelProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *CancelProcessInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CancelProcessInstanceRequest struct {
+	// 流程实例id
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+}
+
+func (s CancelProcessInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelProcessInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CancelProcessInstanceRequest) SetProcessInstanceId(v string) *CancelProcessInstanceRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+type CancelProcessInstanceResponseBody struct {
+	// 状态码
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 提示信息
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+}
+
+func (s CancelProcessInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelProcessInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CancelProcessInstanceResponseBody) SetCode(v string) *CancelProcessInstanceResponseBody {
+	s.Code = &v
+	return s
+}
+
+func (s *CancelProcessInstanceResponseBody) SetMessage(v string) *CancelProcessInstanceResponseBody {
+	s.Message = &v
+	return s
+}
+
+type CancelProcessInstanceResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CancelProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CancelProcessInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelProcessInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CancelProcessInstanceResponse) SetHeaders(v map[string]*string) *CancelProcessInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CancelProcessInstanceResponse) SetBody(v *CancelProcessInstanceResponseBody) *CancelProcessInstanceResponse {
+	s.Body = v
+	return s
+}
+
+type GetAttachmentTemporaryUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAttachmentTemporaryUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAttachmentTemporaryUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAttachmentTemporaryUrlHeaders) SetCommonHeaders(v map[string]*string) *GetAttachmentTemporaryUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAttachmentTemporaryUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetAttachmentTemporaryUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAttachmentTemporaryUrlRequest struct {
+	// 附件id
+	AttachmentId *string `json:"attachmentId,omitempty" xml:"attachmentId,omitempty"`
+}
+
+func (s GetAttachmentTemporaryUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAttachmentTemporaryUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAttachmentTemporaryUrlRequest) SetAttachmentId(v string) *GetAttachmentTemporaryUrlRequest {
+	s.AttachmentId = &v
+	return s
+}
+
+type GetAttachmentTemporaryUrlResponseBody struct {
+	// 状态码
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 提示信息
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// 业务响应结果
+	Data *GetAttachmentTemporaryUrlResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+}
+
+func (s GetAttachmentTemporaryUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAttachmentTemporaryUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAttachmentTemporaryUrlResponseBody) SetCode(v string) *GetAttachmentTemporaryUrlResponseBody {
+	s.Code = &v
+	return s
+}
+
+func (s *GetAttachmentTemporaryUrlResponseBody) SetMessage(v string) *GetAttachmentTemporaryUrlResponseBody {
+	s.Message = &v
+	return s
+}
+
+func (s *GetAttachmentTemporaryUrlResponseBody) SetData(v *GetAttachmentTemporaryUrlResponseBodyData) *GetAttachmentTemporaryUrlResponseBody {
+	s.Data = v
+	return s
+}
+
+type GetAttachmentTemporaryUrlResponseBodyData struct {
+	// 附件临时免登地址。有效期为30分钟
+	AttachmentUrl *string `json:"attachmentUrl,omitempty" xml:"attachmentUrl,omitempty"`
+}
+
+func (s GetAttachmentTemporaryUrlResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAttachmentTemporaryUrlResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetAttachmentTemporaryUrlResponseBodyData) SetAttachmentUrl(v string) *GetAttachmentTemporaryUrlResponseBodyData {
+	s.AttachmentUrl = &v
+	return s
+}
+
+type GetAttachmentTemporaryUrlResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetAttachmentTemporaryUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAttachmentTemporaryUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAttachmentTemporaryUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAttachmentTemporaryUrlResponse) SetHeaders(v map[string]*string) *GetAttachmentTemporaryUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAttachmentTemporaryUrlResponse) SetBody(v *GetAttachmentTemporaryUrlResponseBody) *GetAttachmentTemporaryUrlResponse {
+	s.Body = v
+	return s
+}
+
+type GetUploadUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetUploadUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUploadUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetUploadUrlHeaders) SetCommonHeaders(v map[string]*string) *GetUploadUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetUploadUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetUploadUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetUploadUrlRequest struct {
+	// 表单编码
+	SchemaCode *string `json:"schemaCode,omitempty" xml:"schemaCode,omitempty"`
+	// 业务数据实例id
+	BizObjectId *string `json:"bizObjectId,omitempty" xml:"bizObjectId,omitempty"`
+	// 文件上传至目标控件的字段名
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// 是否覆盖。false=添加，true=覆盖
+	IsOverwrite *bool `json:"isOverwrite,omitempty" xml:"isOverwrite,omitempty"`
+}
+
+func (s GetUploadUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUploadUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetUploadUrlRequest) SetSchemaCode(v string) *GetUploadUrlRequest {
+	s.SchemaCode = &v
+	return s
+}
+
+func (s *GetUploadUrlRequest) SetBizObjectId(v string) *GetUploadUrlRequest {
+	s.BizObjectId = &v
+	return s
+}
+
+func (s *GetUploadUrlRequest) SetFieldName(v string) *GetUploadUrlRequest {
+	s.FieldName = &v
+	return s
+}
+
+func (s *GetUploadUrlRequest) SetIsOverwrite(v bool) *GetUploadUrlRequest {
+	s.IsOverwrite = &v
+	return s
+}
+
+type GetUploadUrlResponseBody struct {
+	// 状态码
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 提示信息
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// 返回结果
+	Data *GetUploadUrlResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+}
+
+func (s GetUploadUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUploadUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetUploadUrlResponseBody) SetCode(v string) *GetUploadUrlResponseBody {
+	s.Code = &v
+	return s
+}
+
+func (s *GetUploadUrlResponseBody) SetMessage(v string) *GetUploadUrlResponseBody {
+	s.Message = &v
+	return s
+}
+
+func (s *GetUploadUrlResponseBody) SetData(v *GetUploadUrlResponseBodyData) *GetUploadUrlResponseBody {
+	s.Data = v
+	return s
+}
+
+type GetUploadUrlResponseBodyData struct {
+	// 附件上传地址
+	UploadUrl *string `json:"uploadUrl,omitempty" xml:"uploadUrl,omitempty"`
+}
+
+func (s GetUploadUrlResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUploadUrlResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetUploadUrlResponseBodyData) SetUploadUrl(v string) *GetUploadUrlResponseBodyData {
+	s.UploadUrl = &v
+	return s
+}
+
+type GetUploadUrlResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetUploadUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetUploadUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUploadUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetUploadUrlResponse) SetHeaders(v map[string]*string) *GetUploadUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetUploadUrlResponse) SetBody(v *GetUploadUrlResponseBody) *GetUploadUrlResponse {
+	s.Body = v
+	return s
+}
+
 type GetUsersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3030,6 +3368,150 @@ func (client *Client) LoadBizFieldsWithOptions(request *LoadBizFieldsRequest, he
 	}
 	_result = &LoadBizFieldsResponse{}
 	_body, _err := client.DoROARequest(tea.String("LoadBizFields"), tea.String("h3yun_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/h3yun/forms/loadBizFields"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CancelProcessInstance(request *CancelProcessInstanceRequest) (_result *CancelProcessInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CancelProcessInstanceHeaders{}
+	_result = &CancelProcessInstanceResponse{}
+	_body, _err := client.CancelProcessInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CancelProcessInstanceWithOptions(request *CancelProcessInstanceRequest, headers *CancelProcessInstanceHeaders, runtime *util.RuntimeOptions) (_result *CancelProcessInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CancelProcessInstanceResponse{}
+	_body, _err := client.DoROARequest(tea.String("CancelProcessInstance"), tea.String("h3yun_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/h3yun/processes/instances/cancel"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetAttachmentTemporaryUrl(request *GetAttachmentTemporaryUrlRequest) (_result *GetAttachmentTemporaryUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAttachmentTemporaryUrlHeaders{}
+	_result = &GetAttachmentTemporaryUrlResponse{}
+	_body, _err := client.GetAttachmentTemporaryUrlWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAttachmentTemporaryUrlWithOptions(request *GetAttachmentTemporaryUrlRequest, headers *GetAttachmentTemporaryUrlHeaders, runtime *util.RuntimeOptions) (_result *GetAttachmentTemporaryUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AttachmentId)) {
+		query["attachmentId"] = request.AttachmentId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetAttachmentTemporaryUrlResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetAttachmentTemporaryUrl"), tea.String("h3yun_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/h3yun/attachments/temporaryUrls"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetUploadUrl(request *GetUploadUrlRequest) (_result *GetUploadUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetUploadUrlHeaders{}
+	_result = &GetUploadUrlResponse{}
+	_body, _err := client.GetUploadUrlWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetUploadUrlWithOptions(request *GetUploadUrlRequest, headers *GetUploadUrlHeaders, runtime *util.RuntimeOptions) (_result *GetUploadUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SchemaCode)) {
+		query["schemaCode"] = request.SchemaCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizObjectId)) {
+		query["bizObjectId"] = request.BizObjectId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FieldName)) {
+		query["fieldName"] = request.FieldName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsOverwrite)) {
+		query["isOverwrite"] = request.IsOverwrite
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetUploadUrlResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetUploadUrl"), tea.String("h3yun_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/h3yun/attachments/uploadUrls"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
