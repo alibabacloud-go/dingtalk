@@ -3202,6 +3202,24 @@ func (s *GetEventHeaders) SetXAcsDingtalkAccessToken(v string) *GetEventHeaders 
 	return s
 }
 
+type GetEventRequest struct {
+	// 返回参与人，上限500人，默认为0
+	MaxAttendees *int64 `json:"maxAttendees,omitempty" xml:"maxAttendees,omitempty"`
+}
+
+func (s GetEventRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEventRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetEventRequest) SetMaxAttendees(v int64) *GetEventRequest {
+	s.MaxAttendees = &v
+	return s
+}
+
 type GetEventResponseBody struct {
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 	// 日程标题
@@ -5197,11 +5215,11 @@ func (client *Client) SignInWithOptions(userId *string, calendarId *string, even
 	return _result, _err
 }
 
-func (client *Client) GetEvent(userId *string, calendarId *string, eventId *string, maxAttendees *string) (_result *GetEventResponse, _err error) {
+func (client *Client) GetEvent(userId *string, calendarId *string, eventId *string, request *GetEventRequest) (_result *GetEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetEventHeaders{}
 	_result = &GetEventResponse{}
-	_body, _err := client.GetEventWithOptions(userId, calendarId, eventId, maxAttendees, headers, runtime)
+	_body, _err := client.GetEventWithOptions(userId, calendarId, eventId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5209,7 +5227,16 @@ func (client *Client) GetEvent(userId *string, calendarId *string, eventId *stri
 	return _result, _err
 }
 
-func (client *Client) GetEventWithOptions(userId *string, calendarId *string, eventId *string, maxAttendees *string, headers *GetEventHeaders, runtime *util.RuntimeOptions) (_result *GetEventResponse, _err error) {
+func (client *Client) GetEventWithOptions(userId *string, calendarId *string, eventId *string, request *GetEventRequest, headers *GetEventHeaders, runtime *util.RuntimeOptions) (_result *GetEventResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxAttendees)) {
+		query["maxAttendees"] = request.MaxAttendees
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -5221,6 +5248,7 @@ func (client *Client) GetEventWithOptions(userId *string, calendarId *string, ev
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
 	}
 	_result = &GetEventResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetEvent"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)), tea.String("json"), req, runtime)

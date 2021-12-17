@@ -231,193 +231,478 @@ func (s *QueryFormInstanceResponse) SetBody(v *QueryFormInstanceResponseBody) *Q
 	return s
 }
 
-type QueryFormByBizTypeHeaders struct {
+type ProcessForecastHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s QueryFormByBizTypeHeaders) String() string {
+func (s ProcessForecastHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryFormByBizTypeHeaders) GoString() string {
+func (s ProcessForecastHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *QueryFormByBizTypeHeaders) SetCommonHeaders(v map[string]*string) *QueryFormByBizTypeHeaders {
+func (s *ProcessForecastHeaders) SetCommonHeaders(v map[string]*string) *ProcessForecastHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *QueryFormByBizTypeHeaders) SetXAcsDingtalkAccessToken(v string) *QueryFormByBizTypeHeaders {
+func (s *ProcessForecastHeaders) SetXAcsDingtalkAccessToken(v string) *ProcessForecastHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type QueryFormByBizTypeRequest struct {
-	// 应用搭建id
-	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	// 表单业务标识
-	BizTypes []*string `json:"bizTypes,omitempty" xml:"bizTypes,omitempty" type:"Repeated"`
+type ProcessForecastRequest struct {
+	DingCorpId         *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	RequestId          *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	// 审批流的唯一码
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// 部门ID
+	DeptId *int32 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 审批发起人的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 表单数据内容，控件列表
+	FormComponentValues []*ProcessForecastRequestFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
 }
 
-func (s QueryFormByBizTypeRequest) String() string {
+func (s ProcessForecastRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryFormByBizTypeRequest) GoString() string {
+func (s ProcessForecastRequest) GoString() string {
 	return s.String()
 }
 
-func (s *QueryFormByBizTypeRequest) SetAppUuid(v string) *QueryFormByBizTypeRequest {
-	s.AppUuid = &v
+func (s *ProcessForecastRequest) SetDingCorpId(v string) *ProcessForecastRequest {
+	s.DingCorpId = &v
 	return s
 }
 
-func (s *QueryFormByBizTypeRequest) SetBizTypes(v []*string) *QueryFormByBizTypeRequest {
-	s.BizTypes = v
+func (s *ProcessForecastRequest) SetDingOrgId(v int64) *ProcessForecastRequest {
+	s.DingOrgId = &v
 	return s
 }
 
-type QueryFormByBizTypeResponseBody struct {
-	// 模板列表
-	Result []*QueryFormByBizTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-}
-
-func (s QueryFormByBizTypeResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryFormByBizTypeResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *QueryFormByBizTypeResponseBody) SetResult(v []*QueryFormByBizTypeResponseBodyResult) *QueryFormByBizTypeResponseBody {
-	s.Result = v
+func (s *ProcessForecastRequest) SetDingIsvOrgId(v int64) *ProcessForecastRequest {
+	s.DingIsvOrgId = &v
 	return s
 }
 
-type QueryFormByBizTypeResponseBodyResult struct {
-	// 创建人
-	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
-	// 应用搭建id
-	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	// 模板code
-	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	// 表单uuid
-	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	// 模板名称
+func (s *ProcessForecastRequest) SetDingSuiteKey(v string) *ProcessForecastRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *ProcessForecastRequest) SetDingTokenGrantType(v int64) *ProcessForecastRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *ProcessForecastRequest) SetRequestId(v string) *ProcessForecastRequest {
+	s.RequestId = &v
+	return s
+}
+
+func (s *ProcessForecastRequest) SetProcessCode(v string) *ProcessForecastRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *ProcessForecastRequest) SetDeptId(v int32) *ProcessForecastRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *ProcessForecastRequest) SetUserId(v string) *ProcessForecastRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *ProcessForecastRequest) SetFormComponentValues(v []*ProcessForecastRequestFormComponentValues) *ProcessForecastRequest {
+	s.FormComponentValues = v
+	return s
+}
+
+type ProcessForecastRequestFormComponentValues struct {
+	// 控件id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 控件别名
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 控件名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 模板描述
-	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
-	// 数据归属id
-	OwnerId *string `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
-	// 表单类型，0为流程表单，1为数据表单
-	AppType *int32 `json:"appType,omitempty" xml:"appType,omitempty"`
-	// 业务标识
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 模板状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 创建时间
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 修改时间
-	ModifedTime *int64 `json:"modifedTime,omitempty" xml:"modifedTime,omitempty"`
-	// 表单控件描述
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 控件值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 控件扩展值
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// 控件类型
+	ComponentType *string                                             `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	Details       []*ProcessForecastRequestFormComponentValuesDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
 }
 
-func (s QueryFormByBizTypeResponseBodyResult) String() string {
+func (s ProcessForecastRequestFormComponentValues) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryFormByBizTypeResponseBodyResult) GoString() string {
+func (s ProcessForecastRequestFormComponentValues) GoString() string {
 	return s.String()
 }
 
-func (s *QueryFormByBizTypeResponseBodyResult) SetCreator(v string) *QueryFormByBizTypeResponseBodyResult {
-	s.Creator = &v
+func (s *ProcessForecastRequestFormComponentValues) SetId(v string) *ProcessForecastRequestFormComponentValues {
+	s.Id = &v
 	return s
 }
 
-func (s *QueryFormByBizTypeResponseBodyResult) SetAppUuid(v string) *QueryFormByBizTypeResponseBodyResult {
-	s.AppUuid = &v
+func (s *ProcessForecastRequestFormComponentValues) SetBizAlias(v string) *ProcessForecastRequestFormComponentValues {
+	s.BizAlias = &v
 	return s
 }
 
-func (s *QueryFormByBizTypeResponseBodyResult) SetFormCode(v string) *QueryFormByBizTypeResponseBodyResult {
-	s.FormCode = &v
-	return s
-}
-
-func (s *QueryFormByBizTypeResponseBodyResult) SetFormUuid(v string) *QueryFormByBizTypeResponseBodyResult {
-	s.FormUuid = &v
-	return s
-}
-
-func (s *QueryFormByBizTypeResponseBodyResult) SetName(v string) *QueryFormByBizTypeResponseBodyResult {
+func (s *ProcessForecastRequestFormComponentValues) SetName(v string) *ProcessForecastRequestFormComponentValues {
 	s.Name = &v
 	return s
 }
 
-func (s *QueryFormByBizTypeResponseBodyResult) SetMemo(v string) *QueryFormByBizTypeResponseBodyResult {
-	s.Memo = &v
+func (s *ProcessForecastRequestFormComponentValues) SetValue(v string) *ProcessForecastRequestFormComponentValues {
+	s.Value = &v
 	return s
 }
 
-func (s *QueryFormByBizTypeResponseBodyResult) SetOwnerId(v string) *QueryFormByBizTypeResponseBodyResult {
-	s.OwnerId = &v
+func (s *ProcessForecastRequestFormComponentValues) SetExtValue(v string) *ProcessForecastRequestFormComponentValues {
+	s.ExtValue = &v
 	return s
 }
 
-func (s *QueryFormByBizTypeResponseBodyResult) SetAppType(v int32) *QueryFormByBizTypeResponseBodyResult {
-	s.AppType = &v
+func (s *ProcessForecastRequestFormComponentValues) SetComponentType(v string) *ProcessForecastRequestFormComponentValues {
+	s.ComponentType = &v
 	return s
 }
 
-func (s *QueryFormByBizTypeResponseBodyResult) SetBizType(v string) *QueryFormByBizTypeResponseBodyResult {
-	s.BizType = &v
+func (s *ProcessForecastRequestFormComponentValues) SetDetails(v []*ProcessForecastRequestFormComponentValuesDetails) *ProcessForecastRequestFormComponentValues {
+	s.Details = v
 	return s
 }
 
-func (s *QueryFormByBizTypeResponseBodyResult) SetStatus(v string) *QueryFormByBizTypeResponseBodyResult {
-	s.Status = &v
-	return s
+type ProcessForecastRequestFormComponentValuesDetails struct {
+	// 控件id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 控件别名
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 控件名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 控件值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 控件扩展值
+	ExtValue *string                                                    `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	Details  []*ProcessForecastRequestFormComponentValuesDetailsDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
 }
 
-func (s *QueryFormByBizTypeResponseBodyResult) SetCreateTime(v int64) *QueryFormByBizTypeResponseBodyResult {
-	s.CreateTime = &v
-	return s
-}
-
-func (s *QueryFormByBizTypeResponseBodyResult) SetModifedTime(v int64) *QueryFormByBizTypeResponseBodyResult {
-	s.ModifedTime = &v
-	return s
-}
-
-func (s *QueryFormByBizTypeResponseBodyResult) SetContent(v string) *QueryFormByBizTypeResponseBodyResult {
-	s.Content = &v
-	return s
-}
-
-type QueryFormByBizTypeResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryFormByBizTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s QueryFormByBizTypeResponse) String() string {
+func (s ProcessForecastRequestFormComponentValuesDetails) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryFormByBizTypeResponse) GoString() string {
+func (s ProcessForecastRequestFormComponentValuesDetails) GoString() string {
 	return s.String()
 }
 
-func (s *QueryFormByBizTypeResponse) SetHeaders(v map[string]*string) *QueryFormByBizTypeResponse {
+func (s *ProcessForecastRequestFormComponentValuesDetails) SetId(v string) *ProcessForecastRequestFormComponentValuesDetails {
+	s.Id = &v
+	return s
+}
+
+func (s *ProcessForecastRequestFormComponentValuesDetails) SetBizAlias(v string) *ProcessForecastRequestFormComponentValuesDetails {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *ProcessForecastRequestFormComponentValuesDetails) SetName(v string) *ProcessForecastRequestFormComponentValuesDetails {
+	s.Name = &v
+	return s
+}
+
+func (s *ProcessForecastRequestFormComponentValuesDetails) SetValue(v string) *ProcessForecastRequestFormComponentValuesDetails {
+	s.Value = &v
+	return s
+}
+
+func (s *ProcessForecastRequestFormComponentValuesDetails) SetExtValue(v string) *ProcessForecastRequestFormComponentValuesDetails {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *ProcessForecastRequestFormComponentValuesDetails) SetDetails(v []*ProcessForecastRequestFormComponentValuesDetailsDetails) *ProcessForecastRequestFormComponentValuesDetails {
+	s.Details = v
+	return s
+}
+
+type ProcessForecastRequestFormComponentValuesDetailsDetails struct {
+	// 控件id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 控件别名
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 控件名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 控件值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 控件扩展值
+	ExtValue      *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
+}
+
+func (s ProcessForecastRequestFormComponentValuesDetailsDetails) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessForecastRequestFormComponentValuesDetailsDetails) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessForecastRequestFormComponentValuesDetailsDetails) SetId(v string) *ProcessForecastRequestFormComponentValuesDetailsDetails {
+	s.Id = &v
+	return s
+}
+
+func (s *ProcessForecastRequestFormComponentValuesDetailsDetails) SetBizAlias(v string) *ProcessForecastRequestFormComponentValuesDetailsDetails {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *ProcessForecastRequestFormComponentValuesDetailsDetails) SetName(v string) *ProcessForecastRequestFormComponentValuesDetailsDetails {
+	s.Name = &v
+	return s
+}
+
+func (s *ProcessForecastRequestFormComponentValuesDetailsDetails) SetValue(v string) *ProcessForecastRequestFormComponentValuesDetailsDetails {
+	s.Value = &v
+	return s
+}
+
+func (s *ProcessForecastRequestFormComponentValuesDetailsDetails) SetExtValue(v string) *ProcessForecastRequestFormComponentValuesDetailsDetails {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *ProcessForecastRequestFormComponentValuesDetailsDetails) SetComponentType(v string) *ProcessForecastRequestFormComponentValuesDetailsDetails {
+	s.ComponentType = &v
+	return s
+}
+
+type ProcessForecastResponseBody struct {
+	// 返回结果
+	Result *ProcessForecastResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s ProcessForecastResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessForecastResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessForecastResponseBody) SetResult(v *ProcessForecastResponseBodyResult) *ProcessForecastResponseBody {
+	s.Result = v
+	return s
+}
+
+type ProcessForecastResponseBodyResult struct {
+	// 是否预测成功
+	IsForecastSuccess *bool `json:"isForecastSuccess,omitempty" xml:"isForecastSuccess,omitempty"`
+	// 流程 code
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// 用户 id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 流程 id
+	ProcessId *int64 `json:"processId,omitempty" xml:"processId,omitempty"`
+	// 是否静态流程
+	IsStaticWorkflow      *bool                                                     `json:"isStaticWorkflow,omitempty" xml:"isStaticWorkflow,omitempty"`
+	WorkflowActors        []*ProcessForecastResponseBodyResultWorkflowActors        `json:"workflowActors,omitempty" xml:"workflowActors,omitempty" type:"Repeated"`
+	WorkflowForecastNodes []*ProcessForecastResponseBodyResultWorkflowForecastNodes `json:"workflowForecastNodes,omitempty" xml:"workflowForecastNodes,omitempty" type:"Repeated"`
+}
+
+func (s ProcessForecastResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessForecastResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessForecastResponseBodyResult) SetIsForecastSuccess(v bool) *ProcessForecastResponseBodyResult {
+	s.IsForecastSuccess = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResult) SetProcessCode(v string) *ProcessForecastResponseBodyResult {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResult) SetUserId(v string) *ProcessForecastResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResult) SetProcessId(v int64) *ProcessForecastResponseBodyResult {
+	s.ProcessId = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResult) SetIsStaticWorkflow(v bool) *ProcessForecastResponseBodyResult {
+	s.IsStaticWorkflow = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResult) SetWorkflowActors(v []*ProcessForecastResponseBodyResultWorkflowActors) *ProcessForecastResponseBodyResult {
+	s.WorkflowActors = v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResult) SetWorkflowForecastNodes(v []*ProcessForecastResponseBodyResultWorkflowForecastNodes) *ProcessForecastResponseBodyResult {
+	s.WorkflowForecastNodes = v
+	return s
+}
+
+type ProcessForecastResponseBodyResultWorkflowActors struct {
+	// 节点 id
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// 节点名称
+	ActivityName *string `json:"activityName,omitempty" xml:"activityName,omitempty"`
+	// 规则类型
+	ActivityType *string `json:"activityType,omitempty" xml:"activityType,omitempty"`
+	// 是否自选审批节点
+	IsTargetSelect *bool                                                            `json:"isTargetSelect,omitempty" xml:"isTargetSelect,omitempty"`
+	ActivityActors []*ProcessForecastResponseBodyResultWorkflowActorsActivityActors `json:"activityActors,omitempty" xml:"activityActors,omitempty" type:"Repeated"`
+	// 是否联系人控件审批人节点
+	IsTargetFormComponent *bool `json:"isTargetFormComponent,omitempty" xml:"isTargetFormComponent,omitempty"`
+	// 节点规则，当前是一个 JSONObject
+	Node *string `json:"node,omitempty" xml:"node,omitempty"`
+}
+
+func (s ProcessForecastResponseBodyResultWorkflowActors) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessForecastResponseBodyResultWorkflowActors) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActors) SetActivityId(v string) *ProcessForecastResponseBodyResultWorkflowActors {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActors) SetActivityName(v string) *ProcessForecastResponseBodyResultWorkflowActors {
+	s.ActivityName = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActors) SetActivityType(v string) *ProcessForecastResponseBodyResultWorkflowActors {
+	s.ActivityType = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActors) SetIsTargetSelect(v bool) *ProcessForecastResponseBodyResultWorkflowActors {
+	s.IsTargetSelect = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActors) SetActivityActors(v []*ProcessForecastResponseBodyResultWorkflowActorsActivityActors) *ProcessForecastResponseBodyResultWorkflowActors {
+	s.ActivityActors = v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActors) SetIsTargetFormComponent(v bool) *ProcessForecastResponseBodyResultWorkflowActors {
+	s.IsTargetFormComponent = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActors) SetNode(v string) *ProcessForecastResponseBodyResultWorkflowActors {
+	s.Node = &v
+	return s
+}
+
+type ProcessForecastResponseBodyResultWorkflowActorsActivityActors struct {
+	// 用户 id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 用户名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 用户头像
+	Avatar *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
+}
+
+func (s ProcessForecastResponseBodyResultWorkflowActorsActivityActors) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessForecastResponseBodyResultWorkflowActorsActivityActors) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActorsActivityActors) SetUserId(v string) *ProcessForecastResponseBodyResultWorkflowActorsActivityActors {
+	s.UserId = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActorsActivityActors) SetName(v string) *ProcessForecastResponseBodyResultWorkflowActorsActivityActors {
+	s.Name = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActorsActivityActors) SetAvatar(v string) *ProcessForecastResponseBodyResultWorkflowActorsActivityActors {
+	s.Avatar = &v
+	return s
+}
+
+type ProcessForecastResponseBodyResultWorkflowForecastNodes struct {
+	// 节点 id
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// 节点出线 id
+	OutId *string `json:"outId,omitempty" xml:"outId,omitempty"`
+}
+
+func (s ProcessForecastResponseBodyResultWorkflowForecastNodes) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessForecastResponseBodyResultWorkflowForecastNodes) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowForecastNodes) SetActivityId(v string) *ProcessForecastResponseBodyResultWorkflowForecastNodes {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowForecastNodes) SetOutId(v string) *ProcessForecastResponseBodyResultWorkflowForecastNodes {
+	s.OutId = &v
+	return s
+}
+
+type ProcessForecastResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ProcessForecastResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ProcessForecastResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessForecastResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessForecastResponse) SetHeaders(v map[string]*string) *ProcessForecastResponse {
 	s.Headers = v
 	return s
 }
 
-func (s *QueryFormByBizTypeResponse) SetBody(v *QueryFormByBizTypeResponseBody) *QueryFormByBizTypeResponse {
+func (s *ProcessForecastResponse) SetBody(v *ProcessForecastResponseBody) *ProcessForecastResponse {
 	s.Body = v
 	return s
 }
@@ -1000,6 +1285,585 @@ func (s *QueryAllFormInstancesResponse) SetBody(v *QueryAllFormInstancesResponse
 	return s
 }
 
+type QueryFormByBizTypeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryFormByBizTypeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFormByBizTypeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFormByBizTypeHeaders) SetCommonHeaders(v map[string]*string) *QueryFormByBizTypeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryFormByBizTypeHeaders) SetXAcsDingtalkAccessToken(v string) *QueryFormByBizTypeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryFormByBizTypeRequest struct {
+	// 应用搭建id
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// 表单业务标识
+	BizTypes []*string `json:"bizTypes,omitempty" xml:"bizTypes,omitempty" type:"Repeated"`
+}
+
+func (s QueryFormByBizTypeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFormByBizTypeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFormByBizTypeRequest) SetAppUuid(v string) *QueryFormByBizTypeRequest {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *QueryFormByBizTypeRequest) SetBizTypes(v []*string) *QueryFormByBizTypeRequest {
+	s.BizTypes = v
+	return s
+}
+
+type QueryFormByBizTypeResponseBody struct {
+	// 模板列表
+	Result []*QueryFormByBizTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s QueryFormByBizTypeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFormByBizTypeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFormByBizTypeResponseBody) SetResult(v []*QueryFormByBizTypeResponseBodyResult) *QueryFormByBizTypeResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryFormByBizTypeResponseBodyResult struct {
+	// 创建人
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// 应用搭建id
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// 模板code
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// 表单uuid
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 模板名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 模板描述
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// 数据归属id
+	OwnerId *string `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
+	// 表单类型，0为流程表单，1为数据表单
+	AppType *int32 `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 业务标识
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 模板状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 创建时间
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 修改时间
+	ModifedTime *int64 `json:"modifedTime,omitempty" xml:"modifedTime,omitempty"`
+	// 表单控件描述
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s QueryFormByBizTypeResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFormByBizTypeResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFormByBizTypeResponseBodyResult) SetCreator(v string) *QueryFormByBizTypeResponseBodyResult {
+	s.Creator = &v
+	return s
+}
+
+func (s *QueryFormByBizTypeResponseBodyResult) SetAppUuid(v string) *QueryFormByBizTypeResponseBodyResult {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *QueryFormByBizTypeResponseBodyResult) SetFormCode(v string) *QueryFormByBizTypeResponseBodyResult {
+	s.FormCode = &v
+	return s
+}
+
+func (s *QueryFormByBizTypeResponseBodyResult) SetFormUuid(v string) *QueryFormByBizTypeResponseBodyResult {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *QueryFormByBizTypeResponseBodyResult) SetName(v string) *QueryFormByBizTypeResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryFormByBizTypeResponseBodyResult) SetMemo(v string) *QueryFormByBizTypeResponseBodyResult {
+	s.Memo = &v
+	return s
+}
+
+func (s *QueryFormByBizTypeResponseBodyResult) SetOwnerId(v string) *QueryFormByBizTypeResponseBodyResult {
+	s.OwnerId = &v
+	return s
+}
+
+func (s *QueryFormByBizTypeResponseBodyResult) SetAppType(v int32) *QueryFormByBizTypeResponseBodyResult {
+	s.AppType = &v
+	return s
+}
+
+func (s *QueryFormByBizTypeResponseBodyResult) SetBizType(v string) *QueryFormByBizTypeResponseBodyResult {
+	s.BizType = &v
+	return s
+}
+
+func (s *QueryFormByBizTypeResponseBodyResult) SetStatus(v string) *QueryFormByBizTypeResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryFormByBizTypeResponseBodyResult) SetCreateTime(v int64) *QueryFormByBizTypeResponseBodyResult {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QueryFormByBizTypeResponseBodyResult) SetModifedTime(v int64) *QueryFormByBizTypeResponseBodyResult {
+	s.ModifedTime = &v
+	return s
+}
+
+func (s *QueryFormByBizTypeResponseBodyResult) SetContent(v string) *QueryFormByBizTypeResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+type QueryFormByBizTypeResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryFormByBizTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryFormByBizTypeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFormByBizTypeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFormByBizTypeResponse) SetHeaders(v map[string]*string) *QueryFormByBizTypeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryFormByBizTypeResponse) SetBody(v *QueryFormByBizTypeResponseBody) *QueryFormByBizTypeResponse {
+	s.Body = v
+	return s
+}
+
+type StartProcessInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s StartProcessInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartProcessInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *StartProcessInstanceHeaders) SetCommonHeaders(v map[string]*string) *StartProcessInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *StartProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *StartProcessInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type StartProcessInstanceRequest struct {
+	// 审批发起人的userId
+	OriginatorUserId *string `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
+	// 审批流的唯一码
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// 部门ID
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 企业微应用标识
+	MicroappAgentId *int64 `json:"microappAgentId,omitempty" xml:"microappAgentId,omitempty"`
+	// 不使用审批流模板时，直接指定审批人列表
+	Approvers []*StartProcessInstanceRequestApprovers `json:"approvers,omitempty" xml:"approvers,omitempty" type:"Repeated"`
+	// 抄送人userId列表
+	CcList []*string `json:"ccList,omitempty" xml:"ccList,omitempty" type:"Repeated"`
+	// 抄送时间
+	CcPosition *string `json:"ccPosition,omitempty" xml:"ccPosition,omitempty"`
+	// 使用审批流模板时，模板上的自选操作人列表
+	TargetSelectActioners []*StartProcessInstanceRequestTargetSelectActioners `json:"targetSelectActioners,omitempty" xml:"targetSelectActioners,omitempty" type:"Repeated"`
+	// 表单数据内容，控件列表
+	FormComponentValues []*StartProcessInstanceRequestFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
+	RequestId           *string                                           `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	DingCorpId          *string                                           `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	DingOrgId           *int64                                            `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId        *int64                                            `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingSuiteKey        *string                                           `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType  *int64                                            `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+}
+
+func (s StartProcessInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartProcessInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *StartProcessInstanceRequest) SetOriginatorUserId(v string) *StartProcessInstanceRequest {
+	s.OriginatorUserId = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequest) SetProcessCode(v string) *StartProcessInstanceRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequest) SetDeptId(v int64) *StartProcessInstanceRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequest) SetMicroappAgentId(v int64) *StartProcessInstanceRequest {
+	s.MicroappAgentId = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequest) SetApprovers(v []*StartProcessInstanceRequestApprovers) *StartProcessInstanceRequest {
+	s.Approvers = v
+	return s
+}
+
+func (s *StartProcessInstanceRequest) SetCcList(v []*string) *StartProcessInstanceRequest {
+	s.CcList = v
+	return s
+}
+
+func (s *StartProcessInstanceRequest) SetCcPosition(v string) *StartProcessInstanceRequest {
+	s.CcPosition = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequest) SetTargetSelectActioners(v []*StartProcessInstanceRequestTargetSelectActioners) *StartProcessInstanceRequest {
+	s.TargetSelectActioners = v
+	return s
+}
+
+func (s *StartProcessInstanceRequest) SetFormComponentValues(v []*StartProcessInstanceRequestFormComponentValues) *StartProcessInstanceRequest {
+	s.FormComponentValues = v
+	return s
+}
+
+func (s *StartProcessInstanceRequest) SetRequestId(v string) *StartProcessInstanceRequest {
+	s.RequestId = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequest) SetDingCorpId(v string) *StartProcessInstanceRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequest) SetDingOrgId(v int64) *StartProcessInstanceRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequest) SetDingIsvOrgId(v int64) *StartProcessInstanceRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequest) SetDingSuiteKey(v string) *StartProcessInstanceRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequest) SetDingTokenGrantType(v int64) *StartProcessInstanceRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+type StartProcessInstanceRequestApprovers struct {
+	// 审批类型
+	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// 审批人列表
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s StartProcessInstanceRequestApprovers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartProcessInstanceRequestApprovers) GoString() string {
+	return s.String()
+}
+
+func (s *StartProcessInstanceRequestApprovers) SetActionType(v string) *StartProcessInstanceRequestApprovers {
+	s.ActionType = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestApprovers) SetUserIds(v []*string) *StartProcessInstanceRequestApprovers {
+	s.UserIds = v
+	return s
+}
+
+type StartProcessInstanceRequestTargetSelectActioners struct {
+	// 自选节点的规则key
+	ActionerKey *string `json:"actionerKey,omitempty" xml:"actionerKey,omitempty"`
+	// 操作人userId列表
+	ActionerUserIds []*string `json:"actionerUserIds,omitempty" xml:"actionerUserIds,omitempty" type:"Repeated"`
+}
+
+func (s StartProcessInstanceRequestTargetSelectActioners) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartProcessInstanceRequestTargetSelectActioners) GoString() string {
+	return s.String()
+}
+
+func (s *StartProcessInstanceRequestTargetSelectActioners) SetActionerKey(v string) *StartProcessInstanceRequestTargetSelectActioners {
+	s.ActionerKey = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestTargetSelectActioners) SetActionerUserIds(v []*string) *StartProcessInstanceRequestTargetSelectActioners {
+	s.ActionerUserIds = v
+	return s
+}
+
+type StartProcessInstanceRequestFormComponentValues struct {
+	// 控件id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 控件别名
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 控件名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 控件值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 控件扩展值
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// 控件类型
+	ComponentType *string                                                  `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	Details       []*StartProcessInstanceRequestFormComponentValuesDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
+}
+
+func (s StartProcessInstanceRequestFormComponentValues) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartProcessInstanceRequestFormComponentValues) GoString() string {
+	return s.String()
+}
+
+func (s *StartProcessInstanceRequestFormComponentValues) SetId(v string) *StartProcessInstanceRequestFormComponentValues {
+	s.Id = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestFormComponentValues) SetBizAlias(v string) *StartProcessInstanceRequestFormComponentValues {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestFormComponentValues) SetName(v string) *StartProcessInstanceRequestFormComponentValues {
+	s.Name = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestFormComponentValues) SetValue(v string) *StartProcessInstanceRequestFormComponentValues {
+	s.Value = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestFormComponentValues) SetExtValue(v string) *StartProcessInstanceRequestFormComponentValues {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestFormComponentValues) SetComponentType(v string) *StartProcessInstanceRequestFormComponentValues {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestFormComponentValues) SetDetails(v []*StartProcessInstanceRequestFormComponentValuesDetails) *StartProcessInstanceRequestFormComponentValues {
+	s.Details = v
+	return s
+}
+
+type StartProcessInstanceRequestFormComponentValuesDetails struct {
+	// 控件id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 控件别名
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 控件名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 控件值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 控件扩展值
+	ExtValue *string                                                         `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	Details  []*StartProcessInstanceRequestFormComponentValuesDetailsDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
+}
+
+func (s StartProcessInstanceRequestFormComponentValuesDetails) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartProcessInstanceRequestFormComponentValuesDetails) GoString() string {
+	return s.String()
+}
+
+func (s *StartProcessInstanceRequestFormComponentValuesDetails) SetId(v string) *StartProcessInstanceRequestFormComponentValuesDetails {
+	s.Id = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestFormComponentValuesDetails) SetBizAlias(v string) *StartProcessInstanceRequestFormComponentValuesDetails {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestFormComponentValuesDetails) SetName(v string) *StartProcessInstanceRequestFormComponentValuesDetails {
+	s.Name = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestFormComponentValuesDetails) SetValue(v string) *StartProcessInstanceRequestFormComponentValuesDetails {
+	s.Value = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestFormComponentValuesDetails) SetExtValue(v string) *StartProcessInstanceRequestFormComponentValuesDetails {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestFormComponentValuesDetails) SetDetails(v []*StartProcessInstanceRequestFormComponentValuesDetailsDetails) *StartProcessInstanceRequestFormComponentValuesDetails {
+	s.Details = v
+	return s
+}
+
+type StartProcessInstanceRequestFormComponentValuesDetailsDetails struct {
+	// 控件id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 控件别名
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 控件名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 控件值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 控件扩展值
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// 控件类型
+	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
+}
+
+func (s StartProcessInstanceRequestFormComponentValuesDetailsDetails) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartProcessInstanceRequestFormComponentValuesDetailsDetails) GoString() string {
+	return s.String()
+}
+
+func (s *StartProcessInstanceRequestFormComponentValuesDetailsDetails) SetId(v string) *StartProcessInstanceRequestFormComponentValuesDetailsDetails {
+	s.Id = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestFormComponentValuesDetailsDetails) SetBizAlias(v string) *StartProcessInstanceRequestFormComponentValuesDetailsDetails {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestFormComponentValuesDetailsDetails) SetName(v string) *StartProcessInstanceRequestFormComponentValuesDetailsDetails {
+	s.Name = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestFormComponentValuesDetailsDetails) SetValue(v string) *StartProcessInstanceRequestFormComponentValuesDetailsDetails {
+	s.Value = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestFormComponentValuesDetailsDetails) SetExtValue(v string) *StartProcessInstanceRequestFormComponentValuesDetailsDetails {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *StartProcessInstanceRequestFormComponentValuesDetailsDetails) SetComponentType(v string) *StartProcessInstanceRequestFormComponentValuesDetailsDetails {
+	s.ComponentType = &v
+	return s
+}
+
+type StartProcessInstanceResponseBody struct {
+	// 审批实例id
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+}
+
+func (s StartProcessInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartProcessInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *StartProcessInstanceResponseBody) SetInstanceId(v string) *StartProcessInstanceResponseBody {
+	s.InstanceId = &v
+	return s
+}
+
+type StartProcessInstanceResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *StartProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s StartProcessInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartProcessInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *StartProcessInstanceResponse) SetHeaders(v map[string]*string) *StartProcessInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *StartProcessInstanceResponse) SetBody(v *StartProcessInstanceResponseBody) *StartProcessInstanceResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -1075,11 +1939,11 @@ func (client *Client) QueryFormInstanceWithOptions(request *QueryFormInstanceReq
 	return _result, _err
 }
 
-func (client *Client) QueryFormByBizType(request *QueryFormByBizTypeRequest) (_result *QueryFormByBizTypeResponse, _err error) {
+func (client *Client) ProcessForecast(request *ProcessForecastRequest) (_result *ProcessForecastResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryFormByBizTypeHeaders{}
-	_result = &QueryFormByBizTypeResponse{}
-	_body, _err := client.QueryFormByBizTypeWithOptions(request, headers, runtime)
+	headers := &ProcessForecastHeaders{}
+	_result = &ProcessForecastResponse{}
+	_body, _err := client.ProcessForecastWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1087,18 +1951,50 @@ func (client *Client) QueryFormByBizType(request *QueryFormByBizTypeRequest) (_r
 	return _result, _err
 }
 
-func (client *Client) QueryFormByBizTypeWithOptions(request *QueryFormByBizTypeRequest, headers *QueryFormByBizTypeHeaders, runtime *util.RuntimeOptions) (_result *QueryFormByBizTypeResponse, _err error) {
+func (client *Client) ProcessForecastWithOptions(request *ProcessForecastRequest, headers *ProcessForecastHeaders, runtime *util.RuntimeOptions) (_result *ProcessForecastResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.AppUuid)) {
-		body["appUuid"] = request.AppUuid
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.BizTypes)) {
-		body["bizTypes"] = request.BizTypes
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		body["RequestId"] = request.RequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormComponentValues)) {
+		body["formComponentValues"] = request.FormComponentValues
 	}
 
 	realHeaders := make(map[string]*string)
@@ -1114,8 +2010,8 @@ func (client *Client) QueryFormByBizTypeWithOptions(request *QueryFormByBizTypeR
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &QueryFormByBizTypeResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryFormByBizType"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/forms/forminfos/query"), tea.String("json"), req, runtime)
+	_result = &ProcessForecastResponse{}
+	_body, _err := client.DoROARequest(tea.String("ProcessForecast"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processes/forecast"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1236,6 +2132,154 @@ func (client *Client) QueryAllFormInstancesWithOptions(request *QueryAllFormInst
 	}
 	_result = &QueryAllFormInstancesResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryAllFormInstances"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/forms/pages/instances"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryFormByBizType(request *QueryFormByBizTypeRequest) (_result *QueryFormByBizTypeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryFormByBizTypeHeaders{}
+	_result = &QueryFormByBizTypeResponse{}
+	_body, _err := client.QueryFormByBizTypeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryFormByBizTypeWithOptions(request *QueryFormByBizTypeRequest, headers *QueryFormByBizTypeHeaders, runtime *util.RuntimeOptions) (_result *QueryFormByBizTypeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppUuid)) {
+		body["appUuid"] = request.AppUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizTypes)) {
+		body["bizTypes"] = request.BizTypes
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryFormByBizTypeResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryFormByBizType"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/forms/forminfos/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) StartProcessInstance(request *StartProcessInstanceRequest) (_result *StartProcessInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &StartProcessInstanceHeaders{}
+	_result = &StartProcessInstanceResponse{}
+	_body, _err := client.StartProcessInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) StartProcessInstanceWithOptions(request *StartProcessInstanceRequest, headers *StartProcessInstanceHeaders, runtime *util.RuntimeOptions) (_result *StartProcessInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OriginatorUserId)) {
+		body["originatorUserId"] = request.OriginatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MicroappAgentId)) {
+		body["microappAgentId"] = request.MicroappAgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Approvers)) {
+		body["approvers"] = request.Approvers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CcList)) {
+		body["ccList"] = request.CcList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CcPosition)) {
+		body["ccPosition"] = request.CcPosition
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetSelectActioners)) {
+		body["targetSelectActioners"] = request.TargetSelectActioners
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormComponentValues)) {
+		body["formComponentValues"] = request.FormComponentValues
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		body["RequestId"] = request.RequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &StartProcessInstanceResponse{}
+	_body, _err := client.DoROARequest(tea.String("StartProcessInstance"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processInstances"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
