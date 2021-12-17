@@ -6127,6 +6127,7 @@ func (s *QueryCrmPersonalCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *
 type QueryCrmPersonalCustomerRequest struct {
 	// 用户ID
 	CurrentOperatorUserId *string `json:"currentOperatorUserId,omitempty" xml:"currentOperatorUserId,omitempty"`
+	RelationType          *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 	// 分页页码
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 分页条数
@@ -6145,6 +6146,11 @@ func (s QueryCrmPersonalCustomerRequest) GoString() string {
 
 func (s *QueryCrmPersonalCustomerRequest) SetCurrentOperatorUserId(v string) *QueryCrmPersonalCustomerRequest {
 	s.CurrentOperatorUserId = &v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerRequest) SetRelationType(v string) *QueryCrmPersonalCustomerRequest {
+	s.RelationType = &v
 	return s
 }
 
@@ -8035,6 +8041,10 @@ func (client *Client) QueryCrmPersonalCustomerWithOptions(request *QueryCrmPerso
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CurrentOperatorUserId)) {
 		query["currentOperatorUserId"] = request.CurrentOperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		query["relationType"] = request.RelationType
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {

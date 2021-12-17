@@ -5197,11 +5197,11 @@ func (client *Client) SignInWithOptions(userId *string, calendarId *string, even
 	return _result, _err
 }
 
-func (client *Client) GetEvent(userId *string, calendarId *string, eventId *string) (_result *GetEventResponse, _err error) {
+func (client *Client) GetEvent(userId *string, calendarId *string, eventId *string, maxAttendees *string) (_result *GetEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetEventHeaders{}
 	_result = &GetEventResponse{}
-	_body, _err := client.GetEventWithOptions(userId, calendarId, eventId, headers, runtime)
+	_body, _err := client.GetEventWithOptions(userId, calendarId, eventId, maxAttendees, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5209,7 +5209,7 @@ func (client *Client) GetEvent(userId *string, calendarId *string, eventId *stri
 	return _result, _err
 }
 
-func (client *Client) GetEventWithOptions(userId *string, calendarId *string, eventId *string, headers *GetEventHeaders, runtime *util.RuntimeOptions) (_result *GetEventResponse, _err error) {
+func (client *Client) GetEventWithOptions(userId *string, calendarId *string, eventId *string, maxAttendees *string, headers *GetEventHeaders, runtime *util.RuntimeOptions) (_result *GetEventResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
