@@ -2400,6 +2400,150 @@ func (s *TakeTicketResponse) SetHeaders(v map[string]*string) *TakeTicketRespons
 	return s
 }
 
+type SetRobotConfigHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetRobotConfigHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRobotConfigHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetRobotConfigHeaders) SetCommonHeaders(v map[string]*string) *SetRobotConfigHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetRobotConfigHeaders) SetXAcsDingtalkAccessToken(v string) *SetRobotConfigHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetRobotConfigRequest struct {
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 群组开放ID
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 设置状态，0代表关闭,1代表开启
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s SetRobotConfigRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRobotConfigRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetRobotConfigRequest) SetDingTokenGrantType(v int64) *SetRobotConfigRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *SetRobotConfigRequest) SetDingIsvOrgId(v int64) *SetRobotConfigRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *SetRobotConfigRequest) SetDingSuiteKey(v string) *SetRobotConfigRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *SetRobotConfigRequest) SetDingOrgId(v int64) *SetRobotConfigRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *SetRobotConfigRequest) SetOpenTeamId(v string) *SetRobotConfigRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *SetRobotConfigRequest) SetOpenGroupSetId(v string) *SetRobotConfigRequest {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *SetRobotConfigRequest) SetStatus(v string) *SetRobotConfigRequest {
+	s.Status = &v
+	return s
+}
+
+type SetRobotConfigResponseBody struct {
+	Result *SetRobotConfigResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s SetRobotConfigResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRobotConfigResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetRobotConfigResponseBody) SetResult(v *SetRobotConfigResponseBodyResult) *SetRobotConfigResponseBody {
+	s.Result = v
+	return s
+}
+
+type SetRobotConfigResponseBodyResult struct {
+	// 业务Key
+	ConfigKey *string `json:"configKey,omitempty" xml:"configKey,omitempty"`
+	// 业务value
+	ConfigValue *string `json:"configValue,omitempty" xml:"configValue,omitempty"`
+}
+
+func (s SetRobotConfigResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRobotConfigResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SetRobotConfigResponseBodyResult) SetConfigKey(v string) *SetRobotConfigResponseBodyResult {
+	s.ConfigKey = &v
+	return s
+}
+
+func (s *SetRobotConfigResponseBodyResult) SetConfigValue(v string) *SetRobotConfigResponseBodyResult {
+	s.ConfigValue = &v
+	return s
+}
+
+type SetRobotConfigResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SetRobotConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SetRobotConfigResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRobotConfigResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetRobotConfigResponse) SetHeaders(v map[string]*string) *SetRobotConfigResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SetRobotConfigResponse) SetBody(v *SetRobotConfigResponseBody) *SetRobotConfigResponse {
+	s.Body = v
+	return s
+}
+
 type SendServiceGroupMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4560,9 +4704,9 @@ type AddOpenLibraryRequest struct {
 	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
 	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
 	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	// 团队ID
+	// 开放团队ID
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	// 用户ID
+	// 用户/员工ID
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	// 用户昵称或姓名
 	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
@@ -4640,7 +4784,7 @@ func (s *AddOpenLibraryRequest) SetSource(v string) *AddOpenLibraryRequest {
 }
 
 type AddOpenLibraryResponseBody struct {
-	// success
+	// 请求是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 	// 返回结果
 	Result *AddOpenLibraryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
@@ -4665,7 +4809,7 @@ func (s *AddOpenLibraryResponseBody) SetResult(v *AddOpenLibraryResponseBodyResu
 }
 
 type AddOpenLibraryResponseBodyResult struct {
-	// success
+	// 添加/修改知识库是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 	// 知识库ID
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
@@ -4896,15 +5040,15 @@ type AddOpenCategoryRequest struct {
 	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
 	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
 	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	// 团队ID
+	// 开放团队ID
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	// 用户ID
+	// 员工/用户ID
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	// 用户昵称或姓名
 	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 	// 类目标题
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 父类目ID
+	// 父类目ID(为0代表顶层id)
 	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
 	// 所属知识库ID
 	LibraryId *int64 `json:"libraryId,omitempty" xml:"libraryId,omitempty"`
@@ -4969,7 +5113,7 @@ func (s *AddOpenCategoryRequest) SetLibraryId(v int64) *AddOpenCategoryRequest {
 }
 
 type AddOpenCategoryResponseBody struct {
-	// success
+	// 请求是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 	// 返回结果
 	Result *AddOpenCategoryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
@@ -4994,7 +5138,7 @@ func (s *AddOpenCategoryResponseBody) SetResult(v *AddOpenCategoryResponseBodyRe
 }
 
 type AddOpenCategoryResponseBodyResult struct {
-	// success
+	// 操作是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 	// 添加成类目ID
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
@@ -5724,9 +5868,9 @@ type AddOpenKnowledgeRequest struct {
 	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
 	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
 	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	// 所属团队ID
+	// 开放团队ID
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	// 用户ID
+	// 用户/员工ID
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	// 用户昵称或姓名
 	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
@@ -5862,13 +6006,13 @@ func (s *AddOpenKnowledgeRequest) SetCategoryId(v int64) *AddOpenKnowledgeReques
 type AddOpenKnowledgeRequestAttachments struct {
 	// 附件名称
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 这个是附件URL
+	// 附件URL
 	Path *string `json:"path,omitempty" xml:"path,omitempty"`
 	// 附件大小
 	Size *float64 `json:"size,omitempty" xml:"size,omitempty"`
-	// 附件扩展名
+	// 扩展名
 	Suffix *string `json:"suffix,omitempty" xml:"suffix,omitempty"`
-	// 媒体类型
+	// 媒体类型(扩展名大写)
 	MimeType *string `json:"mimeType,omitempty" xml:"mimeType,omitempty"`
 }
 
@@ -5906,7 +6050,7 @@ func (s *AddOpenKnowledgeRequestAttachments) SetMimeType(v string) *AddOpenKnowl
 }
 
 type AddOpenKnowledgeResponseBody struct {
-	// success
+	// 请求是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 	// 返回结果
 	Result *AddOpenKnowledgeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
@@ -5931,7 +6075,7 @@ func (s *AddOpenKnowledgeResponseBody) SetResult(v *AddOpenKnowledgeResponseBody
 }
 
 type AddOpenKnowledgeResponseBodyResult struct {
-	// 操作标识
+	// 操作是否成功标识
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 	// 知识点ID
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
@@ -7273,6 +7417,74 @@ func (client *Client) TakeTicketWithOptions(request *TakeTicketRequest, headers 
 	}
 	_result = &TakeTicketResponse{}
 	_body, _err := client.DoROARequest(tea.String("TakeTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets/apply"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SetRobotConfig(request *SetRobotConfigRequest) (_result *SetRobotConfigResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetRobotConfigHeaders{}
+	_result = &SetRobotConfigResponse{}
+	_body, _err := client.SetRobotConfigWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SetRobotConfigWithOptions(request *SetRobotConfigRequest, headers *SetRobotConfigHeaders, runtime *util.RuntimeOptions) (_result *SetRobotConfigResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
+		body["openGroupSetId"] = request.OpenGroupSetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SetRobotConfigResponse{}
+	_body, _err := client.DoROARequest(tea.String("SetRobotConfig"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/configs/set"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -355,6 +355,8 @@ type CreateBadgeCodeUserInstanceRequest struct {
 	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
 	// 码值
 	CodeValue *string `json:"codeValue,omitempty" xml:"codeValue,omitempty"`
+	// 码值类型，钉钉静态码值：DING_STATIC，访客码或会展码传入
+	CodeValueType *string `json:"codeValueType,omitempty" xml:"codeValueType,omitempty"`
 	// 状态，传入关闭状态需要用户手动开启后才会渲染二维
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// 企业ID
@@ -393,6 +395,11 @@ func (s *CreateBadgeCodeUserInstanceRequest) SetCodeIdentity(v string) *CreateBa
 
 func (s *CreateBadgeCodeUserInstanceRequest) SetCodeValue(v string) *CreateBadgeCodeUserInstanceRequest {
 	s.CodeValue = &v
+	return s
+}
+
+func (s *CreateBadgeCodeUserInstanceRequest) SetCodeValueType(v string) *CreateBadgeCodeUserInstanceRequest {
+	s.CodeValueType = &v
 	return s
 }
 
@@ -469,6 +476,8 @@ func (s *CreateBadgeCodeUserInstanceRequestAvailableTimes) SetGmtEnd(v string) *
 type CreateBadgeCodeUserInstanceResponseBody struct {
 	// 码ID
 	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
+	// 码详情跳转地址
+	CodeDetailUrl *string `json:"codeDetailUrl,omitempty" xml:"codeDetailUrl,omitempty"`
 }
 
 func (s CreateBadgeCodeUserInstanceResponseBody) String() string {
@@ -481,6 +490,11 @@ func (s CreateBadgeCodeUserInstanceResponseBody) GoString() string {
 
 func (s *CreateBadgeCodeUserInstanceResponseBody) SetCodeId(v string) *CreateBadgeCodeUserInstanceResponseBody {
 	s.CodeId = &v
+	return s
+}
+
+func (s *CreateBadgeCodeUserInstanceResponseBody) SetCodeDetailUrl(v string) *CreateBadgeCodeUserInstanceResponseBody {
+	s.CodeDetailUrl = &v
 	return s
 }
 
@@ -1693,6 +1707,10 @@ func (client *Client) CreateBadgeCodeUserInstanceWithOptions(request *CreateBadg
 
 	if !tea.BoolValue(util.IsUnset(request.CodeValue)) {
 		body["codeValue"] = request.CodeValue
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CodeValueType)) {
+		body["codeValueType"] = request.CodeValueType
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Status)) {

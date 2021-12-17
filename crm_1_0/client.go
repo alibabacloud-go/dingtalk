@@ -5578,6 +5578,381 @@ func (s *AbandonCustomerResponse) SetBody(v *AbandonCustomerResponseBody) *Aband
 	return s
 }
 
+type SendOfficialAccountSNSMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendOfficialAccountSNSMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountSNSMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountSNSMessageHeaders) SetCommonHeaders(v map[string]*string) *SendOfficialAccountSNSMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendOfficialAccountSNSMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendOfficialAccountSNSMessageRequest struct {
+	// 消息详情
+	Detail *SendOfficialAccountSNSMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
+	// API调用标识，可选参数
+	BizId              *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingClientId       *string `json:"dingClientId,omitempty" xml:"dingClientId,omitempty"`
+	BindingToken       *string `json:"bindingToken,omitempty" xml:"bindingToken,omitempty"`
+	DingUid            *int64  `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
+	DingOpenAppOrgId   *int64  `json:"dingOpenAppOrgId,omitempty" xml:"dingOpenAppOrgId,omitempty"`
+}
+
+func (s SendOfficialAccountSNSMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountSNSMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountSNSMessageRequest) SetDetail(v *SendOfficialAccountSNSMessageRequestDetail) *SendOfficialAccountSNSMessageRequest {
+	s.Detail = v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequest) SetBizId(v string) *SendOfficialAccountSNSMessageRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequest) SetDingTokenGrantType(v int64) *SendOfficialAccountSNSMessageRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequest) SetDingClientId(v string) *SendOfficialAccountSNSMessageRequest {
+	s.DingClientId = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequest) SetBindingToken(v string) *SendOfficialAccountSNSMessageRequest {
+	s.BindingToken = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequest) SetDingUid(v int64) *SendOfficialAccountSNSMessageRequest {
+	s.DingUid = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequest) SetDingOpenAppOrgId(v int64) *SendOfficialAccountSNSMessageRequest {
+	s.DingOpenAppOrgId = &v
+	return s
+}
+
+type SendOfficialAccountSNSMessageRequestDetail struct {
+	// 消息类型
+	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
+	// 请求唯一 ID
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// 消息体
+	MessageBody *SendOfficialAccountSNSMessageRequestDetailMessageBody `json:"messageBody,omitempty" xml:"messageBody,omitempty" type:"Struct"`
+}
+
+func (s SendOfficialAccountSNSMessageRequestDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountSNSMessageRequestDetail) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetail) SetMsgType(v string) *SendOfficialAccountSNSMessageRequestDetail {
+	s.MsgType = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetail) SetUuid(v string) *SendOfficialAccountSNSMessageRequestDetail {
+	s.Uuid = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetail) SetMessageBody(v *SendOfficialAccountSNSMessageRequestDetailMessageBody) *SendOfficialAccountSNSMessageRequestDetail {
+	s.MessageBody = v
+	return s
+}
+
+type SendOfficialAccountSNSMessageRequestDetailMessageBody struct {
+	// 文本消息体  对于文本类型消息时必填
+	Text *SendOfficialAccountSNSMessageRequestDetailMessageBodyText `json:"text,omitempty" xml:"text,omitempty" type:"Struct"`
+	// markdown消息，仅对消息类型为markdown时有效
+	Markdown *SendOfficialAccountSNSMessageRequestDetailMessageBodyMarkdown `json:"markdown,omitempty" xml:"markdown,omitempty" type:"Struct"`
+	// 链接消息类型
+	Link *SendOfficialAccountSNSMessageRequestDetailMessageBodyLink `json:"link,omitempty" xml:"link,omitempty" type:"Struct"`
+	// 卡片消息
+	ActionCard *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCard `json:"actionCard,omitempty" xml:"actionCard,omitempty" type:"Struct"`
+}
+
+func (s SendOfficialAccountSNSMessageRequestDetailMessageBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountSNSMessageRequestDetailMessageBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBody) SetText(v *SendOfficialAccountSNSMessageRequestDetailMessageBodyText) *SendOfficialAccountSNSMessageRequestDetailMessageBody {
+	s.Text = v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBody) SetMarkdown(v *SendOfficialAccountSNSMessageRequestDetailMessageBodyMarkdown) *SendOfficialAccountSNSMessageRequestDetailMessageBody {
+	s.Markdown = v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBody) SetLink(v *SendOfficialAccountSNSMessageRequestDetailMessageBodyLink) *SendOfficialAccountSNSMessageRequestDetailMessageBody {
+	s.Link = v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBody) SetActionCard(v *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCard) *SendOfficialAccountSNSMessageRequestDetailMessageBody {
+	s.ActionCard = v
+	return s
+}
+
+type SendOfficialAccountSNSMessageRequestDetailMessageBodyText struct {
+	// 消息内容，建议500字符以内。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s SendOfficialAccountSNSMessageRequestDetailMessageBodyText) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountSNSMessageRequestDetailMessageBodyText) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBodyText) SetContent(v string) *SendOfficialAccountSNSMessageRequestDetailMessageBodyText {
+	s.Content = &v
+	return s
+}
+
+type SendOfficialAccountSNSMessageRequestDetailMessageBodyMarkdown struct {
+	// 首屏会话透出的展示内容。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// markdown格式的消息，建议500字符以内。
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s SendOfficialAccountSNSMessageRequestDetailMessageBodyMarkdown) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountSNSMessageRequestDetailMessageBodyMarkdown) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBodyMarkdown) SetTitle(v string) *SendOfficialAccountSNSMessageRequestDetailMessageBodyMarkdown {
+	s.Title = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBodyMarkdown) SetText(v string) *SendOfficialAccountSNSMessageRequestDetailMessageBodyMarkdown {
+	s.Text = &v
+	return s
+}
+
+type SendOfficialAccountSNSMessageRequestDetailMessageBodyLink struct {
+	// 图片地址
+	PicUrl *string `json:"picUrl,omitempty" xml:"picUrl,omitempty"`
+	// 消息点击链接地址，当发送消息为小程序时支持小程序跳转链接。
+	MessageUrl *string `json:"messageUrl,omitempty" xml:"messageUrl,omitempty"`
+	// 消息标题，建议100字符以内。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 消息描述，建议500字符以内。
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s SendOfficialAccountSNSMessageRequestDetailMessageBodyLink) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountSNSMessageRequestDetailMessageBodyLink) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBodyLink) SetPicUrl(v string) *SendOfficialAccountSNSMessageRequestDetailMessageBodyLink {
+	s.PicUrl = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBodyLink) SetMessageUrl(v string) *SendOfficialAccountSNSMessageRequestDetailMessageBodyLink {
+	s.MessageUrl = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBodyLink) SetTitle(v string) *SendOfficialAccountSNSMessageRequestDetailMessageBodyLink {
+	s.Title = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBodyLink) SetText(v string) *SendOfficialAccountSNSMessageRequestDetailMessageBodyLink {
+	s.Text = &v
+	return s
+}
+
+type SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCard struct {
+	// 按钮排列方式： 0：竖直排列 1：横向排列 必须与buttonList同时设置。
+	ButtonOrientation *string `json:"buttonOrientation,omitempty" xml:"buttonOrientation,omitempty"`
+	// 消息点击链接地址，当发送消息为小程序时支持小程序跳转链接，最长500个字符。
+	SingleUrl *string `json:"singleUrl,omitempty" xml:"singleUrl,omitempty"`
+	// 使用整体跳转ActionCard样式时的标题。必须与singleUrl同时设置，最长20个字符。
+	SingleTitle *string `json:"singleTitle,omitempty" xml:"singleTitle,omitempty"`
+	// 消息内容，支持markdown，语法参考标准markdown语法。1000个字符以内。
+	Markdown *string `json:"markdown,omitempty" xml:"markdown,omitempty"`
+	// 透出到会话列表和通知的文案
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 使用独立跳转ActionCard样式时的按钮列表；必须与buttonOrientation同时设置，且长度不超过1000字符。
+	ButtonList []*SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCardButtonList `json:"buttonList,omitempty" xml:"buttonList,omitempty" type:"Repeated"`
+}
+
+func (s SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCard) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCard) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCard) SetButtonOrientation(v string) *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCard {
+	s.ButtonOrientation = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCard) SetSingleUrl(v string) *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCard {
+	s.SingleUrl = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCard) SetSingleTitle(v string) *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCard {
+	s.SingleTitle = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCard) SetMarkdown(v string) *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCard {
+	s.Markdown = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCard) SetTitle(v string) *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCard {
+	s.Title = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCard) SetButtonList(v []*SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCardButtonList) *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCard {
+	s.ButtonList = v
+	return s
+}
+
+type SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCardButtonList struct {
+	// 使用独立跳转ActionCard样式时的按钮的标题，最长20个字符。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 使用独立跳转ActionCard样式时的跳转链接。
+	ActionUrl *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
+}
+
+func (s SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCardButtonList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCardButtonList) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCardButtonList) SetTitle(v string) *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCardButtonList {
+	s.Title = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCardButtonList) SetActionUrl(v string) *SendOfficialAccountSNSMessageRequestDetailMessageBodyActionCardButtonList {
+	s.ActionUrl = &v
+	return s
+}
+
+type SendOfficialAccountSNSMessageResponseBody struct {
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// 推送结果
+	Result *SendOfficialAccountSNSMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s SendOfficialAccountSNSMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountSNSMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountSNSMessageResponseBody) SetRequestId(v string) *SendOfficialAccountSNSMessageResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageResponseBody) SetResult(v *SendOfficialAccountSNSMessageResponseBodyResult) *SendOfficialAccountSNSMessageResponseBody {
+	s.Result = v
+	return s
+}
+
+type SendOfficialAccountSNSMessageResponseBodyResult struct {
+	// 推送ID
+	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
+}
+
+func (s SendOfficialAccountSNSMessageResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountSNSMessageResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountSNSMessageResponseBodyResult) SetOpenPushId(v string) *SendOfficialAccountSNSMessageResponseBodyResult {
+	s.OpenPushId = &v
+	return s
+}
+
+type SendOfficialAccountSNSMessageResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SendOfficialAccountSNSMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendOfficialAccountSNSMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountSNSMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountSNSMessageResponse) SetHeaders(v map[string]*string) *SendOfficialAccountSNSMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendOfficialAccountSNSMessageResponse) SetBody(v *SendOfficialAccountSNSMessageResponseBody) *SendOfficialAccountSNSMessageResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateCrmPersonalCustomerHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7493,6 +7868,74 @@ func (client *Client) AbandonCustomerWithOptions(request *AbandonCustomerRequest
 	}
 	_result = &AbandonCustomerResponse{}
 	_body, _err := client.DoROARequest(tea.String("AbandonCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/customers/abandon"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendOfficialAccountSNSMessage(request *SendOfficialAccountSNSMessageRequest) (_result *SendOfficialAccountSNSMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendOfficialAccountSNSMessageHeaders{}
+	_result = &SendOfficialAccountSNSMessageResponse{}
+	_body, _err := client.SendOfficialAccountSNSMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendOfficialAccountSNSMessageWithOptions(request *SendOfficialAccountSNSMessageRequest, headers *SendOfficialAccountSNSMessageHeaders, runtime *util.RuntimeOptions) (_result *SendOfficialAccountSNSMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Detail))) {
+		body["detail"] = request.Detail
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingClientId)) {
+		body["dingClientId"] = request.DingClientId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BindingToken)) {
+		body["bindingToken"] = request.BindingToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingUid)) {
+		body["dingUid"] = request.DingUid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOpenAppOrgId)) {
+		body["dingOpenAppOrgId"] = request.DingOpenAppOrgId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendOfficialAccountSNSMessageResponse{}
+	_body, _err := client.DoROARequest(tea.String("SendOfficialAccountSNSMessage"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/officialAccounts/snsMessages/send"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
