@@ -798,6 +798,88 @@ func (s *FinishBeginnerTaskResponse) SetBody(v *FinishBeginnerTaskResponseBody) 
 	return s
 }
 
+type ConfirmRightsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ConfirmRightsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConfirmRightsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ConfirmRightsHeaders) SetCommonHeaders(v map[string]*string) *ConfirmRightsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ConfirmRightsHeaders) SetXAcsDingtalkAccessToken(v string) *ConfirmRightsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ConfirmRightsRequest struct {
+	// 业务标识
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+}
+
+func (s ConfirmRightsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConfirmRightsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ConfirmRightsRequest) SetBizCode(v string) *ConfirmRightsRequest {
+	s.BizCode = &v
+	return s
+}
+
+type ConfirmRightsResponseBody struct {
+	// 结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s ConfirmRightsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConfirmRightsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ConfirmRightsResponseBody) SetResult(v bool) *ConfirmRightsResponseBody {
+	s.Result = &v
+	return s
+}
+
+type ConfirmRightsResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ConfirmRightsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ConfirmRightsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConfirmRightsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ConfirmRightsResponse) SetHeaders(v map[string]*string) *ConfirmRightsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ConfirmRightsResponse) SetBody(v *ConfirmRightsResponseBody) *ConfirmRightsResponse {
+	s.Body = v
+	return s
+}
+
 type GetApplicationRegFormByFlowIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1763,6 +1845,50 @@ func (client *Client) FinishBeginnerTaskWithOptions(taskCode *string, request *F
 	}
 	_result = &FinishBeginnerTaskResponse{}
 	_body, _err := client.DoROARequest(tea.String("FinishBeginnerTask"), tea.String("ats_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/ats/beginnerTasks/"+tea.StringValue(taskCode)+"/finish"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ConfirmRights(rightsCode *string, request *ConfirmRightsRequest) (_result *ConfirmRightsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ConfirmRightsHeaders{}
+	_result = &ConfirmRightsResponse{}
+	_body, _err := client.ConfirmRightsWithOptions(rightsCode, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ConfirmRightsWithOptions(rightsCode *string, request *ConfirmRightsRequest, headers *ConfirmRightsHeaders, runtime *util.RuntimeOptions) (_result *ConfirmRightsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		query["bizCode"] = request.BizCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ConfirmRightsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ConfirmRights"), tea.String("ats_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/ats/rights/"+tea.StringValue(rightsCode)+"/confirm"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

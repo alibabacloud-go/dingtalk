@@ -11,6 +11,354 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type GetPropertyInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPropertyInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPropertyInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPropertyInfoHeaders) SetCommonHeaders(v map[string]*string) *GetPropertyInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPropertyInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetPropertyInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPropertyInfoRequest struct {
+	// dingCropId
+	PropertyCorpId *string `json:"propertyCorpId,omitempty" xml:"propertyCorpId,omitempty"`
+}
+
+func (s GetPropertyInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPropertyInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPropertyInfoRequest) SetPropertyCorpId(v string) *GetPropertyInfoRequest {
+	s.PropertyCorpId = &v
+	return s
+}
+
+type GetPropertyInfoResponseBody struct {
+	Name                *string `json:"name,omitempty" xml:"name,omitempty"`
+	OrgId               *int64  `json:"orgId,omitempty" xml:"orgId,omitempty"`
+	AdminName           *string `json:"adminName,omitempty" xml:"adminName,omitempty"`
+	AdminUserId         *string `json:"adminUserId,omitempty" xml:"adminUserId,omitempty"`
+	UnifiedSocialCredit *string `json:"unifiedSocialCredit,omitempty" xml:"unifiedSocialCredit,omitempty"`
+}
+
+func (s GetPropertyInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPropertyInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPropertyInfoResponseBody) SetName(v string) *GetPropertyInfoResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *GetPropertyInfoResponseBody) SetOrgId(v int64) *GetPropertyInfoResponseBody {
+	s.OrgId = &v
+	return s
+}
+
+func (s *GetPropertyInfoResponseBody) SetAdminName(v string) *GetPropertyInfoResponseBody {
+	s.AdminName = &v
+	return s
+}
+
+func (s *GetPropertyInfoResponseBody) SetAdminUserId(v string) *GetPropertyInfoResponseBody {
+	s.AdminUserId = &v
+	return s
+}
+
+func (s *GetPropertyInfoResponseBody) SetUnifiedSocialCredit(v string) *GetPropertyInfoResponseBody {
+	s.UnifiedSocialCredit = &v
+	return s
+}
+
+type GetPropertyInfoResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetPropertyInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetPropertyInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPropertyInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPropertyInfoResponse) SetHeaders(v map[string]*string) *GetPropertyInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPropertyInfoResponse) SetBody(v *GetPropertyInfoResponseBody) *GetPropertyInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetSpaceIdByTypeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSpaceIdByTypeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpaceIdByTypeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpaceIdByTypeHeaders) SetCommonHeaders(v map[string]*string) *GetSpaceIdByTypeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSpaceIdByTypeHeaders) SetXAcsDingtalkAccessToken(v string) *GetSpaceIdByTypeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSpaceIdByTypeRequest struct {
+	// 部门类型
+	DepartmentType *string `json:"departmentType,omitempty" xml:"departmentType,omitempty"`
+}
+
+func (s GetSpaceIdByTypeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpaceIdByTypeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpaceIdByTypeRequest) SetDepartmentType(v string) *GetSpaceIdByTypeRequest {
+	s.DepartmentType = &v
+	return s
+}
+
+type GetSpaceIdByTypeResponseBody struct {
+	// 部门id
+	ReferId *int64 `json:"referId,omitempty" xml:"referId,omitempty"`
+}
+
+func (s GetSpaceIdByTypeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpaceIdByTypeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpaceIdByTypeResponseBody) SetReferId(v int64) *GetSpaceIdByTypeResponseBody {
+	s.ReferId = &v
+	return s
+}
+
+type GetSpaceIdByTypeResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetSpaceIdByTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSpaceIdByTypeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpaceIdByTypeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpaceIdByTypeResponse) SetHeaders(v map[string]*string) *GetSpaceIdByTypeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSpaceIdByTypeResponse) SetBody(v *GetSpaceIdByTypeResponseBody) *GetSpaceIdByTypeResponse {
+	s.Body = v
+	return s
+}
+
+type ListSubSpaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListSubSpaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListSubSpaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListSubSpaceHeaders) SetCommonHeaders(v map[string]*string) *ListSubSpaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListSubSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *ListSubSpaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListSubSpaceRequest struct {
+	// A short description of struct
+	ResidentCorpId *string `json:"residentCorpId,omitempty" xml:"residentCorpId,omitempty"`
+	ReferId        *int64  `json:"referId,omitempty" xml:"referId,omitempty"`
+}
+
+func (s ListSubSpaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListSubSpaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListSubSpaceRequest) SetResidentCorpId(v string) *ListSubSpaceRequest {
+	s.ResidentCorpId = &v
+	return s
+}
+
+func (s *ListSubSpaceRequest) SetReferId(v int64) *ListSubSpaceRequest {
+	s.ReferId = &v
+	return s
+}
+
+type ListSubSpaceResponseBody struct {
+	// result
+	SpaceList []*ListSubSpaceResponseBodySpaceList `json:"spaceList,omitempty" xml:"spaceList,omitempty" type:"Repeated"`
+}
+
+func (s ListSubSpaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListSubSpaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListSubSpaceResponseBody) SetSpaceList(v []*ListSubSpaceResponseBodySpaceList) *ListSubSpaceResponseBody {
+	s.SpaceList = v
+	return s
+}
+
+type ListSubSpaceResponseBodySpaceList struct {
+	ReferId   *int64  `json:"referId,omitempty" xml:"referId,omitempty"`
+	SpaceName *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	TagCode   *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	// 空间类型为楼时，1高层/2低层/3别墅/4其他，空间类型为房屋是，1住宅/2公寓/3排屋/4洋房/5叠墅/6别墅/7商铺/8办公用房/9经营用房/10其他
+	Type         *string  `json:"type,omitempty" xml:"type,omitempty"`
+	Floor        *string  `json:"floor,omitempty" xml:"floor,omitempty"`
+	IsVirtual    *int32   `json:"isVirtual,omitempty" xml:"isVirtual,omitempty"`
+	BillingArea  *float32 `json:"billingArea,omitempty" xml:"billingArea,omitempty"`
+	BuildingArea *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
+	// 房屋状态：0空置/1未领/2入住/3空关/4装修
+	HouseState    *int32 `json:"houseState,omitempty" xml:"houseState,omitempty"`
+	ParentReferId *int64 `json:"parentReferId,omitempty" xml:"parentReferId,omitempty"`
+}
+
+func (s ListSubSpaceResponseBodySpaceList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListSubSpaceResponseBodySpaceList) GoString() string {
+	return s.String()
+}
+
+func (s *ListSubSpaceResponseBodySpaceList) SetReferId(v int64) *ListSubSpaceResponseBodySpaceList {
+	s.ReferId = &v
+	return s
+}
+
+func (s *ListSubSpaceResponseBodySpaceList) SetSpaceName(v string) *ListSubSpaceResponseBodySpaceList {
+	s.SpaceName = &v
+	return s
+}
+
+func (s *ListSubSpaceResponseBodySpaceList) SetTagCode(v string) *ListSubSpaceResponseBodySpaceList {
+	s.TagCode = &v
+	return s
+}
+
+func (s *ListSubSpaceResponseBodySpaceList) SetType(v string) *ListSubSpaceResponseBodySpaceList {
+	s.Type = &v
+	return s
+}
+
+func (s *ListSubSpaceResponseBodySpaceList) SetFloor(v string) *ListSubSpaceResponseBodySpaceList {
+	s.Floor = &v
+	return s
+}
+
+func (s *ListSubSpaceResponseBodySpaceList) SetIsVirtual(v int32) *ListSubSpaceResponseBodySpaceList {
+	s.IsVirtual = &v
+	return s
+}
+
+func (s *ListSubSpaceResponseBodySpaceList) SetBillingArea(v float32) *ListSubSpaceResponseBodySpaceList {
+	s.BillingArea = &v
+	return s
+}
+
+func (s *ListSubSpaceResponseBodySpaceList) SetBuildingArea(v float32) *ListSubSpaceResponseBodySpaceList {
+	s.BuildingArea = &v
+	return s
+}
+
+func (s *ListSubSpaceResponseBodySpaceList) SetHouseState(v int32) *ListSubSpaceResponseBodySpaceList {
+	s.HouseState = &v
+	return s
+}
+
+func (s *ListSubSpaceResponseBodySpaceList) SetParentReferId(v int64) *ListSubSpaceResponseBodySpaceList {
+	s.ParentReferId = &v
+	return s
+}
+
+type ListSubSpaceResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListSubSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListSubSpaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListSubSpaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListSubSpaceResponse) SetHeaders(v map[string]*string) *ListSubSpaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListSubSpaceResponse) SetBody(v *ListSubSpaceResponseBody) *ListSubSpaceResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateResideceGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -103,6 +451,1002 @@ func (s *UpdateResideceGroupResponse) SetHeaders(v map[string]*string) *UpdateRe
 }
 
 func (s *UpdateResideceGroupResponse) SetBody(v *UpdateResideceGroupResponseBody) *UpdateResideceGroupResponse {
+	s.Body = v
+	return s
+}
+
+type GetResidentInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetResidentInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetResidentInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetResidentInfoHeaders) SetCommonHeaders(v map[string]*string) *GetResidentInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetResidentInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetResidentInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetResidentInfoRequest struct {
+	ResidentCorpId *string `json:"residentCorpId,omitempty" xml:"residentCorpId,omitempty"`
+}
+
+func (s GetResidentInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetResidentInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetResidentInfoRequest) SetResidentCorpId(v string) *GetResidentInfoRequest {
+	s.ResidentCorpId = &v
+	return s
+}
+
+type GetResidentInfoResponseBody struct {
+	// 1纯住宅；2:商住混合；3:办公；4:办公商业混合；5:商业；6:公共场所；7:其他
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	// 经纬度，格式：经度,纬度
+	Location *string `json:"location,omitempty" xml:"location,omitempty"`
+	// 小区地址
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// 小区归属的省的id
+	ProvId       *int64   `json:"provId,omitempty" xml:"provId,omitempty"`
+	BuildingArea *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
+	// 小区名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 物业电话
+	Telephone *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
+	// 交付时间
+	DeliveryTime *int64 `json:"deliveryTime,omitempty" xml:"deliveryTime,omitempty"`
+	// 通信录模式:0标准/1自定义
+	ContactMode *int32 `json:"contactMode,omitempty" xml:"contactMode,omitempty"`
+	// 物业管理范围-东
+	ScopeEast *string `json:"scopeEast,omitempty" xml:"scopeEast,omitempty"`
+	// 物业管理范围-西
+	ScopeWest *string `json:"scopeWest,omitempty" xml:"scopeWest,omitempty"`
+	// 物业管理范围-南
+	ScopeSouth *string `json:"scopeSouth,omitempty" xml:"scopeSouth,omitempty"`
+	// 物业管理范围-北
+	ScopeNorth *string `json:"scopeNorth,omitempty" xml:"scopeNorth,omitempty"`
+	// 小区归属的市的id
+	CityId *int32 `json:"cityId,omitempty" xml:"cityId,omitempty"`
+	// 小区归属的区/县的id
+	CountyId *int32 `json:"countyId,omitempty" xml:"countyId,omitempty"`
+	// 小区归属的街道/镇的id
+	TownId         *int32                                     `json:"townId,omitempty" xml:"townId,omitempty"`
+	ProjectManager *GetResidentInfoResponseBodyProjectManager `json:"projectManager,omitempty" xml:"projectManager,omitempty" type:"Struct"`
+}
+
+func (s GetResidentInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetResidentInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetResidentInfoResponseBody) SetType(v int32) *GetResidentInfoResponseBody {
+	s.Type = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetLocation(v string) *GetResidentInfoResponseBody {
+	s.Location = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetAddress(v string) *GetResidentInfoResponseBody {
+	s.Address = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetProvId(v int64) *GetResidentInfoResponseBody {
+	s.ProvId = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetBuildingArea(v float32) *GetResidentInfoResponseBody {
+	s.BuildingArea = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetName(v string) *GetResidentInfoResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetTelephone(v string) *GetResidentInfoResponseBody {
+	s.Telephone = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetDeliveryTime(v int64) *GetResidentInfoResponseBody {
+	s.DeliveryTime = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetContactMode(v int32) *GetResidentInfoResponseBody {
+	s.ContactMode = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetScopeEast(v string) *GetResidentInfoResponseBody {
+	s.ScopeEast = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetScopeWest(v string) *GetResidentInfoResponseBody {
+	s.ScopeWest = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetScopeSouth(v string) *GetResidentInfoResponseBody {
+	s.ScopeSouth = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetScopeNorth(v string) *GetResidentInfoResponseBody {
+	s.ScopeNorth = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetCityId(v int32) *GetResidentInfoResponseBody {
+	s.CityId = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetCountyId(v int32) *GetResidentInfoResponseBody {
+	s.CountyId = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetTownId(v int32) *GetResidentInfoResponseBody {
+	s.TownId = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetProjectManager(v *GetResidentInfoResponseBodyProjectManager) *GetResidentInfoResponseBody {
+	s.ProjectManager = v
+	return s
+}
+
+type GetResidentInfoResponseBodyProjectManager struct {
+	// 人员唯一标识
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 姓名
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// 头像
+	Avatar *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
+}
+
+func (s GetResidentInfoResponseBodyProjectManager) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetResidentInfoResponseBodyProjectManager) GoString() string {
+	return s.String()
+}
+
+func (s *GetResidentInfoResponseBodyProjectManager) SetUserId(v string) *GetResidentInfoResponseBodyProjectManager {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBodyProjectManager) SetUserName(v string) *GetResidentInfoResponseBodyProjectManager {
+	s.UserName = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBodyProjectManager) SetAvatar(v string) *GetResidentInfoResponseBodyProjectManager {
+	s.Avatar = &v
+	return s
+}
+
+type GetResidentInfoResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetResidentInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetResidentInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetResidentInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetResidentInfoResponse) SetHeaders(v map[string]*string) *GetResidentInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetResidentInfoResponse) SetBody(v *GetResidentInfoResponseBody) *GetResidentInfoResponse {
+	s.Body = v
+	return s
+}
+
+type SearchResidentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchResidentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchResidentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchResidentHeaders) SetCommonHeaders(v map[string]*string) *SearchResidentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchResidentHeaders) SetXAcsDingtalkAccessToken(v string) *SearchResidentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchResidentRequest struct {
+	ResidentCropId *string `json:"residentCropId,omitempty" xml:"residentCropId,omitempty"`
+	SearchWord     *string `json:"searchWord,omitempty" xml:"searchWord,omitempty"`
+}
+
+func (s SearchResidentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchResidentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchResidentRequest) SetResidentCropId(v string) *SearchResidentRequest {
+	s.ResidentCropId = &v
+	return s
+}
+
+func (s *SearchResidentRequest) SetSearchWord(v string) *SearchResidentRequest {
+	s.SearchWord = &v
+	return s
+}
+
+type SearchResidentResponseBody struct {
+	// result
+	ResidenceList []*SearchResidentResponseBodyResidenceList `json:"residenceList,omitempty" xml:"residenceList,omitempty" type:"Repeated"`
+}
+
+func (s SearchResidentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchResidentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchResidentResponseBody) SetResidenceList(v []*SearchResidentResponseBodyResidenceList) *SearchResidentResponseBody {
+	s.ResidenceList = v
+	return s
+}
+
+type SearchResidentResponseBodyResidenceList struct {
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 业主/租客/亲友等
+	RelateType *string `json:"relateType,omitempty" xml:"relateType,omitempty"`
+	// 是否是产权人
+	IsPropertyOwner *bool `json:"isPropertyOwner,omitempty" xml:"isPropertyOwner,omitempty"`
+	// 是否激活
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+	// 扩展字段，如果是租客存起止时间
+	ExtField *string `json:"extField,omitempty" xml:"extField,omitempty"`
+}
+
+func (s SearchResidentResponseBodyResidenceList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchResidentResponseBodyResidenceList) GoString() string {
+	return s.String()
+}
+
+func (s *SearchResidentResponseBodyResidenceList) SetName(v string) *SearchResidentResponseBodyResidenceList {
+	s.Name = &v
+	return s
+}
+
+func (s *SearchResidentResponseBodyResidenceList) SetRelateType(v string) *SearchResidentResponseBodyResidenceList {
+	s.RelateType = &v
+	return s
+}
+
+func (s *SearchResidentResponseBodyResidenceList) SetIsPropertyOwner(v bool) *SearchResidentResponseBodyResidenceList {
+	s.IsPropertyOwner = &v
+	return s
+}
+
+func (s *SearchResidentResponseBodyResidenceList) SetActive(v bool) *SearchResidentResponseBodyResidenceList {
+	s.Active = &v
+	return s
+}
+
+func (s *SearchResidentResponseBodyResidenceList) SetExtField(v string) *SearchResidentResponseBodyResidenceList {
+	s.ExtField = &v
+	return s
+}
+
+type SearchResidentResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchResidentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchResidentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchResidentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchResidentResponse) SetHeaders(v map[string]*string) *SearchResidentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchResidentResponse) SetBody(v *SearchResidentResponseBody) *SearchResidentResponse {
+	s.Body = v
+	return s
+}
+
+type AddResidentDepartmentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddResidentDepartmentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddResidentDepartmentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddResidentDepartmentHeaders) SetCommonHeaders(v map[string]*string) *AddResidentDepartmentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddResidentDepartmentHeaders) SetXAcsDingtalkAccessToken(v string) *AddResidentDepartmentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddResidentDepartmentRequest struct {
+	// 是否为组
+	IsResidenceGroup *bool `json:"isResidenceGroup,omitempty" xml:"isResidenceGroup,omitempty"`
+	// 部门名字
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// 父部门id
+	ParentDepartmentId *int64 `json:"parentDepartmentId,omitempty" xml:"parentDepartmentId,omitempty"`
+}
+
+func (s AddResidentDepartmentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddResidentDepartmentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddResidentDepartmentRequest) SetIsResidenceGroup(v bool) *AddResidentDepartmentRequest {
+	s.IsResidenceGroup = &v
+	return s
+}
+
+func (s *AddResidentDepartmentRequest) SetDepartmentName(v string) *AddResidentDepartmentRequest {
+	s.DepartmentName = &v
+	return s
+}
+
+func (s *AddResidentDepartmentRequest) SetParentDepartmentId(v int64) *AddResidentDepartmentRequest {
+	s.ParentDepartmentId = &v
+	return s
+}
+
+type AddResidentDepartmentResponseBody struct {
+	// 创建成功的deptId
+	Result *int64 `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s AddResidentDepartmentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddResidentDepartmentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddResidentDepartmentResponseBody) SetResult(v int64) *AddResidentDepartmentResponseBody {
+	s.Result = &v
+	return s
+}
+
+type AddResidentDepartmentResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddResidentDepartmentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddResidentDepartmentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddResidentDepartmentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddResidentDepartmentResponse) SetHeaders(v map[string]*string) *AddResidentDepartmentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddResidentDepartmentResponse) SetBody(v *AddResidentDepartmentResponseBody) *AddResidentDepartmentResponse {
+	s.Body = v
+	return s
+}
+
+type PagePointHistoryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PagePointHistoryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagePointHistoryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PagePointHistoryHeaders) SetCommonHeaders(v map[string]*string) *PagePointHistoryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PagePointHistoryHeaders) SetXAcsDingtalkAccessToken(v string) *PagePointHistoryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PagePointHistoryRequest struct {
+	// 是否查询全员圈积分
+	IsCircle *bool `json:"isCircle,omitempty" xml:"isCircle,omitempty"`
+	// 用户userid，可空，不传表示查询组织内所有用户的流水数据
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 用来标记当前开始读取的位置
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 本次读取的最大数据记录数量，最大20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 起始时间Unix时间戳，可空
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 结束时间Unix时间戳（不包含），可空
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+}
+
+func (s PagePointHistoryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagePointHistoryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PagePointHistoryRequest) SetIsCircle(v bool) *PagePointHistoryRequest {
+	s.IsCircle = &v
+	return s
+}
+
+func (s *PagePointHistoryRequest) SetUserId(v string) *PagePointHistoryRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *PagePointHistoryRequest) SetNextToken(v int64) *PagePointHistoryRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *PagePointHistoryRequest) SetMaxResults(v int32) *PagePointHistoryRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *PagePointHistoryRequest) SetStartTime(v int64) *PagePointHistoryRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *PagePointHistoryRequest) SetEndTime(v int64) *PagePointHistoryRequest {
+	s.EndTime = &v
+	return s
+}
+
+type PagePointHistoryResponseBody struct {
+	// 查询所得积分流水集合
+	PointRecordList []*PagePointHistoryResponseBodyPointRecordList `json:"pointRecordList,omitempty" xml:"pointRecordList,omitempty" type:"Repeated"`
+	// 是否有下一页
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 下一个游标值
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 总数，如果为-1则不计算总数
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s PagePointHistoryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagePointHistoryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PagePointHistoryResponseBody) SetPointRecordList(v []*PagePointHistoryResponseBodyPointRecordList) *PagePointHistoryResponseBody {
+	s.PointRecordList = v
+	return s
+}
+
+func (s *PagePointHistoryResponseBody) SetHasMore(v bool) *PagePointHistoryResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *PagePointHistoryResponseBody) SetNextToken(v int64) *PagePointHistoryResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *PagePointHistoryResponseBody) SetTotalCount(v int64) *PagePointHistoryResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type PagePointHistoryResponseBodyPointRecordList struct {
+	// 组织id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 成员id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 增加或减少的分数（增加为正数，减少为负数）
+	Score *int32 `json:"score,omitempty" xml:"score,omitempty"`
+	// 创建时间（精确到毫秒数）
+	CreateAt *int64 `json:"createAt,omitempty" xml:"createAt,omitempty"`
+	// 幂等键
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// 对应的行为代码（可空）
+	RuleCode *string `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
+	// 对应的行为名字
+	RuleName *string `json:"ruleName,omitempty" xml:"ruleName,omitempty"`
+}
+
+func (s PagePointHistoryResponseBodyPointRecordList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagePointHistoryResponseBodyPointRecordList) GoString() string {
+	return s.String()
+}
+
+func (s *PagePointHistoryResponseBodyPointRecordList) SetCorpId(v string) *PagePointHistoryResponseBodyPointRecordList {
+	s.CorpId = &v
+	return s
+}
+
+func (s *PagePointHistoryResponseBodyPointRecordList) SetUserId(v string) *PagePointHistoryResponseBodyPointRecordList {
+	s.UserId = &v
+	return s
+}
+
+func (s *PagePointHistoryResponseBodyPointRecordList) SetScore(v int32) *PagePointHistoryResponseBodyPointRecordList {
+	s.Score = &v
+	return s
+}
+
+func (s *PagePointHistoryResponseBodyPointRecordList) SetCreateAt(v int64) *PagePointHistoryResponseBodyPointRecordList {
+	s.CreateAt = &v
+	return s
+}
+
+func (s *PagePointHistoryResponseBodyPointRecordList) SetUuid(v string) *PagePointHistoryResponseBodyPointRecordList {
+	s.Uuid = &v
+	return s
+}
+
+func (s *PagePointHistoryResponseBodyPointRecordList) SetRuleCode(v string) *PagePointHistoryResponseBodyPointRecordList {
+	s.RuleCode = &v
+	return s
+}
+
+func (s *PagePointHistoryResponseBodyPointRecordList) SetRuleName(v string) *PagePointHistoryResponseBodyPointRecordList {
+	s.RuleName = &v
+	return s
+}
+
+type PagePointHistoryResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PagePointHistoryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PagePointHistoryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PagePointHistoryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PagePointHistoryResponse) SetHeaders(v map[string]*string) *PagePointHistoryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PagePointHistoryResponse) SetBody(v *PagePointHistoryResponseBody) *PagePointHistoryResponse {
+	s.Body = v
+	return s
+}
+
+type GetSpacesInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSpacesInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpacesInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpacesInfoHeaders) SetCommonHeaders(v map[string]*string) *GetSpacesInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSpacesInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetSpacesInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSpacesInfoRequest struct {
+	ResidentCorpId     *string  `json:"residentCorpId,omitempty" xml:"residentCorpId,omitempty"`
+	ReferIds           []*int64 `json:"referIds,omitempty" xml:"referIds,omitempty" type:"Repeated"`
+	DingIsvOrgId       *int64   `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingSuiteKey       *string  `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingCorpId         *string  `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	DingTokenGrantType *int64   `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+}
+
+func (s GetSpacesInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpacesInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpacesInfoRequest) SetResidentCorpId(v string) *GetSpacesInfoRequest {
+	s.ResidentCorpId = &v
+	return s
+}
+
+func (s *GetSpacesInfoRequest) SetReferIds(v []*int64) *GetSpacesInfoRequest {
+	s.ReferIds = v
+	return s
+}
+
+func (s *GetSpacesInfoRequest) SetDingIsvOrgId(v int64) *GetSpacesInfoRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *GetSpacesInfoRequest) SetDingSuiteKey(v string) *GetSpacesInfoRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *GetSpacesInfoRequest) SetDingCorpId(v string) *GetSpacesInfoRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *GetSpacesInfoRequest) SetDingTokenGrantType(v int64) *GetSpacesInfoRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+type GetSpacesInfoResponseBody struct {
+	// result
+	SpaceList []*GetSpacesInfoResponseBodySpaceList `json:"spaceList,omitempty" xml:"spaceList,omitempty" type:"Repeated"`
+}
+
+func (s GetSpacesInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpacesInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpacesInfoResponseBody) SetSpaceList(v []*GetSpacesInfoResponseBodySpaceList) *GetSpacesInfoResponseBody {
+	s.SpaceList = v
+	return s
+}
+
+type GetSpacesInfoResponseBodySpaceList struct {
+	ReferId   *int64  `json:"referId,omitempty" xml:"referId,omitempty"`
+	SpaceName *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	TagCode   *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	// 空间类型为楼时，1高层/2低层/3别墅/4其他，空间类型为房屋是，1住宅/2公寓/3排屋/4洋房/5叠墅/6别墅/7商铺/8办公用房/9经营用房/10其他
+	Type         *string  `json:"type,omitempty" xml:"type,omitempty"`
+	Floor        *string  `json:"floor,omitempty" xml:"floor,omitempty"`
+	IsVirtual    *int32   `json:"isVirtual,omitempty" xml:"isVirtual,omitempty"`
+	BillingArea  *float32 `json:"billingArea,omitempty" xml:"billingArea,omitempty"`
+	BuildingArea *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
+	// 房屋状态：0空置/1未领/2入住/3空关/4装修
+	HouseState    *int32 `json:"houseState,omitempty" xml:"houseState,omitempty"`
+	ParentReferId *int64 `json:"parentReferId,omitempty" xml:"parentReferId,omitempty"`
+}
+
+func (s GetSpacesInfoResponseBodySpaceList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpacesInfoResponseBodySpaceList) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpacesInfoResponseBodySpaceList) SetReferId(v int64) *GetSpacesInfoResponseBodySpaceList {
+	s.ReferId = &v
+	return s
+}
+
+func (s *GetSpacesInfoResponseBodySpaceList) SetSpaceName(v string) *GetSpacesInfoResponseBodySpaceList {
+	s.SpaceName = &v
+	return s
+}
+
+func (s *GetSpacesInfoResponseBodySpaceList) SetTagCode(v string) *GetSpacesInfoResponseBodySpaceList {
+	s.TagCode = &v
+	return s
+}
+
+func (s *GetSpacesInfoResponseBodySpaceList) SetType(v string) *GetSpacesInfoResponseBodySpaceList {
+	s.Type = &v
+	return s
+}
+
+func (s *GetSpacesInfoResponseBodySpaceList) SetFloor(v string) *GetSpacesInfoResponseBodySpaceList {
+	s.Floor = &v
+	return s
+}
+
+func (s *GetSpacesInfoResponseBodySpaceList) SetIsVirtual(v int32) *GetSpacesInfoResponseBodySpaceList {
+	s.IsVirtual = &v
+	return s
+}
+
+func (s *GetSpacesInfoResponseBodySpaceList) SetBillingArea(v float32) *GetSpacesInfoResponseBodySpaceList {
+	s.BillingArea = &v
+	return s
+}
+
+func (s *GetSpacesInfoResponseBodySpaceList) SetBuildingArea(v float32) *GetSpacesInfoResponseBodySpaceList {
+	s.BuildingArea = &v
+	return s
+}
+
+func (s *GetSpacesInfoResponseBodySpaceList) SetHouseState(v int32) *GetSpacesInfoResponseBodySpaceList {
+	s.HouseState = &v
+	return s
+}
+
+func (s *GetSpacesInfoResponseBodySpaceList) SetParentReferId(v int64) *GetSpacesInfoResponseBodySpaceList {
+	s.ParentReferId = &v
+	return s
+}
+
+type GetSpacesInfoResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetSpacesInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSpacesInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpacesInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpacesInfoResponse) SetHeaders(v map[string]*string) *GetSpacesInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSpacesInfoResponse) SetBody(v *GetSpacesInfoResponseBody) *GetSpacesInfoResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateResidentUserHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateResidentUserHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateResidentUserHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateResidentUserHeaders) SetCommonHeaders(v map[string]*string) *UpdateResidentUserHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateResidentUserHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateResidentUserHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateResidentUserRequest struct {
+	// 家庭住址
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// 是否保留原部门
+	IsRetainOldDept *bool `json:"isRetainOldDept,omitempty" xml:"isRetainOldDept,omitempty"`
+	// 居民名字
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// 手机号码
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// 所在新的户/租户部门id
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// 扩展字段（包括身份证/性别/民族）
+	ExtField []*UpdateResidentUserRequestExtField `json:"extField,omitempty" xml:"extField,omitempty" type:"Repeated"`
+	// 与户主的关系
+	RelateType *string `json:"relateType,omitempty" xml:"relateType,omitempty"`
+	// 人员userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 原所在部门id
+	OldDepartmentId *int64 `json:"oldDepartmentId,omitempty" xml:"oldDepartmentId,omitempty"`
+}
+
+func (s UpdateResidentUserRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateResidentUserRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateResidentUserRequest) SetAddress(v string) *UpdateResidentUserRequest {
+	s.Address = &v
+	return s
+}
+
+func (s *UpdateResidentUserRequest) SetIsRetainOldDept(v bool) *UpdateResidentUserRequest {
+	s.IsRetainOldDept = &v
+	return s
+}
+
+func (s *UpdateResidentUserRequest) SetUserName(v string) *UpdateResidentUserRequest {
+	s.UserName = &v
+	return s
+}
+
+func (s *UpdateResidentUserRequest) SetMobile(v string) *UpdateResidentUserRequest {
+	s.Mobile = &v
+	return s
+}
+
+func (s *UpdateResidentUserRequest) SetDepartmentId(v int64) *UpdateResidentUserRequest {
+	s.DepartmentId = &v
+	return s
+}
+
+func (s *UpdateResidentUserRequest) SetExtField(v []*UpdateResidentUserRequestExtField) *UpdateResidentUserRequest {
+	s.ExtField = v
+	return s
+}
+
+func (s *UpdateResidentUserRequest) SetRelateType(v string) *UpdateResidentUserRequest {
+	s.RelateType = &v
+	return s
+}
+
+func (s *UpdateResidentUserRequest) SetUserId(v string) *UpdateResidentUserRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *UpdateResidentUserRequest) SetOldDepartmentId(v int64) *UpdateResidentUserRequest {
+	s.OldDepartmentId = &v
+	return s
+}
+
+type UpdateResidentUserRequestExtField struct {
+	// 扩展字段值
+	ItemValue *string `json:"itemValue,omitempty" xml:"itemValue,omitempty"`
+	// 扩展字段名字
+	ItemName *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
+}
+
+func (s UpdateResidentUserRequestExtField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateResidentUserRequestExtField) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateResidentUserRequestExtField) SetItemValue(v string) *UpdateResidentUserRequestExtField {
+	s.ItemValue = &v
+	return s
+}
+
+func (s *UpdateResidentUserRequestExtField) SetItemName(v string) *UpdateResidentUserRequestExtField {
+	s.ItemName = &v
+	return s
+}
+
+type UpdateResidentUserResponseBody struct {
+	// 是否更新成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateResidentUserResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateResidentUserResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateResidentUserResponseBody) SetResult(v bool) *UpdateResidentUserResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateResidentUserResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateResidentUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateResidentUserResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateResidentUserResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateResidentUserResponse) SetHeaders(v map[string]*string) *UpdateResidentUserResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateResidentUserResponse) SetBody(v *UpdateResidentUserResponseBody) *UpdateResidentUserResponse {
 	s.Body = v
 	return s
 }
@@ -438,296 +1782,158 @@ func (s *AddResidentUsersResponse) SetBody(v *AddResidentUsersResponseBody) *Add
 	return s
 }
 
-type AddResidentDepartmentHeaders struct {
+type GetResidentMembersInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s AddResidentDepartmentHeaders) String() string {
+func (s GetResidentMembersInfoHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s AddResidentDepartmentHeaders) GoString() string {
+func (s GetResidentMembersInfoHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *AddResidentDepartmentHeaders) SetCommonHeaders(v map[string]*string) *AddResidentDepartmentHeaders {
+func (s *GetResidentMembersInfoHeaders) SetCommonHeaders(v map[string]*string) *GetResidentMembersInfoHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *AddResidentDepartmentHeaders) SetXAcsDingtalkAccessToken(v string) *AddResidentDepartmentHeaders {
+func (s *GetResidentMembersInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetResidentMembersInfoHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type AddResidentDepartmentRequest struct {
-	// 是否为组
-	IsResidenceGroup *bool `json:"isResidenceGroup,omitempty" xml:"isResidenceGroup,omitempty"`
-	// 部门名字
-	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	// 父部门id
-	ParentDepartmentId *int64 `json:"parentDepartmentId,omitempty" xml:"parentDepartmentId,omitempty"`
+type GetResidentMembersInfoRequest struct {
+	ResidentCropId     *string   `json:"residentCropId,omitempty" xml:"residentCropId,omitempty"`
+	UserIdList         []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	DingSuiteKey       *string   `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingCorpId         *string   `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	DingTokenGrantType *int32    `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	DingIsvOrgId       *int64    `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
 }
 
-func (s AddResidentDepartmentRequest) String() string {
+func (s GetResidentMembersInfoRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s AddResidentDepartmentRequest) GoString() string {
+func (s GetResidentMembersInfoRequest) GoString() string {
 	return s.String()
 }
 
-func (s *AddResidentDepartmentRequest) SetIsResidenceGroup(v bool) *AddResidentDepartmentRequest {
-	s.IsResidenceGroup = &v
+func (s *GetResidentMembersInfoRequest) SetResidentCropId(v string) *GetResidentMembersInfoRequest {
+	s.ResidentCropId = &v
 	return s
 }
 
-func (s *AddResidentDepartmentRequest) SetDepartmentName(v string) *AddResidentDepartmentRequest {
-	s.DepartmentName = &v
+func (s *GetResidentMembersInfoRequest) SetUserIdList(v []*string) *GetResidentMembersInfoRequest {
+	s.UserIdList = v
 	return s
 }
 
-func (s *AddResidentDepartmentRequest) SetParentDepartmentId(v int64) *AddResidentDepartmentRequest {
-	s.ParentDepartmentId = &v
+func (s *GetResidentMembersInfoRequest) SetDingSuiteKey(v string) *GetResidentMembersInfoRequest {
+	s.DingSuiteKey = &v
 	return s
 }
 
-type AddResidentDepartmentResponseBody struct {
-	// 创建成功的deptId
-	Result *int64 `json:"result,omitempty" xml:"result,omitempty"`
+func (s *GetResidentMembersInfoRequest) SetDingCorpId(v string) *GetResidentMembersInfoRequest {
+	s.DingCorpId = &v
+	return s
 }
 
-func (s AddResidentDepartmentResponseBody) String() string {
+func (s *GetResidentMembersInfoRequest) SetDingTokenGrantType(v int32) *GetResidentMembersInfoRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *GetResidentMembersInfoRequest) SetDingIsvOrgId(v int64) *GetResidentMembersInfoRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+type GetResidentMembersInfoResponseBody struct {
+	// result
+	ResidenceList []*GetResidentMembersInfoResponseBodyResidenceList `json:"residenceList,omitempty" xml:"residenceList,omitempty" type:"Repeated"`
+}
+
+func (s GetResidentMembersInfoResponseBody) String() string {
 	return tea.Prettify(s)
 }
 
-func (s AddResidentDepartmentResponseBody) GoString() string {
+func (s GetResidentMembersInfoResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *AddResidentDepartmentResponseBody) SetResult(v int64) *AddResidentDepartmentResponseBody {
-	s.Result = &v
+func (s *GetResidentMembersInfoResponseBody) SetResidenceList(v []*GetResidentMembersInfoResponseBodyResidenceList) *GetResidentMembersInfoResponseBody {
+	s.ResidenceList = v
 	return s
 }
 
-type AddResidentDepartmentResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddResidentDepartmentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+type GetResidentMembersInfoResponseBodyResidenceList struct {
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 业主/租客/亲友等
+	RelateType *string `json:"relateType,omitempty" xml:"relateType,omitempty"`
+	// 是否是产权人
+	IsPropertyOwner *bool `json:"isPropertyOwner,omitempty" xml:"isPropertyOwner,omitempty"`
+	// 是否激活
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+	// 扩展字段，如果是租客存起止时间
+	ExtField *string `json:"extField,omitempty" xml:"extField,omitempty"`
 }
 
-func (s AddResidentDepartmentResponse) String() string {
+func (s GetResidentMembersInfoResponseBodyResidenceList) String() string {
 	return tea.Prettify(s)
 }
 
-func (s AddResidentDepartmentResponse) GoString() string {
+func (s GetResidentMembersInfoResponseBodyResidenceList) GoString() string {
 	return s.String()
 }
 
-func (s *AddResidentDepartmentResponse) SetHeaders(v map[string]*string) *AddResidentDepartmentResponse {
+func (s *GetResidentMembersInfoResponseBodyResidenceList) SetName(v string) *GetResidentMembersInfoResponseBodyResidenceList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetResidentMembersInfoResponseBodyResidenceList) SetRelateType(v string) *GetResidentMembersInfoResponseBodyResidenceList {
+	s.RelateType = &v
+	return s
+}
+
+func (s *GetResidentMembersInfoResponseBodyResidenceList) SetIsPropertyOwner(v bool) *GetResidentMembersInfoResponseBodyResidenceList {
+	s.IsPropertyOwner = &v
+	return s
+}
+
+func (s *GetResidentMembersInfoResponseBodyResidenceList) SetActive(v bool) *GetResidentMembersInfoResponseBodyResidenceList {
+	s.Active = &v
+	return s
+}
+
+func (s *GetResidentMembersInfoResponseBodyResidenceList) SetExtField(v string) *GetResidentMembersInfoResponseBodyResidenceList {
+	s.ExtField = &v
+	return s
+}
+
+type GetResidentMembersInfoResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetResidentMembersInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetResidentMembersInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetResidentMembersInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetResidentMembersInfoResponse) SetHeaders(v map[string]*string) *GetResidentMembersInfoResponse {
 	s.Headers = v
 	return s
 }
 
-func (s *AddResidentDepartmentResponse) SetBody(v *AddResidentDepartmentResponseBody) *AddResidentDepartmentResponse {
-	s.Body = v
-	return s
-}
-
-type PagePointHistoryHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s PagePointHistoryHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s PagePointHistoryHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *PagePointHistoryHeaders) SetCommonHeaders(v map[string]*string) *PagePointHistoryHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *PagePointHistoryHeaders) SetXAcsDingtalkAccessToken(v string) *PagePointHistoryHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type PagePointHistoryRequest struct {
-	// 是否查询全员圈积分
-	IsCircle *bool `json:"isCircle,omitempty" xml:"isCircle,omitempty"`
-	// 用户userid，可空，不传表示查询组织内所有用户的流水数据
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 用来标记当前开始读取的位置
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 本次读取的最大数据记录数量，最大20
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 起始时间Unix时间戳，可空
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 结束时间Unix时间戳（不包含），可空
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-}
-
-func (s PagePointHistoryRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s PagePointHistoryRequest) GoString() string {
-	return s.String()
-}
-
-func (s *PagePointHistoryRequest) SetIsCircle(v bool) *PagePointHistoryRequest {
-	s.IsCircle = &v
-	return s
-}
-
-func (s *PagePointHistoryRequest) SetUserId(v string) *PagePointHistoryRequest {
-	s.UserId = &v
-	return s
-}
-
-func (s *PagePointHistoryRequest) SetNextToken(v int64) *PagePointHistoryRequest {
-	s.NextToken = &v
-	return s
-}
-
-func (s *PagePointHistoryRequest) SetMaxResults(v int32) *PagePointHistoryRequest {
-	s.MaxResults = &v
-	return s
-}
-
-func (s *PagePointHistoryRequest) SetStartTime(v int64) *PagePointHistoryRequest {
-	s.StartTime = &v
-	return s
-}
-
-func (s *PagePointHistoryRequest) SetEndTime(v int64) *PagePointHistoryRequest {
-	s.EndTime = &v
-	return s
-}
-
-type PagePointHistoryResponseBody struct {
-	// 查询所得积分流水集合
-	PointRecordList []*PagePointHistoryResponseBodyPointRecordList `json:"pointRecordList,omitempty" xml:"pointRecordList,omitempty" type:"Repeated"`
-	// 是否有下一页
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 下一个游标值
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 总数，如果为-1则不计算总数
-	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
-}
-
-func (s PagePointHistoryResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s PagePointHistoryResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *PagePointHistoryResponseBody) SetPointRecordList(v []*PagePointHistoryResponseBodyPointRecordList) *PagePointHistoryResponseBody {
-	s.PointRecordList = v
-	return s
-}
-
-func (s *PagePointHistoryResponseBody) SetHasMore(v bool) *PagePointHistoryResponseBody {
-	s.HasMore = &v
-	return s
-}
-
-func (s *PagePointHistoryResponseBody) SetNextToken(v int64) *PagePointHistoryResponseBody {
-	s.NextToken = &v
-	return s
-}
-
-func (s *PagePointHistoryResponseBody) SetTotalCount(v int64) *PagePointHistoryResponseBody {
-	s.TotalCount = &v
-	return s
-}
-
-type PagePointHistoryResponseBodyPointRecordList struct {
-	// 组织id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	// 成员id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 增加或减少的分数（增加为正数，减少为负数）
-	Score *int32 `json:"score,omitempty" xml:"score,omitempty"`
-	// 创建时间（精确到毫秒数）
-	CreateAt *int64 `json:"createAt,omitempty" xml:"createAt,omitempty"`
-	// 幂等键
-	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	// 对应的行为代码（可空）
-	RuleCode *string `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
-	// 对应的行为名字
-	RuleName *string `json:"ruleName,omitempty" xml:"ruleName,omitempty"`
-}
-
-func (s PagePointHistoryResponseBodyPointRecordList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s PagePointHistoryResponseBodyPointRecordList) GoString() string {
-	return s.String()
-}
-
-func (s *PagePointHistoryResponseBodyPointRecordList) SetCorpId(v string) *PagePointHistoryResponseBodyPointRecordList {
-	s.CorpId = &v
-	return s
-}
-
-func (s *PagePointHistoryResponseBodyPointRecordList) SetUserId(v string) *PagePointHistoryResponseBodyPointRecordList {
-	s.UserId = &v
-	return s
-}
-
-func (s *PagePointHistoryResponseBodyPointRecordList) SetScore(v int32) *PagePointHistoryResponseBodyPointRecordList {
-	s.Score = &v
-	return s
-}
-
-func (s *PagePointHistoryResponseBodyPointRecordList) SetCreateAt(v int64) *PagePointHistoryResponseBodyPointRecordList {
-	s.CreateAt = &v
-	return s
-}
-
-func (s *PagePointHistoryResponseBodyPointRecordList) SetUuid(v string) *PagePointHistoryResponseBodyPointRecordList {
-	s.Uuid = &v
-	return s
-}
-
-func (s *PagePointHistoryResponseBodyPointRecordList) SetRuleCode(v string) *PagePointHistoryResponseBodyPointRecordList {
-	s.RuleCode = &v
-	return s
-}
-
-func (s *PagePointHistoryResponseBodyPointRecordList) SetRuleName(v string) *PagePointHistoryResponseBodyPointRecordList {
-	s.RuleName = &v
-	return s
-}
-
-type PagePointHistoryResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *PagePointHistoryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s PagePointHistoryResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s PagePointHistoryResponse) GoString() string {
-	return s.String()
-}
-
-func (s *PagePointHistoryResponse) SetHeaders(v map[string]*string) *PagePointHistoryResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *PagePointHistoryResponse) SetBody(v *PagePointHistoryResponseBody) *PagePointHistoryResponse {
+func (s *GetResidentMembersInfoResponse) SetBody(v *GetResidentMembersInfoResponseBody) *GetResidentMembersInfoResponse {
 	s.Body = v
 	return s
 }
@@ -945,6 +2151,122 @@ func (s *UpdateResidenceResponse) SetBody(v *UpdateResidenceResponseBody) *Updat
 	return s
 }
 
+type CreateResidentBlackBoardHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateResidentBlackBoardHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateResidentBlackBoardHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateResidentBlackBoardHeaders) SetCommonHeaders(v map[string]*string) *CreateResidentBlackBoardHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateResidentBlackBoardHeaders) SetXAcsDingtalkAccessToken(v string) *CreateResidentBlackBoardHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateResidentBlackBoardRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingCorpId         *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
+	Context            *string `json:"context,omitempty" xml:"context,omitempty"`
+	MediaId            *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+}
+
+func (s CreateResidentBlackBoardRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateResidentBlackBoardRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateResidentBlackBoardRequest) SetDingIsvOrgId(v int64) *CreateResidentBlackBoardRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *CreateResidentBlackBoardRequest) SetDingCorpId(v string) *CreateResidentBlackBoardRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *CreateResidentBlackBoardRequest) SetDingSuiteKey(v string) *CreateResidentBlackBoardRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *CreateResidentBlackBoardRequest) SetDingTokenGrantType(v int64) *CreateResidentBlackBoardRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *CreateResidentBlackBoardRequest) SetTitle(v string) *CreateResidentBlackBoardRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *CreateResidentBlackBoardRequest) SetContext(v string) *CreateResidentBlackBoardRequest {
+	s.Context = &v
+	return s
+}
+
+func (s *CreateResidentBlackBoardRequest) SetMediaId(v string) *CreateResidentBlackBoardRequest {
+	s.MediaId = &v
+	return s
+}
+
+type CreateResidentBlackBoardResponseBody struct {
+	BlackBoardId *string `json:"blackBoardId,omitempty" xml:"blackBoardId,omitempty"`
+}
+
+func (s CreateResidentBlackBoardResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateResidentBlackBoardResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateResidentBlackBoardResponseBody) SetBlackBoardId(v string) *CreateResidentBlackBoardResponseBody {
+	s.BlackBoardId = &v
+	return s
+}
+
+type CreateResidentBlackBoardResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateResidentBlackBoardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateResidentBlackBoardResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateResidentBlackBoardResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateResidentBlackBoardResponse) SetHeaders(v map[string]*string) *CreateResidentBlackBoardResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateResidentBlackBoardResponse) SetBody(v *CreateResidentBlackBoardResponseBody) *CreateResidentBlackBoardResponse {
+	s.Body = v
+	return s
+}
+
 type ListPointRulesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1101,165 +2423,66 @@ func (s *ListPointRulesResponse) SetBody(v *ListPointRulesResponseBody) *ListPoi
 	return s
 }
 
-type UpdateResidentUserHeaders struct {
+type GetIndustryTypeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s UpdateResidentUserHeaders) String() string {
+func (s GetIndustryTypeHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s UpdateResidentUserHeaders) GoString() string {
+func (s GetIndustryTypeHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateResidentUserHeaders) SetCommonHeaders(v map[string]*string) *UpdateResidentUserHeaders {
+func (s *GetIndustryTypeHeaders) SetCommonHeaders(v map[string]*string) *GetIndustryTypeHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *UpdateResidentUserHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateResidentUserHeaders {
+func (s *GetIndustryTypeHeaders) SetXAcsDingtalkAccessToken(v string) *GetIndustryTypeHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type UpdateResidentUserRequest struct {
-	// 家庭住址
-	Address *string `json:"address,omitempty" xml:"address,omitempty"`
-	// 是否保留原部门
-	IsRetainOldDept *bool `json:"isRetainOldDept,omitempty" xml:"isRetainOldDept,omitempty"`
-	// 居民名字
-	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
-	// 手机号码
-	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	// 所在新的户/租户部门id
-	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	// 扩展字段（包括身份证/性别/民族）
-	ExtField []*UpdateResidentUserRequestExtField `json:"extField,omitempty" xml:"extField,omitempty" type:"Repeated"`
-	// 与户主的关系
-	RelateType *string `json:"relateType,omitempty" xml:"relateType,omitempty"`
-	// 人员userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 原所在部门id
-	OldDepartmentId *int64 `json:"oldDepartmentId,omitempty" xml:"oldDepartmentId,omitempty"`
+type GetIndustryTypeResponseBody struct {
+	// 行业类型
+	IndustryType *string `json:"industryType,omitempty" xml:"industryType,omitempty"`
 }
 
-func (s UpdateResidentUserRequest) String() string {
+func (s GetIndustryTypeResponseBody) String() string {
 	return tea.Prettify(s)
 }
 
-func (s UpdateResidentUserRequest) GoString() string {
+func (s GetIndustryTypeResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateResidentUserRequest) SetAddress(v string) *UpdateResidentUserRequest {
-	s.Address = &v
+func (s *GetIndustryTypeResponseBody) SetIndustryType(v string) *GetIndustryTypeResponseBody {
+	s.IndustryType = &v
 	return s
 }
 
-func (s *UpdateResidentUserRequest) SetIsRetainOldDept(v bool) *UpdateResidentUserRequest {
-	s.IsRetainOldDept = &v
-	return s
+type GetIndustryTypeResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetIndustryTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
-func (s *UpdateResidentUserRequest) SetUserName(v string) *UpdateResidentUserRequest {
-	s.UserName = &v
-	return s
-}
-
-func (s *UpdateResidentUserRequest) SetMobile(v string) *UpdateResidentUserRequest {
-	s.Mobile = &v
-	return s
-}
-
-func (s *UpdateResidentUserRequest) SetDepartmentId(v int64) *UpdateResidentUserRequest {
-	s.DepartmentId = &v
-	return s
-}
-
-func (s *UpdateResidentUserRequest) SetExtField(v []*UpdateResidentUserRequestExtField) *UpdateResidentUserRequest {
-	s.ExtField = v
-	return s
-}
-
-func (s *UpdateResidentUserRequest) SetRelateType(v string) *UpdateResidentUserRequest {
-	s.RelateType = &v
-	return s
-}
-
-func (s *UpdateResidentUserRequest) SetUserId(v string) *UpdateResidentUserRequest {
-	s.UserId = &v
-	return s
-}
-
-func (s *UpdateResidentUserRequest) SetOldDepartmentId(v int64) *UpdateResidentUserRequest {
-	s.OldDepartmentId = &v
-	return s
-}
-
-type UpdateResidentUserRequestExtField struct {
-	// 扩展字段值
-	ItemValue *string `json:"itemValue,omitempty" xml:"itemValue,omitempty"`
-	// 扩展字段名字
-	ItemName *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
-}
-
-func (s UpdateResidentUserRequestExtField) String() string {
+func (s GetIndustryTypeResponse) String() string {
 	return tea.Prettify(s)
 }
 
-func (s UpdateResidentUserRequestExtField) GoString() string {
+func (s GetIndustryTypeResponse) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateResidentUserRequestExtField) SetItemValue(v string) *UpdateResidentUserRequestExtField {
-	s.ItemValue = &v
-	return s
-}
-
-func (s *UpdateResidentUserRequestExtField) SetItemName(v string) *UpdateResidentUserRequestExtField {
-	s.ItemName = &v
-	return s
-}
-
-type UpdateResidentUserResponseBody struct {
-	// 是否更新成功
-	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
-}
-
-func (s UpdateResidentUserResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateResidentUserResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateResidentUserResponseBody) SetResult(v bool) *UpdateResidentUserResponseBody {
-	s.Result = &v
-	return s
-}
-
-type UpdateResidentUserResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateResidentUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s UpdateResidentUserResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateResidentUserResponse) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateResidentUserResponse) SetHeaders(v map[string]*string) *UpdateResidentUserResponse {
+func (s *GetIndustryTypeResponse) SetHeaders(v map[string]*string) *GetIndustryTypeResponse {
 	s.Headers = v
 	return s
 }
 
-func (s *UpdateResidentUserResponse) SetBody(v *UpdateResidentUserResponseBody) *UpdateResidentUserResponse {
+func (s *GetIndustryTypeResponse) SetBody(v *GetIndustryTypeResponseBody) *GetIndustryTypeResponse {
 	s.Body = v
 	return s
 }
@@ -1285,6 +2508,142 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) GetPropertyInfo(request *GetPropertyInfoRequest) (_result *GetPropertyInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPropertyInfoHeaders{}
+	_result = &GetPropertyInfoResponse{}
+	_body, _err := client.GetPropertyInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetPropertyInfoWithOptions(request *GetPropertyInfoRequest, headers *GetPropertyInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPropertyInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PropertyCorpId)) {
+		query["propertyCorpId"] = request.PropertyCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetPropertyInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetPropertyInfo"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/propertyInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSpaceIdByType(request *GetSpaceIdByTypeRequest) (_result *GetSpaceIdByTypeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSpaceIdByTypeHeaders{}
+	_result = &GetSpaceIdByTypeResponse{}
+	_body, _err := client.GetSpaceIdByTypeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSpaceIdByTypeWithOptions(request *GetSpaceIdByTypeRequest, headers *GetSpaceIdByTypeHeaders, runtime *util.RuntimeOptions) (_result *GetSpaceIdByTypeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DepartmentType)) {
+		query["departmentType"] = request.DepartmentType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetSpaceIdByTypeResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetSpaceIdByType"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/spaces/types"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListSubSpace(request *ListSubSpaceRequest) (_result *ListSubSpaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListSubSpaceHeaders{}
+	_result = &ListSubSpaceResponse{}
+	_body, _err := client.ListSubSpaceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListSubSpaceWithOptions(request *ListSubSpaceRequest, headers *ListSubSpaceHeaders, runtime *util.RuntimeOptions) (_result *ListSubSpaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ResidentCorpId)) {
+		query["residentCorpId"] = request.ResidentCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReferId)) {
+		query["referId"] = request.ReferId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListSubSpaceResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListSubSpace"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/spaces/subSpaces"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) UpdateResideceGroup(request *UpdateResideceGroupRequest) (_result *UpdateResideceGroupResponse, _err error) {
@@ -1332,6 +2691,354 @@ func (client *Client) UpdateResideceGroupWithOptions(request *UpdateResideceGrou
 	}
 	_result = &UpdateResideceGroupResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateResideceGroup"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/resident/departments/updateResideceGroup"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetResidentInfo(request *GetResidentInfoRequest) (_result *GetResidentInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetResidentInfoHeaders{}
+	_result = &GetResidentInfoResponse{}
+	_body, _err := client.GetResidentInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetResidentInfoWithOptions(request *GetResidentInfoRequest, headers *GetResidentInfoHeaders, runtime *util.RuntimeOptions) (_result *GetResidentInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ResidentCorpId)) {
+		query["residentCorpId"] = request.ResidentCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetResidentInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetResidentInfo"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/residentInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchResident(request *SearchResidentRequest) (_result *SearchResidentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchResidentHeaders{}
+	_result = &SearchResidentResponse{}
+	_body, _err := client.SearchResidentWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchResidentWithOptions(request *SearchResidentRequest, headers *SearchResidentHeaders, runtime *util.RuntimeOptions) (_result *SearchResidentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ResidentCropId)) {
+		query["residentCropId"] = request.ResidentCropId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchWord)) {
+		query["searchWord"] = request.SearchWord
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &SearchResidentResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchResident"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/residences"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddResidentDepartment(request *AddResidentDepartmentRequest) (_result *AddResidentDepartmentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddResidentDepartmentHeaders{}
+	_result = &AddResidentDepartmentResponse{}
+	_body, _err := client.AddResidentDepartmentWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddResidentDepartmentWithOptions(request *AddResidentDepartmentRequest, headers *AddResidentDepartmentHeaders, runtime *util.RuntimeOptions) (_result *AddResidentDepartmentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IsResidenceGroup)) {
+		query["isResidenceGroup"] = request.IsResidenceGroup
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DepartmentName)) {
+		query["departmentName"] = request.DepartmentName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ParentDepartmentId)) {
+		query["parentDepartmentId"] = request.ParentDepartmentId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &AddResidentDepartmentResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddResidentDepartment"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/departments"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PagePointHistory(request *PagePointHistoryRequest) (_result *PagePointHistoryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PagePointHistoryHeaders{}
+	_result = &PagePointHistoryResponse{}
+	_body, _err := client.PagePointHistoryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PagePointHistoryWithOptions(request *PagePointHistoryRequest, headers *PagePointHistoryHeaders, runtime *util.RuntimeOptions) (_result *PagePointHistoryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IsCircle)) {
+		query["isCircle"] = request.IsCircle
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &PagePointHistoryResponse{}
+	_body, _err := client.DoROARequest(tea.String("PagePointHistory"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/points/records"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSpacesInfo(request *GetSpacesInfoRequest) (_result *GetSpacesInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSpacesInfoHeaders{}
+	_result = &GetSpacesInfoResponse{}
+	_body, _err := client.GetSpacesInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSpacesInfoWithOptions(request *GetSpacesInfoRequest, headers *GetSpacesInfoHeaders, runtime *util.RuntimeOptions) (_result *GetSpacesInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ResidentCorpId)) {
+		body["residentCorpId"] = request.ResidentCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReferIds)) {
+		body["referIds"] = request.ReferIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetSpacesInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetSpacesInfo"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/spaces/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateResidentUser(request *UpdateResidentUserRequest) (_result *UpdateResidentUserResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateResidentUserHeaders{}
+	_result = &UpdateResidentUserResponse{}
+	_body, _err := client.UpdateResidentUserWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateResidentUserWithOptions(request *UpdateResidentUserRequest, headers *UpdateResidentUserHeaders, runtime *util.RuntimeOptions) (_result *UpdateResidentUserResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Address)) {
+		query["address"] = request.Address
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsRetainOldDept)) {
+		query["isRetainOldDept"] = request.IsRetainOldDept
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserName)) {
+		query["userName"] = request.UserName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Mobile)) {
+		query["mobile"] = request.Mobile
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DepartmentId)) {
+		query["departmentId"] = request.DepartmentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtField)) {
+		query["extField"] = request.ExtField
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelateType)) {
+		query["relateType"] = request.RelateType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OldDepartmentId)) {
+		query["oldDepartmentId"] = request.OldDepartmentId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &UpdateResidentUserResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateResidentUser"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/resident/users"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1519,11 +3226,11 @@ func (client *Client) AddResidentUsersWithOptions(request *AddResidentUsersReque
 	return _result, _err
 }
 
-func (client *Client) AddResidentDepartment(request *AddResidentDepartmentRequest) (_result *AddResidentDepartmentResponse, _err error) {
+func (client *Client) GetResidentMembersInfo(request *GetResidentMembersInfoRequest) (_result *GetResidentMembersInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &AddResidentDepartmentHeaders{}
-	_result = &AddResidentDepartmentResponse{}
-	_body, _err := client.AddResidentDepartmentWithOptions(request, headers, runtime)
+	headers := &GetResidentMembersInfoHeaders{}
+	_result = &GetResidentMembersInfoResponse{}
+	_body, _err := client.GetResidentMembersInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1531,22 +3238,34 @@ func (client *Client) AddResidentDepartment(request *AddResidentDepartmentReques
 	return _result, _err
 }
 
-func (client *Client) AddResidentDepartmentWithOptions(request *AddResidentDepartmentRequest, headers *AddResidentDepartmentHeaders, runtime *util.RuntimeOptions) (_result *AddResidentDepartmentResponse, _err error) {
+func (client *Client) GetResidentMembersInfoWithOptions(request *GetResidentMembersInfoRequest, headers *GetResidentMembersInfoHeaders, runtime *util.RuntimeOptions) (_result *GetResidentMembersInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.IsResidenceGroup)) {
-		query["isResidenceGroup"] = request.IsResidenceGroup
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ResidentCropId)) {
+		body["residentCropId"] = request.ResidentCropId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.DepartmentName)) {
-		query["departmentName"] = request.DepartmentName
+	if !tea.BoolValue(util.IsUnset(request.UserIdList)) {
+		body["userIdList"] = request.UserIdList
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ParentDepartmentId)) {
-		query["parentDepartmentId"] = request.ParentDepartmentId
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -1560,74 +3279,10 @@ func (client *Client) AddResidentDepartmentWithOptions(request *AddResidentDepar
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &AddResidentDepartmentResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddResidentDepartment"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/departments"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) PagePointHistory(request *PagePointHistoryRequest) (_result *PagePointHistoryResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &PagePointHistoryHeaders{}
-	_result = &PagePointHistoryResponse{}
-	_body, _err := client.PagePointHistoryWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) PagePointHistoryWithOptions(request *PagePointHistoryRequest, headers *PagePointHistoryHeaders, runtime *util.RuntimeOptions) (_result *PagePointHistoryResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.IsCircle)) {
-		query["isCircle"] = request.IsCircle
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.UserId)) {
-		query["userId"] = request.UserId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
-		query["nextToken"] = request.NextToken
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
-		query["maxResults"] = request.MaxResults
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
-		query["startTime"] = request.StartTime
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
-		query["endTime"] = request.EndTime
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &PagePointHistoryResponse{}
-	_body, _err := client.DoROARequest(tea.String("PagePointHistory"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/points/records"), tea.String("json"), req, runtime)
+	_result = &GetResidentMembersInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetResidentMembersInfo"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/residences/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1751,6 +3406,74 @@ func (client *Client) UpdateResidenceWithOptions(request *UpdateResidenceRequest
 	return _result, _err
 }
 
+func (client *Client) CreateResidentBlackBoard(request *CreateResidentBlackBoardRequest) (_result *CreateResidentBlackBoardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateResidentBlackBoardHeaders{}
+	_result = &CreateResidentBlackBoardResponse{}
+	_body, _err := client.CreateResidentBlackBoardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateResidentBlackBoardWithOptions(request *CreateResidentBlackBoardRequest, headers *CreateResidentBlackBoardHeaders, runtime *util.RuntimeOptions) (_result *CreateResidentBlackBoardResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Context)) {
+		body["context"] = request.Context
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
+		body["mediaId"] = request.MediaId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateResidentBlackBoardResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateResidentBlackBoard"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/blackboards"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ListPointRules(request *ListPointRulesRequest) (_result *ListPointRulesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListPointRulesHeaders{}
@@ -1795,11 +3518,11 @@ func (client *Client) ListPointRulesWithOptions(request *ListPointRulesRequest, 
 	return _result, _err
 }
 
-func (client *Client) UpdateResidentUser(request *UpdateResidentUserRequest) (_result *UpdateResidentUserResponse, _err error) {
+func (client *Client) GetIndustryType() (_result *GetIndustryTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &UpdateResidentUserHeaders{}
-	_result = &UpdateResidentUserResponse{}
-	_body, _err := client.UpdateResidentUserWithOptions(request, headers, runtime)
+	headers := &GetIndustryTypeHeaders{}
+	_result = &GetIndustryTypeResponse{}
+	_body, _err := client.GetIndustryTypeWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1807,48 +3530,7 @@ func (client *Client) UpdateResidentUser(request *UpdateResidentUserRequest) (_r
 	return _result, _err
 }
 
-func (client *Client) UpdateResidentUserWithOptions(request *UpdateResidentUserRequest, headers *UpdateResidentUserHeaders, runtime *util.RuntimeOptions) (_result *UpdateResidentUserResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Address)) {
-		query["address"] = request.Address
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.IsRetainOldDept)) {
-		query["isRetainOldDept"] = request.IsRetainOldDept
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.UserName)) {
-		query["userName"] = request.UserName
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Mobile)) {
-		query["mobile"] = request.Mobile
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DepartmentId)) {
-		query["departmentId"] = request.DepartmentId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.ExtField)) {
-		query["extField"] = request.ExtField
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.RelateType)) {
-		query["relateType"] = request.RelateType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.UserId)) {
-		query["userId"] = request.UserId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OldDepartmentId)) {
-		query["oldDepartmentId"] = request.OldDepartmentId
-	}
-
+func (client *Client) GetIndustryTypeWithOptions(headers *GetIndustryTypeHeaders, runtime *util.RuntimeOptions) (_result *GetIndustryTypeResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1860,10 +3542,9 @@ func (client *Client) UpdateResidentUserWithOptions(request *UpdateResidentUserR
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
 	}
-	_result = &UpdateResidentUserResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateResidentUser"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/resident/users"), tea.String("json"), req, runtime)
+	_result = &GetIndustryTypeResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetIndustryType"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/organizations/industryTypes"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
