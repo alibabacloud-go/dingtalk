@@ -2390,6 +2390,137 @@ func (s *DeleteUniversityTeacherResponse) SetBody(v *DeleteUniversityTeacherResp
 	return s
 }
 
+type QueryPurchaseInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryPurchaseInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPurchaseInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPurchaseInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryPurchaseInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryPurchaseInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryPurchaseInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryPurchaseInfoRequest struct {
+	// 设备序列号
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 商户id
+	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	// 场景
+	Scene *int32 `json:"scene,omitempty" xml:"scene,omitempty"`
+}
+
+func (s QueryPurchaseInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPurchaseInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPurchaseInfoRequest) SetSn(v string) *QueryPurchaseInfoRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *QueryPurchaseInfoRequest) SetUserId(v string) *QueryPurchaseInfoRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *QueryPurchaseInfoRequest) SetMerchantId(v string) *QueryPurchaseInfoRequest {
+	s.MerchantId = &v
+	return s
+}
+
+func (s *QueryPurchaseInfoRequest) SetScene(v int32) *QueryPurchaseInfoRequest {
+	s.Scene = &v
+	return s
+}
+
+type QueryPurchaseInfoResponseBody struct {
+	// 组织id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 商户id
+	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	// 场景id
+	Scene *int32 `json:"scene,omitempty" xml:"scene,omitempty"`
+	// 状态
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QueryPurchaseInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPurchaseInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPurchaseInfoResponseBody) SetCorpId(v string) *QueryPurchaseInfoResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryPurchaseInfoResponseBody) SetUserId(v string) *QueryPurchaseInfoResponseBody {
+	s.UserId = &v
+	return s
+}
+
+func (s *QueryPurchaseInfoResponseBody) SetMerchantId(v string) *QueryPurchaseInfoResponseBody {
+	s.MerchantId = &v
+	return s
+}
+
+func (s *QueryPurchaseInfoResponseBody) SetScene(v int32) *QueryPurchaseInfoResponseBody {
+	s.Scene = &v
+	return s
+}
+
+func (s *QueryPurchaseInfoResponseBody) SetStatus(v int32) *QueryPurchaseInfoResponseBody {
+	s.Status = &v
+	return s
+}
+
+type QueryPurchaseInfoResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryPurchaseInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryPurchaseInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPurchaseInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPurchaseInfoResponse) SetHeaders(v map[string]*string) *QueryPurchaseInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryPurchaseInfoResponse) SetBody(v *QueryPurchaseInfoResponseBody) *QueryPurchaseInfoResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteDeviceOrgHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4810,6 +4941,84 @@ func (s *CreateRemoteClassCourseResponse) SetBody(v *CreateRemoteClassCourseResp
 	return s
 }
 
+type ReportDeviceLogHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ReportDeviceLogHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportDeviceLogHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ReportDeviceLogHeaders) SetCommonHeaders(v map[string]*string) *ReportDeviceLogHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ReportDeviceLogHeaders) SetXAcsDingtalkAccessToken(v string) *ReportDeviceLogHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ReportDeviceLogRequest struct {
+	// 设备序列号
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// 文件id
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// 文件类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s ReportDeviceLogRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportDeviceLogRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ReportDeviceLogRequest) SetSn(v string) *ReportDeviceLogRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *ReportDeviceLogRequest) SetMediaId(v string) *ReportDeviceLogRequest {
+	s.MediaId = &v
+	return s
+}
+
+func (s *ReportDeviceLogRequest) SetType(v string) *ReportDeviceLogRequest {
+	s.Type = &v
+	return s
+}
+
+type ReportDeviceLogResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *bool              `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ReportDeviceLogResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportDeviceLogResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ReportDeviceLogResponse) SetHeaders(v map[string]*string) *ReportDeviceLogResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ReportDeviceLogResponse) SetBody(v bool) *ReportDeviceLogResponse {
+	s.Body = &v
+	return s
+}
+
 type CreateCustomClassHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6754,6 +6963,70 @@ func (s *DeleteUniversityCourseGroupResponse) SetBody(v *DeleteUniversityCourseG
 	return s
 }
 
+type DeviceHeartbeatHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeviceHeartbeatHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeviceHeartbeatHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeviceHeartbeatHeaders) SetCommonHeaders(v map[string]*string) *DeviceHeartbeatHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeviceHeartbeatHeaders) SetXAcsDingtalkAccessToken(v string) *DeviceHeartbeatHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeviceHeartbeatRequest struct {
+	// 设备序列号
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+}
+
+func (s DeviceHeartbeatRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeviceHeartbeatRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeviceHeartbeatRequest) SetSn(v string) *DeviceHeartbeatRequest {
+	s.Sn = &v
+	return s
+}
+
+type DeviceHeartbeatResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *int32             `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeviceHeartbeatResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeviceHeartbeatResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeviceHeartbeatResponse) SetHeaders(v map[string]*string) *DeviceHeartbeatResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeviceHeartbeatResponse) SetBody(v int32) *DeviceHeartbeatResponse {
+	s.Body = &v
+	return s
+}
+
 type DeleteDeptHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7191,6 +7464,116 @@ func (s *InsertSectionConfigResponse) SetHeaders(v map[string]*string) *InsertSe
 }
 
 func (s *InsertSectionConfigResponse) SetBody(v *InsertSectionConfigResponseBody) *InsertSectionConfigResponse {
+	s.Body = v
+	return s
+}
+
+type QueryUserFaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryUserFaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserFaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserFaceHeaders) SetCommonHeaders(v map[string]*string) *QueryUserFaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryUserFaceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUserFaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryUserFaceRequest struct {
+	// 设备序列号
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// 人脸id
+	FaceId *string `json:"faceId,omitempty" xml:"faceId,omitempty"`
+}
+
+func (s QueryUserFaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserFaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserFaceRequest) SetSn(v string) *QueryUserFaceRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *QueryUserFaceRequest) SetFaceId(v string) *QueryUserFaceRequest {
+	s.FaceId = &v
+	return s
+}
+
+type QueryUserFaceResponseBody struct {
+	// 组织id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 人脸id
+	FaceId *string `json:"faceId,omitempty" xml:"faceId,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 员工姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s QueryUserFaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserFaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserFaceResponseBody) SetCorpId(v string) *QueryUserFaceResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryUserFaceResponseBody) SetFaceId(v string) *QueryUserFaceResponseBody {
+	s.FaceId = &v
+	return s
+}
+
+func (s *QueryUserFaceResponseBody) SetUserId(v string) *QueryUserFaceResponseBody {
+	s.UserId = &v
+	return s
+}
+
+func (s *QueryUserFaceResponseBody) SetName(v string) *QueryUserFaceResponseBody {
+	s.Name = &v
+	return s
+}
+
+type QueryUserFaceResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryUserFaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryUserFaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserFaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserFaceResponse) SetHeaders(v map[string]*string) *QueryUserFaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryUserFaceResponse) SetBody(v *QueryUserFaceResponseBody) *QueryUserFaceResponse {
 	s.Body = v
 	return s
 }
@@ -8833,6 +9216,123 @@ func (s *GetShareRolesResponse) SetBody(v *GetShareRolesResponseBody) *GetShareR
 	return s
 }
 
+type QueryGroupIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryGroupIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupIdHeaders) SetCommonHeaders(v map[string]*string) *QueryGroupIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryGroupIdHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGroupIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryGroupIdRequest struct {
+	// 设备序列号
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+}
+
+func (s QueryGroupIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupIdRequest) SetSn(v string) *QueryGroupIdRequest {
+	s.Sn = &v
+	return s
+}
+
+type QueryGroupIdResponseBody struct {
+	// 开发者pid
+	Pid *string `json:"pid,omitempty" xml:"pid,omitempty"`
+	// 开发者名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 商户id
+	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	// 商户名称
+	MerchantName *string `json:"merchantName,omitempty" xml:"merchantName,omitempty"`
+	// 组织id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 人脸库id
+	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+}
+
+func (s QueryGroupIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupIdResponseBody) SetPid(v string) *QueryGroupIdResponseBody {
+	s.Pid = &v
+	return s
+}
+
+func (s *QueryGroupIdResponseBody) SetName(v string) *QueryGroupIdResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryGroupIdResponseBody) SetMerchantId(v string) *QueryGroupIdResponseBody {
+	s.MerchantId = &v
+	return s
+}
+
+func (s *QueryGroupIdResponseBody) SetMerchantName(v string) *QueryGroupIdResponseBody {
+	s.MerchantName = &v
+	return s
+}
+
+func (s *QueryGroupIdResponseBody) SetCorpId(v string) *QueryGroupIdResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryGroupIdResponseBody) SetGroupId(v string) *QueryGroupIdResponseBody {
+	s.GroupId = &v
+	return s
+}
+
+type QueryGroupIdResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryGroupIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryGroupIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupIdResponse) SetHeaders(v map[string]*string) *QueryGroupIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryGroupIdResponse) SetBody(v *QueryGroupIdResponseBody) *QueryGroupIdResponse {
+	s.Body = v
+	return s
+}
+
 type SubscribeUniversityCourseGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10083,6 +10583,162 @@ func (s *QueryOrgRelationListResponse) SetHeaders(v map[string]*string) *QueryOr
 }
 
 func (s *QueryOrgRelationListResponse) SetBody(v *QueryOrgRelationListResponseBody) *QueryOrgRelationListResponse {
+	s.Body = v
+	return s
+}
+
+type QuerySchoolUserFaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QuerySchoolUserFaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchoolUserFaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchoolUserFaceHeaders) SetCommonHeaders(v map[string]*string) *QuerySchoolUserFaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QuerySchoolUserFaceHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySchoolUserFaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QuerySchoolUserFaceRequest struct {
+	// 类型
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	// 设备序列号
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// 页码
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s QuerySchoolUserFaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchoolUserFaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchoolUserFaceRequest) SetType(v int32) *QuerySchoolUserFaceRequest {
+	s.Type = &v
+	return s
+}
+
+func (s *QuerySchoolUserFaceRequest) SetSn(v string) *QuerySchoolUserFaceRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *QuerySchoolUserFaceRequest) SetPageNumber(v int32) *QuerySchoolUserFaceRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QuerySchoolUserFaceRequest) SetPageSize(v int32) *QuerySchoolUserFaceRequest {
+	s.PageSize = &v
+	return s
+}
+
+type QuerySchoolUserFaceResponseBody struct {
+	// 组织id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 是否还有下一页
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 用户人脸列表
+	UserFaceList []*QuerySchoolUserFaceResponseBodyUserFaceList `json:"userFaceList,omitempty" xml:"userFaceList,omitempty" type:"Repeated"`
+}
+
+func (s QuerySchoolUserFaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchoolUserFaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchoolUserFaceResponseBody) SetCorpId(v string) *QuerySchoolUserFaceResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QuerySchoolUserFaceResponseBody) SetHasMore(v bool) *QuerySchoolUserFaceResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QuerySchoolUserFaceResponseBody) SetUserFaceList(v []*QuerySchoolUserFaceResponseBodyUserFaceList) *QuerySchoolUserFaceResponseBody {
+	s.UserFaceList = v
+	return s
+}
+
+type QuerySchoolUserFaceResponseBodyUserFaceList struct {
+	// 人脸id
+	FaceId *string `json:"faceId,omitempty" xml:"faceId,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 员工名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 员工状态
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QuerySchoolUserFaceResponseBodyUserFaceList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchoolUserFaceResponseBodyUserFaceList) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchoolUserFaceResponseBodyUserFaceList) SetFaceId(v string) *QuerySchoolUserFaceResponseBodyUserFaceList {
+	s.FaceId = &v
+	return s
+}
+
+func (s *QuerySchoolUserFaceResponseBodyUserFaceList) SetUserId(v string) *QuerySchoolUserFaceResponseBodyUserFaceList {
+	s.UserId = &v
+	return s
+}
+
+func (s *QuerySchoolUserFaceResponseBodyUserFaceList) SetName(v string) *QuerySchoolUserFaceResponseBodyUserFaceList {
+	s.Name = &v
+	return s
+}
+
+func (s *QuerySchoolUserFaceResponseBodyUserFaceList) SetStatus(v int32) *QuerySchoolUserFaceResponseBodyUserFaceList {
+	s.Status = &v
+	return s
+}
+
+type QuerySchoolUserFaceResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QuerySchoolUserFaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QuerySchoolUserFaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchoolUserFaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchoolUserFaceResponse) SetHeaders(v map[string]*string) *QuerySchoolUserFaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QuerySchoolUserFaceResponse) SetBody(v *QuerySchoolUserFaceResponseBody) *QuerySchoolUserFaceResponse {
 	s.Body = v
 	return s
 }
@@ -11345,6 +12001,62 @@ func (client *Client) DeleteUniversityTeacherWithOptions(request *DeleteUniversi
 	return _result, _err
 }
 
+func (client *Client) QueryPurchaseInfo(request *QueryPurchaseInfoRequest) (_result *QueryPurchaseInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryPurchaseInfoHeaders{}
+	_result = &QueryPurchaseInfoResponse{}
+	_body, _err := client.QueryPurchaseInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryPurchaseInfoWithOptions(request *QueryPurchaseInfoRequest, headers *QueryPurchaseInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryPurchaseInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		query["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MerchantId)) {
+		query["merchantId"] = request.MerchantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scene)) {
+		query["scene"] = request.Scene
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryPurchaseInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryPurchaseInfo"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/users/purchases"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteDeviceOrg(request *DeleteDeviceOrgRequest) (_result *DeleteDeviceOrgResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteDeviceOrgHeaders{}
@@ -11948,6 +12660,58 @@ func (client *Client) CreateRemoteClassCourseWithOptions(request *CreateRemoteCl
 	}
 	_result = &CreateRemoteClassCourseResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateRemoteClassCourse"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/remoteClasses/courses"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ReportDeviceLog(request *ReportDeviceLogRequest) (_result *ReportDeviceLogResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ReportDeviceLogHeaders{}
+	_result = &ReportDeviceLogResponse{}
+	_body, _err := client.ReportDeviceLogWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ReportDeviceLogWithOptions(request *ReportDeviceLogRequest, headers *ReportDeviceLogHeaders, runtime *util.RuntimeOptions) (_result *ReportDeviceLogResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		query["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
+		query["mediaId"] = request.MediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		query["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ReportDeviceLogResponse{}
+	_body, _err := client.DoROARequest(tea.String("ReportDeviceLog"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/deviceLogs/report"), tea.String("boolean"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12569,6 +13333,50 @@ func (client *Client) DeleteUniversityCourseGroupWithOptions(request *DeleteUniv
 	return _result, _err
 }
 
+func (client *Client) DeviceHeartbeat(request *DeviceHeartbeatRequest) (_result *DeviceHeartbeatResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeviceHeartbeatHeaders{}
+	_result = &DeviceHeartbeatResponse{}
+	_body, _err := client.DeviceHeartbeatWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeviceHeartbeatWithOptions(request *DeviceHeartbeatRequest, headers *DeviceHeartbeatHeaders, runtime *util.RuntimeOptions) (_result *DeviceHeartbeatResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		query["sn"] = request.Sn
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeviceHeartbeatResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeviceHeartbeat"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/heartbeats/report"), tea.String("int32"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteDept(deptId *string, request *DeleteDeptRequest) (_result *DeleteDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteDeptHeaders{}
@@ -12716,6 +13524,54 @@ func (client *Client) InsertSectionConfigWithOptions(request *InsertSectionConfi
 	}
 	_result = &InsertSectionConfigResponse{}
 	_body, _err := client.DoROARequest(tea.String("InsertSectionConfig"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/schedules/configs"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryUserFace(request *QueryUserFaceRequest) (_result *QueryUserFaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryUserFaceHeaders{}
+	_result = &QueryUserFaceResponse{}
+	_body, _err := client.QueryUserFaceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryUserFaceWithOptions(request *QueryUserFaceRequest, headers *QueryUserFaceHeaders, runtime *util.RuntimeOptions) (_result *QueryUserFaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		query["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FaceId)) {
+		query["faceId"] = request.FaceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryUserFaceResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryUserFace"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/users/faces"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13238,6 +14094,50 @@ func (client *Client) GetShareRolesWithOptions(headers *GetShareRolesHeaders, ru
 	}
 	_result = &GetShareRolesResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetShareRoles"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/shareRoles"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryGroupId(request *QueryGroupIdRequest) (_result *QueryGroupIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryGroupIdHeaders{}
+	_result = &QueryGroupIdResponse{}
+	_body, _err := client.QueryGroupIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryGroupIdWithOptions(request *QueryGroupIdRequest, headers *QueryGroupIdHeaders, runtime *util.RuntimeOptions) (_result *QueryGroupIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		query["sn"] = request.Sn
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryGroupIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryGroupId"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/faces/groups"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13780,6 +14680,62 @@ func (client *Client) QueryOrgRelationListWithOptions(request *QueryOrgRelationL
 	}
 	_result = &QueryOrgRelationListResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryOrgRelationList"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/remoteClasses/orgRelations"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QuerySchoolUserFace(request *QuerySchoolUserFaceRequest) (_result *QuerySchoolUserFaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QuerySchoolUserFaceHeaders{}
+	_result = &QuerySchoolUserFaceResponse{}
+	_body, _err := client.QuerySchoolUserFaceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QuerySchoolUserFaceWithOptions(request *QuerySchoolUserFaceRequest, headers *QuerySchoolUserFaceHeaders, runtime *util.RuntimeOptions) (_result *QuerySchoolUserFaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		query["type"] = request.Type
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		query["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QuerySchoolUserFaceResponse{}
+	_body, _err := client.DoROARequest(tea.String("QuerySchoolUserFace"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/schools/faces"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
