@@ -83,6 +83,12 @@ type DecodeBadgeCodeResponseBody struct {
 	AlipayCode *string `json:"alipayCode,omitempty" xml:"alipayCode,omitempty"`
 	// 用户和企业关系
 	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
+	// 码标识，工牌码：DT_IDENTITY，访客码：DT_VISITOR，会展码：DT_CONFERENCE
+	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	// 码ID，对于访客或会展码等静态码值返回
+	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
+	// 外部业务ID，值为调用创建工牌码接口传入的requestId
+	OutBizId *string `json:"outBizId,omitempty" xml:"outBizId,omitempty"`
 }
 
 func (s DecodeBadgeCodeResponseBody) String() string {
@@ -115,6 +121,21 @@ func (s *DecodeBadgeCodeResponseBody) SetAlipayCode(v string) *DecodeBadgeCodeRe
 
 func (s *DecodeBadgeCodeResponseBody) SetUserCorpRelationType(v string) *DecodeBadgeCodeResponseBody {
 	s.UserCorpRelationType = &v
+	return s
+}
+
+func (s *DecodeBadgeCodeResponseBody) SetCodeIdentity(v string) *DecodeBadgeCodeResponseBody {
+	s.CodeIdentity = &v
+	return s
+}
+
+func (s *DecodeBadgeCodeResponseBody) SetCodeId(v string) *DecodeBadgeCodeResponseBody {
+	s.CodeId = &v
+	return s
+}
+
+func (s *DecodeBadgeCodeResponseBody) SetOutBizId(v string) *DecodeBadgeCodeResponseBody {
+	s.OutBizId = &v
 	return s
 }
 
@@ -1410,8 +1431,14 @@ type NotifyBadgeCodeVerifyResultRequest struct {
 	VerifyTime *string `json:"verifyTime,omitempty" xml:"verifyTime,omitempty"`
 	// 验证结果
 	VerifyResult *bool `json:"verifyResult,omitempty" xml:"verifyResult,omitempty"`
-	// 验证地点
+	// 验证地点，调用时请务必传入，以便生成工牌使用记录
 	VerifyLocation *string `json:"verifyLocation,omitempty" xml:"verifyLocation,omitempty"`
+	// 验证流水号，长度不超过32位，用户下唯一，调用时请务必传入，以便生成工牌使用记录
+	VerifyNo *string `json:"verifyNo,omitempty" xml:"verifyNo,omitempty"`
+	// 验证事件，长度不超过8个中文
+	VerifyEvent *string `json:"verifyEvent,omitempty" xml:"verifyEvent,omitempty"`
+	// 备注信息
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 	// 组织ID
 	DingOrgId *int64 `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
 	// ISV组织ID
@@ -1458,6 +1485,21 @@ func (s *NotifyBadgeCodeVerifyResultRequest) SetVerifyResult(v bool) *NotifyBadg
 
 func (s *NotifyBadgeCodeVerifyResultRequest) SetVerifyLocation(v string) *NotifyBadgeCodeVerifyResultRequest {
 	s.VerifyLocation = &v
+	return s
+}
+
+func (s *NotifyBadgeCodeVerifyResultRequest) SetVerifyNo(v string) *NotifyBadgeCodeVerifyResultRequest {
+	s.VerifyNo = &v
+	return s
+}
+
+func (s *NotifyBadgeCodeVerifyResultRequest) SetVerifyEvent(v string) *NotifyBadgeCodeVerifyResultRequest {
+	s.VerifyEvent = &v
+	return s
+}
+
+func (s *NotifyBadgeCodeVerifyResultRequest) SetRemark(v string) *NotifyBadgeCodeVerifyResultRequest {
+	s.Remark = &v
 	return s
 }
 
@@ -2147,6 +2189,18 @@ func (client *Client) NotifyBadgeCodeVerifyResultWithOptions(request *NotifyBadg
 
 	if !tea.BoolValue(util.IsUnset(request.VerifyLocation)) {
 		body["verifyLocation"] = request.VerifyLocation
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VerifyNo)) {
+		body["verifyNo"] = request.VerifyNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VerifyEvent)) {
+		body["verifyEvent"] = request.VerifyEvent
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {

@@ -1145,6 +1145,84 @@ func (s *RemoveMemberForAppRoleResponse) SetBody(v *RemoveMemberForAppRoleRespon
 	return s
 }
 
+type GetApaasAppHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetApaasAppHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetApaasAppHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetApaasAppHeaders) SetCommonHeaders(v map[string]*string) *GetApaasAppHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetApaasAppHeaders) SetXAcsDingtalkAccessToken(v string) *GetApaasAppHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetApaasAppResponseBody struct {
+	// 钉钉侧应用id
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// ISV侧应用id
+	BizAppId *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
+	// 发布状态
+	PublishStatus *string `json:"publishStatus,omitempty" xml:"publishStatus,omitempty"`
+}
+
+func (s GetApaasAppResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetApaasAppResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetApaasAppResponseBody) SetAgentId(v int64) *GetApaasAppResponseBody {
+	s.AgentId = &v
+	return s
+}
+
+func (s *GetApaasAppResponseBody) SetBizAppId(v string) *GetApaasAppResponseBody {
+	s.BizAppId = &v
+	return s
+}
+
+func (s *GetApaasAppResponseBody) SetPublishStatus(v string) *GetApaasAppResponseBody {
+	s.PublishStatus = &v
+	return s
+}
+
+type GetApaasAppResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetApaasAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetApaasAppResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetApaasAppResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetApaasAppResponse) SetHeaders(v map[string]*string) *GetApaasAppResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetApaasAppResponse) SetBody(v *GetApaasAppResponseBody) *GetApaasAppResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateInnerAppHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3000,6 +3078,40 @@ func (client *Client) RemoveMemberForAppRoleWithOptions(agentId *string, roleId 
 	}
 	_result = &RemoveMemberForAppRoleResponse{}
 	_body, _err := client.DoROARequest(tea.String("RemoveMemberForAppRole"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/roles/"+tea.StringValue(roleId)+"/members/batchRemove"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetApaasApp(bizAppId *string) (_result *GetApaasAppResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetApaasAppHeaders{}
+	_result = &GetApaasAppResponse{}
+	_body, _err := client.GetApaasAppWithOptions(bizAppId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetApaasAppWithOptions(bizAppId *string, headers *GetApaasAppHeaders, runtime *util.RuntimeOptions) (_result *GetApaasAppResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetApaasAppResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetApaasApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/apaasApps/"+tea.StringValue(bizAppId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
