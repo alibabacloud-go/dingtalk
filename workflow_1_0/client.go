@@ -521,7 +521,7 @@ type ProcessForecastResponseBodyResult struct {
 	ProcessId *int64 `json:"processId,omitempty" xml:"processId,omitempty"`
 	// 是否静态流程
 	IsStaticWorkflow      *bool                                                     `json:"isStaticWorkflow,omitempty" xml:"isStaticWorkflow,omitempty"`
-	WorkflowActors        []*ProcessForecastResponseBodyResultWorkflowActors        `json:"workflowActors,omitempty" xml:"workflowActors,omitempty" type:"Repeated"`
+	WorkflowActivityRules []*ProcessForecastResponseBodyResultWorkflowActivityRules `json:"workflowActivityRules,omitempty" xml:"workflowActivityRules,omitempty" type:"Repeated"`
 	WorkflowForecastNodes []*ProcessForecastResponseBodyResultWorkflowForecastNodes `json:"workflowForecastNodes,omitempty" xml:"workflowForecastNodes,omitempty" type:"Repeated"`
 }
 
@@ -558,8 +558,8 @@ func (s *ProcessForecastResponseBodyResult) SetIsStaticWorkflow(v bool) *Process
 	return s
 }
 
-func (s *ProcessForecastResponseBodyResult) SetWorkflowActors(v []*ProcessForecastResponseBodyResultWorkflowActors) *ProcessForecastResponseBodyResult {
-	s.WorkflowActors = v
+func (s *ProcessForecastResponseBodyResult) SetWorkflowActivityRules(v []*ProcessForecastResponseBodyResultWorkflowActivityRules) *ProcessForecastResponseBodyResult {
+	s.WorkflowActivityRules = v
 	return s
 }
 
@@ -568,94 +568,205 @@ func (s *ProcessForecastResponseBodyResult) SetWorkflowForecastNodes(v []*Proces
 	return s
 }
 
-type ProcessForecastResponseBodyResultWorkflowActors struct {
+type ProcessForecastResponseBodyResultWorkflowActivityRules struct {
 	// 节点 id
 	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// 流程中前一个节点的 id
+	PrevActivityId *string `json:"prevActivityId,omitempty" xml:"prevActivityId,omitempty"`
 	// 节点名称
 	ActivityName *string `json:"activityName,omitempty" xml:"activityName,omitempty"`
 	// 规则类型
 	ActivityType *string `json:"activityType,omitempty" xml:"activityType,omitempty"`
 	// 是否自选审批节点
-	IsTargetSelect *bool                                                            `json:"isTargetSelect,omitempty" xml:"isTargetSelect,omitempty"`
-	ActivityActors []*ProcessForecastResponseBodyResultWorkflowActorsActivityActors `json:"activityActors,omitempty" xml:"activityActors,omitempty" type:"Repeated"`
-	// 是否联系人控件审批人节点
-	IsTargetFormComponent *bool `json:"isTargetFormComponent,omitempty" xml:"isTargetFormComponent,omitempty"`
-	// 节点规则，当前是一个 JSONObject
-	Node *string `json:"node,omitempty" xml:"node,omitempty"`
+	IsTargetSelect *bool `json:"isTargetSelect,omitempty" xml:"isTargetSelect,omitempty"`
+	// 节点操作人信息
+	WorkflowActor *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor `json:"workflowActor,omitempty" xml:"workflowActor,omitempty" type:"Struct"`
 }
 
-func (s ProcessForecastResponseBodyResultWorkflowActors) String() string {
+func (s ProcessForecastResponseBodyResultWorkflowActivityRules) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ProcessForecastResponseBodyResultWorkflowActors) GoString() string {
+func (s ProcessForecastResponseBodyResultWorkflowActivityRules) GoString() string {
 	return s.String()
 }
 
-func (s *ProcessForecastResponseBodyResultWorkflowActors) SetActivityId(v string) *ProcessForecastResponseBodyResultWorkflowActors {
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRules) SetActivityId(v string) *ProcessForecastResponseBodyResultWorkflowActivityRules {
 	s.ActivityId = &v
 	return s
 }
 
-func (s *ProcessForecastResponseBodyResultWorkflowActors) SetActivityName(v string) *ProcessForecastResponseBodyResultWorkflowActors {
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRules) SetPrevActivityId(v string) *ProcessForecastResponseBodyResultWorkflowActivityRules {
+	s.PrevActivityId = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRules) SetActivityName(v string) *ProcessForecastResponseBodyResultWorkflowActivityRules {
 	s.ActivityName = &v
 	return s
 }
 
-func (s *ProcessForecastResponseBodyResultWorkflowActors) SetActivityType(v string) *ProcessForecastResponseBodyResultWorkflowActors {
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRules) SetActivityType(v string) *ProcessForecastResponseBodyResultWorkflowActivityRules {
 	s.ActivityType = &v
 	return s
 }
 
-func (s *ProcessForecastResponseBodyResultWorkflowActors) SetIsTargetSelect(v bool) *ProcessForecastResponseBodyResultWorkflowActors {
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRules) SetIsTargetSelect(v bool) *ProcessForecastResponseBodyResultWorkflowActivityRules {
 	s.IsTargetSelect = &v
 	return s
 }
 
-func (s *ProcessForecastResponseBodyResultWorkflowActors) SetActivityActors(v []*ProcessForecastResponseBodyResultWorkflowActorsActivityActors) *ProcessForecastResponseBodyResultWorkflowActors {
-	s.ActivityActors = v
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRules) SetWorkflowActor(v *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor) *ProcessForecastResponseBodyResultWorkflowActivityRules {
+	s.WorkflowActor = v
 	return s
 }
 
-func (s *ProcessForecastResponseBodyResultWorkflowActors) SetIsTargetFormComponent(v bool) *ProcessForecastResponseBodyResultWorkflowActors {
-	s.IsTargetFormComponent = &v
-	return s
+type ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor struct {
+	// 节点操作人 key
+	ActorKey *string `json:"actorKey,omitempty" xml:"actorKey,omitempty"`
+	// 节点操作人类型
+	ActorType *string `json:"actorType,omitempty" xml:"actorType,omitempty"`
+	// 节点操作人选择范围类型
+	ActorSelectionType *string `json:"actorSelectionType,omitempty" xml:"actorSelectionType,omitempty"`
+	// 节点操作人选择范围
+	ActorSelectionRange *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRange `json:"actorSelectionRange,omitempty" xml:"actorSelectionRange,omitempty" type:"Struct"`
+	// 是否允许多选，还是仅允许选一人
+	AllowedMulti *bool `json:"allowedMulti,omitempty" xml:"allowedMulti,omitempty"`
+	// 节点审批类型
+	ApprovalType *string `json:"approvalType,omitempty" xml:"approvalType,omitempty"`
+	// 节点审批方式
+	ApprovalMethod *string `json:"approvalMethod,omitempty" xml:"approvalMethod,omitempty"`
+	// 节点激活类型
+	ActorActivateType *string `json:"actorActivateType,omitempty" xml:"actorActivateType,omitempty"`
+	// 该审批人节点在发起审批时是否必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
 }
 
-func (s *ProcessForecastResponseBodyResultWorkflowActors) SetNode(v string) *ProcessForecastResponseBodyResultWorkflowActors {
-	s.Node = &v
-	return s
-}
-
-type ProcessForecastResponseBodyResultWorkflowActorsActivityActors struct {
-	// 用户 id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 用户名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 用户头像
-	Avatar *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
-}
-
-func (s ProcessForecastResponseBodyResultWorkflowActorsActivityActors) String() string {
+func (s ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ProcessForecastResponseBodyResultWorkflowActorsActivityActors) GoString() string {
+func (s ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor) GoString() string {
 	return s.String()
 }
 
-func (s *ProcessForecastResponseBodyResultWorkflowActorsActivityActors) SetUserId(v string) *ProcessForecastResponseBodyResultWorkflowActorsActivityActors {
-	s.UserId = &v
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor) SetActorKey(v string) *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor {
+	s.ActorKey = &v
 	return s
 }
 
-func (s *ProcessForecastResponseBodyResultWorkflowActorsActivityActors) SetName(v string) *ProcessForecastResponseBodyResultWorkflowActorsActivityActors {
-	s.Name = &v
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor) SetActorType(v string) *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor {
+	s.ActorType = &v
 	return s
 }
 
-func (s *ProcessForecastResponseBodyResultWorkflowActorsActivityActors) SetAvatar(v string) *ProcessForecastResponseBodyResultWorkflowActorsActivityActors {
-	s.Avatar = &v
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor) SetActorSelectionType(v string) *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor {
+	s.ActorSelectionType = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor) SetActorSelectionRange(v *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRange) *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor {
+	s.ActorSelectionRange = v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor) SetAllowedMulti(v bool) *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor {
+	s.AllowedMulti = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor) SetApprovalType(v string) *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor {
+	s.ApprovalType = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor) SetApprovalMethod(v string) *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor {
+	s.ApprovalMethod = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor) SetActorActivateType(v string) *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor {
+	s.ActorActivateType = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor) SetRequired(v bool) *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor {
+	s.Required = &v
+	return s
+}
+
+type ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRange struct {
+	// 审批指定成员
+	Approvals []*ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeApprovals `json:"approvals,omitempty" xml:"approvals,omitempty" type:"Repeated"`
+	// 审批指定角色
+	Labels []*ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeLabels `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
+}
+
+func (s ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRange) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRange) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRange) SetApprovals(v []*ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeApprovals) *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRange {
+	s.Approvals = v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRange) SetLabels(v []*ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeLabels) *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRange {
+	s.Labels = v
+	return s
+}
+
+type ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeApprovals struct {
+	// 员工 userId
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	// 员工姓名
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+}
+
+func (s ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeApprovals) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeApprovals) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeApprovals) SetWorkNo(v string) *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeApprovals {
+	s.WorkNo = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeApprovals) SetUserName(v string) *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeApprovals {
+	s.UserName = &v
+	return s
+}
+
+type ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeLabels struct {
+	// 角色 id
+	Labels *string `json:"labels,omitempty" xml:"labels,omitempty"`
+	// 角色名字
+	LabelNames *string `json:"labelNames,omitempty" xml:"labelNames,omitempty"`
+}
+
+func (s ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeLabels) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeLabels) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeLabels) SetLabels(v string) *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeLabels {
+	s.Labels = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeLabels) SetLabelNames(v string) *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRangeLabels {
+	s.LabelNames = &v
 	return s
 }
 
@@ -1476,6 +1587,1825 @@ func (s *QueryFormByBizTypeResponse) SetBody(v *QueryFormByBizTypeResponseBody) 
 	return s
 }
 
+type FormCreateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s FormCreateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateHeaders) SetCommonHeaders(v map[string]*string) *FormCreateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *FormCreateHeaders) SetXAcsDingtalkAccessToken(v string) *FormCreateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type FormCreateRequest struct {
+	DingCorpId         *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	RequestId          *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	ProcessCode        *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// 表单模板名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 表单模板描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 表单控件列表
+	FormComponents []*FormCreateRequestFormComponents `json:"formComponents,omitempty" xml:"formComponents,omitempty" type:"Repeated"`
+}
+
+func (s FormCreateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequest) SetDingCorpId(v string) *FormCreateRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *FormCreateRequest) SetDingOrgId(v int64) *FormCreateRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *FormCreateRequest) SetDingIsvOrgId(v int64) *FormCreateRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *FormCreateRequest) SetDingSuiteKey(v string) *FormCreateRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *FormCreateRequest) SetDingTokenGrantType(v int64) *FormCreateRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *FormCreateRequest) SetRequestId(v string) *FormCreateRequest {
+	s.RequestId = &v
+	return s
+}
+
+func (s *FormCreateRequest) SetProcessCode(v string) *FormCreateRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *FormCreateRequest) SetName(v string) *FormCreateRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *FormCreateRequest) SetDescription(v string) *FormCreateRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *FormCreateRequest) SetFormComponents(v []*FormCreateRequestFormComponents) *FormCreateRequest {
+	s.FormComponents = v
+	return s
+}
+
+type FormCreateRequestFormComponents struct {
+	// 控件类型
+	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	// 控件属性
+	Props *FormCreateRequestFormComponentsProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+	// 子控件列表
+	Children []*FormCreateRequestFormComponentsChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+}
+
+func (s FormCreateRequestFormComponents) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponents) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponents) SetComponentType(v string) *FormCreateRequestFormComponents {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponents) SetProps(v *FormCreateRequestFormComponentsProps) *FormCreateRequestFormComponents {
+	s.Props = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponents) SetChildren(v []*FormCreateRequestFormComponentsChildren) *FormCreateRequestFormComponents {
+	s.Children = v
+	return s
+}
+
+type FormCreateRequestFormComponentsProps struct {
+	// 控件表单内唯一id
+	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
+	// 控件标题
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// 套件中控件是否可设置为分条件字段
+	AsyncCondition *bool `json:"asyncCondition,omitempty" xml:"asyncCondition,omitempty"`
+	// 是否必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// 说明文字控件内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 时间格式
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// 金额控件是否需要大写，1不需要大写，其他需要大写
+	Upper *string `json:"upper,omitempty" xml:"upper,omitempty"`
+	// 时间单位（天、小时）
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 输入提示
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// 业务别名
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 套件的业务标识
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 是否自动计算时长
+	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 联系人控件是否支持多选，1多选，0单选
+	Choice *string `json:"choice,omitempty" xml:"choice,omitempty"`
+	// 是否不可编辑
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// 文字提示控件显示方式:top|middle|bottom
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// 是否隐藏字段
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// 说明文字控件链接地址
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// 明细打印方式false横向，true纵向
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// 公式
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// 自定义控件渲染标识
+	CommonBizType *string `json:"commonBizType,omitempty" xml:"commonBizType,omitempty"`
+	// 单选多选控件选项列表
+	Options []*FormCreateRequestFormComponentsPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// 字段是否可打印，1打印，0不打印，默认打印
+	Print *string `json:"print,omitempty" xml:"print,omitempty"`
+	// 明细控件数据汇总统计
+	StatField []*FormCreateRequestFormComponentsPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// 关联审批单、关联表单数据源配置
+	DataSource *FormCreateRequestFormComponentsPropsDataSource `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
+	// 关联显示字段
+	Fields []*FormCreateRequestFormComponentsPropsFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	// 地址控件模式city省市,district省市区,street省市区街道
+	AddressModel *string `json:"addressModel,omitempty" xml:"addressModel,omitempty"`
+	// 部门控件是否可多选
+	Multiple *bool `json:"multiple,omitempty" xml:"multiple,omitempty"`
+	// 评分控件上限
+	Limit *int32 `json:"limit,omitempty" xml:"limit,omitempty"`
+	// 关联审批单控件限定模板列表
+	AvailableTemplates []*FormCreateRequestFormComponentsPropsAvailableTemplates `json:"availableTemplates,omitempty" xml:"availableTemplates,omitempty" type:"Repeated"`
+	// 明细填写方式，table（表格）、list（列表）
+	TableViewMode *string `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsProps) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetComponentId(v string) *FormCreateRequestFormComponentsProps {
+	s.ComponentId = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetLabel(v string) *FormCreateRequestFormComponentsProps {
+	s.Label = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetAsyncCondition(v bool) *FormCreateRequestFormComponentsProps {
+	s.AsyncCondition = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetRequired(v bool) *FormCreateRequestFormComponentsProps {
+	s.Required = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetContent(v string) *FormCreateRequestFormComponentsProps {
+	s.Content = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetFormat(v string) *FormCreateRequestFormComponentsProps {
+	s.Format = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetUpper(v string) *FormCreateRequestFormComponentsProps {
+	s.Upper = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetUnit(v string) *FormCreateRequestFormComponentsProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetPlaceholder(v string) *FormCreateRequestFormComponentsProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetBizAlias(v string) *FormCreateRequestFormComponentsProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetBizType(v string) *FormCreateRequestFormComponentsProps {
+	s.BizType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetDuration(v bool) *FormCreateRequestFormComponentsProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetChoice(v string) *FormCreateRequestFormComponentsProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetDisabled(v bool) *FormCreateRequestFormComponentsProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetAlign(v string) *FormCreateRequestFormComponentsProps {
+	s.Align = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetInvisible(v bool) *FormCreateRequestFormComponentsProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetLink(v string) *FormCreateRequestFormComponentsProps {
+	s.Link = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetVerticalPrint(v bool) *FormCreateRequestFormComponentsProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetFormula(v string) *FormCreateRequestFormComponentsProps {
+	s.Formula = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetCommonBizType(v string) *FormCreateRequestFormComponentsProps {
+	s.CommonBizType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetOptions(v []*FormCreateRequestFormComponentsPropsOptions) *FormCreateRequestFormComponentsProps {
+	s.Options = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetPrint(v string) *FormCreateRequestFormComponentsProps {
+	s.Print = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetStatField(v []*FormCreateRequestFormComponentsPropsStatField) *FormCreateRequestFormComponentsProps {
+	s.StatField = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetDataSource(v *FormCreateRequestFormComponentsPropsDataSource) *FormCreateRequestFormComponentsProps {
+	s.DataSource = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetFields(v []*FormCreateRequestFormComponentsPropsFields) *FormCreateRequestFormComponentsProps {
+	s.Fields = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetAddressModel(v string) *FormCreateRequestFormComponentsProps {
+	s.AddressModel = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetMultiple(v bool) *FormCreateRequestFormComponentsProps {
+	s.Multiple = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetLimit(v int32) *FormCreateRequestFormComponentsProps {
+	s.Limit = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetAvailableTemplates(v []*FormCreateRequestFormComponentsPropsAvailableTemplates) *FormCreateRequestFormComponentsProps {
+	s.AvailableTemplates = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsProps) SetTableViewMode(v string) *FormCreateRequestFormComponentsProps {
+	s.TableViewMode = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsPropsOptions struct {
+	// 选项的显示内容
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 选项的唯一主键
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsPropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsPropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsPropsOptions) SetValue(v string) *FormCreateRequestFormComponentsPropsOptions {
+	s.Value = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsOptions) SetKey(v string) *FormCreateRequestFormComponentsPropsOptions {
+	s.Key = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsPropsStatField struct {
+	// 需要统计的明细控件内子控件id
+	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
+	// 子控件标题
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// 金额控件是否需要大写
+	Upper     *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+	PayEnable *string `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsPropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsPropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsPropsStatField) SetComponentId(v string) *FormCreateRequestFormComponentsPropsStatField {
+	s.ComponentId = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsStatField) SetLabel(v string) *FormCreateRequestFormComponentsPropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsStatField) SetUpper(v bool) *FormCreateRequestFormComponentsPropsStatField {
+	s.Upper = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsStatField) SetPayEnable(v string) *FormCreateRequestFormComponentsPropsStatField {
+	s.PayEnable = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsPropsDataSource struct {
+	// 关联类型，form关联表单
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 关联表单信息
+	Target *FormCreateRequestFormComponentsPropsDataSourceTarget `json:"target,omitempty" xml:"target,omitempty" type:"Struct"`
+}
+
+func (s FormCreateRequestFormComponentsPropsDataSource) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsPropsDataSource) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsPropsDataSource) SetType(v string) *FormCreateRequestFormComponentsPropsDataSource {
+	s.Type = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsDataSource) SetTarget(v *FormCreateRequestFormComponentsPropsDataSourceTarget) *FormCreateRequestFormComponentsPropsDataSource {
+	s.Target = v
+	return s
+}
+
+type FormCreateRequestFormComponentsPropsDataSourceTarget struct {
+	// 应用appUuid
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// 表单类型，0流程表单
+	AppType *int32 `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 关联表单业务标识
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 关联表单的formCode
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsPropsDataSourceTarget) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsPropsDataSourceTarget) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsPropsDataSourceTarget) SetAppUuid(v string) *FormCreateRequestFormComponentsPropsDataSourceTarget {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsDataSourceTarget) SetAppType(v int32) *FormCreateRequestFormComponentsPropsDataSourceTarget {
+	s.AppType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsDataSourceTarget) SetBizType(v string) *FormCreateRequestFormComponentsPropsDataSourceTarget {
+	s.BizType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsDataSourceTarget) SetFormCode(v string) *FormCreateRequestFormComponentsPropsDataSourceTarget {
+	s.FormCode = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsPropsFields struct {
+	// 关联显示字段类型
+	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	// 关联显示字段属性
+	Props *FormCreateRequestFormComponentsPropsFieldsProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+}
+
+func (s FormCreateRequestFormComponentsPropsFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsPropsFields) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsPropsFields) SetComponentType(v string) *FormCreateRequestFormComponentsPropsFields {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFields) SetProps(v *FormCreateRequestFormComponentsPropsFieldsProps) *FormCreateRequestFormComponentsPropsFields {
+	s.Props = v
+	return s
+}
+
+type FormCreateRequestFormComponentsPropsFieldsProps struct {
+	// 表单中控件的唯一id
+	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
+	// 控件标题
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// label是否禁用修改
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// 必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// 必填是否可修改
+	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	// 是否可打印
+	Print *string `json:"print,omitempty" xml:"print,omitempty"`
+	// 说明文字控件内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 时间格式
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// 选项内容
+	Options []*FormCreateRequestFormComponentsPropsFieldsPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// 是否需要大写，1需要大写，0不需要
+	Upper *string `json:"upper,omitempty" xml:"upper,omitempty"`
+	// 时间单位（天、小时）
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 输入提示
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// 业务别名
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 套件的业务标识
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 是否自动计算时长
+	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 联系人控件是否支持多选，1多选，0单选
+	Choice *string `json:"choice,omitempty" xml:"choice,omitempty"`
+	// 是否不可编辑
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// 文字提示控件显示方式（top|middle|bottom）
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsPropsFieldsProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsPropsFieldsProps) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetComponentId(v string) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.ComponentId = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetLabel(v string) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.Label = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetLabelEditableFreeze(v bool) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.LabelEditableFreeze = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetRequired(v bool) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.Required = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetRequiredEditableFreeze(v bool) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.RequiredEditableFreeze = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetPrint(v string) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.Print = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetContent(v string) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.Content = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetFormat(v string) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.Format = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetOptions(v []*FormCreateRequestFormComponentsPropsFieldsPropsOptions) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.Options = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetUpper(v string) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.Upper = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetUnit(v string) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetPlaceholder(v string) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetBizAlias(v string) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetBizType(v string) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.BizType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetDuration(v bool) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetChoice(v string) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetDisabled(v bool) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsProps) SetAlign(v string) *FormCreateRequestFormComponentsPropsFieldsProps {
+	s.Align = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsPropsFieldsPropsOptions struct {
+	// 每一个选项的唯一键
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// 每一个选项的值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsPropsFieldsPropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsPropsFieldsPropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsPropsOptions) SetKey(v string) *FormCreateRequestFormComponentsPropsFieldsPropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsFieldsPropsOptions) SetValue(v string) *FormCreateRequestFormComponentsPropsFieldsPropsOptions {
+	s.Value = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsPropsAvailableTemplates struct {
+	// 表单名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 表单模板processCode
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsPropsAvailableTemplates) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsPropsAvailableTemplates) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsPropsAvailableTemplates) SetName(v string) *FormCreateRequestFormComponentsPropsAvailableTemplates {
+	s.Name = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsPropsAvailableTemplates) SetProcessCode(v string) *FormCreateRequestFormComponentsPropsAvailableTemplates {
+	s.ProcessCode = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildren struct {
+	// 控件类型
+	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	// 控件属性
+	Props *FormCreateRequestFormComponentsChildrenProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+	// 子控件列表
+	Children []*FormCreateRequestFormComponentsChildrenChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+}
+
+func (s FormCreateRequestFormComponentsChildren) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildren) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildren) SetComponentType(v string) *FormCreateRequestFormComponentsChildren {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildren) SetProps(v *FormCreateRequestFormComponentsChildrenProps) *FormCreateRequestFormComponentsChildren {
+	s.Props = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildren) SetChildren(v []*FormCreateRequestFormComponentsChildrenChildren) *FormCreateRequestFormComponentsChildren {
+	s.Children = v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenProps struct {
+	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
+	// 控件标题
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// 套件中控件是否可设置为分条件字段
+	AsyncCondition *bool `json:"asyncCondition,omitempty" xml:"asyncCondition,omitempty"`
+	// 必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// 说明文字控件内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 时间格式
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// 金额是否需要大写，1不需要大写，其他需要大写
+	Upper *string `json:"upper,omitempty" xml:"upper,omitempty"`
+	// 时间单位（天、小时）
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 输入提示
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// 业务别名
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 套件的业务标识
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 是否自动计算时长
+	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 联系人控件是否支持多选，1多选，0单选
+	Choice *string `json:"choice,omitempty" xml:"choice,omitempty"`
+	// 是否不可编辑
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// 文字提示控件显示方式:top|middle|bottom
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// 是否隐藏字段
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// 说明文字控件链接地址
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// 明细打印方式false横向，true纵向
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// 公式
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// 自定义控件渲染标识
+	CommonBizType *string `json:"commonBizType,omitempty" xml:"commonBizType,omitempty"`
+	// 单选多选控件选项列表
+	Options []*FormCreateRequestFormComponentsChildrenPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// 是否可被打印
+	Print *string `json:"print,omitempty" xml:"print,omitempty"`
+	// 明细汇总统计设置
+	StatField []*FormCreateRequestFormComponentsChildrenPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// 数据源配置
+	DataSource *FormCreateRequestFormComponentsChildrenPropsDataSource `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
+	// 关联显示字段配置
+	Fields []*FormCreateRequestFormComponentsChildrenPropsFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	// 地址控件模式
+	AddressModel *string `json:"addressModel,omitempty" xml:"addressModel,omitempty"`
+	// 部门控件是否支持多选
+	Multiple *bool `json:"multiple,omitempty" xml:"multiple,omitempty"`
+	// 评分控件上限
+	Limit *int32 `json:"limit,omitempty" xml:"limit,omitempty"`
+	// 关联审批单表单筛选列表
+	AvailableTemplates []*FormCreateRequestFormComponentsChildrenPropsAvailableTemplates `json:"availableTemplates,omitempty" xml:"availableTemplates,omitempty" type:"Repeated"`
+	// 明细填写方式，table（表格）、list（列表）
+	TableViewMode *string `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenProps) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetComponentId(v string) *FormCreateRequestFormComponentsChildrenProps {
+	s.ComponentId = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetLabel(v string) *FormCreateRequestFormComponentsChildrenProps {
+	s.Label = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetAsyncCondition(v bool) *FormCreateRequestFormComponentsChildrenProps {
+	s.AsyncCondition = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetRequired(v bool) *FormCreateRequestFormComponentsChildrenProps {
+	s.Required = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetContent(v string) *FormCreateRequestFormComponentsChildrenProps {
+	s.Content = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetFormat(v string) *FormCreateRequestFormComponentsChildrenProps {
+	s.Format = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetUpper(v string) *FormCreateRequestFormComponentsChildrenProps {
+	s.Upper = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetUnit(v string) *FormCreateRequestFormComponentsChildrenProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetPlaceholder(v string) *FormCreateRequestFormComponentsChildrenProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetBizAlias(v string) *FormCreateRequestFormComponentsChildrenProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetBizType(v string) *FormCreateRequestFormComponentsChildrenProps {
+	s.BizType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetDuration(v bool) *FormCreateRequestFormComponentsChildrenProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetChoice(v string) *FormCreateRequestFormComponentsChildrenProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetDisabled(v bool) *FormCreateRequestFormComponentsChildrenProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetAlign(v string) *FormCreateRequestFormComponentsChildrenProps {
+	s.Align = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetInvisible(v bool) *FormCreateRequestFormComponentsChildrenProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetLink(v string) *FormCreateRequestFormComponentsChildrenProps {
+	s.Link = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetVerticalPrint(v bool) *FormCreateRequestFormComponentsChildrenProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetFormula(v string) *FormCreateRequestFormComponentsChildrenProps {
+	s.Formula = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetCommonBizType(v string) *FormCreateRequestFormComponentsChildrenProps {
+	s.CommonBizType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetOptions(v []*FormCreateRequestFormComponentsChildrenPropsOptions) *FormCreateRequestFormComponentsChildrenProps {
+	s.Options = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetPrint(v string) *FormCreateRequestFormComponentsChildrenProps {
+	s.Print = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetStatField(v []*FormCreateRequestFormComponentsChildrenPropsStatField) *FormCreateRequestFormComponentsChildrenProps {
+	s.StatField = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetDataSource(v *FormCreateRequestFormComponentsChildrenPropsDataSource) *FormCreateRequestFormComponentsChildrenProps {
+	s.DataSource = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetFields(v []*FormCreateRequestFormComponentsChildrenPropsFields) *FormCreateRequestFormComponentsChildrenProps {
+	s.Fields = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetAddressModel(v string) *FormCreateRequestFormComponentsChildrenProps {
+	s.AddressModel = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetMultiple(v bool) *FormCreateRequestFormComponentsChildrenProps {
+	s.Multiple = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetLimit(v int32) *FormCreateRequestFormComponentsChildrenProps {
+	s.Limit = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetAvailableTemplates(v []*FormCreateRequestFormComponentsChildrenPropsAvailableTemplates) *FormCreateRequestFormComponentsChildrenProps {
+	s.AvailableTemplates = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenProps) SetTableViewMode(v string) *FormCreateRequestFormComponentsChildrenProps {
+	s.TableViewMode = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenPropsOptions struct {
+	// 选项的显示内容
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 选项的唯一主键
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenPropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenPropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsOptions) SetValue(v string) *FormCreateRequestFormComponentsChildrenPropsOptions {
+	s.Value = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsOptions) SetKey(v string) *FormCreateRequestFormComponentsChildrenPropsOptions {
+	s.Key = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenPropsStatField struct {
+	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
+	Label       *string `json:"label,omitempty" xml:"label,omitempty"`
+	Upper       *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+	PayEnable   *string `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenPropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenPropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsStatField) SetComponentId(v string) *FormCreateRequestFormComponentsChildrenPropsStatField {
+	s.ComponentId = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsStatField) SetLabel(v string) *FormCreateRequestFormComponentsChildrenPropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsStatField) SetUpper(v bool) *FormCreateRequestFormComponentsChildrenPropsStatField {
+	s.Upper = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsStatField) SetPayEnable(v string) *FormCreateRequestFormComponentsChildrenPropsStatField {
+	s.PayEnable = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenPropsDataSource struct {
+	Type   *string                                                       `json:"type,omitempty" xml:"type,omitempty"`
+	Target *FormCreateRequestFormComponentsChildrenPropsDataSourceTarget `json:"target,omitempty" xml:"target,omitempty" type:"Struct"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenPropsDataSource) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenPropsDataSource) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsDataSource) SetType(v string) *FormCreateRequestFormComponentsChildrenPropsDataSource {
+	s.Type = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsDataSource) SetTarget(v *FormCreateRequestFormComponentsChildrenPropsDataSourceTarget) *FormCreateRequestFormComponentsChildrenPropsDataSource {
+	s.Target = v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenPropsDataSourceTarget struct {
+	AppUuid  *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	AppType  *int64  `json:"appType,omitempty" xml:"appType,omitempty"`
+	BizType  *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenPropsDataSourceTarget) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenPropsDataSourceTarget) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsDataSourceTarget) SetAppUuid(v string) *FormCreateRequestFormComponentsChildrenPropsDataSourceTarget {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsDataSourceTarget) SetAppType(v int64) *FormCreateRequestFormComponentsChildrenPropsDataSourceTarget {
+	s.AppType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsDataSourceTarget) SetBizType(v string) *FormCreateRequestFormComponentsChildrenPropsDataSourceTarget {
+	s.BizType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsDataSourceTarget) SetFormCode(v string) *FormCreateRequestFormComponentsChildrenPropsDataSourceTarget {
+	s.FormCode = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenPropsFields struct {
+	ComponentType *string                                                  `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	Props         *FormCreateRequestFormComponentsChildrenPropsFieldsProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenPropsFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenPropsFields) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFields) SetComponentType(v string) *FormCreateRequestFormComponentsChildrenPropsFields {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFields) SetProps(v *FormCreateRequestFormComponentsChildrenPropsFieldsProps) *FormCreateRequestFormComponentsChildrenPropsFields {
+	s.Props = v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenPropsFieldsProps struct {
+	// 表单中控件的唯一id
+	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
+	// 控件标题
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// label是否禁用修改
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// 必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// 必填是否可修改
+	RequiredEditableFreeze *bool   `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	Print                  *string `json:"print,omitempty" xml:"print,omitempty"`
+	// 说明文字控件内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 时间格式
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// 选项内容
+	Options []*FormCreateRequestFormComponentsChildrenPropsFieldsPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// 是否需要大写，1不需要大写，其他需要大写
+	NotUpper *string `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	// 时间单位（天、小时）
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 输入提示
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// 业务别名
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 套件的业务标识
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 是否自动计算时长
+	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 联系人控件是否支持多选，1多选，0单选
+	Choice *string `json:"choice,omitempty" xml:"choice,omitempty"`
+	// 是否不可编辑
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// 文字提示控件显示方式（top|middle|bottom）
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenPropsFieldsProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenPropsFieldsProps) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetComponentId(v string) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.ComponentId = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetLabel(v string) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.Label = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetLabelEditableFreeze(v bool) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.LabelEditableFreeze = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetRequired(v bool) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.Required = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetRequiredEditableFreeze(v bool) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.RequiredEditableFreeze = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetPrint(v string) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.Print = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetContent(v string) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.Content = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetFormat(v string) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.Format = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetOptions(v []*FormCreateRequestFormComponentsChildrenPropsFieldsPropsOptions) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.Options = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetNotUpper(v string) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetUnit(v string) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetPlaceholder(v string) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetBizAlias(v string) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetBizType(v string) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.BizType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetDuration(v bool) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetChoice(v string) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetDisabled(v bool) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsProps) SetAlign(v string) *FormCreateRequestFormComponentsChildrenPropsFieldsProps {
+	s.Align = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenPropsFieldsPropsOptions struct {
+	// 每一个选项的唯一键
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// 每一个选项的值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenPropsFieldsPropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenPropsFieldsPropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsPropsOptions) SetKey(v string) *FormCreateRequestFormComponentsChildrenPropsFieldsPropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsFieldsPropsOptions) SetValue(v string) *FormCreateRequestFormComponentsChildrenPropsFieldsPropsOptions {
+	s.Value = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenPropsAvailableTemplates struct {
+	// 模板名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 模板processCode
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenPropsAvailableTemplates) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenPropsAvailableTemplates) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsAvailableTemplates) SetName(v string) *FormCreateRequestFormComponentsChildrenPropsAvailableTemplates {
+	s.Name = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenPropsAvailableTemplates) SetProcessCode(v string) *FormCreateRequestFormComponentsChildrenPropsAvailableTemplates {
+	s.ProcessCode = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenChildren struct {
+	ComponentType *string                                               `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	Props         *FormCreateRequestFormComponentsChildrenChildrenProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildren) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildren) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildren) SetComponentType(v string) *FormCreateRequestFormComponentsChildrenChildren {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildren) SetProps(v *FormCreateRequestFormComponentsChildrenChildrenProps) *FormCreateRequestFormComponentsChildrenChildren {
+	s.Props = v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenChildrenProps struct {
+	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
+	// 控件标题
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// 套件中控件是否可设置为分条件字段
+	AsyncCondition *bool `json:"asyncCondition,omitempty" xml:"asyncCondition,omitempty"`
+	// 必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// 说明文字控件内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 时间格式
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// 是否需要大写，1需要大写，0不需要大写
+	Upper *string `json:"upper,omitempty" xml:"upper,omitempty"`
+	// 时间单位（天、小时）
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 输入提示
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// 业务别名
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 套件的业务标识
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 是否自动计算时长
+	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 联系人控件是否支持多选，1多选，0单选
+	Choice *string `json:"choice,omitempty" xml:"choice,omitempty"`
+	// 是否不可编辑
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// 文字提示控件显示方式:top|middle|bottom
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// 是否隐藏字段
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// 说明文字控件链接地址
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// 明细排版方式false横向，true纵向
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// 公式
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// 自定义控件渲染标识
+	CommonBizType *string                                                          `json:"commonBizType,omitempty" xml:"commonBizType,omitempty"`
+	Options       []*FormCreateRequestFormComponentsChildrenChildrenPropsOptions   `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	Print         *string                                                          `json:"print,omitempty" xml:"print,omitempty"`
+	StatField     []*FormCreateRequestFormComponentsChildrenChildrenPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	DataSource    *FormCreateRequestFormComponentsChildrenChildrenPropsDataSource  `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
+	Fields        []*FormCreateRequestFormComponentsChildrenChildrenPropsFields    `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildrenProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildrenProps) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetComponentId(v string) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.ComponentId = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetLabel(v string) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.Label = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetAsyncCondition(v bool) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.AsyncCondition = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetRequired(v bool) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.Required = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetContent(v string) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.Content = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetFormat(v string) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.Format = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetUpper(v string) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.Upper = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetUnit(v string) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetPlaceholder(v string) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetBizAlias(v string) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetBizType(v string) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.BizType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetDuration(v bool) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetChoice(v string) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetDisabled(v bool) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetAlign(v string) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.Align = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetInvisible(v bool) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetLink(v string) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.Link = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetVerticalPrint(v bool) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetFormula(v string) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.Formula = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetCommonBizType(v string) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.CommonBizType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetOptions(v []*FormCreateRequestFormComponentsChildrenChildrenPropsOptions) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.Options = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetPrint(v string) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.Print = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetStatField(v []*FormCreateRequestFormComponentsChildrenChildrenPropsStatField) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.StatField = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetDataSource(v *FormCreateRequestFormComponentsChildrenChildrenPropsDataSource) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.DataSource = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenProps) SetFields(v []*FormCreateRequestFormComponentsChildrenChildrenPropsFields) *FormCreateRequestFormComponentsChildrenChildrenProps {
+	s.Fields = v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenChildrenPropsOptions struct {
+	// 选项的显示内容
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 选项的唯一主键
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildrenPropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildrenPropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsOptions) SetValue(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsOptions {
+	s.Value = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsOptions) SetKey(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsOptions {
+	s.Key = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenChildrenPropsStatField struct {
+	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
+	Label       *string `json:"label,omitempty" xml:"label,omitempty"`
+	Upper       *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+	PayEnable   *string `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildrenPropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildrenPropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsStatField) SetComponentId(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsStatField {
+	s.ComponentId = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsStatField) SetLabel(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsStatField) SetUpper(v bool) *FormCreateRequestFormComponentsChildrenChildrenPropsStatField {
+	s.Upper = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsStatField) SetPayEnable(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsStatField {
+	s.PayEnable = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenChildrenPropsDataSource struct {
+	Type   *string                                                               `json:"type,omitempty" xml:"type,omitempty"`
+	Target *FormCreateRequestFormComponentsChildrenChildrenPropsDataSourceTarget `json:"target,omitempty" xml:"target,omitempty" type:"Struct"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildrenPropsDataSource) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildrenPropsDataSource) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsDataSource) SetType(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsDataSource {
+	s.Type = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsDataSource) SetTarget(v *FormCreateRequestFormComponentsChildrenChildrenPropsDataSourceTarget) *FormCreateRequestFormComponentsChildrenChildrenPropsDataSource {
+	s.Target = v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenChildrenPropsDataSourceTarget struct {
+	AppUuid  *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	AppType  *int64  `json:"appType,omitempty" xml:"appType,omitempty"`
+	BizType  *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildrenPropsDataSourceTarget) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildrenPropsDataSourceTarget) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsDataSourceTarget) SetAppUuid(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsDataSourceTarget {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsDataSourceTarget) SetAppType(v int64) *FormCreateRequestFormComponentsChildrenChildrenPropsDataSourceTarget {
+	s.AppType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsDataSourceTarget) SetBizType(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsDataSourceTarget {
+	s.BizType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsDataSourceTarget) SetFormCode(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsDataSourceTarget {
+	s.FormCode = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenChildrenPropsFields struct {
+	ComponentType *string                                                          `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	Props         *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildrenPropsFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildrenPropsFields) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFields) SetComponentType(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsFields {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFields) SetProps(v *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) *FormCreateRequestFormComponentsChildrenChildrenPropsFields {
+	s.Props = v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps struct {
+	// 表单中控件的唯一id
+	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
+	// 控件标题
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// 必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// 字段是否可被打印，1表示打印, 0表示打印，默认打印
+	Print *string `json:"print,omitempty" xml:"print,omitempty"`
+	// 说明文字控件内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 时间格式
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// 选项内容
+	Options []*FormCreateRequestFormComponentsChildrenChildrenPropsFieldsPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// 是否需要大写，1需要大写，0不需要，默认1
+	Upper *string `json:"upper,omitempty" xml:"upper,omitempty"`
+	// 时间单位（天、小时）
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 输入提示
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// 业务别名
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 套件的业务标识
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 是否自动计算时长
+	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 联系人控件是否支持多选，1多选，0单选
+	Choice *string `json:"choice,omitempty" xml:"choice,omitempty"`
+	// 是否不可编辑
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// 文字提示控件显示方式（top|middle|bottom）
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) SetComponentId(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps {
+	s.ComponentId = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) SetLabel(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps {
+	s.Label = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) SetRequired(v bool) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps {
+	s.Required = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) SetPrint(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps {
+	s.Print = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) SetContent(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps {
+	s.Content = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) SetFormat(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps {
+	s.Format = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) SetOptions(v []*FormCreateRequestFormComponentsChildrenChildrenPropsFieldsPropsOptions) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps {
+	s.Options = v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) SetUpper(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps {
+	s.Upper = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) SetUnit(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) SetPlaceholder(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) SetBizAlias(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) SetBizType(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps {
+	s.BizType = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) SetDuration(v bool) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) SetChoice(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) SetDisabled(v bool) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps) SetAlign(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsProps {
+	s.Align = &v
+	return s
+}
+
+type FormCreateRequestFormComponentsChildrenChildrenPropsFieldsPropsOptions struct {
+	// 每一个选项的唯一键
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// 每一个选项的值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildrenPropsFieldsPropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateRequestFormComponentsChildrenChildrenPropsFieldsPropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsPropsOptions) SetKey(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsPropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsPropsOptions) SetValue(v string) *FormCreateRequestFormComponentsChildrenChildrenPropsFieldsPropsOptions {
+	s.Value = &v
+	return s
+}
+
+type FormCreateResponseBody struct {
+	// 表单模板信息
+	Result *FormCreateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s FormCreateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateResponseBody) SetResult(v *FormCreateResponseBodyResult) *FormCreateResponseBody {
+	s.Result = v
+	return s
+}
+
+type FormCreateResponseBodyResult struct {
+	// 保存或更新的表单code
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s FormCreateResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateResponseBodyResult) SetProcessCode(v string) *FormCreateResponseBodyResult {
+	s.ProcessCode = &v
+	return s
+}
+
+type FormCreateResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *FormCreateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s FormCreateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FormCreateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *FormCreateResponse) SetHeaders(v map[string]*string) *FormCreateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *FormCreateResponse) SetBody(v *FormCreateResponseBody) *FormCreateResponse {
+	s.Body = v
+	return s
+}
+
 type StartProcessInstanceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2180,6 +4110,86 @@ func (client *Client) QueryFormByBizTypeWithOptions(request *QueryFormByBizTypeR
 	}
 	_result = &QueryFormByBizTypeResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryFormByBizType"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/forms/forminfos/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) FormCreate(request *FormCreateRequest) (_result *FormCreateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &FormCreateHeaders{}
+	_result = &FormCreateResponse{}
+	_body, _err := client.FormCreateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) FormCreateWithOptions(request *FormCreateRequest, headers *FormCreateHeaders, runtime *util.RuntimeOptions) (_result *FormCreateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		body["RequestId"] = request.RequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormComponents)) {
+		body["formComponents"] = request.FormComponents
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &FormCreateResponse{}
+	_body, _err := client.DoROARequest(tea.String("FormCreate"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/forms"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -395,6 +395,8 @@ type CreateWorkspaceDocRequest struct {
 	DocType *string `json:"docType,omitempty" xml:"docType,omitempty"`
 	// 操作人unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// 父节点nodeId
+	ParentNodeId *string `json:"parentNodeId,omitempty" xml:"parentNodeId,omitempty"`
 }
 
 func (s CreateWorkspaceDocRequest) String() string {
@@ -417,6 +419,11 @@ func (s *CreateWorkspaceDocRequest) SetDocType(v string) *CreateWorkspaceDocRequ
 
 func (s *CreateWorkspaceDocRequest) SetOperatorId(v string) *CreateWorkspaceDocRequest {
 	s.OperatorId = &v
+	return s
+}
+
+func (s *CreateWorkspaceDocRequest) SetParentNodeId(v string) *CreateWorkspaceDocRequest {
+	s.ParentNodeId = &v
 	return s
 }
 
@@ -2718,6 +2725,10 @@ func (client *Client) CreateWorkspaceDocWithOptions(workspaceId *string, request
 
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		body["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ParentNodeId)) {
+		body["parentNodeId"] = request.ParentNodeId
 	}
 
 	realHeaders := make(map[string]*string)

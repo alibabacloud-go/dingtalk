@@ -1379,6 +1379,413 @@ func (s *BatchSendOfficialAccountOTOMessageResponse) SetBody(v *BatchSendOfficia
 	return s
 }
 
+type QueryCrmGroupChatsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCrmGroupChatsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCrmGroupChatsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCrmGroupChatsHeaders) SetCommonHeaders(v map[string]*string) *QueryCrmGroupChatsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCrmGroupChatsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCrmGroupChatsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCrmGroupChatsRequest struct {
+	// 关系类型
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// 第一页不传，下一页传入上一页返回的nextToken
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 每页返回的结果集个数
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 查询DSL
+	QueryDsl *string `json:"queryDsl,omitempty" xml:"queryDsl,omitempty"`
+}
+
+func (s QueryCrmGroupChatsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCrmGroupChatsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCrmGroupChatsRequest) SetRelationType(v string) *QueryCrmGroupChatsRequest {
+	s.RelationType = &v
+	return s
+}
+
+func (s *QueryCrmGroupChatsRequest) SetNextToken(v string) *QueryCrmGroupChatsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryCrmGroupChatsRequest) SetMaxResults(v int32) *QueryCrmGroupChatsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryCrmGroupChatsRequest) SetQueryDsl(v string) *QueryCrmGroupChatsRequest {
+	s.QueryDsl = &v
+	return s
+}
+
+type QueryCrmGroupChatsResponseBody struct {
+	// 数据列表
+	ResultList []*QueryCrmGroupChatsResponseBodyResultList `json:"resultList,omitempty" xml:"resultList,omitempty" type:"Repeated"`
+	// 是否还有下一页
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 下一页的游标
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 总条数，queryDsl入参为空时才会返回
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryCrmGroupChatsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCrmGroupChatsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCrmGroupChatsResponseBody) SetResultList(v []*QueryCrmGroupChatsResponseBodyResultList) *QueryCrmGroupChatsResponseBody {
+	s.ResultList = v
+	return s
+}
+
+func (s *QueryCrmGroupChatsResponseBody) SetHasMore(v bool) *QueryCrmGroupChatsResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryCrmGroupChatsResponseBody) SetNextToken(v string) *QueryCrmGroupChatsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryCrmGroupChatsResponseBody) SetTotalCount(v int32) *QueryCrmGroupChatsResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryCrmGroupChatsResponseBodyResultList struct {
+	// 客户群chatId
+	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	// 客户群openConversationId
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 群组openGroupSetId
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 群主userId
+	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	// 群主userName
+	OwnerUserName *string `json:"ownerUserName,omitempty" xml:"ownerUserName,omitempty"`
+	// 客户群名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 客户群成员数
+	MemberCount *int32 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	// 创建时间(时间戳)
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+}
+
+func (s QueryCrmGroupChatsResponseBodyResultList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCrmGroupChatsResponseBodyResultList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCrmGroupChatsResponseBodyResultList) SetChatId(v string) *QueryCrmGroupChatsResponseBodyResultList {
+	s.ChatId = &v
+	return s
+}
+
+func (s *QueryCrmGroupChatsResponseBodyResultList) SetOpenConversationId(v string) *QueryCrmGroupChatsResponseBodyResultList {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QueryCrmGroupChatsResponseBodyResultList) SetOpenGroupSetId(v string) *QueryCrmGroupChatsResponseBodyResultList {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *QueryCrmGroupChatsResponseBodyResultList) SetOwnerUserId(v string) *QueryCrmGroupChatsResponseBodyResultList {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *QueryCrmGroupChatsResponseBodyResultList) SetOwnerUserName(v string) *QueryCrmGroupChatsResponseBodyResultList {
+	s.OwnerUserName = &v
+	return s
+}
+
+func (s *QueryCrmGroupChatsResponseBodyResultList) SetName(v string) *QueryCrmGroupChatsResponseBodyResultList {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryCrmGroupChatsResponseBodyResultList) SetMemberCount(v int32) *QueryCrmGroupChatsResponseBodyResultList {
+	s.MemberCount = &v
+	return s
+}
+
+func (s *QueryCrmGroupChatsResponseBodyResultList) SetGmtCreate(v int64) *QueryCrmGroupChatsResponseBodyResultList {
+	s.GmtCreate = &v
+	return s
+}
+
+type QueryCrmGroupChatsResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryCrmGroupChatsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryCrmGroupChatsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCrmGroupChatsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCrmGroupChatsResponse) SetHeaders(v map[string]*string) *QueryCrmGroupChatsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCrmGroupChatsResponse) SetBody(v *QueryCrmGroupChatsResponseBody) *QueryCrmGroupChatsResponse {
+	s.Body = v
+	return s
+}
+
+type GetGroupSetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetGroupSetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupSetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupSetHeaders) SetCommonHeaders(v map[string]*string) *GetGroupSetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetGroupSetHeaders) SetXAcsDingtalkAccessToken(v string) *GetGroupSetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetGroupSetRequest struct {
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+}
+
+func (s GetGroupSetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupSetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupSetRequest) SetOpenGroupSetId(v string) *GetGroupSetRequest {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+type GetGroupSetResponseBody struct {
+	Name                   *string                           `json:"name,omitempty" xml:"name,omitempty"`
+	OpenGroupSetId         *string                           `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	RelationType           *string                           `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	MemberQuota            *int32                            `json:"memberQuota,omitempty" xml:"memberQuota,omitempty"`
+	CorpId                 *string                           `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	MemberCount            *int32                            `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	TemplateId             *string                           `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	OwnerUserId            *string                           `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	ManagerUserIds         *string                           `json:"managerUserIds,omitempty" xml:"managerUserIds,omitempty"`
+	Notice                 *string                           `json:"notice,omitempty" xml:"notice,omitempty"`
+	NoticeToped            *int32                            `json:"noticeToped,omitempty" xml:"noticeToped,omitempty"`
+	Owner                  *GetGroupSetResponseBodyOwner     `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	Manager                []*GetGroupSetResponseBodyManager `json:"manager,omitempty" xml:"manager,omitempty" type:"Repeated"`
+	LastOpenConversationId *string                           `json:"lastOpenConversationId,omitempty" xml:"lastOpenConversationId,omitempty"`
+	GmtCreate              *string                           `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified            *string                           `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+}
+
+func (s GetGroupSetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupSetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupSetResponseBody) SetName(v string) *GetGroupSetResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *GetGroupSetResponseBody) SetOpenGroupSetId(v string) *GetGroupSetResponseBody {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *GetGroupSetResponseBody) SetRelationType(v string) *GetGroupSetResponseBody {
+	s.RelationType = &v
+	return s
+}
+
+func (s *GetGroupSetResponseBody) SetMemberQuota(v int32) *GetGroupSetResponseBody {
+	s.MemberQuota = &v
+	return s
+}
+
+func (s *GetGroupSetResponseBody) SetCorpId(v string) *GetGroupSetResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetGroupSetResponseBody) SetMemberCount(v int32) *GetGroupSetResponseBody {
+	s.MemberCount = &v
+	return s
+}
+
+func (s *GetGroupSetResponseBody) SetTemplateId(v string) *GetGroupSetResponseBody {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *GetGroupSetResponseBody) SetOwnerUserId(v string) *GetGroupSetResponseBody {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *GetGroupSetResponseBody) SetManagerUserIds(v string) *GetGroupSetResponseBody {
+	s.ManagerUserIds = &v
+	return s
+}
+
+func (s *GetGroupSetResponseBody) SetNotice(v string) *GetGroupSetResponseBody {
+	s.Notice = &v
+	return s
+}
+
+func (s *GetGroupSetResponseBody) SetNoticeToped(v int32) *GetGroupSetResponseBody {
+	s.NoticeToped = &v
+	return s
+}
+
+func (s *GetGroupSetResponseBody) SetOwner(v *GetGroupSetResponseBodyOwner) *GetGroupSetResponseBody {
+	s.Owner = v
+	return s
+}
+
+func (s *GetGroupSetResponseBody) SetManager(v []*GetGroupSetResponseBodyManager) *GetGroupSetResponseBody {
+	s.Manager = v
+	return s
+}
+
+func (s *GetGroupSetResponseBody) SetLastOpenConversationId(v string) *GetGroupSetResponseBody {
+	s.LastOpenConversationId = &v
+	return s
+}
+
+func (s *GetGroupSetResponseBody) SetGmtCreate(v string) *GetGroupSetResponseBody {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *GetGroupSetResponseBody) SetGmtModified(v string) *GetGroupSetResponseBody {
+	s.GmtModified = &v
+	return s
+}
+
+type GetGroupSetResponseBodyOwner struct {
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetGroupSetResponseBodyOwner) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupSetResponseBodyOwner) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupSetResponseBodyOwner) SetName(v string) *GetGroupSetResponseBodyOwner {
+	s.Name = &v
+	return s
+}
+
+func (s *GetGroupSetResponseBodyOwner) SetUserId(v string) *GetGroupSetResponseBodyOwner {
+	s.UserId = &v
+	return s
+}
+
+type GetGroupSetResponseBodyManager struct {
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetGroupSetResponseBodyManager) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupSetResponseBodyManager) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupSetResponseBodyManager) SetName(v string) *GetGroupSetResponseBodyManager {
+	s.Name = &v
+	return s
+}
+
+func (s *GetGroupSetResponseBodyManager) SetUserId(v string) *GetGroupSetResponseBodyManager {
+	s.UserId = &v
+	return s
+}
+
+type GetGroupSetResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetGroupSetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetGroupSetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupSetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupSetResponse) SetHeaders(v map[string]*string) *GetGroupSetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetGroupSetResponse) SetBody(v *GetGroupSetResponseBody) *GetGroupSetResponse {
+	s.Body = v
+	return s
+}
+
 type CreateRelationMetaHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1982,6 +2389,303 @@ func (s *UpdateRelationMetaFieldResponse) SetBody(v *UpdateRelationMetaFieldResp
 	return s
 }
 
+type ListGroupSetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListGroupSetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListGroupSetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListGroupSetHeaders) SetCommonHeaders(v map[string]*string) *ListGroupSetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListGroupSetHeaders) SetXAcsDingtalkAccessToken(v string) *ListGroupSetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListGroupSetRequest struct {
+	// 第一页不传，下一页传入上一页返回的nextToken
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 每页返回的结果集个数
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 查询DSL
+	QueryDsl *string `json:"queryDsl,omitempty" xml:"queryDsl,omitempty"`
+	// 关系类型
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+}
+
+func (s ListGroupSetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListGroupSetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListGroupSetRequest) SetNextToken(v string) *ListGroupSetRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListGroupSetRequest) SetMaxResults(v int32) *ListGroupSetRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListGroupSetRequest) SetQueryDsl(v string) *ListGroupSetRequest {
+	s.QueryDsl = &v
+	return s
+}
+
+func (s *ListGroupSetRequest) SetRelationType(v string) *ListGroupSetRequest {
+	s.RelationType = &v
+	return s
+}
+
+type ListGroupSetResponseBody struct {
+	// 是否有下一页
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 下一页的游标
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 群组列表
+	ResultList []*ListGroupSetResponseBodyResultList `json:"resultList,omitempty" xml:"resultList,omitempty" type:"Repeated"`
+	// 总条数，queryDsl入参为空时才会返回
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s ListGroupSetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListGroupSetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListGroupSetResponseBody) SetHasMore(v bool) *ListGroupSetResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *ListGroupSetResponseBody) SetNextToken(v string) *ListGroupSetResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListGroupSetResponseBody) SetResultList(v []*ListGroupSetResponseBodyResultList) *ListGroupSetResponseBody {
+	s.ResultList = v
+	return s
+}
+
+func (s *ListGroupSetResponseBody) SetTotalCount(v int32) *ListGroupSetResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type ListGroupSetResponseBodyResultList struct {
+	// 群组名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 群组openGroupSetId
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 关系类型
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// 单个群的人数上限
+	MemberQuota *int32 `json:"memberQuota,omitempty" xml:"memberQuota,omitempty"`
+	// 企业corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 群组内所有群的成员数量
+	MemberCount *int32 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	// 群模板id
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// 群主userId，裂变出的新群会自动设置该userId为群主
+	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	// 群管理员userId列表，多个用逗号隔开，裂变出的新群会自动设置这些userId为群管理员
+	ManagerUserIds *string `json:"managerUserIds,omitempty" xml:"managerUserIds,omitempty"`
+	// 群公告文本，裂变出的新群会自动设置上该群公告
+	Notice *string `json:"notice,omitempty" xml:"notice,omitempty"`
+	// 群公告是否置顶，0：不置顶，1：置顶。裂变出的新群会自动设置上该属性
+	NoticeToped *int32 `json:"noticeToped,omitempty" xml:"noticeToped,omitempty"`
+	// 群主
+	Owner *ListGroupSetResponseBodyResultListOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	// 群管理员列表
+	Manager []*ListGroupSetResponseBodyResultListManager `json:"manager,omitempty" xml:"manager,omitempty" type:"Repeated"`
+	// 最新裂变群的群openConversationId
+	LastOpenConversationId *string `json:"lastOpenConversationId,omitempty" xml:"lastOpenConversationId,omitempty"`
+	// 创建时间
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 修改时间
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+}
+
+func (s ListGroupSetResponseBodyResultList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListGroupSetResponseBodyResultList) GoString() string {
+	return s.String()
+}
+
+func (s *ListGroupSetResponseBodyResultList) SetName(v string) *ListGroupSetResponseBodyResultList {
+	s.Name = &v
+	return s
+}
+
+func (s *ListGroupSetResponseBodyResultList) SetOpenGroupSetId(v string) *ListGroupSetResponseBodyResultList {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *ListGroupSetResponseBodyResultList) SetRelationType(v string) *ListGroupSetResponseBodyResultList {
+	s.RelationType = &v
+	return s
+}
+
+func (s *ListGroupSetResponseBodyResultList) SetMemberQuota(v int32) *ListGroupSetResponseBodyResultList {
+	s.MemberQuota = &v
+	return s
+}
+
+func (s *ListGroupSetResponseBodyResultList) SetCorpId(v string) *ListGroupSetResponseBodyResultList {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ListGroupSetResponseBodyResultList) SetMemberCount(v int32) *ListGroupSetResponseBodyResultList {
+	s.MemberCount = &v
+	return s
+}
+
+func (s *ListGroupSetResponseBodyResultList) SetTemplateId(v string) *ListGroupSetResponseBodyResultList {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *ListGroupSetResponseBodyResultList) SetOwnerUserId(v string) *ListGroupSetResponseBodyResultList {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *ListGroupSetResponseBodyResultList) SetManagerUserIds(v string) *ListGroupSetResponseBodyResultList {
+	s.ManagerUserIds = &v
+	return s
+}
+
+func (s *ListGroupSetResponseBodyResultList) SetNotice(v string) *ListGroupSetResponseBodyResultList {
+	s.Notice = &v
+	return s
+}
+
+func (s *ListGroupSetResponseBodyResultList) SetNoticeToped(v int32) *ListGroupSetResponseBodyResultList {
+	s.NoticeToped = &v
+	return s
+}
+
+func (s *ListGroupSetResponseBodyResultList) SetOwner(v *ListGroupSetResponseBodyResultListOwner) *ListGroupSetResponseBodyResultList {
+	s.Owner = v
+	return s
+}
+
+func (s *ListGroupSetResponseBodyResultList) SetManager(v []*ListGroupSetResponseBodyResultListManager) *ListGroupSetResponseBodyResultList {
+	s.Manager = v
+	return s
+}
+
+func (s *ListGroupSetResponseBodyResultList) SetLastOpenConversationId(v string) *ListGroupSetResponseBodyResultList {
+	s.LastOpenConversationId = &v
+	return s
+}
+
+func (s *ListGroupSetResponseBodyResultList) SetGmtCreate(v string) *ListGroupSetResponseBodyResultList {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *ListGroupSetResponseBodyResultList) SetGmtModified(v string) *ListGroupSetResponseBodyResultList {
+	s.GmtModified = &v
+	return s
+}
+
+type ListGroupSetResponseBodyResultListOwner struct {
+	// 群主姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 群主userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListGroupSetResponseBodyResultListOwner) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListGroupSetResponseBodyResultListOwner) GoString() string {
+	return s.String()
+}
+
+func (s *ListGroupSetResponseBodyResultListOwner) SetName(v string) *ListGroupSetResponseBodyResultListOwner {
+	s.Name = &v
+	return s
+}
+
+func (s *ListGroupSetResponseBodyResultListOwner) SetUserId(v string) *ListGroupSetResponseBodyResultListOwner {
+	s.UserId = &v
+	return s
+}
+
+type ListGroupSetResponseBodyResultListManager struct {
+	// 群管理员姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 群管理员userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListGroupSetResponseBodyResultListManager) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListGroupSetResponseBodyResultListManager) GoString() string {
+	return s.String()
+}
+
+func (s *ListGroupSetResponseBodyResultListManager) SetName(v string) *ListGroupSetResponseBodyResultListManager {
+	s.Name = &v
+	return s
+}
+
+func (s *ListGroupSetResponseBodyResultListManager) SetUserId(v string) *ListGroupSetResponseBodyResultListManager {
+	s.UserId = &v
+	return s
+}
+
+type ListGroupSetResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListGroupSetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListGroupSetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListGroupSetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListGroupSetResponse) SetHeaders(v map[string]*string) *ListGroupSetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListGroupSetResponse) SetBody(v *ListGroupSetResponseBody) *ListGroupSetResponse {
+	s.Body = v
+	return s
+}
+
 type SendOfficialAccountOTOMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2488,6 +3192,119 @@ func (s *GetOfficialAccountOTOMessageResultResponse) SetHeaders(v map[string]*st
 }
 
 func (s *GetOfficialAccountOTOMessageResultResponse) SetBody(v *GetOfficialAccountOTOMessageResultResponseBody) *GetOfficialAccountOTOMessageResultResponse {
+	s.Body = v
+	return s
+}
+
+type GetCrmGroupChatHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCrmGroupChatHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmGroupChatHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmGroupChatHeaders) SetCommonHeaders(v map[string]*string) *GetCrmGroupChatHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCrmGroupChatHeaders) SetXAcsDingtalkAccessToken(v string) *GetCrmGroupChatHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCrmGroupChatResponseBody struct {
+	// 客户群chatId
+	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	// 客户群openConversationId
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 群组openGroupSetId
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 群主userId
+	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	// 群主userName
+	OwnerUserName *string `json:"ownerUserName,omitempty" xml:"ownerUserName,omitempty"`
+	// 客户群名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 客户群成员数
+	MemberCount *int32 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	// 创建时间(时间戳)
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+}
+
+func (s GetCrmGroupChatResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmGroupChatResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmGroupChatResponseBody) SetChatId(v string) *GetCrmGroupChatResponseBody {
+	s.ChatId = &v
+	return s
+}
+
+func (s *GetCrmGroupChatResponseBody) SetOpenConversationId(v string) *GetCrmGroupChatResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GetCrmGroupChatResponseBody) SetOpenGroupSetId(v string) *GetCrmGroupChatResponseBody {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *GetCrmGroupChatResponseBody) SetOwnerUserId(v string) *GetCrmGroupChatResponseBody {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *GetCrmGroupChatResponseBody) SetOwnerUserName(v string) *GetCrmGroupChatResponseBody {
+	s.OwnerUserName = &v
+	return s
+}
+
+func (s *GetCrmGroupChatResponseBody) SetName(v string) *GetCrmGroupChatResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *GetCrmGroupChatResponseBody) SetMemberCount(v int32) *GetCrmGroupChatResponseBody {
+	s.MemberCount = &v
+	return s
+}
+
+func (s *GetCrmGroupChatResponseBody) SetGmtCreate(v int64) *GetCrmGroupChatResponseBody {
+	s.GmtCreate = &v
+	return s
+}
+
+type GetCrmGroupChatResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCrmGroupChatResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCrmGroupChatResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmGroupChatResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmGroupChatResponse) SetHeaders(v map[string]*string) *GetCrmGroupChatResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCrmGroupChatResponse) SetBody(v *GetCrmGroupChatResponseBody) *GetCrmGroupChatResponse {
 	s.Body = v
 	return s
 }
@@ -3166,10 +3983,13 @@ func (s *QueryCrmPersonalCustomerRequest) SetQueryDsl(v string) *QueryCrmPersona
 }
 
 type QueryCrmPersonalCustomerResponseBody struct {
-	Values     []*QueryCrmPersonalCustomerResponseBodyValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
-	HasMore    *bool                                         `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextToken  *string                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	MaxResults *int32                                        `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	Values    []*QueryCrmPersonalCustomerResponseBodyValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	HasMore   *bool                                         `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *string                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 当前分页条数
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 总条数
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s QueryCrmPersonalCustomerResponseBody) String() string {
@@ -3197,6 +4017,11 @@ func (s *QueryCrmPersonalCustomerResponseBody) SetNextToken(v string) *QueryCrmP
 
 func (s *QueryCrmPersonalCustomerResponseBody) SetMaxResults(v int32) *QueryCrmPersonalCustomerResponseBody {
 	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryCrmPersonalCustomerResponseBody) SetTotalCount(v int32) *QueryCrmPersonalCustomerResponseBody {
+	s.TotalCount = &v
 	return s
 }
 
@@ -3636,6 +4461,270 @@ func (s *DeleteRelationMetaFieldResponse) SetHeaders(v map[string]*string) *Dele
 }
 
 func (s *DeleteRelationMetaFieldResponse) SetBody(v *DeleteRelationMetaFieldResponseBody) *DeleteRelationMetaFieldResponse {
+	s.Body = v
+	return s
+}
+
+type CreateGroupSetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateGroupSetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupSetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupSetHeaders) SetCommonHeaders(v map[string]*string) *CreateGroupSetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateGroupSetHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGroupSetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateGroupSetRequest struct {
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	OwnerUserId    *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	CreatorUserId  *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	TemplateId     *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	MemberQuota    *int64  `json:"memberQuota,omitempty" xml:"memberQuota,omitempty"`
+	ManagerUserIds *string `json:"managerUserIds,omitempty" xml:"managerUserIds,omitempty"`
+	Notice         *string `json:"notice,omitempty" xml:"notice,omitempty"`
+	NoticeToped    *int32  `json:"noticeToped,omitempty" xml:"noticeToped,omitempty"`
+	RelationType   *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+}
+
+func (s CreateGroupSetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupSetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupSetRequest) SetName(v string) *CreateGroupSetRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateGroupSetRequest) SetOwnerUserId(v string) *CreateGroupSetRequest {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *CreateGroupSetRequest) SetCreatorUserId(v string) *CreateGroupSetRequest {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *CreateGroupSetRequest) SetTemplateId(v string) *CreateGroupSetRequest {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *CreateGroupSetRequest) SetMemberQuota(v int64) *CreateGroupSetRequest {
+	s.MemberQuota = &v
+	return s
+}
+
+func (s *CreateGroupSetRequest) SetManagerUserIds(v string) *CreateGroupSetRequest {
+	s.ManagerUserIds = &v
+	return s
+}
+
+func (s *CreateGroupSetRequest) SetNotice(v string) *CreateGroupSetRequest {
+	s.Notice = &v
+	return s
+}
+
+func (s *CreateGroupSetRequest) SetNoticeToped(v int32) *CreateGroupSetRequest {
+	s.NoticeToped = &v
+	return s
+}
+
+func (s *CreateGroupSetRequest) SetRelationType(v string) *CreateGroupSetRequest {
+	s.RelationType = &v
+	return s
+}
+
+type CreateGroupSetResponseBody struct {
+	Name                   *string                              `json:"name,omitempty" xml:"name,omitempty"`
+	OpenGroupSetId         *string                              `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	RelationType           *string                              `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	MemberQuota            *int64                               `json:"memberQuota,omitempty" xml:"memberQuota,omitempty"`
+	CorpId                 *string                              `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	MemberCount            *int64                               `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	TemplateId             *string                              `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	OwnerUserId            *string                              `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	ManagerUserIds         *string                              `json:"managerUserIds,omitempty" xml:"managerUserIds,omitempty"`
+	Notice                 *string                              `json:"notice,omitempty" xml:"notice,omitempty"`
+	NoticeToped            *int32                               `json:"noticeToped,omitempty" xml:"noticeToped,omitempty"`
+	Owner                  *CreateGroupSetResponseBodyOwner     `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	Manager                []*CreateGroupSetResponseBodyManager `json:"manager,omitempty" xml:"manager,omitempty" type:"Repeated"`
+	LastOpenConversationId *string                              `json:"lastOpenConversationId,omitempty" xml:"lastOpenConversationId,omitempty"`
+	GmtCreate              *string                              `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified            *string                              `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+}
+
+func (s CreateGroupSetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupSetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupSetResponseBody) SetName(v string) *CreateGroupSetResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateGroupSetResponseBody) SetOpenGroupSetId(v string) *CreateGroupSetResponseBody {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *CreateGroupSetResponseBody) SetRelationType(v string) *CreateGroupSetResponseBody {
+	s.RelationType = &v
+	return s
+}
+
+func (s *CreateGroupSetResponseBody) SetMemberQuota(v int64) *CreateGroupSetResponseBody {
+	s.MemberQuota = &v
+	return s
+}
+
+func (s *CreateGroupSetResponseBody) SetCorpId(v string) *CreateGroupSetResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *CreateGroupSetResponseBody) SetMemberCount(v int64) *CreateGroupSetResponseBody {
+	s.MemberCount = &v
+	return s
+}
+
+func (s *CreateGroupSetResponseBody) SetTemplateId(v string) *CreateGroupSetResponseBody {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *CreateGroupSetResponseBody) SetOwnerUserId(v string) *CreateGroupSetResponseBody {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *CreateGroupSetResponseBody) SetManagerUserIds(v string) *CreateGroupSetResponseBody {
+	s.ManagerUserIds = &v
+	return s
+}
+
+func (s *CreateGroupSetResponseBody) SetNotice(v string) *CreateGroupSetResponseBody {
+	s.Notice = &v
+	return s
+}
+
+func (s *CreateGroupSetResponseBody) SetNoticeToped(v int32) *CreateGroupSetResponseBody {
+	s.NoticeToped = &v
+	return s
+}
+
+func (s *CreateGroupSetResponseBody) SetOwner(v *CreateGroupSetResponseBodyOwner) *CreateGroupSetResponseBody {
+	s.Owner = v
+	return s
+}
+
+func (s *CreateGroupSetResponseBody) SetManager(v []*CreateGroupSetResponseBodyManager) *CreateGroupSetResponseBody {
+	s.Manager = v
+	return s
+}
+
+func (s *CreateGroupSetResponseBody) SetLastOpenConversationId(v string) *CreateGroupSetResponseBody {
+	s.LastOpenConversationId = &v
+	return s
+}
+
+func (s *CreateGroupSetResponseBody) SetGmtCreate(v string) *CreateGroupSetResponseBody {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *CreateGroupSetResponseBody) SetGmtModified(v string) *CreateGroupSetResponseBody {
+	s.GmtModified = &v
+	return s
+}
+
+type CreateGroupSetResponseBodyOwner struct {
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateGroupSetResponseBodyOwner) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupSetResponseBodyOwner) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupSetResponseBodyOwner) SetName(v string) *CreateGroupSetResponseBodyOwner {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateGroupSetResponseBodyOwner) SetUserId(v string) *CreateGroupSetResponseBodyOwner {
+	s.UserId = &v
+	return s
+}
+
+type CreateGroupSetResponseBodyManager struct {
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateGroupSetResponseBodyManager) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupSetResponseBodyManager) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupSetResponseBodyManager) SetName(v string) *CreateGroupSetResponseBodyManager {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateGroupSetResponseBodyManager) SetUserId(v string) *CreateGroupSetResponseBodyManager {
+	s.UserId = &v
+	return s
+}
+
+type CreateGroupSetResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateGroupSetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateGroupSetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupSetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupSetResponse) SetHeaders(v map[string]*string) *CreateGroupSetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateGroupSetResponse) SetBody(v *CreateGroupSetResponseBody) *CreateGroupSetResponse {
 	s.Body = v
 	return s
 }
@@ -6958,6 +8047,8 @@ type AddCrmPersonalCustomerRequest struct {
 	ExtendData map[string]interface{} `json:"extendData,omitempty" xml:"extendData,omitempty"`
 	// 权限
 	Permission *AddCrmPersonalCustomerRequestPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	// 关系类型
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 	// 跳过uk查重
 	SkipDuplicateCheck *bool `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
 	// 公海领取客户：publicDraw 公海分配客户：publicAssign 其余场景：（不用传）
@@ -6994,6 +8085,11 @@ func (s *AddCrmPersonalCustomerRequest) SetExtendData(v map[string]interface{}) 
 
 func (s *AddCrmPersonalCustomerRequest) SetPermission(v *AddCrmPersonalCustomerRequestPermission) *AddCrmPersonalCustomerRequest {
 	s.Permission = v
+	return s
+}
+
+func (s *AddCrmPersonalCustomerRequest) SetRelationType(v string) *AddCrmPersonalCustomerRequest {
+	s.RelationType = &v
 	return s
 }
 
@@ -7583,6 +8679,111 @@ func (s *AbandonCustomerResponse) SetHeaders(v map[string]*string) *AbandonCusto
 
 func (s *AbandonCustomerResponse) SetBody(v *AbandonCustomerResponseBody) *AbandonCustomerResponse {
 	s.Body = v
+	return s
+}
+
+type UpdateGroupSetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateGroupSetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupSetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupSetHeaders) SetCommonHeaders(v map[string]*string) *UpdateGroupSetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateGroupSetHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateGroupSetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateGroupSetRequest struct {
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	MemberQuota    *int32  `json:"memberQuota,omitempty" xml:"memberQuota,omitempty"`
+	OwnerUserId    *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	ManagerUserIds *string `json:"managerUserIds,omitempty" xml:"managerUserIds,omitempty"`
+	Notice         *string `json:"notice,omitempty" xml:"notice,omitempty"`
+	NoticeToped    *int32  `json:"noticeToped,omitempty" xml:"noticeToped,omitempty"`
+	TemplateId     *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+}
+
+func (s UpdateGroupSetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupSetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupSetRequest) SetOpenGroupSetId(v string) *UpdateGroupSetRequest {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *UpdateGroupSetRequest) SetName(v string) *UpdateGroupSetRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateGroupSetRequest) SetMemberQuota(v int32) *UpdateGroupSetRequest {
+	s.MemberQuota = &v
+	return s
+}
+
+func (s *UpdateGroupSetRequest) SetOwnerUserId(v string) *UpdateGroupSetRequest {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *UpdateGroupSetRequest) SetManagerUserIds(v string) *UpdateGroupSetRequest {
+	s.ManagerUserIds = &v
+	return s
+}
+
+func (s *UpdateGroupSetRequest) SetNotice(v string) *UpdateGroupSetRequest {
+	s.Notice = &v
+	return s
+}
+
+func (s *UpdateGroupSetRequest) SetNoticeToped(v int32) *UpdateGroupSetRequest {
+	s.NoticeToped = &v
+	return s
+}
+
+func (s *UpdateGroupSetRequest) SetTemplateId(v string) *UpdateGroupSetRequest {
+	s.TemplateId = &v
+	return s
+}
+
+type UpdateGroupSetResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *bool              `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateGroupSetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupSetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupSetResponse) SetHeaders(v map[string]*string) *UpdateGroupSetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateGroupSetResponse) SetBody(v bool) *UpdateGroupSetResponse {
+	s.Body = &v
 	return s
 }
 
@@ -8321,6 +9522,106 @@ func (client *Client) BatchSendOfficialAccountOTOMessageWithOptions(request *Bat
 	return _result, _err
 }
 
+func (client *Client) QueryCrmGroupChats(request *QueryCrmGroupChatsRequest) (_result *QueryCrmGroupChatsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCrmGroupChatsHeaders{}
+	_result = &QueryCrmGroupChatsResponse{}
+	_body, _err := client.QueryCrmGroupChatsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryCrmGroupChatsWithOptions(request *QueryCrmGroupChatsRequest, headers *QueryCrmGroupChatsHeaders, runtime *util.RuntimeOptions) (_result *QueryCrmGroupChatsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		query["relationType"] = request.RelationType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QueryDsl)) {
+		query["queryDsl"] = request.QueryDsl
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryCrmGroupChatsResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryCrmGroupChats"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/crmGroupChats"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetGroupSet(request *GetGroupSetRequest) (_result *GetGroupSetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetGroupSetHeaders{}
+	_result = &GetGroupSetResponse{}
+	_body, _err := client.GetGroupSetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetGroupSetWithOptions(request *GetGroupSetRequest, headers *GetGroupSetHeaders, runtime *util.RuntimeOptions) (_result *GetGroupSetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
+		query["openGroupSetId"] = request.OpenGroupSetId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetGroupSetResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetGroupSet"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/groupSets"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateRelationMeta(request *CreateRelationMetaRequest) (_result *CreateRelationMetaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateRelationMetaHeaders{}
@@ -8422,6 +9723,62 @@ func (client *Client) UpdateRelationMetaFieldWithOptions(request *UpdateRelation
 	}
 	_result = &UpdateRelationMetaFieldResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateRelationMetaField"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/crm/relations/metas/fields"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListGroupSet(request *ListGroupSetRequest) (_result *ListGroupSetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListGroupSetHeaders{}
+	_result = &ListGroupSetResponse{}
+	_body, _err := client.ListGroupSetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListGroupSetWithOptions(request *ListGroupSetRequest, headers *ListGroupSetHeaders, runtime *util.RuntimeOptions) (_result *ListGroupSetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QueryDsl)) {
+		query["queryDsl"] = request.QueryDsl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		query["relationType"] = request.RelationType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListGroupSetResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListGroupSet"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/groupSets/lists"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8538,6 +9895,40 @@ func (client *Client) GetOfficialAccountOTOMessageResultWithOptions(request *Get
 	}
 	_result = &GetOfficialAccountOTOMessageResultResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetOfficialAccountOTOMessageResult"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/officialAccounts/oToMessages/sendResults"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetCrmGroupChat(openConversationId *string) (_result *GetCrmGroupChatResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCrmGroupChatHeaders{}
+	_result = &GetCrmGroupChatResponse{}
+	_body, _err := client.GetCrmGroupChatWithOptions(openConversationId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetCrmGroupChatWithOptions(openConversationId *string, headers *GetCrmGroupChatHeaders, runtime *util.RuntimeOptions) (_result *GetCrmGroupChatResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetCrmGroupChatResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetCrmGroupChat"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/crmGroupChats/"+tea.StringValue(openConversationId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8890,6 +10281,82 @@ func (client *Client) DeleteRelationMetaFieldWithOptions(request *DeleteRelation
 	return _result, _err
 }
 
+func (client *Client) CreateGroupSet(request *CreateGroupSetRequest) (_result *CreateGroupSetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateGroupSetHeaders{}
+	_result = &CreateGroupSetResponse{}
+	_body, _err := client.CreateGroupSetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateGroupSetWithOptions(request *CreateGroupSetRequest, headers *CreateGroupSetHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupSetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnerUserId)) {
+		body["ownerUserId"] = request.OwnerUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreatorUserId)) {
+		body["creatorUserId"] = request.CreatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MemberQuota)) {
+		body["memberQuota"] = request.MemberQuota
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManagerUserIds)) {
+		body["managerUserIds"] = request.ManagerUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Notice)) {
+		body["notice"] = request.Notice
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NoticeToped)) {
+		body["noticeToped"] = request.NoticeToped
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		body["relationType"] = request.RelationType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateGroupSetResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateGroupSet"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/groupSets"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) AddRelationMetaField(request *AddRelationMetaFieldRequest) (_result *AddRelationMetaFieldResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddRelationMetaFieldHeaders{}
@@ -9146,6 +10613,10 @@ func (client *Client) AddCrmPersonalCustomerWithOptions(request *AddCrmPersonalC
 		body["permission"] = request.Permission
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		body["relationType"] = request.RelationType
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.SkipDuplicateCheck)) {
 		body["skipDuplicateCheck"] = request.SkipDuplicateCheck
 	}
@@ -9323,6 +10794,78 @@ func (client *Client) AbandonCustomerWithOptions(request *AbandonCustomerRequest
 	}
 	_result = &AbandonCustomerResponse{}
 	_body, _err := client.DoROARequest(tea.String("AbandonCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/customers/abandon"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateGroupSet(request *UpdateGroupSetRequest) (_result *UpdateGroupSetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateGroupSetHeaders{}
+	_result = &UpdateGroupSetResponse{}
+	_body, _err := client.UpdateGroupSetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateGroupSetWithOptions(request *UpdateGroupSetRequest, headers *UpdateGroupSetHeaders, runtime *util.RuntimeOptions) (_result *UpdateGroupSetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
+		body["openGroupSetId"] = request.OpenGroupSetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MemberQuota)) {
+		body["memberQuota"] = request.MemberQuota
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnerUserId)) {
+		body["ownerUserId"] = request.OwnerUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManagerUserIds)) {
+		body["managerUserIds"] = request.ManagerUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Notice)) {
+		body["notice"] = request.Notice
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NoticeToped)) {
+		body["noticeToped"] = request.NoticeToped
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateGroupSetResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateGroupSet"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/crm/groupSets/set"), tea.String("boolean"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

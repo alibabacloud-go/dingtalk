@@ -4996,9 +4996,27 @@ func (s *ReportDeviceLogRequest) SetType(v string) *ReportDeviceLogRequest {
 	return s
 }
 
+type ReportDeviceLogResponseBody struct {
+	// 上传成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ReportDeviceLogResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportDeviceLogResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ReportDeviceLogResponseBody) SetSuccess(v bool) *ReportDeviceLogResponseBody {
+	s.Success = &v
+	return s
+}
+
 type ReportDeviceLogResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *bool              `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ReportDeviceLogResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s ReportDeviceLogResponse) String() string {
@@ -5014,8 +5032,8 @@ func (s *ReportDeviceLogResponse) SetHeaders(v map[string]*string) *ReportDevice
 	return s
 }
 
-func (s *ReportDeviceLogResponse) SetBody(v bool) *ReportDeviceLogResponse {
-	s.Body = &v
+func (s *ReportDeviceLogResponse) SetBody(v *ReportDeviceLogResponseBody) *ReportDeviceLogResponse {
+	s.Body = v
 	return s
 }
 
@@ -7004,9 +7022,27 @@ func (s *DeviceHeartbeatRequest) SetSn(v string) *DeviceHeartbeatRequest {
 	return s
 }
 
+type DeviceHeartbeatResponseBody struct {
+	// 指令
+	Code *int32 `json:"code,omitempty" xml:"code,omitempty"`
+}
+
+func (s DeviceHeartbeatResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeviceHeartbeatResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeviceHeartbeatResponseBody) SetCode(v int32) *DeviceHeartbeatResponseBody {
+	s.Code = &v
+	return s
+}
+
 type DeviceHeartbeatResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *int32             `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeviceHeartbeatResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeviceHeartbeatResponse) String() string {
@@ -7022,8 +7058,8 @@ func (s *DeviceHeartbeatResponse) SetHeaders(v map[string]*string) *DeviceHeartb
 	return s
 }
 
-func (s *DeviceHeartbeatResponse) SetBody(v int32) *DeviceHeartbeatResponse {
-	s.Body = &v
+func (s *DeviceHeartbeatResponse) SetBody(v *DeviceHeartbeatResponseBody) *DeviceHeartbeatResponse {
+	s.Body = v
 	return s
 }
 
@@ -12711,7 +12747,7 @@ func (client *Client) ReportDeviceLogWithOptions(request *ReportDeviceLogRequest
 		Query:   openapiutil.Query(query),
 	}
 	_result = &ReportDeviceLogResponse{}
-	_body, _err := client.DoROARequest(tea.String("ReportDeviceLog"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/deviceLogs/report"), tea.String("boolean"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("ReportDeviceLog"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/deviceLogs/report"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13369,7 +13405,7 @@ func (client *Client) DeviceHeartbeatWithOptions(request *DeviceHeartbeatRequest
 		Query:   openapiutil.Query(query),
 	}
 	_result = &DeviceHeartbeatResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeviceHeartbeat"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/heartbeats/report"), tea.String("int32"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("DeviceHeartbeat"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/heartbeats/report"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

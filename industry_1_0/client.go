@@ -11,6 +11,183 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type QueryHospitalDistrictInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryHospitalDistrictInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHospitalDistrictInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHospitalDistrictInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryHospitalDistrictInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryHospitalDistrictInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryHospitalDistrictInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryHospitalDistrictInfoRequest struct {
+	// 分页查询分页大小
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 分页查询页码
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+}
+
+func (s QueryHospitalDistrictInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHospitalDistrictInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHospitalDistrictInfoRequest) SetPageSize(v int32) *QueryHospitalDistrictInfoRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryHospitalDistrictInfoRequest) SetPageNumber(v int32) *QueryHospitalDistrictInfoRequest {
+	s.PageNumber = &v
+	return s
+}
+
+type QueryHospitalDistrictInfoResponseBody struct {
+	// 院区病区详情
+	Content []*QueryHospitalDistrictInfoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// 总页数
+	TotalPages *int32 `json:"totalPages,omitempty" xml:"totalPages,omitempty"`
+	// 数据总量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 当前页码
+	CurrentPage *int64 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+}
+
+func (s QueryHospitalDistrictInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHospitalDistrictInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHospitalDistrictInfoResponseBody) SetContent(v []*QueryHospitalDistrictInfoResponseBodyContent) *QueryHospitalDistrictInfoResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *QueryHospitalDistrictInfoResponseBody) SetTotalPages(v int32) *QueryHospitalDistrictInfoResponseBody {
+	s.TotalPages = &v
+	return s
+}
+
+func (s *QueryHospitalDistrictInfoResponseBody) SetTotalCount(v int64) *QueryHospitalDistrictInfoResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *QueryHospitalDistrictInfoResponseBody) SetCurrentPage(v int64) *QueryHospitalDistrictInfoResponseBody {
+	s.CurrentPage = &v
+	return s
+}
+
+type QueryHospitalDistrictInfoResponseBodyContent struct {
+	// 主键
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 院区或病区名称
+	DistrictName *string `json:"districtName,omitempty" xml:"districtName,omitempty"`
+	// 类型，1：院区；2：病区
+	DistrictType *int32 `json:"districtType,omitempty" xml:"districtType,omitempty"`
+	// 院区id
+	ParentDistrictId *int64 `json:"parentDistrictId,omitempty" xml:"parentDistrictId,omitempty"`
+	// 病区对应的物理地址
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// 删除，0:正常，其他：已删除
+	Deleted *int32 `json:"deleted,omitempty" xml:"deleted,omitempty"`
+	// 创建时间
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 修改时间
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+}
+
+func (s QueryHospitalDistrictInfoResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHospitalDistrictInfoResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHospitalDistrictInfoResponseBodyContent) SetId(v int64) *QueryHospitalDistrictInfoResponseBodyContent {
+	s.Id = &v
+	return s
+}
+
+func (s *QueryHospitalDistrictInfoResponseBodyContent) SetDistrictName(v string) *QueryHospitalDistrictInfoResponseBodyContent {
+	s.DistrictName = &v
+	return s
+}
+
+func (s *QueryHospitalDistrictInfoResponseBodyContent) SetDistrictType(v int32) *QueryHospitalDistrictInfoResponseBodyContent {
+	s.DistrictType = &v
+	return s
+}
+
+func (s *QueryHospitalDistrictInfoResponseBodyContent) SetParentDistrictId(v int64) *QueryHospitalDistrictInfoResponseBodyContent {
+	s.ParentDistrictId = &v
+	return s
+}
+
+func (s *QueryHospitalDistrictInfoResponseBodyContent) SetAddress(v string) *QueryHospitalDistrictInfoResponseBodyContent {
+	s.Address = &v
+	return s
+}
+
+func (s *QueryHospitalDistrictInfoResponseBodyContent) SetDeleted(v int32) *QueryHospitalDistrictInfoResponseBodyContent {
+	s.Deleted = &v
+	return s
+}
+
+func (s *QueryHospitalDistrictInfoResponseBodyContent) SetGmtCreate(v string) *QueryHospitalDistrictInfoResponseBodyContent {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QueryHospitalDistrictInfoResponseBodyContent) SetGmtModified(v string) *QueryHospitalDistrictInfoResponseBodyContent {
+	s.GmtModified = &v
+	return s
+}
+
+type QueryHospitalDistrictInfoResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryHospitalDistrictInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryHospitalDistrictInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHospitalDistrictInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHospitalDistrictInfoResponse) SetHeaders(v map[string]*string) *QueryHospitalDistrictInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryHospitalDistrictInfoResponse) SetBody(v *QueryHospitalDistrictInfoResponseBody) *QueryHospitalDistrictInfoResponse {
+	s.Body = v
+	return s
+}
+
 type QueryUserInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -749,6 +926,137 @@ func (s *QueryUserRolesResponse) SetBody(v *QueryUserRolesResponseBody) *QueryUs
 	return s
 }
 
+type QueryHospitalRolesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryHospitalRolesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHospitalRolesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHospitalRolesHeaders) SetCommonHeaders(v map[string]*string) *QueryHospitalRolesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryHospitalRolesHeaders) SetXAcsDingtalkAccessToken(v string) *QueryHospitalRolesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryHospitalRolesResponseBody struct {
+	// 角色列表
+	Content []*QueryHospitalRolesResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+}
+
+func (s QueryHospitalRolesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHospitalRolesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHospitalRolesResponseBody) SetContent(v []*QueryHospitalRolesResponseBodyContent) *QueryHospitalRolesResponseBody {
+	s.Content = v
+	return s
+}
+
+type QueryHospitalRolesResponseBodyContent struct {
+	// 主键
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 修改时间
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 是否已删除，默认0未删除，1已删除
+	IsDeleted *int64 `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// 角色编码
+	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	// 角色名称
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// 排序，数字越小越靠前，默认0
+	Sort *int64 `json:"sort,omitempty" xml:"sort,omitempty"`
+	// 角色关联权限点是否只读
+	ReadOnly *int64 `json:"readOnly,omitempty" xml:"readOnly,omitempty"`
+}
+
+func (s QueryHospitalRolesResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHospitalRolesResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHospitalRolesResponseBodyContent) SetId(v int64) *QueryHospitalRolesResponseBodyContent {
+	s.Id = &v
+	return s
+}
+
+func (s *QueryHospitalRolesResponseBodyContent) SetGmtCreate(v string) *QueryHospitalRolesResponseBodyContent {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QueryHospitalRolesResponseBodyContent) SetIsDeleted(v int64) *QueryHospitalRolesResponseBodyContent {
+	s.IsDeleted = &v
+	return s
+}
+
+func (s *QueryHospitalRolesResponseBodyContent) SetRoleCode(v string) *QueryHospitalRolesResponseBodyContent {
+	s.RoleCode = &v
+	return s
+}
+
+func (s *QueryHospitalRolesResponseBodyContent) SetRoleName(v string) *QueryHospitalRolesResponseBodyContent {
+	s.RoleName = &v
+	return s
+}
+
+func (s *QueryHospitalRolesResponseBodyContent) SetRemark(v string) *QueryHospitalRolesResponseBodyContent {
+	s.Remark = &v
+	return s
+}
+
+func (s *QueryHospitalRolesResponseBodyContent) SetSort(v int64) *QueryHospitalRolesResponseBodyContent {
+	s.Sort = &v
+	return s
+}
+
+func (s *QueryHospitalRolesResponseBodyContent) SetReadOnly(v int64) *QueryHospitalRolesResponseBodyContent {
+	s.ReadOnly = &v
+	return s
+}
+
+type QueryHospitalRolesResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryHospitalRolesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryHospitalRolesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHospitalRolesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHospitalRolesResponse) SetHeaders(v map[string]*string) *QueryHospitalRolesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryHospitalRolesResponse) SetBody(v *QueryHospitalRolesResponseBody) *QueryHospitalRolesResponse {
+	s.Body = v
+	return s
+}
+
 type QueryAllGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1255,6 +1563,176 @@ func (s *QueryBizOptLogResponse) SetHeaders(v map[string]*string) *QueryBizOptLo
 }
 
 func (s *QueryBizOptLogResponse) SetBody(v *QueryBizOptLogResponseBody) *QueryBizOptLogResponse {
+	s.Body = v
+	return s
+}
+
+type QueryHospitalRoleUserInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryHospitalRoleUserInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHospitalRoleUserInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHospitalRoleUserInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryHospitalRoleUserInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryHospitalRoleUserInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryHospitalRoleUserInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryHospitalRoleUserInfoRequest struct {
+	// 分页查询分页大小
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 分页查询页码
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+}
+
+func (s QueryHospitalRoleUserInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHospitalRoleUserInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHospitalRoleUserInfoRequest) SetPageSize(v int64) *QueryHospitalRoleUserInfoRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryHospitalRoleUserInfoRequest) SetPageNumber(v int64) *QueryHospitalRoleUserInfoRequest {
+	s.PageNumber = &v
+	return s
+}
+
+type QueryHospitalRoleUserInfoResponseBody struct {
+	// 角色人员信息
+	Content []*QueryHospitalRoleUserInfoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// 总页数
+	TotalPages *int32 `json:"totalPages,omitempty" xml:"totalPages,omitempty"`
+	// 总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 当前页码
+	CurrentPage *int32 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+}
+
+func (s QueryHospitalRoleUserInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHospitalRoleUserInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHospitalRoleUserInfoResponseBody) SetContent(v []*QueryHospitalRoleUserInfoResponseBodyContent) *QueryHospitalRoleUserInfoResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *QueryHospitalRoleUserInfoResponseBody) SetTotalPages(v int32) *QueryHospitalRoleUserInfoResponseBody {
+	s.TotalPages = &v
+	return s
+}
+
+func (s *QueryHospitalRoleUserInfoResponseBody) SetTotalCount(v int64) *QueryHospitalRoleUserInfoResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *QueryHospitalRoleUserInfoResponseBody) SetCurrentPage(v int32) *QueryHospitalRoleUserInfoResponseBody {
+	s.CurrentPage = &v
+	return s
+}
+
+type QueryHospitalRoleUserInfoResponseBodyContent struct {
+	// 用户编码
+	UserCode *string `json:"userCode,omitempty" xml:"userCode,omitempty"`
+	// 用户名称
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// 用户工号
+	JobNumber *string `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
+	// 角色编码
+	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	// 角色名称
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// gmtCreate
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 修改时间
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+}
+
+func (s QueryHospitalRoleUserInfoResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHospitalRoleUserInfoResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHospitalRoleUserInfoResponseBodyContent) SetUserCode(v string) *QueryHospitalRoleUserInfoResponseBodyContent {
+	s.UserCode = &v
+	return s
+}
+
+func (s *QueryHospitalRoleUserInfoResponseBodyContent) SetUserName(v string) *QueryHospitalRoleUserInfoResponseBodyContent {
+	s.UserName = &v
+	return s
+}
+
+func (s *QueryHospitalRoleUserInfoResponseBodyContent) SetJobNumber(v string) *QueryHospitalRoleUserInfoResponseBodyContent {
+	s.JobNumber = &v
+	return s
+}
+
+func (s *QueryHospitalRoleUserInfoResponseBodyContent) SetRoleCode(v string) *QueryHospitalRoleUserInfoResponseBodyContent {
+	s.RoleCode = &v
+	return s
+}
+
+func (s *QueryHospitalRoleUserInfoResponseBodyContent) SetRoleName(v string) *QueryHospitalRoleUserInfoResponseBodyContent {
+	s.RoleName = &v
+	return s
+}
+
+func (s *QueryHospitalRoleUserInfoResponseBodyContent) SetGmtCreate(v string) *QueryHospitalRoleUserInfoResponseBodyContent {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QueryHospitalRoleUserInfoResponseBodyContent) SetGmtModified(v string) *QueryHospitalRoleUserInfoResponseBodyContent {
+	s.GmtModified = &v
+	return s
+}
+
+type QueryHospitalRoleUserInfoResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryHospitalRoleUserInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryHospitalRoleUserInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHospitalRoleUserInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHospitalRoleUserInfoResponse) SetHeaders(v map[string]*string) *QueryHospitalRoleUserInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryHospitalRoleUserInfoResponse) SetBody(v *QueryHospitalRoleUserInfoResponseBody) *QueryHospitalRoleUserInfoResponse {
 	s.Body = v
 	return s
 }
@@ -2042,6 +2520,16 @@ type QueryUserExtInfoResponseBodyContent struct {
 	UserExtendValue *string `json:"userExtendValue,omitempty" xml:"userExtendValue,omitempty"`
 	// 扩展属性描述
 	UserExtendDisplayName *string `json:"userExtendDisplayName,omitempty" xml:"userExtendDisplayName,omitempty"`
+	// 组织id
+	OrgId *string `json:"orgId,omitempty" xml:"orgId,omitempty"`
+	// 状态：0-有效，1-无效
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 用户标识
+	UserCode *string `json:"userCode,omitempty" xml:"userCode,omitempty"`
+	// 创建时间
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 修改时间
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
 }
 
 func (s QueryUserExtInfoResponseBodyContent) String() string {
@@ -2064,6 +2552,31 @@ func (s *QueryUserExtInfoResponseBodyContent) SetUserExtendValue(v string) *Quer
 
 func (s *QueryUserExtInfoResponseBodyContent) SetUserExtendDisplayName(v string) *QueryUserExtInfoResponseBodyContent {
 	s.UserExtendDisplayName = &v
+	return s
+}
+
+func (s *QueryUserExtInfoResponseBodyContent) SetOrgId(v string) *QueryUserExtInfoResponseBodyContent {
+	s.OrgId = &v
+	return s
+}
+
+func (s *QueryUserExtInfoResponseBodyContent) SetStatus(v int32) *QueryUserExtInfoResponseBodyContent {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryUserExtInfoResponseBodyContent) SetUserCode(v string) *QueryUserExtInfoResponseBodyContent {
+	s.UserCode = &v
+	return s
+}
+
+func (s *QueryUserExtInfoResponseBodyContent) SetGmtCreate(v string) *QueryUserExtInfoResponseBodyContent {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QueryUserExtInfoResponseBodyContent) SetGmtModified(v string) *QueryUserExtInfoResponseBodyContent {
+	s.GmtModified = &v
 	return s
 }
 
@@ -2369,6 +2882,8 @@ type QueryAllDepartmentResponseBodyContentDeptAndExtDepartment struct {
 	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
 	// 科室名称，同deptName
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 病区id列表
+	WardIdList []*QueryAllDepartmentResponseBodyContentDeptAndExtDepartmentWardIdList `json:"wardIdList,omitempty" xml:"wardIdList,omitempty" type:"Repeated"`
 }
 
 func (s QueryAllDepartmentResponseBodyContentDeptAndExtDepartment) String() string {
@@ -2436,6 +2951,29 @@ func (s *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment) SetDeptName(
 
 func (s *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment) SetName(v string) *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment {
 	s.Name = &v
+	return s
+}
+
+func (s *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment) SetWardIdList(v []*QueryAllDepartmentResponseBodyContentDeptAndExtDepartmentWardIdList) *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment {
+	s.WardIdList = v
+	return s
+}
+
+type QueryAllDepartmentResponseBodyContentDeptAndExtDepartmentWardIdList struct {
+	// 病区id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s QueryAllDepartmentResponseBodyContentDeptAndExtDepartmentWardIdList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAllDepartmentResponseBodyContentDeptAndExtDepartmentWardIdList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAllDepartmentResponseBodyContentDeptAndExtDepartmentWardIdList) SetId(v int64) *QueryAllDepartmentResponseBodyContentDeptAndExtDepartmentWardIdList {
+	s.Id = &v
 	return s
 }
 
@@ -2966,6 +3504,54 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) QueryHospitalDistrictInfo(request *QueryHospitalDistrictInfoRequest) (_result *QueryHospitalDistrictInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryHospitalDistrictInfoHeaders{}
+	_result = &QueryHospitalDistrictInfoResponse{}
+	_body, _err := client.QueryHospitalDistrictInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryHospitalDistrictInfoWithOptions(request *QueryHospitalDistrictInfoRequest, headers *QueryHospitalDistrictInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryHospitalDistrictInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryHospitalDistrictInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryHospitalDistrictInfo"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/medicals/districts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryUserInfo(userId *string) (_result *QueryUserInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryUserInfoHeaders{}
@@ -3130,6 +3716,40 @@ func (client *Client) QueryUserRolesWithOptions(userId *string, headers *QueryUs
 	return _result, _err
 }
 
+func (client *Client) QueryHospitalRoles() (_result *QueryHospitalRolesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryHospitalRolesHeaders{}
+	_result = &QueryHospitalRolesResponse{}
+	_body, _err := client.QueryHospitalRolesWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryHospitalRolesWithOptions(headers *QueryHospitalRolesHeaders, runtime *util.RuntimeOptions) (_result *QueryHospitalRolesResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &QueryHospitalRolesResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryHospitalRoles"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/medicals/roles"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryAllGroup(request *QueryAllGroupRequest) (_result *QueryAllGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryAllGroupHeaders{}
@@ -3267,6 +3887,54 @@ func (client *Client) QueryBizOptLogWithOptions(request *QueryBizOptLogRequest, 
 	}
 	_result = &QueryBizOptLogResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryBizOptLog"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/medicals/bizOptLogs"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryHospitalRoleUserInfo(request *QueryHospitalRoleUserInfoRequest) (_result *QueryHospitalRoleUserInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryHospitalRoleUserInfoHeaders{}
+	_result = &QueryHospitalRoleUserInfoResponse{}
+	_body, _err := client.QueryHospitalRoleUserInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryHospitalRoleUserInfoWithOptions(request *QueryHospitalRoleUserInfoRequest, headers *QueryHospitalRoleUserInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryHospitalRoleUserInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryHospitalRoleUserInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryHospitalRoleUserInfo"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/medicals/roles/userInfos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

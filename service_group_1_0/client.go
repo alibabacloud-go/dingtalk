@@ -4891,6 +4891,8 @@ type QueryActiveUsersRequest struct {
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 	// 开放群ID
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 查询topN的数据
+	TopN *int64 `json:"topN,omitempty" xml:"topN,omitempty"`
 }
 
 func (s QueryActiveUsersRequest) String() string {
@@ -4908,6 +4910,11 @@ func (s *QueryActiveUsersRequest) SetOpenTeamId(v string) *QueryActiveUsersReque
 
 func (s *QueryActiveUsersRequest) SetOpenConversationId(v string) *QueryActiveUsersRequest {
 	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QueryActiveUsersRequest) SetTopN(v int64) *QueryActiveUsersRequest {
+	s.TopN = &v
 	return s
 }
 
@@ -8526,6 +8533,10 @@ func (client *Client) QueryActiveUsersWithOptions(request *QueryActiveUsersReque
 
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
 		query["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TopN)) {
+		query["topN"] = request.TopN
 	}
 
 	realHeaders := make(map[string]*string)
