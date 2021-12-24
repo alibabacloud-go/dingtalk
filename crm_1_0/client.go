@@ -3309,6 +3309,151 @@ func (s *GetCrmGroupChatResponse) SetBody(v *GetCrmGroupChatResponseBody) *GetCr
 	return s
 }
 
+type QueryRelationDatasByTargetIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryRelationDatasByTargetIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRelationDatasByTargetIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRelationDatasByTargetIdHeaders) SetCommonHeaders(v map[string]*string) *QueryRelationDatasByTargetIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryRelationDatasByTargetIdHeaders) SetXAcsDingtalkAccessToken(v string) *QueryRelationDatasByTargetIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryRelationDatasByTargetIdRequest struct {
+	// 关系类型。
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+}
+
+func (s QueryRelationDatasByTargetIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRelationDatasByTargetIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRelationDatasByTargetIdRequest) SetRelationType(v string) *QueryRelationDatasByTargetIdRequest {
+	s.RelationType = &v
+	return s
+}
+
+type QueryRelationDatasByTargetIdResponseBody struct {
+	// 关系数据。
+	Relations []*QueryRelationDatasByTargetIdResponseBodyRelations `json:"relations,omitempty" xml:"relations,omitempty" type:"Repeated"`
+}
+
+func (s QueryRelationDatasByTargetIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRelationDatasByTargetIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRelationDatasByTargetIdResponseBody) SetRelations(v []*QueryRelationDatasByTargetIdResponseBodyRelations) *QueryRelationDatasByTargetIdResponseBody {
+	s.Relations = v
+	return s
+}
+
+type QueryRelationDatasByTargetIdResponseBodyRelations struct {
+	// 关系实例ID。
+	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
+	// 关系类型。
+	RelationType *string                                                         `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	BizDataList  []*QueryRelationDatasByTargetIdResponseBodyRelationsBizDataList `json:"bizDataList,omitempty" xml:"bizDataList,omitempty" type:"Repeated"`
+}
+
+func (s QueryRelationDatasByTargetIdResponseBodyRelations) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRelationDatasByTargetIdResponseBodyRelations) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRelationDatasByTargetIdResponseBodyRelations) SetRelationId(v string) *QueryRelationDatasByTargetIdResponseBodyRelations {
+	s.RelationId = &v
+	return s
+}
+
+func (s *QueryRelationDatasByTargetIdResponseBodyRelations) SetRelationType(v string) *QueryRelationDatasByTargetIdResponseBodyRelations {
+	s.RelationType = &v
+	return s
+}
+
+func (s *QueryRelationDatasByTargetIdResponseBodyRelations) SetBizDataList(v []*QueryRelationDatasByTargetIdResponseBodyRelationsBizDataList) *QueryRelationDatasByTargetIdResponseBodyRelations {
+	s.BizDataList = v
+	return s
+}
+
+type QueryRelationDatasByTargetIdResponseBodyRelationsBizDataList struct {
+	// 关系模型数据字段名。
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// 关系模型数据字段值。
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 关系模型数据字段扩展值。
+	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
+}
+
+func (s QueryRelationDatasByTargetIdResponseBodyRelationsBizDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRelationDatasByTargetIdResponseBodyRelationsBizDataList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRelationDatasByTargetIdResponseBodyRelationsBizDataList) SetKey(v string) *QueryRelationDatasByTargetIdResponseBodyRelationsBizDataList {
+	s.Key = &v
+	return s
+}
+
+func (s *QueryRelationDatasByTargetIdResponseBodyRelationsBizDataList) SetValue(v string) *QueryRelationDatasByTargetIdResponseBodyRelationsBizDataList {
+	s.Value = &v
+	return s
+}
+
+func (s *QueryRelationDatasByTargetIdResponseBodyRelationsBizDataList) SetExtendValue(v string) *QueryRelationDatasByTargetIdResponseBodyRelationsBizDataList {
+	s.ExtendValue = &v
+	return s
+}
+
+type QueryRelationDatasByTargetIdResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryRelationDatasByTargetIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryRelationDatasByTargetIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRelationDatasByTargetIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRelationDatasByTargetIdResponse) SetHeaders(v map[string]*string) *QueryRelationDatasByTargetIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryRelationDatasByTargetIdResponse) SetBody(v *QueryRelationDatasByTargetIdResponseBody) *QueryRelationDatasByTargetIdResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteCrmPersonalCustomerHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4157,6 +4302,141 @@ func (s *QueryCrmPersonalCustomerResponse) SetHeaders(v map[string]*string) *Que
 }
 
 func (s *QueryCrmPersonalCustomerResponse) SetBody(v *QueryCrmPersonalCustomerResponseBody) *QueryCrmPersonalCustomerResponse {
+	s.Body = v
+	return s
+}
+
+type JoinGroupSetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s JoinGroupSetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s JoinGroupSetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *JoinGroupSetHeaders) SetCommonHeaders(v map[string]*string) *JoinGroupSetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *JoinGroupSetHeaders) SetXAcsDingtalkAccessToken(v string) *JoinGroupSetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type JoinGroupSetRequest struct {
+	// 关系模型数据。
+	BizDataList []*JoinGroupSetRequestBizDataList `json:"bizDataList,omitempty" xml:"bizDataList,omitempty" type:"Repeated"`
+	// unionId。
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 群组openGroupSetId。
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+}
+
+func (s JoinGroupSetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s JoinGroupSetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *JoinGroupSetRequest) SetBizDataList(v []*JoinGroupSetRequestBizDataList) *JoinGroupSetRequest {
+	s.BizDataList = v
+	return s
+}
+
+func (s *JoinGroupSetRequest) SetUnionId(v string) *JoinGroupSetRequest {
+	s.UnionId = &v
+	return s
+}
+
+func (s *JoinGroupSetRequest) SetOpenGroupSetId(v string) *JoinGroupSetRequest {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+type JoinGroupSetRequestBizDataList struct {
+	// 关系模型数据字段扩展值。
+	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
+	// 关系模型数据字段名。
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// 关系模型数据字段值。
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s JoinGroupSetRequestBizDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s JoinGroupSetRequestBizDataList) GoString() string {
+	return s.String()
+}
+
+func (s *JoinGroupSetRequestBizDataList) SetExtendValue(v string) *JoinGroupSetRequestBizDataList {
+	s.ExtendValue = &v
+	return s
+}
+
+func (s *JoinGroupSetRequestBizDataList) SetKey(v string) *JoinGroupSetRequestBizDataList {
+	s.Key = &v
+	return s
+}
+
+func (s *JoinGroupSetRequestBizDataList) SetValue(v string) *JoinGroupSetRequestBizDataList {
+	s.Value = &v
+	return s
+}
+
+type JoinGroupSetResponseBody struct {
+	// 进群是否成功。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 加密群ID。
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s JoinGroupSetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s JoinGroupSetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *JoinGroupSetResponseBody) SetSuccess(v bool) *JoinGroupSetResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *JoinGroupSetResponseBody) SetOpenConversationId(v string) *JoinGroupSetResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+type JoinGroupSetResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *JoinGroupSetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s JoinGroupSetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s JoinGroupSetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *JoinGroupSetResponse) SetHeaders(v map[string]*string) *JoinGroupSetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *JoinGroupSetResponse) SetBody(v *JoinGroupSetResponseBody) *JoinGroupSetResponse {
 	s.Body = v
 	return s
 }
@@ -5547,7 +5827,7 @@ type DescribeRelationMetaResponseBodyRelationMetaDTOListItems struct {
 	// 字段类型
 	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
 	// 字段属性
-	Props []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps `json:"props,omitempty" xml:"props,omitempty" type:"Repeated"`
+	Props *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
 	// 子字段列表
 	Children []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
 }
@@ -5565,7 +5845,7 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItems) SetComponentN
 	return s
 }
 
-func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItems) SetProps(v []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) *DescribeRelationMetaResponseBodyRelationMetaDTOListItems {
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItems) SetProps(v *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) *DescribeRelationMetaResponseBodyRelationMetaDTOListItems {
 	s.Props = v
 	return s
 }
@@ -9936,6 +10216,50 @@ func (client *Client) GetCrmGroupChatWithOptions(openConversationId *string, hea
 	return _result, _err
 }
 
+func (client *Client) QueryRelationDatasByTargetId(targetId *string, request *QueryRelationDatasByTargetIdRequest) (_result *QueryRelationDatasByTargetIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryRelationDatasByTargetIdHeaders{}
+	_result = &QueryRelationDatasByTargetIdResponse{}
+	_body, _err := client.QueryRelationDatasByTargetIdWithOptions(targetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryRelationDatasByTargetIdWithOptions(targetId *string, request *QueryRelationDatasByTargetIdRequest, headers *QueryRelationDatasByTargetIdHeaders, runtime *util.RuntimeOptions) (_result *QueryRelationDatasByTargetIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		query["relationType"] = request.RelationType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryRelationDatasByTargetIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryRelationDatasByTargetId"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/relations/datas/targets/"+tea.StringValue(targetId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteCrmPersonalCustomer(dataId *string, request *DeleteCrmPersonalCustomerRequest) (_result *DeleteCrmPersonalCustomerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteCrmPersonalCustomerHeaders{}
@@ -10173,6 +10497,58 @@ func (client *Client) QueryCrmPersonalCustomerWithOptions(request *QueryCrmPerso
 	}
 	_result = &QueryCrmPersonalCustomerResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryCrmPersonalCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/personalCustomers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) JoinGroupSet(request *JoinGroupSetRequest) (_result *JoinGroupSetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &JoinGroupSetHeaders{}
+	_result = &JoinGroupSetResponse{}
+	_body, _err := client.JoinGroupSetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) JoinGroupSetWithOptions(request *JoinGroupSetRequest, headers *JoinGroupSetHeaders, runtime *util.RuntimeOptions) (_result *JoinGroupSetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizDataList)) {
+		body["bizDataList"] = request.BizDataList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
+		body["openGroupSetId"] = request.OpenGroupSetId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &JoinGroupSetResponse{}
+	_body, _err := client.DoROARequest(tea.String("JoinGroupSet"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/groupSets/join"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
