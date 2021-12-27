@@ -2150,6 +2150,229 @@ func (s *UpdateTheGroupRolesOfGroupMemberResponse) SetBody(v *UpdateTheGroupRole
 	return s
 }
 
+type SendRobotInteractiveCardHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendRobotInteractiveCardHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRobotInteractiveCardHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendRobotInteractiveCardHeaders) SetCommonHeaders(v map[string]*string) *SendRobotInteractiveCardHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendRobotInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string) *SendRobotInteractiveCardHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendRobotInteractiveCardRequest struct {
+	RequestId           *string `json:"RequestId,omitempty" xml:"RequestId,omitempty"`
+	DingAccessTokenType *string `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
+	DingClientId        *string `json:"dingClientId,omitempty" xml:"dingClientId,omitempty"`
+	DingIsvOrgId        *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOpenAppId       *string `json:"dingOpenAppId,omitempty" xml:"dingOpenAppId,omitempty"`
+	DingUid             *int64  `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
+	// 卡片搭建平台模板ID
+	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+	// 【openConversationId & singleChatReceiver 二选一必填】接收卡片的加密群ID，特指多人群会话（非单聊）
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 【openConversationId & singleChatReceiver 二选一必填】单聊会话接受者json串
+	SingleChatReceiver *string `json:"singleChatReceiver,omitempty" xml:"singleChatReceiver,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）【备注：同一个outTrackId重复创建，卡片数据不覆盖更新】
+	CardBizId    *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
+	DingSuiteKey *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	// 机器人代码，群模板机器人网页有机器人ID；企业内部机器人为机器人appKey，企业三方机器人有robotCode
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	DingOrgId *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	// 卡片模板-文本内容参数（卡片json结构体）
+	CardData       *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	DingOauthAppId *int64  `json:"dingOauthAppId,omitempty" xml:"dingOauthAppId,omitempty"`
+	// 互动卡片发送选项
+	SendOptions *SendRobotInteractiveCardRequestSendOptions `json:"sendOptions,omitempty" xml:"sendOptions,omitempty" type:"Struct"`
+}
+
+func (s SendRobotInteractiveCardRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRobotInteractiveCardRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendRobotInteractiveCardRequest) SetRequestId(v string) *SendRobotInteractiveCardRequest {
+	s.RequestId = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetDingAccessTokenType(v string) *SendRobotInteractiveCardRequest {
+	s.DingAccessTokenType = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetDingClientId(v string) *SendRobotInteractiveCardRequest {
+	s.DingClientId = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetDingIsvOrgId(v int64) *SendRobotInteractiveCardRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetDingOpenAppId(v string) *SendRobotInteractiveCardRequest {
+	s.DingOpenAppId = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetDingUid(v int64) *SendRobotInteractiveCardRequest {
+	s.DingUid = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetCardTemplateId(v string) *SendRobotInteractiveCardRequest {
+	s.CardTemplateId = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetOpenConversationId(v string) *SendRobotInteractiveCardRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetSingleChatReceiver(v string) *SendRobotInteractiveCardRequest {
+	s.SingleChatReceiver = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetDingTokenGrantType(v int64) *SendRobotInteractiveCardRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetCardBizId(v string) *SendRobotInteractiveCardRequest {
+	s.CardBizId = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetDingSuiteKey(v string) *SendRobotInteractiveCardRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetRobotCode(v string) *SendRobotInteractiveCardRequest {
+	s.RobotCode = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetDingOrgId(v int64) *SendRobotInteractiveCardRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetCardData(v string) *SendRobotInteractiveCardRequest {
+	s.CardData = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetDingOauthAppId(v int64) *SendRobotInteractiveCardRequest {
+	s.DingOauthAppId = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetSendOptions(v *SendRobotInteractiveCardRequestSendOptions) *SendRobotInteractiveCardRequest {
+	s.SendOptions = v
+	return s
+}
+
+type SendRobotInteractiveCardRequestSendOptions struct {
+	// 消息@人，JSON格式：[{"nickName":"张三","userId":"userId0001"},{"nickName":"李四","unionId":"unionId001"}]
+	AtUserListJson *string `json:"atUserListJson,omitempty" xml:"atUserListJson,omitempty"`
+	// 是否@所有人
+	AtAll *bool `json:"atAll,omitempty" xml:"atAll,omitempty"`
+	// 消息仅部分人可见的接收人列表【可空：为空则群所有人可见】，JSON格式：[{"userId":"userId0001"},{"unionId":"unionId001"}]
+	ReceiverListJson *string `json:"receiverListJson,omitempty" xml:"receiverListJson,omitempty"`
+	// 卡片特殊属性json串
+	CardPropertyJson *string `json:"cardPropertyJson,omitempty" xml:"cardPropertyJson,omitempty"`
+}
+
+func (s SendRobotInteractiveCardRequestSendOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRobotInteractiveCardRequestSendOptions) GoString() string {
+	return s.String()
+}
+
+func (s *SendRobotInteractiveCardRequestSendOptions) SetAtUserListJson(v string) *SendRobotInteractiveCardRequestSendOptions {
+	s.AtUserListJson = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequestSendOptions) SetAtAll(v bool) *SendRobotInteractiveCardRequestSendOptions {
+	s.AtAll = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequestSendOptions) SetReceiverListJson(v string) *SendRobotInteractiveCardRequestSendOptions {
+	s.ReceiverListJson = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequestSendOptions) SetCardPropertyJson(v string) *SendRobotInteractiveCardRequestSendOptions {
+	s.CardPropertyJson = &v
+	return s
+}
+
+type SendRobotInteractiveCardResponseBody struct {
+	// 用于业务方后续查看已读列表的查询key
+	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
+}
+
+func (s SendRobotInteractiveCardResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRobotInteractiveCardResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendRobotInteractiveCardResponseBody) SetProcessQueryKey(v string) *SendRobotInteractiveCardResponseBody {
+	s.ProcessQueryKey = &v
+	return s
+}
+
+type SendRobotInteractiveCardResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SendRobotInteractiveCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendRobotInteractiveCardResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRobotInteractiveCardResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendRobotInteractiveCardResponse) SetHeaders(v map[string]*string) *SendRobotInteractiveCardResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendRobotInteractiveCardResponse) SetBody(v *SendRobotInteractiveCardResponseBody) *SendRobotInteractiveCardResponse {
+	s.Body = v
+	return s
+}
+
 type PrivateDataValue struct {
 	// 卡片模板内容替换参数-普通文本类型
 	CardParamMap map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
@@ -3311,6 +3534,114 @@ func (client *Client) UpdateTheGroupRolesOfGroupMemberWithOptions(request *Updat
 	}
 	_result = &UpdateTheGroupRolesOfGroupMemberResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateTheGroupRolesOfGroupMember"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/members/groupRoles"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendRobotInteractiveCard(request *SendRobotInteractiveCardRequest) (_result *SendRobotInteractiveCardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendRobotInteractiveCardHeaders{}
+	_result = &SendRobotInteractiveCardResponse{}
+	_body, _err := client.SendRobotInteractiveCardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendRobotInteractiveCardWithOptions(request *SendRobotInteractiveCardRequest, headers *SendRobotInteractiveCardHeaders, runtime *util.RuntimeOptions) (_result *SendRobotInteractiveCardResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		body["RequestId"] = request.RequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingAccessTokenType)) {
+		body["dingAccessTokenType"] = request.DingAccessTokenType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingClientId)) {
+		body["dingClientId"] = request.DingClientId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOpenAppId)) {
+		body["dingOpenAppId"] = request.DingOpenAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingUid)) {
+		body["dingUid"] = request.DingUid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardTemplateId)) {
+		body["cardTemplateId"] = request.CardTemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SingleChatReceiver)) {
+		body["singleChatReceiver"] = request.SingleChatReceiver
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardBizId)) {
+		body["cardBizId"] = request.CardBizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardData)) {
+		body["cardData"] = request.CardData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOauthAppId)) {
+		body["dingOauthAppId"] = request.DingOauthAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SendOptions))) {
+		body["sendOptions"] = request.SendOptions
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendRobotInteractiveCardResponse{}
+	_body, _err := client.DoROARequest(tea.String("SendRobotInteractiveCard"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/v1.0/robot/interactiveCards/send"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

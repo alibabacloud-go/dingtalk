@@ -3406,6 +3406,767 @@ func (s *FormCreateResponse) SetBody(v *FormCreateResponseBody) *FormCreateRespo
 	return s
 }
 
+type QuerySchemaByProcessCodeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QuerySchemaByProcessCodeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaByProcessCodeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaByProcessCodeHeaders) SetCommonHeaders(v map[string]*string) *QuerySchemaByProcessCodeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySchemaByProcessCodeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QuerySchemaByProcessCodeRequest struct {
+	// 表单的唯一码
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s QuerySchemaByProcessCodeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaByProcessCodeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaByProcessCodeRequest) SetProcessCode(v string) *QuerySchemaByProcessCodeRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+type QuerySchemaByProcessCodeResponseBody struct {
+	// 返回结果详情。
+	Result *QuerySchemaByProcessCodeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QuerySchemaByProcessCodeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaByProcessCodeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaByProcessCodeResponseBody) SetResult(v *QuerySchemaByProcessCodeResponseBodyResult) *QuerySchemaByProcessCodeResponseBody {
+	s.Result = v
+	return s
+}
+
+type QuerySchemaByProcessCodeResponseBodyResult struct {
+	// 创建人 userId。
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// 创建人 uid。
+	CreatorUid *int64 `json:"creatorUid,omitempty" xml:"creatorUid,omitempty"`
+	// 表单应用 uuid 或者 corpId。
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// 表单的唯一码。
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// 表单 uuid。
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 表单名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 说明文案。
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// 数据归属者的 id。
+	OwnerId *string `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
+	// 数据归属者的 id 类型。企业(orgId), 群(cid), 人(uid)。
+	OwnerIdType *string `json:"ownerIdType,omitempty" xml:"ownerIdType,omitempty"`
+	// 表单 schema 详情。
+	SchemaContent *QuerySchemaByProcessCodeResponseBodyResultSchemaContent `json:"schemaContent,omitempty" xml:"schemaContent,omitempty" type:"Struct"`
+	// 图标。
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 表单类型。
+	AppType *int32 `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 代表表单业务含义的类型。
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 引擎类型，表单：0，页面：1
+	EngineType *int32 `json:"engineType,omitempty" xml:"engineType,omitempty"`
+	// 状态, PUBLISHED(启用), INVALID(停用), SAVED(草稿)
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 排序 id。
+	ListOrder *int32 `json:"listOrder,omitempty" xml:"listOrder,omitempty"`
+	// 业务自定义设置数据。
+	CustomSetting *string `json:"customSetting,omitempty" xml:"customSetting,omitempty"`
+	// 目标类型: inner, outer, customer。
+	ProcType *string `json:"procType,omitempty" xml:"procType,omitempty"`
+	// 可见范围类型。
+	VisibleRange *string `json:"visibleRange,omitempty" xml:"visibleRange,omitempty"`
+	// 创建时间的时间戳。
+	GmtCreate *int32 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 修改时间的时间戳。
+	GmtModified *int32 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetCreatorUserId(v string) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetCreatorUid(v int64) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.CreatorUid = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetAppUuid(v string) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetFormCode(v string) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.FormCode = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetFormUuid(v string) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetName(v string) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetMemo(v string) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.Memo = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetOwnerId(v string) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.OwnerId = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetOwnerIdType(v string) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.OwnerIdType = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetSchemaContent(v *QuerySchemaByProcessCodeResponseBodyResultSchemaContent) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.SchemaContent = v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetIcon(v string) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.Icon = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetAppType(v int32) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.AppType = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetBizType(v string) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.BizType = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetEngineType(v int32) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.EngineType = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetStatus(v string) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetListOrder(v int32) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.ListOrder = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetCustomSetting(v string) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.CustomSetting = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetProcType(v string) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.ProcType = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetVisibleRange(v string) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.VisibleRange = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetGmtCreate(v int32) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetGmtModified(v int32) *QuerySchemaByProcessCodeResponseBodyResult {
+	s.GmtModified = &v
+	return s
+}
+
+type QuerySchemaByProcessCodeResponseBodyResultSchemaContent struct {
+	// 表单名称。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 图标
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 控件列表。
+	Items []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContent) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContent) SetTitle(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContent {
+	s.Title = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContent) SetIcon(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContent {
+	s.Icon = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContent) SetItems(v []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems) *QuerySchemaByProcessCodeResponseBodyResultSchemaContent {
+	s.Items = v
+	return s
+}
+
+type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems struct {
+	// 控件类型，取值：
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// 控件属性。
+	Props *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems) SetComponentName(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems) SetProps(v *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems {
+	s.Props = v
+	return s
+}
+
+type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps struct {
+	// 控件 id。
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 控件名称。
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// 控件业务自定义别名。
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 是否必填。
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// 占位符。
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// 单选框选项列表。
+	Options []*string `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// ISV 微应用 appId，用于ISV身份权限识别，ISV可获得相应数据。
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// 兼容字段。
+	DurationLabel *string `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
+	// 是否推送管理日历(DDDateRangeField, 1表示推送, 0表示不推送, 该属性为兼容保留)。
+	PushToCalendar *int32 `json:"pushToCalendar,omitempty" xml:"pushToCalendar,omitempty"`
+	// textnote的样式，top|middle|bottom。
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// 需要计算总和的明细组件
+	StatField []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// 加班套件4.0新增 加班明细是否隐藏标签。
+	HideLabel *bool `json:"hideLabel,omitempty" xml:"hideLabel,omitempty"`
+	// 选项内容列表，提供给业务方更多的选择器操作。
+	ObjOptions []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsObjOptions `json:"objOptions,omitempty" xml:"objOptions,omitempty" type:"Repeated"`
+	// 时间格式(DDDateField和DDDateRangeField)。
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// 推送到考勤, 子类型(DDSelectField)。
+	PushToAttendance *bool `json:"pushToAttendance,omitempty" xml:"pushToAttendance,omitempty"`
+	// label是否可修改 true：不可修改。
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// 同步到考勤, 表示是否设置为员工状态。
+	Push *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush `json:"push,omitempty" xml:"push,omitempty" type:"Struct"`
+	// common field的commonBizType。
+	CommonBizType *string `json:"commonBizType,omitempty" xml:"commonBizType,omitempty"`
+	// 必填是否可修改 true：不可修改。
+	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	// 数字组件/日期区间组件单位属性。
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 套件值是否打平
+	Extract *bool `json:"extract,omitempty" xml:"extract,omitempty"`
+	// 说明文案的链接地址。
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// 是否有支付属性。
+	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	// 加班套件4.0新增 加班明细是否隐藏。
+	Hidden *bool `json:"hidden,omitempty" xml:"hidden,omitempty"`
+	// 业务套件类型。
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 是否开启员工状态。
+	StaffStatusEnabled *bool `json:"staffStatusEnabled,omitempty" xml:"staffStatusEnabled,omitempty"`
+	// 加班套件4.0新增 加班明细名称。
+	ActionName *string `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	// 请假、出差、外出、加班类型标签。
+	AttendTypeLabel *string `json:"attendTypeLabel,omitempty" xml:"attendTypeLabel,omitempty"`
+	// 套件内子组件可见性。
+	ChildFieldVisible *bool `json:"childFieldVisible,omitempty" xml:"childFieldVisible,omitempty"`
+	// 是否参与打印(1表示不打印, 0表示打印)。
+	NotPrint *string `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	// 明细打印排版方式 false：横向 true：纵向。
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// 是否自动计算时长。
+	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 兼容出勤套件类型。
+	HolidayOptions *string `json:"holidayOptions,omitempty" xml:"holidayOptions,omitempty"`
+	// 是否使用考勤日历。
+	UseCalendar *bool `json:"useCalendar,omitempty" xml:"useCalendar,omitempty"`
+	// textnote在详情页是否隐藏，true隐藏， false不隐藏
+	HiddenInApprovalDetail *bool `json:"hiddenInApprovalDetail,omitempty" xml:"hiddenInApprovalDetail,omitempty"`
+	// 是否可编辑。
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// 套件是否开启异步获取分条件规则，true：开启；false：不开启。
+	AsyncCondition *bool `json:"asyncCondition,omitempty" xml:"asyncCondition,omitempty"`
+	// 表单关联控件列表。
+	BehaviorLinkage []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkage `json:"behaviorLinkage,omitempty" xml:"behaviorLinkage,omitempty" type:"Repeated"`
+	// 兼容出勤套件类型。
+	ShowAttendOptions *bool `json:"showAttendOptions,omitempty" xml:"showAttendOptions,omitempty"`
+	// 是否需要大写 默认是需要; 1:不需要大写, 空或者0:需要大写。
+	NotUpper *string `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	// 关联表单中的fields存储
+	FieldsInfo *string `json:"fieldsInfo,omitempty" xml:"fieldsInfo,omitempty"`
+	// e签宝专用标识。
+	ESign *bool `json:"eSign,omitempty" xml:"eSign,omitempty"`
+	// 加班套件4.0新增 加班明细描述。
+	MainTitle *string `json:"mainTitle,omitempty" xml:"mainTitle,omitempty"`
+	// 公式。
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// 内部联系人choice，1表示多选，0表示单选。
+	Choice *int32 `json:"choice,omitempty" xml:"choice,omitempty"`
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetId(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.Id = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetLabel(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.Label = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetBizAlias(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetRequired(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.Required = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetPlaceholder(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetOptions(v []*string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.Options = v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetAppId(v int64) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.AppId = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetDurationLabel(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.DurationLabel = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetPushToCalendar(v int32) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.PushToCalendar = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetAlign(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.Align = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetStatField(v []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.StatField = v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetHideLabel(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.HideLabel = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetObjOptions(v []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsObjOptions) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.ObjOptions = v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetFormat(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.Format = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetPushToAttendance(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.PushToAttendance = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetLabelEditableFreeze(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.LabelEditableFreeze = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetPush(v *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.Push = v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetCommonBizType(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.CommonBizType = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetRequiredEditableFreeze(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.RequiredEditableFreeze = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetUnit(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetExtract(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.Extract = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetLink(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.Link = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetPayEnable(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetHidden(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.Hidden = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetBizType(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.BizType = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetStaffStatusEnabled(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.StaffStatusEnabled = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetActionName(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.ActionName = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetAttendTypeLabel(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.AttendTypeLabel = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetChildFieldVisible(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.ChildFieldVisible = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetNotPrint(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.NotPrint = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetVerticalPrint(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetDuration(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetHolidayOptions(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.HolidayOptions = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetUseCalendar(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.UseCalendar = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetHiddenInApprovalDetail(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.HiddenInApprovalDetail = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetDisabled(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetAsyncCondition(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.AsyncCondition = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetBehaviorLinkage(v []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkage) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.BehaviorLinkage = v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetShowAttendOptions(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.ShowAttendOptions = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetNotUpper(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetFieldsInfo(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.FieldsInfo = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetESign(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.ESign = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetMainTitle(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.MainTitle = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetFormula(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.Formula = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetChoice(v int32) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.Choice = &v
+	return s
+}
+
+type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField struct {
+	// id 值。
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 名称。
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// 大写。
+	Upper *bool `json:"upper,omitempty" xml:"upper,omitempty"`
+	// 单位。
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField) SetId(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField {
+	s.Id = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField) SetLabel(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField) SetUpper(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField {
+	s.Upper = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField) SetUnit(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField {
+	s.Unit = &v
+	return s
+}
+
+type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsObjOptions struct {
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsObjOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsObjOptions) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsObjOptions) SetValue(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsObjOptions {
+	s.Value = &v
+	return s
+}
+
+type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush struct {
+	// 开启状态(1表示开启, 0表示关闭)
+	PushSwitch *int32 `json:"pushSwitch,omitempty" xml:"pushSwitch,omitempty"`
+	// 状态显示名称
+	PushTag *string `json:"pushTag,omitempty" xml:"pushTag,omitempty"`
+	// 考勤类型(1表示请假, 2表示出差, 3表示加班, 4表示外出)
+	AttendanceRule *int32 `json:"attendanceRule,omitempty" xml:"attendanceRule,omitempty"`
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush) SetPushSwitch(v int32) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush {
+	s.PushSwitch = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush) SetPushTag(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush {
+	s.PushTag = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush) SetAttendanceRule(v int32) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush {
+	s.AttendanceRule = &v
+	return s
+}
+
+type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkage struct {
+	// 控件值。
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 关联控件列表。
+	Targets []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets `json:"targets,omitempty" xml:"targets,omitempty" type:"Repeated"`
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkage) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkage) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkage) SetValue(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkage {
+	s.Value = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkage) SetTargets(v []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkage {
+	s.Targets = v
+	return s
+}
+
+type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets struct {
+	// 字段 id。
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// 行为。
+	Behavior *string `json:"behavior,omitempty" xml:"behavior,omitempty"`
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets) SetFieldId(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets {
+	s.FieldId = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets) SetBehavior(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets {
+	s.Behavior = &v
+	return s
+}
+
+type QuerySchemaByProcessCodeResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QuerySchemaByProcessCodeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QuerySchemaByProcessCodeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaByProcessCodeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaByProcessCodeResponse) SetHeaders(v map[string]*string) *QuerySchemaByProcessCodeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponse) SetBody(v *QuerySchemaByProcessCodeResponseBody) *QuerySchemaByProcessCodeResponse {
+	s.Body = v
+	return s
+}
+
 type StartProcessInstanceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4190,6 +4951,50 @@ func (client *Client) FormCreateWithOptions(request *FormCreateRequest, headers 
 	}
 	_result = &FormCreateResponse{}
 	_body, _err := client.DoROARequest(tea.String("FormCreate"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/forms"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QuerySchemaByProcessCode(request *QuerySchemaByProcessCodeRequest) (_result *QuerySchemaByProcessCodeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QuerySchemaByProcessCodeHeaders{}
+	_result = &QuerySchemaByProcessCodeResponse{}
+	_body, _err := client.QuerySchemaByProcessCodeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QuerySchemaByProcessCodeWithOptions(request *QuerySchemaByProcessCodeRequest, headers *QuerySchemaByProcessCodeHeaders, runtime *util.RuntimeOptions) (_result *QuerySchemaByProcessCodeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		query["processCode"] = request.ProcessCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QuerySchemaByProcessCodeResponse{}
+	_body, _err := client.DoROARequest(tea.String("QuerySchemaByProcessCode"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/forms/schemas/processCodes"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -3745,6 +3745,137 @@ func (s *GetDownloadInfoResponse) SetBody(v *GetDownloadInfoResponseBody) *GetDo
 	return s
 }
 
+type GetMySpaceInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetMySpaceInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMySpaceInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetMySpaceInfoHeaders) SetCommonHeaders(v map[string]*string) *GetMySpaceInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetMySpaceInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetMySpaceInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetMySpaceInfoRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetMySpaceInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMySpaceInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetMySpaceInfoRequest) SetUnionId(v string) *GetMySpaceInfoRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetMySpaceInfoResponseBody struct {
+	// 空间id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 空间名称
+	SpaceName *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	// 空间类型
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// 容量
+	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
+	// 已使用容量
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// 授权模式
+	PermissionMode *string `json:"permissionMode,omitempty" xml:"permissionMode,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 修改时间
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+}
+
+func (s GetMySpaceInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMySpaceInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetMySpaceInfoResponseBody) SetSpaceId(v string) *GetMySpaceInfoResponseBody {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *GetMySpaceInfoResponseBody) SetSpaceName(v string) *GetMySpaceInfoResponseBody {
+	s.SpaceName = &v
+	return s
+}
+
+func (s *GetMySpaceInfoResponseBody) SetSpaceType(v string) *GetMySpaceInfoResponseBody {
+	s.SpaceType = &v
+	return s
+}
+
+func (s *GetMySpaceInfoResponseBody) SetQuota(v int64) *GetMySpaceInfoResponseBody {
+	s.Quota = &v
+	return s
+}
+
+func (s *GetMySpaceInfoResponseBody) SetUsedQuota(v int64) *GetMySpaceInfoResponseBody {
+	s.UsedQuota = &v
+	return s
+}
+
+func (s *GetMySpaceInfoResponseBody) SetPermissionMode(v string) *GetMySpaceInfoResponseBody {
+	s.PermissionMode = &v
+	return s
+}
+
+func (s *GetMySpaceInfoResponseBody) SetCreateTime(v string) *GetMySpaceInfoResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetMySpaceInfoResponseBody) SetModifyTime(v string) *GetMySpaceInfoResponseBody {
+	s.ModifyTime = &v
+	return s
+}
+
+type GetMySpaceInfoResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetMySpaceInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetMySpaceInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMySpaceInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetMySpaceInfoResponse) SetHeaders(v map[string]*string) *GetMySpaceInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetMySpaceInfoResponse) SetBody(v *GetMySpaceInfoResponseBody) *GetMySpaceInfoResponse {
+	s.Body = v
+	return s
+}
+
 type GetUploadInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5961,6 +6092,50 @@ func (client *Client) GetDownloadInfoWithOptions(spaceId *string, fileId *string
 	}
 	_result = &GetDownloadInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetDownloadInfo"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/spaces/"+tea.StringValue(spaceId)+"/files/"+tea.StringValue(fileId)+"/downloadInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetMySpaceInfo(request *GetMySpaceInfoRequest) (_result *GetMySpaceInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetMySpaceInfoHeaders{}
+	_result = &GetMySpaceInfoResponse{}
+	_body, _err := client.GetMySpaceInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetMySpaceInfoWithOptions(request *GetMySpaceInfoRequest, headers *GetMySpaceInfoHeaders, runtime *util.RuntimeOptions) (_result *GetMySpaceInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetMySpaceInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetMySpaceInfo"), tea.String("drive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/drive/mySpaces"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
