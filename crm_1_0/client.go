@@ -3236,6 +3236,8 @@ type GetCrmGroupChatResponseBody struct {
 	MemberCount *int32 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
 	// 创建时间(时间戳)
 	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 群头像地址
+	IconUrl *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
 }
 
 func (s GetCrmGroupChatResponseBody) String() string {
@@ -3283,6 +3285,11 @@ func (s *GetCrmGroupChatResponseBody) SetMemberCount(v int32) *GetCrmGroupChatRe
 
 func (s *GetCrmGroupChatResponseBody) SetGmtCreate(v int64) *GetCrmGroupChatResponseBody {
 	s.GmtCreate = &v
+	return s
+}
+
+func (s *GetCrmGroupChatResponseBody) SetIconUrl(v string) *GetCrmGroupChatResponseBody {
+	s.IconUrl = &v
 	return s
 }
 
