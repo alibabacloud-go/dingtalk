@@ -1451,6 +1451,86 @@ func (s *UpdateResidentUserResponse) SetBody(v *UpdateResidentUserResponseBody) 
 	return s
 }
 
+type DeleteResidentBlackBoardHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteResidentBlackBoardHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteResidentBlackBoardHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteResidentBlackBoardHeaders) SetCommonHeaders(v map[string]*string) *DeleteResidentBlackBoardHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteResidentBlackBoardHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteResidentBlackBoardHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteResidentBlackBoardRequest struct {
+	BlackboardId *string `json:"blackboardId,omitempty" xml:"blackboardId,omitempty"`
+}
+
+func (s DeleteResidentBlackBoardRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteResidentBlackBoardRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteResidentBlackBoardRequest) SetBlackboardId(v string) *DeleteResidentBlackBoardRequest {
+	s.BlackboardId = &v
+	return s
+}
+
+type DeleteResidentBlackBoardResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteResidentBlackBoardResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteResidentBlackBoardResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteResidentBlackBoardResponseBody) SetSuccess(v bool) *DeleteResidentBlackBoardResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteResidentBlackBoardResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteResidentBlackBoardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteResidentBlackBoardResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteResidentBlackBoardResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteResidentBlackBoardResponse) SetHeaders(v map[string]*string) *DeleteResidentBlackBoardResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteResidentBlackBoardResponse) SetBody(v *DeleteResidentBlackBoardResponseBody) *DeleteResidentBlackBoardResponse {
+	s.Body = v
+	return s
+}
+
 type AddPointHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2182,6 +2262,8 @@ type CreateResidentBlackBoardRequest struct {
 	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
 	Context            *string `json:"context,omitempty" xml:"context,omitempty"`
 	MediaId            *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// 格式yyyy-MM-dd HH:mm:ss
+	SendTime *string `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
 }
 
 func (s CreateResidentBlackBoardRequest) String() string {
@@ -2227,6 +2309,11 @@ func (s *CreateResidentBlackBoardRequest) SetMediaId(v string) *CreateResidentBl
 	return s
 }
 
+func (s *CreateResidentBlackBoardRequest) SetSendTime(v string) *CreateResidentBlackBoardRequest {
+	s.SendTime = &v
+	return s
+}
+
 type CreateResidentBlackBoardResponseBody struct {
 	BlackBoardId *string `json:"blackBoardId,omitempty" xml:"blackBoardId,omitempty"`
 }
@@ -2263,6 +2350,128 @@ func (s *CreateResidentBlackBoardResponse) SetHeaders(v map[string]*string) *Cre
 }
 
 func (s *CreateResidentBlackBoardResponse) SetBody(v *CreateResidentBlackBoardResponseBody) *CreateResidentBlackBoardResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateResidentBlackBoardHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateResidentBlackBoardHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateResidentBlackBoardHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateResidentBlackBoardHeaders) SetCommonHeaders(v map[string]*string) *UpdateResidentBlackBoardHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateResidentBlackBoardHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateResidentBlackBoardHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateResidentBlackBoardRequest struct {
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingCorpId         *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
+	Context            *string `json:"context,omitempty" xml:"context,omitempty"`
+	MediaId            *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	BlackboardId       *string `json:"blackboardId,omitempty" xml:"blackboardId,omitempty"`
+}
+
+func (s UpdateResidentBlackBoardRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateResidentBlackBoardRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateResidentBlackBoardRequest) SetDingIsvOrgId(v int64) *UpdateResidentBlackBoardRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *UpdateResidentBlackBoardRequest) SetDingCorpId(v string) *UpdateResidentBlackBoardRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *UpdateResidentBlackBoardRequest) SetDingSuiteKey(v string) *UpdateResidentBlackBoardRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *UpdateResidentBlackBoardRequest) SetDingTokenGrantType(v int64) *UpdateResidentBlackBoardRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+func (s *UpdateResidentBlackBoardRequest) SetTitle(v string) *UpdateResidentBlackBoardRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *UpdateResidentBlackBoardRequest) SetContext(v string) *UpdateResidentBlackBoardRequest {
+	s.Context = &v
+	return s
+}
+
+func (s *UpdateResidentBlackBoardRequest) SetMediaId(v string) *UpdateResidentBlackBoardRequest {
+	s.MediaId = &v
+	return s
+}
+
+func (s *UpdateResidentBlackBoardRequest) SetBlackboardId(v string) *UpdateResidentBlackBoardRequest {
+	s.BlackboardId = &v
+	return s
+}
+
+type UpdateResidentBlackBoardResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateResidentBlackBoardResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateResidentBlackBoardResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateResidentBlackBoardResponseBody) SetSuccess(v bool) *UpdateResidentBlackBoardResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateResidentBlackBoardResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateResidentBlackBoardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateResidentBlackBoardResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateResidentBlackBoardResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateResidentBlackBoardResponse) SetHeaders(v map[string]*string) *UpdateResidentBlackBoardResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateResidentBlackBoardResponse) SetBody(v *UpdateResidentBlackBoardResponseBody) *UpdateResidentBlackBoardResponse {
 	s.Body = v
 	return s
 }
@@ -3046,6 +3255,50 @@ func (client *Client) UpdateResidentUserWithOptions(request *UpdateResidentUserR
 	return _result, _err
 }
 
+func (client *Client) DeleteResidentBlackBoard(request *DeleteResidentBlackBoardRequest) (_result *DeleteResidentBlackBoardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteResidentBlackBoardHeaders{}
+	_result = &DeleteResidentBlackBoardResponse{}
+	_body, _err := client.DeleteResidentBlackBoardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteResidentBlackBoardWithOptions(request *DeleteResidentBlackBoardRequest, headers *DeleteResidentBlackBoardHeaders, runtime *util.RuntimeOptions) (_result *DeleteResidentBlackBoardResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BlackboardId)) {
+		query["blackboardId"] = request.BlackboardId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteResidentBlackBoardResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteResidentBlackBoard"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/resident/blackboards"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) AddPoint(request *AddPointRequest) (_result *AddPointResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddPointHeaders{}
@@ -3452,6 +3705,10 @@ func (client *Client) CreateResidentBlackBoardWithOptions(request *CreateResiden
 		body["mediaId"] = request.MediaId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.SendTime)) {
+		body["sendTime"] = request.SendTime
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3467,6 +3724,78 @@ func (client *Client) CreateResidentBlackBoardWithOptions(request *CreateResiden
 	}
 	_result = &CreateResidentBlackBoardResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateResidentBlackBoard"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/blackboards"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateResidentBlackBoard(request *UpdateResidentBlackBoardRequest) (_result *UpdateResidentBlackBoardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateResidentBlackBoardHeaders{}
+	_result = &UpdateResidentBlackBoardResponse{}
+	_body, _err := client.UpdateResidentBlackBoardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateResidentBlackBoardWithOptions(request *UpdateResidentBlackBoardRequest, headers *UpdateResidentBlackBoardHeaders, runtime *util.RuntimeOptions) (_result *UpdateResidentBlackBoardResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Context)) {
+		body["context"] = request.Context
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
+		body["mediaId"] = request.MediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BlackboardId)) {
+		body["blackboardId"] = request.BlackboardId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateResidentBlackBoardResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateResidentBlackBoard"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/resident/blackboards"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

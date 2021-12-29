@@ -553,6 +553,331 @@ func (s *QueryUserInfoResponse) SetBody(v *QueryUserInfoResponseBody) *QueryUser
 	return s
 }
 
+type IndustryManufactureCostRecordListGetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IndustryManufactureCostRecordListGetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureCostRecordListGetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureCostRecordListGetHeaders) SetCommonHeaders(v map[string]*string) *IndustryManufactureCostRecordListGetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetHeaders) SetXAcsDingtalkAccessToken(v string) *IndustryManufactureCostRecordListGetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IndustryManufactureCostRecordListGetRequest struct {
+	InstanceId       *string  `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	MaterialNo       *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
+	OrderNo          *string  `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	ProductionTaskNo *string  `json:"productionTaskNo,omitempty" xml:"productionTaskNo,omitempty"`
+	StartTime        *int64   `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	EndTime          *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	Cursor           *int64   `json:"cursor,omitempty" xml:"cursor,omitempty"`
+	PageNumber       *int64   `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize         *int32   `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	TokenGrantType   *int32   `json:"tokenGrantType,omitempty" xml:"tokenGrantType,omitempty"`
+	OrgId            *int64   `json:"orgId,omitempty" xml:"orgId,omitempty"`
+	CorpId           *string  `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	IsvOrgId         *int64   `json:"isvOrgId,omitempty" xml:"isvOrgId,omitempty"`
+	SuiteKey         *string  `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
+	MicroappAgentId  *int64   `json:"microappAgentId,omitempty" xml:"microappAgentId,omitempty"`
+	AppIds           []*int64 `json:"appIds,omitempty" xml:"appIds,omitempty" type:"Repeated"`
+	AppId            *int64   `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppName          *string  `json:"appName,omitempty" xml:"appName,omitempty"`
+}
+
+func (s IndustryManufactureCostRecordListGetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureCostRecordListGetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetInstanceId(v string) *IndustryManufactureCostRecordListGetRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetMaterialNo(v string) *IndustryManufactureCostRecordListGetRequest {
+	s.MaterialNo = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetOrderNo(v string) *IndustryManufactureCostRecordListGetRequest {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetProductionTaskNo(v string) *IndustryManufactureCostRecordListGetRequest {
+	s.ProductionTaskNo = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetStartTime(v int64) *IndustryManufactureCostRecordListGetRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetEndTime(v int64) *IndustryManufactureCostRecordListGetRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetCursor(v int64) *IndustryManufactureCostRecordListGetRequest {
+	s.Cursor = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetPageNumber(v int64) *IndustryManufactureCostRecordListGetRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetPageSize(v int32) *IndustryManufactureCostRecordListGetRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetTokenGrantType(v int32) *IndustryManufactureCostRecordListGetRequest {
+	s.TokenGrantType = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetOrgId(v int64) *IndustryManufactureCostRecordListGetRequest {
+	s.OrgId = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetCorpId(v string) *IndustryManufactureCostRecordListGetRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetIsvOrgId(v int64) *IndustryManufactureCostRecordListGetRequest {
+	s.IsvOrgId = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetSuiteKey(v string) *IndustryManufactureCostRecordListGetRequest {
+	s.SuiteKey = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetMicroappAgentId(v int64) *IndustryManufactureCostRecordListGetRequest {
+	s.MicroappAgentId = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetAppIds(v []*int64) *IndustryManufactureCostRecordListGetRequest {
+	s.AppIds = v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetAppId(v int64) *IndustryManufactureCostRecordListGetRequest {
+	s.AppId = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetRequest) SetAppName(v string) *IndustryManufactureCostRecordListGetRequest {
+	s.AppName = &v
+	return s
+}
+
+type IndustryManufactureCostRecordListGetResponseBody struct {
+	List       []*IndustryManufactureCostRecordListGetResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextCursor *int64                                                  `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	TotalCount *int64                                                  `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	HasMore    *bool                                                   `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+}
+
+func (s IndustryManufactureCostRecordListGetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureCostRecordListGetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBody) SetList(v []*IndustryManufactureCostRecordListGetResponseBodyList) *IndustryManufactureCostRecordListGetResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBody) SetNextCursor(v int64) *IndustryManufactureCostRecordListGetResponseBody {
+	s.NextCursor = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBody) SetTotalCount(v int64) *IndustryManufactureCostRecordListGetResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBody) SetHasMore(v bool) *IndustryManufactureCostRecordListGetResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+type IndustryManufactureCostRecordListGetResponseBodyList struct {
+	GmtCreate            *int64   `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified          *int64   `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	CorpId               *string  `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	MaterialCostRecordNo *string  `json:"materialCostRecordNo,omitempty" xml:"materialCostRecordNo,omitempty"`
+	InstanceId           *string  `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	MaterialNo           *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
+	MaterialName         *string  `json:"materialName,omitempty" xml:"materialName,omitempty"`
+	Unit                 *string  `json:"unit,omitempty" xml:"unit,omitempty"`
+	Count                *float32 `json:"count,omitempty" xml:"count,omitempty"`
+	Type                 *string  `json:"type,omitempty" xml:"type,omitempty"`
+	Price                *float32 `json:"price,omitempty" xml:"price,omitempty"`
+	OrderNo              *string  `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	ProductionTaskNo     *string  `json:"productionTaskNo,omitempty" xml:"productionTaskNo,omitempty"`
+	IsDeleted            *string  `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	Ext                  *string  `json:"ext,omitempty" xml:"ext,omitempty"`
+	Memo                 *string  `json:"memo,omitempty" xml:"memo,omitempty"`
+	RealCount            *float32 `json:"realCount,omitempty" xml:"realCount,omitempty"`
+	RealPrice            *float32 `json:"realPrice,omitempty" xml:"realPrice,omitempty"`
+	ProcessCode          *string  `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s IndustryManufactureCostRecordListGetResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureCostRecordListGetResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetGmtCreate(v int64) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetGmtModified(v int64) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetCorpId(v string) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.CorpId = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetMaterialCostRecordNo(v string) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.MaterialCostRecordNo = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetInstanceId(v string) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetMaterialNo(v string) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.MaterialNo = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetMaterialName(v string) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.MaterialName = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetUnit(v string) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.Unit = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetCount(v float32) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.Count = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetType(v string) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.Type = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetPrice(v float32) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.Price = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetOrderNo(v string) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetProductionTaskNo(v string) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.ProductionTaskNo = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetIsDeleted(v string) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.IsDeleted = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetExt(v string) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.Ext = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetMemo(v string) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.Memo = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetRealCount(v float32) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.RealCount = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetRealPrice(v float32) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.RealPrice = &v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponseBodyList) SetProcessCode(v string) *IndustryManufactureCostRecordListGetResponseBodyList {
+	s.ProcessCode = &v
+	return s
+}
+
+type IndustryManufactureCostRecordListGetResponse struct {
+	Headers map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *IndustryManufactureCostRecordListGetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IndustryManufactureCostRecordListGetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureCostRecordListGetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureCostRecordListGetResponse) SetHeaders(v map[string]*string) *IndustryManufactureCostRecordListGetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IndustryManufactureCostRecordListGetResponse) SetBody(v *IndustryManufactureCostRecordListGetResponseBody) *IndustryManufactureCostRecordListGetResponse {
+	s.Body = v
+	return s
+}
+
 type QueryAllMemberByDeptHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2188,6 +2513,277 @@ func (s *QueryDepartmentInfoResponse) SetBody(v *QueryDepartmentInfoResponseBody
 	return s
 }
 
+type IndustryManufactureMaterialListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IndustryManufactureMaterialListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMaterialListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMaterialListHeaders) SetCommonHeaders(v map[string]*string) *IndustryManufactureMaterialListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListHeaders) SetXAcsDingtalkAccessToken(v string) *IndustryManufactureMaterialListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IndustryManufactureMaterialListRequest struct {
+	TokenGrantType  *int64   `json:"tokenGrantType,omitempty" xml:"tokenGrantType,omitempty"`
+	CorpId          *string  `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	PageSize        *int32   `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	EndTime         *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	InstanceId      *string  `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	MaterialNo      *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
+	StartTime       *int64   `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	MicroappAgentId *int64   `json:"microappAgentId,omitempty" xml:"microappAgentId,omitempty"`
+	Cursor          *int64   `json:"cursor,omitempty" xml:"cursor,omitempty"`
+	AppName         *string  `json:"appName,omitempty" xml:"appName,omitempty"`
+	OrgId           *int64   `json:"orgId,omitempty" xml:"orgId,omitempty"`
+	AppId           *int64   `json:"appId,omitempty" xml:"appId,omitempty"`
+	SuiteKey        *string  `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
+	AppIds          []*int64 `json:"appIds,omitempty" xml:"appIds,omitempty" type:"Repeated"`
+	CurrentPage     *int64   `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	IsvOrgId        *int64   `json:"isvOrgId,omitempty" xml:"isvOrgId,omitempty"`
+}
+
+func (s IndustryManufactureMaterialListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMaterialListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMaterialListRequest) SetTokenGrantType(v int64) *IndustryManufactureMaterialListRequest {
+	s.TokenGrantType = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListRequest) SetCorpId(v string) *IndustryManufactureMaterialListRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListRequest) SetPageSize(v int32) *IndustryManufactureMaterialListRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListRequest) SetEndTime(v int64) *IndustryManufactureMaterialListRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListRequest) SetInstanceId(v string) *IndustryManufactureMaterialListRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListRequest) SetMaterialNo(v string) *IndustryManufactureMaterialListRequest {
+	s.MaterialNo = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListRequest) SetStartTime(v int64) *IndustryManufactureMaterialListRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListRequest) SetMicroappAgentId(v int64) *IndustryManufactureMaterialListRequest {
+	s.MicroappAgentId = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListRequest) SetCursor(v int64) *IndustryManufactureMaterialListRequest {
+	s.Cursor = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListRequest) SetAppName(v string) *IndustryManufactureMaterialListRequest {
+	s.AppName = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListRequest) SetOrgId(v int64) *IndustryManufactureMaterialListRequest {
+	s.OrgId = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListRequest) SetAppId(v int64) *IndustryManufactureMaterialListRequest {
+	s.AppId = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListRequest) SetSuiteKey(v string) *IndustryManufactureMaterialListRequest {
+	s.SuiteKey = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListRequest) SetAppIds(v []*int64) *IndustryManufactureMaterialListRequest {
+	s.AppIds = v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListRequest) SetCurrentPage(v int64) *IndustryManufactureMaterialListRequest {
+	s.CurrentPage = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListRequest) SetIsvOrgId(v int64) *IndustryManufactureMaterialListRequest {
+	s.IsvOrgId = &v
+	return s
+}
+
+type IndustryManufactureMaterialListResponseBody struct {
+	List       []*IndustryManufactureMaterialListResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextCursor *int64                                             `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	TotalCount *int64                                             `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	HasMore    *bool                                              `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+}
+
+func (s IndustryManufactureMaterialListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMaterialListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMaterialListResponseBody) SetList(v []*IndustryManufactureMaterialListResponseBodyList) *IndustryManufactureMaterialListResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListResponseBody) SetNextCursor(v int64) *IndustryManufactureMaterialListResponseBody {
+	s.NextCursor = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListResponseBody) SetTotalCount(v int64) *IndustryManufactureMaterialListResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListResponseBody) SetHasMore(v bool) *IndustryManufactureMaterialListResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+type IndustryManufactureMaterialListResponseBodyList struct {
+	CorpId        *string  `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	InstanceId    *string  `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	MaterialNo    *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
+	MaterialName  *string  `json:"materialName,omitempty" xml:"materialName,omitempty"`
+	Specification *string  `json:"specification,omitempty" xml:"specification,omitempty"`
+	Type          *string  `json:"type,omitempty" xml:"type,omitempty"`
+	Category      *string  `json:"category,omitempty" xml:"category,omitempty"`
+	Unit          *string  `json:"unit,omitempty" xml:"unit,omitempty"`
+	Ext           *string  `json:"ext,omitempty" xml:"ext,omitempty"`
+	ProcessCode   *string  `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	StockMaxWarn  *float32 `json:"stockMaxWarn,omitempty" xml:"stockMaxWarn,omitempty"`
+	StockMinWarn  *float32 `json:"stockMinWarn,omitempty" xml:"stockMinWarn,omitempty"`
+}
+
+func (s IndustryManufactureMaterialListResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMaterialListResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMaterialListResponseBodyList) SetCorpId(v string) *IndustryManufactureMaterialListResponseBodyList {
+	s.CorpId = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListResponseBodyList) SetInstanceId(v string) *IndustryManufactureMaterialListResponseBodyList {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListResponseBodyList) SetMaterialNo(v string) *IndustryManufactureMaterialListResponseBodyList {
+	s.MaterialNo = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListResponseBodyList) SetMaterialName(v string) *IndustryManufactureMaterialListResponseBodyList {
+	s.MaterialName = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListResponseBodyList) SetSpecification(v string) *IndustryManufactureMaterialListResponseBodyList {
+	s.Specification = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListResponseBodyList) SetType(v string) *IndustryManufactureMaterialListResponseBodyList {
+	s.Type = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListResponseBodyList) SetCategory(v string) *IndustryManufactureMaterialListResponseBodyList {
+	s.Category = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListResponseBodyList) SetUnit(v string) *IndustryManufactureMaterialListResponseBodyList {
+	s.Unit = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListResponseBodyList) SetExt(v string) *IndustryManufactureMaterialListResponseBodyList {
+	s.Ext = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListResponseBodyList) SetProcessCode(v string) *IndustryManufactureMaterialListResponseBodyList {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListResponseBodyList) SetStockMaxWarn(v float32) *IndustryManufactureMaterialListResponseBodyList {
+	s.StockMaxWarn = &v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListResponseBodyList) SetStockMinWarn(v float32) *IndustryManufactureMaterialListResponseBodyList {
+	s.StockMinWarn = &v
+	return s
+}
+
+type IndustryManufactureMaterialListResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *IndustryManufactureMaterialListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IndustryManufactureMaterialListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMaterialListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMaterialListResponse) SetHeaders(v map[string]*string) *IndustryManufactureMaterialListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IndustryManufactureMaterialListResponse) SetBody(v *IndustryManufactureMaterialListResponseBody) *IndustryManufactureMaterialListResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateUserExtendInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2264,6 +2860,596 @@ func (s UpdateUserExtendInfoResponse) GoString() string {
 
 func (s *UpdateUserExtendInfoResponse) SetHeaders(v map[string]*string) *UpdateUserExtendInfoResponse {
 	s.Headers = v
+	return s
+}
+
+type IndustryMmanufactureMaterialCostGetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IndustryMmanufactureMaterialCostGetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryMmanufactureMaterialCostGetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryMmanufactureMaterialCostGetHeaders) SetCommonHeaders(v map[string]*string) *IndustryMmanufactureMaterialCostGetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetHeaders) SetXAcsDingtalkAccessToken(v string) *IndustryMmanufactureMaterialCostGetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IndustryMmanufactureMaterialCostGetRequest struct {
+	InstanceId      *string  `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	MaterialNo      *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
+	StartTime       *int64   `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	EndTime         *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	Cursor          *int64   `json:"cursor,omitempty" xml:"cursor,omitempty"`
+	PageNumber      *int64   `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize        *int32   `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	TokenGrantType  *int32   `json:"tokenGrantType,omitempty" xml:"tokenGrantType,omitempty"`
+	OrgId           *int64   `json:"orgId,omitempty" xml:"orgId,omitempty"`
+	CorpId          *string  `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	IsvOrgId        *int64   `json:"isvOrgId,omitempty" xml:"isvOrgId,omitempty"`
+	SuiteKey        *string  `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
+	MicroappAgentId *int64   `json:"microappAgentId,omitempty" xml:"microappAgentId,omitempty"`
+	AppIds          []*int64 `json:"appIds,omitempty" xml:"appIds,omitempty" type:"Repeated"`
+	AppId           *int64   `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppName         *string  `json:"appName,omitempty" xml:"appName,omitempty"`
+}
+
+func (s IndustryMmanufactureMaterialCostGetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryMmanufactureMaterialCostGetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryMmanufactureMaterialCostGetRequest) SetInstanceId(v string) *IndustryMmanufactureMaterialCostGetRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetRequest) SetMaterialNo(v string) *IndustryMmanufactureMaterialCostGetRequest {
+	s.MaterialNo = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetRequest) SetStartTime(v int64) *IndustryMmanufactureMaterialCostGetRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetRequest) SetEndTime(v int64) *IndustryMmanufactureMaterialCostGetRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetRequest) SetCursor(v int64) *IndustryMmanufactureMaterialCostGetRequest {
+	s.Cursor = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetRequest) SetPageNumber(v int64) *IndustryMmanufactureMaterialCostGetRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetRequest) SetPageSize(v int32) *IndustryMmanufactureMaterialCostGetRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetRequest) SetTokenGrantType(v int32) *IndustryMmanufactureMaterialCostGetRequest {
+	s.TokenGrantType = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetRequest) SetOrgId(v int64) *IndustryMmanufactureMaterialCostGetRequest {
+	s.OrgId = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetRequest) SetCorpId(v string) *IndustryMmanufactureMaterialCostGetRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetRequest) SetIsvOrgId(v int64) *IndustryMmanufactureMaterialCostGetRequest {
+	s.IsvOrgId = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetRequest) SetSuiteKey(v string) *IndustryMmanufactureMaterialCostGetRequest {
+	s.SuiteKey = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetRequest) SetMicroappAgentId(v int64) *IndustryMmanufactureMaterialCostGetRequest {
+	s.MicroappAgentId = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetRequest) SetAppIds(v []*int64) *IndustryMmanufactureMaterialCostGetRequest {
+	s.AppIds = v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetRequest) SetAppId(v int64) *IndustryMmanufactureMaterialCostGetRequest {
+	s.AppId = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetRequest) SetAppName(v string) *IndustryMmanufactureMaterialCostGetRequest {
+	s.AppName = &v
+	return s
+}
+
+type IndustryMmanufactureMaterialCostGetResponseBody struct {
+	List       []*IndustryMmanufactureMaterialCostGetResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	TotalCount *int64                                                 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	NextCursor *int64                                                 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	HasMore    *bool                                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+}
+
+func (s IndustryMmanufactureMaterialCostGetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryMmanufactureMaterialCostGetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBody) SetList(v []*IndustryMmanufactureMaterialCostGetResponseBodyList) *IndustryMmanufactureMaterialCostGetResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBody) SetTotalCount(v int64) *IndustryMmanufactureMaterialCostGetResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBody) SetNextCursor(v int64) *IndustryMmanufactureMaterialCostGetResponseBody {
+	s.NextCursor = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBody) SetHasMore(v bool) *IndustryMmanufactureMaterialCostGetResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+type IndustryMmanufactureMaterialCostGetResponseBodyList struct {
+	GmtCreate      *int64   `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified    *int64   `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	CorpId         *string  `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	MaterialCostNo *string  `json:"materialCostNo,omitempty" xml:"materialCostNo,omitempty"`
+	InstanceId     *string  `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	MaterialNo     *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
+	MaterialName   *string  `json:"materialName,omitempty" xml:"materialName,omitempty"`
+	Unit           *string  `json:"unit,omitempty" xml:"unit,omitempty"`
+	Count          *float32 `json:"count,omitempty" xml:"count,omitempty"`
+	Price          *float32 `json:"price,omitempty" xml:"price,omitempty"`
+	ActPrice       *float32 `json:"actPrice,omitempty" xml:"actPrice,omitempty"`
+	Ext            *string  `json:"ext,omitempty" xml:"ext,omitempty"`
+	ProcessCode    *string  `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	Memo           *string  `json:"memo,omitempty" xml:"memo,omitempty"`
+}
+
+func (s IndustryMmanufactureMaterialCostGetResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryMmanufactureMaterialCostGetResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBodyList) SetGmtCreate(v int64) *IndustryMmanufactureMaterialCostGetResponseBodyList {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBodyList) SetGmtModified(v int64) *IndustryMmanufactureMaterialCostGetResponseBodyList {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBodyList) SetCorpId(v string) *IndustryMmanufactureMaterialCostGetResponseBodyList {
+	s.CorpId = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBodyList) SetMaterialCostNo(v string) *IndustryMmanufactureMaterialCostGetResponseBodyList {
+	s.MaterialCostNo = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBodyList) SetInstanceId(v string) *IndustryMmanufactureMaterialCostGetResponseBodyList {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBodyList) SetMaterialNo(v string) *IndustryMmanufactureMaterialCostGetResponseBodyList {
+	s.MaterialNo = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBodyList) SetMaterialName(v string) *IndustryMmanufactureMaterialCostGetResponseBodyList {
+	s.MaterialName = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBodyList) SetUnit(v string) *IndustryMmanufactureMaterialCostGetResponseBodyList {
+	s.Unit = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBodyList) SetCount(v float32) *IndustryMmanufactureMaterialCostGetResponseBodyList {
+	s.Count = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBodyList) SetPrice(v float32) *IndustryMmanufactureMaterialCostGetResponseBodyList {
+	s.Price = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBodyList) SetActPrice(v float32) *IndustryMmanufactureMaterialCostGetResponseBodyList {
+	s.ActPrice = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBodyList) SetExt(v string) *IndustryMmanufactureMaterialCostGetResponseBodyList {
+	s.Ext = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBodyList) SetProcessCode(v string) *IndustryMmanufactureMaterialCostGetResponseBodyList {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponseBodyList) SetMemo(v string) *IndustryMmanufactureMaterialCostGetResponseBodyList {
+	s.Memo = &v
+	return s
+}
+
+type IndustryMmanufactureMaterialCostGetResponse struct {
+	Headers map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *IndustryMmanufactureMaterialCostGetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IndustryMmanufactureMaterialCostGetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryMmanufactureMaterialCostGetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponse) SetHeaders(v map[string]*string) *IndustryMmanufactureMaterialCostGetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IndustryMmanufactureMaterialCostGetResponse) SetBody(v *IndustryMmanufactureMaterialCostGetResponseBody) *IndustryMmanufactureMaterialCostGetResponse {
+	s.Body = v
+	return s
+}
+
+type IndustryManufactureFeeListGetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IndustryManufactureFeeListGetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureFeeListGetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureFeeListGetHeaders) SetCommonHeaders(v map[string]*string) *IndustryManufactureFeeListGetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetHeaders) SetXAcsDingtalkAccessToken(v string) *IndustryManufactureFeeListGetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IndustryManufactureFeeListGetRequest struct {
+	ProductionTaskNo *string  `json:"productionTaskNo,omitempty" xml:"productionTaskNo,omitempty"`
+	MaterialNo       *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
+	Type             *string  `json:"type,omitempty" xml:"type,omitempty"`
+	StartTime        *int64   `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	EndTime          *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	Cursor           *int64   `json:"cursor,omitempty" xml:"cursor,omitempty"`
+	PageNumber       *int64   `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize         *int32   `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	TokenGrantType   *int32   `json:"tokenGrantType,omitempty" xml:"tokenGrantType,omitempty"`
+	OrgId            *int64   `json:"orgId,omitempty" xml:"orgId,omitempty"`
+	CorpId           *string  `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	IsvOrgId         *int64   `json:"isvOrgId,omitempty" xml:"isvOrgId,omitempty"`
+	SuiteKey         *string  `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
+	MicroappAgentId  *int64   `json:"microappAgentId,omitempty" xml:"microappAgentId,omitempty"`
+	AppIds           []*int64 `json:"appIds,omitempty" xml:"appIds,omitempty" type:"Repeated"`
+	AppId            *int64   `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppName          *string  `json:"appName,omitempty" xml:"appName,omitempty"`
+}
+
+func (s IndustryManufactureFeeListGetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureFeeListGetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureFeeListGetRequest) SetProductionTaskNo(v string) *IndustryManufactureFeeListGetRequest {
+	s.ProductionTaskNo = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetRequest) SetMaterialNo(v string) *IndustryManufactureFeeListGetRequest {
+	s.MaterialNo = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetRequest) SetType(v string) *IndustryManufactureFeeListGetRequest {
+	s.Type = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetRequest) SetStartTime(v int64) *IndustryManufactureFeeListGetRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetRequest) SetEndTime(v int64) *IndustryManufactureFeeListGetRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetRequest) SetCursor(v int64) *IndustryManufactureFeeListGetRequest {
+	s.Cursor = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetRequest) SetPageNumber(v int64) *IndustryManufactureFeeListGetRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetRequest) SetPageSize(v int32) *IndustryManufactureFeeListGetRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetRequest) SetTokenGrantType(v int32) *IndustryManufactureFeeListGetRequest {
+	s.TokenGrantType = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetRequest) SetOrgId(v int64) *IndustryManufactureFeeListGetRequest {
+	s.OrgId = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetRequest) SetCorpId(v string) *IndustryManufactureFeeListGetRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetRequest) SetIsvOrgId(v int64) *IndustryManufactureFeeListGetRequest {
+	s.IsvOrgId = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetRequest) SetSuiteKey(v string) *IndustryManufactureFeeListGetRequest {
+	s.SuiteKey = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetRequest) SetMicroappAgentId(v int64) *IndustryManufactureFeeListGetRequest {
+	s.MicroappAgentId = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetRequest) SetAppIds(v []*int64) *IndustryManufactureFeeListGetRequest {
+	s.AppIds = v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetRequest) SetAppId(v int64) *IndustryManufactureFeeListGetRequest {
+	s.AppId = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetRequest) SetAppName(v string) *IndustryManufactureFeeListGetRequest {
+	s.AppName = &v
+	return s
+}
+
+type IndustryManufactureFeeListGetResponseBody struct {
+	List       []*IndustryManufactureFeeListGetResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextCursor *int64                                           `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	TotalCount *int64                                           `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	HasMore    *bool                                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+}
+
+func (s IndustryManufactureFeeListGetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureFeeListGetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureFeeListGetResponseBody) SetList(v []*IndustryManufactureFeeListGetResponseBodyList) *IndustryManufactureFeeListGetResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBody) SetNextCursor(v int64) *IndustryManufactureFeeListGetResponseBody {
+	s.NextCursor = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBody) SetTotalCount(v int64) *IndustryManufactureFeeListGetResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBody) SetHasMore(v bool) *IndustryManufactureFeeListGetResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+type IndustryManufactureFeeListGetResponseBodyList struct {
+	Id               *int64   `json:"id,omitempty" xml:"id,omitempty"`
+	GmtCreate        *int64   `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified      *int64   `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	CorpId           *string  `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ProductionTaskNo *string  `json:"productionTaskNo,omitempty" xml:"productionTaskNo,omitempty"`
+	MaterialNo       *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
+	MaterialName     *string  `json:"materialName,omitempty" xml:"materialName,omitempty"`
+	Count            *float32 `json:"count,omitempty" xml:"count,omitempty"`
+	Unit             *string  `json:"unit,omitempty" xml:"unit,omitempty"`
+	Type             *string  `json:"type,omitempty" xml:"type,omitempty"`
+	Amount           *string  `json:"amount,omitempty" xml:"amount,omitempty"`
+	PerAmount        *float32 `json:"perAmount,omitempty" xml:"perAmount,omitempty"`
+	IsDeleted        *string  `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	InstanceId       *string  `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	ProcessCode      *string  `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	Ext              *string  `json:"ext,omitempty" xml:"ext,omitempty"`
+	Title            *string  `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s IndustryManufactureFeeListGetResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureFeeListGetResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureFeeListGetResponseBodyList) SetId(v int64) *IndustryManufactureFeeListGetResponseBodyList {
+	s.Id = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBodyList) SetGmtCreate(v int64) *IndustryManufactureFeeListGetResponseBodyList {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBodyList) SetGmtModified(v int64) *IndustryManufactureFeeListGetResponseBodyList {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBodyList) SetCorpId(v string) *IndustryManufactureFeeListGetResponseBodyList {
+	s.CorpId = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBodyList) SetProductionTaskNo(v string) *IndustryManufactureFeeListGetResponseBodyList {
+	s.ProductionTaskNo = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBodyList) SetMaterialNo(v string) *IndustryManufactureFeeListGetResponseBodyList {
+	s.MaterialNo = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBodyList) SetMaterialName(v string) *IndustryManufactureFeeListGetResponseBodyList {
+	s.MaterialName = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBodyList) SetCount(v float32) *IndustryManufactureFeeListGetResponseBodyList {
+	s.Count = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBodyList) SetUnit(v string) *IndustryManufactureFeeListGetResponseBodyList {
+	s.Unit = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBodyList) SetType(v string) *IndustryManufactureFeeListGetResponseBodyList {
+	s.Type = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBodyList) SetAmount(v string) *IndustryManufactureFeeListGetResponseBodyList {
+	s.Amount = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBodyList) SetPerAmount(v float32) *IndustryManufactureFeeListGetResponseBodyList {
+	s.PerAmount = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBodyList) SetIsDeleted(v string) *IndustryManufactureFeeListGetResponseBodyList {
+	s.IsDeleted = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBodyList) SetInstanceId(v string) *IndustryManufactureFeeListGetResponseBodyList {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBodyList) SetProcessCode(v string) *IndustryManufactureFeeListGetResponseBodyList {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBodyList) SetExt(v string) *IndustryManufactureFeeListGetResponseBodyList {
+	s.Ext = &v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponseBodyList) SetTitle(v string) *IndustryManufactureFeeListGetResponseBodyList {
+	s.Title = &v
+	return s
+}
+
+type IndustryManufactureFeeListGetResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *IndustryManufactureFeeListGetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IndustryManufactureFeeListGetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureFeeListGetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureFeeListGetResponse) SetHeaders(v map[string]*string) *IndustryManufactureFeeListGetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IndustryManufactureFeeListGetResponse) SetBody(v *IndustryManufactureFeeListGetResponseBody) *IndustryManufactureFeeListGetResponse {
+	s.Body = v
 	return s
 }
 
@@ -3286,6 +4472,313 @@ func (s *QueryAllDepartmentResponse) SetBody(v *QueryAllDepartmentResponseBody) 
 	return s
 }
 
+type IndustryManufactureLabourCostHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IndustryManufactureLabourCostHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureLabourCostHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureLabourCostHeaders) SetCommonHeaders(v map[string]*string) *IndustryManufactureLabourCostHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostHeaders) SetXAcsDingtalkAccessToken(v string) *IndustryManufactureLabourCostHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IndustryManufactureLabourCostRequest struct {
+	ProcessNo       *string  `json:"processNo,omitempty" xml:"processNo,omitempty"`
+	MaterialNo      *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
+	StartTime       *int64   `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	EndTime         *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	Cursor          *int64   `json:"cursor,omitempty" xml:"cursor,omitempty"`
+	PageNumber      *int64   `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize        *int32   `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	TokenGrantType  *int32   `json:"tokenGrantType,omitempty" xml:"tokenGrantType,omitempty"`
+	OrgId           *int64   `json:"orgId,omitempty" xml:"orgId,omitempty"`
+	CorpId          *string  `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	IsvOrgId        *string  `json:"isvOrgId,omitempty" xml:"isvOrgId,omitempty"`
+	SuiteKey        *string  `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
+	MicroappAgentId *int64   `json:"microappAgentId,omitempty" xml:"microappAgentId,omitempty"`
+	AppIds          []*int64 `json:"appIds,omitempty" xml:"appIds,omitempty" type:"Repeated"`
+	AppId           *int64   `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppName         *string  `json:"appName,omitempty" xml:"appName,omitempty"`
+}
+
+func (s IndustryManufactureLabourCostRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureLabourCostRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureLabourCostRequest) SetProcessNo(v string) *IndustryManufactureLabourCostRequest {
+	s.ProcessNo = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostRequest) SetMaterialNo(v string) *IndustryManufactureLabourCostRequest {
+	s.MaterialNo = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostRequest) SetStartTime(v int64) *IndustryManufactureLabourCostRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostRequest) SetEndTime(v int64) *IndustryManufactureLabourCostRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostRequest) SetCursor(v int64) *IndustryManufactureLabourCostRequest {
+	s.Cursor = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostRequest) SetPageNumber(v int64) *IndustryManufactureLabourCostRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostRequest) SetPageSize(v int32) *IndustryManufactureLabourCostRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostRequest) SetTokenGrantType(v int32) *IndustryManufactureLabourCostRequest {
+	s.TokenGrantType = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostRequest) SetOrgId(v int64) *IndustryManufactureLabourCostRequest {
+	s.OrgId = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostRequest) SetCorpId(v string) *IndustryManufactureLabourCostRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostRequest) SetIsvOrgId(v string) *IndustryManufactureLabourCostRequest {
+	s.IsvOrgId = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostRequest) SetSuiteKey(v string) *IndustryManufactureLabourCostRequest {
+	s.SuiteKey = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostRequest) SetMicroappAgentId(v int64) *IndustryManufactureLabourCostRequest {
+	s.MicroappAgentId = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostRequest) SetAppIds(v []*int64) *IndustryManufactureLabourCostRequest {
+	s.AppIds = v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostRequest) SetAppId(v int64) *IndustryManufactureLabourCostRequest {
+	s.AppId = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostRequest) SetAppName(v string) *IndustryManufactureLabourCostRequest {
+	s.AppName = &v
+	return s
+}
+
+type IndustryManufactureLabourCostResponseBody struct {
+	List       []*IndustryManufactureLabourCostResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	HasMore    *bool                                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextCursor *int64                                           `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	TotalCount *int64                                           `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s IndustryManufactureLabourCostResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureLabourCostResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureLabourCostResponseBody) SetList(v []*IndustryManufactureLabourCostResponseBodyList) *IndustryManufactureLabourCostResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBody) SetHasMore(v bool) *IndustryManufactureLabourCostResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBody) SetNextCursor(v int64) *IndustryManufactureLabourCostResponseBody {
+	s.NextCursor = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBody) SetTotalCount(v int64) *IndustryManufactureLabourCostResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type IndustryManufactureLabourCostResponseBodyList struct {
+	GmtCreate          *int64   `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified        *int64   `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	CorpId             *string  `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	LabourCostNo       *string  `json:"labourCostNo,omitempty" xml:"labourCostNo,omitempty"`
+	LabourCostName     *string  `json:"labourCostName,omitempty" xml:"labourCostName,omitempty"`
+	ProcessNo          *string  `json:"processNo,omitempty" xml:"processNo,omitempty"`
+	ProcessName        *string  `json:"processName,omitempty" xml:"processName,omitempty"`
+	MaterialNo         *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
+	MaterialName       *string  `json:"materialName,omitempty" xml:"materialName,omitempty"`
+	QualifiedPrice     *float32 `json:"qualifiedPrice,omitempty" xml:"qualifiedPrice,omitempty"`
+	UnQualifiedPrice1  *float32 `json:"unQualifiedPrice1,omitempty" xml:"unQualifiedPrice1,omitempty"`
+	UnQualifiedReason1 *string  `json:"unQualifiedReason1,omitempty" xml:"unQualifiedReason1,omitempty"`
+	InstanceId         *string  `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	ProcessCode        *string  `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	Ext                *string  `json:"ext,omitempty" xml:"ext,omitempty"`
+	UnQualifiedReason2 *string  `json:"unQualifiedReason2,omitempty" xml:"unQualifiedReason2,omitempty"`
+	UnQualifiedPrice2  *float32 `json:"unQualifiedPrice2,omitempty" xml:"unQualifiedPrice2,omitempty"`
+	UnQualifiedInfo    *string  `json:"unQualifiedInfo,omitempty" xml:"unQualifiedInfo,omitempty"`
+}
+
+func (s IndustryManufactureLabourCostResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureLabourCostResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetGmtCreate(v int64) *IndustryManufactureLabourCostResponseBodyList {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetGmtModified(v int64) *IndustryManufactureLabourCostResponseBodyList {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetCorpId(v string) *IndustryManufactureLabourCostResponseBodyList {
+	s.CorpId = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetLabourCostNo(v string) *IndustryManufactureLabourCostResponseBodyList {
+	s.LabourCostNo = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetLabourCostName(v string) *IndustryManufactureLabourCostResponseBodyList {
+	s.LabourCostName = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetProcessNo(v string) *IndustryManufactureLabourCostResponseBodyList {
+	s.ProcessNo = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetProcessName(v string) *IndustryManufactureLabourCostResponseBodyList {
+	s.ProcessName = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetMaterialNo(v string) *IndustryManufactureLabourCostResponseBodyList {
+	s.MaterialNo = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetMaterialName(v string) *IndustryManufactureLabourCostResponseBodyList {
+	s.MaterialName = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetQualifiedPrice(v float32) *IndustryManufactureLabourCostResponseBodyList {
+	s.QualifiedPrice = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetUnQualifiedPrice1(v float32) *IndustryManufactureLabourCostResponseBodyList {
+	s.UnQualifiedPrice1 = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetUnQualifiedReason1(v string) *IndustryManufactureLabourCostResponseBodyList {
+	s.UnQualifiedReason1 = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetInstanceId(v string) *IndustryManufactureLabourCostResponseBodyList {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetProcessCode(v string) *IndustryManufactureLabourCostResponseBodyList {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetExt(v string) *IndustryManufactureLabourCostResponseBodyList {
+	s.Ext = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetUnQualifiedReason2(v string) *IndustryManufactureLabourCostResponseBodyList {
+	s.UnQualifiedReason2 = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetUnQualifiedPrice2(v float32) *IndustryManufactureLabourCostResponseBodyList {
+	s.UnQualifiedPrice2 = &v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponseBodyList) SetUnQualifiedInfo(v string) *IndustryManufactureLabourCostResponseBodyList {
+	s.UnQualifiedInfo = &v
+	return s
+}
+
+type IndustryManufactureLabourCostResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *IndustryManufactureLabourCostResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IndustryManufactureLabourCostResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureLabourCostResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureLabourCostResponse) SetHeaders(v map[string]*string) *IndustryManufactureLabourCostResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IndustryManufactureLabourCostResponse) SetBody(v *IndustryManufactureLabourCostResponseBody) *IndustryManufactureLabourCostResponse {
+	s.Body = v
+	return s
+}
+
 type QueryGroupInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3579,6 +5072,118 @@ func (client *Client) QueryUserInfoWithOptions(userId *string, headers *QueryUse
 	}
 	_result = &QueryUserInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryUserInfo"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/medicals/users/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureCostRecordListGet(request *IndustryManufactureCostRecordListGetRequest) (_result *IndustryManufactureCostRecordListGetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IndustryManufactureCostRecordListGetHeaders{}
+	_result = &IndustryManufactureCostRecordListGetResponse{}
+	_body, _err := client.IndustryManufactureCostRecordListGetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureCostRecordListGetWithOptions(request *IndustryManufactureCostRecordListGetRequest, headers *IndustryManufactureCostRecordListGetHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureCostRecordListGetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		body["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaterialNo)) {
+		body["materialNo"] = request.MaterialNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderNo)) {
+		body["orderNo"] = request.OrderNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductionTaskNo)) {
+		body["productionTaskNo"] = request.ProductionTaskNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Cursor)) {
+		body["cursor"] = request.Cursor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TokenGrantType)) {
+		body["tokenGrantType"] = request.TokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrgId)) {
+		body["orgId"] = request.OrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsvOrgId)) {
+		body["isvOrgId"] = request.IsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SuiteKey)) {
+		body["suiteKey"] = request.SuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MicroappAgentId)) {
+		body["microappAgentId"] = request.MicroappAgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppIds)) {
+		body["appIds"] = request.AppIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		body["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppName)) {
+		body["appName"] = request.AppName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &IndustryManufactureCostRecordListGetResponse{}
+	_body, _err := client.DoROARequest(tea.String("IndustryManufactureCostRecordListGet"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/manufactures/materialCostRecords/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4044,6 +5649,110 @@ func (client *Client) QueryDepartmentInfoWithOptions(deptId *string, headers *Qu
 	return _result, _err
 }
 
+func (client *Client) IndustryManufactureMaterialList(request *IndustryManufactureMaterialListRequest) (_result *IndustryManufactureMaterialListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IndustryManufactureMaterialListHeaders{}
+	_result = &IndustryManufactureMaterialListResponse{}
+	_body, _err := client.IndustryManufactureMaterialListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureMaterialListWithOptions(request *IndustryManufactureMaterialListRequest, headers *IndustryManufactureMaterialListHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureMaterialListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TokenGrantType)) {
+		body["tokenGrantType"] = request.TokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		body["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaterialNo)) {
+		body["materialNo"] = request.MaterialNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MicroappAgentId)) {
+		body["microappAgentId"] = request.MicroappAgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Cursor)) {
+		body["cursor"] = request.Cursor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppName)) {
+		body["appName"] = request.AppName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrgId)) {
+		body["orgId"] = request.OrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		body["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SuiteKey)) {
+		body["suiteKey"] = request.SuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppIds)) {
+		body["appIds"] = request.AppIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CurrentPage)) {
+		body["currentPage"] = request.CurrentPage
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsvOrgId)) {
+		body["isvOrgId"] = request.IsvOrgId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &IndustryManufactureMaterialListResponse{}
+	_body, _err := client.DoROARequest(tea.String("IndustryManufactureMaterialList"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/manufactures/materials/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) UpdateUserExtendInfo(userId *string, request *UpdateUserExtendInfoRequest) (_result *UpdateUserExtendInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateUserExtendInfoHeaders{}
@@ -4093,6 +5802,218 @@ func (client *Client) UpdateUserExtendInfoWithOptions(userId *string, request *U
 	}
 	_result = &UpdateUserExtendInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateUserExtendInfo"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/industry/medicals/users/"+tea.StringValue(userId)+"/extInfos"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) IndustryMmanufactureMaterialCostGet(request *IndustryMmanufactureMaterialCostGetRequest) (_result *IndustryMmanufactureMaterialCostGetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IndustryMmanufactureMaterialCostGetHeaders{}
+	_result = &IndustryMmanufactureMaterialCostGetResponse{}
+	_body, _err := client.IndustryMmanufactureMaterialCostGetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IndustryMmanufactureMaterialCostGetWithOptions(request *IndustryMmanufactureMaterialCostGetRequest, headers *IndustryMmanufactureMaterialCostGetHeaders, runtime *util.RuntimeOptions) (_result *IndustryMmanufactureMaterialCostGetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		body["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaterialNo)) {
+		body["materialNo"] = request.MaterialNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Cursor)) {
+		body["cursor"] = request.Cursor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TokenGrantType)) {
+		body["tokenGrantType"] = request.TokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrgId)) {
+		body["orgId"] = request.OrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsvOrgId)) {
+		body["isvOrgId"] = request.IsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SuiteKey)) {
+		body["suiteKey"] = request.SuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MicroappAgentId)) {
+		body["microappAgentId"] = request.MicroappAgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppIds)) {
+		body["appIds"] = request.AppIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		body["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppName)) {
+		body["appName"] = request.AppName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &IndustryMmanufactureMaterialCostGetResponse{}
+	_body, _err := client.DoROARequest(tea.String("IndustryMmanufactureMaterialCostGet"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/manufactures/base/materialCosts/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureFeeListGet(request *IndustryManufactureFeeListGetRequest) (_result *IndustryManufactureFeeListGetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IndustryManufactureFeeListGetHeaders{}
+	_result = &IndustryManufactureFeeListGetResponse{}
+	_body, _err := client.IndustryManufactureFeeListGetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureFeeListGetWithOptions(request *IndustryManufactureFeeListGetRequest, headers *IndustryManufactureFeeListGetHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureFeeListGetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProductionTaskNo)) {
+		body["productionTaskNo"] = request.ProductionTaskNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaterialNo)) {
+		body["materialNo"] = request.MaterialNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Cursor)) {
+		body["cursor"] = request.Cursor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TokenGrantType)) {
+		body["tokenGrantType"] = request.TokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrgId)) {
+		body["orgId"] = request.OrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsvOrgId)) {
+		body["isvOrgId"] = request.IsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SuiteKey)) {
+		body["suiteKey"] = request.SuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MicroappAgentId)) {
+		body["microappAgentId"] = request.MicroappAgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppIds)) {
+		body["appIds"] = request.AppIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		body["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppName)) {
+		body["appName"] = request.AppName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &IndustryManufactureFeeListGetResponse{}
+	_body, _err := client.DoROARequest(tea.String("IndustryManufactureFeeListGet"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/manufactures/fees/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4257,6 +6178,110 @@ func (client *Client) QueryAllDepartmentWithOptions(request *QueryAllDepartmentR
 	}
 	_result = &QueryAllDepartmentResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryAllDepartment"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/medicals/departments"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureLabourCost(request *IndustryManufactureLabourCostRequest) (_result *IndustryManufactureLabourCostResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IndustryManufactureLabourCostHeaders{}
+	_result = &IndustryManufactureLabourCostResponse{}
+	_body, _err := client.IndustryManufactureLabourCostWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureLabourCostWithOptions(request *IndustryManufactureLabourCostRequest, headers *IndustryManufactureLabourCostHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureLabourCostResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProcessNo)) {
+		body["processNo"] = request.ProcessNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaterialNo)) {
+		body["materialNo"] = request.MaterialNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Cursor)) {
+		body["cursor"] = request.Cursor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TokenGrantType)) {
+		body["tokenGrantType"] = request.TokenGrantType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrgId)) {
+		body["orgId"] = request.OrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsvOrgId)) {
+		body["isvOrgId"] = request.IsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SuiteKey)) {
+		body["suiteKey"] = request.SuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MicroappAgentId)) {
+		body["microappAgentId"] = request.MicroappAgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppIds)) {
+		body["appIds"] = request.AppIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		body["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppName)) {
+		body["appName"] = request.AppName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &IndustryManufactureLabourCostResponse{}
+	_body, _err := client.DoROARequest(tea.String("IndustryManufactureLabourCost"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/manufactures/labourCosts/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

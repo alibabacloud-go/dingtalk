@@ -791,6 +791,12 @@ type DecodePayCodeResponseBody struct {
 	AlipayCode *string `json:"alipayCode,omitempty" xml:"alipayCode,omitempty"`
 	// 用户和企业关系
 	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
+	// 工牌码：DT_IDENTITY，访客码：DT_VISITOR，会展码：DT_CONFERENCE
+	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	// 码ID，对于访客或会展码等静态码值返回
+	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
+	// 外部业务ID,其值为调用创建用户码接口传入的requestId
+	OutBizId *string `json:"outBizId,omitempty" xml:"outBizId,omitempty"`
 }
 
 func (s DecodePayCodeResponseBody) String() string {
@@ -828,6 +834,21 @@ func (s *DecodePayCodeResponseBody) SetAlipayCode(v string) *DecodePayCodeRespon
 
 func (s *DecodePayCodeResponseBody) SetUserCorpRelationType(v string) *DecodePayCodeResponseBody {
 	s.UserCorpRelationType = &v
+	return s
+}
+
+func (s *DecodePayCodeResponseBody) SetCodeIdentity(v string) *DecodePayCodeResponseBody {
+	s.CodeIdentity = &v
+	return s
+}
+
+func (s *DecodePayCodeResponseBody) SetCodeId(v string) *DecodePayCodeResponseBody {
+	s.CodeId = &v
+	return s
+}
+
+func (s *DecodePayCodeResponseBody) SetOutBizId(v string) *DecodePayCodeResponseBody {
+	s.OutBizId = &v
 	return s
 }
 
@@ -1559,6 +1580,8 @@ type CreateUserCodeInstanceRequest struct {
 	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
 	// 码值
 	CodeValue *string `json:"codeValue,omitempty" xml:"codeValue,omitempty"`
+	// 码值类型，钉钉静态码值：DING_STATIC，访客码或会展码传入
+	CodeValueType *string `json:"codeValueType,omitempty" xml:"codeValueType,omitempty"`
 	// 状态，传入关闭状态需要用户手动开启后才会渲染二维
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// 企业ID
@@ -1597,6 +1620,11 @@ func (s *CreateUserCodeInstanceRequest) SetCodeIdentity(v string) *CreateUserCod
 
 func (s *CreateUserCodeInstanceRequest) SetCodeValue(v string) *CreateUserCodeInstanceRequest {
 	s.CodeValue = &v
+	return s
+}
+
+func (s *CreateUserCodeInstanceRequest) SetCodeValueType(v string) *CreateUserCodeInstanceRequest {
+	s.CodeValueType = &v
 	return s
 }
 
@@ -1673,6 +1701,8 @@ func (s *CreateUserCodeInstanceRequestAvailableTimes) SetGmtEnd(v string) *Creat
 type CreateUserCodeInstanceResponseBody struct {
 	// 码ID
 	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
+	// 码详情跳转地址
+	CodeDetailUrl *string `json:"codeDetailUrl,omitempty" xml:"codeDetailUrl,omitempty"`
 }
 
 func (s CreateUserCodeInstanceResponseBody) String() string {
@@ -1685,6 +1715,11 @@ func (s CreateUserCodeInstanceResponseBody) GoString() string {
 
 func (s *CreateUserCodeInstanceResponseBody) SetCodeId(v string) *CreateUserCodeInstanceResponseBody {
 	s.CodeId = &v
+	return s
+}
+
+func (s *CreateUserCodeInstanceResponseBody) SetCodeDetailUrl(v string) *CreateUserCodeInstanceResponseBody {
+	s.CodeDetailUrl = &v
 	return s
 }
 
@@ -2075,10 +2110,16 @@ type NotifyVerifyResultRequest struct {
 	VerifyTime *string `json:"verifyTime,omitempty" xml:"verifyTime,omitempty"`
 	// 验证结果
 	VerifyResult *bool `json:"verifyResult,omitempty" xml:"verifyResult,omitempty"`
-	// 验证地点
+	// 验证地点，调用时请务必传入，以便生成工牌使用记录
 	VerifyLocation *string `json:"verifyLocation,omitempty" xml:"verifyLocation,omitempty"`
-	DingOrgId      *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingIsvOrgId   *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	// 验证流水号，长度不超过32位，用户下唯一，调用时请务必传入，以便生成工牌使用记录
+	VerifyNo *string `json:"verifyNo,omitempty" xml:"verifyNo,omitempty"`
+	// 验证事件，长度不超过8个中文
+	VerifyEvent *string `json:"verifyEvent,omitempty" xml:"verifyEvent,omitempty"`
+	// 备注信息
+	Remark       *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	DingOrgId    *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
 }
 
 func (s NotifyVerifyResultRequest) String() string {
@@ -2121,6 +2162,21 @@ func (s *NotifyVerifyResultRequest) SetVerifyResult(v bool) *NotifyVerifyResultR
 
 func (s *NotifyVerifyResultRequest) SetVerifyLocation(v string) *NotifyVerifyResultRequest {
 	s.VerifyLocation = &v
+	return s
+}
+
+func (s *NotifyVerifyResultRequest) SetVerifyNo(v string) *NotifyVerifyResultRequest {
+	s.VerifyNo = &v
+	return s
+}
+
+func (s *NotifyVerifyResultRequest) SetVerifyEvent(v string) *NotifyVerifyResultRequest {
+	s.VerifyEvent = &v
+	return s
+}
+
+func (s *NotifyVerifyResultRequest) SetRemark(v string) *NotifyVerifyResultRequest {
+	s.Remark = &v
 	return s
 }
 
@@ -2919,6 +2975,10 @@ func (client *Client) CreateUserCodeInstanceWithOptions(request *CreateUserCodeI
 		body["codeValue"] = request.CodeValue
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.CodeValueType)) {
+		body["codeValueType"] = request.CodeValueType
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Status)) {
 		body["status"] = request.Status
 	}
@@ -3129,6 +3189,18 @@ func (client *Client) NotifyVerifyResultWithOptions(request *NotifyVerifyResultR
 
 	if !tea.BoolValue(util.IsUnset(request.VerifyLocation)) {
 		body["verifyLocation"] = request.VerifyLocation
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VerifyNo)) {
+		body["verifyNo"] = request.VerifyNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VerifyEvent)) {
+		body["verifyEvent"] = request.VerifyEvent
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {

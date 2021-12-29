@@ -4401,8 +4401,6 @@ func (s *JoinGroupSetRequestBizDataList) SetValue(v string) *JoinGroupSetRequest
 }
 
 type JoinGroupSetResponseBody struct {
-	// 进群是否成功。
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 	// 加密群ID。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
@@ -4413,11 +4411,6 @@ func (s JoinGroupSetResponseBody) String() string {
 
 func (s JoinGroupSetResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *JoinGroupSetResponseBody) SetSuccess(v bool) *JoinGroupSetResponseBody {
-	s.Success = &v
-	return s
 }
 
 func (s *JoinGroupSetResponseBody) SetOpenConversationId(v string) *JoinGroupSetResponseBody {
