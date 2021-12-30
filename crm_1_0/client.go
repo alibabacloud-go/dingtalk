@@ -3948,6 +3948,7 @@ type UpdateCrmPersonalCustomerRequest struct {
 	Data           map[string]interface{}                      `json:"data,omitempty" xml:"data,omitempty"`
 	ExtendData     map[string]interface{}                      `json:"extendData,omitempty" xml:"extendData,omitempty"`
 	Permission     *UpdateCrmPersonalCustomerRequestPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	RelationType   *string                                     `json:"relationType,omitempty" xml:"relationType,omitempty"`
 	// 跳过uk查重
 	SkipDuplicateCheck *bool `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
 	// 公海领取客户：publicDraw 公海分配客户：publicAssign 其余场景：（不用传）
@@ -3989,6 +3990,11 @@ func (s *UpdateCrmPersonalCustomerRequest) SetExtendData(v map[string]interface{
 
 func (s *UpdateCrmPersonalCustomerRequest) SetPermission(v *UpdateCrmPersonalCustomerRequestPermission) *UpdateCrmPersonalCustomerRequest {
 	s.Permission = v
+	return s
+}
+
+func (s *UpdateCrmPersonalCustomerRequest) SetRelationType(v string) *UpdateCrmPersonalCustomerRequest {
+	s.RelationType = &v
 	return s
 }
 
@@ -4741,6 +4747,144 @@ func (s *DeleteRelationMetaFieldResponse) SetHeaders(v map[string]*string) *Dele
 }
 
 func (s *DeleteRelationMetaFieldResponse) SetBody(v *DeleteRelationMetaFieldResponseBody) *DeleteRelationMetaFieldResponse {
+	s.Body = v
+	return s
+}
+
+type GetCrmGroupChatSingleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCrmGroupChatSingleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmGroupChatSingleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmGroupChatSingleHeaders) SetCommonHeaders(v map[string]*string) *GetCrmGroupChatSingleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCrmGroupChatSingleHeaders) SetXAcsDingtalkAccessToken(v string) *GetCrmGroupChatSingleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCrmGroupChatSingleRequest struct {
+	// 客户群openConversationId
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s GetCrmGroupChatSingleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmGroupChatSingleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmGroupChatSingleRequest) SetOpenConversationId(v string) *GetCrmGroupChatSingleRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type GetCrmGroupChatSingleResponseBody struct {
+	// 客户群chatId
+	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	// 客户群openConversationId
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 群组openGroupSetId
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 群主userId
+	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	// 群主userName
+	OwnerUserName *string `json:"ownerUserName,omitempty" xml:"ownerUserName,omitempty"`
+	// 客户群名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 客户群成员数
+	MemberCount *int32 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	// 创建时间(时间戳)
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 群头像地址
+	IconUrl *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
+}
+
+func (s GetCrmGroupChatSingleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmGroupChatSingleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmGroupChatSingleResponseBody) SetChatId(v string) *GetCrmGroupChatSingleResponseBody {
+	s.ChatId = &v
+	return s
+}
+
+func (s *GetCrmGroupChatSingleResponseBody) SetOpenConversationId(v string) *GetCrmGroupChatSingleResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GetCrmGroupChatSingleResponseBody) SetOpenGroupSetId(v string) *GetCrmGroupChatSingleResponseBody {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *GetCrmGroupChatSingleResponseBody) SetOwnerUserId(v string) *GetCrmGroupChatSingleResponseBody {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *GetCrmGroupChatSingleResponseBody) SetOwnerUserName(v string) *GetCrmGroupChatSingleResponseBody {
+	s.OwnerUserName = &v
+	return s
+}
+
+func (s *GetCrmGroupChatSingleResponseBody) SetName(v string) *GetCrmGroupChatSingleResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *GetCrmGroupChatSingleResponseBody) SetMemberCount(v int32) *GetCrmGroupChatSingleResponseBody {
+	s.MemberCount = &v
+	return s
+}
+
+func (s *GetCrmGroupChatSingleResponseBody) SetGmtCreate(v int64) *GetCrmGroupChatSingleResponseBody {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *GetCrmGroupChatSingleResponseBody) SetIconUrl(v string) *GetCrmGroupChatSingleResponseBody {
+	s.IconUrl = &v
+	return s
+}
+
+type GetCrmGroupChatSingleResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCrmGroupChatSingleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCrmGroupChatSingleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmGroupChatSingleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmGroupChatSingleResponse) SetHeaders(v map[string]*string) *GetCrmGroupChatSingleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCrmGroupChatSingleResponse) SetBody(v *GetCrmGroupChatSingleResponseBody) *GetCrmGroupChatSingleResponse {
 	s.Body = v
 	return s
 }
@@ -10414,6 +10558,10 @@ func (client *Client) UpdateCrmPersonalCustomerWithOptions(request *UpdateCrmPer
 		body["permission"] = request.Permission
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		body["relationType"] = request.RelationType
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.SkipDuplicateCheck)) {
 		body["skipDuplicateCheck"] = request.SkipDuplicateCheck
 	}
@@ -10650,6 +10798,50 @@ func (client *Client) DeleteRelationMetaFieldWithOptions(request *DeleteRelation
 	}
 	_result = &DeleteRelationMetaFieldResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteRelationMetaField"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/relations/metas/fields/remove"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetCrmGroupChatSingle(request *GetCrmGroupChatSingleRequest) (_result *GetCrmGroupChatSingleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCrmGroupChatSingleHeaders{}
+	_result = &GetCrmGroupChatSingleResponse{}
+	_body, _err := client.GetCrmGroupChatSingleWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetCrmGroupChatSingleWithOptions(request *GetCrmGroupChatSingleRequest, headers *GetCrmGroupChatSingleHeaders, runtime *util.RuntimeOptions) (_result *GetCrmGroupChatSingleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		query["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetCrmGroupChatSingleResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetCrmGroupChatSingle"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/crmGroupChats/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

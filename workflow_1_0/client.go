@@ -1210,6 +1210,115 @@ func (s *ProcessForecastResponse) SetBody(v *ProcessForecastResponseBody) *Proce
 	return s
 }
 
+type GrantCspaceAuthorizationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GrantCspaceAuthorizationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GrantCspaceAuthorizationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GrantCspaceAuthorizationHeaders) SetCommonHeaders(v map[string]*string) *GrantCspaceAuthorizationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GrantCspaceAuthorizationHeaders) SetXAcsDingtalkAccessToken(v string) *GrantCspaceAuthorizationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GrantCspaceAuthorizationRequest struct {
+	// 审批控件 id。
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 权限类型。
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 用户 id。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 权限有效时间，单位为秒。
+	DurationSeconds    *int64  `json:"durationSeconds,omitempty" xml:"durationSeconds,omitempty"`
+	DingCorpId         *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	DingOrgId          *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingIsvOrgId       *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
+}
+
+func (s GrantCspaceAuthorizationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GrantCspaceAuthorizationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GrantCspaceAuthorizationRequest) SetSpaceId(v string) *GrantCspaceAuthorizationRequest {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *GrantCspaceAuthorizationRequest) SetType(v string) *GrantCspaceAuthorizationRequest {
+	s.Type = &v
+	return s
+}
+
+func (s *GrantCspaceAuthorizationRequest) SetUserId(v string) *GrantCspaceAuthorizationRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *GrantCspaceAuthorizationRequest) SetDurationSeconds(v int64) *GrantCspaceAuthorizationRequest {
+	s.DurationSeconds = &v
+	return s
+}
+
+func (s *GrantCspaceAuthorizationRequest) SetDingCorpId(v string) *GrantCspaceAuthorizationRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *GrantCspaceAuthorizationRequest) SetDingOrgId(v int64) *GrantCspaceAuthorizationRequest {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *GrantCspaceAuthorizationRequest) SetDingIsvOrgId(v int64) *GrantCspaceAuthorizationRequest {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *GrantCspaceAuthorizationRequest) SetDingSuiteKey(v string) *GrantCspaceAuthorizationRequest {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *GrantCspaceAuthorizationRequest) SetDingTokenGrantType(v int64) *GrantCspaceAuthorizationRequest {
+	s.DingTokenGrantType = &v
+	return s
+}
+
+type GrantCspaceAuthorizationResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s GrantCspaceAuthorizationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GrantCspaceAuthorizationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GrantCspaceAuthorizationResponse) SetHeaders(v map[string]*string) *GrantCspaceAuthorizationResponse {
+	s.Headers = v
+	return s
+}
+
 type QueryAllProcessInstancesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3506,6 +3615,82 @@ func (client *Client) ProcessForecastWithOptions(request *ProcessForecastRequest
 	}
 	_result = &ProcessForecastResponse{}
 	_body, _err := client.DoROARequest(tea.String("ProcessForecast"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processes/forecast"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GrantCspaceAuthorization(request *GrantCspaceAuthorizationRequest) (_result *GrantCspaceAuthorizationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GrantCspaceAuthorizationHeaders{}
+	_result = &GrantCspaceAuthorizationResponse{}
+	_body, _err := client.GrantCspaceAuthorizationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GrantCspaceAuthorizationWithOptions(request *GrantCspaceAuthorizationRequest, headers *GrantCspaceAuthorizationHeaders, runtime *util.RuntimeOptions) (_result *GrantCspaceAuthorizationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SpaceId)) {
+		body["spaceId"] = request.SpaceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DurationSeconds)) {
+		body["durationSeconds"] = request.DurationSeconds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		body["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
+		body["dingOrgId"] = request.DingOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
+		body["dingIsvOrgId"] = request.DingIsvOrgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
+		body["dingSuiteKey"] = request.DingSuiteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
+		body["dingTokenGrantType"] = request.DingTokenGrantType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GrantCspaceAuthorizationResponse{}
+	_body, _err := client.DoROARequest(tea.String("GrantCspaceAuthorization"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/spaces/authorize"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
