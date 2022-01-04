@@ -223,7 +223,7 @@ func (client *Client) CheckUserTaskStatusWithOptions(request *CheckUserTaskStatu
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
@@ -267,7 +267,7 @@ func (client *Client) CheckUserTasksStatusWithOptions(request *CheckUserTasksSta
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{

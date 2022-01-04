@@ -11,278 +11,89 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
-type QueryCloudRecordTextHeaders struct {
+type CloseVideoConferenceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s QueryCloudRecordTextHeaders) String() string {
+func (s CloseVideoConferenceHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryCloudRecordTextHeaders) GoString() string {
+func (s CloseVideoConferenceHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *QueryCloudRecordTextHeaders) SetCommonHeaders(v map[string]*string) *QueryCloudRecordTextHeaders {
+func (s *CloseVideoConferenceHeaders) SetCommonHeaders(v map[string]*string) *CloseVideoConferenceHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *QueryCloudRecordTextHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCloudRecordTextHeaders {
+func (s *CloseVideoConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *CloseVideoConferenceHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type QueryCloudRecordTextRequest struct {
-	// 用户id
+type CloseVideoConferenceRequest struct {
+	// 员工在当前开发者企业账号范围内的唯一标识
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	// 开始时间
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 0-向前查询，1-向后查询 。 向前查询：此次查询按照时间由小到大的顺序进行。
-	Direction *string `json:"direction,omitempty" xml:"direction,omitempty"`
-	// 单页查询的最大条目数，最多2000
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 游标，第一次查询可为空，之后每次带上一次的游标
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
-func (s QueryCloudRecordTextRequest) String() string {
+func (s CloseVideoConferenceRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryCloudRecordTextRequest) GoString() string {
+func (s CloseVideoConferenceRequest) GoString() string {
 	return s.String()
 }
 
-func (s *QueryCloudRecordTextRequest) SetUnionId(v string) *QueryCloudRecordTextRequest {
+func (s *CloseVideoConferenceRequest) SetUnionId(v string) *CloseVideoConferenceRequest {
 	s.UnionId = &v
 	return s
 }
 
-func (s *QueryCloudRecordTextRequest) SetStartTime(v int64) *QueryCloudRecordTextRequest {
-	s.StartTime = &v
-	return s
+type CloseVideoConferenceResponseBody struct {
+	Cause *string `json:"cause,omitempty" xml:"cause,omitempty"`
+	Code  *int64  `json:"code,omitempty" xml:"code,omitempty"`
 }
 
-func (s *QueryCloudRecordTextRequest) SetDirection(v string) *QueryCloudRecordTextRequest {
-	s.Direction = &v
-	return s
-}
-
-func (s *QueryCloudRecordTextRequest) SetMaxResults(v int64) *QueryCloudRecordTextRequest {
-	s.MaxResults = &v
-	return s
-}
-
-func (s *QueryCloudRecordTextRequest) SetNextToken(v int64) *QueryCloudRecordTextRequest {
-	s.NextToken = &v
-	return s
-}
-
-type QueryCloudRecordTextResponseBody struct {
-	// 是否有更多
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	// 段落列表
-	ParagraphList []*QueryCloudRecordTextResponseBodyParagraphList `json:"paragraphList,omitempty" xml:"paragraphList,omitempty" type:"Repeated"`
-}
-
-func (s QueryCloudRecordTextResponseBody) String() string {
+func (s CloseVideoConferenceResponseBody) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryCloudRecordTextResponseBody) GoString() string {
+func (s CloseVideoConferenceResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *QueryCloudRecordTextResponseBody) SetHasMore(v bool) *QueryCloudRecordTextResponseBody {
-	s.HasMore = &v
+func (s *CloseVideoConferenceResponseBody) SetCause(v string) *CloseVideoConferenceResponseBody {
+	s.Cause = &v
 	return s
 }
 
-func (s *QueryCloudRecordTextResponseBody) SetParagraphList(v []*QueryCloudRecordTextResponseBodyParagraphList) *QueryCloudRecordTextResponseBody {
-	s.ParagraphList = v
+func (s *CloseVideoConferenceResponseBody) SetCode(v int64) *CloseVideoConferenceResponseBody {
+	s.Code = &v
 	return s
 }
 
-type QueryCloudRecordTextResponseBodyParagraphList struct {
-	// 游标，下次查询时使用
-	NextTtoken *int64 `json:"nextTtoken,omitempty" xml:"nextTtoken,omitempty"`
-	// 状态，暂不解析
-	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
-	// 发言人unionId
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	// 发言人昵称
-	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
-	// 云录制id
-	RecordId *int64 `json:"recordId,omitempty" xml:"recordId,omitempty"`
-	// 开始时间，毫秒
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 结束时间，毫秒
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 段落内容
-	Paragraph *string `json:"paragraph,omitempty" xml:"paragraph,omitempty"`
-	// 句子列表
-	SentenceList []*QueryCloudRecordTextResponseBodyParagraphListSentenceList `json:"sentenceList,omitempty" xml:"sentenceList,omitempty" type:"Repeated"`
-}
-
-func (s QueryCloudRecordTextResponseBodyParagraphList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryCloudRecordTextResponseBodyParagraphList) GoString() string {
-	return s.String()
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphList) SetNextTtoken(v int64) *QueryCloudRecordTextResponseBodyParagraphList {
-	s.NextTtoken = &v
-	return s
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphList) SetStatus(v int64) *QueryCloudRecordTextResponseBodyParagraphList {
-	s.Status = &v
-	return s
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphList) SetUnionId(v string) *QueryCloudRecordTextResponseBodyParagraphList {
-	s.UnionId = &v
-	return s
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphList) SetNickName(v string) *QueryCloudRecordTextResponseBodyParagraphList {
-	s.NickName = &v
-	return s
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphList) SetRecordId(v int64) *QueryCloudRecordTextResponseBodyParagraphList {
-	s.RecordId = &v
-	return s
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphList) SetStartTime(v int64) *QueryCloudRecordTextResponseBodyParagraphList {
-	s.StartTime = &v
-	return s
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphList) SetEndTime(v int64) *QueryCloudRecordTextResponseBodyParagraphList {
-	s.EndTime = &v
-	return s
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphList) SetParagraph(v string) *QueryCloudRecordTextResponseBodyParagraphList {
-	s.Paragraph = &v
-	return s
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphList) SetSentenceList(v []*QueryCloudRecordTextResponseBodyParagraphListSentenceList) *QueryCloudRecordTextResponseBodyParagraphList {
-	s.SentenceList = v
-	return s
-}
-
-type QueryCloudRecordTextResponseBodyParagraphListSentenceList struct {
-	// 用户unionId
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	// 句子
-	Sentence *string `json:"sentence,omitempty" xml:"sentence,omitempty"`
-	// 开始时间
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 结束时间
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 单词列表
-	WordList []*QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList `json:"wordList,omitempty" xml:"wordList,omitempty" type:"Repeated"`
-}
-
-func (s QueryCloudRecordTextResponseBodyParagraphListSentenceList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryCloudRecordTextResponseBodyParagraphListSentenceList) GoString() string {
-	return s.String()
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceList) SetUnionId(v string) *QueryCloudRecordTextResponseBodyParagraphListSentenceList {
-	s.UnionId = &v
-	return s
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceList) SetSentence(v string) *QueryCloudRecordTextResponseBodyParagraphListSentenceList {
-	s.Sentence = &v
-	return s
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceList) SetStartTime(v int64) *QueryCloudRecordTextResponseBodyParagraphListSentenceList {
-	s.StartTime = &v
-	return s
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceList) SetEndTime(v int64) *QueryCloudRecordTextResponseBodyParagraphListSentenceList {
-	s.EndTime = &v
-	return s
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceList) SetWordList(v []*QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) *QueryCloudRecordTextResponseBodyParagraphListSentenceList {
-	s.WordList = v
-	return s
-}
-
-type QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList struct {
-	// 单词
-	Word *string `json:"word,omitempty" xml:"word,omitempty"`
-	// 开始时间
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 结束时间
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 单词id
-	WordId *string `json:"wordId,omitempty" xml:"wordId,omitempty"`
-}
-
-func (s QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) GoString() string {
-	return s.String()
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) SetWord(v string) *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList {
-	s.Word = &v
-	return s
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) SetStartTime(v int64) *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList {
-	s.StartTime = &v
-	return s
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) SetEndTime(v int64) *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList {
-	s.EndTime = &v
-	return s
-}
-
-func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) SetWordId(v string) *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList {
-	s.WordId = &v
-	return s
-}
-
-type QueryCloudRecordTextResponse struct {
+type CloseVideoConferenceResponse struct {
 	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryCloudRecordTextResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Body    *CloseVideoConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
-func (s QueryCloudRecordTextResponse) String() string {
+func (s CloseVideoConferenceResponse) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryCloudRecordTextResponse) GoString() string {
+func (s CloseVideoConferenceResponse) GoString() string {
 	return s.String()
 }
 
-func (s *QueryCloudRecordTextResponse) SetHeaders(v map[string]*string) *QueryCloudRecordTextResponse {
+func (s *CloseVideoConferenceResponse) SetHeaders(v map[string]*string) *CloseVideoConferenceResponse {
 	s.Headers = v
 	return s
 }
 
-func (s *QueryCloudRecordTextResponse) SetBody(v *QueryCloudRecordTextResponseBody) *QueryCloudRecordTextResponse {
+func (s *CloseVideoConferenceResponse) SetBody(v *CloseVideoConferenceResponseBody) *CloseVideoConferenceResponse {
 	s.Body = v
 	return s
 }
@@ -311,12 +122,12 @@ func (s *CreateVideoConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *Cre
 }
 
 type CreateVideoConferenceRequest struct {
-	// 会议发起人UID
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	// 会议主题： 文字，不超过20中文
 	ConfTitle *string `json:"confTitle,omitempty" xml:"confTitle,omitempty"`
 	// 邀请参会人员UID列表（必须好友或同事）
 	InviteUserIds []*string `json:"inviteUserIds,omitempty" xml:"inviteUserIds,omitempty" type:"Repeated"`
+	// 会议发起人UID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateVideoConferenceRequest) String() string {
@@ -325,11 +136,6 @@ func (s CreateVideoConferenceRequest) String() string {
 
 func (s CreateVideoConferenceRequest) GoString() string {
 	return s.String()
-}
-
-func (s *CreateVideoConferenceRequest) SetUserId(v string) *CreateVideoConferenceRequest {
-	s.UserId = &v
-	return s
 }
 
 func (s *CreateVideoConferenceRequest) SetConfTitle(v string) *CreateVideoConferenceRequest {
@@ -342,15 +148,20 @@ func (s *CreateVideoConferenceRequest) SetInviteUserIds(v []*string) *CreateVide
 	return s
 }
 
+func (s *CreateVideoConferenceRequest) SetUserId(v string) *CreateVideoConferenceRequest {
+	s.UserId = &v
+	return s
+}
+
 type CreateVideoConferenceResponseBody struct {
 	// conferenceId
 	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
 	// 会议密码
 	ConferencePassword *string `json:"conferencePassword,omitempty" xml:"conferencePassword,omitempty"`
-	// 主持人密码
-	HostPassword *string `json:"hostPassword,omitempty" xml:"hostPassword,omitempty"`
 	// 入会链接
 	ExternalLinkUrl *string `json:"externalLinkUrl,omitempty" xml:"externalLinkUrl,omitempty"`
+	// 主持人密码
+	HostPassword *string `json:"hostPassword,omitempty" xml:"hostPassword,omitempty"`
 	// 电话入会号码
 	PhoneNumbers []*string `json:"phoneNumbers,omitempty" xml:"phoneNumbers,omitempty" type:"Repeated"`
 }
@@ -373,13 +184,13 @@ func (s *CreateVideoConferenceResponseBody) SetConferencePassword(v string) *Cre
 	return s
 }
 
-func (s *CreateVideoConferenceResponseBody) SetHostPassword(v string) *CreateVideoConferenceResponseBody {
-	s.HostPassword = &v
+func (s *CreateVideoConferenceResponseBody) SetExternalLinkUrl(v string) *CreateVideoConferenceResponseBody {
+	s.ExternalLinkUrl = &v
 	return s
 }
 
-func (s *CreateVideoConferenceResponseBody) SetExternalLinkUrl(v string) *CreateVideoConferenceResponseBody {
-	s.ExternalLinkUrl = &v
+func (s *CreateVideoConferenceResponseBody) SetHostPassword(v string) *CreateVideoConferenceResponseBody {
+	s.HostPassword = &v
 	return s
 }
 
@@ -411,6 +222,438 @@ func (s *CreateVideoConferenceResponse) SetBody(v *CreateVideoConferenceResponse
 	return s
 }
 
+type QueryCloudRecordTextHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCloudRecordTextHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordTextHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordTextHeaders) SetCommonHeaders(v map[string]*string) *QueryCloudRecordTextHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCloudRecordTextHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCloudRecordTextHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCloudRecordTextRequest struct {
+	// 0-向前查询，1-向后查询 。 向前查询：此次查询按照时间由小到大的顺序进行。
+	Direction *string `json:"direction,omitempty" xml:"direction,omitempty"`
+	// 单页查询的最大条目数，最多2000
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 游标，第一次查询可为空，之后每次带上一次的游标
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryCloudRecordTextRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordTextRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordTextRequest) SetDirection(v string) *QueryCloudRecordTextRequest {
+	s.Direction = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextRequest) SetMaxResults(v int64) *QueryCloudRecordTextRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextRequest) SetNextToken(v int64) *QueryCloudRecordTextRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextRequest) SetStartTime(v int64) *QueryCloudRecordTextRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextRequest) SetUnionId(v string) *QueryCloudRecordTextRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryCloudRecordTextResponseBody struct {
+	// 是否有更多
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 段落列表
+	ParagraphList []*QueryCloudRecordTextResponseBodyParagraphList `json:"paragraphList,omitempty" xml:"paragraphList,omitempty" type:"Repeated"`
+}
+
+func (s QueryCloudRecordTextResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordTextResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordTextResponseBody) SetHasMore(v bool) *QueryCloudRecordTextResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBody) SetParagraphList(v []*QueryCloudRecordTextResponseBodyParagraphList) *QueryCloudRecordTextResponseBody {
+	s.ParagraphList = v
+	return s
+}
+
+type QueryCloudRecordTextResponseBodyParagraphList struct {
+	// 结束时间，毫秒
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 游标，下次查询时使用
+	NextTtoken *int64 `json:"nextTtoken,omitempty" xml:"nextTtoken,omitempty"`
+	// 发言人昵称
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// 段落内容
+	Paragraph *string `json:"paragraph,omitempty" xml:"paragraph,omitempty"`
+	// 云录制id
+	RecordId *int64 `json:"recordId,omitempty" xml:"recordId,omitempty"`
+	// 句子列表
+	SentenceList []*QueryCloudRecordTextResponseBodyParagraphListSentenceList `json:"sentenceList,omitempty" xml:"sentenceList,omitempty" type:"Repeated"`
+	// 开始时间，毫秒
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 状态，暂不解析
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+	// 发言人unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryCloudRecordTextResponseBodyParagraphList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordTextResponseBodyParagraphList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetEndTime(v int64) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetNextTtoken(v int64) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.NextTtoken = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetNickName(v string) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.NickName = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetParagraph(v string) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.Paragraph = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetRecordId(v int64) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.RecordId = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetSentenceList(v []*QueryCloudRecordTextResponseBodyParagraphListSentenceList) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.SentenceList = v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetStartTime(v int64) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetStatus(v int64) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphList) SetUnionId(v string) *QueryCloudRecordTextResponseBodyParagraphList {
+	s.UnionId = &v
+	return s
+}
+
+type QueryCloudRecordTextResponseBodyParagraphListSentenceList struct {
+	// 结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 句子
+	Sentence *string `json:"sentence,omitempty" xml:"sentence,omitempty"`
+	// 开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 用户unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 单词列表
+	WordList []*QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList `json:"wordList,omitempty" xml:"wordList,omitempty" type:"Repeated"`
+}
+
+func (s QueryCloudRecordTextResponseBodyParagraphListSentenceList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordTextResponseBodyParagraphListSentenceList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceList) SetEndTime(v int64) *QueryCloudRecordTextResponseBodyParagraphListSentenceList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceList) SetSentence(v string) *QueryCloudRecordTextResponseBodyParagraphListSentenceList {
+	s.Sentence = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceList) SetStartTime(v int64) *QueryCloudRecordTextResponseBodyParagraphListSentenceList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceList) SetUnionId(v string) *QueryCloudRecordTextResponseBodyParagraphListSentenceList {
+	s.UnionId = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceList) SetWordList(v []*QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) *QueryCloudRecordTextResponseBodyParagraphListSentenceList {
+	s.WordList = v
+	return s
+}
+
+type QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList struct {
+	// 结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 单词
+	Word *string `json:"word,omitempty" xml:"word,omitempty"`
+	// 单词id
+	WordId *string `json:"wordId,omitempty" xml:"wordId,omitempty"`
+}
+
+func (s QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) SetEndTime(v int64) *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) SetStartTime(v int64) *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) SetWord(v string) *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList {
+	s.Word = &v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) SetWordId(v string) *QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList {
+	s.WordId = &v
+	return s
+}
+
+type QueryCloudRecordTextResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryCloudRecordTextResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryCloudRecordTextResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordTextResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordTextResponse) SetHeaders(v map[string]*string) *QueryCloudRecordTextResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCloudRecordTextResponse) SetBody(v *QueryCloudRecordTextResponseBody) *QueryCloudRecordTextResponse {
+	s.Body = v
+	return s
+}
+
+type QueryCloudRecordVideoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCloudRecordVideoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordVideoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordVideoHeaders) SetCommonHeaders(v map[string]*string) *QueryCloudRecordVideoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCloudRecordVideoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCloudRecordVideoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCloudRecordVideoRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryCloudRecordVideoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordVideoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordVideoRequest) SetUnionId(v string) *QueryCloudRecordVideoRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryCloudRecordVideoResponseBody struct {
+	// 视频列表
+	VideoList []*QueryCloudRecordVideoResponseBodyVideoList `json:"videoList,omitempty" xml:"videoList,omitempty" type:"Repeated"`
+}
+
+func (s QueryCloudRecordVideoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordVideoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordVideoResponseBody) SetVideoList(v []*QueryCloudRecordVideoResponseBodyVideoList) *QueryCloudRecordVideoResponseBody {
+	s.VideoList = v
+	return s
+}
+
+type QueryCloudRecordVideoResponseBodyVideoList struct {
+	// 录制持续时间
+	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 录制结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 文件大小
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// 媒体文件id，唯一
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// 音视频云录制Id，多份视频recordId一样
+	RecordId *string `json:"recordId,omitempty" xml:"recordId,omitempty"`
+	// 记录类型,0-普通录制，1-合成的文件
+	RecordType *int64 `json:"recordType,omitempty" xml:"recordType,omitempty"`
+	// 媒体文件所在集群id
+	RegionId *string `json:"regionId,omitempty" xml:"regionId,omitempty"`
+	// 录制开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 录制人UnionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryCloudRecordVideoResponseBodyVideoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordVideoResponseBodyVideoList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetDuration(v int64) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.Duration = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetEndTime(v int64) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetFileSize(v int64) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.FileSize = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetMediaId(v string) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.MediaId = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetRecordId(v string) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.RecordId = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetRecordType(v int64) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.RecordType = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetRegionId(v string) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.RegionId = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetStartTime(v int64) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponseBodyVideoList) SetUnionId(v string) *QueryCloudRecordVideoResponseBodyVideoList {
+	s.UnionId = &v
+	return s
+}
+
+type QueryCloudRecordVideoResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryCloudRecordVideoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryCloudRecordVideoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCloudRecordVideoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCloudRecordVideoResponse) SetHeaders(v map[string]*string) *QueryCloudRecordVideoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCloudRecordVideoResponse) SetBody(v *QueryCloudRecordVideoResponseBody) *QueryCloudRecordVideoResponse {
+	s.Body = v
+	return s
+}
+
 type QueryCloudRecordVideoPlayInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -435,12 +678,12 @@ func (s *QueryCloudRecordVideoPlayInfoHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type QueryCloudRecordVideoPlayInfoRequest struct {
-	// 用户id
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	// 媒体文件id
 	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
 	// 集群id
 	RegionId *string `json:"regionId,omitempty" xml:"regionId,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s QueryCloudRecordVideoPlayInfoRequest) String() string {
@@ -449,11 +692,6 @@ func (s QueryCloudRecordVideoPlayInfoRequest) String() string {
 
 func (s QueryCloudRecordVideoPlayInfoRequest) GoString() string {
 	return s.String()
-}
-
-func (s *QueryCloudRecordVideoPlayInfoRequest) SetUnionId(v string) *QueryCloudRecordVideoPlayInfoRequest {
-	s.UnionId = &v
-	return s
 }
 
 func (s *QueryCloudRecordVideoPlayInfoRequest) SetMediaId(v string) *QueryCloudRecordVideoPlayInfoRequest {
@@ -466,15 +704,20 @@ func (s *QueryCloudRecordVideoPlayInfoRequest) SetRegionId(v string) *QueryCloud
 	return s
 }
 
+func (s *QueryCloudRecordVideoPlayInfoRequest) SetUnionId(v string) *QueryCloudRecordVideoPlayInfoRequest {
+	s.UnionId = &v
+	return s
+}
+
 type QueryCloudRecordVideoPlayInfoResponseBody struct {
-	// 在线播放链接
-	PlayUrl *string `json:"playUrl,omitempty" xml:"playUrl,omitempty"`
-	// MP4格式下载链接
-	Mp4FileUrl *string `json:"mp4FileUrl,omitempty" xml:"mp4FileUrl,omitempty"`
-	// 大小
-	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
 	// 时长
 	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 大小
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// MP4格式下载链接
+	Mp4FileUrl *string `json:"mp4FileUrl,omitempty" xml:"mp4FileUrl,omitempty"`
+	// 在线播放链接
+	PlayUrl *string `json:"playUrl,omitempty" xml:"playUrl,omitempty"`
 	// 状态
 	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
 }
@@ -487,13 +730,8 @@ func (s QueryCloudRecordVideoPlayInfoResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *QueryCloudRecordVideoPlayInfoResponseBody) SetPlayUrl(v string) *QueryCloudRecordVideoPlayInfoResponseBody {
-	s.PlayUrl = &v
-	return s
-}
-
-func (s *QueryCloudRecordVideoPlayInfoResponseBody) SetMp4FileUrl(v string) *QueryCloudRecordVideoPlayInfoResponseBody {
-	s.Mp4FileUrl = &v
+func (s *QueryCloudRecordVideoPlayInfoResponseBody) SetDuration(v int64) *QueryCloudRecordVideoPlayInfoResponseBody {
+	s.Duration = &v
 	return s
 }
 
@@ -502,8 +740,13 @@ func (s *QueryCloudRecordVideoPlayInfoResponseBody) SetFileSize(v int64) *QueryC
 	return s
 }
 
-func (s *QueryCloudRecordVideoPlayInfoResponseBody) SetDuration(v int64) *QueryCloudRecordVideoPlayInfoResponseBody {
-	s.Duration = &v
+func (s *QueryCloudRecordVideoPlayInfoResponseBody) SetMp4FileUrl(v string) *QueryCloudRecordVideoPlayInfoResponseBody {
+	s.Mp4FileUrl = &v
+	return s
+}
+
+func (s *QueryCloudRecordVideoPlayInfoResponseBody) SetPlayUrl(v string) *QueryCloudRecordVideoPlayInfoResponseBody {
+	s.PlayUrl = &v
 	return s
 }
 
@@ -596,14 +839,14 @@ func (s *QueryConferenceInfoBatchResponseBody) SetInfos(v []*QueryConferenceInfo
 type QueryConferenceInfoBatchResponseBodyInfos struct {
 	// 会议iD
 	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
-	// 会议名称
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 媒体状态
+	MediaStatus *int64 `json:"mediaStatus,omitempty" xml:"mediaStatus,omitempty"`
 	// 会议开始时间
 	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
 	// 会议状态
 	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
-	// 媒体状态
-	MediaStatus *int64 `json:"mediaStatus,omitempty" xml:"mediaStatus,omitempty"`
+	// 会议名称
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 	// 参会用户列表
 	UserList []*QueryConferenceInfoBatchResponseBodyInfosUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
 }
@@ -621,8 +864,8 @@ func (s *QueryConferenceInfoBatchResponseBodyInfos) SetConferenceId(v string) *Q
 	return s
 }
 
-func (s *QueryConferenceInfoBatchResponseBodyInfos) SetTitle(v string) *QueryConferenceInfoBatchResponseBodyInfos {
-	s.Title = &v
+func (s *QueryConferenceInfoBatchResponseBodyInfos) SetMediaStatus(v int64) *QueryConferenceInfoBatchResponseBodyInfos {
+	s.MediaStatus = &v
 	return s
 }
 
@@ -636,8 +879,8 @@ func (s *QueryConferenceInfoBatchResponseBodyInfos) SetStatus(v int64) *QueryCon
 	return s
 }
 
-func (s *QueryConferenceInfoBatchResponseBodyInfos) SetMediaStatus(v int64) *QueryConferenceInfoBatchResponseBodyInfos {
-	s.MediaStatus = &v
+func (s *QueryConferenceInfoBatchResponseBodyInfos) SetTitle(v string) *QueryConferenceInfoBatchResponseBodyInfos {
+	s.Title = &v
 	return s
 }
 
@@ -647,18 +890,18 @@ func (s *QueryConferenceInfoBatchResponseBodyInfos) SetUserList(v []*QueryConfer
 }
 
 type QueryConferenceInfoBatchResponseBodyInfosUserList struct {
-	// 用户id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	// 名称
-	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
 	// 在会状态
 	AttendStatus *int64 `json:"attendStatus,omitempty" xml:"attendStatus,omitempty"`
 	// 摄像头状态
 	CameraStatus *int64 `json:"cameraStatus,omitempty" xml:"cameraStatus,omitempty"`
 	// 麦克风状态
 	MicStatus *int64 `json:"micStatus,omitempty" xml:"micStatus,omitempty"`
+	// 名称
+	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
 	// 拒绝原因
 	RejectDescription *string `json:"rejectDescription,omitempty" xml:"rejectDescription,omitempty"`
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryConferenceInfoBatchResponseBodyInfosUserList) String() string {
@@ -667,16 +910,6 @@ func (s QueryConferenceInfoBatchResponseBodyInfosUserList) String() string {
 
 func (s QueryConferenceInfoBatchResponseBodyInfosUserList) GoString() string {
 	return s.String()
-}
-
-func (s *QueryConferenceInfoBatchResponseBodyInfosUserList) SetUserId(v string) *QueryConferenceInfoBatchResponseBodyInfosUserList {
-	s.UserId = &v
-	return s
-}
-
-func (s *QueryConferenceInfoBatchResponseBodyInfosUserList) SetNick(v string) *QueryConferenceInfoBatchResponseBodyInfosUserList {
-	s.Nick = &v
-	return s
 }
 
 func (s *QueryConferenceInfoBatchResponseBodyInfosUserList) SetAttendStatus(v int64) *QueryConferenceInfoBatchResponseBodyInfosUserList {
@@ -694,8 +927,18 @@ func (s *QueryConferenceInfoBatchResponseBodyInfosUserList) SetMicStatus(v int64
 	return s
 }
 
+func (s *QueryConferenceInfoBatchResponseBodyInfosUserList) SetNick(v string) *QueryConferenceInfoBatchResponseBodyInfosUserList {
+	s.Nick = &v
+	return s
+}
+
 func (s *QueryConferenceInfoBatchResponseBodyInfosUserList) SetRejectDescription(v string) *QueryConferenceInfoBatchResponseBodyInfosUserList {
 	s.RejectDescription = &v
+	return s
+}
+
+func (s *QueryConferenceInfoBatchResponseBodyInfosUserList) SetUserId(v string) *QueryConferenceInfoBatchResponseBodyInfosUserList {
+	s.UserId = &v
 	return s
 }
 
@@ -718,6 +961,232 @@ func (s *QueryConferenceInfoBatchResponse) SetHeaders(v map[string]*string) *Que
 }
 
 func (s *QueryConferenceInfoBatchResponse) SetBody(v *QueryConferenceInfoBatchResponseBody) *QueryConferenceInfoBatchResponse {
+	s.Body = v
+	return s
+}
+
+type StartCloudRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s StartCloudRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartCloudRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *StartCloudRecordHeaders) SetCommonHeaders(v map[string]*string) *StartCloudRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *StartCloudRecordHeaders) SetXAcsDingtalkAccessToken(v string) *StartCloudRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type StartCloudRecordRequest struct {
+	// 录制模版
+	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	// 小窗位置
+	SmallWindowPosition *string `json:"smallWindowPosition,omitempty" xml:"smallWindowPosition,omitempty"`
+	// 会议发起人UID
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s StartCloudRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartCloudRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *StartCloudRecordRequest) SetMode(v string) *StartCloudRecordRequest {
+	s.Mode = &v
+	return s
+}
+
+func (s *StartCloudRecordRequest) SetSmallWindowPosition(v string) *StartCloudRecordRequest {
+	s.SmallWindowPosition = &v
+	return s
+}
+
+func (s *StartCloudRecordRequest) SetUnionId(v string) *StartCloudRecordRequest {
+	s.UnionId = &v
+	return s
+}
+
+type StartCloudRecordResponseBody struct {
+	// 是否成功
+	Cause *string `json:"cause,omitempty" xml:"cause,omitempty"`
+	// 返回码
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+}
+
+func (s StartCloudRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartCloudRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *StartCloudRecordResponseBody) SetCause(v string) *StartCloudRecordResponseBody {
+	s.Cause = &v
+	return s
+}
+
+func (s *StartCloudRecordResponseBody) SetCode(v string) *StartCloudRecordResponseBody {
+	s.Code = &v
+	return s
+}
+
+type StartCloudRecordResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *StartCloudRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s StartCloudRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartCloudRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *StartCloudRecordResponse) SetHeaders(v map[string]*string) *StartCloudRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *StartCloudRecordResponse) SetBody(v *StartCloudRecordResponseBody) *StartCloudRecordResponse {
+	s.Body = v
+	return s
+}
+
+type StartStreamOutHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s StartStreamOutHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartStreamOutHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *StartStreamOutHeaders) SetCommonHeaders(v map[string]*string) *StartStreamOutHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *StartStreamOutHeaders) SetXAcsDingtalkAccessToken(v string) *StartStreamOutHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type StartStreamOutRequest struct {
+	// 布局
+	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	// 是否需要主持人加入后才允许推流
+	NeedHostJoin *bool `json:"needHostJoin,omitempty" xml:"needHostJoin,omitempty"`
+	// 小窗位置
+	SmallWindowPosition *string `json:"smallWindowPosition,omitempty" xml:"smallWindowPosition,omitempty"`
+	StreamName          *string `json:"streamName,omitempty" xml:"streamName,omitempty"`
+	// 推流地址列表, 最多10个，需要以RTMP开头
+	StreamUrlList []*string `json:"streamUrlList,omitempty" xml:"streamUrlList,omitempty" type:"Repeated"`
+	// 主持人UID
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s StartStreamOutRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartStreamOutRequest) GoString() string {
+	return s.String()
+}
+
+func (s *StartStreamOutRequest) SetMode(v string) *StartStreamOutRequest {
+	s.Mode = &v
+	return s
+}
+
+func (s *StartStreamOutRequest) SetNeedHostJoin(v bool) *StartStreamOutRequest {
+	s.NeedHostJoin = &v
+	return s
+}
+
+func (s *StartStreamOutRequest) SetSmallWindowPosition(v string) *StartStreamOutRequest {
+	s.SmallWindowPosition = &v
+	return s
+}
+
+func (s *StartStreamOutRequest) SetStreamName(v string) *StartStreamOutRequest {
+	s.StreamName = &v
+	return s
+}
+
+func (s *StartStreamOutRequest) SetStreamUrlList(v []*string) *StartStreamOutRequest {
+	s.StreamUrlList = v
+	return s
+}
+
+func (s *StartStreamOutRequest) SetUnionId(v string) *StartStreamOutRequest {
+	s.UnionId = &v
+	return s
+}
+
+type StartStreamOutResponseBody struct {
+	// 失败的地址与失败原因映射
+	FailStreamMap map[string]interface{} `json:"failStreamMap,omitempty" xml:"failStreamMap,omitempty"`
+	// 成功推流地址与liveId映射
+	SuccessStreamMap map[string]interface{} `json:"successStreamMap,omitempty" xml:"successStreamMap,omitempty"`
+}
+
+func (s StartStreamOutResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartStreamOutResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *StartStreamOutResponseBody) SetFailStreamMap(v map[string]interface{}) *StartStreamOutResponseBody {
+	s.FailStreamMap = v
+	return s
+}
+
+func (s *StartStreamOutResponseBody) SetSuccessStreamMap(v map[string]interface{}) *StartStreamOutResponseBody {
+	s.SuccessStreamMap = v
+	return s
+}
+
+type StartStreamOutResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *StartStreamOutResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s StartStreamOutResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartStreamOutResponse) GoString() string {
+	return s.String()
+}
+
+func (s *StartStreamOutResponse) SetHeaders(v map[string]*string) *StartStreamOutResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *StartStreamOutResponse) SetBody(v *StartStreamOutResponseBody) *StartStreamOutResponse {
 	s.Body = v
 	return s
 }
@@ -764,10 +1233,10 @@ func (s *StopCloudRecordRequest) SetUnionId(v string) *StopCloudRecordRequest {
 }
 
 type StopCloudRecordResponseBody struct {
-	// 返回码
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
 	// 是否成功
 	Cause *string `json:"cause,omitempty" xml:"cause,omitempty"`
+	// 返回码
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
 }
 
 func (s StopCloudRecordResponseBody) String() string {
@@ -778,13 +1247,13 @@ func (s StopCloudRecordResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *StopCloudRecordResponseBody) SetCode(v string) *StopCloudRecordResponseBody {
-	s.Code = &v
+func (s *StopCloudRecordResponseBody) SetCause(v string) *StopCloudRecordResponseBody {
+	s.Cause = &v
 	return s
 }
 
-func (s *StopCloudRecordResponseBody) SetCause(v string) *StopCloudRecordResponseBody {
-	s.Cause = &v
+func (s *StopCloudRecordResponseBody) SetCode(v string) *StopCloudRecordResponseBody {
+	s.Code = &v
 	return s
 }
 
@@ -807,6 +1276,109 @@ func (s *StopCloudRecordResponse) SetHeaders(v map[string]*string) *StopCloudRec
 }
 
 func (s *StopCloudRecordResponse) SetBody(v *StopCloudRecordResponseBody) *StopCloudRecordResponse {
+	s.Body = v
+	return s
+}
+
+type StopStreamOutHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s StopStreamOutHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StopStreamOutHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *StopStreamOutHeaders) SetCommonHeaders(v map[string]*string) *StopStreamOutHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *StopStreamOutHeaders) SetXAcsDingtalkAccessToken(v string) *StopStreamOutHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type StopStreamOutRequest struct {
+	// 是否停止所有流，为true时，则不理会streamId字段
+	StopAllStream *bool `json:"stopAllStream,omitempty" xml:"stopAllStream,omitempty"`
+	// 流id
+	StreamId *string `json:"streamId,omitempty" xml:"streamId,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s StopStreamOutRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StopStreamOutRequest) GoString() string {
+	return s.String()
+}
+
+func (s *StopStreamOutRequest) SetStopAllStream(v bool) *StopStreamOutRequest {
+	s.StopAllStream = &v
+	return s
+}
+
+func (s *StopStreamOutRequest) SetStreamId(v string) *StopStreamOutRequest {
+	s.StreamId = &v
+	return s
+}
+
+func (s *StopStreamOutRequest) SetUnionId(v string) *StopStreamOutRequest {
+	s.UnionId = &v
+	return s
+}
+
+type StopStreamOutResponseBody struct {
+	// 会议密码
+	Cause *string `json:"cause,omitempty" xml:"cause,omitempty"`
+	// conferenceId
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+}
+
+func (s StopStreamOutResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StopStreamOutResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *StopStreamOutResponseBody) SetCause(v string) *StopStreamOutResponseBody {
+	s.Cause = &v
+	return s
+}
+
+func (s *StopStreamOutResponseBody) SetCode(v string) *StopStreamOutResponseBody {
+	s.Code = &v
+	return s
+}
+
+type StopStreamOutResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *StopStreamOutResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s StopStreamOutResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StopStreamOutResponse) GoString() string {
+	return s.String()
+}
+
+func (s *StopStreamOutResponse) SetHeaders(v map[string]*string) *StopStreamOutResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *StopStreamOutResponse) SetBody(v *StopStreamOutResponseBody) *StopStreamOutResponse {
 	s.Body = v
 	return s
 }
@@ -882,578 +1454,6 @@ func (s *UpdateVideoConferenceExtInfoResponse) SetBody(v *UpdateVideoConferenceE
 	return s
 }
 
-type CloseVideoConferenceHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s CloseVideoConferenceHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CloseVideoConferenceHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *CloseVideoConferenceHeaders) SetCommonHeaders(v map[string]*string) *CloseVideoConferenceHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *CloseVideoConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *CloseVideoConferenceHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type CloseVideoConferenceRequest struct {
-	// 员工在当前开发者企业账号范围内的唯一标识
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-}
-
-func (s CloseVideoConferenceRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CloseVideoConferenceRequest) GoString() string {
-	return s.String()
-}
-
-func (s *CloseVideoConferenceRequest) SetUnionId(v string) *CloseVideoConferenceRequest {
-	s.UnionId = &v
-	return s
-}
-
-type CloseVideoConferenceResponseBody struct {
-	Code  *int64  `json:"code,omitempty" xml:"code,omitempty"`
-	Cause *string `json:"cause,omitempty" xml:"cause,omitempty"`
-}
-
-func (s CloseVideoConferenceResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CloseVideoConferenceResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *CloseVideoConferenceResponseBody) SetCode(v int64) *CloseVideoConferenceResponseBody {
-	s.Code = &v
-	return s
-}
-
-func (s *CloseVideoConferenceResponseBody) SetCause(v string) *CloseVideoConferenceResponseBody {
-	s.Cause = &v
-	return s
-}
-
-type CloseVideoConferenceResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CloseVideoConferenceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s CloseVideoConferenceResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CloseVideoConferenceResponse) GoString() string {
-	return s.String()
-}
-
-func (s *CloseVideoConferenceResponse) SetHeaders(v map[string]*string) *CloseVideoConferenceResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *CloseVideoConferenceResponse) SetBody(v *CloseVideoConferenceResponseBody) *CloseVideoConferenceResponse {
-	s.Body = v
-	return s
-}
-
-type StopStreamOutHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s StopStreamOutHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s StopStreamOutHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *StopStreamOutHeaders) SetCommonHeaders(v map[string]*string) *StopStreamOutHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *StopStreamOutHeaders) SetXAcsDingtalkAccessToken(v string) *StopStreamOutHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type StopStreamOutRequest struct {
-	// 流id
-	StreamId *string `json:"streamId,omitempty" xml:"streamId,omitempty"`
-	// 是否停止所有流，为true时，则不理会streamId字段
-	StopAllStream *bool `json:"stopAllStream,omitempty" xml:"stopAllStream,omitempty"`
-	// 用户id
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-}
-
-func (s StopStreamOutRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s StopStreamOutRequest) GoString() string {
-	return s.String()
-}
-
-func (s *StopStreamOutRequest) SetStreamId(v string) *StopStreamOutRequest {
-	s.StreamId = &v
-	return s
-}
-
-func (s *StopStreamOutRequest) SetStopAllStream(v bool) *StopStreamOutRequest {
-	s.StopAllStream = &v
-	return s
-}
-
-func (s *StopStreamOutRequest) SetUnionId(v string) *StopStreamOutRequest {
-	s.UnionId = &v
-	return s
-}
-
-type StopStreamOutResponseBody struct {
-	// conferenceId
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 会议密码
-	Cause *string `json:"cause,omitempty" xml:"cause,omitempty"`
-}
-
-func (s StopStreamOutResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s StopStreamOutResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *StopStreamOutResponseBody) SetCode(v string) *StopStreamOutResponseBody {
-	s.Code = &v
-	return s
-}
-
-func (s *StopStreamOutResponseBody) SetCause(v string) *StopStreamOutResponseBody {
-	s.Cause = &v
-	return s
-}
-
-type StopStreamOutResponse struct {
-	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *StopStreamOutResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s StopStreamOutResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s StopStreamOutResponse) GoString() string {
-	return s.String()
-}
-
-func (s *StopStreamOutResponse) SetHeaders(v map[string]*string) *StopStreamOutResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *StopStreamOutResponse) SetBody(v *StopStreamOutResponseBody) *StopStreamOutResponse {
-	s.Body = v
-	return s
-}
-
-type StartCloudRecordHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s StartCloudRecordHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s StartCloudRecordHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *StartCloudRecordHeaders) SetCommonHeaders(v map[string]*string) *StartCloudRecordHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *StartCloudRecordHeaders) SetXAcsDingtalkAccessToken(v string) *StartCloudRecordHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type StartCloudRecordRequest struct {
-	// 会议发起人UID
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	// 小窗位置
-	SmallWindowPosition *string `json:"smallWindowPosition,omitempty" xml:"smallWindowPosition,omitempty"`
-	// 录制模版
-	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
-}
-
-func (s StartCloudRecordRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s StartCloudRecordRequest) GoString() string {
-	return s.String()
-}
-
-func (s *StartCloudRecordRequest) SetUnionId(v string) *StartCloudRecordRequest {
-	s.UnionId = &v
-	return s
-}
-
-func (s *StartCloudRecordRequest) SetSmallWindowPosition(v string) *StartCloudRecordRequest {
-	s.SmallWindowPosition = &v
-	return s
-}
-
-func (s *StartCloudRecordRequest) SetMode(v string) *StartCloudRecordRequest {
-	s.Mode = &v
-	return s
-}
-
-type StartCloudRecordResponseBody struct {
-	// 返回码
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 是否成功
-	Cause *string `json:"cause,omitempty" xml:"cause,omitempty"`
-}
-
-func (s StartCloudRecordResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s StartCloudRecordResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *StartCloudRecordResponseBody) SetCode(v string) *StartCloudRecordResponseBody {
-	s.Code = &v
-	return s
-}
-
-func (s *StartCloudRecordResponseBody) SetCause(v string) *StartCloudRecordResponseBody {
-	s.Cause = &v
-	return s
-}
-
-type StartCloudRecordResponse struct {
-	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *StartCloudRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s StartCloudRecordResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s StartCloudRecordResponse) GoString() string {
-	return s.String()
-}
-
-func (s *StartCloudRecordResponse) SetHeaders(v map[string]*string) *StartCloudRecordResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *StartCloudRecordResponse) SetBody(v *StartCloudRecordResponseBody) *StartCloudRecordResponse {
-	s.Body = v
-	return s
-}
-
-type StartStreamOutHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s StartStreamOutHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s StartStreamOutHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *StartStreamOutHeaders) SetCommonHeaders(v map[string]*string) *StartStreamOutHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *StartStreamOutHeaders) SetXAcsDingtalkAccessToken(v string) *StartStreamOutHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type StartStreamOutRequest struct {
-	// 主持人UID
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	// 是否需要主持人加入后才允许推流
-	NeedHostJoin *bool `json:"needHostJoin,omitempty" xml:"needHostJoin,omitempty"`
-	// 推流地址列表, 最多10个，需要以RTMP开头
-	StreamUrlList []*string `json:"streamUrlList,omitempty" xml:"streamUrlList,omitempty" type:"Repeated"`
-	StreamName    *string   `json:"streamName,omitempty" xml:"streamName,omitempty"`
-	// 布局
-	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
-	// 小窗位置
-	SmallWindowPosition *string `json:"smallWindowPosition,omitempty" xml:"smallWindowPosition,omitempty"`
-}
-
-func (s StartStreamOutRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s StartStreamOutRequest) GoString() string {
-	return s.String()
-}
-
-func (s *StartStreamOutRequest) SetUnionId(v string) *StartStreamOutRequest {
-	s.UnionId = &v
-	return s
-}
-
-func (s *StartStreamOutRequest) SetNeedHostJoin(v bool) *StartStreamOutRequest {
-	s.NeedHostJoin = &v
-	return s
-}
-
-func (s *StartStreamOutRequest) SetStreamUrlList(v []*string) *StartStreamOutRequest {
-	s.StreamUrlList = v
-	return s
-}
-
-func (s *StartStreamOutRequest) SetStreamName(v string) *StartStreamOutRequest {
-	s.StreamName = &v
-	return s
-}
-
-func (s *StartStreamOutRequest) SetMode(v string) *StartStreamOutRequest {
-	s.Mode = &v
-	return s
-}
-
-func (s *StartStreamOutRequest) SetSmallWindowPosition(v string) *StartStreamOutRequest {
-	s.SmallWindowPosition = &v
-	return s
-}
-
-type StartStreamOutResponseBody struct {
-	// 成功推流地址与liveId映射
-	SuccessStreamMap map[string]interface{} `json:"successStreamMap,omitempty" xml:"successStreamMap,omitempty"`
-	// 失败的地址与失败原因映射
-	FailStreamMap map[string]interface{} `json:"failStreamMap,omitempty" xml:"failStreamMap,omitempty"`
-}
-
-func (s StartStreamOutResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s StartStreamOutResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *StartStreamOutResponseBody) SetSuccessStreamMap(v map[string]interface{}) *StartStreamOutResponseBody {
-	s.SuccessStreamMap = v
-	return s
-}
-
-func (s *StartStreamOutResponseBody) SetFailStreamMap(v map[string]interface{}) *StartStreamOutResponseBody {
-	s.FailStreamMap = v
-	return s
-}
-
-type StartStreamOutResponse struct {
-	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *StartStreamOutResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s StartStreamOutResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s StartStreamOutResponse) GoString() string {
-	return s.String()
-}
-
-func (s *StartStreamOutResponse) SetHeaders(v map[string]*string) *StartStreamOutResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *StartStreamOutResponse) SetBody(v *StartStreamOutResponseBody) *StartStreamOutResponse {
-	s.Body = v
-	return s
-}
-
-type QueryCloudRecordVideoHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s QueryCloudRecordVideoHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryCloudRecordVideoHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *QueryCloudRecordVideoHeaders) SetCommonHeaders(v map[string]*string) *QueryCloudRecordVideoHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *QueryCloudRecordVideoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCloudRecordVideoHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type QueryCloudRecordVideoRequest struct {
-	// 用户id
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-}
-
-func (s QueryCloudRecordVideoRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryCloudRecordVideoRequest) GoString() string {
-	return s.String()
-}
-
-func (s *QueryCloudRecordVideoRequest) SetUnionId(v string) *QueryCloudRecordVideoRequest {
-	s.UnionId = &v
-	return s
-}
-
-type QueryCloudRecordVideoResponseBody struct {
-	// 视频列表
-	VideoList []*QueryCloudRecordVideoResponseBodyVideoList `json:"videoList,omitempty" xml:"videoList,omitempty" type:"Repeated"`
-}
-
-func (s QueryCloudRecordVideoResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryCloudRecordVideoResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *QueryCloudRecordVideoResponseBody) SetVideoList(v []*QueryCloudRecordVideoResponseBodyVideoList) *QueryCloudRecordVideoResponseBody {
-	s.VideoList = v
-	return s
-}
-
-type QueryCloudRecordVideoResponseBodyVideoList struct {
-	// 音视频云录制Id，多份视频recordId一样
-	RecordId *string `json:"recordId,omitempty" xml:"recordId,omitempty"`
-	// 录制人UnionId
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	// 录制开始时间
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 记录类型,0-普通录制，1-合成的文件
-	RecordType *int64 `json:"recordType,omitempty" xml:"recordType,omitempty"`
-	// 录制持续时间
-	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
-	// 文件大小
-	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	// 录制结束时间
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 媒体文件id，唯一
-	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	// 媒体文件所在集群id
-	RegionId *string `json:"regionId,omitempty" xml:"regionId,omitempty"`
-}
-
-func (s QueryCloudRecordVideoResponseBodyVideoList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryCloudRecordVideoResponseBodyVideoList) GoString() string {
-	return s.String()
-}
-
-func (s *QueryCloudRecordVideoResponseBodyVideoList) SetRecordId(v string) *QueryCloudRecordVideoResponseBodyVideoList {
-	s.RecordId = &v
-	return s
-}
-
-func (s *QueryCloudRecordVideoResponseBodyVideoList) SetUnionId(v string) *QueryCloudRecordVideoResponseBodyVideoList {
-	s.UnionId = &v
-	return s
-}
-
-func (s *QueryCloudRecordVideoResponseBodyVideoList) SetStartTime(v int64) *QueryCloudRecordVideoResponseBodyVideoList {
-	s.StartTime = &v
-	return s
-}
-
-func (s *QueryCloudRecordVideoResponseBodyVideoList) SetRecordType(v int64) *QueryCloudRecordVideoResponseBodyVideoList {
-	s.RecordType = &v
-	return s
-}
-
-func (s *QueryCloudRecordVideoResponseBodyVideoList) SetDuration(v int64) *QueryCloudRecordVideoResponseBodyVideoList {
-	s.Duration = &v
-	return s
-}
-
-func (s *QueryCloudRecordVideoResponseBodyVideoList) SetFileSize(v int64) *QueryCloudRecordVideoResponseBodyVideoList {
-	s.FileSize = &v
-	return s
-}
-
-func (s *QueryCloudRecordVideoResponseBodyVideoList) SetEndTime(v int64) *QueryCloudRecordVideoResponseBodyVideoList {
-	s.EndTime = &v
-	return s
-}
-
-func (s *QueryCloudRecordVideoResponseBodyVideoList) SetMediaId(v string) *QueryCloudRecordVideoResponseBodyVideoList {
-	s.MediaId = &v
-	return s
-}
-
-func (s *QueryCloudRecordVideoResponseBodyVideoList) SetRegionId(v string) *QueryCloudRecordVideoResponseBodyVideoList {
-	s.RegionId = &v
-	return s
-}
-
-type QueryCloudRecordVideoResponse struct {
-	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *QueryCloudRecordVideoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s QueryCloudRecordVideoResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryCloudRecordVideoResponse) GoString() string {
-	return s.String()
-}
-
-func (s *QueryCloudRecordVideoResponse) SetHeaders(v map[string]*string) *QueryCloudRecordVideoResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *QueryCloudRecordVideoResponse) SetBody(v *QueryCloudRecordVideoResponseBody) *QueryCloudRecordVideoResponse {
-	s.Body = v
-	return s
-}
-
 type Client struct {
 	openapi.Client
 }
@@ -1477,11 +1477,11 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
-func (client *Client) QueryCloudRecordText(conferenceId *string, request *QueryCloudRecordTextRequest) (_result *QueryCloudRecordTextResponse, _err error) {
+func (client *Client) CloseVideoConference(conferenceId *string, request *CloseVideoConferenceRequest) (_result *CloseVideoConferenceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryCloudRecordTextHeaders{}
-	_result = &QueryCloudRecordTextResponse{}
-	_body, _err := client.QueryCloudRecordTextWithOptions(conferenceId, request, headers, runtime)
+	headers := &CloseVideoConferenceHeaders{}
+	_result = &CloseVideoConferenceResponse{}
+	_body, _err := client.CloseVideoConferenceWithOptions(conferenceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1489,30 +1489,15 @@ func (client *Client) QueryCloudRecordText(conferenceId *string, request *QueryC
 	return _result, _err
 }
 
-func (client *Client) QueryCloudRecordTextWithOptions(conferenceId *string, request *QueryCloudRecordTextRequest, headers *QueryCloudRecordTextHeaders, runtime *util.RuntimeOptions) (_result *QueryCloudRecordTextResponse, _err error) {
+func (client *Client) CloseVideoConferenceWithOptions(conferenceId *string, request *CloseVideoConferenceRequest, headers *CloseVideoConferenceHeaders, runtime *util.RuntimeOptions) (_result *CloseVideoConferenceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
+	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
-		query["startTime"] = request.StartTime
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Direction)) {
-		query["direction"] = request.Direction
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
-		query["maxResults"] = request.MaxResults
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
-		query["nextToken"] = request.NextToken
 	}
 
 	realHeaders := make(map[string]*string)
@@ -1521,15 +1506,15 @@ func (client *Client) QueryCloudRecordTextWithOptions(conferenceId *string, requ
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
-	_result = &QueryCloudRecordTextResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryCloudRecordText"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)+"/cloudRecords/getTexts"), tea.String("json"), req, runtime)
+	_result = &CloseVideoConferenceResponse{}
+	_body, _err := client.DoROARequest(tea.String("CloseVideoConference"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1555,10 +1540,6 @@ func (client *Client) CreateVideoConferenceWithOptions(request *CreateVideoConfe
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.UserId)) {
-		body["userId"] = request.UserId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.ConfTitle)) {
 		body["confTitle"] = request.ConfTitle
 	}
@@ -1567,13 +1548,17 @@ func (client *Client) CreateVideoConferenceWithOptions(request *CreateVideoConfe
 		body["inviteUserIds"] = request.InviteUserIds
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
@@ -1582,6 +1567,112 @@ func (client *Client) CreateVideoConferenceWithOptions(request *CreateVideoConfe
 	}
 	_result = &CreateVideoConferenceResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateVideoConference"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryCloudRecordText(conferenceId *string, request *QueryCloudRecordTextRequest) (_result *QueryCloudRecordTextResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCloudRecordTextHeaders{}
+	_result = &QueryCloudRecordTextResponse{}
+	_body, _err := client.QueryCloudRecordTextWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryCloudRecordTextWithOptions(conferenceId *string, request *QueryCloudRecordTextRequest, headers *QueryCloudRecordTextHeaders, runtime *util.RuntimeOptions) (_result *QueryCloudRecordTextResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	conferenceId = openapiutil.GetEncodeParam(conferenceId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Direction)) {
+		query["direction"] = request.Direction
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryCloudRecordTextResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryCloudRecordText"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)+"/cloudRecords/getTexts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryCloudRecordVideo(conferenceId *string, request *QueryCloudRecordVideoRequest) (_result *QueryCloudRecordVideoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCloudRecordVideoHeaders{}
+	_result = &QueryCloudRecordVideoResponse{}
+	_body, _err := client.QueryCloudRecordVideoWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryCloudRecordVideoWithOptions(conferenceId *string, request *QueryCloudRecordVideoRequest, headers *QueryCloudRecordVideoHeaders, runtime *util.RuntimeOptions) (_result *QueryCloudRecordVideoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	conferenceId = openapiutil.GetEncodeParam(conferenceId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryCloudRecordVideoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryCloudRecordVideo"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)+"/cloudRecords/getVideos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1606,11 +1697,8 @@ func (client *Client) QueryCloudRecordVideoPlayInfoWithOptions(conferenceId *str
 	if _err != nil {
 		return _result, _err
 	}
+	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
-		query["unionId"] = request.UnionId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
 		query["mediaId"] = request.MediaId
 	}
@@ -1619,13 +1707,17 @@ func (client *Client) QueryCloudRecordVideoPlayInfoWithOptions(conferenceId *str
 		query["regionId"] = request.RegionId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
@@ -1669,7 +1761,7 @@ func (client *Client) QueryConferenceInfoBatchWithOptions(request *QueryConferen
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
@@ -1678,180 +1770,6 @@ func (client *Client) QueryConferenceInfoBatchWithOptions(request *QueryConferen
 	}
 	_result = &QueryConferenceInfoBatchResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryConferenceInfoBatch"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/query"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) StopCloudRecord(conferenceId *string, request *StopCloudRecordRequest) (_result *StopCloudRecordResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &StopCloudRecordHeaders{}
-	_result = &StopCloudRecordResponse{}
-	_body, _err := client.StopCloudRecordWithOptions(conferenceId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) StopCloudRecordWithOptions(conferenceId *string, request *StopCloudRecordRequest, headers *StopCloudRecordHeaders, runtime *util.RuntimeOptions) (_result *StopCloudRecordResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
-		body["unionId"] = request.UnionId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &StopCloudRecordResponse{}
-	_body, _err := client.DoROARequest(tea.String("StopCloudRecord"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)+"/cloudRecords/stop"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) UpdateVideoConferenceExtInfo(conferenceId *string) (_result *UpdateVideoConferenceExtInfoResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &UpdateVideoConferenceExtInfoHeaders{}
-	_result = &UpdateVideoConferenceExtInfoResponse{}
-	_body, _err := client.UpdateVideoConferenceExtInfoWithOptions(conferenceId, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) UpdateVideoConferenceExtInfoWithOptions(conferenceId *string, headers *UpdateVideoConferenceExtInfoHeaders, runtime *util.RuntimeOptions) (_result *UpdateVideoConferenceExtInfoResponse, _err error) {
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &UpdateVideoConferenceExtInfoResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateVideoConferenceExtInfo"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)+"/extInfo"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) CloseVideoConference(conferenceId *string, request *CloseVideoConferenceRequest) (_result *CloseVideoConferenceResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CloseVideoConferenceHeaders{}
-	_result = &CloseVideoConferenceResponse{}
-	_body, _err := client.CloseVideoConferenceWithOptions(conferenceId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) CloseVideoConferenceWithOptions(conferenceId *string, request *CloseVideoConferenceRequest, headers *CloseVideoConferenceHeaders, runtime *util.RuntimeOptions) (_result *CloseVideoConferenceResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
-		query["unionId"] = request.UnionId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &CloseVideoConferenceResponse{}
-	_body, _err := client.DoROARequest(tea.String("CloseVideoConference"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) StopStreamOut(conferenceId *string, request *StopStreamOutRequest) (_result *StopStreamOutResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &StopStreamOutHeaders{}
-	_result = &StopStreamOutResponse{}
-	_body, _err := client.StopStreamOutWithOptions(conferenceId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) StopStreamOutWithOptions(conferenceId *string, request *StopStreamOutRequest, headers *StopStreamOutHeaders, runtime *util.RuntimeOptions) (_result *StopStreamOutResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.StreamId)) {
-		body["streamId"] = request.StreamId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.StopAllStream)) {
-		body["stopAllStream"] = request.StopAllStream
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
-		body["unionId"] = request.UnionId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &StopStreamOutResponse{}
-	_body, _err := client.DoROARequest(tea.String("StopStreamOut"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)+"/streamOuts/stop"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1876,17 +1794,18 @@ func (client *Client) StartCloudRecordWithOptions(conferenceId *string, request 
 	if _err != nil {
 		return _result, _err
 	}
+	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
-		body["unionId"] = request.UnionId
+	if !tea.BoolValue(util.IsUnset(request.Mode)) {
+		body["mode"] = request.Mode
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.SmallWindowPosition)) {
 		body["smallWindowPosition"] = request.SmallWindowPosition
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Mode)) {
-		body["mode"] = request.Mode
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -1895,7 +1814,7 @@ func (client *Client) StartCloudRecordWithOptions(conferenceId *string, request 
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
@@ -1928,29 +1847,30 @@ func (client *Client) StartStreamOutWithOptions(conferenceId *string, request *S
 	if _err != nil {
 		return _result, _err
 	}
+	conferenceId = openapiutil.GetEncodeParam(conferenceId)
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
-		body["unionId"] = request.UnionId
+	if !tea.BoolValue(util.IsUnset(request.Mode)) {
+		body["mode"] = request.Mode
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.NeedHostJoin)) {
 		body["needHostJoin"] = request.NeedHostJoin
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.StreamUrlList)) {
-		body["streamUrlList"] = request.StreamUrlList
+	if !tea.BoolValue(util.IsUnset(request.SmallWindowPosition)) {
+		body["smallWindowPosition"] = request.SmallWindowPosition
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.StreamName)) {
 		body["streamName"] = request.StreamName
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Mode)) {
-		body["mode"] = request.Mode
+	if !tea.BoolValue(util.IsUnset(request.StreamUrlList)) {
+		body["streamUrlList"] = request.StreamUrlList
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SmallWindowPosition)) {
-		body["smallWindowPosition"] = request.SmallWindowPosition
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -1959,7 +1879,7 @@ func (client *Client) StartStreamOutWithOptions(conferenceId *string, request *S
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
@@ -1975,11 +1895,11 @@ func (client *Client) StartStreamOutWithOptions(conferenceId *string, request *S
 	return _result, _err
 }
 
-func (client *Client) QueryCloudRecordVideo(conferenceId *string, request *QueryCloudRecordVideoRequest) (_result *QueryCloudRecordVideoResponse, _err error) {
+func (client *Client) StopCloudRecord(conferenceId *string, request *StopCloudRecordRequest) (_result *StopCloudRecordResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &QueryCloudRecordVideoHeaders{}
-	_result = &QueryCloudRecordVideoResponse{}
-	_body, _err := client.QueryCloudRecordVideoWithOptions(conferenceId, request, headers, runtime)
+	headers := &StopCloudRecordHeaders{}
+	_result = &StopCloudRecordResponse{}
+	_body, _err := client.StopCloudRecordWithOptions(conferenceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1987,14 +1907,15 @@ func (client *Client) QueryCloudRecordVideo(conferenceId *string, request *Query
 	return _result, _err
 }
 
-func (client *Client) QueryCloudRecordVideoWithOptions(conferenceId *string, request *QueryCloudRecordVideoRequest, headers *QueryCloudRecordVideoHeaders, runtime *util.RuntimeOptions) (_result *QueryCloudRecordVideoResponse, _err error) {
+func (client *Client) StopCloudRecordWithOptions(conferenceId *string, request *StopCloudRecordRequest, headers *StopCloudRecordHeaders, runtime *util.RuntimeOptions) (_result *StopCloudRecordResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	query := map[string]interface{}{}
+	conferenceId = openapiutil.GetEncodeParam(conferenceId)
+	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
-		query["unionId"] = request.UnionId
+		body["unionId"] = request.UnionId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -2003,15 +1924,103 @@ func (client *Client) QueryCloudRecordVideoWithOptions(conferenceId *string, req
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &QueryCloudRecordVideoResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryCloudRecordVideo"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)+"/cloudRecords/getVideos"), tea.String("json"), req, runtime)
+	_result = &StopCloudRecordResponse{}
+	_body, _err := client.DoROARequest(tea.String("StopCloudRecord"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)+"/cloudRecords/stop"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) StopStreamOut(conferenceId *string, request *StopStreamOutRequest) (_result *StopStreamOutResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &StopStreamOutHeaders{}
+	_result = &StopStreamOutResponse{}
+	_body, _err := client.StopStreamOutWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) StopStreamOutWithOptions(conferenceId *string, request *StopStreamOutRequest, headers *StopStreamOutHeaders, runtime *util.RuntimeOptions) (_result *StopStreamOutResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	conferenceId = openapiutil.GetEncodeParam(conferenceId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StopAllStream)) {
+		body["stopAllStream"] = request.StopAllStream
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StreamId)) {
+		body["streamId"] = request.StreamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &StopStreamOutResponse{}
+	_body, _err := client.DoROARequest(tea.String("StopStreamOut"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)+"/streamOuts/stop"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateVideoConferenceExtInfo(conferenceId *string) (_result *UpdateVideoConferenceExtInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateVideoConferenceExtInfoHeaders{}
+	_result = &UpdateVideoConferenceExtInfoResponse{}
+	_body, _err := client.UpdateVideoConferenceExtInfoWithOptions(conferenceId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateVideoConferenceExtInfoWithOptions(conferenceId *string, headers *UpdateVideoConferenceExtInfoHeaders, runtime *util.RuntimeOptions) (_result *UpdateVideoConferenceExtInfoResponse, _err error) {
+	conferenceId = openapiutil.GetEncodeParam(conferenceId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &UpdateVideoConferenceExtInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateVideoConferenceExtInfo"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)+"/extInfo"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

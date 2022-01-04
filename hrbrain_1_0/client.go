@@ -35,11 +35,11 @@ func (s *SyncDataHeaders) SetXAcsDingtalkAccessToken(v string) *SyncDataHeaders 
 }
 
 type SyncDataRequest struct {
+	Content   *string `json:"content,omitempty" xml:"content,omitempty"`
+	DataId    *string `json:"dataId,omitempty" xml:"dataId,omitempty"`
+	EtlTime   *string `json:"etlTime,omitempty" xml:"etlTime,omitempty"`
 	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
 	SchemaId  *string `json:"schemaId,omitempty" xml:"schemaId,omitempty"`
-	DataId    *string `json:"dataId,omitempty" xml:"dataId,omitempty"`
-	Content   *string `json:"content,omitempty" xml:"content,omitempty"`
-	EtlTime   *string `json:"etlTime,omitempty" xml:"etlTime,omitempty"`
 }
 
 func (s SyncDataRequest) String() string {
@@ -50,13 +50,8 @@ func (s SyncDataRequest) GoString() string {
 	return s.String()
 }
 
-func (s *SyncDataRequest) SetProjectId(v string) *SyncDataRequest {
-	s.ProjectId = &v
-	return s
-}
-
-func (s *SyncDataRequest) SetSchemaId(v string) *SyncDataRequest {
-	s.SchemaId = &v
+func (s *SyncDataRequest) SetContent(v string) *SyncDataRequest {
+	s.Content = &v
 	return s
 }
 
@@ -65,13 +60,18 @@ func (s *SyncDataRequest) SetDataId(v string) *SyncDataRequest {
 	return s
 }
 
-func (s *SyncDataRequest) SetContent(v string) *SyncDataRequest {
-	s.Content = &v
+func (s *SyncDataRequest) SetEtlTime(v string) *SyncDataRequest {
+	s.EtlTime = &v
 	return s
 }
 
-func (s *SyncDataRequest) SetEtlTime(v string) *SyncDataRequest {
-	s.EtlTime = &v
+func (s *SyncDataRequest) SetProjectId(v string) *SyncDataRequest {
+	s.ProjectId = &v
+	return s
+}
+
+func (s *SyncDataRequest) SetSchemaId(v string) *SyncDataRequest {
+	s.SchemaId = &v
 	return s
 }
 
@@ -156,6 +156,18 @@ func (client *Client) SyncDataWithOptions(request *SyncDataRequest, headers *Syn
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DataId)) {
+		body["dataId"] = request.DataId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EtlTime)) {
+		body["etlTime"] = request.EtlTime
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ProjectId)) {
 		body["projectId"] = request.ProjectId
 	}
@@ -164,25 +176,13 @@ func (client *Client) SyncDataWithOptions(request *SyncDataRequest, headers *Syn
 		body["schemaId"] = request.SchemaId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.DataId)) {
-		body["dataId"] = request.DataId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Content)) {
-		body["content"] = request.Content
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.EtlTime)) {
-		body["etlTime"] = request.EtlTime
-	}
-
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{

@@ -35,12 +35,12 @@ func (s *CreateFlashMeetingHeaders) SetXAcsDingtalkAccessToken(v string) *Create
 }
 
 type CreateFlashMeetingRequest struct {
+	// 创建人union id
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
 	// 日程id
 	EventId *string `json:"eventId,omitempty" xml:"eventId,omitempty"`
 	// 钉闪会名称
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 创建人union id
-	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
 }
 
 func (s CreateFlashMeetingRequest) String() string {
@@ -49,6 +49,11 @@ func (s CreateFlashMeetingRequest) String() string {
 
 func (s CreateFlashMeetingRequest) GoString() string {
 	return s.String()
+}
+
+func (s *CreateFlashMeetingRequest) SetCreator(v string) *CreateFlashMeetingRequest {
+	s.Creator = &v
+	return s
 }
 
 func (s *CreateFlashMeetingRequest) SetEventId(v string) *CreateFlashMeetingRequest {
@@ -61,22 +66,17 @@ func (s *CreateFlashMeetingRequest) SetTitle(v string) *CreateFlashMeetingReques
 	return s
 }
 
-func (s *CreateFlashMeetingRequest) SetCreator(v string) *CreateFlashMeetingRequest {
-	s.Creator = &v
-	return s
-}
-
 type CreateFlashMeetingResponseBody struct {
 	// 闪会结束时间
 	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 闪会的key
+	FlashMeetingKey *string `json:"flashMeetingKey,omitempty" xml:"flashMeetingKey,omitempty"`
 	// 闪会开始时间
 	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
 	// 闪会标题
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 	// 闪会url
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 闪会的key
-	FlashMeetingKey *string `json:"flashMeetingKey,omitempty" xml:"flashMeetingKey,omitempty"`
 }
 
 func (s CreateFlashMeetingResponseBody) String() string {
@@ -92,6 +92,11 @@ func (s *CreateFlashMeetingResponseBody) SetEndTime(v int64) *CreateFlashMeeting
 	return s
 }
 
+func (s *CreateFlashMeetingResponseBody) SetFlashMeetingKey(v string) *CreateFlashMeetingResponseBody {
+	s.FlashMeetingKey = &v
+	return s
+}
+
 func (s *CreateFlashMeetingResponseBody) SetStartTime(v int64) *CreateFlashMeetingResponseBody {
 	s.StartTime = &v
 	return s
@@ -104,11 +109,6 @@ func (s *CreateFlashMeetingResponseBody) SetTitle(v string) *CreateFlashMeetingR
 
 func (s *CreateFlashMeetingResponseBody) SetUrl(v string) *CreateFlashMeetingResponseBody {
 	s.Url = &v
-	return s
-}
-
-func (s *CreateFlashMeetingResponseBody) SetFlashMeetingKey(v string) *CreateFlashMeetingResponseBody {
-	s.FlashMeetingKey = &v
 	return s
 }
 
@@ -176,6 +176,10 @@ func (client *Client) CreateFlashMeetingWithOptions(request *CreateFlashMeetingR
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Creator)) {
+		body["creator"] = request.Creator
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.EventId)) {
 		body["eventId"] = request.EventId
 	}
@@ -184,17 +188,13 @@ func (client *Client) CreateFlashMeetingWithOptions(request *CreateFlashMeetingR
 		body["title"] = request.Title
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Creator)) {
-		body["creator"] = request.Creator
-	}
-
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{

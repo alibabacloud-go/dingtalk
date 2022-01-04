@@ -35,14 +35,14 @@ func (s *QueryGoodsListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGoods
 }
 
 type QueryGoodsListRequest struct {
-	// 分页起始值
-	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 分页大小
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 开始时间
-	StartTimeInMills *int64 `json:"startTimeInMills,omitempty" xml:"startTimeInMills,omitempty"`
 	// 结束时间
 	EndTimeInMills *int64 `json:"endTimeInMills,omitempty" xml:"endTimeInMills,omitempty"`
+	// 分页大小
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页起始值
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 开始时间
+	StartTimeInMills *int64 `json:"startTimeInMills,omitempty" xml:"startTimeInMills,omitempty"`
 }
 
 func (s QueryGoodsListRequest) String() string {
@@ -53,8 +53,8 @@ func (s QueryGoodsListRequest) GoString() string {
 	return s.String()
 }
 
-func (s *QueryGoodsListRequest) SetNextToken(v int64) *QueryGoodsListRequest {
-	s.NextToken = &v
+func (s *QueryGoodsListRequest) SetEndTimeInMills(v int64) *QueryGoodsListRequest {
+	s.EndTimeInMills = &v
 	return s
 }
 
@@ -63,21 +63,21 @@ func (s *QueryGoodsListRequest) SetMaxResults(v int64) *QueryGoodsListRequest {
 	return s
 }
 
+func (s *QueryGoodsListRequest) SetNextToken(v int64) *QueryGoodsListRequest {
+	s.NextToken = &v
+	return s
+}
+
 func (s *QueryGoodsListRequest) SetStartTimeInMills(v int64) *QueryGoodsListRequest {
 	s.StartTimeInMills = &v
 	return s
 }
 
-func (s *QueryGoodsListRequest) SetEndTimeInMills(v int64) *QueryGoodsListRequest {
-	s.EndTimeInMills = &v
-	return s
-}
-
 type QueryGoodsListResponseBody struct {
-	// success
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 	// result
 	Result *QueryGoodsListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s QueryGoodsListResponseBody) String() string {
@@ -88,24 +88,24 @@ func (s QueryGoodsListResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *QueryGoodsListResponseBody) SetSuccess(v bool) *QueryGoodsListResponseBody {
-	s.Success = &v
-	return s
-}
-
 func (s *QueryGoodsListResponseBody) SetResult(v *QueryGoodsListResponseBodyResult) *QueryGoodsListResponseBody {
 	s.Result = v
 	return s
 }
 
+func (s *QueryGoodsListResponseBody) SetSuccess(v bool) *QueryGoodsListResponseBody {
+	s.Success = &v
+	return s
+}
+
 type QueryGoodsListResponseBodyResult struct {
 	// 下次获取数据的游标
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 下次获取数据的游标
-	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	HasMore *bool                                   `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*QueryGoodsListResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
 	// 总数
-	MaxResults *int64                                  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	List       []*QueryGoodsListResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 下次获取数据的游标
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryGoodsListResponseBodyResult) String() string {
@@ -116,18 +116,8 @@ func (s QueryGoodsListResponseBodyResult) GoString() string {
 	return s.String()
 }
 
-func (s *QueryGoodsListResponseBodyResult) SetNextToken(v string) *QueryGoodsListResponseBodyResult {
-	s.NextToken = &v
-	return s
-}
-
 func (s *QueryGoodsListResponseBodyResult) SetHasMore(v bool) *QueryGoodsListResponseBodyResult {
 	s.HasMore = &v
-	return s
-}
-
-func (s *QueryGoodsListResponseBodyResult) SetMaxResults(v int64) *QueryGoodsListResponseBodyResult {
-	s.MaxResults = &v
 	return s
 }
 
@@ -136,17 +126,27 @@ func (s *QueryGoodsListResponseBodyResult) SetList(v []*QueryGoodsListResponseBo
 	return s
 }
 
+func (s *QueryGoodsListResponseBodyResult) SetMaxResults(v int64) *QueryGoodsListResponseBodyResult {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryGoodsListResponseBodyResult) SetNextToken(v string) *QueryGoodsListResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
 type QueryGoodsListResponseBodyResultList struct {
-	// 物料ID
-	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	// 物料编号
-	GoodsNo *string `json:"goodsNo,omitempty" xml:"goodsNo,omitempty"`
 	// 物料名称
 	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 计量单位
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 物料编号
+	GoodsNo *string `json:"goodsNo,omitempty" xml:"goodsNo,omitempty"`
+	// 物料ID
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
 	// 规格
 	ProductSpecs *string `json:"productSpecs,omitempty" xml:"productSpecs,omitempty"`
+	// 计量单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryGoodsListResponseBodyResultList) String() string {
@@ -157,8 +157,8 @@ func (s QueryGoodsListResponseBodyResultList) GoString() string {
 	return s.String()
 }
 
-func (s *QueryGoodsListResponseBodyResultList) SetInstanceId(v string) *QueryGoodsListResponseBodyResultList {
-	s.InstanceId = &v
+func (s *QueryGoodsListResponseBodyResultList) SetGoodsName(v string) *QueryGoodsListResponseBodyResultList {
+	s.GoodsName = &v
 	return s
 }
 
@@ -167,18 +167,18 @@ func (s *QueryGoodsListResponseBodyResultList) SetGoodsNo(v string) *QueryGoodsL
 	return s
 }
 
-func (s *QueryGoodsListResponseBodyResultList) SetGoodsName(v string) *QueryGoodsListResponseBodyResultList {
-	s.GoodsName = &v
-	return s
-}
-
-func (s *QueryGoodsListResponseBodyResultList) SetUnit(v string) *QueryGoodsListResponseBodyResultList {
-	s.Unit = &v
+func (s *QueryGoodsListResponseBodyResultList) SetInstanceId(v string) *QueryGoodsListResponseBodyResultList {
+	s.InstanceId = &v
 	return s
 }
 
 func (s *QueryGoodsListResponseBodyResultList) SetProductSpecs(v string) *QueryGoodsListResponseBodyResultList {
 	s.ProductSpecs = &v
+	return s
+}
+
+func (s *QueryGoodsListResponseBodyResultList) SetUnit(v string) *QueryGoodsListResponseBodyResultList {
+	s.Unit = &v
 	return s
 }
 
@@ -246,20 +246,20 @@ func (client *Client) QueryGoodsListWithOptions(request *QueryGoodsListRequest, 
 		return _result, _err
 	}
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
-		query["nextToken"] = request.NextToken
+	if !tea.BoolValue(util.IsUnset(request.EndTimeInMills)) {
+		query["endTimeInMills"] = request.EndTimeInMills
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.StartTimeInMills)) {
-		query["startTimeInMills"] = request.StartTimeInMills
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.EndTimeInMills)) {
-		query["endTimeInMills"] = request.EndTimeInMills
+	if !tea.BoolValue(util.IsUnset(request.StartTimeInMills)) {
+		query["startTimeInMills"] = request.StartTimeInMills
 	}
 
 	realHeaders := make(map[string]*string)
@@ -268,7 +268,7 @@ func (client *Client) QueryGoodsListWithOptions(request *QueryGoodsListRequest, 
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{

@@ -11,6 +11,288 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AddWorkspaceDocMembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddWorkspaceDocMembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddWorkspaceDocMembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddWorkspaceDocMembersHeaders) SetCommonHeaders(v map[string]*string) *AddWorkspaceDocMembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddWorkspaceDocMembersHeaders) SetXAcsDingtalkAccessToken(v string) *AddWorkspaceDocMembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddWorkspaceDocMembersRequest struct {
+	// 被操作用户组
+	Members []*AddWorkspaceDocMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// 发起操作者unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s AddWorkspaceDocMembersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddWorkspaceDocMembersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddWorkspaceDocMembersRequest) SetMembers(v []*AddWorkspaceDocMembersRequestMembers) *AddWorkspaceDocMembersRequest {
+	s.Members = v
+	return s
+}
+
+func (s *AddWorkspaceDocMembersRequest) SetOperatorId(v string) *AddWorkspaceDocMembersRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type AddWorkspaceDocMembersRequestMembers struct {
+	// 被操作用户unionId
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// 用户类型
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// 用户权限
+	RoleType *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
+}
+
+func (s AddWorkspaceDocMembersRequestMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddWorkspaceDocMembersRequestMembers) GoString() string {
+	return s.String()
+}
+
+func (s *AddWorkspaceDocMembersRequestMembers) SetMemberId(v string) *AddWorkspaceDocMembersRequestMembers {
+	s.MemberId = &v
+	return s
+}
+
+func (s *AddWorkspaceDocMembersRequestMembers) SetMemberType(v string) *AddWorkspaceDocMembersRequestMembers {
+	s.MemberType = &v
+	return s
+}
+
+func (s *AddWorkspaceDocMembersRequestMembers) SetRoleType(v string) *AddWorkspaceDocMembersRequestMembers {
+	s.RoleType = &v
+	return s
+}
+
+type AddWorkspaceDocMembersResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s AddWorkspaceDocMembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddWorkspaceDocMembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddWorkspaceDocMembersResponse) SetHeaders(v map[string]*string) *AddWorkspaceDocMembersResponse {
+	s.Headers = v
+	return s
+}
+
+type AddWorkspaceMembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddWorkspaceMembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddWorkspaceMembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddWorkspaceMembersHeaders) SetCommonHeaders(v map[string]*string) *AddWorkspaceMembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddWorkspaceMembersHeaders) SetXAcsDingtalkAccessToken(v string) *AddWorkspaceMembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddWorkspaceMembersRequest struct {
+	// 被操作用户组
+	Members []*AddWorkspaceMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// 发起操作者unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s AddWorkspaceMembersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddWorkspaceMembersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddWorkspaceMembersRequest) SetMembers(v []*AddWorkspaceMembersRequestMembers) *AddWorkspaceMembersRequest {
+	s.Members = v
+	return s
+}
+
+func (s *AddWorkspaceMembersRequest) SetOperatorId(v string) *AddWorkspaceMembersRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type AddWorkspaceMembersRequestMembers struct {
+	// 被操作用户unionId
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// 用户类型
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// 用户权限
+	RoleType *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
+}
+
+func (s AddWorkspaceMembersRequestMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddWorkspaceMembersRequestMembers) GoString() string {
+	return s.String()
+}
+
+func (s *AddWorkspaceMembersRequestMembers) SetMemberId(v string) *AddWorkspaceMembersRequestMembers {
+	s.MemberId = &v
+	return s
+}
+
+func (s *AddWorkspaceMembersRequestMembers) SetMemberType(v string) *AddWorkspaceMembersRequestMembers {
+	s.MemberType = &v
+	return s
+}
+
+func (s *AddWorkspaceMembersRequestMembers) SetRoleType(v string) *AddWorkspaceMembersRequestMembers {
+	s.RoleType = &v
+	return s
+}
+
+type AddWorkspaceMembersResponseBody struct {
+	NotInOrgList []*string `json:"notInOrgList,omitempty" xml:"notInOrgList,omitempty" type:"Repeated"`
+}
+
+func (s AddWorkspaceMembersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddWorkspaceMembersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddWorkspaceMembersResponseBody) SetNotInOrgList(v []*string) *AddWorkspaceMembersResponseBody {
+	s.NotInOrgList = v
+	return s
+}
+
+type AddWorkspaceMembersResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddWorkspaceMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddWorkspaceMembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddWorkspaceMembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddWorkspaceMembersResponse) SetHeaders(v map[string]*string) *AddWorkspaceMembersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddWorkspaceMembersResponse) SetBody(v *AddWorkspaceMembersResponseBody) *AddWorkspaceMembersResponse {
+	s.Body = v
+	return s
+}
+
+type AppendRowsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AppendRowsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendRowsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AppendRowsHeaders) SetCommonHeaders(v map[string]*string) *AppendRowsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AppendRowsHeaders) SetXAcsDingtalkAccessToken(v string) *AppendRowsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AppendRowsRequest struct {
+	// 要追加的值
+	Values [][]*string `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	// 操作人unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s AppendRowsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendRowsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AppendRowsRequest) SetValues(v [][]*string) *AppendRowsRequest {
+	s.Values = v
+	return s
+}
+
+func (s *AppendRowsRequest) SetOperatorId(v string) *AppendRowsRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type AppendRowsResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s AppendRowsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendRowsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AppendRowsResponse) SetHeaders(v map[string]*string) *AppendRowsResponse {
+	s.Headers = v
+	return s
+}
+
 type BatchGetWorkspaceDocsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -35,14 +317,10 @@ func (s *BatchGetWorkspaceDocsHeaders) SetXAcsDingtalkAccessToken(v string) *Bat
 }
 
 type BatchGetWorkspaceDocsRequest struct {
+	// 查询节点Id
+	NodeIds []*string `json:"nodeIds,omitempty" xml:"nodeIds,omitempty" type:"Repeated"`
 	// 操作用户unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 查询节点Id
-	NodeIds             []*string `json:"nodeIds,omitempty" xml:"nodeIds,omitempty" type:"Repeated"`
-	DingIsvOrgId        *int64    `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
-	DingOrgId           *int64    `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingAccessTokenType *string   `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
-	DingUid             *int64    `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
 }
 
 func (s BatchGetWorkspaceDocsRequest) String() string {
@@ -53,33 +331,13 @@ func (s BatchGetWorkspaceDocsRequest) GoString() string {
 	return s.String()
 }
 
-func (s *BatchGetWorkspaceDocsRequest) SetOperatorId(v string) *BatchGetWorkspaceDocsRequest {
-	s.OperatorId = &v
-	return s
-}
-
 func (s *BatchGetWorkspaceDocsRequest) SetNodeIds(v []*string) *BatchGetWorkspaceDocsRequest {
 	s.NodeIds = v
 	return s
 }
 
-func (s *BatchGetWorkspaceDocsRequest) SetDingIsvOrgId(v int64) *BatchGetWorkspaceDocsRequest {
-	s.DingIsvOrgId = &v
-	return s
-}
-
-func (s *BatchGetWorkspaceDocsRequest) SetDingOrgId(v int64) *BatchGetWorkspaceDocsRequest {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *BatchGetWorkspaceDocsRequest) SetDingAccessTokenType(v string) *BatchGetWorkspaceDocsRequest {
-	s.DingAccessTokenType = &v
-	return s
-}
-
-func (s *BatchGetWorkspaceDocsRequest) SetDingUid(v int64) *BatchGetWorkspaceDocsRequest {
-	s.DingUid = &v
+func (s *BatchGetWorkspaceDocsRequest) SetOperatorId(v string) *BatchGetWorkspaceDocsRequest {
+	s.OperatorId = &v
 	return s
 }
 
@@ -101,9 +359,9 @@ func (s *BatchGetWorkspaceDocsResponseBody) SetResult(v []*BatchGetWorkspaceDocs
 }
 
 type BatchGetWorkspaceDocsResponseBodyResult struct {
+	HasPermission *bool                                               `json:"hasPermission,omitempty" xml:"hasPermission,omitempty"`
 	NodeBO        *BatchGetWorkspaceDocsResponseBodyResultNodeBO      `json:"nodeBO,omitempty" xml:"nodeBO,omitempty" type:"Struct"`
 	WorkspaceBO   *BatchGetWorkspaceDocsResponseBodyResultWorkspaceBO `json:"workspaceBO,omitempty" xml:"workspaceBO,omitempty" type:"Struct"`
-	HasPermission *bool                                               `json:"hasPermission,omitempty" xml:"hasPermission,omitempty"`
 }
 
 func (s BatchGetWorkspaceDocsResponseBodyResult) String() string {
@@ -112,6 +370,11 @@ func (s BatchGetWorkspaceDocsResponseBodyResult) String() string {
 
 func (s BatchGetWorkspaceDocsResponseBodyResult) GoString() string {
 	return s.String()
+}
+
+func (s *BatchGetWorkspaceDocsResponseBodyResult) SetHasPermission(v bool) *BatchGetWorkspaceDocsResponseBodyResult {
+	s.HasPermission = &v
+	return s
 }
 
 func (s *BatchGetWorkspaceDocsResponseBodyResult) SetNodeBO(v *BatchGetWorkspaceDocsResponseBodyResultNodeBO) *BatchGetWorkspaceDocsResponseBodyResult {
@@ -124,16 +387,11 @@ func (s *BatchGetWorkspaceDocsResponseBodyResult) SetWorkspaceBO(v *BatchGetWork
 	return s
 }
 
-func (s *BatchGetWorkspaceDocsResponseBodyResult) SetHasPermission(v bool) *BatchGetWorkspaceDocsResponseBodyResult {
-	s.HasPermission = &v
-	return s
-}
-
 type BatchGetWorkspaceDocsResponseBodyResultNodeBO struct {
+	Deleted *bool   `json:"deleted,omitempty" xml:"deleted,omitempty"`
 	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
 	NodeId  *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
 	Url     *string `json:"url,omitempty" xml:"url,omitempty"`
-	Deleted *bool   `json:"deleted,omitempty" xml:"deleted,omitempty"`
 }
 
 func (s BatchGetWorkspaceDocsResponseBodyResultNodeBO) String() string {
@@ -142,6 +400,11 @@ func (s BatchGetWorkspaceDocsResponseBodyResultNodeBO) String() string {
 
 func (s BatchGetWorkspaceDocsResponseBodyResultNodeBO) GoString() string {
 	return s.String()
+}
+
+func (s *BatchGetWorkspaceDocsResponseBodyResultNodeBO) SetDeleted(v bool) *BatchGetWorkspaceDocsResponseBodyResultNodeBO {
+	s.Deleted = &v
+	return s
 }
 
 func (s *BatchGetWorkspaceDocsResponseBodyResultNodeBO) SetName(v string) *BatchGetWorkspaceDocsResponseBodyResultNodeBO {
@@ -159,14 +422,9 @@ func (s *BatchGetWorkspaceDocsResponseBodyResultNodeBO) SetUrl(v string) *BatchG
 	return s
 }
 
-func (s *BatchGetWorkspaceDocsResponseBodyResultNodeBO) SetDeleted(v bool) *BatchGetWorkspaceDocsResponseBodyResultNodeBO {
-	s.Deleted = &v
-	return s
-}
-
 type BatchGetWorkspaceDocsResponseBodyResultWorkspaceBO struct {
-	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
 func (s BatchGetWorkspaceDocsResponseBodyResultWorkspaceBO) String() string {
@@ -177,13 +435,13 @@ func (s BatchGetWorkspaceDocsResponseBodyResultWorkspaceBO) GoString() string {
 	return s.String()
 }
 
-func (s *BatchGetWorkspaceDocsResponseBodyResultWorkspaceBO) SetWorkspaceId(v string) *BatchGetWorkspaceDocsResponseBodyResultWorkspaceBO {
-	s.WorkspaceId = &v
+func (s *BatchGetWorkspaceDocsResponseBodyResultWorkspaceBO) SetName(v string) *BatchGetWorkspaceDocsResponseBodyResultWorkspaceBO {
+	s.Name = &v
 	return s
 }
 
-func (s *BatchGetWorkspaceDocsResponseBodyResultWorkspaceBO) SetName(v string) *BatchGetWorkspaceDocsResponseBodyResultWorkspaceBO {
-	s.Name = &v
+func (s *BatchGetWorkspaceDocsResponseBodyResultWorkspaceBO) SetWorkspaceId(v string) *BatchGetWorkspaceDocsResponseBodyResultWorkspaceBO {
+	s.WorkspaceId = &v
 	return s
 }
 
@@ -206,6 +464,556 @@ func (s *BatchGetWorkspaceDocsResponse) SetHeaders(v map[string]*string) *BatchG
 }
 
 func (s *BatchGetWorkspaceDocsResponse) SetBody(v *BatchGetWorkspaceDocsResponseBody) *BatchGetWorkspaceDocsResponse {
+	s.Body = v
+	return s
+}
+
+type BatchGetWorkspacesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchGetWorkspacesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetWorkspacesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetWorkspacesHeaders) SetCommonHeaders(v map[string]*string) *BatchGetWorkspacesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchGetWorkspacesHeaders) SetXAcsDingtalkAccessToken(v string) *BatchGetWorkspacesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchGetWorkspacesRequest struct {
+	// 是否查询最近访问文档
+	IncludeRecent *bool `json:"includeRecent,omitempty" xml:"includeRecent,omitempty"`
+	// 操作用户unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// 待查询空间Id
+	WorkspaceIds []*string `json:"workspaceIds,omitempty" xml:"workspaceIds,omitempty" type:"Repeated"`
+}
+
+func (s BatchGetWorkspacesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetWorkspacesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetWorkspacesRequest) SetIncludeRecent(v bool) *BatchGetWorkspacesRequest {
+	s.IncludeRecent = &v
+	return s
+}
+
+func (s *BatchGetWorkspacesRequest) SetOperatorId(v string) *BatchGetWorkspacesRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *BatchGetWorkspacesRequest) SetWorkspaceIds(v []*string) *BatchGetWorkspacesRequest {
+	s.WorkspaceIds = v
+	return s
+}
+
+type BatchGetWorkspacesResponseBody struct {
+	// workspace信息
+	Workspaces []*BatchGetWorkspacesResponseBodyWorkspaces `json:"workspaces,omitempty" xml:"workspaces,omitempty" type:"Repeated"`
+}
+
+func (s BatchGetWorkspacesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetWorkspacesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetWorkspacesResponseBody) SetWorkspaces(v []*BatchGetWorkspacesResponseBodyWorkspaces) *BatchGetWorkspacesResponseBody {
+	s.Workspaces = v
+	return s
+}
+
+type BatchGetWorkspacesResponseBodyWorkspaces struct {
+	// 是否有访问团队空间权限
+	HasPermission *bool `json:"hasPermission,omitempty" xml:"hasPermission,omitempty"`
+	// 团队空间信息
+	Workspace *BatchGetWorkspacesResponseBodyWorkspacesWorkspace `json:"workspace,omitempty" xml:"workspace,omitempty" type:"Struct"`
+}
+
+func (s BatchGetWorkspacesResponseBodyWorkspaces) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetWorkspacesResponseBodyWorkspaces) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetWorkspacesResponseBodyWorkspaces) SetHasPermission(v bool) *BatchGetWorkspacesResponseBodyWorkspaces {
+	s.HasPermission = &v
+	return s
+}
+
+func (s *BatchGetWorkspacesResponseBodyWorkspaces) SetWorkspace(v *BatchGetWorkspacesResponseBodyWorkspacesWorkspace) *BatchGetWorkspacesResponseBodyWorkspaces {
+	s.Workspace = v
+	return s
+}
+
+type BatchGetWorkspacesResponseBodyWorkspacesWorkspace struct {
+	// 团队空间创建时间
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 团队空间名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 是否全员公开
+	OrgPublished *bool `json:"orgPublished,omitempty" xml:"orgPublished,omitempty"`
+	// 最近访问列表
+	RecentList []*BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
+	// 团队空间打开url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 团队空间Id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+}
+
+func (s BatchGetWorkspacesResponseBodyWorkspacesWorkspace) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetWorkspacesResponseBodyWorkspacesWorkspace) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspace) SetCreateTime(v int64) *BatchGetWorkspacesResponseBodyWorkspacesWorkspace {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspace) SetName(v string) *BatchGetWorkspacesResponseBodyWorkspacesWorkspace {
+	s.Name = &v
+	return s
+}
+
+func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspace) SetOrgPublished(v bool) *BatchGetWorkspacesResponseBodyWorkspacesWorkspace {
+	s.OrgPublished = &v
+	return s
+}
+
+func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspace) SetRecentList(v []*BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) *BatchGetWorkspacesResponseBodyWorkspacesWorkspace {
+	s.RecentList = v
+	return s
+}
+
+func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspace) SetUrl(v string) *BatchGetWorkspacesResponseBodyWorkspacesWorkspace {
+	s.Url = &v
+	return s
+}
+
+func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspace) SetWorkspaceId(v string) *BatchGetWorkspacesResponseBodyWorkspacesWorkspace {
+	s.WorkspaceId = &v
+	return s
+}
+
+type BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList struct {
+	// 最近编辑时间
+	LastEditTime *string `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
+	// 文档名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 文档Id
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// 文档打开url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) SetLastEditTime(v string) *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList {
+	s.LastEditTime = &v
+	return s
+}
+
+func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) SetName(v string) *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList {
+	s.Name = &v
+	return s
+}
+
+func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) SetNodeId(v string) *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList {
+	s.NodeId = &v
+	return s
+}
+
+func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) SetUrl(v string) *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList {
+	s.Url = &v
+	return s
+}
+
+type BatchGetWorkspacesResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchGetWorkspacesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchGetWorkspacesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetWorkspacesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetWorkspacesResponse) SetHeaders(v map[string]*string) *BatchGetWorkspacesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchGetWorkspacesResponse) SetBody(v *BatchGetWorkspacesResponseBody) *BatchGetWorkspacesResponse {
+	s.Body = v
+	return s
+}
+
+type CreateSheetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateSheetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSheetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSheetHeaders) SetCommonHeaders(v map[string]*string) *CreateSheetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateSheetHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSheetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateSheetRequest struct {
+	// 工作表名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 操作人unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s CreateSheetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSheetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSheetRequest) SetName(v string) *CreateSheetRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateSheetRequest) SetOperatorId(v string) *CreateSheetRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type CreateSheetResponseBody struct {
+	// 创建的工作表的名称。当输入参数中的工作表名称在表格中已存在时，可能与输入参数指定的工作表名称不同。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 工作表可见性
+	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
+}
+
+func (s CreateSheetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSheetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSheetResponseBody) SetName(v string) *CreateSheetResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateSheetResponseBody) SetVisibility(v string) *CreateSheetResponseBody {
+	s.Visibility = &v
+	return s
+}
+
+type CreateSheetResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateSheetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateSheetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSheetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSheetResponse) SetHeaders(v map[string]*string) *CreateSheetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateSheetResponse) SetBody(v *CreateSheetResponseBody) *CreateSheetResponse {
+	s.Body = v
+	return s
+}
+
+type CreateWorkspaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateWorkspaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkspaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkspaceHeaders) SetCommonHeaders(v map[string]*string) *CreateWorkspaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateWorkspaceHeaders) SetXAcsDingtalkAccessToken(v string) *CreateWorkspaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateWorkspaceRequest struct {
+	// 团队空间描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 团队空间名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 用户id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s CreateWorkspaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkspaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkspaceRequest) SetDescription(v string) *CreateWorkspaceRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *CreateWorkspaceRequest) SetName(v string) *CreateWorkspaceRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateWorkspaceRequest) SetOperatorId(v string) *CreateWorkspaceRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type CreateWorkspaceResponseBody struct {
+	// 工作空间描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 工作空间名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 工作空间打开url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 工作空间id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+}
+
+func (s CreateWorkspaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkspaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkspaceResponseBody) SetDescription(v string) *CreateWorkspaceResponseBody {
+	s.Description = &v
+	return s
+}
+
+func (s *CreateWorkspaceResponseBody) SetName(v string) *CreateWorkspaceResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateWorkspaceResponseBody) SetUrl(v string) *CreateWorkspaceResponseBody {
+	s.Url = &v
+	return s
+}
+
+func (s *CreateWorkspaceResponseBody) SetWorkspaceId(v string) *CreateWorkspaceResponseBody {
+	s.WorkspaceId = &v
+	return s
+}
+
+type CreateWorkspaceResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateWorkspaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateWorkspaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkspaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkspaceResponse) SetHeaders(v map[string]*string) *CreateWorkspaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateWorkspaceResponse) SetBody(v *CreateWorkspaceResponseBody) *CreateWorkspaceResponse {
+	s.Body = v
+	return s
+}
+
+type CreateWorkspaceDocHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateWorkspaceDocHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkspaceDocHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkspaceDocHeaders) SetCommonHeaders(v map[string]*string) *CreateWorkspaceDocHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateWorkspaceDocHeaders) SetXAcsDingtalkAccessToken(v string) *CreateWorkspaceDocHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateWorkspaceDocRequest struct {
+	// 文档类型
+	DocType *string `json:"docType,omitempty" xml:"docType,omitempty"`
+	// 文档名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 操作人unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// 父节点nodeId
+	ParentNodeId *string `json:"parentNodeId,omitempty" xml:"parentNodeId,omitempty"`
+}
+
+func (s CreateWorkspaceDocRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkspaceDocRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkspaceDocRequest) SetDocType(v string) *CreateWorkspaceDocRequest {
+	s.DocType = &v
+	return s
+}
+
+func (s *CreateWorkspaceDocRequest) SetName(v string) *CreateWorkspaceDocRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateWorkspaceDocRequest) SetOperatorId(v string) *CreateWorkspaceDocRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *CreateWorkspaceDocRequest) SetParentNodeId(v string) *CreateWorkspaceDocRequest {
+	s.ParentNodeId = &v
+	return s
+}
+
+type CreateWorkspaceDocResponseBody struct {
+	// 文档docKey
+	DocKey *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
+	// 文档Id
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// 文档打开url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 团队空间Id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+}
+
+func (s CreateWorkspaceDocResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkspaceDocResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkspaceDocResponseBody) SetDocKey(v string) *CreateWorkspaceDocResponseBody {
+	s.DocKey = &v
+	return s
+}
+
+func (s *CreateWorkspaceDocResponseBody) SetNodeId(v string) *CreateWorkspaceDocResponseBody {
+	s.NodeId = &v
+	return s
+}
+
+func (s *CreateWorkspaceDocResponseBody) SetUrl(v string) *CreateWorkspaceDocResponseBody {
+	s.Url = &v
+	return s
+}
+
+func (s *CreateWorkspaceDocResponseBody) SetWorkspaceId(v string) *CreateWorkspaceDocResponseBody {
+	s.WorkspaceId = &v
+	return s
+}
+
+type CreateWorkspaceDocResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateWorkspaceDocResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateWorkspaceDocResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkspaceDocResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkspaceDocResponse) SetHeaders(v map[string]*string) *CreateWorkspaceDocResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateWorkspaceDocResponse) SetBody(v *CreateWorkspaceDocResponseBody) *CreateWorkspaceDocResponse {
 	s.Body = v
 	return s
 }
@@ -268,464 +1076,6 @@ func (s *DeleteSheetResponse) SetHeaders(v map[string]*string) *DeleteSheetRespo
 	return s
 }
 
-type UpdateWorkspaceDocMembersHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s UpdateWorkspaceDocMembersHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateWorkspaceDocMembersHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateWorkspaceDocMembersHeaders) SetCommonHeaders(v map[string]*string) *UpdateWorkspaceDocMembersHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *UpdateWorkspaceDocMembersHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateWorkspaceDocMembersHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type UpdateWorkspaceDocMembersRequest struct {
-	// 发起操作者unionId
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 被操作用户组
-	Members []*UpdateWorkspaceDocMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-}
-
-func (s UpdateWorkspaceDocMembersRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateWorkspaceDocMembersRequest) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateWorkspaceDocMembersRequest) SetOperatorId(v string) *UpdateWorkspaceDocMembersRequest {
-	s.OperatorId = &v
-	return s
-}
-
-func (s *UpdateWorkspaceDocMembersRequest) SetMembers(v []*UpdateWorkspaceDocMembersRequestMembers) *UpdateWorkspaceDocMembersRequest {
-	s.Members = v
-	return s
-}
-
-type UpdateWorkspaceDocMembersRequestMembers struct {
-	// 被操作用户unionId
-	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
-	// 用户类型
-	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
-	// 用户权限
-	RoleType *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
-}
-
-func (s UpdateWorkspaceDocMembersRequestMembers) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateWorkspaceDocMembersRequestMembers) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateWorkspaceDocMembersRequestMembers) SetMemberId(v string) *UpdateWorkspaceDocMembersRequestMembers {
-	s.MemberId = &v
-	return s
-}
-
-func (s *UpdateWorkspaceDocMembersRequestMembers) SetMemberType(v string) *UpdateWorkspaceDocMembersRequestMembers {
-	s.MemberType = &v
-	return s
-}
-
-func (s *UpdateWorkspaceDocMembersRequestMembers) SetRoleType(v string) *UpdateWorkspaceDocMembersRequestMembers {
-	s.RoleType = &v
-	return s
-}
-
-type UpdateWorkspaceDocMembersResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-}
-
-func (s UpdateWorkspaceDocMembersResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateWorkspaceDocMembersResponse) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateWorkspaceDocMembersResponse) SetHeaders(v map[string]*string) *UpdateWorkspaceDocMembersResponse {
-	s.Headers = v
-	return s
-}
-
-type CreateWorkspaceDocHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s CreateWorkspaceDocHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateWorkspaceDocHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *CreateWorkspaceDocHeaders) SetCommonHeaders(v map[string]*string) *CreateWorkspaceDocHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *CreateWorkspaceDocHeaders) SetXAcsDingtalkAccessToken(v string) *CreateWorkspaceDocHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type CreateWorkspaceDocRequest struct {
-	// 文档名
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 文档类型
-	DocType *string `json:"docType,omitempty" xml:"docType,omitempty"`
-	// 操作人unionId
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 父节点nodeId
-	ParentNodeId *string `json:"parentNodeId,omitempty" xml:"parentNodeId,omitempty"`
-}
-
-func (s CreateWorkspaceDocRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateWorkspaceDocRequest) GoString() string {
-	return s.String()
-}
-
-func (s *CreateWorkspaceDocRequest) SetName(v string) *CreateWorkspaceDocRequest {
-	s.Name = &v
-	return s
-}
-
-func (s *CreateWorkspaceDocRequest) SetDocType(v string) *CreateWorkspaceDocRequest {
-	s.DocType = &v
-	return s
-}
-
-func (s *CreateWorkspaceDocRequest) SetOperatorId(v string) *CreateWorkspaceDocRequest {
-	s.OperatorId = &v
-	return s
-}
-
-func (s *CreateWorkspaceDocRequest) SetParentNodeId(v string) *CreateWorkspaceDocRequest {
-	s.ParentNodeId = &v
-	return s
-}
-
-type CreateWorkspaceDocResponseBody struct {
-	// 团队空间Id
-	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
-	// 文档Id
-	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
-	// 文档docKey
-	DocKey *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
-	// 文档打开url
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-}
-
-func (s CreateWorkspaceDocResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateWorkspaceDocResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *CreateWorkspaceDocResponseBody) SetWorkspaceId(v string) *CreateWorkspaceDocResponseBody {
-	s.WorkspaceId = &v
-	return s
-}
-
-func (s *CreateWorkspaceDocResponseBody) SetNodeId(v string) *CreateWorkspaceDocResponseBody {
-	s.NodeId = &v
-	return s
-}
-
-func (s *CreateWorkspaceDocResponseBody) SetDocKey(v string) *CreateWorkspaceDocResponseBody {
-	s.DocKey = &v
-	return s
-}
-
-func (s *CreateWorkspaceDocResponseBody) SetUrl(v string) *CreateWorkspaceDocResponseBody {
-	s.Url = &v
-	return s
-}
-
-type CreateWorkspaceDocResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateWorkspaceDocResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s CreateWorkspaceDocResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateWorkspaceDocResponse) GoString() string {
-	return s.String()
-}
-
-func (s *CreateWorkspaceDocResponse) SetHeaders(v map[string]*string) *CreateWorkspaceDocResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *CreateWorkspaceDocResponse) SetBody(v *CreateWorkspaceDocResponseBody) *CreateWorkspaceDocResponse {
-	s.Body = v
-	return s
-}
-
-type CreateSheetHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s CreateSheetHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateSheetHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *CreateSheetHeaders) SetCommonHeaders(v map[string]*string) *CreateSheetHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *CreateSheetHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSheetHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type CreateSheetRequest struct {
-	// 操作人unionId
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 工作表名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-}
-
-func (s CreateSheetRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateSheetRequest) GoString() string {
-	return s.String()
-}
-
-func (s *CreateSheetRequest) SetOperatorId(v string) *CreateSheetRequest {
-	s.OperatorId = &v
-	return s
-}
-
-func (s *CreateSheetRequest) SetName(v string) *CreateSheetRequest {
-	s.Name = &v
-	return s
-}
-
-type CreateSheetResponseBody struct {
-	// 工作表可见性
-	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
-	// 创建的工作表的名称。当输入参数中的工作表名称在表格中已存在时，可能与输入参数指定的工作表名称不同。
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-}
-
-func (s CreateSheetResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateSheetResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *CreateSheetResponseBody) SetVisibility(v string) *CreateSheetResponseBody {
-	s.Visibility = &v
-	return s
-}
-
-func (s *CreateSheetResponseBody) SetName(v string) *CreateSheetResponseBody {
-	s.Name = &v
-	return s
-}
-
-type CreateSheetResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateSheetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s CreateSheetResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateSheetResponse) GoString() string {
-	return s.String()
-}
-
-func (s *CreateSheetResponse) SetHeaders(v map[string]*string) *CreateSheetResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *CreateSheetResponse) SetBody(v *CreateSheetResponseBody) *CreateSheetResponse {
-	s.Body = v
-	return s
-}
-
-type CreateWorkspaceHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s CreateWorkspaceHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateWorkspaceHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *CreateWorkspaceHeaders) SetCommonHeaders(v map[string]*string) *CreateWorkspaceHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *CreateWorkspaceHeaders) SetXAcsDingtalkAccessToken(v string) *CreateWorkspaceHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type CreateWorkspaceRequest struct {
-	// 团队空间名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 团队空间描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 用户id
-	OperatorId          *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	DingOrgId           *int64  `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingUid             *int64  `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
-	DingAccessTokenType *string `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
-	DingIsvOrgId        *int64  `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
-}
-
-func (s CreateWorkspaceRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateWorkspaceRequest) GoString() string {
-	return s.String()
-}
-
-func (s *CreateWorkspaceRequest) SetName(v string) *CreateWorkspaceRequest {
-	s.Name = &v
-	return s
-}
-
-func (s *CreateWorkspaceRequest) SetDescription(v string) *CreateWorkspaceRequest {
-	s.Description = &v
-	return s
-}
-
-func (s *CreateWorkspaceRequest) SetOperatorId(v string) *CreateWorkspaceRequest {
-	s.OperatorId = &v
-	return s
-}
-
-func (s *CreateWorkspaceRequest) SetDingOrgId(v int64) *CreateWorkspaceRequest {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *CreateWorkspaceRequest) SetDingUid(v int64) *CreateWorkspaceRequest {
-	s.DingUid = &v
-	return s
-}
-
-func (s *CreateWorkspaceRequest) SetDingAccessTokenType(v string) *CreateWorkspaceRequest {
-	s.DingAccessTokenType = &v
-	return s
-}
-
-func (s *CreateWorkspaceRequest) SetDingIsvOrgId(v int64) *CreateWorkspaceRequest {
-	s.DingIsvOrgId = &v
-	return s
-}
-
-type CreateWorkspaceResponseBody struct {
-	// 工作空间id
-	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
-	// 工作空间名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 工作空间描述
-	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 工作空间打开url
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-}
-
-func (s CreateWorkspaceResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateWorkspaceResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *CreateWorkspaceResponseBody) SetWorkspaceId(v string) *CreateWorkspaceResponseBody {
-	s.WorkspaceId = &v
-	return s
-}
-
-func (s *CreateWorkspaceResponseBody) SetName(v string) *CreateWorkspaceResponseBody {
-	s.Name = &v
-	return s
-}
-
-func (s *CreateWorkspaceResponseBody) SetDescription(v string) *CreateWorkspaceResponseBody {
-	s.Description = &v
-	return s
-}
-
-func (s *CreateWorkspaceResponseBody) SetUrl(v string) *CreateWorkspaceResponseBody {
-	s.Url = &v
-	return s
-}
-
-type CreateWorkspaceResponse struct {
-	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *CreateWorkspaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s CreateWorkspaceResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateWorkspaceResponse) GoString() string {
-	return s.String()
-}
-
-func (s *CreateWorkspaceResponse) SetHeaders(v map[string]*string) *CreateWorkspaceResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *CreateWorkspaceResponse) SetBody(v *CreateWorkspaceResponseBody) *CreateWorkspaceResponse {
-	s.Body = v
-	return s
-}
-
 type DeleteWorkspaceDocMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -750,10 +1100,10 @@ func (s *DeleteWorkspaceDocMembersHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type DeleteWorkspaceDocMembersRequest struct {
-	// 发起操作者unionId
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 	// 被操作用户组
 	Members []*DeleteWorkspaceDocMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// 发起操作者unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s DeleteWorkspaceDocMembersRequest) String() string {
@@ -764,13 +1114,13 @@ func (s DeleteWorkspaceDocMembersRequest) GoString() string {
 	return s.String()
 }
 
-func (s *DeleteWorkspaceDocMembersRequest) SetOperatorId(v string) *DeleteWorkspaceDocMembersRequest {
-	s.OperatorId = &v
+func (s *DeleteWorkspaceDocMembersRequest) SetMembers(v []*DeleteWorkspaceDocMembersRequestMembers) *DeleteWorkspaceDocMembersRequest {
+	s.Members = v
 	return s
 }
 
-func (s *DeleteWorkspaceDocMembersRequest) SetMembers(v []*DeleteWorkspaceDocMembersRequestMembers) *DeleteWorkspaceDocMembersRequest {
-	s.Members = v
+func (s *DeleteWorkspaceDocMembersRequest) SetOperatorId(v string) *DeleteWorkspaceDocMembersRequest {
+	s.OperatorId = &v
 	return s
 }
 
@@ -816,606 +1166,6 @@ func (s *DeleteWorkspaceDocMembersResponse) SetHeaders(v map[string]*string) *De
 	return s
 }
 
-type GetWorkspaceHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s GetWorkspaceHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetWorkspaceHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *GetWorkspaceHeaders) SetCommonHeaders(v map[string]*string) *GetWorkspaceHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *GetWorkspaceHeaders) SetXAcsDingtalkAccessToken(v string) *GetWorkspaceHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type GetWorkspaceResponseBody struct {
-	Url       *string `json:"url,omitempty" xml:"url,omitempty"`
-	IsDeleted *bool   `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	Owner     *string `json:"owner,omitempty" xml:"owner,omitempty"`
-	// 团队空间所属企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-}
-
-func (s GetWorkspaceResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetWorkspaceResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *GetWorkspaceResponseBody) SetUrl(v string) *GetWorkspaceResponseBody {
-	s.Url = &v
-	return s
-}
-
-func (s *GetWorkspaceResponseBody) SetIsDeleted(v bool) *GetWorkspaceResponseBody {
-	s.IsDeleted = &v
-	return s
-}
-
-func (s *GetWorkspaceResponseBody) SetOwner(v string) *GetWorkspaceResponseBody {
-	s.Owner = &v
-	return s
-}
-
-func (s *GetWorkspaceResponseBody) SetCorpId(v string) *GetWorkspaceResponseBody {
-	s.CorpId = &v
-	return s
-}
-
-type GetWorkspaceResponse struct {
-	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetWorkspaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s GetWorkspaceResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetWorkspaceResponse) GoString() string {
-	return s.String()
-}
-
-func (s *GetWorkspaceResponse) SetHeaders(v map[string]*string) *GetWorkspaceResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *GetWorkspaceResponse) SetBody(v *GetWorkspaceResponseBody) *GetWorkspaceResponse {
-	s.Body = v
-	return s
-}
-
-type SearchWorkspaceDocsHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s SearchWorkspaceDocsHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SearchWorkspaceDocsHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *SearchWorkspaceDocsHeaders) SetCommonHeaders(v map[string]*string) *SearchWorkspaceDocsHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *SearchWorkspaceDocsHeaders) SetXAcsDingtalkAccessToken(v string) *SearchWorkspaceDocsHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type SearchWorkspaceDocsRequest struct {
-	// 团队空间Id
-	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
-	// 发起操作用户unionId
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 搜索关键字
-	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
-	// 搜索数量
-	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 翻页Id
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-}
-
-func (s SearchWorkspaceDocsRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SearchWorkspaceDocsRequest) GoString() string {
-	return s.String()
-}
-
-func (s *SearchWorkspaceDocsRequest) SetWorkspaceId(v string) *SearchWorkspaceDocsRequest {
-	s.WorkspaceId = &v
-	return s
-}
-
-func (s *SearchWorkspaceDocsRequest) SetOperatorId(v string) *SearchWorkspaceDocsRequest {
-	s.OperatorId = &v
-	return s
-}
-
-func (s *SearchWorkspaceDocsRequest) SetKeyword(v string) *SearchWorkspaceDocsRequest {
-	s.Keyword = &v
-	return s
-}
-
-func (s *SearchWorkspaceDocsRequest) SetMaxResults(v int32) *SearchWorkspaceDocsRequest {
-	s.MaxResults = &v
-	return s
-}
-
-func (s *SearchWorkspaceDocsRequest) SetNextToken(v string) *SearchWorkspaceDocsRequest {
-	s.NextToken = &v
-	return s
-}
-
-type SearchWorkspaceDocsResponseBody struct {
-	// 是否还有可搜索内容
-	HasMore   *bool                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextToken *string                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Docs      []*SearchWorkspaceDocsResponseBodyDocs `json:"docs,omitempty" xml:"docs,omitempty" type:"Repeated"`
-}
-
-func (s SearchWorkspaceDocsResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SearchWorkspaceDocsResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *SearchWorkspaceDocsResponseBody) SetHasMore(v bool) *SearchWorkspaceDocsResponseBody {
-	s.HasMore = &v
-	return s
-}
-
-func (s *SearchWorkspaceDocsResponseBody) SetNextToken(v string) *SearchWorkspaceDocsResponseBody {
-	s.NextToken = &v
-	return s
-}
-
-func (s *SearchWorkspaceDocsResponseBody) SetDocs(v []*SearchWorkspaceDocsResponseBodyDocs) *SearchWorkspaceDocsResponseBody {
-	s.Docs = v
-	return s
-}
-
-type SearchWorkspaceDocsResponseBodyDocs struct {
-	NodeBO      *SearchWorkspaceDocsResponseBodyDocsNodeBO      `json:"nodeBO,omitempty" xml:"nodeBO,omitempty" type:"Struct"`
-	WorkspaceBO *SearchWorkspaceDocsResponseBodyDocsWorkspaceBO `json:"workspaceBO,omitempty" xml:"workspaceBO,omitempty" type:"Struct"`
-}
-
-func (s SearchWorkspaceDocsResponseBodyDocs) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SearchWorkspaceDocsResponseBodyDocs) GoString() string {
-	return s.String()
-}
-
-func (s *SearchWorkspaceDocsResponseBodyDocs) SetNodeBO(v *SearchWorkspaceDocsResponseBodyDocsNodeBO) *SearchWorkspaceDocsResponseBodyDocs {
-	s.NodeBO = v
-	return s
-}
-
-func (s *SearchWorkspaceDocsResponseBodyDocs) SetWorkspaceBO(v *SearchWorkspaceDocsResponseBodyDocsWorkspaceBO) *SearchWorkspaceDocsResponseBodyDocs {
-	s.WorkspaceBO = v
-	return s
-}
-
-type SearchWorkspaceDocsResponseBodyDocsNodeBO struct {
-	// 节点名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 节点Id
-	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
-	// 节点打开url
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 最近编辑时间
-	LastEditTime *int64 `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
-}
-
-func (s SearchWorkspaceDocsResponseBodyDocsNodeBO) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SearchWorkspaceDocsResponseBodyDocsNodeBO) GoString() string {
-	return s.String()
-}
-
-func (s *SearchWorkspaceDocsResponseBodyDocsNodeBO) SetName(v string) *SearchWorkspaceDocsResponseBodyDocsNodeBO {
-	s.Name = &v
-	return s
-}
-
-func (s *SearchWorkspaceDocsResponseBodyDocsNodeBO) SetNodeId(v string) *SearchWorkspaceDocsResponseBodyDocsNodeBO {
-	s.NodeId = &v
-	return s
-}
-
-func (s *SearchWorkspaceDocsResponseBodyDocsNodeBO) SetUrl(v string) *SearchWorkspaceDocsResponseBodyDocsNodeBO {
-	s.Url = &v
-	return s
-}
-
-func (s *SearchWorkspaceDocsResponseBodyDocsNodeBO) SetLastEditTime(v int64) *SearchWorkspaceDocsResponseBodyDocsNodeBO {
-	s.LastEditTime = &v
-	return s
-}
-
-type SearchWorkspaceDocsResponseBodyDocsWorkspaceBO struct {
-	// 团队空间Id
-	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
-	// 团队空间名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-}
-
-func (s SearchWorkspaceDocsResponseBodyDocsWorkspaceBO) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SearchWorkspaceDocsResponseBodyDocsWorkspaceBO) GoString() string {
-	return s.String()
-}
-
-func (s *SearchWorkspaceDocsResponseBodyDocsWorkspaceBO) SetWorkspaceId(v string) *SearchWorkspaceDocsResponseBodyDocsWorkspaceBO {
-	s.WorkspaceId = &v
-	return s
-}
-
-func (s *SearchWorkspaceDocsResponseBodyDocsWorkspaceBO) SetName(v string) *SearchWorkspaceDocsResponseBodyDocsWorkspaceBO {
-	s.Name = &v
-	return s
-}
-
-type SearchWorkspaceDocsResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SearchWorkspaceDocsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s SearchWorkspaceDocsResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SearchWorkspaceDocsResponse) GoString() string {
-	return s.String()
-}
-
-func (s *SearchWorkspaceDocsResponse) SetHeaders(v map[string]*string) *SearchWorkspaceDocsResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *SearchWorkspaceDocsResponse) SetBody(v *SearchWorkspaceDocsResponseBody) *SearchWorkspaceDocsResponse {
-	s.Body = v
-	return s
-}
-
-type UpdateRangeHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s UpdateRangeHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateRangeHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateRangeHeaders) SetCommonHeaders(v map[string]*string) *UpdateRangeHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *UpdateRangeHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRangeHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type UpdateRangeRequest struct {
-	// 操作人unionId
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 值
-	Values [][]*string `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
-	// 背景色
-	BackgroundColors [][]*string `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
-}
-
-func (s UpdateRangeRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateRangeRequest) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateRangeRequest) SetOperatorId(v string) *UpdateRangeRequest {
-	s.OperatorId = &v
-	return s
-}
-
-func (s *UpdateRangeRequest) SetValues(v [][]*string) *UpdateRangeRequest {
-	s.Values = v
-	return s
-}
-
-func (s *UpdateRangeRequest) SetBackgroundColors(v [][]*string) *UpdateRangeRequest {
-	s.BackgroundColors = v
-	return s
-}
-
-type UpdateRangeResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-}
-
-func (s UpdateRangeResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateRangeResponse) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateRangeResponse) SetHeaders(v map[string]*string) *UpdateRangeResponse {
-	s.Headers = v
-	return s
-}
-
-type BatchGetWorkspacesHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s BatchGetWorkspacesHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s BatchGetWorkspacesHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *BatchGetWorkspacesHeaders) SetCommonHeaders(v map[string]*string) *BatchGetWorkspacesHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *BatchGetWorkspacesHeaders) SetXAcsDingtalkAccessToken(v string) *BatchGetWorkspacesHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type BatchGetWorkspacesRequest struct {
-	// 操作用户unionId
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 是否查询最近访问文档
-	IncludeRecent *bool `json:"includeRecent,omitempty" xml:"includeRecent,omitempty"`
-	// 待查询空间Id
-	WorkspaceIds        []*string `json:"workspaceIds,omitempty" xml:"workspaceIds,omitempty" type:"Repeated"`
-	DingOrgId           *int64    `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingIsvOrgId        *int64    `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
-	DingUid             *int64    `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
-	DingAccessTokenType *string   `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
-}
-
-func (s BatchGetWorkspacesRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s BatchGetWorkspacesRequest) GoString() string {
-	return s.String()
-}
-
-func (s *BatchGetWorkspacesRequest) SetOperatorId(v string) *BatchGetWorkspacesRequest {
-	s.OperatorId = &v
-	return s
-}
-
-func (s *BatchGetWorkspacesRequest) SetIncludeRecent(v bool) *BatchGetWorkspacesRequest {
-	s.IncludeRecent = &v
-	return s
-}
-
-func (s *BatchGetWorkspacesRequest) SetWorkspaceIds(v []*string) *BatchGetWorkspacesRequest {
-	s.WorkspaceIds = v
-	return s
-}
-
-func (s *BatchGetWorkspacesRequest) SetDingOrgId(v int64) *BatchGetWorkspacesRequest {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *BatchGetWorkspacesRequest) SetDingIsvOrgId(v int64) *BatchGetWorkspacesRequest {
-	s.DingIsvOrgId = &v
-	return s
-}
-
-func (s *BatchGetWorkspacesRequest) SetDingUid(v int64) *BatchGetWorkspacesRequest {
-	s.DingUid = &v
-	return s
-}
-
-func (s *BatchGetWorkspacesRequest) SetDingAccessTokenType(v string) *BatchGetWorkspacesRequest {
-	s.DingAccessTokenType = &v
-	return s
-}
-
-type BatchGetWorkspacesResponseBody struct {
-	// workspace信息
-	Workspaces []*BatchGetWorkspacesResponseBodyWorkspaces `json:"workspaces,omitempty" xml:"workspaces,omitempty" type:"Repeated"`
-}
-
-func (s BatchGetWorkspacesResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s BatchGetWorkspacesResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *BatchGetWorkspacesResponseBody) SetWorkspaces(v []*BatchGetWorkspacesResponseBodyWorkspaces) *BatchGetWorkspacesResponseBody {
-	s.Workspaces = v
-	return s
-}
-
-type BatchGetWorkspacesResponseBodyWorkspaces struct {
-	// 是否有访问团队空间权限
-	HasPermission *bool `json:"hasPermission,omitempty" xml:"hasPermission,omitempty"`
-	// 团队空间信息
-	Workspace *BatchGetWorkspacesResponseBodyWorkspacesWorkspace `json:"workspace,omitempty" xml:"workspace,omitempty" type:"Struct"`
-}
-
-func (s BatchGetWorkspacesResponseBodyWorkspaces) String() string {
-	return tea.Prettify(s)
-}
-
-func (s BatchGetWorkspacesResponseBodyWorkspaces) GoString() string {
-	return s.String()
-}
-
-func (s *BatchGetWorkspacesResponseBodyWorkspaces) SetHasPermission(v bool) *BatchGetWorkspacesResponseBodyWorkspaces {
-	s.HasPermission = &v
-	return s
-}
-
-func (s *BatchGetWorkspacesResponseBodyWorkspaces) SetWorkspace(v *BatchGetWorkspacesResponseBodyWorkspacesWorkspace) *BatchGetWorkspacesResponseBodyWorkspaces {
-	s.Workspace = v
-	return s
-}
-
-type BatchGetWorkspacesResponseBodyWorkspacesWorkspace struct {
-	// 团队空间Id
-	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
-	// 团队空间名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 团队空间打开url
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 最近访问列表
-	RecentList []*BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
-	// 是否全员公开
-	OrgPublished *bool `json:"orgPublished,omitempty" xml:"orgPublished,omitempty"`
-	// 团队空间创建时间
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-}
-
-func (s BatchGetWorkspacesResponseBodyWorkspacesWorkspace) String() string {
-	return tea.Prettify(s)
-}
-
-func (s BatchGetWorkspacesResponseBodyWorkspacesWorkspace) GoString() string {
-	return s.String()
-}
-
-func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspace) SetWorkspaceId(v string) *BatchGetWorkspacesResponseBodyWorkspacesWorkspace {
-	s.WorkspaceId = &v
-	return s
-}
-
-func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspace) SetName(v string) *BatchGetWorkspacesResponseBodyWorkspacesWorkspace {
-	s.Name = &v
-	return s
-}
-
-func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspace) SetUrl(v string) *BatchGetWorkspacesResponseBodyWorkspacesWorkspace {
-	s.Url = &v
-	return s
-}
-
-func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspace) SetRecentList(v []*BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) *BatchGetWorkspacesResponseBodyWorkspacesWorkspace {
-	s.RecentList = v
-	return s
-}
-
-func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspace) SetOrgPublished(v bool) *BatchGetWorkspacesResponseBodyWorkspacesWorkspace {
-	s.OrgPublished = &v
-	return s
-}
-
-func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspace) SetCreateTime(v int64) *BatchGetWorkspacesResponseBodyWorkspacesWorkspace {
-	s.CreateTime = &v
-	return s
-}
-
-type BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList struct {
-	// 文档Id
-	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
-	// 文档名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 文档打开url
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 最近编辑时间
-	LastEditTime *string `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
-}
-
-func (s BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) GoString() string {
-	return s.String()
-}
-
-func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) SetNodeId(v string) *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList {
-	s.NodeId = &v
-	return s
-}
-
-func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) SetName(v string) *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList {
-	s.Name = &v
-	return s
-}
-
-func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) SetUrl(v string) *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList {
-	s.Url = &v
-	return s
-}
-
-func (s *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList) SetLastEditTime(v string) *BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList {
-	s.LastEditTime = &v
-	return s
-}
-
-type BatchGetWorkspacesResponse struct {
-	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *BatchGetWorkspacesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s BatchGetWorkspacesResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s BatchGetWorkspacesResponse) GoString() string {
-	return s.String()
-}
-
-func (s *BatchGetWorkspacesResponse) SetHeaders(v map[string]*string) *BatchGetWorkspacesResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *BatchGetWorkspacesResponse) SetBody(v *BatchGetWorkspacesResponseBody) *BatchGetWorkspacesResponse {
-	s.Body = v
-	return s
-}
-
 type DeleteWorkspaceMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1440,10 +1190,10 @@ func (s *DeleteWorkspaceMembersHeaders) SetXAcsDingtalkAccessToken(v string) *De
 }
 
 type DeleteWorkspaceMembersRequest struct {
-	// 发起操作者unionId
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 	// 被操作用户组
 	Members []*DeleteWorkspaceMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// 发起操作者unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s DeleteWorkspaceMembersRequest) String() string {
@@ -1454,13 +1204,13 @@ func (s DeleteWorkspaceMembersRequest) GoString() string {
 	return s.String()
 }
 
-func (s *DeleteWorkspaceMembersRequest) SetOperatorId(v string) *DeleteWorkspaceMembersRequest {
-	s.OperatorId = &v
+func (s *DeleteWorkspaceMembersRequest) SetMembers(v []*DeleteWorkspaceMembersRequestMembers) *DeleteWorkspaceMembersRequest {
+	s.Members = v
 	return s
 }
 
-func (s *DeleteWorkspaceMembersRequest) SetMembers(v []*DeleteWorkspaceMembersRequestMembers) *DeleteWorkspaceMembersRequest {
-	s.Members = v
+func (s *DeleteWorkspaceMembersRequest) SetOperatorId(v string) *DeleteWorkspaceMembersRequest {
+	s.OperatorId = &v
 	return s
 }
 
@@ -1506,197 +1256,394 @@ func (s *DeleteWorkspaceMembersResponse) SetHeaders(v map[string]*string) *Delet
 	return s
 }
 
-type AddWorkspaceDocMembersHeaders struct {
+type GetRecentEditDocsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s AddWorkspaceDocMembersHeaders) String() string {
+func (s GetRecentEditDocsHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s AddWorkspaceDocMembersHeaders) GoString() string {
+func (s GetRecentEditDocsHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *AddWorkspaceDocMembersHeaders) SetCommonHeaders(v map[string]*string) *AddWorkspaceDocMembersHeaders {
+func (s *GetRecentEditDocsHeaders) SetCommonHeaders(v map[string]*string) *GetRecentEditDocsHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *AddWorkspaceDocMembersHeaders) SetXAcsDingtalkAccessToken(v string) *AddWorkspaceDocMembersHeaders {
+func (s *GetRecentEditDocsHeaders) SetXAcsDingtalkAccessToken(v string) *GetRecentEditDocsHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type AddWorkspaceDocMembersRequest struct {
-	// 发起操作者unionId
+type GetRecentEditDocsRequest struct {
+	// 查询size
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 发起操作用户unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 被操作用户组
-	Members []*AddWorkspaceDocMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
 }
 
-func (s AddWorkspaceDocMembersRequest) String() string {
+func (s GetRecentEditDocsRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s AddWorkspaceDocMembersRequest) GoString() string {
+func (s GetRecentEditDocsRequest) GoString() string {
 	return s.String()
 }
 
-func (s *AddWorkspaceDocMembersRequest) SetOperatorId(v string) *AddWorkspaceDocMembersRequest {
+func (s *GetRecentEditDocsRequest) SetMaxResults(v int32) *GetRecentEditDocsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetRecentEditDocsRequest) SetNextToken(v string) *GetRecentEditDocsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetRecentEditDocsRequest) SetOperatorId(v string) *GetRecentEditDocsRequest {
 	s.OperatorId = &v
 	return s
 }
 
-func (s *AddWorkspaceDocMembersRequest) SetMembers(v []*AddWorkspaceDocMembersRequestMembers) *AddWorkspaceDocMembersRequest {
-	s.Members = v
-	return s
+type GetRecentEditDocsResponseBody struct {
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 查询结果
+	RecentList []*GetRecentEditDocsResponseBodyRecentList `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
 }
 
-type AddWorkspaceDocMembersRequestMembers struct {
-	// 被操作用户unionId
-	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
-	// 用户类型
-	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
-	// 用户权限
-	RoleType *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
-}
-
-func (s AddWorkspaceDocMembersRequestMembers) String() string {
+func (s GetRecentEditDocsResponseBody) String() string {
 	return tea.Prettify(s)
 }
 
-func (s AddWorkspaceDocMembersRequestMembers) GoString() string {
+func (s GetRecentEditDocsResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *AddWorkspaceDocMembersRequestMembers) SetMemberId(v string) *AddWorkspaceDocMembersRequestMembers {
-	s.MemberId = &v
+func (s *GetRecentEditDocsResponseBody) SetNextToken(v string) *GetRecentEditDocsResponseBody {
+	s.NextToken = &v
 	return s
 }
 
-func (s *AddWorkspaceDocMembersRequestMembers) SetMemberType(v string) *AddWorkspaceDocMembersRequestMembers {
-	s.MemberType = &v
+func (s *GetRecentEditDocsResponseBody) SetRecentList(v []*GetRecentEditDocsResponseBodyRecentList) *GetRecentEditDocsResponseBody {
+	s.RecentList = v
 	return s
 }
 
-func (s *AddWorkspaceDocMembersRequestMembers) SetRoleType(v string) *AddWorkspaceDocMembersRequestMembers {
-	s.RoleType = &v
-	return s
+type GetRecentEditDocsResponseBodyRecentList struct {
+	// 文档信息
+	NodeBO *GetRecentEditDocsResponseBodyRecentListNodeBO `json:"nodeBO,omitempty" xml:"nodeBO,omitempty" type:"Struct"`
+	// 团队空间信息
+	WorkspaceBO *GetRecentEditDocsResponseBodyRecentListWorkspaceBO `json:"workspaceBO,omitempty" xml:"workspaceBO,omitempty" type:"Struct"`
 }
 
-type AddWorkspaceDocMembersResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-}
-
-func (s AddWorkspaceDocMembersResponse) String() string {
+func (s GetRecentEditDocsResponseBodyRecentList) String() string {
 	return tea.Prettify(s)
 }
 
-func (s AddWorkspaceDocMembersResponse) GoString() string {
+func (s GetRecentEditDocsResponseBodyRecentList) GoString() string {
 	return s.String()
 }
 
-func (s *AddWorkspaceDocMembersResponse) SetHeaders(v map[string]*string) *AddWorkspaceDocMembersResponse {
+func (s *GetRecentEditDocsResponseBodyRecentList) SetNodeBO(v *GetRecentEditDocsResponseBodyRecentListNodeBO) *GetRecentEditDocsResponseBodyRecentList {
+	s.NodeBO = v
+	return s
+}
+
+func (s *GetRecentEditDocsResponseBodyRecentList) SetWorkspaceBO(v *GetRecentEditDocsResponseBodyRecentListWorkspaceBO) *GetRecentEditDocsResponseBodyRecentList {
+	s.WorkspaceBO = v
+	return s
+}
+
+type GetRecentEditDocsResponseBodyRecentListNodeBO struct {
+	// 是否被删除
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// 最后编辑时间
+	LastEditTime *int64 `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
+	// 文档Id
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// 文档名称
+	NodeName *string `json:"nodeName,omitempty" xml:"nodeName,omitempty"`
+	// 文档打开url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s GetRecentEditDocsResponseBodyRecentListNodeBO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecentEditDocsResponseBodyRecentListNodeBO) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetIsDeleted(v bool) *GetRecentEditDocsResponseBodyRecentListNodeBO {
+	s.IsDeleted = &v
+	return s
+}
+
+func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetLastEditTime(v int64) *GetRecentEditDocsResponseBodyRecentListNodeBO {
+	s.LastEditTime = &v
+	return s
+}
+
+func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetNodeId(v string) *GetRecentEditDocsResponseBodyRecentListNodeBO {
+	s.NodeId = &v
+	return s
+}
+
+func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetNodeName(v string) *GetRecentEditDocsResponseBodyRecentListNodeBO {
+	s.NodeName = &v
+	return s
+}
+
+func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetUrl(v string) *GetRecentEditDocsResponseBodyRecentListNodeBO {
+	s.Url = &v
+	return s
+}
+
+type GetRecentEditDocsResponseBodyRecentListWorkspaceBO struct {
+	// 团队空间Id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	// 团队空间名称
+	WorkspaceName *string `json:"workspaceName,omitempty" xml:"workspaceName,omitempty"`
+}
+
+func (s GetRecentEditDocsResponseBodyRecentListWorkspaceBO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecentEditDocsResponseBodyRecentListWorkspaceBO) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecentEditDocsResponseBodyRecentListWorkspaceBO) SetWorkspaceId(v string) *GetRecentEditDocsResponseBodyRecentListWorkspaceBO {
+	s.WorkspaceId = &v
+	return s
+}
+
+func (s *GetRecentEditDocsResponseBodyRecentListWorkspaceBO) SetWorkspaceName(v string) *GetRecentEditDocsResponseBodyRecentListWorkspaceBO {
+	s.WorkspaceName = &v
+	return s
+}
+
+type GetRecentEditDocsResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetRecentEditDocsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetRecentEditDocsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecentEditDocsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecentEditDocsResponse) SetHeaders(v map[string]*string) *GetRecentEditDocsResponse {
 	s.Headers = v
 	return s
 }
 
-type UpdateWorkspaceMembersHeaders struct {
+func (s *GetRecentEditDocsResponse) SetBody(v *GetRecentEditDocsResponseBody) *GetRecentEditDocsResponse {
+	s.Body = v
+	return s
+}
+
+type GetRelatedWorkspacesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s UpdateWorkspaceMembersHeaders) String() string {
+func (s GetRelatedWorkspacesHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s UpdateWorkspaceMembersHeaders) GoString() string {
+func (s GetRelatedWorkspacesHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateWorkspaceMembersHeaders) SetCommonHeaders(v map[string]*string) *UpdateWorkspaceMembersHeaders {
+func (s *GetRelatedWorkspacesHeaders) SetCommonHeaders(v map[string]*string) *GetRelatedWorkspacesHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *UpdateWorkspaceMembersHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateWorkspaceMembersHeaders {
+func (s *GetRelatedWorkspacesHeaders) SetXAcsDingtalkAccessToken(v string) *GetRelatedWorkspacesHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type UpdateWorkspaceMembersRequest struct {
-	// 发起操作者unionId
+type GetRelatedWorkspacesRequest struct {
+	// 是否查询最近访问文档列表
+	IncludeRecent *bool `json:"includeRecent,omitempty" xml:"includeRecent,omitempty"`
+	// 发起操作用户unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 被操作用户组
-	Members []*UpdateWorkspaceMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
 }
 
-func (s UpdateWorkspaceMembersRequest) String() string {
+func (s GetRelatedWorkspacesRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s UpdateWorkspaceMembersRequest) GoString() string {
+func (s GetRelatedWorkspacesRequest) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateWorkspaceMembersRequest) SetOperatorId(v string) *UpdateWorkspaceMembersRequest {
+func (s *GetRelatedWorkspacesRequest) SetIncludeRecent(v bool) *GetRelatedWorkspacesRequest {
+	s.IncludeRecent = &v
+	return s
+}
+
+func (s *GetRelatedWorkspacesRequest) SetOperatorId(v string) *GetRelatedWorkspacesRequest {
 	s.OperatorId = &v
 	return s
 }
 
-func (s *UpdateWorkspaceMembersRequest) SetMembers(v []*UpdateWorkspaceMembersRequestMembers) *UpdateWorkspaceMembersRequest {
-	s.Members = v
-	return s
+type GetRelatedWorkspacesResponseBody struct {
+	// 团队空间结果集
+	Workspaces []*GetRelatedWorkspacesResponseBodyWorkspaces `json:"workspaces,omitempty" xml:"workspaces,omitempty" type:"Repeated"`
 }
 
-type UpdateWorkspaceMembersRequestMembers struct {
-	// 被操作用户unionId
-	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
-	// 用户类型
-	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
-	// 用户权限
-	RoleType *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
-}
-
-func (s UpdateWorkspaceMembersRequestMembers) String() string {
+func (s GetRelatedWorkspacesResponseBody) String() string {
 	return tea.Prettify(s)
 }
 
-func (s UpdateWorkspaceMembersRequestMembers) GoString() string {
+func (s GetRelatedWorkspacesResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateWorkspaceMembersRequestMembers) SetMemberId(v string) *UpdateWorkspaceMembersRequestMembers {
-	s.MemberId = &v
+func (s *GetRelatedWorkspacesResponseBody) SetWorkspaces(v []*GetRelatedWorkspacesResponseBodyWorkspaces) *GetRelatedWorkspacesResponseBody {
+	s.Workspaces = v
 	return s
 }
 
-func (s *UpdateWorkspaceMembersRequestMembers) SetMemberType(v string) *UpdateWorkspaceMembersRequestMembers {
-	s.MemberType = &v
-	return s
+type GetRelatedWorkspacesResponseBodyWorkspaces struct {
+	// 团队空间创建时间
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 团队空间是否被删除
+	Deleted *bool `json:"deleted,omitempty" xml:"deleted,omitempty"`
+	// 团队空间名称
+	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
+	Owner *string `json:"owner,omitempty" xml:"owner,omitempty"`
+	// 团队空间最近访问文档列表
+	RecentList []*GetRelatedWorkspacesResponseBodyWorkspacesRecentList `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
+	// 用户的角色
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
+	// 团队空间打开url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 团队空间Id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
-func (s *UpdateWorkspaceMembersRequestMembers) SetRoleType(v string) *UpdateWorkspaceMembersRequestMembers {
-	s.RoleType = &v
-	return s
-}
-
-type UpdateWorkspaceMembersResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-}
-
-func (s UpdateWorkspaceMembersResponse) String() string {
+func (s GetRelatedWorkspacesResponseBodyWorkspaces) String() string {
 	return tea.Prettify(s)
 }
 
-func (s UpdateWorkspaceMembersResponse) GoString() string {
+func (s GetRelatedWorkspacesResponseBodyWorkspaces) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateWorkspaceMembersResponse) SetHeaders(v map[string]*string) *UpdateWorkspaceMembersResponse {
+func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetCreateTime(v int64) *GetRelatedWorkspacesResponseBodyWorkspaces {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetDeleted(v bool) *GetRelatedWorkspacesResponseBodyWorkspaces {
+	s.Deleted = &v
+	return s
+}
+
+func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetName(v string) *GetRelatedWorkspacesResponseBodyWorkspaces {
+	s.Name = &v
+	return s
+}
+
+func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetOwner(v string) *GetRelatedWorkspacesResponseBodyWorkspaces {
+	s.Owner = &v
+	return s
+}
+
+func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetRecentList(v []*GetRelatedWorkspacesResponseBodyWorkspacesRecentList) *GetRelatedWorkspacesResponseBodyWorkspaces {
+	s.RecentList = v
+	return s
+}
+
+func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetRole(v string) *GetRelatedWorkspacesResponseBodyWorkspaces {
+	s.Role = &v
+	return s
+}
+
+func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetUrl(v string) *GetRelatedWorkspacesResponseBodyWorkspaces {
+	s.Url = &v
+	return s
+}
+
+func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetWorkspaceId(v string) *GetRelatedWorkspacesResponseBodyWorkspaces {
+	s.WorkspaceId = &v
+	return s
+}
+
+type GetRelatedWorkspacesResponseBodyWorkspacesRecentList struct {
+	// 文档最后编辑时间
+	LastEditTime *int64 `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
+	// 文档名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 文档id
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// 文档打开url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s GetRelatedWorkspacesResponseBodyWorkspacesRecentList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelatedWorkspacesResponseBodyWorkspacesRecentList) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelatedWorkspacesResponseBodyWorkspacesRecentList) SetLastEditTime(v int64) *GetRelatedWorkspacesResponseBodyWorkspacesRecentList {
+	s.LastEditTime = &v
+	return s
+}
+
+func (s *GetRelatedWorkspacesResponseBodyWorkspacesRecentList) SetName(v string) *GetRelatedWorkspacesResponseBodyWorkspacesRecentList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetRelatedWorkspacesResponseBodyWorkspacesRecentList) SetNodeId(v string) *GetRelatedWorkspacesResponseBodyWorkspacesRecentList {
+	s.NodeId = &v
+	return s
+}
+
+func (s *GetRelatedWorkspacesResponseBodyWorkspacesRecentList) SetUrl(v string) *GetRelatedWorkspacesResponseBodyWorkspacesRecentList {
+	s.Url = &v
+	return s
+}
+
+type GetRelatedWorkspacesResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetRelatedWorkspacesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetRelatedWorkspacesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelatedWorkspacesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelatedWorkspacesResponse) SetHeaders(v map[string]*string) *GetRelatedWorkspacesResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GetRelatedWorkspacesResponse) SetBody(v *GetRelatedWorkspacesResponseBody) *GetRelatedWorkspacesResponse {
+	s.Body = v
 	return s
 }
 
@@ -1789,513 +1736,84 @@ func (s *GetSheetResponse) SetBody(v *GetSheetResponseBody) *GetSheetResponse {
 	return s
 }
 
-type GetRelatedWorkspacesHeaders struct {
+type GetWorkspaceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s GetRelatedWorkspacesHeaders) String() string {
+func (s GetWorkspaceHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetRelatedWorkspacesHeaders) GoString() string {
+func (s GetWorkspaceHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *GetRelatedWorkspacesHeaders) SetCommonHeaders(v map[string]*string) *GetRelatedWorkspacesHeaders {
+func (s *GetWorkspaceHeaders) SetCommonHeaders(v map[string]*string) *GetWorkspaceHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *GetRelatedWorkspacesHeaders) SetXAcsDingtalkAccessToken(v string) *GetRelatedWorkspacesHeaders {
+func (s *GetWorkspaceHeaders) SetXAcsDingtalkAccessToken(v string) *GetWorkspaceHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type GetRelatedWorkspacesRequest struct {
-	// 发起操作用户unionId
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 是否查询最近访问文档列表
-	IncludeRecent *bool `json:"includeRecent,omitempty" xml:"includeRecent,omitempty"`
+type GetWorkspaceResponseBody struct {
+	// 团队空间所属企业id
+	CorpId    *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	IsDeleted *bool   `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	Owner     *string `json:"owner,omitempty" xml:"owner,omitempty"`
+	Url       *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
-func (s GetRelatedWorkspacesRequest) String() string {
+func (s GetWorkspaceResponseBody) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetRelatedWorkspacesRequest) GoString() string {
+func (s GetWorkspaceResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *GetRelatedWorkspacesRequest) SetOperatorId(v string) *GetRelatedWorkspacesRequest {
-	s.OperatorId = &v
+func (s *GetWorkspaceResponseBody) SetCorpId(v string) *GetWorkspaceResponseBody {
+	s.CorpId = &v
 	return s
 }
 
-func (s *GetRelatedWorkspacesRequest) SetIncludeRecent(v bool) *GetRelatedWorkspacesRequest {
-	s.IncludeRecent = &v
-	return s
-}
-
-type GetRelatedWorkspacesResponseBody struct {
-	// 团队空间结果集
-	Workspaces []*GetRelatedWorkspacesResponseBodyWorkspaces `json:"workspaces,omitempty" xml:"workspaces,omitempty" type:"Repeated"`
-}
-
-func (s GetRelatedWorkspacesResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetRelatedWorkspacesResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *GetRelatedWorkspacesResponseBody) SetWorkspaces(v []*GetRelatedWorkspacesResponseBodyWorkspaces) *GetRelatedWorkspacesResponseBody {
-	s.Workspaces = v
-	return s
-}
-
-type GetRelatedWorkspacesResponseBodyWorkspaces struct {
-	// 团队空间Id
-	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
-	// 团队空间打开url
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 团队空间是否被删除
-	Deleted *bool   `json:"deleted,omitempty" xml:"deleted,omitempty"`
-	Owner   *string `json:"owner,omitempty" xml:"owner,omitempty"`
-	// 用户的角色
-	Role *string `json:"role,omitempty" xml:"role,omitempty"`
-	// 团队空间名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 团队空间最近访问文档列表
-	RecentList []*GetRelatedWorkspacesResponseBodyWorkspacesRecentList `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
-	// 团队空间创建时间
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-}
-
-func (s GetRelatedWorkspacesResponseBodyWorkspaces) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetRelatedWorkspacesResponseBodyWorkspaces) GoString() string {
-	return s.String()
-}
-
-func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetWorkspaceId(v string) *GetRelatedWorkspacesResponseBodyWorkspaces {
-	s.WorkspaceId = &v
-	return s
-}
-
-func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetUrl(v string) *GetRelatedWorkspacesResponseBodyWorkspaces {
-	s.Url = &v
-	return s
-}
-
-func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetDeleted(v bool) *GetRelatedWorkspacesResponseBodyWorkspaces {
-	s.Deleted = &v
-	return s
-}
-
-func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetOwner(v string) *GetRelatedWorkspacesResponseBodyWorkspaces {
-	s.Owner = &v
-	return s
-}
-
-func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetRole(v string) *GetRelatedWorkspacesResponseBodyWorkspaces {
-	s.Role = &v
-	return s
-}
-
-func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetName(v string) *GetRelatedWorkspacesResponseBodyWorkspaces {
-	s.Name = &v
-	return s
-}
-
-func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetRecentList(v []*GetRelatedWorkspacesResponseBodyWorkspacesRecentList) *GetRelatedWorkspacesResponseBodyWorkspaces {
-	s.RecentList = v
-	return s
-}
-
-func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetCreateTime(v int64) *GetRelatedWorkspacesResponseBodyWorkspaces {
-	s.CreateTime = &v
-	return s
-}
-
-type GetRelatedWorkspacesResponseBodyWorkspacesRecentList struct {
-	// 文档id
-	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
-	// 文档名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 文档打开url
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 文档最后编辑时间
-	LastEditTime *int64 `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
-}
-
-func (s GetRelatedWorkspacesResponseBodyWorkspacesRecentList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetRelatedWorkspacesResponseBodyWorkspacesRecentList) GoString() string {
-	return s.String()
-}
-
-func (s *GetRelatedWorkspacesResponseBodyWorkspacesRecentList) SetNodeId(v string) *GetRelatedWorkspacesResponseBodyWorkspacesRecentList {
-	s.NodeId = &v
-	return s
-}
-
-func (s *GetRelatedWorkspacesResponseBodyWorkspacesRecentList) SetName(v string) *GetRelatedWorkspacesResponseBodyWorkspacesRecentList {
-	s.Name = &v
-	return s
-}
-
-func (s *GetRelatedWorkspacesResponseBodyWorkspacesRecentList) SetUrl(v string) *GetRelatedWorkspacesResponseBodyWorkspacesRecentList {
-	s.Url = &v
-	return s
-}
-
-func (s *GetRelatedWorkspacesResponseBodyWorkspacesRecentList) SetLastEditTime(v int64) *GetRelatedWorkspacesResponseBodyWorkspacesRecentList {
-	s.LastEditTime = &v
-	return s
-}
-
-type GetRelatedWorkspacesResponse struct {
-	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetRelatedWorkspacesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s GetRelatedWorkspacesResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetRelatedWorkspacesResponse) GoString() string {
-	return s.String()
-}
-
-func (s *GetRelatedWorkspacesResponse) SetHeaders(v map[string]*string) *GetRelatedWorkspacesResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *GetRelatedWorkspacesResponse) SetBody(v *GetRelatedWorkspacesResponseBody) *GetRelatedWorkspacesResponse {
-	s.Body = v
-	return s
-}
-
-type GetRecentEditDocsHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s GetRecentEditDocsHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetRecentEditDocsHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *GetRecentEditDocsHeaders) SetCommonHeaders(v map[string]*string) *GetRecentEditDocsHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *GetRecentEditDocsHeaders) SetXAcsDingtalkAccessToken(v string) *GetRecentEditDocsHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type GetRecentEditDocsRequest struct {
-	// 发起操作用户unionId
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 查询size
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-}
-
-func (s GetRecentEditDocsRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetRecentEditDocsRequest) GoString() string {
-	return s.String()
-}
-
-func (s *GetRecentEditDocsRequest) SetOperatorId(v string) *GetRecentEditDocsRequest {
-	s.OperatorId = &v
-	return s
-}
-
-func (s *GetRecentEditDocsRequest) SetMaxResults(v int32) *GetRecentEditDocsRequest {
-	s.MaxResults = &v
-	return s
-}
-
-func (s *GetRecentEditDocsRequest) SetNextToken(v string) *GetRecentEditDocsRequest {
-	s.NextToken = &v
-	return s
-}
-
-type GetRecentEditDocsResponseBody struct {
-	// 查询结果
-	RecentList []*GetRecentEditDocsResponseBodyRecentList `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
-	NextToken  *string                                    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-}
-
-func (s GetRecentEditDocsResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetRecentEditDocsResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *GetRecentEditDocsResponseBody) SetRecentList(v []*GetRecentEditDocsResponseBodyRecentList) *GetRecentEditDocsResponseBody {
-	s.RecentList = v
-	return s
-}
-
-func (s *GetRecentEditDocsResponseBody) SetNextToken(v string) *GetRecentEditDocsResponseBody {
-	s.NextToken = &v
-	return s
-}
-
-type GetRecentEditDocsResponseBodyRecentList struct {
-	// 文档信息
-	NodeBO *GetRecentEditDocsResponseBodyRecentListNodeBO `json:"nodeBO,omitempty" xml:"nodeBO,omitempty" type:"Struct"`
-	// 团队空间信息
-	WorkspaceBO *GetRecentEditDocsResponseBodyRecentListWorkspaceBO `json:"workspaceBO,omitempty" xml:"workspaceBO,omitempty" type:"Struct"`
-}
-
-func (s GetRecentEditDocsResponseBodyRecentList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetRecentEditDocsResponseBodyRecentList) GoString() string {
-	return s.String()
-}
-
-func (s *GetRecentEditDocsResponseBodyRecentList) SetNodeBO(v *GetRecentEditDocsResponseBodyRecentListNodeBO) *GetRecentEditDocsResponseBodyRecentList {
-	s.NodeBO = v
-	return s
-}
-
-func (s *GetRecentEditDocsResponseBodyRecentList) SetWorkspaceBO(v *GetRecentEditDocsResponseBodyRecentListWorkspaceBO) *GetRecentEditDocsResponseBodyRecentList {
-	s.WorkspaceBO = v
-	return s
-}
-
-type GetRecentEditDocsResponseBodyRecentListNodeBO struct {
-	// 文档Id
-	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
-	// 文档名称
-	NodeName *string `json:"nodeName,omitempty" xml:"nodeName,omitempty"`
-	// 文档打开url
-	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 最后编辑时间
-	LastEditTime *int64 `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
-	// 是否被删除
-	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-}
-
-func (s GetRecentEditDocsResponseBodyRecentListNodeBO) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetRecentEditDocsResponseBodyRecentListNodeBO) GoString() string {
-	return s.String()
-}
-
-func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetNodeId(v string) *GetRecentEditDocsResponseBodyRecentListNodeBO {
-	s.NodeId = &v
-	return s
-}
-
-func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetNodeName(v string) *GetRecentEditDocsResponseBodyRecentListNodeBO {
-	s.NodeName = &v
-	return s
-}
-
-func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetUrl(v string) *GetRecentEditDocsResponseBodyRecentListNodeBO {
-	s.Url = &v
-	return s
-}
-
-func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetLastEditTime(v int64) *GetRecentEditDocsResponseBodyRecentListNodeBO {
-	s.LastEditTime = &v
-	return s
-}
-
-func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetIsDeleted(v bool) *GetRecentEditDocsResponseBodyRecentListNodeBO {
+func (s *GetWorkspaceResponseBody) SetIsDeleted(v bool) *GetWorkspaceResponseBody {
 	s.IsDeleted = &v
 	return s
 }
 
-type GetRecentEditDocsResponseBodyRecentListWorkspaceBO struct {
-	// 团队空间Id
-	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
-	// 团队空间名称
-	WorkspaceName *string `json:"workspaceName,omitempty" xml:"workspaceName,omitempty"`
-}
-
-func (s GetRecentEditDocsResponseBodyRecentListWorkspaceBO) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetRecentEditDocsResponseBodyRecentListWorkspaceBO) GoString() string {
-	return s.String()
-}
-
-func (s *GetRecentEditDocsResponseBodyRecentListWorkspaceBO) SetWorkspaceId(v string) *GetRecentEditDocsResponseBodyRecentListWorkspaceBO {
-	s.WorkspaceId = &v
+func (s *GetWorkspaceResponseBody) SetOwner(v string) *GetWorkspaceResponseBody {
+	s.Owner = &v
 	return s
 }
 
-func (s *GetRecentEditDocsResponseBodyRecentListWorkspaceBO) SetWorkspaceName(v string) *GetRecentEditDocsResponseBodyRecentListWorkspaceBO {
-	s.WorkspaceName = &v
+func (s *GetWorkspaceResponseBody) SetUrl(v string) *GetWorkspaceResponseBody {
+	s.Url = &v
 	return s
 }
 
-type GetRecentEditDocsResponse struct {
-	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *GetRecentEditDocsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+type GetWorkspaceResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetWorkspaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
-func (s GetRecentEditDocsResponse) String() string {
+func (s GetWorkspaceResponse) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetRecentEditDocsResponse) GoString() string {
+func (s GetWorkspaceResponse) GoString() string {
 	return s.String()
 }
 
-func (s *GetRecentEditDocsResponse) SetHeaders(v map[string]*string) *GetRecentEditDocsResponse {
+func (s *GetWorkspaceResponse) SetHeaders(v map[string]*string) *GetWorkspaceResponse {
 	s.Headers = v
 	return s
 }
 
-func (s *GetRecentEditDocsResponse) SetBody(v *GetRecentEditDocsResponseBody) *GetRecentEditDocsResponse {
-	s.Body = v
-	return s
-}
-
-type AddWorkspaceMembersHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s AddWorkspaceMembersHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddWorkspaceMembersHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *AddWorkspaceMembersHeaders) SetCommonHeaders(v map[string]*string) *AddWorkspaceMembersHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *AddWorkspaceMembersHeaders) SetXAcsDingtalkAccessToken(v string) *AddWorkspaceMembersHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type AddWorkspaceMembersRequest struct {
-	// 发起操作者unionId
-	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 被操作用户组
-	Members []*AddWorkspaceMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-}
-
-func (s AddWorkspaceMembersRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddWorkspaceMembersRequest) GoString() string {
-	return s.String()
-}
-
-func (s *AddWorkspaceMembersRequest) SetOperatorId(v string) *AddWorkspaceMembersRequest {
-	s.OperatorId = &v
-	return s
-}
-
-func (s *AddWorkspaceMembersRequest) SetMembers(v []*AddWorkspaceMembersRequestMembers) *AddWorkspaceMembersRequest {
-	s.Members = v
-	return s
-}
-
-type AddWorkspaceMembersRequestMembers struct {
-	// 被操作用户unionId
-	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
-	// 用户类型
-	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
-	// 用户权限
-	RoleType *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
-}
-
-func (s AddWorkspaceMembersRequestMembers) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddWorkspaceMembersRequestMembers) GoString() string {
-	return s.String()
-}
-
-func (s *AddWorkspaceMembersRequestMembers) SetMemberId(v string) *AddWorkspaceMembersRequestMembers {
-	s.MemberId = &v
-	return s
-}
-
-func (s *AddWorkspaceMembersRequestMembers) SetMemberType(v string) *AddWorkspaceMembersRequestMembers {
-	s.MemberType = &v
-	return s
-}
-
-func (s *AddWorkspaceMembersRequestMembers) SetRoleType(v string) *AddWorkspaceMembersRequestMembers {
-	s.RoleType = &v
-	return s
-}
-
-type AddWorkspaceMembersResponseBody struct {
-	NotInOrgList []*string `json:"notInOrgList,omitempty" xml:"notInOrgList,omitempty" type:"Repeated"`
-}
-
-func (s AddWorkspaceMembersResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddWorkspaceMembersResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *AddWorkspaceMembersResponseBody) SetNotInOrgList(v []*string) *AddWorkspaceMembersResponseBody {
-	s.NotInOrgList = v
-	return s
-}
-
-type AddWorkspaceMembersResponse struct {
-	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AddWorkspaceMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s AddWorkspaceMembersResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddWorkspaceMembersResponse) GoString() string {
-	return s.String()
-}
-
-func (s *AddWorkspaceMembersResponse) SetHeaders(v map[string]*string) *AddWorkspaceMembersResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *AddWorkspaceMembersResponse) SetBody(v *AddWorkspaceMembersResponseBody) *AddWorkspaceMembersResponse {
+func (s *GetWorkspaceResponse) SetBody(v *GetWorkspaceResponseBody) *GetWorkspaceResponse {
 	s.Body = v
 	return s
 }
@@ -2342,12 +1860,12 @@ func (s *GetWorkspaceNodeRequest) SetOperatorId(v string) *GetWorkspaceNodeReque
 }
 
 type GetWorkspaceNodeResponseBody struct {
+	// 是否有权限
+	HasPermission *bool `json:"hasPermission,omitempty" xml:"hasPermission,omitempty"`
 	// 节点信息
 	NodeBO *GetWorkspaceNodeResponseBodyNodeBO `json:"nodeBO,omitempty" xml:"nodeBO,omitempty" type:"Struct"`
 	// 节点所属团队空间信息
 	WorkspaceBO *GetWorkspaceNodeResponseBodyWorkspaceBO `json:"workspaceBO,omitempty" xml:"workspaceBO,omitempty" type:"Struct"`
-	// 是否有权限
-	HasPermission *bool `json:"hasPermission,omitempty" xml:"hasPermission,omitempty"`
 }
 
 func (s GetWorkspaceNodeResponseBody) String() string {
@@ -2358,6 +1876,11 @@ func (s GetWorkspaceNodeResponseBody) GoString() string {
 	return s.String()
 }
 
+func (s *GetWorkspaceNodeResponseBody) SetHasPermission(v bool) *GetWorkspaceNodeResponseBody {
+	s.HasPermission = &v
+	return s
+}
+
 func (s *GetWorkspaceNodeResponseBody) SetNodeBO(v *GetWorkspaceNodeResponseBodyNodeBO) *GetWorkspaceNodeResponseBody {
 	s.NodeBO = v
 	return s
@@ -2365,11 +1888,6 @@ func (s *GetWorkspaceNodeResponseBody) SetNodeBO(v *GetWorkspaceNodeResponseBody
 
 func (s *GetWorkspaceNodeResponseBody) SetWorkspaceBO(v *GetWorkspaceNodeResponseBodyWorkspaceBO) *GetWorkspaceNodeResponseBody {
 	s.WorkspaceBO = v
-	return s
-}
-
-func (s *GetWorkspaceNodeResponseBody) SetHasPermission(v bool) *GetWorkspaceNodeResponseBody {
-	s.HasPermission = &v
 	return s
 }
 
@@ -2406,10 +1924,10 @@ func (s *GetWorkspaceNodeResponseBodyNodeBO) SetUrl(v string) *GetWorkspaceNodeR
 }
 
 type GetWorkspaceNodeResponseBodyWorkspaceBO struct {
-	// 团队空间Id
-	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 	// 团队空间名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 团队空间Id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
 func (s GetWorkspaceNodeResponseBodyWorkspaceBO) String() string {
@@ -2420,13 +1938,13 @@ func (s GetWorkspaceNodeResponseBodyWorkspaceBO) GoString() string {
 	return s.String()
 }
 
-func (s *GetWorkspaceNodeResponseBodyWorkspaceBO) SetWorkspaceId(v string) *GetWorkspaceNodeResponseBodyWorkspaceBO {
-	s.WorkspaceId = &v
+func (s *GetWorkspaceNodeResponseBodyWorkspaceBO) SetName(v string) *GetWorkspaceNodeResponseBodyWorkspaceBO {
+	s.Name = &v
 	return s
 }
 
-func (s *GetWorkspaceNodeResponseBodyWorkspaceBO) SetName(v string) *GetWorkspaceNodeResponseBodyWorkspaceBO {
-	s.Name = &v
+func (s *GetWorkspaceNodeResponseBodyWorkspaceBO) SetWorkspaceId(v string) *GetWorkspaceNodeResponseBodyWorkspaceBO {
+	s.WorkspaceId = &v
 	return s
 }
 
@@ -2453,67 +1971,477 @@ func (s *GetWorkspaceNodeResponse) SetBody(v *GetWorkspaceNodeResponseBody) *Get
 	return s
 }
 
-type AppendRowsHeaders struct {
+type SearchWorkspaceDocsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
-func (s AppendRowsHeaders) String() string {
+func (s SearchWorkspaceDocsHeaders) String() string {
 	return tea.Prettify(s)
 }
 
-func (s AppendRowsHeaders) GoString() string {
+func (s SearchWorkspaceDocsHeaders) GoString() string {
 	return s.String()
 }
 
-func (s *AppendRowsHeaders) SetCommonHeaders(v map[string]*string) *AppendRowsHeaders {
+func (s *SearchWorkspaceDocsHeaders) SetCommonHeaders(v map[string]*string) *SearchWorkspaceDocsHeaders {
 	s.CommonHeaders = v
 	return s
 }
 
-func (s *AppendRowsHeaders) SetXAcsDingtalkAccessToken(v string) *AppendRowsHeaders {
+func (s *SearchWorkspaceDocsHeaders) SetXAcsDingtalkAccessToken(v string) *SearchWorkspaceDocsHeaders {
 	s.XAcsDingtalkAccessToken = &v
 	return s
 }
 
-type AppendRowsRequest struct {
-	// 操作人unionId
+type SearchWorkspaceDocsRequest struct {
+	// 搜索关键字
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// 搜索数量
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 翻页Id
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 发起操作用户unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 要追加的值
-	Values [][]*string `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	// 团队空间Id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
-func (s AppendRowsRequest) String() string {
+func (s SearchWorkspaceDocsRequest) String() string {
 	return tea.Prettify(s)
 }
 
-func (s AppendRowsRequest) GoString() string {
+func (s SearchWorkspaceDocsRequest) GoString() string {
 	return s.String()
 }
 
-func (s *AppendRowsRequest) SetOperatorId(v string) *AppendRowsRequest {
+func (s *SearchWorkspaceDocsRequest) SetKeyword(v string) *SearchWorkspaceDocsRequest {
+	s.Keyword = &v
+	return s
+}
+
+func (s *SearchWorkspaceDocsRequest) SetMaxResults(v int32) *SearchWorkspaceDocsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchWorkspaceDocsRequest) SetNextToken(v string) *SearchWorkspaceDocsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchWorkspaceDocsRequest) SetOperatorId(v string) *SearchWorkspaceDocsRequest {
 	s.OperatorId = &v
 	return s
 }
 
-func (s *AppendRowsRequest) SetValues(v [][]*string) *AppendRowsRequest {
+func (s *SearchWorkspaceDocsRequest) SetWorkspaceId(v string) *SearchWorkspaceDocsRequest {
+	s.WorkspaceId = &v
+	return s
+}
+
+type SearchWorkspaceDocsResponseBody struct {
+	Docs []*SearchWorkspaceDocsResponseBodyDocs `json:"docs,omitempty" xml:"docs,omitempty" type:"Repeated"`
+	// 是否还有可搜索内容
+	HasMore   *bool   `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s SearchWorkspaceDocsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchWorkspaceDocsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchWorkspaceDocsResponseBody) SetDocs(v []*SearchWorkspaceDocsResponseBodyDocs) *SearchWorkspaceDocsResponseBody {
+	s.Docs = v
+	return s
+}
+
+func (s *SearchWorkspaceDocsResponseBody) SetHasMore(v bool) *SearchWorkspaceDocsResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *SearchWorkspaceDocsResponseBody) SetNextToken(v string) *SearchWorkspaceDocsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type SearchWorkspaceDocsResponseBodyDocs struct {
+	NodeBO      *SearchWorkspaceDocsResponseBodyDocsNodeBO      `json:"nodeBO,omitempty" xml:"nodeBO,omitempty" type:"Struct"`
+	WorkspaceBO *SearchWorkspaceDocsResponseBodyDocsWorkspaceBO `json:"workspaceBO,omitempty" xml:"workspaceBO,omitempty" type:"Struct"`
+}
+
+func (s SearchWorkspaceDocsResponseBodyDocs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchWorkspaceDocsResponseBodyDocs) GoString() string {
+	return s.String()
+}
+
+func (s *SearchWorkspaceDocsResponseBodyDocs) SetNodeBO(v *SearchWorkspaceDocsResponseBodyDocsNodeBO) *SearchWorkspaceDocsResponseBodyDocs {
+	s.NodeBO = v
+	return s
+}
+
+func (s *SearchWorkspaceDocsResponseBodyDocs) SetWorkspaceBO(v *SearchWorkspaceDocsResponseBodyDocsWorkspaceBO) *SearchWorkspaceDocsResponseBodyDocs {
+	s.WorkspaceBO = v
+	return s
+}
+
+type SearchWorkspaceDocsResponseBodyDocsNodeBO struct {
+	// 最近编辑时间
+	LastEditTime *int64 `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
+	// 节点名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 节点Id
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// 节点打开url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s SearchWorkspaceDocsResponseBodyDocsNodeBO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchWorkspaceDocsResponseBodyDocsNodeBO) GoString() string {
+	return s.String()
+}
+
+func (s *SearchWorkspaceDocsResponseBodyDocsNodeBO) SetLastEditTime(v int64) *SearchWorkspaceDocsResponseBodyDocsNodeBO {
+	s.LastEditTime = &v
+	return s
+}
+
+func (s *SearchWorkspaceDocsResponseBodyDocsNodeBO) SetName(v string) *SearchWorkspaceDocsResponseBodyDocsNodeBO {
+	s.Name = &v
+	return s
+}
+
+func (s *SearchWorkspaceDocsResponseBodyDocsNodeBO) SetNodeId(v string) *SearchWorkspaceDocsResponseBodyDocsNodeBO {
+	s.NodeId = &v
+	return s
+}
+
+func (s *SearchWorkspaceDocsResponseBodyDocsNodeBO) SetUrl(v string) *SearchWorkspaceDocsResponseBodyDocsNodeBO {
+	s.Url = &v
+	return s
+}
+
+type SearchWorkspaceDocsResponseBodyDocsWorkspaceBO struct {
+	// 团队空间名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 团队空间Id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+}
+
+func (s SearchWorkspaceDocsResponseBodyDocsWorkspaceBO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchWorkspaceDocsResponseBodyDocsWorkspaceBO) GoString() string {
+	return s.String()
+}
+
+func (s *SearchWorkspaceDocsResponseBodyDocsWorkspaceBO) SetName(v string) *SearchWorkspaceDocsResponseBodyDocsWorkspaceBO {
+	s.Name = &v
+	return s
+}
+
+func (s *SearchWorkspaceDocsResponseBodyDocsWorkspaceBO) SetWorkspaceId(v string) *SearchWorkspaceDocsResponseBodyDocsWorkspaceBO {
+	s.WorkspaceId = &v
+	return s
+}
+
+type SearchWorkspaceDocsResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchWorkspaceDocsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchWorkspaceDocsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchWorkspaceDocsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchWorkspaceDocsResponse) SetHeaders(v map[string]*string) *SearchWorkspaceDocsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchWorkspaceDocsResponse) SetBody(v *SearchWorkspaceDocsResponseBody) *SearchWorkspaceDocsResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateRangeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateRangeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRangeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRangeHeaders) SetCommonHeaders(v map[string]*string) *UpdateRangeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateRangeHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRangeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateRangeRequest struct {
+	// 背景色
+	BackgroundColors [][]*string `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
+	// 值
+	Values [][]*string `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	// 操作人unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s UpdateRangeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRangeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRangeRequest) SetBackgroundColors(v [][]*string) *UpdateRangeRequest {
+	s.BackgroundColors = v
+	return s
+}
+
+func (s *UpdateRangeRequest) SetValues(v [][]*string) *UpdateRangeRequest {
 	s.Values = v
 	return s
 }
 
-type AppendRowsResponse struct {
+func (s *UpdateRangeRequest) SetOperatorId(v string) *UpdateRangeRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type UpdateRangeResponse struct {
 	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
 }
 
-func (s AppendRowsResponse) String() string {
+func (s UpdateRangeResponse) String() string {
 	return tea.Prettify(s)
 }
 
-func (s AppendRowsResponse) GoString() string {
+func (s UpdateRangeResponse) GoString() string {
 	return s.String()
 }
 
-func (s *AppendRowsResponse) SetHeaders(v map[string]*string) *AppendRowsResponse {
+func (s *UpdateRangeResponse) SetHeaders(v map[string]*string) *UpdateRangeResponse {
+	s.Headers = v
+	return s
+}
+
+type UpdateWorkspaceDocMembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateWorkspaceDocMembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateWorkspaceDocMembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateWorkspaceDocMembersHeaders) SetCommonHeaders(v map[string]*string) *UpdateWorkspaceDocMembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateWorkspaceDocMembersHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateWorkspaceDocMembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateWorkspaceDocMembersRequest struct {
+	// 被操作用户组
+	Members []*UpdateWorkspaceDocMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// 发起操作者unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s UpdateWorkspaceDocMembersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateWorkspaceDocMembersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateWorkspaceDocMembersRequest) SetMembers(v []*UpdateWorkspaceDocMembersRequestMembers) *UpdateWorkspaceDocMembersRequest {
+	s.Members = v
+	return s
+}
+
+func (s *UpdateWorkspaceDocMembersRequest) SetOperatorId(v string) *UpdateWorkspaceDocMembersRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type UpdateWorkspaceDocMembersRequestMembers struct {
+	// 被操作用户unionId
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// 用户类型
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// 用户权限
+	RoleType *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
+}
+
+func (s UpdateWorkspaceDocMembersRequestMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateWorkspaceDocMembersRequestMembers) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateWorkspaceDocMembersRequestMembers) SetMemberId(v string) *UpdateWorkspaceDocMembersRequestMembers {
+	s.MemberId = &v
+	return s
+}
+
+func (s *UpdateWorkspaceDocMembersRequestMembers) SetMemberType(v string) *UpdateWorkspaceDocMembersRequestMembers {
+	s.MemberType = &v
+	return s
+}
+
+func (s *UpdateWorkspaceDocMembersRequestMembers) SetRoleType(v string) *UpdateWorkspaceDocMembersRequestMembers {
+	s.RoleType = &v
+	return s
+}
+
+type UpdateWorkspaceDocMembersResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s UpdateWorkspaceDocMembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateWorkspaceDocMembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateWorkspaceDocMembersResponse) SetHeaders(v map[string]*string) *UpdateWorkspaceDocMembersResponse {
+	s.Headers = v
+	return s
+}
+
+type UpdateWorkspaceMembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateWorkspaceMembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateWorkspaceMembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateWorkspaceMembersHeaders) SetCommonHeaders(v map[string]*string) *UpdateWorkspaceMembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateWorkspaceMembersHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateWorkspaceMembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateWorkspaceMembersRequest struct {
+	// 被操作用户组
+	Members []*UpdateWorkspaceMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// 发起操作者unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s UpdateWorkspaceMembersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateWorkspaceMembersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateWorkspaceMembersRequest) SetMembers(v []*UpdateWorkspaceMembersRequestMembers) *UpdateWorkspaceMembersRequest {
+	s.Members = v
+	return s
+}
+
+func (s *UpdateWorkspaceMembersRequest) SetOperatorId(v string) *UpdateWorkspaceMembersRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type UpdateWorkspaceMembersRequestMembers struct {
+	// 被操作用户unionId
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// 用户类型
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// 用户权限
+	RoleType *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
+}
+
+func (s UpdateWorkspaceMembersRequestMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateWorkspaceMembersRequestMembers) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateWorkspaceMembersRequestMembers) SetMemberId(v string) *UpdateWorkspaceMembersRequestMembers {
+	s.MemberId = &v
+	return s
+}
+
+func (s *UpdateWorkspaceMembersRequestMembers) SetMemberType(v string) *UpdateWorkspaceMembersRequestMembers {
+	s.MemberType = &v
+	return s
+}
+
+func (s *UpdateWorkspaceMembersRequestMembers) SetRoleType(v string) *UpdateWorkspaceMembersRequestMembers {
+	s.RoleType = &v
+	return s
+}
+
+type UpdateWorkspaceMembersResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s UpdateWorkspaceMembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateWorkspaceMembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateWorkspaceMembersResponse) SetHeaders(v map[string]*string) *UpdateWorkspaceMembersResponse {
 	s.Headers = v
 	return s
 }
@@ -2541,6 +2469,157 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) AddWorkspaceDocMembers(workspaceId *string, nodeId *string, request *AddWorkspaceDocMembersRequest) (_result *AddWorkspaceDocMembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddWorkspaceDocMembersHeaders{}
+	_result = &AddWorkspaceDocMembersResponse{}
+	_body, _err := client.AddWorkspaceDocMembersWithOptions(workspaceId, nodeId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddWorkspaceDocMembersWithOptions(workspaceId *string, nodeId *string, request *AddWorkspaceDocMembersRequest, headers *AddWorkspaceDocMembersHeaders, runtime *util.RuntimeOptions) (_result *AddWorkspaceDocMembersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workspaceId = openapiutil.GetEncodeParam(workspaceId)
+	nodeId = openapiutil.GetEncodeParam(nodeId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Members)) {
+		body["members"] = request.Members
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddWorkspaceDocMembersResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddWorkspaceDocMembers"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/docs/"+tea.StringValue(nodeId)+"/members"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddWorkspaceMembers(workspaceId *string, request *AddWorkspaceMembersRequest) (_result *AddWorkspaceMembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddWorkspaceMembersHeaders{}
+	_result = &AddWorkspaceMembersResponse{}
+	_body, _err := client.AddWorkspaceMembersWithOptions(workspaceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddWorkspaceMembersWithOptions(workspaceId *string, request *AddWorkspaceMembersRequest, headers *AddWorkspaceMembersHeaders, runtime *util.RuntimeOptions) (_result *AddWorkspaceMembersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workspaceId = openapiutil.GetEncodeParam(workspaceId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Members)) {
+		body["members"] = request.Members
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddWorkspaceMembersResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddWorkspaceMembers"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/members"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AppendRows(workbookId *string, sheetId *string, request *AppendRowsRequest) (_result *AppendRowsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AppendRowsHeaders{}
+	_result = &AppendRowsResponse{}
+	_body, _err := client.AppendRowsWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AppendRowsWithOptions(workbookId *string, sheetId *string, request *AppendRowsRequest, headers *AppendRowsHeaders, runtime *util.RuntimeOptions) (_result *AppendRowsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
+	sheetId = openapiutil.GetEncodeParam(sheetId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Values)) {
+		body["values"] = request.Values
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AppendRowsResponse{}
+	_body, _err := client.DoROARequest(tea.String("AppendRows"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/appendRows"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) BatchGetWorkspaceDocs(request *BatchGetWorkspaceDocsRequest) (_result *BatchGetWorkspaceDocsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchGetWorkspaceDocsHeaders{}
@@ -2559,28 +2638,12 @@ func (client *Client) BatchGetWorkspaceDocsWithOptions(request *BatchGetWorkspac
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		body["operatorId"] = request.OperatorId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.NodeIds)) {
 		body["nodeIds"] = request.NodeIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
-		body["dingIsvOrgId"] = request.DingIsvOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
-		body["dingOrgId"] = request.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingAccessTokenType)) {
-		body["dingAccessTokenType"] = request.DingAccessTokenType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingUid)) {
-		body["dingUid"] = request.DingUid
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -2589,7 +2652,7 @@ func (client *Client) BatchGetWorkspaceDocsWithOptions(request *BatchGetWorkspac
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
@@ -2605,11 +2668,11 @@ func (client *Client) BatchGetWorkspaceDocsWithOptions(request *BatchGetWorkspac
 	return _result, _err
 }
 
-func (client *Client) DeleteSheet(workbookId *string, sheetId *string, request *DeleteSheetRequest) (_result *DeleteSheetResponse, _err error) {
+func (client *Client) BatchGetWorkspaces(request *BatchGetWorkspacesRequest) (_result *BatchGetWorkspacesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &DeleteSheetHeaders{}
-	_result = &DeleteSheetResponse{}
-	_body, _err := client.DeleteSheetWithOptions(workbookId, sheetId, request, headers, runtime)
+	headers := &BatchGetWorkspacesHeaders{}
+	_result = &BatchGetWorkspacesResponse{}
+	_body, _err := client.BatchGetWorkspacesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2617,118 +2680,22 @@ func (client *Client) DeleteSheet(workbookId *string, sheetId *string, request *
 	return _result, _err
 }
 
-func (client *Client) DeleteSheetWithOptions(workbookId *string, sheetId *string, request *DeleteSheetRequest, headers *DeleteSheetHeaders, runtime *util.RuntimeOptions) (_result *DeleteSheetResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		query["operatorId"] = request.OperatorId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &DeleteSheetResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteSheet"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)), tea.String("none"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) UpdateWorkspaceDocMembers(workspaceId *string, nodeId *string, request *UpdateWorkspaceDocMembersRequest) (_result *UpdateWorkspaceDocMembersResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &UpdateWorkspaceDocMembersHeaders{}
-	_result = &UpdateWorkspaceDocMembersResponse{}
-	_body, _err := client.UpdateWorkspaceDocMembersWithOptions(workspaceId, nodeId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) UpdateWorkspaceDocMembersWithOptions(workspaceId *string, nodeId *string, request *UpdateWorkspaceDocMembersRequest, headers *UpdateWorkspaceDocMembersHeaders, runtime *util.RuntimeOptions) (_result *UpdateWorkspaceDocMembersResponse, _err error) {
+func (client *Client) BatchGetWorkspacesWithOptions(request *BatchGetWorkspacesRequest, headers *BatchGetWorkspacesHeaders, runtime *util.RuntimeOptions) (_result *BatchGetWorkspacesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		body["operatorId"] = request.OperatorId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Members)) {
-		body["members"] = request.Members
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &UpdateWorkspaceDocMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateWorkspaceDocMembers"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/docs/"+tea.StringValue(nodeId)+"/members"), tea.String("none"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) CreateWorkspaceDoc(workspaceId *string, request *CreateWorkspaceDocRequest) (_result *CreateWorkspaceDocResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &CreateWorkspaceDocHeaders{}
-	_result = &CreateWorkspaceDocResponse{}
-	_body, _err := client.CreateWorkspaceDocWithOptions(workspaceId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) CreateWorkspaceDocWithOptions(workspaceId *string, request *CreateWorkspaceDocRequest, headers *CreateWorkspaceDocHeaders, runtime *util.RuntimeOptions) (_result *CreateWorkspaceDocResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Name)) {
-		body["name"] = request.Name
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DocType)) {
-		body["docType"] = request.DocType
+	if !tea.BoolValue(util.IsUnset(request.IncludeRecent)) {
+		body["includeRecent"] = request.IncludeRecent
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		body["operatorId"] = request.OperatorId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ParentNodeId)) {
-		body["parentNodeId"] = request.ParentNodeId
+	if !tea.BoolValue(util.IsUnset(request.WorkspaceIds)) {
+		body["workspaceIds"] = request.WorkspaceIds
 	}
 
 	realHeaders := make(map[string]*string)
@@ -2737,15 +2704,15 @@ func (client *Client) CreateWorkspaceDocWithOptions(workspaceId *string, request
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &CreateWorkspaceDocResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateWorkspaceDoc"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/docs"), tea.String("json"), req, runtime)
+	_result = &BatchGetWorkspacesResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchGetWorkspaces"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/infos/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2770,6 +2737,7 @@ func (client *Client) CreateSheetWithOptions(workbookId *string, request *Create
 	if _err != nil {
 		return _result, _err
 	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
@@ -2786,7 +2754,7 @@ func (client *Client) CreateSheetWithOptions(workbookId *string, request *Create
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
@@ -2821,32 +2789,16 @@ func (client *Client) CreateWorkspaceWithOptions(request *CreateWorkspaceRequest
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Name)) {
-		body["name"] = request.Name
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.Description)) {
 		body["description"] = request.Description
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		body["operatorId"] = request.OperatorId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
-		body["dingOrgId"] = request.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingUid)) {
-		body["dingUid"] = request.DingUid
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingAccessTokenType)) {
-		body["dingAccessTokenType"] = request.DingAccessTokenType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
-		body["dingIsvOrgId"] = request.DingIsvOrgId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -2855,7 +2807,7 @@ func (client *Client) CreateWorkspaceWithOptions(request *CreateWorkspaceRequest
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
@@ -2864,6 +2816,109 @@ func (client *Client) CreateWorkspaceWithOptions(request *CreateWorkspaceRequest
 	}
 	_result = &CreateWorkspaceResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateWorkspace"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateWorkspaceDoc(workspaceId *string, request *CreateWorkspaceDocRequest) (_result *CreateWorkspaceDocResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateWorkspaceDocHeaders{}
+	_result = &CreateWorkspaceDocResponse{}
+	_body, _err := client.CreateWorkspaceDocWithOptions(workspaceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateWorkspaceDocWithOptions(workspaceId *string, request *CreateWorkspaceDocRequest, headers *CreateWorkspaceDocHeaders, runtime *util.RuntimeOptions) (_result *CreateWorkspaceDocResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workspaceId = openapiutil.GetEncodeParam(workspaceId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DocType)) {
+		body["docType"] = request.DocType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ParentNodeId)) {
+		body["parentNodeId"] = request.ParentNodeId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateWorkspaceDocResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateWorkspaceDoc"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/docs"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteSheet(workbookId *string, sheetId *string, request *DeleteSheetRequest) (_result *DeleteSheetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteSheetHeaders{}
+	_result = &DeleteSheetResponse{}
+	_body, _err := client.DeleteSheetWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteSheetWithOptions(workbookId *string, sheetId *string, request *DeleteSheetRequest, headers *DeleteSheetHeaders, runtime *util.RuntimeOptions) (_result *DeleteSheetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
+	sheetId = openapiutil.GetEncodeParam(sheetId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteSheetResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteSheet"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2888,13 +2943,15 @@ func (client *Client) DeleteWorkspaceDocMembersWithOptions(workspaceId *string, 
 	if _err != nil {
 		return _result, _err
 	}
+	workspaceId = openapiutil.GetEncodeParam(workspaceId)
+	nodeId = openapiutil.GetEncodeParam(nodeId)
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		body["operatorId"] = request.OperatorId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.Members)) {
 		body["members"] = request.Members
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -2903,7 +2960,7 @@ func (client *Client) DeleteWorkspaceDocMembersWithOptions(workspaceId *string, 
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
@@ -2912,6 +2969,201 @@ func (client *Client) DeleteWorkspaceDocMembersWithOptions(workspaceId *string, 
 	}
 	_result = &DeleteWorkspaceDocMembersResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteWorkspaceDocMembers"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/docs/"+tea.StringValue(nodeId)+"/members/remove"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteWorkspaceMembers(workspaceId *string, request *DeleteWorkspaceMembersRequest) (_result *DeleteWorkspaceMembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteWorkspaceMembersHeaders{}
+	_result = &DeleteWorkspaceMembersResponse{}
+	_body, _err := client.DeleteWorkspaceMembersWithOptions(workspaceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteWorkspaceMembersWithOptions(workspaceId *string, request *DeleteWorkspaceMembersRequest, headers *DeleteWorkspaceMembersHeaders, runtime *util.RuntimeOptions) (_result *DeleteWorkspaceMembersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workspaceId = openapiutil.GetEncodeParam(workspaceId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Members)) {
+		body["members"] = request.Members
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DeleteWorkspaceMembersResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteWorkspaceMembers"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/members/remove"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetRecentEditDocs(request *GetRecentEditDocsRequest) (_result *GetRecentEditDocsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetRecentEditDocsHeaders{}
+	_result = &GetRecentEditDocsResponse{}
+	_body, _err := client.GetRecentEditDocsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetRecentEditDocsWithOptions(request *GetRecentEditDocsRequest, headers *GetRecentEditDocsHeaders, runtime *util.RuntimeOptions) (_result *GetRecentEditDocsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetRecentEditDocsResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetRecentEditDocs"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/docs/recentEditDocs"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetRelatedWorkspaces(request *GetRelatedWorkspacesRequest) (_result *GetRelatedWorkspacesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetRelatedWorkspacesHeaders{}
+	_result = &GetRelatedWorkspacesResponse{}
+	_body, _err := client.GetRelatedWorkspacesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetRelatedWorkspacesWithOptions(request *GetRelatedWorkspacesRequest, headers *GetRelatedWorkspacesHeaders, runtime *util.RuntimeOptions) (_result *GetRelatedWorkspacesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IncludeRecent)) {
+		query["includeRecent"] = request.IncludeRecent
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetRelatedWorkspacesResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetRelatedWorkspaces"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workspaces"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSheet(workbookId *string, sheetId *string, request *GetSheetRequest) (_result *GetSheetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSheetHeaders{}
+	_result = &GetSheetResponse{}
+	_body, _err := client.GetSheetWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSheetWithOptions(workbookId *string, sheetId *string, request *GetSheetRequest, headers *GetSheetHeaders, runtime *util.RuntimeOptions) (_result *GetSheetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
+	sheetId = openapiutil.GetEncodeParam(sheetId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetSheetResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetSheet"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2932,13 +3184,14 @@ func (client *Client) GetWorkspace(workspaceId *string) (_result *GetWorkspaceRe
 }
 
 func (client *Client) GetWorkspaceWithOptions(workspaceId *string, headers *GetWorkspaceHeaders, runtime *util.RuntimeOptions) (_result *GetWorkspaceResponse, _err error) {
+	workspaceId = openapiutil.GetEncodeParam(workspaceId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
@@ -2946,6 +3199,52 @@ func (client *Client) GetWorkspaceWithOptions(workspaceId *string, headers *GetW
 	}
 	_result = &GetWorkspaceResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetWorkspace"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetWorkspaceNode(workspaceId *string, nodeId *string, request *GetWorkspaceNodeRequest) (_result *GetWorkspaceNodeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetWorkspaceNodeHeaders{}
+	_result = &GetWorkspaceNodeResponse{}
+	_body, _err := client.GetWorkspaceNodeWithOptions(workspaceId, nodeId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetWorkspaceNodeWithOptions(workspaceId *string, nodeId *string, request *GetWorkspaceNodeRequest, headers *GetWorkspaceNodeHeaders, runtime *util.RuntimeOptions) (_result *GetWorkspaceNodeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workspaceId = openapiutil.GetEncodeParam(workspaceId)
+	nodeId = openapiutil.GetEncodeParam(nodeId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetWorkspaceNodeResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetWorkspaceNode"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/docs/"+tea.StringValue(nodeId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2971,14 +3270,6 @@ func (client *Client) SearchWorkspaceDocsWithOptions(request *SearchWorkspaceDoc
 		return _result, _err
 	}
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.WorkspaceId)) {
-		query["workspaceId"] = request.WorkspaceId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		query["operatorId"] = request.OperatorId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
 		query["keyword"] = request.Keyword
 	}
@@ -2991,13 +3282,21 @@ func (client *Client) SearchWorkspaceDocsWithOptions(request *SearchWorkspaceDoc
 		query["nextToken"] = request.NextToken
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WorkspaceId)) {
+		query["workspaceId"] = request.WorkspaceId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
@@ -3030,18 +3329,21 @@ func (client *Client) UpdateRangeWithOptions(workbookId *string, sheetId *string
 	if _err != nil {
 		return _result, _err
 	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
+	sheetId = openapiutil.GetEncodeParam(sheetId)
+	rangeAddress = openapiutil.GetEncodeParam(rangeAddress)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
 	}
 
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Values)) {
-		body["values"] = request.Values
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.BackgroundColors)) {
 		body["backgroundColors"] = request.BackgroundColors
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Values)) {
+		body["values"] = request.Values
 	}
 
 	realHeaders := make(map[string]*string)
@@ -3050,7 +3352,7 @@ func (client *Client) UpdateRangeWithOptions(workbookId *string, sheetId *string
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
@@ -3067,11 +3369,11 @@ func (client *Client) UpdateRangeWithOptions(workbookId *string, sheetId *string
 	return _result, _err
 }
 
-func (client *Client) BatchGetWorkspaces(request *BatchGetWorkspacesRequest) (_result *BatchGetWorkspacesResponse, _err error) {
+func (client *Client) UpdateWorkspaceDocMembers(workspaceId *string, nodeId *string, request *UpdateWorkspaceDocMembersRequest) (_result *UpdateWorkspaceDocMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := &BatchGetWorkspacesHeaders{}
-	_result = &BatchGetWorkspacesResponse{}
-	_body, _err := client.BatchGetWorkspacesWithOptions(request, headers, runtime)
+	headers := &UpdateWorkspaceDocMembersHeaders{}
+	_result = &UpdateWorkspaceDocMembersResponse{}
+	_body, _err := client.UpdateWorkspaceDocMembersWithOptions(workspaceId, nodeId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3079,151 +3381,37 @@ func (client *Client) BatchGetWorkspaces(request *BatchGetWorkspacesRequest) (_r
 	return _result, _err
 }
 
-func (client *Client) BatchGetWorkspacesWithOptions(request *BatchGetWorkspacesRequest, headers *BatchGetWorkspacesHeaders, runtime *util.RuntimeOptions) (_result *BatchGetWorkspacesResponse, _err error) {
+func (client *Client) UpdateWorkspaceDocMembersWithOptions(workspaceId *string, nodeId *string, request *UpdateWorkspaceDocMembersRequest, headers *UpdateWorkspaceDocMembersHeaders, runtime *util.RuntimeOptions) (_result *UpdateWorkspaceDocMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
+	workspaceId = openapiutil.GetEncodeParam(workspaceId)
+	nodeId = openapiutil.GetEncodeParam(nodeId)
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		body["operatorId"] = request.OperatorId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.IncludeRecent)) {
-		body["includeRecent"] = request.IncludeRecent
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.WorkspaceIds)) {
-		body["workspaceIds"] = request.WorkspaceIds
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
-		body["dingOrgId"] = request.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
-		body["dingIsvOrgId"] = request.DingIsvOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingUid)) {
-		body["dingUid"] = request.DingUid
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingAccessTokenType)) {
-		body["dingAccessTokenType"] = request.DingAccessTokenType
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &BatchGetWorkspacesResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchGetWorkspaces"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/infos/query"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) DeleteWorkspaceMembers(workspaceId *string, request *DeleteWorkspaceMembersRequest) (_result *DeleteWorkspaceMembersResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &DeleteWorkspaceMembersHeaders{}
-	_result = &DeleteWorkspaceMembersResponse{}
-	_body, _err := client.DeleteWorkspaceMembersWithOptions(workspaceId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) DeleteWorkspaceMembersWithOptions(workspaceId *string, request *DeleteWorkspaceMembersRequest, headers *DeleteWorkspaceMembersHeaders, runtime *util.RuntimeOptions) (_result *DeleteWorkspaceMembersResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		body["operatorId"] = request.OperatorId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.Members)) {
 		body["members"] = request.Members
 	}
 
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &DeleteWorkspaceMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteWorkspaceMembers"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/members/remove"), tea.String("none"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) AddWorkspaceDocMembers(workspaceId *string, nodeId *string, request *AddWorkspaceDocMembersRequest) (_result *AddWorkspaceDocMembersResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &AddWorkspaceDocMembersHeaders{}
-	_result = &AddWorkspaceDocMembersResponse{}
-	_body, _err := client.AddWorkspaceDocMembersWithOptions(workspaceId, nodeId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) AddWorkspaceDocMembersWithOptions(workspaceId *string, nodeId *string, request *AddWorkspaceDocMembersRequest, headers *AddWorkspaceDocMembersHeaders, runtime *util.RuntimeOptions) (_result *AddWorkspaceDocMembersResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		body["operatorId"] = request.OperatorId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Members)) {
-		body["members"] = request.Members
-	}
-
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 		Body:    openapiutil.ParseToMap(body),
 	}
-	_result = &AddWorkspaceDocMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddWorkspaceDocMembers"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/docs/"+tea.StringValue(nodeId)+"/members"), tea.String("none"), req, runtime)
+	_result = &UpdateWorkspaceDocMembersResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateWorkspaceDocMembers"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/docs/"+tea.StringValue(nodeId)+"/members"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3248,13 +3436,14 @@ func (client *Client) UpdateWorkspaceMembersWithOptions(workspaceId *string, req
 	if _err != nil {
 		return _result, _err
 	}
+	workspaceId = openapiutil.GetEncodeParam(workspaceId)
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		body["operatorId"] = request.OperatorId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.Members)) {
 		body["members"] = request.Members
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -3263,7 +3452,7 @@ func (client *Client) UpdateWorkspaceMembersWithOptions(workspaceId *string, req
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
@@ -3272,292 +3461,6 @@ func (client *Client) UpdateWorkspaceMembersWithOptions(workspaceId *string, req
 	}
 	_result = &UpdateWorkspaceMembersResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateWorkspaceMembers"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/members"), tea.String("none"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) GetSheet(workbookId *string, sheetId *string, request *GetSheetRequest) (_result *GetSheetResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetSheetHeaders{}
-	_result = &GetSheetResponse{}
-	_body, _err := client.GetSheetWithOptions(workbookId, sheetId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) GetSheetWithOptions(workbookId *string, sheetId *string, request *GetSheetRequest, headers *GetSheetHeaders, runtime *util.RuntimeOptions) (_result *GetSheetResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		query["operatorId"] = request.OperatorId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &GetSheetResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetSheet"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) GetRelatedWorkspaces(request *GetRelatedWorkspacesRequest) (_result *GetRelatedWorkspacesResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetRelatedWorkspacesHeaders{}
-	_result = &GetRelatedWorkspacesResponse{}
-	_body, _err := client.GetRelatedWorkspacesWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) GetRelatedWorkspacesWithOptions(request *GetRelatedWorkspacesRequest, headers *GetRelatedWorkspacesHeaders, runtime *util.RuntimeOptions) (_result *GetRelatedWorkspacesResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		query["operatorId"] = request.OperatorId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.IncludeRecent)) {
-		query["includeRecent"] = request.IncludeRecent
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &GetRelatedWorkspacesResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetRelatedWorkspaces"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workspaces"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) GetRecentEditDocs(request *GetRecentEditDocsRequest) (_result *GetRecentEditDocsResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetRecentEditDocsHeaders{}
-	_result = &GetRecentEditDocsResponse{}
-	_body, _err := client.GetRecentEditDocsWithOptions(request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) GetRecentEditDocsWithOptions(request *GetRecentEditDocsRequest, headers *GetRecentEditDocsHeaders, runtime *util.RuntimeOptions) (_result *GetRecentEditDocsResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		query["operatorId"] = request.OperatorId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
-		query["maxResults"] = request.MaxResults
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
-		query["nextToken"] = request.NextToken
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &GetRecentEditDocsResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetRecentEditDocs"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/docs/recentEditDocs"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) AddWorkspaceMembers(workspaceId *string, request *AddWorkspaceMembersRequest) (_result *AddWorkspaceMembersResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &AddWorkspaceMembersHeaders{}
-	_result = &AddWorkspaceMembersResponse{}
-	_body, _err := client.AddWorkspaceMembersWithOptions(workspaceId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) AddWorkspaceMembersWithOptions(workspaceId *string, request *AddWorkspaceMembersRequest, headers *AddWorkspaceMembersHeaders, runtime *util.RuntimeOptions) (_result *AddWorkspaceMembersResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		body["operatorId"] = request.OperatorId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Members)) {
-		body["members"] = request.Members
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &AddWorkspaceMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("AddWorkspaceMembers"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/members"), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) GetWorkspaceNode(workspaceId *string, nodeId *string, request *GetWorkspaceNodeRequest) (_result *GetWorkspaceNodeResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &GetWorkspaceNodeHeaders{}
-	_result = &GetWorkspaceNodeResponse{}
-	_body, _err := client.GetWorkspaceNodeWithOptions(workspaceId, nodeId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) GetWorkspaceNodeWithOptions(workspaceId *string, nodeId *string, request *GetWorkspaceNodeRequest, headers *GetWorkspaceNodeHeaders, runtime *util.RuntimeOptions) (_result *GetWorkspaceNodeResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		query["operatorId"] = request.OperatorId
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-	}
-	_result = &GetWorkspaceNodeResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetWorkspaceNode"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/docs/"+tea.StringValue(nodeId)), tea.String("json"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) AppendRows(workbookId *string, sheetId *string, request *AppendRowsRequest) (_result *AppendRowsResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &AppendRowsHeaders{}
-	_result = &AppendRowsResponse{}
-	_body, _err := client.AppendRowsWithOptions(workbookId, sheetId, request, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) AppendRowsWithOptions(workbookId *string, sheetId *string, request *AppendRowsRequest, headers *AppendRowsHeaders, runtime *util.RuntimeOptions) (_result *AppendRowsResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
-		query["operatorId"] = request.OperatorId
-	}
-
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Values)) {
-		body["values"] = request.Values
-	}
-
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
-		Body:    openapiutil.ParseToMap(body),
-	}
-	_result = &AppendRowsResponse{}
-	_body, _err := client.DoROARequest(tea.String("AppendRows"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/appendRows"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

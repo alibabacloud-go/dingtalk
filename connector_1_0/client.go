@@ -35,20 +35,20 @@ func (s *PullDataByPageHeaders) SetXAcsDingtalkAccessToken(v string) *PullDataBy
 }
 
 type PullDataByPageRequest struct {
+	// 同步数据的应用id，isv应用传isv应用id，企业自建应用传agentId。
+	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
 	// 要拉取的主数据模型id。
 	DataModelId *string `json:"dataModelId,omitempty" xml:"dataModelId,omitempty"`
 	// 用于过滤时间范围的字段，包含数据创建时间(dataGmtCreate)和数据修改时间(dataGmtModified)，如不传则不过滤。
 	DatetimeFilterField *string `json:"datetimeFilterField,omitempty" xml:"datetimeFilterField,omitempty"`
-	// 当配置了datetimeFilterField字段后，数据的时间起点，如果不传则将最早一条数据作为起点。
-	MinDatetime *int64 `json:"minDatetime,omitempty" xml:"minDatetime,omitempty"`
 	// 当配置了datetimeFilterField字段后，数据的时间终点，如果不传则按最新一条数据作为终点。
 	MaxDatetime *int64 `json:"maxDatetime,omitempty" xml:"maxDatetime,omitempty"`
-	// 用于翻页的游标，如果为空则从第一条数据开始查询。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 单次获取的最大记录条数，最大限制100条。
 	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 同步数据的应用id，isv应用传isv应用id，企业自建应用传agentId。
-	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	// 当配置了datetimeFilterField字段后，数据的时间起点，如果不传则将最早一条数据作为起点。
+	MinDatetime *int64 `json:"minDatetime,omitempty" xml:"minDatetime,omitempty"`
+	// 用于翻页的游标，如果为空则从第一条数据开始查询。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s PullDataByPageRequest) String() string {
@@ -57,6 +57,11 @@ func (s PullDataByPageRequest) String() string {
 
 func (s PullDataByPageRequest) GoString() string {
 	return s.String()
+}
+
+func (s *PullDataByPageRequest) SetAppId(v string) *PullDataByPageRequest {
+	s.AppId = &v
+	return s
 }
 
 func (s *PullDataByPageRequest) SetDataModelId(v string) *PullDataByPageRequest {
@@ -69,18 +74,8 @@ func (s *PullDataByPageRequest) SetDatetimeFilterField(v string) *PullDataByPage
 	return s
 }
 
-func (s *PullDataByPageRequest) SetMinDatetime(v int64) *PullDataByPageRequest {
-	s.MinDatetime = &v
-	return s
-}
-
 func (s *PullDataByPageRequest) SetMaxDatetime(v int64) *PullDataByPageRequest {
 	s.MaxDatetime = &v
-	return s
-}
-
-func (s *PullDataByPageRequest) SetNextToken(v string) *PullDataByPageRequest {
-	s.NextToken = &v
 	return s
 }
 
@@ -89,18 +84,23 @@ func (s *PullDataByPageRequest) SetMaxResults(v int64) *PullDataByPageRequest {
 	return s
 }
 
-func (s *PullDataByPageRequest) SetAppId(v string) *PullDataByPageRequest {
-	s.AppId = &v
+func (s *PullDataByPageRequest) SetMinDatetime(v int64) *PullDataByPageRequest {
+	s.MinDatetime = &v
+	return s
+}
+
+func (s *PullDataByPageRequest) SetNextToken(v string) *PullDataByPageRequest {
+	s.NextToken = &v
 	return s
 }
 
 type PullDataByPageResponseBody struct {
 	// resultList
 	List []*PullDataByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	// 用于查看下一页数据的游标，如果为空则说明没有更多数据了。
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 单次获取的最大记录条数。
 	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 用于查看下一页数据的游标，如果为空则说明没有更多数据了。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s PullDataByPageResponseBody) String() string {
@@ -116,29 +116,29 @@ func (s *PullDataByPageResponseBody) SetList(v []*PullDataByPageResponseBodyList
 	return s
 }
 
-func (s *PullDataByPageResponseBody) SetNextToken(v string) *PullDataByPageResponseBody {
-	s.NextToken = &v
-	return s
-}
-
 func (s *PullDataByPageResponseBody) SetMaxResults(v int64) *PullDataByPageResponseBody {
 	s.MaxResults = &v
 	return s
 }
 
+func (s *PullDataByPageResponseBody) SetNextToken(v string) *PullDataByPageResponseBody {
+	s.NextToken = &v
+	return s
+}
+
 type PullDataByPageResponseBodyList struct {
+	// 创建数据的应用id。
+	DataCreateAppId *string `json:"dataCreateAppId,omitempty" xml:"dataCreateAppId,omitempty"`
+	// 创建数据的应用类型，isv应用为premium_microapp。
+	DataCreateAppType *string `json:"dataCreateAppType,omitempty" xml:"dataCreateAppType,omitempty"`
 	// 数据创建时间。
 	DataGmtCreate *int64 `json:"dataGmtCreate,omitempty" xml:"dataGmtCreate,omitempty"`
 	// 数据最后修改时间。
 	DataGmtModified *int64 `json:"dataGmtModified,omitempty" xml:"dataGmtModified,omitempty"`
-	// 创建数据的应用类型，isv应用为premium_microapp。
-	DataCreateAppType *string `json:"dataCreateAppType,omitempty" xml:"dataCreateAppType,omitempty"`
-	// 创建数据的应用id。
-	DataCreateAppId *string `json:"dataCreateAppId,omitempty" xml:"dataCreateAppId,omitempty"`
-	// 最后修改数据的应用类型，取值同dataCreateAppType。
-	DataModifiedAppType *string `json:"dataModifiedAppType,omitempty" xml:"dataModifiedAppType,omitempty"`
 	// 最后修改数据的应用id。
 	DataModifiedAppId *string `json:"dataModifiedAppId,omitempty" xml:"dataModifiedAppId,omitempty"`
+	// 最后修改数据的应用类型，取值同dataCreateAppType。
+	DataModifiedAppType *string `json:"dataModifiedAppType,omitempty" xml:"dataModifiedAppType,omitempty"`
 	// 数据完整内容。
 	JsonData *string `json:"jsonData,omitempty" xml:"jsonData,omitempty"`
 }
@@ -151,6 +151,16 @@ func (s PullDataByPageResponseBodyList) GoString() string {
 	return s.String()
 }
 
+func (s *PullDataByPageResponseBodyList) SetDataCreateAppId(v string) *PullDataByPageResponseBodyList {
+	s.DataCreateAppId = &v
+	return s
+}
+
+func (s *PullDataByPageResponseBodyList) SetDataCreateAppType(v string) *PullDataByPageResponseBodyList {
+	s.DataCreateAppType = &v
+	return s
+}
+
 func (s *PullDataByPageResponseBodyList) SetDataGmtCreate(v int64) *PullDataByPageResponseBodyList {
 	s.DataGmtCreate = &v
 	return s
@@ -161,23 +171,13 @@ func (s *PullDataByPageResponseBodyList) SetDataGmtModified(v int64) *PullDataBy
 	return s
 }
 
-func (s *PullDataByPageResponseBodyList) SetDataCreateAppType(v string) *PullDataByPageResponseBodyList {
-	s.DataCreateAppType = &v
-	return s
-}
-
-func (s *PullDataByPageResponseBodyList) SetDataCreateAppId(v string) *PullDataByPageResponseBodyList {
-	s.DataCreateAppId = &v
+func (s *PullDataByPageResponseBodyList) SetDataModifiedAppId(v string) *PullDataByPageResponseBodyList {
+	s.DataModifiedAppId = &v
 	return s
 }
 
 func (s *PullDataByPageResponseBodyList) SetDataModifiedAppType(v string) *PullDataByPageResponseBodyList {
 	s.DataModifiedAppType = &v
-	return s
-}
-
-func (s *PullDataByPageResponseBodyList) SetDataModifiedAppId(v string) *PullDataByPageResponseBodyList {
-	s.DataModifiedAppId = &v
 	return s
 }
 
@@ -233,10 +233,10 @@ func (s *PullDataByPkHeaders) SetXAcsDingtalkAccessToken(v string) *PullDataByPk
 }
 
 type PullDataByPkRequest struct {
-	// 数据的主键字段值。
-	PrimaryKey *string `json:"primaryKey,omitempty" xml:"primaryKey,omitempty"`
 	// 同步数据的应用id，isv应用传isv应用id，企业自建应用传agentId。
 	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	// 数据的主键字段值。
+	PrimaryKey *string `json:"primaryKey,omitempty" xml:"primaryKey,omitempty"`
 }
 
 func (s PullDataByPkRequest) String() string {
@@ -247,29 +247,29 @@ func (s PullDataByPkRequest) GoString() string {
 	return s.String()
 }
 
-func (s *PullDataByPkRequest) SetPrimaryKey(v string) *PullDataByPkRequest {
-	s.PrimaryKey = &v
-	return s
-}
-
 func (s *PullDataByPkRequest) SetAppId(v string) *PullDataByPkRequest {
 	s.AppId = &v
 	return s
 }
 
+func (s *PullDataByPkRequest) SetPrimaryKey(v string) *PullDataByPkRequest {
+	s.PrimaryKey = &v
+	return s
+}
+
 type PullDataByPkResponseBody struct {
+	// 创建数据的应用id。
+	DataCreateAppId *string `json:"dataCreateAppId,omitempty" xml:"dataCreateAppId,omitempty"`
+	// 创建数据的应用类型，isv应用为premium_microapp。
+	DataCreateAppType *string `json:"dataCreateAppType,omitempty" xml:"dataCreateAppType,omitempty"`
 	// 数据创建时间。
 	DataGmtCreate *int64 `json:"dataGmtCreate,omitempty" xml:"dataGmtCreate,omitempty"`
 	// 数据最后修改时间。
 	DataGmtModified *int64 `json:"dataGmtModified,omitempty" xml:"dataGmtModified,omitempty"`
-	// 创建数据的应用类型，isv应用为premium_microapp。
-	DataCreateAppType *string `json:"dataCreateAppType,omitempty" xml:"dataCreateAppType,omitempty"`
-	// 创建数据的应用id。
-	DataCreateAppId *string `json:"dataCreateAppId,omitempty" xml:"dataCreateAppId,omitempty"`
-	// 最后修改数据的应用类型，取值同dataCreateAppType。
-	DataModifiedAppType *string `json:"dataModifiedAppType,omitempty" xml:"dataModifiedAppType,omitempty"`
 	// 最后修改数据的应用id。
 	DataModifiedAppId *string `json:"dataModifiedAppId,omitempty" xml:"dataModifiedAppId,omitempty"`
+	// 最后修改数据的应用类型，取值同dataCreateAppType。
+	DataModifiedAppType *string `json:"dataModifiedAppType,omitempty" xml:"dataModifiedAppType,omitempty"`
 	// 数据完整内容。
 	JsonData *string `json:"jsonData,omitempty" xml:"jsonData,omitempty"`
 }
@@ -282,6 +282,16 @@ func (s PullDataByPkResponseBody) GoString() string {
 	return s.String()
 }
 
+func (s *PullDataByPkResponseBody) SetDataCreateAppId(v string) *PullDataByPkResponseBody {
+	s.DataCreateAppId = &v
+	return s
+}
+
+func (s *PullDataByPkResponseBody) SetDataCreateAppType(v string) *PullDataByPkResponseBody {
+	s.DataCreateAppType = &v
+	return s
+}
+
 func (s *PullDataByPkResponseBody) SetDataGmtCreate(v int64) *PullDataByPkResponseBody {
 	s.DataGmtCreate = &v
 	return s
@@ -292,23 +302,13 @@ func (s *PullDataByPkResponseBody) SetDataGmtModified(v int64) *PullDataByPkResp
 	return s
 }
 
-func (s *PullDataByPkResponseBody) SetDataCreateAppType(v string) *PullDataByPkResponseBody {
-	s.DataCreateAppType = &v
-	return s
-}
-
-func (s *PullDataByPkResponseBody) SetDataCreateAppId(v string) *PullDataByPkResponseBody {
-	s.DataCreateAppId = &v
+func (s *PullDataByPkResponseBody) SetDataModifiedAppId(v string) *PullDataByPkResponseBody {
+	s.DataModifiedAppId = &v
 	return s
 }
 
 func (s *PullDataByPkResponseBody) SetDataModifiedAppType(v string) *PullDataByPkResponseBody {
 	s.DataModifiedAppType = &v
-	return s
-}
-
-func (s *PullDataByPkResponseBody) SetDataModifiedAppId(v string) *PullDataByPkResponseBody {
-	s.DataModifiedAppId = &v
 	return s
 }
 
@@ -364,9 +364,9 @@ func (s *SyncDataHeaders) SetXAcsDingtalkAccessToken(v string) *SyncDataHeaders 
 }
 
 type SyncDataRequest struct {
-	TriggerDataList []*SyncDataRequestTriggerDataList `json:"triggerDataList,omitempty" xml:"triggerDataList,omitempty" type:"Repeated"`
 	// 同步数据的应用id，isv应用传isv应用id，企业自建应用传agentId。
-	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppId           *string                           `json:"appId,omitempty" xml:"appId,omitempty"`
+	TriggerDataList []*SyncDataRequestTriggerDataList `json:"triggerDataList,omitempty" xml:"triggerDataList,omitempty" type:"Repeated"`
 }
 
 func (s SyncDataRequest) String() string {
@@ -377,23 +377,23 @@ func (s SyncDataRequest) GoString() string {
 	return s.String()
 }
 
-func (s *SyncDataRequest) SetTriggerDataList(v []*SyncDataRequestTriggerDataList) *SyncDataRequest {
-	s.TriggerDataList = v
-	return s
-}
-
 func (s *SyncDataRequest) SetAppId(v string) *SyncDataRequest {
 	s.AppId = &v
 	return s
 }
 
+func (s *SyncDataRequest) SetTriggerDataList(v []*SyncDataRequestTriggerDataList) *SyncDataRequest {
+	s.TriggerDataList = v
+	return s
+}
+
 type SyncDataRequestTriggerDataList struct {
-	TriggerId       *string `json:"triggerId,omitempty" xml:"triggerId,omitempty"`
+	Action          *string `json:"action,omitempty" xml:"action,omitempty"`
 	CustomTriggerId *string `json:"customTriggerId,omitempty" xml:"customTriggerId,omitempty"`
-	JsonData        *string `json:"jsonData,omitempty" xml:"jsonData,omitempty"`
 	DataGmtCreate   *int64  `json:"dataGmtCreate,omitempty" xml:"dataGmtCreate,omitempty"`
 	DataGmtModified *int64  `json:"dataGmtModified,omitempty" xml:"dataGmtModified,omitempty"`
-	Action          *string `json:"action,omitempty" xml:"action,omitempty"`
+	JsonData        *string `json:"jsonData,omitempty" xml:"jsonData,omitempty"`
+	TriggerId       *string `json:"triggerId,omitempty" xml:"triggerId,omitempty"`
 }
 
 func (s SyncDataRequestTriggerDataList) String() string {
@@ -404,18 +404,13 @@ func (s SyncDataRequestTriggerDataList) GoString() string {
 	return s.String()
 }
 
-func (s *SyncDataRequestTriggerDataList) SetTriggerId(v string) *SyncDataRequestTriggerDataList {
-	s.TriggerId = &v
+func (s *SyncDataRequestTriggerDataList) SetAction(v string) *SyncDataRequestTriggerDataList {
+	s.Action = &v
 	return s
 }
 
 func (s *SyncDataRequestTriggerDataList) SetCustomTriggerId(v string) *SyncDataRequestTriggerDataList {
 	s.CustomTriggerId = &v
-	return s
-}
-
-func (s *SyncDataRequestTriggerDataList) SetJsonData(v string) *SyncDataRequestTriggerDataList {
-	s.JsonData = &v
 	return s
 }
 
@@ -429,8 +424,13 @@ func (s *SyncDataRequestTriggerDataList) SetDataGmtModified(v int64) *SyncDataRe
 	return s
 }
 
-func (s *SyncDataRequestTriggerDataList) SetAction(v string) *SyncDataRequestTriggerDataList {
-	s.Action = &v
+func (s *SyncDataRequestTriggerDataList) SetJsonData(v string) *SyncDataRequestTriggerDataList {
+	s.JsonData = &v
+	return s
+}
+
+func (s *SyncDataRequestTriggerDataList) SetTriggerId(v string) *SyncDataRequestTriggerDataList {
+	s.TriggerId = &v
 	return s
 }
 
@@ -453,11 +453,11 @@ func (s *SyncDataResponseBody) SetList(v []*SyncDataResponseBodyList) *SyncDataR
 }
 
 type SyncDataResponseBodyList struct {
-	TriggerId     *string `json:"triggerId,omitempty" xml:"triggerId,omitempty"`
 	BizPrimaryKey *string `json:"bizPrimaryKey,omitempty" xml:"bizPrimaryKey,omitempty"`
-	Success       *bool   `json:"success,omitempty" xml:"success,omitempty"`
 	SubErrCode    *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
 	SubErrMsg     *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
+	Success       *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	TriggerId     *string `json:"triggerId,omitempty" xml:"triggerId,omitempty"`
 }
 
 func (s SyncDataResponseBodyList) String() string {
@@ -468,18 +468,8 @@ func (s SyncDataResponseBodyList) GoString() string {
 	return s.String()
 }
 
-func (s *SyncDataResponseBodyList) SetTriggerId(v string) *SyncDataResponseBodyList {
-	s.TriggerId = &v
-	return s
-}
-
 func (s *SyncDataResponseBodyList) SetBizPrimaryKey(v string) *SyncDataResponseBodyList {
 	s.BizPrimaryKey = &v
-	return s
-}
-
-func (s *SyncDataResponseBodyList) SetSuccess(v bool) *SyncDataResponseBodyList {
-	s.Success = &v
 	return s
 }
 
@@ -490,6 +480,16 @@ func (s *SyncDataResponseBodyList) SetSubErrCode(v string) *SyncDataResponseBody
 
 func (s *SyncDataResponseBodyList) SetSubErrMsg(v string) *SyncDataResponseBodyList {
 	s.SubErrMsg = &v
+	return s
+}
+
+func (s *SyncDataResponseBodyList) SetSuccess(v bool) *SyncDataResponseBodyList {
+	s.Success = &v
+	return s
+}
+
+func (s *SyncDataResponseBodyList) SetTriggerId(v string) *SyncDataResponseBodyList {
+	s.TriggerId = &v
 	return s
 }
 
@@ -557,6 +557,10 @@ func (client *Client) PullDataByPageWithOptions(request *PullDataByPageRequest, 
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		query["appId"] = request.AppId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.DataModelId)) {
 		query["dataModelId"] = request.DataModelId
 	}
@@ -565,24 +569,20 @@ func (client *Client) PullDataByPageWithOptions(request *PullDataByPageRequest, 
 		query["datetimeFilterField"] = request.DatetimeFilterField
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.MinDatetime)) {
-		query["minDatetime"] = request.MinDatetime
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.MaxDatetime)) {
 		query["maxDatetime"] = request.MaxDatetime
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
-		query["nextToken"] = request.NextToken
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.AppId)) {
-		query["appId"] = request.AppId
+	if !tea.BoolValue(util.IsUnset(request.MinDatetime)) {
+		query["minDatetime"] = request.MinDatetime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
 	}
 
 	realHeaders := make(map[string]*string)
@@ -591,7 +591,7 @@ func (client *Client) PullDataByPageWithOptions(request *PullDataByPageRequest, 
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
@@ -624,13 +624,14 @@ func (client *Client) PullDataByPkWithOptions(dataModelId *string, request *Pull
 	if _err != nil {
 		return _result, _err
 	}
+	dataModelId = openapiutil.GetEncodeParam(dataModelId)
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.PrimaryKey)) {
-		query["primaryKey"] = request.PrimaryKey
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.AppId)) {
 		query["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PrimaryKey)) {
+		query["primaryKey"] = request.PrimaryKey
 	}
 
 	realHeaders := make(map[string]*string)
@@ -639,7 +640,7 @@ func (client *Client) PullDataByPkWithOptions(dataModelId *string, request *Pull
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
@@ -673,12 +674,12 @@ func (client *Client) SyncDataWithOptions(request *SyncDataRequest, headers *Syn
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.TriggerDataList)) {
-		body["triggerDataList"] = request.TriggerDataList
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.AppId)) {
 		body["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TriggerDataList)) {
+		body["triggerDataList"] = request.TriggerDataList
 	}
 
 	realHeaders := make(map[string]*string)
@@ -687,7 +688,7 @@ func (client *Client) SyncDataWithOptions(request *SyncDataRequest, headers *Syn
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = headers.XAcsDingtalkAccessToken
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
 
 	req := &openapi.OpenApiRequest{
