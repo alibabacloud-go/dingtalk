@@ -3669,7 +3669,7 @@ func (s *DeviceHeartbeatRequest) SetSn(v string) *DeviceHeartbeatRequest {
 
 type DeviceHeartbeatResponseBody struct {
 	// 指令
-	Code *int32 `json:"code,omitempty" xml:"code,omitempty"`
+	Command *int32 `json:"command,omitempty" xml:"command,omitempty"`
 }
 
 func (s DeviceHeartbeatResponseBody) String() string {
@@ -3680,8 +3680,8 @@ func (s DeviceHeartbeatResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *DeviceHeartbeatResponseBody) SetCode(v int32) *DeviceHeartbeatResponseBody {
-	s.Code = &v
+func (s *DeviceHeartbeatResponseBody) SetCommand(v int32) *DeviceHeartbeatResponseBody {
+	s.Command = &v
 	return s
 }
 
@@ -8085,6 +8085,8 @@ type QueryPurchaseInfoResponseBody struct {
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 商户id
 	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	// 名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 场景id
 	Scene *int32 `json:"scene,omitempty" xml:"scene,omitempty"`
 	// 状态
@@ -8108,6 +8110,11 @@ func (s *QueryPurchaseInfoResponseBody) SetCorpId(v string) *QueryPurchaseInfoRe
 
 func (s *QueryPurchaseInfoResponseBody) SetMerchantId(v string) *QueryPurchaseInfoResponseBody {
 	s.MerchantId = &v
+	return s
+}
+
+func (s *QueryPurchaseInfoResponseBody) SetName(v string) *QueryPurchaseInfoResponseBody {
+	s.Name = &v
 	return s
 }
 

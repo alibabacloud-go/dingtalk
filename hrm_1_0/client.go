@@ -698,6 +698,244 @@ func (s *MasterDataQueryResponse) SetBody(v *MasterDataQueryResponseBody) *Maste
 	return s
 }
 
+type MasterDataSaveHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s MasterDataSaveHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataSaveHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataSaveHeaders) SetCommonHeaders(v map[string]*string) *MasterDataSaveHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *MasterDataSaveHeaders) SetXAcsDingtalkAccessToken(v string) *MasterDataSaveHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type MasterDataSaveRequest struct {
+	// 主数据
+	Body []*MasterDataSaveRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// 租户id
+	TenantId *int64 `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+}
+
+func (s MasterDataSaveRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataSaveRequest) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataSaveRequest) SetBody(v []*MasterDataSaveRequestBody) *MasterDataSaveRequest {
+	s.Body = v
+	return s
+}
+
+func (s *MasterDataSaveRequest) SetTenantId(v int64) *MasterDataSaveRequest {
+	s.TenantId = &v
+	return s
+}
+
+type MasterDataSaveRequestBody struct {
+	// 数据变更时间戳，用以保证更新操作的顺序性
+	BizTime *int64 `json:"bizTime,omitempty" xml:"bizTime,omitempty"`
+	// 数据流水唯一标识，如流水号，用以唯一确认一条写入数据
+	BizUk *string `json:"bizUk,omitempty" xml:"bizUk,omitempty"`
+	// 业务域下的细分领域实体
+	EntityCode *string `json:"entityCode,omitempty" xml:"entityCode,omitempty"`
+	// 数据字段列表
+	FieldList []*MasterDataSaveRequestBodyFieldList `json:"fieldList,omitempty" xml:"fieldList,omitempty" type:"Repeated"`
+	// 业务域描述，系统分配
+	Scope *MasterDataSaveRequestBodyScope `json:"scope,omitempty" xml:"scope,omitempty" type:"Struct"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s MasterDataSaveRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataSaveRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataSaveRequestBody) SetBizTime(v int64) *MasterDataSaveRequestBody {
+	s.BizTime = &v
+	return s
+}
+
+func (s *MasterDataSaveRequestBody) SetBizUk(v string) *MasterDataSaveRequestBody {
+	s.BizUk = &v
+	return s
+}
+
+func (s *MasterDataSaveRequestBody) SetEntityCode(v string) *MasterDataSaveRequestBody {
+	s.EntityCode = &v
+	return s
+}
+
+func (s *MasterDataSaveRequestBody) SetFieldList(v []*MasterDataSaveRequestBodyFieldList) *MasterDataSaveRequestBody {
+	s.FieldList = v
+	return s
+}
+
+func (s *MasterDataSaveRequestBody) SetScope(v *MasterDataSaveRequestBodyScope) *MasterDataSaveRequestBody {
+	s.Scope = v
+	return s
+}
+
+func (s *MasterDataSaveRequestBody) SetUserId(v string) *MasterDataSaveRequestBody {
+	s.UserId = &v
+	return s
+}
+
+type MasterDataSaveRequestBodyFieldList struct {
+	// 字段名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 字段string值
+	ValueStr *string `json:"valueStr,omitempty" xml:"valueStr,omitempty"`
+}
+
+func (s MasterDataSaveRequestBodyFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataSaveRequestBodyFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataSaveRequestBodyFieldList) SetName(v string) *MasterDataSaveRequestBodyFieldList {
+	s.Name = &v
+	return s
+}
+
+func (s *MasterDataSaveRequestBodyFieldList) SetValueStr(v string) *MasterDataSaveRequestBodyFieldList {
+	s.ValueStr = &v
+	return s
+}
+
+type MasterDataSaveRequestBodyScope struct {
+	// 业务域code，如PERFORMANCE，系统分配
+	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	// 业务域版本，接入时系统分配，默认传1
+	Version *int32 `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s MasterDataSaveRequestBodyScope) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataSaveRequestBodyScope) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataSaveRequestBodyScope) SetScopeCode(v string) *MasterDataSaveRequestBodyScope {
+	s.ScopeCode = &v
+	return s
+}
+
+func (s *MasterDataSaveRequestBodyScope) SetVersion(v int32) *MasterDataSaveRequestBodyScope {
+	s.Version = &v
+	return s
+}
+
+type MasterDataSaveResponseBody struct {
+	// 是否全部保存成功
+	AllSuccess *bool `json:"allSuccess,omitempty" xml:"allSuccess,omitempty"`
+	// 保存失败的结果，全部保存成功时为空
+	FailResult []*MasterDataSaveResponseBodyFailResult `json:"failResult,omitempty" xml:"failResult,omitempty" type:"Repeated"`
+}
+
+func (s MasterDataSaveResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataSaveResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataSaveResponseBody) SetAllSuccess(v bool) *MasterDataSaveResponseBody {
+	s.AllSuccess = &v
+	return s
+}
+
+func (s *MasterDataSaveResponseBody) SetFailResult(v []*MasterDataSaveResponseBodyFailResult) *MasterDataSaveResponseBody {
+	s.FailResult = v
+	return s
+}
+
+type MasterDataSaveResponseBodyFailResult struct {
+	// 业务流水唯一标识，和入参一致
+	BizUk *string `json:"bizUk,omitempty" xml:"bizUk,omitempty"`
+	// 错误码
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// 错误信息
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s MasterDataSaveResponseBodyFailResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataSaveResponseBodyFailResult) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataSaveResponseBodyFailResult) SetBizUk(v string) *MasterDataSaveResponseBodyFailResult {
+	s.BizUk = &v
+	return s
+}
+
+func (s *MasterDataSaveResponseBodyFailResult) SetErrorCode(v string) *MasterDataSaveResponseBodyFailResult {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *MasterDataSaveResponseBodyFailResult) SetErrorMsg(v string) *MasterDataSaveResponseBodyFailResult {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *MasterDataSaveResponseBodyFailResult) SetSuccess(v bool) *MasterDataSaveResponseBodyFailResult {
+	s.Success = &v
+	return s
+}
+
+type MasterDataSaveResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *MasterDataSaveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s MasterDataSaveResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataSaveResponse) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataSaveResponse) SetHeaders(v map[string]*string) *MasterDataSaveResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *MasterDataSaveResponse) SetBody(v *MasterDataSaveResponseBody) *MasterDataSaveResponse {
+	s.Body = v
+	return s
+}
+
 type QueryCustomEntryProcessesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1549,6 +1787,51 @@ func (client *Client) MasterDataQueryWithOptions(request *MasterDataQueryRequest
 	}
 	_result = &MasterDataQueryResponse{}
 	_body, _err := client.DoROARequest(tea.String("MasterDataQuery"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/masters/datas/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) MasterDataSave(request *MasterDataSaveRequest) (_result *MasterDataSaveResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &MasterDataSaveHeaders{}
+	_result = &MasterDataSaveResponse{}
+	_body, _err := client.MasterDataSaveWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) MasterDataSaveWithOptions(request *MasterDataSaveRequest, headers *MasterDataSaveHeaders, runtime *util.RuntimeOptions) (_result *MasterDataSaveResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TenantId)) {
+		query["tenantId"] = request.TenantId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    util.ToArray(request.Body),
+	}
+	_result = &MasterDataSaveResponse{}
+	_body, _err := client.DoROARequest(tea.String("MasterDataSave"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/masters/datas/save"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

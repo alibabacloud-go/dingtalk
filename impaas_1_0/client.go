@@ -239,6 +239,8 @@ type BatchSendRequest struct {
 	AppUids []*string `json:"appUids,omitempty" xml:"appUids,omitempty" type:"Repeated"`
 	// 消息内容
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 接收消息的群聊列表
+	ConversationIds []*string `json:"conversationIds,omitempty" xml:"conversationIds,omitempty" type:"Repeated"`
 	// 发送者，企业员工账号
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -258,6 +260,11 @@ func (s *BatchSendRequest) SetAppUids(v []*string) *BatchSendRequest {
 
 func (s *BatchSendRequest) SetContent(v string) *BatchSendRequest {
 	s.Content = &v
+	return s
+}
+
+func (s *BatchSendRequest) SetConversationIds(v []*string) *BatchSendRequest {
+	s.ConversationIds = v
 	return s
 }
 
@@ -779,6 +786,142 @@ func (s *ListGroupStaffMembersResponse) SetHeaders(v map[string]*string) *ListGr
 }
 
 func (s *ListGroupStaffMembersResponse) SetBody(v *ListGroupStaffMembersResponseBody) *ListGroupStaffMembersResponse {
+	s.Body = v
+	return s
+}
+
+type QueryBatchSendResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryBatchSendResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBatchSendResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBatchSendResultHeaders) SetCommonHeaders(v map[string]*string) *QueryBatchSendResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryBatchSendResultHeaders) SetXAcsDingtalkAccessToken(v string) *QueryBatchSendResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryBatchSendResultRequest struct {
+	// 发送者，必须是B端用户
+	SenderUserId *string `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
+	// batchSend返回的taskId
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s QueryBatchSendResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBatchSendResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBatchSendResultRequest) SetSenderUserId(v string) *QueryBatchSendResultRequest {
+	s.SenderUserId = &v
+	return s
+}
+
+func (s *QueryBatchSendResultRequest) SetTaskId(v string) *QueryBatchSendResultRequest {
+	s.TaskId = &v
+	return s
+}
+
+type QueryBatchSendResultResponseBody struct {
+	Results []*QueryBatchSendResultResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
+	// status
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QueryBatchSendResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBatchSendResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBatchSendResultResponseBody) SetResults(v []*QueryBatchSendResultResponseBodyResults) *QueryBatchSendResultResponseBody {
+	s.Results = v
+	return s
+}
+
+func (s *QueryBatchSendResultResponseBody) SetStatus(v int32) *QueryBatchSendResultResponseBody {
+	s.Status = &v
+	return s
+}
+
+type QueryBatchSendResultResponseBodyResults struct {
+	AppUid         *string `json:"appUid,omitempty" xml:"appUid,omitempty"`
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	ErrorCode      *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMessage   *string `json:"errorMessage,omitempty" xml:"errorMessage,omitempty"`
+	MsgId          *string `json:"msgId,omitempty" xml:"msgId,omitempty"`
+}
+
+func (s QueryBatchSendResultResponseBodyResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBatchSendResultResponseBodyResults) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBatchSendResultResponseBodyResults) SetAppUid(v string) *QueryBatchSendResultResponseBodyResults {
+	s.AppUid = &v
+	return s
+}
+
+func (s *QueryBatchSendResultResponseBodyResults) SetConversationId(v string) *QueryBatchSendResultResponseBodyResults {
+	s.ConversationId = &v
+	return s
+}
+
+func (s *QueryBatchSendResultResponseBodyResults) SetErrorCode(v string) *QueryBatchSendResultResponseBodyResults {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *QueryBatchSendResultResponseBodyResults) SetErrorMessage(v string) *QueryBatchSendResultResponseBodyResults {
+	s.ErrorMessage = &v
+	return s
+}
+
+func (s *QueryBatchSendResultResponseBodyResults) SetMsgId(v string) *QueryBatchSendResultResponseBodyResults {
+	s.MsgId = &v
+	return s
+}
+
+type QueryBatchSendResultResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryBatchSendResultResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryBatchSendResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBatchSendResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBatchSendResultResponse) SetHeaders(v map[string]*string) *QueryBatchSendResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryBatchSendResultResponse) SetBody(v *QueryBatchSendResultResponseBody) *QueryBatchSendResultResponse {
 	s.Body = v
 	return s
 }
@@ -1441,6 +1584,10 @@ func (client *Client) BatchSendWithOptions(request *BatchSendRequest, headers *B
 		body["content"] = request.Content
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.ConversationIds)) {
+		body["conversationIds"] = request.ConversationIds
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		body["userId"] = request.UserId
 	}
@@ -1720,6 +1867,54 @@ func (client *Client) ListGroupStaffMembersWithOptions(request *ListGroupStaffMe
 	}
 	_result = &ListGroupStaffMembersResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListGroupStaffMembers"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups/staffMemers/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryBatchSendResult(request *QueryBatchSendResultRequest) (_result *QueryBatchSendResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryBatchSendResultHeaders{}
+	_result = &QueryBatchSendResultResponse{}
+	_body, _err := client.QueryBatchSendResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryBatchSendResultWithOptions(request *QueryBatchSendResultRequest, headers *QueryBatchSendResultHeaders, runtime *util.RuntimeOptions) (_result *QueryBatchSendResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SenderUserId)) {
+		query["senderUserId"] = request.SenderUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		query["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryBatchSendResultResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryBatchSendResult"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/messages/batchSendResults"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
