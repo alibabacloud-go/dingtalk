@@ -6250,6 +6250,8 @@ func (s *JoinGroupSetRequestBizDataList) SetValue(v string) *JoinGroupSetRequest
 }
 
 type JoinGroupSetResponseBody struct {
+	// chatId
+	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
 	// 加密群ID。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
@@ -6260,6 +6262,11 @@ func (s JoinGroupSetResponseBody) String() string {
 
 func (s JoinGroupSetResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *JoinGroupSetResponseBody) SetChatId(v string) *JoinGroupSetResponseBody {
+	s.ChatId = &v
+	return s
 }
 
 func (s *JoinGroupSetResponseBody) SetOpenConversationId(v string) *JoinGroupSetResponseBody {
