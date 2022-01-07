@@ -6188,6 +6188,8 @@ func (s *JoinGroupSetHeaders) SetXAcsDingtalkAccessToken(v string) *JoinGroupSet
 type JoinGroupSetRequest struct {
 	// 关系模型数据。
 	BizDataList []*JoinGroupSetRequestBizDataList `json:"bizDataList,omitempty" xml:"bizDataList,omitempty" type:"Repeated"`
+	// 组织id。
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 群组openGroupSetId。
 	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
 	// unionId。
@@ -6204,6 +6206,11 @@ func (s JoinGroupSetRequest) GoString() string {
 
 func (s *JoinGroupSetRequest) SetBizDataList(v []*JoinGroupSetRequestBizDataList) *JoinGroupSetRequest {
 	s.BizDataList = v
+	return s
+}
+
+func (s *JoinGroupSetRequest) SetCorpId(v string) *JoinGroupSetRequest {
+	s.CorpId = &v
 	return s
 }
 
@@ -10535,6 +10542,10 @@ func (client *Client) JoinGroupSetWithOptions(request *JoinGroupSetRequest, head
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.BizDataList)) {
 		body["bizDataList"] = request.BizDataList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
