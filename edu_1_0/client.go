@@ -3780,8 +3780,10 @@ func (s *EndCourseRequest) SetOpUserId(v string) *EndCourseRequest {
 type EndCourseRequestLivePlayInfoList struct {
 	// 直播推流地址
 	LiveInputUrl *string `json:"liveInputUrl,omitempty" xml:"liveInputUrl,omitempty"`
-	// 直播拉流地址
-	LiveOutputUrl *string `json:"liveOutputUrl,omitempty" xml:"liveOutputUrl,omitempty"`
+	// Flv直播拉回地址
+	LiveOutputFlvUrl *string `json:"liveOutputFlvUrl,omitempty" xml:"liveOutputFlvUrl,omitempty"`
+	// Hls直播拉流地址
+	LiveOutputHlsUrl *string `json:"liveOutputHlsUrl,omitempty" xml:"liveOutputHlsUrl,omitempty"`
 	// 直播流类型
 	LiveType *int32 `json:"liveType,omitempty" xml:"liveType,omitempty"`
 	// 回放视频地址
@@ -3801,8 +3803,13 @@ func (s *EndCourseRequestLivePlayInfoList) SetLiveInputUrl(v string) *EndCourseR
 	return s
 }
 
-func (s *EndCourseRequestLivePlayInfoList) SetLiveOutputUrl(v string) *EndCourseRequestLivePlayInfoList {
-	s.LiveOutputUrl = &v
+func (s *EndCourseRequestLivePlayInfoList) SetLiveOutputFlvUrl(v string) *EndCourseRequestLivePlayInfoList {
+	s.LiveOutputFlvUrl = &v
+	return s
+}
+
+func (s *EndCourseRequestLivePlayInfoList) SetLiveOutputHlsUrl(v string) *EndCourseRequestLivePlayInfoList {
+	s.LiveOutputHlsUrl = &v
 	return s
 }
 
@@ -9725,8 +9732,10 @@ func (s *StartCourseRequest) SetOpUserId(v string) *StartCourseRequest {
 type StartCourseRequestLivePlayInfoList struct {
 	// 直播推流地址
 	LiveInputUrl *string `json:"liveInputUrl,omitempty" xml:"liveInputUrl,omitempty"`
-	// 直播拉流地址
-	LiveOutputUrl *string `json:"liveOutputUrl,omitempty" xml:"liveOutputUrl,omitempty"`
+	// Flv格式直播地址
+	LiveOutputFlvUrl *string `json:"liveOutputFlvUrl,omitempty" xml:"liveOutputFlvUrl,omitempty"`
+	// Hls格式直播拉流地址
+	LiveOutputHlsUrl *string `json:"liveOutputHlsUrl,omitempty" xml:"liveOutputHlsUrl,omitempty"`
 	// 直播流类型
 	LiveType *int32 `json:"liveType,omitempty" xml:"liveType,omitempty"`
 	// 视频回放地址
@@ -9746,8 +9755,13 @@ func (s *StartCourseRequestLivePlayInfoList) SetLiveInputUrl(v string) *StartCou
 	return s
 }
 
-func (s *StartCourseRequestLivePlayInfoList) SetLiveOutputUrl(v string) *StartCourseRequestLivePlayInfoList {
-	s.LiveOutputUrl = &v
+func (s *StartCourseRequestLivePlayInfoList) SetLiveOutputFlvUrl(v string) *StartCourseRequestLivePlayInfoList {
+	s.LiveOutputFlvUrl = &v
+	return s
+}
+
+func (s *StartCourseRequestLivePlayInfoList) SetLiveOutputHlsUrl(v string) *StartCourseRequestLivePlayInfoList {
+	s.LiveOutputHlsUrl = &v
 	return s
 }
 

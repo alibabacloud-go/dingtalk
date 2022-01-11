@@ -11,6 +11,130 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type BatchInsertSearchItemHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchInsertSearchItemHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchInsertSearchItemHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchInsertSearchItemHeaders) SetCommonHeaders(v map[string]*string) *BatchInsertSearchItemHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchInsertSearchItemHeaders) SetXAcsDingtalkAccessToken(v string) *BatchInsertSearchItemHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchInsertSearchItemRequest struct {
+	SearchItemModels []*BatchInsertSearchItemRequestSearchItemModels `json:"searchItemModels,omitempty" xml:"searchItemModels,omitempty" type:"Repeated"`
+}
+
+func (s BatchInsertSearchItemRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchInsertSearchItemRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchInsertSearchItemRequest) SetSearchItemModels(v []*BatchInsertSearchItemRequestSearchItemModels) *BatchInsertSearchItemRequest {
+	s.SearchItemModels = v
+	return s
+}
+
+type BatchInsertSearchItemRequestSearchItemModels struct {
+	// 数据项的脚注，长度不能超过64
+	Footer *string `json:"footer,omitempty" xml:"footer,omitempty"`
+	// 数据项的头像，长度不能超过512
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 数据项的id，tabId和orgId相同的情况下，itemId唯一标识一条数据项，长度不能超过128
+	ItemId *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	// 数据项的移动端跳转url地址，若同时配置默认url和mobileUrl，移动端跳转链接优先使用mobileUrl
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// 数据项的PC端跳转url地址，若同时配置默认url和pcUrl，PC端跳转链接优先使用pcUrl
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// 数据项的摘要，长度不能超过64
+	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	// 数据项的标题，长度不能超过16
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 数据项的默认url地址，若mobileUrl或pcUrl没有配置，则使用该url地址，默认url和mobileUrl、pcUrl至少配置其中一个
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s BatchInsertSearchItemRequestSearchItemModels) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchInsertSearchItemRequestSearchItemModels) GoString() string {
+	return s.String()
+}
+
+func (s *BatchInsertSearchItemRequestSearchItemModels) SetFooter(v string) *BatchInsertSearchItemRequestSearchItemModels {
+	s.Footer = &v
+	return s
+}
+
+func (s *BatchInsertSearchItemRequestSearchItemModels) SetIcon(v string) *BatchInsertSearchItemRequestSearchItemModels {
+	s.Icon = &v
+	return s
+}
+
+func (s *BatchInsertSearchItemRequestSearchItemModels) SetItemId(v string) *BatchInsertSearchItemRequestSearchItemModels {
+	s.ItemId = &v
+	return s
+}
+
+func (s *BatchInsertSearchItemRequestSearchItemModels) SetMobileUrl(v string) *BatchInsertSearchItemRequestSearchItemModels {
+	s.MobileUrl = &v
+	return s
+}
+
+func (s *BatchInsertSearchItemRequestSearchItemModels) SetPcUrl(v string) *BatchInsertSearchItemRequestSearchItemModels {
+	s.PcUrl = &v
+	return s
+}
+
+func (s *BatchInsertSearchItemRequestSearchItemModels) SetSummary(v string) *BatchInsertSearchItemRequestSearchItemModels {
+	s.Summary = &v
+	return s
+}
+
+func (s *BatchInsertSearchItemRequestSearchItemModels) SetTitle(v string) *BatchInsertSearchItemRequestSearchItemModels {
+	s.Title = &v
+	return s
+}
+
+func (s *BatchInsertSearchItemRequestSearchItemModels) SetUrl(v string) *BatchInsertSearchItemRequestSearchItemModels {
+	s.Url = &v
+	return s
+}
+
+type BatchInsertSearchItemResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s BatchInsertSearchItemResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchInsertSearchItemResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchInsertSearchItemResponse) SetHeaders(v map[string]*string) *BatchInsertSearchItemResponse {
+	s.Headers = v
+	return s
+}
+
 type CreateSearchTabHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -221,11 +345,17 @@ type GetSearchItemResponseBody struct {
 	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
 	// 数据项的id,tabId和orgId相同的情况下，itemId唯一标识一条数据项
 	ItemId *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	// 数据项的移动端跳转url地址，若同时配置默认url和mobileUrl，移动端跳转链接优先使用mobileUrl
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// 数据项的PC端跳转url地址，若同时配置默认url和pcUrl，PC端跳转链接优先使用pcUrl
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
 	// 数据项的摘要
 	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	// 数据源id
+	TabId *int32 `json:"tabId,omitempty" xml:"tabId,omitempty"`
 	// 数据项的标题
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 数据项的跳转url地址
+	// 数据项的默认url地址，若mobileUrl或pcUrl没有配置，则使用该url地址，默认url和mobileUrl、pcUrl至少配置其中一个
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
@@ -262,8 +392,23 @@ func (s *GetSearchItemResponseBody) SetItemId(v string) *GetSearchItemResponseBo
 	return s
 }
 
+func (s *GetSearchItemResponseBody) SetMobileUrl(v string) *GetSearchItemResponseBody {
+	s.MobileUrl = &v
+	return s
+}
+
+func (s *GetSearchItemResponseBody) SetPcUrl(v string) *GetSearchItemResponseBody {
+	s.PcUrl = &v
+	return s
+}
+
 func (s *GetSearchItemResponseBody) SetSummary(v string) *GetSearchItemResponseBody {
 	s.Summary = &v
+	return s
+}
+
+func (s *GetSearchItemResponseBody) SetTabId(v int32) *GetSearchItemResponseBody {
+	s.TabId = &v
 	return s
 }
 
@@ -296,6 +441,203 @@ func (s *GetSearchItemResponse) SetHeaders(v map[string]*string) *GetSearchItemR
 }
 
 func (s *GetSearchItemResponse) SetBody(v *GetSearchItemResponseBody) *GetSearchItemResponse {
+	s.Body = v
+	return s
+}
+
+type GetSearchItemsByKeyWordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSearchItemsByKeyWordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSearchItemsByKeyWordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSearchItemsByKeyWordHeaders) SetCommonHeaders(v map[string]*string) *GetSearchItemsByKeyWordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSearchItemsByKeyWordHeaders) SetXAcsDingtalkAccessToken(v string) *GetSearchItemsByKeyWordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSearchItemsByKeyWordRequest struct {
+	// 搜索关键词
+	KeyWord *string `json:"keyWord,omitempty" xml:"keyWord,omitempty"`
+	// 一次性请求的item数量
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 加密偏移量，第一次请求取“0”值，后续请求根据接口返回的nextToken值进行填写
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s GetSearchItemsByKeyWordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSearchItemsByKeyWordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSearchItemsByKeyWordRequest) SetKeyWord(v string) *GetSearchItemsByKeyWordRequest {
+	s.KeyWord = &v
+	return s
+}
+
+func (s *GetSearchItemsByKeyWordRequest) SetMaxResults(v int32) *GetSearchItemsByKeyWordRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetSearchItemsByKeyWordRequest) SetNextToken(v string) *GetSearchItemsByKeyWordRequest {
+	s.NextToken = &v
+	return s
+}
+
+type GetSearchItemsByKeyWordResponseBody struct {
+	// 下一次请求的加密offset，若为空则代表item已经读取完毕
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 本次请求条件下的item总量
+	TotalCount *int32                                      `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Value      []*GetSearchItemsByKeyWordResponseBodyValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+}
+
+func (s GetSearchItemsByKeyWordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSearchItemsByKeyWordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSearchItemsByKeyWordResponseBody) SetNextToken(v string) *GetSearchItemsByKeyWordResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetSearchItemsByKeyWordResponseBody) SetTotalCount(v int32) *GetSearchItemsByKeyWordResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *GetSearchItemsByKeyWordResponseBody) SetValue(v []*GetSearchItemsByKeyWordResponseBodyValue) *GetSearchItemsByKeyWordResponseBody {
+	s.Value = v
+	return s
+}
+
+type GetSearchItemsByKeyWordResponseBodyValue struct {
+	// 数据项的脚注
+	Footer *string `json:"footer,omitempty" xml:"footer,omitempty"`
+	// 创建时间
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 修改时间
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// 数据项的头像
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 数据项的id,tabId和orgId相同的情况下，itemId唯一标识一条数据项
+	ItemId *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	// 数据项的移动端跳转url地址，若同时配置默认url和mobileUrl，移动端跳转链接优先使用mobileUrl
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// 数据项的PC端跳转url地址，若同时配置默认url和pcUrl，PC端跳转链接优先使用pcUrl
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// 数据项的摘要
+	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	// 数据源id
+	TabId *int32 `json:"tabId,omitempty" xml:"tabId,omitempty"`
+	// 数据项的标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 数据项的默认url地址，若mobileUrl或pcUrl没有配置，则使用该url地址，默认url和mobileUrl、pcUrl至少配置其中一个
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s GetSearchItemsByKeyWordResponseBodyValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSearchItemsByKeyWordResponseBodyValue) GoString() string {
+	return s.String()
+}
+
+func (s *GetSearchItemsByKeyWordResponseBodyValue) SetFooter(v string) *GetSearchItemsByKeyWordResponseBodyValue {
+	s.Footer = &v
+	return s
+}
+
+func (s *GetSearchItemsByKeyWordResponseBodyValue) SetGmtCreate(v string) *GetSearchItemsByKeyWordResponseBodyValue {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *GetSearchItemsByKeyWordResponseBodyValue) SetGmtModified(v string) *GetSearchItemsByKeyWordResponseBodyValue {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *GetSearchItemsByKeyWordResponseBodyValue) SetIcon(v string) *GetSearchItemsByKeyWordResponseBodyValue {
+	s.Icon = &v
+	return s
+}
+
+func (s *GetSearchItemsByKeyWordResponseBodyValue) SetItemId(v string) *GetSearchItemsByKeyWordResponseBodyValue {
+	s.ItemId = &v
+	return s
+}
+
+func (s *GetSearchItemsByKeyWordResponseBodyValue) SetMobileUrl(v string) *GetSearchItemsByKeyWordResponseBodyValue {
+	s.MobileUrl = &v
+	return s
+}
+
+func (s *GetSearchItemsByKeyWordResponseBodyValue) SetPcUrl(v string) *GetSearchItemsByKeyWordResponseBodyValue {
+	s.PcUrl = &v
+	return s
+}
+
+func (s *GetSearchItemsByKeyWordResponseBodyValue) SetSummary(v string) *GetSearchItemsByKeyWordResponseBodyValue {
+	s.Summary = &v
+	return s
+}
+
+func (s *GetSearchItemsByKeyWordResponseBodyValue) SetTabId(v int32) *GetSearchItemsByKeyWordResponseBodyValue {
+	s.TabId = &v
+	return s
+}
+
+func (s *GetSearchItemsByKeyWordResponseBodyValue) SetTitle(v string) *GetSearchItemsByKeyWordResponseBodyValue {
+	s.Title = &v
+	return s
+}
+
+func (s *GetSearchItemsByKeyWordResponseBodyValue) SetUrl(v string) *GetSearchItemsByKeyWordResponseBodyValue {
+	s.Url = &v
+	return s
+}
+
+type GetSearchItemsByKeyWordResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetSearchItemsByKeyWordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSearchItemsByKeyWordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSearchItemsByKeyWordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSearchItemsByKeyWordResponse) SetHeaders(v map[string]*string) *GetSearchItemsByKeyWordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSearchItemsByKeyWordResponse) SetBody(v *GetSearchItemsByKeyWordResponseBody) *GetSearchItemsByKeyWordResponse {
 	s.Body = v
 	return s
 }
@@ -429,11 +771,15 @@ type InsertSearchItemRequest struct {
 	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
 	// 数据项的id，tabId和orgId相同的情况下，itemId唯一标识一条数据项，长度不能超过128
 	ItemId *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	// 数据项的移动端跳转url地址，若同时配置默认url和mobileUrl，移动端跳转链接优先使用mobileUrl
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// 数据项的PC端跳转url地址，若同时配置默认url和pcUrl，PC端跳转链接优先使用pcUrl
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
 	// 数据项的摘要，长度不能超过64
 	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
 	// 数据项的标题，长度不能超过16
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-	// 数据项的跳转url地址
+	// 数据项的默认url地址，若mobileUrl或pcUrl没有配置，则使用该url地址，默认url和mobileUrl、pcUrl至少配置其中一个
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
@@ -457,6 +803,16 @@ func (s *InsertSearchItemRequest) SetIcon(v string) *InsertSearchItemRequest {
 
 func (s *InsertSearchItemRequest) SetItemId(v string) *InsertSearchItemRequest {
 	s.ItemId = &v
+	return s
+}
+
+func (s *InsertSearchItemRequest) SetMobileUrl(v string) *InsertSearchItemRequest {
+	s.MobileUrl = &v
+	return s
+}
+
+func (s *InsertSearchItemRequest) SetPcUrl(v string) *InsertSearchItemRequest {
+	s.PcUrl = &v
 	return s
 }
 
@@ -489,6 +845,123 @@ func (s InsertSearchItemResponse) GoString() string {
 
 func (s *InsertSearchItemResponse) SetHeaders(v map[string]*string) *InsertSearchItemResponse {
 	s.Headers = v
+	return s
+}
+
+type ListSearchTabsByOrgIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListSearchTabsByOrgIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListSearchTabsByOrgIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListSearchTabsByOrgIdHeaders) SetCommonHeaders(v map[string]*string) *ListSearchTabsByOrgIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListSearchTabsByOrgIdHeaders) SetXAcsDingtalkAccessToken(v string) *ListSearchTabsByOrgIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListSearchTabsByOrgIdResponseBody struct {
+	// 该企业拥有的所有数据源信息
+	SearchTabResult []*ListSearchTabsByOrgIdResponseBodySearchTabResult `json:"searchTabResult,omitempty" xml:"searchTabResult,omitempty" type:"Repeated"`
+}
+
+func (s ListSearchTabsByOrgIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListSearchTabsByOrgIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListSearchTabsByOrgIdResponseBody) SetSearchTabResult(v []*ListSearchTabsByOrgIdResponseBodySearchTabResult) *ListSearchTabsByOrgIdResponseBody {
+	s.SearchTabResult = v
+	return s
+}
+
+type ListSearchTabsByOrgIdResponseBodySearchTabResult struct {
+	// 创建时间
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 修改时间
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// 数据源名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 数据源优先级，数值越小优先级越高
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 数据源状态，1表示上线，0表示下线
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 数据源的id,范围为3000-4000
+	TabId *int32 `json:"tabId,omitempty" xml:"tabId,omitempty"`
+}
+
+func (s ListSearchTabsByOrgIdResponseBodySearchTabResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListSearchTabsByOrgIdResponseBodySearchTabResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListSearchTabsByOrgIdResponseBodySearchTabResult) SetGmtCreate(v string) *ListSearchTabsByOrgIdResponseBodySearchTabResult {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *ListSearchTabsByOrgIdResponseBodySearchTabResult) SetGmtModified(v string) *ListSearchTabsByOrgIdResponseBodySearchTabResult {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *ListSearchTabsByOrgIdResponseBodySearchTabResult) SetName(v string) *ListSearchTabsByOrgIdResponseBodySearchTabResult {
+	s.Name = &v
+	return s
+}
+
+func (s *ListSearchTabsByOrgIdResponseBodySearchTabResult) SetPriority(v int32) *ListSearchTabsByOrgIdResponseBodySearchTabResult {
+	s.Priority = &v
+	return s
+}
+
+func (s *ListSearchTabsByOrgIdResponseBodySearchTabResult) SetStatus(v int32) *ListSearchTabsByOrgIdResponseBodySearchTabResult {
+	s.Status = &v
+	return s
+}
+
+func (s *ListSearchTabsByOrgIdResponseBodySearchTabResult) SetTabId(v int32) *ListSearchTabsByOrgIdResponseBodySearchTabResult {
+	s.TabId = &v
+	return s
+}
+
+type ListSearchTabsByOrgIdResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListSearchTabsByOrgIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListSearchTabsByOrgIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListSearchTabsByOrgIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListSearchTabsByOrgIdResponse) SetHeaders(v map[string]*string) *ListSearchTabsByOrgIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListSearchTabsByOrgIdResponse) SetBody(v *ListSearchTabsByOrgIdResponseBody) *ListSearchTabsByOrgIdResponse {
+	s.Body = v
 	return s
 }
 
@@ -585,6 +1058,51 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) BatchInsertSearchItem(tabId *string, request *BatchInsertSearchItemRequest) (_result *BatchInsertSearchItemResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchInsertSearchItemHeaders{}
+	_result = &BatchInsertSearchItemResponse{}
+	_body, _err := client.BatchInsertSearchItemWithOptions(tabId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchInsertSearchItemWithOptions(tabId *string, request *BatchInsertSearchItemRequest, headers *BatchInsertSearchItemHeaders, runtime *util.RuntimeOptions) (_result *BatchInsertSearchItemResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	tabId = openapiutil.GetEncodeParam(tabId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SearchItemModels)) {
+		body["searchItemModels"] = request.SearchItemModels
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchInsertSearchItemResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchInsertSearchItem"), tea.String("search_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/search/tabs/"+tea.StringValue(tabId)+"/items/batch"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) CreateSearchTab(request *CreateSearchTabRequest) (_result *CreateSearchTabResponse, _err error) {
@@ -746,6 +1264,59 @@ func (client *Client) GetSearchItemWithOptions(tabId *string, itemId *string, he
 	return _result, _err
 }
 
+func (client *Client) GetSearchItemsByKeyWord(tabId *string, request *GetSearchItemsByKeyWordRequest) (_result *GetSearchItemsByKeyWordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSearchItemsByKeyWordHeaders{}
+	_result = &GetSearchItemsByKeyWordResponse{}
+	_body, _err := client.GetSearchItemsByKeyWordWithOptions(tabId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSearchItemsByKeyWordWithOptions(tabId *string, request *GetSearchItemsByKeyWordRequest, headers *GetSearchItemsByKeyWordHeaders, runtime *util.RuntimeOptions) (_result *GetSearchItemsByKeyWordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	tabId = openapiutil.GetEncodeParam(tabId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.KeyWord)) {
+		query["keyWord"] = request.KeyWord
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetSearchItemsByKeyWordResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetSearchItemsByKeyWord"), tea.String("search_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/search/tabs/"+tea.StringValue(tabId)+"/items"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetSearchTab(tabId *string) (_result *GetSearchTabResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSearchTabHeaders{}
@@ -812,6 +1383,14 @@ func (client *Client) InsertSearchItemWithOptions(tabId *string, request *Insert
 		body["itemId"] = request.ItemId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.MobileUrl)) {
+		body["mobileUrl"] = request.MobileUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PcUrl)) {
+		body["pcUrl"] = request.PcUrl
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Summary)) {
 		body["summary"] = request.Summary
 	}
@@ -839,6 +1418,40 @@ func (client *Client) InsertSearchItemWithOptions(tabId *string, request *Insert
 	}
 	_result = &InsertSearchItemResponse{}
 	_body, _err := client.DoROARequest(tea.String("InsertSearchItem"), tea.String("search_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/search/tabs/"+tea.StringValue(tabId)+"/items"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListSearchTabsByOrgId() (_result *ListSearchTabsByOrgIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListSearchTabsByOrgIdHeaders{}
+	_result = &ListSearchTabsByOrgIdResponse{}
+	_body, _err := client.ListSearchTabsByOrgIdWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListSearchTabsByOrgIdWithOptions(headers *ListSearchTabsByOrgIdHeaders, runtime *util.RuntimeOptions) (_result *ListSearchTabsByOrgIdResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &ListSearchTabsByOrgIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListSearchTabsByOrgId"), tea.String("search_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/search/tabs"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
