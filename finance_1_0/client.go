@@ -7012,7 +7012,7 @@ func (client *Client) UploadRegisterImageWithOptions(request *UploadRegisterImag
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &UploadRegisterImageResponse{}
-	_body, _err := client.DoROARequest(tea.String("UploadRegisterImage"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/finance/instutions/images"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("UploadRegisterImage"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/finance/institutions/images"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -4214,6 +4214,116 @@ func (s *QueryJobStatusCodeDictionaryResponse) SetBody(v *QueryJobStatusCodeDict
 	return s
 }
 
+type QueryMedicalEventsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryMedicalEventsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMedicalEventsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMedicalEventsHeaders) SetCommonHeaders(v map[string]*string) *QueryMedicalEventsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryMedicalEventsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMedicalEventsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryMedicalEventsResponseBody struct {
+	// 事件详情列表
+	Content []*QueryMedicalEventsResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 数据总量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryMedicalEventsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMedicalEventsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMedicalEventsResponseBody) SetContent(v []*QueryMedicalEventsResponseBodyContent) *QueryMedicalEventsResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *QueryMedicalEventsResponseBody) SetSuccess(v bool) *QueryMedicalEventsResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *QueryMedicalEventsResponseBody) SetTotalCount(v int64) *QueryMedicalEventsResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryMedicalEventsResponseBodyContent struct {
+	// 事件code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 事件内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 事件id
+	EventId *int64 `json:"eventId,omitempty" xml:"eventId,omitempty"`
+}
+
+func (s QueryMedicalEventsResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMedicalEventsResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMedicalEventsResponseBodyContent) SetCode(v string) *QueryMedicalEventsResponseBodyContent {
+	s.Code = &v
+	return s
+}
+
+func (s *QueryMedicalEventsResponseBodyContent) SetContent(v string) *QueryMedicalEventsResponseBodyContent {
+	s.Content = &v
+	return s
+}
+
+func (s *QueryMedicalEventsResponseBodyContent) SetEventId(v int64) *QueryMedicalEventsResponseBodyContent {
+	s.EventId = &v
+	return s
+}
+
+type QueryMedicalEventsResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryMedicalEventsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryMedicalEventsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMedicalEventsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMedicalEventsResponse) SetHeaders(v map[string]*string) *QueryMedicalEventsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryMedicalEventsResponse) SetBody(v *QueryMedicalEventsResponseBody) *QueryMedicalEventsResponse {
+	s.Body = v
+	return s
+}
+
 type QueryUserExtInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6367,6 +6477,40 @@ func (client *Client) QueryJobStatusCodeDictionaryWithOptions(headers *QueryJobS
 	}
 	_result = &QueryJobStatusCodeDictionaryResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryJobStatusCodeDictionary"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/medicals/jobStatusCodes"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryMedicalEvents() (_result *QueryMedicalEventsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryMedicalEventsHeaders{}
+	_result = &QueryMedicalEventsResponse{}
+	_body, _err := client.QueryMedicalEventsWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryMedicalEventsWithOptions(headers *QueryMedicalEventsHeaders, runtime *util.RuntimeOptions) (_result *QueryMedicalEventsResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &QueryMedicalEventsResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryMedicalEvents"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/medicals/events"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

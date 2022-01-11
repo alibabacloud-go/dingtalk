@@ -180,6 +180,7 @@ type CreateChatRoomRequest struct {
 	ChatGroupName *string   `json:"chatGroupName,omitempty" xml:"chatGroupName,omitempty"`
 	DeviceCodes   []*string `json:"deviceCodes,omitempty" xml:"deviceCodes,omitempty" type:"Repeated"`
 	DeviceTypeId  *string   `json:"deviceTypeId,omitempty" xml:"deviceTypeId,omitempty"`
+	OwnerUserId   *string   `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
 	RoleList      []*string `json:"roleList,omitempty" xml:"roleList,omitempty" type:"Repeated"`
 }
 
@@ -203,6 +204,11 @@ func (s *CreateChatRoomRequest) SetDeviceCodes(v []*string) *CreateChatRoomReque
 
 func (s *CreateChatRoomRequest) SetDeviceTypeId(v string) *CreateChatRoomRequest {
 	s.DeviceTypeId = &v
+	return s
+}
+
+func (s *CreateChatRoomRequest) SetOwnerUserId(v string) *CreateChatRoomRequest {
+	s.OwnerUserId = &v
 	return s
 }
 
@@ -1618,6 +1624,10 @@ func (client *Client) CreateChatRoomWithOptions(request *CreateChatRoomRequest, 
 
 	if !tea.BoolValue(util.IsUnset(request.DeviceTypeId)) {
 		body["deviceTypeId"] = request.DeviceTypeId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnerUserId)) {
+		body["ownerUserId"] = request.OwnerUserId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.RoleList)) {

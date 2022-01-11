@@ -617,6 +617,86 @@ func (s *DeleteResidentDepartmentResponse) SetBody(v *DeleteResidentDepartmentRe
 	return s
 }
 
+type GetConversationIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetConversationIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConversationIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetConversationIdHeaders) SetCommonHeaders(v map[string]*string) *GetConversationIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetConversationIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetConversationIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetConversationIdRequest struct {
+	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+}
+
+func (s GetConversationIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConversationIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetConversationIdRequest) SetChatId(v string) *GetConversationIdRequest {
+	s.ChatId = &v
+	return s
+}
+
+type GetConversationIdResponseBody struct {
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s GetConversationIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConversationIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetConversationIdResponseBody) SetOpenConversationId(v string) *GetConversationIdResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+type GetConversationIdResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetConversationIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetConversationIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConversationIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetConversationIdResponse) SetHeaders(v map[string]*string) *GetConversationIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetConversationIdResponse) SetBody(v *GetConversationIdResponseBody) *GetConversationIdResponse {
+	s.Body = v
+	return s
+}
+
 type GetIndustryTypeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2948,6 +3028,50 @@ func (client *Client) DeleteResidentDepartmentWithOptions(request *DeleteResiden
 	}
 	_result = &DeleteResidentDepartmentResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteResidentDepartment"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/resident/departments"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetConversationId(request *GetConversationIdRequest) (_result *GetConversationIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetConversationIdHeaders{}
+	_result = &GetConversationIdResponse{}
+	_body, _err := client.GetConversationIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetConversationIdWithOptions(request *GetConversationIdRequest, headers *GetConversationIdHeaders, runtime *util.RuntimeOptions) (_result *GetConversationIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChatId)) {
+		query["chatId"] = request.ChatId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetConversationIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetConversationId"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/conversations"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

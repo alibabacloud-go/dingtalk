@@ -646,6 +646,123 @@ func (s *DeleteSequenceResponse) SetHeaders(v map[string]*string) *DeleteSequenc
 	return s
 }
 
+type DeployFunctionCallbackHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeployFunctionCallbackHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeployFunctionCallbackHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeployFunctionCallbackHeaders) SetCommonHeaders(v map[string]*string) *DeployFunctionCallbackHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeployFunctionCallbackHeaders) SetXAcsDingtalkAccessToken(v string) *DeployFunctionCallbackHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeployFunctionCallbackRequest struct {
+	// 云应用id
+	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	// 自定义域名
+	CustomDomain *string `json:"customDomain,omitempty" xml:"customDomain,omitempty"`
+	// 部署阶段
+	DeployStage *string `json:"deployStage,omitempty" xml:"deployStage,omitempty"`
+	// api网关实例的AppKey
+	GateWayAppKey *string `json:"gateWayAppKey,omitempty" xml:"gateWayAppKey,omitempty"`
+	// api网关实例的APPSecret
+	GateWayAppSecret *string `json:"gateWayAppSecret,omitempty" xml:"gateWayAppSecret,omitempty"`
+	// api网关二级域名
+	GateWayDomain *string `json:"gateWayDomain,omitempty" xml:"gateWayDomain,omitempty"`
+}
+
+func (s DeployFunctionCallbackRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeployFunctionCallbackRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeployFunctionCallbackRequest) SetAppId(v string) *DeployFunctionCallbackRequest {
+	s.AppId = &v
+	return s
+}
+
+func (s *DeployFunctionCallbackRequest) SetCustomDomain(v string) *DeployFunctionCallbackRequest {
+	s.CustomDomain = &v
+	return s
+}
+
+func (s *DeployFunctionCallbackRequest) SetDeployStage(v string) *DeployFunctionCallbackRequest {
+	s.DeployStage = &v
+	return s
+}
+
+func (s *DeployFunctionCallbackRequest) SetGateWayAppKey(v string) *DeployFunctionCallbackRequest {
+	s.GateWayAppKey = &v
+	return s
+}
+
+func (s *DeployFunctionCallbackRequest) SetGateWayAppSecret(v string) *DeployFunctionCallbackRequest {
+	s.GateWayAppSecret = &v
+	return s
+}
+
+func (s *DeployFunctionCallbackRequest) SetGateWayDomain(v string) *DeployFunctionCallbackRequest {
+	s.GateWayDomain = &v
+	return s
+}
+
+type DeployFunctionCallbackResponseBody struct {
+	// 是否处理成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeployFunctionCallbackResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeployFunctionCallbackResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeployFunctionCallbackResponseBody) SetResult(v bool) *DeployFunctionCallbackResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeployFunctionCallbackResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeployFunctionCallbackResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeployFunctionCallbackResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeployFunctionCallbackResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeployFunctionCallbackResponse) SetHeaders(v map[string]*string) *DeployFunctionCallbackResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeployFunctionCallbackResponse) SetBody(v *DeployFunctionCallbackResponseBody) *DeployFunctionCallbackResponse {
+	s.Body = v
+	return s
+}
+
 type ExecuteCustomApiHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -896,6 +1013,8 @@ func (s *ExecuteTaskHeaders) SetXAcsDingtalkAccessToken(v string) *ExecuteTaskHe
 type ExecuteTaskRequest struct {
 	// 应用ID
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 电子签名
+	DigitalSignUrl *string `json:"digitalSignUrl,omitempty" xml:"digitalSignUrl,omitempty"`
 	// 更新的表单值
 	FormDataJson *string `json:"formDataJson,omitempty" xml:"formDataJson,omitempty"`
 	// 语言
@@ -926,6 +1045,11 @@ func (s ExecuteTaskRequest) GoString() string {
 
 func (s *ExecuteTaskRequest) SetAppType(v string) *ExecuteTaskRequest {
 	s.AppType = &v
+	return s
+}
+
+func (s *ExecuteTaskRequest) SetDigitalSignUrl(v string) *ExecuteTaskRequest {
+	s.DigitalSignUrl = &v
 	return s
 }
 
@@ -12481,6 +12605,70 @@ func (client *Client) DeleteSequenceWithOptions(request *DeleteSequenceRequest, 
 	return _result, _err
 }
 
+func (client *Client) DeployFunctionCallback(request *DeployFunctionCallbackRequest) (_result *DeployFunctionCallbackResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeployFunctionCallbackHeaders{}
+	_result = &DeployFunctionCallbackResponse{}
+	_body, _err := client.DeployFunctionCallbackWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeployFunctionCallbackWithOptions(request *DeployFunctionCallbackRequest, headers *DeployFunctionCallbackHeaders, runtime *util.RuntimeOptions) (_result *DeployFunctionCallbackResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		body["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CustomDomain)) {
+		body["customDomain"] = request.CustomDomain
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeployStage)) {
+		body["deployStage"] = request.DeployStage
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GateWayAppKey)) {
+		body["gateWayAppKey"] = request.GateWayAppKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GateWayAppSecret)) {
+		body["gateWayAppSecret"] = request.GateWayAppSecret
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GateWayDomain)) {
+		body["gateWayDomain"] = request.GateWayDomain
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DeployFunctionCallbackResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeployFunctionCallback"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/functionComputeConnectors/completeDeployments/notify"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ExecuteCustomApi(request *ExecuteCustomApiRequest) (_result *ExecuteCustomApiResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ExecuteCustomApiHeaders{}
@@ -12641,6 +12829,10 @@ func (client *Client) ExecuteTaskWithOptions(request *ExecuteTaskRequest, header
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AppType)) {
 		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DigitalSignUrl)) {
+		body["digitalSignUrl"] = request.DigitalSignUrl
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.FormDataJson)) {
