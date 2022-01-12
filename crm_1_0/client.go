@@ -7751,7 +7751,10 @@ func (s *QueryRelationDatasByTargetIdResponseBody) SetRelations(v []*QueryRelati
 }
 
 type QueryRelationDatasByTargetIdResponseBodyRelations struct {
+	// 关系模型。
 	BizDataList []*QueryRelationDatasByTargetIdResponseBodyRelationsBizDataList `json:"bizDataList,omitempty" xml:"bizDataList,omitempty" type:"Repeated"`
+	// 关系所在的群ID，加密形式。
+	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
 	// 关系实例ID。
 	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
 	// 关系类型。
@@ -7768,6 +7771,11 @@ func (s QueryRelationDatasByTargetIdResponseBodyRelations) GoString() string {
 
 func (s *QueryRelationDatasByTargetIdResponseBodyRelations) SetBizDataList(v []*QueryRelationDatasByTargetIdResponseBodyRelationsBizDataList) *QueryRelationDatasByTargetIdResponseBodyRelations {
 	s.BizDataList = v
+	return s
+}
+
+func (s *QueryRelationDatasByTargetIdResponseBodyRelations) SetOpenConversationIds(v []*string) *QueryRelationDatasByTargetIdResponseBodyRelations {
+	s.OpenConversationIds = v
 	return s
 }
 
