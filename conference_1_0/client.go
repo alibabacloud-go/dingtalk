@@ -124,6 +124,8 @@ func (s *CreateVideoConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *Cre
 type CreateVideoConferenceRequest struct {
 	// 会议主题： 文字，不超过20中文
 	ConfTitle *string `json:"confTitle,omitempty" xml:"confTitle,omitempty"`
+	// 是否邀请主叫
+	InviteCaller *bool `json:"inviteCaller,omitempty" xml:"inviteCaller,omitempty"`
 	// 邀请参会人员UID列表（必须好友或同事）
 	InviteUserIds []*string `json:"inviteUserIds,omitempty" xml:"inviteUserIds,omitempty" type:"Repeated"`
 	// 会议发起人UID
@@ -140,6 +142,11 @@ func (s CreateVideoConferenceRequest) GoString() string {
 
 func (s *CreateVideoConferenceRequest) SetConfTitle(v string) *CreateVideoConferenceRequest {
 	s.ConfTitle = &v
+	return s
+}
+
+func (s *CreateVideoConferenceRequest) SetInviteCaller(v bool) *CreateVideoConferenceRequest {
+	s.InviteCaller = &v
 	return s
 }
 
@@ -1542,6 +1549,10 @@ func (client *Client) CreateVideoConferenceWithOptions(request *CreateVideoConfe
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ConfTitle)) {
 		body["confTitle"] = request.ConfTitle
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InviteCaller)) {
+		body["inviteCaller"] = request.InviteCaller
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.InviteUserIds)) {

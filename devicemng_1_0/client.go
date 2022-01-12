@@ -1434,6 +1434,7 @@ func (s *UploadEventHeaders) SetXAcsDingtalkAccessToken(v string) *UploadEventHe
 
 type UploadEventRequest struct {
 	Content    *string `json:"content,omitempty" xml:"content,omitempty"`
+	CoverUrl   *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
 	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
 	DeviceUuid *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
 	EventTime  *string `json:"eventTime,omitempty" xml:"eventTime,omitempty"`
@@ -1451,6 +1452,11 @@ func (s UploadEventRequest) GoString() string {
 
 func (s *UploadEventRequest) SetContent(v string) *UploadEventRequest {
 	s.Content = &v
+	return s
+}
+
+func (s *UploadEventRequest) SetCoverUrl(v string) *UploadEventRequest {
+	s.CoverUrl = &v
 	return s
 }
 
@@ -2044,6 +2050,10 @@ func (client *Client) UploadEventWithOptions(request *UploadEventRequest, header
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Content)) {
 		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CoverUrl)) {
+		body["coverUrl"] = request.CoverUrl
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.DeviceCode)) {
