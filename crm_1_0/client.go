@@ -5104,6 +5104,8 @@ func (s *GetCrmGroupChatSingleRequest) SetOpenConversationId(v string) *GetCrmGr
 type GetCrmGroupChatSingleResponseBody struct {
 	// 客户群chatId
 	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	// corpId。
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 创建时间(时间戳)
 	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
 	// 群头像地址
@@ -5132,6 +5134,11 @@ func (s GetCrmGroupChatSingleResponseBody) GoString() string {
 
 func (s *GetCrmGroupChatSingleResponseBody) SetChatId(v string) *GetCrmGroupChatSingleResponseBody {
 	s.ChatId = &v
+	return s
+}
+
+func (s *GetCrmGroupChatSingleResponseBody) SetCorpId(v string) *GetCrmGroupChatSingleResponseBody {
+	s.CorpId = &v
 	return s
 }
 

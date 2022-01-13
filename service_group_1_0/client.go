@@ -4561,6 +4561,335 @@ func (s *SearchGroupResponse) SetBody(v *SearchGroupResponseBody) *SearchGroupRe
 	return s
 }
 
+type SendMsgByTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendMsgByTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgByTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgByTaskHeaders) SetCommonHeaders(v map[string]*string) *SendMsgByTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendMsgByTaskHeaders) SetXAcsDingtalkAccessToken(v string) *SendMsgByTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendMsgByTaskRequest struct {
+	// 群发内容
+	MessageContent *SendMsgByTaskRequestMessageContent `json:"messageContent,omitempty" xml:"messageContent,omitempty" type:"Struct"`
+	// 开放团队ID
+	OpenTeamId *string                         `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	QueryGroup *SendMsgByTaskRequestQueryGroup `json:"queryGroup,omitempty" xml:"queryGroup,omitempty" type:"Struct"`
+	// 发送配置
+	SendConfig *SendMsgByTaskRequestSendConfig `json:"sendConfig,omitempty" xml:"sendConfig,omitempty" type:"Struct"`
+	// 群发任务名称
+	TaskName *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
+}
+
+func (s SendMsgByTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgByTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgByTaskRequest) SetMessageContent(v *SendMsgByTaskRequestMessageContent) *SendMsgByTaskRequest {
+	s.MessageContent = v
+	return s
+}
+
+func (s *SendMsgByTaskRequest) SetOpenTeamId(v string) *SendMsgByTaskRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *SendMsgByTaskRequest) SetQueryGroup(v *SendMsgByTaskRequestQueryGroup) *SendMsgByTaskRequest {
+	s.QueryGroup = v
+	return s
+}
+
+func (s *SendMsgByTaskRequest) SetSendConfig(v *SendMsgByTaskRequestSendConfig) *SendMsgByTaskRequest {
+	s.SendConfig = v
+	return s
+}
+
+func (s *SendMsgByTaskRequest) SetTaskName(v string) *SendMsgByTaskRequest {
+	s.TaskName = &v
+	return s
+}
+
+type SendMsgByTaskRequestMessageContent struct {
+	// at活跃成员数量
+	AtActiveMemberNum *int64 `json:"atActiveMemberNum,omitempty" xml:"atActiveMemberNum,omitempty"`
+	// 是否At活跃成员
+	AtActiveUser *bool `json:"atActiveUser,omitempty" xml:"atActiveUser,omitempty"`
+	// 是否At全部人员
+	AtAll *bool                                     `json:"atAll,omitempty" xml:"atAll,omitempty"`
+	Btns  []*SendMsgByTaskRequestMessageContentBtns `json:"btns,omitempty" xml:"btns,omitempty" type:"Repeated"`
+	// 内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 图片列表
+	Images []*string `json:"images,omitempty" xml:"images,omitempty" type:"Repeated"`
+	// 消息类型
+	MessageType *string `json:"messageType,omitempty" xml:"messageType,omitempty"`
+	// 标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s SendMsgByTaskRequestMessageContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgByTaskRequestMessageContent) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgByTaskRequestMessageContent) SetAtActiveMemberNum(v int64) *SendMsgByTaskRequestMessageContent {
+	s.AtActiveMemberNum = &v
+	return s
+}
+
+func (s *SendMsgByTaskRequestMessageContent) SetAtActiveUser(v bool) *SendMsgByTaskRequestMessageContent {
+	s.AtActiveUser = &v
+	return s
+}
+
+func (s *SendMsgByTaskRequestMessageContent) SetAtAll(v bool) *SendMsgByTaskRequestMessageContent {
+	s.AtAll = &v
+	return s
+}
+
+func (s *SendMsgByTaskRequestMessageContent) SetBtns(v []*SendMsgByTaskRequestMessageContentBtns) *SendMsgByTaskRequestMessageContent {
+	s.Btns = v
+	return s
+}
+
+func (s *SendMsgByTaskRequestMessageContent) SetContent(v string) *SendMsgByTaskRequestMessageContent {
+	s.Content = &v
+	return s
+}
+
+func (s *SendMsgByTaskRequestMessageContent) SetImages(v []*string) *SendMsgByTaskRequestMessageContent {
+	s.Images = v
+	return s
+}
+
+func (s *SendMsgByTaskRequestMessageContent) SetMessageType(v string) *SendMsgByTaskRequestMessageContent {
+	s.MessageType = &v
+	return s
+}
+
+func (s *SendMsgByTaskRequestMessageContent) SetTitle(v string) *SendMsgByTaskRequestMessageContent {
+	s.Title = &v
+	return s
+}
+
+type SendMsgByTaskRequestMessageContentBtns struct {
+	ActionURL *string `json:"actionURL,omitempty" xml:"actionURL,omitempty"`
+	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s SendMsgByTaskRequestMessageContentBtns) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgByTaskRequestMessageContentBtns) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgByTaskRequestMessageContentBtns) SetActionURL(v string) *SendMsgByTaskRequestMessageContentBtns {
+	s.ActionURL = &v
+	return s
+}
+
+func (s *SendMsgByTaskRequestMessageContentBtns) SetTitle(v string) *SendMsgByTaskRequestMessageContentBtns {
+	s.Title = &v
+	return s
+}
+
+type SendMsgByTaskRequestQueryGroup struct {
+	// 群标签
+	GroupTagNames []*string `json:"groupTagNames,omitempty" xml:"groupTagNames,omitempty" type:"Repeated"`
+	// 活跃日期筛选类型，ACTIVE=活跃      NOTACTIVE=不活跃
+	LastActiveDateFilterType *string `json:"lastActiveDateFilterType,omitempty" xml:"lastActiveDateFilterType,omitempty"`
+	// 最近活跃时间的结束时间
+	LastActiveTimeEnd *string `json:"lastActiveTimeEnd,omitempty" xml:"lastActiveTimeEnd,omitempty"`
+	// 最近活跃时间的开始时间
+	LastActiveTimeStart *string `json:"lastActiveTimeStart,omitempty" xml:"lastActiveTimeStart,omitempty"`
+	// 精准圈选-群ID集合
+	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
+	// 开放群组ID
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 群发圈选类型 1. AIMED 精准圈选 2. MULTI_CONDITIONS 多条件圈选
+	QueryType *string `json:"queryType,omitempty" xml:"queryType,omitempty"`
+}
+
+func (s SendMsgByTaskRequestQueryGroup) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgByTaskRequestQueryGroup) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgByTaskRequestQueryGroup) SetGroupTagNames(v []*string) *SendMsgByTaskRequestQueryGroup {
+	s.GroupTagNames = v
+	return s
+}
+
+func (s *SendMsgByTaskRequestQueryGroup) SetLastActiveDateFilterType(v string) *SendMsgByTaskRequestQueryGroup {
+	s.LastActiveDateFilterType = &v
+	return s
+}
+
+func (s *SendMsgByTaskRequestQueryGroup) SetLastActiveTimeEnd(v string) *SendMsgByTaskRequestQueryGroup {
+	s.LastActiveTimeEnd = &v
+	return s
+}
+
+func (s *SendMsgByTaskRequestQueryGroup) SetLastActiveTimeStart(v string) *SendMsgByTaskRequestQueryGroup {
+	s.LastActiveTimeStart = &v
+	return s
+}
+
+func (s *SendMsgByTaskRequestQueryGroup) SetOpenConversationIds(v []*string) *SendMsgByTaskRequestQueryGroup {
+	s.OpenConversationIds = v
+	return s
+}
+
+func (s *SendMsgByTaskRequestQueryGroup) SetOpenGroupSetId(v string) *SendMsgByTaskRequestQueryGroup {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *SendMsgByTaskRequestQueryGroup) SetQueryType(v string) *SendMsgByTaskRequestQueryGroup {
+	s.QueryType = &v
+	return s
+}
+
+type SendMsgByTaskRequestSendConfig struct {
+	// 是否链接追踪
+	NeedUrlTrack *bool `json:"needUrlTrack,omitempty" xml:"needUrlTrack,omitempty"`
+	// 执行时间（sendType=TIMING时传入）
+	SendTime *string `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
+	// 发送类型      * TIMING=定时执行      * INSTANT=立即执行
+	SendType *string `json:"sendType,omitempty" xml:"sendType,omitempty"`
+	// 链接跟踪配置
+	UrlTrackConfig []*SendMsgByTaskRequestSendConfigUrlTrackConfig `json:"urlTrackConfig,omitempty" xml:"urlTrackConfig,omitempty" type:"Repeated"`
+}
+
+func (s SendMsgByTaskRequestSendConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgByTaskRequestSendConfig) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgByTaskRequestSendConfig) SetNeedUrlTrack(v bool) *SendMsgByTaskRequestSendConfig {
+	s.NeedUrlTrack = &v
+	return s
+}
+
+func (s *SendMsgByTaskRequestSendConfig) SetSendTime(v string) *SendMsgByTaskRequestSendConfig {
+	s.SendTime = &v
+	return s
+}
+
+func (s *SendMsgByTaskRequestSendConfig) SetSendType(v string) *SendMsgByTaskRequestSendConfig {
+	s.SendType = &v
+	return s
+}
+
+func (s *SendMsgByTaskRequestSendConfig) SetUrlTrackConfig(v []*SendMsgByTaskRequestSendConfigUrlTrackConfig) *SendMsgByTaskRequestSendConfig {
+	s.UrlTrackConfig = v
+	return s
+}
+
+type SendMsgByTaskRequestSendConfigUrlTrackConfig struct {
+	// 跟踪链接的标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 跟踪链接的坑位ID（sg开头）
+	TrackId *string `json:"trackId,omitempty" xml:"trackId,omitempty"`
+	// 跟踪链接URL
+	TrackUrl *string `json:"trackUrl,omitempty" xml:"trackUrl,omitempty"`
+}
+
+func (s SendMsgByTaskRequestSendConfigUrlTrackConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgByTaskRequestSendConfigUrlTrackConfig) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgByTaskRequestSendConfigUrlTrackConfig) SetTitle(v string) *SendMsgByTaskRequestSendConfigUrlTrackConfig {
+	s.Title = &v
+	return s
+}
+
+func (s *SendMsgByTaskRequestSendConfigUrlTrackConfig) SetTrackId(v string) *SendMsgByTaskRequestSendConfigUrlTrackConfig {
+	s.TrackId = &v
+	return s
+}
+
+func (s *SendMsgByTaskRequestSendConfigUrlTrackConfig) SetTrackUrl(v string) *SendMsgByTaskRequestSendConfigUrlTrackConfig {
+	s.TrackUrl = &v
+	return s
+}
+
+type SendMsgByTaskResponseBody struct {
+	// Id of the request
+	OpenBatchTaskId *string `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
+}
+
+func (s SendMsgByTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgByTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgByTaskResponseBody) SetOpenBatchTaskId(v string) *SendMsgByTaskResponseBody {
+	s.OpenBatchTaskId = &v
+	return s
+}
+
+type SendMsgByTaskResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SendMsgByTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendMsgByTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgByTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgByTaskResponse) SetHeaders(v map[string]*string) *SendMsgByTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendMsgByTaskResponse) SetBody(v *SendMsgByTaskResponseBody) *SendMsgByTaskResponse {
+	s.Body = v
+	return s
+}
+
 type SendServiceGroupMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7416,6 +7745,66 @@ func (client *Client) SearchGroupWithOptions(request *SearchGroupRequest, header
 	}
 	_result = &SearchGroupResponse{}
 	_body, _err := client.DoROARequest(tea.String("SearchGroup"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendMsgByTask(request *SendMsgByTaskRequest) (_result *SendMsgByTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendMsgByTaskHeaders{}
+	_result = &SendMsgByTaskResponse{}
+	_body, _err := client.SendMsgByTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendMsgByTaskWithOptions(request *SendMsgByTaskRequest, headers *SendMsgByTaskHeaders, runtime *util.RuntimeOptions) (_result *SendMsgByTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.MessageContent))) {
+		body["messageContent"] = request.MessageContent
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.QueryGroup))) {
+		body["queryGroup"] = request.QueryGroup
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SendConfig))) {
+		body["sendConfig"] = request.SendConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskName)) {
+		body["taskName"] = request.TaskName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendMsgByTaskResponse{}
+	_body, _err := client.DoROARequest(tea.String("SendMsgByTask"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/messages/tasks/send"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

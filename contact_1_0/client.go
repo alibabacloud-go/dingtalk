@@ -11,6 +11,95 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type BatchApproveUnionApplyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchApproveUnionApplyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchApproveUnionApplyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchApproveUnionApplyHeaders) SetCommonHeaders(v map[string]*string) *BatchApproveUnionApplyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchApproveUnionApplyHeaders) SetXAcsDingtalkAccessToken(v string) *BatchApproveUnionApplyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchApproveUnionApplyRequest struct {
+	Body []*BatchApproveUnionApplyRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+}
+
+func (s BatchApproveUnionApplyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchApproveUnionApplyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchApproveUnionApplyRequest) SetBody(v []*BatchApproveUnionApplyRequestBody) *BatchApproveUnionApplyRequest {
+	s.Body = v
+	return s
+}
+
+type BatchApproveUnionApplyRequestBody struct {
+	// branchCorpId
+	BranchCorpId *string `json:"branchCorpId,omitempty" xml:"branchCorpId,omitempty"`
+	// linkDeptId
+	LinkDeptId *int64 `json:"linkDeptId,omitempty" xml:"linkDeptId,omitempty"`
+	// unionRootName
+	UnionRootName *string `json:"unionRootName,omitempty" xml:"unionRootName,omitempty"`
+}
+
+func (s BatchApproveUnionApplyRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchApproveUnionApplyRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchApproveUnionApplyRequestBody) SetBranchCorpId(v string) *BatchApproveUnionApplyRequestBody {
+	s.BranchCorpId = &v
+	return s
+}
+
+func (s *BatchApproveUnionApplyRequestBody) SetLinkDeptId(v int64) *BatchApproveUnionApplyRequestBody {
+	s.LinkDeptId = &v
+	return s
+}
+
+func (s *BatchApproveUnionApplyRequestBody) SetUnionRootName(v string) *BatchApproveUnionApplyRequestBody {
+	s.UnionRootName = &v
+	return s
+}
+
+type BatchApproveUnionApplyResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s BatchApproveUnionApplyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchApproveUnionApplyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchApproveUnionApplyResponse) SetHeaders(v map[string]*string) *BatchApproveUnionApplyResponse {
+	s.Headers = v
+	return s
+}
+
 type CreateCooperateOrgHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4858,6 +4947,45 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) BatchApproveUnionApply(request *BatchApproveUnionApplyRequest) (_result *BatchApproveUnionApplyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchApproveUnionApplyHeaders{}
+	_result = &BatchApproveUnionApplyResponse{}
+	_body, _err := client.BatchApproveUnionApplyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchApproveUnionApplyWithOptions(request *BatchApproveUnionApplyRequest, headers *BatchApproveUnionApplyHeaders, runtime *util.RuntimeOptions) (_result *BatchApproveUnionApplyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    util.ToArray(request.Body),
+	}
+	_result = &BatchApproveUnionApplyResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchApproveUnionApply"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/cooperateCorps/unionApplications/approve"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) CreateCooperateOrg(request *CreateCooperateOrgRequest) (_result *CreateCooperateOrgResponse, _err error) {
