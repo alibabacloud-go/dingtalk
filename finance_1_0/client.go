@@ -4487,12 +4487,12 @@ type QueryUserAgreementResponseBody struct {
 	PayChannelAccountName *string `json:"payChannelAccountName,omitempty" xml:"payChannelAccountName,omitempty"`
 	// 实际支付账号（脱敏）
 	PayChannelAccountNo *string `json:"payChannelAccountNo,omitempty" xml:"payChannelAccountNo,omitempty"`
-	// 用户id
-	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
 	// 签约状态
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// 子机构id
 	SubInstId *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryUserAgreementResponseBody) String() string {
@@ -4548,11 +4548,6 @@ func (s *QueryUserAgreementResponseBody) SetPayChannelAccountNo(v string) *Query
 	return s
 }
 
-func (s *QueryUserAgreementResponseBody) SetStaffId(v string) *QueryUserAgreementResponseBody {
-	s.StaffId = &v
-	return s
-}
-
 func (s *QueryUserAgreementResponseBody) SetStatus(v string) *QueryUserAgreementResponseBody {
 	s.Status = &v
 	return s
@@ -4560,6 +4555,11 @@ func (s *QueryUserAgreementResponseBody) SetStatus(v string) *QueryUserAgreement
 
 func (s *QueryUserAgreementResponseBody) SetSubInstId(v string) *QueryUserAgreementResponseBody {
 	s.SubInstId = &v
+	return s
+}
+
+func (s *QueryUserAgreementResponseBody) SetUserId(v string) *QueryUserAgreementResponseBody {
+	s.UserId = &v
 	return s
 }
 
@@ -4708,8 +4708,8 @@ type QueryWithholdingOrderResponseBody struct {
 	PayChannel *string `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
 	// 支付渠道支付账号（脱敏后返回）
 	PayChannelAccountNo *string `json:"payChannelAccountNo,omitempty" xml:"payChannelAccountNo,omitempty"`
-	// 付款人staffId
-	PayerStaffId *string `json:"payerStaffId,omitempty" xml:"payerStaffId,omitempty"`
+	// 付款人userId
+	PayerUserId *string `json:"payerUserId,omitempty" xml:"payerUserId,omitempty"`
 	// 代扣备注
 	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 	// 状态
@@ -4768,8 +4768,8 @@ func (s *QueryWithholdingOrderResponseBody) SetPayChannelAccountNo(v string) *Qu
 	return s
 }
 
-func (s *QueryWithholdingOrderResponseBody) SetPayerStaffId(v string) *QueryWithholdingOrderResponseBody {
-	s.PayerStaffId = &v
+func (s *QueryWithholdingOrderResponseBody) SetPayerUserId(v string) *QueryWithholdingOrderResponseBody {
+	s.PayerUserId = &v
 	return s
 }
 

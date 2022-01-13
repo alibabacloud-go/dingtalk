@@ -1235,6 +1235,8 @@ func (s *TopboxCloseHeaders) SetXAcsDingtalkAccessToken(v string) *TopboxCloseHe
 }
 
 type TopboxCloseRequest struct {
+	// 酷应用编码
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
 	// 接收卡片的群的openConversationId
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）
@@ -1247,6 +1249,11 @@ func (s TopboxCloseRequest) String() string {
 
 func (s TopboxCloseRequest) GoString() string {
 	return s.String()
+}
+
+func (s *TopboxCloseRequest) SetCoolAppCode(v string) *TopboxCloseRequest {
+	s.CoolAppCode = &v
+	return s
 }
 
 func (s *TopboxCloseRequest) SetOpenConversationId(v string) *TopboxCloseRequest {
@@ -1300,6 +1307,8 @@ func (s *TopboxOpenHeaders) SetXAcsDingtalkAccessToken(v string) *TopboxOpenHead
 }
 
 type TopboxOpenRequest struct {
+	// 酷应用编码
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
 	// 吊顶的过期时间（绝对时间）
 	ExpiredTime *int64 `json:"expiredTime,omitempty" xml:"expiredTime,omitempty"`
 	// 接收卡片的群的openConversationId
@@ -1316,6 +1325,11 @@ func (s TopboxOpenRequest) String() string {
 
 func (s TopboxOpenRequest) GoString() string {
 	return s.String()
+}
+
+func (s *TopboxOpenRequest) SetCoolAppCode(v string) *TopboxOpenRequest {
+	s.CoolAppCode = &v
+	return s
 }
 
 func (s *TopboxOpenRequest) SetExpiredTime(v int64) *TopboxOpenRequest {
@@ -2505,6 +2519,10 @@ func (client *Client) TopboxCloseWithOptions(request *TopboxCloseRequest, header
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CoolAppCode)) {
+		body["coolAppCode"] = request.CoolAppCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
 		body["openConversationId"] = request.OpenConversationId
 	}
@@ -2553,6 +2571,10 @@ func (client *Client) TopboxOpenWithOptions(request *TopboxOpenRequest, headers 
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CoolAppCode)) {
+		body["coolAppCode"] = request.CoolAppCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ExpiredTime)) {
 		body["expiredTime"] = request.ExpiredTime
 	}

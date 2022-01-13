@@ -1431,6 +1431,229 @@ func (s *GetMachineUserResponse) SetBody(v *GetMachineUserResponseBody) *GetMach
 	return s
 }
 
+type GetOvertimeSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetOvertimeSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOvertimeSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetOvertimeSettingHeaders) SetCommonHeaders(v map[string]*string) *GetOvertimeSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetOvertimeSettingHeaders) SetXAcsDingtalkAccessToken(v string) *GetOvertimeSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetOvertimeSettingRequest struct {
+	OvertimeSettingIds []*int64 `json:"overtimeSettingIds,omitempty" xml:"overtimeSettingIds,omitempty" type:"Repeated"`
+}
+
+func (s GetOvertimeSettingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOvertimeSettingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetOvertimeSettingRequest) SetOvertimeSettingIds(v []*int64) *GetOvertimeSettingRequest {
+	s.OvertimeSettingIds = v
+	return s
+}
+
+type GetOvertimeSettingResponseBody struct {
+	Result []*GetOvertimeSettingResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetOvertimeSettingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOvertimeSettingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOvertimeSettingResponseBody) SetResult(v []*GetOvertimeSettingResponseBodyResult) *GetOvertimeSettingResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetOvertimeSettingResponseBodyResult struct {
+	// 是否默认
+	Default          *bool                                   `json:"default,omitempty" xml:"default,omitempty"`
+	DurationSettings map[string]*ResultDurationSettingsValue `json:"durationSettings,omitempty" xml:"durationSettings,omitempty"`
+	// 历史加班规则设置id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 规则名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 时间分割规则
+	OvertimeDivisions []*GetOvertimeSettingResponseBodyResultOvertimeDivisions `json:"overtimeDivisions,omitempty" xml:"overtimeDivisions,omitempty" type:"Repeated"`
+	// 设置id
+	SettingId *int64 `json:"settingId,omitempty" xml:"settingId,omitempty"`
+	// 加班时长单位
+	StepType *int32 `json:"stepType,omitempty" xml:"stepType,omitempty"`
+	// 加班时长是否取整 单位 小时
+	StepValue       *float32                                               `json:"stepValue,omitempty" xml:"stepValue,omitempty"`
+	WarningSettings []*GetOvertimeSettingResponseBodyResultWarningSettings `json:"warningSettings,omitempty" xml:"warningSettings,omitempty" type:"Repeated"`
+	// 日折算时长 单位：分钟
+	WorkMinutesPerDay *int32 `json:"workMinutesPerDay,omitempty" xml:"workMinutesPerDay,omitempty"`
+}
+
+func (s GetOvertimeSettingResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOvertimeSettingResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetOvertimeSettingResponseBodyResult) SetDefault(v bool) *GetOvertimeSettingResponseBodyResult {
+	s.Default = &v
+	return s
+}
+
+func (s *GetOvertimeSettingResponseBodyResult) SetDurationSettings(v map[string]*ResultDurationSettingsValue) *GetOvertimeSettingResponseBodyResult {
+	s.DurationSettings = v
+	return s
+}
+
+func (s *GetOvertimeSettingResponseBodyResult) SetId(v int64) *GetOvertimeSettingResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *GetOvertimeSettingResponseBodyResult) SetName(v string) *GetOvertimeSettingResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *GetOvertimeSettingResponseBodyResult) SetOvertimeDivisions(v []*GetOvertimeSettingResponseBodyResultOvertimeDivisions) *GetOvertimeSettingResponseBodyResult {
+	s.OvertimeDivisions = v
+	return s
+}
+
+func (s *GetOvertimeSettingResponseBodyResult) SetSettingId(v int64) *GetOvertimeSettingResponseBodyResult {
+	s.SettingId = &v
+	return s
+}
+
+func (s *GetOvertimeSettingResponseBodyResult) SetStepType(v int32) *GetOvertimeSettingResponseBodyResult {
+	s.StepType = &v
+	return s
+}
+
+func (s *GetOvertimeSettingResponseBodyResult) SetStepValue(v float32) *GetOvertimeSettingResponseBodyResult {
+	s.StepValue = &v
+	return s
+}
+
+func (s *GetOvertimeSettingResponseBodyResult) SetWarningSettings(v []*GetOvertimeSettingResponseBodyResultWarningSettings) *GetOvertimeSettingResponseBodyResult {
+	s.WarningSettings = v
+	return s
+}
+
+func (s *GetOvertimeSettingResponseBodyResult) SetWorkMinutesPerDay(v int32) *GetOvertimeSettingResponseBodyResult {
+	s.WorkMinutesPerDay = &v
+	return s
+}
+
+type GetOvertimeSettingResponseBodyResultOvertimeDivisions struct {
+	// 后一日类型
+	NextDayType *string `json:"nextDayType,omitempty" xml:"nextDayType,omitempty"`
+	// 前一日类型
+	PreviousDayType *string `json:"previousDayType,omitempty" xml:"previousDayType,omitempty"`
+	// 分割时间点
+	TimeSplitPoint *string `json:"timeSplitPoint,omitempty" xml:"timeSplitPoint,omitempty"`
+}
+
+func (s GetOvertimeSettingResponseBodyResultOvertimeDivisions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOvertimeSettingResponseBodyResultOvertimeDivisions) GoString() string {
+	return s.String()
+}
+
+func (s *GetOvertimeSettingResponseBodyResultOvertimeDivisions) SetNextDayType(v string) *GetOvertimeSettingResponseBodyResultOvertimeDivisions {
+	s.NextDayType = &v
+	return s
+}
+
+func (s *GetOvertimeSettingResponseBodyResultOvertimeDivisions) SetPreviousDayType(v string) *GetOvertimeSettingResponseBodyResultOvertimeDivisions {
+	s.PreviousDayType = &v
+	return s
+}
+
+func (s *GetOvertimeSettingResponseBodyResultOvertimeDivisions) SetTimeSplitPoint(v string) *GetOvertimeSettingResponseBodyResultOvertimeDivisions {
+	s.TimeSplitPoint = &v
+	return s
+}
+
+type GetOvertimeSettingResponseBodyResultWarningSettings struct {
+	// 风险预警 或 最大加班时间
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// 提醒阈值
+	Threshold *int64 `json:"threshold,omitempty" xml:"threshold,omitempty"`
+	// 预警类型
+	Time *string `json:"time,omitempty" xml:"time,omitempty"`
+}
+
+func (s GetOvertimeSettingResponseBodyResultWarningSettings) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOvertimeSettingResponseBodyResultWarningSettings) GoString() string {
+	return s.String()
+}
+
+func (s *GetOvertimeSettingResponseBodyResultWarningSettings) SetAction(v string) *GetOvertimeSettingResponseBodyResultWarningSettings {
+	s.Action = &v
+	return s
+}
+
+func (s *GetOvertimeSettingResponseBodyResultWarningSettings) SetThreshold(v int64) *GetOvertimeSettingResponseBodyResultWarningSettings {
+	s.Threshold = &v
+	return s
+}
+
+func (s *GetOvertimeSettingResponseBodyResultWarningSettings) SetTime(v string) *GetOvertimeSettingResponseBodyResultWarningSettings {
+	s.Time = &v
+	return s
+}
+
+type GetOvertimeSettingResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetOvertimeSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetOvertimeSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOvertimeSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetOvertimeSettingResponse) SetHeaders(v map[string]*string) *GetOvertimeSettingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetOvertimeSettingResponse) SetBody(v *GetOvertimeSettingResponseBody) *GetOvertimeSettingResponse {
+	s.Body = v
+	return s
+}
+
 type GetUserHolidaysHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1686,6 +1909,156 @@ func (s SyncScheduleInfoResponse) GoString() string {
 
 func (s *SyncScheduleInfoResponse) SetHeaders(v map[string]*string) *SyncScheduleInfoResponse {
 	s.Headers = v
+	return s
+}
+
+type ResultDurationSettingsValue struct {
+	CalcType     *int32 `json:"calcType,omitempty" xml:"calcType,omitempty"`
+	DurationType *int32 `json:"durationType,omitempty" xml:"durationType,omitempty"`
+	// 加班时长计为调休或加班费开关
+	OvertimeRedress *bool `json:"overtimeRedress,omitempty" xml:"overtimeRedress,omitempty"`
+	// 加班开始时间 或 最小加班时间
+	Settings map[string]interface{} `json:"settings,omitempty" xml:"settings,omitempty"`
+	// 加班时长计为方式
+	OvertimeRedressBy *string `json:"overtimeRedressBy,omitempty" xml:"overtimeRedressBy,omitempty"`
+	// 调休时长计算
+	VacationRate *float32 `json:"vacationRate,omitempty" xml:"vacationRate,omitempty"`
+	// 扣除休息时间
+	SkipTime *string `json:"skipTime,omitempty" xml:"skipTime,omitempty"`
+	// 休息时段
+	SkipTimeByFrames []*ResultDurationSettingsValueSkipTimeByFrames `json:"skipTimeByFrames,omitempty" xml:"skipTimeByFrames,omitempty" type:"Repeated"`
+	// 加班时长
+	SkipTimeByDurations []*ResultDurationSettingsValueSkipTimeByDurations `json:"skipTimeByDurations,omitempty" xml:"skipTimeByDurations,omitempty" type:"Repeated"`
+	// 休息日或节假日排班加班时长计为调休或加班费开关
+	HolidayPlanOvertimeRedress *bool `json:"holidayPlanOvertimeRedress,omitempty" xml:"holidayPlanOvertimeRedress,omitempty"`
+	// 休息日或节假日排班加班时长计为方式
+	HolidayPlanOvertimeRedressBy *string `json:"holidayPlanOvertimeRedressBy,omitempty" xml:"holidayPlanOvertimeRedressBy,omitempty"`
+	// 休息日或节假日排班调休时长计算
+	HolidayPlanVacationRate *float32 `json:"holidayPlanVacationRate,omitempty" xml:"holidayPlanVacationRate,omitempty"`
+}
+
+func (s ResultDurationSettingsValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResultDurationSettingsValue) GoString() string {
+	return s.String()
+}
+
+func (s *ResultDurationSettingsValue) SetCalcType(v int32) *ResultDurationSettingsValue {
+	s.CalcType = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetDurationType(v int32) *ResultDurationSettingsValue {
+	s.DurationType = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetOvertimeRedress(v bool) *ResultDurationSettingsValue {
+	s.OvertimeRedress = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetSettings(v map[string]interface{}) *ResultDurationSettingsValue {
+	s.Settings = v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetOvertimeRedressBy(v string) *ResultDurationSettingsValue {
+	s.OvertimeRedressBy = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetVacationRate(v float32) *ResultDurationSettingsValue {
+	s.VacationRate = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetSkipTime(v string) *ResultDurationSettingsValue {
+	s.SkipTime = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetSkipTimeByFrames(v []*ResultDurationSettingsValueSkipTimeByFrames) *ResultDurationSettingsValue {
+	s.SkipTimeByFrames = v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetSkipTimeByDurations(v []*ResultDurationSettingsValueSkipTimeByDurations) *ResultDurationSettingsValue {
+	s.SkipTimeByDurations = v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetHolidayPlanOvertimeRedress(v bool) *ResultDurationSettingsValue {
+	s.HolidayPlanOvertimeRedress = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetHolidayPlanOvertimeRedressBy(v string) *ResultDurationSettingsValue {
+	s.HolidayPlanOvertimeRedressBy = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValue) SetHolidayPlanVacationRate(v float32) *ResultDurationSettingsValue {
+	s.HolidayPlanVacationRate = &v
+	return s
+}
+
+type ResultDurationSettingsValueSkipTimeByFrames struct {
+	// 开始时间，格式为"HH:mm"
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 结束时间，格式为"HH:mm"
+	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 是否生效
+	Valid *bool `json:"valid,omitempty" xml:"valid,omitempty"`
+}
+
+func (s ResultDurationSettingsValueSkipTimeByFrames) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResultDurationSettingsValueSkipTimeByFrames) GoString() string {
+	return s.String()
+}
+
+func (s *ResultDurationSettingsValueSkipTimeByFrames) SetStartTime(v string) *ResultDurationSettingsValueSkipTimeByFrames {
+	s.StartTime = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValueSkipTimeByFrames) SetEndTime(v string) *ResultDurationSettingsValueSkipTimeByFrames {
+	s.EndTime = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValueSkipTimeByFrames) SetValid(v bool) *ResultDurationSettingsValueSkipTimeByFrames {
+	s.Valid = &v
+	return s
+}
+
+type ResultDurationSettingsValueSkipTimeByDurations struct {
+	// 每天加班满 x小时，单位 秒
+	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 扣除 x小时，单位 秒
+	Minus *int64 `json:"minus,omitempty" xml:"minus,omitempty"`
+}
+
+func (s ResultDurationSettingsValueSkipTimeByDurations) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResultDurationSettingsValueSkipTimeByDurations) GoString() string {
+	return s.String()
+}
+
+func (s *ResultDurationSettingsValueSkipTimeByDurations) SetDuration(v int64) *ResultDurationSettingsValueSkipTimeByDurations {
+	s.Duration = &v
+	return s
+}
+
+func (s *ResultDurationSettingsValueSkipTimeByDurations) SetMinus(v int64) *ResultDurationSettingsValueSkipTimeByDurations {
+	s.Minus = &v
 	return s
 }
 
@@ -2163,6 +2536,50 @@ func (client *Client) GetMachineUserWithOptions(devId *string, request *GetMachi
 	}
 	_result = &GetMachineUserResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetMachineUser"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/machines/getUser/"+tea.StringValue(devId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetOvertimeSetting(request *GetOvertimeSettingRequest) (_result *GetOvertimeSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOvertimeSettingHeaders{}
+	_result = &GetOvertimeSettingResponse{}
+	_body, _err := client.GetOvertimeSettingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetOvertimeSettingWithOptions(request *GetOvertimeSettingRequest, headers *GetOvertimeSettingHeaders, runtime *util.RuntimeOptions) (_result *GetOvertimeSettingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OvertimeSettingIds)) {
+		body["overtimeSettingIds"] = request.OvertimeSettingIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetOvertimeSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetOvertimeSetting"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/overtimeSettings/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
