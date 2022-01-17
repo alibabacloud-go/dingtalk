@@ -388,10 +388,14 @@ func (s *BatchGetWorkspaceDocsResponseBodyResult) SetWorkspaceBO(v *BatchGetWork
 }
 
 type BatchGetWorkspaceDocsResponseBodyResultNodeBO struct {
-	Deleted *bool   `json:"deleted,omitempty" xml:"deleted,omitempty"`
-	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
-	NodeId  *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
-	Url     *string `json:"url,omitempty" xml:"url,omitempty"`
+	Deleted *bool `json:"deleted,omitempty" xml:"deleted,omitempty"`
+	// 节点类型
+	DocType *string `json:"docType,omitempty" xml:"docType,omitempty"`
+	// 最后编辑时间
+	LastEditTime *int64  `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
+	Name         *string `json:"name,omitempty" xml:"name,omitempty"`
+	NodeId       *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	Url          *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s BatchGetWorkspaceDocsResponseBodyResultNodeBO) String() string {
@@ -404,6 +408,16 @@ func (s BatchGetWorkspaceDocsResponseBodyResultNodeBO) GoString() string {
 
 func (s *BatchGetWorkspaceDocsResponseBodyResultNodeBO) SetDeleted(v bool) *BatchGetWorkspaceDocsResponseBodyResultNodeBO {
 	s.Deleted = &v
+	return s
+}
+
+func (s *BatchGetWorkspaceDocsResponseBodyResultNodeBO) SetDocType(v string) *BatchGetWorkspaceDocsResponseBodyResultNodeBO {
+	s.DocType = &v
+	return s
+}
+
+func (s *BatchGetWorkspaceDocsResponseBodyResultNodeBO) SetLastEditTime(v int64) *BatchGetWorkspaceDocsResponseBodyResultNodeBO {
+	s.LastEditTime = &v
 	return s
 }
 
@@ -1076,6 +1090,64 @@ func (s *DeleteSheetResponse) SetHeaders(v map[string]*string) *DeleteSheetRespo
 	return s
 }
 
+type DeleteWorkspaceDocHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteWorkspaceDocHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteWorkspaceDocHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteWorkspaceDocHeaders) SetCommonHeaders(v map[string]*string) *DeleteWorkspaceDocHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteWorkspaceDocHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteWorkspaceDocHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteWorkspaceDocRequest struct {
+	// 发起删除请求的用户用户的unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DeleteWorkspaceDocRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteWorkspaceDocRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteWorkspaceDocRequest) SetOperatorId(v string) *DeleteWorkspaceDocRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DeleteWorkspaceDocResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s DeleteWorkspaceDocResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteWorkspaceDocResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteWorkspaceDocResponse) SetHeaders(v map[string]*string) *DeleteWorkspaceDocResponse {
+	s.Headers = v
+	return s
+}
+
 type DeleteWorkspaceDocMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1360,6 +1432,8 @@ func (s *GetRecentEditDocsResponseBodyRecentList) SetWorkspaceBO(v *GetRecentEdi
 }
 
 type GetRecentEditDocsResponseBodyRecentListNodeBO struct {
+	// 节点类型
+	DocType *string `json:"docType,omitempty" xml:"docType,omitempty"`
 	// 是否被删除
 	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
 	// 最后编辑时间
@@ -1378,6 +1452,11 @@ func (s GetRecentEditDocsResponseBodyRecentListNodeBO) String() string {
 
 func (s GetRecentEditDocsResponseBodyRecentListNodeBO) GoString() string {
 	return s.String()
+}
+
+func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetDocType(v string) *GetRecentEditDocsResponseBodyRecentListNodeBO {
+	s.DocType = &v
+	return s
 }
 
 func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetIsDeleted(v bool) *GetRecentEditDocsResponseBodyRecentListNodeBO {
@@ -1449,6 +1528,210 @@ func (s *GetRecentEditDocsResponse) SetHeaders(v map[string]*string) *GetRecentE
 }
 
 func (s *GetRecentEditDocsResponse) SetBody(v *GetRecentEditDocsResponseBody) *GetRecentEditDocsResponse {
+	s.Body = v
+	return s
+}
+
+type GetRecentOpenDocsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetRecentOpenDocsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecentOpenDocsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecentOpenDocsHeaders) SetCommonHeaders(v map[string]*string) *GetRecentOpenDocsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetRecentOpenDocsHeaders) SetXAcsDingtalkAccessToken(v string) *GetRecentOpenDocsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetRecentOpenDocsRequest struct {
+	// 查询size
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 发起操作用户unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetRecentOpenDocsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecentOpenDocsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecentOpenDocsRequest) SetMaxResults(v int32) *GetRecentOpenDocsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetRecentOpenDocsRequest) SetNextToken(v string) *GetRecentOpenDocsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetRecentOpenDocsRequest) SetOperatorId(v string) *GetRecentOpenDocsRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetRecentOpenDocsResponseBody struct {
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 查询结果
+	RecentList []*GetRecentOpenDocsResponseBodyRecentList `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
+}
+
+func (s GetRecentOpenDocsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecentOpenDocsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecentOpenDocsResponseBody) SetNextToken(v string) *GetRecentOpenDocsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetRecentOpenDocsResponseBody) SetRecentList(v []*GetRecentOpenDocsResponseBodyRecentList) *GetRecentOpenDocsResponseBody {
+	s.RecentList = v
+	return s
+}
+
+type GetRecentOpenDocsResponseBodyRecentList struct {
+	// 文档信息
+	NodeBO *GetRecentOpenDocsResponseBodyRecentListNodeBO `json:"nodeBO,omitempty" xml:"nodeBO,omitempty" type:"Struct"`
+	// 团队空间信息
+	WorkspaceBO *GetRecentOpenDocsResponseBodyRecentListWorkspaceBO `json:"workspaceBO,omitempty" xml:"workspaceBO,omitempty" type:"Struct"`
+}
+
+func (s GetRecentOpenDocsResponseBodyRecentList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecentOpenDocsResponseBodyRecentList) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecentOpenDocsResponseBodyRecentList) SetNodeBO(v *GetRecentOpenDocsResponseBodyRecentListNodeBO) *GetRecentOpenDocsResponseBodyRecentList {
+	s.NodeBO = v
+	return s
+}
+
+func (s *GetRecentOpenDocsResponseBodyRecentList) SetWorkspaceBO(v *GetRecentOpenDocsResponseBodyRecentListWorkspaceBO) *GetRecentOpenDocsResponseBodyRecentList {
+	s.WorkspaceBO = v
+	return s
+}
+
+type GetRecentOpenDocsResponseBodyRecentListNodeBO struct {
+	// 节点类型
+	DocType *string `json:"docType,omitempty" xml:"docType,omitempty"`
+	// 是否被删除
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// 最后编辑时间
+	LastOpenTime *int64 `json:"lastOpenTime,omitempty" xml:"lastOpenTime,omitempty"`
+	// 文档Id
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// 文档名称
+	NodeName *string `json:"nodeName,omitempty" xml:"nodeName,omitempty"`
+	// 文档打开url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s GetRecentOpenDocsResponseBodyRecentListNodeBO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecentOpenDocsResponseBodyRecentListNodeBO) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecentOpenDocsResponseBodyRecentListNodeBO) SetDocType(v string) *GetRecentOpenDocsResponseBodyRecentListNodeBO {
+	s.DocType = &v
+	return s
+}
+
+func (s *GetRecentOpenDocsResponseBodyRecentListNodeBO) SetIsDeleted(v bool) *GetRecentOpenDocsResponseBodyRecentListNodeBO {
+	s.IsDeleted = &v
+	return s
+}
+
+func (s *GetRecentOpenDocsResponseBodyRecentListNodeBO) SetLastOpenTime(v int64) *GetRecentOpenDocsResponseBodyRecentListNodeBO {
+	s.LastOpenTime = &v
+	return s
+}
+
+func (s *GetRecentOpenDocsResponseBodyRecentListNodeBO) SetNodeId(v string) *GetRecentOpenDocsResponseBodyRecentListNodeBO {
+	s.NodeId = &v
+	return s
+}
+
+func (s *GetRecentOpenDocsResponseBodyRecentListNodeBO) SetNodeName(v string) *GetRecentOpenDocsResponseBodyRecentListNodeBO {
+	s.NodeName = &v
+	return s
+}
+
+func (s *GetRecentOpenDocsResponseBodyRecentListNodeBO) SetUrl(v string) *GetRecentOpenDocsResponseBodyRecentListNodeBO {
+	s.Url = &v
+	return s
+}
+
+type GetRecentOpenDocsResponseBodyRecentListWorkspaceBO struct {
+	// 团队空间Id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	// 团队空间名称
+	WorkspaceName *string `json:"workspaceName,omitempty" xml:"workspaceName,omitempty"`
+}
+
+func (s GetRecentOpenDocsResponseBodyRecentListWorkspaceBO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecentOpenDocsResponseBodyRecentListWorkspaceBO) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecentOpenDocsResponseBodyRecentListWorkspaceBO) SetWorkspaceId(v string) *GetRecentOpenDocsResponseBodyRecentListWorkspaceBO {
+	s.WorkspaceId = &v
+	return s
+}
+
+func (s *GetRecentOpenDocsResponseBodyRecentListWorkspaceBO) SetWorkspaceName(v string) *GetRecentOpenDocsResponseBodyRecentListWorkspaceBO {
+	s.WorkspaceName = &v
+	return s
+}
+
+type GetRecentOpenDocsResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetRecentOpenDocsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetRecentOpenDocsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecentOpenDocsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecentOpenDocsResponse) SetHeaders(v map[string]*string) *GetRecentOpenDocsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetRecentOpenDocsResponse) SetBody(v *GetRecentOpenDocsResponseBody) *GetRecentOpenDocsResponse {
 	s.Body = v
 	return s
 }
@@ -1892,6 +2175,10 @@ func (s *GetWorkspaceNodeResponseBody) SetWorkspaceBO(v *GetWorkspaceNodeRespons
 }
 
 type GetWorkspaceNodeResponseBodyNodeBO struct {
+	// 节点类型
+	DocType *string `json:"docType,omitempty" xml:"docType,omitempty"`
+	// 最后编辑时间
+	LastEditTime *int64 `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
 	// 节点名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 节点Id
@@ -1906,6 +2193,16 @@ func (s GetWorkspaceNodeResponseBodyNodeBO) String() string {
 
 func (s GetWorkspaceNodeResponseBodyNodeBO) GoString() string {
 	return s.String()
+}
+
+func (s *GetWorkspaceNodeResponseBodyNodeBO) SetDocType(v string) *GetWorkspaceNodeResponseBodyNodeBO {
+	s.DocType = &v
+	return s
+}
+
+func (s *GetWorkspaceNodeResponseBodyNodeBO) SetLastEditTime(v int64) *GetWorkspaceNodeResponseBodyNodeBO {
+	s.LastEditTime = &v
+	return s
 }
 
 func (s *GetWorkspaceNodeResponseBodyNodeBO) SetName(v string) *GetWorkspaceNodeResponseBodyNodeBO {
@@ -2094,6 +2391,8 @@ func (s *SearchWorkspaceDocsResponseBodyDocs) SetWorkspaceBO(v *SearchWorkspaceD
 }
 
 type SearchWorkspaceDocsResponseBodyDocsNodeBO struct {
+	// 节点类型
+	DocType *string `json:"docType,omitempty" xml:"docType,omitempty"`
 	// 最近编辑时间
 	LastEditTime *int64 `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
 	// 节点名称
@@ -2110,6 +2409,11 @@ func (s SearchWorkspaceDocsResponseBodyDocsNodeBO) String() string {
 
 func (s SearchWorkspaceDocsResponseBodyDocsNodeBO) GoString() string {
 	return s.String()
+}
+
+func (s *SearchWorkspaceDocsResponseBodyDocsNodeBO) SetDocType(v string) *SearchWorkspaceDocsResponseBodyDocsNodeBO {
+	s.DocType = &v
+	return s
 }
 
 func (s *SearchWorkspaceDocsResponseBodyDocsNodeBO) SetLastEditTime(v int64) *SearchWorkspaceDocsResponseBodyDocsNodeBO {
@@ -2926,6 +3230,52 @@ func (client *Client) DeleteSheetWithOptions(workbookId *string, sheetId *string
 	return _result, _err
 }
 
+func (client *Client) DeleteWorkspaceDoc(workspaceId *string, nodeId *string, request *DeleteWorkspaceDocRequest) (_result *DeleteWorkspaceDocResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteWorkspaceDocHeaders{}
+	_result = &DeleteWorkspaceDocResponse{}
+	_body, _err := client.DeleteWorkspaceDocWithOptions(workspaceId, nodeId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteWorkspaceDocWithOptions(workspaceId *string, nodeId *string, request *DeleteWorkspaceDocRequest, headers *DeleteWorkspaceDocHeaders, runtime *util.RuntimeOptions) (_result *DeleteWorkspaceDocResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workspaceId = openapiutil.GetEncodeParam(workspaceId)
+	nodeId = openapiutil.GetEncodeParam(nodeId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteWorkspaceDocResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteWorkspaceDoc"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/docs/"+tea.StringValue(nodeId)), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteWorkspaceDocMembers(workspaceId *string, nodeId *string, request *DeleteWorkspaceDocMembersRequest) (_result *DeleteWorkspaceDocMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteWorkspaceDocMembersHeaders{}
@@ -3070,6 +3420,58 @@ func (client *Client) GetRecentEditDocsWithOptions(request *GetRecentEditDocsReq
 	}
 	_result = &GetRecentEditDocsResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetRecentEditDocs"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/docs/recentEditDocs"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetRecentOpenDocs(request *GetRecentOpenDocsRequest) (_result *GetRecentOpenDocsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetRecentOpenDocsHeaders{}
+	_result = &GetRecentOpenDocsResponse{}
+	_body, _err := client.GetRecentOpenDocsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetRecentOpenDocsWithOptions(request *GetRecentOpenDocsRequest, headers *GetRecentOpenDocsHeaders, runtime *util.RuntimeOptions) (_result *GetRecentOpenDocsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetRecentOpenDocsResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetRecentOpenDocs"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/docs/recentOpenDocs"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -100,6 +100,78 @@ func (s *BatchApproveUnionApplyResponse) SetHeaders(v map[string]*string) *Batch
 	return s
 }
 
+type ChangeMainAdminHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChangeMainAdminHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChangeMainAdminHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChangeMainAdminHeaders) SetCommonHeaders(v map[string]*string) *ChangeMainAdminHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChangeMainAdminHeaders) SetXAcsDingtalkAccessToken(v string) *ChangeMainAdminHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChangeMainAdminRequest struct {
+	// effectCorpId
+	EffectCorpId *string `json:"effectCorpId,omitempty" xml:"effectCorpId,omitempty"`
+	// sourceUserId
+	SourceUserId *string `json:"sourceUserId,omitempty" xml:"sourceUserId,omitempty"`
+	// targetUserId
+	TargetUserId *string `json:"targetUserId,omitempty" xml:"targetUserId,omitempty"`
+}
+
+func (s ChangeMainAdminRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChangeMainAdminRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChangeMainAdminRequest) SetEffectCorpId(v string) *ChangeMainAdminRequest {
+	s.EffectCorpId = &v
+	return s
+}
+
+func (s *ChangeMainAdminRequest) SetSourceUserId(v string) *ChangeMainAdminRequest {
+	s.SourceUserId = &v
+	return s
+}
+
+func (s *ChangeMainAdminRequest) SetTargetUserId(v string) *ChangeMainAdminRequest {
+	s.TargetUserId = &v
+	return s
+}
+
+type ChangeMainAdminResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s ChangeMainAdminResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChangeMainAdminResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChangeMainAdminResponse) SetHeaders(v map[string]*string) *ChangeMainAdminResponse {
+	s.Headers = v
+	return s
+}
+
 type CreateCooperateOrgHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -949,14 +1021,26 @@ type GetCardInfoResponseBodyExtension struct {
 	CardContactInfo *GetCardInfoResponseBodyExtensionCardContactInfo `json:"cardContactInfo,omitempty" xml:"cardContactInfo,omitempty" type:"Struct"`
 	// 企业corpId
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 拍名片部门
+	Department *string `json:"department,omitempty" xml:"department,omitempty"`
 	// 企业认证等级
 	OrgAuthLevel *int64 `json:"orgAuthLevel,omitempty" xml:"orgAuthLevel,omitempty"`
 	// 企业是否认证
 	OrgAuthed *bool `json:"orgAuthed,omitempty" xml:"orgAuthed,omitempty"`
 	// 企业LOGO
 	OrgLogo *string `json:"orgLogo,omitempty" xml:"orgLogo,omitempty"`
-	// 视频信息
-	VideoMediaId *string `json:"videoMediaId,omitempty" xml:"videoMediaId,omitempty"`
+	// 拍名片图片链接
+	OriginCardUrl *string `json:"originCardUrl,omitempty" xml:"originCardUrl,omitempty"`
+	// 分享文案
+	ShareContent *string `json:"shareContent,omitempty" xml:"shareContent,omitempty"`
+	// 视频缩略图
+	ThumbnailUrl *string `json:"thumbnailUrl,omitempty" xml:"thumbnailUrl,omitempty"`
+	// 视频文件名称
+	VideoFileName *string `json:"videoFileName,omitempty" xml:"videoFileName,omitempty"`
+	// 视频标题
+	VideoTitle *string `json:"videoTitle,omitempty" xml:"videoTitle,omitempty"`
+	// 视频链接
+	VideoUrl *string `json:"videoUrl,omitempty" xml:"videoUrl,omitempty"`
 }
 
 func (s GetCardInfoResponseBodyExtension) String() string {
@@ -977,6 +1061,11 @@ func (s *GetCardInfoResponseBodyExtension) SetCorpId(v string) *GetCardInfoRespo
 	return s
 }
 
+func (s *GetCardInfoResponseBodyExtension) SetDepartment(v string) *GetCardInfoResponseBodyExtension {
+	s.Department = &v
+	return s
+}
+
 func (s *GetCardInfoResponseBodyExtension) SetOrgAuthLevel(v int64) *GetCardInfoResponseBodyExtension {
 	s.OrgAuthLevel = &v
 	return s
@@ -992,8 +1081,33 @@ func (s *GetCardInfoResponseBodyExtension) SetOrgLogo(v string) *GetCardInfoResp
 	return s
 }
 
-func (s *GetCardInfoResponseBodyExtension) SetVideoMediaId(v string) *GetCardInfoResponseBodyExtension {
-	s.VideoMediaId = &v
+func (s *GetCardInfoResponseBodyExtension) SetOriginCardUrl(v string) *GetCardInfoResponseBodyExtension {
+	s.OriginCardUrl = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtension) SetShareContent(v string) *GetCardInfoResponseBodyExtension {
+	s.ShareContent = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtension) SetThumbnailUrl(v string) *GetCardInfoResponseBodyExtension {
+	s.ThumbnailUrl = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtension) SetVideoFileName(v string) *GetCardInfoResponseBodyExtension {
+	s.VideoFileName = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtension) SetVideoTitle(v string) *GetCardInfoResponseBodyExtension {
+	s.VideoTitle = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBodyExtension) SetVideoUrl(v string) *GetCardInfoResponseBodyExtension {
+	s.VideoUrl = &v
 	return s
 }
 
@@ -2957,6 +3071,113 @@ func (s *ListManagementGroupsResponse) SetHeaders(v map[string]*string) *ListMan
 }
 
 func (s *ListManagementGroupsResponse) SetBody(v *ListManagementGroupsResponseBody) *ListManagementGroupsResponse {
+	s.Body = v
+	return s
+}
+
+type ListOwnedOrgByStaffIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListOwnedOrgByStaffIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOwnedOrgByStaffIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListOwnedOrgByStaffIdHeaders) SetCommonHeaders(v map[string]*string) *ListOwnedOrgByStaffIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListOwnedOrgByStaffIdHeaders) SetXAcsDingtalkAccessToken(v string) *ListOwnedOrgByStaffIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListOwnedOrgByStaffIdRequest struct {
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListOwnedOrgByStaffIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOwnedOrgByStaffIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListOwnedOrgByStaffIdRequest) SetUserId(v string) *ListOwnedOrgByStaffIdRequest {
+	s.UserId = &v
+	return s
+}
+
+type ListOwnedOrgByStaffIdResponseBody struct {
+	// 组织列表
+	OrgList []*ListOwnedOrgByStaffIdResponseBodyOrgList `json:"orgList,omitempty" xml:"orgList,omitempty" type:"Repeated"`
+}
+
+func (s ListOwnedOrgByStaffIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOwnedOrgByStaffIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListOwnedOrgByStaffIdResponseBody) SetOrgList(v []*ListOwnedOrgByStaffIdResponseBodyOrgList) *ListOwnedOrgByStaffIdResponseBody {
+	s.OrgList = v
+	return s
+}
+
+type ListOwnedOrgByStaffIdResponseBodyOrgList struct {
+	// corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// corpName
+	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
+}
+
+func (s ListOwnedOrgByStaffIdResponseBodyOrgList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOwnedOrgByStaffIdResponseBodyOrgList) GoString() string {
+	return s.String()
+}
+
+func (s *ListOwnedOrgByStaffIdResponseBodyOrgList) SetCorpId(v string) *ListOwnedOrgByStaffIdResponseBodyOrgList {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ListOwnedOrgByStaffIdResponseBodyOrgList) SetCorpName(v string) *ListOwnedOrgByStaffIdResponseBodyOrgList {
+	s.CorpName = &v
+	return s
+}
+
+type ListOwnedOrgByStaffIdResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListOwnedOrgByStaffIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListOwnedOrgByStaffIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOwnedOrgByStaffIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListOwnedOrgByStaffIdResponse) SetHeaders(v map[string]*string) *ListOwnedOrgByStaffIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListOwnedOrgByStaffIdResponse) SetBody(v *ListOwnedOrgByStaffIdResponseBody) *ListOwnedOrgByStaffIdResponse {
 	s.Body = v
 	return s
 }
@@ -4988,6 +5209,58 @@ func (client *Client) BatchApproveUnionApplyWithOptions(request *BatchApproveUni
 	return _result, _err
 }
 
+func (client *Client) ChangeMainAdmin(request *ChangeMainAdminRequest) (_result *ChangeMainAdminResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChangeMainAdminHeaders{}
+	_result = &ChangeMainAdminResponse{}
+	_body, _err := client.ChangeMainAdminWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ChangeMainAdminWithOptions(request *ChangeMainAdminRequest, headers *ChangeMainAdminHeaders, runtime *util.RuntimeOptions) (_result *ChangeMainAdminResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EffectCorpId)) {
+		body["effectCorpId"] = request.EffectCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceUserId)) {
+		body["sourceUserId"] = request.SourceUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetUserId)) {
+		body["targetUserId"] = request.TargetUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ChangeMainAdminResponse{}
+	_body, _err := client.DoROARequest(tea.String("ChangeMainAdmin"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/orgAccounts/mainAdministrators/change"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateCooperateOrg(request *CreateCooperateOrgRequest) (_result *CreateCooperateOrgResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateCooperateOrgHeaders{}
@@ -6034,6 +6307,50 @@ func (client *Client) ListManagementGroupsWithOptions(request *ListManagementGro
 	}
 	_result = &ListManagementGroupsResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListManagementGroups"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/managementGroups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListOwnedOrgByStaffId(request *ListOwnedOrgByStaffIdRequest) (_result *ListOwnedOrgByStaffIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListOwnedOrgByStaffIdHeaders{}
+	_result = &ListOwnedOrgByStaffIdResponse{}
+	_body, _err := client.ListOwnedOrgByStaffIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListOwnedOrgByStaffIdWithOptions(request *ListOwnedOrgByStaffIdRequest, headers *ListOwnedOrgByStaffIdHeaders, runtime *util.RuntimeOptions) (_result *ListOwnedOrgByStaffIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListOwnedOrgByStaffIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListOwnedOrgByStaffId"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/orgAccounts/ownedOrganizations"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

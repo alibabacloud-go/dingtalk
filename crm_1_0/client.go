@@ -5060,6 +5060,155 @@ func (s *GetCrmGroupChatResponse) SetBody(v *GetCrmGroupChatResponseBody) *GetCr
 	return s
 }
 
+type GetCrmGroupChatMultiHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCrmGroupChatMultiHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmGroupChatMultiHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmGroupChatMultiHeaders) SetCommonHeaders(v map[string]*string) *GetCrmGroupChatMultiHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCrmGroupChatMultiHeaders) SetXAcsDingtalkAccessToken(v string) *GetCrmGroupChatMultiHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCrmGroupChatMultiRequest struct {
+	// 群openConversationId列表。
+	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
+}
+
+func (s GetCrmGroupChatMultiRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmGroupChatMultiRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmGroupChatMultiRequest) SetOpenConversationIds(v []*string) *GetCrmGroupChatMultiRequest {
+	s.OpenConversationIds = v
+	return s
+}
+
+type GetCrmGroupChatMultiResponseBody struct {
+	// 客户群列表。
+	Result []*GetCrmGroupChatMultiResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetCrmGroupChatMultiResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmGroupChatMultiResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmGroupChatMultiResponseBody) SetResult(v []*GetCrmGroupChatMultiResponseBodyResult) *GetCrmGroupChatMultiResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetCrmGroupChatMultiResponseBodyResult struct {
+	// 创建时间(时间戳)。
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 群头像地址。
+	IconUrl *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
+	// 客户群成员数。
+	MemberCount *int32 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	// 客户群名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 客户群openConversationId。
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 群组openGroupSetId。
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 群主userId。
+	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	// 群主userName。
+	OwnerUserName *string `json:"ownerUserName,omitempty" xml:"ownerUserName,omitempty"`
+}
+
+func (s GetCrmGroupChatMultiResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmGroupChatMultiResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmGroupChatMultiResponseBodyResult) SetGmtCreate(v int64) *GetCrmGroupChatMultiResponseBodyResult {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *GetCrmGroupChatMultiResponseBodyResult) SetIconUrl(v string) *GetCrmGroupChatMultiResponseBodyResult {
+	s.IconUrl = &v
+	return s
+}
+
+func (s *GetCrmGroupChatMultiResponseBodyResult) SetMemberCount(v int32) *GetCrmGroupChatMultiResponseBodyResult {
+	s.MemberCount = &v
+	return s
+}
+
+func (s *GetCrmGroupChatMultiResponseBodyResult) SetName(v string) *GetCrmGroupChatMultiResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *GetCrmGroupChatMultiResponseBodyResult) SetOpenConversationId(v string) *GetCrmGroupChatMultiResponseBodyResult {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GetCrmGroupChatMultiResponseBodyResult) SetOpenGroupSetId(v string) *GetCrmGroupChatMultiResponseBodyResult {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *GetCrmGroupChatMultiResponseBodyResult) SetOwnerUserId(v string) *GetCrmGroupChatMultiResponseBodyResult {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *GetCrmGroupChatMultiResponseBodyResult) SetOwnerUserName(v string) *GetCrmGroupChatMultiResponseBodyResult {
+	s.OwnerUserName = &v
+	return s
+}
+
+type GetCrmGroupChatMultiResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCrmGroupChatMultiResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCrmGroupChatMultiResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmGroupChatMultiResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmGroupChatMultiResponse) SetHeaders(v map[string]*string) *GetCrmGroupChatMultiResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCrmGroupChatMultiResponse) SetBody(v *GetCrmGroupChatMultiResponseBody) *GetCrmGroupChatMultiResponse {
+	s.Body = v
+	return s
+}
+
 type GetCrmGroupChatSingleHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5104,8 +5253,6 @@ func (s *GetCrmGroupChatSingleRequest) SetOpenConversationId(v string) *GetCrmGr
 type GetCrmGroupChatSingleResponseBody struct {
 	// 客户群chatId
 	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
-	// corpId。
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 创建时间(时间戳)
 	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
 	// 群头像地址
@@ -5134,11 +5281,6 @@ func (s GetCrmGroupChatSingleResponseBody) GoString() string {
 
 func (s *GetCrmGroupChatSingleResponseBody) SetChatId(v string) *GetCrmGroupChatSingleResponseBody {
 	s.ChatId = &v
-	return s
-}
-
-func (s *GetCrmGroupChatSingleResponseBody) SetCorpId(v string) *GetCrmGroupChatSingleResponseBody {
-	s.CorpId = &v
 	return s
 }
 
@@ -10263,6 +10405,50 @@ func (client *Client) GetCrmGroupChatWithOptions(openConversationId *string, hea
 	}
 	_result = &GetCrmGroupChatResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetCrmGroupChat"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/crmGroupChats/"+tea.StringValue(openConversationId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetCrmGroupChatMulti(request *GetCrmGroupChatMultiRequest) (_result *GetCrmGroupChatMultiResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCrmGroupChatMultiHeaders{}
+	_result = &GetCrmGroupChatMultiResponse{}
+	_body, _err := client.GetCrmGroupChatMultiWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetCrmGroupChatMultiWithOptions(request *GetCrmGroupChatMultiRequest, headers *GetCrmGroupChatMultiHeaders, runtime *util.RuntimeOptions) (_result *GetCrmGroupChatMultiResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationIds)) {
+		body["openConversationIds"] = request.OpenConversationIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetCrmGroupChatMultiResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetCrmGroupChatMulti"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/crmGroupChats/batchQuery"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

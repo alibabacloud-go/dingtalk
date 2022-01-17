@@ -908,8 +908,12 @@ func (s *GetResidentInfoRequest) SetResidentCorpId(v string) *GetResidentInfoReq
 
 type GetResidentInfoResponseBody struct {
 	// 小区地址
-	Address      *string  `json:"address,omitempty" xml:"address,omitempty"`
-	BuildingArea *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// 全员群opencid
+	AllUserGroupOpenConversationId *string `json:"allUserGroupOpenConversationId,omitempty" xml:"allUserGroupOpenConversationId,omitempty"`
+	// 全员群群主 userid
+	AllUserGroupOwnerUserId *string  `json:"allUserGroupOwnerUserId,omitempty" xml:"allUserGroupOwnerUserId,omitempty"`
+	BuildingArea            *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
 	// 小区归属的市的id
 	CityId *int32 `json:"cityId,omitempty" xml:"cityId,omitempty"`
 	// 通信录模式:0标准/1自定义
@@ -923,6 +927,10 @@ type GetResidentInfoResponseBody struct {
 	// 小区名称
 	Name           *string                                    `json:"name,omitempty" xml:"name,omitempty"`
 	ProjectManager *GetResidentInfoResponseBodyProjectManager `json:"projectManager,omitempty" xml:"projectManager,omitempty" type:"Struct"`
+	// 物业部门群cid
+	PropertyDeptGroupOpenConversationId *string `json:"propertyDeptGroupOpenConversationId,omitempty" xml:"propertyDeptGroupOpenConversationId,omitempty"`
+	// 物业部门群主userid
+	PropertyDeptGroupOwnerUserId *string `json:"propertyDeptGroupOwnerUserId,omitempty" xml:"propertyDeptGroupOwnerUserId,omitempty"`
 	// 小区归属的省的id
 	ProvId *int64 `json:"provId,omitempty" xml:"provId,omitempty"`
 	// 物业管理范围-东
@@ -951,6 +959,16 @@ func (s GetResidentInfoResponseBody) GoString() string {
 
 func (s *GetResidentInfoResponseBody) SetAddress(v string) *GetResidentInfoResponseBody {
 	s.Address = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetAllUserGroupOpenConversationId(v string) *GetResidentInfoResponseBody {
+	s.AllUserGroupOpenConversationId = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetAllUserGroupOwnerUserId(v string) *GetResidentInfoResponseBody {
+	s.AllUserGroupOwnerUserId = &v
 	return s
 }
 
@@ -991,6 +1009,16 @@ func (s *GetResidentInfoResponseBody) SetName(v string) *GetResidentInfoResponse
 
 func (s *GetResidentInfoResponseBody) SetProjectManager(v *GetResidentInfoResponseBodyProjectManager) *GetResidentInfoResponseBody {
 	s.ProjectManager = v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetPropertyDeptGroupOpenConversationId(v string) *GetResidentInfoResponseBody {
+	s.PropertyDeptGroupOpenConversationId = &v
+	return s
+}
+
+func (s *GetResidentInfoResponseBody) SetPropertyDeptGroupOwnerUserId(v string) *GetResidentInfoResponseBody {
+	s.PropertyDeptGroupOwnerUserId = &v
 	return s
 }
 
