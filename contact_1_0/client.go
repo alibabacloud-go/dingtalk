@@ -1757,6 +1757,137 @@ func (s *GetMigrationUnionIdByUnionIdResponse) SetBody(v *GetMigrationUnionIdByU
 	return s
 }
 
+type GetOrgAuthInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetOrgAuthInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgAuthInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgAuthInfoHeaders) SetCommonHeaders(v map[string]*string) *GetOrgAuthInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetOrgAuthInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetOrgAuthInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetOrgAuthInfoRequest struct {
+	// 需要获取的企业认证信息的企业corpId
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+}
+
+func (s GetOrgAuthInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgAuthInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgAuthInfoRequest) SetTargetCorpId(v string) *GetOrgAuthInfoRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+type GetOrgAuthInfoResponseBody struct {
+	// 认证等级 1高级认证 2中级认证
+	AuthLevel *int64 `json:"authLevel,omitempty" xml:"authLevel,omitempty"`
+	// 法人
+	LegalPerson *string `json:"legalPerson,omitempty" xml:"legalPerson,omitempty"`
+	// 提交企业认证时营业执照上面的企业名称
+	LicenseOrgName *string `json:"licenseOrgName,omitempty" xml:"licenseOrgName,omitempty"`
+	// 营业执照url
+	LicenseUrl *string `json:"licenseUrl,omitempty" xml:"licenseUrl,omitempty"`
+	// 企业在钉钉通讯录的名称
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// 组织机构代码证号（格式11111111-1）
+	OrganizationCode *string `json:"organizationCode,omitempty" xml:"organizationCode,omitempty"`
+	// 营业执照注册号（一般15位）
+	RegistrationNum *string `json:"registrationNum,omitempty" xml:"registrationNum,omitempty"`
+	// 社会统一信用代码（固定18位）
+	UnifiedSocialCredit *string `json:"unifiedSocialCredit,omitempty" xml:"unifiedSocialCredit,omitempty"`
+}
+
+func (s GetOrgAuthInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgAuthInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgAuthInfoResponseBody) SetAuthLevel(v int64) *GetOrgAuthInfoResponseBody {
+	s.AuthLevel = &v
+	return s
+}
+
+func (s *GetOrgAuthInfoResponseBody) SetLegalPerson(v string) *GetOrgAuthInfoResponseBody {
+	s.LegalPerson = &v
+	return s
+}
+
+func (s *GetOrgAuthInfoResponseBody) SetLicenseOrgName(v string) *GetOrgAuthInfoResponseBody {
+	s.LicenseOrgName = &v
+	return s
+}
+
+func (s *GetOrgAuthInfoResponseBody) SetLicenseUrl(v string) *GetOrgAuthInfoResponseBody {
+	s.LicenseUrl = &v
+	return s
+}
+
+func (s *GetOrgAuthInfoResponseBody) SetOrgName(v string) *GetOrgAuthInfoResponseBody {
+	s.OrgName = &v
+	return s
+}
+
+func (s *GetOrgAuthInfoResponseBody) SetOrganizationCode(v string) *GetOrgAuthInfoResponseBody {
+	s.OrganizationCode = &v
+	return s
+}
+
+func (s *GetOrgAuthInfoResponseBody) SetRegistrationNum(v string) *GetOrgAuthInfoResponseBody {
+	s.RegistrationNum = &v
+	return s
+}
+
+func (s *GetOrgAuthInfoResponseBody) SetUnifiedSocialCredit(v string) *GetOrgAuthInfoResponseBody {
+	s.UnifiedSocialCredit = &v
+	return s
+}
+
+type GetOrgAuthInfoResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetOrgAuthInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetOrgAuthInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgAuthInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgAuthInfoResponse) SetHeaders(v map[string]*string) *GetOrgAuthInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetOrgAuthInfoResponse) SetBody(v *GetOrgAuthInfoResponseBody) *GetOrgAuthInfoResponse {
+	s.Body = v
+	return s
+}
+
 type GetTranslateFileJobResultHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5874,6 +6005,50 @@ func (client *Client) GetMigrationUnionIdByUnionIdWithOptions(request *GetMigrat
 	}
 	_result = &GetMigrationUnionIdByUnionIdResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetMigrationUnionIdByUnionId"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/orgAccount/getMigrationUnionIdByUnionIds"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetOrgAuthInfo(request *GetOrgAuthInfoRequest) (_result *GetOrgAuthInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOrgAuthInfoHeaders{}
+	_result = &GetOrgAuthInfoResponse{}
+	_body, _err := client.GetOrgAuthInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetOrgAuthInfoWithOptions(request *GetOrgAuthInfoRequest, headers *GetOrgAuthInfoHeaders, runtime *util.RuntimeOptions) (_result *GetOrgAuthInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		query["targetCorpId"] = request.TargetCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetOrgAuthInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetOrgAuthInfo"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/organizations/authInfos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

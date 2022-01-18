@@ -1681,7 +1681,7 @@ type QueryAllDepartmentResponseBodyContentDeptAndExtDepartment struct {
 	// 备注
 	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 	// 病区id列表
-	WardIdList []*QueryAllDepartmentResponseBodyContentDeptAndExtDepartmentWardIdList `json:"wardIdList,omitempty" xml:"wardIdList,omitempty" type:"Repeated"`
+	WardIdList []*int64 `json:"wardIdList,omitempty" xml:"wardIdList,omitempty" type:"Repeated"`
 }
 
 func (s QueryAllDepartmentResponseBodyContentDeptAndExtDepartment) String() string {
@@ -1752,26 +1752,8 @@ func (s *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment) SetRemark(v 
 	return s
 }
 
-func (s *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment) SetWardIdList(v []*QueryAllDepartmentResponseBodyContentDeptAndExtDepartmentWardIdList) *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment {
+func (s *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment) SetWardIdList(v []*int64) *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment {
 	s.WardIdList = v
-	return s
-}
-
-type QueryAllDepartmentResponseBodyContentDeptAndExtDepartmentWardIdList struct {
-	// 病区id
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
-}
-
-func (s QueryAllDepartmentResponseBodyContentDeptAndExtDepartmentWardIdList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryAllDepartmentResponseBodyContentDeptAndExtDepartmentWardIdList) GoString() string {
-	return s.String()
-}
-
-func (s *QueryAllDepartmentResponseBodyContentDeptAndExtDepartmentWardIdList) SetId(v int64) *QueryAllDepartmentResponseBodyContentDeptAndExtDepartmentWardIdList {
-	s.Id = &v
 	return s
 }
 
