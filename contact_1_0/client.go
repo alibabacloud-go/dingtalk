@@ -943,6 +943,8 @@ func (s *GetCardInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetCardInfoHe
 }
 
 type GetCardInfoResponseBody struct {
+	// 用户角色
+	AdminRole *int64 `json:"adminRole,omitempty" xml:"adminRole,omitempty"`
 	// 头像
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
 	// 名片ID
@@ -951,8 +953,8 @@ type GetCardInfoResponseBody struct {
 	Extension *GetCardInfoResponseBodyExtension `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
 	// 行业
 	IndustryName *string `json:"industryName,omitempty" xml:"industryName,omitempty"`
-	// 是否主名片
-	Introduce *bool `json:"introduce,omitempty" xml:"introduce,omitempty"`
+	// 个人介绍
+	Introduce map[string]interface{} `json:"introduce,omitempty" xml:"introduce,omitempty"`
 	// 名字
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 组织名称
@@ -969,6 +971,11 @@ func (s GetCardInfoResponseBody) String() string {
 
 func (s GetCardInfoResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *GetCardInfoResponseBody) SetAdminRole(v int64) *GetCardInfoResponseBody {
+	s.AdminRole = &v
+	return s
 }
 
 func (s *GetCardInfoResponseBody) SetAvatarUrl(v string) *GetCardInfoResponseBody {
@@ -991,8 +998,8 @@ func (s *GetCardInfoResponseBody) SetIndustryName(v string) *GetCardInfoResponse
 	return s
 }
 
-func (s *GetCardInfoResponseBody) SetIntroduce(v bool) *GetCardInfoResponseBody {
-	s.Introduce = &v
+func (s *GetCardInfoResponseBody) SetIntroduce(v map[string]interface{}) *GetCardInfoResponseBody {
+	s.Introduce = v
 	return s
 }
 

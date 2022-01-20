@@ -176,7 +176,7 @@ type ConsultCreateSubInstitutionRequest struct {
 	// 签约支付宝账户，用于协议确认
 	BindingAlipayLogonId *string `json:"bindingAlipayLogonId,omitempty" xml:"bindingAlipayLogonId,omitempty"`
 	// 联系人
-	ContractInfo *ConsultCreateSubInstitutionRequestContractInfo `json:"contractInfo,omitempty" xml:"contractInfo,omitempty" type:"Struct"`
+	ContactInfo *ConsultCreateSubInstitutionRequestContactInfo `json:"contactInfo,omitempty" xml:"contactInfo,omitempty" type:"Struct"`
 	// 主机构编号
 	InstId              *string                                                `json:"instId,omitempty" xml:"instId,omitempty"`
 	LegalPersonCertInfo *ConsultCreateSubInstitutionRequestLegalPersonCertInfo `json:"legalPersonCertInfo,omitempty" xml:"legalPersonCertInfo,omitempty" type:"Struct"`
@@ -221,8 +221,8 @@ func (s *ConsultCreateSubInstitutionRequest) SetBindingAlipayLogonId(v string) *
 	return s
 }
 
-func (s *ConsultCreateSubInstitutionRequest) SetContractInfo(v *ConsultCreateSubInstitutionRequestContractInfo) *ConsultCreateSubInstitutionRequest {
-	s.ContractInfo = v
+func (s *ConsultCreateSubInstitutionRequest) SetContactInfo(v *ConsultCreateSubInstitutionRequestContactInfo) *ConsultCreateSubInstitutionRequest {
+	s.ContactInfo = v
 	return s
 }
 
@@ -301,27 +301,27 @@ func (s *ConsultCreateSubInstitutionRequest) SetSubInstShopInfo(v *ConsultCreate
 	return s
 }
 
-type ConsultCreateSubInstitutionRequestContractInfo struct {
+type ConsultCreateSubInstitutionRequestContactInfo struct {
 	// 联系人姓名
-	ContractName *string `json:"contractName,omitempty" xml:"contractName,omitempty"`
+	ContactName *string `json:"contactName,omitempty" xml:"contactName,omitempty"`
 	// 联系人手机号
 	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
 }
 
-func (s ConsultCreateSubInstitutionRequestContractInfo) String() string {
+func (s ConsultCreateSubInstitutionRequestContactInfo) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ConsultCreateSubInstitutionRequestContractInfo) GoString() string {
+func (s ConsultCreateSubInstitutionRequestContactInfo) GoString() string {
 	return s.String()
 }
 
-func (s *ConsultCreateSubInstitutionRequestContractInfo) SetContractName(v string) *ConsultCreateSubInstitutionRequestContractInfo {
-	s.ContractName = &v
+func (s *ConsultCreateSubInstitutionRequestContactInfo) SetContactName(v string) *ConsultCreateSubInstitutionRequestContactInfo {
+	s.ContactName = &v
 	return s
 }
 
-func (s *ConsultCreateSubInstitutionRequestContractInfo) SetMobile(v string) *ConsultCreateSubInstitutionRequestContractInfo {
+func (s *ConsultCreateSubInstitutionRequestContactInfo) SetMobile(v string) *ConsultCreateSubInstitutionRequestContactInfo {
 	s.Mobile = &v
 	return s
 }
@@ -1380,7 +1380,7 @@ type CreateSubInstitutionRequest struct {
 	// 签约支付宝账户，用于协议确认
 	BindingAlipayLogonId *string `json:"bindingAlipayLogonId,omitempty" xml:"bindingAlipayLogonId,omitempty"`
 	// 联系人
-	ContractInfo *CreateSubInstitutionRequestContractInfo `json:"contractInfo,omitempty" xml:"contractInfo,omitempty" type:"Struct"`
+	ContactInfo *CreateSubInstitutionRequestContactInfo `json:"contactInfo,omitempty" xml:"contactInfo,omitempty" type:"Struct"`
 	// 主机构编号
 	InstId              *string                                         `json:"instId,omitempty" xml:"instId,omitempty"`
 	LegalPersonCertInfo *CreateSubInstitutionRequestLegalPersonCertInfo `json:"legalPersonCertInfo,omitempty" xml:"legalPersonCertInfo,omitempty" type:"Struct"`
@@ -1425,8 +1425,8 @@ func (s *CreateSubInstitutionRequest) SetBindingAlipayLogonId(v string) *CreateS
 	return s
 }
 
-func (s *CreateSubInstitutionRequest) SetContractInfo(v *CreateSubInstitutionRequestContractInfo) *CreateSubInstitutionRequest {
-	s.ContractInfo = v
+func (s *CreateSubInstitutionRequest) SetContactInfo(v *CreateSubInstitutionRequestContactInfo) *CreateSubInstitutionRequest {
+	s.ContactInfo = v
 	return s
 }
 
@@ -1505,27 +1505,27 @@ func (s *CreateSubInstitutionRequest) SetSubInstShopInfo(v *CreateSubInstitution
 	return s
 }
 
-type CreateSubInstitutionRequestContractInfo struct {
+type CreateSubInstitutionRequestContactInfo struct {
 	// 联系人姓名
-	ContractName *string `json:"contractName,omitempty" xml:"contractName,omitempty"`
+	ContactName *string `json:"contactName,omitempty" xml:"contactName,omitempty"`
 	// 联系人手机号
 	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
 }
 
-func (s CreateSubInstitutionRequestContractInfo) String() string {
+func (s CreateSubInstitutionRequestContactInfo) String() string {
 	return tea.Prettify(s)
 }
 
-func (s CreateSubInstitutionRequestContractInfo) GoString() string {
+func (s CreateSubInstitutionRequestContactInfo) GoString() string {
 	return s.String()
 }
 
-func (s *CreateSubInstitutionRequestContractInfo) SetContractName(v string) *CreateSubInstitutionRequestContractInfo {
-	s.ContractName = &v
+func (s *CreateSubInstitutionRequestContactInfo) SetContactName(v string) *CreateSubInstitutionRequestContactInfo {
+	s.ContactName = &v
 	return s
 }
 
-func (s *CreateSubInstitutionRequestContractInfo) SetMobile(v string) *CreateSubInstitutionRequestContractInfo {
+func (s *CreateSubInstitutionRequestContactInfo) SetMobile(v string) *CreateSubInstitutionRequestContactInfo {
 	s.Mobile = &v
 	return s
 }
@@ -2380,7 +2380,7 @@ type ModifySubInstitutionRequest struct {
 	// 签约支付宝账户，用于协议确认
 	BindingAlipayLogonId *string `json:"bindingAlipayLogonId,omitempty" xml:"bindingAlipayLogonId,omitempty"`
 	// 联系人
-	ContractInfo *ModifySubInstitutionRequestContractInfo `json:"contractInfo,omitempty" xml:"contractInfo,omitempty" type:"Struct"`
+	ContactInfo *ModifySubInstitutionRequestContactInfo `json:"contactInfo,omitempty" xml:"contactInfo,omitempty" type:"Struct"`
 	// 主机构编号
 	InstId              *string                                         `json:"instId,omitempty" xml:"instId,omitempty"`
 	LegalPersonCertInfo *ModifySubInstitutionRequestLegalPersonCertInfo `json:"legalPersonCertInfo,omitempty" xml:"legalPersonCertInfo,omitempty" type:"Struct"`
@@ -2423,8 +2423,8 @@ func (s *ModifySubInstitutionRequest) SetBindingAlipayLogonId(v string) *ModifyS
 	return s
 }
 
-func (s *ModifySubInstitutionRequest) SetContractInfo(v *ModifySubInstitutionRequestContractInfo) *ModifySubInstitutionRequest {
-	s.ContractInfo = v
+func (s *ModifySubInstitutionRequest) SetContactInfo(v *ModifySubInstitutionRequestContactInfo) *ModifySubInstitutionRequest {
+	s.ContactInfo = v
 	return s
 }
 
@@ -2498,27 +2498,27 @@ func (s *ModifySubInstitutionRequest) SetSubInstShopInfo(v *ModifySubInstitution
 	return s
 }
 
-type ModifySubInstitutionRequestContractInfo struct {
+type ModifySubInstitutionRequestContactInfo struct {
 	// 联系人姓名
-	ContractName *string `json:"contractName,omitempty" xml:"contractName,omitempty"`
+	ContactName *string `json:"contactName,omitempty" xml:"contactName,omitempty"`
 	// 联系人手机号
 	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
 }
 
-func (s ModifySubInstitutionRequestContractInfo) String() string {
+func (s ModifySubInstitutionRequestContactInfo) String() string {
 	return tea.Prettify(s)
 }
 
-func (s ModifySubInstitutionRequestContractInfo) GoString() string {
+func (s ModifySubInstitutionRequestContactInfo) GoString() string {
 	return s.String()
 }
 
-func (s *ModifySubInstitutionRequestContractInfo) SetContractName(v string) *ModifySubInstitutionRequestContractInfo {
-	s.ContractName = &v
+func (s *ModifySubInstitutionRequestContactInfo) SetContactName(v string) *ModifySubInstitutionRequestContactInfo {
+	s.ContactName = &v
 	return s
 }
 
-func (s *ModifySubInstitutionRequestContractInfo) SetMobile(v string) *ModifySubInstitutionRequestContractInfo {
+func (s *ModifySubInstitutionRequestContactInfo) SetMobile(v string) *ModifySubInstitutionRequestContactInfo {
 	s.Mobile = &v
 	return s
 }
@@ -5582,8 +5582,8 @@ func (client *Client) ConsultCreateSubInstitutionWithOptions(request *ConsultCre
 		body["bindingAlipayLogonId"] = request.BindingAlipayLogonId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ContractInfo))) {
-		body["contractInfo"] = request.ContractInfo
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ContactInfo))) {
+		body["contactInfo"] = request.ContactInfo
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.InstId)) {
@@ -5846,8 +5846,8 @@ func (client *Client) CreateSubInstitutionWithOptions(request *CreateSubInstitut
 		body["bindingAlipayLogonId"] = request.BindingAlipayLogonId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ContractInfo))) {
-		body["contractInfo"] = request.ContractInfo
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ContactInfo))) {
+		body["contactInfo"] = request.ContactInfo
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.InstId)) {
@@ -6086,8 +6086,8 @@ func (client *Client) ModifySubInstitutionWithOptions(request *ModifySubInstitut
 		body["bindingAlipayLogonId"] = request.BindingAlipayLogonId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ContractInfo))) {
-		body["contractInfo"] = request.ContractInfo
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ContactInfo))) {
+		body["contactInfo"] = request.ContactInfo
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.InstId)) {

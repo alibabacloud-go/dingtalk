@@ -2318,6 +2318,139 @@ func (s *ListAclsResponse) SetBody(v *ListAclsResponseBody) *ListAclsResponse {
 	return s
 }
 
+type ListAttendeesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListAttendeesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAttendeesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListAttendeesHeaders) SetCommonHeaders(v map[string]*string) *ListAttendeesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListAttendeesHeaders) SetXAcsDingtalkAccessToken(v string) *ListAttendeesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListAttendeesRequest struct {
+	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListAttendeesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAttendeesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListAttendeesRequest) SetMaxResults(v int64) *ListAttendeesRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListAttendeesRequest) SetNextToken(v string) *ListAttendeesRequest {
+	s.NextToken = &v
+	return s
+}
+
+type ListAttendeesResponseBody struct {
+	// 参与人
+	Attendees []*ListAttendeesResponseBodyAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	// 翻页token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListAttendeesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAttendeesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListAttendeesResponseBody) SetAttendees(v []*ListAttendeesResponseBodyAttendees) *ListAttendeesResponseBody {
+	s.Attendees = v
+	return s
+}
+
+func (s *ListAttendeesResponseBody) SetNextToken(v string) *ListAttendeesResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type ListAttendeesResponseBodyAttendees struct {
+	// 用户名
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	// 用户id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 回复状态
+	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
+	// 是否当前用户
+	Self *bool `json:"self,omitempty" xml:"self,omitempty"`
+}
+
+func (s ListAttendeesResponseBodyAttendees) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAttendeesResponseBodyAttendees) GoString() string {
+	return s.String()
+}
+
+func (s *ListAttendeesResponseBodyAttendees) SetDisplayName(v string) *ListAttendeesResponseBodyAttendees {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *ListAttendeesResponseBodyAttendees) SetId(v string) *ListAttendeesResponseBodyAttendees {
+	s.Id = &v
+	return s
+}
+
+func (s *ListAttendeesResponseBodyAttendees) SetResponseStatus(v string) *ListAttendeesResponseBodyAttendees {
+	s.ResponseStatus = &v
+	return s
+}
+
+func (s *ListAttendeesResponseBodyAttendees) SetSelf(v bool) *ListAttendeesResponseBodyAttendees {
+	s.Self = &v
+	return s
+}
+
+type ListAttendeesResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListAttendeesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListAttendeesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAttendeesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListAttendeesResponse) SetHeaders(v map[string]*string) *ListAttendeesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListAttendeesResponse) SetBody(v *ListAttendeesResponseBody) *ListAttendeesResponse {
+	s.Body = v
+	return s
+}
+
 type ListCalendarsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5037,6 +5170,57 @@ func (client *Client) ListAclsWithOptions(userId *string, calendarId *string, he
 	}
 	_result = &ListAclsResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListAcls"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/acls"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListAttendees(userId *string, calendarId *string, eventId *string, request *ListAttendeesRequest) (_result *ListAttendeesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListAttendeesHeaders{}
+	_result = &ListAttendeesResponse{}
+	_body, _err := client.ListAttendeesWithOptions(userId, calendarId, eventId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListAttendeesWithOptions(userId *string, calendarId *string, eventId *string, request *ListAttendeesRequest, headers *ListAttendeesHeaders, runtime *util.RuntimeOptions) (_result *ListAttendeesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	eventId = openapiutil.GetEncodeParam(eventId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListAttendeesResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListAttendees"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/attendees"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

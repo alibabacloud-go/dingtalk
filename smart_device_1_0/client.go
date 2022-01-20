@@ -455,8 +455,12 @@ func (s *MachineUsersUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *Machin
 }
 
 type MachineUsersUpdateRequest struct {
+	// 新增的部门id列表
+	AddDeptIds []*int64 `json:"addDeptIds,omitempty" xml:"addDeptIds,omitempty" type:"Repeated"`
 	// 新增的员工id列表
 	AddUserIds []*string `json:"addUserIds,omitempty" xml:"addUserIds,omitempty" type:"Repeated"`
+	// 移除的部门id列表
+	DelDeptIds []*int64 `json:"delDeptIds,omitempty" xml:"delDeptIds,omitempty" type:"Repeated"`
 	// 移除的员工id列表
 	DelUserIds []*string `json:"delUserIds,omitempty" xml:"delUserIds,omitempty" type:"Repeated"`
 	// 设备唯一标识id列表，Long数组
@@ -473,8 +477,18 @@ func (s MachineUsersUpdateRequest) GoString() string {
 	return s.String()
 }
 
+func (s *MachineUsersUpdateRequest) SetAddDeptIds(v []*int64) *MachineUsersUpdateRequest {
+	s.AddDeptIds = v
+	return s
+}
+
 func (s *MachineUsersUpdateRequest) SetAddUserIds(v []*string) *MachineUsersUpdateRequest {
 	s.AddUserIds = v
+	return s
+}
+
+func (s *MachineUsersUpdateRequest) SetDelDeptIds(v []*int64) *MachineUsersUpdateRequest {
+	s.DelDeptIds = v
 	return s
 }
 
@@ -863,8 +877,16 @@ func (client *Client) MachineUsersUpdateWithOptions(request *MachineUsersUpdateR
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AddDeptIds)) {
+		body["addDeptIds"] = request.AddDeptIds
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.AddUserIds)) {
 		body["addUserIds"] = request.AddUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DelDeptIds)) {
+		body["delDeptIds"] = request.DelDeptIds
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.DelUserIds)) {
