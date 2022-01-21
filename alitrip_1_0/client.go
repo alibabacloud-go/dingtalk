@@ -2315,7 +2315,7 @@ type BillSettementHotelResponseBodyModuleDataList struct {
 	// 服务费,仅在 feeType 20111、20112中展示
 	ServiceFee *float64 `json:"serviceFee,omitempty" xml:"serviceFee,omitempty"`
 	// 结算金额
-	SettlementFee *int64 `json:"settlementFee,omitempty" xml:"settlementFee,omitempty"`
+	SettlementFee *float64 `json:"settlementFee,omitempty" xml:"settlementFee,omitempty"`
 	// 结算时间
 	SettlementTime *string `json:"settlementTime,omitempty" xml:"settlementTime,omitempty"`
 	// 结算类型
@@ -2545,7 +2545,7 @@ func (s *BillSettementHotelResponseBodyModuleDataList) SetServiceFee(v float64) 
 	return s
 }
 
-func (s *BillSettementHotelResponseBodyModuleDataList) SetSettlementFee(v int64) *BillSettementHotelResponseBodyModuleDataList {
+func (s *BillSettementHotelResponseBodyModuleDataList) SetSettlementFee(v float64) *BillSettementHotelResponseBodyModuleDataList {
 	s.SettlementFee = &v
 	return s
 }
