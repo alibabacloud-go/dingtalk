@@ -1099,6 +1099,8 @@ type BillSettementCarResponseBodyModuleDataList struct {
 	TravelerName *string `json:"travelerName,omitempty" xml:"travelerName,omitempty"`
 	// 员工是否认可
 	UserConfirmDesc *string `json:"userConfirmDesc,omitempty" xml:"userConfirmDesc,omitempty"`
+	// 发票类型
+	VoucherType *int64 `json:"voucherType,omitempty" xml:"voucherType,omitempty"`
 }
 
 func (s BillSettementCarResponseBodyModuleDataList) String() string {
@@ -1366,6 +1368,11 @@ func (s *BillSettementCarResponseBodyModuleDataList) SetTravelerName(v string) *
 
 func (s *BillSettementCarResponseBodyModuleDataList) SetUserConfirmDesc(v string) *BillSettementCarResponseBodyModuleDataList {
 	s.UserConfirmDesc = &v
+	return s
+}
+
+func (s *BillSettementCarResponseBodyModuleDataList) SetVoucherType(v int64) *BillSettementCarResponseBodyModuleDataList {
+	s.VoucherType = &v
 	return s
 }
 
@@ -1695,6 +1702,8 @@ type BillSettementFlightResponseBodyModuleDataList struct {
 	TravelerName *string `json:"travelerName,omitempty" xml:"travelerName,omitempty"`
 	// 改签差价
 	UpgradeCost *float64 `json:"upgradeCost,omitempty" xml:"upgradeCost,omitempty"`
+	// 发票类型
+	VoucherType *int64 `json:"voucherType,omitempty" xml:"voucherType,omitempty"`
 }
 
 func (s BillSettementFlightResponseBodyModuleDataList) String() string {
@@ -2040,6 +2049,11 @@ func (s *BillSettementFlightResponseBodyModuleDataList) SetUpgradeCost(v float64
 	return s
 }
 
+func (s *BillSettementFlightResponseBodyModuleDataList) SetVoucherType(v int64) *BillSettementFlightResponseBodyModuleDataList {
+	s.VoucherType = &v
+	return s
+}
+
 type BillSettementFlightResponse struct {
 	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
 	Body    *BillSettementFlightResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
@@ -2330,6 +2344,8 @@ type BillSettementHotelResponseBodyModuleDataList struct {
 	TravelerJobNo *string `json:"travelerJobNo,omitempty" xml:"travelerJobNo,omitempty"`
 	// 出行人名称
 	TravelerName *string `json:"travelerName,omitempty" xml:"travelerName,omitempty"`
+	// 发票类型
+	VoucherType *int64 `json:"voucherType,omitempty" xml:"voucherType,omitempty"`
 }
 
 func (s BillSettementHotelResponseBodyModuleDataList) String() string {
@@ -2582,6 +2598,11 @@ func (s *BillSettementHotelResponseBodyModuleDataList) SetTravelerJobNo(v string
 
 func (s *BillSettementHotelResponseBodyModuleDataList) SetTravelerName(v string) *BillSettementHotelResponseBodyModuleDataList {
 	s.TravelerName = &v
+	return s
+}
+
+func (s *BillSettementHotelResponseBodyModuleDataList) SetVoucherType(v int64) *BillSettementHotelResponseBodyModuleDataList {
+	s.VoucherType = &v
 	return s
 }
 
