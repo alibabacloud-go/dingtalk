@@ -1328,6 +1328,88 @@ func (s *DeleteWorkspaceMembersResponse) SetHeaders(v map[string]*string) *Delet
 	return s
 }
 
+type GetRangeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetRangeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRangeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetRangeHeaders) SetCommonHeaders(v map[string]*string) *GetRangeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetRangeHeaders) SetXAcsDingtalkAccessToken(v string) *GetRangeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetRangeRequest struct {
+	// 操作人unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetRangeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRangeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetRangeRequest) SetOperatorId(v string) *GetRangeRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetRangeResponseBody struct {
+	// 值
+	Values []*string `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+}
+
+func (s GetRangeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRangeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetRangeResponseBody) SetValues(v []*string) *GetRangeResponseBody {
+	s.Values = v
+	return s
+}
+
+type GetRangeResponse struct {
+	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetRangeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetRangeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRangeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetRangeResponse) SetHeaders(v map[string]*string) *GetRangeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetRangeResponse) SetBody(v *GetRangeResponseBody) *GetRangeResponse {
+	s.Body = v
+	return s
+}
+
 type GetRecentEditDocsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3368,6 +3450,53 @@ func (client *Client) DeleteWorkspaceMembersWithOptions(workspaceId *string, req
 	}
 	_result = &DeleteWorkspaceMembersResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteWorkspaceMembers"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/members/remove"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetRange(workbookId *string, sheetId *string, rangeAddress *string, request *GetRangeRequest) (_result *GetRangeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetRangeHeaders{}
+	_result = &GetRangeResponse{}
+	_body, _err := client.GetRangeWithOptions(workbookId, sheetId, rangeAddress, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetRangeWithOptions(workbookId *string, sheetId *string, rangeAddress *string, request *GetRangeRequest, headers *GetRangeHeaders, runtime *util.RuntimeOptions) (_result *GetRangeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
+	sheetId = openapiutil.GetEncodeParam(sheetId)
+	rangeAddress = openapiutil.GetEncodeParam(rangeAddress)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetRangeResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetRange"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/ranges/"+tea.StringValue(rangeAddress)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
