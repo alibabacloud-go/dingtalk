@@ -940,6 +940,8 @@ type CreateWorkspaceDocRequest struct {
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 	// 父节点nodeId
 	ParentNodeId *string `json:"parentNodeId,omitempty" xml:"parentNodeId,omitempty"`
+	// 文档模板id
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
 
 func (s CreateWorkspaceDocRequest) String() string {
@@ -967,6 +969,11 @@ func (s *CreateWorkspaceDocRequest) SetOperatorId(v string) *CreateWorkspaceDocR
 
 func (s *CreateWorkspaceDocRequest) SetParentNodeId(v string) *CreateWorkspaceDocRequest {
 	s.ParentNodeId = &v
+	return s
+}
+
+func (s *CreateWorkspaceDocRequest) SetTemplateId(v string) *CreateWorkspaceDocRequest {
+	s.TemplateId = &v
 	return s
 }
 
@@ -2477,10 +2484,12 @@ type SearchWorkspaceDocsResponseBodyDocsNodeBO struct {
 	DocType *string `json:"docType,omitempty" xml:"docType,omitempty"`
 	// 最近编辑时间
 	LastEditTime *int64 `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
-	// 节点名称
+	// 节点名称，如果命中了搜索关键词会包含高亮标签
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 节点Id
 	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// 节点原始名称
+	OriginName *string `json:"originName,omitempty" xml:"originName,omitempty"`
 	// 节点打开url
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
@@ -2510,6 +2519,11 @@ func (s *SearchWorkspaceDocsResponseBodyDocsNodeBO) SetName(v string) *SearchWor
 
 func (s *SearchWorkspaceDocsResponseBodyDocsNodeBO) SetNodeId(v string) *SearchWorkspaceDocsResponseBodyDocsNodeBO {
 	s.NodeId = &v
+	return s
+}
+
+func (s *SearchWorkspaceDocsResponseBodyDocsNodeBO) SetOriginName(v string) *SearchWorkspaceDocsResponseBodyDocsNodeBO {
+	s.OriginName = &v
 	return s
 }
 
@@ -3242,6 +3256,10 @@ func (client *Client) CreateWorkspaceDocWithOptions(workspaceId *string, request
 
 	if !tea.BoolValue(util.IsUnset(request.ParentNodeId)) {
 		body["parentNodeId"] = request.ParentNodeId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
 	}
 
 	realHeaders := make(map[string]*string)
