@@ -8396,6 +8396,8 @@ func (s *ListTableDataByFormInstanceIdTableIdHeaders) SetXAcsDingtalkAccessToken
 }
 
 type ListTableDataByFormInstanceIdTableIdRequest struct {
+	// 应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
 	// 表单ID
 	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
 	// 当前页
@@ -8416,6 +8418,11 @@ func (s ListTableDataByFormInstanceIdTableIdRequest) String() string {
 
 func (s ListTableDataByFormInstanceIdTableIdRequest) GoString() string {
 	return s.String()
+}
+
+func (s *ListTableDataByFormInstanceIdTableIdRequest) SetAppType(v string) *ListTableDataByFormInstanceIdTableIdRequest {
+	s.AppType = &v
+	return s
 }
 
 func (s *ListTableDataByFormInstanceIdTableIdRequest) SetFormUuid(v string) *ListTableDataByFormInstanceIdTableIdRequest {
@@ -14946,6 +14953,10 @@ func (client *Client) ListTableDataByFormInstanceIdTableIdWithOptions(formInstan
 	}
 	formInstanceId = openapiutil.GetEncodeParam(formInstanceId)
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
 		query["formUuid"] = request.FormUuid
 	}
