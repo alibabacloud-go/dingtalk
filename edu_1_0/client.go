@@ -3931,6 +3931,159 @@ func (s *DeviceHeartbeatResponse) SetBody(v *DeviceHeartbeatResponseBody) *Devic
 	return s
 }
 
+type EduTeacherListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s EduTeacherListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EduTeacherListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *EduTeacherListHeaders) SetCommonHeaders(v map[string]*string) *EduTeacherListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *EduTeacherListHeaders) SetXAcsDingtalkAccessToken(v string) *EduTeacherListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type EduTeacherListRequest struct {
+	// 页码
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s EduTeacherListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EduTeacherListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *EduTeacherListRequest) SetPageNumber(v int32) *EduTeacherListRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *EduTeacherListRequest) SetPageSize(v int32) *EduTeacherListRequest {
+	s.PageSize = &v
+	return s
+}
+
+type EduTeacherListResponseBody struct {
+	// 返回结果
+	Result *EduTeacherListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s EduTeacherListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EduTeacherListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *EduTeacherListResponseBody) SetResult(v *EduTeacherListResponseBodyResult) *EduTeacherListResponseBody {
+	s.Result = v
+	return s
+}
+
+type EduTeacherListResponseBodyResult struct {
+	// 是否还有下一页
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 教师信息
+	TeacherDetails []*EduTeacherListResponseBodyResultTeacherDetails `json:"teacherDetails,omitempty" xml:"teacherDetails,omitempty" type:"Repeated"`
+}
+
+func (s EduTeacherListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EduTeacherListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *EduTeacherListResponseBodyResult) SetHasMore(v bool) *EduTeacherListResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *EduTeacherListResponseBodyResult) SetTeacherDetails(v []*EduTeacherListResponseBodyResultTeacherDetails) *EduTeacherListResponseBodyResult {
+	s.TeacherDetails = v
+	return s
+}
+
+type EduTeacherListResponseBodyResultTeacherDetails struct {
+	// 用户名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 角色
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
+	// PiiiPyQqBxxx
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s EduTeacherListResponseBodyResultTeacherDetails) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EduTeacherListResponseBodyResultTeacherDetails) GoString() string {
+	return s.String()
+}
+
+func (s *EduTeacherListResponseBodyResultTeacherDetails) SetName(v string) *EduTeacherListResponseBodyResultTeacherDetails {
+	s.Name = &v
+	return s
+}
+
+func (s *EduTeacherListResponseBodyResultTeacherDetails) SetRole(v string) *EduTeacherListResponseBodyResultTeacherDetails {
+	s.Role = &v
+	return s
+}
+
+func (s *EduTeacherListResponseBodyResultTeacherDetails) SetUnionId(v string) *EduTeacherListResponseBodyResultTeacherDetails {
+	s.UnionId = &v
+	return s
+}
+
+func (s *EduTeacherListResponseBodyResultTeacherDetails) SetUserId(v string) *EduTeacherListResponseBodyResultTeacherDetails {
+	s.UserId = &v
+	return s
+}
+
+type EduTeacherListResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *EduTeacherListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s EduTeacherListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EduTeacherListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *EduTeacherListResponse) SetHeaders(v map[string]*string) *EduTeacherListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *EduTeacherListResponse) SetBody(v *EduTeacherListResponseBody) *EduTeacherListResponse {
+	s.Body = v
+	return s
+}
+
 type EndCourseHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -13108,6 +13261,54 @@ func (client *Client) DeviceHeartbeatWithOptions(request *DeviceHeartbeatRequest
 	}
 	_result = &DeviceHeartbeatResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeviceHeartbeat"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/heartbeats/report"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) EduTeacherList(request *EduTeacherListRequest) (_result *EduTeacherListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &EduTeacherListHeaders{}
+	_result = &EduTeacherListResponse{}
+	_body, _err := client.EduTeacherListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) EduTeacherListWithOptions(request *EduTeacherListRequest, headers *EduTeacherListHeaders, runtime *util.RuntimeOptions) (_result *EduTeacherListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &EduTeacherListResponse{}
+	_body, _err := client.DoROARequest(tea.String("EduTeacherList"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/teachers"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

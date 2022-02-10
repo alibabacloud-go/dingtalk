@@ -2321,6 +2321,8 @@ type GetUploadInfoResponseBodyHeaderSignatureUploadInfo struct {
 	Headers map[string]interface{} `json:"headers,omitempty" xml:"headers,omitempty"`
 	// 内网上传地址
 	InternalResourceUrl *string `json:"internalResourceUrl,omitempty" xml:"internalResourceUrl,omitempty"`
+	// mediaId
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
 	// 上传地址
 	ResourceUrl *string `json:"resourceUrl,omitempty" xml:"resourceUrl,omitempty"`
 }
@@ -2345,6 +2347,11 @@ func (s *GetUploadInfoResponseBodyHeaderSignatureUploadInfo) SetHeaders(v map[st
 
 func (s *GetUploadInfoResponseBodyHeaderSignatureUploadInfo) SetInternalResourceUrl(v string) *GetUploadInfoResponseBodyHeaderSignatureUploadInfo {
 	s.InternalResourceUrl = &v
+	return s
+}
+
+func (s *GetUploadInfoResponseBodyHeaderSignatureUploadInfo) SetMediaId(v string) *GetUploadInfoResponseBodyHeaderSignatureUploadInfo {
+	s.MediaId = &v
 	return s
 }
 
