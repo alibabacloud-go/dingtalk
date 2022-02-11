@@ -11,6 +11,158 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AddDeviceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddDeviceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddDeviceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddDeviceHeaders) SetCommonHeaders(v map[string]*string) *AddDeviceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *AddDeviceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddDeviceRequest struct {
+	// 商户id
+	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	// 设备型号
+	Model *string `json:"model,omitempty" xml:"model,omitempty"`
+	// 设备名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 消费场景
+	Scene *int64 `json:"scene,omitempty" xml:"scene,omitempty"`
+	// sn码
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// 设备状态
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+	// 设备类型
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s AddDeviceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddDeviceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddDeviceRequest) SetMerchantId(v string) *AddDeviceRequest {
+	s.MerchantId = &v
+	return s
+}
+
+func (s *AddDeviceRequest) SetModel(v string) *AddDeviceRequest {
+	s.Model = &v
+	return s
+}
+
+func (s *AddDeviceRequest) SetName(v string) *AddDeviceRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *AddDeviceRequest) SetScene(v int64) *AddDeviceRequest {
+	s.Scene = &v
+	return s
+}
+
+func (s *AddDeviceRequest) SetSn(v string) *AddDeviceRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *AddDeviceRequest) SetStatus(v int64) *AddDeviceRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *AddDeviceRequest) SetType(v int64) *AddDeviceRequest {
+	s.Type = &v
+	return s
+}
+
+type AddDeviceResponseBody struct {
+	// 组织id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 设备id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 商户id
+	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	// 设备sn码
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// 状态
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s AddDeviceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddDeviceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddDeviceResponseBody) SetCorpId(v string) *AddDeviceResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *AddDeviceResponseBody) SetId(v int64) *AddDeviceResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *AddDeviceResponseBody) SetMerchantId(v string) *AddDeviceResponseBody {
+	s.MerchantId = &v
+	return s
+}
+
+func (s *AddDeviceResponseBody) SetSn(v string) *AddDeviceResponseBody {
+	s.Sn = &v
+	return s
+}
+
+func (s *AddDeviceResponseBody) SetStatus(v int64) *AddDeviceResponseBody {
+	s.Status = &v
+	return s
+}
+
+type AddDeviceResponse struct {
+	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddDeviceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddDeviceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddDeviceResponse) SetHeaders(v map[string]*string) *AddDeviceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddDeviceResponse) SetBody(v *AddDeviceResponseBody) *AddDeviceResponse {
+	s.Body = v
+	return s
+}
+
 type BatchCreateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -758,6 +910,240 @@ func (s *BatchOrgCreateHWResponse) SetBody(v *BatchOrgCreateHWResponseBody) *Bat
 	return s
 }
 
+type CancelOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CancelOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CancelOrderHeaders) SetCommonHeaders(v map[string]*string) *CancelOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CancelOrderHeaders) SetXAcsDingtalkAccessToken(v string) *CancelOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CancelOrderRequest struct {
+	// 人脸id
+	FaceId *string `json:"faceId,omitempty" xml:"faceId,omitempty"`
+	// 订单号
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// 签名
+	Signature *string `json:"signature,omitempty" xml:"signature,omitempty"`
+	// 设备号
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// utc时间戳
+	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CancelOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CancelOrderRequest) SetFaceId(v string) *CancelOrderRequest {
+	s.FaceId = &v
+	return s
+}
+
+func (s *CancelOrderRequest) SetOrderNo(v string) *CancelOrderRequest {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *CancelOrderRequest) SetSignature(v string) *CancelOrderRequest {
+	s.Signature = &v
+	return s
+}
+
+func (s *CancelOrderRequest) SetSn(v string) *CancelOrderRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *CancelOrderRequest) SetTimestamp(v int64) *CancelOrderRequest {
+	s.Timestamp = &v
+	return s
+}
+
+func (s *CancelOrderRequest) SetUserId(v string) *CancelOrderRequest {
+	s.UserId = &v
+	return s
+}
+
+type CancelOrderResponseBody struct {
+	// 是否需要重试
+	NeedRetry *bool `json:"needRetry,omitempty" xml:"needRetry,omitempty"`
+	// 交易动作
+	TradeAction *string `json:"tradeAction,omitempty" xml:"tradeAction,omitempty"`
+}
+
+func (s CancelOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CancelOrderResponseBody) SetNeedRetry(v bool) *CancelOrderResponseBody {
+	s.NeedRetry = &v
+	return s
+}
+
+func (s *CancelOrderResponseBody) SetTradeAction(v string) *CancelOrderResponseBody {
+	s.TradeAction = &v
+	return s
+}
+
+type CancelOrderResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CancelOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CancelOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CancelOrderResponse) SetHeaders(v map[string]*string) *CancelOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CancelOrderResponse) SetBody(v *CancelOrderResponseBody) *CancelOrderResponse {
+	s.Body = v
+	return s
+}
+
+type CheckRestrictionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CheckRestrictionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckRestrictionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CheckRestrictionHeaders) SetCommonHeaders(v map[string]*string) *CheckRestrictionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CheckRestrictionHeaders) SetXAcsDingtalkAccessToken(v string) *CheckRestrictionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CheckRestrictionRequest struct {
+	// 实付金额，单位分
+	ActualAmount *int64 `json:"actualAmount,omitempty" xml:"actualAmount,omitempty"`
+	// 人脸id
+	FaceId *string `json:"faceId,omitempty" xml:"faceId,omitempty"`
+	// 场景
+	Scene *int64 `json:"scene,omitempty" xml:"scene,omitempty"`
+	// 设备号
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CheckRestrictionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckRestrictionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CheckRestrictionRequest) SetActualAmount(v int64) *CheckRestrictionRequest {
+	s.ActualAmount = &v
+	return s
+}
+
+func (s *CheckRestrictionRequest) SetFaceId(v string) *CheckRestrictionRequest {
+	s.FaceId = &v
+	return s
+}
+
+func (s *CheckRestrictionRequest) SetScene(v int64) *CheckRestrictionRequest {
+	s.Scene = &v
+	return s
+}
+
+func (s *CheckRestrictionRequest) SetSn(v string) *CheckRestrictionRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *CheckRestrictionRequest) SetUserId(v string) *CheckRestrictionRequest {
+	s.UserId = &v
+	return s
+}
+
+type CheckRestrictionResponseBody struct {
+	// 返回结果
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CheckRestrictionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckRestrictionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CheckRestrictionResponseBody) SetSuccess(v bool) *CheckRestrictionResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CheckRestrictionResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CheckRestrictionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CheckRestrictionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckRestrictionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CheckRestrictionResponse) SetHeaders(v map[string]*string) *CheckRestrictionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CheckRestrictionResponse) SetBody(v *CheckRestrictionResponseBody) *CheckRestrictionResponse {
+	s.Body = v
+	return s
+}
+
 type CourseSchedulingComplimentNoticeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1422,17 +1808,23 @@ func (s *CreateOrderHeaders) SetXAcsDingtalkAccessToken(v string) *CreateOrderHe
 }
 
 type CreateOrderRequest struct {
-	// 实付金额（优惠计算后）
+	// 实付金额，单位分（优惠计算后）
 	ActualAmount *int64 `json:"actualAmount,omitempty" xml:"actualAmount,omitempty"`
-	// 订单明细信息，来源于商户系统或APP的商品信息。
+	// 订单明细信息
 	DetailList []*CreateOrderRequestDetailList `json:"detailList,omitempty" xml:"detailList,omitempty" type:"Repeated"`
-	// 录脸token
+	// 人脸id
+	FaceId *string `json:"faceId,omitempty" xml:"faceId,omitempty"`
+	// 刷脸token
 	Ftoken *string `json:"ftoken,omitempty" xml:"ftoken,omitempty"`
-	// 设备序列号
+	// 签名
+	Signature *string `json:"signature,omitempty" xml:"signature,omitempty"`
+	// 设备号
 	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
 	// 交易加签
 	TerminalParams *string `json:"terminalParams,omitempty" xml:"terminalParams,omitempty"`
-	// 应付价格
+	// utc时间戳
+	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	// 应付价格，单位分
 	TotalAmount *int64 `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
 	// 员工id
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
@@ -1456,8 +1848,18 @@ func (s *CreateOrderRequest) SetDetailList(v []*CreateOrderRequestDetailList) *C
 	return s
 }
 
+func (s *CreateOrderRequest) SetFaceId(v string) *CreateOrderRequest {
+	s.FaceId = &v
+	return s
+}
+
 func (s *CreateOrderRequest) SetFtoken(v string) *CreateOrderRequest {
 	s.Ftoken = &v
+	return s
+}
+
+func (s *CreateOrderRequest) SetSignature(v string) *CreateOrderRequest {
+	s.Signature = &v
 	return s
 }
 
@@ -1468,6 +1870,11 @@ func (s *CreateOrderRequest) SetSn(v string) *CreateOrderRequest {
 
 func (s *CreateOrderRequest) SetTerminalParams(v string) *CreateOrderRequest {
 	s.TerminalParams = &v
+	return s
+}
+
+func (s *CreateOrderRequest) SetTimestamp(v int64) *CreateOrderRequest {
+	s.Timestamp = &v
 	return s
 }
 
@@ -1482,13 +1889,13 @@ func (s *CreateOrderRequest) SetUserId(v string) *CreateOrderRequest {
 }
 
 type CreateOrderRequestDetailList struct {
-	// 计算优惠后的实付金额，单位为分。
+	// 计算优惠后的实付金额，单位为分
 	ActualAmount *int64 `json:"actualAmount,omitempty" xml:"actualAmount,omitempty"`
-	// 应付金额，单位为分。
+	// 应付金额，单位为分
 	ItemAmount *int64 `json:"itemAmount,omitempty" xml:"itemAmount,omitempty"`
-	// 商品名。
+	// 商品名
 	ItemName *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
-	// 场景。
+	// 场景
 	Scene *int64 `json:"scene,omitempty" xml:"scene,omitempty"`
 }
 
@@ -1517,66 +1924,6 @@ func (s *CreateOrderRequestDetailList) SetItemName(v string) *CreateOrderRequest
 
 func (s *CreateOrderRequestDetailList) SetScene(v int64) *CreateOrderRequestDetailList {
 	s.Scene = &v
-	return s
-}
-
-type CreateOrderShrinkRequest struct {
-	// 实付金额（优惠计算后）
-	ActualAmount *int64 `json:"actualAmount,omitempty" xml:"actualAmount,omitempty"`
-	// 订单明细信息，来源于商户系统或APP的商品信息。
-	DetailListShrink *string `json:"detailList,omitempty" xml:"detailList,omitempty"`
-	// 录脸token
-	Ftoken *string `json:"ftoken,omitempty" xml:"ftoken,omitempty"`
-	// 设备序列号
-	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
-	// 交易加签
-	TerminalParams *string `json:"terminalParams,omitempty" xml:"terminalParams,omitempty"`
-	// 应付价格
-	TotalAmount *int64 `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
-	// 员工id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-}
-
-func (s CreateOrderShrinkRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CreateOrderShrinkRequest) GoString() string {
-	return s.String()
-}
-
-func (s *CreateOrderShrinkRequest) SetActualAmount(v int64) *CreateOrderShrinkRequest {
-	s.ActualAmount = &v
-	return s
-}
-
-func (s *CreateOrderShrinkRequest) SetDetailListShrink(v string) *CreateOrderShrinkRequest {
-	s.DetailListShrink = &v
-	return s
-}
-
-func (s *CreateOrderShrinkRequest) SetFtoken(v string) *CreateOrderShrinkRequest {
-	s.Ftoken = &v
-	return s
-}
-
-func (s *CreateOrderShrinkRequest) SetSn(v string) *CreateOrderShrinkRequest {
-	s.Sn = &v
-	return s
-}
-
-func (s *CreateOrderShrinkRequest) SetTerminalParams(v string) *CreateOrderShrinkRequest {
-	s.TerminalParams = &v
-	return s
-}
-
-func (s *CreateOrderShrinkRequest) SetTotalAmount(v int64) *CreateOrderShrinkRequest {
-	s.TotalAmount = &v
-	return s
-}
-
-func (s *CreateOrderShrinkRequest) SetUserId(v string) *CreateOrderShrinkRequest {
-	s.UserId = &v
 	return s
 }
 
@@ -1617,6 +1964,197 @@ func (s *CreateOrderResponse) SetHeaders(v map[string]*string) *CreateOrderRespo
 }
 
 func (s *CreateOrderResponse) SetBody(v *CreateOrderResponseBody) *CreateOrderResponse {
+	s.Body = v
+	return s
+}
+
+type CreateOrderFlowHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateOrderFlowHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrderFlowHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrderFlowHeaders) SetCommonHeaders(v map[string]*string) *CreateOrderFlowHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateOrderFlowHeaders) SetXAcsDingtalkAccessToken(v string) *CreateOrderFlowHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateOrderFlowRequest struct {
+	// 实付金额，单位分（优惠计算后）
+	ActualAmount *int64 `json:"actualAmount,omitempty" xml:"actualAmount,omitempty"`
+	// 支付宝用户id
+	AlipayUid *string `json:"alipayUid,omitempty" xml:"alipayUid,omitempty"`
+	// 订单明细信息，来源于商户系统或APP的商品信息。
+	DetailList []*CreateOrderFlowRequestDetailList `json:"detailList,omitempty" xml:"detailList,omitempty" type:"Repeated"`
+	// 人脸id
+	FaceId *string `json:"faceId,omitempty" xml:"faceId,omitempty"`
+	// 商户id
+	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	// 订单号
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// 签名
+	Signature *string `json:"signature,omitempty" xml:"signature,omitempty"`
+	// 设备号
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// utc时间戳
+	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	// 应付价格，单位分
+	TotalAmount *int64 `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateOrderFlowRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrderFlowRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrderFlowRequest) SetActualAmount(v int64) *CreateOrderFlowRequest {
+	s.ActualAmount = &v
+	return s
+}
+
+func (s *CreateOrderFlowRequest) SetAlipayUid(v string) *CreateOrderFlowRequest {
+	s.AlipayUid = &v
+	return s
+}
+
+func (s *CreateOrderFlowRequest) SetDetailList(v []*CreateOrderFlowRequestDetailList) *CreateOrderFlowRequest {
+	s.DetailList = v
+	return s
+}
+
+func (s *CreateOrderFlowRequest) SetFaceId(v string) *CreateOrderFlowRequest {
+	s.FaceId = &v
+	return s
+}
+
+func (s *CreateOrderFlowRequest) SetMerchantId(v string) *CreateOrderFlowRequest {
+	s.MerchantId = &v
+	return s
+}
+
+func (s *CreateOrderFlowRequest) SetOrderNo(v string) *CreateOrderFlowRequest {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *CreateOrderFlowRequest) SetSignature(v string) *CreateOrderFlowRequest {
+	s.Signature = &v
+	return s
+}
+
+func (s *CreateOrderFlowRequest) SetSn(v string) *CreateOrderFlowRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *CreateOrderFlowRequest) SetTimestamp(v int64) *CreateOrderFlowRequest {
+	s.Timestamp = &v
+	return s
+}
+
+func (s *CreateOrderFlowRequest) SetTotalAmount(v int64) *CreateOrderFlowRequest {
+	s.TotalAmount = &v
+	return s
+}
+
+func (s *CreateOrderFlowRequest) SetUserId(v string) *CreateOrderFlowRequest {
+	s.UserId = &v
+	return s
+}
+
+type CreateOrderFlowRequestDetailList struct {
+	// 计算优惠后的实付金额，单位为分
+	ActualAmount *int64 `json:"actualAmount,omitempty" xml:"actualAmount,omitempty"`
+	// 应付金额，单位为分
+	ItemAmount *int64 `json:"itemAmount,omitempty" xml:"itemAmount,omitempty"`
+	// 商品名
+	ItemName *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
+	// 场景
+	Scene *int64 `json:"scene,omitempty" xml:"scene,omitempty"`
+}
+
+func (s CreateOrderFlowRequestDetailList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrderFlowRequestDetailList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrderFlowRequestDetailList) SetActualAmount(v int64) *CreateOrderFlowRequestDetailList {
+	s.ActualAmount = &v
+	return s
+}
+
+func (s *CreateOrderFlowRequestDetailList) SetItemAmount(v int64) *CreateOrderFlowRequestDetailList {
+	s.ItemAmount = &v
+	return s
+}
+
+func (s *CreateOrderFlowRequestDetailList) SetItemName(v string) *CreateOrderFlowRequestDetailList {
+	s.ItemName = &v
+	return s
+}
+
+func (s *CreateOrderFlowRequestDetailList) SetScene(v int64) *CreateOrderFlowRequestDetailList {
+	s.Scene = &v
+	return s
+}
+
+type CreateOrderFlowResponseBody struct {
+	// 返回结果
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateOrderFlowResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrderFlowResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrderFlowResponseBody) SetSuccess(v bool) *CreateOrderFlowResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateOrderFlowResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateOrderFlowResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateOrderFlowResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrderFlowResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrderFlowResponse) SetHeaders(v map[string]*string) *CreateOrderFlowResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateOrderFlowResponse) SetBody(v *CreateOrderFlowResponseBody) *CreateOrderFlowResponse {
 	s.Body = v
 	return s
 }
@@ -1748,6 +2286,137 @@ func (s *CreatePhysicalClassroomResponse) SetHeaders(v map[string]*string) *Crea
 }
 
 func (s *CreatePhysicalClassroomResponse) SetBody(v *CreatePhysicalClassroomResponseBody) *CreatePhysicalClassroomResponse {
+	s.Body = v
+	return s
+}
+
+type CreateRefundFlowHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateRefundFlowHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRefundFlowHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRefundFlowHeaders) SetCommonHeaders(v map[string]*string) *CreateRefundFlowHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateRefundFlowHeaders) SetXAcsDingtalkAccessToken(v string) *CreateRefundFlowHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateRefundFlowRequest struct {
+	// 人脸id
+	FaceId *string `json:"faceId,omitempty" xml:"faceId,omitempty"`
+	// 操作人id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// 操作人名称
+	OperatorName *string `json:"operatorName,omitempty" xml:"operatorName,omitempty"`
+	// 订单号
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// 签名
+	Signature *string `json:"signature,omitempty" xml:"signature,omitempty"`
+	// 设备号
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// utc时间戳
+	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateRefundFlowRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRefundFlowRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRefundFlowRequest) SetFaceId(v string) *CreateRefundFlowRequest {
+	s.FaceId = &v
+	return s
+}
+
+func (s *CreateRefundFlowRequest) SetOperatorId(v string) *CreateRefundFlowRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *CreateRefundFlowRequest) SetOperatorName(v string) *CreateRefundFlowRequest {
+	s.OperatorName = &v
+	return s
+}
+
+func (s *CreateRefundFlowRequest) SetOrderNo(v string) *CreateRefundFlowRequest {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *CreateRefundFlowRequest) SetSignature(v string) *CreateRefundFlowRequest {
+	s.Signature = &v
+	return s
+}
+
+func (s *CreateRefundFlowRequest) SetSn(v string) *CreateRefundFlowRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *CreateRefundFlowRequest) SetTimestamp(v int64) *CreateRefundFlowRequest {
+	s.Timestamp = &v
+	return s
+}
+
+func (s *CreateRefundFlowRequest) SetUserId(v string) *CreateRefundFlowRequest {
+	s.UserId = &v
+	return s
+}
+
+type CreateRefundFlowResponseBody struct {
+	// 返回结果
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateRefundFlowResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRefundFlowResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRefundFlowResponseBody) SetSuccess(v bool) *CreateRefundFlowResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateRefundFlowResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateRefundFlowResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateRefundFlowResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRefundFlowResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRefundFlowResponse) SetHeaders(v map[string]*string) *CreateRefundFlowResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateRefundFlowResponse) SetBody(v *CreateRefundFlowResponseBody) *CreateRefundFlowResponse {
 	s.Body = v
 	return s
 }
@@ -5955,10 +6624,16 @@ func (s *PayOrderHeaders) SetXAcsDingtalkAccessToken(v string) *PayOrderHeaders 
 }
 
 type PayOrderRequest struct {
+	// 人脸id
+	FaceId *string `json:"faceId,omitempty" xml:"faceId,omitempty"`
 	// 订单号
 	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// 签名
+	Signature *string `json:"signature,omitempty" xml:"signature,omitempty"`
 	// 设备序列号
 	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// utc时间戳
+	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
 	// 员工id
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -5971,13 +6646,28 @@ func (s PayOrderRequest) GoString() string {
 	return s.String()
 }
 
+func (s *PayOrderRequest) SetFaceId(v string) *PayOrderRequest {
+	s.FaceId = &v
+	return s
+}
+
 func (s *PayOrderRequest) SetOrderNo(v string) *PayOrderRequest {
 	s.OrderNo = &v
 	return s
 }
 
+func (s *PayOrderRequest) SetSignature(v string) *PayOrderRequest {
+	s.Signature = &v
+	return s
+}
+
 func (s *PayOrderRequest) SetSn(v string) *PayOrderRequest {
 	s.Sn = &v
+	return s
+}
+
+func (s *PayOrderRequest) SetTimestamp(v int64) *PayOrderRequest {
+	s.Timestamp = &v
 	return s
 }
 
@@ -8365,10 +9055,16 @@ func (s *QueryPayResultHeaders) SetXAcsDingtalkAccessToken(v string) *QueryPayRe
 }
 
 type QueryPayResultRequest struct {
+	// 人脸id
+	FaceId *string `json:"faceId,omitempty" xml:"faceId,omitempty"`
 	// 订单号
 	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// 签名
+	Signature *string `json:"signature,omitempty" xml:"signature,omitempty"`
 	// 设备序列号
 	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// utc时间戳
+	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
 	// 用户id
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -8381,13 +9077,28 @@ func (s QueryPayResultRequest) GoString() string {
 	return s.String()
 }
 
+func (s *QueryPayResultRequest) SetFaceId(v string) *QueryPayResultRequest {
+	s.FaceId = &v
+	return s
+}
+
 func (s *QueryPayResultRequest) SetOrderNo(v string) *QueryPayResultRequest {
 	s.OrderNo = &v
 	return s
 }
 
+func (s *QueryPayResultRequest) SetSignature(v string) *QueryPayResultRequest {
+	s.Signature = &v
+	return s
+}
+
 func (s *QueryPayResultRequest) SetSn(v string) *QueryPayResultRequest {
 	s.Sn = &v
+	return s
+}
+
+func (s *QueryPayResultRequest) SetTimestamp(v int64) *QueryPayResultRequest {
+	s.Timestamp = &v
 	return s
 }
 
@@ -10013,6 +10724,191 @@ func (s *QueryUserFaceResponse) SetBody(v *QueryUserFaceResponseBody) *QueryUser
 	return s
 }
 
+type QueryUserPayInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryUserPayInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserPayInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserPayInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryUserPayInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryUserPayInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUserPayInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryUserPayInfoRequest struct {
+	// 人脸id
+	FaceId *string `json:"faceId,omitempty" xml:"faceId,omitempty"`
+	// 设备id
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryUserPayInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserPayInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserPayInfoRequest) SetFaceId(v string) *QueryUserPayInfoRequest {
+	s.FaceId = &v
+	return s
+}
+
+func (s *QueryUserPayInfoRequest) SetSn(v string) *QueryUserPayInfoRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *QueryUserPayInfoRequest) SetUserId(v string) *QueryUserPayInfoRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryUserPayInfoResponseBody struct {
+	// 签约单号
+	SignNo *string `json:"signNo,omitempty" xml:"signNo,omitempty"`
+}
+
+func (s QueryUserPayInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserPayInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserPayInfoResponseBody) SetSignNo(v string) *QueryUserPayInfoResponseBody {
+	s.SignNo = &v
+	return s
+}
+
+type QueryUserPayInfoResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryUserPayInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryUserPayInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserPayInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserPayInfoResponse) SetHeaders(v map[string]*string) *QueryUserPayInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryUserPayInfoResponse) SetBody(v *QueryUserPayInfoResponseBody) *QueryUserPayInfoResponse {
+	s.Body = v
+	return s
+}
+
+type RemoveDeviceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RemoveDeviceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveDeviceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveDeviceHeaders) SetCommonHeaders(v map[string]*string) *RemoveDeviceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveDeviceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RemoveDeviceRequest struct {
+	// 商户id
+	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	// 设备sn
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+}
+
+func (s RemoveDeviceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveDeviceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveDeviceRequest) SetMerchantId(v string) *RemoveDeviceRequest {
+	s.MerchantId = &v
+	return s
+}
+
+func (s *RemoveDeviceRequest) SetSn(v string) *RemoveDeviceRequest {
+	s.Sn = &v
+	return s
+}
+
+type RemoveDeviceResponseBody struct {
+	// 返回结果
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s RemoveDeviceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveDeviceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveDeviceResponseBody) SetSuccess(v string) *RemoveDeviceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type RemoveDeviceResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RemoveDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RemoveDeviceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveDeviceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveDeviceResponse) SetHeaders(v map[string]*string) *RemoveDeviceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RemoveDeviceResponse) SetBody(v *RemoveDeviceResponseBody) *RemoveDeviceResponse {
+	s.Body = v
+	return s
+}
+
 type ReportDeviceLogHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10105,6 +11001,109 @@ func (s *ReportDeviceLogResponse) SetHeaders(v map[string]*string) *ReportDevice
 }
 
 func (s *ReportDeviceLogResponse) SetBody(v *ReportDeviceLogResponseBody) *ReportDeviceLogResponse {
+	s.Body = v
+	return s
+}
+
+type ReportDeviceUseLogHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ReportDeviceUseLogHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportDeviceUseLogHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ReportDeviceUseLogHeaders) SetCommonHeaders(v map[string]*string) *ReportDeviceUseLogHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ReportDeviceUseLogHeaders) SetXAcsDingtalkAccessToken(v string) *ReportDeviceUseLogHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ReportDeviceUseLogRequest struct {
+	// 操作
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// 订单号
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// 设备序列号
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ReportDeviceUseLogRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportDeviceUseLogRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ReportDeviceUseLogRequest) SetAction(v string) *ReportDeviceUseLogRequest {
+	s.Action = &v
+	return s
+}
+
+func (s *ReportDeviceUseLogRequest) SetOrderNo(v string) *ReportDeviceUseLogRequest {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *ReportDeviceUseLogRequest) SetSn(v string) *ReportDeviceUseLogRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *ReportDeviceUseLogRequest) SetUserId(v string) *ReportDeviceUseLogRequest {
+	s.UserId = &v
+	return s
+}
+
+type ReportDeviceUseLogResponseBody struct {
+	// 返回结果
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ReportDeviceUseLogResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportDeviceUseLogResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ReportDeviceUseLogResponseBody) SetSuccess(v bool) *ReportDeviceUseLogResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ReportDeviceUseLogResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ReportDeviceUseLogResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ReportDeviceUseLogResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportDeviceUseLogResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ReportDeviceUseLogResponse) SetHeaders(v map[string]*string) *ReportDeviceUseLogResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ReportDeviceUseLogResponse) SetBody(v *ReportDeviceUseLogResponseBody) *ReportDeviceUseLogResponse {
 	s.Body = v
 	return s
 }
@@ -11770,6 +12769,74 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) AddDevice(request *AddDeviceRequest) (_result *AddDeviceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddDeviceHeaders{}
+	_result = &AddDeviceResponse{}
+	_body, _err := client.AddDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddDeviceWithOptions(request *AddDeviceRequest, headers *AddDeviceHeaders, runtime *util.RuntimeOptions) (_result *AddDeviceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MerchantId)) {
+		body["merchantId"] = request.MerchantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Model)) {
+		body["model"] = request.Model
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scene)) {
+		body["scene"] = request.Scene
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddDeviceResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddDevice"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/devices"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) BatchCreate(request *BatchCreateRequest) (_result *BatchCreateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchCreateHeaders{}
@@ -11943,6 +13010,130 @@ func (client *Client) BatchOrgCreateHWWithOptions(request *BatchOrgCreateHWReque
 	}
 	_result = &BatchOrgCreateHWResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchOrgCreateHW"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/homeworks"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CancelOrder(request *CancelOrderRequest) (_result *CancelOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CancelOrderHeaders{}
+	_result = &CancelOrderResponse{}
+	_body, _err := client.CancelOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CancelOrderWithOptions(request *CancelOrderRequest, headers *CancelOrderHeaders, runtime *util.RuntimeOptions) (_result *CancelOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FaceId)) {
+		body["faceId"] = request.FaceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderNo)) {
+		body["orderNo"] = request.OrderNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Signature)) {
+		body["signature"] = request.Signature
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Timestamp)) {
+		body["timestamp"] = request.Timestamp
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CancelOrderResponse{}
+	_body, _err := client.DoROARequest(tea.String("CancelOrder"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/orders/cancel"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CheckRestriction(request *CheckRestrictionRequest) (_result *CheckRestrictionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CheckRestrictionHeaders{}
+	_result = &CheckRestrictionResponse{}
+	_body, _err := client.CheckRestrictionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CheckRestrictionWithOptions(request *CheckRestrictionRequest, headers *CheckRestrictionHeaders, runtime *util.RuntimeOptions) (_result *CheckRestrictionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActualAmount)) {
+		body["actualAmount"] = request.ActualAmount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FaceId)) {
+		body["faceId"] = request.FaceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scene)) {
+		body["scene"] = request.Scene
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CheckRestrictionResponse{}
+	_body, _err := client.DoROARequest(tea.String("CheckRestriction"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/restrictions/check"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12222,44 +13413,50 @@ func (client *Client) CreateOrder(request *CreateOrderRequest) (_result *CreateO
 	return _result, _err
 }
 
-func (client *Client) CreateOrderWithOptions(tmpReq *CreateOrderRequest, headers *CreateOrderHeaders, runtime *util.RuntimeOptions) (_result *CreateOrderResponse, _err error) {
-	_err = util.ValidateModel(tmpReq)
+func (client *Client) CreateOrderWithOptions(request *CreateOrderRequest, headers *CreateOrderHeaders, runtime *util.RuntimeOptions) (_result *CreateOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	request := &CreateOrderShrinkRequest{}
-	openapiutil.Convert(tmpReq, request)
-	if !tea.BoolValue(util.IsUnset(tmpReq.DetailList)) {
-		request.DetailListShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.DetailList, tea.String("detailList"), tea.String("json"))
-	}
-
-	query := map[string]interface{}{}
+	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ActualAmount)) {
-		query["actualAmount"] = request.ActualAmount
+		body["actualAmount"] = request.ActualAmount
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.DetailListShrink)) {
-		query["detailList"] = request.DetailListShrink
+	if !tea.BoolValue(util.IsUnset(request.DetailList)) {
+		body["detailList"] = request.DetailList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FaceId)) {
+		body["faceId"] = request.FaceId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Ftoken)) {
-		query["ftoken"] = request.Ftoken
+		body["ftoken"] = request.Ftoken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Signature)) {
+		body["signature"] = request.Signature
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Sn)) {
-		query["sn"] = request.Sn
+		body["sn"] = request.Sn
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.TerminalParams)) {
-		query["terminalParams"] = request.TerminalParams
+		body["terminalParams"] = request.TerminalParams
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Timestamp)) {
+		body["timestamp"] = request.Timestamp
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.TotalAmount)) {
-		query["totalAmount"] = request.TotalAmount
+		body["totalAmount"] = request.TotalAmount
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
-		query["userId"] = request.UserId
+		body["userId"] = request.UserId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -12273,10 +13470,94 @@ func (client *Client) CreateOrderWithOptions(tmpReq *CreateOrderRequest, headers
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &CreateOrderResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateOrder"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/orders"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateOrderFlow(request *CreateOrderFlowRequest) (_result *CreateOrderFlowResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateOrderFlowHeaders{}
+	_result = &CreateOrderFlowResponse{}
+	_body, _err := client.CreateOrderFlowWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateOrderFlowWithOptions(request *CreateOrderFlowRequest, headers *CreateOrderFlowHeaders, runtime *util.RuntimeOptions) (_result *CreateOrderFlowResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActualAmount)) {
+		body["actualAmount"] = request.ActualAmount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AlipayUid)) {
+		body["alipayUid"] = request.AlipayUid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DetailList)) {
+		body["detailList"] = request.DetailList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FaceId)) {
+		body["faceId"] = request.FaceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MerchantId)) {
+		body["merchantId"] = request.MerchantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderNo)) {
+		body["orderNo"] = request.OrderNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Signature)) {
+		body["signature"] = request.Signature
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Timestamp)) {
+		body["timestamp"] = request.Timestamp
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TotalAmount)) {
+		body["totalAmount"] = request.TotalAmount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateOrderFlowResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateOrderFlow"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/orders/flows"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12351,6 +13632,78 @@ func (client *Client) CreatePhysicalClassroomWithOptions(request *CreatePhysical
 	}
 	_result = &CreatePhysicalClassroomResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreatePhysicalClassroom"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/physicalClassrooms"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateRefundFlow(request *CreateRefundFlowRequest) (_result *CreateRefundFlowResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateRefundFlowHeaders{}
+	_result = &CreateRefundFlowResponse{}
+	_body, _err := client.CreateRefundFlowWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateRefundFlowWithOptions(request *CreateRefundFlowRequest, headers *CreateRefundFlowHeaders, runtime *util.RuntimeOptions) (_result *CreateRefundFlowResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FaceId)) {
+		body["faceId"] = request.FaceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorName)) {
+		body["operatorName"] = request.OperatorName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderNo)) {
+		body["orderNo"] = request.OrderNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Signature)) {
+		body["signature"] = request.Signature
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Timestamp)) {
+		body["timestamp"] = request.Timestamp
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateRefundFlowResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateRefundFlow"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/refunds/flows"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13799,17 +15152,29 @@ func (client *Client) PayOrderWithOptions(request *PayOrderRequest, headers *Pay
 	if _err != nil {
 		return _result, _err
 	}
-	query := map[string]interface{}{}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FaceId)) {
+		body["faceId"] = request.FaceId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.OrderNo)) {
-		query["orderNo"] = request.OrderNo
+		body["orderNo"] = request.OrderNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Signature)) {
+		body["signature"] = request.Signature
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Sn)) {
-		query["sn"] = request.Sn
+		body["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Timestamp)) {
+		body["timestamp"] = request.Timestamp
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
-		query["userId"] = request.UserId
+		body["userId"] = request.UserId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -13823,7 +15188,7 @@ func (client *Client) PayOrderWithOptions(request *PayOrderRequest, headers *Pay
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &PayOrderResponse{}
 	_body, _err := client.DoROARequest(tea.String("PayOrder"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/orders/pay"), tea.String("json"), req, runtime)
@@ -14411,17 +15776,29 @@ func (client *Client) QueryPayResultWithOptions(request *QueryPayResultRequest, 
 	if _err != nil {
 		return _result, _err
 	}
-	query := map[string]interface{}{}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FaceId)) {
+		body["faceId"] = request.FaceId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.OrderNo)) {
-		query["orderNo"] = request.OrderNo
+		body["orderNo"] = request.OrderNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Signature)) {
+		body["signature"] = request.Signature
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Sn)) {
-		query["sn"] = request.Sn
+		body["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Timestamp)) {
+		body["timestamp"] = request.Timestamp
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
-		query["userId"] = request.UserId
+		body["userId"] = request.UserId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -14435,10 +15812,10 @@ func (client *Client) QueryPayResultWithOptions(request *QueryPayResultRequest, 
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &QueryPayResultResponse{}
-	_body, _err := client.DoROARequest(tea.String("QueryPayResult"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/orders/results"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("QueryPayResult"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/payResults/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14916,6 +16293,106 @@ func (client *Client) QueryUserFaceWithOptions(request *QueryUserFaceRequest, he
 	return _result, _err
 }
 
+func (client *Client) QueryUserPayInfo(request *QueryUserPayInfoRequest) (_result *QueryUserPayInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryUserPayInfoHeaders{}
+	_result = &QueryUserPayInfoResponse{}
+	_body, _err := client.QueryUserPayInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryUserPayInfoWithOptions(request *QueryUserPayInfoRequest, headers *QueryUserPayInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryUserPayInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FaceId)) {
+		query["faceId"] = request.FaceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		query["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryUserPayInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryUserPayInfo"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/orders/payInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RemoveDevice(request *RemoveDeviceRequest) (_result *RemoveDeviceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RemoveDeviceHeaders{}
+	_result = &RemoveDeviceResponse{}
+	_body, _err := client.RemoveDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RemoveDeviceWithOptions(request *RemoveDeviceRequest, headers *RemoveDeviceHeaders, runtime *util.RuntimeOptions) (_result *RemoveDeviceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MerchantId)) {
+		query["merchantId"] = request.MerchantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		query["sn"] = request.Sn
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &RemoveDeviceResponse{}
+	_body, _err := client.DoROARequest(tea.String("RemoveDevice"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/devices"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ReportDeviceLog(request *ReportDeviceLogRequest) (_result *ReportDeviceLogResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ReportDeviceLogHeaders{}
@@ -14961,6 +16438,62 @@ func (client *Client) ReportDeviceLogWithOptions(request *ReportDeviceLogRequest
 	}
 	_result = &ReportDeviceLogResponse{}
 	_body, _err := client.DoROARequest(tea.String("ReportDeviceLog"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/deviceLogs/report"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ReportDeviceUseLog(request *ReportDeviceUseLogRequest) (_result *ReportDeviceUseLogResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ReportDeviceUseLogHeaders{}
+	_result = &ReportDeviceUseLogResponse{}
+	_body, _err := client.ReportDeviceUseLogWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ReportDeviceUseLogWithOptions(request *ReportDeviceUseLogRequest, headers *ReportDeviceUseLogHeaders, runtime *util.RuntimeOptions) (_result *ReportDeviceUseLogResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Action)) {
+		body["action"] = request.Action
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderNo)) {
+		body["orderNo"] = request.OrderNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ReportDeviceUseLogResponse{}
+	_body, _err := client.DoROARequest(tea.String("ReportDeviceUseLog"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/deviceUseLogs/report"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
