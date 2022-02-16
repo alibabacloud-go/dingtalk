@@ -1184,6 +1184,173 @@ func (s *GetInnerAppResponse) SetBody(v *GetInnerAppResponseBody) *GetInnerAppRe
 	return s
 }
 
+type GetMicroAppScopeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetMicroAppScopeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMicroAppScopeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetMicroAppScopeHeaders) SetCommonHeaders(v map[string]*string) *GetMicroAppScopeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetMicroAppScopeHeaders) SetXAcsDingtalkAccessToken(v string) *GetMicroAppScopeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetMicroAppScopeResponseBody struct {
+	// 可见范围结果
+	Result *GetMicroAppScopeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetMicroAppScopeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMicroAppScopeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetMicroAppScopeResponseBody) SetResult(v *GetMicroAppScopeResponseBodyResult) *GetMicroAppScopeResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetMicroAppScopeResponseBodyResult struct {
+	// 部门可见列表
+	DeptIds []*int64 `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	// 是否管理员可见。如果为true，优先看这个字段
+	OnlyAdminVisible *bool `json:"onlyAdminVisible,omitempty" xml:"onlyAdminVisible,omitempty"`
+	// 角色可见列表
+	RoleIds []*int64 `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
+	// 用户可见列表
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s GetMicroAppScopeResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMicroAppScopeResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetMicroAppScopeResponseBodyResult) SetDeptIds(v []*int64) *GetMicroAppScopeResponseBodyResult {
+	s.DeptIds = v
+	return s
+}
+
+func (s *GetMicroAppScopeResponseBodyResult) SetOnlyAdminVisible(v bool) *GetMicroAppScopeResponseBodyResult {
+	s.OnlyAdminVisible = &v
+	return s
+}
+
+func (s *GetMicroAppScopeResponseBodyResult) SetRoleIds(v []*int64) *GetMicroAppScopeResponseBodyResult {
+	s.RoleIds = v
+	return s
+}
+
+func (s *GetMicroAppScopeResponseBodyResult) SetUserIds(v []*string) *GetMicroAppScopeResponseBodyResult {
+	s.UserIds = v
+	return s
+}
+
+type GetMicroAppScopeResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetMicroAppScopeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetMicroAppScopeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMicroAppScopeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetMicroAppScopeResponse) SetHeaders(v map[string]*string) *GetMicroAppScopeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetMicroAppScopeResponse) SetBody(v *GetMicroAppScopeResponseBody) *GetMicroAppScopeResponse {
+	s.Body = v
+	return s
+}
+
+type GetMicroAppUserAccessHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetMicroAppUserAccessHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMicroAppUserAccessHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetMicroAppUserAccessHeaders) SetCommonHeaders(v map[string]*string) *GetMicroAppUserAccessHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetMicroAppUserAccessHeaders) SetXAcsDingtalkAccessToken(v string) *GetMicroAppUserAccessHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetMicroAppUserAccessResponseBody struct {
+	// 结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s GetMicroAppUserAccessResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMicroAppUserAccessResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetMicroAppUserAccessResponseBody) SetResult(v bool) *GetMicroAppUserAccessResponseBody {
+	s.Result = &v
+	return s
+}
+
+type GetMicroAppUserAccessResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetMicroAppUserAccessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetMicroAppUserAccessResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMicroAppUserAccessResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetMicroAppUserAccessResponse) SetHeaders(v map[string]*string) *GetMicroAppUserAccessResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetMicroAppUserAccessResponse) SetBody(v *GetMicroAppUserAccessResponseBody) *GetMicroAppUserAccessResponse {
+	s.Body = v
+	return s
+}
+
 type ListAllAppHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2263,6 +2430,130 @@ func (s *RemoveMemberForAppRoleResponse) SetBody(v *RemoveMemberForAppRoleRespon
 	return s
 }
 
+type SetMicroAppScopeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetMicroAppScopeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetMicroAppScopeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetMicroAppScopeHeaders) SetCommonHeaders(v map[string]*string) *SetMicroAppScopeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetMicroAppScopeHeaders) SetXAcsDingtalkAccessToken(v string) *SetMicroAppScopeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetMicroAppScopeRequest struct {
+	// 增加的可见部门
+	AddDeptIds []*int64 `json:"addDeptIds,omitempty" xml:"addDeptIds,omitempty" type:"Repeated"`
+	// 增加的可见角色
+	AddRoleIds []*int64 `json:"addRoleIds,omitempty" xml:"addRoleIds,omitempty" type:"Repeated"`
+	// 增加的可见用户
+	AddUserIds []*string `json:"addUserIds,omitempty" xml:"addUserIds,omitempty" type:"Repeated"`
+	// 删除的可见角色
+	DdUserIds []*int64 `json:"ddUserIds,omitempty" xml:"ddUserIds,omitempty" type:"Repeated"`
+	// 删除的可见部门
+	DelDeptIds []*int64 `json:"delDeptIds,omitempty" xml:"delDeptIds,omitempty" type:"Repeated"`
+	// 删除的可见用户
+	DelUserIds []*string `json:"delUserIds,omitempty" xml:"delUserIds,omitempty" type:"Repeated"`
+	// 是否管理员可见
+	OnlyAdminVisible *bool `json:"onlyAdminVisible,omitempty" xml:"onlyAdminVisible,omitempty"`
+}
+
+func (s SetMicroAppScopeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetMicroAppScopeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetMicroAppScopeRequest) SetAddDeptIds(v []*int64) *SetMicroAppScopeRequest {
+	s.AddDeptIds = v
+	return s
+}
+
+func (s *SetMicroAppScopeRequest) SetAddRoleIds(v []*int64) *SetMicroAppScopeRequest {
+	s.AddRoleIds = v
+	return s
+}
+
+func (s *SetMicroAppScopeRequest) SetAddUserIds(v []*string) *SetMicroAppScopeRequest {
+	s.AddUserIds = v
+	return s
+}
+
+func (s *SetMicroAppScopeRequest) SetDdUserIds(v []*int64) *SetMicroAppScopeRequest {
+	s.DdUserIds = v
+	return s
+}
+
+func (s *SetMicroAppScopeRequest) SetDelDeptIds(v []*int64) *SetMicroAppScopeRequest {
+	s.DelDeptIds = v
+	return s
+}
+
+func (s *SetMicroAppScopeRequest) SetDelUserIds(v []*string) *SetMicroAppScopeRequest {
+	s.DelUserIds = v
+	return s
+}
+
+func (s *SetMicroAppScopeRequest) SetOnlyAdminVisible(v bool) *SetMicroAppScopeRequest {
+	s.OnlyAdminVisible = &v
+	return s
+}
+
+type SetMicroAppScopeResponseBody struct {
+	// 结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SetMicroAppScopeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetMicroAppScopeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetMicroAppScopeResponseBody) SetResult(v bool) *SetMicroAppScopeResponseBody {
+	s.Result = &v
+	return s
+}
+
+type SetMicroAppScopeResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SetMicroAppScopeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SetMicroAppScopeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetMicroAppScopeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetMicroAppScopeResponse) SetHeaders(v map[string]*string) *SetMicroAppScopeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SetMicroAppScopeResponse) SetBody(v *SetMicroAppScopeResponseBody) *SetMicroAppScopeResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateApaasAppHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3168,6 +3459,77 @@ func (client *Client) GetInnerAppWithOptions(agentId *string, request *GetInnerA
 	return _result, _err
 }
 
+func (client *Client) GetMicroAppScope(agentId *string) (_result *GetMicroAppScopeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetMicroAppScopeHeaders{}
+	_result = &GetMicroAppScopeResponse{}
+	_body, _err := client.GetMicroAppScopeWithOptions(agentId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetMicroAppScopeWithOptions(agentId *string, headers *GetMicroAppScopeHeaders, runtime *util.RuntimeOptions) (_result *GetMicroAppScopeResponse, _err error) {
+	agentId = openapiutil.GetEncodeParam(agentId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetMicroAppScopeResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetMicroAppScope"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/scopes"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetMicroAppUserAccess(agentId *string, userId *string) (_result *GetMicroAppUserAccessResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetMicroAppUserAccessHeaders{}
+	_result = &GetMicroAppUserAccessResponse{}
+	_body, _err := client.GetMicroAppUserAccessWithOptions(agentId, userId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetMicroAppUserAccessWithOptions(agentId *string, userId *string, headers *GetMicroAppUserAccessHeaders, runtime *util.RuntimeOptions) (_result *GetMicroAppUserAccessResponse, _err error) {
+	agentId = openapiutil.GetEncodeParam(agentId)
+	userId = openapiutil.GetEncodeParam(userId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetMicroAppUserAccessResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetMicroAppUserAccess"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/users/"+tea.StringValue(userId)+"/adminAccess"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ListAllApp() (_result *ListAllAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListAllAppHeaders{}
@@ -3580,6 +3942,75 @@ func (client *Client) RemoveMemberForAppRoleWithOptions(agentId *string, roleId 
 	}
 	_result = &RemoveMemberForAppRoleResponse{}
 	_body, _err := client.DoROARequest(tea.String("RemoveMemberForAppRole"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/roles/"+tea.StringValue(roleId)+"/members/batchRemove"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SetMicroAppScope(agentId *string, request *SetMicroAppScopeRequest) (_result *SetMicroAppScopeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetMicroAppScopeHeaders{}
+	_result = &SetMicroAppScopeResponse{}
+	_body, _err := client.SetMicroAppScopeWithOptions(agentId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SetMicroAppScopeWithOptions(agentId *string, request *SetMicroAppScopeRequest, headers *SetMicroAppScopeHeaders, runtime *util.RuntimeOptions) (_result *SetMicroAppScopeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	agentId = openapiutil.GetEncodeParam(agentId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AddDeptIds)) {
+		body["addDeptIds"] = request.AddDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AddRoleIds)) {
+		body["addRoleIds"] = request.AddRoleIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AddUserIds)) {
+		body["addUserIds"] = request.AddUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DdUserIds)) {
+		body["ddUserIds"] = request.DdUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DelDeptIds)) {
+		body["delDeptIds"] = request.DelDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DelUserIds)) {
+		body["delUserIds"] = request.DelUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OnlyAdminVisible)) {
+		body["onlyAdminVisible"] = request.OnlyAdminVisible
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SetMicroAppScopeResponse{}
+	_body, _err := client.DoROARequest(tea.String("SetMicroAppScope"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/scopes"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

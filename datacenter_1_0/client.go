@@ -3466,6 +3466,5136 @@ func (s *QueryVedioMeetingStatisticalDataResponse) SetBody(v *QueryVedioMeetingS
 	return s
 }
 
+type QueryYydActiveDayStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydActiveDayStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydActiveDayStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydActiveDayStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydActiveDayStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydActiveDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydActiveDayStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydActiveDayStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydActiveDayStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydActiveDayStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydActiveDayStatisticalDataRequest) SetStatDate(v string) *QueryYydActiveDayStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydActiveDayStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydActiveDayStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydActiveDayStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydActiveDayStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydActiveDayStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydActiveDayStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydActiveDayStatisticalDataResponseBody) SetMetaList(v []*QueryYydActiveDayStatisticalDataResponseBodyMetaList) *QueryYydActiveDayStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydActiveDayStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydActiveDayStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydActiveDayStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydActiveDayStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydActiveDayStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydActiveDayStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydActiveDayStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydActiveDayStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydActiveDayStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydActiveDayStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydActiveDayStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydActiveDayStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydActiveDayStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydActiveDayStatisticalDataResponse struct {
+	Headers map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydActiveDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydActiveDayStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydActiveDayStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydActiveDayStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydActiveDayStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydActiveDayStatisticalDataResponse) SetBody(v *QueryYydActiveDayStatisticalDataResponseBody) *QueryYydActiveDayStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydActiveMonthStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydActiveMonthStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydActiveMonthStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydActiveMonthStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydActiveMonthStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydActiveMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydActiveMonthStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydActiveMonthStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydActiveMonthStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydActiveMonthStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydActiveMonthStatisticalDataRequest) SetStatDate(v string) *QueryYydActiveMonthStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydActiveMonthStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydActiveMonthStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydActiveMonthStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydActiveMonthStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydActiveMonthStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydActiveMonthStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydActiveMonthStatisticalDataResponseBody) SetMetaList(v []*QueryYydActiveMonthStatisticalDataResponseBodyMetaList) *QueryYydActiveMonthStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydActiveMonthStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydActiveMonthStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydActiveMonthStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydActiveMonthStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydActiveMonthStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydActiveMonthStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydActiveMonthStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydActiveMonthStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydActiveMonthStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydActiveMonthStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydActiveMonthStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydActiveMonthStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydActiveMonthStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydActiveMonthStatisticalDataResponse struct {
+	Headers map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydActiveMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydActiveMonthStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydActiveMonthStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydActiveMonthStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydActiveMonthStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydActiveMonthStatisticalDataResponse) SetBody(v *QueryYydActiveMonthStatisticalDataResponseBody) *QueryYydActiveMonthStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydActiveWeekStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydActiveWeekStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydActiveWeekStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydActiveWeekStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydActiveWeekStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydActiveWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydActiveWeekStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydActiveWeekStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydActiveWeekStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydActiveWeekStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydActiveWeekStatisticalDataRequest) SetStatDate(v string) *QueryYydActiveWeekStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydActiveWeekStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydActiveWeekStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydActiveWeekStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydActiveWeekStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydActiveWeekStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydActiveWeekStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydActiveWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYydActiveWeekStatisticalDataResponseBodyMetaList) *QueryYydActiveWeekStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydActiveWeekStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydActiveWeekStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydActiveWeekStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydActiveWeekStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydActiveWeekStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydActiveWeekStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydActiveWeekStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydActiveWeekStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydActiveWeekStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydActiveWeekStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydActiveWeekStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydActiveWeekStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydActiveWeekStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydActiveWeekStatisticalDataResponse struct {
+	Headers map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydActiveWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydActiveWeekStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydActiveWeekStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydActiveWeekStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydActiveWeekStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydActiveWeekStatisticalDataResponse) SetBody(v *QueryYydActiveWeekStatisticalDataResponseBody) *QueryYydActiveWeekStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydAppDayStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydAppDayStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppDayStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppDayStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydAppDayStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydAppDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydAppDayStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydAppDayStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydAppDayStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppDayStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppDayStatisticalDataRequest) SetStatDate(v string) *QueryYydAppDayStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydAppDayStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydAppDayStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydAppDayStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppDayStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppDayStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydAppDayStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydAppDayStatisticalDataResponseBody) SetMetaList(v []*QueryYydAppDayStatisticalDataResponseBodyMetaList) *QueryYydAppDayStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydAppDayStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydAppDayStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppDayStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppDayStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydAppDayStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydAppDayStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydAppDayStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydAppDayStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydAppDayStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydAppDayStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydAppDayStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydAppDayStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydAppDayStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydAppDayStatisticalDataResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydAppDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydAppDayStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppDayStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppDayStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydAppDayStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydAppDayStatisticalDataResponse) SetBody(v *QueryYydAppDayStatisticalDataResponseBody) *QueryYydAppDayStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydAppMonthStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydAppMonthStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppMonthStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppMonthStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydAppMonthStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydAppMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydAppMonthStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydAppMonthStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydAppMonthStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppMonthStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppMonthStatisticalDataRequest) SetStatDate(v string) *QueryYydAppMonthStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydAppMonthStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydAppMonthStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydAppMonthStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppMonthStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppMonthStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydAppMonthStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydAppMonthStatisticalDataResponseBody) SetMetaList(v []*QueryYydAppMonthStatisticalDataResponseBodyMetaList) *QueryYydAppMonthStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydAppMonthStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydAppMonthStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppMonthStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppMonthStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydAppMonthStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydAppMonthStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydAppMonthStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydAppMonthStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydAppMonthStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydAppMonthStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydAppMonthStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydAppMonthStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydAppMonthStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydAppMonthStatisticalDataResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydAppMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydAppMonthStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppMonthStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppMonthStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydAppMonthStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydAppMonthStatisticalDataResponse) SetBody(v *QueryYydAppMonthStatisticalDataResponseBody) *QueryYydAppMonthStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydAppStdStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydAppStdStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppStdStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppStdStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydAppStdStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydAppStdStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydAppStdStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydAppStdStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydAppStdStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppStdStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppStdStatisticalDataRequest) SetStatDate(v string) *QueryYydAppStdStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydAppStdStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydAppStdStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydAppStdStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppStdStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppStdStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydAppStdStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydAppStdStatisticalDataResponseBody) SetMetaList(v []*QueryYydAppStdStatisticalDataResponseBodyMetaList) *QueryYydAppStdStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydAppStdStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydAppStdStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppStdStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppStdStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydAppStdStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydAppStdStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydAppStdStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydAppStdStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydAppStdStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydAppStdStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydAppStdStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydAppStdStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydAppStdStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydAppStdStatisticalDataResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydAppStdStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydAppStdStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppStdStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppStdStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydAppStdStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydAppStdStatisticalDataResponse) SetBody(v *QueryYydAppStdStatisticalDataResponseBody) *QueryYydAppStdStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydAppWeekStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydAppWeekStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppWeekStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppWeekStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydAppWeekStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydAppWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydAppWeekStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydAppWeekStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydAppWeekStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppWeekStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppWeekStatisticalDataRequest) SetStatDate(v string) *QueryYydAppWeekStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydAppWeekStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydAppWeekStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydAppWeekStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppWeekStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppWeekStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydAppWeekStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydAppWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYydAppWeekStatisticalDataResponseBodyMetaList) *QueryYydAppWeekStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydAppWeekStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydAppWeekStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppWeekStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppWeekStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydAppWeekStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydAppWeekStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydAppWeekStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydAppWeekStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydAppWeekStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydAppWeekStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydAppWeekStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydAppWeekStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydAppWeekStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydAppWeekStatisticalDataResponse struct {
+	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydAppWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydAppWeekStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydAppWeekStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydAppWeekStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydAppWeekStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydAppWeekStatisticalDataResponse) SetBody(v *QueryYydAppWeekStatisticalDataResponseBody) *QueryYydAppWeekStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydCalendarDayStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydCalendarDayStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydCalendarDayStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydCalendarDayStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydCalendarDayStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydCalendarDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydCalendarDayStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydCalendarDayStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydCalendarDayStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydCalendarDayStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydCalendarDayStatisticalDataRequest) SetStatDate(v string) *QueryYydCalendarDayStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydCalendarDayStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydCalendarDayStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydCalendarDayStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydCalendarDayStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydCalendarDayStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydCalendarDayStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydCalendarDayStatisticalDataResponseBody) SetMetaList(v []*QueryYydCalendarDayStatisticalDataResponseBodyMetaList) *QueryYydCalendarDayStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydCalendarDayStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydCalendarDayStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydCalendarDayStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydCalendarDayStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydCalendarDayStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydCalendarDayStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydCalendarDayStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydCalendarDayStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydCalendarDayStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydCalendarDayStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydCalendarDayStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydCalendarDayStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydCalendarDayStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydCalendarDayStatisticalDataResponse struct {
+	Headers map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydCalendarDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydCalendarDayStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydCalendarDayStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydCalendarDayStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydCalendarDayStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydCalendarDayStatisticalDataResponse) SetBody(v *QueryYydCalendarDayStatisticalDataResponseBody) *QueryYydCalendarDayStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydCalendarMonthStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydCalendarMonthStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydCalendarMonthStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydCalendarMonthStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydCalendarMonthStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydCalendarMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydCalendarMonthStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydCalendarMonthStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydCalendarMonthStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydCalendarMonthStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydCalendarMonthStatisticalDataRequest) SetStatDate(v string) *QueryYydCalendarMonthStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydCalendarMonthStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydCalendarMonthStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydCalendarMonthStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydCalendarMonthStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydCalendarMonthStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydCalendarMonthStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydCalendarMonthStatisticalDataResponseBody) SetMetaList(v []*QueryYydCalendarMonthStatisticalDataResponseBodyMetaList) *QueryYydCalendarMonthStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydCalendarMonthStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydCalendarMonthStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydCalendarMonthStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydCalendarMonthStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydCalendarMonthStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydCalendarMonthStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydCalendarMonthStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydCalendarMonthStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydCalendarMonthStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydCalendarMonthStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydCalendarMonthStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydCalendarMonthStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydCalendarMonthStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydCalendarMonthStatisticalDataResponse struct {
+	Headers map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydCalendarMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydCalendarMonthStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydCalendarMonthStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydCalendarMonthStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydCalendarMonthStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydCalendarMonthStatisticalDataResponse) SetBody(v *QueryYydCalendarMonthStatisticalDataResponseBody) *QueryYydCalendarMonthStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydCalendarWeekStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydCalendarWeekStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydCalendarWeekStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydCalendarWeekStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydCalendarWeekStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydCalendarWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydCalendarWeekStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydCalendarWeekStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydCalendarWeekStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydCalendarWeekStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydCalendarWeekStatisticalDataRequest) SetStatDate(v string) *QueryYydCalendarWeekStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydCalendarWeekStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydCalendarWeekStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydCalendarWeekStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydCalendarWeekStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydCalendarWeekStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydCalendarWeekStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydCalendarWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYydCalendarWeekStatisticalDataResponseBodyMetaList) *QueryYydCalendarWeekStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydCalendarWeekStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydCalendarWeekStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydCalendarWeekStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydCalendarWeekStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydCalendarWeekStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydCalendarWeekStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydCalendarWeekStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydCalendarWeekStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydCalendarWeekStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydCalendarWeekStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydCalendarWeekStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydCalendarWeekStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydCalendarWeekStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydCalendarWeekStatisticalDataResponse struct {
+	Headers map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydCalendarWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydCalendarWeekStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydCalendarWeekStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydCalendarWeekStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydCalendarWeekStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydCalendarWeekStatisticalDataResponse) SetBody(v *QueryYydCalendarWeekStatisticalDataResponseBody) *QueryYydCalendarWeekStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydDingMsgDayStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydDingMsgDayStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydDingMsgDayStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydDingMsgDayStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydDingMsgDayStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydDingMsgDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydDingMsgDayStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydDingMsgDayStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydDingMsgDayStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydDingMsgDayStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydDingMsgDayStatisticalDataRequest) SetStatDate(v string) *QueryYydDingMsgDayStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydDingMsgDayStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydDingMsgDayStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydDingMsgDayStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydDingMsgDayStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydDingMsgDayStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydDingMsgDayStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydDingMsgDayStatisticalDataResponseBody) SetMetaList(v []*QueryYydDingMsgDayStatisticalDataResponseBodyMetaList) *QueryYydDingMsgDayStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydDingMsgDayStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydDingMsgDayStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydDingMsgDayStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydDingMsgDayStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydDingMsgDayStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydDingMsgDayStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydDingMsgDayStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydDingMsgDayStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydDingMsgDayStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydDingMsgDayStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydDingMsgDayStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydDingMsgDayStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydDingMsgDayStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydDingMsgDayStatisticalDataResponse struct {
+	Headers map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydDingMsgDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydDingMsgDayStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydDingMsgDayStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydDingMsgDayStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydDingMsgDayStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydDingMsgDayStatisticalDataResponse) SetBody(v *QueryYydDingMsgDayStatisticalDataResponseBody) *QueryYydDingMsgDayStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydDingMsgMonthStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydDingMsgMonthStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydDingMsgMonthStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydDingMsgMonthStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydDingMsgMonthStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydDingMsgMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydDingMsgMonthStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydDingMsgMonthStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydDingMsgMonthStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydDingMsgMonthStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydDingMsgMonthStatisticalDataRequest) SetStatDate(v string) *QueryYydDingMsgMonthStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydDingMsgMonthStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydDingMsgMonthStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydDingMsgMonthStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydDingMsgMonthStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydDingMsgMonthStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydDingMsgMonthStatisticalDataResponseBody) SetMetaList(v []*QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList) *QueryYydDingMsgMonthStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydDingMsgMonthStatisticalDataResponse struct {
+	Headers map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydDingMsgMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydDingMsgMonthStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydDingMsgMonthStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydDingMsgMonthStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydDingMsgMonthStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydDingMsgMonthStatisticalDataResponse) SetBody(v *QueryYydDingMsgMonthStatisticalDataResponseBody) *QueryYydDingMsgMonthStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydDingMsgWeekStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydDingMsgWeekStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydDingMsgWeekStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydDingMsgWeekStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydDingMsgWeekStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydDingMsgWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydDingMsgWeekStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydDingMsgWeekStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydDingMsgWeekStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydDingMsgWeekStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydDingMsgWeekStatisticalDataRequest) SetStatDate(v string) *QueryYydDingMsgWeekStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydDingMsgWeekStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydDingMsgWeekStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydDingMsgWeekStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydDingMsgWeekStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydDingMsgWeekStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydDingMsgWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList) *QueryYydDingMsgWeekStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydDingMsgWeekStatisticalDataResponse struct {
+	Headers map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydDingMsgWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydDingMsgWeekStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydDingMsgWeekStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydDingMsgWeekStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydDingMsgWeekStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydDingMsgWeekStatisticalDataResponse) SetBody(v *QueryYydDingMsgWeekStatisticalDataResponseBody) *QueryYydDingMsgWeekStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydGroupMsgDayStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydGroupMsgDayStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydGroupMsgDayStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydGroupMsgDayStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydGroupMsgDayStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydGroupMsgDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydGroupMsgDayStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydGroupMsgDayStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydGroupMsgDayStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydGroupMsgDayStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydGroupMsgDayStatisticalDataRequest) SetStatDate(v string) *QueryYydGroupMsgDayStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydGroupMsgDayStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydGroupMsgDayStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydGroupMsgDayStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydGroupMsgDayStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydGroupMsgDayStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydGroupMsgDayStatisticalDataResponseBody) SetMetaList(v []*QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList) *QueryYydGroupMsgDayStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydGroupMsgDayStatisticalDataResponse struct {
+	Headers map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydGroupMsgDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydGroupMsgDayStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydGroupMsgDayStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydGroupMsgDayStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydGroupMsgDayStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydGroupMsgDayStatisticalDataResponse) SetBody(v *QueryYydGroupMsgDayStatisticalDataResponseBody) *QueryYydGroupMsgDayStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydGroupMsgMonthStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydGroupMsgMonthStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydGroupMsgMonthStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydGroupMsgMonthStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydGroupMsgMonthStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydGroupMsgMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydGroupMsgMonthStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydGroupMsgMonthStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydGroupMsgMonthStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydGroupMsgMonthStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydGroupMsgMonthStatisticalDataRequest) SetStatDate(v string) *QueryYydGroupMsgMonthStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydGroupMsgMonthStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydGroupMsgMonthStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydGroupMsgMonthStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydGroupMsgMonthStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydGroupMsgMonthStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydGroupMsgMonthStatisticalDataResponseBody) SetMetaList(v []*QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList) *QueryYydGroupMsgMonthStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydGroupMsgMonthStatisticalDataResponse struct {
+	Headers map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydGroupMsgMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydGroupMsgMonthStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydGroupMsgMonthStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydGroupMsgMonthStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydGroupMsgMonthStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydGroupMsgMonthStatisticalDataResponse) SetBody(v *QueryYydGroupMsgMonthStatisticalDataResponseBody) *QueryYydGroupMsgMonthStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydGroupMsgWeekStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydGroupMsgWeekStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydGroupMsgWeekStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydGroupMsgWeekStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydGroupMsgWeekStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydGroupMsgWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydGroupMsgWeekStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydGroupMsgWeekStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydGroupMsgWeekStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydGroupMsgWeekStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydGroupMsgWeekStatisticalDataRequest) SetStatDate(v string) *QueryYydGroupMsgWeekStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydGroupMsgWeekStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydGroupMsgWeekStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydGroupMsgWeekStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydGroupMsgWeekStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydGroupMsgWeekStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydGroupMsgWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList) *QueryYydGroupMsgWeekStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydGroupMsgWeekStatisticalDataResponse struct {
+	Headers map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydGroupMsgWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydGroupMsgWeekStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydGroupMsgWeekStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydGroupMsgWeekStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydGroupMsgWeekStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydGroupMsgWeekStatisticalDataResponse) SetBody(v *QueryYydGroupMsgWeekStatisticalDataResponseBody) *QueryYydGroupMsgWeekStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydLogDayStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydLogDayStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydLogDayStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydLogDayStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydLogDayStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydLogDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydLogDayStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydLogDayStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydLogDayStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydLogDayStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydLogDayStatisticalDataRequest) SetStatDate(v string) *QueryYydLogDayStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydLogDayStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydLogDayStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydLogDayStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydLogDayStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydLogDayStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydLogDayStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydLogDayStatisticalDataResponseBody) SetMetaList(v []*QueryYydLogDayStatisticalDataResponseBodyMetaList) *QueryYydLogDayStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydLogDayStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydLogDayStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydLogDayStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydLogDayStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydLogDayStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydLogDayStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydLogDayStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydLogDayStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydLogDayStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydLogDayStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydLogDayStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydLogDayStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydLogDayStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydLogDayStatisticalDataResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydLogDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydLogDayStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydLogDayStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydLogDayStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydLogDayStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydLogDayStatisticalDataResponse) SetBody(v *QueryYydLogDayStatisticalDataResponseBody) *QueryYydLogDayStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydLogMonthStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydLogMonthStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydLogMonthStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydLogMonthStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydLogMonthStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydLogMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydLogMonthStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydLogMonthStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydLogMonthStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydLogMonthStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydLogMonthStatisticalDataRequest) SetStatDate(v string) *QueryYydLogMonthStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydLogMonthStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydLogMonthStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydLogMonthStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydLogMonthStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydLogMonthStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydLogMonthStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydLogMonthStatisticalDataResponseBody) SetMetaList(v []*QueryYydLogMonthStatisticalDataResponseBodyMetaList) *QueryYydLogMonthStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydLogMonthStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydLogMonthStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydLogMonthStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydLogMonthStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydLogMonthStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydLogMonthStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydLogMonthStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydLogMonthStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydLogMonthStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydLogMonthStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydLogMonthStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydLogMonthStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydLogMonthStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydLogMonthStatisticalDataResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydLogMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydLogMonthStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydLogMonthStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydLogMonthStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydLogMonthStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydLogMonthStatisticalDataResponse) SetBody(v *QueryYydLogMonthStatisticalDataResponseBody) *QueryYydLogMonthStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydLogWeekStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydLogWeekStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydLogWeekStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydLogWeekStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydLogWeekStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydLogWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydLogWeekStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydLogWeekStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydLogWeekStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydLogWeekStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydLogWeekStatisticalDataRequest) SetStatDate(v string) *QueryYydLogWeekStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydLogWeekStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydLogWeekStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydLogWeekStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydLogWeekStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydLogWeekStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydLogWeekStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydLogWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYydLogWeekStatisticalDataResponseBodyMetaList) *QueryYydLogWeekStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydLogWeekStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydLogWeekStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydLogWeekStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydLogWeekStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydLogWeekStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydLogWeekStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydLogWeekStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydLogWeekStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydLogWeekStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydLogWeekStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydLogWeekStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydLogWeekStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydLogWeekStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydLogWeekStatisticalDataResponse struct {
+	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydLogWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydLogWeekStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydLogWeekStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydLogWeekStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydLogWeekStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydLogWeekStatisticalDataResponse) SetBody(v *QueryYydLogWeekStatisticalDataResponseBody) *QueryYydLogWeekStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydMeetingDayStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydMeetingDayStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydMeetingDayStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydMeetingDayStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydMeetingDayStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydMeetingDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydMeetingDayStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydMeetingDayStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydMeetingDayStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydMeetingDayStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydMeetingDayStatisticalDataRequest) SetStatDate(v string) *QueryYydMeetingDayStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydMeetingDayStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydMeetingDayStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydMeetingDayStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydMeetingDayStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydMeetingDayStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydMeetingDayStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydMeetingDayStatisticalDataResponseBody) SetMetaList(v []*QueryYydMeetingDayStatisticalDataResponseBodyMetaList) *QueryYydMeetingDayStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydMeetingDayStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydMeetingDayStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydMeetingDayStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydMeetingDayStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydMeetingDayStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydMeetingDayStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydMeetingDayStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydMeetingDayStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydMeetingDayStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydMeetingDayStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydMeetingDayStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydMeetingDayStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydMeetingDayStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydMeetingDayStatisticalDataResponse struct {
+	Headers map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydMeetingDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydMeetingDayStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydMeetingDayStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydMeetingDayStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydMeetingDayStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydMeetingDayStatisticalDataResponse) SetBody(v *QueryYydMeetingDayStatisticalDataResponseBody) *QueryYydMeetingDayStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydMeetingMonthStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydMeetingMonthStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydMeetingMonthStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydMeetingMonthStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydMeetingMonthStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydMeetingMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydMeetingMonthStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydMeetingMonthStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydMeetingMonthStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydMeetingMonthStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydMeetingMonthStatisticalDataRequest) SetStatDate(v string) *QueryYydMeetingMonthStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydMeetingMonthStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydMeetingMonthStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydMeetingMonthStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydMeetingMonthStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydMeetingMonthStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydMeetingMonthStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydMeetingMonthStatisticalDataResponseBody) SetMetaList(v []*QueryYydMeetingMonthStatisticalDataResponseBodyMetaList) *QueryYydMeetingMonthStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydMeetingMonthStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydMeetingMonthStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydMeetingMonthStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydMeetingMonthStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydMeetingMonthStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydMeetingMonthStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydMeetingMonthStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydMeetingMonthStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydMeetingMonthStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydMeetingMonthStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydMeetingMonthStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydMeetingMonthStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydMeetingMonthStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydMeetingMonthStatisticalDataResponse struct {
+	Headers map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydMeetingMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydMeetingMonthStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydMeetingMonthStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydMeetingMonthStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydMeetingMonthStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydMeetingMonthStatisticalDataResponse) SetBody(v *QueryYydMeetingMonthStatisticalDataResponseBody) *QueryYydMeetingMonthStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydMeetingWeekStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydMeetingWeekStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydMeetingWeekStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydMeetingWeekStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydMeetingWeekStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydMeetingWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydMeetingWeekStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydMeetingWeekStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydMeetingWeekStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydMeetingWeekStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydMeetingWeekStatisticalDataRequest) SetStatDate(v string) *QueryYydMeetingWeekStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydMeetingWeekStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydMeetingWeekStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydMeetingWeekStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydMeetingWeekStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydMeetingWeekStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydMeetingWeekStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydMeetingWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYydMeetingWeekStatisticalDataResponseBodyMetaList) *QueryYydMeetingWeekStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydMeetingWeekStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydMeetingWeekStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydMeetingWeekStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydMeetingWeekStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydMeetingWeekStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydMeetingWeekStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydMeetingWeekStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydMeetingWeekStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydMeetingWeekStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydMeetingWeekStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydMeetingWeekStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydMeetingWeekStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydMeetingWeekStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydMeetingWeekStatisticalDataResponse struct {
+	Headers map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydMeetingWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydMeetingWeekStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydMeetingWeekStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydMeetingWeekStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydMeetingWeekStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydMeetingWeekStatisticalDataResponse) SetBody(v *QueryYydMeetingWeekStatisticalDataResponseBody) *QueryYydMeetingWeekStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydNoticeDayStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydNoticeDayStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydNoticeDayStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydNoticeDayStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydNoticeDayStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydNoticeDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydNoticeDayStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydNoticeDayStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydNoticeDayStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydNoticeDayStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydNoticeDayStatisticalDataRequest) SetStatDate(v string) *QueryYydNoticeDayStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydNoticeDayStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydNoticeDayStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydNoticeDayStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydNoticeDayStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydNoticeDayStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydNoticeDayStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydNoticeDayStatisticalDataResponseBody) SetMetaList(v []*QueryYydNoticeDayStatisticalDataResponseBodyMetaList) *QueryYydNoticeDayStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydNoticeDayStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydNoticeDayStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydNoticeDayStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydNoticeDayStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydNoticeDayStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydNoticeDayStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydNoticeDayStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydNoticeDayStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydNoticeDayStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydNoticeDayStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydNoticeDayStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydNoticeDayStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydNoticeDayStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydNoticeDayStatisticalDataResponse struct {
+	Headers map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydNoticeDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydNoticeDayStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydNoticeDayStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydNoticeDayStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydNoticeDayStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydNoticeDayStatisticalDataResponse) SetBody(v *QueryYydNoticeDayStatisticalDataResponseBody) *QueryYydNoticeDayStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydNoticeMonthStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydNoticeMonthStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydNoticeMonthStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydNoticeMonthStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydNoticeMonthStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydNoticeMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydNoticeMonthStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydNoticeMonthStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydNoticeMonthStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydNoticeMonthStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydNoticeMonthStatisticalDataRequest) SetStatDate(v string) *QueryYydNoticeMonthStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydNoticeMonthStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydNoticeMonthStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydNoticeMonthStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydNoticeMonthStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydNoticeMonthStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydNoticeMonthStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydNoticeMonthStatisticalDataResponseBody) SetMetaList(v []*QueryYydNoticeMonthStatisticalDataResponseBodyMetaList) *QueryYydNoticeMonthStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydNoticeMonthStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydNoticeMonthStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydNoticeMonthStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydNoticeMonthStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydNoticeMonthStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydNoticeMonthStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydNoticeMonthStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydNoticeMonthStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydNoticeMonthStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydNoticeMonthStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydNoticeMonthStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydNoticeMonthStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydNoticeMonthStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydNoticeMonthStatisticalDataResponse struct {
+	Headers map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydNoticeMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydNoticeMonthStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydNoticeMonthStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydNoticeMonthStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydNoticeMonthStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydNoticeMonthStatisticalDataResponse) SetBody(v *QueryYydNoticeMonthStatisticalDataResponseBody) *QueryYydNoticeMonthStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydNoticeWeekStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydNoticeWeekStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydNoticeWeekStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydNoticeWeekStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydNoticeWeekStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydNoticeWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydNoticeWeekStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydNoticeWeekStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydNoticeWeekStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydNoticeWeekStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydNoticeWeekStatisticalDataRequest) SetStatDate(v string) *QueryYydNoticeWeekStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydNoticeWeekStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydNoticeWeekStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydNoticeWeekStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydNoticeWeekStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydNoticeWeekStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydNoticeWeekStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydNoticeWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYydNoticeWeekStatisticalDataResponseBodyMetaList) *QueryYydNoticeWeekStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydNoticeWeekStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydNoticeWeekStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydNoticeWeekStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydNoticeWeekStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydNoticeWeekStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydNoticeWeekStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydNoticeWeekStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydNoticeWeekStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydNoticeWeekStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydNoticeWeekStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydNoticeWeekStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydNoticeWeekStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydNoticeWeekStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydNoticeWeekStatisticalDataResponse struct {
+	Headers map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydNoticeWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydNoticeWeekStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydNoticeWeekStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydNoticeWeekStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydNoticeWeekStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydNoticeWeekStatisticalDataResponse) SetBody(v *QueryYydNoticeWeekStatisticalDataResponseBody) *QueryYydNoticeWeekStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydSingleMsgDayStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydSingleMsgDayStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydSingleMsgDayStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydSingleMsgDayStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydSingleMsgDayStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydSingleMsgDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydSingleMsgDayStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydSingleMsgDayStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydSingleMsgDayStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydSingleMsgDayStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydSingleMsgDayStatisticalDataRequest) SetStatDate(v string) *QueryYydSingleMsgDayStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydSingleMsgDayStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydSingleMsgDayStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydSingleMsgDayStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydSingleMsgDayStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydSingleMsgDayStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydSingleMsgDayStatisticalDataResponseBody) SetMetaList(v []*QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList) *QueryYydSingleMsgDayStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydSingleMsgDayStatisticalDataResponse struct {
+	Headers map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydSingleMsgDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydSingleMsgDayStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydSingleMsgDayStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydSingleMsgDayStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydSingleMsgDayStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydSingleMsgDayStatisticalDataResponse) SetBody(v *QueryYydSingleMsgDayStatisticalDataResponseBody) *QueryYydSingleMsgDayStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydSingleMsgMonthStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydSingleMsgMonthStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydSingleMsgMonthStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydSingleMsgMonthStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydSingleMsgMonthStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydSingleMsgMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydSingleMsgMonthStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydSingleMsgMonthStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydSingleMsgMonthStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydSingleMsgMonthStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydSingleMsgMonthStatisticalDataRequest) SetStatDate(v string) *QueryYydSingleMsgMonthStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydSingleMsgMonthStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydSingleMsgMonthStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydSingleMsgMonthStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydSingleMsgMonthStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydSingleMsgMonthStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydSingleMsgMonthStatisticalDataResponseBody) SetMetaList(v []*QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList) *QueryYydSingleMsgMonthStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydSingleMsgMonthStatisticalDataResponse struct {
+	Headers map[string]*string                                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydSingleMsgMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydSingleMsgMonthStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydSingleMsgMonthStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydSingleMsgMonthStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydSingleMsgMonthStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydSingleMsgMonthStatisticalDataResponse) SetBody(v *QueryYydSingleMsgMonthStatisticalDataResponseBody) *QueryYydSingleMsgMonthStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydSingleMsgWeekStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydSingleMsgWeekStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydSingleMsgWeekStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydSingleMsgWeekStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydSingleMsgWeekStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydSingleMsgWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydSingleMsgWeekStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydSingleMsgWeekStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydSingleMsgWeekStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydSingleMsgWeekStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydSingleMsgWeekStatisticalDataRequest) SetStatDate(v string) *QueryYydSingleMsgWeekStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydSingleMsgWeekStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydSingleMsgWeekStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydSingleMsgWeekStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydSingleMsgWeekStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydSingleMsgWeekStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydSingleMsgWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList) *QueryYydSingleMsgWeekStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydSingleMsgWeekStatisticalDataResponse struct {
+	Headers map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydSingleMsgWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydSingleMsgWeekStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydSingleMsgWeekStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydSingleMsgWeekStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydSingleMsgWeekStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydSingleMsgWeekStatisticalDataResponse) SetBody(v *QueryYydSingleMsgWeekStatisticalDataResponseBody) *QueryYydSingleMsgWeekStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydToatlMsgDayStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydToatlMsgDayStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydToatlMsgDayStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydToatlMsgDayStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydToatlMsgDayStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydToatlMsgDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydToatlMsgDayStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydToatlMsgDayStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydToatlMsgDayStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydToatlMsgDayStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydToatlMsgDayStatisticalDataRequest) SetStatDate(v string) *QueryYydToatlMsgDayStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydToatlMsgDayStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydToatlMsgDayStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydToatlMsgDayStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydToatlMsgDayStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydToatlMsgDayStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydToatlMsgDayStatisticalDataResponseBody) SetMetaList(v []*QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList) *QueryYydToatlMsgDayStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydToatlMsgDayStatisticalDataResponse struct {
+	Headers map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydToatlMsgDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydToatlMsgDayStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydToatlMsgDayStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydToatlMsgDayStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydToatlMsgDayStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydToatlMsgDayStatisticalDataResponse) SetBody(v *QueryYydToatlMsgDayStatisticalDataResponseBody) *QueryYydToatlMsgDayStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydToatlMsgMonthStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydToatlMsgMonthStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydToatlMsgMonthStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydToatlMsgMonthStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydToatlMsgMonthStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydToatlMsgMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydToatlMsgMonthStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydToatlMsgMonthStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydToatlMsgMonthStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydToatlMsgMonthStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydToatlMsgMonthStatisticalDataRequest) SetStatDate(v string) *QueryYydToatlMsgMonthStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydToatlMsgMonthStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydToatlMsgMonthStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydToatlMsgMonthStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydToatlMsgMonthStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydToatlMsgMonthStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydToatlMsgMonthStatisticalDataResponseBody) SetMetaList(v []*QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList) *QueryYydToatlMsgMonthStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydToatlMsgMonthStatisticalDataResponse struct {
+	Headers map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydToatlMsgMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydToatlMsgMonthStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydToatlMsgMonthStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydToatlMsgMonthStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydToatlMsgMonthStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydToatlMsgMonthStatisticalDataResponse) SetBody(v *QueryYydToatlMsgMonthStatisticalDataResponseBody) *QueryYydToatlMsgMonthStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydToatlMsgWeekStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydToatlMsgWeekStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydToatlMsgWeekStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydToatlMsgWeekStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydToatlMsgWeekStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydToatlMsgWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydToatlMsgWeekStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydToatlMsgWeekStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydToatlMsgWeekStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydToatlMsgWeekStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydToatlMsgWeekStatisticalDataRequest) SetStatDate(v string) *QueryYydToatlMsgWeekStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydToatlMsgWeekStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydToatlMsgWeekStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydToatlMsgWeekStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydToatlMsgWeekStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydToatlMsgWeekStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydToatlMsgWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList) *QueryYydToatlMsgWeekStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydToatlMsgWeekStatisticalDataResponse struct {
+	Headers map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydToatlMsgWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydToatlMsgWeekStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydToatlMsgWeekStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydToatlMsgWeekStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydToatlMsgWeekStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydToatlMsgWeekStatisticalDataResponse) SetBody(v *QueryYydToatlMsgWeekStatisticalDataResponseBody) *QueryYydToatlMsgWeekStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydTodoDayStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydTodoDayStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTodoDayStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTodoDayStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydTodoDayStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydTodoDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydTodoDayStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydTodoDayStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydTodoDayStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTodoDayStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTodoDayStatisticalDataRequest) SetStatDate(v string) *QueryYydTodoDayStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydTodoDayStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydTodoDayStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydTodoDayStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTodoDayStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTodoDayStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydTodoDayStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydTodoDayStatisticalDataResponseBody) SetMetaList(v []*QueryYydTodoDayStatisticalDataResponseBodyMetaList) *QueryYydTodoDayStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydTodoDayStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydTodoDayStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTodoDayStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTodoDayStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydTodoDayStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydTodoDayStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydTodoDayStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydTodoDayStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydTodoDayStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydTodoDayStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydTodoDayStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydTodoDayStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydTodoDayStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydTodoDayStatisticalDataResponse struct {
+	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydTodoDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydTodoDayStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTodoDayStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTodoDayStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydTodoDayStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydTodoDayStatisticalDataResponse) SetBody(v *QueryYydTodoDayStatisticalDataResponseBody) *QueryYydTodoDayStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydTodoMonthStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydTodoMonthStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTodoMonthStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTodoMonthStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydTodoMonthStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydTodoMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydTodoMonthStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydTodoMonthStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydTodoMonthStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTodoMonthStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTodoMonthStatisticalDataRequest) SetStatDate(v string) *QueryYydTodoMonthStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydTodoMonthStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydTodoMonthStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydTodoMonthStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTodoMonthStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTodoMonthStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydTodoMonthStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydTodoMonthStatisticalDataResponseBody) SetMetaList(v []*QueryYydTodoMonthStatisticalDataResponseBodyMetaList) *QueryYydTodoMonthStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydTodoMonthStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydTodoMonthStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTodoMonthStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTodoMonthStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydTodoMonthStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydTodoMonthStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydTodoMonthStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydTodoMonthStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydTodoMonthStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydTodoMonthStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydTodoMonthStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydTodoMonthStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydTodoMonthStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydTodoMonthStatisticalDataResponse struct {
+	Headers map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydTodoMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydTodoMonthStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTodoMonthStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTodoMonthStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydTodoMonthStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydTodoMonthStatisticalDataResponse) SetBody(v *QueryYydTodoMonthStatisticalDataResponseBody) *QueryYydTodoMonthStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydTodoWeekStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydTodoWeekStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTodoWeekStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTodoWeekStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydTodoWeekStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydTodoWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydTodoWeekStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydTodoWeekStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydTodoWeekStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTodoWeekStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTodoWeekStatisticalDataRequest) SetStatDate(v string) *QueryYydTodoWeekStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydTodoWeekStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydTodoWeekStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydTodoWeekStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTodoWeekStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTodoWeekStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydTodoWeekStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydTodoWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYydTodoWeekStatisticalDataResponseBodyMetaList) *QueryYydTodoWeekStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydTodoWeekStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydTodoWeekStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTodoWeekStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTodoWeekStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydTodoWeekStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydTodoWeekStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydTodoWeekStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydTodoWeekStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydTodoWeekStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydTodoWeekStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydTodoWeekStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydTodoWeekStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydTodoWeekStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydTodoWeekStatisticalDataResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydTodoWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydTodoWeekStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTodoWeekStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTodoWeekStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydTodoWeekStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydTodoWeekStatisticalDataResponse) SetBody(v *QueryYydTodoWeekStatisticalDataResponseBody) *QueryYydTodoWeekStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydTotalDayStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydTotalDayStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalDayStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalDayStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydTotalDayStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydTotalDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydTotalDayStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydTotalDayStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydTotalDayStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalDayStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalDayStatisticalDataRequest) SetStatDate(v string) *QueryYydTotalDayStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydTotalDayStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydTotalDayStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydTotalDayStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalDayStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalDayStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydTotalDayStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydTotalDayStatisticalDataResponseBody) SetMetaList(v []*QueryYydTotalDayStatisticalDataResponseBodyMetaList) *QueryYydTotalDayStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydTotalDayStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydTotalDayStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalDayStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalDayStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydTotalDayStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydTotalDayStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydTotalDayStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydTotalDayStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydTotalDayStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydTotalDayStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydTotalDayStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydTotalDayStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydTotalDayStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydTotalDayStatisticalDataResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydTotalDayStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydTotalDayStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalDayStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalDayStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydTotalDayStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydTotalDayStatisticalDataResponse) SetBody(v *QueryYydTotalDayStatisticalDataResponseBody) *QueryYydTotalDayStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydTotalMonthStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydTotalMonthStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalMonthStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalMonthStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydTotalMonthStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydTotalMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydTotalMonthStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydTotalMonthStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydTotalMonthStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalMonthStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalMonthStatisticalDataRequest) SetStatDate(v string) *QueryYydTotalMonthStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydTotalMonthStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydTotalMonthStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydTotalMonthStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalMonthStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalMonthStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydTotalMonthStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydTotalMonthStatisticalDataResponseBody) SetMetaList(v []*QueryYydTotalMonthStatisticalDataResponseBodyMetaList) *QueryYydTotalMonthStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydTotalMonthStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydTotalMonthStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalMonthStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalMonthStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydTotalMonthStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydTotalMonthStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydTotalMonthStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydTotalMonthStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydTotalMonthStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydTotalMonthStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydTotalMonthStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydTotalMonthStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydTotalMonthStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydTotalMonthStatisticalDataResponse struct {
+	Headers map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydTotalMonthStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydTotalMonthStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalMonthStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalMonthStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydTotalMonthStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydTotalMonthStatisticalDataResponse) SetBody(v *QueryYydTotalMonthStatisticalDataResponseBody) *QueryYydTotalMonthStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydTotalStdStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydTotalStdStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalStdStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalStdStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydTotalStdStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydTotalStdStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydTotalStdStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydTotalStdStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydTotalStdStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalStdStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalStdStatisticalDataRequest) SetStatDate(v string) *QueryYydTotalStdStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydTotalStdStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydTotalStdStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydTotalStdStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalStdStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalStdStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydTotalStdStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydTotalStdStatisticalDataResponseBody) SetMetaList(v []*QueryYydTotalStdStatisticalDataResponseBodyMetaList) *QueryYydTotalStdStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydTotalStdStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydTotalStdStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalStdStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalStdStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydTotalStdStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydTotalStdStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydTotalStdStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydTotalStdStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydTotalStdStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydTotalStdStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydTotalStdStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydTotalStdStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydTotalStdStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydTotalStdStatisticalDataResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydTotalStdStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydTotalStdStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalStdStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalStdStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydTotalStdStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydTotalStdStatisticalDataResponse) SetBody(v *QueryYydTotalStdStatisticalDataResponseBody) *QueryYydTotalStdStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryYydTotalWeekStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryYydTotalWeekStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalWeekStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalWeekStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryYydTotalWeekStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryYydTotalWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryYydTotalWeekStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryYydTotalWeekStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryYydTotalWeekStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalWeekStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalWeekStatisticalDataRequest) SetStatDate(v string) *QueryYydTotalWeekStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryYydTotalWeekStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryYydTotalWeekStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryYydTotalWeekStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalWeekStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalWeekStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryYydTotalWeekStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryYydTotalWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYydTotalWeekStatisticalDataResponseBodyMetaList) *QueryYydTotalWeekStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryYydTotalWeekStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryYydTotalWeekStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalWeekStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalWeekStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryYydTotalWeekStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryYydTotalWeekStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryYydTotalWeekStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryYydTotalWeekStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryYydTotalWeekStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryYydTotalWeekStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryYydTotalWeekStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryYydTotalWeekStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryYydTotalWeekStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryYydTotalWeekStatisticalDataResponse struct {
+	Headers map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryYydTotalWeekStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryYydTotalWeekStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryYydTotalWeekStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryYydTotalWeekStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryYydTotalWeekStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryYydTotalWeekStatisticalDataResponse) SetBody(v *QueryYydTotalWeekStatisticalDataResponseBody) *QueryYydTotalWeekStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -4638,6 +9768,1678 @@ func (client *Client) QueryVedioMeetingStatisticalDataWithOptions(request *Query
 	}
 	_result = &QueryVedioMeetingStatisticalDataResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryVedioMeetingStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/vedioMeetingData"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydActiveDayStatisticalData(request *QueryYydActiveDayStatisticalDataRequest) (_result *QueryYydActiveDayStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydActiveDayStatisticalDataHeaders{}
+	_result = &QueryYydActiveDayStatisticalDataResponse{}
+	_body, _err := client.QueryYydActiveDayStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydActiveDayStatisticalDataWithOptions(request *QueryYydActiveDayStatisticalDataRequest, headers *QueryYydActiveDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydActiveDayStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydActiveDayStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydActiveDayStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydActiveDayDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydActiveMonthStatisticalData(request *QueryYydActiveMonthStatisticalDataRequest) (_result *QueryYydActiveMonthStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydActiveMonthStatisticalDataHeaders{}
+	_result = &QueryYydActiveMonthStatisticalDataResponse{}
+	_body, _err := client.QueryYydActiveMonthStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydActiveMonthStatisticalDataWithOptions(request *QueryYydActiveMonthStatisticalDataRequest, headers *QueryYydActiveMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydActiveMonthStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydActiveMonthStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydActiveMonthStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydActiveMonthDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydActiveWeekStatisticalData(request *QueryYydActiveWeekStatisticalDataRequest) (_result *QueryYydActiveWeekStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydActiveWeekStatisticalDataHeaders{}
+	_result = &QueryYydActiveWeekStatisticalDataResponse{}
+	_body, _err := client.QueryYydActiveWeekStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydActiveWeekStatisticalDataWithOptions(request *QueryYydActiveWeekStatisticalDataRequest, headers *QueryYydActiveWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydActiveWeekStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydActiveWeekStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydActiveWeekStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydActiveWeekDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydAppDayStatisticalData(request *QueryYydAppDayStatisticalDataRequest) (_result *QueryYydAppDayStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydAppDayStatisticalDataHeaders{}
+	_result = &QueryYydAppDayStatisticalDataResponse{}
+	_body, _err := client.QueryYydAppDayStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydAppDayStatisticalDataWithOptions(request *QueryYydAppDayStatisticalDataRequest, headers *QueryYydAppDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydAppDayStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydAppDayStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydAppDayStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydAppDayDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydAppMonthStatisticalData(request *QueryYydAppMonthStatisticalDataRequest) (_result *QueryYydAppMonthStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydAppMonthStatisticalDataHeaders{}
+	_result = &QueryYydAppMonthStatisticalDataResponse{}
+	_body, _err := client.QueryYydAppMonthStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydAppMonthStatisticalDataWithOptions(request *QueryYydAppMonthStatisticalDataRequest, headers *QueryYydAppMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydAppMonthStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydAppMonthStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydAppMonthStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydAppMonthDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydAppStdStatisticalData(request *QueryYydAppStdStatisticalDataRequest) (_result *QueryYydAppStdStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydAppStdStatisticalDataHeaders{}
+	_result = &QueryYydAppStdStatisticalDataResponse{}
+	_body, _err := client.QueryYydAppStdStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydAppStdStatisticalDataWithOptions(request *QueryYydAppStdStatisticalDataRequest, headers *QueryYydAppStdStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydAppStdStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydAppStdStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydAppStdStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydAppStdDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydAppWeekStatisticalData(request *QueryYydAppWeekStatisticalDataRequest) (_result *QueryYydAppWeekStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydAppWeekStatisticalDataHeaders{}
+	_result = &QueryYydAppWeekStatisticalDataResponse{}
+	_body, _err := client.QueryYydAppWeekStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydAppWeekStatisticalDataWithOptions(request *QueryYydAppWeekStatisticalDataRequest, headers *QueryYydAppWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydAppWeekStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydAppWeekStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydAppWeekStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydAppWeekDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydCalendarDayStatisticalData(request *QueryYydCalendarDayStatisticalDataRequest) (_result *QueryYydCalendarDayStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydCalendarDayStatisticalDataHeaders{}
+	_result = &QueryYydCalendarDayStatisticalDataResponse{}
+	_body, _err := client.QueryYydCalendarDayStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydCalendarDayStatisticalDataWithOptions(request *QueryYydCalendarDayStatisticalDataRequest, headers *QueryYydCalendarDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydCalendarDayStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydCalendarDayStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydCalendarDayStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydCalendarDayDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydCalendarMonthStatisticalData(request *QueryYydCalendarMonthStatisticalDataRequest) (_result *QueryYydCalendarMonthStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydCalendarMonthStatisticalDataHeaders{}
+	_result = &QueryYydCalendarMonthStatisticalDataResponse{}
+	_body, _err := client.QueryYydCalendarMonthStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydCalendarMonthStatisticalDataWithOptions(request *QueryYydCalendarMonthStatisticalDataRequest, headers *QueryYydCalendarMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydCalendarMonthStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydCalendarMonthStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydCalendarMonthStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydCalendarMonthDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydCalendarWeekStatisticalData(request *QueryYydCalendarWeekStatisticalDataRequest) (_result *QueryYydCalendarWeekStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydCalendarWeekStatisticalDataHeaders{}
+	_result = &QueryYydCalendarWeekStatisticalDataResponse{}
+	_body, _err := client.QueryYydCalendarWeekStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydCalendarWeekStatisticalDataWithOptions(request *QueryYydCalendarWeekStatisticalDataRequest, headers *QueryYydCalendarWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydCalendarWeekStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydCalendarWeekStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydCalendarWeekStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydCalendarWeekDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydDingMsgDayStatisticalData(request *QueryYydDingMsgDayStatisticalDataRequest) (_result *QueryYydDingMsgDayStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydDingMsgDayStatisticalDataHeaders{}
+	_result = &QueryYydDingMsgDayStatisticalDataResponse{}
+	_body, _err := client.QueryYydDingMsgDayStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydDingMsgDayStatisticalDataWithOptions(request *QueryYydDingMsgDayStatisticalDataRequest, headers *QueryYydDingMsgDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydDingMsgDayStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydDingMsgDayStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydDingMsgDayStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydDingMsgDayDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydDingMsgMonthStatisticalData(request *QueryYydDingMsgMonthStatisticalDataRequest) (_result *QueryYydDingMsgMonthStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydDingMsgMonthStatisticalDataHeaders{}
+	_result = &QueryYydDingMsgMonthStatisticalDataResponse{}
+	_body, _err := client.QueryYydDingMsgMonthStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydDingMsgMonthStatisticalDataWithOptions(request *QueryYydDingMsgMonthStatisticalDataRequest, headers *QueryYydDingMsgMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydDingMsgMonthStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydDingMsgMonthStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydDingMsgMonthStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydDingMsgMonthDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydDingMsgWeekStatisticalData(request *QueryYydDingMsgWeekStatisticalDataRequest) (_result *QueryYydDingMsgWeekStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydDingMsgWeekStatisticalDataHeaders{}
+	_result = &QueryYydDingMsgWeekStatisticalDataResponse{}
+	_body, _err := client.QueryYydDingMsgWeekStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydDingMsgWeekStatisticalDataWithOptions(request *QueryYydDingMsgWeekStatisticalDataRequest, headers *QueryYydDingMsgWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydDingMsgWeekStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydDingMsgWeekStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydDingMsgWeekStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydDingMsgWeekDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydGroupMsgDayStatisticalData(request *QueryYydGroupMsgDayStatisticalDataRequest) (_result *QueryYydGroupMsgDayStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydGroupMsgDayStatisticalDataHeaders{}
+	_result = &QueryYydGroupMsgDayStatisticalDataResponse{}
+	_body, _err := client.QueryYydGroupMsgDayStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydGroupMsgDayStatisticalDataWithOptions(request *QueryYydGroupMsgDayStatisticalDataRequest, headers *QueryYydGroupMsgDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydGroupMsgDayStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydGroupMsgDayStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydGroupMsgDayStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydGroupMsgDayDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydGroupMsgMonthStatisticalData(request *QueryYydGroupMsgMonthStatisticalDataRequest) (_result *QueryYydGroupMsgMonthStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydGroupMsgMonthStatisticalDataHeaders{}
+	_result = &QueryYydGroupMsgMonthStatisticalDataResponse{}
+	_body, _err := client.QueryYydGroupMsgMonthStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydGroupMsgMonthStatisticalDataWithOptions(request *QueryYydGroupMsgMonthStatisticalDataRequest, headers *QueryYydGroupMsgMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydGroupMsgMonthStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydGroupMsgMonthStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydGroupMsgMonthStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydGroupMsgMonthDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydGroupMsgWeekStatisticalData(request *QueryYydGroupMsgWeekStatisticalDataRequest) (_result *QueryYydGroupMsgWeekStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydGroupMsgWeekStatisticalDataHeaders{}
+	_result = &QueryYydGroupMsgWeekStatisticalDataResponse{}
+	_body, _err := client.QueryYydGroupMsgWeekStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydGroupMsgWeekStatisticalDataWithOptions(request *QueryYydGroupMsgWeekStatisticalDataRequest, headers *QueryYydGroupMsgWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydGroupMsgWeekStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydGroupMsgWeekStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydGroupMsgWeekStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydGroupMsgWeekDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydLogDayStatisticalData(request *QueryYydLogDayStatisticalDataRequest) (_result *QueryYydLogDayStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydLogDayStatisticalDataHeaders{}
+	_result = &QueryYydLogDayStatisticalDataResponse{}
+	_body, _err := client.QueryYydLogDayStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydLogDayStatisticalDataWithOptions(request *QueryYydLogDayStatisticalDataRequest, headers *QueryYydLogDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydLogDayStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydLogDayStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydLogDayStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydLogDayDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydLogMonthStatisticalData(request *QueryYydLogMonthStatisticalDataRequest) (_result *QueryYydLogMonthStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydLogMonthStatisticalDataHeaders{}
+	_result = &QueryYydLogMonthStatisticalDataResponse{}
+	_body, _err := client.QueryYydLogMonthStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydLogMonthStatisticalDataWithOptions(request *QueryYydLogMonthStatisticalDataRequest, headers *QueryYydLogMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydLogMonthStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydLogMonthStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydLogMonthStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydLogMonthDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydLogWeekStatisticalData(request *QueryYydLogWeekStatisticalDataRequest) (_result *QueryYydLogWeekStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydLogWeekStatisticalDataHeaders{}
+	_result = &QueryYydLogWeekStatisticalDataResponse{}
+	_body, _err := client.QueryYydLogWeekStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydLogWeekStatisticalDataWithOptions(request *QueryYydLogWeekStatisticalDataRequest, headers *QueryYydLogWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydLogWeekStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydLogWeekStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydLogWeekStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydLogWeekDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydMeetingDayStatisticalData(request *QueryYydMeetingDayStatisticalDataRequest) (_result *QueryYydMeetingDayStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydMeetingDayStatisticalDataHeaders{}
+	_result = &QueryYydMeetingDayStatisticalDataResponse{}
+	_body, _err := client.QueryYydMeetingDayStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydMeetingDayStatisticalDataWithOptions(request *QueryYydMeetingDayStatisticalDataRequest, headers *QueryYydMeetingDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydMeetingDayStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydMeetingDayStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydMeetingDayStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydMeetingDayDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydMeetingMonthStatisticalData(request *QueryYydMeetingMonthStatisticalDataRequest) (_result *QueryYydMeetingMonthStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydMeetingMonthStatisticalDataHeaders{}
+	_result = &QueryYydMeetingMonthStatisticalDataResponse{}
+	_body, _err := client.QueryYydMeetingMonthStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydMeetingMonthStatisticalDataWithOptions(request *QueryYydMeetingMonthStatisticalDataRequest, headers *QueryYydMeetingMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydMeetingMonthStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydMeetingMonthStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydMeetingMonthStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydMeetingMonthDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydMeetingWeekStatisticalData(request *QueryYydMeetingWeekStatisticalDataRequest) (_result *QueryYydMeetingWeekStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydMeetingWeekStatisticalDataHeaders{}
+	_result = &QueryYydMeetingWeekStatisticalDataResponse{}
+	_body, _err := client.QueryYydMeetingWeekStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydMeetingWeekStatisticalDataWithOptions(request *QueryYydMeetingWeekStatisticalDataRequest, headers *QueryYydMeetingWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydMeetingWeekStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydMeetingWeekStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydMeetingWeekStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydMeetingWeekDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydNoticeDayStatisticalData(request *QueryYydNoticeDayStatisticalDataRequest) (_result *QueryYydNoticeDayStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydNoticeDayStatisticalDataHeaders{}
+	_result = &QueryYydNoticeDayStatisticalDataResponse{}
+	_body, _err := client.QueryYydNoticeDayStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydNoticeDayStatisticalDataWithOptions(request *QueryYydNoticeDayStatisticalDataRequest, headers *QueryYydNoticeDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydNoticeDayStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydNoticeDayStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydNoticeDayStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydNoticeDayDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydNoticeMonthStatisticalData(request *QueryYydNoticeMonthStatisticalDataRequest) (_result *QueryYydNoticeMonthStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydNoticeMonthStatisticalDataHeaders{}
+	_result = &QueryYydNoticeMonthStatisticalDataResponse{}
+	_body, _err := client.QueryYydNoticeMonthStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydNoticeMonthStatisticalDataWithOptions(request *QueryYydNoticeMonthStatisticalDataRequest, headers *QueryYydNoticeMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydNoticeMonthStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydNoticeMonthStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydNoticeMonthStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydNoticeMonthDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydNoticeWeekStatisticalData(request *QueryYydNoticeWeekStatisticalDataRequest) (_result *QueryYydNoticeWeekStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydNoticeWeekStatisticalDataHeaders{}
+	_result = &QueryYydNoticeWeekStatisticalDataResponse{}
+	_body, _err := client.QueryYydNoticeWeekStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydNoticeWeekStatisticalDataWithOptions(request *QueryYydNoticeWeekStatisticalDataRequest, headers *QueryYydNoticeWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydNoticeWeekStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydNoticeWeekStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydNoticeWeekStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydNoticeWeekDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydSingleMsgDayStatisticalData(request *QueryYydSingleMsgDayStatisticalDataRequest) (_result *QueryYydSingleMsgDayStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydSingleMsgDayStatisticalDataHeaders{}
+	_result = &QueryYydSingleMsgDayStatisticalDataResponse{}
+	_body, _err := client.QueryYydSingleMsgDayStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydSingleMsgDayStatisticalDataWithOptions(request *QueryYydSingleMsgDayStatisticalDataRequest, headers *QueryYydSingleMsgDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydSingleMsgDayStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydSingleMsgDayStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydSingleMsgDayStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydSingleMsgDayDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydSingleMsgMonthStatisticalData(request *QueryYydSingleMsgMonthStatisticalDataRequest) (_result *QueryYydSingleMsgMonthStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydSingleMsgMonthStatisticalDataHeaders{}
+	_result = &QueryYydSingleMsgMonthStatisticalDataResponse{}
+	_body, _err := client.QueryYydSingleMsgMonthStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydSingleMsgMonthStatisticalDataWithOptions(request *QueryYydSingleMsgMonthStatisticalDataRequest, headers *QueryYydSingleMsgMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydSingleMsgMonthStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydSingleMsgMonthStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydSingleMsgMonthStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydSingleMsgMonthDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydSingleMsgWeekStatisticalData(request *QueryYydSingleMsgWeekStatisticalDataRequest) (_result *QueryYydSingleMsgWeekStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydSingleMsgWeekStatisticalDataHeaders{}
+	_result = &QueryYydSingleMsgWeekStatisticalDataResponse{}
+	_body, _err := client.QueryYydSingleMsgWeekStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydSingleMsgWeekStatisticalDataWithOptions(request *QueryYydSingleMsgWeekStatisticalDataRequest, headers *QueryYydSingleMsgWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydSingleMsgWeekStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydSingleMsgWeekStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydSingleMsgWeekStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydSingleMsgWeekDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydToatlMsgDayStatisticalData(request *QueryYydToatlMsgDayStatisticalDataRequest) (_result *QueryYydToatlMsgDayStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydToatlMsgDayStatisticalDataHeaders{}
+	_result = &QueryYydToatlMsgDayStatisticalDataResponse{}
+	_body, _err := client.QueryYydToatlMsgDayStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydToatlMsgDayStatisticalDataWithOptions(request *QueryYydToatlMsgDayStatisticalDataRequest, headers *QueryYydToatlMsgDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydToatlMsgDayStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydToatlMsgDayStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydToatlMsgDayStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydToatlMsgDayDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydToatlMsgMonthStatisticalData(request *QueryYydToatlMsgMonthStatisticalDataRequest) (_result *QueryYydToatlMsgMonthStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydToatlMsgMonthStatisticalDataHeaders{}
+	_result = &QueryYydToatlMsgMonthStatisticalDataResponse{}
+	_body, _err := client.QueryYydToatlMsgMonthStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydToatlMsgMonthStatisticalDataWithOptions(request *QueryYydToatlMsgMonthStatisticalDataRequest, headers *QueryYydToatlMsgMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydToatlMsgMonthStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydToatlMsgMonthStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydToatlMsgMonthStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydToatlMsgMonthDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydToatlMsgWeekStatisticalData(request *QueryYydToatlMsgWeekStatisticalDataRequest) (_result *QueryYydToatlMsgWeekStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydToatlMsgWeekStatisticalDataHeaders{}
+	_result = &QueryYydToatlMsgWeekStatisticalDataResponse{}
+	_body, _err := client.QueryYydToatlMsgWeekStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydToatlMsgWeekStatisticalDataWithOptions(request *QueryYydToatlMsgWeekStatisticalDataRequest, headers *QueryYydToatlMsgWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydToatlMsgWeekStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydToatlMsgWeekStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydToatlMsgWeekStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydToatlMsgWeekDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydTodoDayStatisticalData(request *QueryYydTodoDayStatisticalDataRequest) (_result *QueryYydTodoDayStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydTodoDayStatisticalDataHeaders{}
+	_result = &QueryYydTodoDayStatisticalDataResponse{}
+	_body, _err := client.QueryYydTodoDayStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydTodoDayStatisticalDataWithOptions(request *QueryYydTodoDayStatisticalDataRequest, headers *QueryYydTodoDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydTodoDayStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydTodoDayStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydTodoDayStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydTodoDayDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydTodoMonthStatisticalData(request *QueryYydTodoMonthStatisticalDataRequest) (_result *QueryYydTodoMonthStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydTodoMonthStatisticalDataHeaders{}
+	_result = &QueryYydTodoMonthStatisticalDataResponse{}
+	_body, _err := client.QueryYydTodoMonthStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydTodoMonthStatisticalDataWithOptions(request *QueryYydTodoMonthStatisticalDataRequest, headers *QueryYydTodoMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydTodoMonthStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydTodoMonthStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydTodoMonthStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydTodoMonthDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydTodoWeekStatisticalData(request *QueryYydTodoWeekStatisticalDataRequest) (_result *QueryYydTodoWeekStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydTodoWeekStatisticalDataHeaders{}
+	_result = &QueryYydTodoWeekStatisticalDataResponse{}
+	_body, _err := client.QueryYydTodoWeekStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydTodoWeekStatisticalDataWithOptions(request *QueryYydTodoWeekStatisticalDataRequest, headers *QueryYydTodoWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydTodoWeekStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydTodoWeekStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydTodoWeekStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydTodoWeekDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydTotalDayStatisticalData(request *QueryYydTotalDayStatisticalDataRequest) (_result *QueryYydTotalDayStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydTotalDayStatisticalDataHeaders{}
+	_result = &QueryYydTotalDayStatisticalDataResponse{}
+	_body, _err := client.QueryYydTotalDayStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydTotalDayStatisticalDataWithOptions(request *QueryYydTotalDayStatisticalDataRequest, headers *QueryYydTotalDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydTotalDayStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydTotalDayStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydTotalDayStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydTotalDayDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydTotalMonthStatisticalData(request *QueryYydTotalMonthStatisticalDataRequest) (_result *QueryYydTotalMonthStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydTotalMonthStatisticalDataHeaders{}
+	_result = &QueryYydTotalMonthStatisticalDataResponse{}
+	_body, _err := client.QueryYydTotalMonthStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydTotalMonthStatisticalDataWithOptions(request *QueryYydTotalMonthStatisticalDataRequest, headers *QueryYydTotalMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydTotalMonthStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydTotalMonthStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydTotalMonthStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydTotalMonthDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydTotalStdStatisticalData(request *QueryYydTotalStdStatisticalDataRequest) (_result *QueryYydTotalStdStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydTotalStdStatisticalDataHeaders{}
+	_result = &QueryYydTotalStdStatisticalDataResponse{}
+	_body, _err := client.QueryYydTotalStdStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydTotalStdStatisticalDataWithOptions(request *QueryYydTotalStdStatisticalDataRequest, headers *QueryYydTotalStdStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydTotalStdStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydTotalStdStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydTotalStdStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydTotalStdDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryYydTotalWeekStatisticalData(request *QueryYydTotalWeekStatisticalDataRequest) (_result *QueryYydTotalWeekStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryYydTotalWeekStatisticalDataHeaders{}
+	_result = &QueryYydTotalWeekStatisticalDataResponse{}
+	_body, _err := client.QueryYydTotalWeekStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryYydTotalWeekStatisticalDataWithOptions(request *QueryYydTotalWeekStatisticalDataRequest, headers *QueryYydTotalWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydTotalWeekStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryYydTotalWeekStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryYydTotalWeekStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydTotalWeekDatas"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

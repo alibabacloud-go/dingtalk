@@ -11,6 +11,159 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type CardTemplateBuildActionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CardTemplateBuildActionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CardTemplateBuildActionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CardTemplateBuildActionHeaders) SetCommonHeaders(v map[string]*string) *CardTemplateBuildActionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CardTemplateBuildActionHeaders) SetXAcsDingtalkAccessToken(v string) *CardTemplateBuildActionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CardTemplateBuildActionRequest struct {
+	// 模板构建的action：含create、save、deploy
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// 模板构建的dto对象
+	CardTemplateJson *string `json:"cardTemplateJson,omitempty" xml:"cardTemplateJson,omitempty"`
+}
+
+func (s CardTemplateBuildActionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CardTemplateBuildActionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CardTemplateBuildActionRequest) SetAction(v string) *CardTemplateBuildActionRequest {
+	s.Action = &v
+	return s
+}
+
+func (s *CardTemplateBuildActionRequest) SetCardTemplateJson(v string) *CardTemplateBuildActionRequest {
+	s.CardTemplateJson = &v
+	return s
+}
+
+type CardTemplateBuildActionResponseBody struct {
+	// 模板构建的dto对象
+	CardTemplateJson *string `json:"cardTemplateJson,omitempty" xml:"cardTemplateJson,omitempty"`
+}
+
+func (s CardTemplateBuildActionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CardTemplateBuildActionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CardTemplateBuildActionResponseBody) SetCardTemplateJson(v string) *CardTemplateBuildActionResponseBody {
+	s.CardTemplateJson = &v
+	return s
+}
+
+type CardTemplateBuildActionResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CardTemplateBuildActionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CardTemplateBuildActionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CardTemplateBuildActionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CardTemplateBuildActionResponse) SetHeaders(v map[string]*string) *CardTemplateBuildActionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CardTemplateBuildActionResponse) SetBody(v *CardTemplateBuildActionResponseBody) *CardTemplateBuildActionResponse {
+	s.Body = v
+	return s
+}
+
+type ChatIdToOpenConversationIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatIdToOpenConversationIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatIdToOpenConversationIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatIdToOpenConversationIdHeaders) SetCommonHeaders(v map[string]*string) *ChatIdToOpenConversationIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatIdToOpenConversationIdHeaders) SetXAcsDingtalkAccessToken(v string) *ChatIdToOpenConversationIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatIdToOpenConversationIdResponseBody struct {
+	// openConversationId
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s ChatIdToOpenConversationIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatIdToOpenConversationIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatIdToOpenConversationIdResponseBody) SetOpenConversationId(v string) *ChatIdToOpenConversationIdResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+type ChatIdToOpenConversationIdResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ChatIdToOpenConversationIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ChatIdToOpenConversationIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatIdToOpenConversationIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatIdToOpenConversationIdResponse) SetHeaders(v map[string]*string) *ChatIdToOpenConversationIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatIdToOpenConversationIdResponse) SetBody(v *ChatIdToOpenConversationIdResponseBody) *ChatIdToOpenConversationIdResponse {
+	s.Body = v
+	return s
+}
+
 type GetInterconnectionUrlHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -45,12 +198,16 @@ type GetInterconnectionUrlRequest struct {
 	AppUserMobileNumber *string `json:"appUserMobileNumber,omitempty" xml:"appUserMobileNumber,omitempty"`
 	// appUserName
 	AppUserName *string `json:"appUserName,omitempty" xml:"appUserName,omitempty"`
-	// dingCorpId
-	DingCorpId *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
-	// dingUserId
-	DingUserId *string `json:"dingUserId,omitempty" xml:"dingUserId,omitempty"`
-	// msgPageSettingId
-	MsgPageSettingId *int64 `json:"msgPageSettingId,omitempty" xml:"msgPageSettingId,omitempty"`
+	// msgPageType
+	MsgPageType *int32 `json:"msgPageType,omitempty" xml:"msgPageType,omitempty"`
+	// qrCode
+	QrCode *string `json:"qrCode,omitempty" xml:"qrCode,omitempty"`
+	// signature
+	Signature *string `json:"signature,omitempty" xml:"signature,omitempty"`
+	// sourceType
+	SourceType *int32 `json:"sourceType,omitempty" xml:"sourceType,omitempty"`
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetInterconnectionUrlRequest) String() string {
@@ -86,18 +243,28 @@ func (s *GetInterconnectionUrlRequest) SetAppUserName(v string) *GetInterconnect
 	return s
 }
 
-func (s *GetInterconnectionUrlRequest) SetDingCorpId(v string) *GetInterconnectionUrlRequest {
-	s.DingCorpId = &v
+func (s *GetInterconnectionUrlRequest) SetMsgPageType(v int32) *GetInterconnectionUrlRequest {
+	s.MsgPageType = &v
 	return s
 }
 
-func (s *GetInterconnectionUrlRequest) SetDingUserId(v string) *GetInterconnectionUrlRequest {
-	s.DingUserId = &v
+func (s *GetInterconnectionUrlRequest) SetQrCode(v string) *GetInterconnectionUrlRequest {
+	s.QrCode = &v
 	return s
 }
 
-func (s *GetInterconnectionUrlRequest) SetMsgPageSettingId(v int64) *GetInterconnectionUrlRequest {
-	s.MsgPageSettingId = &v
+func (s *GetInterconnectionUrlRequest) SetSignature(v string) *GetInterconnectionUrlRequest {
+	s.Signature = &v
+	return s
+}
+
+func (s *GetInterconnectionUrlRequest) SetSourceType(v int32) *GetInterconnectionUrlRequest {
+	s.SourceType = &v
+	return s
+}
+
+func (s *GetInterconnectionUrlRequest) SetUserId(v string) *GetInterconnectionUrlRequest {
+	s.UserId = &v
 	return s
 }
 
@@ -1961,6 +2128,89 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) CardTemplateBuildAction(request *CardTemplateBuildActionRequest) (_result *CardTemplateBuildActionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CardTemplateBuildActionHeaders{}
+	_result = &CardTemplateBuildActionResponse{}
+	_body, _err := client.CardTemplateBuildActionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CardTemplateBuildActionWithOptions(request *CardTemplateBuildActionRequest, headers *CardTemplateBuildActionHeaders, runtime *util.RuntimeOptions) (_result *CardTemplateBuildActionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Action)) {
+		body["action"] = request.Action
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardTemplateJson)) {
+		body["cardTemplateJson"] = request.CardTemplateJson
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CardTemplateBuildActionResponse{}
+	_body, _err := client.DoROARequest(tea.String("CardTemplateBuildAction"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interactiveCards/templates/buildAction"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ChatIdToOpenConversationId(chatId *string) (_result *ChatIdToOpenConversationIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatIdToOpenConversationIdHeaders{}
+	_result = &ChatIdToOpenConversationIdResponse{}
+	_body, _err := client.ChatIdToOpenConversationIdWithOptions(chatId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ChatIdToOpenConversationIdWithOptions(chatId *string, headers *ChatIdToOpenConversationIdHeaders, runtime *util.RuntimeOptions) (_result *ChatIdToOpenConversationIdResponse, _err error) {
+	chatId = openapiutil.GetEncodeParam(chatId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &ChatIdToOpenConversationIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("ChatIdToOpenConversationId"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/chat/"+tea.StringValue(chatId)+"/convertToOpenConversationId"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetInterconnectionUrl(request *GetInterconnectionUrlRequest) (_result *GetInterconnectionUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetInterconnectionUrlHeaders{}
@@ -1999,16 +2249,24 @@ func (client *Client) GetInterconnectionUrlWithOptions(request *GetInterconnecti
 		body["appUserName"] = request.AppUserName
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
-		body["dingCorpId"] = request.DingCorpId
+	if !tea.BoolValue(util.IsUnset(request.MsgPageType)) {
+		body["msgPageType"] = request.MsgPageType
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.DingUserId)) {
-		body["dingUserId"] = request.DingUserId
+	if !tea.BoolValue(util.IsUnset(request.QrCode)) {
+		body["qrCode"] = request.QrCode
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.MsgPageSettingId)) {
-		body["msgPageSettingId"] = request.MsgPageSettingId
+	if !tea.BoolValue(util.IsUnset(request.Signature)) {
+		body["signature"] = request.Signature
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceType)) {
+		body["sourceType"] = request.SourceType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
 	}
 
 	realHeaders := make(map[string]*string)

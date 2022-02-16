@@ -1148,6 +1148,264 @@ func (s *CreatWithholdingOrderAndPayResponse) SetBody(v *CreatWithholdingOrderAn
 	return s
 }
 
+type CreateAcquireRefundOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateAcquireRefundOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAcquireRefundOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAcquireRefundOrderHeaders) SetCommonHeaders(v map[string]*string) *CreateAcquireRefundOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAcquireRefundOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateAcquireRefundOrderRequest struct {
+	// 主机构编号
+	InstId *string `json:"instId,omitempty" xml:"instId,omitempty"`
+	// 操作人userId
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// 原支付单外部流水号
+	OriginOutTradeNo *string `json:"originOutTradeNo,omitempty" xml:"originOutTradeNo,omitempty"`
+	// 其他资金渠道退款明细
+	OtherPayChannelDetailInfoList []*CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList `json:"otherPayChannelDetailInfoList,omitempty" xml:"otherPayChannelDetailInfoList,omitempty" type:"Repeated"`
+	// 外部退款订单号
+	OutRefundNo *string `json:"outRefundNo,omitempty" xml:"outRefundNo,omitempty"`
+	// 退款金额，支持部分退款
+	RefundAmount *string `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
+	// 退款备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// 子机构编号
+	SubInstId *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
+	// 代扣标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s CreateAcquireRefundOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAcquireRefundOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAcquireRefundOrderRequest) SetInstId(v string) *CreateAcquireRefundOrderRequest {
+	s.InstId = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequest) SetOperatorUserId(v string) *CreateAcquireRefundOrderRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequest) SetOriginOutTradeNo(v string) *CreateAcquireRefundOrderRequest {
+	s.OriginOutTradeNo = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequest) SetOtherPayChannelDetailInfoList(v []*CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList) *CreateAcquireRefundOrderRequest {
+	s.OtherPayChannelDetailInfoList = v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequest) SetOutRefundNo(v string) *CreateAcquireRefundOrderRequest {
+	s.OutRefundNo = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequest) SetRefundAmount(v string) *CreateAcquireRefundOrderRequest {
+	s.RefundAmount = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequest) SetRemark(v string) *CreateAcquireRefundOrderRequest {
+	s.Remark = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequest) SetSubInstId(v string) *CreateAcquireRefundOrderRequest {
+	s.SubInstId = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequest) SetTitle(v string) *CreateAcquireRefundOrderRequest {
+	s.Title = &v
+	return s
+}
+
+type CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList struct {
+	// 渠道金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 资金明细列表
+	FundToolDetailInfoList []*CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList `json:"fundToolDetailInfoList,omitempty" xml:"fundToolDetailInfoList,omitempty" type:"Repeated"`
+	// 渠道名称
+	PayChannelName *string `json:"payChannelName,omitempty" xml:"payChannelName,omitempty"`
+	// 支付渠道单号
+	PayChannelOrderNo *string `json:"payChannelOrderNo,omitempty" xml:"payChannelOrderNo,omitempty"`
+	// 渠道类型
+	PayChannelType *string `json:"payChannelType,omitempty" xml:"payChannelType,omitempty"`
+	// 总优惠金额
+	PromotionAmount *string `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
+}
+
+func (s CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList) SetAmount(v string) *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList {
+	s.Amount = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList) SetFundToolDetailInfoList(v []*CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList) *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList {
+	s.FundToolDetailInfoList = v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList) SetPayChannelName(v string) *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList {
+	s.PayChannelName = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList) SetPayChannelOrderNo(v string) *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList {
+	s.PayChannelOrderNo = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList) SetPayChannelType(v string) *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList {
+	s.PayChannelType = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList) SetPromotionAmount(v string) *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList {
+	s.PromotionAmount = &v
+	return s
+}
+
+type CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList struct {
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 扩展信息
+	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// 资金工具名称
+	FundToolName *string `json:"fundToolName,omitempty" xml:"fundToolName,omitempty"`
+	// 资金明细创建时间
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 资金明细完成时间
+	GmtFinish *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
+	// 是否是优惠工具
+	PromotionFundTool *bool `json:"promotionFundTool,omitempty" xml:"promotionFundTool,omitempty"`
+}
+
+func (s CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList) SetAmount(v string) *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList {
+	s.Amount = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList) SetExtInfo(v string) *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList {
+	s.ExtInfo = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList) SetFundToolName(v string) *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList {
+	s.FundToolName = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList) SetGmtCreate(v string) *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList) SetGmtFinish(v string) *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList {
+	s.GmtFinish = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList) SetPromotionFundTool(v bool) *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList {
+	s.PromotionFundTool = &v
+	return s
+}
+
+type CreateAcquireRefundOrderResponseBody struct {
+	// 外部退款单号
+	OutRefundNo *string `json:"outRefundNo,omitempty" xml:"outRefundNo,omitempty"`
+	// 钉钉退款单号
+	RefundOrderNo *string `json:"refundOrderNo,omitempty" xml:"refundOrderNo,omitempty"`
+	// 退款状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s CreateAcquireRefundOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAcquireRefundOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAcquireRefundOrderResponseBody) SetOutRefundNo(v string) *CreateAcquireRefundOrderResponseBody {
+	s.OutRefundNo = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderResponseBody) SetRefundOrderNo(v string) *CreateAcquireRefundOrderResponseBody {
+	s.RefundOrderNo = &v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderResponseBody) SetStatus(v string) *CreateAcquireRefundOrderResponseBody {
+	s.Status = &v
+	return s
+}
+
+type CreateAcquireRefundOrderResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateAcquireRefundOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateAcquireRefundOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAcquireRefundOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAcquireRefundOrderResponse) SetHeaders(v map[string]*string) *CreateAcquireRefundOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateAcquireRefundOrderResponse) SetBody(v *CreateAcquireRefundOrderResponseBody) *CreateAcquireRefundOrderResponse {
+	s.Body = v
+	return s
+}
+
 type CreateBatchTradeOrderHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3734,6 +3992,179 @@ func (s *NotifyVerifyResultResponse) SetBody(v *NotifyVerifyResultResponseBody) 
 	return s
 }
 
+type QueryAcquireRefundOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryAcquireRefundOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAcquireRefundOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAcquireRefundOrderHeaders) SetCommonHeaders(v map[string]*string) *QueryAcquireRefundOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryAcquireRefundOrderHeaders) SetXAcsDingtalkAccessToken(v string) *QueryAcquireRefundOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryAcquireRefundOrderRequest struct {
+	// 外部退款订单流水号
+	OutRefundNo *string `json:"outRefundNo,omitempty" xml:"outRefundNo,omitempty"`
+}
+
+func (s QueryAcquireRefundOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAcquireRefundOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAcquireRefundOrderRequest) SetOutRefundNo(v string) *QueryAcquireRefundOrderRequest {
+	s.OutRefundNo = &v
+	return s
+}
+
+type QueryAcquireRefundOrderResponseBody struct {
+	// 代扣金额（元）
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 订单创建日期
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 退款完成日期
+	GmtRefund *string `json:"gmtRefund,omitempty" xml:"gmtRefund,omitempty"`
+	// 主机构编号
+	InstId *string `json:"instId,omitempty" xml:"instId,omitempty"`
+	// 钉钉订单号
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// 原支付单外部流水号
+	OriginOutTradeNo *string `json:"originOutTradeNo,omitempty" xml:"originOutTradeNo,omitempty"`
+	// 外部退款订单号
+	OutRefundNo *string `json:"outRefundNo,omitempty" xml:"outRefundNo,omitempty"`
+	// 支付渠道
+	PayChannel *string `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
+	// 支付渠道支付账号（脱敏后返回）
+	PayChannelAccountNo *string `json:"payChannelAccountNo,omitempty" xml:"payChannelAccountNo,omitempty"`
+	// 退款人userId
+	PayerUserId *string `json:"payerUserId,omitempty" xml:"payerUserId,omitempty"`
+	// 代扣备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// 状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 子机构编号
+	SubInstId *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
+	// 代扣标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QueryAcquireRefundOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAcquireRefundOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAcquireRefundOrderResponseBody) SetAmount(v string) *QueryAcquireRefundOrderResponseBody {
+	s.Amount = &v
+	return s
+}
+
+func (s *QueryAcquireRefundOrderResponseBody) SetGmtCreate(v string) *QueryAcquireRefundOrderResponseBody {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QueryAcquireRefundOrderResponseBody) SetGmtRefund(v string) *QueryAcquireRefundOrderResponseBody {
+	s.GmtRefund = &v
+	return s
+}
+
+func (s *QueryAcquireRefundOrderResponseBody) SetInstId(v string) *QueryAcquireRefundOrderResponseBody {
+	s.InstId = &v
+	return s
+}
+
+func (s *QueryAcquireRefundOrderResponseBody) SetOrderNo(v string) *QueryAcquireRefundOrderResponseBody {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *QueryAcquireRefundOrderResponseBody) SetOriginOutTradeNo(v string) *QueryAcquireRefundOrderResponseBody {
+	s.OriginOutTradeNo = &v
+	return s
+}
+
+func (s *QueryAcquireRefundOrderResponseBody) SetOutRefundNo(v string) *QueryAcquireRefundOrderResponseBody {
+	s.OutRefundNo = &v
+	return s
+}
+
+func (s *QueryAcquireRefundOrderResponseBody) SetPayChannel(v string) *QueryAcquireRefundOrderResponseBody {
+	s.PayChannel = &v
+	return s
+}
+
+func (s *QueryAcquireRefundOrderResponseBody) SetPayChannelAccountNo(v string) *QueryAcquireRefundOrderResponseBody {
+	s.PayChannelAccountNo = &v
+	return s
+}
+
+func (s *QueryAcquireRefundOrderResponseBody) SetPayerUserId(v string) *QueryAcquireRefundOrderResponseBody {
+	s.PayerUserId = &v
+	return s
+}
+
+func (s *QueryAcquireRefundOrderResponseBody) SetRemark(v string) *QueryAcquireRefundOrderResponseBody {
+	s.Remark = &v
+	return s
+}
+
+func (s *QueryAcquireRefundOrderResponseBody) SetStatus(v string) *QueryAcquireRefundOrderResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryAcquireRefundOrderResponseBody) SetSubInstId(v string) *QueryAcquireRefundOrderResponseBody {
+	s.SubInstId = &v
+	return s
+}
+
+func (s *QueryAcquireRefundOrderResponseBody) SetTitle(v string) *QueryAcquireRefundOrderResponseBody {
+	s.Title = &v
+	return s
+}
+
+type QueryAcquireRefundOrderResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryAcquireRefundOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryAcquireRefundOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAcquireRefundOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAcquireRefundOrderResponse) SetHeaders(v map[string]*string) *QueryAcquireRefundOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryAcquireRefundOrderResponse) SetBody(v *QueryAcquireRefundOrderResponseBody) *QueryAcquireRefundOrderResponse {
+	s.Body = v
+	return s
+}
+
 type QueryBatchTradeDetailListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5748,6 +6179,82 @@ func (client *Client) CreatWithholdingOrderAndPayWithOptions(request *CreatWithh
 	return _result, _err
 }
 
+func (client *Client) CreateAcquireRefundOrder(request *CreateAcquireRefundOrderRequest) (_result *CreateAcquireRefundOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateAcquireRefundOrderHeaders{}
+	_result = &CreateAcquireRefundOrderResponse{}
+	_body, _err := client.CreateAcquireRefundOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateAcquireRefundOrderWithOptions(request *CreateAcquireRefundOrderRequest, headers *CreateAcquireRefundOrderHeaders, runtime *util.RuntimeOptions) (_result *CreateAcquireRefundOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstId)) {
+		body["instId"] = request.InstId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OriginOutTradeNo)) {
+		body["originOutTradeNo"] = request.OriginOutTradeNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OtherPayChannelDetailInfoList)) {
+		body["otherPayChannelDetailInfoList"] = request.OtherPayChannelDetailInfoList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutRefundNo)) {
+		body["outRefundNo"] = request.OutRefundNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RefundAmount)) {
+		body["refundAmount"] = request.RefundAmount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubInstId)) {
+		body["subInstId"] = request.SubInstId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateAcquireRefundOrderResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateAcquireRefundOrder"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/finance/acquireOrders/refund"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateBatchTradeOrder(request *CreateBatchTradeOrderRequest) (_result *CreateBatchTradeOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateBatchTradeOrderHeaders{}
@@ -6429,6 +6936,50 @@ func (client *Client) NotifyVerifyResultWithOptions(request *NotifyVerifyResultR
 	}
 	_result = &NotifyVerifyResultResponse{}
 	_body, _err := client.DoROARequest(tea.String("NotifyVerifyResult"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/finance/payCodes/verifyResults/notify"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryAcquireRefundOrder(request *QueryAcquireRefundOrderRequest) (_result *QueryAcquireRefundOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryAcquireRefundOrderHeaders{}
+	_result = &QueryAcquireRefundOrderResponse{}
+	_body, _err := client.QueryAcquireRefundOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryAcquireRefundOrderWithOptions(request *QueryAcquireRefundOrderRequest, headers *QueryAcquireRefundOrderHeaders, runtime *util.RuntimeOptions) (_result *QueryAcquireRefundOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OutRefundNo)) {
+		query["outRefundNo"] = request.OutRefundNo
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryAcquireRefundOrderResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryAcquireRefundOrder"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/finance/acquireOrders/refunds"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

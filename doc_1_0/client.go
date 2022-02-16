@@ -2061,10 +2061,14 @@ func (s *GetSheetRequest) SetOperatorId(v string) *GetSheetRequest {
 }
 
 type GetSheetResponseBody struct {
+	// 最后一列非空列的位置，从0开始。表为空时返回-1。
+	LastNonEmptyColumn *int64 `json:"lastNonEmptyColumn,omitempty" xml:"lastNonEmptyColumn,omitempty"`
+	// 最后一行非空行的位置，从0开始。表为空时返回-1。
+	LastNonEmptyRow *int64 `json:"lastNonEmptyRow,omitempty" xml:"lastNonEmptyRow,omitempty"`
 	// 工作表名称
-	Name []*string `json:"name,omitempty" xml:"name,omitempty" type:"Repeated"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 工作表可见性
-	Visibility []*string `json:"visibility,omitempty" xml:"visibility,omitempty" type:"Repeated"`
+	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
 func (s GetSheetResponseBody) String() string {
@@ -2075,13 +2079,23 @@ func (s GetSheetResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *GetSheetResponseBody) SetName(v []*string) *GetSheetResponseBody {
-	s.Name = v
+func (s *GetSheetResponseBody) SetLastNonEmptyColumn(v int64) *GetSheetResponseBody {
+	s.LastNonEmptyColumn = &v
 	return s
 }
 
-func (s *GetSheetResponseBody) SetVisibility(v []*string) *GetSheetResponseBody {
-	s.Visibility = v
+func (s *GetSheetResponseBody) SetLastNonEmptyRow(v int64) *GetSheetResponseBody {
+	s.LastNonEmptyRow = &v
+	return s
+}
+
+func (s *GetSheetResponseBody) SetName(v string) *GetSheetResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *GetSheetResponseBody) SetVisibility(v string) *GetSheetResponseBody {
+	s.Visibility = &v
 	return s
 }
 

@@ -394,6 +394,70 @@ func (s *DeleteReceiptResponse) SetBody(v *DeleteReceiptResponseBody) *DeleteRec
 	return s
 }
 
+type GetBookkeepingUserListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetBookkeepingUserListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBookkeepingUserListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetBookkeepingUserListHeaders) SetCommonHeaders(v map[string]*string) *GetBookkeepingUserListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetBookkeepingUserListHeaders) SetXAcsDingtalkAccessToken(v string) *GetBookkeepingUserListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetBookkeepingUserListResponseBody struct {
+	// staffId列表
+	Result []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetBookkeepingUserListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBookkeepingUserListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetBookkeepingUserListResponseBody) SetResult(v []*string) *GetBookkeepingUserListResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetBookkeepingUserListResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetBookkeepingUserListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetBookkeepingUserListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBookkeepingUserListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetBookkeepingUserListResponse) SetHeaders(v map[string]*string) *GetBookkeepingUserListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetBookkeepingUserListResponse) SetBody(v *GetBookkeepingUserListResponseBody) *GetBookkeepingUserListResponse {
+	s.Body = v
+	return s
+}
+
 type GetCategoryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2352,6 +2416,40 @@ func (client *Client) DeleteReceiptWithOptions(request *DeleteReceiptRequest, he
 	}
 	_result = &DeleteReceiptResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteReceipt"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/receipts/remove"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetBookkeepingUserList() (_result *GetBookkeepingUserListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetBookkeepingUserListHeaders{}
+	_result = &GetBookkeepingUserListResponse{}
+	_body, _err := client.GetBookkeepingUserListWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetBookkeepingUserListWithOptions(headers *GetBookkeepingUserListHeaders, runtime *util.RuntimeOptions) (_result *GetBookkeepingUserListResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetBookkeepingUserListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetBookkeepingUserList"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/bookkeeping/users"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
