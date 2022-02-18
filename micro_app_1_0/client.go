@@ -2460,10 +2460,10 @@ type SetMicroAppScopeRequest struct {
 	AddRoleIds []*int64 `json:"addRoleIds,omitempty" xml:"addRoleIds,omitempty" type:"Repeated"`
 	// 增加的可见用户
 	AddUserIds []*string `json:"addUserIds,omitempty" xml:"addUserIds,omitempty" type:"Repeated"`
-	// 删除的可见角色
-	DdUserIds []*int64 `json:"ddUserIds,omitempty" xml:"ddUserIds,omitempty" type:"Repeated"`
 	// 删除的可见部门
 	DelDeptIds []*int64 `json:"delDeptIds,omitempty" xml:"delDeptIds,omitempty" type:"Repeated"`
+	// 删除的可见角色
+	DelRoleIds []*int64 `json:"delRoleIds,omitempty" xml:"delRoleIds,omitempty" type:"Repeated"`
 	// 删除的可见用户
 	DelUserIds []*string `json:"delUserIds,omitempty" xml:"delUserIds,omitempty" type:"Repeated"`
 	// 是否管理员可见
@@ -2493,13 +2493,13 @@ func (s *SetMicroAppScopeRequest) SetAddUserIds(v []*string) *SetMicroAppScopeRe
 	return s
 }
 
-func (s *SetMicroAppScopeRequest) SetDdUserIds(v []*int64) *SetMicroAppScopeRequest {
-	s.DdUserIds = v
+func (s *SetMicroAppScopeRequest) SetDelDeptIds(v []*int64) *SetMicroAppScopeRequest {
+	s.DelDeptIds = v
 	return s
 }
 
-func (s *SetMicroAppScopeRequest) SetDelDeptIds(v []*int64) *SetMicroAppScopeRequest {
-	s.DelDeptIds = v
+func (s *SetMicroAppScopeRequest) SetDelRoleIds(v []*int64) *SetMicroAppScopeRequest {
+	s.DelRoleIds = v
 	return s
 }
 
@@ -3980,12 +3980,12 @@ func (client *Client) SetMicroAppScopeWithOptions(agentId *string, request *SetM
 		body["addUserIds"] = request.AddUserIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.DdUserIds)) {
-		body["ddUserIds"] = request.DdUserIds
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.DelDeptIds)) {
 		body["delDeptIds"] = request.DelDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DelRoleIds)) {
+		body["delRoleIds"] = request.DelRoleIds
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.DelUserIds)) {

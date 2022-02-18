@@ -5778,6 +5778,8 @@ type UserAgreementPageSignRequest struct {
 	PayChannel *string `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
 	// 备注
 	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// 签约后页面返回url
+	ReturnUrl *string `json:"returnUrl,omitempty" xml:"returnUrl,omitempty"`
 	// 签约场景
 	SignScene *string `json:"signScene,omitempty" xml:"signScene,omitempty"`
 	// 子机构编号
@@ -5822,6 +5824,11 @@ func (s *UserAgreementPageSignRequest) SetPayChannel(v string) *UserAgreementPag
 
 func (s *UserAgreementPageSignRequest) SetRemark(v string) *UserAgreementPageSignRequest {
 	s.Remark = &v
+	return s
+}
+
+func (s *UserAgreementPageSignRequest) SetReturnUrl(v string) *UserAgreementPageSignRequest {
+	s.ReturnUrl = &v
 	return s
 }
 
@@ -7607,6 +7614,10 @@ func (client *Client) UserAgreementPageSignWithOptions(request *UserAgreementPag
 
 	if !tea.BoolValue(util.IsUnset(request.Remark)) {
 		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReturnUrl)) {
+		body["returnUrl"] = request.ReturnUrl
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.SignScene)) {
