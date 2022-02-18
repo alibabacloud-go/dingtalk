@@ -5634,6 +5634,158 @@ func (s *UpateUserCodeInstanceResponse) SetBody(v *UpateUserCodeInstanceResponse
 	return s
 }
 
+type UpdateInvoiceVerifyStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateInvoiceVerifyStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceVerifyStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceVerifyStatusHeaders) SetCommonHeaders(v map[string]*string) *UpdateInvoiceVerifyStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateInvoiceVerifyStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateInvoiceVerifyStatusRequest struct {
+	// 查验流水号
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// 查验结果
+	CheckingResult *int32 `json:"checkingResult,omitempty" xml:"checkingResult,omitempty"`
+	// 查验状态
+	CheckingStatus *int32 `json:"checkingStatus,omitempty" xml:"checkingStatus,omitempty"`
+	// 业务响应码
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 企业Id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 发票代码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票状态
+	InvoiceStatus *int32 `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
+	// 发票验真编号
+	InvoiceVerifyId *string `json:"invoiceVerifyId,omitempty" xml:"invoiceVerifyId,omitempty"`
+	// 响应信息
+	Msg *string `json:"msg,omitempty" xml:"msg,omitempty"`
+	// 用户Id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s UpdateInvoiceVerifyStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceVerifyStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceVerifyStatusRequest) SetBizId(v string) *UpdateInvoiceVerifyStatusRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusRequest) SetCheckingResult(v int32) *UpdateInvoiceVerifyStatusRequest {
+	s.CheckingResult = &v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusRequest) SetCheckingStatus(v int32) *UpdateInvoiceVerifyStatusRequest {
+	s.CheckingStatus = &v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusRequest) SetCode(v string) *UpdateInvoiceVerifyStatusRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusRequest) SetCorpId(v string) *UpdateInvoiceVerifyStatusRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusRequest) SetInvoiceCode(v string) *UpdateInvoiceVerifyStatusRequest {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusRequest) SetInvoiceNo(v string) *UpdateInvoiceVerifyStatusRequest {
+	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusRequest) SetInvoiceStatus(v int32) *UpdateInvoiceVerifyStatusRequest {
+	s.InvoiceStatus = &v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusRequest) SetInvoiceVerifyId(v string) *UpdateInvoiceVerifyStatusRequest {
+	s.InvoiceVerifyId = &v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusRequest) SetMsg(v string) *UpdateInvoiceVerifyStatusRequest {
+	s.Msg = &v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusRequest) SetUnionId(v string) *UpdateInvoiceVerifyStatusRequest {
+	s.UnionId = &v
+	return s
+}
+
+type UpdateInvoiceVerifyStatusResponseBody struct {
+	// Id of the request
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateInvoiceVerifyStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceVerifyStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceVerifyStatusResponseBody) SetResult(v bool) *UpdateInvoiceVerifyStatusResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateInvoiceVerifyStatusResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateInvoiceVerifyStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateInvoiceVerifyStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceVerifyStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceVerifyStatusResponse) SetHeaders(v map[string]*string) *UpdateInvoiceVerifyStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusResponse) SetBody(v *UpdateInvoiceVerifyStatusResponseBody) *UpdateInvoiceVerifyStatusResponse {
+	s.Body = v
+	return s
+}
+
 type UploadRegisterImageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7511,6 +7663,90 @@ func (client *Client) UpateUserCodeInstanceWithOptions(request *UpateUserCodeIns
 	}
 	_result = &UpateUserCodeInstanceResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpateUserCodeInstance"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/finance/payCodes/userInstances"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateInvoiceVerifyStatus(request *UpdateInvoiceVerifyStatusRequest) (_result *UpdateInvoiceVerifyStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateInvoiceVerifyStatusHeaders{}
+	_result = &UpdateInvoiceVerifyStatusResponse{}
+	_body, _err := client.UpdateInvoiceVerifyStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateInvoiceVerifyStatusWithOptions(request *UpdateInvoiceVerifyStatusRequest, headers *UpdateInvoiceVerifyStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateInvoiceVerifyStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CheckingResult)) {
+		body["checkingResult"] = request.CheckingResult
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CheckingStatus)) {
+		body["checkingStatus"] = request.CheckingStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		body["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceCode)) {
+		body["invoiceCode"] = request.InvoiceCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceNo)) {
+		body["invoiceNo"] = request.InvoiceNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceStatus)) {
+		body["invoiceStatus"] = request.InvoiceStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceVerifyId)) {
+		body["invoiceVerifyId"] = request.InvoiceVerifyId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Msg)) {
+		body["msg"] = request.Msg
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateInvoiceVerifyStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateInvoiceVerifyStatus"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/finance/invoices/verifyStatus"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

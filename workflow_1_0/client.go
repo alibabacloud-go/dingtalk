@@ -2295,9 +2295,9 @@ type QuerySchemaByProcessCodeResponseBodyResult struct {
 	// 表单 uuid。
 	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
 	// 创建时间的时间戳。
-	GmtCreate *int32 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
 	// 修改时间的时间戳。
-	GmtModified *int32 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
 	// 图标。
 	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
 	// 排序 id。
@@ -2373,12 +2373,12 @@ func (s *QuerySchemaByProcessCodeResponseBodyResult) SetFormUuid(v string) *Quer
 	return s
 }
 
-func (s *QuerySchemaByProcessCodeResponseBodyResult) SetGmtCreate(v int32) *QuerySchemaByProcessCodeResponseBodyResult {
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetGmtCreate(v string) *QuerySchemaByProcessCodeResponseBodyResult {
 	s.GmtCreate = &v
 	return s
 }
 
-func (s *QuerySchemaByProcessCodeResponseBodyResult) SetGmtModified(v int32) *QuerySchemaByProcessCodeResponseBodyResult {
+func (s *QuerySchemaByProcessCodeResponseBodyResult) SetGmtModified(v string) *QuerySchemaByProcessCodeResponseBodyResult {
 	s.GmtModified = &v
 	return s
 }
