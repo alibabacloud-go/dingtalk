@@ -2536,7 +2536,7 @@ type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps struct {
 	// 加班套件4.0新增 加班明细是否隐藏标签。
 	HideLabel *bool `json:"hideLabel,omitempty" xml:"hideLabel,omitempty"`
 	// 兼容出勤套件类型。
-	HolidayOptions *string `json:"holidayOptions,omitempty" xml:"holidayOptions,omitempty"`
+	HolidayOptions []map[string]*string `json:"holidayOptions,omitempty" xml:"holidayOptions,omitempty" type:"Repeated"`
 	// 控件 id。
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 	// 控件名称。
@@ -2701,8 +2701,8 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetH
 	return s
 }
 
-func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetHolidayOptions(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
-	s.HolidayOptions = &v
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetHolidayOptions(v []map[string]*string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.HolidayOptions = v
 	return s
 }
 
