@@ -54,10 +54,6 @@ func (s *CreateActionRequest) SetActionInfo(v []*CreateActionRequestActionInfo) 
 type CreateActionRequestActionInfo struct {
 	// api请求url path，结合Connector上的apiDomain使用
 	ApiPath *string `json:"apiPath,omitempty" xml:"apiPath,omitempty"`
-	// action维度的apiSecret
-	ApiSecret *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
-	// action维度的api请求url
-	ApiUrl *string `json:"apiUrl,omitempty" xml:"apiUrl,omitempty"`
 	// 描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 	// 连接平台连接器id
@@ -70,6 +66,8 @@ type CreateActionRequestActionInfo struct {
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
 	// 名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 执行动作接口成功调用规则。
+	OutputDataRules []*CreateActionRequestActionInfoOutputDataRules `json:"outputDataRules,omitempty" xml:"outputDataRules,omitempty" type:"Repeated"`
 	// 出参schema
 	OutputSchema *string `json:"outputSchema,omitempty" xml:"outputSchema,omitempty"`
 }
@@ -84,16 +82,6 @@ func (s CreateActionRequestActionInfo) GoString() string {
 
 func (s *CreateActionRequestActionInfo) SetApiPath(v string) *CreateActionRequestActionInfo {
 	s.ApiPath = &v
-	return s
-}
-
-func (s *CreateActionRequestActionInfo) SetApiSecret(v string) *CreateActionRequestActionInfo {
-	s.ApiSecret = &v
-	return s
-}
-
-func (s *CreateActionRequestActionInfo) SetApiUrl(v string) *CreateActionRequestActionInfo {
-	s.ApiUrl = &v
 	return s
 }
 
@@ -127,8 +115,45 @@ func (s *CreateActionRequestActionInfo) SetName(v string) *CreateActionRequestAc
 	return s
 }
 
+func (s *CreateActionRequestActionInfo) SetOutputDataRules(v []*CreateActionRequestActionInfoOutputDataRules) *CreateActionRequestActionInfo {
+	s.OutputDataRules = v
+	return s
+}
+
 func (s *CreateActionRequestActionInfo) SetOutputSchema(v string) *CreateActionRequestActionInfo {
 	s.OutputSchema = &v
+	return s
+}
+
+type CreateActionRequestActionInfoOutputDataRules struct {
+	// 规则的预期值。
+	ExpectValue *string `json:"expectValue,omitempty" xml:"expectValue,omitempty"`
+	// 操作类型。
+	Operate *string `json:"operate,omitempty" xml:"operate,omitempty"`
+	// 规则的属性路径。
+	PropertyPath *string `json:"propertyPath,omitempty" xml:"propertyPath,omitempty"`
+}
+
+func (s CreateActionRequestActionInfoOutputDataRules) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateActionRequestActionInfoOutputDataRules) GoString() string {
+	return s.String()
+}
+
+func (s *CreateActionRequestActionInfoOutputDataRules) SetExpectValue(v string) *CreateActionRequestActionInfoOutputDataRules {
+	s.ExpectValue = &v
+	return s
+}
+
+func (s *CreateActionRequestActionInfoOutputDataRules) SetOperate(v string) *CreateActionRequestActionInfoOutputDataRules {
+	s.Operate = &v
+	return s
+}
+
+func (s *CreateActionRequestActionInfoOutputDataRules) SetPropertyPath(v string) *CreateActionRequestActionInfoOutputDataRules {
+	s.PropertyPath = &v
 	return s
 }
 
@@ -274,17 +299,19 @@ func (s *CreateConnectorRequest) SetConnectorInfo(v []*CreateConnectorRequestCon
 }
 
 type CreateConnectorRequestConnectorInfo struct {
-	// 连接器下action api请求url域名，当baseVariables中无apiDomain，该项必填
+	// 连接器中执行动作的接口路径域名。
 	ApiDomain *string `json:"apiDomain,omitempty" xml:"apiDomain,omitempty"`
-	// 连接器下action api请求时使用http加密签名，当baseVariables无apiSecret，该项必填
+	// 连接器中执行动作接口的加密签名。
 	ApiSecret *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
 	AppId     *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
-	// 变量列表。目前支持将apiDomain、apiSecret声明为基础变量。若声明为变量，则对应属性可不传值
-	BaseVariables         []*string `json:"baseVariables,omitempty" xml:"baseVariables,omitempty" type:"Repeated"`
-	Description           *string   `json:"description,omitempty" xml:"description,omitempty"`
-	IconMediaId           *string   `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
-	IntegratorConnectorId *string   `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	Name                  *string   `json:"name,omitempty" xml:"name,omitempty"`
+	// 将apiSecret设置为模板变量。
+	AuthValueEnv *bool   `json:"authValueEnv,omitempty" xml:"authValueEnv,omitempty"`
+	Description  *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 将执行动作域名设为环境变量。
+	DomainEnv             *bool   `json:"domainEnv,omitempty" xml:"domainEnv,omitempty"`
+	IconMediaId           *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
+	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
+	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CreateConnectorRequestConnectorInfo) String() string {
@@ -310,13 +337,18 @@ func (s *CreateConnectorRequestConnectorInfo) SetAppId(v int64) *CreateConnector
 	return s
 }
 
-func (s *CreateConnectorRequestConnectorInfo) SetBaseVariables(v []*string) *CreateConnectorRequestConnectorInfo {
-	s.BaseVariables = v
+func (s *CreateConnectorRequestConnectorInfo) SetAuthValueEnv(v bool) *CreateConnectorRequestConnectorInfo {
+	s.AuthValueEnv = &v
 	return s
 }
 
 func (s *CreateConnectorRequestConnectorInfo) SetDescription(v string) *CreateConnectorRequestConnectorInfo {
 	s.Description = &v
+	return s
+}
+
+func (s *CreateConnectorRequestConnectorInfo) SetDomainEnv(v bool) *CreateConnectorRequestConnectorInfo {
+	s.DomainEnv = &v
 	return s
 }
 
@@ -1121,6 +1153,668 @@ func (s *SyncDataResponse) SetBody(v *SyncDataResponseBody) *SyncDataResponse {
 	return s
 }
 
+type UpdateActionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateActionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateActionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateActionHeaders) SetCommonHeaders(v map[string]*string) *UpdateActionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateActionHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateActionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateActionRequest struct {
+	ActionInfo []*UpdateActionRequestActionInfo `json:"actionInfo,omitempty" xml:"actionInfo,omitempty" type:"Repeated"`
+}
+
+func (s UpdateActionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateActionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateActionRequest) SetActionInfo(v []*UpdateActionRequestActionInfo) *UpdateActionRequest {
+	s.ActionInfo = v
+	return s
+}
+
+type UpdateActionRequestActionInfo struct {
+	// api请求url path，结合Connector上的apiDomain使用
+	ApiPath *string `json:"apiPath,omitempty" xml:"apiPath,omitempty"`
+	// 描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 连接平台的执行动作唯一标识。
+	DingActionId *string `json:"dingActionId,omitempty" xml:"dingActionId,omitempty"`
+	// 连接平台连接器id
+	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	// 入参schema
+	InputSchema *string `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
+	// 服务商的执行事件Id
+	IntegratorActionId *string `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
+	// 服务商的连接器Id
+	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 执行动作接口成功调用规则。
+	OutputDataRules []*UpdateActionRequestActionInfoOutputDataRules `json:"outputDataRules,omitempty" xml:"outputDataRules,omitempty" type:"Repeated"`
+	// 出参schema
+	OutputSchema *string `json:"outputSchema,omitempty" xml:"outputSchema,omitempty"`
+}
+
+func (s UpdateActionRequestActionInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateActionRequestActionInfo) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateActionRequestActionInfo) SetApiPath(v string) *UpdateActionRequestActionInfo {
+	s.ApiPath = &v
+	return s
+}
+
+func (s *UpdateActionRequestActionInfo) SetDescription(v string) *UpdateActionRequestActionInfo {
+	s.Description = &v
+	return s
+}
+
+func (s *UpdateActionRequestActionInfo) SetDingActionId(v string) *UpdateActionRequestActionInfo {
+	s.DingActionId = &v
+	return s
+}
+
+func (s *UpdateActionRequestActionInfo) SetDingConnectorId(v string) *UpdateActionRequestActionInfo {
+	s.DingConnectorId = &v
+	return s
+}
+
+func (s *UpdateActionRequestActionInfo) SetInputSchema(v string) *UpdateActionRequestActionInfo {
+	s.InputSchema = &v
+	return s
+}
+
+func (s *UpdateActionRequestActionInfo) SetIntegratorActionId(v string) *UpdateActionRequestActionInfo {
+	s.IntegratorActionId = &v
+	return s
+}
+
+func (s *UpdateActionRequestActionInfo) SetIntegratorConnectorId(v string) *UpdateActionRequestActionInfo {
+	s.IntegratorConnectorId = &v
+	return s
+}
+
+func (s *UpdateActionRequestActionInfo) SetName(v string) *UpdateActionRequestActionInfo {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateActionRequestActionInfo) SetOutputDataRules(v []*UpdateActionRequestActionInfoOutputDataRules) *UpdateActionRequestActionInfo {
+	s.OutputDataRules = v
+	return s
+}
+
+func (s *UpdateActionRequestActionInfo) SetOutputSchema(v string) *UpdateActionRequestActionInfo {
+	s.OutputSchema = &v
+	return s
+}
+
+type UpdateActionRequestActionInfoOutputDataRules struct {
+	// 规则的预期值。
+	ExpectValue *string `json:"expectValue,omitempty" xml:"expectValue,omitempty"`
+	// 操作类型。
+	Operate *string `json:"operate,omitempty" xml:"operate,omitempty"`
+	// 规则的属性路径。
+	PropertyPath *string `json:"propertyPath,omitempty" xml:"propertyPath,omitempty"`
+}
+
+func (s UpdateActionRequestActionInfoOutputDataRules) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateActionRequestActionInfoOutputDataRules) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateActionRequestActionInfoOutputDataRules) SetExpectValue(v string) *UpdateActionRequestActionInfoOutputDataRules {
+	s.ExpectValue = &v
+	return s
+}
+
+func (s *UpdateActionRequestActionInfoOutputDataRules) SetOperate(v string) *UpdateActionRequestActionInfoOutputDataRules {
+	s.Operate = &v
+	return s
+}
+
+func (s *UpdateActionRequestActionInfoOutputDataRules) SetPropertyPath(v string) *UpdateActionRequestActionInfoOutputDataRules {
+	s.PropertyPath = &v
+	return s
+}
+
+type UpdateActionResponseBody struct {
+	// Id of the request
+	Item []*UpdateActionResponseBodyItem `json:"item,omitempty" xml:"item,omitempty" type:"Repeated"`
+}
+
+func (s UpdateActionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateActionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateActionResponseBody) SetItem(v []*UpdateActionResponseBodyItem) *UpdateActionResponseBody {
+	s.Item = v
+	return s
+}
+
+type UpdateActionResponseBodyItem struct {
+	// 连接平台执行事件id
+	DingActionId *string `json:"dingActionId,omitempty" xml:"dingActionId,omitempty"`
+	// 连接平台连接器id
+	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	// 服务商的执行事件id
+	IntegratorActionId *string `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
+	// 服务商的连接器Id
+	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
+	// 错误码
+	SubErrCode *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
+	// 错误信息
+	SubErrMsg *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
+	// 是否执行成功
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateActionResponseBodyItem) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateActionResponseBodyItem) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateActionResponseBodyItem) SetDingActionId(v string) *UpdateActionResponseBodyItem {
+	s.DingActionId = &v
+	return s
+}
+
+func (s *UpdateActionResponseBodyItem) SetDingConnectorId(v string) *UpdateActionResponseBodyItem {
+	s.DingConnectorId = &v
+	return s
+}
+
+func (s *UpdateActionResponseBodyItem) SetIntegratorActionId(v string) *UpdateActionResponseBodyItem {
+	s.IntegratorActionId = &v
+	return s
+}
+
+func (s *UpdateActionResponseBodyItem) SetIntegratorConnectorId(v string) *UpdateActionResponseBodyItem {
+	s.IntegratorConnectorId = &v
+	return s
+}
+
+func (s *UpdateActionResponseBodyItem) SetSubErrCode(v string) *UpdateActionResponseBodyItem {
+	s.SubErrCode = &v
+	return s
+}
+
+func (s *UpdateActionResponseBodyItem) SetSubErrMsg(v string) *UpdateActionResponseBodyItem {
+	s.SubErrMsg = &v
+	return s
+}
+
+func (s *UpdateActionResponseBodyItem) SetSuccess(v string) *UpdateActionResponseBodyItem {
+	s.Success = &v
+	return s
+}
+
+type UpdateActionResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateActionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateActionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateActionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateActionResponse) SetHeaders(v map[string]*string) *UpdateActionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateActionResponse) SetBody(v *UpdateActionResponseBody) *UpdateActionResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateConnectorHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateConnectorHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateConnectorHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateConnectorHeaders) SetCommonHeaders(v map[string]*string) *UpdateConnectorHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateConnectorHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateConnectorHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateConnectorRequest struct {
+	ConnectorInfo []*UpdateConnectorRequestConnectorInfo `json:"connectorInfo,omitempty" xml:"connectorInfo,omitempty" type:"Repeated"`
+}
+
+func (s UpdateConnectorRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateConnectorRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateConnectorRequest) SetConnectorInfo(v []*UpdateConnectorRequestConnectorInfo) *UpdateConnectorRequest {
+	s.ConnectorInfo = v
+	return s
+}
+
+type UpdateConnectorRequestConnectorInfo struct {
+	// 连接器中执行动作的接口路径域名。
+	ApiDomain *string `json:"apiDomain,omitempty" xml:"apiDomain,omitempty"`
+	// 连接器中执行动作接口的加密签名。
+	ApiSecret *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
+	// 应用id。
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// 将执行动作鉴权值设为环境变量。
+	AuthValueEnv *bool `json:"authValueEnv,omitempty" xml:"authValueEnv,omitempty"`
+	// 连接器描述。
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 连接平台连接器唯一标识。
+	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	// 将执行动作域名设为环境变量。
+	DomainEnv   *bool   `json:"domainEnv,omitempty" xml:"domainEnv,omitempty"`
+	IconMediaId *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
+	// 服务商的连接器唯一标识。
+	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
+	// 连接器名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s UpdateConnectorRequestConnectorInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateConnectorRequestConnectorInfo) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateConnectorRequestConnectorInfo) SetApiDomain(v string) *UpdateConnectorRequestConnectorInfo {
+	s.ApiDomain = &v
+	return s
+}
+
+func (s *UpdateConnectorRequestConnectorInfo) SetApiSecret(v string) *UpdateConnectorRequestConnectorInfo {
+	s.ApiSecret = &v
+	return s
+}
+
+func (s *UpdateConnectorRequestConnectorInfo) SetAppId(v int64) *UpdateConnectorRequestConnectorInfo {
+	s.AppId = &v
+	return s
+}
+
+func (s *UpdateConnectorRequestConnectorInfo) SetAuthValueEnv(v bool) *UpdateConnectorRequestConnectorInfo {
+	s.AuthValueEnv = &v
+	return s
+}
+
+func (s *UpdateConnectorRequestConnectorInfo) SetDescription(v string) *UpdateConnectorRequestConnectorInfo {
+	s.Description = &v
+	return s
+}
+
+func (s *UpdateConnectorRequestConnectorInfo) SetDingConnectorId(v string) *UpdateConnectorRequestConnectorInfo {
+	s.DingConnectorId = &v
+	return s
+}
+
+func (s *UpdateConnectorRequestConnectorInfo) SetDomainEnv(v bool) *UpdateConnectorRequestConnectorInfo {
+	s.DomainEnv = &v
+	return s
+}
+
+func (s *UpdateConnectorRequestConnectorInfo) SetIconMediaId(v string) *UpdateConnectorRequestConnectorInfo {
+	s.IconMediaId = &v
+	return s
+}
+
+func (s *UpdateConnectorRequestConnectorInfo) SetIntegratorConnectorId(v string) *UpdateConnectorRequestConnectorInfo {
+	s.IntegratorConnectorId = &v
+	return s
+}
+
+func (s *UpdateConnectorRequestConnectorInfo) SetName(v string) *UpdateConnectorRequestConnectorInfo {
+	s.Name = &v
+	return s
+}
+
+type UpdateConnectorResponseBody struct {
+	// responseUnitList
+	Item []*UpdateConnectorResponseBodyItem `json:"item,omitempty" xml:"item,omitempty" type:"Repeated"`
+}
+
+func (s UpdateConnectorResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateConnectorResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateConnectorResponseBody) SetItem(v []*UpdateConnectorResponseBodyItem) *UpdateConnectorResponseBody {
+	s.Item = v
+	return s
+}
+
+type UpdateConnectorResponseBodyItem struct {
+	// 连接平台connectorId
+	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	// 服务商连接器connectorId
+	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
+	// 错误码
+	SubErrCode *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
+	// 错误信息
+	SubErrMsg *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateConnectorResponseBodyItem) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateConnectorResponseBodyItem) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateConnectorResponseBodyItem) SetDingConnectorId(v string) *UpdateConnectorResponseBodyItem {
+	s.DingConnectorId = &v
+	return s
+}
+
+func (s *UpdateConnectorResponseBodyItem) SetIntegratorConnectorId(v string) *UpdateConnectorResponseBodyItem {
+	s.IntegratorConnectorId = &v
+	return s
+}
+
+func (s *UpdateConnectorResponseBodyItem) SetSubErrCode(v string) *UpdateConnectorResponseBodyItem {
+	s.SubErrCode = &v
+	return s
+}
+
+func (s *UpdateConnectorResponseBodyItem) SetSubErrMsg(v string) *UpdateConnectorResponseBodyItem {
+	s.SubErrMsg = &v
+	return s
+}
+
+func (s *UpdateConnectorResponseBodyItem) SetSuccess(v bool) *UpdateConnectorResponseBodyItem {
+	s.Success = &v
+	return s
+}
+
+type UpdateConnectorResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateConnectorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateConnectorResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateConnectorResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateConnectorResponse) SetHeaders(v map[string]*string) *UpdateConnectorResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateConnectorResponse) SetBody(v *UpdateConnectorResponseBody) *UpdateConnectorResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateTriggerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateTriggerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTriggerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTriggerHeaders) SetCommonHeaders(v map[string]*string) *UpdateTriggerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateTriggerHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTriggerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateTriggerRequest struct {
+	TriggerInfo []*UpdateTriggerRequestTriggerInfo `json:"triggerInfo,omitempty" xml:"triggerInfo,omitempty" type:"Repeated"`
+}
+
+func (s UpdateTriggerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTriggerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTriggerRequest) SetTriggerInfo(v []*UpdateTriggerRequestTriggerInfo) *UpdateTriggerRequest {
+	s.TriggerInfo = v
+	return s
+}
+
+type UpdateTriggerRequestTriggerInfo struct {
+	// 触发事件描述。
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 连接平台连接器唯一标识。
+	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	// 连接平台触发事件唯一标识。
+	DingTriggerId *string `json:"dingTriggerId,omitempty" xml:"dingTriggerId,omitempty"`
+	// 入参属性描述。
+	InputSchema *string `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
+	// 服务商的连接器唯一标识。
+	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
+	// 服务商的触发事件唯一标识。
+	IntegratorTriggerId *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
+	// 触发事件名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s UpdateTriggerRequestTriggerInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTriggerRequestTriggerInfo) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTriggerRequestTriggerInfo) SetDescription(v string) *UpdateTriggerRequestTriggerInfo {
+	s.Description = &v
+	return s
+}
+
+func (s *UpdateTriggerRequestTriggerInfo) SetDingConnectorId(v string) *UpdateTriggerRequestTriggerInfo {
+	s.DingConnectorId = &v
+	return s
+}
+
+func (s *UpdateTriggerRequestTriggerInfo) SetDingTriggerId(v string) *UpdateTriggerRequestTriggerInfo {
+	s.DingTriggerId = &v
+	return s
+}
+
+func (s *UpdateTriggerRequestTriggerInfo) SetInputSchema(v string) *UpdateTriggerRequestTriggerInfo {
+	s.InputSchema = &v
+	return s
+}
+
+func (s *UpdateTriggerRequestTriggerInfo) SetIntegratorConnectorId(v string) *UpdateTriggerRequestTriggerInfo {
+	s.IntegratorConnectorId = &v
+	return s
+}
+
+func (s *UpdateTriggerRequestTriggerInfo) SetIntegratorTriggerId(v string) *UpdateTriggerRequestTriggerInfo {
+	s.IntegratorTriggerId = &v
+	return s
+}
+
+func (s *UpdateTriggerRequestTriggerInfo) SetName(v string) *UpdateTriggerRequestTriggerInfo {
+	s.Name = &v
+	return s
+}
+
+type UpdateTriggerResponseBody struct {
+	// Id of the request
+	Item []*UpdateTriggerResponseBodyItem `json:"item,omitempty" xml:"item,omitempty" type:"Repeated"`
+}
+
+func (s UpdateTriggerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTriggerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTriggerResponseBody) SetItem(v []*UpdateTriggerResponseBodyItem) *UpdateTriggerResponseBody {
+	s.Item = v
+	return s
+}
+
+type UpdateTriggerResponseBodyItem struct {
+	// 连接平台连接器id
+	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	// 连接平台触发事件id
+	DingTriggerId *string `json:"dingTriggerId,omitempty" xml:"dingTriggerId,omitempty"`
+	// 服务商的连接器Id
+	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
+	// 服务商的触发事件id
+	IntegratorTriggerId *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
+	// 错误码
+	SubErrCode *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
+	// 错误信息
+	SubErrMsg *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateTriggerResponseBodyItem) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTriggerResponseBodyItem) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTriggerResponseBodyItem) SetDingConnectorId(v string) *UpdateTriggerResponseBodyItem {
+	s.DingConnectorId = &v
+	return s
+}
+
+func (s *UpdateTriggerResponseBodyItem) SetDingTriggerId(v string) *UpdateTriggerResponseBodyItem {
+	s.DingTriggerId = &v
+	return s
+}
+
+func (s *UpdateTriggerResponseBodyItem) SetIntegratorConnectorId(v string) *UpdateTriggerResponseBodyItem {
+	s.IntegratorConnectorId = &v
+	return s
+}
+
+func (s *UpdateTriggerResponseBodyItem) SetIntegratorTriggerId(v string) *UpdateTriggerResponseBodyItem {
+	s.IntegratorTriggerId = &v
+	return s
+}
+
+func (s *UpdateTriggerResponseBodyItem) SetSubErrCode(v string) *UpdateTriggerResponseBodyItem {
+	s.SubErrCode = &v
+	return s
+}
+
+func (s *UpdateTriggerResponseBodyItem) SetSubErrMsg(v string) *UpdateTriggerResponseBodyItem {
+	s.SubErrMsg = &v
+	return s
+}
+
+func (s *UpdateTriggerResponseBodyItem) SetSuccess(v bool) *UpdateTriggerResponseBodyItem {
+	s.Success = &v
+	return s
+}
+
+type UpdateTriggerResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateTriggerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateTriggerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTriggerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTriggerResponse) SetHeaders(v map[string]*string) *UpdateTriggerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateTriggerResponse) SetBody(v *UpdateTriggerResponseBody) *UpdateTriggerResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -1434,6 +2128,138 @@ func (client *Client) SyncDataWithOptions(request *SyncDataRequest, headers *Syn
 	}
 	_result = &SyncDataResponse{}
 	_body, _err := client.DoROARequest(tea.String("SyncData"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/connector/triggers/data/sync"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateAction(request *UpdateActionRequest) (_result *UpdateActionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateActionHeaders{}
+	_result = &UpdateActionResponse{}
+	_body, _err := client.UpdateActionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateActionWithOptions(request *UpdateActionRequest, headers *UpdateActionHeaders, runtime *util.RuntimeOptions) (_result *UpdateActionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActionInfo)) {
+		body["actionInfo"] = request.ActionInfo
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateActionResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateAction"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/connector/actions"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateConnector(request *UpdateConnectorRequest) (_result *UpdateConnectorResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateConnectorHeaders{}
+	_result = &UpdateConnectorResponse{}
+	_body, _err := client.UpdateConnectorWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateConnectorWithOptions(request *UpdateConnectorRequest, headers *UpdateConnectorHeaders, runtime *util.RuntimeOptions) (_result *UpdateConnectorResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ConnectorInfo)) {
+		body["connectorInfo"] = request.ConnectorInfo
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateConnectorResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateConnector"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/connector/connectors"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateTrigger(request *UpdateTriggerRequest) (_result *UpdateTriggerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTriggerHeaders{}
+	_result = &UpdateTriggerResponse{}
+	_body, _err := client.UpdateTriggerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateTriggerWithOptions(request *UpdateTriggerRequest, headers *UpdateTriggerHeaders, runtime *util.RuntimeOptions) (_result *UpdateTriggerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TriggerInfo)) {
+		body["triggerInfo"] = request.TriggerInfo
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateTriggerResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateTrigger"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/connector/triggers"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

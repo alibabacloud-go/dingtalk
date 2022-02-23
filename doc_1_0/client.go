@@ -2666,6 +2666,78 @@ func (s *UpdateRangeResponse) SetHeaders(v map[string]*string) *UpdateRangeRespo
 	return s
 }
 
+type UpdateSheetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateSheetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSheetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSheetHeaders) SetCommonHeaders(v map[string]*string) *UpdateSheetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateSheetHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateSheetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateSheetRequest struct {
+	// 工作表名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 工作表可见性
+	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
+	// 操作人unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s UpdateSheetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSheetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSheetRequest) SetName(v string) *UpdateSheetRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateSheetRequest) SetVisibility(v string) *UpdateSheetRequest {
+	s.Visibility = &v
+	return s
+}
+
+func (s *UpdateSheetRequest) SetOperatorId(v string) *UpdateSheetRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type UpdateSheetResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s UpdateSheetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSheetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSheetResponse) SetHeaders(v map[string]*string) *UpdateSheetResponse {
+	s.Headers = v
+	return s
+}
+
 type UpdateWorkspaceDocMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3925,6 +3997,62 @@ func (client *Client) UpdateRangeWithOptions(workbookId *string, sheetId *string
 	}
 	_result = &UpdateRangeResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateRange"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/ranges/"+tea.StringValue(rangeAddress)), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateSheet(workbookId *string, sheetId *string, request *UpdateSheetRequest) (_result *UpdateSheetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateSheetHeaders{}
+	_result = &UpdateSheetResponse{}
+	_body, _err := client.UpdateSheetWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateSheetWithOptions(workbookId *string, sheetId *string, request *UpdateSheetRequest, headers *UpdateSheetHeaders, runtime *util.RuntimeOptions) (_result *UpdateSheetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
+	sheetId = openapiutil.GetEncodeParam(sheetId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Visibility)) {
+		body["visibility"] = request.Visibility
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateSheetResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateSheet"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
