@@ -866,6 +866,8 @@ type SendInteractiveCardRequest struct {
 	CallbackRouteKey *string `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
 	// 卡片公共主体部分数据
 	CardData *SendInteractiveCardRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	// 卡片属性
+	CardOptions *SendInteractiveCardRequestCardOptions `json:"cardOptions,omitempty" xml:"cardOptions,omitempty" type:"Struct"`
 	// 卡片模板ID
 	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
 	// 【robotCode & chatBotId二选一必填】机器人ID（企业机器人）
@@ -906,6 +908,11 @@ func (s *SendInteractiveCardRequest) SetCallbackRouteKey(v string) *SendInteract
 
 func (s *SendInteractiveCardRequest) SetCardData(v *SendInteractiveCardRequestCardData) *SendInteractiveCardRequest {
 	s.CardData = v
+	return s
+}
+
+func (s *SendInteractiveCardRequest) SetCardOptions(v *SendInteractiveCardRequestCardOptions) *SendInteractiveCardRequest {
+	s.CardOptions = v
 	return s
 }
 
@@ -976,6 +983,24 @@ func (s *SendInteractiveCardRequestCardData) SetCardMediaIdParamMap(v map[string
 
 func (s *SendInteractiveCardRequestCardData) SetCardParamMap(v map[string]*string) *SendInteractiveCardRequestCardData {
 	s.CardParamMap = v
+	return s
+}
+
+type SendInteractiveCardRequestCardOptions struct {
+	// 是否支持转发
+	SupportForward *bool `json:"supportForward,omitempty" xml:"supportForward,omitempty"`
+}
+
+func (s SendInteractiveCardRequestCardOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendInteractiveCardRequestCardOptions) GoString() string {
+	return s.String()
+}
+
+func (s *SendInteractiveCardRequestCardOptions) SetSupportForward(v bool) *SendInteractiveCardRequestCardOptions {
+	s.SupportForward = &v
 	return s
 }
 
@@ -2559,6 +2584,10 @@ func (client *Client) SendInteractiveCardWithOptions(request *SendInteractiveCar
 
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardData))) {
 		body["cardData"] = request.CardData
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardOptions))) {
+		body["cardOptions"] = request.CardOptions
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.CardTemplateId)) {
