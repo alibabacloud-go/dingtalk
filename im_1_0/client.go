@@ -204,6 +204,8 @@ type GetInterconnectionUrlRequest struct {
 	QrCode *string `json:"qrCode,omitempty" xml:"qrCode,omitempty"`
 	// signature
 	Signature *string `json:"signature,omitempty" xml:"signature,omitempty"`
+	// sourceCode
+	SourceCode *string `json:"sourceCode,omitempty" xml:"sourceCode,omitempty"`
 	// sourceType
 	SourceType *int32 `json:"sourceType,omitempty" xml:"sourceType,omitempty"`
 	// userId
@@ -255,6 +257,11 @@ func (s *GetInterconnectionUrlRequest) SetQrCode(v string) *GetInterconnectionUr
 
 func (s *GetInterconnectionUrlRequest) SetSignature(v string) *GetInterconnectionUrlRequest {
 	s.Signature = &v
+	return s
+}
+
+func (s *GetInterconnectionUrlRequest) SetSourceCode(v string) *GetInterconnectionUrlRequest {
+	s.SourceCode = &v
 	return s
 }
 
@@ -2284,6 +2291,10 @@ func (client *Client) GetInterconnectionUrlWithOptions(request *GetInterconnecti
 
 	if !tea.BoolValue(util.IsUnset(request.Signature)) {
 		body["signature"] = request.Signature
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceCode)) {
+		body["sourceCode"] = request.SourceCode
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.SourceType)) {
