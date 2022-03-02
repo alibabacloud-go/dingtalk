@@ -13,7 +13,7 @@ import (
 
 type IndustrializeManufactureJobBookRequest struct {
 	// 钉钉组织id
-	DingCorpId *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 扩展字段，用于增加自定义字段
 	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
 	// 工单编号
@@ -62,8 +62,8 @@ func (s IndustrializeManufactureJobBookRequest) GoString() string {
 	return s.String()
 }
 
-func (s *IndustrializeManufactureJobBookRequest) SetDingCorpId(v string) *IndustrializeManufactureJobBookRequest {
-	s.DingCorpId = &v
+func (s *IndustrializeManufactureJobBookRequest) SetCorpId(v string) *IndustrializeManufactureJobBookRequest {
+	s.CorpId = &v
 	return s
 }
 
@@ -164,7 +164,7 @@ func (s *IndustrializeManufactureJobBookRequest) SetUuid(v string) *Industrializ
 
 type IndustrializeManufactureJobBookResponseBody struct {
 	// content
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	Content *IndustrializeManufactureJobBookResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
 	// errorCode
 	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
 	// errorLevel
@@ -187,8 +187,8 @@ func (s IndustrializeManufactureJobBookResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *IndustrializeManufactureJobBookResponseBody) SetContent(v string) *IndustrializeManufactureJobBookResponseBody {
-	s.Content = &v
+func (s *IndustrializeManufactureJobBookResponseBody) SetContent(v *IndustrializeManufactureJobBookResponseBodyContent) *IndustrializeManufactureJobBookResponseBody {
+	s.Content = v
 	return s
 }
 
@@ -219,6 +219,31 @@ func (s *IndustrializeManufactureJobBookResponseBody) SetSuccess(v bool) *Indust
 
 func (s *IndustrializeManufactureJobBookResponseBody) SetUuid(v string) *IndustrializeManufactureJobBookResponseBody {
 	s.Uuid = &v
+	return s
+}
+
+type IndustrializeManufactureJobBookResponseBodyContent struct {
+	// 影响行数
+	Count *int32 `json:"count,omitempty" xml:"count,omitempty"`
+	// 新增记录的数据库id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s IndustrializeManufactureJobBookResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustrializeManufactureJobBookResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *IndustrializeManufactureJobBookResponseBodyContent) SetCount(v int32) *IndustrializeManufactureJobBookResponseBodyContent {
+	s.Count = &v
+	return s
+}
+
+func (s *IndustrializeManufactureJobBookResponseBodyContent) SetId(v int64) *IndustrializeManufactureJobBookResponseBodyContent {
+	s.Id = &v
 	return s
 }
 
@@ -279,6 +304,8 @@ type IndustrializeManufactureQueryJobsRequest struct {
 	MesAppKey *string `json:"mesAppKey,omitempty" xml:"mesAppKey,omitempty"`
 	// 每页显示记录条数
 	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 工序名称
+	ProcessName *string `json:"processName,omitempty" xml:"processName,omitempty"`
 	// 产品唯一标识
 	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
 	// 产品中文名称
@@ -291,6 +318,8 @@ type IndustrializeManufactureQueryJobsRequest struct {
 	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
 	// 员工钉钉userId
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 批量报工时多个人钉钉工号以英文逗号分隔
+	UserIdList *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
 	// 员工姓名
 	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 	// 报工记录的唯一标识
@@ -330,6 +359,11 @@ func (s *IndustrializeManufactureQueryJobsRequest) SetPageSize(v int32) *Industr
 	return s
 }
 
+func (s *IndustrializeManufactureQueryJobsRequest) SetProcessName(v string) *IndustrializeManufactureQueryJobsRequest {
+	s.ProcessName = &v
+	return s
+}
+
 func (s *IndustrializeManufactureQueryJobsRequest) SetProductCode(v string) *IndustrializeManufactureQueryJobsRequest {
 	s.ProductCode = &v
 	return s
@@ -360,6 +394,11 @@ func (s *IndustrializeManufactureQueryJobsRequest) SetUserId(v string) *Industri
 	return s
 }
 
+func (s *IndustrializeManufactureQueryJobsRequest) SetUserIdList(v string) *IndustrializeManufactureQueryJobsRequest {
+	s.UserIdList = &v
+	return s
+}
+
 func (s *IndustrializeManufactureQueryJobsRequest) SetUserName(v string) *IndustrializeManufactureQueryJobsRequest {
 	s.UserName = &v
 	return s
@@ -372,7 +411,7 @@ func (s *IndustrializeManufactureQueryJobsRequest) SetUuid(v string) *Industrial
 
 type IndustrializeManufactureQueryJobsResponseBody struct {
 	// 查询的数据结果
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	Content *IndustrializeManufactureQueryJobsResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
 	// httpCode
 	HttpCode *string `json:"httpCode,omitempty" xml:"httpCode,omitempty"`
 }
@@ -385,13 +424,143 @@ func (s IndustrializeManufactureQueryJobsResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *IndustrializeManufactureQueryJobsResponseBody) SetContent(v string) *IndustrializeManufactureQueryJobsResponseBody {
-	s.Content = &v
+func (s *IndustrializeManufactureQueryJobsResponseBody) SetContent(v *IndustrializeManufactureQueryJobsResponseBodyContent) *IndustrializeManufactureQueryJobsResponseBody {
+	s.Content = v
 	return s
 }
 
 func (s *IndustrializeManufactureQueryJobsResponseBody) SetHttpCode(v string) *IndustrializeManufactureQueryJobsResponseBody {
 	s.HttpCode = &v
+	return s
+}
+
+type IndustrializeManufactureQueryJobsResponseBodyContent struct {
+	// 组织id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 创建时间
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 修改时间
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// 数据库id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 工单id
+	InstNo *string `json:"instNo,omitempty" xml:"instNo,omitempty"`
+	// 是否是批量报工，即一次报工由多个工人一起分担，取值[n,y],y表示是批量，批量时多个人名以英文逗号分隔
+	IsBatchJob *string `json:"isBatchJob,omitempty" xml:"isBatchJob,omitempty"`
+	// 生产日期时间(到时分秒),格式:2021-07-05 08:00:21
+	ManufactureDate *string `json:"manufactureDate,omitempty" xml:"manufactureDate,omitempty"`
+	// 生产日期(到天)
+	ManufactureDay *string `json:"manufactureDay,omitempty" xml:"manufactureDay,omitempty"`
+	// 分配给mes系统的appkey
+	MesAppKey *string `json:"mesAppKey,omitempty" xml:"mesAppKey,omitempty"`
+	// 工序名称
+	ProcessName *string `json:"processName,omitempty" xml:"processName,omitempty"`
+	// 合格数
+	QualifiedQuantity *string `json:"qualifiedQuantity,omitempty" xml:"qualifiedQuantity,omitempty"`
+	// 不合格数
+	ScrappedQuantity *string `json:"scrappedQuantity,omitempty" xml:"scrappedQuantity,omitempty"`
+	// 计件单价，单位：分
+	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+	// 工人工号(isBatchJob=='n'时)
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 批量报工时多个人钉钉工号以英文逗号分隔
+	UserIdList *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
+	// 批量报工时多个人名以英文逗号分隔
+	UserNameList *string `json:"userNameList,omitempty" xml:"userNameList,omitempty"`
+	// 报工记录的唯一标识
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s IndustrializeManufactureQueryJobsResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustrializeManufactureQueryJobsResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetCorpId(v string) *IndustrializeManufactureQueryJobsResponseBodyContent {
+	s.CorpId = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetGmtCreate(v string) *IndustrializeManufactureQueryJobsResponseBodyContent {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetGmtModified(v string) *IndustrializeManufactureQueryJobsResponseBodyContent {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetId(v int64) *IndustrializeManufactureQueryJobsResponseBodyContent {
+	s.Id = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetInstNo(v string) *IndustrializeManufactureQueryJobsResponseBodyContent {
+	s.InstNo = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetIsBatchJob(v string) *IndustrializeManufactureQueryJobsResponseBodyContent {
+	s.IsBatchJob = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetManufactureDate(v string) *IndustrializeManufactureQueryJobsResponseBodyContent {
+	s.ManufactureDate = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetManufactureDay(v string) *IndustrializeManufactureQueryJobsResponseBodyContent {
+	s.ManufactureDay = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetMesAppKey(v string) *IndustrializeManufactureQueryJobsResponseBodyContent {
+	s.MesAppKey = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetProcessName(v string) *IndustrializeManufactureQueryJobsResponseBodyContent {
+	s.ProcessName = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetQualifiedQuantity(v string) *IndustrializeManufactureQueryJobsResponseBodyContent {
+	s.QualifiedQuantity = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetScrappedQuantity(v string) *IndustrializeManufactureQueryJobsResponseBodyContent {
+	s.ScrappedQuantity = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetUnitPrice(v string) *IndustrializeManufactureQueryJobsResponseBodyContent {
+	s.UnitPrice = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetUserId(v string) *IndustrializeManufactureQueryJobsResponseBodyContent {
+	s.UserId = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetUserIdList(v string) *IndustrializeManufactureQueryJobsResponseBodyContent {
+	s.UserIdList = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetUserNameList(v string) *IndustrializeManufactureQueryJobsResponseBodyContent {
+	s.UserNameList = &v
+	return s
+}
+
+func (s *IndustrializeManufactureQueryJobsResponseBodyContent) SetUuid(v string) *IndustrializeManufactureQueryJobsResponseBodyContent {
+	s.Uuid = &v
 	return s
 }
 
@@ -460,8 +629,8 @@ func (client *Client) IndustrializeManufactureJobBookWithOptions(userId *string,
 	}
 	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
-		body["dingCorpId"] = request.DingCorpId
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Extend)) {
@@ -591,6 +760,10 @@ func (client *Client) IndustrializeManufactureQueryJobsWithOptions(request *Indu
 		body["pageSize"] = request.PageSize
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.ProcessName)) {
+		body["processName"] = request.ProcessName
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ProductCode)) {
 		body["productCode"] = request.ProductCode
 	}
@@ -613,6 +786,10 @@ func (client *Client) IndustrializeManufactureQueryJobsWithOptions(request *Indu
 
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdList)) {
+		body["userIdList"] = request.UserIdList
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.UserName)) {
