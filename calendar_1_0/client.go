@@ -4559,6 +4559,46 @@ func (s *SignInResponse) SetBody(v *SignInResponseBody) *SignInResponse {
 	return s
 }
 
+type SubscribeCalendarHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SubscribeCalendarHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubscribeCalendarHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SubscribeCalendarHeaders) SetCommonHeaders(v map[string]*string) *SubscribeCalendarHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SubscribeCalendarHeaders) SetXAcsDingtalkAccessToken(v string) *SubscribeCalendarHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SubscribeCalendarResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s SubscribeCalendarResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubscribeCalendarResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SubscribeCalendarResponse) SetHeaders(v map[string]*string) *SubscribeCalendarResponse {
+	s.Headers = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -5598,6 +5638,42 @@ func (client *Client) SignInWithOptions(userId *string, calendarId *string, even
 	}
 	_result = &SignInResponse{}
 	_body, _err := client.DoROARequest(tea.String("SignIn"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/signIn"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SubscribeCalendar(userId *string, calendarId *string) (_result *SubscribeCalendarResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SubscribeCalendarHeaders{}
+	_result = &SubscribeCalendarResponse{}
+	_body, _err := client.SubscribeCalendarWithOptions(userId, calendarId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SubscribeCalendarWithOptions(userId *string, calendarId *string, headers *SubscribeCalendarHeaders, runtime *util.RuntimeOptions) (_result *SubscribeCalendarResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &SubscribeCalendarResponse{}
+	_body, _err := client.DoROARequest(tea.String("SubscribeCalendar"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/subscribe"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

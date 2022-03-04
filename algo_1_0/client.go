@@ -196,6 +196,7 @@ type OkrOpenRecommendRequest struct {
 	DeptIds           []*string                                   `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
 	IsvAppId          *string                                     `json:"isvAppId,omitempty" xml:"isvAppId,omitempty"`
 	UserId            *string                                     `json:"userId,omitempty" xml:"userId,omitempty"`
+	Words             []*string                                   `json:"words,omitempty" xml:"words,omitempty" type:"Repeated"`
 }
 
 func (s OkrOpenRecommendRequest) String() string {
@@ -228,6 +229,11 @@ func (s *OkrOpenRecommendRequest) SetIsvAppId(v string) *OkrOpenRecommendRequest
 
 func (s *OkrOpenRecommendRequest) SetUserId(v string) *OkrOpenRecommendRequest {
 	s.UserId = &v
+	return s
+}
+
+func (s *OkrOpenRecommendRequest) SetWords(v []*string) *OkrOpenRecommendRequest {
+	s.Words = v
 	return s
 }
 
@@ -572,6 +578,10 @@ func (client *Client) OkrOpenRecommendWithOptions(request *OkrOpenRecommendReque
 
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Words)) {
+		body["words"] = request.Words
 	}
 
 	realHeaders := make(map[string]*string)
