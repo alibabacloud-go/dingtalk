@@ -107,6 +107,8 @@ type FormComponentProps struct {
 	Limit *int32 `json:"limit,omitempty" xml:"limit,omitempty"`
 	// 说明文字控件链接地址
 	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// 电话控件支持的类型
+	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
 	// 部门控件是否可多选
 	Multiple *bool `json:"multiple,omitempty" xml:"multiple,omitempty"`
 	// 单选多选控件选项列表
@@ -229,6 +231,11 @@ func (s *FormComponentProps) SetLimit(v int32) *FormComponentProps {
 
 func (s *FormComponentProps) SetLink(v string) *FormComponentProps {
 	s.Link = &v
+	return s
+}
+
+func (s *FormComponentProps) SetMode(v string) *FormComponentProps {
+	s.Mode = &v
 	return s
 }
 

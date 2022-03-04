@@ -1401,6 +1401,8 @@ type ListAllAppResponseBodyAppList struct {
 	AppStatus *int32 `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
 	// 应用描述
 	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// 应用类型，0表示h5应用，1表示小程序
+	DevelopType *int32 `json:"developType,omitempty" xml:"developType,omitempty"`
 	// 应用移动端首页地址
 	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
 	// 应用图标
@@ -1438,6 +1440,11 @@ func (s *ListAllAppResponseBodyAppList) SetAppStatus(v int32) *ListAllAppRespons
 
 func (s *ListAllAppResponseBodyAppList) SetDesc(v string) *ListAllAppResponseBodyAppList {
 	s.Desc = &v
+	return s
+}
+
+func (s *ListAllAppResponseBodyAppList) SetDevelopType(v int32) *ListAllAppResponseBodyAppList {
+	s.DevelopType = &v
 	return s
 }
 
@@ -1939,6 +1946,8 @@ type ListUserVilebleAppResponseBodyAppList struct {
 	AppStatus *int32 `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
 	// 应用描述
 	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// 应用类型，0表示h5应用，1表示小程序
+	DevelopType *int32 `json:"developType,omitempty" xml:"developType,omitempty"`
 	// 应用移动端首页地址
 	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
 	// 应用图标
@@ -1976,6 +1985,11 @@ func (s *ListUserVilebleAppResponseBodyAppList) SetAppStatus(v int32) *ListUserV
 
 func (s *ListUserVilebleAppResponseBodyAppList) SetDesc(v string) *ListUserVilebleAppResponseBodyAppList {
 	s.Desc = &v
+	return s
+}
+
+func (s *ListUserVilebleAppResponseBodyAppList) SetDevelopType(v int32) *ListUserVilebleAppResponseBodyAppList {
+	s.DevelopType = &v
 	return s
 }
 

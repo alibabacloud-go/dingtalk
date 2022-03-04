@@ -1828,6 +1828,8 @@ type CreateOrderRequest struct {
 	TotalAmount *int64 `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
 	// 员工id
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 版本号
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s CreateOrderRequest) String() string {
@@ -1885,6 +1887,11 @@ func (s *CreateOrderRequest) SetTotalAmount(v int64) *CreateOrderRequest {
 
 func (s *CreateOrderRequest) SetUserId(v string) *CreateOrderRequest {
 	s.UserId = &v
+	return s
+}
+
+func (s *CreateOrderRequest) SetVersion(v string) *CreateOrderRequest {
+	s.Version = &v
 	return s
 }
 
@@ -6227,6 +6234,116 @@ func (s *InitCoursesOfClassResponse) SetBody(v *InitCoursesOfClassResponseBody) 
 	return s
 }
 
+type InitDeviceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s InitDeviceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitDeviceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *InitDeviceHeaders) SetCommonHeaders(v map[string]*string) *InitDeviceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *InitDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *InitDeviceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type InitDeviceRequest struct {
+	// 公钥密文
+	EncryptPubKey *string `json:"encryptPubKey,omitempty" xml:"encryptPubKey,omitempty"`
+	// 签名
+	Signature *string `json:"signature,omitempty" xml:"signature,omitempty"`
+	// 设备sn号
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// 时间戳，utc时间
+	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	// 版本号
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s InitDeviceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitDeviceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *InitDeviceRequest) SetEncryptPubKey(v string) *InitDeviceRequest {
+	s.EncryptPubKey = &v
+	return s
+}
+
+func (s *InitDeviceRequest) SetSignature(v string) *InitDeviceRequest {
+	s.Signature = &v
+	return s
+}
+
+func (s *InitDeviceRequest) SetSn(v string) *InitDeviceRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *InitDeviceRequest) SetTimestamp(v int64) *InitDeviceRequest {
+	s.Timestamp = &v
+	return s
+}
+
+func (s *InitDeviceRequest) SetVersion(v string) *InitDeviceRequest {
+	s.Version = &v
+	return s
+}
+
+type InitDeviceResponseBody struct {
+	// 成功信息
+	SuccessInfo *bool `json:"successInfo,omitempty" xml:"successInfo,omitempty"`
+}
+
+func (s InitDeviceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitDeviceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *InitDeviceResponseBody) SetSuccessInfo(v bool) *InitDeviceResponseBody {
+	s.SuccessInfo = &v
+	return s
+}
+
+type InitDeviceResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *InitDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s InitDeviceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitDeviceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *InitDeviceResponse) SetHeaders(v map[string]*string) *InitDeviceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *InitDeviceResponse) SetBody(v *InitDeviceResponseBody) *InitDeviceResponse {
+	s.Body = v
+	return s
+}
+
 type InsertSectionConfigHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6636,6 +6753,8 @@ type PayOrderRequest struct {
 	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
 	// 员工id
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 版本号
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s PayOrderRequest) String() string {
@@ -6673,6 +6792,11 @@ func (s *PayOrderRequest) SetTimestamp(v int64) *PayOrderRequest {
 
 func (s *PayOrderRequest) SetUserId(v string) *PayOrderRequest {
 	s.UserId = &v
+	return s
+}
+
+func (s *PayOrderRequest) SetVersion(v string) *PayOrderRequest {
+	s.Version = &v
 	return s
 }
 
@@ -9067,6 +9191,8 @@ type QueryPayResultRequest struct {
 	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
 	// 用户id
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 版本号
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s QueryPayResultRequest) String() string {
@@ -9104,6 +9230,11 @@ func (s *QueryPayResultRequest) SetTimestamp(v int64) *QueryPayResultRequest {
 
 func (s *QueryPayResultRequest) SetUserId(v string) *QueryPayResultRequest {
 	s.UserId = &v
+	return s
+}
+
+func (s *QueryPayResultRequest) SetVersion(v string) *QueryPayResultRequest {
+	s.Version = &v
 	return s
 }
 
@@ -11223,6 +11354,116 @@ func (s *SearchTeachersResponse) SetHeaders(v map[string]*string) *SearchTeacher
 }
 
 func (s *SearchTeachersResponse) SetBody(v *SearchTeachersResponseBody) *SearchTeachersResponse {
+	s.Body = v
+	return s
+}
+
+type SendMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendMessageHeaders) SetCommonHeaders(v map[string]*string) *SendMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendMessageRequest struct {
+	// 消息的唯一id
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// 发送者
+	FromUserId *string `json:"fromUserId,omitempty" xml:"fromUserId,omitempty"`
+	// 设备sn
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// 接收者
+	ToUserIdList []*string `json:"toUserIdList,omitempty" xml:"toUserIdList,omitempty" type:"Repeated"`
+	// 发送消息的类型
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s SendMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendMessageRequest) SetBizId(v string) *SendMessageRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *SendMessageRequest) SetFromUserId(v string) *SendMessageRequest {
+	s.FromUserId = &v
+	return s
+}
+
+func (s *SendMessageRequest) SetSn(v string) *SendMessageRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *SendMessageRequest) SetToUserIdList(v []*string) *SendMessageRequest {
+	s.ToUserIdList = v
+	return s
+}
+
+func (s *SendMessageRequest) SetType(v int64) *SendMessageRequest {
+	s.Type = &v
+	return s
+}
+
+type SendMessageResponseBody struct {
+	// 成功信息
+	SuccessInfo *bool `json:"successInfo,omitempty" xml:"successInfo,omitempty"`
+}
+
+func (s SendMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendMessageResponseBody) SetSuccessInfo(v bool) *SendMessageResponseBody {
+	s.SuccessInfo = &v
+	return s
+}
+
+type SendMessageResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SendMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendMessageResponse) SetHeaders(v map[string]*string) *SendMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendMessageResponse) SetBody(v *SendMessageResponseBody) *SendMessageResponse {
 	s.Body = v
 	return s
 }
@@ -13459,6 +13700,10 @@ func (client *Client) CreateOrderWithOptions(request *CreateOrderRequest, header
 		body["userId"] = request.UserId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Version)) {
+		body["version"] = request.Version
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -15017,6 +15262,66 @@ func (client *Client) InitCoursesOfClassWithOptions(classId *string, request *In
 	return _result, _err
 }
 
+func (client *Client) InitDevice(request *InitDeviceRequest) (_result *InitDeviceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &InitDeviceHeaders{}
+	_result = &InitDeviceResponse{}
+	_body, _err := client.InitDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) InitDeviceWithOptions(request *InitDeviceRequest, headers *InitDeviceHeaders, runtime *util.RuntimeOptions) (_result *InitDeviceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EncryptPubKey)) {
+		body["encryptPubKey"] = request.EncryptPubKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Signature)) {
+		body["signature"] = request.Signature
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Timestamp)) {
+		body["timestamp"] = request.Timestamp
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Version)) {
+		body["version"] = request.Version
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &InitDeviceResponse{}
+	_body, _err := client.DoROARequest(tea.String("InitDevice"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/devices/init"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) InsertSectionConfig(request *InsertSectionConfigRequest) (_result *InsertSectionConfigResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InsertSectionConfigHeaders{}
@@ -15175,6 +15480,10 @@ func (client *Client) PayOrderWithOptions(request *PayOrderRequest, headers *Pay
 
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Version)) {
+		body["version"] = request.Version
 	}
 
 	realHeaders := make(map[string]*string)
@@ -15799,6 +16108,10 @@ func (client *Client) QueryPayResultWithOptions(request *QueryPayResultRequest, 
 
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Version)) {
+		body["version"] = request.Version
 	}
 
 	realHeaders := make(map[string]*string)
@@ -16538,6 +16851,66 @@ func (client *Client) SearchTeachersWithOptions(request *SearchTeachersRequest, 
 	}
 	_result = &SearchTeachersResponse{}
 	_body, _err := client.DoROARequest(tea.String("SearchTeachers"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/teachers/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendMessage(request *SendMessageRequest) (_result *SendMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendMessageHeaders{}
+	_result = &SendMessageResponse{}
+	_body, _err := client.SendMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendMessageWithOptions(request *SendMessageRequest, headers *SendMessageHeaders, runtime *util.RuntimeOptions) (_result *SendMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FromUserId)) {
+		body["fromUserId"] = request.FromUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToUserIdList)) {
+		body["toUserIdList"] = request.ToUserIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendMessageResponse{}
+	_body, _err := client.DoROARequest(tea.String("SendMessage"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/messages/send"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
