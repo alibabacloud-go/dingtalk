@@ -862,6 +862,141 @@ func (s *CreateApproveResponse) SetBody(v *CreateApproveResponseBody) *CreateApp
 	return s
 }
 
+type DingTalkSecurityCheckHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DingTalkSecurityCheckHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DingTalkSecurityCheckHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DingTalkSecurityCheckHeaders) SetCommonHeaders(v map[string]*string) *DingTalkSecurityCheckHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DingTalkSecurityCheckHeaders) SetXAcsDingtalkAccessToken(v string) *DingTalkSecurityCheckHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DingTalkSecurityCheckRequest struct {
+	// 客户端版本号
+	ClientVer *string `json:"clientVer,omitempty" xml:"clientVer,omitempty"`
+	// 客户端平台类型(iOS,Android)
+	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	// 客户端平台平台版本
+	PlatformVer *string `json:"platformVer,omitempty" xml:"platformVer,omitempty"`
+	// 加密字符
+	Sec *string `json:"sec,omitempty" xml:"sec,omitempty"`
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DingTalkSecurityCheckRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DingTalkSecurityCheckRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DingTalkSecurityCheckRequest) SetClientVer(v string) *DingTalkSecurityCheckRequest {
+	s.ClientVer = &v
+	return s
+}
+
+func (s *DingTalkSecurityCheckRequest) SetPlatform(v string) *DingTalkSecurityCheckRequest {
+	s.Platform = &v
+	return s
+}
+
+func (s *DingTalkSecurityCheckRequest) SetPlatformVer(v string) *DingTalkSecurityCheckRequest {
+	s.PlatformVer = &v
+	return s
+}
+
+func (s *DingTalkSecurityCheckRequest) SetSec(v string) *DingTalkSecurityCheckRequest {
+	s.Sec = &v
+	return s
+}
+
+func (s *DingTalkSecurityCheckRequest) SetUserId(v string) *DingTalkSecurityCheckRequest {
+	s.UserId = &v
+	return s
+}
+
+type DingTalkSecurityCheckResponseBody struct {
+	// 返回参数
+	Result *DingTalkSecurityCheckResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s DingTalkSecurityCheckResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DingTalkSecurityCheckResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DingTalkSecurityCheckResponseBody) SetResult(v *DingTalkSecurityCheckResponseBodyResult) *DingTalkSecurityCheckResponseBody {
+	s.Result = v
+	return s
+}
+
+type DingTalkSecurityCheckResponseBodyResult struct {
+	// 是否有风险
+	HasRisk *bool `json:"hasRisk,omitempty" xml:"hasRisk,omitempty"`
+	// 风险信息
+	RiskInfo map[string]*string `json:"riskInfo,omitempty" xml:"riskInfo,omitempty"`
+}
+
+func (s DingTalkSecurityCheckResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DingTalkSecurityCheckResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DingTalkSecurityCheckResponseBodyResult) SetHasRisk(v bool) *DingTalkSecurityCheckResponseBodyResult {
+	s.HasRisk = &v
+	return s
+}
+
+func (s *DingTalkSecurityCheckResponseBodyResult) SetRiskInfo(v map[string]*string) *DingTalkSecurityCheckResponseBodyResult {
+	s.RiskInfo = v
+	return s
+}
+
+type DingTalkSecurityCheckResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DingTalkSecurityCheckResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DingTalkSecurityCheckResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DingTalkSecurityCheckResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DingTalkSecurityCheckResponse) SetHeaders(v map[string]*string) *DingTalkSecurityCheckResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DingTalkSecurityCheckResponse) SetBody(v *DingTalkSecurityCheckResponseBody) *DingTalkSecurityCheckResponse {
+	s.Body = v
+	return s
+}
+
 type GetClosingAccountsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2408,6 +2543,66 @@ func (client *Client) CreateApproveWithOptions(request *CreateApproveRequest, he
 	}
 	_result = &CreateApproveResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateApprove"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/approves"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DingTalkSecurityCheck(request *DingTalkSecurityCheckRequest) (_result *DingTalkSecurityCheckResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DingTalkSecurityCheckHeaders{}
+	_result = &DingTalkSecurityCheckResponse{}
+	_body, _err := client.DingTalkSecurityCheckWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DingTalkSecurityCheckWithOptions(request *DingTalkSecurityCheckRequest, headers *DingTalkSecurityCheckHeaders, runtime *util.RuntimeOptions) (_result *DingTalkSecurityCheckResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ClientVer)) {
+		body["clientVer"] = request.ClientVer
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Platform)) {
+		body["platform"] = request.Platform
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PlatformVer)) {
+		body["platformVer"] = request.PlatformVer
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sec)) {
+		body["sec"] = request.Sec
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DingTalkSecurityCheckResponse{}
+	_body, _err := client.DoROARequest(tea.String("DingTalkSecurityCheck"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/securities/check"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
