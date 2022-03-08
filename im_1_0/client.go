@@ -747,6 +747,133 @@ func (s *InteractiveCardCreateInstanceResponse) SetBody(v *InteractiveCardCreate
 	return s
 }
 
+type QueryGroupMuteStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryGroupMuteStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupMuteStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupMuteStatusHeaders) SetCommonHeaders(v map[string]*string) *QueryGroupMuteStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryGroupMuteStatusHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGroupMuteStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryGroupMuteStatusRequest struct {
+	// 开放的会话ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 群成员的员工工号
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryGroupMuteStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupMuteStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupMuteStatusRequest) SetOpenConversationId(v string) *QueryGroupMuteStatusRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QueryGroupMuteStatusRequest) SetUserId(v string) *QueryGroupMuteStatusRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryGroupMuteStatusResponseBody struct {
+	// 群禁言状态
+	GroupMuteMode  *bool                                           `json:"groupMuteMode,omitempty" xml:"groupMuteMode,omitempty"`
+	UserMuteResult *QueryGroupMuteStatusResponseBodyUserMuteResult `json:"userMuteResult,omitempty" xml:"userMuteResult,omitempty" type:"Struct"`
+}
+
+func (s QueryGroupMuteStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupMuteStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupMuteStatusResponseBody) SetGroupMuteMode(v bool) *QueryGroupMuteStatusResponseBody {
+	s.GroupMuteMode = &v
+	return s
+}
+
+func (s *QueryGroupMuteStatusResponseBody) SetUserMuteResult(v *QueryGroupMuteStatusResponseBodyUserMuteResult) *QueryGroupMuteStatusResponseBody {
+	s.UserMuteResult = v
+	return s
+}
+
+type QueryGroupMuteStatusResponseBodyUserMuteResult struct {
+	// 禁言结束时间
+	MuteEndTime *int64 `json:"muteEndTime,omitempty" xml:"muteEndTime,omitempty"`
+	// 禁言开始时间
+	MuteStartTime *int64 `json:"muteStartTime,omitempty" xml:"muteStartTime,omitempty"`
+	// 成员禁言状态
+	UserMuteMode *bool `json:"userMuteMode,omitempty" xml:"userMuteMode,omitempty"`
+}
+
+func (s QueryGroupMuteStatusResponseBodyUserMuteResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupMuteStatusResponseBodyUserMuteResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupMuteStatusResponseBodyUserMuteResult) SetMuteEndTime(v int64) *QueryGroupMuteStatusResponseBodyUserMuteResult {
+	s.MuteEndTime = &v
+	return s
+}
+
+func (s *QueryGroupMuteStatusResponseBodyUserMuteResult) SetMuteStartTime(v int64) *QueryGroupMuteStatusResponseBodyUserMuteResult {
+	s.MuteStartTime = &v
+	return s
+}
+
+func (s *QueryGroupMuteStatusResponseBodyUserMuteResult) SetUserMuteMode(v bool) *QueryGroupMuteStatusResponseBodyUserMuteResult {
+	s.UserMuteMode = &v
+	return s
+}
+
+type QueryGroupMuteStatusResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryGroupMuteStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryGroupMuteStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupMuteStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupMuteStatusResponse) SetHeaders(v map[string]*string) *QueryGroupMuteStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryGroupMuteStatusResponse) SetBody(v *QueryGroupMuteStatusResponseBody) *QueryGroupMuteStatusResponse {
+	s.Body = v
+	return s
+}
+
 type QueryMembersOfGroupRoleHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1920,6 +2047,85 @@ func (s *UpdateInteractiveCardResponse) SetBody(v *UpdateInteractiveCardResponse
 	return s
 }
 
+type UpdateMemberBanWordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateMemberBanWordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMemberBanWordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMemberBanWordsHeaders) SetCommonHeaders(v map[string]*string) *UpdateMemberBanWordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateMemberBanWordsHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateMemberBanWordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateMemberBanWordsRequest struct {
+	// 禁言持续时长（单位：毫秒）
+	MuteDuration *int64 `json:"muteDuration,omitempty" xml:"muteDuration,omitempty"`
+	// 禁言状态(0表示取消禁言，1表示禁言)
+	MuteStatus *int32 `json:"muteStatus,omitempty" xml:"muteStatus,omitempty"`
+	// 开放群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 需要禁言或取消禁言的群成员列表
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s UpdateMemberBanWordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMemberBanWordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMemberBanWordsRequest) SetMuteDuration(v int64) *UpdateMemberBanWordsRequest {
+	s.MuteDuration = &v
+	return s
+}
+
+func (s *UpdateMemberBanWordsRequest) SetMuteStatus(v int32) *UpdateMemberBanWordsRequest {
+	s.MuteStatus = &v
+	return s
+}
+
+func (s *UpdateMemberBanWordsRequest) SetOpenConversationId(v string) *UpdateMemberBanWordsRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *UpdateMemberBanWordsRequest) SetUserIdList(v []*string) *UpdateMemberBanWordsRequest {
+	s.UserIdList = v
+	return s
+}
+
+type UpdateMemberBanWordsResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s UpdateMemberBanWordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMemberBanWordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMemberBanWordsResponse) SetHeaders(v map[string]*string) *UpdateMemberBanWordsResponse {
+	s.Headers = v
+	return s
+}
+
 type UpdateMemberGroupNickHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2515,6 +2721,54 @@ func (client *Client) InteractiveCardCreateInstanceWithOptions(request *Interact
 	return _result, _err
 }
 
+func (client *Client) QueryGroupMuteStatus(request *QueryGroupMuteStatusRequest) (_result *QueryGroupMuteStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryGroupMuteStatusHeaders{}
+	_result = &QueryGroupMuteStatusResponse{}
+	_body, _err := client.QueryGroupMuteStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryGroupMuteStatusWithOptions(request *QueryGroupMuteStatusRequest, headers *QueryGroupMuteStatusHeaders, runtime *util.RuntimeOptions) (_result *QueryGroupMuteStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		query["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryGroupMuteStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryGroupMuteStatus"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/muteSettings"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryMembersOfGroupRole(request *QueryMembersOfGroupRoleRequest) (_result *QueryMembersOfGroupRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryMembersOfGroupRoleHeaders{}
@@ -3068,6 +3322,62 @@ func (client *Client) UpdateInteractiveCardWithOptions(request *UpdateInteractiv
 	}
 	_result = &UpdateInteractiveCardResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateInteractiveCard"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/interactiveCards"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateMemberBanWords(request *UpdateMemberBanWordsRequest) (_result *UpdateMemberBanWordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateMemberBanWordsHeaders{}
+	_result = &UpdateMemberBanWordsResponse{}
+	_body, _err := client.UpdateMemberBanWordsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateMemberBanWordsWithOptions(request *UpdateMemberBanWordsRequest, headers *UpdateMemberBanWordsHeaders, runtime *util.RuntimeOptions) (_result *UpdateMemberBanWordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MuteDuration)) {
+		body["muteDuration"] = request.MuteDuration
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MuteStatus)) {
+		body["muteStatus"] = request.MuteStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdList)) {
+		body["userIdList"] = request.UserIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateMemberBanWordsResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateMemberBanWords"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/muteMembers/set"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
