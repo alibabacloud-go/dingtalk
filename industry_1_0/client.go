@@ -2162,6 +2162,8 @@ type QueryAllDoctorsResponseBodyContent struct {
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 关联的部门id
 	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// 科室医疗组标识
+	DeptType *string `json:"deptType,omitempty" xml:"deptType,omitempty"`
 	// 用户创建时间
 	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
 	// 用户最后修改时间
@@ -2205,6 +2207,11 @@ func (s *QueryAllDoctorsResponseBodyContent) SetCorpId(v string) *QueryAllDoctor
 
 func (s *QueryAllDoctorsResponseBodyContent) SetDeptCode(v string) *QueryAllDoctorsResponseBodyContent {
 	s.DeptCode = &v
+	return s
+}
+
+func (s *QueryAllDoctorsResponseBodyContent) SetDeptType(v string) *QueryAllDoctorsResponseBodyContent {
+	s.DeptType = &v
 	return s
 }
 
