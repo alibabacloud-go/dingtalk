@@ -11,6 +11,102 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type BanOrOpenGroupWordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BanOrOpenGroupWordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BanOrOpenGroupWordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BanOrOpenGroupWordsHeaders) SetCommonHeaders(v map[string]*string) *BanOrOpenGroupWordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BanOrOpenGroupWordsHeaders) SetXAcsDingtalkAccessToken(v string) *BanOrOpenGroupWordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BanOrOpenGroupWordsRequest struct {
+	// 操作类型:0 不禁言;1:禁言
+	BanWordsType *int32 `json:"banWordsType,omitempty" xml:"banWordsType,omitempty"`
+	// 群id
+	OpenConverationId *string `json:"openConverationId,omitempty" xml:"openConverationId,omitempty"`
+}
+
+func (s BanOrOpenGroupWordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BanOrOpenGroupWordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BanOrOpenGroupWordsRequest) SetBanWordsType(v int32) *BanOrOpenGroupWordsRequest {
+	s.BanWordsType = &v
+	return s
+}
+
+func (s *BanOrOpenGroupWordsRequest) SetOpenConverationId(v string) *BanOrOpenGroupWordsRequest {
+	s.OpenConverationId = &v
+	return s
+}
+
+type BanOrOpenGroupWordsResponseBody struct {
+	// 原因
+	Cause *string `json:"cause,omitempty" xml:"cause,omitempty"`
+	// 返回码
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+}
+
+func (s BanOrOpenGroupWordsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BanOrOpenGroupWordsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BanOrOpenGroupWordsResponseBody) SetCause(v string) *BanOrOpenGroupWordsResponseBody {
+	s.Cause = &v
+	return s
+}
+
+func (s *BanOrOpenGroupWordsResponseBody) SetCode(v string) *BanOrOpenGroupWordsResponseBody {
+	s.Code = &v
+	return s
+}
+
+type BanOrOpenGroupWordsResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BanOrOpenGroupWordsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BanOrOpenGroupWordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BanOrOpenGroupWordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BanOrOpenGroupWordsResponse) SetHeaders(v map[string]*string) *BanOrOpenGroupWordsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BanOrOpenGroupWordsResponse) SetBody(v *BanOrOpenGroupWordsResponseBody) *BanOrOpenGroupWordsResponse {
+	s.Body = v
+	return s
+}
+
 type CreateTrustedDeviceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2232,6 +2328,183 @@ func (s *GetPublisherSummaryResponse) SetBody(v *GetPublisherSummaryResponseBody
 	return s
 }
 
+type GetSignedDetailByPageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSignedDetailByPageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignedDetailByPageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignedDetailByPageHeaders) SetCommonHeaders(v map[string]*string) *GetSignedDetailByPageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSignedDetailByPageHeaders) SetXAcsDingtalkAccessToken(v string) *GetSignedDetailByPageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSignedDetailByPageRequest struct {
+	// pageStart
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// pageSize
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// signStatus
+	SignStatus *int64 `json:"signStatus,omitempty" xml:"signStatus,omitempty"`
+}
+
+func (s GetSignedDetailByPageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignedDetailByPageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignedDetailByPageRequest) SetPageNumber(v int64) *GetSignedDetailByPageRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetSignedDetailByPageRequest) SetPageSize(v int64) *GetSignedDetailByPageRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetSignedDetailByPageRequest) SetSignStatus(v int64) *GetSignedDetailByPageRequest {
+	s.SignStatus = &v
+	return s
+}
+
+type GetSignedDetailByPageResponseBody struct {
+	// 员工信息
+	AuditSignedDetailDTOList []*GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList `json:"auditSignedDetailDTOList,omitempty" xml:"auditSignedDetailDTOList,omitempty" type:"Repeated"`
+	// 当前页
+	CurrentPage *int64 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	// 一页数据量
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 总数据量
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetSignedDetailByPageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignedDetailByPageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignedDetailByPageResponseBody) SetAuditSignedDetailDTOList(v []*GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList) *GetSignedDetailByPageResponseBody {
+	s.AuditSignedDetailDTOList = v
+	return s
+}
+
+func (s *GetSignedDetailByPageResponseBody) SetCurrentPage(v int64) *GetSignedDetailByPageResponseBody {
+	s.CurrentPage = &v
+	return s
+}
+
+func (s *GetSignedDetailByPageResponseBody) SetPageSize(v int64) *GetSignedDetailByPageResponseBody {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetSignedDetailByPageResponseBody) SetTotal(v int64) *GetSignedDetailByPageResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList struct {
+	// 部门名称
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// 邮件
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+	// 员工名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 手机号
+	Phone *string `json:"phone,omitempty" xml:"phone,omitempty"`
+	// 角色
+	Roles *string `json:"roles,omitempty" xml:"roles,omitempty"`
+	// 工号
+	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
+	// 职位
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList) SetDeptName(v string) *GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList {
+	s.DeptName = &v
+	return s
+}
+
+func (s *GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList) SetEmail(v string) *GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList {
+	s.Email = &v
+	return s
+}
+
+func (s *GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList) SetName(v string) *GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList) SetPhone(v string) *GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList {
+	s.Phone = &v
+	return s
+}
+
+func (s *GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList) SetRoles(v string) *GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList {
+	s.Roles = &v
+	return s
+}
+
+func (s *GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList) SetStaffId(v string) *GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList {
+	s.StaffId = &v
+	return s
+}
+
+func (s *GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList) SetTitle(v string) *GetSignedDetailByPageResponseBodyAuditSignedDetailDTOList {
+	s.Title = &v
+	return s
+}
+
+type GetSignedDetailByPageResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetSignedDetailByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSignedDetailByPageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignedDetailByPageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignedDetailByPageResponse) SetHeaders(v map[string]*string) *GetSignedDetailByPageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSignedDetailByPageResponse) SetBody(v *GetSignedDetailByPageResponseBody) *GetSignedDetailByPageResponse {
+	s.Body = v
+	return s
+}
+
 type GetTrustDeviceListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3736,6 +4009,54 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) BanOrOpenGroupWords(request *BanOrOpenGroupWordsRequest) (_result *BanOrOpenGroupWordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BanOrOpenGroupWordsHeaders{}
+	_result = &BanOrOpenGroupWordsResponse{}
+	_body, _err := client.BanOrOpenGroupWordsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BanOrOpenGroupWordsWithOptions(request *BanOrOpenGroupWordsRequest, headers *BanOrOpenGroupWordsHeaders, runtime *util.RuntimeOptions) (_result *BanOrOpenGroupWordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BanWordsType)) {
+		body["banWordsType"] = request.BanWordsType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConverationId)) {
+		body["openConverationId"] = request.OpenConverationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BanOrOpenGroupWordsResponse{}
+	_body, _err := client.DoROARequest(tea.String("BanOrOpenGroupWords"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/exclusive/enterpriseSecurities/banOrOpenGroupWords"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateTrustedDevice(request *CreateTrustedDeviceRequest) (_result *CreateTrustedDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateTrustedDeviceHeaders{}
@@ -4486,6 +4807,58 @@ func (client *Client) GetPublisherSummaryWithOptions(dataId *string, request *Ge
 	}
 	_result = &GetPublisherSummaryResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetPublisherSummary"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/data/publisher/"+tea.StringValue(dataId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSignedDetailByPage(request *GetSignedDetailByPageRequest) (_result *GetSignedDetailByPageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSignedDetailByPageHeaders{}
+	_result = &GetSignedDetailByPageResponse{}
+	_body, _err := client.GetSignedDetailByPageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSignedDetailByPageWithOptions(request *GetSignedDetailByPageRequest, headers *GetSignedDetailByPageHeaders, runtime *util.RuntimeOptions) (_result *GetSignedDetailByPageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignStatus)) {
+		query["signStatus"] = request.SignStatus
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetSignedDetailByPageResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetSignedDetailByPage"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/audits/users"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
