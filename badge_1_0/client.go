@@ -357,6 +357,8 @@ type DecodeBadgeCodeResponseBody struct {
 	CodeType *string `json:"codeType,omitempty" xml:"codeType,omitempty"`
 	// 企业id
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 扩展信息
+	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
 	// 外部业务ID，值为调用创建工牌码接口传入的requestId
 	OutBizId *string `json:"outBizId,omitempty" xml:"outBizId,omitempty"`
 	// 用户和企业关系
@@ -395,6 +397,11 @@ func (s *DecodeBadgeCodeResponseBody) SetCodeType(v string) *DecodeBadgeCodeResp
 
 func (s *DecodeBadgeCodeResponseBody) SetCorpId(v string) *DecodeBadgeCodeResponseBody {
 	s.CorpId = &v
+	return s
+}
+
+func (s *DecodeBadgeCodeResponseBody) SetExtInfo(v string) *DecodeBadgeCodeResponseBody {
+	s.ExtInfo = &v
 	return s
 }
 

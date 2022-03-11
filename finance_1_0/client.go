@@ -2525,6 +2525,8 @@ type DecodePayCodeResponseBody struct {
 	CodeType *string `json:"codeType,omitempty" xml:"codeType,omitempty"`
 	// 企业id
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 扩展信息
+	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
 	// 外部业务ID,其值为调用创建用户码接口传入的requestId
 	OutBizId *string `json:"outBizId,omitempty" xml:"outBizId,omitempty"`
 	// 用户和企业关系
@@ -2565,6 +2567,11 @@ func (s *DecodePayCodeResponseBody) SetCodeType(v string) *DecodePayCodeResponse
 
 func (s *DecodePayCodeResponseBody) SetCorpId(v string) *DecodePayCodeResponseBody {
 	s.CorpId = &v
+	return s
+}
+
+func (s *DecodePayCodeResponseBody) SetExtInfo(v string) *DecodePayCodeResponseBody {
+	s.ExtInfo = &v
 	return s
 }
 

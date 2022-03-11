@@ -3957,6 +3957,63 @@ func (s *SearchUserResponse) SetBody(v *SearchUserResponseBody) *SearchUserRespo
 	return s
 }
 
+type SeparateBranchOrgHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SeparateBranchOrgHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SeparateBranchOrgHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SeparateBranchOrgHeaders) SetCommonHeaders(v map[string]*string) *SeparateBranchOrgHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SeparateBranchOrgHeaders) SetXAcsDingtalkAccessToken(v string) *SeparateBranchOrgHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SeparateBranchOrgRequest struct {
+	AttachDeptId *int64 `json:"attachDeptId,omitempty" xml:"attachDeptId,omitempty"`
+}
+
+func (s SeparateBranchOrgRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SeparateBranchOrgRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SeparateBranchOrgRequest) SetAttachDeptId(v int64) *SeparateBranchOrgRequest {
+	s.AttachDeptId = &v
+	return s
+}
+
+type SeparateBranchOrgResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s SeparateBranchOrgResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SeparateBranchOrgResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SeparateBranchOrgResponse) SetHeaders(v map[string]*string) *SeparateBranchOrgResponse {
+	s.Headers = v
+	return s
+}
+
 type SetDisableHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6843,6 +6900,50 @@ func (client *Client) SearchUserWithOptions(request *SearchUserRequest, headers 
 	}
 	_result = &SearchUserResponse{}
 	_body, _err := client.DoROARequest(tea.String("SearchUser"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/users/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SeparateBranchOrg(request *SeparateBranchOrgRequest) (_result *SeparateBranchOrgResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SeparateBranchOrgHeaders{}
+	_result = &SeparateBranchOrgResponse{}
+	_body, _err := client.SeparateBranchOrgWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SeparateBranchOrgWithOptions(request *SeparateBranchOrgRequest, headers *SeparateBranchOrgHeaders, runtime *util.RuntimeOptions) (_result *SeparateBranchOrgResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AttachDeptId)) {
+		body["attachDeptId"] = request.AttachDeptId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SeparateBranchOrgResponse{}
+	_body, _err := client.DoROARequest(tea.String("SeparateBranchOrg"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/cooperateCorps/separate"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
