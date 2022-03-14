@@ -7840,6 +7840,118 @@ func (s *QueryCrmPersonalCustomerResponse) SetBody(v *QueryCrmPersonalCustomerRe
 	return s
 }
 
+type QueryOfficialAccountUserBasicInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryOfficialAccountUserBasicInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialAccountUserBasicInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialAccountUserBasicInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryOfficialAccountUserBasicInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryOfficialAccountUserBasicInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryOfficialAccountUserBasicInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryOfficialAccountUserBasicInfoRequest struct {
+	BindingToken *string `json:"bindingToken,omitempty" xml:"bindingToken,omitempty"`
+	UnionId      *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryOfficialAccountUserBasicInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialAccountUserBasicInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialAccountUserBasicInfoRequest) SetBindingToken(v string) *QueryOfficialAccountUserBasicInfoRequest {
+	s.BindingToken = &v
+	return s
+}
+
+func (s *QueryOfficialAccountUserBasicInfoRequest) SetUnionId(v string) *QueryOfficialAccountUserBasicInfoRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryOfficialAccountUserBasicInfoResponseBody struct {
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// 响应结果
+	Result *QueryOfficialAccountUserBasicInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryOfficialAccountUserBasicInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialAccountUserBasicInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialAccountUserBasicInfoResponseBody) SetRequestId(v string) *QueryOfficialAccountUserBasicInfoResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *QueryOfficialAccountUserBasicInfoResponseBody) SetResult(v *QueryOfficialAccountUserBasicInfoResponseBodyResult) *QueryOfficialAccountUserBasicInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryOfficialAccountUserBasicInfoResponseBodyResult struct {
+	// 关注状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QueryOfficialAccountUserBasicInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialAccountUserBasicInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialAccountUserBasicInfoResponseBodyResult) SetStatus(v string) *QueryOfficialAccountUserBasicInfoResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+type QueryOfficialAccountUserBasicInfoResponse struct {
+	Headers map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryOfficialAccountUserBasicInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryOfficialAccountUserBasicInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialAccountUserBasicInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialAccountUserBasicInfoResponse) SetHeaders(v map[string]*string) *QueryOfficialAccountUserBasicInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryOfficialAccountUserBasicInfoResponse) SetBody(v *QueryOfficialAccountUserBasicInfoResponseBody) *QueryOfficialAccountUserBasicInfoResponse {
+	s.Body = v
+	return s
+}
+
 type QueryRelationDatasByTargetIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11097,6 +11209,54 @@ func (client *Client) QueryCrmPersonalCustomerWithOptions(request *QueryCrmPerso
 	}
 	_result = &QueryCrmPersonalCustomerResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryCrmPersonalCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/personalCustomers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryOfficialAccountUserBasicInfo(request *QueryOfficialAccountUserBasicInfoRequest) (_result *QueryOfficialAccountUserBasicInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryOfficialAccountUserBasicInfoHeaders{}
+	_result = &QueryOfficialAccountUserBasicInfoResponse{}
+	_body, _err := client.QueryOfficialAccountUserBasicInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryOfficialAccountUserBasicInfoWithOptions(request *QueryOfficialAccountUserBasicInfoRequest, headers *QueryOfficialAccountUserBasicInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryOfficialAccountUserBasicInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BindingToken)) {
+		query["bindingToken"] = request.BindingToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryOfficialAccountUserBasicInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryOfficialAccountUserBasicInfo"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/officialAccounts/basics/users"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
