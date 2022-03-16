@@ -1521,16 +1521,20 @@ func (s *GetRecentEditDocsResponseBodyRecentList) SetWorkspaceBO(v *GetRecentEdi
 }
 
 type GetRecentEditDocsResponseBodyRecentListNodeBO struct {
+	// 创建时间
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 节点类型
 	DocType *string `json:"docType,omitempty" xml:"docType,omitempty"`
 	// 是否被删除
 	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	// 最后编辑时间
+	// 内容的最后编辑时间
 	LastEditTime *int64 `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
 	// 文档Id
 	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
 	// 文档名称
 	NodeName *string `json:"nodeName,omitempty" xml:"nodeName,omitempty"`
+	// 文档更新时间，包括重命名、移动、内容编辑等操作都会刷新更新时间
+	UpdateTime *int64 `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 	// 文档打开url
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
@@ -1541,6 +1545,11 @@ func (s GetRecentEditDocsResponseBodyRecentListNodeBO) String() string {
 
 func (s GetRecentEditDocsResponseBodyRecentListNodeBO) GoString() string {
 	return s.String()
+}
+
+func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetCreateTime(v int64) *GetRecentEditDocsResponseBodyRecentListNodeBO {
+	s.CreateTime = &v
+	return s
 }
 
 func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetDocType(v string) *GetRecentEditDocsResponseBodyRecentListNodeBO {
@@ -1568,12 +1577,19 @@ func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetNodeName(v string) *G
 	return s
 }
 
+func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetUpdateTime(v int64) *GetRecentEditDocsResponseBodyRecentListNodeBO {
+	s.UpdateTime = &v
+	return s
+}
+
 func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetUrl(v string) *GetRecentEditDocsResponseBodyRecentListNodeBO {
 	s.Url = &v
 	return s
 }
 
 type GetRecentEditDocsResponseBodyRecentListWorkspaceBO struct {
+	// 团队空间打开url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 	// 团队空间Id
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 	// 团队空间名称
@@ -1586,6 +1602,11 @@ func (s GetRecentEditDocsResponseBodyRecentListWorkspaceBO) String() string {
 
 func (s GetRecentEditDocsResponseBodyRecentListWorkspaceBO) GoString() string {
 	return s.String()
+}
+
+func (s *GetRecentEditDocsResponseBodyRecentListWorkspaceBO) SetUrl(v string) *GetRecentEditDocsResponseBodyRecentListWorkspaceBO {
+	s.Url = &v
+	return s
 }
 
 func (s *GetRecentEditDocsResponseBodyRecentListWorkspaceBO) SetWorkspaceId(v string) *GetRecentEditDocsResponseBodyRecentListWorkspaceBO {
@@ -1725,6 +1746,8 @@ func (s *GetRecentOpenDocsResponseBodyRecentList) SetWorkspaceBO(v *GetRecentOpe
 }
 
 type GetRecentOpenDocsResponseBodyRecentListNodeBO struct {
+	// 创建时间
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 节点类型
 	DocType *string `json:"docType,omitempty" xml:"docType,omitempty"`
 	// 是否被删除
@@ -1735,6 +1758,8 @@ type GetRecentOpenDocsResponseBodyRecentListNodeBO struct {
 	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
 	// 文档名称
 	NodeName *string `json:"nodeName,omitempty" xml:"nodeName,omitempty"`
+	// 文档更新时间，包括重命名、移动、内容编辑等操作都会刷新更新时间
+	UpdateTime *int64 `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 	// 文档打开url
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
@@ -1745,6 +1770,11 @@ func (s GetRecentOpenDocsResponseBodyRecentListNodeBO) String() string {
 
 func (s GetRecentOpenDocsResponseBodyRecentListNodeBO) GoString() string {
 	return s.String()
+}
+
+func (s *GetRecentOpenDocsResponseBodyRecentListNodeBO) SetCreateTime(v int64) *GetRecentOpenDocsResponseBodyRecentListNodeBO {
+	s.CreateTime = &v
+	return s
 }
 
 func (s *GetRecentOpenDocsResponseBodyRecentListNodeBO) SetDocType(v string) *GetRecentOpenDocsResponseBodyRecentListNodeBO {
@@ -1772,12 +1802,19 @@ func (s *GetRecentOpenDocsResponseBodyRecentListNodeBO) SetNodeName(v string) *G
 	return s
 }
 
+func (s *GetRecentOpenDocsResponseBodyRecentListNodeBO) SetUpdateTime(v int64) *GetRecentOpenDocsResponseBodyRecentListNodeBO {
+	s.UpdateTime = &v
+	return s
+}
+
 func (s *GetRecentOpenDocsResponseBodyRecentListNodeBO) SetUrl(v string) *GetRecentOpenDocsResponseBodyRecentListNodeBO {
 	s.Url = &v
 	return s
 }
 
 type GetRecentOpenDocsResponseBodyRecentListWorkspaceBO struct {
+	// 团队空间打开url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 	// 团队空间Id
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 	// 团队空间名称
@@ -1790,6 +1827,11 @@ func (s GetRecentOpenDocsResponseBodyRecentListWorkspaceBO) String() string {
 
 func (s GetRecentOpenDocsResponseBodyRecentListWorkspaceBO) GoString() string {
 	return s.String()
+}
+
+func (s *GetRecentOpenDocsResponseBodyRecentListWorkspaceBO) SetUrl(v string) *GetRecentOpenDocsResponseBodyRecentListWorkspaceBO {
+	s.Url = &v
+	return s
 }
 
 func (s *GetRecentOpenDocsResponseBodyRecentListWorkspaceBO) SetWorkspaceId(v string) *GetRecentOpenDocsResponseBodyRecentListWorkspaceBO {

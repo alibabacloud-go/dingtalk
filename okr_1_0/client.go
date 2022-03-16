@@ -36,12 +36,12 @@ func (s *AlignObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *AlignObjec
 }
 
 type AlignObjectiveRequest struct {
-	// 周期 ID
+	// 周期 ID。
 	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	// 对齐目标的 ID
+	// 对齐目标的 ID。
 	TargetId *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
-	// 用户 ID
-	OwnerId io.Reader `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
+	// 当前用户的 user ID。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AlignObjectiveRequest) String() string {
@@ -62,18 +62,14 @@ func (s *AlignObjectiveRequest) SetTargetId(v string) *AlignObjectiveRequest {
 	return s
 }
 
-func (s *AlignObjectiveRequest) SetOwnerId(v io.Reader) *AlignObjectiveRequest {
-	s.OwnerId = v
+func (s *AlignObjectiveRequest) SetUserId(v string) *AlignObjectiveRequest {
+	s.UserId = &v
 	return s
 }
 
 type AlignObjectiveResponseBody struct {
-	// code
-	Code *int64 `json:"code,omitempty" xml:"code,omitempty"`
 	// data
 	Data *AlignObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// message
-	Message *string `json:"message,omitempty" xml:"message,omitempty"`
 	// success
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
@@ -86,18 +82,8 @@ func (s AlignObjectiveResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *AlignObjectiveResponseBody) SetCode(v int64) *AlignObjectiveResponseBody {
-	s.Code = &v
-	return s
-}
-
 func (s *AlignObjectiveResponseBody) SetData(v *AlignObjectiveResponseBodyData) *AlignObjectiveResponseBody {
 	s.Data = v
-	return s
-}
-
-func (s *AlignObjectiveResponseBody) SetMessage(v string) *AlignObjectiveResponseBody {
-	s.Message = &v
 	return s
 }
 
@@ -107,8 +93,10 @@ func (s *AlignObjectiveResponseBody) SetSuccess(v bool) *AlignObjectiveResponseB
 }
 
 type AlignObjectiveResponseBodyData struct {
+	// 对齐目标的 ID。
 	AlignId io.Reader `json:"alignId,omitempty" xml:"alignId,omitempty"`
-	Id      io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// 当前 Objective 的ID
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
 }
 
 func (s AlignObjectiveResponseBodyData) String() string {
@@ -176,17 +164,18 @@ func (s *BatchQueryObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *Batch
 }
 
 type BatchQueryObjectiveRequest struct {
-	ObjectiveIds []io.Reader `json:"objectiveIds,omitempty" xml:"objectiveIds,omitempty" type:"Repeated"`
-	// periodId
-	PeriodId io.Reader `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	// withAlign
+	// 需要查看的 Objective ID。
+	ObjectiveIds []*string `json:"objectiveIds,omitempty" xml:"objectiveIds,omitempty" type:"Repeated"`
+	// 周期 ID。
+	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	// 是否返回关联信息。
 	WithAlign *bool `json:"withAlign,omitempty" xml:"withAlign,omitempty"`
-	// withKr
+	// 是否返回 KR 信息。
 	WithKr *bool `json:"withKr,omitempty" xml:"withKr,omitempty"`
-	// withProgress
+	// 是否返回进度信息
 	WithProgress *bool `json:"withProgress,omitempty" xml:"withProgress,omitempty"`
-	// ownerId
-	OwnerId *string `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
+	// 当前用户的 staff ID。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchQueryObjectiveRequest) String() string {
@@ -197,13 +186,13 @@ func (s BatchQueryObjectiveRequest) GoString() string {
 	return s.String()
 }
 
-func (s *BatchQueryObjectiveRequest) SetObjectiveIds(v []io.Reader) *BatchQueryObjectiveRequest {
+func (s *BatchQueryObjectiveRequest) SetObjectiveIds(v []*string) *BatchQueryObjectiveRequest {
 	s.ObjectiveIds = v
 	return s
 }
 
-func (s *BatchQueryObjectiveRequest) SetPeriodId(v io.Reader) *BatchQueryObjectiveRequest {
-	s.PeriodId = v
+func (s *BatchQueryObjectiveRequest) SetPeriodId(v string) *BatchQueryObjectiveRequest {
+	s.PeriodId = &v
 	return s
 }
 
@@ -222,18 +211,15 @@ func (s *BatchQueryObjectiveRequest) SetWithProgress(v bool) *BatchQueryObjectiv
 	return s
 }
 
-func (s *BatchQueryObjectiveRequest) SetOwnerId(v string) *BatchQueryObjectiveRequest {
-	s.OwnerId = &v
+func (s *BatchQueryObjectiveRequest) SetUserId(v string) *BatchQueryObjectiveRequest {
+	s.UserId = &v
 	return s
 }
 
 type BatchQueryObjectiveResponseBody struct {
-	// code
-	Code *string                                `json:"code,omitempty" xml:"code,omitempty"`
-	Data []*BatchQueryObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	// message
-	Message io.Reader `json:"message,omitempty" xml:"message,omitempty"`
-	// success
+	// data
+	Data *BatchQueryObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// 请求成功的标识。
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -245,18 +231,8 @@ func (s BatchQueryObjectiveResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *BatchQueryObjectiveResponseBody) SetCode(v string) *BatchQueryObjectiveResponseBody {
-	s.Code = &v
-	return s
-}
-
-func (s *BatchQueryObjectiveResponseBody) SetData(v []*BatchQueryObjectiveResponseBodyData) *BatchQueryObjectiveResponseBody {
+func (s *BatchQueryObjectiveResponseBody) SetData(v *BatchQueryObjectiveResponseBodyData) *BatchQueryObjectiveResponseBody {
 	s.Data = v
-	return s
-}
-
-func (s *BatchQueryObjectiveResponseBody) SetMessage(v io.Reader) *BatchQueryObjectiveResponseBody {
-	s.Message = v
 	return s
 }
 
@@ -266,22 +242,14 @@ func (s *BatchQueryObjectiveResponseBody) SetSuccess(v bool) *BatchQueryObjectiv
 }
 
 type BatchQueryObjectiveResponseBodyData struct {
-	AlignFromIds    []io.Reader                                  `json:"alignFromIds,omitempty" xml:"alignFromIds,omitempty" type:"Repeated"`
-	AlignToIds      []io.Reader                                  `json:"alignToIds,omitempty" xml:"alignToIds,omitempty" type:"Repeated"`
-	Content         io.Reader                                    `json:"content,omitempty" xml:"content,omitempty"`
-	Id              io.Reader                                    `json:"id,omitempty" xml:"id,omitempty"`
-	KrList          []*BatchQueryObjectiveResponseBodyDataKrList `json:"krList,omitempty" xml:"krList,omitempty" type:"Repeated"`
-	Owner           *BatchQueryObjectiveResponseBodyDataOwner    `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
-	PeriodId        io.Reader                                    `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	Permission      []*float32                                   `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
-	Position        *int32                                       `json:"position,omitempty" xml:"position,omitempty"`
-	Progress        *BatchQueryObjectiveResponseBodyDataProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
-	ProgressPercent *float32                                     `json:"progressPercent,omitempty" xml:"progressPercent,omitempty"`
-	Published       *bool                                        `json:"published,omitempty" xml:"published,omitempty"`
-	Score           *float32                                     `json:"score,omitempty" xml:"score,omitempty"`
-	Status          *int32                                       `json:"status,omitempty" xml:"status,omitempty"`
-	UserId          io.Reader                                    `json:"userId,omitempty" xml:"userId,omitempty"`
-	Weight          *float32                                     `json:"weight,omitempty" xml:"weight,omitempty"`
+	// OKR 列表详情。
+	List []*BatchQueryObjectiveResponseBodyDataList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// 当前页码。
+	PageNo *int64 `json:"pageNo,omitempty" xml:"pageNo,omitempty"`
+	// 每一页的个数。
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 总数。
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s BatchQueryObjectiveResponseBodyData) String() string {
@@ -292,245 +260,294 @@ func (s BatchQueryObjectiveResponseBodyData) GoString() string {
 	return s.String()
 }
 
-func (s *BatchQueryObjectiveResponseBodyData) SetAlignFromIds(v []io.Reader) *BatchQueryObjectiveResponseBodyData {
+func (s *BatchQueryObjectiveResponseBodyData) SetList(v []*BatchQueryObjectiveResponseBodyDataList) *BatchQueryObjectiveResponseBodyData {
+	s.List = v
+	return s
+}
+
+func (s *BatchQueryObjectiveResponseBodyData) SetPageNo(v int64) *BatchQueryObjectiveResponseBodyData {
+	s.PageNo = &v
+	return s
+}
+
+func (s *BatchQueryObjectiveResponseBodyData) SetPageSize(v int64) *BatchQueryObjectiveResponseBodyData {
+	s.PageSize = &v
+	return s
+}
+
+func (s *BatchQueryObjectiveResponseBodyData) SetTotalCount(v int64) *BatchQueryObjectiveResponseBodyData {
+	s.TotalCount = &v
+	return s
+}
+
+type BatchQueryObjectiveResponseBodyDataList struct {
+	// 被对齐的 Objective。
+	AlignFromIds []io.Reader `json:"alignFromIds,omitempty" xml:"alignFromIds,omitempty" type:"Repeated"`
+	// 对齐的 Objective。
+	AlignToIds []io.Reader `json:"alignToIds,omitempty" xml:"alignToIds,omitempty" type:"Repeated"`
+	// Objective 内容。
+	Content io.Reader `json:"content,omitempty" xml:"content,omitempty"`
+	// objective。
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// KR 详情列表。
+	KrList []*BatchQueryObjectiveResponseBodyDataListKrList `json:"krList,omitempty" xml:"krList,omitempty" type:"Repeated"`
+	// 所属者信息。
+	Owner *BatchQueryObjectiveResponseBodyDataListOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	// 周期 ID。
+	PeriodId io.Reader `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	// 权限值。
+	Permission []*float32 `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
+	// 所在位置。
+	Position *int32 `json:"position,omitempty" xml:"position,omitempty"`
+	// 进度值。
+	Progress *BatchQueryObjectiveResponseBodyDataListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
+	// 百分比值。
+	ProgressPercent *float32 `json:"progressPercent,omitempty" xml:"progressPercent,omitempty"`
+	// 是否已发布。
+	Published *bool `json:"published,omitempty" xml:"published,omitempty"`
+	// 分数值。
+	Score *float32 `json:"score,omitempty" xml:"score,omitempty"`
+	// 当前内容状态。
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 用户 ID。
+	UserId io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 权重值。
+	Weight *float32 `json:"weight,omitempty" xml:"weight,omitempty"`
+}
+
+func (s BatchQueryObjectiveResponseBodyDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryObjectiveResponseBodyDataList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryObjectiveResponseBodyDataList) SetAlignFromIds(v []io.Reader) *BatchQueryObjectiveResponseBodyDataList {
 	s.AlignFromIds = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyData) SetAlignToIds(v []io.Reader) *BatchQueryObjectiveResponseBodyData {
+func (s *BatchQueryObjectiveResponseBodyDataList) SetAlignToIds(v []io.Reader) *BatchQueryObjectiveResponseBodyDataList {
 	s.AlignToIds = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyData) SetContent(v io.Reader) *BatchQueryObjectiveResponseBodyData {
+func (s *BatchQueryObjectiveResponseBodyDataList) SetContent(v io.Reader) *BatchQueryObjectiveResponseBodyDataList {
 	s.Content = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyData) SetId(v io.Reader) *BatchQueryObjectiveResponseBodyData {
+func (s *BatchQueryObjectiveResponseBodyDataList) SetId(v io.Reader) *BatchQueryObjectiveResponseBodyDataList {
 	s.Id = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyData) SetKrList(v []*BatchQueryObjectiveResponseBodyDataKrList) *BatchQueryObjectiveResponseBodyData {
+func (s *BatchQueryObjectiveResponseBodyDataList) SetKrList(v []*BatchQueryObjectiveResponseBodyDataListKrList) *BatchQueryObjectiveResponseBodyDataList {
 	s.KrList = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyData) SetOwner(v *BatchQueryObjectiveResponseBodyDataOwner) *BatchQueryObjectiveResponseBodyData {
+func (s *BatchQueryObjectiveResponseBodyDataList) SetOwner(v *BatchQueryObjectiveResponseBodyDataListOwner) *BatchQueryObjectiveResponseBodyDataList {
 	s.Owner = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyData) SetPeriodId(v io.Reader) *BatchQueryObjectiveResponseBodyData {
+func (s *BatchQueryObjectiveResponseBodyDataList) SetPeriodId(v io.Reader) *BatchQueryObjectiveResponseBodyDataList {
 	s.PeriodId = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyData) SetPermission(v []*float32) *BatchQueryObjectiveResponseBodyData {
+func (s *BatchQueryObjectiveResponseBodyDataList) SetPermission(v []*float32) *BatchQueryObjectiveResponseBodyDataList {
 	s.Permission = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyData) SetPosition(v int32) *BatchQueryObjectiveResponseBodyData {
+func (s *BatchQueryObjectiveResponseBodyDataList) SetPosition(v int32) *BatchQueryObjectiveResponseBodyDataList {
 	s.Position = &v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyData) SetProgress(v *BatchQueryObjectiveResponseBodyDataProgress) *BatchQueryObjectiveResponseBodyData {
+func (s *BatchQueryObjectiveResponseBodyDataList) SetProgress(v *BatchQueryObjectiveResponseBodyDataListProgress) *BatchQueryObjectiveResponseBodyDataList {
 	s.Progress = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyData) SetProgressPercent(v float32) *BatchQueryObjectiveResponseBodyData {
+func (s *BatchQueryObjectiveResponseBodyDataList) SetProgressPercent(v float32) *BatchQueryObjectiveResponseBodyDataList {
 	s.ProgressPercent = &v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyData) SetPublished(v bool) *BatchQueryObjectiveResponseBodyData {
+func (s *BatchQueryObjectiveResponseBodyDataList) SetPublished(v bool) *BatchQueryObjectiveResponseBodyDataList {
 	s.Published = &v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyData) SetScore(v float32) *BatchQueryObjectiveResponseBodyData {
+func (s *BatchQueryObjectiveResponseBodyDataList) SetScore(v float32) *BatchQueryObjectiveResponseBodyDataList {
 	s.Score = &v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyData) SetStatus(v int32) *BatchQueryObjectiveResponseBodyData {
+func (s *BatchQueryObjectiveResponseBodyDataList) SetStatus(v int32) *BatchQueryObjectiveResponseBodyDataList {
 	s.Status = &v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyData) SetUserId(v io.Reader) *BatchQueryObjectiveResponseBodyData {
+func (s *BatchQueryObjectiveResponseBodyDataList) SetUserId(v io.Reader) *BatchQueryObjectiveResponseBodyDataList {
 	s.UserId = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyData) SetWeight(v float32) *BatchQueryObjectiveResponseBodyData {
+func (s *BatchQueryObjectiveResponseBodyDataList) SetWeight(v float32) *BatchQueryObjectiveResponseBodyDataList {
 	s.Weight = &v
 	return s
 }
 
-type BatchQueryObjectiveResponseBodyDataKrList struct {
-	Content     io.Reader                                          `json:"content,omitempty" xml:"content,omitempty"`
-	Id          io.Reader                                          `json:"id,omitempty" xml:"id,omitempty"`
-	ObjectiveId io.Reader                                          `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
-	Permission  []*float32                                         `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
-	Position    *int64                                             `json:"position,omitempty" xml:"position,omitempty"`
-	Progress    *BatchQueryObjectiveResponseBodyDataKrListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
-	Score       *float32                                           `json:"score,omitempty" xml:"score,omitempty"`
-	Weight      *float32                                           `json:"weight,omitempty" xml:"weight,omitempty"`
+type BatchQueryObjectiveResponseBodyDataListKrList struct {
+	// KR 内容。
+	Content io.Reader `json:"content,omitempty" xml:"content,omitempty"`
+	// KR 的 ID。
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// 所属 Objective ID。
+	ObjectiveId io.Reader `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
+	// KR 权限。
+	Permission []*float32 `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
+	// 所处位置。
+	Position *int64 `json:"position,omitempty" xml:"position,omitempty"`
+	// KR 进度。
+	Progress *BatchQueryObjectiveResponseBodyDataListKrListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
+	// 所占分数。
+	Score *float32 `json:"score,omitempty" xml:"score,omitempty"`
+	// 所占权重。
+	Weight *float32 `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
-func (s BatchQueryObjectiveResponseBodyDataKrList) String() string {
+func (s BatchQueryObjectiveResponseBodyDataListKrList) String() string {
 	return tea.Prettify(s)
 }
 
-func (s BatchQueryObjectiveResponseBodyDataKrList) GoString() string {
+func (s BatchQueryObjectiveResponseBodyDataListKrList) GoString() string {
 	return s.String()
 }
 
-func (s *BatchQueryObjectiveResponseBodyDataKrList) SetContent(v io.Reader) *BatchQueryObjectiveResponseBodyDataKrList {
+func (s *BatchQueryObjectiveResponseBodyDataListKrList) SetContent(v io.Reader) *BatchQueryObjectiveResponseBodyDataListKrList {
 	s.Content = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyDataKrList) SetId(v io.Reader) *BatchQueryObjectiveResponseBodyDataKrList {
+func (s *BatchQueryObjectiveResponseBodyDataListKrList) SetId(v io.Reader) *BatchQueryObjectiveResponseBodyDataListKrList {
 	s.Id = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyDataKrList) SetObjectiveId(v io.Reader) *BatchQueryObjectiveResponseBodyDataKrList {
+func (s *BatchQueryObjectiveResponseBodyDataListKrList) SetObjectiveId(v io.Reader) *BatchQueryObjectiveResponseBodyDataListKrList {
 	s.ObjectiveId = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyDataKrList) SetPermission(v []*float32) *BatchQueryObjectiveResponseBodyDataKrList {
+func (s *BatchQueryObjectiveResponseBodyDataListKrList) SetPermission(v []*float32) *BatchQueryObjectiveResponseBodyDataListKrList {
 	s.Permission = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyDataKrList) SetPosition(v int64) *BatchQueryObjectiveResponseBodyDataKrList {
+func (s *BatchQueryObjectiveResponseBodyDataListKrList) SetPosition(v int64) *BatchQueryObjectiveResponseBodyDataListKrList {
 	s.Position = &v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyDataKrList) SetProgress(v *BatchQueryObjectiveResponseBodyDataKrListProgress) *BatchQueryObjectiveResponseBodyDataKrList {
+func (s *BatchQueryObjectiveResponseBodyDataListKrList) SetProgress(v *BatchQueryObjectiveResponseBodyDataListKrListProgress) *BatchQueryObjectiveResponseBodyDataListKrList {
 	s.Progress = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyDataKrList) SetScore(v float32) *BatchQueryObjectiveResponseBodyDataKrList {
+func (s *BatchQueryObjectiveResponseBodyDataListKrList) SetScore(v float32) *BatchQueryObjectiveResponseBodyDataListKrList {
 	s.Score = &v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyDataKrList) SetWeight(v float32) *BatchQueryObjectiveResponseBodyDataKrList {
+func (s *BatchQueryObjectiveResponseBodyDataListKrList) SetWeight(v float32) *BatchQueryObjectiveResponseBodyDataListKrList {
 	s.Weight = &v
 	return s
 }
 
-type BatchQueryObjectiveResponseBodyDataKrListProgress struct {
+type BatchQueryObjectiveResponseBodyDataListKrListProgress struct {
+	// 百分比。
 	Percent *int32 `json:"percent,omitempty" xml:"percent,omitempty"`
 }
 
-func (s BatchQueryObjectiveResponseBodyDataKrListProgress) String() string {
+func (s BatchQueryObjectiveResponseBodyDataListKrListProgress) String() string {
 	return tea.Prettify(s)
 }
 
-func (s BatchQueryObjectiveResponseBodyDataKrListProgress) GoString() string {
+func (s BatchQueryObjectiveResponseBodyDataListKrListProgress) GoString() string {
 	return s.String()
 }
 
-func (s *BatchQueryObjectiveResponseBodyDataKrListProgress) SetPercent(v int32) *BatchQueryObjectiveResponseBodyDataKrListProgress {
+func (s *BatchQueryObjectiveResponseBodyDataListKrListProgress) SetPercent(v int32) *BatchQueryObjectiveResponseBodyDataListKrListProgress {
 	s.Percent = &v
 	return s
 }
 
-type BatchQueryObjectiveResponseBodyDataOwner struct {
-	AvatarMediaId io.Reader                                           `json:"avatarMediaId,omitempty" xml:"avatarMediaId,omitempty"`
-	CorpId        io.Reader                                           `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Department    *BatchQueryObjectiveResponseBodyDataOwnerDepartment `json:"department,omitempty" xml:"department,omitempty" type:"Struct"`
-	Id            io.Reader                                           `json:"id,omitempty" xml:"id,omitempty"`
-	Nickname      io.Reader                                           `json:"nickname,omitempty" xml:"nickname,omitempty"`
-	StaffId       io.Reader                                           `json:"staffId,omitempty" xml:"staffId,omitempty"`
+type BatchQueryObjectiveResponseBodyDataListOwner struct {
+	// 所属者头像。 ID
+	AvatarMediaId io.Reader `json:"avatarMediaId,omitempty" xml:"avatarMediaId,omitempty"`
+	// 所属者组织 I。D
+	CorpId io.Reader `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 所属者 ID。
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// 所属者昵称。
+	Nickname io.Reader `json:"nickname,omitempty" xml:"nickname,omitempty"`
+	// 所属者 userId。
+	StaffId io.Reader `json:"staffId,omitempty" xml:"staffId,omitempty"`
 }
 
-func (s BatchQueryObjectiveResponseBodyDataOwner) String() string {
+func (s BatchQueryObjectiveResponseBodyDataListOwner) String() string {
 	return tea.Prettify(s)
 }
 
-func (s BatchQueryObjectiveResponseBodyDataOwner) GoString() string {
+func (s BatchQueryObjectiveResponseBodyDataListOwner) GoString() string {
 	return s.String()
 }
 
-func (s *BatchQueryObjectiveResponseBodyDataOwner) SetAvatarMediaId(v io.Reader) *BatchQueryObjectiveResponseBodyDataOwner {
+func (s *BatchQueryObjectiveResponseBodyDataListOwner) SetAvatarMediaId(v io.Reader) *BatchQueryObjectiveResponseBodyDataListOwner {
 	s.AvatarMediaId = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyDataOwner) SetCorpId(v io.Reader) *BatchQueryObjectiveResponseBodyDataOwner {
+func (s *BatchQueryObjectiveResponseBodyDataListOwner) SetCorpId(v io.Reader) *BatchQueryObjectiveResponseBodyDataListOwner {
 	s.CorpId = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyDataOwner) SetDepartment(v *BatchQueryObjectiveResponseBodyDataOwnerDepartment) *BatchQueryObjectiveResponseBodyDataOwner {
-	s.Department = v
-	return s
-}
-
-func (s *BatchQueryObjectiveResponseBodyDataOwner) SetId(v io.Reader) *BatchQueryObjectiveResponseBodyDataOwner {
+func (s *BatchQueryObjectiveResponseBodyDataListOwner) SetId(v io.Reader) *BatchQueryObjectiveResponseBodyDataListOwner {
 	s.Id = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyDataOwner) SetNickname(v io.Reader) *BatchQueryObjectiveResponseBodyDataOwner {
+func (s *BatchQueryObjectiveResponseBodyDataListOwner) SetNickname(v io.Reader) *BatchQueryObjectiveResponseBodyDataListOwner {
 	s.Nickname = v
 	return s
 }
 
-func (s *BatchQueryObjectiveResponseBodyDataOwner) SetStaffId(v io.Reader) *BatchQueryObjectiveResponseBodyDataOwner {
+func (s *BatchQueryObjectiveResponseBodyDataListOwner) SetStaffId(v io.Reader) *BatchQueryObjectiveResponseBodyDataListOwner {
 	s.StaffId = v
 	return s
 }
 
-type BatchQueryObjectiveResponseBodyDataOwnerDepartment struct {
-	Id   io.Reader `json:"id,omitempty" xml:"id,omitempty"`
-	Name io.Reader `json:"name,omitempty" xml:"name,omitempty"`
-}
-
-func (s BatchQueryObjectiveResponseBodyDataOwnerDepartment) String() string {
-	return tea.Prettify(s)
-}
-
-func (s BatchQueryObjectiveResponseBodyDataOwnerDepartment) GoString() string {
-	return s.String()
-}
-
-func (s *BatchQueryObjectiveResponseBodyDataOwnerDepartment) SetId(v io.Reader) *BatchQueryObjectiveResponseBodyDataOwnerDepartment {
-	s.Id = v
-	return s
-}
-
-func (s *BatchQueryObjectiveResponseBodyDataOwnerDepartment) SetName(v io.Reader) *BatchQueryObjectiveResponseBodyDataOwnerDepartment {
-	s.Name = v
-	return s
-}
-
-type BatchQueryObjectiveResponseBodyDataProgress struct {
+type BatchQueryObjectiveResponseBodyDataListProgress struct {
+	// 百分比。
 	Percent *int32 `json:"percent,omitempty" xml:"percent,omitempty"`
 }
 
-func (s BatchQueryObjectiveResponseBodyDataProgress) String() string {
+func (s BatchQueryObjectiveResponseBodyDataListProgress) String() string {
 	return tea.Prettify(s)
 }
 
-func (s BatchQueryObjectiveResponseBodyDataProgress) GoString() string {
+func (s BatchQueryObjectiveResponseBodyDataListProgress) GoString() string {
 	return s.String()
 }
 
-func (s *BatchQueryObjectiveResponseBodyDataProgress) SetPercent(v int32) *BatchQueryObjectiveResponseBodyDataProgress {
+func (s *BatchQueryObjectiveResponseBodyDataListProgress) SetPercent(v int32) *BatchQueryObjectiveResponseBodyDataListProgress {
 	s.Percent = &v
 	return s
 }
@@ -582,12 +599,18 @@ func (s *CreateKeyResultHeaders) SetXAcsDingtalkAccessToken(v string) *CreateKey
 }
 
 type CreateKeyResultRequest struct {
-	Content      io.Reader `json:"content,omitempty" xml:"content,omitempty"`
-	ObjectiveId  io.Reader `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
-	PeriodId     io.Reader `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	PrevPosition *int64    `json:"prevPosition,omitempty" xml:"prevPosition,omitempty"`
-	Weight       *int64    `json:"weight,omitempty" xml:"weight,omitempty"`
-	OwnerId      io.Reader `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
+	// KR 内容。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 所属 Objective ID。
+	ObjectiveId *string `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
+	// 周期 ID。
+	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	// 上一个 KR 的位置。
+	PrevPosition *int64 `json:"prevPosition,omitempty" xml:"prevPosition,omitempty"`
+	// KR 的权重比。
+	Weight *int64 `json:"weight,omitempty" xml:"weight,omitempty"`
+	// 当前用户的 user ID。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateKeyResultRequest) String() string {
@@ -598,18 +621,18 @@ func (s CreateKeyResultRequest) GoString() string {
 	return s.String()
 }
 
-func (s *CreateKeyResultRequest) SetContent(v io.Reader) *CreateKeyResultRequest {
-	s.Content = v
+func (s *CreateKeyResultRequest) SetContent(v string) *CreateKeyResultRequest {
+	s.Content = &v
 	return s
 }
 
-func (s *CreateKeyResultRequest) SetObjectiveId(v io.Reader) *CreateKeyResultRequest {
-	s.ObjectiveId = v
+func (s *CreateKeyResultRequest) SetObjectiveId(v string) *CreateKeyResultRequest {
+	s.ObjectiveId = &v
 	return s
 }
 
-func (s *CreateKeyResultRequest) SetPeriodId(v io.Reader) *CreateKeyResultRequest {
-	s.PeriodId = v
+func (s *CreateKeyResultRequest) SetPeriodId(v string) *CreateKeyResultRequest {
+	s.PeriodId = &v
 	return s
 }
 
@@ -623,14 +646,14 @@ func (s *CreateKeyResultRequest) SetWeight(v int64) *CreateKeyResultRequest {
 	return s
 }
 
-func (s *CreateKeyResultRequest) SetOwnerId(v io.Reader) *CreateKeyResultRequest {
-	s.OwnerId = v
+func (s *CreateKeyResultRequest) SetUserId(v string) *CreateKeyResultRequest {
+	s.UserId = &v
 	return s
 }
 
 type CreateKeyResultResponseBody struct {
 	Data *CreateKeyResultResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// Id of the request
+	// 请求成功的标识。
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -653,9 +676,12 @@ func (s *CreateKeyResultResponseBody) SetSuccess(v bool) *CreateKeyResultRespons
 }
 
 type CreateKeyResultResponseBodyData struct {
-	Id       io.Reader `json:"id,omitempty" xml:"id,omitempty"`
-	Position *int64    `json:"position,omitempty" xml:"position,omitempty"`
-	Weight   *int64    `json:"weight,omitempty" xml:"weight,omitempty"`
+	// 创建成功的 KR ID。
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// KR的位置。
+	Position *int64 `json:"position,omitempty" xml:"position,omitempty"`
+	// KR 的权重。
+	Weight *int64 `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s CreateKeyResultResponseBodyData) String() string {
@@ -728,13 +754,13 @@ func (s *CreateObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *CreateObj
 }
 
 type CreateObjectiveRequest struct {
-	// content
-	Content io.Reader `json:"content,omitempty" xml:"content,omitempty"`
-	// periodId
-	PeriodId io.Reader `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	// prevPosition
-	PrevPosition io.Reader `json:"prevPosition,omitempty" xml:"prevPosition,omitempty"`
-	// userId
+	// 创建Objective 的内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 当前周期 ID。
+	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	// 上一个 Objective 的位置。
+	PrevPosition *string `json:"prevPosition,omitempty" xml:"prevPosition,omitempty"`
+	// 当前用户的 userId。
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -746,18 +772,18 @@ func (s CreateObjectiveRequest) GoString() string {
 	return s.String()
 }
 
-func (s *CreateObjectiveRequest) SetContent(v io.Reader) *CreateObjectiveRequest {
-	s.Content = v
+func (s *CreateObjectiveRequest) SetContent(v string) *CreateObjectiveRequest {
+	s.Content = &v
 	return s
 }
 
-func (s *CreateObjectiveRequest) SetPeriodId(v io.Reader) *CreateObjectiveRequest {
-	s.PeriodId = v
+func (s *CreateObjectiveRequest) SetPeriodId(v string) *CreateObjectiveRequest {
+	s.PeriodId = &v
 	return s
 }
 
-func (s *CreateObjectiveRequest) SetPrevPosition(v io.Reader) *CreateObjectiveRequest {
-	s.PrevPosition = v
+func (s *CreateObjectiveRequest) SetPrevPosition(v string) *CreateObjectiveRequest {
+	s.PrevPosition = &v
 	return s
 }
 
@@ -767,13 +793,9 @@ func (s *CreateObjectiveRequest) SetUserId(v string) *CreateObjectiveRequest {
 }
 
 type CreateObjectiveResponseBody struct {
-	// code
-	Code *int64 `json:"code,omitempty" xml:"code,omitempty"`
 	// data
 	Data *CreateObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// message
-	Message *string `json:"message,omitempty" xml:"message,omitempty"`
-	// success
+	// 请求成功的标识。
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -785,18 +807,8 @@ func (s CreateObjectiveResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *CreateObjectiveResponseBody) SetCode(v int64) *CreateObjectiveResponseBody {
-	s.Code = &v
-	return s
-}
-
 func (s *CreateObjectiveResponseBody) SetData(v *CreateObjectiveResponseBodyData) *CreateObjectiveResponseBody {
 	s.Data = v
-	return s
-}
-
-func (s *CreateObjectiveResponseBody) SetMessage(v string) *CreateObjectiveResponseBody {
-	s.Message = &v
 	return s
 }
 
@@ -806,7 +818,10 @@ func (s *CreateObjectiveResponseBody) SetSuccess(v bool) *CreateObjectiveRespons
 }
 
 type CreateObjectiveResponseBodyData struct {
+	// 当前 Objective ID。
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 当前 Objective 的位置。
+	Position *string `json:"position,omitempty" xml:"position,omitempty"`
 }
 
 func (s CreateObjectiveResponseBodyData) String() string {
@@ -819,6 +834,11 @@ func (s CreateObjectiveResponseBodyData) GoString() string {
 
 func (s *CreateObjectiveResponseBodyData) SetId(v string) *CreateObjectiveResponseBodyData {
 	s.Id = &v
+	return s
+}
+
+func (s *CreateObjectiveResponseBodyData) SetPosition(v string) *CreateObjectiveResponseBodyData {
+	s.Position = &v
 	return s
 }
 
@@ -869,8 +889,10 @@ func (s *DeleteKeyResultHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteKey
 }
 
 type DeleteKeyResultRequest struct {
-	KrId    io.Reader `json:"krId,omitempty" xml:"krId,omitempty"`
-	OwnerId io.Reader `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
+	// 当前 KR id。
+	KrId *string `json:"krId,omitempty" xml:"krId,omitempty"`
+	// 当前用户的userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DeleteKeyResultRequest) String() string {
@@ -881,19 +903,20 @@ func (s DeleteKeyResultRequest) GoString() string {
 	return s.String()
 }
 
-func (s *DeleteKeyResultRequest) SetKrId(v io.Reader) *DeleteKeyResultRequest {
-	s.KrId = v
+func (s *DeleteKeyResultRequest) SetKrId(v string) *DeleteKeyResultRequest {
+	s.KrId = &v
 	return s
 }
 
-func (s *DeleteKeyResultRequest) SetOwnerId(v io.Reader) *DeleteKeyResultRequest {
-	s.OwnerId = v
+func (s *DeleteKeyResultRequest) SetUserId(v string) *DeleteKeyResultRequest {
+	s.UserId = &v
 	return s
 }
 
 type DeleteKeyResultResponseBody struct {
+	// 返回的信息
 	Data *bool `json:"data,omitempty" xml:"data,omitempty"`
-	// is success
+	// 请求成功的标识。
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -962,7 +985,7 @@ func (s *DeleteObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteObj
 }
 
 type DeleteObjectiveRequest struct {
-	// userId
+	// 当前用户的 userId。
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -980,13 +1003,9 @@ func (s *DeleteObjectiveRequest) SetUserId(v string) *DeleteObjectiveRequest {
 }
 
 type DeleteObjectiveResponseBody struct {
-	// code
-	Code *int64 `json:"code,omitempty" xml:"code,omitempty"`
 	// data
 	Data *DeleteObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// message
-	Message *string `json:"message,omitempty" xml:"message,omitempty"`
-	// success
+	// 请求成功的标识。
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -998,18 +1017,8 @@ func (s DeleteObjectiveResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *DeleteObjectiveResponseBody) SetCode(v int64) *DeleteObjectiveResponseBody {
-	s.Code = &v
-	return s
-}
-
 func (s *DeleteObjectiveResponseBody) SetData(v *DeleteObjectiveResponseBodyData) *DeleteObjectiveResponseBody {
 	s.Data = v
-	return s
-}
-
-func (s *DeleteObjectiveResponseBody) SetMessage(v string) *DeleteObjectiveResponseBody {
-	s.Message = &v
 	return s
 }
 
@@ -1019,6 +1028,7 @@ func (s *DeleteObjectiveResponseBody) SetSuccess(v bool) *DeleteObjectiveRespons
 }
 
 type DeleteObjectiveResponseBodyData struct {
+	// 当前 Objective ID。
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
@@ -1193,6 +1203,215 @@ func (s *GetPeriodListResponse) SetBody(v *GetPeriodListResponseBody) *GetPeriod
 	return s
 }
 
+type GetPermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPermissionHeaders) SetCommonHeaders(v map[string]*string) *GetPermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *GetPermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPermissionRequest struct {
+	TargetId   *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
+	TargetType *string `json:"targetType,omitempty" xml:"targetType,omitempty"`
+	// A short description of struct
+	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	WithKr        *bool   `json:"withKr,omitempty" xml:"withKr,omitempty"`
+	WithObjective *bool   `json:"withObjective,omitempty" xml:"withObjective,omitempty"`
+}
+
+func (s GetPermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPermissionRequest) SetTargetId(v string) *GetPermissionRequest {
+	s.TargetId = &v
+	return s
+}
+
+func (s *GetPermissionRequest) SetTargetType(v string) *GetPermissionRequest {
+	s.TargetType = &v
+	return s
+}
+
+func (s *GetPermissionRequest) SetUserId(v string) *GetPermissionRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *GetPermissionRequest) SetWithKr(v bool) *GetPermissionRequest {
+	s.WithKr = &v
+	return s
+}
+
+func (s *GetPermissionRequest) SetWithObjective(v bool) *GetPermissionRequest {
+	s.WithObjective = &v
+	return s
+}
+
+type GetPermissionResponseBody struct {
+	// 返回的数据。
+	Data *GetPermissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// 请求成功的标识。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetPermissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPermissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPermissionResponseBody) SetData(v *GetPermissionResponseBodyData) *GetPermissionResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *GetPermissionResponseBody) SetSuccess(v bool) *GetPermissionResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetPermissionResponseBodyData struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 权限列表
+	PolicyList []*GetPermissionResponseBodyDataPolicyList `json:"policyList,omitempty" xml:"policyList,omitempty" type:"Repeated"`
+	// 是否可见的标识。
+	Privacy *string `json:"privacy,omitempty" xml:"privacy,omitempty"`
+	// 哪种类型的权限。
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s GetPermissionResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPermissionResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetPermissionResponseBodyData) SetId(v string) *GetPermissionResponseBodyData {
+	s.Id = &v
+	return s
+}
+
+func (s *GetPermissionResponseBodyData) SetPolicyList(v []*GetPermissionResponseBodyDataPolicyList) *GetPermissionResponseBodyData {
+	s.PolicyList = v
+	return s
+}
+
+func (s *GetPermissionResponseBodyData) SetPrivacy(v string) *GetPermissionResponseBodyData {
+	s.Privacy = &v
+	return s
+}
+
+func (s *GetPermissionResponseBodyData) SetType(v string) *GetPermissionResponseBodyData {
+	s.Type = &v
+	return s
+}
+
+type GetPermissionResponseBodyDataPolicyList struct {
+	MemberList []*GetPermissionResponseBodyDataPolicyListMemberList `json:"memberList,omitempty" xml:"memberList,omitempty" type:"Repeated"`
+	Name       *string                                              `json:"name,omitempty" xml:"name,omitempty"`
+	Type       *int64                                               `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s GetPermissionResponseBodyDataPolicyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPermissionResponseBodyDataPolicyList) GoString() string {
+	return s.String()
+}
+
+func (s *GetPermissionResponseBodyDataPolicyList) SetMemberList(v []*GetPermissionResponseBodyDataPolicyListMemberList) *GetPermissionResponseBodyDataPolicyList {
+	s.MemberList = v
+	return s
+}
+
+func (s *GetPermissionResponseBodyDataPolicyList) SetName(v string) *GetPermissionResponseBodyDataPolicyList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetPermissionResponseBodyDataPolicyList) SetType(v int64) *GetPermissionResponseBodyDataPolicyList {
+	s.Type = &v
+	return s
+}
+
+type GetPermissionResponseBodyDataPolicyListMemberList struct {
+	Id       *string `json:"id,omitempty" xml:"id,omitempty"`
+	Nickname *string `json:"nickname,omitempty" xml:"nickname,omitempty"`
+	Type     *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s GetPermissionResponseBodyDataPolicyListMemberList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPermissionResponseBodyDataPolicyListMemberList) GoString() string {
+	return s.String()
+}
+
+func (s *GetPermissionResponseBodyDataPolicyListMemberList) SetId(v string) *GetPermissionResponseBodyDataPolicyListMemberList {
+	s.Id = &v
+	return s
+}
+
+func (s *GetPermissionResponseBodyDataPolicyListMemberList) SetNickname(v string) *GetPermissionResponseBodyDataPolicyListMemberList {
+	s.Nickname = &v
+	return s
+}
+
+func (s *GetPermissionResponseBodyDataPolicyListMemberList) SetType(v string) *GetPermissionResponseBodyDataPolicyListMemberList {
+	s.Type = &v
+	return s
+}
+
+type GetPermissionResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetPermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPermissionResponse) SetHeaders(v map[string]*string) *GetPermissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPermissionResponse) SetBody(v *GetPermissionResponseBody) *GetPermissionResponse {
+	s.Body = v
+	return s
+}
+
 type GetUserOkrHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1217,14 +1436,14 @@ func (s *GetUserOkrHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserOkrHead
 }
 
 type GetUserOkrRequest struct {
-	// 归属用户的ID
-	OwnerId io.Reader `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
-	// 页码，默认 为 1
+	// 页码，默认 为 1。
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	// 每页的个数，默认100
+	// 每页的个数，默认100。
 	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 周期 ID
-	PeriodId io.Reader `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	// 周期 ID。
+	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	// 当前用户的user ID。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetUserOkrRequest) String() string {
@@ -1233,11 +1452,6 @@ func (s GetUserOkrRequest) String() string {
 
 func (s GetUserOkrRequest) GoString() string {
 	return s.String()
-}
-
-func (s *GetUserOkrRequest) SetOwnerId(v io.Reader) *GetUserOkrRequest {
-	s.OwnerId = v
-	return s
 }
 
 func (s *GetUserOkrRequest) SetPageNumber(v int64) *GetUserOkrRequest {
@@ -1250,19 +1464,20 @@ func (s *GetUserOkrRequest) SetPageSize(v int64) *GetUserOkrRequest {
 	return s
 }
 
-func (s *GetUserOkrRequest) SetPeriodId(v io.Reader) *GetUserOkrRequest {
-	s.PeriodId = v
+func (s *GetUserOkrRequest) SetPeriodId(v string) *GetUserOkrRequest {
+	s.PeriodId = &v
+	return s
+}
+
+func (s *GetUserOkrRequest) SetUserId(v string) *GetUserOkrRequest {
+	s.UserId = &v
 	return s
 }
 
 type GetUserOkrResponseBody struct {
-	// code
-	Code *int64 `json:"code,omitempty" xml:"code,omitempty"`
 	// data
 	Data *GetUserOkrResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// message
-	Message io.Reader `json:"message,omitempty" xml:"message,omitempty"`
-	// success
+	// 请求成功的标识。
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -1274,18 +1489,8 @@ func (s GetUserOkrResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *GetUserOkrResponseBody) SetCode(v int64) *GetUserOkrResponseBody {
-	s.Code = &v
-	return s
-}
-
 func (s *GetUserOkrResponseBody) SetData(v *GetUserOkrResponseBodyData) *GetUserOkrResponseBody {
 	s.Data = v
-	return s
-}
-
-func (s *GetUserOkrResponseBody) SetMessage(v io.Reader) *GetUserOkrResponseBody {
-	s.Message = v
 	return s
 }
 
@@ -1295,10 +1500,14 @@ func (s *GetUserOkrResponseBody) SetSuccess(v bool) *GetUserOkrResponseBody {
 }
 
 type GetUserOkrResponseBodyData struct {
-	List       []*GetUserOkrResponseBodyDataList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	PageNo     *int64                            `json:"pageNo,omitempty" xml:"pageNo,omitempty"`
-	PageSize   *int64                            `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	TotalCount *int64                            `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// OKR 列表详情。
+	List []*GetUserOkrResponseBodyDataList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// 当前页码。
+	PageNo *int64 `json:"pageNo,omitempty" xml:"pageNo,omitempty"`
+	// 每一页的个数。
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 总数。
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s GetUserOkrResponseBodyData) String() string {
@@ -1330,22 +1539,38 @@ func (s *GetUserOkrResponseBodyData) SetTotalCount(v int64) *GetUserOkrResponseB
 }
 
 type GetUserOkrResponseBodyDataList struct {
-	AlignFromIds    []io.Reader                             `json:"alignFromIds,omitempty" xml:"alignFromIds,omitempty" type:"Repeated"`
-	AlignToIds      []io.Reader                             `json:"alignToIds,omitempty" xml:"alignToIds,omitempty" type:"Repeated"`
-	Content         io.Reader                               `json:"content,omitempty" xml:"content,omitempty"`
-	Id              io.Reader                               `json:"id,omitempty" xml:"id,omitempty"`
-	KrList          []*GetUserOkrResponseBodyDataListKrList `json:"krList,omitempty" xml:"krList,omitempty" type:"Repeated"`
-	Owner           *GetUserOkrResponseBodyDataListOwner    `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
-	PeriodId        io.Reader                               `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	Permission      []*float32                              `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
-	Position        *int32                                  `json:"position,omitempty" xml:"position,omitempty"`
-	Progress        *GetUserOkrResponseBodyDataListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
-	ProgressPercent *float32                                `json:"progressPercent,omitempty" xml:"progressPercent,omitempty"`
-	Published       *bool                                   `json:"published,omitempty" xml:"published,omitempty"`
-	Score           *float32                                `json:"score,omitempty" xml:"score,omitempty"`
-	Status          *int32                                  `json:"status,omitempty" xml:"status,omitempty"`
-	UserId          io.Reader                               `json:"userId,omitempty" xml:"userId,omitempty"`
-	Weight          *float32                                `json:"weight,omitempty" xml:"weight,omitempty"`
+	// 被对齐的 Objective。
+	AlignFromIds []io.Reader `json:"alignFromIds,omitempty" xml:"alignFromIds,omitempty" type:"Repeated"`
+	// 对齐的 Objective。
+	AlignToIds []io.Reader `json:"alignToIds,omitempty" xml:"alignToIds,omitempty" type:"Repeated"`
+	// Objective 内容。
+	Content io.Reader `json:"content,omitempty" xml:"content,omitempty"`
+	// objective。
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// KR 详情列表。
+	KrList []*GetUserOkrResponseBodyDataListKrList `json:"krList,omitempty" xml:"krList,omitempty" type:"Repeated"`
+	// 所属者信息。
+	Owner *GetUserOkrResponseBodyDataListOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	// 周期 ID。
+	PeriodId io.Reader `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	// 权限值。
+	Permission []*float32 `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
+	// 所在位置。
+	Position *int32 `json:"position,omitempty" xml:"position,omitempty"`
+	// 进度值。
+	Progress *GetUserOkrResponseBodyDataListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
+	// 百分比值。
+	ProgressPercent *float32 `json:"progressPercent,omitempty" xml:"progressPercent,omitempty"`
+	// 是否已发布。
+	Published *bool `json:"published,omitempty" xml:"published,omitempty"`
+	// 分数值。
+	Score *float32 `json:"score,omitempty" xml:"score,omitempty"`
+	// 当前内容状态。
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 用户 ID。
+	UserId io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 权重值。
+	Weight *float32 `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s GetUserOkrResponseBodyDataList) String() string {
@@ -1437,14 +1662,22 @@ func (s *GetUserOkrResponseBodyDataList) SetWeight(v float32) *GetUserOkrRespons
 }
 
 type GetUserOkrResponseBodyDataListKrList struct {
-	Content     io.Reader                                     `json:"content,omitempty" xml:"content,omitempty"`
-	Id          io.Reader                                     `json:"id,omitempty" xml:"id,omitempty"`
-	ObjectiveId io.Reader                                     `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
-	Permission  []*float32                                    `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
-	Position    *int64                                        `json:"position,omitempty" xml:"position,omitempty"`
-	Progress    *GetUserOkrResponseBodyDataListKrListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
-	Score       *float32                                      `json:"score,omitempty" xml:"score,omitempty"`
-	Weight      *float32                                      `json:"weight,omitempty" xml:"weight,omitempty"`
+	// KR 内容。
+	Content io.Reader `json:"content,omitempty" xml:"content,omitempty"`
+	// KR 的 ID。
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// 所属 Objective ID。
+	ObjectiveId io.Reader `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
+	// KR 权限。
+	Permission []*float32 `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
+	// 所处位置。
+	Position *int64 `json:"position,omitempty" xml:"position,omitempty"`
+	// KR 进度。
+	Progress *GetUserOkrResponseBodyDataListKrListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
+	// 所占分数。
+	Score *float32 `json:"score,omitempty" xml:"score,omitempty"`
+	// 所占权重。
+	Weight *float32 `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s GetUserOkrResponseBodyDataListKrList) String() string {
@@ -1496,6 +1729,7 @@ func (s *GetUserOkrResponseBodyDataListKrList) SetWeight(v float32) *GetUserOkrR
 }
 
 type GetUserOkrResponseBodyDataListKrListProgress struct {
+	// 百分比。
 	Percent *int32 `json:"percent,omitempty" xml:"percent,omitempty"`
 }
 
@@ -1513,12 +1747,16 @@ func (s *GetUserOkrResponseBodyDataListKrListProgress) SetPercent(v int32) *GetU
 }
 
 type GetUserOkrResponseBodyDataListOwner struct {
-	AvatarMediaId io.Reader                                      `json:"avatarMediaId,omitempty" xml:"avatarMediaId,omitempty"`
-	CorpId        io.Reader                                      `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Department    *GetUserOkrResponseBodyDataListOwnerDepartment `json:"department,omitempty" xml:"department,omitempty" type:"Struct"`
-	Id            io.Reader                                      `json:"id,omitempty" xml:"id,omitempty"`
-	Nickname      io.Reader                                      `json:"nickname,omitempty" xml:"nickname,omitempty"`
-	StaffId       io.Reader                                      `json:"staffId,omitempty" xml:"staffId,omitempty"`
+	// 所属者头像。 ID
+	AvatarMediaId io.Reader `json:"avatarMediaId,omitempty" xml:"avatarMediaId,omitempty"`
+	// 所属者组织 I。D
+	CorpId io.Reader `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 所属者 ID。
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// 所属者昵称。
+	Nickname io.Reader `json:"nickname,omitempty" xml:"nickname,omitempty"`
+	// 所属者 userId。
+	StaffId io.Reader `json:"staffId,omitempty" xml:"staffId,omitempty"`
 }
 
 func (s GetUserOkrResponseBodyDataListOwner) String() string {
@@ -1539,11 +1777,6 @@ func (s *GetUserOkrResponseBodyDataListOwner) SetCorpId(v io.Reader) *GetUserOkr
 	return s
 }
 
-func (s *GetUserOkrResponseBodyDataListOwner) SetDepartment(v *GetUserOkrResponseBodyDataListOwnerDepartment) *GetUserOkrResponseBodyDataListOwner {
-	s.Department = v
-	return s
-}
-
 func (s *GetUserOkrResponseBodyDataListOwner) SetId(v io.Reader) *GetUserOkrResponseBodyDataListOwner {
 	s.Id = v
 	return s
@@ -1559,30 +1792,8 @@ func (s *GetUserOkrResponseBodyDataListOwner) SetStaffId(v io.Reader) *GetUserOk
 	return s
 }
 
-type GetUserOkrResponseBodyDataListOwnerDepartment struct {
-	Id   io.Reader `json:"id,omitempty" xml:"id,omitempty"`
-	Name io.Reader `json:"name,omitempty" xml:"name,omitempty"`
-}
-
-func (s GetUserOkrResponseBodyDataListOwnerDepartment) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetUserOkrResponseBodyDataListOwnerDepartment) GoString() string {
-	return s.String()
-}
-
-func (s *GetUserOkrResponseBodyDataListOwnerDepartment) SetId(v io.Reader) *GetUserOkrResponseBodyDataListOwnerDepartment {
-	s.Id = v
-	return s
-}
-
-func (s *GetUserOkrResponseBodyDataListOwnerDepartment) SetName(v io.Reader) *GetUserOkrResponseBodyDataListOwnerDepartment {
-	s.Name = v
-	return s
-}
-
 type GetUserOkrResponseBodyDataListProgress struct {
+	// 百分比。
 	Percent *int32 `json:"percent,omitempty" xml:"percent,omitempty"`
 }
 
@@ -1650,8 +1861,8 @@ type UnAlignObjectiveRequest struct {
 	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
 	// 对齐目标的 ID
 	TargetId *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
-	// 用户 ID
-	OwnerId io.Reader `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
+	// 当前用户的 userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UnAlignObjectiveRequest) String() string {
@@ -1672,18 +1883,14 @@ func (s *UnAlignObjectiveRequest) SetTargetId(v string) *UnAlignObjectiveRequest
 	return s
 }
 
-func (s *UnAlignObjectiveRequest) SetOwnerId(v io.Reader) *UnAlignObjectiveRequest {
-	s.OwnerId = v
+func (s *UnAlignObjectiveRequest) SetUserId(v string) *UnAlignObjectiveRequest {
+	s.UserId = &v
 	return s
 }
 
 type UnAlignObjectiveResponseBody struct {
-	// code
-	Code *int64 `json:"code,omitempty" xml:"code,omitempty"`
 	// data
 	Data *UnAlignObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// message
-	Message *string `json:"message,omitempty" xml:"message,omitempty"`
 	// success
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
@@ -1696,18 +1903,8 @@ func (s UnAlignObjectiveResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *UnAlignObjectiveResponseBody) SetCode(v int64) *UnAlignObjectiveResponseBody {
-	s.Code = &v
-	return s
-}
-
 func (s *UnAlignObjectiveResponseBody) SetData(v *UnAlignObjectiveResponseBodyData) *UnAlignObjectiveResponseBody {
 	s.Data = v
-	return s
-}
-
-func (s *UnAlignObjectiveResponseBody) SetMessage(v string) *UnAlignObjectiveResponseBody {
-	s.Message = &v
 	return s
 }
 
@@ -1717,8 +1914,10 @@ func (s *UnAlignObjectiveResponseBody) SetSuccess(v bool) *UnAlignObjectiveRespo
 }
 
 type UnAlignObjectiveResponseBodyData struct {
+	// 对齐的 Objective ID。
 	AlignId io.Reader `json:"alignId,omitempty" xml:"alignId,omitempty"`
-	Id      io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// 当前 Objective ID。
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
 }
 
 func (s UnAlignObjectiveResponseBodyData) String() string {
@@ -1786,11 +1985,14 @@ func (s *UpdateKROfContentHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateK
 }
 
 type UpdateKROfContentRequest struct {
-	Content         io.Reader   `json:"content,omitempty" xml:"content,omitempty"`
-	UpdateQuoteList []io.Reader `json:"updateQuoteList,omitempty" xml:"updateQuoteList,omitempty" type:"Repeated"`
-	// A short description of struct
-	KrId        io.Reader `json:"krId,omitempty" xml:"krId,omitempty"`
-	OperatorUid io.Reader `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
+	// KR的内容。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 待更新的划词 ID 列表。
+	UpdateQuoteList []*string `json:"updateQuoteList,omitempty" xml:"updateQuoteList,omitempty" type:"Repeated"`
+	// 当前 KR ID。
+	KrId *string `json:"krId,omitempty" xml:"krId,omitempty"`
+	// 当前用户的userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateKROfContentRequest) String() string {
@@ -1801,29 +2003,29 @@ func (s UpdateKROfContentRequest) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateKROfContentRequest) SetContent(v io.Reader) *UpdateKROfContentRequest {
-	s.Content = v
+func (s *UpdateKROfContentRequest) SetContent(v string) *UpdateKROfContentRequest {
+	s.Content = &v
 	return s
 }
 
-func (s *UpdateKROfContentRequest) SetUpdateQuoteList(v []io.Reader) *UpdateKROfContentRequest {
+func (s *UpdateKROfContentRequest) SetUpdateQuoteList(v []*string) *UpdateKROfContentRequest {
 	s.UpdateQuoteList = v
 	return s
 }
 
-func (s *UpdateKROfContentRequest) SetKrId(v io.Reader) *UpdateKROfContentRequest {
-	s.KrId = v
+func (s *UpdateKROfContentRequest) SetKrId(v string) *UpdateKROfContentRequest {
+	s.KrId = &v
 	return s
 }
 
-func (s *UpdateKROfContentRequest) SetOperatorUid(v io.Reader) *UpdateKROfContentRequest {
-	s.OperatorUid = v
+func (s *UpdateKROfContentRequest) SetUserId(v string) *UpdateKROfContentRequest {
+	s.UserId = &v
 	return s
 }
 
 type UpdateKROfContentResponseBody struct {
 	Data *bool `json:"data,omitempty" xml:"data,omitempty"`
-	// Id of the request
+	// 请求成功的标识。
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -1892,10 +2094,12 @@ func (s *UpdateKROfScoreHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateKRO
 }
 
 type UpdateKROfScoreRequest struct {
+	// 分数值。
 	Score *int64 `json:"score,omitempty" xml:"score,omitempty"`
-	// A short description of struct
-	KrId    io.Reader `json:"krId,omitempty" xml:"krId,omitempty"`
-	OwnerId io.Reader `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
+	// 当前 KR ID。
+	KrId *string `json:"krId,omitempty" xml:"krId,omitempty"`
+	// 当前用户的userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateKROfScoreRequest) String() string {
@@ -1911,20 +2115,19 @@ func (s *UpdateKROfScoreRequest) SetScore(v int64) *UpdateKROfScoreRequest {
 	return s
 }
 
-func (s *UpdateKROfScoreRequest) SetKrId(v io.Reader) *UpdateKROfScoreRequest {
-	s.KrId = v
+func (s *UpdateKROfScoreRequest) SetKrId(v string) *UpdateKROfScoreRequest {
+	s.KrId = &v
 	return s
 }
 
-func (s *UpdateKROfScoreRequest) SetOwnerId(v io.Reader) *UpdateKROfScoreRequest {
-	s.OwnerId = v
+func (s *UpdateKROfScoreRequest) SetUserId(v string) *UpdateKROfScoreRequest {
+	s.UserId = &v
 	return s
 }
 
 type UpdateKROfScoreResponseBody struct {
-	// 目标分数
-	Data *int64 `json:"data,omitempty" xml:"data,omitempty"`
-	// Id of the request
+	Data *UpdateKROfScoreResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// 请求成功的标识。
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -1936,13 +2139,31 @@ func (s UpdateKROfScoreResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateKROfScoreResponseBody) SetData(v int64) *UpdateKROfScoreResponseBody {
-	s.Data = &v
+func (s *UpdateKROfScoreResponseBody) SetData(v *UpdateKROfScoreResponseBodyData) *UpdateKROfScoreResponseBody {
+	s.Data = v
 	return s
 }
 
 func (s *UpdateKROfScoreResponseBody) SetSuccess(v bool) *UpdateKROfScoreResponseBody {
 	s.Success = &v
+	return s
+}
+
+type UpdateKROfScoreResponseBodyData struct {
+	// 目标分数。
+	ObjectiveScore *int64 `json:"objectiveScore,omitempty" xml:"objectiveScore,omitempty"`
+}
+
+func (s UpdateKROfScoreResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateKROfScoreResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateKROfScoreResponseBodyData) SetObjectiveScore(v int64) *UpdateKROfScoreResponseBodyData {
+	s.ObjectiveScore = &v
 	return s
 }
 
@@ -1993,10 +2214,12 @@ func (s *UpdateKROfWeightHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateKR
 }
 
 type UpdateKROfWeightRequest struct {
+	// 权重比。
 	Weight *int64 `json:"weight,omitempty" xml:"weight,omitempty"`
-	// A short description of struct
-	KrId    io.Reader `json:"krId,omitempty" xml:"krId,omitempty"`
-	OwnerId io.Reader `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
+	// 当前 KR ID。
+	KrId *string `json:"krId,omitempty" xml:"krId,omitempty"`
+	// 当前用户的userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateKROfWeightRequest) String() string {
@@ -2012,20 +2235,19 @@ func (s *UpdateKROfWeightRequest) SetWeight(v int64) *UpdateKROfWeightRequest {
 	return s
 }
 
-func (s *UpdateKROfWeightRequest) SetKrId(v io.Reader) *UpdateKROfWeightRequest {
-	s.KrId = v
+func (s *UpdateKROfWeightRequest) SetKrId(v string) *UpdateKROfWeightRequest {
+	s.KrId = &v
 	return s
 }
 
-func (s *UpdateKROfWeightRequest) SetOwnerId(v io.Reader) *UpdateKROfWeightRequest {
-	s.OwnerId = v
+func (s *UpdateKROfWeightRequest) SetUserId(v string) *UpdateKROfWeightRequest {
+	s.UserId = &v
 	return s
 }
 
 type UpdateKROfWeightResponseBody struct {
-	// 目标分数
 	Data *UpdateKROfWeightResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// Id of the request
+	// 请求成功的标识。
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -2049,7 +2271,8 @@ func (s *UpdateKROfWeightResponseBody) SetSuccess(v bool) *UpdateKROfWeightRespo
 
 type UpdateKROfWeightResponseBodyData struct {
 	ObjectiveProgress *UpdateKROfWeightResponseBodyDataObjectiveProgress `json:"objectiveProgress,omitempty" xml:"objectiveProgress,omitempty" type:"Struct"`
-	ObjectiveScore    *int64                                             `json:"objectiveScore,omitempty" xml:"objectiveScore,omitempty"`
+	// 目标分数。
+	ObjectiveScore *int64 `json:"objectiveScore,omitempty" xml:"objectiveScore,omitempty"`
 }
 
 func (s UpdateKROfWeightResponseBodyData) String() string {
@@ -2071,8 +2294,8 @@ func (s *UpdateKROfWeightResponseBodyData) SetObjectiveScore(v int64) *UpdateKRO
 }
 
 type UpdateKROfWeightResponseBodyDataObjectiveProgress struct {
+	// 目标百分比。
 	Percent *int64 `json:"percent,omitempty" xml:"percent,omitempty"`
-	Status  *int64 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s UpdateKROfWeightResponseBodyDataObjectiveProgress) String() string {
@@ -2085,11 +2308,6 @@ func (s UpdateKROfWeightResponseBodyDataObjectiveProgress) GoString() string {
 
 func (s *UpdateKROfWeightResponseBodyDataObjectiveProgress) SetPercent(v int64) *UpdateKROfWeightResponseBodyDataObjectiveProgress {
 	s.Percent = &v
-	return s
-}
-
-func (s *UpdateKROfWeightResponseBodyDataObjectiveProgress) SetStatus(v int64) *UpdateKROfWeightResponseBodyDataObjectiveProgress {
-	s.Status = &v
 	return s
 }
 
@@ -2140,8 +2358,9 @@ func (s *UpdateObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateObj
 }
 
 type UpdateObjectiveRequest struct {
-	Content io.Reader `json:"content,omitempty" xml:"content,omitempty"`
-	// userId
+	// 当前 Objective 的内容。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 当前用户的 userId。
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -2153,8 +2372,8 @@ func (s UpdateObjectiveRequest) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateObjectiveRequest) SetContent(v io.Reader) *UpdateObjectiveRequest {
-	s.Content = v
+func (s *UpdateObjectiveRequest) SetContent(v string) *UpdateObjectiveRequest {
+	s.Content = &v
 	return s
 }
 
@@ -2164,13 +2383,9 @@ func (s *UpdateObjectiveRequest) SetUserId(v string) *UpdateObjectiveRequest {
 }
 
 type UpdateObjectiveResponseBody struct {
-	// code
-	Code *int64 `json:"code,omitempty" xml:"code,omitempty"`
 	// data
 	Data *UpdateObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	// message
-	Message *string `json:"message,omitempty" xml:"message,omitempty"`
-	// success
+	// 请求成功的标识。
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -2182,18 +2397,8 @@ func (s UpdateObjectiveResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateObjectiveResponseBody) SetCode(v int64) *UpdateObjectiveResponseBody {
-	s.Code = &v
-	return s
-}
-
 func (s *UpdateObjectiveResponseBody) SetData(v *UpdateObjectiveResponseBodyData) *UpdateObjectiveResponseBody {
 	s.Data = v
-	return s
-}
-
-func (s *UpdateObjectiveResponseBody) SetMessage(v string) *UpdateObjectiveResponseBody {
-	s.Message = &v
 	return s
 }
 
@@ -2203,7 +2408,9 @@ func (s *UpdateObjectiveResponseBody) SetSuccess(v bool) *UpdateObjectiveRespons
 }
 
 type UpdateObjectiveResponseBodyData struct {
-	Id       *string  `json:"id,omitempty" xml:"id,omitempty"`
+	// 当前 Objective ID。
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 当前 Objective 的位置。
 	Position *float32 `json:"position,omitempty" xml:"position,omitempty"`
 }
 
@@ -2290,8 +2497,8 @@ func (client *Client) AlignObjectiveWithOptions(objectiveId *string, request *Al
 	}
 	objectiveId = openapiutil.GetEncodeParam(objectiveId)
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OwnerId)) {
-		query["ownerId"] = request.OwnerId
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
 	}
 
 	body := map[string]interface{}{}
@@ -2344,8 +2551,8 @@ func (client *Client) BatchQueryObjectiveWithOptions(request *BatchQueryObjectiv
 		return _result, _err
 	}
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OwnerId)) {
-		query["ownerId"] = request.OwnerId
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
 	}
 
 	body := map[string]interface{}{}
@@ -2410,8 +2617,8 @@ func (client *Client) CreateKeyResultWithOptions(request *CreateKeyResultRequest
 		return _result, _err
 	}
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OwnerId)) {
-		query["ownerId"] = request.OwnerId
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
 	}
 
 	body := map[string]interface{}{}
@@ -2538,8 +2745,8 @@ func (client *Client) DeleteKeyResultWithOptions(request *DeleteKeyResultRequest
 		query["krId"] = request.KrId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.OwnerId)) {
-		query["ownerId"] = request.OwnerId
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -2643,6 +2850,66 @@ func (client *Client) GetPeriodListWithOptions(headers *GetPeriodListHeaders, ru
 	return _result, _err
 }
 
+func (client *Client) GetPermission(request *GetPermissionRequest) (_result *GetPermissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPermissionHeaders{}
+	_result = &GetPermissionResponse{}
+	_body, _err := client.GetPermissionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetPermissionWithOptions(request *GetPermissionRequest, headers *GetPermissionHeaders, runtime *util.RuntimeOptions) (_result *GetPermissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TargetId)) {
+		query["targetId"] = request.TargetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetType)) {
+		query["targetType"] = request.TargetType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WithKr)) {
+		query["withKr"] = request.WithKr
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WithObjective)) {
+		query["withObjective"] = request.WithObjective
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetPermissionResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetPermission"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/okr/permissions"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetUserOkr(request *GetUserOkrRequest) (_result *GetUserOkrResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUserOkrHeaders{}
@@ -2661,10 +2928,6 @@ func (client *Client) GetUserOkrWithOptions(request *GetUserOkrRequest, headers 
 		return _result, _err
 	}
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OwnerId)) {
-		query["ownerId"] = request.OwnerId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
 		query["pageNumber"] = request.PageNumber
 	}
@@ -2675,6 +2938,10 @@ func (client *Client) GetUserOkrWithOptions(request *GetUserOkrRequest, headers 
 
 	if !tea.BoolValue(util.IsUnset(request.PeriodId)) {
 		query["periodId"] = request.PeriodId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -2718,8 +2985,8 @@ func (client *Client) UnAlignObjectiveWithOptions(objectiveId *string, request *
 	}
 	objectiveId = openapiutil.GetEncodeParam(objectiveId)
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OwnerId)) {
-		query["ownerId"] = request.OwnerId
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
 	}
 
 	body := map[string]interface{}{}
@@ -2776,8 +3043,8 @@ func (client *Client) UpdateKROfContentWithOptions(request *UpdateKROfContentReq
 		query["krId"] = request.KrId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.OperatorUid)) {
-		query["operatorUid"] = request.OperatorUid
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
 	}
 
 	body := map[string]interface{}{}
@@ -2834,8 +3101,8 @@ func (client *Client) UpdateKROfScoreWithOptions(request *UpdateKROfScoreRequest
 		query["krId"] = request.KrId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.OwnerId)) {
-		query["ownerId"] = request.OwnerId
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
 	}
 
 	body := map[string]interface{}{}
@@ -2888,8 +3155,8 @@ func (client *Client) UpdateKROfWeightWithOptions(request *UpdateKROfWeightReque
 		query["krId"] = request.KrId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.OwnerId)) {
-		query["ownerId"] = request.OwnerId
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
 	}
 
 	body := map[string]interface{}{}
