@@ -140,6 +140,281 @@ func (s *AlignObjectiveResponse) SetBody(v *AlignObjectiveResponseBody) *AlignOb
 	return s
 }
 
+type BatchAddPermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchAddPermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddPermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddPermissionHeaders) SetCommonHeaders(v map[string]*string) *BatchAddPermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchAddPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *BatchAddPermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchAddPermissionRequest struct {
+	List       []*BatchAddPermissionRequestList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	TargetId   *string                          `json:"targetId,omitempty" xml:"targetId,omitempty"`
+	TargetType *string                          `json:"targetType,omitempty" xml:"targetType,omitempty"`
+	// A short description of struct
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s BatchAddPermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddPermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddPermissionRequest) SetList(v []*BatchAddPermissionRequestList) *BatchAddPermissionRequest {
+	s.List = v
+	return s
+}
+
+func (s *BatchAddPermissionRequest) SetTargetId(v string) *BatchAddPermissionRequest {
+	s.TargetId = &v
+	return s
+}
+
+func (s *BatchAddPermissionRequest) SetTargetType(v string) *BatchAddPermissionRequest {
+	s.TargetType = &v
+	return s
+}
+
+func (s *BatchAddPermissionRequest) SetUserId(v string) *BatchAddPermissionRequest {
+	s.UserId = &v
+	return s
+}
+
+type BatchAddPermissionRequestList struct {
+	Member     *BatchAddPermissionRequestListMember `json:"member,omitempty" xml:"member,omitempty" type:"Struct"`
+	PolicyType *int64                               `json:"policyType,omitempty" xml:"policyType,omitempty"`
+}
+
+func (s BatchAddPermissionRequestList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddPermissionRequestList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddPermissionRequestList) SetMember(v *BatchAddPermissionRequestListMember) *BatchAddPermissionRequestList {
+	s.Member = v
+	return s
+}
+
+func (s *BatchAddPermissionRequestList) SetPolicyType(v int64) *BatchAddPermissionRequestList {
+	s.PolicyType = &v
+	return s
+}
+
+type BatchAddPermissionRequestListMember struct {
+	Id   *string `json:"id,omitempty" xml:"id,omitempty"`
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s BatchAddPermissionRequestListMember) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddPermissionRequestListMember) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddPermissionRequestListMember) SetId(v string) *BatchAddPermissionRequestListMember {
+	s.Id = &v
+	return s
+}
+
+func (s *BatchAddPermissionRequestListMember) SetType(v string) *BatchAddPermissionRequestListMember {
+	s.Type = &v
+	return s
+}
+
+type BatchAddPermissionResponseBody struct {
+	// 返回的数据。
+	Data *BatchAddPermissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// 请求成功的标识。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchAddPermissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddPermissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddPermissionResponseBody) SetData(v *BatchAddPermissionResponseBodyData) *BatchAddPermissionResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *BatchAddPermissionResponseBody) SetSuccess(v bool) *BatchAddPermissionResponseBody {
+	s.Success = &v
+	return s
+}
+
+type BatchAddPermissionResponseBodyData struct {
+	// 是否有无效的成员。
+	HasInvalidUser *bool `json:"hasInvalidUser,omitempty" xml:"hasInvalidUser,omitempty"`
+	// 权限信息。
+	PermissionTree *BatchAddPermissionResponseBodyDataPermissionTree `json:"permissionTree,omitempty" xml:"permissionTree,omitempty" type:"Struct"`
+}
+
+func (s BatchAddPermissionResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddPermissionResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddPermissionResponseBodyData) SetHasInvalidUser(v bool) *BatchAddPermissionResponseBodyData {
+	s.HasInvalidUser = &v
+	return s
+}
+
+func (s *BatchAddPermissionResponseBodyData) SetPermissionTree(v *BatchAddPermissionResponseBodyDataPermissionTree) *BatchAddPermissionResponseBodyData {
+	s.PermissionTree = v
+	return s
+}
+
+type BatchAddPermissionResponseBodyDataPermissionTree struct {
+	// 权限 ID。
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 权限列表
+	PolicyList []*BatchAddPermissionResponseBodyDataPermissionTreePolicyList `json:"policyList,omitempty" xml:"policyList,omitempty" type:"Repeated"`
+	// 是否可见的标识。
+	Privacy *string `json:"privacy,omitempty" xml:"privacy,omitempty"`
+	// 哪种类型的权限。
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s BatchAddPermissionResponseBodyDataPermissionTree) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddPermissionResponseBodyDataPermissionTree) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddPermissionResponseBodyDataPermissionTree) SetId(v string) *BatchAddPermissionResponseBodyDataPermissionTree {
+	s.Id = &v
+	return s
+}
+
+func (s *BatchAddPermissionResponseBodyDataPermissionTree) SetPolicyList(v []*BatchAddPermissionResponseBodyDataPermissionTreePolicyList) *BatchAddPermissionResponseBodyDataPermissionTree {
+	s.PolicyList = v
+	return s
+}
+
+func (s *BatchAddPermissionResponseBodyDataPermissionTree) SetPrivacy(v string) *BatchAddPermissionResponseBodyDataPermissionTree {
+	s.Privacy = &v
+	return s
+}
+
+func (s *BatchAddPermissionResponseBodyDataPermissionTree) SetType(v string) *BatchAddPermissionResponseBodyDataPermissionTree {
+	s.Type = &v
+	return s
+}
+
+type BatchAddPermissionResponseBodyDataPermissionTreePolicyList struct {
+	MemberList []*BatchAddPermissionResponseBodyDataPermissionTreePolicyListMemberList `json:"memberList,omitempty" xml:"memberList,omitempty" type:"Repeated"`
+	Name       *string                                                                 `json:"name,omitempty" xml:"name,omitempty"`
+	Type       *int64                                                                  `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s BatchAddPermissionResponseBodyDataPermissionTreePolicyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddPermissionResponseBodyDataPermissionTreePolicyList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddPermissionResponseBodyDataPermissionTreePolicyList) SetMemberList(v []*BatchAddPermissionResponseBodyDataPermissionTreePolicyListMemberList) *BatchAddPermissionResponseBodyDataPermissionTreePolicyList {
+	s.MemberList = v
+	return s
+}
+
+func (s *BatchAddPermissionResponseBodyDataPermissionTreePolicyList) SetName(v string) *BatchAddPermissionResponseBodyDataPermissionTreePolicyList {
+	s.Name = &v
+	return s
+}
+
+func (s *BatchAddPermissionResponseBodyDataPermissionTreePolicyList) SetType(v int64) *BatchAddPermissionResponseBodyDataPermissionTreePolicyList {
+	s.Type = &v
+	return s
+}
+
+type BatchAddPermissionResponseBodyDataPermissionTreePolicyListMemberList struct {
+	Id       *string `json:"id,omitempty" xml:"id,omitempty"`
+	Nickname *string `json:"nickname,omitempty" xml:"nickname,omitempty"`
+	Type     *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s BatchAddPermissionResponseBodyDataPermissionTreePolicyListMemberList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddPermissionResponseBodyDataPermissionTreePolicyListMemberList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddPermissionResponseBodyDataPermissionTreePolicyListMemberList) SetId(v string) *BatchAddPermissionResponseBodyDataPermissionTreePolicyListMemberList {
+	s.Id = &v
+	return s
+}
+
+func (s *BatchAddPermissionResponseBodyDataPermissionTreePolicyListMemberList) SetNickname(v string) *BatchAddPermissionResponseBodyDataPermissionTreePolicyListMemberList {
+	s.Nickname = &v
+	return s
+}
+
+func (s *BatchAddPermissionResponseBodyDataPermissionTreePolicyListMemberList) SetType(v string) *BatchAddPermissionResponseBodyDataPermissionTreePolicyListMemberList {
+	s.Type = &v
+	return s
+}
+
+type BatchAddPermissionResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchAddPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchAddPermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddPermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddPermissionResponse) SetHeaders(v map[string]*string) *BatchAddPermissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchAddPermissionResponse) SetBody(v *BatchAddPermissionResponseBody) *BatchAddPermissionResponse {
+	s.Body = v
+	return s
+}
+
 type BatchQueryObjectiveHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1064,6 +1339,220 @@ func (s *DeleteObjectiveResponse) SetHeaders(v map[string]*string) *DeleteObject
 }
 
 func (s *DeleteObjectiveResponse) SetBody(v *DeleteObjectiveResponseBody) *DeleteObjectiveResponse {
+	s.Body = v
+	return s
+}
+
+type DeletePermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeletePermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePermissionHeaders) SetCommonHeaders(v map[string]*string) *DeletePermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeletePermissionHeaders) SetXAcsDingtalkAccessToken(v string) *DeletePermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeletePermissionRequest struct {
+	Id         *string `json:"id,omitempty" xml:"id,omitempty"`
+	PolicyType *int64  `json:"policyType,omitempty" xml:"policyType,omitempty"`
+	TargetId   *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
+	TargetType *string `json:"targetType,omitempty" xml:"targetType,omitempty"`
+	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 当前用户的userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DeletePermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePermissionRequest) SetId(v string) *DeletePermissionRequest {
+	s.Id = &v
+	return s
+}
+
+func (s *DeletePermissionRequest) SetPolicyType(v int64) *DeletePermissionRequest {
+	s.PolicyType = &v
+	return s
+}
+
+func (s *DeletePermissionRequest) SetTargetId(v string) *DeletePermissionRequest {
+	s.TargetId = &v
+	return s
+}
+
+func (s *DeletePermissionRequest) SetTargetType(v string) *DeletePermissionRequest {
+	s.TargetType = &v
+	return s
+}
+
+func (s *DeletePermissionRequest) SetType(v string) *DeletePermissionRequest {
+	s.Type = &v
+	return s
+}
+
+func (s *DeletePermissionRequest) SetUserId(v string) *DeletePermissionRequest {
+	s.UserId = &v
+	return s
+}
+
+type DeletePermissionResponseBody struct {
+	Data *DeletePermissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// 请求成功的标识。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeletePermissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePermissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePermissionResponseBody) SetData(v *DeletePermissionResponseBodyData) *DeletePermissionResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *DeletePermissionResponseBody) SetSuccess(v bool) *DeletePermissionResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeletePermissionResponseBodyData struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 权限列表
+	PolicyList []*DeletePermissionResponseBodyDataPolicyList `json:"policyList,omitempty" xml:"policyList,omitempty" type:"Repeated"`
+	// 是否可见的标识。
+	Privacy *string `json:"privacy,omitempty" xml:"privacy,omitempty"`
+	// 哪种类型的权限。
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s DeletePermissionResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePermissionResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePermissionResponseBodyData) SetId(v string) *DeletePermissionResponseBodyData {
+	s.Id = &v
+	return s
+}
+
+func (s *DeletePermissionResponseBodyData) SetPolicyList(v []*DeletePermissionResponseBodyDataPolicyList) *DeletePermissionResponseBodyData {
+	s.PolicyList = v
+	return s
+}
+
+func (s *DeletePermissionResponseBodyData) SetPrivacy(v string) *DeletePermissionResponseBodyData {
+	s.Privacy = &v
+	return s
+}
+
+func (s *DeletePermissionResponseBodyData) SetType(v string) *DeletePermissionResponseBodyData {
+	s.Type = &v
+	return s
+}
+
+type DeletePermissionResponseBodyDataPolicyList struct {
+	MemberList []*DeletePermissionResponseBodyDataPolicyListMemberList `json:"memberList,omitempty" xml:"memberList,omitempty" type:"Repeated"`
+	Name       *string                                                 `json:"name,omitempty" xml:"name,omitempty"`
+	Type       *int64                                                  `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s DeletePermissionResponseBodyDataPolicyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePermissionResponseBodyDataPolicyList) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePermissionResponseBodyDataPolicyList) SetMemberList(v []*DeletePermissionResponseBodyDataPolicyListMemberList) *DeletePermissionResponseBodyDataPolicyList {
+	s.MemberList = v
+	return s
+}
+
+func (s *DeletePermissionResponseBodyDataPolicyList) SetName(v string) *DeletePermissionResponseBodyDataPolicyList {
+	s.Name = &v
+	return s
+}
+
+func (s *DeletePermissionResponseBodyDataPolicyList) SetType(v int64) *DeletePermissionResponseBodyDataPolicyList {
+	s.Type = &v
+	return s
+}
+
+type DeletePermissionResponseBodyDataPolicyListMemberList struct {
+	Id       *string `json:"id,omitempty" xml:"id,omitempty"`
+	Nickname *string `json:"nickname,omitempty" xml:"nickname,omitempty"`
+	Type     *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s DeletePermissionResponseBodyDataPolicyListMemberList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePermissionResponseBodyDataPolicyListMemberList) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePermissionResponseBodyDataPolicyListMemberList) SetId(v string) *DeletePermissionResponseBodyDataPolicyListMemberList {
+	s.Id = &v
+	return s
+}
+
+func (s *DeletePermissionResponseBodyDataPolicyListMemberList) SetNickname(v string) *DeletePermissionResponseBodyDataPolicyListMemberList {
+	s.Nickname = &v
+	return s
+}
+
+func (s *DeletePermissionResponseBodyDataPolicyListMemberList) SetType(v string) *DeletePermissionResponseBodyDataPolicyListMemberList {
+	s.Type = &v
+	return s
+}
+
+type DeletePermissionResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeletePermissionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeletePermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePermissionResponse) SetHeaders(v map[string]*string) *DeletePermissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeletePermissionResponse) SetBody(v *DeletePermissionResponseBody) *DeletePermissionResponse {
 	s.Body = v
 	return s
 }
@@ -2455,6 +2944,212 @@ func (s *UpdateObjectiveResponse) SetBody(v *UpdateObjectiveResponseBody) *Updat
 	return s
 }
 
+type UpdatePrivacyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdatePrivacyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePrivacyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePrivacyHeaders) SetCommonHeaders(v map[string]*string) *UpdatePrivacyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdatePrivacyHeaders) SetXAcsDingtalkAccessToken(v string) *UpdatePrivacyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdatePrivacyRequest struct {
+	// 权限修改的类型
+	Privacy *string `json:"privacy,omitempty" xml:"privacy,omitempty"`
+	// 当前目标的 ID
+	TargetId *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
+	// 当前目标的权限类型。
+	TargetType *string `json:"targetType,omitempty" xml:"targetType,omitempty"`
+	// 当前用户的userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdatePrivacyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePrivacyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePrivacyRequest) SetPrivacy(v string) *UpdatePrivacyRequest {
+	s.Privacy = &v
+	return s
+}
+
+func (s *UpdatePrivacyRequest) SetTargetId(v string) *UpdatePrivacyRequest {
+	s.TargetId = &v
+	return s
+}
+
+func (s *UpdatePrivacyRequest) SetTargetType(v string) *UpdatePrivacyRequest {
+	s.TargetType = &v
+	return s
+}
+
+func (s *UpdatePrivacyRequest) SetUserId(v string) *UpdatePrivacyRequest {
+	s.UserId = &v
+	return s
+}
+
+type UpdatePrivacyResponseBody struct {
+	// 返回的数据。
+	Data *UpdatePrivacyResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// 请求成功的标识。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdatePrivacyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePrivacyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePrivacyResponseBody) SetData(v *UpdatePrivacyResponseBodyData) *UpdatePrivacyResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *UpdatePrivacyResponseBody) SetSuccess(v bool) *UpdatePrivacyResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdatePrivacyResponseBodyData struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 权限列表
+	PolicyList []*UpdatePrivacyResponseBodyDataPolicyList `json:"policyList,omitempty" xml:"policyList,omitempty" type:"Repeated"`
+	// 是否可见的标识。
+	Privacy *string `json:"privacy,omitempty" xml:"privacy,omitempty"`
+	// 哪种类型的权限。
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s UpdatePrivacyResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePrivacyResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePrivacyResponseBodyData) SetId(v string) *UpdatePrivacyResponseBodyData {
+	s.Id = &v
+	return s
+}
+
+func (s *UpdatePrivacyResponseBodyData) SetPolicyList(v []*UpdatePrivacyResponseBodyDataPolicyList) *UpdatePrivacyResponseBodyData {
+	s.PolicyList = v
+	return s
+}
+
+func (s *UpdatePrivacyResponseBodyData) SetPrivacy(v string) *UpdatePrivacyResponseBodyData {
+	s.Privacy = &v
+	return s
+}
+
+func (s *UpdatePrivacyResponseBodyData) SetType(v string) *UpdatePrivacyResponseBodyData {
+	s.Type = &v
+	return s
+}
+
+type UpdatePrivacyResponseBodyDataPolicyList struct {
+	MemberList []*UpdatePrivacyResponseBodyDataPolicyListMemberList `json:"memberList,omitempty" xml:"memberList,omitempty" type:"Repeated"`
+	Name       *string                                              `json:"name,omitempty" xml:"name,omitempty"`
+	Type       *int64                                               `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s UpdatePrivacyResponseBodyDataPolicyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePrivacyResponseBodyDataPolicyList) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePrivacyResponseBodyDataPolicyList) SetMemberList(v []*UpdatePrivacyResponseBodyDataPolicyListMemberList) *UpdatePrivacyResponseBodyDataPolicyList {
+	s.MemberList = v
+	return s
+}
+
+func (s *UpdatePrivacyResponseBodyDataPolicyList) SetName(v string) *UpdatePrivacyResponseBodyDataPolicyList {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdatePrivacyResponseBodyDataPolicyList) SetType(v int64) *UpdatePrivacyResponseBodyDataPolicyList {
+	s.Type = &v
+	return s
+}
+
+type UpdatePrivacyResponseBodyDataPolicyListMemberList struct {
+	Id       *string `json:"id,omitempty" xml:"id,omitempty"`
+	Nickname *string `json:"nickname,omitempty" xml:"nickname,omitempty"`
+	Type     *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s UpdatePrivacyResponseBodyDataPolicyListMemberList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePrivacyResponseBodyDataPolicyListMemberList) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePrivacyResponseBodyDataPolicyListMemberList) SetId(v string) *UpdatePrivacyResponseBodyDataPolicyListMemberList {
+	s.Id = &v
+	return s
+}
+
+func (s *UpdatePrivacyResponseBodyDataPolicyListMemberList) SetNickname(v string) *UpdatePrivacyResponseBodyDataPolicyListMemberList {
+	s.Nickname = &v
+	return s
+}
+
+func (s *UpdatePrivacyResponseBodyDataPolicyListMemberList) SetType(v string) *UpdatePrivacyResponseBodyDataPolicyListMemberList {
+	s.Type = &v
+	return s
+}
+
+type UpdatePrivacyResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdatePrivacyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdatePrivacyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePrivacyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePrivacyResponse) SetHeaders(v map[string]*string) *UpdatePrivacyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdatePrivacyResponse) SetBody(v *UpdatePrivacyResponseBody) *UpdatePrivacyResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -2526,6 +3221,64 @@ func (client *Client) AlignObjectiveWithOptions(objectiveId *string, request *Al
 	}
 	_result = &AlignObjectiveResponse{}
 	_body, _err := client.DoROARequest(tea.String("AlignObjective"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/okr/objectives/"+tea.StringValue(objectiveId)+"/alignments"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchAddPermission(request *BatchAddPermissionRequest) (_result *BatchAddPermissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchAddPermissionHeaders{}
+	_result = &BatchAddPermissionResponse{}
+	_body, _err := client.BatchAddPermissionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchAddPermissionWithOptions(request *BatchAddPermissionRequest, headers *BatchAddPermissionHeaders, runtime *util.RuntimeOptions) (_result *BatchAddPermissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.List)) {
+		body["list"] = request.List
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetId)) {
+		body["targetId"] = request.TargetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetType)) {
+		body["targetType"] = request.TargetType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchAddPermissionResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchAddPermission"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/okr/permissions/batch"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2809,6 +3562,70 @@ func (client *Client) DeleteObjectiveWithOptions(objectiveId *string, request *D
 	}
 	_result = &DeleteObjectiveResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteObjective"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/okr/objectives/"+tea.StringValue(objectiveId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeletePermission(request *DeletePermissionRequest) (_result *DeletePermissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeletePermissionHeaders{}
+	_result = &DeletePermissionResponse{}
+	_body, _err := client.DeletePermissionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeletePermissionWithOptions(request *DeletePermissionRequest, headers *DeletePermissionHeaders, runtime *util.RuntimeOptions) (_result *DeletePermissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Id)) {
+		query["id"] = request.Id
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PolicyType)) {
+		query["policyType"] = request.PolicyType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetId)) {
+		query["targetId"] = request.TargetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetType)) {
+		query["targetType"] = request.TargetType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		query["type"] = request.Type
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeletePermissionResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeletePermission"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/okr/permissions/delete"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3231,6 +4048,64 @@ func (client *Client) UpdateObjectiveWithOptions(objectiveId *string, request *U
 	}
 	_result = &UpdateObjectiveResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateObjective"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/okr/objectives/"+tea.StringValue(objectiveId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdatePrivacy(request *UpdatePrivacyRequest) (_result *UpdatePrivacyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdatePrivacyHeaders{}
+	_result = &UpdatePrivacyResponse{}
+	_body, _err := client.UpdatePrivacyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdatePrivacyWithOptions(request *UpdatePrivacyRequest, headers *UpdatePrivacyHeaders, runtime *util.RuntimeOptions) (_result *UpdatePrivacyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Privacy)) {
+		body["privacy"] = request.Privacy
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetId)) {
+		body["targetId"] = request.TargetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetType)) {
+		body["targetType"] = request.TargetType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdatePrivacyResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdatePrivacy"), tea.String("okr_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/okr/permissions/privacies"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

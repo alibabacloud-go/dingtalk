@@ -3466,6 +3466,8 @@ func (s *MultiOrgPermissionGrantHeaders) SetXAcsDingtalkAccessToken(v string) *M
 }
 
 type MultiOrgPermissionGrantRequest struct {
+	// 被授权的部门，如果不填则默认全组织
+	GrantDeptIdList []*int64 `json:"grantDeptIdList,omitempty" xml:"grantDeptIdList,omitempty" type:"Repeated"`
 	// 授权加入的组织corpId
 	JoinCorpId *string `json:"joinCorpId,omitempty" xml:"joinCorpId,omitempty"`
 }
@@ -3476,6 +3478,11 @@ func (s MultiOrgPermissionGrantRequest) String() string {
 
 func (s MultiOrgPermissionGrantRequest) GoString() string {
 	return s.String()
+}
+
+func (s *MultiOrgPermissionGrantRequest) SetGrantDeptIdList(v []*int64) *MultiOrgPermissionGrantRequest {
+	s.GrantDeptIdList = v
+	return s
 }
 
 func (s *MultiOrgPermissionGrantRequest) SetJoinCorpId(v string) *MultiOrgPermissionGrantRequest {
@@ -6659,6 +6666,10 @@ func (client *Client) MultiOrgPermissionGrantWithOptions(request *MultiOrgPermis
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GrantDeptIdList)) {
+		body["grantDeptIdList"] = request.GrantDeptIdList
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.JoinCorpId)) {
 		body["joinCorpId"] = request.JoinCorpId
 	}

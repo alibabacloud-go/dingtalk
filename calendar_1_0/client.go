@@ -2616,7 +2616,9 @@ func (s *ListEventsHeaders) SetXAcsDingtalkAccessToken(v string) *ListEventsHead
 }
 
 type ListEventsRequest struct {
-	// 查询返回结果数
+	// 每个日程的参与者查询个数，默认100，最大100
+	MaxAttendees *int64 `json:"maxAttendees,omitempty" xml:"maxAttendees,omitempty"`
+	// 返回的最大日程数，最大100个，默认100个
 	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	// 查询翻页token
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
@@ -2636,6 +2638,11 @@ func (s ListEventsRequest) String() string {
 
 func (s ListEventsRequest) GoString() string {
 	return s.String()
+}
+
+func (s *ListEventsRequest) SetMaxAttendees(v int64) *ListEventsRequest {
+	s.MaxAttendees = &v
+	return s
 }
 
 func (s *ListEventsRequest) SetMaxResults(v int64) *ListEventsRequest {
@@ -3156,6 +3163,552 @@ func (s *ListEventsResponse) SetBody(v *ListEventsResponseBody) *ListEventsRespo
 	return s
 }
 
+type ListEventsInstancesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListEventsInstancesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsInstancesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsInstancesHeaders) SetCommonHeaders(v map[string]*string) *ListEventsInstancesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListEventsInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *ListEventsInstancesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListEventsInstancesRequest struct {
+	// listInstances每个日程的参与者查询个数，默认100，最大100。
+	MaxAttendees *int64 `json:"maxAttendees,omitempty" xml:"maxAttendees,omitempty"`
+	// listInstances返回的最大日程数，最大100个，默认100个。
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 循环主日程id。
+	SeriesMasterId *string `json:"seriesMasterId,omitempty" xml:"seriesMasterId,omitempty"`
+	// 大于此时间的所有生成实例
+	TimeMin *string `json:"timeMin,omitempty" xml:"timeMin,omitempty"`
+}
+
+func (s ListEventsInstancesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsInstancesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsInstancesRequest) SetMaxAttendees(v int64) *ListEventsInstancesRequest {
+	s.MaxAttendees = &v
+	return s
+}
+
+func (s *ListEventsInstancesRequest) SetMaxResults(v int64) *ListEventsInstancesRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListEventsInstancesRequest) SetSeriesMasterId(v string) *ListEventsInstancesRequest {
+	s.SeriesMasterId = &v
+	return s
+}
+
+func (s *ListEventsInstancesRequest) SetTimeMin(v string) *ListEventsInstancesRequest {
+	s.TimeMin = &v
+	return s
+}
+
+type ListEventsInstancesResponseBody struct {
+	// 日程
+	Events []*ListEventsInstancesResponseBodyEvents `json:"events,omitempty" xml:"events,omitempty" type:"Repeated"`
+}
+
+func (s ListEventsInstancesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsInstancesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsInstancesResponseBody) SetEvents(v []*ListEventsInstancesResponseBodyEvents) *ListEventsInstancesResponseBody {
+	s.Events = v
+	return s
+}
+
+type ListEventsInstancesResponseBodyEvents struct {
+	// 日程参与人
+	Attendees []*ListEventsInstancesResponseBodyEventsAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 日程描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 日程结束时间
+	End *ListEventsInstancesResponseBodyEventsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	// 日程事件id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 是否为全天日程
+	IsAllDay *bool `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
+	// 日程地点
+	Location *ListEventsInstancesResponseBodyEventsLocation `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
+	// 线上会议
+	OnlineMeetingInfo *ListEventsInstancesResponseBodyEventsOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
+	// 日程组织人
+	Organizer *ListEventsInstancesResponseBodyEventsOrganizer `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
+	// 日程重复规则
+	Recurrence *ListEventsInstancesResponseBodyEventsRecurrence `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
+	// 日程提醒
+	Reminders []*ListEventsInstancesResponseBodyEventsReminders `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
+	// 重复日程的主日程id，非重复日程为空
+	SeriesMasterId *string `json:"seriesMasterId,omitempty" xml:"seriesMasterId,omitempty"`
+	// 日程开始时间
+	Start *ListEventsInstancesResponseBodyEventsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// 日程状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 日程标题
+	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	// 更新时间
+	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+}
+
+func (s ListEventsInstancesResponseBodyEvents) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsInstancesResponseBodyEvents) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsInstancesResponseBodyEvents) SetAttendees(v []*ListEventsInstancesResponseBodyEventsAttendees) *ListEventsInstancesResponseBodyEvents {
+	s.Attendees = v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEvents) SetCreateTime(v string) *ListEventsInstancesResponseBodyEvents {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEvents) SetDescription(v string) *ListEventsInstancesResponseBodyEvents {
+	s.Description = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEvents) SetEnd(v *ListEventsInstancesResponseBodyEventsEnd) *ListEventsInstancesResponseBodyEvents {
+	s.End = v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEvents) SetId(v string) *ListEventsInstancesResponseBodyEvents {
+	s.Id = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEvents) SetIsAllDay(v bool) *ListEventsInstancesResponseBodyEvents {
+	s.IsAllDay = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEvents) SetLocation(v *ListEventsInstancesResponseBodyEventsLocation) *ListEventsInstancesResponseBodyEvents {
+	s.Location = v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEvents) SetOnlineMeetingInfo(v *ListEventsInstancesResponseBodyEventsOnlineMeetingInfo) *ListEventsInstancesResponseBodyEvents {
+	s.OnlineMeetingInfo = v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEvents) SetOrganizer(v *ListEventsInstancesResponseBodyEventsOrganizer) *ListEventsInstancesResponseBodyEvents {
+	s.Organizer = v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEvents) SetRecurrence(v *ListEventsInstancesResponseBodyEventsRecurrence) *ListEventsInstancesResponseBodyEvents {
+	s.Recurrence = v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEvents) SetReminders(v []*ListEventsInstancesResponseBodyEventsReminders) *ListEventsInstancesResponseBodyEvents {
+	s.Reminders = v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEvents) SetSeriesMasterId(v string) *ListEventsInstancesResponseBodyEvents {
+	s.SeriesMasterId = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEvents) SetStart(v *ListEventsInstancesResponseBodyEventsStart) *ListEventsInstancesResponseBodyEvents {
+	s.Start = v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEvents) SetStatus(v string) *ListEventsInstancesResponseBodyEvents {
+	s.Status = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEvents) SetSummary(v string) *ListEventsInstancesResponseBodyEvents {
+	s.Summary = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEvents) SetUpdateTime(v string) *ListEventsInstancesResponseBodyEvents {
+	s.UpdateTime = &v
+	return s
+}
+
+type ListEventsInstancesResponseBodyEventsAttendees struct {
+	// 用户名
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	// 用户id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 回复状态
+	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
+	// 是否是当前登陆用户
+	Self *bool `json:"self,omitempty" xml:"self,omitempty"`
+}
+
+func (s ListEventsInstancesResponseBodyEventsAttendees) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsInstancesResponseBodyEventsAttendees) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsInstancesResponseBodyEventsAttendees) SetDisplayName(v string) *ListEventsInstancesResponseBodyEventsAttendees {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsAttendees) SetId(v string) *ListEventsInstancesResponseBodyEventsAttendees {
+	s.Id = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsAttendees) SetResponseStatus(v string) *ListEventsInstancesResponseBodyEventsAttendees {
+	s.ResponseStatus = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsAttendees) SetSelf(v bool) *ListEventsInstancesResponseBodyEventsAttendees {
+	s.Self = &v
+	return s
+}
+
+type ListEventsInstancesResponseBodyEventsEnd struct {
+	// 日期，格式：yyyyMMdd
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// 时间戳，按照ISO 8601格式
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	// 时区
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s ListEventsInstancesResponseBodyEventsEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsInstancesResponseBodyEventsEnd) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsInstancesResponseBodyEventsEnd) SetDate(v string) *ListEventsInstancesResponseBodyEventsEnd {
+	s.Date = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsEnd) SetDateTime(v string) *ListEventsInstancesResponseBodyEventsEnd {
+	s.DateTime = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsEnd) SetTimeZone(v string) *ListEventsInstancesResponseBodyEventsEnd {
+	s.TimeZone = &v
+	return s
+}
+
+type ListEventsInstancesResponseBodyEventsLocation struct {
+	// 展示名称
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+}
+
+func (s ListEventsInstancesResponseBodyEventsLocation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsInstancesResponseBodyEventsLocation) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsInstancesResponseBodyEventsLocation) SetDisplayName(v string) *ListEventsInstancesResponseBodyEventsLocation {
+	s.DisplayName = &v
+	return s
+}
+
+type ListEventsInstancesResponseBodyEventsOnlineMeetingInfo struct {
+	// 会议ID
+	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	// 线上会议类型，目前支持：  dingtalk：钉钉视频会议
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 会议url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s ListEventsInstancesResponseBodyEventsOnlineMeetingInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsInstancesResponseBodyEventsOnlineMeetingInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsInstancesResponseBodyEventsOnlineMeetingInfo) SetConferenceId(v string) *ListEventsInstancesResponseBodyEventsOnlineMeetingInfo {
+	s.ConferenceId = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsOnlineMeetingInfo) SetType(v string) *ListEventsInstancesResponseBodyEventsOnlineMeetingInfo {
+	s.Type = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsOnlineMeetingInfo) SetUrl(v string) *ListEventsInstancesResponseBodyEventsOnlineMeetingInfo {
+	s.Url = &v
+	return s
+}
+
+type ListEventsInstancesResponseBodyEventsOrganizer struct {
+	// 用户名
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	// 用户id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 回复状态
+	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
+	// 是否是当前登陆用户
+	Self *bool `json:"self,omitempty" xml:"self,omitempty"`
+}
+
+func (s ListEventsInstancesResponseBodyEventsOrganizer) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsInstancesResponseBodyEventsOrganizer) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsInstancesResponseBodyEventsOrganizer) SetDisplayName(v string) *ListEventsInstancesResponseBodyEventsOrganizer {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsOrganizer) SetId(v string) *ListEventsInstancesResponseBodyEventsOrganizer {
+	s.Id = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsOrganizer) SetResponseStatus(v string) *ListEventsInstancesResponseBodyEventsOrganizer {
+	s.ResponseStatus = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsOrganizer) SetSelf(v bool) *ListEventsInstancesResponseBodyEventsOrganizer {
+	s.Self = &v
+	return s
+}
+
+type ListEventsInstancesResponseBodyEventsRecurrence struct {
+	// 重复模式
+	Pattern *ListEventsInstancesResponseBodyEventsRecurrencePattern `json:"pattern,omitempty" xml:"pattern,omitempty" type:"Struct"`
+	// 重复范围
+	Range *ListEventsInstancesResponseBodyEventsRecurrenceRange `json:"range,omitempty" xml:"range,omitempty" type:"Struct"`
+}
+
+func (s ListEventsInstancesResponseBodyEventsRecurrence) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsInstancesResponseBodyEventsRecurrence) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsInstancesResponseBodyEventsRecurrence) SetPattern(v *ListEventsInstancesResponseBodyEventsRecurrencePattern) *ListEventsInstancesResponseBodyEventsRecurrence {
+	s.Pattern = v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsRecurrence) SetRange(v *ListEventsInstancesResponseBodyEventsRecurrenceRange) *ListEventsInstancesResponseBodyEventsRecurrence {
+	s.Range = v
+	return s
+}
+
+type ListEventsInstancesResponseBodyEventsRecurrencePattern struct {
+	// 每月的第几天
+	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	// 每周的第几天
+	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	// 指定事件发生在daysOfsWeek中指定的允许天数的哪个实例上，从该月的第一个实例开始计算。取值为:first, second, third, fourth, last。默认是first。如果类型是relativMonthly或relativeYear，则可选并使用
+	Index *string `json:"index,omitempty" xml:"index,omitempty"`
+	// 循环间隔
+	Interval *int32 `json:"interval,omitempty" xml:"interval,omitempty"`
+	// 循环模式类型(type: daily, weekly, absoluteMonthly, relativeMonthly, absoluteYearly, relativeYearly)
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s ListEventsInstancesResponseBodyEventsRecurrencePattern) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsInstancesResponseBodyEventsRecurrencePattern) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsInstancesResponseBodyEventsRecurrencePattern) SetDayOfMonth(v int32) *ListEventsInstancesResponseBodyEventsRecurrencePattern {
+	s.DayOfMonth = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsRecurrencePattern) SetDaysOfWeek(v string) *ListEventsInstancesResponseBodyEventsRecurrencePattern {
+	s.DaysOfWeek = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsRecurrencePattern) SetIndex(v string) *ListEventsInstancesResponseBodyEventsRecurrencePattern {
+	s.Index = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsRecurrencePattern) SetInterval(v int32) *ListEventsInstancesResponseBodyEventsRecurrencePattern {
+	s.Interval = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsRecurrencePattern) SetType(v string) *ListEventsInstancesResponseBodyEventsRecurrencePattern {
+	s.Type = &v
+	return s
+}
+
+type ListEventsInstancesResponseBodyEventsRecurrenceRange struct {
+	// 循环终止日期
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// 循环出现次数
+	NumberOfOccurrences *int32 `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
+	// 范围类型(endDate, noEnd, numbered)
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s ListEventsInstancesResponseBodyEventsRecurrenceRange) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsInstancesResponseBodyEventsRecurrenceRange) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsInstancesResponseBodyEventsRecurrenceRange) SetEndDate(v string) *ListEventsInstancesResponseBodyEventsRecurrenceRange {
+	s.EndDate = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsRecurrenceRange) SetNumberOfOccurrences(v int32) *ListEventsInstancesResponseBodyEventsRecurrenceRange {
+	s.NumberOfOccurrences = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsRecurrenceRange) SetType(v string) *ListEventsInstancesResponseBodyEventsRecurrenceRange {
+	s.Type = &v
+	return s
+}
+
+type ListEventsInstancesResponseBodyEventsReminders struct {
+	// 提醒方式
+	Method *string `json:"method,omitempty" xml:"method,omitempty"`
+	// 在日程开始前N分钟发出提醒
+	Minutes *string `json:"minutes,omitempty" xml:"minutes,omitempty"`
+}
+
+func (s ListEventsInstancesResponseBodyEventsReminders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsInstancesResponseBodyEventsReminders) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsInstancesResponseBodyEventsReminders) SetMethod(v string) *ListEventsInstancesResponseBodyEventsReminders {
+	s.Method = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsReminders) SetMinutes(v string) *ListEventsInstancesResponseBodyEventsReminders {
+	s.Minutes = &v
+	return s
+}
+
+type ListEventsInstancesResponseBodyEventsStart struct {
+	// 日期，格式：yyyyMMdd
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// 时间戳，按照ISO 8601格式
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	// 时区
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s ListEventsInstancesResponseBodyEventsStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsInstancesResponseBodyEventsStart) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsInstancesResponseBodyEventsStart) SetDate(v string) *ListEventsInstancesResponseBodyEventsStart {
+	s.Date = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsStart) SetDateTime(v string) *ListEventsInstancesResponseBodyEventsStart {
+	s.DateTime = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsStart) SetTimeZone(v string) *ListEventsInstancesResponseBodyEventsStart {
+	s.TimeZone = &v
+	return s
+}
+
+type ListEventsInstancesResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListEventsInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListEventsInstancesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsInstancesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsInstancesResponse) SetHeaders(v map[string]*string) *ListEventsInstancesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListEventsInstancesResponse) SetBody(v *ListEventsInstancesResponseBody) *ListEventsInstancesResponse {
+	s.Body = v
+	return s
+}
+
 type ListEventsViewHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3180,7 +3733,9 @@ func (s *ListEventsViewHeaders) SetXAcsDingtalkAccessToken(v string) *ListEvents
 }
 
 type ListEventsViewRequest struct {
-	// 查询返回结果数
+	// 每个日程的参与者查询个数，默认100，最大100。
+	MaxAttendees *int64 `json:"maxAttendees,omitempty" xml:"maxAttendees,omitempty"`
+	// 返回的最大日程数，最大100个，默认100个。
 	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	// 查询翻页token
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
@@ -3196,6 +3751,11 @@ func (s ListEventsViewRequest) String() string {
 
 func (s ListEventsViewRequest) GoString() string {
 	return s.String()
+}
+
+func (s *ListEventsViewRequest) SetMaxAttendees(v int64) *ListEventsViewRequest {
+	s.MaxAttendees = &v
+	return s
 }
 
 func (s *ListEventsViewRequest) SetMaxResults(v int64) *ListEventsViewRequest {
@@ -5323,6 +5883,10 @@ func (client *Client) ListEventsWithOptions(userId *string, calendarId *string, 
 	userId = openapiutil.GetEncodeParam(userId)
 	calendarId = openapiutil.GetEncodeParam(calendarId)
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxAttendees)) {
+		query["maxAttendees"] = request.MaxAttendees
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
 	}
@@ -5369,6 +5933,64 @@ func (client *Client) ListEventsWithOptions(userId *string, calendarId *string, 
 	return _result, _err
 }
 
+func (client *Client) ListEventsInstances(userId *string, calendarId *string, request *ListEventsInstancesRequest) (_result *ListEventsInstancesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListEventsInstancesHeaders{}
+	_result = &ListEventsInstancesResponse{}
+	_body, _err := client.ListEventsInstancesWithOptions(userId, calendarId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListEventsInstancesWithOptions(userId *string, calendarId *string, request *ListEventsInstancesRequest, headers *ListEventsInstancesHeaders, runtime *util.RuntimeOptions) (_result *ListEventsInstancesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxAttendees)) {
+		query["maxAttendees"] = request.MaxAttendees
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SeriesMasterId)) {
+		query["seriesMasterId"] = request.SeriesMasterId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TimeMin)) {
+		query["timeMin"] = request.TimeMin
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListEventsInstancesResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListEventsInstances"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/instances"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ListEventsView(userId *string, calendarId *string, request *ListEventsViewRequest) (_result *ListEventsViewResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListEventsViewHeaders{}
@@ -5389,6 +6011,10 @@ func (client *Client) ListEventsViewWithOptions(userId *string, calendarId *stri
 	userId = openapiutil.GetEncodeParam(userId)
 	calendarId = openapiutil.GetEncodeParam(calendarId)
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxAttendees)) {
+		query["maxAttendees"] = request.MaxAttendees
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
 	}
