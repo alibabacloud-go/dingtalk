@@ -270,6 +270,137 @@ func (s *AddCrmPersonalCustomerResponse) SetBody(v *AddCrmPersonalCustomerRespon
 	return s
 }
 
+type AddCustomerTrackHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddCustomerTrackHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCustomerTrackHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddCustomerTrackHeaders) SetCommonHeaders(v map[string]*string) *AddCustomerTrackHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddCustomerTrackHeaders) SetXAcsDingtalkAccessToken(v string) *AddCustomerTrackHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddCustomerTrackRequest struct {
+	// 动态内容,markdown格式
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 客户ID
+	CustomerId *string `json:"customerId,omitempty" xml:"customerId,omitempty"`
+	// 任意业务自定义的数据，可空
+	ExtraBizInfo *string `json:"extraBizInfo,omitempty" xml:"extraBizInfo,omitempty"`
+	// 幂等key，5分钟内避免重复写入，保证幂等，可空
+	IdempotentKey *string `json:"idempotentKey,omitempty" xml:"idempotentKey,omitempty"`
+	// 操作人userId
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// 关系类型
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// 动态标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 动态的类型
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s AddCustomerTrackRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCustomerTrackRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddCustomerTrackRequest) SetContent(v string) *AddCustomerTrackRequest {
+	s.Content = &v
+	return s
+}
+
+func (s *AddCustomerTrackRequest) SetCustomerId(v string) *AddCustomerTrackRequest {
+	s.CustomerId = &v
+	return s
+}
+
+func (s *AddCustomerTrackRequest) SetExtraBizInfo(v string) *AddCustomerTrackRequest {
+	s.ExtraBizInfo = &v
+	return s
+}
+
+func (s *AddCustomerTrackRequest) SetIdempotentKey(v string) *AddCustomerTrackRequest {
+	s.IdempotentKey = &v
+	return s
+}
+
+func (s *AddCustomerTrackRequest) SetOperatorUserId(v string) *AddCustomerTrackRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *AddCustomerTrackRequest) SetRelationType(v string) *AddCustomerTrackRequest {
+	s.RelationType = &v
+	return s
+}
+
+func (s *AddCustomerTrackRequest) SetTitle(v string) *AddCustomerTrackRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *AddCustomerTrackRequest) SetType(v int32) *AddCustomerTrackRequest {
+	s.Type = &v
+	return s
+}
+
+type AddCustomerTrackResponseBody struct {
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AddCustomerTrackResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCustomerTrackResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddCustomerTrackResponseBody) SetSuccess(v bool) *AddCustomerTrackResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AddCustomerTrackResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddCustomerTrackResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddCustomerTrackResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCustomerTrackResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddCustomerTrackResponse) SetHeaders(v map[string]*string) *AddCustomerTrackResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddCustomerTrackResponse) SetBody(v *AddCustomerTrackResponseBody) *AddCustomerTrackResponse {
+	s.Body = v
+	return s
+}
+
 type AddRelationMetaFieldHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -553,6 +684,244 @@ func (s *AddRelationMetaFieldResponse) SetHeaders(v map[string]*string) *AddRela
 }
 
 func (s *AddRelationMetaFieldResponse) SetBody(v *AddRelationMetaFieldResponseBody) *AddRelationMetaFieldResponse {
+	s.Body = v
+	return s
+}
+
+type BatchAddRelationDatasHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchAddRelationDatasHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddRelationDatasHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddRelationDatasHeaders) SetCommonHeaders(v map[string]*string) *BatchAddRelationDatasHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchAddRelationDatasHeaders) SetXAcsDingtalkAccessToken(v string) *BatchAddRelationDatasHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchAddRelationDatasRequest struct {
+	// 操作人userId
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// 关系数据列表。
+	RelationList []*BatchAddRelationDatasRequestRelationList `json:"relationList,omitempty" xml:"relationList,omitempty" type:"Repeated"`
+	// 关系类型。
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// 是否跳过查重，默认不跳过。
+	SkipDuplicateCheck *bool `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
+}
+
+func (s BatchAddRelationDatasRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddRelationDatasRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddRelationDatasRequest) SetOperatorUserId(v string) *BatchAddRelationDatasRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *BatchAddRelationDatasRequest) SetRelationList(v []*BatchAddRelationDatasRequestRelationList) *BatchAddRelationDatasRequest {
+	s.RelationList = v
+	return s
+}
+
+func (s *BatchAddRelationDatasRequest) SetRelationType(v string) *BatchAddRelationDatasRequest {
+	s.RelationType = &v
+	return s
+}
+
+func (s *BatchAddRelationDatasRequest) SetSkipDuplicateCheck(v bool) *BatchAddRelationDatasRequest {
+	s.SkipDuplicateCheck = &v
+	return s
+}
+
+type BatchAddRelationDatasRequestRelationList struct {
+	// 关系模型数据。
+	BizDataList []*BatchAddRelationDatasRequestRelationListBizDataList `json:"bizDataList,omitempty" xml:"bizDataList,omitempty" type:"Repeated"`
+	// 扩展业务字段。
+	BizExtMap map[string]*string `json:"bizExtMap,omitempty" xml:"bizExtMap,omitempty"`
+	// 负责人、协同人信息。
+	RelationPermissionDTO *BatchAddRelationDatasRequestRelationListRelationPermissionDTO `json:"relationPermissionDTO,omitempty" xml:"relationPermissionDTO,omitempty" type:"Struct"`
+}
+
+func (s BatchAddRelationDatasRequestRelationList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddRelationDatasRequestRelationList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddRelationDatasRequestRelationList) SetBizDataList(v []*BatchAddRelationDatasRequestRelationListBizDataList) *BatchAddRelationDatasRequestRelationList {
+	s.BizDataList = v
+	return s
+}
+
+func (s *BatchAddRelationDatasRequestRelationList) SetBizExtMap(v map[string]*string) *BatchAddRelationDatasRequestRelationList {
+	s.BizExtMap = v
+	return s
+}
+
+func (s *BatchAddRelationDatasRequestRelationList) SetRelationPermissionDTO(v *BatchAddRelationDatasRequestRelationListRelationPermissionDTO) *BatchAddRelationDatasRequestRelationList {
+	s.RelationPermissionDTO = v
+	return s
+}
+
+type BatchAddRelationDatasRequestRelationListBizDataList struct {
+	// 模型字段extendValue。
+	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
+	// 模型字段id。
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// 模型字段value。
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s BatchAddRelationDatasRequestRelationListBizDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddRelationDatasRequestRelationListBizDataList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddRelationDatasRequestRelationListBizDataList) SetExtendValue(v string) *BatchAddRelationDatasRequestRelationListBizDataList {
+	s.ExtendValue = &v
+	return s
+}
+
+func (s *BatchAddRelationDatasRequestRelationListBizDataList) SetKey(v string) *BatchAddRelationDatasRequestRelationListBizDataList {
+	s.Key = &v
+	return s
+}
+
+func (s *BatchAddRelationDatasRequestRelationListBizDataList) SetValue(v string) *BatchAddRelationDatasRequestRelationListBizDataList {
+	s.Value = &v
+	return s
+}
+
+type BatchAddRelationDatasRequestRelationListRelationPermissionDTO struct {
+	// 协同人列表
+	ParticipantUserIds []*string `json:"participantUserIds,omitempty" xml:"participantUserIds,omitempty" type:"Repeated"`
+	// 负责人列表
+	PrincipalUserIds []*string `json:"principalUserIds,omitempty" xml:"principalUserIds,omitempty" type:"Repeated"`
+}
+
+func (s BatchAddRelationDatasRequestRelationListRelationPermissionDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddRelationDatasRequestRelationListRelationPermissionDTO) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddRelationDatasRequestRelationListRelationPermissionDTO) SetParticipantUserIds(v []*string) *BatchAddRelationDatasRequestRelationListRelationPermissionDTO {
+	s.ParticipantUserIds = v
+	return s
+}
+
+func (s *BatchAddRelationDatasRequestRelationListRelationPermissionDTO) SetPrincipalUserIds(v []*string) *BatchAddRelationDatasRequestRelationListRelationPermissionDTO {
+	s.PrincipalUserIds = v
+	return s
+}
+
+type BatchAddRelationDatasResponseBody struct {
+	// 批量插入结果列表，results的结果和要新增的数据是一一对应的，可以获取到每条数据分别是否成功。
+	Results []*BatchAddRelationDatasResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
+}
+
+func (s BatchAddRelationDatasResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddRelationDatasResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddRelationDatasResponseBody) SetResults(v []*BatchAddRelationDatasResponseBodyResults) *BatchAddRelationDatasResponseBody {
+	s.Results = v
+	return s
+}
+
+type BatchAddRelationDatasResponseBodyResults struct {
+	// 如果因为查重导致失败，表示重复的关系数据id列表。
+	DuplicatedRelationIds []*string `json:"duplicatedRelationIds,omitempty" xml:"duplicatedRelationIds,omitempty" type:"Repeated"`
+	// 如果保存失败，则表示失败的错误码。
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// 如果保存失败，则表示失败的错误原因。
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// 保存成功的关系id。
+	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
+	// 数据是否保存成功。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchAddRelationDatasResponseBodyResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddRelationDatasResponseBodyResults) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddRelationDatasResponseBodyResults) SetDuplicatedRelationIds(v []*string) *BatchAddRelationDatasResponseBodyResults {
+	s.DuplicatedRelationIds = v
+	return s
+}
+
+func (s *BatchAddRelationDatasResponseBodyResults) SetErrorCode(v string) *BatchAddRelationDatasResponseBodyResults {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *BatchAddRelationDatasResponseBodyResults) SetErrorMsg(v string) *BatchAddRelationDatasResponseBodyResults {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *BatchAddRelationDatasResponseBodyResults) SetRelationId(v string) *BatchAddRelationDatasResponseBodyResults {
+	s.RelationId = &v
+	return s
+}
+
+func (s *BatchAddRelationDatasResponseBodyResults) SetSuccess(v bool) *BatchAddRelationDatasResponseBodyResults {
+	s.Success = &v
+	return s
+}
+
+type BatchAddRelationDatasResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchAddRelationDatasResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchAddRelationDatasResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddRelationDatasResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddRelationDatasResponse) SetHeaders(v map[string]*string) *BatchAddRelationDatasResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchAddRelationDatasResponse) SetBody(v *BatchAddRelationDatasResponseBody) *BatchAddRelationDatasResponse {
 	s.Body = v
 	return s
 }
@@ -929,6 +1298,219 @@ func (s *BatchSendOfficialAccountOTOMessageResponse) SetBody(v *BatchSendOfficia
 	return s
 }
 
+type BatchUpdateRelationDatasHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchUpdateRelationDatasHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateRelationDatasHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateRelationDatasHeaders) SetCommonHeaders(v map[string]*string) *BatchUpdateRelationDatasHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchUpdateRelationDatasHeaders) SetXAcsDingtalkAccessToken(v string) *BatchUpdateRelationDatasHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchUpdateRelationDatasRequest struct {
+	// 操作人userId
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// 关系数据列表。
+	RelationList []*BatchUpdateRelationDatasRequestRelationList `json:"relationList,omitempty" xml:"relationList,omitempty" type:"Repeated"`
+	// 关系类型。
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// 是否跳过查重，默认不跳过。
+	SkipDuplicateCheck *bool `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
+}
+
+func (s BatchUpdateRelationDatasRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateRelationDatasRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateRelationDatasRequest) SetOperatorUserId(v string) *BatchUpdateRelationDatasRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *BatchUpdateRelationDatasRequest) SetRelationList(v []*BatchUpdateRelationDatasRequestRelationList) *BatchUpdateRelationDatasRequest {
+	s.RelationList = v
+	return s
+}
+
+func (s *BatchUpdateRelationDatasRequest) SetRelationType(v string) *BatchUpdateRelationDatasRequest {
+	s.RelationType = &v
+	return s
+}
+
+func (s *BatchUpdateRelationDatasRequest) SetSkipDuplicateCheck(v bool) *BatchUpdateRelationDatasRequest {
+	s.SkipDuplicateCheck = &v
+	return s
+}
+
+type BatchUpdateRelationDatasRequestRelationList struct {
+	// 关系模型数据。
+	BizDataList []*BatchUpdateRelationDatasRequestRelationListBizDataList `json:"bizDataList,omitempty" xml:"bizDataList,omitempty" type:"Repeated"`
+	// 扩展业务字段。
+	BizExtMap map[string]*string `json:"bizExtMap,omitempty" xml:"bizExtMap,omitempty"`
+	// 关系id
+	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
+}
+
+func (s BatchUpdateRelationDatasRequestRelationList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateRelationDatasRequestRelationList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateRelationDatasRequestRelationList) SetBizDataList(v []*BatchUpdateRelationDatasRequestRelationListBizDataList) *BatchUpdateRelationDatasRequestRelationList {
+	s.BizDataList = v
+	return s
+}
+
+func (s *BatchUpdateRelationDatasRequestRelationList) SetBizExtMap(v map[string]*string) *BatchUpdateRelationDatasRequestRelationList {
+	s.BizExtMap = v
+	return s
+}
+
+func (s *BatchUpdateRelationDatasRequestRelationList) SetRelationId(v string) *BatchUpdateRelationDatasRequestRelationList {
+	s.RelationId = &v
+	return s
+}
+
+type BatchUpdateRelationDatasRequestRelationListBizDataList struct {
+	// 模型字段extendValue。
+	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
+	// 模型字段id。
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// 模型字段value。
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s BatchUpdateRelationDatasRequestRelationListBizDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateRelationDatasRequestRelationListBizDataList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateRelationDatasRequestRelationListBizDataList) SetExtendValue(v string) *BatchUpdateRelationDatasRequestRelationListBizDataList {
+	s.ExtendValue = &v
+	return s
+}
+
+func (s *BatchUpdateRelationDatasRequestRelationListBizDataList) SetKey(v string) *BatchUpdateRelationDatasRequestRelationListBizDataList {
+	s.Key = &v
+	return s
+}
+
+func (s *BatchUpdateRelationDatasRequestRelationListBizDataList) SetValue(v string) *BatchUpdateRelationDatasRequestRelationListBizDataList {
+	s.Value = &v
+	return s
+}
+
+type BatchUpdateRelationDatasResponseBody struct {
+	// 批量插入结果列表，results的结果和要新增的数据是一一对应的，可以获取到每条数据分别是否成功。
+	Results []*BatchUpdateRelationDatasResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
+}
+
+func (s BatchUpdateRelationDatasResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateRelationDatasResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateRelationDatasResponseBody) SetResults(v []*BatchUpdateRelationDatasResponseBodyResults) *BatchUpdateRelationDatasResponseBody {
+	s.Results = v
+	return s
+}
+
+type BatchUpdateRelationDatasResponseBodyResults struct {
+	// 如果因为查重导致失败，表示重复的关系数据id列表。
+	DuplicatedRelationIds []*string `json:"duplicatedRelationIds,omitempty" xml:"duplicatedRelationIds,omitempty" type:"Repeated"`
+	// 如果保存失败，则表示失败的错误码。
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// 如果保存失败，则表示失败的错误原因。
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// 保存成功的关系id。
+	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
+	// 数据是否保存成功。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchUpdateRelationDatasResponseBodyResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateRelationDatasResponseBodyResults) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateRelationDatasResponseBodyResults) SetDuplicatedRelationIds(v []*string) *BatchUpdateRelationDatasResponseBodyResults {
+	s.DuplicatedRelationIds = v
+	return s
+}
+
+func (s *BatchUpdateRelationDatasResponseBodyResults) SetErrorCode(v string) *BatchUpdateRelationDatasResponseBodyResults {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *BatchUpdateRelationDatasResponseBodyResults) SetErrorMsg(v string) *BatchUpdateRelationDatasResponseBodyResults {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *BatchUpdateRelationDatasResponseBodyResults) SetRelationId(v string) *BatchUpdateRelationDatasResponseBodyResults {
+	s.RelationId = &v
+	return s
+}
+
+func (s *BatchUpdateRelationDatasResponseBodyResults) SetSuccess(v bool) *BatchUpdateRelationDatasResponseBodyResults {
+	s.Success = &v
+	return s
+}
+
+type BatchUpdateRelationDatasResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchUpdateRelationDatasResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchUpdateRelationDatasResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateRelationDatasResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateRelationDatasResponse) SetHeaders(v map[string]*string) *BatchUpdateRelationDatasResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchUpdateRelationDatasResponse) SetBody(v *BatchUpdateRelationDatasResponseBody) *BatchUpdateRelationDatasResponse {
+	s.Body = v
+	return s
+}
+
 type CreateCustomerHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1207,7 +1789,7 @@ func (s *CreateGroupSetHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGrou
 type CreateGroupSetRequest struct {
 	CreatorUserId  *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
 	ManagerUserIds *string `json:"managerUserIds,omitempty" xml:"managerUserIds,omitempty"`
-	MemberQuota    *int64  `json:"memberQuota,omitempty" xml:"memberQuota,omitempty"`
+	MemberQuota    *int32  `json:"memberQuota,omitempty" xml:"memberQuota,omitempty"`
 	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
 	Notice         *string `json:"notice,omitempty" xml:"notice,omitempty"`
 	NoticeToped    *int32  `json:"noticeToped,omitempty" xml:"noticeToped,omitempty"`
@@ -1234,7 +1816,7 @@ func (s *CreateGroupSetRequest) SetManagerUserIds(v string) *CreateGroupSetReque
 	return s
 }
 
-func (s *CreateGroupSetRequest) SetMemberQuota(v int64) *CreateGroupSetRequest {
+func (s *CreateGroupSetRequest) SetMemberQuota(v int32) *CreateGroupSetRequest {
 	s.MemberQuota = &v
 	return s
 }
@@ -6311,6 +6893,112 @@ func (s *GetOfficialAccountOTOMessageResultResponse) SetBody(v *GetOfficialAccou
 	return s
 }
 
+type GetRelationUkSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetRelationUkSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelationUkSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelationUkSettingHeaders) SetCommonHeaders(v map[string]*string) *GetRelationUkSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetRelationUkSettingHeaders) SetXAcsDingtalkAccessToken(v string) *GetRelationUkSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetRelationUkSettingRequest struct {
+	// 关系类型。
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+}
+
+func (s GetRelationUkSettingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelationUkSettingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelationUkSettingRequest) SetRelationType(v string) *GetRelationUkSettingRequest {
+	s.RelationType = &v
+	return s
+}
+
+type GetRelationUkSettingResponseBody struct {
+	Result []*GetRelationUkSettingResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetRelationUkSettingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelationUkSettingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelationUkSettingResponseBody) SetResult(v []*GetRelationUkSettingResponseBodyResult) *GetRelationUkSettingResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetRelationUkSettingResponseBodyResult struct {
+	// 查重字段的bizAlias
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 查重字段的字段id
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+}
+
+func (s GetRelationUkSettingResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelationUkSettingResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelationUkSettingResponseBodyResult) SetBizAlias(v string) *GetRelationUkSettingResponseBodyResult {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *GetRelationUkSettingResponseBodyResult) SetFieldId(v string) *GetRelationUkSettingResponseBodyResult {
+	s.FieldId = &v
+	return s
+}
+
+type GetRelationUkSettingResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetRelationUkSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetRelationUkSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelationUkSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelationUkSettingResponse) SetHeaders(v map[string]*string) *GetRelationUkSettingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetRelationUkSettingResponse) SetBody(v *GetRelationUkSettingResponseBody) *GetRelationUkSettingResponse {
+	s.Body = v
+	return s
+}
+
 type JoinGroupSetHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9945,6 +10633,78 @@ func (client *Client) AddCrmPersonalCustomerWithOptions(request *AddCrmPersonalC
 	return _result, _err
 }
 
+func (client *Client) AddCustomerTrack(request *AddCustomerTrackRequest) (_result *AddCustomerTrackResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddCustomerTrackHeaders{}
+	_result = &AddCustomerTrackResponse{}
+	_body, _err := client.AddCustomerTrackWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddCustomerTrackWithOptions(request *AddCustomerTrackRequest, headers *AddCustomerTrackHeaders, runtime *util.RuntimeOptions) (_result *AddCustomerTrackResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CustomerId)) {
+		body["customerId"] = request.CustomerId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtraBizInfo)) {
+		body["extraBizInfo"] = request.ExtraBizInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IdempotentKey)) {
+		body["idempotentKey"] = request.IdempotentKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		body["relationType"] = request.RelationType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddCustomerTrackResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddCustomerTrack"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/customerTracks"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) AddRelationMetaField(request *AddRelationMetaFieldRequest) (_result *AddRelationMetaFieldResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddRelationMetaFieldHeaders{}
@@ -10001,6 +10761,62 @@ func (client *Client) AddRelationMetaFieldWithOptions(request *AddRelationMetaFi
 	return _result, _err
 }
 
+func (client *Client) BatchAddRelationDatas(request *BatchAddRelationDatasRequest) (_result *BatchAddRelationDatasResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchAddRelationDatasHeaders{}
+	_result = &BatchAddRelationDatasResponse{}
+	_body, _err := client.BatchAddRelationDatasWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchAddRelationDatasWithOptions(request *BatchAddRelationDatasRequest, headers *BatchAddRelationDatasHeaders, runtime *util.RuntimeOptions) (_result *BatchAddRelationDatasResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationList)) {
+		body["relationList"] = request.RelationList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		body["relationType"] = request.RelationType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SkipDuplicateCheck)) {
+		body["skipDuplicateCheck"] = request.SkipDuplicateCheck
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchAddRelationDatasResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchAddRelationDatas"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/relationDatas/batch"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) BatchSendOfficialAccountOTOMessage(request *BatchSendOfficialAccountOTOMessageRequest) (_result *BatchSendOfficialAccountOTOMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchSendOfficialAccountOTOMessageHeaders{}
@@ -10046,6 +10862,62 @@ func (client *Client) BatchSendOfficialAccountOTOMessageWithOptions(request *Bat
 	}
 	_result = &BatchSendOfficialAccountOTOMessageResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchSendOfficialAccountOTOMessage"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/officialAccounts/oToMessages/batchSend"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchUpdateRelationDatas(request *BatchUpdateRelationDatasRequest) (_result *BatchUpdateRelationDatasResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchUpdateRelationDatasHeaders{}
+	_result = &BatchUpdateRelationDatasResponse{}
+	_body, _err := client.BatchUpdateRelationDatasWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchUpdateRelationDatasWithOptions(request *BatchUpdateRelationDatasRequest, headers *BatchUpdateRelationDatasHeaders, runtime *util.RuntimeOptions) (_result *BatchUpdateRelationDatasResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationList)) {
+		body["relationList"] = request.RelationList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		body["relationType"] = request.RelationType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SkipDuplicateCheck)) {
+		body["skipDuplicateCheck"] = request.SkipDuplicateCheck
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchUpdateRelationDatasResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchUpdateRelationDatas"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/crm/relationDatas/batch"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10828,6 +11700,50 @@ func (client *Client) GetOfficialAccountOTOMessageResultWithOptions(request *Get
 	}
 	_result = &GetOfficialAccountOTOMessageResultResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetOfficialAccountOTOMessageResult"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/officialAccounts/oToMessages/sendResults"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetRelationUkSetting(request *GetRelationUkSettingRequest) (_result *GetRelationUkSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetRelationUkSettingHeaders{}
+	_result = &GetRelationUkSettingResponse{}
+	_body, _err := client.GetRelationUkSettingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetRelationUkSettingWithOptions(request *GetRelationUkSettingRequest, headers *GetRelationUkSettingHeaders, runtime *util.RuntimeOptions) (_result *GetRelationUkSettingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		query["relationType"] = request.RelationType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetRelationUkSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetRelationUkSetting"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/relationUkSettings"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
