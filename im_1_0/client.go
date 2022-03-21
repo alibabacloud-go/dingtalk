@@ -11,6 +11,130 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type BatchQueryGroupMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchQueryGroupMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryGroupMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryGroupMemberHeaders) SetCommonHeaders(v map[string]*string) *BatchQueryGroupMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchQueryGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *BatchQueryGroupMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchQueryGroupMemberRequest struct {
+	// 酷应用编码
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	// 本次读取的最大数据记录数量（该入参传入值小于钉钉阈值时返回全部）
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 标记当前开始读取的位置，置空表示从头开始
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 开放群ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s BatchQueryGroupMemberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryGroupMemberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryGroupMemberRequest) SetCoolAppCode(v string) *BatchQueryGroupMemberRequest {
+	s.CoolAppCode = &v
+	return s
+}
+
+func (s *BatchQueryGroupMemberRequest) SetMaxResults(v int64) *BatchQueryGroupMemberRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *BatchQueryGroupMemberRequest) SetNextToken(v string) *BatchQueryGroupMemberRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *BatchQueryGroupMemberRequest) SetOpenConversationId(v string) *BatchQueryGroupMemberRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type BatchQueryGroupMemberResponseBody struct {
+	// 是否还有更多数据
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 群成员员工号
+	MemberUserIds []*string `json:"memberUserIds,omitempty" xml:"memberUserIds,omitempty" type:"Repeated"`
+	// 下一次请求的游标
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// result
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchQueryGroupMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryGroupMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryGroupMemberResponseBody) SetHasMore(v bool) *BatchQueryGroupMemberResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *BatchQueryGroupMemberResponseBody) SetMemberUserIds(v []*string) *BatchQueryGroupMemberResponseBody {
+	s.MemberUserIds = v
+	return s
+}
+
+func (s *BatchQueryGroupMemberResponseBody) SetNextToken(v string) *BatchQueryGroupMemberResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *BatchQueryGroupMemberResponseBody) SetSuccess(v bool) *BatchQueryGroupMemberResponseBody {
+	s.Success = &v
+	return s
+}
+
+type BatchQueryGroupMemberResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchQueryGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchQueryGroupMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryGroupMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryGroupMemberResponse) SetHeaders(v map[string]*string) *BatchQueryGroupMemberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchQueryGroupMemberResponse) SetBody(v *BatchQueryGroupMemberResponseBody) *BatchQueryGroupMemberResponse {
+	s.Body = v
+	return s
+}
+
 type CardTemplateBuildActionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2364,6 +2488,62 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) BatchQueryGroupMember(request *BatchQueryGroupMemberRequest) (_result *BatchQueryGroupMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchQueryGroupMemberHeaders{}
+	_result = &BatchQueryGroupMemberResponse{}
+	_body, _err := client.BatchQueryGroupMemberWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchQueryGroupMemberWithOptions(request *BatchQueryGroupMemberRequest, headers *BatchQueryGroupMemberHeaders, runtime *util.RuntimeOptions) (_result *BatchQueryGroupMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CoolAppCode)) {
+		body["coolAppCode"] = request.CoolAppCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchQueryGroupMemberResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchQueryGroupMember"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/members/batchQuery"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) CardTemplateBuildAction(request *CardTemplateBuildActionRequest) (_result *CardTemplateBuildActionResponse, _err error) {

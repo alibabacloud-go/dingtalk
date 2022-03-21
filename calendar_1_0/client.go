@@ -194,7 +194,7 @@ func (s *ConvertLegacyEventIdHeaders) SetXAcsDingtalkAccessToken(v string) *Conv
 }
 
 type ConvertLegacyEventIdRequest struct {
-	LegacyEventIds map[string]*string `json:"legacyEventIds,omitempty" xml:"legacyEventIds,omitempty"`
+	LegacyEventIds []*string `json:"legacyEventIds,omitempty" xml:"legacyEventIds,omitempty" type:"Repeated"`
 }
 
 func (s ConvertLegacyEventIdRequest) String() string {
@@ -205,7 +205,7 @@ func (s ConvertLegacyEventIdRequest) GoString() string {
 	return s.String()
 }
 
-func (s *ConvertLegacyEventIdRequest) SetLegacyEventIds(v map[string]*string) *ConvertLegacyEventIdRequest {
+func (s *ConvertLegacyEventIdRequest) SetLegacyEventIds(v []*string) *ConvertLegacyEventIdRequest {
 	s.LegacyEventIds = v
 	return s
 }
