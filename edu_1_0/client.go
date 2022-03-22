@@ -1669,6 +1669,123 @@ func (s *CreateEduAssetSpaceResponse) SetBody(v *CreateEduAssetSpaceResponseBody
 	return s
 }
 
+type CreateFulfilRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateFulfilRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFulfilRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFulfilRecordHeaders) SetCommonHeaders(v map[string]*string) *CreateFulfilRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateFulfilRecordHeaders) SetXAcsDingtalkAccessToken(v string) *CreateFulfilRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateFulfilRecordRequest struct {
+	// 业务发生时间
+	BizTime *int64 `json:"bizTime,omitempty" xml:"bizTime,omitempty"`
+	// 扩展信息，json格式
+	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// 人脸id
+	FaceId *string `json:"faceId,omitempty" xml:"faceId,omitempty"`
+	// 场景
+	Scene *int64 `json:"scene,omitempty" xml:"scene,omitempty"`
+	// 设备sn号
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateFulfilRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFulfilRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFulfilRecordRequest) SetBizTime(v int64) *CreateFulfilRecordRequest {
+	s.BizTime = &v
+	return s
+}
+
+func (s *CreateFulfilRecordRequest) SetExtInfo(v string) *CreateFulfilRecordRequest {
+	s.ExtInfo = &v
+	return s
+}
+
+func (s *CreateFulfilRecordRequest) SetFaceId(v string) *CreateFulfilRecordRequest {
+	s.FaceId = &v
+	return s
+}
+
+func (s *CreateFulfilRecordRequest) SetScene(v int64) *CreateFulfilRecordRequest {
+	s.Scene = &v
+	return s
+}
+
+func (s *CreateFulfilRecordRequest) SetSn(v string) *CreateFulfilRecordRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *CreateFulfilRecordRequest) SetUserId(v string) *CreateFulfilRecordRequest {
+	s.UserId = &v
+	return s
+}
+
+type CreateFulfilRecordResponseBody struct {
+	// 成功信息
+	SuccessInfo *string `json:"successInfo,omitempty" xml:"successInfo,omitempty"`
+}
+
+func (s CreateFulfilRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFulfilRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFulfilRecordResponseBody) SetSuccessInfo(v string) *CreateFulfilRecordResponseBody {
+	s.SuccessInfo = &v
+	return s
+}
+
+type CreateFulfilRecordResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateFulfilRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateFulfilRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFulfilRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFulfilRecordResponse) SetHeaders(v map[string]*string) *CreateFulfilRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateFulfilRecordResponse) SetBody(v *CreateFulfilRecordResponseBody) *CreateFulfilRecordResponse {
+	s.Body = v
+	return s
+}
+
 type CreateInviteUrlHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1810,6 +1927,8 @@ func (s *CreateOrderHeaders) SetXAcsDingtalkAccessToken(v string) *CreateOrderHe
 type CreateOrderRequest struct {
 	// 实付金额，单位分（优惠计算后）
 	ActualAmount *int64 `json:"actualAmount,omitempty" xml:"actualAmount,omitempty"`
+	// 开单时间
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 订单明细信息
 	DetailList []*CreateOrderRequestDetailList `json:"detailList,omitempty" xml:"detailList,omitempty" type:"Repeated"`
 	// 人脸id
@@ -1842,6 +1961,11 @@ func (s CreateOrderRequest) GoString() string {
 
 func (s *CreateOrderRequest) SetActualAmount(v int64) *CreateOrderRequest {
 	s.ActualAmount = &v
+	return s
+}
+
+func (s *CreateOrderRequest) SetCreateTime(v int64) *CreateOrderRequest {
+	s.CreateTime = &v
 	return s
 }
 
@@ -2003,6 +2127,8 @@ type CreateOrderFlowRequest struct {
 	ActualAmount *int64 `json:"actualAmount,omitempty" xml:"actualAmount,omitempty"`
 	// 支付宝用户id
 	AlipayUid *string `json:"alipayUid,omitempty" xml:"alipayUid,omitempty"`
+	// 开单时间
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 订单明细信息，来源于商户系统或APP的商品信息。
 	DetailList []*CreateOrderFlowRequestDetailList `json:"detailList,omitempty" xml:"detailList,omitempty" type:"Repeated"`
 	// 人脸id
@@ -2038,6 +2164,11 @@ func (s *CreateOrderFlowRequest) SetActualAmount(v int64) *CreateOrderFlowReques
 
 func (s *CreateOrderFlowRequest) SetAlipayUid(v string) *CreateOrderFlowRequest {
 	s.AlipayUid = &v
+	return s
+}
+
+func (s *CreateOrderFlowRequest) SetCreateTime(v int64) *CreateOrderFlowRequest {
+	s.CreateTime = &v
 	return s
 }
 
@@ -6305,7 +6436,7 @@ func (s *InitDeviceRequest) SetVersion(v string) *InitDeviceRequest {
 
 type InitDeviceResponseBody struct {
 	// 成功信息
-	SuccessInfo *bool `json:"successInfo,omitempty" xml:"successInfo,omitempty"`
+	SuccessInfo *string `json:"successInfo,omitempty" xml:"successInfo,omitempty"`
 }
 
 func (s InitDeviceResponseBody) String() string {
@@ -6316,7 +6447,7 @@ func (s InitDeviceResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *InitDeviceResponseBody) SetSuccessInfo(v bool) *InitDeviceResponseBody {
+func (s *InitDeviceResponseBody) SetSuccessInfo(v string) *InitDeviceResponseBody {
 	s.SuccessInfo = &v
 	return s
 }
@@ -6610,6 +6741,241 @@ func (s *InsertSectionConfigResponse) SetHeaders(v map[string]*string) *InsertSe
 }
 
 func (s *InsertSectionConfigResponse) SetBody(v *InsertSectionConfigResponseBody) *InsertSectionConfigResponse {
+	s.Body = v
+	return s
+}
+
+type ListOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrderHeaders) SetCommonHeaders(v map[string]*string) *ListOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListOrderHeaders) SetXAcsDingtalkAccessToken(v string) *ListOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListOrderRequest struct {
+	// 开单结束时间
+	CreateTimeEnd *int64 `json:"createTimeEnd,omitempty" xml:"createTimeEnd,omitempty"`
+	// 开单开始时间，utc
+	CreateTimeStart *int64 `json:"createTimeStart,omitempty" xml:"createTimeStart,omitempty"`
+	// 商户id
+	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	// 订单号
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// 分页下标
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 场景
+	Scene *int64 `json:"scene,omitempty" xml:"scene,omitempty"`
+	// 状态
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+	// 交易单号
+	TradeNo *string `json:"tradeNo,omitempty" xml:"tradeNo,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrderRequest) SetCreateTimeEnd(v int64) *ListOrderRequest {
+	s.CreateTimeEnd = &v
+	return s
+}
+
+func (s *ListOrderRequest) SetCreateTimeStart(v int64) *ListOrderRequest {
+	s.CreateTimeStart = &v
+	return s
+}
+
+func (s *ListOrderRequest) SetMerchantId(v string) *ListOrderRequest {
+	s.MerchantId = &v
+	return s
+}
+
+func (s *ListOrderRequest) SetOrderNo(v string) *ListOrderRequest {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *ListOrderRequest) SetPageNumber(v int64) *ListOrderRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ListOrderRequest) SetPageSize(v int64) *ListOrderRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ListOrderRequest) SetScene(v int64) *ListOrderRequest {
+	s.Scene = &v
+	return s
+}
+
+func (s *ListOrderRequest) SetStatus(v int64) *ListOrderRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *ListOrderRequest) SetTradeNo(v string) *ListOrderRequest {
+	s.TradeNo = &v
+	return s
+}
+
+func (s *ListOrderRequest) SetUserId(v string) *ListOrderRequest {
+	s.UserId = &v
+	return s
+}
+
+type ListOrderResponseBody struct {
+	// 列表
+	List []*ListOrderResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// 总数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s ListOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrderResponseBody) SetList(v []*ListOrderResponseBodyList) *ListOrderResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *ListOrderResponseBody) SetTotal(v int64) *ListOrderResponseBody {
+	s.Total = &v
+	return s
+}
+
+type ListOrderResponseBodyList struct {
+	ActualAmount *int64  `json:"actualAmount,omitempty" xml:"actualAmount,omitempty"`
+	BuyerId      *string `json:"buyerId,omitempty" xml:"buyerId,omitempty"`
+	CorpId       *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CreateTime   *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	EndTime      *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	OrderNo      *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	PayTime      *int64  `json:"payTime,omitempty" xml:"payTime,omitempty"`
+	Scene        *int64  `json:"scene,omitempty" xml:"scene,omitempty"`
+	StartTime    *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Status       *int64  `json:"status,omitempty" xml:"status,omitempty"`
+	TradeNo      *string `json:"tradeNo,omitempty" xml:"tradeNo,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListOrderResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrderResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrderResponseBodyList) SetActualAmount(v int64) *ListOrderResponseBodyList {
+	s.ActualAmount = &v
+	return s
+}
+
+func (s *ListOrderResponseBodyList) SetBuyerId(v string) *ListOrderResponseBodyList {
+	s.BuyerId = &v
+	return s
+}
+
+func (s *ListOrderResponseBodyList) SetCorpId(v string) *ListOrderResponseBodyList {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ListOrderResponseBodyList) SetCreateTime(v int64) *ListOrderResponseBodyList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *ListOrderResponseBodyList) SetEndTime(v int64) *ListOrderResponseBodyList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *ListOrderResponseBodyList) SetOrderNo(v string) *ListOrderResponseBodyList {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *ListOrderResponseBodyList) SetPayTime(v int64) *ListOrderResponseBodyList {
+	s.PayTime = &v
+	return s
+}
+
+func (s *ListOrderResponseBodyList) SetScene(v int64) *ListOrderResponseBodyList {
+	s.Scene = &v
+	return s
+}
+
+func (s *ListOrderResponseBodyList) SetStartTime(v int64) *ListOrderResponseBodyList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *ListOrderResponseBodyList) SetStatus(v int64) *ListOrderResponseBodyList {
+	s.Status = &v
+	return s
+}
+
+func (s *ListOrderResponseBodyList) SetTradeNo(v string) *ListOrderResponseBodyList {
+	s.TradeNo = &v
+	return s
+}
+
+func (s *ListOrderResponseBodyList) SetUserId(v string) *ListOrderResponseBodyList {
+	s.UserId = &v
+	return s
+}
+
+type ListOrderResponse struct {
+	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrderResponse) SetHeaders(v map[string]*string) *ListOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListOrderResponse) SetBody(v *ListOrderResponseBody) *ListOrderResponse {
 	s.Body = v
 	return s
 }
@@ -11429,7 +11795,7 @@ func (s *SendMessageRequest) SetType(v int64) *SendMessageRequest {
 
 type SendMessageResponseBody struct {
 	// 成功信息
-	SuccessInfo *bool `json:"successInfo,omitempty" xml:"successInfo,omitempty"`
+	SuccessInfo *string `json:"successInfo,omitempty" xml:"successInfo,omitempty"`
 }
 
 func (s SendMessageResponseBody) String() string {
@@ -11440,7 +11806,7 @@ func (s SendMessageResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *SendMessageResponseBody) SetSuccessInfo(v bool) *SendMessageResponseBody {
+func (s *SendMessageResponseBody) SetSuccessInfo(v string) *SendMessageResponseBody {
 	s.SuccessInfo = &v
 	return s
 }
@@ -13590,6 +13956,70 @@ func (client *Client) CreateEduAssetSpaceWithOptions(request *CreateEduAssetSpac
 	return _result, _err
 }
 
+func (client *Client) CreateFulfilRecord(request *CreateFulfilRecordRequest) (_result *CreateFulfilRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateFulfilRecordHeaders{}
+	_result = &CreateFulfilRecordResponse{}
+	_body, _err := client.CreateFulfilRecordWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateFulfilRecordWithOptions(request *CreateFulfilRecordRequest, headers *CreateFulfilRecordHeaders, runtime *util.RuntimeOptions) (_result *CreateFulfilRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizTime)) {
+		body["bizTime"] = request.BizTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtInfo)) {
+		body["extInfo"] = request.ExtInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FaceId)) {
+		body["faceId"] = request.FaceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scene)) {
+		body["scene"] = request.Scene
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateFulfilRecordResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateFulfilRecord"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/fulfilRecords"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateInviteUrl(request *CreateInviteUrlRequest) (_result *CreateInviteUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateInviteUrlHeaders{}
@@ -13662,6 +14092,10 @@ func (client *Client) CreateOrderWithOptions(request *CreateOrderRequest, header
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ActualAmount)) {
 		body["actualAmount"] = request.ActualAmount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateTime)) {
+		body["createTime"] = request.CreateTime
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.DetailList)) {
@@ -13750,6 +14184,10 @@ func (client *Client) CreateOrderFlowWithOptions(request *CreateOrderFlowRequest
 
 	if !tea.BoolValue(util.IsUnset(request.AlipayUid)) {
 		body["alipayUid"] = request.AlipayUid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateTime)) {
+		body["createTime"] = request.CreateTime
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.DetailList)) {
@@ -15377,6 +15815,86 @@ func (client *Client) InsertSectionConfigWithOptions(request *InsertSectionConfi
 	}
 	_result = &InsertSectionConfigResponse{}
 	_body, _err := client.DoROARequest(tea.String("InsertSectionConfig"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/schedules/configs"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListOrder(request *ListOrderRequest) (_result *ListOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListOrderHeaders{}
+	_result = &ListOrderResponse{}
+	_body, _err := client.ListOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListOrderWithOptions(request *ListOrderRequest, headers *ListOrderHeaders, runtime *util.RuntimeOptions) (_result *ListOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CreateTimeEnd)) {
+		body["createTimeEnd"] = request.CreateTimeEnd
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateTimeStart)) {
+		body["createTimeStart"] = request.CreateTimeStart
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MerchantId)) {
+		body["merchantId"] = request.MerchantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderNo)) {
+		body["orderNo"] = request.OrderNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scene)) {
+		body["scene"] = request.Scene
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TradeNo)) {
+		body["tradeNo"] = request.TradeNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ListOrderResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListOrder"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/orders/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

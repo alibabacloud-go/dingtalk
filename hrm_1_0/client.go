@@ -936,6 +936,147 @@ func (s *MasterDataSaveResponse) SetBody(v *MasterDataSaveResponseBody) *MasterD
 	return s
 }
 
+type MasterDataTenantQueyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s MasterDataTenantQueyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataTenantQueyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataTenantQueyHeaders) SetCommonHeaders(v map[string]*string) *MasterDataTenantQueyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *MasterDataTenantQueyHeaders) SetXAcsDingtalkAccessToken(v string) *MasterDataTenantQueyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type MasterDataTenantQueyRequest struct {
+	// 实体 code
+	EntityCode *string `json:"entityCode,omitempty" xml:"entityCode,omitempty"`
+	// isv的业务领域
+	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+}
+
+func (s MasterDataTenantQueyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataTenantQueyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataTenantQueyRequest) SetEntityCode(v string) *MasterDataTenantQueyRequest {
+	s.EntityCode = &v
+	return s
+}
+
+func (s *MasterDataTenantQueyRequest) SetScopeCode(v string) *MasterDataTenantQueyRequest {
+	s.ScopeCode = &v
+	return s
+}
+
+type MasterDataTenantQueyResponseBody struct {
+	Result []*MasterDataTenantQueyResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s MasterDataTenantQueyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataTenantQueyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataTenantQueyResponseBody) SetResult(v []*MasterDataTenantQueyResponseBodyResult) *MasterDataTenantQueyResponseBody {
+	s.Result = v
+	return s
+}
+
+type MasterDataTenantQueyResponseBodyResult struct {
+	// 该租户是否已向主数据同步数据
+	HasData *bool `json:"hasData,omitempty" xml:"hasData,omitempty"`
+	// 该租户是否有向主数据写数据的权限
+	IntegrateDataAuth *bool `json:"integrateDataAuth,omitempty" xml:"integrateDataAuth,omitempty"`
+	// 租户名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 调用方是否有读该租户数据的权限
+	ReadAuth *bool `json:"readAuth,omitempty" xml:"readAuth,omitempty"`
+	// 租户 id
+	TenantId *string `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+	// 租户类型
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s MasterDataTenantQueyResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataTenantQueyResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataTenantQueyResponseBodyResult) SetHasData(v bool) *MasterDataTenantQueyResponseBodyResult {
+	s.HasData = &v
+	return s
+}
+
+func (s *MasterDataTenantQueyResponseBodyResult) SetIntegrateDataAuth(v bool) *MasterDataTenantQueyResponseBodyResult {
+	s.IntegrateDataAuth = &v
+	return s
+}
+
+func (s *MasterDataTenantQueyResponseBodyResult) SetName(v string) *MasterDataTenantQueyResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *MasterDataTenantQueyResponseBodyResult) SetReadAuth(v bool) *MasterDataTenantQueyResponseBodyResult {
+	s.ReadAuth = &v
+	return s
+}
+
+func (s *MasterDataTenantQueyResponseBodyResult) SetTenantId(v string) *MasterDataTenantQueyResponseBodyResult {
+	s.TenantId = &v
+	return s
+}
+
+func (s *MasterDataTenantQueyResponseBodyResult) SetType(v int32) *MasterDataTenantQueyResponseBodyResult {
+	s.Type = &v
+	return s
+}
+
+type MasterDataTenantQueyResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *MasterDataTenantQueyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s MasterDataTenantQueyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDataTenantQueyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDataTenantQueyResponse) SetHeaders(v map[string]*string) *MasterDataTenantQueyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *MasterDataTenantQueyResponse) SetBody(v *MasterDataTenantQueyResponseBody) *MasterDataTenantQueyResponse {
+	s.Body = v
+	return s
+}
+
 type QueryCustomEntryProcessesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1832,6 +1973,54 @@ func (client *Client) MasterDataSaveWithOptions(request *MasterDataSaveRequest, 
 	}
 	_result = &MasterDataSaveResponse{}
 	_body, _err := client.DoROARequest(tea.String("MasterDataSave"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/masters/datas/save"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) MasterDataTenantQuey(request *MasterDataTenantQueyRequest) (_result *MasterDataTenantQueyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &MasterDataTenantQueyHeaders{}
+	_result = &MasterDataTenantQueyResponse{}
+	_body, _err := client.MasterDataTenantQueyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) MasterDataTenantQueyWithOptions(request *MasterDataTenantQueyRequest, headers *MasterDataTenantQueyHeaders, runtime *util.RuntimeOptions) (_result *MasterDataTenantQueyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EntityCode)) {
+		query["entityCode"] = request.EntityCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScopeCode)) {
+		query["scopeCode"] = request.ScopeCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &MasterDataTenantQueyResponse{}
+	_body, _err := client.DoROARequest(tea.String("MasterDataTenantQuey"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/masters/tenants"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
