@@ -648,8 +648,12 @@ func (s *GetCalenderSummaryHeaders) SetXAcsDingtalkAccessToken(v string) *GetCal
 }
 
 type GetCalenderSummaryResponseBody struct {
-	// 最近1天累计创建日程人数
+	// 最近1天创建日程人数
 	CalendarCreateUserCnt *string `json:"calendarCreateUserCnt,omitempty" xml:"calendarCreateUserCnt,omitempty"`
+	// 最近1天接收日程人数
+	RecvCalendarUserCnt1d *string `json:"recvCalendarUserCnt1d,omitempty" xml:"recvCalendarUserCnt1d,omitempty"`
+	// 最近1天使用日程人数
+	UseCalendarUserCnt1d *string `json:"useCalendarUserCnt1d,omitempty" xml:"useCalendarUserCnt1d,omitempty"`
 }
 
 func (s GetCalenderSummaryResponseBody) String() string {
@@ -662,6 +666,16 @@ func (s GetCalenderSummaryResponseBody) GoString() string {
 
 func (s *GetCalenderSummaryResponseBody) SetCalendarCreateUserCnt(v string) *GetCalenderSummaryResponseBody {
 	s.CalendarCreateUserCnt = &v
+	return s
+}
+
+func (s *GetCalenderSummaryResponseBody) SetRecvCalendarUserCnt1d(v string) *GetCalenderSummaryResponseBody {
+	s.RecvCalendarUserCnt1d = &v
+	return s
+}
+
+func (s *GetCalenderSummaryResponseBody) SetUseCalendarUserCnt1d(v string) *GetCalenderSummaryResponseBody {
+	s.UseCalendarUserCnt1d = &v
 	return s
 }
 
@@ -1129,6 +1143,70 @@ func (s *GetDingReportDeptSummaryResponse) SetBody(v *GetDingReportDeptSummaryRe
 	return s
 }
 
+type GetDingReportSummaryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetDingReportSummaryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDingReportSummaryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetDingReportSummaryHeaders) SetCommonHeaders(v map[string]*string) *GetDingReportSummaryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetDingReportSummaryHeaders) SetXAcsDingtalkAccessToken(v string) *GetDingReportSummaryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetDingReportSummaryResponseBody struct {
+	// 最近1天日志评论用户数
+	ReportCommentUserCnt1d *string `json:"reportCommentUserCnt1d,omitempty" xml:"reportCommentUserCnt1d,omitempty"`
+}
+
+func (s GetDingReportSummaryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDingReportSummaryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetDingReportSummaryResponseBody) SetReportCommentUserCnt1d(v string) *GetDingReportSummaryResponseBody {
+	s.ReportCommentUserCnt1d = &v
+	return s
+}
+
+type GetDingReportSummaryResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetDingReportSummaryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetDingReportSummaryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDingReportSummaryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetDingReportSummaryResponse) SetHeaders(v map[string]*string) *GetDingReportSummaryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetDingReportSummaryResponse) SetBody(v *GetDingReportSummaryResponseBody) *GetDingReportSummaryResponse {
+	s.Body = v
+	return s
+}
+
 type GetDocCreatedDeptSummaryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1210,11 +1288,13 @@ func (s *GetDocCreatedDeptSummaryResponseBody) SetNextToken(v int64) *GetDocCrea
 }
 
 type GetDocCreatedDeptSummaryResponseBodyData struct {
+	// 最近1天创建文档人数
+	CreateDocUserCnt1d *string `json:"createDocUserCnt1d,omitempty" xml:"createDocUserCnt1d,omitempty"`
 	// 部门id
 	DeptId *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
 	// 部门名称
 	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	// 最近1天累计钉钉文档创建数
+	// 最近1天钉钉文档创建数
 	DocCreatedCnt *string `json:"docCreatedCnt,omitempty" xml:"docCreatedCnt,omitempty"`
 }
 
@@ -1224,6 +1304,11 @@ func (s GetDocCreatedDeptSummaryResponseBodyData) String() string {
 
 func (s GetDocCreatedDeptSummaryResponseBodyData) GoString() string {
 	return s.String()
+}
+
+func (s *GetDocCreatedDeptSummaryResponseBodyData) SetCreateDocUserCnt1d(v string) *GetDocCreatedDeptSummaryResponseBodyData {
+	s.CreateDocUserCnt1d = &v
+	return s
 }
 
 func (s *GetDocCreatedDeptSummaryResponseBodyData) SetDeptId(v string) *GetDocCreatedDeptSummaryResponseBodyData {
@@ -1288,7 +1373,9 @@ func (s *GetDocCreatedSummaryHeaders) SetXAcsDingtalkAccessToken(v string) *GetD
 }
 
 type GetDocCreatedSummaryResponseBody struct {
-	// 最近1天累计创建文档数
+	// 最近1天创建文档人数
+	DocCreateUserCnt1d *string `json:"docCreateUserCnt1d,omitempty" xml:"docCreateUserCnt1d,omitempty"`
+	// 最近1天创建文档数
 	DocCreatedCnt *string `json:"docCreatedCnt,omitempty" xml:"docCreatedCnt,omitempty"`
 }
 
@@ -1298,6 +1385,11 @@ func (s GetDocCreatedSummaryResponseBody) String() string {
 
 func (s GetDocCreatedSummaryResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *GetDocCreatedSummaryResponseBody) SetDocCreateUserCnt1d(v string) *GetDocCreatedSummaryResponseBody {
+	s.DocCreateUserCnt1d = &v
+	return s
 }
 
 func (s *GetDocCreatedSummaryResponseBody) SetDocCreatedCnt(v string) *GetDocCreatedSummaryResponseBody {
@@ -1415,6 +1507,8 @@ type GetGeneralFormCreatedDeptSummaryResponseBodyData struct {
 	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
 	// 最近1天累计发布智能填表数
 	GeneralFormCreateCnt1d *string `json:"generalFormCreateCnt1d,omitempty" xml:"generalFormCreateCnt1d,omitempty"`
+	// 最近1天使用智能填表人数
+	UseGeneralFormUserCnt1d *string `json:"useGeneralFormUserCnt1d,omitempty" xml:"useGeneralFormUserCnt1d,omitempty"`
 }
 
 func (s GetGeneralFormCreatedDeptSummaryResponseBodyData) String() string {
@@ -1437,6 +1531,11 @@ func (s *GetGeneralFormCreatedDeptSummaryResponseBodyData) SetDeptName(v string)
 
 func (s *GetGeneralFormCreatedDeptSummaryResponseBodyData) SetGeneralFormCreateCnt1d(v string) *GetGeneralFormCreatedDeptSummaryResponseBodyData {
 	s.GeneralFormCreateCnt1d = &v
+	return s
+}
+
+func (s *GetGeneralFormCreatedDeptSummaryResponseBodyData) SetUseGeneralFormUserCnt1d(v string) *GetGeneralFormCreatedDeptSummaryResponseBodyData {
+	s.UseGeneralFormUserCnt1d = &v
 	return s
 }
 
@@ -1487,8 +1586,10 @@ func (s *GetGeneralFormCreatedSummaryHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type GetGeneralFormCreatedSummaryResponseBody struct {
-	// 最近1天累计智能填表创建数
+	// 最近1天智能填表创建数
 	GeneralFormCreatedCnt *string `json:"generalFormCreatedCnt,omitempty" xml:"generalFormCreatedCnt,omitempty"`
+	// 最近1天使用智能填表人数
+	UseGeneralFormUserCnt1d *string `json:"useGeneralFormUserCnt1d,omitempty" xml:"useGeneralFormUserCnt1d,omitempty"`
 }
 
 func (s GetGeneralFormCreatedSummaryResponseBody) String() string {
@@ -1501,6 +1602,11 @@ func (s GetGeneralFormCreatedSummaryResponseBody) GoString() string {
 
 func (s *GetGeneralFormCreatedSummaryResponseBody) SetGeneralFormCreatedCnt(v string) *GetGeneralFormCreatedSummaryResponseBody {
 	s.GeneralFormCreatedCnt = &v
+	return s
+}
+
+func (s *GetGeneralFormCreatedSummaryResponseBody) SetUseGeneralFormUserCnt1d(v string) *GetGeneralFormCreatedSummaryResponseBody {
+	s.UseGeneralFormUserCnt1d = &v
 	return s
 }
 
@@ -4379,6 +4485,41 @@ func (client *Client) GetDingReportDeptSummaryWithOptions(dataId *string, reques
 	}
 	_result = &GetDingReportDeptSummaryResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetDingReportDeptSummary"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/data/report/dept/"+tea.StringValue(dataId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetDingReportSummary(dataId *string) (_result *GetDingReportSummaryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetDingReportSummaryHeaders{}
+	_result = &GetDingReportSummaryResponse{}
+	_body, _err := client.GetDingReportSummaryWithOptions(dataId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetDingReportSummaryWithOptions(dataId *string, headers *GetDingReportSummaryHeaders, runtime *util.RuntimeOptions) (_result *GetDingReportSummaryResponse, _err error) {
+	dataId = openapiutil.GetEncodeParam(dataId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetDingReportSummaryResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetDingReportSummary"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/datas/"+tea.StringValue(dataId)+"/reports/organizations"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

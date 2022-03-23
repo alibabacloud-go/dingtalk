@@ -150,14 +150,8 @@ func (s *CheckInResponse) SetBody(v *CheckInResponseBody) *CheckInResponse {
 }
 
 type ConvertLegacyEventIdHeaders struct {
-	CommonHeaders map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	// 授权类型
-	DingAccessTokenType *string `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
-	// 授权本次调用的企业id，该字段有值时认为本次调用已被授权访问该企业下的所有数据
-	DingOrgId *string `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	// 授权本次调用的用户id，该字段有值时认为本次调用已被授权访问该用户可以访问的所有数据
-	DingUid                 *string `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
-	XAcsDingtalkAccessToken *string `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
 func (s ConvertLegacyEventIdHeaders) String() string {
@@ -170,21 +164,6 @@ func (s ConvertLegacyEventIdHeaders) GoString() string {
 
 func (s *ConvertLegacyEventIdHeaders) SetCommonHeaders(v map[string]*string) *ConvertLegacyEventIdHeaders {
 	s.CommonHeaders = v
-	return s
-}
-
-func (s *ConvertLegacyEventIdHeaders) SetDingAccessTokenType(v string) *ConvertLegacyEventIdHeaders {
-	s.DingAccessTokenType = &v
-	return s
-}
-
-func (s *ConvertLegacyEventIdHeaders) SetDingOrgId(v string) *ConvertLegacyEventIdHeaders {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *ConvertLegacyEventIdHeaders) SetDingUid(v string) *ConvertLegacyEventIdHeaders {
-	s.DingUid = &v
 	return s
 }
 
@@ -5055,70 +5034,6 @@ func (s *RespondEventResponse) SetHeaders(v map[string]*string) *RespondEventRes
 	return s
 }
 
-type SignInHeaders struct {
-	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
-}
-
-func (s SignInHeaders) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SignInHeaders) GoString() string {
-	return s.String()
-}
-
-func (s *SignInHeaders) SetCommonHeaders(v map[string]*string) *SignInHeaders {
-	s.CommonHeaders = v
-	return s
-}
-
-func (s *SignInHeaders) SetXAcsDingtalkAccessToken(v string) *SignInHeaders {
-	s.XAcsDingtalkAccessToken = &v
-	return s
-}
-
-type SignInResponseBody struct {
-	// 签到时间戳
-	CheckInTime *int64 `json:"checkInTime,omitempty" xml:"checkInTime,omitempty"`
-}
-
-func (s SignInResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SignInResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *SignInResponseBody) SetCheckInTime(v int64) *SignInResponseBody {
-	s.CheckInTime = &v
-	return s
-}
-
-type SignInResponse struct {
-	Headers map[string]*string  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SignInResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
-}
-
-func (s SignInResponse) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SignInResponse) GoString() string {
-	return s.String()
-}
-
-func (s *SignInResponse) SetHeaders(v map[string]*string) *SignInResponse {
-	s.Headers = v
-	return s
-}
-
-func (s *SignInResponse) SetBody(v *SignInResponseBody) *SignInResponse {
-	s.Body = v
-	return s
-}
-
 type SubscribeCalendarHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5292,18 +5207,6 @@ func (client *Client) ConvertLegacyEventIdWithOptions(userId *string, request *C
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingAccessTokenType)) {
-		realHeaders["dingAccessTokenType"] = util.ToJSONString(headers.DingAccessTokenType)
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingOrgId)) {
-		realHeaders["dingOrgId"] = util.ToJSONString(headers.DingOrgId)
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.DingUid)) {
-		realHeaders["dingUid"] = util.ToJSONString(headers.DingUid)
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
@@ -6227,43 +6130,6 @@ func (client *Client) RespondEventWithOptions(userId *string, calendarId *string
 	}
 	_result = &RespondEventResponse{}
 	_body, _err := client.DoROARequest(tea.String("RespondEvent"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/respond"), tea.String("none"), req, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_err = tea.Convert(_body, &_result)
-	return _result, _err
-}
-
-func (client *Client) SignIn(userId *string, calendarId *string, eventId *string) (_result *SignInResponse, _err error) {
-	runtime := &util.RuntimeOptions{}
-	headers := &SignInHeaders{}
-	_result = &SignInResponse{}
-	_body, _err := client.SignInWithOptions(userId, calendarId, eventId, headers, runtime)
-	if _err != nil {
-		return _result, _err
-	}
-	_result = _body
-	return _result, _err
-}
-
-func (client *Client) SignInWithOptions(userId *string, calendarId *string, eventId *string, headers *SignInHeaders, runtime *util.RuntimeOptions) (_result *SignInResponse, _err error) {
-	userId = openapiutil.GetEncodeParam(userId)
-	calendarId = openapiutil.GetEncodeParam(calendarId)
-	eventId = openapiutil.GetEncodeParam(eventId)
-	realHeaders := make(map[string]*string)
-	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
-		realHeaders = headers.CommonHeaders
-	}
-
-	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
-		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
-	}
-
-	req := &openapi.OpenApiRequest{
-		Headers: realHeaders,
-	}
-	_result = &SignInResponse{}
-	_body, _err := client.DoROARequest(tea.String("SignIn"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/signIn"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
