@@ -959,6 +959,8 @@ type GetCardInfoResponseBody struct {
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 组织名称
 	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// 用户名片信息设置
+	Settings map[string]interface{} `json:"settings,omitempty" xml:"settings,omitempty"`
 	// 模板ID
 	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 	// 职位
@@ -1010,6 +1012,11 @@ func (s *GetCardInfoResponseBody) SetName(v string) *GetCardInfoResponseBody {
 
 func (s *GetCardInfoResponseBody) SetOrgName(v string) *GetCardInfoResponseBody {
 	s.OrgName = &v
+	return s
+}
+
+func (s *GetCardInfoResponseBody) SetSettings(v map[string]interface{}) *GetCardInfoResponseBody {
+	s.Settings = v
 	return s
 }
 

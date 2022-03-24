@@ -1011,7 +1011,7 @@ type MasterDataTenantQueyResponseBodyResult struct {
 	// 调用方是否有读该租户数据的权限
 	ReadAuth *bool `json:"readAuth,omitempty" xml:"readAuth,omitempty"`
 	// 租户 id
-	TenantId *string `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+	TenantId *int64 `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
 	// 租户类型
 	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
 }
@@ -1044,7 +1044,7 @@ func (s *MasterDataTenantQueyResponseBodyResult) SetReadAuth(v bool) *MasterData
 	return s
 }
 
-func (s *MasterDataTenantQueyResponseBodyResult) SetTenantId(v string) *MasterDataTenantQueyResponseBodyResult {
+func (s *MasterDataTenantQueyResponseBodyResult) SetTenantId(v int64) *MasterDataTenantQueyResponseBodyResult {
 	s.TenantId = &v
 	return s
 }

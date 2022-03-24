@@ -152,6 +152,8 @@ func (s *CreateTodoTaskHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTodo
 }
 
 type CreateTodoTaskRequest struct {
+	// 二级分类
+	BizCategoryId *string `json:"bizCategoryId,omitempty" xml:"bizCategoryId,omitempty"`
 	// 创建者id，需传用户的unionId
 	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
 	// 待办备注描述
@@ -184,6 +186,11 @@ func (s CreateTodoTaskRequest) String() string {
 
 func (s CreateTodoTaskRequest) GoString() string {
 	return s.String()
+}
+
+func (s *CreateTodoTaskRequest) SetBizCategoryId(v string) *CreateTodoTaskRequest {
+	s.BizCategoryId = &v
+	return s
 }
 
 func (s *CreateTodoTaskRequest) SetCreatorId(v string) *CreateTodoTaskRequest {
@@ -3166,6 +3173,10 @@ func (client *Client) CreateTodoTaskWithOptions(unionId *string, request *Create
 	}
 
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizCategoryId)) {
+		body["bizCategoryId"] = request.BizCategoryId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.CreatorId)) {
 		body["creatorId"] = request.CreatorId
 	}
