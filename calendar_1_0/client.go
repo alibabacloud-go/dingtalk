@@ -2321,7 +2321,7 @@ func (s *ListAttendeesHeaders) SetXAcsDingtalkAccessToken(v string) *ListAttende
 }
 
 type ListAttendeesRequest struct {
-	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
@@ -2333,7 +2333,7 @@ func (s ListAttendeesRequest) GoString() string {
 	return s.String()
 }
 
-func (s *ListAttendeesRequest) SetMaxResults(v int64) *ListAttendeesRequest {
+func (s *ListAttendeesRequest) SetMaxResults(v int32) *ListAttendeesRequest {
 	s.MaxResults = &v
 	return s
 }
@@ -2596,9 +2596,9 @@ func (s *ListEventsHeaders) SetXAcsDingtalkAccessToken(v string) *ListEventsHead
 
 type ListEventsRequest struct {
 	// 每个日程的参与者查询个数，默认100，最大100
-	MaxAttendees *int64 `json:"maxAttendees,omitempty" xml:"maxAttendees,omitempty"`
+	MaxAttendees *int32 `json:"maxAttendees,omitempty" xml:"maxAttendees,omitempty"`
 	// 返回的最大日程数，最大100个，默认100个
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	// 查询翻页token
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 是否返回删除事件
@@ -2619,12 +2619,12 @@ func (s ListEventsRequest) GoString() string {
 	return s.String()
 }
 
-func (s *ListEventsRequest) SetMaxAttendees(v int64) *ListEventsRequest {
+func (s *ListEventsRequest) SetMaxAttendees(v int32) *ListEventsRequest {
 	s.MaxAttendees = &v
 	return s
 }
 
-func (s *ListEventsRequest) SetMaxResults(v int64) *ListEventsRequest {
+func (s *ListEventsRequest) SetMaxResults(v int32) *ListEventsRequest {
 	s.MaxResults = &v
 	return s
 }
@@ -3167,13 +3167,13 @@ func (s *ListEventsInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *ListE
 
 type ListEventsInstancesRequest struct {
 	// listInstances每个日程的参与者查询个数，默认100，最大100。
-	MaxAttendees *int64 `json:"maxAttendees,omitempty" xml:"maxAttendees,omitempty"`
+	MaxAttendees *int32 `json:"maxAttendees,omitempty" xml:"maxAttendees,omitempty"`
 	// listInstances返回的最大日程数，最大100个，默认100个。
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	// 循环主日程id。
 	SeriesMasterId *string `json:"seriesMasterId,omitempty" xml:"seriesMasterId,omitempty"`
-	// 大于此时间的所有生成实例
-	TimeMin *string `json:"timeMin,omitempty" xml:"timeMin,omitempty"`
+	// 大于等于次序列id的所有实例
+	StartRecurrenceId *string `json:"startRecurrenceId,omitempty" xml:"startRecurrenceId,omitempty"`
 }
 
 func (s ListEventsInstancesRequest) String() string {
@@ -3184,12 +3184,12 @@ func (s ListEventsInstancesRequest) GoString() string {
 	return s.String()
 }
 
-func (s *ListEventsInstancesRequest) SetMaxAttendees(v int64) *ListEventsInstancesRequest {
+func (s *ListEventsInstancesRequest) SetMaxAttendees(v int32) *ListEventsInstancesRequest {
 	s.MaxAttendees = &v
 	return s
 }
 
-func (s *ListEventsInstancesRequest) SetMaxResults(v int64) *ListEventsInstancesRequest {
+func (s *ListEventsInstancesRequest) SetMaxResults(v int32) *ListEventsInstancesRequest {
 	s.MaxResults = &v
 	return s
 }
@@ -3199,8 +3199,8 @@ func (s *ListEventsInstancesRequest) SetSeriesMasterId(v string) *ListEventsInst
 	return s
 }
 
-func (s *ListEventsInstancesRequest) SetTimeMin(v string) *ListEventsInstancesRequest {
-	s.TimeMin = &v
+func (s *ListEventsInstancesRequest) SetStartRecurrenceId(v string) *ListEventsInstancesRequest {
+	s.StartRecurrenceId = &v
 	return s
 }
 
@@ -3713,9 +3713,9 @@ func (s *ListEventsViewHeaders) SetXAcsDingtalkAccessToken(v string) *ListEvents
 
 type ListEventsViewRequest struct {
 	// 每个日程的参与者查询个数，默认100，最大100。
-	MaxAttendees *int64 `json:"maxAttendees,omitempty" xml:"maxAttendees,omitempty"`
+	MaxAttendees *int32 `json:"maxAttendees,omitempty" xml:"maxAttendees,omitempty"`
 	// 返回的最大日程数，最大100个，默认100个。
-	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	// 查询翻页token
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 查询截止时间
@@ -3732,12 +3732,12 @@ func (s ListEventsViewRequest) GoString() string {
 	return s.String()
 }
 
-func (s *ListEventsViewRequest) SetMaxAttendees(v int64) *ListEventsViewRequest {
+func (s *ListEventsViewRequest) SetMaxAttendees(v int32) *ListEventsViewRequest {
 	s.MaxAttendees = &v
 	return s
 }
 
-func (s *ListEventsViewRequest) SetMaxResults(v int64) *ListEventsViewRequest {
+func (s *ListEventsViewRequest) SetMaxResults(v int32) *ListEventsViewRequest {
 	s.MaxResults = &v
 	return s
 }
@@ -5034,6 +5034,70 @@ func (s *RespondEventResponse) SetHeaders(v map[string]*string) *RespondEventRes
 	return s
 }
 
+type SignInHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SignInHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SignInHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SignInHeaders) SetCommonHeaders(v map[string]*string) *SignInHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SignInHeaders) SetXAcsDingtalkAccessToken(v string) *SignInHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SignInResponseBody struct {
+	// 签到时间戳
+	CheckInTime *int64 `json:"checkInTime,omitempty" xml:"checkInTime,omitempty"`
+}
+
+func (s SignInResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SignInResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SignInResponseBody) SetCheckInTime(v int64) *SignInResponseBody {
+	s.CheckInTime = &v
+	return s
+}
+
+type SignInResponse struct {
+	Headers map[string]*string  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SignInResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SignInResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SignInResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SignInResponse) SetHeaders(v map[string]*string) *SignInResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SignInResponse) SetBody(v *SignInResponseBody) *SignInResponse {
+	s.Body = v
+	return s
+}
+
 type SubscribeCalendarHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5868,8 +5932,8 @@ func (client *Client) ListEventsInstancesWithOptions(userId *string, calendarId 
 		query["seriesMasterId"] = request.SeriesMasterId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TimeMin)) {
-		query["timeMin"] = request.TimeMin
+	if !tea.BoolValue(util.IsUnset(request.StartRecurrenceId)) {
+		query["startRecurrenceId"] = request.StartRecurrenceId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -6130,6 +6194,43 @@ func (client *Client) RespondEventWithOptions(userId *string, calendarId *string
 	}
 	_result = &RespondEventResponse{}
 	_body, _err := client.DoROARequest(tea.String("RespondEvent"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/respond"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SignIn(userId *string, calendarId *string, eventId *string) (_result *SignInResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SignInHeaders{}
+	_result = &SignInResponse{}
+	_body, _err := client.SignInWithOptions(userId, calendarId, eventId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SignInWithOptions(userId *string, calendarId *string, eventId *string, headers *SignInHeaders, runtime *util.RuntimeOptions) (_result *SignInResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	eventId = openapiutil.GetEncodeParam(eventId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &SignInResponse{}
+	_body, _err := client.DoROARequest(tea.String("SignIn"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/signin"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
