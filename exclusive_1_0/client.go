@@ -3156,6 +3156,183 @@ func (s *ListMiniAppHistoryVersionResponse) SetBody(v *ListMiniAppHistoryVersion
 	return s
 }
 
+type ListPunchScheduleByConditionWithPagingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListPunchScheduleByConditionWithPagingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPunchScheduleByConditionWithPagingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListPunchScheduleByConditionWithPagingHeaders) SetCommonHeaders(v map[string]*string) *ListPunchScheduleByConditionWithPagingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListPunchScheduleByConditionWithPagingHeaders) SetXAcsDingtalkAccessToken(v string) *ListPunchScheduleByConditionWithPagingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListPunchScheduleByConditionWithPagingRequest struct {
+	// 业务实例id，在该接口中表示打卡机实例id
+	BizInstanceId *string `json:"bizInstanceId,omitempty" xml:"bizInstanceId,omitempty"`
+	// 分页大小
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 游标位置
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 查询日期结束时间（yyyy-MM-dd)
+	ScheduleDateEnd *string `json:"scheduleDateEnd,omitempty" xml:"scheduleDateEnd,omitempty"`
+	// 查询日期开始时间（yyyy-MM-dd)）
+	ScheduleDateStart *string `json:"scheduleDateStart,omitempty" xml:"scheduleDateStart,omitempty"`
+	// 用户id列表
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s ListPunchScheduleByConditionWithPagingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPunchScheduleByConditionWithPagingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListPunchScheduleByConditionWithPagingRequest) SetBizInstanceId(v string) *ListPunchScheduleByConditionWithPagingRequest {
+	s.BizInstanceId = &v
+	return s
+}
+
+func (s *ListPunchScheduleByConditionWithPagingRequest) SetMaxResults(v int32) *ListPunchScheduleByConditionWithPagingRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListPunchScheduleByConditionWithPagingRequest) SetNextToken(v int64) *ListPunchScheduleByConditionWithPagingRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListPunchScheduleByConditionWithPagingRequest) SetScheduleDateEnd(v string) *ListPunchScheduleByConditionWithPagingRequest {
+	s.ScheduleDateEnd = &v
+	return s
+}
+
+func (s *ListPunchScheduleByConditionWithPagingRequest) SetScheduleDateStart(v string) *ListPunchScheduleByConditionWithPagingRequest {
+	s.ScheduleDateStart = &v
+	return s
+}
+
+func (s *ListPunchScheduleByConditionWithPagingRequest) SetUserIdList(v []*string) *ListPunchScheduleByConditionWithPagingRequest {
+	s.UserIdList = v
+	return s
+}
+
+type ListPunchScheduleByConditionWithPagingResponseBody struct {
+	// 是否有更多
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 返回列表
+	List []*ListPunchScheduleByConditionWithPagingResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// 下一次游标位置
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListPunchScheduleByConditionWithPagingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPunchScheduleByConditionWithPagingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListPunchScheduleByConditionWithPagingResponseBody) SetHasMore(v bool) *ListPunchScheduleByConditionWithPagingResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *ListPunchScheduleByConditionWithPagingResponseBody) SetList(v []*ListPunchScheduleByConditionWithPagingResponseBodyList) *ListPunchScheduleByConditionWithPagingResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *ListPunchScheduleByConditionWithPagingResponseBody) SetNextToken(v int64) *ListPunchScheduleByConditionWithPagingResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type ListPunchScheduleByConditionWithPagingResponseBodyList struct {
+	// 巡点业务id，同个巡点id同一个用户最多会有两条记录，一条签到，一条签退
+	BizOuterId *string `json:"bizOuterId,omitempty" xml:"bizOuterId,omitempty"`
+	// 打卡巡点机名称
+	PositionName *string `json:"positionName,omitempty" xml:"positionName,omitempty"`
+	// 巡点类型（checkIn-签到，checkOut-签退）
+	PunchSymbol *string `json:"punchSymbol,omitempty" xml:"punchSymbol,omitempty"`
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 用户巡点打卡时间
+	UserPunchTime *int64 `json:"userPunchTime,omitempty" xml:"userPunchTime,omitempty"`
+}
+
+func (s ListPunchScheduleByConditionWithPagingResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPunchScheduleByConditionWithPagingResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *ListPunchScheduleByConditionWithPagingResponseBodyList) SetBizOuterId(v string) *ListPunchScheduleByConditionWithPagingResponseBodyList {
+	s.BizOuterId = &v
+	return s
+}
+
+func (s *ListPunchScheduleByConditionWithPagingResponseBodyList) SetPositionName(v string) *ListPunchScheduleByConditionWithPagingResponseBodyList {
+	s.PositionName = &v
+	return s
+}
+
+func (s *ListPunchScheduleByConditionWithPagingResponseBodyList) SetPunchSymbol(v string) *ListPunchScheduleByConditionWithPagingResponseBodyList {
+	s.PunchSymbol = &v
+	return s
+}
+
+func (s *ListPunchScheduleByConditionWithPagingResponseBodyList) SetUserId(v string) *ListPunchScheduleByConditionWithPagingResponseBodyList {
+	s.UserId = &v
+	return s
+}
+
+func (s *ListPunchScheduleByConditionWithPagingResponseBodyList) SetUserPunchTime(v int64) *ListPunchScheduleByConditionWithPagingResponseBodyList {
+	s.UserPunchTime = &v
+	return s
+}
+
+type ListPunchScheduleByConditionWithPagingResponse struct {
+	Headers map[string]*string                                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListPunchScheduleByConditionWithPagingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListPunchScheduleByConditionWithPagingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPunchScheduleByConditionWithPagingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListPunchScheduleByConditionWithPagingResponse) SetHeaders(v map[string]*string) *ListPunchScheduleByConditionWithPagingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListPunchScheduleByConditionWithPagingResponse) SetBody(v *ListPunchScheduleByConditionWithPagingResponseBody) *ListPunchScheduleByConditionWithPagingResponse {
+	s.Body = v
+	return s
+}
+
 type PublishFileChangeNoticeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5201,6 +5378,70 @@ func (client *Client) ListMiniAppHistoryVersionWithOptions(request *ListMiniAppH
 	}
 	_result = &ListMiniAppHistoryVersionResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListMiniAppHistoryVersion"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/miniApps/versions/historyLists"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListPunchScheduleByConditionWithPaging(request *ListPunchScheduleByConditionWithPagingRequest) (_result *ListPunchScheduleByConditionWithPagingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListPunchScheduleByConditionWithPagingHeaders{}
+	_result = &ListPunchScheduleByConditionWithPagingResponse{}
+	_body, _err := client.ListPunchScheduleByConditionWithPagingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListPunchScheduleByConditionWithPagingWithOptions(request *ListPunchScheduleByConditionWithPagingRequest, headers *ListPunchScheduleByConditionWithPagingHeaders, runtime *util.RuntimeOptions) (_result *ListPunchScheduleByConditionWithPagingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizInstanceId)) {
+		body["bizInstanceId"] = request.BizInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScheduleDateEnd)) {
+		body["scheduleDateEnd"] = request.ScheduleDateEnd
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScheduleDateStart)) {
+		body["scheduleDateStart"] = request.ScheduleDateStart
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdList)) {
+		body["userIdList"] = request.UserIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ListPunchScheduleByConditionWithPagingResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListPunchScheduleByConditionWithPaging"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/punchSchedules/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -2068,7 +2068,7 @@ func (s *GetSignInListHeaders) SetXAcsDingtalkAccessToken(v string) *GetSignInLi
 
 type GetSignInListRequest struct {
 	// 查询返回结果数（上限200）
-	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 签到信息类型（check_in，not_yet_check_in)
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
@@ -2082,7 +2082,7 @@ func (s GetSignInListRequest) GoString() string {
 	return s.String()
 }
 
-func (s *GetSignInListRequest) SetMaxResults(v int64) *GetSignInListRequest {
+func (s *GetSignInListRequest) SetMaxResults(v int32) *GetSignInListRequest {
 	s.MaxResults = &v
 	return s
 }

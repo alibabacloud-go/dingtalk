@@ -6231,6 +6231,222 @@ func (s *GetCrmRolePermissionResponse) SetBody(v *GetCrmRolePermissionResponseBo
 	return s
 }
 
+type GetCustomerTracksByRelationIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCustomerTracksByRelationIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerTracksByRelationIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerTracksByRelationIdHeaders) SetCommonHeaders(v map[string]*string) *GetCustomerTracksByRelationIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCustomerTracksByRelationIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetCustomerTracksByRelationIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCustomerTracksByRelationIdRequest struct {
+	// 每页返回的结果集个数，默认10。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 第一页不传，下一页传入上一页返回的nextToken
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 关系id。
+	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
+	// 动态类型分组。
+	TypeGroup *int32 `json:"typeGroup,omitempty" xml:"typeGroup,omitempty"`
+}
+
+func (s GetCustomerTracksByRelationIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerTracksByRelationIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerTracksByRelationIdRequest) SetMaxResults(v int32) *GetCustomerTracksByRelationIdRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetCustomerTracksByRelationIdRequest) SetNextToken(v string) *GetCustomerTracksByRelationIdRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetCustomerTracksByRelationIdRequest) SetRelationId(v string) *GetCustomerTracksByRelationIdRequest {
+	s.RelationId = &v
+	return s
+}
+
+func (s *GetCustomerTracksByRelationIdRequest) SetTypeGroup(v int32) *GetCustomerTracksByRelationIdRequest {
+	s.TypeGroup = &v
+	return s
+}
+
+type GetCustomerTracksByRelationIdResponseBody struct {
+	// 是否还有下一页。
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 下一页的游标。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 数据列表。
+	ResultList []*GetCustomerTracksByRelationIdResponseBodyResultList `json:"resultList,omitempty" xml:"resultList,omitempty" type:"Repeated"`
+}
+
+func (s GetCustomerTracksByRelationIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerTracksByRelationIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerTracksByRelationIdResponseBody) SetHasMore(v bool) *GetCustomerTracksByRelationIdResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetCustomerTracksByRelationIdResponseBody) SetNextToken(v string) *GetCustomerTracksByRelationIdResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetCustomerTracksByRelationIdResponseBody) SetResultList(v []*GetCustomerTracksByRelationIdResponseBodyResultList) *GetCustomerTracksByRelationIdResponseBody {
+	s.ResultList = v
+	return s
+}
+
+type GetCustomerTracksByRelationIdResponseBodyResultList struct {
+	// 动态内容。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 操作人姓名。
+	CreatorName *string `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
+	// 动态详情。
+	Detail map[string]*string `json:"detail,omitempty" xml:"detail,omitempty"`
+	// 动态格式：markdown表示markdown格式，为空表示老格式
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// 创建时间。
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 写入动态的三方应用身份信息。
+	IsvInfo *GetCustomerTracksByRelationIdResponseBodyResultListIsvInfo `json:"isvInfo,omitempty" xml:"isvInfo,omitempty" type:"Struct"`
+	// 动态标题。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 动态类型。
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	// 动态类型分组。
+	TypeGroup *int32 `json:"typeGroup,omitempty" xml:"typeGroup,omitempty"`
+}
+
+func (s GetCustomerTracksByRelationIdResponseBodyResultList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerTracksByRelationIdResponseBodyResultList) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerTracksByRelationIdResponseBodyResultList) SetContent(v string) *GetCustomerTracksByRelationIdResponseBodyResultList {
+	s.Content = &v
+	return s
+}
+
+func (s *GetCustomerTracksByRelationIdResponseBodyResultList) SetCreatorName(v string) *GetCustomerTracksByRelationIdResponseBodyResultList {
+	s.CreatorName = &v
+	return s
+}
+
+func (s *GetCustomerTracksByRelationIdResponseBodyResultList) SetDetail(v map[string]*string) *GetCustomerTracksByRelationIdResponseBodyResultList {
+	s.Detail = v
+	return s
+}
+
+func (s *GetCustomerTracksByRelationIdResponseBodyResultList) SetFormat(v string) *GetCustomerTracksByRelationIdResponseBodyResultList {
+	s.Format = &v
+	return s
+}
+
+func (s *GetCustomerTracksByRelationIdResponseBodyResultList) SetGmtCreate(v string) *GetCustomerTracksByRelationIdResponseBodyResultList {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *GetCustomerTracksByRelationIdResponseBodyResultList) SetIsvInfo(v *GetCustomerTracksByRelationIdResponseBodyResultListIsvInfo) *GetCustomerTracksByRelationIdResponseBodyResultList {
+	s.IsvInfo = v
+	return s
+}
+
+func (s *GetCustomerTracksByRelationIdResponseBodyResultList) SetTitle(v string) *GetCustomerTracksByRelationIdResponseBodyResultList {
+	s.Title = &v
+	return s
+}
+
+func (s *GetCustomerTracksByRelationIdResponseBodyResultList) SetType(v int32) *GetCustomerTracksByRelationIdResponseBodyResultList {
+	s.Type = &v
+	return s
+}
+
+func (s *GetCustomerTracksByRelationIdResponseBodyResultList) SetTypeGroup(v int32) *GetCustomerTracksByRelationIdResponseBodyResultList {
+	s.TypeGroup = &v
+	return s
+}
+
+type GetCustomerTracksByRelationIdResponseBodyResultListIsvInfo struct {
+	// 写入动态的三方应用所属应用名。
+	AppName *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	// 写入动态的三方应用所属组织名。
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+}
+
+func (s GetCustomerTracksByRelationIdResponseBodyResultListIsvInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerTracksByRelationIdResponseBodyResultListIsvInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerTracksByRelationIdResponseBodyResultListIsvInfo) SetAppName(v string) *GetCustomerTracksByRelationIdResponseBodyResultListIsvInfo {
+	s.AppName = &v
+	return s
+}
+
+func (s *GetCustomerTracksByRelationIdResponseBodyResultListIsvInfo) SetOrgName(v string) *GetCustomerTracksByRelationIdResponseBodyResultListIsvInfo {
+	s.OrgName = &v
+	return s
+}
+
+type GetCustomerTracksByRelationIdResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCustomerTracksByRelationIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCustomerTracksByRelationIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerTracksByRelationIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerTracksByRelationIdResponse) SetHeaders(v map[string]*string) *GetCustomerTracksByRelationIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCustomerTracksByRelationIdResponse) SetBody(v *GetCustomerTracksByRelationIdResponseBody) *GetCustomerTracksByRelationIdResponse {
+	s.Body = v
+	return s
+}
+
 type GetGroupSetHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11525,6 +11741,62 @@ func (client *Client) GetCrmRolePermissionWithOptions(request *GetCrmRolePermiss
 	}
 	_result = &GetCrmRolePermissionResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetCrmRolePermission"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/permissions"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetCustomerTracksByRelationId(request *GetCustomerTracksByRelationIdRequest) (_result *GetCustomerTracksByRelationIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCustomerTracksByRelationIdHeaders{}
+	_result = &GetCustomerTracksByRelationIdResponse{}
+	_body, _err := client.GetCustomerTracksByRelationIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetCustomerTracksByRelationIdWithOptions(request *GetCustomerTracksByRelationIdRequest, headers *GetCustomerTracksByRelationIdHeaders, runtime *util.RuntimeOptions) (_result *GetCustomerTracksByRelationIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationId)) {
+		query["relationId"] = request.RelationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TypeGroup)) {
+		query["typeGroup"] = request.TypeGroup
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetCustomerTracksByRelationIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetCustomerTracksByRelationId"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/customerTracks"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -35,7 +35,8 @@ func (s *CreateActionHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAction
 }
 
 type CreateActionRequest struct {
-	ActionInfo []*CreateActionRequestActionInfo `json:"actionInfo,omitempty" xml:"actionInfo,omitempty" type:"Repeated"`
+	ActionInfo     []*CreateActionRequestActionInfo `json:"actionInfo,omitempty" xml:"actionInfo,omitempty" type:"Repeated"`
+	IntegratorFlag *string                          `json:"integratorFlag,omitempty" xml:"integratorFlag,omitempty"`
 }
 
 func (s CreateActionRequest) String() string {
@@ -48,6 +49,11 @@ func (s CreateActionRequest) GoString() string {
 
 func (s *CreateActionRequest) SetActionInfo(v []*CreateActionRequestActionInfo) *CreateActionRequest {
 	s.ActionInfo = v
+	return s
+}
+
+func (s *CreateActionRequest) SetIntegratorFlag(v string) *CreateActionRequest {
+	s.IntegratorFlag = &v
 	return s
 }
 
@@ -282,7 +288,8 @@ func (s *CreateConnectorHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCon
 }
 
 type CreateConnectorRequest struct {
-	ConnectorInfo []*CreateConnectorRequestConnectorInfo `json:"connectorInfo,omitempty" xml:"connectorInfo,omitempty" type:"Repeated"`
+	ConnectorInfo  []*CreateConnectorRequestConnectorInfo `json:"connectorInfo,omitempty" xml:"connectorInfo,omitempty" type:"Repeated"`
+	IntegratorFlag *string                                `json:"integratorFlag,omitempty" xml:"integratorFlag,omitempty"`
 }
 
 func (s CreateConnectorRequest) String() string {
@@ -295,6 +302,11 @@ func (s CreateConnectorRequest) GoString() string {
 
 func (s *CreateConnectorRequest) SetConnectorInfo(v []*CreateConnectorRequestConnectorInfo) *CreateConnectorRequest {
 	s.ConnectorInfo = v
+	return s
+}
+
+func (s *CreateConnectorRequest) SetIntegratorFlag(v string) *CreateConnectorRequest {
+	s.IntegratorFlag = &v
 	return s
 }
 
@@ -478,7 +490,8 @@ func (s *CreateTriggerHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTrigg
 }
 
 type CreateTriggerRequest struct {
-	TriggerInfo []*CreateTriggerRequestTriggerInfo `json:"triggerInfo,omitempty" xml:"triggerInfo,omitempty" type:"Repeated"`
+	IntegratorFlag *string                            `json:"integratorFlag,omitempty" xml:"integratorFlag,omitempty"`
+	TriggerInfo    []*CreateTriggerRequestTriggerInfo `json:"triggerInfo,omitempty" xml:"triggerInfo,omitempty" type:"Repeated"`
 }
 
 func (s CreateTriggerRequest) String() string {
@@ -487,6 +500,11 @@ func (s CreateTriggerRequest) String() string {
 
 func (s CreateTriggerRequest) GoString() string {
 	return s.String()
+}
+
+func (s *CreateTriggerRequest) SetIntegratorFlag(v string) *CreateTriggerRequest {
+	s.IntegratorFlag = &v
+	return s
 }
 
 func (s *CreateTriggerRequest) SetTriggerInfo(v []*CreateTriggerRequestTriggerInfo) *CreateTriggerRequest {
@@ -1177,7 +1195,8 @@ func (s *UpdateActionHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateAction
 }
 
 type UpdateActionRequest struct {
-	ActionInfo []*UpdateActionRequestActionInfo `json:"actionInfo,omitempty" xml:"actionInfo,omitempty" type:"Repeated"`
+	ActionInfo     []*UpdateActionRequestActionInfo `json:"actionInfo,omitempty" xml:"actionInfo,omitempty" type:"Repeated"`
+	IntegratorFlag *string                          `json:"integratorFlag,omitempty" xml:"integratorFlag,omitempty"`
 }
 
 func (s UpdateActionRequest) String() string {
@@ -1190,6 +1209,11 @@ func (s UpdateActionRequest) GoString() string {
 
 func (s *UpdateActionRequest) SetActionInfo(v []*UpdateActionRequestActionInfo) *UpdateActionRequest {
 	s.ActionInfo = v
+	return s
+}
+
+func (s *UpdateActionRequest) SetIntegratorFlag(v string) *UpdateActionRequest {
+	s.IntegratorFlag = &v
 	return s
 }
 
@@ -1431,7 +1455,8 @@ func (s *UpdateConnectorHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateCon
 }
 
 type UpdateConnectorRequest struct {
-	ConnectorInfo []*UpdateConnectorRequestConnectorInfo `json:"connectorInfo,omitempty" xml:"connectorInfo,omitempty" type:"Repeated"`
+	ConnectorInfo  []*UpdateConnectorRequestConnectorInfo `json:"connectorInfo,omitempty" xml:"connectorInfo,omitempty" type:"Repeated"`
+	IntegratorFlag *string                                `json:"integratorFlag,omitempty" xml:"integratorFlag,omitempty"`
 }
 
 func (s UpdateConnectorRequest) String() string {
@@ -1444,6 +1469,11 @@ func (s UpdateConnectorRequest) GoString() string {
 
 func (s *UpdateConnectorRequest) SetConnectorInfo(v []*UpdateConnectorRequestConnectorInfo) *UpdateConnectorRequest {
 	s.ConnectorInfo = v
+	return s
+}
+
+func (s *UpdateConnectorRequest) SetIntegratorFlag(v string) *UpdateConnectorRequest {
+	s.IntegratorFlag = &v
 	return s
 }
 
@@ -1638,7 +1668,8 @@ func (s *UpdateTriggerHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTrigg
 }
 
 type UpdateTriggerRequest struct {
-	TriggerInfo []*UpdateTriggerRequestTriggerInfo `json:"triggerInfo,omitempty" xml:"triggerInfo,omitempty" type:"Repeated"`
+	IntegratorFlag *string                            `json:"integratorFlag,omitempty" xml:"integratorFlag,omitempty"`
+	TriggerInfo    []*UpdateTriggerRequestTriggerInfo `json:"triggerInfo,omitempty" xml:"triggerInfo,omitempty" type:"Repeated"`
 }
 
 func (s UpdateTriggerRequest) String() string {
@@ -1647,6 +1678,11 @@ func (s UpdateTriggerRequest) String() string {
 
 func (s UpdateTriggerRequest) GoString() string {
 	return s.String()
+}
+
+func (s *UpdateTriggerRequest) SetIntegratorFlag(v string) *UpdateTriggerRequest {
+	s.IntegratorFlag = &v
+	return s
 }
 
 func (s *UpdateTriggerRequest) SetTriggerInfo(v []*UpdateTriggerRequestTriggerInfo) *UpdateTriggerRequest {
@@ -1860,6 +1896,10 @@ func (client *Client) CreateActionWithOptions(request *CreateActionRequest, head
 		body["actionInfo"] = request.ActionInfo
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.IntegratorFlag)) {
+		body["integratorFlag"] = request.IntegratorFlag
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1904,6 +1944,10 @@ func (client *Client) CreateConnectorWithOptions(request *CreateConnectorRequest
 		body["connectorInfo"] = request.ConnectorInfo
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.IntegratorFlag)) {
+		body["integratorFlag"] = request.IntegratorFlag
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1944,6 +1988,10 @@ func (client *Client) CreateTriggerWithOptions(request *CreateTriggerRequest, he
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IntegratorFlag)) {
+		body["integratorFlag"] = request.IntegratorFlag
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.TriggerInfo)) {
 		body["triggerInfo"] = request.TriggerInfo
 	}
@@ -2157,6 +2205,10 @@ func (client *Client) UpdateActionWithOptions(request *UpdateActionRequest, head
 		body["actionInfo"] = request.ActionInfo
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.IntegratorFlag)) {
+		body["integratorFlag"] = request.IntegratorFlag
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -2201,6 +2253,10 @@ func (client *Client) UpdateConnectorWithOptions(request *UpdateConnectorRequest
 		body["connectorInfo"] = request.ConnectorInfo
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.IntegratorFlag)) {
+		body["integratorFlag"] = request.IntegratorFlag
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -2241,6 +2297,10 @@ func (client *Client) UpdateTriggerWithOptions(request *UpdateTriggerRequest, he
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IntegratorFlag)) {
+		body["integratorFlag"] = request.IntegratorFlag
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.TriggerInfo)) {
 		body["triggerInfo"] = request.TriggerInfo
 	}
