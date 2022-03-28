@@ -1222,6 +1222,219 @@ func (s *QueryCustomEntryProcessesResponse) SetBody(v *QueryCustomEntryProcesses
 	return s
 }
 
+type QueryHrmEmployeeDismissionInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryHrmEmployeeDismissionInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHrmEmployeeDismissionInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHrmEmployeeDismissionInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryHrmEmployeeDismissionInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryHrmEmployeeDismissionInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryHrmEmployeeDismissionInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryHrmEmployeeDismissionInfoRequest struct {
+	// 员工 ids
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s QueryHrmEmployeeDismissionInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHrmEmployeeDismissionInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHrmEmployeeDismissionInfoRequest) SetUserIdList(v []*string) *QueryHrmEmployeeDismissionInfoRequest {
+	s.UserIdList = v
+	return s
+}
+
+type QueryHrmEmployeeDismissionInfoShrinkRequest struct {
+	// 员工 ids
+	UserIdListShrink *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
+}
+
+func (s QueryHrmEmployeeDismissionInfoShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHrmEmployeeDismissionInfoShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHrmEmployeeDismissionInfoShrinkRequest) SetUserIdListShrink(v string) *QueryHrmEmployeeDismissionInfoShrinkRequest {
+	s.UserIdListShrink = &v
+	return s
+}
+
+type QueryHrmEmployeeDismissionInfoResponseBody struct {
+	// 名称列表
+	Result []*QueryHrmEmployeeDismissionInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s QueryHrmEmployeeDismissionInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHrmEmployeeDismissionInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponseBody) SetResult(v []*QueryHrmEmployeeDismissionInfoResponseBodyResult) *QueryHrmEmployeeDismissionInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryHrmEmployeeDismissionInfoResponseBodyResult struct {
+	// 离职部门列表
+	DeptList []*QueryHrmEmployeeDismissionInfoResponseBodyResultDeptList `json:"deptList,omitempty" xml:"deptList,omitempty" type:"Repeated"`
+	// 离职交接人
+	HandoverUserId *string `json:"handoverUserId,omitempty" xml:"handoverUserId,omitempty"`
+	// 最后工作日
+	LastWorkDay *int64 `json:"lastWorkDay,omitempty" xml:"lastWorkDay,omitempty"`
+	// 离职前主部门id
+	MainDeptId *int64 `json:"mainDeptId,omitempty" xml:"mainDeptId,omitempty"`
+	// 离职前主部门名称
+	MainDeptName *string `json:"mainDeptName,omitempty" xml:"mainDeptName,omitempty"`
+	// 离职原因-被动
+	PassiveReason []*string `json:"passiveReason,omitempty" xml:"passiveReason,omitempty" type:"Repeated"`
+	// 离职前工作状态：1，待入职；2，试用期；3，正式
+	PreStatus *int32 `json:"preStatus,omitempty" xml:"preStatus,omitempty"`
+	// 离职原因备注
+	ReasonMemo *string `json:"reasonMemo,omitempty" xml:"reasonMemo,omitempty"`
+	// 离职状态：1，待离职；2，已离职
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 离职原因-主动
+	VoluntaryReason []*string `json:"voluntaryReason,omitempty" xml:"voluntaryReason,omitempty" type:"Repeated"`
+}
+
+func (s QueryHrmEmployeeDismissionInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHrmEmployeeDismissionInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponseBodyResult) SetDeptList(v []*QueryHrmEmployeeDismissionInfoResponseBodyResultDeptList) *QueryHrmEmployeeDismissionInfoResponseBodyResult {
+	s.DeptList = v
+	return s
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponseBodyResult) SetHandoverUserId(v string) *QueryHrmEmployeeDismissionInfoResponseBodyResult {
+	s.HandoverUserId = &v
+	return s
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponseBodyResult) SetLastWorkDay(v int64) *QueryHrmEmployeeDismissionInfoResponseBodyResult {
+	s.LastWorkDay = &v
+	return s
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponseBodyResult) SetMainDeptId(v int64) *QueryHrmEmployeeDismissionInfoResponseBodyResult {
+	s.MainDeptId = &v
+	return s
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponseBodyResult) SetMainDeptName(v string) *QueryHrmEmployeeDismissionInfoResponseBodyResult {
+	s.MainDeptName = &v
+	return s
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponseBodyResult) SetPassiveReason(v []*string) *QueryHrmEmployeeDismissionInfoResponseBodyResult {
+	s.PassiveReason = v
+	return s
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponseBodyResult) SetPreStatus(v int32) *QueryHrmEmployeeDismissionInfoResponseBodyResult {
+	s.PreStatus = &v
+	return s
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponseBodyResult) SetReasonMemo(v string) *QueryHrmEmployeeDismissionInfoResponseBodyResult {
+	s.ReasonMemo = &v
+	return s
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponseBodyResult) SetStatus(v int32) *QueryHrmEmployeeDismissionInfoResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponseBodyResult) SetUserId(v string) *QueryHrmEmployeeDismissionInfoResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponseBodyResult) SetVoluntaryReason(v []*string) *QueryHrmEmployeeDismissionInfoResponseBodyResult {
+	s.VoluntaryReason = v
+	return s
+}
+
+type QueryHrmEmployeeDismissionInfoResponseBodyResultDeptList struct {
+	// 部门id
+	DeptId *int64 `json:"dept_id,omitempty" xml:"dept_id,omitempty"`
+	// 部门路径
+	DeptPath *string `json:"dept_path,omitempty" xml:"dept_path,omitempty"`
+}
+
+func (s QueryHrmEmployeeDismissionInfoResponseBodyResultDeptList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHrmEmployeeDismissionInfoResponseBodyResultDeptList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponseBodyResultDeptList) SetDeptId(v int64) *QueryHrmEmployeeDismissionInfoResponseBodyResultDeptList {
+	s.DeptId = &v
+	return s
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponseBodyResultDeptList) SetDeptPath(v string) *QueryHrmEmployeeDismissionInfoResponseBodyResultDeptList {
+	s.DeptPath = &v
+	return s
+}
+
+type QueryHrmEmployeeDismissionInfoResponse struct {
+	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryHrmEmployeeDismissionInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryHrmEmployeeDismissionInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHrmEmployeeDismissionInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponse) SetHeaders(v map[string]*string) *QueryHrmEmployeeDismissionInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryHrmEmployeeDismissionInfoResponse) SetBody(v *QueryHrmEmployeeDismissionInfoResponseBody) *QueryHrmEmployeeDismissionInfoResponse {
+	s.Body = v
+	return s
+}
+
 type QueryJobRanksHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2073,6 +2286,56 @@ func (client *Client) QueryCustomEntryProcessesWithOptions(request *QueryCustomE
 	}
 	_result = &QueryCustomEntryProcessesResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryCustomEntryProcesses"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/customEntryProcesses"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryHrmEmployeeDismissionInfo(request *QueryHrmEmployeeDismissionInfoRequest) (_result *QueryHrmEmployeeDismissionInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryHrmEmployeeDismissionInfoHeaders{}
+	_result = &QueryHrmEmployeeDismissionInfoResponse{}
+	_body, _err := client.QueryHrmEmployeeDismissionInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryHrmEmployeeDismissionInfoWithOptions(tmpReq *QueryHrmEmployeeDismissionInfoRequest, headers *QueryHrmEmployeeDismissionInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryHrmEmployeeDismissionInfoResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &QueryHrmEmployeeDismissionInfoShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.UserIdList)) {
+		request.UserIdListShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.UserIdList, tea.String("userIdList"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserIdListShrink)) {
+		query["userIdList"] = request.UserIdListShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryHrmEmployeeDismissionInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryHrmEmployeeDismissionInfo"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/employees/dimissionInfos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
