@@ -4010,6 +4010,95 @@ func (s *SetDeptPartnerTypeAndNumResponse) SetHeaders(v map[string]*string) *Set
 	return s
 }
 
+type UpdateFileStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateFileStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFileStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFileStatusHeaders) SetCommonHeaders(v map[string]*string) *UpdateFileStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateFileStatusHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateFileStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateFileStatusRequest struct {
+	// 请求id列表
+	RequestIds []*string `json:"requestIds,omitempty" xml:"requestIds,omitempty" type:"Repeated"`
+	// 更新的状态
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s UpdateFileStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFileStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFileStatusRequest) SetRequestIds(v []*string) *UpdateFileStatusRequest {
+	s.RequestIds = v
+	return s
+}
+
+func (s *UpdateFileStatusRequest) SetStatus(v int32) *UpdateFileStatusRequest {
+	s.Status = &v
+	return s
+}
+
+type UpdateFileStatusResponseBody struct {
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateFileStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFileStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFileStatusResponseBody) SetSuccess(v bool) *UpdateFileStatusResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateFileStatusResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateFileStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateFileStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFileStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFileStatusResponse) SetHeaders(v map[string]*string) *UpdateFileStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateFileStatusResponse) SetBody(v *UpdateFileStatusResponseBody) *UpdateFileStatusResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateMiniAppVersionStatusHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5802,6 +5891,54 @@ func (client *Client) SetDeptPartnerTypeAndNumWithOptions(request *SetDeptPartne
 	}
 	_result = &SetDeptPartnerTypeAndNumResponse{}
 	_body, _err := client.DoROARequest(tea.String("SetDeptPartnerTypeAndNum"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/partnerDepartments"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateFileStatus(request *UpdateFileStatusRequest) (_result *UpdateFileStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateFileStatusHeaders{}
+	_result = &UpdateFileStatusResponse{}
+	_body, _err := client.UpdateFileStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateFileStatusWithOptions(request *UpdateFileStatusRequest, headers *UpdateFileStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateFileStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RequestIds)) {
+		body["requestIds"] = request.RequestIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateFileStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateFileStatus"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/exclusive/sending/files/status"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

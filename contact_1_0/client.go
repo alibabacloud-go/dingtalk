@@ -4011,8 +4011,27 @@ func (s *SeparateBranchOrgRequest) SetAttachDeptId(v int64) *SeparateBranchOrgRe
 	return s
 }
 
+type SeparateBranchOrgResponseBody struct {
+	// 处理结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SeparateBranchOrgResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SeparateBranchOrgResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SeparateBranchOrgResponseBody) SetResult(v bool) *SeparateBranchOrgResponseBody {
+	s.Result = &v
+	return s
+}
+
 type SeparateBranchOrgResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SeparateBranchOrgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SeparateBranchOrgResponse) String() string {
@@ -4025,6 +4044,11 @@ func (s SeparateBranchOrgResponse) GoString() string {
 
 func (s *SeparateBranchOrgResponse) SetHeaders(v map[string]*string) *SeparateBranchOrgResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SeparateBranchOrgResponse) SetBody(v *SeparateBranchOrgResponseBody) *SeparateBranchOrgResponse {
+	s.Body = v
 	return s
 }
 
@@ -6961,7 +6985,7 @@ func (client *Client) SeparateBranchOrgWithOptions(request *SeparateBranchOrgReq
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &SeparateBranchOrgResponse{}
-	_body, _err := client.DoROARequest(tea.String("SeparateBranchOrg"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/cooperateCorps/separate"), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("SeparateBranchOrg"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/cooperateCorps/separate"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

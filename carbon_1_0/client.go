@@ -323,6 +323,95 @@ func (s *WriteAlibabaUserCarbonResponse) SetBody(v *WriteAlibabaUserCarbonRespon
 	return s
 }
 
+type WriteIsvStateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s WriteIsvStateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WriteIsvStateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *WriteIsvStateHeaders) SetCommonHeaders(v map[string]*string) *WriteIsvStateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *WriteIsvStateHeaders) SetXAcsDingtalkAccessToken(v string) *WriteIsvStateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type WriteIsvStateRequest struct {
+	// ISV名称
+	IsvName *string `json:"isvName,omitempty" xml:"isvName,omitempty"`
+	// 数据完成日期
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s WriteIsvStateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WriteIsvStateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *WriteIsvStateRequest) SetIsvName(v string) *WriteIsvStateRequest {
+	s.IsvName = &v
+	return s
+}
+
+func (s *WriteIsvStateRequest) SetStatDate(v string) *WriteIsvStateRequest {
+	s.StatDate = &v
+	return s
+}
+
+type WriteIsvStateResponseBody struct {
+	// 数据写入标识
+	Result *int64 `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s WriteIsvStateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WriteIsvStateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *WriteIsvStateResponseBody) SetResult(v int64) *WriteIsvStateResponseBody {
+	s.Result = &v
+	return s
+}
+
+type WriteIsvStateResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *WriteIsvStateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s WriteIsvStateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WriteIsvStateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *WriteIsvStateResponse) SetHeaders(v map[string]*string) *WriteIsvStateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *WriteIsvStateResponse) SetBody(v *WriteIsvStateResponseBody) *WriteIsvStateResponse {
+	s.Body = v
+	return s
+}
+
 type WriteOrgCarbonHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -739,6 +828,54 @@ func (client *Client) WriteAlibabaUserCarbonWithOptions(request *WriteAlibabaUse
 	}
 	_result = &WriteAlibabaUserCarbonResponse{}
 	_body, _err := client.DoROARequest(tea.String("WriteAlibabaUserCarbon"), tea.String("carbon_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/carbon/alibabaUserDetails/write"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) WriteIsvState(request *WriteIsvStateRequest) (_result *WriteIsvStateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &WriteIsvStateHeaders{}
+	_result = &WriteIsvStateResponse{}
+	_body, _err := client.WriteIsvStateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) WriteIsvStateWithOptions(request *WriteIsvStateRequest, headers *WriteIsvStateHeaders, runtime *util.RuntimeOptions) (_result *WriteIsvStateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IsvName)) {
+		query["isvName"] = request.IsvName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &WriteIsvStateResponse{}
+	_body, _err := client.DoROARequest(tea.String("WriteIsvState"), tea.String("carbon_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/carbon/datas/states/write"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

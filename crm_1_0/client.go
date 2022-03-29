@@ -1763,6 +1763,116 @@ func (s *CreateCustomerResponse) SetBody(v *CreateCustomerResponseBody) *CreateC
 	return s
 }
 
+type CreateGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupHeaders) SetCommonHeaders(v map[string]*string) *CreateGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateGroupRequest struct {
+	// 群名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 群成员id
+	MemberUserIds *string `json:"memberUserIds,omitempty" xml:"memberUserIds,omitempty"`
+	// 群主id
+	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	// 关系类型
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+}
+
+func (s CreateGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupRequest) SetGroupName(v string) *CreateGroupRequest {
+	s.GroupName = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetMemberUserIds(v string) *CreateGroupRequest {
+	s.MemberUserIds = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetOwnerUserId(v string) *CreateGroupRequest {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetRelationType(v string) *CreateGroupRequest {
+	s.RelationType = &v
+	return s
+}
+
+type CreateGroupResponseBody struct {
+	// 群聊id
+	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	// 群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s CreateGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupResponseBody) SetChatId(v string) *CreateGroupResponseBody {
+	s.ChatId = &v
+	return s
+}
+
+func (s *CreateGroupResponseBody) SetOpenConversationId(v string) *CreateGroupResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+type CreateGroupResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupResponse) SetHeaders(v map[string]*string) *CreateGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateGroupResponse) SetBody(v *CreateGroupResponseBody) *CreateGroupResponse {
+	s.Body = v
+	return s
+}
+
 type CreateGroupSetHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11206,6 +11316,62 @@ func (client *Client) CreateCustomerWithOptions(request *CreateCustomerRequest, 
 	}
 	_result = &CreateCustomerResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/customers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateGroupHeaders{}
+	_result = &CreateGroupResponse{}
+	_body, _err := client.CreateGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, headers *CreateGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
+		body["groupName"] = request.GroupName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MemberUserIds)) {
+		body["memberUserIds"] = request.MemberUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnerUserId)) {
+		body["ownerUserId"] = request.OwnerUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		body["relationType"] = request.RelationType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateGroup"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/groups"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
