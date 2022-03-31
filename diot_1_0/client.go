@@ -162,7 +162,7 @@ type BatchRegisterDeviceRequestDevices struct {
 	// 第三方平台定制参数，企业内部系统忽略。
 	ExtraData map[string]interface{} `json:"extraData,omitempty" xml:"extraData,omitempty"`
 	// 视频流地址直播流地址，支持rtmp、flv、hls等格式，需要https协议。
-	LiveUrl *string `json:"liveUrl,omitempty" xml:"liveUrl,omitempty"`
+	LiveUrls *BatchRegisterDeviceRequestDevicesLiveUrls `json:"liveUrls,omitempty" xml:"liveUrls,omitempty" type:"Struct"`
 	// 设备地址。
 	Location *string `json:"location,omitempty" xml:"location,omitempty"`
 	// 父设备ID。
@@ -209,8 +209,8 @@ func (s *BatchRegisterDeviceRequestDevices) SetExtraData(v map[string]interface{
 	return s
 }
 
-func (s *BatchRegisterDeviceRequestDevices) SetLiveUrl(v string) *BatchRegisterDeviceRequestDevices {
-	s.LiveUrl = &v
+func (s *BatchRegisterDeviceRequestDevices) SetLiveUrls(v *BatchRegisterDeviceRequestDevicesLiveUrls) *BatchRegisterDeviceRequestDevices {
+	s.LiveUrls = v
 	return s
 }
 
@@ -226,6 +226,38 @@ func (s *BatchRegisterDeviceRequestDevices) SetParentId(v string) *BatchRegister
 
 func (s *BatchRegisterDeviceRequestDevices) SetProductType(v string) *BatchRegisterDeviceRequestDevices {
 	s.ProductType = &v
+	return s
+}
+
+type BatchRegisterDeviceRequestDevicesLiveUrls struct {
+	// flv格式视频流地址
+	Flv *string `json:"flv,omitempty" xml:"flv,omitempty"`
+	// hls格式视频流地址
+	Hls *string `json:"hls,omitempty" xml:"hls,omitempty"`
+	// rtmp格式视频流地址
+	Rtmp *string `json:"rtmp,omitempty" xml:"rtmp,omitempty"`
+}
+
+func (s BatchRegisterDeviceRequestDevicesLiveUrls) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRegisterDeviceRequestDevicesLiveUrls) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRegisterDeviceRequestDevicesLiveUrls) SetFlv(v string) *BatchRegisterDeviceRequestDevicesLiveUrls {
+	s.Flv = &v
+	return s
+}
+
+func (s *BatchRegisterDeviceRequestDevicesLiveUrls) SetHls(v string) *BatchRegisterDeviceRequestDevicesLiveUrls {
+	s.Hls = &v
+	return s
+}
+
+func (s *BatchRegisterDeviceRequestDevicesLiveUrls) SetRtmp(v string) *BatchRegisterDeviceRequestDevicesLiveUrls {
+	s.Rtmp = &v
 	return s
 }
 
@@ -442,7 +474,7 @@ type BatchUpdateDeviceRequestDevices struct {
 	// 第三方平台定制参数，企业内部系统忽略。
 	ExtraData map[string]interface{} `json:"extraData,omitempty" xml:"extraData,omitempty"`
 	// 视频流地址直播流地址，支持rtmp、flv、hls等格式，需要https协议。
-	LiveUrl *string `json:"liveUrl,omitempty" xml:"liveUrl,omitempty"`
+	LiveUrls *BatchUpdateDeviceRequestDevicesLiveUrls `json:"liveUrls,omitempty" xml:"liveUrls,omitempty" type:"Struct"`
 	// 设备地址。
 	Location *string `json:"location,omitempty" xml:"location,omitempty"`
 }
@@ -475,13 +507,45 @@ func (s *BatchUpdateDeviceRequestDevices) SetExtraData(v map[string]interface{})
 	return s
 }
 
-func (s *BatchUpdateDeviceRequestDevices) SetLiveUrl(v string) *BatchUpdateDeviceRequestDevices {
-	s.LiveUrl = &v
+func (s *BatchUpdateDeviceRequestDevices) SetLiveUrls(v *BatchUpdateDeviceRequestDevicesLiveUrls) *BatchUpdateDeviceRequestDevices {
+	s.LiveUrls = v
 	return s
 }
 
 func (s *BatchUpdateDeviceRequestDevices) SetLocation(v string) *BatchUpdateDeviceRequestDevices {
 	s.Location = &v
+	return s
+}
+
+type BatchUpdateDeviceRequestDevicesLiveUrls struct {
+	// flv格式视频流地址
+	Flv *string `json:"flv,omitempty" xml:"flv,omitempty"`
+	// hls格式视频流地址
+	Hls *string `json:"hls,omitempty" xml:"hls,omitempty"`
+	// rtmp格式视频流地址
+	Rtmp *string `json:"rtmp,omitempty" xml:"rtmp,omitempty"`
+}
+
+func (s BatchUpdateDeviceRequestDevicesLiveUrls) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateDeviceRequestDevicesLiveUrls) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateDeviceRequestDevicesLiveUrls) SetFlv(v string) *BatchUpdateDeviceRequestDevicesLiveUrls {
+	s.Flv = &v
+	return s
+}
+
+func (s *BatchUpdateDeviceRequestDevicesLiveUrls) SetHls(v string) *BatchUpdateDeviceRequestDevicesLiveUrls {
+	s.Hls = &v
+	return s
+}
+
+func (s *BatchUpdateDeviceRequestDevicesLiveUrls) SetRtmp(v string) *BatchUpdateDeviceRequestDevicesLiveUrls {
+	s.Rtmp = &v
 	return s
 }
 
@@ -891,6 +955,229 @@ func (s *PushEventResponse) SetBody(v *PushEventResponseBody) *PushEventResponse
 	return s
 }
 
+type QueryDeviceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryDeviceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceHeaders) SetCommonHeaders(v map[string]*string) *QueryDeviceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryDeviceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryDeviceRequest struct {
+	// 钉钉组织id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 指定显示返回结果中的第几页的内容。默认值是 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 指定返回结果中每页显示的记录数量，最大值是50。默认值是10
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s QueryDeviceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceRequest) SetCorpId(v string) *QueryDeviceRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryDeviceRequest) SetPageNumber(v int64) *QueryDeviceRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryDeviceRequest) SetPageSize(v int64) *QueryDeviceRequest {
+	s.PageSize = &v
+	return s
+}
+
+type QueryDeviceResponseBody struct {
+	// 结果数据
+	Data []*QueryDeviceResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// 当前页码
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 页面大小
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 总数
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryDeviceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceResponseBody) SetData(v []*QueryDeviceResponseBodyData) *QueryDeviceResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *QueryDeviceResponseBody) SetPageNumber(v int64) *QueryDeviceResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryDeviceResponseBody) SetPageSize(v int64) *QueryDeviceResponseBody {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryDeviceResponseBody) SetTotalCount(v int64) *QueryDeviceResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryDeviceResponseBodyData struct {
+	// 设备id
+	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// 设备昵称
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// 设备状态 0:在线 1:离线
+	DeviceStatus *int64 `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
+	// 设备类型
+	DeviceType *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	// 设备类型名称
+	DeviceTypeName *string `json:"deviceTypeName,omitempty" xml:"deviceTypeName,omitempty"`
+	// 直播地址
+	LiveUrls *QueryDeviceResponseBodyDataLiveUrls `json:"liveUrls,omitempty" xml:"liveUrls,omitempty" type:"Struct"`
+	// 设备地址
+	Location *string `json:"location,omitempty" xml:"location,omitempty"`
+	// 设备父节点id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// 产品类型 摄像头:CAMERA 其它:OTHERS
+	ProductType *string `json:"productType,omitempty" xml:"productType,omitempty"`
+}
+
+func (s QueryDeviceResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceResponseBodyData) SetDeviceId(v string) *QueryDeviceResponseBodyData {
+	s.DeviceId = &v
+	return s
+}
+
+func (s *QueryDeviceResponseBodyData) SetDeviceName(v string) *QueryDeviceResponseBodyData {
+	s.DeviceName = &v
+	return s
+}
+
+func (s *QueryDeviceResponseBodyData) SetDeviceStatus(v int64) *QueryDeviceResponseBodyData {
+	s.DeviceStatus = &v
+	return s
+}
+
+func (s *QueryDeviceResponseBodyData) SetDeviceType(v string) *QueryDeviceResponseBodyData {
+	s.DeviceType = &v
+	return s
+}
+
+func (s *QueryDeviceResponseBodyData) SetDeviceTypeName(v string) *QueryDeviceResponseBodyData {
+	s.DeviceTypeName = &v
+	return s
+}
+
+func (s *QueryDeviceResponseBodyData) SetLiveUrls(v *QueryDeviceResponseBodyDataLiveUrls) *QueryDeviceResponseBodyData {
+	s.LiveUrls = v
+	return s
+}
+
+func (s *QueryDeviceResponseBodyData) SetLocation(v string) *QueryDeviceResponseBodyData {
+	s.Location = &v
+	return s
+}
+
+func (s *QueryDeviceResponseBodyData) SetParentId(v string) *QueryDeviceResponseBodyData {
+	s.ParentId = &v
+	return s
+}
+
+func (s *QueryDeviceResponseBodyData) SetProductType(v string) *QueryDeviceResponseBodyData {
+	s.ProductType = &v
+	return s
+}
+
+type QueryDeviceResponseBodyDataLiveUrls struct {
+	// flv格式直播地址
+	Flv *string `json:"flv,omitempty" xml:"flv,omitempty"`
+	// hls格式直播地址
+	Hls *string `json:"hls,omitempty" xml:"hls,omitempty"`
+	// rtmp格式直播地址
+	Rtmp *string `json:"rtmp,omitempty" xml:"rtmp,omitempty"`
+}
+
+func (s QueryDeviceResponseBodyDataLiveUrls) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceResponseBodyDataLiveUrls) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceResponseBodyDataLiveUrls) SetFlv(v string) *QueryDeviceResponseBodyDataLiveUrls {
+	s.Flv = &v
+	return s
+}
+
+func (s *QueryDeviceResponseBodyDataLiveUrls) SetHls(v string) *QueryDeviceResponseBodyDataLiveUrls {
+	s.Hls = &v
+	return s
+}
+
+func (s *QueryDeviceResponseBodyDataLiveUrls) SetRtmp(v string) *QueryDeviceResponseBodyDataLiveUrls {
+	s.Rtmp = &v
+	return s
+}
+
+type QueryDeviceResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryDeviceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceResponse) SetHeaders(v map[string]*string) *QueryDeviceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryDeviceResponse) SetBody(v *QueryDeviceResponseBody) *QueryDeviceResponse {
+	s.Body = v
+	return s
+}
+
 type RegisterDeviceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -927,8 +1214,8 @@ type RegisterDeviceRequest struct {
 	DeviceTypeName *string `json:"deviceTypeName,omitempty" xml:"deviceTypeName,omitempty"`
 	// 设备id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 视频流地址
-	LiveUrl *string `json:"liveUrl,omitempty" xml:"liveUrl,omitempty"`
+	// 视频流地址直播流地址，支持rtmp、flv、hls等格式，需要https协议。
+	LiveUrls *RegisterDeviceRequestLiveUrls `json:"liveUrls,omitempty" xml:"liveUrls,omitempty" type:"Struct"`
 	// 设备地址
 	Location *string `json:"location,omitempty" xml:"location,omitempty"`
 	// 设备昵称
@@ -977,8 +1264,8 @@ func (s *RegisterDeviceRequest) SetId(v string) *RegisterDeviceRequest {
 	return s
 }
 
-func (s *RegisterDeviceRequest) SetLiveUrl(v string) *RegisterDeviceRequest {
-	s.LiveUrl = &v
+func (s *RegisterDeviceRequest) SetLiveUrls(v *RegisterDeviceRequestLiveUrls) *RegisterDeviceRequest {
+	s.LiveUrls = v
 	return s
 }
 
@@ -999,6 +1286,38 @@ func (s *RegisterDeviceRequest) SetParentId(v string) *RegisterDeviceRequest {
 
 func (s *RegisterDeviceRequest) SetProductType(v string) *RegisterDeviceRequest {
 	s.ProductType = &v
+	return s
+}
+
+type RegisterDeviceRequestLiveUrls struct {
+	// flv格式视频流
+	Flv *string `json:"flv,omitempty" xml:"flv,omitempty"`
+	// hls格式视频流地址
+	Hls *string `json:"hls,omitempty" xml:"hls,omitempty"`
+	// rtmp格式视频流
+	Rtmp *string `json:"rtmp,omitempty" xml:"rtmp,omitempty"`
+}
+
+func (s RegisterDeviceRequestLiveUrls) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegisterDeviceRequestLiveUrls) GoString() string {
+	return s.String()
+}
+
+func (s *RegisterDeviceRequestLiveUrls) SetFlv(v string) *RegisterDeviceRequestLiveUrls {
+	s.Flv = &v
+	return s
+}
+
+func (s *RegisterDeviceRequestLiveUrls) SetHls(v string) *RegisterDeviceRequestLiveUrls {
+	s.Hls = &v
+	return s
+}
+
+func (s *RegisterDeviceRequestLiveUrls) SetRtmp(v string) *RegisterDeviceRequestLiveUrls {
+	s.Rtmp = &v
 	return s
 }
 
@@ -1454,6 +1773,58 @@ func (client *Client) PushEventWithOptions(request *PushEventRequest, headers *P
 	return _result, _err
 }
 
+func (client *Client) QueryDevice(request *QueryDeviceRequest) (_result *QueryDeviceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryDeviceHeaders{}
+	_result = &QueryDeviceResponse{}
+	_body, _err := client.QueryDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryDeviceWithOptions(request *QueryDeviceRequest, headers *QueryDeviceHeaders, runtime *util.RuntimeOptions) (_result *QueryDeviceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryDeviceResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryDevice"), tea.String("diot_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/diot/devices"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) RegisterDevice(request *RegisterDeviceRequest) (_result *RegisterDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RegisterDeviceHeaders{}
@@ -1496,8 +1867,8 @@ func (client *Client) RegisterDeviceWithOptions(request *RegisterDeviceRequest, 
 		body["id"] = request.Id
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.LiveUrl)) {
-		body["liveUrl"] = request.LiveUrl
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.LiveUrls))) {
+		body["liveUrls"] = request.LiveUrls
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Location)) {
