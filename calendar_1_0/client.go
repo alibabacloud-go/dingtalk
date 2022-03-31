@@ -2176,6 +2176,139 @@ func (s *GetSignInListResponse) SetBody(v *GetSignInListResponseBody) *GetSignIn
 	return s
 }
 
+type GetSignOutListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSignOutListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignOutListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignOutListHeaders) SetCommonHeaders(v map[string]*string) *GetSignOutListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSignOutListHeaders) SetXAcsDingtalkAccessToken(v string) *GetSignOutListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSignOutListRequest struct {
+	// 查询返回结果数（上限200）
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 签到信息类型（sign_out，not_yet_sign_out)
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s GetSignOutListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignOutListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignOutListRequest) SetMaxResults(v int32) *GetSignOutListRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetSignOutListRequest) SetNextToken(v string) *GetSignOutListRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetSignOutListRequest) SetType(v string) *GetSignOutListRequest {
+	s.Type = &v
+	return s
+}
+
+type GetSignOutListResponseBody struct {
+	// 翻页token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 签退信息
+	Users []*GetSignOutListResponseBodyUsers `json:"users,omitempty" xml:"users,omitempty" type:"Repeated"`
+}
+
+func (s GetSignOutListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignOutListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignOutListResponseBody) SetNextToken(v string) *GetSignOutListResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetSignOutListResponseBody) SetUsers(v []*GetSignOutListResponseBodyUsers) *GetSignOutListResponseBody {
+	s.Users = v
+	return s
+}
+
+type GetSignOutListResponseBodyUsers struct {
+	// 签退时间
+	CheckOutTime *int64 `json:"checkOutTime,omitempty" xml:"checkOutTime,omitempty"`
+	// 用户名
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetSignOutListResponseBodyUsers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignOutListResponseBodyUsers) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignOutListResponseBodyUsers) SetCheckOutTime(v int64) *GetSignOutListResponseBodyUsers {
+	s.CheckOutTime = &v
+	return s
+}
+
+func (s *GetSignOutListResponseBodyUsers) SetDisplayName(v string) *GetSignOutListResponseBodyUsers {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *GetSignOutListResponseBodyUsers) SetUserId(v string) *GetSignOutListResponseBodyUsers {
+	s.UserId = &v
+	return s
+}
+
+type GetSignOutListResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetSignOutListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSignOutListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignOutListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignOutListResponse) SetHeaders(v map[string]*string) *GetSignOutListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSignOutListResponse) SetBody(v *GetSignOutListResponseBody) *GetSignOutListResponse {
+	s.Body = v
+	return s
+}
+
 type ListAclsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5098,6 +5231,70 @@ func (s *SignInResponse) SetBody(v *SignInResponseBody) *SignInResponse {
 	return s
 }
 
+type SignOutHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SignOutHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SignOutHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SignOutHeaders) SetCommonHeaders(v map[string]*string) *SignOutHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SignOutHeaders) SetXAcsDingtalkAccessToken(v string) *SignOutHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SignOutResponseBody struct {
+	// 签退时间戳
+	CheckOutTime *int64 `json:"checkOutTime,omitempty" xml:"checkOutTime,omitempty"`
+}
+
+func (s SignOutResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SignOutResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SignOutResponseBody) SetCheckOutTime(v int64) *SignOutResponseBody {
+	s.CheckOutTime = &v
+	return s
+}
+
+type SignOutResponse struct {
+	Headers map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SignOutResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SignOutResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SignOutResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SignOutResponse) SetHeaders(v map[string]*string) *SignOutResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SignOutResponse) SetBody(v *SignOutResponseBody) *SignOutResponse {
+	s.Body = v
+	return s
+}
+
 type SubscribeCalendarHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5708,6 +5905,61 @@ func (client *Client) GetSignInListWithOptions(userId *string, calendarId *strin
 	return _result, _err
 }
 
+func (client *Client) GetSignOutList(userId *string, calendarId *string, eventId *string, request *GetSignOutListRequest) (_result *GetSignOutListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSignOutListHeaders{}
+	_result = &GetSignOutListResponse{}
+	_body, _err := client.GetSignOutListWithOptions(userId, calendarId, eventId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSignOutListWithOptions(userId *string, calendarId *string, eventId *string, request *GetSignOutListRequest, headers *GetSignOutListHeaders, runtime *util.RuntimeOptions) (_result *GetSignOutListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	eventId = openapiutil.GetEncodeParam(eventId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		query["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetSignOutListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetSignOutList"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/signOut"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ListAcls(userId *string, calendarId *string) (_result *ListAclsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListAclsHeaders{}
@@ -6231,6 +6483,43 @@ func (client *Client) SignInWithOptions(userId *string, calendarId *string, even
 	}
 	_result = &SignInResponse{}
 	_body, _err := client.DoROARequest(tea.String("SignIn"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/signin"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SignOut(userId *string, calendarId *string, eventId *string) (_result *SignOutResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SignOutHeaders{}
+	_result = &SignOutResponse{}
+	_body, _err := client.SignOutWithOptions(userId, calendarId, eventId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SignOutWithOptions(userId *string, calendarId *string, eventId *string, headers *SignOutHeaders, runtime *util.RuntimeOptions) (_result *SignOutResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	eventId = openapiutil.GetEncodeParam(eventId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &SignOutResponse{}
+	_body, _err := client.DoROARequest(tea.String("SignOut"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/signOut"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
