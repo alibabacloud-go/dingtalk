@@ -1901,6 +1901,164 @@ func (s *CreateInviteUrlResponse) SetBody(v *CreateInviteUrlResponseBody) *Creat
 	return s
 }
 
+type CreateItemHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateItemHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateItemHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateItemHeaders) SetCommonHeaders(v map[string]*string) *CreateItemHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateItemHeaders) SetXAcsDingtalkAccessToken(v string) *CreateItemHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateItemRequest struct {
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	EffectType  *int64  `json:"effectType,omitempty" xml:"effectType,omitempty"`
+	EndTime     *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	MerchantId  *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	OptUser     *string `json:"optUser,omitempty" xml:"optUser,omitempty"`
+	PeriodType  *int64  `json:"periodType,omitempty" xml:"periodType,omitempty"`
+	Price       *int64  `json:"price,omitempty" xml:"price,omitempty"`
+	Scene       *int64  `json:"scene,omitempty" xml:"scene,omitempty"`
+	StartTime   *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Type        *int64  `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s CreateItemRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateItemRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateItemRequest) SetDescription(v string) *CreateItemRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *CreateItemRequest) SetEffectType(v int64) *CreateItemRequest {
+	s.EffectType = &v
+	return s
+}
+
+func (s *CreateItemRequest) SetEndTime(v int64) *CreateItemRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *CreateItemRequest) SetMerchantId(v string) *CreateItemRequest {
+	s.MerchantId = &v
+	return s
+}
+
+func (s *CreateItemRequest) SetName(v string) *CreateItemRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateItemRequest) SetOptUser(v string) *CreateItemRequest {
+	s.OptUser = &v
+	return s
+}
+
+func (s *CreateItemRequest) SetPeriodType(v int64) *CreateItemRequest {
+	s.PeriodType = &v
+	return s
+}
+
+func (s *CreateItemRequest) SetPrice(v int64) *CreateItemRequest {
+	s.Price = &v
+	return s
+}
+
+func (s *CreateItemRequest) SetScene(v int64) *CreateItemRequest {
+	s.Scene = &v
+	return s
+}
+
+func (s *CreateItemRequest) SetStartTime(v int64) *CreateItemRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *CreateItemRequest) SetType(v int64) *CreateItemRequest {
+	s.Type = &v
+	return s
+}
+
+type CreateItemResponseBody struct {
+	CorpId     *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Id         *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	Status     *int64  `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s CreateItemResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateItemResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateItemResponseBody) SetCorpId(v string) *CreateItemResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *CreateItemResponseBody) SetId(v int64) *CreateItemResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *CreateItemResponseBody) SetMerchantId(v string) *CreateItemResponseBody {
+	s.MerchantId = &v
+	return s
+}
+
+func (s *CreateItemResponseBody) SetStatus(v int64) *CreateItemResponseBody {
+	s.Status = &v
+	return s
+}
+
+type CreateItemResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateItemResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateItemResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateItemResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateItemResponse) SetHeaders(v map[string]*string) *CreateItemResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateItemResponse) SetBody(v *CreateItemResponseBody) *CreateItemResponse {
+	s.Body = v
+	return s
+}
+
 type CreateOrderHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2222,6 +2380,8 @@ type CreateOrderFlowRequestDetailList struct {
 	ActualAmount *int64 `json:"actualAmount,omitempty" xml:"actualAmount,omitempty"`
 	// 应付金额，单位为分
 	ItemAmount *int64 `json:"itemAmount,omitempty" xml:"itemAmount,omitempty"`
+	// 商品id
+	ItemId *int64 `json:"itemId,omitempty" xml:"itemId,omitempty"`
 	// 商品名
 	ItemName *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
 	// 场景
@@ -2243,6 +2403,11 @@ func (s *CreateOrderFlowRequestDetailList) SetActualAmount(v int64) *CreateOrder
 
 func (s *CreateOrderFlowRequestDetailList) SetItemAmount(v int64) *CreateOrderFlowRequestDetailList {
 	s.ItemAmount = &v
+	return s
+}
+
+func (s *CreateOrderFlowRequestDetailList) SetItemId(v int64) *CreateOrderFlowRequestDetailList {
+	s.ItemId = &v
 	return s
 }
 
@@ -3132,6 +3297,123 @@ func (s *CreateSectionConfigResponse) SetHeaders(v map[string]*string) *CreateSe
 }
 
 func (s *CreateSectionConfigResponse) SetBody(v *CreateSectionConfigResponseBody) *CreateSectionConfigResponse {
+	s.Body = v
+	return s
+}
+
+type CreateTokenHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateTokenHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTokenHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTokenHeaders) SetCommonHeaders(v map[string]*string) *CreateTokenHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateTokenHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTokenHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateTokenRequest struct {
+	Sn   *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s CreateTokenRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTokenRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTokenRequest) SetSn(v string) *CreateTokenRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *CreateTokenRequest) SetType(v string) *CreateTokenRequest {
+	s.Type = &v
+	return s
+}
+
+type CreateTokenResponseBody struct {
+	AccessKeyId     *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	AccessKeySecret *string `json:"accessKeySecret,omitempty" xml:"accessKeySecret,omitempty"`
+	Expiration      *string `json:"expiration,omitempty" xml:"expiration,omitempty"`
+	ExtInfo         *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	SecurityToken   *string `json:"securityToken,omitempty" xml:"securityToken,omitempty"`
+	// Id of the request
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s CreateTokenResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTokenResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTokenResponseBody) SetAccessKeyId(v string) *CreateTokenResponseBody {
+	s.AccessKeyId = &v
+	return s
+}
+
+func (s *CreateTokenResponseBody) SetAccessKeySecret(v string) *CreateTokenResponseBody {
+	s.AccessKeySecret = &v
+	return s
+}
+
+func (s *CreateTokenResponseBody) SetExpiration(v string) *CreateTokenResponseBody {
+	s.Expiration = &v
+	return s
+}
+
+func (s *CreateTokenResponseBody) SetExtInfo(v string) *CreateTokenResponseBody {
+	s.ExtInfo = &v
+	return s
+}
+
+func (s *CreateTokenResponseBody) SetSecurityToken(v string) *CreateTokenResponseBody {
+	s.SecurityToken = &v
+	return s
+}
+
+func (s *CreateTokenResponseBody) SetStatus(v string) *CreateTokenResponseBody {
+	s.Status = &v
+	return s
+}
+
+type CreateTokenResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateTokenResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTokenResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTokenResponse) SetHeaders(v map[string]*string) *CreateTokenResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateTokenResponse) SetBody(v *CreateTokenResponseBody) *CreateTokenResponse {
 	s.Body = v
 	return s
 }
@@ -14072,6 +14354,90 @@ func (client *Client) CreateInviteUrlWithOptions(request *CreateInviteUrlRequest
 	return _result, _err
 }
 
+func (client *Client) CreateItem(request *CreateItemRequest) (_result *CreateItemResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateItemHeaders{}
+	_result = &CreateItemResponse{}
+	_body, _err := client.CreateItemWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateItemWithOptions(request *CreateItemRequest, headers *CreateItemHeaders, runtime *util.RuntimeOptions) (_result *CreateItemResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EffectType)) {
+		body["effectType"] = request.EffectType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MerchantId)) {
+		body["merchantId"] = request.MerchantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OptUser)) {
+		body["optUser"] = request.OptUser
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PeriodType)) {
+		body["periodType"] = request.PeriodType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Price)) {
+		body["price"] = request.Price
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scene)) {
+		body["scene"] = request.Scene
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateItemResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateItem"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/items"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateOrder(request *CreateOrderRequest) (_result *CreateOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateOrderHeaders{}
@@ -14505,6 +14871,54 @@ func (client *Client) CreateSectionConfigWithOptions(request *CreateSectionConfi
 	}
 	_result = &CreateSectionConfigResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateSectionConfig"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/universities/sectionConfigs"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateToken(request *CreateTokenRequest) (_result *CreateTokenResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateTokenHeaders{}
+	_result = &CreateTokenResponse{}
+	_body, _err := client.CreateTokenWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateTokenWithOptions(request *CreateTokenRequest, headers *CreateTokenHeaders, runtime *util.RuntimeOptions) (_result *CreateTokenResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateTokenResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateToken"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/tokens"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

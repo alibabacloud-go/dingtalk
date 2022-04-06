@@ -1962,7 +1962,6 @@ func (s *CreateGroupSetRequest) SetTemplateId(v string) *CreateGroupSetRequest {
 }
 
 type CreateGroupSetResponseBody struct {
-	CorpId                 *string                              `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	GmtCreate              *string                              `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
 	GmtModified            *string                              `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
 	LastOpenConversationId *string                              `json:"lastOpenConversationId,omitempty" xml:"lastOpenConversationId,omitempty"`
@@ -1986,11 +1985,6 @@ func (s CreateGroupSetResponseBody) String() string {
 
 func (s CreateGroupSetResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *CreateGroupSetResponseBody) SetCorpId(v string) *CreateGroupSetResponseBody {
-	s.CorpId = &v
-	return s
 }
 
 func (s *CreateGroupSetResponseBody) SetGmtCreate(v string) *CreateGroupSetResponseBody {
@@ -6598,7 +6592,6 @@ func (s *GetGroupSetRequest) SetOpenGroupSetId(v string) *GetGroupSetRequest {
 }
 
 type GetGroupSetResponseBody struct {
-	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	GmtCreate   *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
 	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
 	// 群组内群数量（不包含已解散的群）。
@@ -6624,11 +6617,6 @@ func (s GetGroupSetResponseBody) String() string {
 
 func (s GetGroupSetResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *GetGroupSetResponseBody) SetCorpId(v string) *GetGroupSetResponseBody {
-	s.CorpId = &v
-	return s
 }
 
 func (s *GetGroupSetResponseBody) SetGmtCreate(v string) *GetGroupSetResponseBody {
@@ -7775,8 +7763,6 @@ func (s *ListGroupSetResponseBody) SetTotalCount(v int32) *ListGroupSetResponseB
 }
 
 type ListGroupSetResponseBodyResultList struct {
-	// 企业corpId
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 创建时间
 	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
 	// 修改时间
@@ -7817,11 +7803,6 @@ func (s ListGroupSetResponseBodyResultList) String() string {
 
 func (s ListGroupSetResponseBodyResultList) GoString() string {
 	return s.String()
-}
-
-func (s *ListGroupSetResponseBodyResultList) SetCorpId(v string) *ListGroupSetResponseBodyResultList {
-	s.CorpId = &v
-	return s
 }
 
 func (s *ListGroupSetResponseBodyResultList) SetGmtCreate(v string) *ListGroupSetResponseBodyResultList {

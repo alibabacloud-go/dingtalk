@@ -579,6 +579,88 @@ func (s *OrgGroupSendResponse) SetBody(v *OrgGroupSendResponseBody) *OrgGroupSen
 	return s
 }
 
+type QueryRobotDingtalkIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryRobotDingtalkIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRobotDingtalkIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRobotDingtalkIdHeaders) SetCommonHeaders(v map[string]*string) *QueryRobotDingtalkIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryRobotDingtalkIdHeaders) SetXAcsDingtalkAccessToken(v string) *QueryRobotDingtalkIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryRobotDingtalkIdRequest struct {
+	// 机器人robotCode
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s QueryRobotDingtalkIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRobotDingtalkIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRobotDingtalkIdRequest) SetRobotCode(v string) *QueryRobotDingtalkIdRequest {
+	s.RobotCode = &v
+	return s
+}
+
+type QueryRobotDingtalkIdResponseBody struct {
+	// 机器人dingtalkId
+	DingtalkId *string `json:"dingtalkId,omitempty" xml:"dingtalkId,omitempty"`
+}
+
+func (s QueryRobotDingtalkIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRobotDingtalkIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRobotDingtalkIdResponseBody) SetDingtalkId(v string) *QueryRobotDingtalkIdResponseBody {
+	s.DingtalkId = &v
+	return s
+}
+
+type QueryRobotDingtalkIdResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryRobotDingtalkIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryRobotDingtalkIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRobotDingtalkIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRobotDingtalkIdResponse) SetHeaders(v map[string]*string) *QueryRobotDingtalkIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryRobotDingtalkIdResponse) SetBody(v *QueryRobotDingtalkIdResponseBody) *QueryRobotDingtalkIdResponse {
+	s.Body = v
+	return s
+}
+
 type SendRobotDingMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -973,6 +1055,50 @@ func (client *Client) OrgGroupSendWithOptions(request *OrgGroupSendRequest, head
 	}
 	_result = &OrgGroupSendResponse{}
 	_body, _err := client.DoROARequest(tea.String("OrgGroupSend"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/groupMessages/send"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryRobotDingtalkId(request *QueryRobotDingtalkIdRequest) (_result *QueryRobotDingtalkIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryRobotDingtalkIdHeaders{}
+	_result = &QueryRobotDingtalkIdResponse{}
+	_body, _err := client.QueryRobotDingtalkIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryRobotDingtalkIdWithOptions(request *QueryRobotDingtalkIdRequest, headers *QueryRobotDingtalkIdHeaders, runtime *util.RuntimeOptions) (_result *QueryRobotDingtalkIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		query["robotCode"] = request.RobotCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryRobotDingtalkIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryRobotDingtalkId"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/robot/dingtalkId"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
