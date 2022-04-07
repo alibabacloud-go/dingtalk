@@ -8310,8 +8310,6 @@ func (s *QueryAllTracksResponseBody) SetValues(v []*QueryAllTracksResponseBodyVa
 type QueryAllTracksResponseBodyValues struct {
 	// 动态外键
 	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	// 企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 创建人userId
 	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
 	// 客户id
@@ -8336,11 +8334,6 @@ func (s QueryAllTracksResponseBodyValues) GoString() string {
 
 func (s *QueryAllTracksResponseBodyValues) SetBizId(v string) *QueryAllTracksResponseBodyValues {
 	s.BizId = &v
-	return s
-}
-
-func (s *QueryAllTracksResponseBodyValues) SetCorpId(v string) *QueryAllTracksResponseBodyValues {
-	s.CorpId = &v
 	return s
 }
 

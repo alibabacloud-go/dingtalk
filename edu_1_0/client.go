@@ -1935,7 +1935,9 @@ type CreateItemRequest struct {
 	Price       *int64  `json:"price,omitempty" xml:"price,omitempty"`
 	Scene       *int64  `json:"scene,omitempty" xml:"scene,omitempty"`
 	StartTime   *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Type        *int64  `json:"type,omitempty" xml:"type,omitempty"`
+	// 状态
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	Type   *int64 `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s CreateItemRequest) String() string {
@@ -1993,6 +1995,11 @@ func (s *CreateItemRequest) SetScene(v int64) *CreateItemRequest {
 
 func (s *CreateItemRequest) SetStartTime(v int64) *CreateItemRequest {
 	s.StartTime = &v
+	return s
+}
+
+func (s *CreateItemRequest) SetStatus(v int32) *CreateItemRequest {
+	s.Status = &v
 	return s
 }
 
@@ -2291,6 +2298,8 @@ type CreateOrderFlowRequest struct {
 	DetailList []*CreateOrderFlowRequestDetailList `json:"detailList,omitempty" xml:"detailList,omitempty" type:"Repeated"`
 	// 人脸id
 	FaceId *string `json:"faceId,omitempty" xml:"faceId,omitempty"`
+	// 家长员工id
+	GuardianUserId *string `json:"guardianUserId,omitempty" xml:"guardianUserId,omitempty"`
 	// 商户id
 	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
 	// 订单号
@@ -2337,6 +2346,11 @@ func (s *CreateOrderFlowRequest) SetDetailList(v []*CreateOrderFlowRequestDetail
 
 func (s *CreateOrderFlowRequest) SetFaceId(v string) *CreateOrderFlowRequest {
 	s.FaceId = &v
+	return s
+}
+
+func (s *CreateOrderFlowRequest) SetGuardianUserId(v string) *CreateOrderFlowRequest {
+	s.GuardianUserId = &v
 	return s
 }
 
@@ -14412,6 +14426,10 @@ func (client *Client) CreateItemWithOptions(request *CreateItemRequest, headers 
 		body["startTime"] = request.StartTime
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Type)) {
 		body["type"] = request.Type
 	}
@@ -14562,6 +14580,10 @@ func (client *Client) CreateOrderFlowWithOptions(request *CreateOrderFlowRequest
 
 	if !tea.BoolValue(util.IsUnset(request.FaceId)) {
 		body["faceId"] = request.FaceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GuardianUserId)) {
+		body["guardianUserId"] = request.GuardianUserId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.MerchantId)) {

@@ -11,6 +11,1368 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type CustomizeContactCreateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CustomizeContactCreateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactCreateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactCreateHeaders) SetCommonHeaders(v map[string]*string) *CustomizeContactCreateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CustomizeContactCreateHeaders) SetXAcsDingtalkAccessToken(v string) *CustomizeContactCreateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CustomizeContactCreateRequest struct {
+	// 通讯录管理员UserId
+	ManagerIdList []*string `json:"managerIdList,omitempty" xml:"managerIdList,omitempty" type:"Repeated"`
+	// 自定义通讯录名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 在自定义通讯录列表中的排序
+	Order *int64 `json:"order,omitempty" xml:"order,omitempty"`
+}
+
+func (s CustomizeContactCreateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactCreateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactCreateRequest) SetManagerIdList(v []*string) *CustomizeContactCreateRequest {
+	s.ManagerIdList = v
+	return s
+}
+
+func (s *CustomizeContactCreateRequest) SetName(v string) *CustomizeContactCreateRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CustomizeContactCreateRequest) SetOrder(v int64) *CustomizeContactCreateRequest {
+	s.Order = &v
+	return s
+}
+
+type CustomizeContactCreateResponseBody struct {
+	// 自定义通讯录信息
+	Content *CustomizeContactCreateResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+}
+
+func (s CustomizeContactCreateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactCreateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactCreateResponseBody) SetContent(v *CustomizeContactCreateResponseBodyContent) *CustomizeContactCreateResponseBody {
+	s.Content = v
+	return s
+}
+
+type CustomizeContactCreateResponseBodyContent struct {
+	// 自定义通讯录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 自定义通讯录名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 在自定义通讯录列表中的排序
+	Order *int64 `json:"order,omitempty" xml:"order,omitempty"`
+	// 根部们Id
+	RootDeptId *int64 `json:"rootDeptId,omitempty" xml:"rootDeptId,omitempty"`
+}
+
+func (s CustomizeContactCreateResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactCreateResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactCreateResponseBodyContent) SetCode(v string) *CustomizeContactCreateResponseBodyContent {
+	s.Code = &v
+	return s
+}
+
+func (s *CustomizeContactCreateResponseBodyContent) SetName(v string) *CustomizeContactCreateResponseBodyContent {
+	s.Name = &v
+	return s
+}
+
+func (s *CustomizeContactCreateResponseBodyContent) SetOrder(v int64) *CustomizeContactCreateResponseBodyContent {
+	s.Order = &v
+	return s
+}
+
+func (s *CustomizeContactCreateResponseBodyContent) SetRootDeptId(v int64) *CustomizeContactCreateResponseBodyContent {
+	s.RootDeptId = &v
+	return s
+}
+
+type CustomizeContactCreateResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CustomizeContactCreateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CustomizeContactCreateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactCreateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactCreateResponse) SetHeaders(v map[string]*string) *CustomizeContactCreateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CustomizeContactCreateResponse) SetBody(v *CustomizeContactCreateResponseBody) *CustomizeContactCreateResponse {
+	s.Body = v
+	return s
+}
+
+type CustomizeContactDeleteHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CustomizeContactDeleteHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeleteHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeleteHeaders) SetCommonHeaders(v map[string]*string) *CustomizeContactDeleteHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CustomizeContactDeleteHeaders) SetXAcsDingtalkAccessToken(v string) *CustomizeContactDeleteHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CustomizeContactDeleteRequest struct {
+	// 自定义通讯录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+}
+
+func (s CustomizeContactDeleteRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeleteRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeleteRequest) SetCode(v string) *CustomizeContactDeleteRequest {
+	s.Code = &v
+	return s
+}
+
+type CustomizeContactDeleteResponseBody struct {
+	// 是否操作成功
+	Content *bool `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s CustomizeContactDeleteResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeleteResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeleteResponseBody) SetContent(v bool) *CustomizeContactDeleteResponseBody {
+	s.Content = &v
+	return s
+}
+
+type CustomizeContactDeleteResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CustomizeContactDeleteResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CustomizeContactDeleteResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeleteResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeleteResponse) SetHeaders(v map[string]*string) *CustomizeContactDeleteResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CustomizeContactDeleteResponse) SetBody(v *CustomizeContactDeleteResponseBody) *CustomizeContactDeleteResponse {
+	s.Body = v
+	return s
+}
+
+type CustomizeContactDeptCreateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CustomizeContactDeptCreateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptCreateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptCreateHeaders) SetCommonHeaders(v map[string]*string) *CustomizeContactDeptCreateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CustomizeContactDeptCreateHeaders) SetXAcsDingtalkAccessToken(v string) *CustomizeContactDeptCreateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CustomizeContactDeptCreateRequest struct {
+	// 自定义通讯录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 部门主管列表
+	ManagerIdList []*string `json:"managerIdList,omitempty" xml:"managerIdList,omitempty" type:"Repeated"`
+	// 部门名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 部门排序
+	Order *int64 `json:"order,omitempty" xml:"order,omitempty"`
+	// 上级部门Id
+	ParentDeptId *int64 `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
+	// 引用的内部通讯录部门Id
+	RefId *int64 `json:"refId,omitempty" xml:"refId,omitempty"`
+	// 部门类型 0:普通部门 1:引用部门
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s CustomizeContactDeptCreateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptCreateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptCreateRequest) SetCode(v string) *CustomizeContactDeptCreateRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *CustomizeContactDeptCreateRequest) SetManagerIdList(v []*string) *CustomizeContactDeptCreateRequest {
+	s.ManagerIdList = v
+	return s
+}
+
+func (s *CustomizeContactDeptCreateRequest) SetName(v string) *CustomizeContactDeptCreateRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CustomizeContactDeptCreateRequest) SetOrder(v int64) *CustomizeContactDeptCreateRequest {
+	s.Order = &v
+	return s
+}
+
+func (s *CustomizeContactDeptCreateRequest) SetParentDeptId(v int64) *CustomizeContactDeptCreateRequest {
+	s.ParentDeptId = &v
+	return s
+}
+
+func (s *CustomizeContactDeptCreateRequest) SetRefId(v int64) *CustomizeContactDeptCreateRequest {
+	s.RefId = &v
+	return s
+}
+
+func (s *CustomizeContactDeptCreateRequest) SetType(v int64) *CustomizeContactDeptCreateRequest {
+	s.Type = &v
+	return s
+}
+
+type CustomizeContactDeptCreateResponseBody struct {
+	// 部门Id
+	Content *int64 `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s CustomizeContactDeptCreateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptCreateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptCreateResponseBody) SetContent(v int64) *CustomizeContactDeptCreateResponseBody {
+	s.Content = &v
+	return s
+}
+
+type CustomizeContactDeptCreateResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CustomizeContactDeptCreateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CustomizeContactDeptCreateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptCreateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptCreateResponse) SetHeaders(v map[string]*string) *CustomizeContactDeptCreateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CustomizeContactDeptCreateResponse) SetBody(v *CustomizeContactDeptCreateResponseBody) *CustomizeContactDeptCreateResponse {
+	s.Body = v
+	return s
+}
+
+type CustomizeContactDeptDeleteHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CustomizeContactDeptDeleteHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptDeleteHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptDeleteHeaders) SetCommonHeaders(v map[string]*string) *CustomizeContactDeptDeleteHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CustomizeContactDeptDeleteHeaders) SetXAcsDingtalkAccessToken(v string) *CustomizeContactDeptDeleteHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CustomizeContactDeptDeleteRequest struct {
+	// 自定义通讯录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 部门Id
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+}
+
+func (s CustomizeContactDeptDeleteRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptDeleteRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptDeleteRequest) SetCode(v string) *CustomizeContactDeptDeleteRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *CustomizeContactDeptDeleteRequest) SetDeptId(v int64) *CustomizeContactDeptDeleteRequest {
+	s.DeptId = &v
+	return s
+}
+
+type CustomizeContactDeptDeleteResponseBody struct {
+	// 操作结果
+	Content *bool `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s CustomizeContactDeptDeleteResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptDeleteResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptDeleteResponseBody) SetContent(v bool) *CustomizeContactDeptDeleteResponseBody {
+	s.Content = &v
+	return s
+}
+
+type CustomizeContactDeptDeleteResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CustomizeContactDeptDeleteResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CustomizeContactDeptDeleteResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptDeleteResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptDeleteResponse) SetHeaders(v map[string]*string) *CustomizeContactDeptDeleteResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CustomizeContactDeptDeleteResponse) SetBody(v *CustomizeContactDeptDeleteResponseBody) *CustomizeContactDeptDeleteResponse {
+	s.Body = v
+	return s
+}
+
+type CustomizeContactDeptInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CustomizeContactDeptInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptInfoHeaders) SetCommonHeaders(v map[string]*string) *CustomizeContactDeptInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CustomizeContactDeptInfoHeaders) SetXAcsDingtalkAccessToken(v string) *CustomizeContactDeptInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CustomizeContactDeptInfoRequest struct {
+	Code   *string `json:"code,omitempty" xml:"code,omitempty"`
+	DeptId *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+}
+
+func (s CustomizeContactDeptInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptInfoRequest) SetCode(v string) *CustomizeContactDeptInfoRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *CustomizeContactDeptInfoRequest) SetDeptId(v int64) *CustomizeContactDeptInfoRequest {
+	s.DeptId = &v
+	return s
+}
+
+type CustomizeContactDeptInfoResponseBody struct {
+	// 部门信息
+	Content *CustomizeContactDeptInfoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+}
+
+func (s CustomizeContactDeptInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptInfoResponseBody) SetContent(v *CustomizeContactDeptInfoResponseBodyContent) *CustomizeContactDeptInfoResponseBody {
+	s.Content = v
+	return s
+}
+
+type CustomizeContactDeptInfoResponseBodyContent struct {
+	// 自定义通讯录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 部门Id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 部门主管列表
+	ManagerIdList []*string `json:"managerIdList,omitempty" xml:"managerIdList,omitempty" type:"Repeated"`
+	// 部门名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 部门排序
+	Order *int64 `json:"order,omitempty" xml:"order,omitempty"`
+	// 上级部门Id
+	ParentDeptId *int64 `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
+	// 引用的内部通讯录部门Id
+	RefId *int64 `json:"refId,omitempty" xml:"refId,omitempty"`
+	// 部门类型 0:普通部门 1:引用部门
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s CustomizeContactDeptInfoResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptInfoResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptInfoResponseBodyContent) SetCode(v string) *CustomizeContactDeptInfoResponseBodyContent {
+	s.Code = &v
+	return s
+}
+
+func (s *CustomizeContactDeptInfoResponseBodyContent) SetId(v int64) *CustomizeContactDeptInfoResponseBodyContent {
+	s.Id = &v
+	return s
+}
+
+func (s *CustomizeContactDeptInfoResponseBodyContent) SetManagerIdList(v []*string) *CustomizeContactDeptInfoResponseBodyContent {
+	s.ManagerIdList = v
+	return s
+}
+
+func (s *CustomizeContactDeptInfoResponseBodyContent) SetName(v string) *CustomizeContactDeptInfoResponseBodyContent {
+	s.Name = &v
+	return s
+}
+
+func (s *CustomizeContactDeptInfoResponseBodyContent) SetOrder(v int64) *CustomizeContactDeptInfoResponseBodyContent {
+	s.Order = &v
+	return s
+}
+
+func (s *CustomizeContactDeptInfoResponseBodyContent) SetParentDeptId(v int64) *CustomizeContactDeptInfoResponseBodyContent {
+	s.ParentDeptId = &v
+	return s
+}
+
+func (s *CustomizeContactDeptInfoResponseBodyContent) SetRefId(v int64) *CustomizeContactDeptInfoResponseBodyContent {
+	s.RefId = &v
+	return s
+}
+
+func (s *CustomizeContactDeptInfoResponseBodyContent) SetType(v int64) *CustomizeContactDeptInfoResponseBodyContent {
+	s.Type = &v
+	return s
+}
+
+type CustomizeContactDeptInfoResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CustomizeContactDeptInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CustomizeContactDeptInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptInfoResponse) SetHeaders(v map[string]*string) *CustomizeContactDeptInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CustomizeContactDeptInfoResponse) SetBody(v *CustomizeContactDeptInfoResponseBody) *CustomizeContactDeptInfoResponse {
+	s.Body = v
+	return s
+}
+
+type CustomizeContactDeptListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CustomizeContactDeptListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptListHeaders) SetCommonHeaders(v map[string]*string) *CustomizeContactDeptListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CustomizeContactDeptListHeaders) SetXAcsDingtalkAccessToken(v string) *CustomizeContactDeptListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CustomizeContactDeptListRequest struct {
+	// 自定义通讯录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 部门Id
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+}
+
+func (s CustomizeContactDeptListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptListRequest) SetCode(v string) *CustomizeContactDeptListRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *CustomizeContactDeptListRequest) SetDeptId(v int64) *CustomizeContactDeptListRequest {
+	s.DeptId = &v
+	return s
+}
+
+type CustomizeContactDeptListResponseBody struct {
+	// 子部门列表
+	Content []*CustomizeContactDeptListResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+}
+
+func (s CustomizeContactDeptListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptListResponseBody) SetContent(v []*CustomizeContactDeptListResponseBodyContent) *CustomizeContactDeptListResponseBody {
+	s.Content = v
+	return s
+}
+
+type CustomizeContactDeptListResponseBodyContent struct {
+	// 自定义通讯录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 部门Id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 部门主管列表
+	ManagerIdList []*string `json:"managerIdList,omitempty" xml:"managerIdList,omitempty" type:"Repeated"`
+	// 部门名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 部门排序
+	Order *int64 `json:"order,omitempty" xml:"order,omitempty"`
+	// 上级部门Id
+	ParentDeptId *int64 `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
+	// 引用的内部通讯录部门Id
+	RefId *int64 `json:"refId,omitempty" xml:"refId,omitempty"`
+	// 部门类型 0:普通部门 1:引用部门
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s CustomizeContactDeptListResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptListResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptListResponseBodyContent) SetCode(v string) *CustomizeContactDeptListResponseBodyContent {
+	s.Code = &v
+	return s
+}
+
+func (s *CustomizeContactDeptListResponseBodyContent) SetId(v int64) *CustomizeContactDeptListResponseBodyContent {
+	s.Id = &v
+	return s
+}
+
+func (s *CustomizeContactDeptListResponseBodyContent) SetManagerIdList(v []*string) *CustomizeContactDeptListResponseBodyContent {
+	s.ManagerIdList = v
+	return s
+}
+
+func (s *CustomizeContactDeptListResponseBodyContent) SetName(v string) *CustomizeContactDeptListResponseBodyContent {
+	s.Name = &v
+	return s
+}
+
+func (s *CustomizeContactDeptListResponseBodyContent) SetOrder(v int64) *CustomizeContactDeptListResponseBodyContent {
+	s.Order = &v
+	return s
+}
+
+func (s *CustomizeContactDeptListResponseBodyContent) SetParentDeptId(v int64) *CustomizeContactDeptListResponseBodyContent {
+	s.ParentDeptId = &v
+	return s
+}
+
+func (s *CustomizeContactDeptListResponseBodyContent) SetRefId(v int64) *CustomizeContactDeptListResponseBodyContent {
+	s.RefId = &v
+	return s
+}
+
+func (s *CustomizeContactDeptListResponseBodyContent) SetType(v int64) *CustomizeContactDeptListResponseBodyContent {
+	s.Type = &v
+	return s
+}
+
+type CustomizeContactDeptListResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CustomizeContactDeptListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CustomizeContactDeptListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptListResponse) SetHeaders(v map[string]*string) *CustomizeContactDeptListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CustomizeContactDeptListResponse) SetBody(v *CustomizeContactDeptListResponseBody) *CustomizeContactDeptListResponse {
+	s.Body = v
+	return s
+}
+
+type CustomizeContactDeptUpdateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CustomizeContactDeptUpdateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptUpdateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptUpdateHeaders) SetCommonHeaders(v map[string]*string) *CustomizeContactDeptUpdateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CustomizeContactDeptUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *CustomizeContactDeptUpdateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CustomizeContactDeptUpdateRequest struct {
+	// 自定义通讯录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 部门Id
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 部门主管列表
+	ManagerIdList []*string `json:"managerIdList,omitempty" xml:"managerIdList,omitempty" type:"Repeated"`
+	// 部门名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 部门排序
+	Order *int64 `json:"order,omitempty" xml:"order,omitempty"`
+	// 上级部门Id
+	ParentDeptId *int64 `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
+}
+
+func (s CustomizeContactDeptUpdateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptUpdateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptUpdateRequest) SetCode(v string) *CustomizeContactDeptUpdateRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *CustomizeContactDeptUpdateRequest) SetDeptId(v int64) *CustomizeContactDeptUpdateRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *CustomizeContactDeptUpdateRequest) SetManagerIdList(v []*string) *CustomizeContactDeptUpdateRequest {
+	s.ManagerIdList = v
+	return s
+}
+
+func (s *CustomizeContactDeptUpdateRequest) SetName(v string) *CustomizeContactDeptUpdateRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CustomizeContactDeptUpdateRequest) SetOrder(v int64) *CustomizeContactDeptUpdateRequest {
+	s.Order = &v
+	return s
+}
+
+func (s *CustomizeContactDeptUpdateRequest) SetParentDeptId(v int64) *CustomizeContactDeptUpdateRequest {
+	s.ParentDeptId = &v
+	return s
+}
+
+type CustomizeContactDeptUpdateResponseBody struct {
+	// 部门Id
+	Content *int64 `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s CustomizeContactDeptUpdateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptUpdateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptUpdateResponseBody) SetContent(v int64) *CustomizeContactDeptUpdateResponseBody {
+	s.Content = &v
+	return s
+}
+
+type CustomizeContactDeptUpdateResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CustomizeContactDeptUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CustomizeContactDeptUpdateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptUpdateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptUpdateResponse) SetHeaders(v map[string]*string) *CustomizeContactDeptUpdateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CustomizeContactDeptUpdateResponse) SetBody(v *CustomizeContactDeptUpdateResponseBody) *CustomizeContactDeptUpdateResponse {
+	s.Body = v
+	return s
+}
+
+type CustomizeContactEmpAddHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CustomizeContactEmpAddHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactEmpAddHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactEmpAddHeaders) SetCommonHeaders(v map[string]*string) *CustomizeContactEmpAddHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CustomizeContactEmpAddHeaders) SetXAcsDingtalkAccessToken(v string) *CustomizeContactEmpAddHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CustomizeContactEmpAddRequest struct {
+	// 自定义通讯录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 部门Id
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 人员Id列表
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s CustomizeContactEmpAddRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactEmpAddRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactEmpAddRequest) SetCode(v string) *CustomizeContactEmpAddRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *CustomizeContactEmpAddRequest) SetDeptId(v int64) *CustomizeContactEmpAddRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *CustomizeContactEmpAddRequest) SetUserIdList(v []*string) *CustomizeContactEmpAddRequest {
+	s.UserIdList = v
+	return s
+}
+
+type CustomizeContactEmpAddResponseBody struct {
+	// 操作结果
+	Content *bool `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s CustomizeContactEmpAddResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactEmpAddResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactEmpAddResponseBody) SetContent(v bool) *CustomizeContactEmpAddResponseBody {
+	s.Content = &v
+	return s
+}
+
+type CustomizeContactEmpAddResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CustomizeContactEmpAddResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CustomizeContactEmpAddResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactEmpAddResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactEmpAddResponse) SetHeaders(v map[string]*string) *CustomizeContactEmpAddResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CustomizeContactEmpAddResponse) SetBody(v *CustomizeContactEmpAddResponseBody) *CustomizeContactEmpAddResponse {
+	s.Body = v
+	return s
+}
+
+type CustomizeContactEmpDeleteHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CustomizeContactEmpDeleteHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactEmpDeleteHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactEmpDeleteHeaders) SetCommonHeaders(v map[string]*string) *CustomizeContactEmpDeleteHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CustomizeContactEmpDeleteHeaders) SetXAcsDingtalkAccessToken(v string) *CustomizeContactEmpDeleteHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CustomizeContactEmpDeleteRequest struct {
+	// 自定义通讯录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 部门Id
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 人员Id列表
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s CustomizeContactEmpDeleteRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactEmpDeleteRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactEmpDeleteRequest) SetCode(v string) *CustomizeContactEmpDeleteRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *CustomizeContactEmpDeleteRequest) SetDeptId(v int64) *CustomizeContactEmpDeleteRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *CustomizeContactEmpDeleteRequest) SetUserIdList(v []*string) *CustomizeContactEmpDeleteRequest {
+	s.UserIdList = v
+	return s
+}
+
+type CustomizeContactEmpDeleteResponseBody struct {
+	// 操作结果
+	Content *bool `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s CustomizeContactEmpDeleteResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactEmpDeleteResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactEmpDeleteResponseBody) SetContent(v bool) *CustomizeContactEmpDeleteResponseBody {
+	s.Content = &v
+	return s
+}
+
+type CustomizeContactEmpDeleteResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CustomizeContactEmpDeleteResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CustomizeContactEmpDeleteResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactEmpDeleteResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactEmpDeleteResponse) SetHeaders(v map[string]*string) *CustomizeContactEmpDeleteResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CustomizeContactEmpDeleteResponse) SetBody(v *CustomizeContactEmpDeleteResponseBody) *CustomizeContactEmpDeleteResponse {
+	s.Body = v
+	return s
+}
+
+type CustomizeContactEmpListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CustomizeContactEmpListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactEmpListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactEmpListHeaders) SetCommonHeaders(v map[string]*string) *CustomizeContactEmpListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CustomizeContactEmpListHeaders) SetXAcsDingtalkAccessToken(v string) *CustomizeContactEmpListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CustomizeContactEmpListRequest struct {
+	// 部门Id
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+}
+
+func (s CustomizeContactEmpListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactEmpListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactEmpListRequest) SetDeptId(v int64) *CustomizeContactEmpListRequest {
+	s.DeptId = &v
+	return s
+}
+
+type CustomizeContactEmpListResponseBody struct {
+	// 人员信息列表
+	Content []*CustomizeContactEmpListResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+}
+
+func (s CustomizeContactEmpListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactEmpListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactEmpListResponseBody) SetContent(v []*CustomizeContactEmpListResponseBodyContent) *CustomizeContactEmpListResponseBody {
+	s.Content = v
+	return s
+}
+
+type CustomizeContactEmpListResponseBodyContent struct {
+	// 人员姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 人员Id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CustomizeContactEmpListResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactEmpListResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactEmpListResponseBodyContent) SetName(v string) *CustomizeContactEmpListResponseBodyContent {
+	s.Name = &v
+	return s
+}
+
+func (s *CustomizeContactEmpListResponseBodyContent) SetUserId(v string) *CustomizeContactEmpListResponseBodyContent {
+	s.UserId = &v
+	return s
+}
+
+type CustomizeContactEmpListResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CustomizeContactEmpListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CustomizeContactEmpListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactEmpListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactEmpListResponse) SetHeaders(v map[string]*string) *CustomizeContactEmpListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CustomizeContactEmpListResponse) SetBody(v *CustomizeContactEmpListResponseBody) *CustomizeContactEmpListResponse {
+	s.Body = v
+	return s
+}
+
+type CustomizeContactListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CustomizeContactListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactListHeaders) SetCommonHeaders(v map[string]*string) *CustomizeContactListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CustomizeContactListHeaders) SetXAcsDingtalkAccessToken(v string) *CustomizeContactListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CustomizeContactListResponseBody struct {
+	// content
+	Content []*CustomizeContactListResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+}
+
+func (s CustomizeContactListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactListResponseBody) SetContent(v []*CustomizeContactListResponseBodyContent) *CustomizeContactListResponseBody {
+	s.Content = v
+	return s
+}
+
+type CustomizeContactListResponseBodyContent struct {
+	// 自定义通讯录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 自定义通讯录名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 自定义通讯录排序
+	Order *int64 `json:"order,omitempty" xml:"order,omitempty"`
+	// 跟部门Id
+	RootDeptId *int64 `json:"rootDeptId,omitempty" xml:"rootDeptId,omitempty"`
+}
+
+func (s CustomizeContactListResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactListResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactListResponseBodyContent) SetCode(v string) *CustomizeContactListResponseBodyContent {
+	s.Code = &v
+	return s
+}
+
+func (s *CustomizeContactListResponseBodyContent) SetName(v string) *CustomizeContactListResponseBodyContent {
+	s.Name = &v
+	return s
+}
+
+func (s *CustomizeContactListResponseBodyContent) SetOrder(v int64) *CustomizeContactListResponseBodyContent {
+	s.Order = &v
+	return s
+}
+
+func (s *CustomizeContactListResponseBodyContent) SetRootDeptId(v int64) *CustomizeContactListResponseBodyContent {
+	s.RootDeptId = &v
+	return s
+}
+
+type CustomizeContactListResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CustomizeContactListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CustomizeContactListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactListResponse) SetHeaders(v map[string]*string) *CustomizeContactListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CustomizeContactListResponse) SetBody(v *CustomizeContactListResponseBody) *CustomizeContactListResponse {
+	s.Body = v
+	return s
+}
+
+type CustomizeContactUpdateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CustomizeContactUpdateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactUpdateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactUpdateHeaders) SetCommonHeaders(v map[string]*string) *CustomizeContactUpdateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CustomizeContactUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *CustomizeContactUpdateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CustomizeContactUpdateRequest struct {
+	// 自定义通讯录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 通讯录管理员UserId
+	ManagerIdList []*string `json:"managerIdList,omitempty" xml:"managerIdList,omitempty" type:"Repeated"`
+	// 自定义通讯录名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 在自定义通讯录列表中的排序
+	Order *int64 `json:"order,omitempty" xml:"order,omitempty"`
+}
+
+func (s CustomizeContactUpdateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactUpdateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactUpdateRequest) SetCode(v string) *CustomizeContactUpdateRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *CustomizeContactUpdateRequest) SetManagerIdList(v []*string) *CustomizeContactUpdateRequest {
+	s.ManagerIdList = v
+	return s
+}
+
+func (s *CustomizeContactUpdateRequest) SetName(v string) *CustomizeContactUpdateRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CustomizeContactUpdateRequest) SetOrder(v int64) *CustomizeContactUpdateRequest {
+	s.Order = &v
+	return s
+}
+
+type CustomizeContactUpdateResponseBody struct {
+	// 是否操作成功
+	Content *bool `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s CustomizeContactUpdateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactUpdateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactUpdateResponseBody) SetContent(v bool) *CustomizeContactUpdateResponseBody {
+	s.Content = &v
+	return s
+}
+
+type CustomizeContactUpdateResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CustomizeContactUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CustomizeContactUpdateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactUpdateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactUpdateResponse) SetHeaders(v map[string]*string) *CustomizeContactUpdateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CustomizeContactUpdateResponse) SetBody(v *CustomizeContactUpdateResponseBody) *CustomizeContactUpdateResponse {
+	s.Body = v
+	return s
+}
+
 type IndustryManufactureCostRecordListGetHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5332,6 +6694,616 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) CustomizeContactCreate(request *CustomizeContactCreateRequest) (_result *CustomizeContactCreateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CustomizeContactCreateHeaders{}
+	_result = &CustomizeContactCreateResponse{}
+	_body, _err := client.CustomizeContactCreateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactCreateWithOptions(request *CustomizeContactCreateRequest, headers *CustomizeContactCreateHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactCreateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ManagerIdList)) {
+		body["managerIdList"] = request.ManagerIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Order)) {
+		body["order"] = request.Order
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CustomizeContactCreateResponse{}
+	_body, _err := client.DoROARequest(tea.String("CustomizeContactCreate"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/customizations/contacts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactDelete(request *CustomizeContactDeleteRequest) (_result *CustomizeContactDeleteResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CustomizeContactDeleteHeaders{}
+	_result = &CustomizeContactDeleteResponse{}
+	_body, _err := client.CustomizeContactDeleteWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactDeleteWithOptions(request *CustomizeContactDeleteRequest, headers *CustomizeContactDeleteHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactDeleteResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		query["code"] = request.Code
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &CustomizeContactDeleteResponse{}
+	_body, _err := client.DoROARequest(tea.String("CustomizeContactDelete"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/industry/customizations/contacts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactDeptCreate(request *CustomizeContactDeptCreateRequest) (_result *CustomizeContactDeptCreateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CustomizeContactDeptCreateHeaders{}
+	_result = &CustomizeContactDeptCreateResponse{}
+	_body, _err := client.CustomizeContactDeptCreateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactDeptCreateWithOptions(request *CustomizeContactDeptCreateRequest, headers *CustomizeContactDeptCreateHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactDeptCreateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		body["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManagerIdList)) {
+		body["managerIdList"] = request.ManagerIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Order)) {
+		body["order"] = request.Order
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ParentDeptId)) {
+		body["parentDeptId"] = request.ParentDeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RefId)) {
+		body["refId"] = request.RefId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CustomizeContactDeptCreateResponse{}
+	_body, _err := client.DoROARequest(tea.String("CustomizeContactDeptCreate"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/customizations/departments"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactDeptDelete(request *CustomizeContactDeptDeleteRequest) (_result *CustomizeContactDeptDeleteResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CustomizeContactDeptDeleteHeaders{}
+	_result = &CustomizeContactDeptDeleteResponse{}
+	_body, _err := client.CustomizeContactDeptDeleteWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactDeptDeleteWithOptions(request *CustomizeContactDeptDeleteRequest, headers *CustomizeContactDeptDeleteHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactDeptDeleteResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		query["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		query["deptId"] = request.DeptId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &CustomizeContactDeptDeleteResponse{}
+	_body, _err := client.DoROARequest(tea.String("CustomizeContactDeptDelete"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/industry/customizations/departments"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactDeptInfo(request *CustomizeContactDeptInfoRequest) (_result *CustomizeContactDeptInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CustomizeContactDeptInfoHeaders{}
+	_result = &CustomizeContactDeptInfoResponse{}
+	_body, _err := client.CustomizeContactDeptInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactDeptInfoWithOptions(request *CustomizeContactDeptInfoRequest, headers *CustomizeContactDeptInfoHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactDeptInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		query["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		query["deptId"] = request.DeptId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &CustomizeContactDeptInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("CustomizeContactDeptInfo"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/customizations/departments"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactDeptList(request *CustomizeContactDeptListRequest) (_result *CustomizeContactDeptListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CustomizeContactDeptListHeaders{}
+	_result = &CustomizeContactDeptListResponse{}
+	_body, _err := client.CustomizeContactDeptListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactDeptListWithOptions(request *CustomizeContactDeptListRequest, headers *CustomizeContactDeptListHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactDeptListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		query["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		query["deptId"] = request.DeptId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &CustomizeContactDeptListResponse{}
+	_body, _err := client.DoROARequest(tea.String("CustomizeContactDeptList"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/customizations/subsidiaryDepartments"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactDeptUpdate(request *CustomizeContactDeptUpdateRequest) (_result *CustomizeContactDeptUpdateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CustomizeContactDeptUpdateHeaders{}
+	_result = &CustomizeContactDeptUpdateResponse{}
+	_body, _err := client.CustomizeContactDeptUpdateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactDeptUpdateWithOptions(request *CustomizeContactDeptUpdateRequest, headers *CustomizeContactDeptUpdateHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactDeptUpdateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		body["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManagerIdList)) {
+		body["managerIdList"] = request.ManagerIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Order)) {
+		body["order"] = request.Order
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ParentDeptId)) {
+		body["parentDeptId"] = request.ParentDeptId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CustomizeContactDeptUpdateResponse{}
+	_body, _err := client.DoROARequest(tea.String("CustomizeContactDeptUpdate"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/industry/customizations/departments"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactEmpAdd(request *CustomizeContactEmpAddRequest) (_result *CustomizeContactEmpAddResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CustomizeContactEmpAddHeaders{}
+	_result = &CustomizeContactEmpAddResponse{}
+	_body, _err := client.CustomizeContactEmpAddWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactEmpAddWithOptions(request *CustomizeContactEmpAddRequest, headers *CustomizeContactEmpAddHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactEmpAddResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		body["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdList)) {
+		body["userIdList"] = request.UserIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CustomizeContactEmpAddResponse{}
+	_body, _err := client.DoROARequest(tea.String("CustomizeContactEmpAdd"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/customizations/users"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactEmpDelete(request *CustomizeContactEmpDeleteRequest) (_result *CustomizeContactEmpDeleteResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CustomizeContactEmpDeleteHeaders{}
+	_result = &CustomizeContactEmpDeleteResponse{}
+	_body, _err := client.CustomizeContactEmpDeleteWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactEmpDeleteWithOptions(request *CustomizeContactEmpDeleteRequest, headers *CustomizeContactEmpDeleteHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactEmpDeleteResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		body["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdList)) {
+		body["userIdList"] = request.UserIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CustomizeContactEmpDeleteResponse{}
+	_body, _err := client.DoROARequest(tea.String("CustomizeContactEmpDelete"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/customizations/users/remove"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactEmpList(request *CustomizeContactEmpListRequest) (_result *CustomizeContactEmpListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CustomizeContactEmpListHeaders{}
+	_result = &CustomizeContactEmpListResponse{}
+	_body, _err := client.CustomizeContactEmpListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactEmpListWithOptions(request *CustomizeContactEmpListRequest, headers *CustomizeContactEmpListHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactEmpListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		query["deptId"] = request.DeptId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &CustomizeContactEmpListResponse{}
+	_body, _err := client.DoROARequest(tea.String("CustomizeContactEmpList"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/customizations/users"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactList() (_result *CustomizeContactListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CustomizeContactListHeaders{}
+	_result = &CustomizeContactListResponse{}
+	_body, _err := client.CustomizeContactListWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactListWithOptions(headers *CustomizeContactListHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactListResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &CustomizeContactListResponse{}
+	_body, _err := client.DoROARequest(tea.String("CustomizeContactList"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/customizations/contacts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactUpdate(request *CustomizeContactUpdateRequest) (_result *CustomizeContactUpdateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CustomizeContactUpdateHeaders{}
+	_result = &CustomizeContactUpdateResponse{}
+	_body, _err := client.CustomizeContactUpdateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactUpdateWithOptions(request *CustomizeContactUpdateRequest, headers *CustomizeContactUpdateHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactUpdateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		body["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManagerIdList)) {
+		body["managerIdList"] = request.ManagerIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Order)) {
+		body["order"] = request.Order
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CustomizeContactUpdateResponse{}
+	_body, _err := client.DoROARequest(tea.String("CustomizeContactUpdate"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/industry/customizations/contacts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) IndustryManufactureCostRecordListGet(request *IndustryManufactureCostRecordListGetRequest) (_result *IndustryManufactureCostRecordListGetResponse, _err error) {
