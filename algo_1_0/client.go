@@ -362,6 +362,8 @@ type OkrOpenRecommendResponseBodyOkrRecommendItems struct {
 	ObjectiveRelatedResults []*OkrOpenRecommendResponseBodyOkrRecommendItemsObjectiveRelatedResults `json:"objectiveRelatedResults,omitempty" xml:"objectiveRelatedResults,omitempty" type:"Repeated"`
 	// relatedLevel
 	RelatedLevel *int64 `json:"relatedLevel,omitempty" xml:"relatedLevel,omitempty"`
+	// semanticLevel
+	SemanticLevel *int64 `json:"semanticLevel,omitempty" xml:"semanticLevel,omitempty"`
 	// userId
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -389,6 +391,11 @@ func (s *OkrOpenRecommendResponseBodyOkrRecommendItems) SetRelatedLevel(v int64)
 	return s
 }
 
+func (s *OkrOpenRecommendResponseBodyOkrRecommendItems) SetSemanticLevel(v int64) *OkrOpenRecommendResponseBodyOkrRecommendItems {
+	s.SemanticLevel = &v
+	return s
+}
+
 func (s *OkrOpenRecommendResponseBodyOkrRecommendItems) SetUserId(v string) *OkrOpenRecommendResponseBodyOkrRecommendItems {
 	s.UserId = &v
 	return s
@@ -397,6 +404,8 @@ func (s *OkrOpenRecommendResponseBodyOkrRecommendItems) SetUserId(v string) *Okr
 type OkrOpenRecommendResponseBodyOkrRecommendItemsKrResultRelatedResults struct {
 	// krId
 	KrId *string `json:"krId,omitempty" xml:"krId,omitempty"`
+	// semanticLevel
+	SemanticLevel *int64 `json:"semanticLevel,omitempty" xml:"semanticLevel,omitempty"`
 	// words
 	Words []*string `json:"words,omitempty" xml:"words,omitempty" type:"Repeated"`
 }
@@ -414,6 +423,11 @@ func (s *OkrOpenRecommendResponseBodyOkrRecommendItemsKrResultRelatedResults) Se
 	return s
 }
 
+func (s *OkrOpenRecommendResponseBodyOkrRecommendItemsKrResultRelatedResults) SetSemanticLevel(v int64) *OkrOpenRecommendResponseBodyOkrRecommendItemsKrResultRelatedResults {
+	s.SemanticLevel = &v
+	return s
+}
+
 func (s *OkrOpenRecommendResponseBodyOkrRecommendItemsKrResultRelatedResults) SetWords(v []*string) *OkrOpenRecommendResponseBodyOkrRecommendItemsKrResultRelatedResults {
 	s.Words = v
 	return s
@@ -422,6 +436,8 @@ func (s *OkrOpenRecommendResponseBodyOkrRecommendItemsKrResultRelatedResults) Se
 type OkrOpenRecommendResponseBodyOkrRecommendItemsObjectiveRelatedResults struct {
 	// objectiveId
 	ObjectiveId *string `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
+	// semanticLevel
+	SemanticLevel *int64 `json:"semanticLevel,omitempty" xml:"semanticLevel,omitempty"`
 	// words
 	Words []*string `json:"words,omitempty" xml:"words,omitempty" type:"Repeated"`
 }
@@ -436,6 +452,11 @@ func (s OkrOpenRecommendResponseBodyOkrRecommendItemsObjectiveRelatedResults) Go
 
 func (s *OkrOpenRecommendResponseBodyOkrRecommendItemsObjectiveRelatedResults) SetObjectiveId(v string) *OkrOpenRecommendResponseBodyOkrRecommendItemsObjectiveRelatedResults {
 	s.ObjectiveId = &v
+	return s
+}
+
+func (s *OkrOpenRecommendResponseBodyOkrRecommendItemsObjectiveRelatedResults) SetSemanticLevel(v int64) *OkrOpenRecommendResponseBodyOkrRecommendItemsObjectiveRelatedResults {
+	s.SemanticLevel = &v
 	return s
 }
 
