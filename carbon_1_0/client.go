@@ -11,6 +11,102 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type GetPersonalCarbonInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPersonalCarbonInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPersonalCarbonInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPersonalCarbonInfoHeaders) SetCommonHeaders(v map[string]*string) *GetPersonalCarbonInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPersonalCarbonInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetPersonalCarbonInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPersonalCarbonInfoRequest struct {
+	// 参数类型
+	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// 钉钉unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetPersonalCarbonInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPersonalCarbonInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPersonalCarbonInfoRequest) SetActionType(v string) *GetPersonalCarbonInfoRequest {
+	s.ActionType = &v
+	return s
+}
+
+func (s *GetPersonalCarbonInfoRequest) SetUnionId(v string) *GetPersonalCarbonInfoRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetPersonalCarbonInfoResponseBody struct {
+	// 文案
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 减碳数据
+	PersonalCarbonAmount *float64 `json:"personalCarbonAmount,omitempty" xml:"personalCarbonAmount,omitempty"`
+}
+
+func (s GetPersonalCarbonInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPersonalCarbonInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPersonalCarbonInfoResponseBody) SetContent(v string) *GetPersonalCarbonInfoResponseBody {
+	s.Content = &v
+	return s
+}
+
+func (s *GetPersonalCarbonInfoResponseBody) SetPersonalCarbonAmount(v float64) *GetPersonalCarbonInfoResponseBody {
+	s.PersonalCarbonAmount = &v
+	return s
+}
+
+type GetPersonalCarbonInfoResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetPersonalCarbonInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetPersonalCarbonInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPersonalCarbonInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPersonalCarbonInfoResponse) SetHeaders(v map[string]*string) *GetPersonalCarbonInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPersonalCarbonInfoResponse) SetBody(v *GetPersonalCarbonInfoResponseBody) *GetPersonalCarbonInfoResponse {
+	s.Body = v
+	return s
+}
+
 type WriteAlibabaOrgCarbonHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -745,6 +841,54 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) GetPersonalCarbonInfo(request *GetPersonalCarbonInfoRequest) (_result *GetPersonalCarbonInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPersonalCarbonInfoHeaders{}
+	_result = &GetPersonalCarbonInfoResponse{}
+	_body, _err := client.GetPersonalCarbonInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetPersonalCarbonInfoWithOptions(request *GetPersonalCarbonInfoRequest, headers *GetPersonalCarbonInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPersonalCarbonInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActionType)) {
+		query["actionType"] = request.ActionType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetPersonalCarbonInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetPersonalCarbonInfo"), tea.String("carbon_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/carbon/personals/infos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) WriteAlibabaOrgCarbon(request *WriteAlibabaOrgCarbonRequest) (_result *WriteAlibabaOrgCarbonResponse, _err error) {

@@ -628,8 +628,6 @@ type CheckWritePermissionRequest struct {
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 	// resourceKey
 	ResourceKey *string `json:"resourceKey,omitempty" xml:"resourceKey,omitempty"`
-	// corpId
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s CheckWritePermissionRequest) String() string {
@@ -657,11 +655,6 @@ func (s *CheckWritePermissionRequest) SetOpUserId(v string) *CheckWritePermissio
 
 func (s *CheckWritePermissionRequest) SetResourceKey(v string) *CheckWritePermissionRequest {
 	s.ResourceKey = &v
-	return s
-}
-
-func (s *CheckWritePermissionRequest) SetCorpId(v string) *CheckWritePermissionRequest {
-	s.CorpId = &v
 	return s
 }
 
@@ -2441,11 +2434,6 @@ func (client *Client) CheckWritePermissionWithOptions(request *CheckWritePermiss
 	if _err != nil {
 		return _result, _err
 	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
-		query["corpId"] = request.CorpId
-	}
-
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Category)) {
 		body["category"] = request.Category
@@ -2474,7 +2462,6 @@ func (client *Client) CheckWritePermissionWithOptions(request *CheckWritePermiss
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &CheckWritePermissionResponse{}
