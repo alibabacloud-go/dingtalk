@@ -863,7 +863,9 @@ func (s *BatchQueryUserHeaders) SetXAcsDingtalkAccessToken(v string) *BatchQuery
 }
 
 type BatchQueryUserRequest struct {
-	// 需要查询的用户ID
+	// OKR 系统中的用户 ID 列表
+	OkrUserIds []*string `json:"okrUserIds,omitempty" xml:"okrUserIds,omitempty" type:"Repeated"`
+	// 开放平台中用户 ID 列表
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -873,6 +875,11 @@ func (s BatchQueryUserRequest) String() string {
 
 func (s BatchQueryUserRequest) GoString() string {
 	return s.String()
+}
+
+func (s *BatchQueryUserRequest) SetOkrUserIds(v []*string) *BatchQueryUserRequest {
+	s.OkrUserIds = v
+	return s
 }
 
 func (s *BatchQueryUserRequest) SetUserIds(v []*string) *BatchQueryUserRequest {
@@ -3529,6 +3536,10 @@ func (client *Client) BatchQueryUserWithOptions(request *BatchQueryUserRequest, 
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OkrUserIds)) {
+		body["okrUserIds"] = request.OkrUserIds
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
 		body["userIds"] = request.UserIds
 	}

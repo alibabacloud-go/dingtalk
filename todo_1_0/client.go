@@ -1526,6 +1526,8 @@ type GetTodoTaskDetailResponseBody struct {
 	TenantId *string `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
 	// 租户类型（user/org/group）
 	TenantType *string `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
+	// 待办卡片视图模型
+	TodoCardView *GetTodoTaskDetailResponseBodyTodoCardView `json:"todoCardView,omitempty" xml:"todoCardView,omitempty" type:"Struct"`
 }
 
 func (s GetTodoTaskDetailResponseBody) String() string {
@@ -1661,6 +1663,11 @@ func (s *GetTodoTaskDetailResponseBody) SetTenantType(v string) *GetTodoTaskDeta
 	return s
 }
 
+func (s *GetTodoTaskDetailResponseBody) SetTodoCardView(v *GetTodoTaskDetailResponseBodyTodoCardView) *GetTodoTaskDetailResponseBody {
+	s.TodoCardView = v
+	return s
+}
+
 type GetTodoTaskDetailResponseBodyDetailUrl struct {
 	// app端详情页地址
 	AppUrl *string `json:"appUrl,omitempty" xml:"appUrl,omitempty"`
@@ -1733,6 +1740,90 @@ func (s *GetTodoTaskDetailResponseBodyOrgInfo) SetCorpId(v string) *GetTodoTaskD
 
 func (s *GetTodoTaskDetailResponseBodyOrgInfo) SetName(v string) *GetTodoTaskDetailResponseBodyOrgInfo {
 	s.Name = &v
+	return s
+}
+
+type GetTodoTaskDetailResponseBodyTodoCardView struct {
+	// link, button, 操作区类型，是链接类型，或者按钮类型
+	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// 卡片类型
+	CardType *string `json:"cardType,omitempty" xml:"cardType,omitempty"`
+	// 卡片左上角 区域类型是 icon, 或者checkbox 类型的
+	CircleELType *string `json:"circleELType,omitempty" xml:"circleELType,omitempty"`
+	// icon, name ,内容区域类型是 icon+value, 或者name+value 类型的
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	// 卡片icon
+	Icon                *string                                                         `json:"icon,omitempty" xml:"icon,omitempty"`
+	TodoCardContentList []*GetTodoTaskDetailResponseBodyTodoCardViewTodoCardContentList `json:"todoCardContentList,omitempty" xml:"todoCardContentList,omitempty" type:"Repeated"`
+	// 卡片标题
+	TodoCardTitle *string `json:"todoCardTitle,omitempty" xml:"todoCardTitle,omitempty"`
+}
+
+func (s GetTodoTaskDetailResponseBodyTodoCardView) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTodoTaskDetailResponseBodyTodoCardView) GoString() string {
+	return s.String()
+}
+
+func (s *GetTodoTaskDetailResponseBodyTodoCardView) SetActionType(v string) *GetTodoTaskDetailResponseBodyTodoCardView {
+	s.ActionType = &v
+	return s
+}
+
+func (s *GetTodoTaskDetailResponseBodyTodoCardView) SetCardType(v string) *GetTodoTaskDetailResponseBodyTodoCardView {
+	s.CardType = &v
+	return s
+}
+
+func (s *GetTodoTaskDetailResponseBodyTodoCardView) SetCircleELType(v string) *GetTodoTaskDetailResponseBodyTodoCardView {
+	s.CircleELType = &v
+	return s
+}
+
+func (s *GetTodoTaskDetailResponseBodyTodoCardView) SetContentType(v string) *GetTodoTaskDetailResponseBodyTodoCardView {
+	s.ContentType = &v
+	return s
+}
+
+func (s *GetTodoTaskDetailResponseBodyTodoCardView) SetIcon(v string) *GetTodoTaskDetailResponseBodyTodoCardView {
+	s.Icon = &v
+	return s
+}
+
+func (s *GetTodoTaskDetailResponseBodyTodoCardView) SetTodoCardContentList(v []*GetTodoTaskDetailResponseBodyTodoCardViewTodoCardContentList) *GetTodoTaskDetailResponseBodyTodoCardView {
+	s.TodoCardContentList = v
+	return s
+}
+
+func (s *GetTodoTaskDetailResponseBodyTodoCardView) SetTodoCardTitle(v string) *GetTodoTaskDetailResponseBodyTodoCardView {
+	s.TodoCardTitle = &v
+	return s
+}
+
+type GetTodoTaskDetailResponseBodyTodoCardViewTodoCardContentList struct {
+	// 自定义表单内容名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 自定义表单内容值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetTodoTaskDetailResponseBodyTodoCardViewTodoCardContentList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTodoTaskDetailResponseBodyTodoCardViewTodoCardContentList) GoString() string {
+	return s.String()
+}
+
+func (s *GetTodoTaskDetailResponseBodyTodoCardViewTodoCardContentList) SetName(v string) *GetTodoTaskDetailResponseBodyTodoCardViewTodoCardContentList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetTodoTaskDetailResponseBodyTodoCardViewTodoCardContentList) SetValue(v string) *GetTodoTaskDetailResponseBodyTodoCardViewTodoCardContentList {
+	s.Value = &v
 	return s
 }
 

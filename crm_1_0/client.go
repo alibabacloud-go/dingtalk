@@ -2562,6 +2562,7 @@ func (s *DeleteCrmPersonalCustomerHeaders) SetXAcsDingtalkAccessToken(v string) 
 type DeleteCrmPersonalCustomerRequest struct {
 	// 操作人用户ID
 	CurrentOperatorUserId *string `json:"currentOperatorUserId,omitempty" xml:"currentOperatorUserId,omitempty"`
+	RelationType          *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
 
 func (s DeleteCrmPersonalCustomerRequest) String() string {
@@ -2574,6 +2575,11 @@ func (s DeleteCrmPersonalCustomerRequest) GoString() string {
 
 func (s *DeleteCrmPersonalCustomerRequest) SetCurrentOperatorUserId(v string) *DeleteCrmPersonalCustomerRequest {
 	s.CurrentOperatorUserId = &v
+	return s
+}
+
+func (s *DeleteCrmPersonalCustomerRequest) SetRelationType(v string) *DeleteCrmPersonalCustomerRequest {
+	s.RelationType = &v
 	return s
 }
 
@@ -6057,10 +6063,8 @@ func (s *GetCrmRolePermissionHeaders) SetXAcsDingtalkAccessToken(v string) *GetC
 }
 
 type GetCrmRolePermissionRequest struct {
-	// 表单业务标识（formCode & bizType二选一）
+	// 表单bizType
 	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 表单标识（formCode & bizType二选一）
-	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
 }
 
 func (s GetCrmRolePermissionRequest) String() string {
@@ -6073,11 +6077,6 @@ func (s GetCrmRolePermissionRequest) GoString() string {
 
 func (s *GetCrmRolePermissionRequest) SetBizType(v string) *GetCrmRolePermissionRequest {
 	s.BizType = &v
-	return s
-}
-
-func (s *GetCrmRolePermissionRequest) SetFormCode(v string) *GetCrmRolePermissionRequest {
-	s.FormCode = &v
 	return s
 }
 
@@ -6228,6 +6227,8 @@ type GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt struct {
 	DeptIdList []*float64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
 	// 管理员工列表
 	StaffIdList []*string `json:"staffIdList,omitempty" xml:"staffIdList,omitempty" type:"Repeated"`
+	// 管理员工列表
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
 func (s GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt) String() string {
@@ -6245,6 +6246,11 @@ func (s *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt) SetDep
 
 func (s *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt) SetStaffIdList(v []*string) *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt {
 	s.StaffIdList = v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt) SetUserIdList(v []*string) *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt {
+	s.UserIdList = v
 	return s
 }
 
@@ -6278,10 +6284,12 @@ type GetCrmRolePermissionResponseBodyPermissionsRoleMemberList struct {
 	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
 	// 角色名
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 角色的userId
+	// 角色的userId（此字段废弃，请使用userId字段）
 	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
 	// 角色类型
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 角色的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetCrmRolePermissionResponseBodyPermissionsRoleMemberList) String() string {
@@ -6309,6 +6317,11 @@ func (s *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList) SetStaffId(v
 
 func (s *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList) SetType(v string) *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList {
 	s.Type = &v
+	return s
+}
+
+func (s *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList) SetUserId(v string) *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList {
+	s.UserId = &v
 	return s
 }
 
@@ -7483,6 +7496,7 @@ type ListCrmPersonalCustomersRequest struct {
 	Body []*string `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
 	// 操作人用户ID
 	CurrentOperatorUserId *string `json:"currentOperatorUserId,omitempty" xml:"currentOperatorUserId,omitempty"`
+	RelationType          *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
 
 func (s ListCrmPersonalCustomersRequest) String() string {
@@ -7500,6 +7514,11 @@ func (s *ListCrmPersonalCustomersRequest) SetBody(v []*string) *ListCrmPersonalC
 
 func (s *ListCrmPersonalCustomersRequest) SetCurrentOperatorUserId(v string) *ListCrmPersonalCustomersRequest {
 	s.CurrentOperatorUserId = &v
+	return s
+}
+
+func (s *ListCrmPersonalCustomersRequest) SetRelationType(v string) *ListCrmPersonalCustomersRequest {
+	s.RelationType = &v
 	return s
 }
 
@@ -11553,6 +11572,10 @@ func (client *Client) DeleteCrmPersonalCustomerWithOptions(dataId *string, reque
 		query["currentOperatorUserId"] = request.CurrentOperatorUserId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		query["relationType"] = request.RelationType
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -11860,10 +11883,6 @@ func (client *Client) GetCrmRolePermissionWithOptions(request *GetCrmRolePermiss
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.BizType)) {
 		query["bizType"] = request.BizType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.FormCode)) {
-		query["formCode"] = request.FormCode
 	}
 
 	realHeaders := make(map[string]*string)
@@ -12239,6 +12258,10 @@ func (client *Client) ListCrmPersonalCustomersWithOptions(request *ListCrmPerson
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CurrentOperatorUserId)) {
 		query["currentOperatorUserId"] = request.CurrentOperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		query["relationType"] = request.RelationType
 	}
 
 	realHeaders := make(map[string]*string)

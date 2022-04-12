@@ -288,6 +288,436 @@ func (s *ChatIdToOpenConversationIdResponse) SetBody(v *ChatIdToOpenConversation
 	return s
 }
 
+type CreateGroupConversationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateGroupConversationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupConversationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupConversationHeaders) SetCommonHeaders(v map[string]*string) *CreateGroupConversationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateGroupConversationHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGroupConversationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateGroupConversationRequest struct {
+	// C端客户成员列表
+	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
+	// 群头像
+	GroupAvatar *string `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
+	// 群名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 群主钉钉Id
+	GroupOwnerId *string `json:"groupOwnerId,omitempty" xml:"groupOwnerId,omitempty"`
+	// 群模板
+	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
+	// 操作者的钉钉Id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// B端客服成员列表
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s CreateGroupConversationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupConversationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupConversationRequest) SetAppUserIds(v []*string) *CreateGroupConversationRequest {
+	s.AppUserIds = v
+	return s
+}
+
+func (s *CreateGroupConversationRequest) SetGroupAvatar(v string) *CreateGroupConversationRequest {
+	s.GroupAvatar = &v
+	return s
+}
+
+func (s *CreateGroupConversationRequest) SetGroupName(v string) *CreateGroupConversationRequest {
+	s.GroupName = &v
+	return s
+}
+
+func (s *CreateGroupConversationRequest) SetGroupOwnerId(v string) *CreateGroupConversationRequest {
+	s.GroupOwnerId = &v
+	return s
+}
+
+func (s *CreateGroupConversationRequest) SetGroupTemplateId(v string) *CreateGroupConversationRequest {
+	s.GroupTemplateId = &v
+	return s
+}
+
+func (s *CreateGroupConversationRequest) SetOperatorId(v string) *CreateGroupConversationRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *CreateGroupConversationRequest) SetUserIds(v []*string) *CreateGroupConversationRequest {
+	s.UserIds = v
+	return s
+}
+
+type CreateGroupConversationResponseBody struct {
+	// 添加成功的C端客户列表
+	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
+	// 群会话Id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 添加成功的B端客服列表
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s CreateGroupConversationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupConversationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupConversationResponseBody) SetAppUserIds(v []*string) *CreateGroupConversationResponseBody {
+	s.AppUserIds = v
+	return s
+}
+
+func (s *CreateGroupConversationResponseBody) SetOpenConversationId(v string) *CreateGroupConversationResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *CreateGroupConversationResponseBody) SetUserIds(v []*string) *CreateGroupConversationResponseBody {
+	s.UserIds = v
+	return s
+}
+
+type CreateGroupConversationResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateGroupConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateGroupConversationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupConversationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupConversationResponse) SetHeaders(v map[string]*string) *CreateGroupConversationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateGroupConversationResponse) SetBody(v *CreateGroupConversationResponseBody) *CreateGroupConversationResponse {
+	s.Body = v
+	return s
+}
+
+type CreateInterconnectionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateInterconnectionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInterconnectionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInterconnectionHeaders) SetCommonHeaders(v map[string]*string) *CreateInterconnectionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateInterconnectionHeaders) SetXAcsDingtalkAccessToken(v string) *CreateInterconnectionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateInterconnectionRequest struct {
+	// bc关系列表
+	Interconnections []*CreateInterconnectionRequestInterconnections `json:"interconnections,omitempty" xml:"interconnections,omitempty" type:"Repeated"`
+	// 参数签名
+	Signature *string `json:"signature,omitempty" xml:"signature,omitempty"`
+}
+
+func (s CreateInterconnectionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInterconnectionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInterconnectionRequest) SetInterconnections(v []*CreateInterconnectionRequestInterconnections) *CreateInterconnectionRequest {
+	s.Interconnections = v
+	return s
+}
+
+func (s *CreateInterconnectionRequest) SetSignature(v string) *CreateInterconnectionRequest {
+	s.Signature = &v
+	return s
+}
+
+type CreateInterconnectionRequestInterconnections struct {
+	// 客户头像链接
+	AppUserAvatar *string `json:"appUserAvatar,omitempty" xml:"appUserAvatar,omitempty"`
+	// 客户头像类型，取值：
+	// 1：http
+	AppUserAvatarMediaType *int32 `json:"appUserAvatarMediaType,omitempty" xml:"appUserAvatarMediaType,omitempty"`
+	// 客户动态
+	AppUserDynamics *string `json:"appUserDynamics,omitempty" xml:"appUserDynamics,omitempty"`
+	// 客户业务系统唯一标识
+	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
+	// 客户手机号
+	AppUserMobile *string `json:"appUserMobile,omitempty" xml:"appUserMobile,omitempty"`
+	// 客户名称
+	AppUserName *string `json:"appUserName,omitempty" xml:"appUserName,omitempty"`
+	// 客户渠道code
+	ChannelCode *string `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
+	// 客服钉钉Id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateInterconnectionRequestInterconnections) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInterconnectionRequestInterconnections) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInterconnectionRequestInterconnections) SetAppUserAvatar(v string) *CreateInterconnectionRequestInterconnections {
+	s.AppUserAvatar = &v
+	return s
+}
+
+func (s *CreateInterconnectionRequestInterconnections) SetAppUserAvatarMediaType(v int32) *CreateInterconnectionRequestInterconnections {
+	s.AppUserAvatarMediaType = &v
+	return s
+}
+
+func (s *CreateInterconnectionRequestInterconnections) SetAppUserDynamics(v string) *CreateInterconnectionRequestInterconnections {
+	s.AppUserDynamics = &v
+	return s
+}
+
+func (s *CreateInterconnectionRequestInterconnections) SetAppUserId(v string) *CreateInterconnectionRequestInterconnections {
+	s.AppUserId = &v
+	return s
+}
+
+func (s *CreateInterconnectionRequestInterconnections) SetAppUserMobile(v string) *CreateInterconnectionRequestInterconnections {
+	s.AppUserMobile = &v
+	return s
+}
+
+func (s *CreateInterconnectionRequestInterconnections) SetAppUserName(v string) *CreateInterconnectionRequestInterconnections {
+	s.AppUserName = &v
+	return s
+}
+
+func (s *CreateInterconnectionRequestInterconnections) SetChannelCode(v string) *CreateInterconnectionRequestInterconnections {
+	s.ChannelCode = &v
+	return s
+}
+
+func (s *CreateInterconnectionRequestInterconnections) SetUserId(v string) *CreateInterconnectionRequestInterconnections {
+	s.UserId = &v
+	return s
+}
+
+type CreateInterconnectionResponseBody struct {
+	// 失败的bc关系列表
+	Results []*CreateInterconnectionResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
+}
+
+func (s CreateInterconnectionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInterconnectionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInterconnectionResponseBody) SetResults(v []*CreateInterconnectionResponseBodyResults) *CreateInterconnectionResponseBody {
+	s.Results = v
+	return s
+}
+
+type CreateInterconnectionResponseBodyResults struct {
+	// 客户业务身份唯一标识
+	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
+	// 客服钉钉Id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateInterconnectionResponseBodyResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInterconnectionResponseBodyResults) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInterconnectionResponseBodyResults) SetAppUserId(v string) *CreateInterconnectionResponseBodyResults {
+	s.AppUserId = &v
+	return s
+}
+
+func (s *CreateInterconnectionResponseBodyResults) SetUserId(v string) *CreateInterconnectionResponseBodyResults {
+	s.UserId = &v
+	return s
+}
+
+type CreateInterconnectionResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateInterconnectionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateInterconnectionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInterconnectionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInterconnectionResponse) SetHeaders(v map[string]*string) *CreateInterconnectionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateInterconnectionResponse) SetBody(v *CreateInterconnectionResponseBody) *CreateInterconnectionResponse {
+	s.Body = v
+	return s
+}
+
+type GetConversationUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetConversationUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConversationUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetConversationUrlHeaders) SetCommonHeaders(v map[string]*string) *GetConversationUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetConversationUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetConversationUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetConversationUrlRequest struct {
+	// C端用户在业务账号体系内的用户userid，长度限制为1~64个字符。
+	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
+	// C端客户渠道code。
+	ChannelCode *string `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
+	// 群会话Id。
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// C端客户标识。
+	SourceCode *string `json:"sourceCode,omitempty" xml:"sourceCode,omitempty"`
+	// B端用户的钉钉userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetConversationUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConversationUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetConversationUrlRequest) SetAppUserId(v string) *GetConversationUrlRequest {
+	s.AppUserId = &v
+	return s
+}
+
+func (s *GetConversationUrlRequest) SetChannelCode(v string) *GetConversationUrlRequest {
+	s.ChannelCode = &v
+	return s
+}
+
+func (s *GetConversationUrlRequest) SetOpenConversationId(v string) *GetConversationUrlRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GetConversationUrlRequest) SetSourceCode(v string) *GetConversationUrlRequest {
+	s.SourceCode = &v
+	return s
+}
+
+func (s *GetConversationUrlRequest) SetUserId(v string) *GetConversationUrlRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetConversationUrlResponseBody struct {
+	// 会话url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s GetConversationUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConversationUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetConversationUrlResponseBody) SetUrl(v string) *GetConversationUrlResponseBody {
+	s.Url = &v
+	return s
+}
+
+type GetConversationUrlResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetConversationUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetConversationUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConversationUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetConversationUrlResponse) SetHeaders(v map[string]*string) *GetConversationUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetConversationUrlResponse) SetBody(v *GetConversationUrlResponseBody) *GetConversationUrlResponse {
+	s.Body = v
+	return s
+}
+
 type GetInterconnectionUrlHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2442,6 +2872,422 @@ func (s *UpdateTheGroupRolesOfGroupMemberResponse) SetBody(v *UpdateTheGroupRole
 	return s
 }
 
+type AddGroupMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddGroupMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddGroupMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddGroupMemberHeaders) SetCommonHeaders(v map[string]*string) *AddGroupMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *AddGroupMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddGroupMemberRequest struct {
+	// C端客户成员列表
+	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
+	// 群会话Id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 操作者钉钉Id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// B端客服成员列表
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s AddGroupMemberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddGroupMemberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddGroupMemberRequest) SetAppUserIds(v []*string) *AddGroupMemberRequest {
+	s.AppUserIds = v
+	return s
+}
+
+func (s *AddGroupMemberRequest) SetOpenConversationId(v string) *AddGroupMemberRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *AddGroupMemberRequest) SetOperatorId(v string) *AddGroupMemberRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *AddGroupMemberRequest) SetUserIds(v []*string) *AddGroupMemberRequest {
+	s.UserIds = v
+	return s
+}
+
+type AddGroupMemberResponseBody struct {
+	// 拉取成功的C端客户列表
+	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
+	// 拉取成功的B端客服列表
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s AddGroupMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddGroupMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddGroupMemberResponseBody) SetAppUserIds(v []*string) *AddGroupMemberResponseBody {
+	s.AppUserIds = v
+	return s
+}
+
+func (s *AddGroupMemberResponseBody) SetUserIds(v []*string) *AddGroupMemberResponseBody {
+	s.UserIds = v
+	return s
+}
+
+type AddGroupMemberResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddGroupMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddGroupMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddGroupMemberResponse) SetHeaders(v map[string]*string) *AddGroupMemberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddGroupMemberResponse) SetBody(v *AddGroupMemberResponseBody) *AddGroupMemberResponse {
+	s.Body = v
+	return s
+}
+
+type RemoveGroupMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RemoveGroupMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveGroupMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveGroupMemberHeaders) SetCommonHeaders(v map[string]*string) *RemoveGroupMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveGroupMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RemoveGroupMemberRequest struct {
+	// C端客户成员列表
+	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
+	// 群会话Id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 操作者钉钉Id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// B端客服成员列表
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s RemoveGroupMemberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveGroupMemberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveGroupMemberRequest) SetAppUserIds(v []*string) *RemoveGroupMemberRequest {
+	s.AppUserIds = v
+	return s
+}
+
+func (s *RemoveGroupMemberRequest) SetOpenConversationId(v string) *RemoveGroupMemberRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *RemoveGroupMemberRequest) SetOperatorId(v string) *RemoveGroupMemberRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *RemoveGroupMemberRequest) SetUserIds(v []*string) *RemoveGroupMemberRequest {
+	s.UserIds = v
+	return s
+}
+
+type RemoveGroupMemberResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s RemoveGroupMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveGroupMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveGroupMemberResponse) SetHeaders(v map[string]*string) *RemoveGroupMemberResponse {
+	s.Headers = v
+	return s
+}
+
+type SendDingMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendDingMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendDingMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendDingMessageHeaders) SetCommonHeaders(v map[string]*string) *SendDingMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendDingMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendDingMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendDingMessageRequest struct {
+	// 客服oauth2.0授权码
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 消息内容
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// 消息类型
+	MessageType *string `json:"messageType,omitempty" xml:"messageType,omitempty"`
+	// 群会话Id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// C端客户appUserId
+	ReceiverId *string `json:"receiverId,omitempty" xml:"receiverId,omitempty"`
+	// B端客服钉钉Id
+	SenderId *string `json:"senderId,omitempty" xml:"senderId,omitempty"`
+}
+
+func (s SendDingMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendDingMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendDingMessageRequest) SetCode(v string) *SendDingMessageRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *SendDingMessageRequest) SetMessage(v string) *SendDingMessageRequest {
+	s.Message = &v
+	return s
+}
+
+func (s *SendDingMessageRequest) SetMessageType(v string) *SendDingMessageRequest {
+	s.MessageType = &v
+	return s
+}
+
+func (s *SendDingMessageRequest) SetOpenConversationId(v string) *SendDingMessageRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SendDingMessageRequest) SetReceiverId(v string) *SendDingMessageRequest {
+	s.ReceiverId = &v
+	return s
+}
+
+func (s *SendDingMessageRequest) SetSenderId(v string) *SendDingMessageRequest {
+	s.SenderId = &v
+	return s
+}
+
+type SendDingMessageResponseBody struct {
+	// 发送消息请求Id
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s SendDingMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendDingMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendDingMessageResponseBody) SetRequestId(v string) *SendDingMessageResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type SendDingMessageResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SendDingMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendDingMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendDingMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendDingMessageResponse) SetHeaders(v map[string]*string) *SendDingMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendDingMessageResponse) SetBody(v *SendDingMessageResponseBody) *SendDingMessageResponse {
+	s.Body = v
+	return s
+}
+
+type SendMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendMessageHeaders) SetCommonHeaders(v map[string]*string) *SendMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendMessageRequest struct {
+	// 消息内容
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// 消息类型
+	MessageType *string `json:"messageType,omitempty" xml:"messageType,omitempty"`
+	// 群会话Id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// B端客服钉钉Id
+	ReceiverId *string `json:"receiverId,omitempty" xml:"receiverId,omitempty"`
+	// C端客户appUserId
+	SenderId *string `json:"senderId,omitempty" xml:"senderId,omitempty"`
+}
+
+func (s SendMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendMessageRequest) SetMessage(v string) *SendMessageRequest {
+	s.Message = &v
+	return s
+}
+
+func (s *SendMessageRequest) SetMessageType(v string) *SendMessageRequest {
+	s.MessageType = &v
+	return s
+}
+
+func (s *SendMessageRequest) SetOpenConversationId(v string) *SendMessageRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SendMessageRequest) SetReceiverId(v string) *SendMessageRequest {
+	s.ReceiverId = &v
+	return s
+}
+
+func (s *SendMessageRequest) SetSenderId(v string) *SendMessageRequest {
+	s.SenderId = &v
+	return s
+}
+
+type SendMessageResponseBody struct {
+	// 发送消息请求Id
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s SendMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendMessageResponseBody) SetRequestId(v string) *SendMessageResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+type SendMessageResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SendMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendMessageResponse) SetHeaders(v map[string]*string) *SendMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendMessageResponse) SetBody(v *SendMessageResponseBody) *SendMessageResponse {
+	s.Body = v
+	return s
+}
+
 type PrivateDataValue struct {
 	// 卡片模板内容替换参数-普通文本类型
 	CardParamMap map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
@@ -2622,6 +3468,182 @@ func (client *Client) ChatIdToOpenConversationIdWithOptions(chatId *string, head
 	}
 	_result = &ChatIdToOpenConversationIdResponse{}
 	_body, _err := client.DoROARequest(tea.String("ChatIdToOpenConversationId"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/chat/"+tea.StringValue(chatId)+"/convertToOpenConversationId"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateGroupConversation(request *CreateGroupConversationRequest) (_result *CreateGroupConversationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateGroupConversationHeaders{}
+	_result = &CreateGroupConversationResponse{}
+	_body, _err := client.CreateGroupConversationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateGroupConversationWithOptions(request *CreateGroupConversationRequest, headers *CreateGroupConversationHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupConversationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppUserIds)) {
+		body["appUserIds"] = request.AppUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupAvatar)) {
+		body["groupAvatar"] = request.GroupAvatar
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
+		body["groupName"] = request.GroupName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupOwnerId)) {
+		body["groupOwnerId"] = request.GroupOwnerId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupTemplateId)) {
+		body["groupTemplateId"] = request.GroupTemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateGroupConversationResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateGroupConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/groups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateInterconnection(request *CreateInterconnectionRequest) (_result *CreateInterconnectionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateInterconnectionHeaders{}
+	_result = &CreateInterconnectionResponse{}
+	_body, _err := client.CreateInterconnectionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateInterconnectionWithOptions(request *CreateInterconnectionRequest, headers *CreateInterconnectionHeaders, runtime *util.RuntimeOptions) (_result *CreateInterconnectionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Interconnections)) {
+		body["interconnections"] = request.Interconnections
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Signature)) {
+		body["signature"] = request.Signature
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateInterconnectionResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateInterconnection"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetConversationUrl(request *GetConversationUrlRequest) (_result *GetConversationUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetConversationUrlHeaders{}
+	_result = &GetConversationUrlResponse{}
+	_body, _err := client.GetConversationUrlWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetConversationUrlWithOptions(request *GetConversationUrlRequest, headers *GetConversationUrlHeaders, runtime *util.RuntimeOptions) (_result *GetConversationUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppUserId)) {
+		body["appUserId"] = request.AppUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ChannelCode)) {
+		body["channelCode"] = request.ChannelCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceCode)) {
+		body["sourceCode"] = request.SourceCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetConversationUrlResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetConversationUrl"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/conversations/urls"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3662,6 +4684,242 @@ func (client *Client) UpdateTheGroupRolesOfGroupMemberWithOptions(request *Updat
 	}
 	_result = &UpdateTheGroupRolesOfGroupMemberResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateTheGroupRolesOfGroupMember"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/members/groupRoles"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddGroupMember(request *AddGroupMemberRequest) (_result *AddGroupMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddGroupMemberHeaders{}
+	_result = &AddGroupMemberResponse{}
+	_body, _err := client.AddGroupMemberWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddGroupMemberWithOptions(request *AddGroupMemberRequest, headers *AddGroupMemberHeaders, runtime *util.RuntimeOptions) (_result *AddGroupMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppUserIds)) {
+		body["appUserIds"] = request.AppUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddGroupMemberResponse{}
+	_body, _err := client.DoROARequest(tea.String("addGroupMember"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/groups/members"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RemoveGroupMember(request *RemoveGroupMemberRequest) (_result *RemoveGroupMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RemoveGroupMemberHeaders{}
+	_result = &RemoveGroupMemberResponse{}
+	_body, _err := client.RemoveGroupMemberWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RemoveGroupMemberWithOptions(request *RemoveGroupMemberRequest, headers *RemoveGroupMemberHeaders, runtime *util.RuntimeOptions) (_result *RemoveGroupMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppUserIds)) {
+		body["appUserIds"] = request.AppUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RemoveGroupMemberResponse{}
+	_body, _err := client.DoROARequest(tea.String("removeGroupMember"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/groups/members/remove"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendDingMessage(request *SendDingMessageRequest) (_result *SendDingMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendDingMessageHeaders{}
+	_result = &SendDingMessageResponse{}
+	_body, _err := client.SendDingMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendDingMessageWithOptions(request *SendDingMessageRequest, headers *SendDingMessageHeaders, runtime *util.RuntimeOptions) (_result *SendDingMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		body["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Message)) {
+		body["message"] = request.Message
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MessageType)) {
+		body["messageType"] = request.MessageType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverId)) {
+		body["receiverId"] = request.ReceiverId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SenderId)) {
+		body["senderId"] = request.SenderId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendDingMessageResponse{}
+	_body, _err := client.DoROARequest(tea.String("sendDingMessage"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/dingMessages/send"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendMessage(request *SendMessageRequest) (_result *SendMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendMessageHeaders{}
+	_result = &SendMessageResponse{}
+	_body, _err := client.SendMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendMessageWithOptions(request *SendMessageRequest, headers *SendMessageHeaders, runtime *util.RuntimeOptions) (_result *SendMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Message)) {
+		body["message"] = request.Message
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MessageType)) {
+		body["messageType"] = request.MessageType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverId)) {
+		body["receiverId"] = request.ReceiverId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SenderId)) {
+		body["senderId"] = request.SenderId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendMessageResponse{}
+	_body, _err := client.DoROARequest(tea.String("sendMessage"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/messages/send"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
