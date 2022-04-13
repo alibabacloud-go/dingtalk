@@ -5367,6 +5367,109 @@ func (s *EndCourseResponse) SetBody(v *EndCourseResponseBody) *EndCourseResponse
 	return s
 }
 
+type GetBindChildInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetBindChildInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBindChildInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetBindChildInfoHeaders) SetCommonHeaders(v map[string]*string) *GetBindChildInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetBindChildInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetBindChildInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetBindChildInfoRequest struct {
+	// 学校id
+	SchoolCorpId *string `json:"schoolCorpId,omitempty" xml:"schoolCorpId,omitempty"`
+	// 学生id
+	StudentUserId *string `json:"studentUserId,omitempty" xml:"studentUserId,omitempty"`
+	// 当前操作人唯一id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetBindChildInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBindChildInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetBindChildInfoRequest) SetSchoolCorpId(v string) *GetBindChildInfoRequest {
+	s.SchoolCorpId = &v
+	return s
+}
+
+func (s *GetBindChildInfoRequest) SetStudentUserId(v string) *GetBindChildInfoRequest {
+	s.StudentUserId = &v
+	return s
+}
+
+func (s *GetBindChildInfoRequest) SetUnionId(v string) *GetBindChildInfoRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetBindChildInfoResponseBody struct {
+	// 孩子id
+	ChildUserId *string `json:"childUserId,omitempty" xml:"childUserId,omitempty"`
+	// 家庭id
+	FamilyCorpId *string `json:"familyCorpId,omitempty" xml:"familyCorpId,omitempty"`
+}
+
+func (s GetBindChildInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBindChildInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetBindChildInfoResponseBody) SetChildUserId(v string) *GetBindChildInfoResponseBody {
+	s.ChildUserId = &v
+	return s
+}
+
+func (s *GetBindChildInfoResponseBody) SetFamilyCorpId(v string) *GetBindChildInfoResponseBody {
+	s.FamilyCorpId = &v
+	return s
+}
+
+type GetBindChildInfoResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetBindChildInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetBindChildInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBindChildInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetBindChildInfoResponse) SetHeaders(v map[string]*string) *GetBindChildInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetBindChildInfoResponse) SetBody(v *GetBindChildInfoResponseBody) *GetBindChildInfoResponse {
+	s.Body = v
+	return s
+}
+
 type GetDefaultChildHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -15843,6 +15946,58 @@ func (client *Client) EndCourseWithOptions(request *EndCourseRequest, headers *E
 	}
 	_result = &EndCourseResponse{}
 	_body, _err := client.DoROARequest(tea.String("EndCourse"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/universities/courses/end"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetBindChildInfo(request *GetBindChildInfoRequest) (_result *GetBindChildInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetBindChildInfoHeaders{}
+	_result = &GetBindChildInfoResponse{}
+	_body, _err := client.GetBindChildInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetBindChildInfoWithOptions(request *GetBindChildInfoRequest, headers *GetBindChildInfoHeaders, runtime *util.RuntimeOptions) (_result *GetBindChildInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SchoolCorpId)) {
+		query["schoolCorpId"] = request.SchoolCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StudentUserId)) {
+		query["studentUserId"] = request.StudentUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetBindChildInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetBindChildInfo"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/families/childs/infos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
