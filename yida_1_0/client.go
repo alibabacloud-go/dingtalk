@@ -11,6 +11,881 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type BatchGetFormDataByIdListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchGetFormDataByIdListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetFormDataByIdListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetFormDataByIdListHeaders) SetCommonHeaders(v map[string]*string) *BatchGetFormDataByIdListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListHeaders) SetXAcsDingtalkAccessToken(v string) *BatchGetFormDataByIdListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchGetFormDataByIdListRequest struct {
+	// 宜搭应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 表单实例id列表
+	FormInstanceIdList []*string `json:"formInstanceIdList,omitempty" xml:"formInstanceIdList,omitempty" type:"Repeated"`
+	// 表单编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 是否需要宜搭表单组件格式的实例数据
+	NeedFormInstanceValue *bool `json:"needFormInstanceValue,omitempty" xml:"needFormInstanceValue,omitempty"`
+	// 宜搭应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s BatchGetFormDataByIdListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetFormDataByIdListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetFormDataByIdListRequest) SetAppType(v string) *BatchGetFormDataByIdListRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListRequest) SetFormInstanceIdList(v []*string) *BatchGetFormDataByIdListRequest {
+	s.FormInstanceIdList = v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListRequest) SetFormUuid(v string) *BatchGetFormDataByIdListRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListRequest) SetNeedFormInstanceValue(v bool) *BatchGetFormDataByIdListRequest {
+	s.NeedFormInstanceValue = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListRequest) SetSystemToken(v string) *BatchGetFormDataByIdListRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListRequest) SetUserId(v string) *BatchGetFormDataByIdListRequest {
+	s.UserId = &v
+	return s
+}
+
+type BatchGetFormDataByIdListResponseBody struct {
+	// 表单实例数据
+	Result []*BatchGetFormDataByIdListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s BatchGetFormDataByIdListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetFormDataByIdListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetFormDataByIdListResponseBody) SetResult(v []*BatchGetFormDataByIdListResponseBodyResult) *BatchGetFormDataByIdListResponseBody {
+	s.Result = v
+	return s
+}
+
+type BatchGetFormDataByIdListResponseBodyResult struct {
+	// 创建时间
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// 创建者的userId
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// 表单实例数据
+	FormData map[string]interface{} `json:"formData,omitempty" xml:"formData,omitempty"`
+	// 表单实例id
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// 表单编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 数据库表记录主键id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 实例数据
+	InstanceValue *string `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
+	// 修改时间
+	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	// 修改者的钉钉userId
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	// 修改者
+	ModifyUser *BatchGetFormDataByIdListResponseBodyResultModifyUser `json:"modifyUser,omitempty" xml:"modifyUser,omitempty" type:"Struct"`
+	// 表单提交人
+	Originator *BatchGetFormDataByIdListResponseBodyResultOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
+	// 该表单实例对应的批量导入的批次号(如果是通过批量导入创建的)
+	Sequence *string `json:"sequence,omitempty" xml:"sequence,omitempty"`
+	// 流水号
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	// 标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 该表单实例对应的表单schema版本
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s BatchGetFormDataByIdListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetFormDataByIdListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResult) SetCreateTimeGMT(v string) *BatchGetFormDataByIdListResponseBodyResult {
+	s.CreateTimeGMT = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResult) SetCreatorUserId(v string) *BatchGetFormDataByIdListResponseBodyResult {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResult) SetFormData(v map[string]interface{}) *BatchGetFormDataByIdListResponseBodyResult {
+	s.FormData = v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResult) SetFormInstanceId(v string) *BatchGetFormDataByIdListResponseBodyResult {
+	s.FormInstanceId = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResult) SetFormUuid(v string) *BatchGetFormDataByIdListResponseBodyResult {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResult) SetId(v int64) *BatchGetFormDataByIdListResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResult) SetInstanceValue(v string) *BatchGetFormDataByIdListResponseBodyResult {
+	s.InstanceValue = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResult) SetModifiedTimeGMT(v string) *BatchGetFormDataByIdListResponseBodyResult {
+	s.ModifiedTimeGMT = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResult) SetModifier(v string) *BatchGetFormDataByIdListResponseBodyResult {
+	s.Modifier = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResult) SetModifyUser(v *BatchGetFormDataByIdListResponseBodyResultModifyUser) *BatchGetFormDataByIdListResponseBodyResult {
+	s.ModifyUser = v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResult) SetOriginator(v *BatchGetFormDataByIdListResponseBodyResultOriginator) *BatchGetFormDataByIdListResponseBodyResult {
+	s.Originator = v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResult) SetSequence(v string) *BatchGetFormDataByIdListResponseBodyResult {
+	s.Sequence = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResult) SetSerialNumber(v string) *BatchGetFormDataByIdListResponseBodyResult {
+	s.SerialNumber = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResult) SetTitle(v string) *BatchGetFormDataByIdListResponseBodyResult {
+	s.Title = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResult) SetVersion(v int64) *BatchGetFormDataByIdListResponseBodyResult {
+	s.Version = &v
+	return s
+}
+
+type BatchGetFormDataByIdListResponseBodyResultModifyUser struct {
+	// 部门名称
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// 电子邮箱
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+	// 名称
+	Name *BatchGetFormDataByIdListResponseBodyResultModifyUserName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s BatchGetFormDataByIdListResponseBodyResultModifyUser) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetFormDataByIdListResponseBodyResultModifyUser) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResultModifyUser) SetDepartmentName(v string) *BatchGetFormDataByIdListResponseBodyResultModifyUser {
+	s.DepartmentName = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResultModifyUser) SetEmail(v string) *BatchGetFormDataByIdListResponseBodyResultModifyUser {
+	s.Email = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResultModifyUser) SetName(v *BatchGetFormDataByIdListResponseBodyResultModifyUserName) *BatchGetFormDataByIdListResponseBodyResultModifyUser {
+	s.Name = v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResultModifyUser) SetUserId(v string) *BatchGetFormDataByIdListResponseBodyResultModifyUser {
+	s.UserId = &v
+	return s
+}
+
+type BatchGetFormDataByIdListResponseBodyResultModifyUserName struct {
+	// 中文名称
+	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// 英文名称
+	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
+}
+
+func (s BatchGetFormDataByIdListResponseBodyResultModifyUserName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetFormDataByIdListResponseBodyResultModifyUserName) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResultModifyUserName) SetNameInChinese(v string) *BatchGetFormDataByIdListResponseBodyResultModifyUserName {
+	s.NameInChinese = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResultModifyUserName) SetNameInEnglish(v string) *BatchGetFormDataByIdListResponseBodyResultModifyUserName {
+	s.NameInEnglish = &v
+	return s
+}
+
+type BatchGetFormDataByIdListResponseBodyResultOriginator struct {
+	// 部门名称
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// 电子邮箱
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+	// 名称
+	Name *BatchGetFormDataByIdListResponseBodyResultOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s BatchGetFormDataByIdListResponseBodyResultOriginator) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetFormDataByIdListResponseBodyResultOriginator) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResultOriginator) SetDepartmentName(v string) *BatchGetFormDataByIdListResponseBodyResultOriginator {
+	s.DepartmentName = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResultOriginator) SetEmail(v string) *BatchGetFormDataByIdListResponseBodyResultOriginator {
+	s.Email = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResultOriginator) SetName(v *BatchGetFormDataByIdListResponseBodyResultOriginatorName) *BatchGetFormDataByIdListResponseBodyResultOriginator {
+	s.Name = v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResultOriginator) SetUserId(v string) *BatchGetFormDataByIdListResponseBodyResultOriginator {
+	s.UserId = &v
+	return s
+}
+
+type BatchGetFormDataByIdListResponseBodyResultOriginatorName struct {
+	// 中文名称
+	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// 英文名称
+	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
+}
+
+func (s BatchGetFormDataByIdListResponseBodyResultOriginatorName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetFormDataByIdListResponseBodyResultOriginatorName) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResultOriginatorName) SetNameInChinese(v string) *BatchGetFormDataByIdListResponseBodyResultOriginatorName {
+	s.NameInChinese = &v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponseBodyResultOriginatorName) SetNameInEnglish(v string) *BatchGetFormDataByIdListResponseBodyResultOriginatorName {
+	s.NameInEnglish = &v
+	return s
+}
+
+type BatchGetFormDataByIdListResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchGetFormDataByIdListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchGetFormDataByIdListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetFormDataByIdListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetFormDataByIdListResponse) SetHeaders(v map[string]*string) *BatchGetFormDataByIdListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchGetFormDataByIdListResponse) SetBody(v *BatchGetFormDataByIdListResponseBody) *BatchGetFormDataByIdListResponse {
+	s.Body = v
+	return s
+}
+
+type BatchRemovalByFormInstanceIdListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchRemovalByFormInstanceIdListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRemovalByFormInstanceIdListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRemovalByFormInstanceIdListHeaders) SetCommonHeaders(v map[string]*string) *BatchRemovalByFormInstanceIdListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchRemovalByFormInstanceIdListHeaders) SetXAcsDingtalkAccessToken(v string) *BatchRemovalByFormInstanceIdListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchRemovalByFormInstanceIdListRequest struct {
+	// 宜搭应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 是否需要宜搭服务端异步执行该任务(选择异步执行删除操作，那么OpenAPI调用会立即返回，并且宜搭服务端会继续执行删除操作直至结束，且允许的单次删除数据量上限更大)
+	AsynchronousExecution *bool `json:"asynchronousExecution,omitempty" xml:"asynchronousExecution,omitempty"`
+	// 是否需要触发表单绑定的校验规则、关联业务规则和第三方服务回调（如果您的业务无必要执行这些，那么请填false以降低API的耗时以及获得更大的单次删除数据量上限）
+	ExecuteExpression *bool `json:"executeExpression,omitempty" xml:"executeExpression,omitempty"`
+	// 表单实例id列表
+	FormInstanceIdList []*string `json:"formInstanceIdList,omitempty" xml:"formInstanceIdList,omitempty" type:"Repeated"`
+	// 表单编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 宜搭应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s BatchRemovalByFormInstanceIdListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRemovalByFormInstanceIdListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRemovalByFormInstanceIdListRequest) SetAppType(v string) *BatchRemovalByFormInstanceIdListRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *BatchRemovalByFormInstanceIdListRequest) SetAsynchronousExecution(v bool) *BatchRemovalByFormInstanceIdListRequest {
+	s.AsynchronousExecution = &v
+	return s
+}
+
+func (s *BatchRemovalByFormInstanceIdListRequest) SetExecuteExpression(v bool) *BatchRemovalByFormInstanceIdListRequest {
+	s.ExecuteExpression = &v
+	return s
+}
+
+func (s *BatchRemovalByFormInstanceIdListRequest) SetFormInstanceIdList(v []*string) *BatchRemovalByFormInstanceIdListRequest {
+	s.FormInstanceIdList = v
+	return s
+}
+
+func (s *BatchRemovalByFormInstanceIdListRequest) SetFormUuid(v string) *BatchRemovalByFormInstanceIdListRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *BatchRemovalByFormInstanceIdListRequest) SetSystemToken(v string) *BatchRemovalByFormInstanceIdListRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *BatchRemovalByFormInstanceIdListRequest) SetUserId(v string) *BatchRemovalByFormInstanceIdListRequest {
+	s.UserId = &v
+	return s
+}
+
+type BatchRemovalByFormInstanceIdListResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s BatchRemovalByFormInstanceIdListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRemovalByFormInstanceIdListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRemovalByFormInstanceIdListResponse) SetHeaders(v map[string]*string) *BatchRemovalByFormInstanceIdListResponse {
+	s.Headers = v
+	return s
+}
+
+type BatchSaveFormDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchSaveFormDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSaveFormDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSaveFormDataHeaders) SetCommonHeaders(v map[string]*string) *BatchSaveFormDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchSaveFormDataHeaders) SetXAcsDingtalkAccessToken(v string) *BatchSaveFormDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchSaveFormDataRequest struct {
+	// 宜搭应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 是否需要宜搭服务端异步执行该任务(如果选择异步创建表单实例，那么OpenAPI调用会立即返回，并且宜搭服务端会继续执行保存操作直至结束，且允许的单次保存数据量上限更大)
+	AsynchronousExecution *bool `json:"asynchronousExecution,omitempty" xml:"asynchronousExecution,omitempty"`
+	// 表单实例数据列表。表单实例数据的结构请参考 https://www.yuque.com/yida/support/agb8im#f26a51f429f9f19aa0b5b3ee847ac556_h3_31
+	FormDataJsonList []*string `json:"formDataJsonList,omitempty" xml:"formDataJsonList,omitempty" type:"Repeated"`
+	// 表单编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 批量保存多条表单实例数据发生异常时是否跳过异常的表单实例并继续保存下一个表单实例数据。当noExecuteExpression为false时此参数才生效。
+	KeepRunningAfterException *bool `json:"keepRunningAfterException,omitempty" xml:"keepRunningAfterException,omitempty"`
+	// 是否不触发表单绑定的校验规则、关联业务规则和第三方服务回调（如果您的业务无必要执行这些，那么请填true以减小API的耗时以及获得更大的单次保存数据量上限）
+	NoExecuteExpression *bool `json:"noExecuteExpression,omitempty" xml:"noExecuteExpression,omitempty"`
+	// 宜搭应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s BatchSaveFormDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSaveFormDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSaveFormDataRequest) SetAppType(v string) *BatchSaveFormDataRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *BatchSaveFormDataRequest) SetAsynchronousExecution(v bool) *BatchSaveFormDataRequest {
+	s.AsynchronousExecution = &v
+	return s
+}
+
+func (s *BatchSaveFormDataRequest) SetFormDataJsonList(v []*string) *BatchSaveFormDataRequest {
+	s.FormDataJsonList = v
+	return s
+}
+
+func (s *BatchSaveFormDataRequest) SetFormUuid(v string) *BatchSaveFormDataRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *BatchSaveFormDataRequest) SetKeepRunningAfterException(v bool) *BatchSaveFormDataRequest {
+	s.KeepRunningAfterException = &v
+	return s
+}
+
+func (s *BatchSaveFormDataRequest) SetNoExecuteExpression(v bool) *BatchSaveFormDataRequest {
+	s.NoExecuteExpression = &v
+	return s
+}
+
+func (s *BatchSaveFormDataRequest) SetSystemToken(v string) *BatchSaveFormDataRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *BatchSaveFormDataRequest) SetUserId(v string) *BatchSaveFormDataRequest {
+	s.UserId = &v
+	return s
+}
+
+type BatchSaveFormDataResponseBody struct {
+	// 新增的表单实例的id列表
+	Result []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s BatchSaveFormDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSaveFormDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSaveFormDataResponseBody) SetResult(v []*string) *BatchSaveFormDataResponseBody {
+	s.Result = v
+	return s
+}
+
+type BatchSaveFormDataResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchSaveFormDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchSaveFormDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchSaveFormDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchSaveFormDataResponse) SetHeaders(v map[string]*string) *BatchSaveFormDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchSaveFormDataResponse) SetBody(v *BatchSaveFormDataResponseBody) *BatchSaveFormDataResponse {
+	s.Body = v
+	return s
+}
+
+type BatchUpdateFormDataByInstanceIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchUpdateFormDataByInstanceIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateFormDataByInstanceIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateFormDataByInstanceIdHeaders) SetCommonHeaders(v map[string]*string) *BatchUpdateFormDataByInstanceIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceIdHeaders) SetXAcsDingtalkAccessToken(v string) *BatchUpdateFormDataByInstanceIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchUpdateFormDataByInstanceIdRequest struct {
+	// 宜搭应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 是否需要宜搭服务端异步执行该任务(选择异步执行那么OpenAPI调用会立即返回，并且任务会在宜搭服务端继续执行直至结束，且允许的单次更新数据量上限更大)
+	AsynchronousExecution *bool `json:"asynchronousExecution,omitempty" xml:"asynchronousExecution,omitempty"`
+	// 表单实例id列表
+	FormInstanceIdList []*string `json:"formInstanceIdList,omitempty" xml:"formInstanceIdList,omitempty" type:"Repeated"`
+	// 表单编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 是否忽略空值
+	IgnoreEmpty *bool `json:"ignoreEmpty,omitempty" xml:"ignoreEmpty,omitempty"`
+	// 是否不触发校验规则、关联业务规则和第三方服务回调（如果您的业务无必要触发这些那么请填true以增大单次更新允许的数据量上限以及API的执行速度）
+	NoExecuteExpression *bool `json:"noExecuteExpression,omitempty" xml:"noExecuteExpression,omitempty"`
+	// 宜搭应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 用于更新表单实例的数据, 格式为json字符串, 能解析成Map结构, 解析得到的Map的键为表单组件id, 值为表单组件值。详情参考 https://www.yuque.com/yida/support/agb8im#f26a51f429f9f19aa0b5b3ee847ac556_h3_31
+	UpdateFormDataJson *string `json:"updateFormDataJson,omitempty" xml:"updateFormDataJson,omitempty"`
+	// 是否使用最新的表单schema版本, 默认false
+	UseLatestFormSchemaVersion *bool `json:"useLatestFormSchemaVersion,omitempty" xml:"useLatestFormSchemaVersion,omitempty"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s BatchUpdateFormDataByInstanceIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateFormDataByInstanceIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateFormDataByInstanceIdRequest) SetAppType(v string) *BatchUpdateFormDataByInstanceIdRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceIdRequest) SetAsynchronousExecution(v bool) *BatchUpdateFormDataByInstanceIdRequest {
+	s.AsynchronousExecution = &v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceIdRequest) SetFormInstanceIdList(v []*string) *BatchUpdateFormDataByInstanceIdRequest {
+	s.FormInstanceIdList = v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceIdRequest) SetFormUuid(v string) *BatchUpdateFormDataByInstanceIdRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceIdRequest) SetIgnoreEmpty(v bool) *BatchUpdateFormDataByInstanceIdRequest {
+	s.IgnoreEmpty = &v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceIdRequest) SetNoExecuteExpression(v bool) *BatchUpdateFormDataByInstanceIdRequest {
+	s.NoExecuteExpression = &v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceIdRequest) SetSystemToken(v string) *BatchUpdateFormDataByInstanceIdRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceIdRequest) SetUpdateFormDataJson(v string) *BatchUpdateFormDataByInstanceIdRequest {
+	s.UpdateFormDataJson = &v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceIdRequest) SetUseLatestFormSchemaVersion(v bool) *BatchUpdateFormDataByInstanceIdRequest {
+	s.UseLatestFormSchemaVersion = &v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceIdRequest) SetUserId(v string) *BatchUpdateFormDataByInstanceIdRequest {
+	s.UserId = &v
+	return s
+}
+
+type BatchUpdateFormDataByInstanceIdResponseBody struct {
+	// 成功更新的表单实例的id
+	Result []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s BatchUpdateFormDataByInstanceIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateFormDataByInstanceIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateFormDataByInstanceIdResponseBody) SetResult(v []*string) *BatchUpdateFormDataByInstanceIdResponseBody {
+	s.Result = v
+	return s
+}
+
+type BatchUpdateFormDataByInstanceIdResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchUpdateFormDataByInstanceIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchUpdateFormDataByInstanceIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateFormDataByInstanceIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateFormDataByInstanceIdResponse) SetHeaders(v map[string]*string) *BatchUpdateFormDataByInstanceIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceIdResponse) SetBody(v *BatchUpdateFormDataByInstanceIdResponseBody) *BatchUpdateFormDataByInstanceIdResponse {
+	s.Body = v
+	return s
+}
+
+type BatchUpdateFormDataByInstanceMapHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchUpdateFormDataByInstanceMapHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateFormDataByInstanceMapHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateFormDataByInstanceMapHeaders) SetCommonHeaders(v map[string]*string) *BatchUpdateFormDataByInstanceMapHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceMapHeaders) SetXAcsDingtalkAccessToken(v string) *BatchUpdateFormDataByInstanceMapHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchUpdateFormDataByInstanceMapRequest struct {
+	// 宜搭应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 该任务是否需要服务端异步执行(选择异步执行那么OpenAPI调用会立即返回并且任务在宜搭服务端继续执行，可支持更大的单次更新数据量上限)
+	AsynchronousExecution *bool `json:"asynchronousExecution,omitempty" xml:"asynchronousExecution,omitempty"`
+	// 表单编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 是否忽略空值
+	IgnoreEmpty *bool `json:"ignoreEmpty,omitempty" xml:"ignoreEmpty,omitempty"`
+	// 是否不需要触发表单绑定的校验规则、关联业务规则和第三方服务回调（如果您的业务无必要执行这些，那么请填true以减小API的耗时以及更大的单次更新数据量上限）
+	NoExecuteExpression *bool `json:"noExecuteExpression,omitempty" xml:"noExecuteExpression,omitempty"`
+	// 宜搭应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 表单实例数据, json字符串, 可以解析成Map, 解析后得到的Map的键是表单实例id, 值是表单实例更新值json字符串。具体结构请参考 https://www.yuque.com/yida/support/agb8im#f26a51f429f9f19aa0b5b3ee847ac556_h3_31
+	UpdateFormDataJsonMap map[string]interface{} `json:"updateFormDataJsonMap,omitempty" xml:"updateFormDataJsonMap,omitempty"`
+	// 是否使用最新的表单schema版本, 默认false
+	UseLatestFormSchemaVersion *bool `json:"useLatestFormSchemaVersion,omitempty" xml:"useLatestFormSchemaVersion,omitempty"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s BatchUpdateFormDataByInstanceMapRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateFormDataByInstanceMapRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateFormDataByInstanceMapRequest) SetAppType(v string) *BatchUpdateFormDataByInstanceMapRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceMapRequest) SetAsynchronousExecution(v bool) *BatchUpdateFormDataByInstanceMapRequest {
+	s.AsynchronousExecution = &v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceMapRequest) SetFormUuid(v string) *BatchUpdateFormDataByInstanceMapRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceMapRequest) SetIgnoreEmpty(v bool) *BatchUpdateFormDataByInstanceMapRequest {
+	s.IgnoreEmpty = &v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceMapRequest) SetNoExecuteExpression(v bool) *BatchUpdateFormDataByInstanceMapRequest {
+	s.NoExecuteExpression = &v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceMapRequest) SetSystemToken(v string) *BatchUpdateFormDataByInstanceMapRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceMapRequest) SetUpdateFormDataJsonMap(v map[string]interface{}) *BatchUpdateFormDataByInstanceMapRequest {
+	s.UpdateFormDataJsonMap = v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceMapRequest) SetUseLatestFormSchemaVersion(v bool) *BatchUpdateFormDataByInstanceMapRequest {
+	s.UseLatestFormSchemaVersion = &v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceMapRequest) SetUserId(v string) *BatchUpdateFormDataByInstanceMapRequest {
+	s.UserId = &v
+	return s
+}
+
+type BatchUpdateFormDataByInstanceMapResponseBody struct {
+	// 更新成功的表单实例ID
+	Result []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s BatchUpdateFormDataByInstanceMapResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateFormDataByInstanceMapResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateFormDataByInstanceMapResponseBody) SetResult(v []*string) *BatchUpdateFormDataByInstanceMapResponseBody {
+	s.Result = v
+	return s
+}
+
+type BatchUpdateFormDataByInstanceMapResponse struct {
+	Headers map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchUpdateFormDataByInstanceMapResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchUpdateFormDataByInstanceMapResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateFormDataByInstanceMapResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateFormDataByInstanceMapResponse) SetHeaders(v map[string]*string) *BatchUpdateFormDataByInstanceMapResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceMapResponse) SetBody(v *BatchUpdateFormDataByInstanceMapResponseBody) *BatchUpdateFormDataByInstanceMapResponse {
+	s.Body = v
+	return s
+}
+
 type BuyAuthorizationOrderHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -389,6 +1264,130 @@ func (s *CheckCloudAccountStatusResponse) SetHeaders(v map[string]*string) *Chec
 }
 
 func (s *CheckCloudAccountStatusResponse) SetBody(v *CheckCloudAccountStatusResponseBody) *CheckCloudAccountStatusResponse {
+	s.Body = v
+	return s
+}
+
+type CreateOrUpdateFormDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateOrUpdateFormDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrUpdateFormDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrUpdateFormDataHeaders) SetCommonHeaders(v map[string]*string) *CreateOrUpdateFormDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateOrUpdateFormDataHeaders) SetXAcsDingtalkAccessToken(v string) *CreateOrUpdateFormDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateOrUpdateFormDataRequest struct {
+	// 宜搭应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 宜搭表单实例数据 json格式，如果存在满足检索条件的表单实例数据则用此值增量更新满足检索条件的的表单实例数据，否则用此值创建一条表单实例。表单实例数据的结构请参考 https://www.yuque.com/yida/support/agb8im#f26a51f429f9f19aa0b5b3ee847ac556_h3_31
+	FormDataJson *string `json:"formDataJson,omitempty" xml:"formDataJson,omitempty"`
+	// 表单编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 是否不触发校验规则、关联业务规则和第三方服务回调
+	NoExecuteExpression *bool `json:"noExecuteExpression,omitempty" xml:"noExecuteExpression,omitempty"`
+	// 用于检索表单实例数据的检索条件
+	SearchCondition *string `json:"searchCondition,omitempty" xml:"searchCondition,omitempty"`
+	// 宜搭应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateOrUpdateFormDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrUpdateFormDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrUpdateFormDataRequest) SetAppType(v string) *CreateOrUpdateFormDataRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *CreateOrUpdateFormDataRequest) SetFormDataJson(v string) *CreateOrUpdateFormDataRequest {
+	s.FormDataJson = &v
+	return s
+}
+
+func (s *CreateOrUpdateFormDataRequest) SetFormUuid(v string) *CreateOrUpdateFormDataRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *CreateOrUpdateFormDataRequest) SetNoExecuteExpression(v bool) *CreateOrUpdateFormDataRequest {
+	s.NoExecuteExpression = &v
+	return s
+}
+
+func (s *CreateOrUpdateFormDataRequest) SetSearchCondition(v string) *CreateOrUpdateFormDataRequest {
+	s.SearchCondition = &v
+	return s
+}
+
+func (s *CreateOrUpdateFormDataRequest) SetSystemToken(v string) *CreateOrUpdateFormDataRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *CreateOrUpdateFormDataRequest) SetUserId(v string) *CreateOrUpdateFormDataRequest {
+	s.UserId = &v
+	return s
+}
+
+type CreateOrUpdateFormDataResponseBody struct {
+	// 新增的或者更新的表单实例id列表
+	Result []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s CreateOrUpdateFormDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrUpdateFormDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrUpdateFormDataResponseBody) SetResult(v []*string) *CreateOrUpdateFormDataResponseBody {
+	s.Result = v
+	return s
+}
+
+type CreateOrUpdateFormDataResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateOrUpdateFormDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateOrUpdateFormDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrUpdateFormDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrUpdateFormDataResponse) SetHeaders(v map[string]*string) *CreateOrUpdateFormDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateOrUpdateFormDataResponse) SetBody(v *CreateOrUpdateFormDataResponseBody) *CreateOrUpdateFormDataResponse {
 	s.Body = v
 	return s
 }
@@ -3307,18 +4306,22 @@ type GetInstancesRequest struct {
 	ModifiedFromTimeGMT *string `json:"modifiedFromTimeGMT,omitempty" xml:"modifiedFromTimeGMT,omitempty"`
 	// modifiedFrom和modifiedTo构成一个时间段，查询在该时间段有修改的数据列表。字符串格式，且为yyyy-MM-DD格式。 和modifiedFrom一起，相当于查询在 2018-01-01到2018-01-31之间(包含01和31号)被修改的数据。
 	ModifiedToTimeGMT *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
-	// 根据数据提交人工号查询
+	// 排序规则
+	OrderConfigJson *string `json:"orderConfigJson,omitempty" xml:"orderConfigJson,omitempty"`
+	// 数据提交人的钉钉userId
 	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
-	// 根据表单内组件值查询
+	// 查询过滤条件，支持2种模式的过滤规则
 	SearchFieldJson *string `json:"searchFieldJson,omitempty" xml:"searchFieldJson,omitempty"`
 	// 应用秘钥。在应用数据中获取。
 	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
 	// 任务ID。一般用不到。
 	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 	// 钉钉userId
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 当前第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页多少条数据
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s GetInstancesRequest) String() string {
@@ -3371,6 +4374,11 @@ func (s *GetInstancesRequest) SetModifiedFromTimeGMT(v string) *GetInstancesRequ
 
 func (s *GetInstancesRequest) SetModifiedToTimeGMT(v string) *GetInstancesRequest {
 	s.ModifiedToTimeGMT = &v
+	return s
+}
+
+func (s *GetInstancesRequest) SetOrderConfigJson(v string) *GetInstancesRequest {
+	s.OrderConfigJson = &v
 	return s
 }
 
@@ -7216,6 +8224,225 @@ func (s *GetTaskCopiesResponse) SetBody(v *GetTaskCopiesResponseBody) *GetTaskCo
 	return s
 }
 
+type ListApplicationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListApplicationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationHeaders) SetCommonHeaders(v map[string]*string) *ListApplicationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListApplicationHeaders) SetXAcsDingtalkAccessToken(v string) *ListApplicationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListApplicationRequest struct {
+	// 应用过滤条件, 不填则获取发布到了宜搭应用中心的宜搭应用, 填createdByMe获取我创建的宜搭应用, 填managedByMe获取我管理的宜搭应用
+	AppFilter *string `json:"appFilter,omitempty" xml:"appFilter,omitempty"`
+	// 应用名称检索关键词
+	AppNameSearchKeyword *string `json:"appNameSearchKeyword,omitempty" xml:"appNameSearchKeyword,omitempty"`
+	// 钉钉组织id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// corpId+userId+CorpToken做md5加密计算生成的字符串(每个企业有自己的唯一corpToken), 获取具体计算详情请联系宜搭 dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=somjffs
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListApplicationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationRequest) SetAppFilter(v string) *ListApplicationRequest {
+	s.AppFilter = &v
+	return s
+}
+
+func (s *ListApplicationRequest) SetAppNameSearchKeyword(v string) *ListApplicationRequest {
+	s.AppNameSearchKeyword = &v
+	return s
+}
+
+func (s *ListApplicationRequest) SetCorpId(v string) *ListApplicationRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ListApplicationRequest) SetPageNumber(v int32) *ListApplicationRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ListApplicationRequest) SetPageSize(v int32) *ListApplicationRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ListApplicationRequest) SetToken(v string) *ListApplicationRequest {
+	s.Token = &v
+	return s
+}
+
+func (s *ListApplicationRequest) SetUserId(v string) *ListApplicationRequest {
+	s.UserId = &v
+	return s
+}
+
+type ListApplicationResponseBody struct {
+	// 数据
+	Data []*ListApplicationResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// 当前第几页
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s ListApplicationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationResponseBody) SetData(v []*ListApplicationResponseBodyData) *ListApplicationResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *ListApplicationResponseBody) SetPageNumber(v int64) *ListApplicationResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ListApplicationResponseBody) SetTotalCount(v int64) *ListApplicationResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type ListApplicationResponseBodyData struct {
+	// 宜搭应用配置
+	AppConfig *string `json:"appConfig,omitempty" xml:"appConfig,omitempty"`
+	// 宜搭应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 应用状态
+	ApplicationStatus *string `json:"applicationStatus,omitempty" xml:"applicationStatus,omitempty"`
+	// 钉钉组织id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 创建者的userId
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// 描述信息
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 宜搭图标编码
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 是否被删除了
+	Inexistence *string `json:"inexistence,omitempty" xml:"inexistence,omitempty"`
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 子组织的钉钉CorpId
+	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
+}
+
+func (s ListApplicationResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationResponseBodyData) SetAppConfig(v string) *ListApplicationResponseBodyData {
+	s.AppConfig = &v
+	return s
+}
+
+func (s *ListApplicationResponseBodyData) SetAppType(v string) *ListApplicationResponseBodyData {
+	s.AppType = &v
+	return s
+}
+
+func (s *ListApplicationResponseBodyData) SetApplicationStatus(v string) *ListApplicationResponseBodyData {
+	s.ApplicationStatus = &v
+	return s
+}
+
+func (s *ListApplicationResponseBodyData) SetCorpId(v string) *ListApplicationResponseBodyData {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ListApplicationResponseBodyData) SetCreatorUserId(v string) *ListApplicationResponseBodyData {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *ListApplicationResponseBodyData) SetDescription(v string) *ListApplicationResponseBodyData {
+	s.Description = &v
+	return s
+}
+
+func (s *ListApplicationResponseBodyData) SetIcon(v string) *ListApplicationResponseBodyData {
+	s.Icon = &v
+	return s
+}
+
+func (s *ListApplicationResponseBodyData) SetInexistence(v string) *ListApplicationResponseBodyData {
+	s.Inexistence = &v
+	return s
+}
+
+func (s *ListApplicationResponseBodyData) SetName(v string) *ListApplicationResponseBodyData {
+	s.Name = &v
+	return s
+}
+
+func (s *ListApplicationResponseBodyData) SetSubCorpId(v string) *ListApplicationResponseBodyData {
+	s.SubCorpId = &v
+	return s
+}
+
+type ListApplicationResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListApplicationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListApplicationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListApplicationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListApplicationResponse) SetHeaders(v map[string]*string) *ListApplicationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListApplicationResponse) SetBody(v *ListApplicationResponseBody) *ListApplicationResponse {
+	s.Body = v
+	return s
+}
+
 type ListApplicationAuthorizationServiceApplicationInformationHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8729,6 +9956,295 @@ func (s *NotifyAuthorizationResultResponse) SetHeaders(v map[string]*string) *No
 }
 
 func (s *NotifyAuthorizationResultResponse) SetBody(v *NotifyAuthorizationResultResponseBody) *NotifyAuthorizationResultResponse {
+	s.Body = v
+	return s
+}
+
+type QueryServiceRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryServiceRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServiceRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServiceRecordHeaders) SetCommonHeaders(v map[string]*string) *QueryServiceRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryServiceRecordHeaders) SetXAcsDingtalkAccessToken(v string) *QueryServiceRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryServiceRecordRequest struct {
+	// 宜搭应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 表单编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 服务类型
+	HookType *string `json:"hookType,omitempty" xml:"hookType,omitempty"`
+	// 本次服务调用的唯一ID
+	HookUuid *string `json:"hookUuid,omitempty" xml:"hookUuid,omitempty"`
+	// 表单实例ID
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// 服务在此时间之后调用的
+	InvokeAfterDateGMT *string `json:"invokeAfterDateGMT,omitempty" xml:"invokeAfterDateGMT,omitempty"`
+	// 服务在此时间之前调用的
+	InvokeBeforeDateGMT *string `json:"invokeBeforeDateGMT,omitempty" xml:"invokeBeforeDateGMT,omitempty"`
+	// 服务调用状态
+	InvokeStatus *string `json:"invokeStatus,omitempty" xml:"invokeStatus,omitempty"`
+	// 分页第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 服务调用地址包含的部分字符串，用于模糊搜索
+	RequestUrl *string `json:"requestUrl,omitempty" xml:"requestUrl,omitempty"`
+	// 被重试的服务调用唯一ID(此次服务调用是重试哪个执行失败的服务调用)
+	SourceUuid *string `json:"sourceUuid,omitempty" xml:"sourceUuid,omitempty"`
+	// 服务调用是否成功(不传此参数则查询全部的)
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 宜搭应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 操作人的钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryServiceRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServiceRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServiceRecordRequest) SetAppType(v string) *QueryServiceRecordRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *QueryServiceRecordRequest) SetFormUuid(v string) *QueryServiceRecordRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *QueryServiceRecordRequest) SetHookType(v string) *QueryServiceRecordRequest {
+	s.HookType = &v
+	return s
+}
+
+func (s *QueryServiceRecordRequest) SetHookUuid(v string) *QueryServiceRecordRequest {
+	s.HookUuid = &v
+	return s
+}
+
+func (s *QueryServiceRecordRequest) SetInstanceId(v string) *QueryServiceRecordRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *QueryServiceRecordRequest) SetInvokeAfterDateGMT(v string) *QueryServiceRecordRequest {
+	s.InvokeAfterDateGMT = &v
+	return s
+}
+
+func (s *QueryServiceRecordRequest) SetInvokeBeforeDateGMT(v string) *QueryServiceRecordRequest {
+	s.InvokeBeforeDateGMT = &v
+	return s
+}
+
+func (s *QueryServiceRecordRequest) SetInvokeStatus(v string) *QueryServiceRecordRequest {
+	s.InvokeStatus = &v
+	return s
+}
+
+func (s *QueryServiceRecordRequest) SetPageNumber(v int32) *QueryServiceRecordRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryServiceRecordRequest) SetPageSize(v int32) *QueryServiceRecordRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryServiceRecordRequest) SetRequestUrl(v string) *QueryServiceRecordRequest {
+	s.RequestUrl = &v
+	return s
+}
+
+func (s *QueryServiceRecordRequest) SetSourceUuid(v string) *QueryServiceRecordRequest {
+	s.SourceUuid = &v
+	return s
+}
+
+func (s *QueryServiceRecordRequest) SetSuccess(v bool) *QueryServiceRecordRequest {
+	s.Success = &v
+	return s
+}
+
+func (s *QueryServiceRecordRequest) SetSystemToken(v string) *QueryServiceRecordRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *QueryServiceRecordRequest) SetUserId(v string) *QueryServiceRecordRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryServiceRecordResponseBody struct {
+	// 总数量
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 服务调用记录数组
+	Values []*QueryServiceRecordResponseBodyValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+}
+
+func (s QueryServiceRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServiceRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServiceRecordResponseBody) SetTotalCount(v int32) *QueryServiceRecordResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *QueryServiceRecordResponseBody) SetValues(v []*QueryServiceRecordResponseBodyValues) *QueryServiceRecordResponseBody {
+	s.Values = v
+	return s
+}
+
+type QueryServiceRecordResponseBodyValues struct {
+	// 表单实例id
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// 表单编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 服务类型
+	HookType *string `json:"hookType,omitempty" xml:"hookType,omitempty"`
+	// 本次服务调用的唯一ID
+	HookUuid *string `json:"hookUuid,omitempty" xml:"hookUuid,omitempty"`
+	// 服务调用的实际入参
+	InvokeParameter *string `json:"invokeParameter,omitempty" xml:"invokeParameter,omitempty"`
+	// 服务调用的返回结果
+	InvokeResult *string `json:"invokeResult,omitempty" xml:"invokeResult,omitempty"`
+	// 服务调用状态
+	InvokeStatus *string `json:"invokeStatus,omitempty" xml:"invokeStatus,omitempty"`
+	// 服务调用是否成功
+	InvokeSuccess *string `json:"invokeSuccess,omitempty" xml:"invokeSuccess,omitempty"`
+	// 服务调用地址
+	InvokeUrl *string `json:"invokeUrl,omitempty" xml:"invokeUrl,omitempty"`
+	// 宜搭调用目标服务时传的实际参数
+	ServiceContent *string `json:"serviceContent,omitempty" xml:"serviceContent,omitempty"`
+	// 服务名称
+	ServiceName *string `json:"serviceName,omitempty" xml:"serviceName,omitempty"`
+	// 服务调用的实际入参
+	ServiceParameter *string `json:"serviceParameter,omitempty" xml:"serviceParameter,omitempty"`
+	// 重试的服务调用唯一ID(此次服务调用是重试哪个执行失败的服务调用)
+	SourceUuid *string `json:"sourceUuid,omitempty" xml:"sourceUuid,omitempty"`
+}
+
+func (s QueryServiceRecordResponseBodyValues) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServiceRecordResponseBodyValues) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServiceRecordResponseBodyValues) SetFormInstanceId(v string) *QueryServiceRecordResponseBodyValues {
+	s.FormInstanceId = &v
+	return s
+}
+
+func (s *QueryServiceRecordResponseBodyValues) SetFormUuid(v string) *QueryServiceRecordResponseBodyValues {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *QueryServiceRecordResponseBodyValues) SetHookType(v string) *QueryServiceRecordResponseBodyValues {
+	s.HookType = &v
+	return s
+}
+
+func (s *QueryServiceRecordResponseBodyValues) SetHookUuid(v string) *QueryServiceRecordResponseBodyValues {
+	s.HookUuid = &v
+	return s
+}
+
+func (s *QueryServiceRecordResponseBodyValues) SetInvokeParameter(v string) *QueryServiceRecordResponseBodyValues {
+	s.InvokeParameter = &v
+	return s
+}
+
+func (s *QueryServiceRecordResponseBodyValues) SetInvokeResult(v string) *QueryServiceRecordResponseBodyValues {
+	s.InvokeResult = &v
+	return s
+}
+
+func (s *QueryServiceRecordResponseBodyValues) SetInvokeStatus(v string) *QueryServiceRecordResponseBodyValues {
+	s.InvokeStatus = &v
+	return s
+}
+
+func (s *QueryServiceRecordResponseBodyValues) SetInvokeSuccess(v string) *QueryServiceRecordResponseBodyValues {
+	s.InvokeSuccess = &v
+	return s
+}
+
+func (s *QueryServiceRecordResponseBodyValues) SetInvokeUrl(v string) *QueryServiceRecordResponseBodyValues {
+	s.InvokeUrl = &v
+	return s
+}
+
+func (s *QueryServiceRecordResponseBodyValues) SetServiceContent(v string) *QueryServiceRecordResponseBodyValues {
+	s.ServiceContent = &v
+	return s
+}
+
+func (s *QueryServiceRecordResponseBodyValues) SetServiceName(v string) *QueryServiceRecordResponseBodyValues {
+	s.ServiceName = &v
+	return s
+}
+
+func (s *QueryServiceRecordResponseBodyValues) SetServiceParameter(v string) *QueryServiceRecordResponseBodyValues {
+	s.ServiceParameter = &v
+	return s
+}
+
+func (s *QueryServiceRecordResponseBodyValues) SetSourceUuid(v string) *QueryServiceRecordResponseBodyValues {
+	s.SourceUuid = &v
+	return s
+}
+
+type QueryServiceRecordResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryServiceRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryServiceRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServiceRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServiceRecordResponse) SetHeaders(v map[string]*string) *QueryServiceRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryServiceRecordResponse) SetBody(v *QueryServiceRecordResponseBody) *QueryServiceRecordResponse {
 	s.Body = v
 	return s
 }
@@ -10379,6 +11895,1285 @@ func (s *SearchFormDataIdListResponse) SetHeaders(v map[string]*string) *SearchF
 }
 
 func (s *SearchFormDataIdListResponse) SetBody(v *SearchFormDataIdListResponseBody) *SearchFormDataIdListResponse {
+	s.Body = v
+	return s
+}
+
+type SearchFormDataRemovalTableDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchFormDataRemovalTableDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataRemovalTableDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataRemovalTableDataHeaders) SetCommonHeaders(v map[string]*string) *SearchFormDataRemovalTableDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataHeaders) SetXAcsDingtalkAccessToken(v string) *SearchFormDataRemovalTableDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchFormDataRemovalTableDataRequest struct {
+	// 宜搭应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 创建时间起始值
+	CreateFromTimeGMT *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// 创建时间终止值
+	CreateToTimeGMT *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// 表单编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 修改时间起始值
+	ModifiedFromTimeGMT *string `json:"modifiedFromTimeGMT,omitempty" xml:"modifiedFromTimeGMT,omitempty"`
+	// 修改时间终止值
+	ModifiedToTimeGMT *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
+	// 排序规则, json格式数据
+	OrderConfigJson *string `json:"orderConfigJson,omitempty" xml:"orderConfigJson,omitempty"`
+	// 表单提交人的钉钉userId
+	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	// 当前第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 用于模糊查询表单实例的查询或精确查询的条件
+	SearchFieldJson *string `json:"searchFieldJson,omitempty" xml:"searchFieldJson,omitempty"`
+	// 宜搭应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SearchFormDataRemovalTableDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataRemovalTableDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataRemovalTableDataRequest) SetAppType(v string) *SearchFormDataRemovalTableDataRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataRequest) SetCreateFromTimeGMT(v string) *SearchFormDataRemovalTableDataRequest {
+	s.CreateFromTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataRequest) SetCreateToTimeGMT(v string) *SearchFormDataRemovalTableDataRequest {
+	s.CreateToTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataRequest) SetFormUuid(v string) *SearchFormDataRemovalTableDataRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataRequest) SetModifiedFromTimeGMT(v string) *SearchFormDataRemovalTableDataRequest {
+	s.ModifiedFromTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataRequest) SetModifiedToTimeGMT(v string) *SearchFormDataRemovalTableDataRequest {
+	s.ModifiedToTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataRequest) SetOrderConfigJson(v string) *SearchFormDataRemovalTableDataRequest {
+	s.OrderConfigJson = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataRequest) SetOriginatorId(v string) *SearchFormDataRemovalTableDataRequest {
+	s.OriginatorId = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataRequest) SetPageNumber(v int32) *SearchFormDataRemovalTableDataRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataRequest) SetPageSize(v int32) *SearchFormDataRemovalTableDataRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataRequest) SetSearchFieldJson(v string) *SearchFormDataRemovalTableDataRequest {
+	s.SearchFieldJson = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataRequest) SetSystemToken(v string) *SearchFormDataRemovalTableDataRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataRequest) SetUserId(v string) *SearchFormDataRemovalTableDataRequest {
+	s.UserId = &v
+	return s
+}
+
+type SearchFormDataRemovalTableDataResponseBody struct {
+	// 数据
+	Data []*SearchFormDataRemovalTableDataResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// 是否还有数据
+	HasMoreData *bool `json:"hasMoreData,omitempty" xml:"hasMoreData,omitempty"`
+	// 当前第几页
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s SearchFormDataRemovalTableDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataRemovalTableDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBody) SetData(v []*SearchFormDataRemovalTableDataResponseBodyData) *SearchFormDataRemovalTableDataResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBody) SetHasMoreData(v bool) *SearchFormDataRemovalTableDataResponseBody {
+	s.HasMoreData = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBody) SetPageNumber(v int64) *SearchFormDataRemovalTableDataResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBody) SetTotalCount(v int64) *SearchFormDataRemovalTableDataResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type SearchFormDataRemovalTableDataResponseBodyData struct {
+	// 创建时间
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// 创建者的userId
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// 表单实例数据。结构说明参考  https://www.yuque.com/yida/support/agb8im#jksEx
+	FormData map[string]interface{} `json:"formData,omitempty" xml:"formData,omitempty"`
+	// 表单实例id
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// 表单编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 数据库表记录的主键id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 实例数据
+	InstanceValue *string `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
+	// 修改时间
+	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	// 修改者的钉钉userId
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	// 修改者
+	ModifyUser *SearchFormDataRemovalTableDataResponseBodyDataModifyUser `json:"modifyUser,omitempty" xml:"modifyUser,omitempty" type:"Struct"`
+	// 发起人
+	Originator *SearchFormDataRemovalTableDataResponseBodyDataOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
+	// 一次批量导入对应的批次号
+	Sequence *string `json:"sequence,omitempty" xml:"sequence,omitempty"`
+	// 流水号
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	// 标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 该实例对应的表单schema版本
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s SearchFormDataRemovalTableDataResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataRemovalTableDataResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyData) SetCreateTimeGMT(v string) *SearchFormDataRemovalTableDataResponseBodyData {
+	s.CreateTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyData) SetCreatorUserId(v string) *SearchFormDataRemovalTableDataResponseBodyData {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyData) SetFormData(v map[string]interface{}) *SearchFormDataRemovalTableDataResponseBodyData {
+	s.FormData = v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyData) SetFormInstanceId(v string) *SearchFormDataRemovalTableDataResponseBodyData {
+	s.FormInstanceId = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyData) SetFormUuid(v string) *SearchFormDataRemovalTableDataResponseBodyData {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyData) SetId(v int64) *SearchFormDataRemovalTableDataResponseBodyData {
+	s.Id = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyData) SetInstanceValue(v string) *SearchFormDataRemovalTableDataResponseBodyData {
+	s.InstanceValue = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyData) SetModifiedTimeGMT(v string) *SearchFormDataRemovalTableDataResponseBodyData {
+	s.ModifiedTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyData) SetModifier(v string) *SearchFormDataRemovalTableDataResponseBodyData {
+	s.Modifier = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyData) SetModifyUser(v *SearchFormDataRemovalTableDataResponseBodyDataModifyUser) *SearchFormDataRemovalTableDataResponseBodyData {
+	s.ModifyUser = v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyData) SetOriginator(v *SearchFormDataRemovalTableDataResponseBodyDataOriginator) *SearchFormDataRemovalTableDataResponseBodyData {
+	s.Originator = v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyData) SetSequence(v string) *SearchFormDataRemovalTableDataResponseBodyData {
+	s.Sequence = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyData) SetSerialNumber(v string) *SearchFormDataRemovalTableDataResponseBodyData {
+	s.SerialNumber = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyData) SetTitle(v string) *SearchFormDataRemovalTableDataResponseBodyData {
+	s.Title = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyData) SetVersion(v int64) *SearchFormDataRemovalTableDataResponseBodyData {
+	s.Version = &v
+	return s
+}
+
+type SearchFormDataRemovalTableDataResponseBodyDataModifyUser struct {
+	// 部门名称
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// 电子邮箱
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+	// 名称
+	Name *SearchFormDataRemovalTableDataResponseBodyDataModifyUserName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SearchFormDataRemovalTableDataResponseBodyDataModifyUser) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataRemovalTableDataResponseBodyDataModifyUser) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyDataModifyUser) SetDepartmentName(v string) *SearchFormDataRemovalTableDataResponseBodyDataModifyUser {
+	s.DepartmentName = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyDataModifyUser) SetEmail(v string) *SearchFormDataRemovalTableDataResponseBodyDataModifyUser {
+	s.Email = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyDataModifyUser) SetName(v *SearchFormDataRemovalTableDataResponseBodyDataModifyUserName) *SearchFormDataRemovalTableDataResponseBodyDataModifyUser {
+	s.Name = v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyDataModifyUser) SetUserId(v string) *SearchFormDataRemovalTableDataResponseBodyDataModifyUser {
+	s.UserId = &v
+	return s
+}
+
+type SearchFormDataRemovalTableDataResponseBodyDataModifyUserName struct {
+	// 中文名称
+	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// 英文名称
+	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
+}
+
+func (s SearchFormDataRemovalTableDataResponseBodyDataModifyUserName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataRemovalTableDataResponseBodyDataModifyUserName) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyDataModifyUserName) SetNameInChinese(v string) *SearchFormDataRemovalTableDataResponseBodyDataModifyUserName {
+	s.NameInChinese = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyDataModifyUserName) SetNameInEnglish(v string) *SearchFormDataRemovalTableDataResponseBodyDataModifyUserName {
+	s.NameInEnglish = &v
+	return s
+}
+
+type SearchFormDataRemovalTableDataResponseBodyDataOriginator struct {
+	// 部门名称
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// 电子邮箱
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+	// 名称
+	Name *SearchFormDataRemovalTableDataResponseBodyDataOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SearchFormDataRemovalTableDataResponseBodyDataOriginator) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataRemovalTableDataResponseBodyDataOriginator) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyDataOriginator) SetDepartmentName(v string) *SearchFormDataRemovalTableDataResponseBodyDataOriginator {
+	s.DepartmentName = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyDataOriginator) SetEmail(v string) *SearchFormDataRemovalTableDataResponseBodyDataOriginator {
+	s.Email = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyDataOriginator) SetName(v *SearchFormDataRemovalTableDataResponseBodyDataOriginatorName) *SearchFormDataRemovalTableDataResponseBodyDataOriginator {
+	s.Name = v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyDataOriginator) SetUserId(v string) *SearchFormDataRemovalTableDataResponseBodyDataOriginator {
+	s.UserId = &v
+	return s
+}
+
+type SearchFormDataRemovalTableDataResponseBodyDataOriginatorName struct {
+	// 中文名称
+	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// 英文名称
+	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
+}
+
+func (s SearchFormDataRemovalTableDataResponseBodyDataOriginatorName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataRemovalTableDataResponseBodyDataOriginatorName) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyDataOriginatorName) SetNameInChinese(v string) *SearchFormDataRemovalTableDataResponseBodyDataOriginatorName {
+	s.NameInChinese = &v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponseBodyDataOriginatorName) SetNameInEnglish(v string) *SearchFormDataRemovalTableDataResponseBodyDataOriginatorName {
+	s.NameInEnglish = &v
+	return s
+}
+
+type SearchFormDataRemovalTableDataResponse struct {
+	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchFormDataRemovalTableDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchFormDataRemovalTableDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataRemovalTableDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataRemovalTableDataResponse) SetHeaders(v map[string]*string) *SearchFormDataRemovalTableDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchFormDataRemovalTableDataResponse) SetBody(v *SearchFormDataRemovalTableDataResponseBody) *SearchFormDataRemovalTableDataResponse {
+	s.Body = v
+	return s
+}
+
+type SearchFormDataSecondGenerationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchFormDataSecondGenerationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationHeaders) SetCommonHeaders(v map[string]*string) *SearchFormDataSecondGenerationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationHeaders) SetXAcsDingtalkAccessToken(v string) *SearchFormDataSecondGenerationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchFormDataSecondGenerationRequest struct {
+	// 宜搭应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 创建时间起始值
+	CreateFromTimeGMT *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// 创建时间终止值
+	CreateToTimeGMT *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// 表单编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 修改时间起始值
+	ModifiedFromTimeGMT *string `json:"modifiedFromTimeGMT,omitempty" xml:"modifiedFromTimeGMT,omitempty"`
+	// 修改时间终止值
+	ModifiedToTimeGMT *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
+	// 排序规则
+	OrderConfigJson *string `json:"orderConfigJson,omitempty" xml:"orderConfigJson,omitempty"`
+	// 表单提交人的钉钉userId
+	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	// 当前第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 用于检索表单实例数据的检索条件
+	SearchCondition *string `json:"searchCondition,omitempty" xml:"searchCondition,omitempty"`
+	// 宜搭应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SearchFormDataSecondGenerationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationRequest) SetAppType(v string) *SearchFormDataSecondGenerationRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationRequest) SetCreateFromTimeGMT(v string) *SearchFormDataSecondGenerationRequest {
+	s.CreateFromTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationRequest) SetCreateToTimeGMT(v string) *SearchFormDataSecondGenerationRequest {
+	s.CreateToTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationRequest) SetFormUuid(v string) *SearchFormDataSecondGenerationRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationRequest) SetModifiedFromTimeGMT(v string) *SearchFormDataSecondGenerationRequest {
+	s.ModifiedFromTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationRequest) SetModifiedToTimeGMT(v string) *SearchFormDataSecondGenerationRequest {
+	s.ModifiedToTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationRequest) SetOrderConfigJson(v string) *SearchFormDataSecondGenerationRequest {
+	s.OrderConfigJson = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationRequest) SetOriginatorId(v string) *SearchFormDataSecondGenerationRequest {
+	s.OriginatorId = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationRequest) SetPageNumber(v int32) *SearchFormDataSecondGenerationRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationRequest) SetPageSize(v int32) *SearchFormDataSecondGenerationRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationRequest) SetSearchCondition(v string) *SearchFormDataSecondGenerationRequest {
+	s.SearchCondition = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationRequest) SetSystemToken(v string) *SearchFormDataSecondGenerationRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationRequest) SetUserId(v string) *SearchFormDataSecondGenerationRequest {
+	s.UserId = &v
+	return s
+}
+
+type SearchFormDataSecondGenerationResponseBody struct {
+	// 表单实例数据
+	Data []*SearchFormDataSecondGenerationResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// 当前第几页
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s SearchFormDataSecondGenerationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationResponseBody) SetData(v []*SearchFormDataSecondGenerationResponseBodyData) *SearchFormDataSecondGenerationResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBody) SetPageNumber(v int64) *SearchFormDataSecondGenerationResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBody) SetTotalCount(v int64) *SearchFormDataSecondGenerationResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type SearchFormDataSecondGenerationResponseBodyData struct {
+	// 创建时间
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// 创建者的userId
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// 表单实例数据以Map结构展示。结构说明参考  https://www.yuque.com/yida/support/agb8im#jksEx
+	FormData map[string]interface{} `json:"formData,omitempty" xml:"formData,omitempty"`
+	// 表单实例id
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// 表单编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 数据库表记录主键id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 表单实例数据以宜搭组件值格式展示
+	InstanceValue *string `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
+	// 修改时间
+	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	// 修改者的钉钉userId
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	// 修改者
+	ModifyUser *SearchFormDataSecondGenerationResponseBodyDataModifyUser `json:"modifyUser,omitempty" xml:"modifyUser,omitempty" type:"Struct"`
+	// 发起人
+	Originator *SearchFormDataSecondGenerationResponseBodyDataOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
+	// 此表单实例所对应的批量导入批次号(如果该表单实例是通过批量导入创建的)
+	Sequence *string `json:"sequence,omitempty" xml:"sequence,omitempty"`
+	// 流水号
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	// 标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 表单实例对应的表单schema版本
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s SearchFormDataSecondGenerationResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyData) SetCreateTimeGMT(v string) *SearchFormDataSecondGenerationResponseBodyData {
+	s.CreateTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyData) SetCreatorUserId(v string) *SearchFormDataSecondGenerationResponseBodyData {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyData) SetFormData(v map[string]interface{}) *SearchFormDataSecondGenerationResponseBodyData {
+	s.FormData = v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyData) SetFormInstanceId(v string) *SearchFormDataSecondGenerationResponseBodyData {
+	s.FormInstanceId = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyData) SetFormUuid(v string) *SearchFormDataSecondGenerationResponseBodyData {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyData) SetId(v int64) *SearchFormDataSecondGenerationResponseBodyData {
+	s.Id = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyData) SetInstanceValue(v string) *SearchFormDataSecondGenerationResponseBodyData {
+	s.InstanceValue = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyData) SetModifiedTimeGMT(v string) *SearchFormDataSecondGenerationResponseBodyData {
+	s.ModifiedTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyData) SetModifier(v string) *SearchFormDataSecondGenerationResponseBodyData {
+	s.Modifier = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyData) SetModifyUser(v *SearchFormDataSecondGenerationResponseBodyDataModifyUser) *SearchFormDataSecondGenerationResponseBodyData {
+	s.ModifyUser = v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyData) SetOriginator(v *SearchFormDataSecondGenerationResponseBodyDataOriginator) *SearchFormDataSecondGenerationResponseBodyData {
+	s.Originator = v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyData) SetSequence(v string) *SearchFormDataSecondGenerationResponseBodyData {
+	s.Sequence = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyData) SetSerialNumber(v string) *SearchFormDataSecondGenerationResponseBodyData {
+	s.SerialNumber = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyData) SetTitle(v string) *SearchFormDataSecondGenerationResponseBodyData {
+	s.Title = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyData) SetVersion(v int64) *SearchFormDataSecondGenerationResponseBodyData {
+	s.Version = &v
+	return s
+}
+
+type SearchFormDataSecondGenerationResponseBodyDataModifyUser struct {
+	// 部门名称
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// 电子邮箱
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+	// 名称
+	Name *SearchFormDataSecondGenerationResponseBodyDataModifyUserName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SearchFormDataSecondGenerationResponseBodyDataModifyUser) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationResponseBodyDataModifyUser) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyDataModifyUser) SetDepartmentName(v string) *SearchFormDataSecondGenerationResponseBodyDataModifyUser {
+	s.DepartmentName = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyDataModifyUser) SetEmail(v string) *SearchFormDataSecondGenerationResponseBodyDataModifyUser {
+	s.Email = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyDataModifyUser) SetName(v *SearchFormDataSecondGenerationResponseBodyDataModifyUserName) *SearchFormDataSecondGenerationResponseBodyDataModifyUser {
+	s.Name = v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyDataModifyUser) SetUserId(v string) *SearchFormDataSecondGenerationResponseBodyDataModifyUser {
+	s.UserId = &v
+	return s
+}
+
+type SearchFormDataSecondGenerationResponseBodyDataModifyUserName struct {
+	// 中文名称
+	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// 英文名称
+	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
+}
+
+func (s SearchFormDataSecondGenerationResponseBodyDataModifyUserName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationResponseBodyDataModifyUserName) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyDataModifyUserName) SetNameInChinese(v string) *SearchFormDataSecondGenerationResponseBodyDataModifyUserName {
+	s.NameInChinese = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyDataModifyUserName) SetNameInEnglish(v string) *SearchFormDataSecondGenerationResponseBodyDataModifyUserName {
+	s.NameInEnglish = &v
+	return s
+}
+
+type SearchFormDataSecondGenerationResponseBodyDataOriginator struct {
+	// 部门名称
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// 电子邮箱
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+	// 名称
+	Name *SearchFormDataSecondGenerationResponseBodyDataOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SearchFormDataSecondGenerationResponseBodyDataOriginator) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationResponseBodyDataOriginator) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyDataOriginator) SetDepartmentName(v string) *SearchFormDataSecondGenerationResponseBodyDataOriginator {
+	s.DepartmentName = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyDataOriginator) SetEmail(v string) *SearchFormDataSecondGenerationResponseBodyDataOriginator {
+	s.Email = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyDataOriginator) SetName(v *SearchFormDataSecondGenerationResponseBodyDataOriginatorName) *SearchFormDataSecondGenerationResponseBodyDataOriginator {
+	s.Name = v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyDataOriginator) SetUserId(v string) *SearchFormDataSecondGenerationResponseBodyDataOriginator {
+	s.UserId = &v
+	return s
+}
+
+type SearchFormDataSecondGenerationResponseBodyDataOriginatorName struct {
+	// 中文名称
+	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// 英文名称
+	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
+}
+
+func (s SearchFormDataSecondGenerationResponseBodyDataOriginatorName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationResponseBodyDataOriginatorName) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyDataOriginatorName) SetNameInChinese(v string) *SearchFormDataSecondGenerationResponseBodyDataOriginatorName {
+	s.NameInChinese = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponseBodyDataOriginatorName) SetNameInEnglish(v string) *SearchFormDataSecondGenerationResponseBodyDataOriginatorName {
+	s.NameInEnglish = &v
+	return s
+}
+
+type SearchFormDataSecondGenerationResponse struct {
+	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchFormDataSecondGenerationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchFormDataSecondGenerationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationResponse) SetHeaders(v map[string]*string) *SearchFormDataSecondGenerationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationResponse) SetBody(v *SearchFormDataSecondGenerationResponseBody) *SearchFormDataSecondGenerationResponse {
+	s.Body = v
+	return s
+}
+
+type SearchFormDataSecondGenerationNoTableFieldHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldHeaders) SetCommonHeaders(v map[string]*string) *SearchFormDataSecondGenerationNoTableFieldHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldHeaders) SetXAcsDingtalkAccessToken(v string) *SearchFormDataSecondGenerationNoTableFieldHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchFormDataSecondGenerationNoTableFieldRequest struct {
+	// 宜搭应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 创建时间起始值
+	CreateFromTimeGMT *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// 创建时间终止值
+	CreateToTimeGMT *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// 表单编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 修改时间起始值
+	ModifiedFromTimeGMT *string `json:"modifiedFromTimeGMT,omitempty" xml:"modifiedFromTimeGMT,omitempty"`
+	// 修改时间终止值
+	ModifiedToTimeGMT *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
+	// 排序规则
+	OrderConfigJson *string `json:"orderConfigJson,omitempty" xml:"orderConfigJson,omitempty"`
+	// 表单提交人的钉钉userId
+	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	// 当前第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 用于检索表单实例数据的检索条件
+	SearchCondition *string `json:"searchCondition,omitempty" xml:"searchCondition,omitempty"`
+	// 宜搭应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldRequest) SetAppType(v string) *SearchFormDataSecondGenerationNoTableFieldRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldRequest) SetCreateFromTimeGMT(v string) *SearchFormDataSecondGenerationNoTableFieldRequest {
+	s.CreateFromTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldRequest) SetCreateToTimeGMT(v string) *SearchFormDataSecondGenerationNoTableFieldRequest {
+	s.CreateToTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldRequest) SetFormUuid(v string) *SearchFormDataSecondGenerationNoTableFieldRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldRequest) SetModifiedFromTimeGMT(v string) *SearchFormDataSecondGenerationNoTableFieldRequest {
+	s.ModifiedFromTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldRequest) SetModifiedToTimeGMT(v string) *SearchFormDataSecondGenerationNoTableFieldRequest {
+	s.ModifiedToTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldRequest) SetOrderConfigJson(v string) *SearchFormDataSecondGenerationNoTableFieldRequest {
+	s.OrderConfigJson = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldRequest) SetOriginatorId(v string) *SearchFormDataSecondGenerationNoTableFieldRequest {
+	s.OriginatorId = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldRequest) SetPageNumber(v int32) *SearchFormDataSecondGenerationNoTableFieldRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldRequest) SetPageSize(v int32) *SearchFormDataSecondGenerationNoTableFieldRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldRequest) SetSearchCondition(v string) *SearchFormDataSecondGenerationNoTableFieldRequest {
+	s.SearchCondition = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldRequest) SetSystemToken(v string) *SearchFormDataSecondGenerationNoTableFieldRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldRequest) SetUserId(v string) *SearchFormDataSecondGenerationNoTableFieldRequest {
+	s.UserId = &v
+	return s
+}
+
+type SearchFormDataSecondGenerationNoTableFieldResponseBody struct {
+	// 数据
+	Data []*SearchFormDataSecondGenerationNoTableFieldResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// 当前第几页
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBody) SetData(v []*SearchFormDataSecondGenerationNoTableFieldResponseBodyData) *SearchFormDataSecondGenerationNoTableFieldResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBody) SetPageNumber(v int64) *SearchFormDataSecondGenerationNoTableFieldResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBody) SetTotalCount(v int64) *SearchFormDataSecondGenerationNoTableFieldResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type SearchFormDataSecondGenerationNoTableFieldResponseBodyData struct {
+	// 创建时间
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// 创建者的userId
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// 表单实例数据。结构说明参考 https://www.yuque.com/yida/support/agb8im#jksEx
+	FormData map[string]interface{} `json:"formData,omitempty" xml:"formData,omitempty"`
+	// 表单实例id
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// 表单编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 数据库表记录主键id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 表单实例数据
+	InstanceValue *string `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
+	// 修改时间
+	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	// 修改者的钉钉userId
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	// 修改者
+	ModifyUser *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser `json:"modifyUser,omitempty" xml:"modifyUser,omitempty" type:"Struct"`
+	// 表单实例提交人
+	Originator *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
+	// 此表单实例所对应的批量导入批次号(如果该表单实例是通过批量导入创建的)
+	Sequence *string `json:"sequence,omitempty" xml:"sequence,omitempty"`
+	// 流水号
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	// 标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 该表单实例对应的表单schema版本
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyData) SetCreateTimeGMT(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyData {
+	s.CreateTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyData) SetCreatorUserId(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyData {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyData) SetFormData(v map[string]interface{}) *SearchFormDataSecondGenerationNoTableFieldResponseBodyData {
+	s.FormData = v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyData) SetFormInstanceId(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyData {
+	s.FormInstanceId = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyData) SetFormUuid(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyData {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyData) SetId(v int64) *SearchFormDataSecondGenerationNoTableFieldResponseBodyData {
+	s.Id = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyData) SetInstanceValue(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyData {
+	s.InstanceValue = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyData) SetModifiedTimeGMT(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyData {
+	s.ModifiedTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyData) SetModifier(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyData {
+	s.Modifier = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyData) SetModifyUser(v *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser) *SearchFormDataSecondGenerationNoTableFieldResponseBodyData {
+	s.ModifyUser = v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyData) SetOriginator(v *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator) *SearchFormDataSecondGenerationNoTableFieldResponseBodyData {
+	s.Originator = v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyData) SetSequence(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyData {
+	s.Sequence = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyData) SetSerialNumber(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyData {
+	s.SerialNumber = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyData) SetTitle(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyData {
+	s.Title = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyData) SetVersion(v int64) *SearchFormDataSecondGenerationNoTableFieldResponseBodyData {
+	s.Version = &v
+	return s
+}
+
+type SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser struct {
+	// 部门名称
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// 电子邮箱
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+	// 名称
+	Name *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser) SetDepartmentName(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser {
+	s.DepartmentName = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser) SetEmail(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser {
+	s.Email = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser) SetName(v *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser {
+	s.Name = v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser) SetUserId(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser {
+	s.UserId = &v
+	return s
+}
+
+type SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName struct {
+	// 中文名称
+	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// 英文名称
+	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName) SetNameInChinese(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName {
+	s.NameInChinese = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName) SetNameInEnglish(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName {
+	s.NameInEnglish = &v
+	return s
+}
+
+type SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator struct {
+	// 部门名称
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// 电子邮箱
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+	// 名称
+	Name *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator) SetDepartmentName(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator {
+	s.DepartmentName = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator) SetEmail(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator {
+	s.Email = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator) SetName(v *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator {
+	s.Name = v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator) SetUserId(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator {
+	s.UserId = &v
+	return s
+}
+
+type SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName struct {
+	// 中文名称
+	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// 英文名称
+	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName) SetNameInChinese(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName {
+	s.NameInChinese = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName) SetNameInEnglish(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName {
+	s.NameInEnglish = &v
+	return s
+}
+
+type SearchFormDataSecondGenerationNoTableFieldResponse struct {
+	Headers map[string]*string                                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchFormDataSecondGenerationNoTableFieldResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFormDataSecondGenerationNoTableFieldResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponse) SetHeaders(v map[string]*string) *SearchFormDataSecondGenerationNoTableFieldResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationNoTableFieldResponse) SetBody(v *SearchFormDataSecondGenerationNoTableFieldResponseBody) *SearchFormDataSecondGenerationNoTableFieldResponse {
 	s.Body = v
 	return s
 }
@@ -12219,6 +15014,366 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) BatchGetFormDataByIdList(request *BatchGetFormDataByIdListRequest) (_result *BatchGetFormDataByIdListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchGetFormDataByIdListHeaders{}
+	_result = &BatchGetFormDataByIdListResponse{}
+	_body, _err := client.BatchGetFormDataByIdListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchGetFormDataByIdListWithOptions(request *BatchGetFormDataByIdListRequest, headers *BatchGetFormDataByIdListHeaders, runtime *util.RuntimeOptions) (_result *BatchGetFormDataByIdListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormInstanceIdList)) {
+		body["formInstanceIdList"] = request.FormInstanceIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NeedFormInstanceValue)) {
+		body["needFormInstanceValue"] = request.NeedFormInstanceValue
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchGetFormDataByIdListResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchGetFormDataByIdList"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/forms/instances/ids/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchRemovalByFormInstanceIdList(request *BatchRemovalByFormInstanceIdListRequest) (_result *BatchRemovalByFormInstanceIdListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchRemovalByFormInstanceIdListHeaders{}
+	_result = &BatchRemovalByFormInstanceIdListResponse{}
+	_body, _err := client.BatchRemovalByFormInstanceIdListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchRemovalByFormInstanceIdListWithOptions(request *BatchRemovalByFormInstanceIdListRequest, headers *BatchRemovalByFormInstanceIdListHeaders, runtime *util.RuntimeOptions) (_result *BatchRemovalByFormInstanceIdListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AsynchronousExecution)) {
+		body["asynchronousExecution"] = request.AsynchronousExecution
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExecuteExpression)) {
+		body["executeExpression"] = request.ExecuteExpression
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormInstanceIdList)) {
+		body["formInstanceIdList"] = request.FormInstanceIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchRemovalByFormInstanceIdListResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchRemovalByFormInstanceIdList"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/forms/instances/batchRemove"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchSaveFormData(request *BatchSaveFormDataRequest) (_result *BatchSaveFormDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchSaveFormDataHeaders{}
+	_result = &BatchSaveFormDataResponse{}
+	_body, _err := client.BatchSaveFormDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchSaveFormDataWithOptions(request *BatchSaveFormDataRequest, headers *BatchSaveFormDataHeaders, runtime *util.RuntimeOptions) (_result *BatchSaveFormDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AsynchronousExecution)) {
+		body["asynchronousExecution"] = request.AsynchronousExecution
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormDataJsonList)) {
+		body["formDataJsonList"] = request.FormDataJsonList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.KeepRunningAfterException)) {
+		body["keepRunningAfterException"] = request.KeepRunningAfterException
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NoExecuteExpression)) {
+		body["noExecuteExpression"] = request.NoExecuteExpression
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchSaveFormDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchSaveFormData"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/forms/instances/batchSave"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchUpdateFormDataByInstanceId(request *BatchUpdateFormDataByInstanceIdRequest) (_result *BatchUpdateFormDataByInstanceIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchUpdateFormDataByInstanceIdHeaders{}
+	_result = &BatchUpdateFormDataByInstanceIdResponse{}
+	_body, _err := client.BatchUpdateFormDataByInstanceIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchUpdateFormDataByInstanceIdWithOptions(request *BatchUpdateFormDataByInstanceIdRequest, headers *BatchUpdateFormDataByInstanceIdHeaders, runtime *util.RuntimeOptions) (_result *BatchUpdateFormDataByInstanceIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AsynchronousExecution)) {
+		body["asynchronousExecution"] = request.AsynchronousExecution
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormInstanceIdList)) {
+		body["formInstanceIdList"] = request.FormInstanceIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IgnoreEmpty)) {
+		body["ignoreEmpty"] = request.IgnoreEmpty
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NoExecuteExpression)) {
+		body["noExecuteExpression"] = request.NoExecuteExpression
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UpdateFormDataJson)) {
+		body["updateFormDataJson"] = request.UpdateFormDataJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UseLatestFormSchemaVersion)) {
+		body["useLatestFormSchemaVersion"] = request.UseLatestFormSchemaVersion
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchUpdateFormDataByInstanceIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchUpdateFormDataByInstanceId"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/yida/forms/instances/components"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchUpdateFormDataByInstanceMap(request *BatchUpdateFormDataByInstanceMapRequest) (_result *BatchUpdateFormDataByInstanceMapResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchUpdateFormDataByInstanceMapHeaders{}
+	_result = &BatchUpdateFormDataByInstanceMapResponse{}
+	_body, _err := client.BatchUpdateFormDataByInstanceMapWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchUpdateFormDataByInstanceMapWithOptions(request *BatchUpdateFormDataByInstanceMapRequest, headers *BatchUpdateFormDataByInstanceMapHeaders, runtime *util.RuntimeOptions) (_result *BatchUpdateFormDataByInstanceMapResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AsynchronousExecution)) {
+		body["asynchronousExecution"] = request.AsynchronousExecution
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IgnoreEmpty)) {
+		body["ignoreEmpty"] = request.IgnoreEmpty
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NoExecuteExpression)) {
+		body["noExecuteExpression"] = request.NoExecuteExpression
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UpdateFormDataJsonMap)) {
+		body["updateFormDataJsonMap"] = request.UpdateFormDataJsonMap
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UseLatestFormSchemaVersion)) {
+		body["useLatestFormSchemaVersion"] = request.UseLatestFormSchemaVersion
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchUpdateFormDataByInstanceMapResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchUpdateFormDataByInstanceMap"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/yida/forms/instances/datas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) BuyAuthorizationOrder(request *BuyAuthorizationOrderRequest) (_result *BuyAuthorizationOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BuyAuthorizationOrderHeaders{}
@@ -12425,6 +15580,74 @@ func (client *Client) CheckCloudAccountStatusWithOptions(callerUid *string, requ
 	}
 	_result = &CheckCloudAccountStatusResponse{}
 	_body, _err := client.DoROARequest(tea.String("CheckCloudAccountStatus"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/apps/cloudAccountStatus/"+tea.StringValue(callerUid)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateOrUpdateFormData(request *CreateOrUpdateFormDataRequest) (_result *CreateOrUpdateFormDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateOrUpdateFormDataHeaders{}
+	_result = &CreateOrUpdateFormDataResponse{}
+	_body, _err := client.CreateOrUpdateFormDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateOrUpdateFormDataWithOptions(request *CreateOrUpdateFormDataRequest, headers *CreateOrUpdateFormDataHeaders, runtime *util.RuntimeOptions) (_result *CreateOrUpdateFormDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormDataJson)) {
+		body["formDataJson"] = request.FormDataJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NoExecuteExpression)) {
+		body["noExecuteExpression"] = request.NoExecuteExpression
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchCondition)) {
+		body["searchCondition"] = request.SearchCondition
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateOrUpdateFormDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateOrUpdateFormData"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/forms/instances/insertOrUpdate"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13711,6 +16934,10 @@ func (client *Client) GetInstancesWithOptions(request *GetInstancesRequest, head
 		body["modifiedToTimeGMT"] = request.ModifiedToTimeGMT
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.OrderConfigJson)) {
+		body["orderConfigJson"] = request.OrderConfigJson
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.OriginatorId)) {
 		body["originatorId"] = request.OriginatorId
 	}
@@ -14590,6 +17817,74 @@ func (client *Client) GetTaskCopiesWithOptions(request *GetTaskCopiesRequest, he
 	return _result, _err
 }
 
+func (client *Client) ListApplication(request *ListApplicationRequest) (_result *ListApplicationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListApplicationHeaders{}
+	_result = &ListApplicationResponse{}
+	_body, _err := client.ListApplicationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListApplicationWithOptions(request *ListApplicationRequest, headers *ListApplicationHeaders, runtime *util.RuntimeOptions) (_result *ListApplicationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppFilter)) {
+		query["appFilter"] = request.AppFilter
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppNameSearchKeyword)) {
+		query["appNameSearchKeyword"] = request.AppNameSearchKeyword
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		query["token"] = request.Token
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListApplicationResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListApplication"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/organizations/applications"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ListApplicationAuthorizationServiceApplicationInformation(instanceId *string, request *ListApplicationAuthorizationServiceApplicationInformationRequest) (_result *ListApplicationAuthorizationServiceApplicationInformationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListApplicationAuthorizationServiceApplicationInformationHeaders{}
@@ -15124,6 +18419,106 @@ func (client *Client) NotifyAuthorizationResultWithOptions(request *NotifyAuthor
 	}
 	_result = &NotifyAuthorizationResultResponse{}
 	_body, _err := client.DoROARequest(tea.String("NotifyAuthorizationResult"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/apps/authorizationResults/notify"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryServiceRecord(request *QueryServiceRecordRequest) (_result *QueryServiceRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryServiceRecordHeaders{}
+	_result = &QueryServiceRecordResponse{}
+	_body, _err := client.QueryServiceRecordWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryServiceRecordWithOptions(request *QueryServiceRecordRequest, headers *QueryServiceRecordHeaders, runtime *util.RuntimeOptions) (_result *QueryServiceRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		query["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HookType)) {
+		query["hookType"] = request.HookType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HookUuid)) {
+		query["hookUuid"] = request.HookUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		query["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvokeAfterDateGMT)) {
+		query["invokeAfterDateGMT"] = request.InvokeAfterDateGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvokeBeforeDateGMT)) {
+		query["invokeBeforeDateGMT"] = request.InvokeBeforeDateGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvokeStatus)) {
+		query["invokeStatus"] = request.InvokeStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RequestUrl)) {
+		query["requestUrl"] = request.RequestUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceUuid)) {
+		query["sourceUuid"] = request.SourceUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Success)) {
+		query["success"] = request.Success
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryServiceRecordResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryServiceRecord"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/services/invocationRecords"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -16037,6 +19432,282 @@ func (client *Client) SearchFormDataIdListWithOptions(appType *string, formUuid 
 	}
 	_result = &SearchFormDataIdListResponse{}
 	_body, _err := client.DoROARequest(tea.String("SearchFormDataIdList"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/forms/instances/ids/"+tea.StringValue(appType)+"/"+tea.StringValue(formUuid)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchFormDataRemovalTableData(request *SearchFormDataRemovalTableDataRequest) (_result *SearchFormDataRemovalTableDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchFormDataRemovalTableDataHeaders{}
+	_result = &SearchFormDataRemovalTableDataResponse{}
+	_body, _err := client.SearchFormDataRemovalTableDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchFormDataRemovalTableDataWithOptions(request *SearchFormDataRemovalTableDataRequest, headers *SearchFormDataRemovalTableDataHeaders, runtime *util.RuntimeOptions) (_result *SearchFormDataRemovalTableDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateFromTimeGMT)) {
+		body["createFromTimeGMT"] = request.CreateFromTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
+		body["createToTimeGMT"] = request.CreateToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModifiedFromTimeGMT)) {
+		body["modifiedFromTimeGMT"] = request.ModifiedFromTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModifiedToTimeGMT)) {
+		body["modifiedToTimeGMT"] = request.ModifiedToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderConfigJson)) {
+		body["orderConfigJson"] = request.OrderConfigJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OriginatorId)) {
+		body["originatorId"] = request.OriginatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchFieldJson)) {
+		body["searchFieldJson"] = request.SearchFieldJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SearchFormDataRemovalTableDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchFormDataRemovalTableData"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/forms/instances/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchFormDataSecondGeneration(request *SearchFormDataSecondGenerationRequest) (_result *SearchFormDataSecondGenerationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchFormDataSecondGenerationHeaders{}
+	_result = &SearchFormDataSecondGenerationResponse{}
+	_body, _err := client.SearchFormDataSecondGenerationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchFormDataSecondGenerationWithOptions(request *SearchFormDataSecondGenerationRequest, headers *SearchFormDataSecondGenerationHeaders, runtime *util.RuntimeOptions) (_result *SearchFormDataSecondGenerationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateFromTimeGMT)) {
+		body["createFromTimeGMT"] = request.CreateFromTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
+		body["createToTimeGMT"] = request.CreateToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModifiedFromTimeGMT)) {
+		body["modifiedFromTimeGMT"] = request.ModifiedFromTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModifiedToTimeGMT)) {
+		body["modifiedToTimeGMT"] = request.ModifiedToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderConfigJson)) {
+		body["orderConfigJson"] = request.OrderConfigJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OriginatorId)) {
+		body["originatorId"] = request.OriginatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchCondition)) {
+		body["searchCondition"] = request.SearchCondition
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SearchFormDataSecondGenerationResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchFormDataSecondGeneration"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/forms/instances/advances/queryAll"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchFormDataSecondGenerationNoTableField(request *SearchFormDataSecondGenerationNoTableFieldRequest) (_result *SearchFormDataSecondGenerationNoTableFieldResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchFormDataSecondGenerationNoTableFieldHeaders{}
+	_result = &SearchFormDataSecondGenerationNoTableFieldResponse{}
+	_body, _err := client.SearchFormDataSecondGenerationNoTableFieldWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchFormDataSecondGenerationNoTableFieldWithOptions(request *SearchFormDataSecondGenerationNoTableFieldRequest, headers *SearchFormDataSecondGenerationNoTableFieldHeaders, runtime *util.RuntimeOptions) (_result *SearchFormDataSecondGenerationNoTableFieldResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateFromTimeGMT)) {
+		body["createFromTimeGMT"] = request.CreateFromTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
+		body["createToTimeGMT"] = request.CreateToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModifiedFromTimeGMT)) {
+		body["modifiedFromTimeGMT"] = request.ModifiedFromTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModifiedToTimeGMT)) {
+		body["modifiedToTimeGMT"] = request.ModifiedToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderConfigJson)) {
+		body["orderConfigJson"] = request.OrderConfigJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OriginatorId)) {
+		body["originatorId"] = request.OriginatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchCondition)) {
+		body["searchCondition"] = request.SearchCondition
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SearchFormDataSecondGenerationNoTableFieldResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchFormDataSecondGenerationNoTableField"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/forms/instances/advances/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

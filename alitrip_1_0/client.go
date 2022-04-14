@@ -1651,7 +1651,7 @@ type BillSettementFlightResponseBodyModuleDataList struct {
 	// 低价提醒（起飞时间）
 	MostDifferenceDeptTime *string `json:"mostDifferenceDeptTime,omitempty" xml:"mostDifferenceDeptTime,omitempty"`
 	// 低价提醒（折扣）
-	MostDifferenceDiscount *float64 `json:"mostDifferenceDiscount,omitempty" xml:"mostDifferenceDiscount,omitempty"`
+	MostDifferenceDiscount *string `json:"mostDifferenceDiscount,omitempty" xml:"mostDifferenceDiscount,omitempty"`
 	// 低价提醒(航班号)
 	MostDifferenceFlightNo *string `json:"mostDifferenceFlightNo,omitempty" xml:"mostDifferenceFlightNo,omitempty"`
 	// 低价提醒(与最低价差额)
@@ -1919,7 +1919,7 @@ func (s *BillSettementFlightResponseBodyModuleDataList) SetMostDifferenceDeptTim
 	return s
 }
 
-func (s *BillSettementFlightResponseBodyModuleDataList) SetMostDifferenceDiscount(v float64) *BillSettementFlightResponseBodyModuleDataList {
+func (s *BillSettementFlightResponseBodyModuleDataList) SetMostDifferenceDiscount(v string) *BillSettementFlightResponseBodyModuleDataList {
 	s.MostDifferenceDiscount = &v
 	return s
 }

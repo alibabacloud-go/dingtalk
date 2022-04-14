@@ -3156,6 +3156,229 @@ func (s *ListMiniAppHistoryVersionResponse) SetBody(v *ListMiniAppHistoryVersion
 	return s
 }
 
+type ListPartnerRolesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListPartnerRolesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPartnerRolesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListPartnerRolesHeaders) SetCommonHeaders(v map[string]*string) *ListPartnerRolesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListPartnerRolesHeaders) SetXAcsDingtalkAccessToken(v string) *ListPartnerRolesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListPartnerRolesResponseBody struct {
+	List []*ListPartnerRolesResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s ListPartnerRolesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPartnerRolesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListPartnerRolesResponseBody) SetList(v []*ListPartnerRolesResponseBodyList) *ListPartnerRolesResponseBody {
+	s.List = v
+	return s
+}
+
+type ListPartnerRolesResponseBodyList struct {
+	// 角色id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 是否必邀角色
+	IsNecessary *int32 `json:"isNecessary,omitempty" xml:"isNecessary,omitempty"`
+	// 角色名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 可见部门
+	VisibleDepts []*ListPartnerRolesResponseBodyListVisibleDepts `json:"visibleDepts,omitempty" xml:"visibleDepts,omitempty" type:"Repeated"`
+	// 可见员工
+	VisibleUsers []*ListPartnerRolesResponseBodyListVisibleUsers `json:"visibleUsers,omitempty" xml:"visibleUsers,omitempty" type:"Repeated"`
+	// 预警部门
+	WarningDepts []*ListPartnerRolesResponseBodyListWarningDepts `json:"warningDepts,omitempty" xml:"warningDepts,omitempty" type:"Repeated"`
+	// 预警成员
+	WarningUsers []*ListPartnerRolesResponseBodyListWarningUsers `json:"warningUsers,omitempty" xml:"warningUsers,omitempty" type:"Repeated"`
+}
+
+func (s ListPartnerRolesResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPartnerRolesResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *ListPartnerRolesResponseBodyList) SetId(v int64) *ListPartnerRolesResponseBodyList {
+	s.Id = &v
+	return s
+}
+
+func (s *ListPartnerRolesResponseBodyList) SetIsNecessary(v int32) *ListPartnerRolesResponseBodyList {
+	s.IsNecessary = &v
+	return s
+}
+
+func (s *ListPartnerRolesResponseBodyList) SetName(v string) *ListPartnerRolesResponseBodyList {
+	s.Name = &v
+	return s
+}
+
+func (s *ListPartnerRolesResponseBodyList) SetVisibleDepts(v []*ListPartnerRolesResponseBodyListVisibleDepts) *ListPartnerRolesResponseBodyList {
+	s.VisibleDepts = v
+	return s
+}
+
+func (s *ListPartnerRolesResponseBodyList) SetVisibleUsers(v []*ListPartnerRolesResponseBodyListVisibleUsers) *ListPartnerRolesResponseBodyList {
+	s.VisibleUsers = v
+	return s
+}
+
+func (s *ListPartnerRolesResponseBodyList) SetWarningDepts(v []*ListPartnerRolesResponseBodyListWarningDepts) *ListPartnerRolesResponseBodyList {
+	s.WarningDepts = v
+	return s
+}
+
+func (s *ListPartnerRolesResponseBodyList) SetWarningUsers(v []*ListPartnerRolesResponseBodyListWarningUsers) *ListPartnerRolesResponseBodyList {
+	s.WarningUsers = v
+	return s
+}
+
+type ListPartnerRolesResponseBodyListVisibleDepts struct {
+	// 部门id
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 部门名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s ListPartnerRolesResponseBodyListVisibleDepts) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPartnerRolesResponseBodyListVisibleDepts) GoString() string {
+	return s.String()
+}
+
+func (s *ListPartnerRolesResponseBodyListVisibleDepts) SetDeptId(v int64) *ListPartnerRolesResponseBodyListVisibleDepts {
+	s.DeptId = &v
+	return s
+}
+
+func (s *ListPartnerRolesResponseBodyListVisibleDepts) SetName(v string) *ListPartnerRolesResponseBodyListVisibleDepts {
+	s.Name = &v
+	return s
+}
+
+type ListPartnerRolesResponseBodyListVisibleUsers struct {
+	// 员工姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListPartnerRolesResponseBodyListVisibleUsers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPartnerRolesResponseBodyListVisibleUsers) GoString() string {
+	return s.String()
+}
+
+func (s *ListPartnerRolesResponseBodyListVisibleUsers) SetName(v string) *ListPartnerRolesResponseBodyListVisibleUsers {
+	s.Name = &v
+	return s
+}
+
+func (s *ListPartnerRolesResponseBodyListVisibleUsers) SetUserId(v string) *ListPartnerRolesResponseBodyListVisibleUsers {
+	s.UserId = &v
+	return s
+}
+
+type ListPartnerRolesResponseBodyListWarningDepts struct {
+	// 部门id
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 部门名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s ListPartnerRolesResponseBodyListWarningDepts) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPartnerRolesResponseBodyListWarningDepts) GoString() string {
+	return s.String()
+}
+
+func (s *ListPartnerRolesResponseBodyListWarningDepts) SetDeptId(v int64) *ListPartnerRolesResponseBodyListWarningDepts {
+	s.DeptId = &v
+	return s
+}
+
+func (s *ListPartnerRolesResponseBodyListWarningDepts) SetName(v string) *ListPartnerRolesResponseBodyListWarningDepts {
+	s.Name = &v
+	return s
+}
+
+type ListPartnerRolesResponseBodyListWarningUsers struct {
+	// 员工姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListPartnerRolesResponseBodyListWarningUsers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPartnerRolesResponseBodyListWarningUsers) GoString() string {
+	return s.String()
+}
+
+func (s *ListPartnerRolesResponseBodyListWarningUsers) SetName(v string) *ListPartnerRolesResponseBodyListWarningUsers {
+	s.Name = &v
+	return s
+}
+
+func (s *ListPartnerRolesResponseBodyListWarningUsers) SetUserId(v string) *ListPartnerRolesResponseBodyListWarningUsers {
+	s.UserId = &v
+	return s
+}
+
+type ListPartnerRolesResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListPartnerRolesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListPartnerRolesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPartnerRolesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListPartnerRolesResponse) SetHeaders(v map[string]*string) *ListPartnerRolesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListPartnerRolesResponse) SetBody(v *ListPartnerRolesResponseBody) *ListPartnerRolesResponse {
+	s.Body = v
+	return s
+}
+
 type ListPunchScheduleByConditionWithPagingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5467,6 +5690,41 @@ func (client *Client) ListMiniAppHistoryVersionWithOptions(request *ListMiniAppH
 	}
 	_result = &ListMiniAppHistoryVersionResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListMiniAppHistoryVersion"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/miniApps/versions/historyLists"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListPartnerRoles(parentId *string) (_result *ListPartnerRolesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListPartnerRolesHeaders{}
+	_result = &ListPartnerRolesResponse{}
+	_body, _err := client.ListPartnerRolesWithOptions(parentId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListPartnerRolesWithOptions(parentId *string, headers *ListPartnerRolesHeaders, runtime *util.RuntimeOptions) (_result *ListPartnerRolesResponse, _err error) {
+	parentId = openapiutil.GetEncodeParam(parentId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &ListPartnerRolesResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListPartnerRoles"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/partners/roles/"+tea.StringValue(parentId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
