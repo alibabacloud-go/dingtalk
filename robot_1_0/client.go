@@ -462,6 +462,247 @@ func (s *BatchSendOTOResponse) SetBody(v *BatchSendOTOResponseBody) *BatchSendOT
 	return s
 }
 
+type OrgGroupQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s OrgGroupQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgGroupQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *OrgGroupQueryHeaders) SetCommonHeaders(v map[string]*string) *OrgGroupQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *OrgGroupQueryHeaders) SetXAcsDingtalkAccessToken(v string) *OrgGroupQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type OrgGroupQueryRequest struct {
+	// 分页查询每页的数量
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 一次查询后返回的加密的分页凭证，首次查询不填
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 开放的群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 发送消息返回的加密消息id
+	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
+	// 企业机器人的robotcode
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// 群内机器人的webhook中的Token
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+}
+
+func (s OrgGroupQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgGroupQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *OrgGroupQueryRequest) SetMaxResults(v int64) *OrgGroupQueryRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *OrgGroupQueryRequest) SetNextToken(v string) *OrgGroupQueryRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *OrgGroupQueryRequest) SetOpenConversationId(v string) *OrgGroupQueryRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *OrgGroupQueryRequest) SetProcessQueryKey(v string) *OrgGroupQueryRequest {
+	s.ProcessQueryKey = &v
+	return s
+}
+
+func (s *OrgGroupQueryRequest) SetRobotCode(v string) *OrgGroupQueryRequest {
+	s.RobotCode = &v
+	return s
+}
+
+func (s *OrgGroupQueryRequest) SetToken(v string) *OrgGroupQueryRequest {
+	s.Token = &v
+	return s
+}
+
+type OrgGroupQueryResponseBody struct {
+	// 分页查询是否还有人员可查询消息已读状态
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 下次分页查询的加密凭证
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 消息已读人的userId列表
+	ReadUserIds []*string `json:"readUserIds,omitempty" xml:"readUserIds,omitempty" type:"Repeated"`
+	// 消息发送状态
+	SendStatus *string `json:"sendStatus,omitempty" xml:"sendStatus,omitempty"`
+}
+
+func (s OrgGroupQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgGroupQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *OrgGroupQueryResponseBody) SetHasMore(v bool) *OrgGroupQueryResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *OrgGroupQueryResponseBody) SetNextToken(v string) *OrgGroupQueryResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *OrgGroupQueryResponseBody) SetReadUserIds(v []*string) *OrgGroupQueryResponseBody {
+	s.ReadUserIds = v
+	return s
+}
+
+func (s *OrgGroupQueryResponseBody) SetSendStatus(v string) *OrgGroupQueryResponseBody {
+	s.SendStatus = &v
+	return s
+}
+
+type OrgGroupQueryResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *OrgGroupQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s OrgGroupQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgGroupQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *OrgGroupQueryResponse) SetHeaders(v map[string]*string) *OrgGroupQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *OrgGroupQueryResponse) SetBody(v *OrgGroupQueryResponseBody) *OrgGroupQueryResponse {
+	s.Body = v
+	return s
+}
+
+type OrgGroupRecallHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s OrgGroupRecallHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgGroupRecallHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *OrgGroupRecallHeaders) SetCommonHeaders(v map[string]*string) *OrgGroupRecallHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *OrgGroupRecallHeaders) SetXAcsDingtalkAccessToken(v string) *OrgGroupRecallHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type OrgGroupRecallRequest struct {
+	// 开放的群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 消息id
+	ProcessQueryKeys []*string `json:"processQueryKeys,omitempty" xml:"processQueryKeys,omitempty" type:"Repeated"`
+	// 机器人的robotCode
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s OrgGroupRecallRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgGroupRecallRequest) GoString() string {
+	return s.String()
+}
+
+func (s *OrgGroupRecallRequest) SetOpenConversationId(v string) *OrgGroupRecallRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *OrgGroupRecallRequest) SetProcessQueryKeys(v []*string) *OrgGroupRecallRequest {
+	s.ProcessQueryKeys = v
+	return s
+}
+
+func (s *OrgGroupRecallRequest) SetRobotCode(v string) *OrgGroupRecallRequest {
+	s.RobotCode = &v
+	return s
+}
+
+type OrgGroupRecallResponseBody struct {
+	// 撤回失败的消息id及原因
+	FailedResult map[string]*string `json:"failedResult,omitempty" xml:"failedResult,omitempty"`
+	// 撤回成功的消息id
+	SuccessResult []*string `json:"successResult,omitempty" xml:"successResult,omitempty" type:"Repeated"`
+}
+
+func (s OrgGroupRecallResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgGroupRecallResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *OrgGroupRecallResponseBody) SetFailedResult(v map[string]*string) *OrgGroupRecallResponseBody {
+	s.FailedResult = v
+	return s
+}
+
+func (s *OrgGroupRecallResponseBody) SetSuccessResult(v []*string) *OrgGroupRecallResponseBody {
+	s.SuccessResult = v
+	return s
+}
+
+type OrgGroupRecallResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *OrgGroupRecallResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s OrgGroupRecallResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgGroupRecallResponse) GoString() string {
+	return s.String()
+}
+
+func (s *OrgGroupRecallResponse) SetHeaders(v map[string]*string) *OrgGroupRecallResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *OrgGroupRecallResponse) SetBody(v *OrgGroupRecallResponseBody) *OrgGroupRecallResponse {
+	s.Body = v
+	return s
+}
+
 type OrgGroupSendHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -991,6 +1232,122 @@ func (client *Client) BatchSendOTOWithOptions(request *BatchSendOTORequest, head
 	}
 	_result = &BatchSendOTOResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchSendOTO"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/oToMessages/batchSend"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) OrgGroupQuery(request *OrgGroupQueryRequest) (_result *OrgGroupQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &OrgGroupQueryHeaders{}
+	_result = &OrgGroupQueryResponse{}
+	_body, _err := client.OrgGroupQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) OrgGroupQueryWithOptions(request *OrgGroupQueryRequest, headers *OrgGroupQueryHeaders, runtime *util.RuntimeOptions) (_result *OrgGroupQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessQueryKey)) {
+		body["processQueryKey"] = request.ProcessQueryKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		body["token"] = request.Token
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &OrgGroupQueryResponse{}
+	_body, _err := client.DoROARequest(tea.String("OrgGroupQuery"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/groupMessages/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) OrgGroupRecall(request *OrgGroupRecallRequest) (_result *OrgGroupRecallResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &OrgGroupRecallHeaders{}
+	_result = &OrgGroupRecallResponse{}
+	_body, _err := client.OrgGroupRecallWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) OrgGroupRecallWithOptions(request *OrgGroupRecallRequest, headers *OrgGroupRecallHeaders, runtime *util.RuntimeOptions) (_result *OrgGroupRecallResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessQueryKeys)) {
+		body["processQueryKeys"] = request.ProcessQueryKeys
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &OrgGroupRecallResponse{}
+	_body, _err := client.DoROARequest(tea.String("OrgGroupRecall"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/groupMessages/recall"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

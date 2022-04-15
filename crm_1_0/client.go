@@ -1826,8 +1826,6 @@ func (s *CreateGroupRequest) SetRelationType(v string) *CreateGroupRequest {
 }
 
 type CreateGroupResponseBody struct {
-	// 群聊id
-	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
 	// 群id
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
@@ -1838,11 +1836,6 @@ func (s CreateGroupResponseBody) String() string {
 
 func (s CreateGroupResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *CreateGroupResponseBody) SetChatId(v string) *CreateGroupResponseBody {
-	s.ChatId = &v
-	return s
 }
 
 func (s *CreateGroupResponseBody) SetOpenConversationId(v string) *CreateGroupResponseBody {
@@ -2742,6 +2735,23 @@ func (s *DescribeCrmPersonalCustomerObjectMetaHeaders) SetCommonHeaders(v map[st
 
 func (s *DescribeCrmPersonalCustomerObjectMetaHeaders) SetXAcsDingtalkAccessToken(v string) *DescribeCrmPersonalCustomerObjectMetaHeaders {
 	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DescribeCrmPersonalCustomerObjectMetaRequest struct {
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeCrmPersonalCustomerObjectMetaRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeCrmPersonalCustomerObjectMetaRequest) SetRelationType(v string) *DescribeCrmPersonalCustomerObjectMetaRequest {
+	s.RelationType = &v
 	return s
 }
 
@@ -6226,8 +6236,6 @@ type GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt struct {
 	// 管理部门列表
 	DeptIdList []*float64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
 	// 管理员工列表
-	StaffIdList []*string `json:"staffIdList,omitempty" xml:"staffIdList,omitempty" type:"Repeated"`
-	// 管理员工列表
 	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
@@ -6241,11 +6249,6 @@ func (s GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt) GoStrin
 
 func (s *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt) SetDeptIdList(v []*float64) *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt {
 	s.DeptIdList = v
-	return s
-}
-
-func (s *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt) SetStaffIdList(v []*string) *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt {
-	s.StaffIdList = v
 	return s
 }
 
@@ -6284,8 +6287,6 @@ type GetCrmRolePermissionResponseBodyPermissionsRoleMemberList struct {
 	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
 	// 角色名
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 角色的userId（此字段废弃，请使用userId字段）
-	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
 	// 角色类型
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 	// 角色的userId
@@ -6307,11 +6308,6 @@ func (s *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList) SetMemberId(
 
 func (s *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList) SetName(v string) *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList {
 	s.Name = &v
-	return s
-}
-
-func (s *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList) SetStaffId(v string) *GetCrmRolePermissionResponseBodyPermissionsRoleMemberList {
-	s.StaffId = &v
 	return s
 }
 
@@ -11654,11 +11650,11 @@ func (client *Client) DeleteRelationMetaFieldWithOptions(request *DeleteRelation
 	return _result, _err
 }
 
-func (client *Client) DescribeCrmPersonalCustomerObjectMeta() (_result *DescribeCrmPersonalCustomerObjectMetaResponse, _err error) {
+func (client *Client) DescribeCrmPersonalCustomerObjectMeta(request *DescribeCrmPersonalCustomerObjectMetaRequest) (_result *DescribeCrmPersonalCustomerObjectMetaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DescribeCrmPersonalCustomerObjectMetaHeaders{}
 	_result = &DescribeCrmPersonalCustomerObjectMetaResponse{}
-	_body, _err := client.DescribeCrmPersonalCustomerObjectMetaWithOptions(headers, runtime)
+	_body, _err := client.DescribeCrmPersonalCustomerObjectMetaWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11666,7 +11662,16 @@ func (client *Client) DescribeCrmPersonalCustomerObjectMeta() (_result *Describe
 	return _result, _err
 }
 
-func (client *Client) DescribeCrmPersonalCustomerObjectMetaWithOptions(headers *DescribeCrmPersonalCustomerObjectMetaHeaders, runtime *util.RuntimeOptions) (_result *DescribeCrmPersonalCustomerObjectMetaResponse, _err error) {
+func (client *Client) DescribeCrmPersonalCustomerObjectMetaWithOptions(request *DescribeCrmPersonalCustomerObjectMetaRequest, headers *DescribeCrmPersonalCustomerObjectMetaHeaders, runtime *util.RuntimeOptions) (_result *DescribeCrmPersonalCustomerObjectMetaResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		query["relationType"] = request.RelationType
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -11678,6 +11683,7 @@ func (client *Client) DescribeCrmPersonalCustomerObjectMetaWithOptions(headers *
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
 	}
 	_result = &DescribeCrmPersonalCustomerObjectMetaResponse{}
 	_body, _err := client.DoROARequest(tea.String("DescribeCrmPersonalCustomerObjectMeta"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/personalCustomers/objectMeta"), tea.String("json"), req, runtime)

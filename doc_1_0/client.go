@@ -941,7 +941,8 @@ type CreateWorkspaceDocRequest struct {
 	// 父节点nodeId
 	ParentNodeId *string `json:"parentNodeId,omitempty" xml:"parentNodeId,omitempty"`
 	// 文档模板id
-	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	TemplateId   *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	TemplateType *string `json:"templateType,omitempty" xml:"templateType,omitempty"`
 }
 
 func (s CreateWorkspaceDocRequest) String() string {
@@ -974,6 +975,11 @@ func (s *CreateWorkspaceDocRequest) SetParentNodeId(v string) *CreateWorkspaceDo
 
 func (s *CreateWorkspaceDocRequest) SetTemplateId(v string) *CreateWorkspaceDocRequest {
 	s.TemplateId = &v
+	return s
+}
+
+func (s *CreateWorkspaceDocRequest) SetTemplateType(v string) *CreateWorkspaceDocRequest {
+	s.TemplateType = &v
 	return s
 }
 
@@ -2413,6 +2419,444 @@ func (s *GetWorkspaceNodeResponse) SetBody(v *GetWorkspaceNodeResponseBody) *Get
 	return s
 }
 
+type InsertBlocksHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s InsertBlocksHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertBlocksHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *InsertBlocksHeaders) SetCommonHeaders(v map[string]*string) *InsertBlocksHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *InsertBlocksHeaders) SetXAcsDingtalkAccessToken(v string) *InsertBlocksHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type InsertBlocksRequest struct {
+	// 元素数组
+	Blocks []*InsertBlocksRequestBlocks `json:"blocks,omitempty" xml:"blocks,omitempty" type:"Repeated"`
+	// 位置信息
+	Location *InsertBlocksRequestLocation `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
+	// 操作用户unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s InsertBlocksRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertBlocksRequest) GoString() string {
+	return s.String()
+}
+
+func (s *InsertBlocksRequest) SetBlocks(v []*InsertBlocksRequestBlocks) *InsertBlocksRequest {
+	s.Blocks = v
+	return s
+}
+
+func (s *InsertBlocksRequest) SetLocation(v *InsertBlocksRequestLocation) *InsertBlocksRequest {
+	s.Location = v
+	return s
+}
+
+func (s *InsertBlocksRequest) SetOperatorId(v string) *InsertBlocksRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type InsertBlocksRequestBlocks struct {
+	// 元素类型标识
+	BlockType *string `json:"blockType,omitempty" xml:"blockType,omitempty"`
+	// 段落元素
+	Paragraph *InsertBlocksRequestBlocksParagraph `json:"paragraph,omitempty" xml:"paragraph,omitempty" type:"Struct"`
+}
+
+func (s InsertBlocksRequestBlocks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertBlocksRequestBlocks) GoString() string {
+	return s.String()
+}
+
+func (s *InsertBlocksRequestBlocks) SetBlockType(v string) *InsertBlocksRequestBlocks {
+	s.BlockType = &v
+	return s
+}
+
+func (s *InsertBlocksRequestBlocks) SetParagraph(v *InsertBlocksRequestBlocksParagraph) *InsertBlocksRequestBlocks {
+	s.Paragraph = v
+	return s
+}
+
+type InsertBlocksRequestBlocksParagraph struct {
+	// 子节点
+	Children []*InsertBlocksRequestBlocksParagraphChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+	// 段落样式
+	Style *InsertBlocksRequestBlocksParagraphStyle `json:"style,omitempty" xml:"style,omitempty" type:"Struct"`
+}
+
+func (s InsertBlocksRequestBlocksParagraph) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertBlocksRequestBlocksParagraph) GoString() string {
+	return s.String()
+}
+
+func (s *InsertBlocksRequestBlocksParagraph) SetChildren(v []*InsertBlocksRequestBlocksParagraphChildren) *InsertBlocksRequestBlocksParagraph {
+	s.Children = v
+	return s
+}
+
+func (s *InsertBlocksRequestBlocksParagraph) SetStyle(v *InsertBlocksRequestBlocksParagraphStyle) *InsertBlocksRequestBlocksParagraph {
+	s.Style = v
+	return s
+}
+
+type InsertBlocksRequestBlocksParagraphChildren struct {
+	// 元素类型
+	ElementType *string `json:"elementType,omitempty" xml:"elementType,omitempty"`
+	// 文本元素
+	Text *InsertBlocksRequestBlocksParagraphChildrenText `json:"text,omitempty" xml:"text,omitempty" type:"Struct"`
+}
+
+func (s InsertBlocksRequestBlocksParagraphChildren) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertBlocksRequestBlocksParagraphChildren) GoString() string {
+	return s.String()
+}
+
+func (s *InsertBlocksRequestBlocksParagraphChildren) SetElementType(v string) *InsertBlocksRequestBlocksParagraphChildren {
+	s.ElementType = &v
+	return s
+}
+
+func (s *InsertBlocksRequestBlocksParagraphChildren) SetText(v *InsertBlocksRequestBlocksParagraphChildrenText) *InsertBlocksRequestBlocksParagraphChildren {
+	s.Text = v
+	return s
+}
+
+type InsertBlocksRequestBlocksParagraphChildrenText struct {
+	// 文本内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 文字样式
+	TextStyle *InsertBlocksRequestBlocksParagraphChildrenTextTextStyle `json:"textStyle,omitempty" xml:"textStyle,omitempty" type:"Struct"`
+}
+
+func (s InsertBlocksRequestBlocksParagraphChildrenText) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertBlocksRequestBlocksParagraphChildrenText) GoString() string {
+	return s.String()
+}
+
+func (s *InsertBlocksRequestBlocksParagraphChildrenText) SetContent(v string) *InsertBlocksRequestBlocksParagraphChildrenText {
+	s.Content = &v
+	return s
+}
+
+func (s *InsertBlocksRequestBlocksParagraphChildrenText) SetTextStyle(v *InsertBlocksRequestBlocksParagraphChildrenTextTextStyle) *InsertBlocksRequestBlocksParagraphChildrenText {
+	s.TextStyle = v
+	return s
+}
+
+type InsertBlocksRequestBlocksParagraphChildrenTextTextStyle struct {
+	// 是否加粗
+	Bold *bool `json:"bold,omitempty" xml:"bold,omitempty"`
+	// 数据类型
+	DataType *string `json:"dataType,omitempty" xml:"dataType,omitempty"`
+	// 字体大小
+	FontSize *int32 `json:"fontSize,omitempty" xml:"fontSize,omitempty"`
+	// 字体大小单位
+	SizeUnit *string `json:"sizeUnit,omitempty" xml:"sizeUnit,omitempty"`
+}
+
+func (s InsertBlocksRequestBlocksParagraphChildrenTextTextStyle) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertBlocksRequestBlocksParagraphChildrenTextTextStyle) GoString() string {
+	return s.String()
+}
+
+func (s *InsertBlocksRequestBlocksParagraphChildrenTextTextStyle) SetBold(v bool) *InsertBlocksRequestBlocksParagraphChildrenTextTextStyle {
+	s.Bold = &v
+	return s
+}
+
+func (s *InsertBlocksRequestBlocksParagraphChildrenTextTextStyle) SetDataType(v string) *InsertBlocksRequestBlocksParagraphChildrenTextTextStyle {
+	s.DataType = &v
+	return s
+}
+
+func (s *InsertBlocksRequestBlocksParagraphChildrenTextTextStyle) SetFontSize(v int32) *InsertBlocksRequestBlocksParagraphChildrenTextTextStyle {
+	s.FontSize = &v
+	return s
+}
+
+func (s *InsertBlocksRequestBlocksParagraphChildrenTextTextStyle) SetSizeUnit(v string) *InsertBlocksRequestBlocksParagraphChildrenTextTextStyle {
+	s.SizeUnit = &v
+	return s
+}
+
+type InsertBlocksRequestBlocksParagraphStyle struct {
+	// 标题样式
+	HeadingLevel *string `json:"headingLevel,omitempty" xml:"headingLevel,omitempty"`
+}
+
+func (s InsertBlocksRequestBlocksParagraphStyle) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertBlocksRequestBlocksParagraphStyle) GoString() string {
+	return s.String()
+}
+
+func (s *InsertBlocksRequestBlocksParagraphStyle) SetHeadingLevel(v string) *InsertBlocksRequestBlocksParagraphStyle {
+	s.HeadingLevel = &v
+	return s
+}
+
+type InsertBlocksRequestLocation struct {
+	// 头部插入
+	Head *bool `json:"head,omitempty" xml:"head,omitempty"`
+}
+
+func (s InsertBlocksRequestLocation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertBlocksRequestLocation) GoString() string {
+	return s.String()
+}
+
+func (s *InsertBlocksRequestLocation) SetHead(v bool) *InsertBlocksRequestLocation {
+	s.Head = &v
+	return s
+}
+
+type InsertBlocksResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s InsertBlocksResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertBlocksResponse) GoString() string {
+	return s.String()
+}
+
+func (s *InsertBlocksResponse) SetHeaders(v map[string]*string) *InsertBlocksResponse {
+	s.Headers = v
+	return s
+}
+
+type ListTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListTemplateHeaders) SetCommonHeaders(v map[string]*string) *ListTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *ListTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListTemplateRequest struct {
+	// 查询模版数量
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 翻页token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 操作用户unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// 模版类型
+	TemplateType *string `json:"templateType,omitempty" xml:"templateType,omitempty"`
+	// 团队空间Id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+}
+
+func (s ListTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListTemplateRequest) SetMaxResults(v int32) *ListTemplateRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListTemplateRequest) SetNextToken(v string) *ListTemplateRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListTemplateRequest) SetOperatorId(v string) *ListTemplateRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *ListTemplateRequest) SetTemplateType(v string) *ListTemplateRequest {
+	s.TemplateType = &v
+	return s
+}
+
+func (s *ListTemplateRequest) SetWorkspaceId(v string) *ListTemplateRequest {
+	s.WorkspaceId = &v
+	return s
+}
+
+type ListTemplateResponseBody struct {
+	// 是否还有更多模版
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 后续结果的偏移
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 模版信息列表
+	TemplateList []*ListTemplateResponseBodyTemplateList `json:"templateList,omitempty" xml:"templateList,omitempty" type:"Repeated"`
+}
+
+func (s ListTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListTemplateResponseBody) SetHasMore(v bool) *ListTemplateResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *ListTemplateResponseBody) SetNextToken(v string) *ListTemplateResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListTemplateResponseBody) SetTemplateList(v []*ListTemplateResponseBodyTemplateList) *ListTemplateResponseBody {
+	s.TemplateList = v
+	return s
+}
+
+type ListTemplateResponseBodyTemplateList struct {
+	// 模版预览url
+	CoverUrl *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
+	// 模版创建时间
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 模版对应文档类型
+	DocType *string `json:"docType,omitempty" xml:"docType,omitempty"`
+	// 模版Id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 模版类型
+	TemplateType *string `json:"templateType,omitempty" xml:"templateType,omitempty"`
+	// 模版标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 模版修改时间
+	UpdateTime *int64 `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	// 模版归属空间Id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+}
+
+func (s ListTemplateResponseBodyTemplateList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTemplateResponseBodyTemplateList) GoString() string {
+	return s.String()
+}
+
+func (s *ListTemplateResponseBodyTemplateList) SetCoverUrl(v string) *ListTemplateResponseBodyTemplateList {
+	s.CoverUrl = &v
+	return s
+}
+
+func (s *ListTemplateResponseBodyTemplateList) SetCreateTime(v int64) *ListTemplateResponseBodyTemplateList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *ListTemplateResponseBodyTemplateList) SetDocType(v string) *ListTemplateResponseBodyTemplateList {
+	s.DocType = &v
+	return s
+}
+
+func (s *ListTemplateResponseBodyTemplateList) SetId(v string) *ListTemplateResponseBodyTemplateList {
+	s.Id = &v
+	return s
+}
+
+func (s *ListTemplateResponseBodyTemplateList) SetTemplateType(v string) *ListTemplateResponseBodyTemplateList {
+	s.TemplateType = &v
+	return s
+}
+
+func (s *ListTemplateResponseBodyTemplateList) SetTitle(v string) *ListTemplateResponseBodyTemplateList {
+	s.Title = &v
+	return s
+}
+
+func (s *ListTemplateResponseBodyTemplateList) SetUpdateTime(v int64) *ListTemplateResponseBodyTemplateList {
+	s.UpdateTime = &v
+	return s
+}
+
+func (s *ListTemplateResponseBodyTemplateList) SetWorkspaceId(v string) *ListTemplateResponseBodyTemplateList {
+	s.WorkspaceId = &v
+	return s
+}
+
+type ListTemplateResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListTemplateResponse) SetHeaders(v map[string]*string) *ListTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListTemplateResponse) SetBody(v *ListTemplateResponseBody) *ListTemplateResponse {
+	s.Body = v
+	return s
+}
+
 type SearchWorkspaceDocsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3390,6 +3834,10 @@ func (client *Client) CreateWorkspaceDocWithOptions(workspaceId *string, request
 		body["templateId"] = request.TemplateId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.TemplateType)) {
+		body["templateType"] = request.TemplateType
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -3922,6 +4370,119 @@ func (client *Client) GetWorkspaceNodeWithOptions(workspaceId *string, nodeId *s
 	}
 	_result = &GetWorkspaceNodeResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetWorkspaceNode"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/"+tea.StringValue(workspaceId)+"/docs/"+tea.StringValue(nodeId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) InsertBlocks(documentId *string, request *InsertBlocksRequest) (_result *InsertBlocksResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &InsertBlocksHeaders{}
+	_result = &InsertBlocksResponse{}
+	_body, _err := client.InsertBlocksWithOptions(documentId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) InsertBlocksWithOptions(documentId *string, request *InsertBlocksRequest, headers *InsertBlocksHeaders, runtime *util.RuntimeOptions) (_result *InsertBlocksResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	documentId = openapiutil.GetEncodeParam(documentId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Blocks)) {
+		body["blocks"] = request.Blocks
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Location))) {
+		body["location"] = request.Location
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &InsertBlocksResponse{}
+	_body, _err := client.DoROARequest(tea.String("InsertBlocks"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/documents/"+tea.StringValue(documentId)+"/blocks"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListTemplate(request *ListTemplateRequest) (_result *ListTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListTemplateHeaders{}
+	_result = &ListTemplateResponse{}
+	_body, _err := client.ListTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListTemplateWithOptions(request *ListTemplateRequest, headers *ListTemplateHeaders, runtime *util.RuntimeOptions) (_result *ListTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateType)) {
+		query["templateType"] = request.TemplateType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WorkspaceId)) {
+		query["workspaceId"] = request.WorkspaceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListTemplateResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListTemplate"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/templates"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

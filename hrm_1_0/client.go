@@ -1945,6 +1945,234 @@ func (s *QueryPositionsResponse) SetBody(v *QueryPositionsResponseBody) *QueryPo
 	return s
 }
 
+type SolutionTaskInitHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SolutionTaskInitHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SolutionTaskInitHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SolutionTaskInitHeaders) SetCommonHeaders(v map[string]*string) *SolutionTaskInitHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SolutionTaskInitHeaders) SetXAcsDingtalkAccessToken(v string) *SolutionTaskInitHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SolutionTaskInitRequest struct {
+	// 任务业务模块，如training, performance等
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// 任务要求的截止时间
+	ClaimTime *int64 `json:"claimTime,omitempty" xml:"claimTime,omitempty"`
+	// 任务描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 任务完成时间
+	FinishTime *int64 `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	// 外部的任务唯一标识
+	OuterId *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	// 任务状态，如running,finished
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 任务名称
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 任务执行人userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 解决方案类型
+	SolutionType *string `json:"solutionType,omitempty" xml:"solutionType,omitempty"`
+}
+
+func (s SolutionTaskInitRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SolutionTaskInitRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SolutionTaskInitRequest) SetCategory(v string) *SolutionTaskInitRequest {
+	s.Category = &v
+	return s
+}
+
+func (s *SolutionTaskInitRequest) SetClaimTime(v int64) *SolutionTaskInitRequest {
+	s.ClaimTime = &v
+	return s
+}
+
+func (s *SolutionTaskInitRequest) SetDescription(v string) *SolutionTaskInitRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *SolutionTaskInitRequest) SetFinishTime(v int64) *SolutionTaskInitRequest {
+	s.FinishTime = &v
+	return s
+}
+
+func (s *SolutionTaskInitRequest) SetOuterId(v string) *SolutionTaskInitRequest {
+	s.OuterId = &v
+	return s
+}
+
+func (s *SolutionTaskInitRequest) SetStatus(v string) *SolutionTaskInitRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *SolutionTaskInitRequest) SetTitle(v string) *SolutionTaskInitRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *SolutionTaskInitRequest) SetUserId(v string) *SolutionTaskInitRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *SolutionTaskInitRequest) SetSolutionType(v string) *SolutionTaskInitRequest {
+	s.SolutionType = &v
+	return s
+}
+
+type SolutionTaskInitResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s SolutionTaskInitResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SolutionTaskInitResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SolutionTaskInitResponse) SetHeaders(v map[string]*string) *SolutionTaskInitResponse {
+	s.Headers = v
+	return s
+}
+
+type SolutionTaskSaveHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SolutionTaskSaveHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SolutionTaskSaveHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SolutionTaskSaveHeaders) SetCommonHeaders(v map[string]*string) *SolutionTaskSaveHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SolutionTaskSaveHeaders) SetXAcsDingtalkAccessToken(v string) *SolutionTaskSaveHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SolutionTaskSaveRequest struct {
+	// 任务业务模块，如training, performance等
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// 任务要求的截止时间
+	ClaimTime *int64 `json:"claimTime,omitempty" xml:"claimTime,omitempty"`
+	// 任务描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 任务完成时间
+	FinishTime *int64 `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	// 外部的任务唯一标识
+	OuterId *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	// 任务状态，如running,finished
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 任务名称
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 任务执行人userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 解决方案类型
+	SolutionType *string `json:"solutionType,omitempty" xml:"solutionType,omitempty"`
+}
+
+func (s SolutionTaskSaveRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SolutionTaskSaveRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SolutionTaskSaveRequest) SetCategory(v string) *SolutionTaskSaveRequest {
+	s.Category = &v
+	return s
+}
+
+func (s *SolutionTaskSaveRequest) SetClaimTime(v int64) *SolutionTaskSaveRequest {
+	s.ClaimTime = &v
+	return s
+}
+
+func (s *SolutionTaskSaveRequest) SetDescription(v string) *SolutionTaskSaveRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *SolutionTaskSaveRequest) SetFinishTime(v int64) *SolutionTaskSaveRequest {
+	s.FinishTime = &v
+	return s
+}
+
+func (s *SolutionTaskSaveRequest) SetOuterId(v string) *SolutionTaskSaveRequest {
+	s.OuterId = &v
+	return s
+}
+
+func (s *SolutionTaskSaveRequest) SetStatus(v string) *SolutionTaskSaveRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *SolutionTaskSaveRequest) SetTitle(v string) *SolutionTaskSaveRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *SolutionTaskSaveRequest) SetUserId(v string) *SolutionTaskSaveRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *SolutionTaskSaveRequest) SetSolutionType(v string) *SolutionTaskSaveRequest {
+	s.SolutionType = &v
+	return s
+}
+
+type SolutionTaskSaveResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s SolutionTaskSaveResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SolutionTaskSaveResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SolutionTaskSaveResponse) SetHeaders(v map[string]*string) *SolutionTaskSaveResponse {
+	s.Headers = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -2510,6 +2738,162 @@ func (client *Client) QueryPositionsWithOptions(request *QueryPositionsRequest, 
 	}
 	_result = &QueryPositionsResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryPositions"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/positions/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SolutionTaskInit(request *SolutionTaskInitRequest) (_result *SolutionTaskInitResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SolutionTaskInitHeaders{}
+	_result = &SolutionTaskInitResponse{}
+	_body, _err := client.SolutionTaskInitWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SolutionTaskInitWithOptions(request *SolutionTaskInitRequest, headers *SolutionTaskInitHeaders, runtime *util.RuntimeOptions) (_result *SolutionTaskInitResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SolutionType)) {
+		query["solutionType"] = request.SolutionType
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Category)) {
+		body["category"] = request.Category
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ClaimTime)) {
+		body["claimTime"] = request.ClaimTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FinishTime)) {
+		body["finishTime"] = request.FinishTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OuterId)) {
+		body["outerId"] = request.OuterId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SolutionTaskInitResponse{}
+	_body, _err := client.DoROARequest(tea.String("SolutionTaskInit"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/solutions/tasks/init"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SolutionTaskSave(request *SolutionTaskSaveRequest) (_result *SolutionTaskSaveResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SolutionTaskSaveHeaders{}
+	_result = &SolutionTaskSaveResponse{}
+	_body, _err := client.SolutionTaskSaveWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SolutionTaskSaveWithOptions(request *SolutionTaskSaveRequest, headers *SolutionTaskSaveHeaders, runtime *util.RuntimeOptions) (_result *SolutionTaskSaveResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SolutionType)) {
+		query["solutionType"] = request.SolutionType
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Category)) {
+		body["category"] = request.Category
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ClaimTime)) {
+		body["claimTime"] = request.ClaimTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FinishTime)) {
+		body["finishTime"] = request.FinishTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OuterId)) {
+		body["outerId"] = request.OuterId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SolutionTaskSaveResponse{}
+	_body, _err := client.DoROARequest(tea.String("SolutionTaskSave"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/solutions/tasks/save"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

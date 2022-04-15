@@ -222,10 +222,6 @@ func (s *BatchGetFormDataByIdListResponseBodyResult) SetVersion(v int64) *BatchG
 }
 
 type BatchGetFormDataByIdListResponseBodyResultModifyUser struct {
-	// 部门名称
-	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	// 电子邮箱
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
 	// 名称
 	Name *BatchGetFormDataByIdListResponseBodyResultModifyUserName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
 	// 钉钉userId
@@ -238,16 +234,6 @@ func (s BatchGetFormDataByIdListResponseBodyResultModifyUser) String() string {
 
 func (s BatchGetFormDataByIdListResponseBodyResultModifyUser) GoString() string {
 	return s.String()
-}
-
-func (s *BatchGetFormDataByIdListResponseBodyResultModifyUser) SetDepartmentName(v string) *BatchGetFormDataByIdListResponseBodyResultModifyUser {
-	s.DepartmentName = &v
-	return s
-}
-
-func (s *BatchGetFormDataByIdListResponseBodyResultModifyUser) SetEmail(v string) *BatchGetFormDataByIdListResponseBodyResultModifyUser {
-	s.Email = &v
-	return s
 }
 
 func (s *BatchGetFormDataByIdListResponseBodyResultModifyUser) SetName(v *BatchGetFormDataByIdListResponseBodyResultModifyUserName) *BatchGetFormDataByIdListResponseBodyResultModifyUser {
@@ -286,10 +272,6 @@ func (s *BatchGetFormDataByIdListResponseBodyResultModifyUserName) SetNameInEngl
 }
 
 type BatchGetFormDataByIdListResponseBodyResultOriginator struct {
-	// 部门名称
-	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	// 电子邮箱
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
 	// 名称
 	Name *BatchGetFormDataByIdListResponseBodyResultOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
 	// 钉钉userId
@@ -302,16 +284,6 @@ func (s BatchGetFormDataByIdListResponseBodyResultOriginator) String() string {
 
 func (s BatchGetFormDataByIdListResponseBodyResultOriginator) GoString() string {
 	return s.String()
-}
-
-func (s *BatchGetFormDataByIdListResponseBodyResultOriginator) SetDepartmentName(v string) *BatchGetFormDataByIdListResponseBodyResultOriginator {
-	s.DepartmentName = &v
-	return s
-}
-
-func (s *BatchGetFormDataByIdListResponseBodyResultOriginator) SetEmail(v string) *BatchGetFormDataByIdListResponseBodyResultOriginator {
-	s.Email = &v
-	return s
 }
 
 func (s *BatchGetFormDataByIdListResponseBodyResultOriginator) SetName(v *BatchGetFormDataByIdListResponseBodyResultOriginatorName) *BatchGetFormDataByIdListResponseBodyResultOriginator {
@@ -12604,10 +12576,6 @@ func (s *SearchFormDataSecondGenerationResponseBodyData) SetVersion(v int64) *Se
 }
 
 type SearchFormDataSecondGenerationResponseBodyDataModifyUser struct {
-	// 部门名称
-	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	// 电子邮箱
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
 	// 名称
 	Name *SearchFormDataSecondGenerationResponseBodyDataModifyUserName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
 	// 钉钉userId
@@ -12620,16 +12588,6 @@ func (s SearchFormDataSecondGenerationResponseBodyDataModifyUser) String() strin
 
 func (s SearchFormDataSecondGenerationResponseBodyDataModifyUser) GoString() string {
 	return s.String()
-}
-
-func (s *SearchFormDataSecondGenerationResponseBodyDataModifyUser) SetDepartmentName(v string) *SearchFormDataSecondGenerationResponseBodyDataModifyUser {
-	s.DepartmentName = &v
-	return s
-}
-
-func (s *SearchFormDataSecondGenerationResponseBodyDataModifyUser) SetEmail(v string) *SearchFormDataSecondGenerationResponseBodyDataModifyUser {
-	s.Email = &v
-	return s
 }
 
 func (s *SearchFormDataSecondGenerationResponseBodyDataModifyUser) SetName(v *SearchFormDataSecondGenerationResponseBodyDataModifyUserName) *SearchFormDataSecondGenerationResponseBodyDataModifyUser {
@@ -12668,10 +12626,6 @@ func (s *SearchFormDataSecondGenerationResponseBodyDataModifyUserName) SetNameIn
 }
 
 type SearchFormDataSecondGenerationResponseBodyDataOriginator struct {
-	// 部门名称
-	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	// 电子邮箱
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
 	// 名称
 	Name *SearchFormDataSecondGenerationResponseBodyDataOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
 	// 钉钉userId
@@ -12684,16 +12638,6 @@ func (s SearchFormDataSecondGenerationResponseBodyDataOriginator) String() strin
 
 func (s SearchFormDataSecondGenerationResponseBodyDataOriginator) GoString() string {
 	return s.String()
-}
-
-func (s *SearchFormDataSecondGenerationResponseBodyDataOriginator) SetDepartmentName(v string) *SearchFormDataSecondGenerationResponseBodyDataOriginator {
-	s.DepartmentName = &v
-	return s
-}
-
-func (s *SearchFormDataSecondGenerationResponseBodyDataOriginator) SetEmail(v string) *SearchFormDataSecondGenerationResponseBodyDataOriginator {
-	s.Email = &v
-	return s
 }
 
 func (s *SearchFormDataSecondGenerationResponseBodyDataOriginator) SetName(v *SearchFormDataSecondGenerationResponseBodyDataOriginatorName) *SearchFormDataSecondGenerationResponseBodyDataOriginator {
