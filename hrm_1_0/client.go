@@ -2042,8 +2042,27 @@ func (s *SolutionTaskInitRequest) SetSolutionType(v string) *SolutionTaskInitReq
 	return s
 }
 
+type SolutionTaskInitResponseBody struct {
+	// 数据是否初始化成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SolutionTaskInitResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SolutionTaskInitResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SolutionTaskInitResponseBody) SetResult(v bool) *SolutionTaskInitResponseBody {
+	s.Result = &v
+	return s
+}
+
 type SolutionTaskInitResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SolutionTaskInitResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SolutionTaskInitResponse) String() string {
@@ -2056,6 +2075,11 @@ func (s SolutionTaskInitResponse) GoString() string {
 
 func (s *SolutionTaskInitResponse) SetHeaders(v map[string]*string) *SolutionTaskInitResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SolutionTaskInitResponse) SetBody(v *SolutionTaskInitResponseBody) *SolutionTaskInitResponse {
+	s.Body = v
 	return s
 }
 
@@ -2156,8 +2180,27 @@ func (s *SolutionTaskSaveRequest) SetSolutionType(v string) *SolutionTaskSaveReq
 	return s
 }
 
+type SolutionTaskSaveResponseBody struct {
+	// 数据是否保存成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SolutionTaskSaveResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SolutionTaskSaveResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SolutionTaskSaveResponseBody) SetResult(v bool) *SolutionTaskSaveResponseBody {
+	s.Result = &v
+	return s
+}
+
 type SolutionTaskSaveResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SolutionTaskSaveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SolutionTaskSaveResponse) String() string {
@@ -2170,6 +2213,11 @@ func (s SolutionTaskSaveResponse) GoString() string {
 
 func (s *SolutionTaskSaveResponse) SetHeaders(v map[string]*string) *SolutionTaskSaveResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SolutionTaskSaveResponse) SetBody(v *SolutionTaskSaveResponseBody) *SolutionTaskSaveResponse {
+	s.Body = v
 	return s
 }
 
@@ -2815,7 +2863,7 @@ func (client *Client) SolutionTaskInitWithOptions(request *SolutionTaskInitReque
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &SolutionTaskInitResponse{}
-	_body, _err := client.DoROARequest(tea.String("SolutionTaskInit"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/solutions/tasks/init"), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("SolutionTaskInit"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/solutions/tasks/init"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2893,7 +2941,7 @@ func (client *Client) SolutionTaskSaveWithOptions(request *SolutionTaskSaveReque
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &SolutionTaskSaveResponse{}
-	_body, _err := client.DoROARequest(tea.String("SolutionTaskSave"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/solutions/tasks/save"), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("SolutionTaskSave"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/solutions/tasks/save"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

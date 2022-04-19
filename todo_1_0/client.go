@@ -2076,6 +2076,229 @@ func (s *GetTodoTypeConfigResponse) SetBody(v *GetTodoTypeConfigResponseBody) *G
 	return s
 }
 
+type QueryOrgTodoByUserHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryOrgTodoByUserHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgTodoByUserHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgTodoByUserHeaders) SetCommonHeaders(v map[string]*string) *QueryOrgTodoByUserHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryOrgTodoByUserHeaders) SetXAcsDingtalkAccessToken(v string) *QueryOrgTodoByUserHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryOrgTodoByUserRequest struct {
+	// 待办完成状态。
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// 每页数量。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页游标。如果一个查询条件一次无法全部返回结果，会返回分页token，下次查询带上该token后会返回后续数据，直到分页token为null表示数据已经全部查询完毕。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s QueryOrgTodoByUserRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgTodoByUserRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgTodoByUserRequest) SetIsDone(v bool) *QueryOrgTodoByUserRequest {
+	s.IsDone = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserRequest) SetMaxResults(v int32) *QueryOrgTodoByUserRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserRequest) SetNextToken(v string) *QueryOrgTodoByUserRequest {
+	s.NextToken = &v
+	return s
+}
+
+type QueryOrgTodoByUserResponseBody struct {
+	// 每页数量
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 翻页token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 待办卡片列表
+	TodoCards []*QueryOrgTodoByUserResponseBodyTodoCards `json:"todoCards,omitempty" xml:"todoCards,omitempty" type:"Repeated"`
+}
+
+func (s QueryOrgTodoByUserResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgTodoByUserResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgTodoByUserResponseBody) SetMaxResults(v int32) *QueryOrgTodoByUserResponseBody {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserResponseBody) SetNextToken(v string) *QueryOrgTodoByUserResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserResponseBody) SetTodoCards(v []*QueryOrgTodoByUserResponseBodyTodoCards) *QueryOrgTodoByUserResponseBody {
+	s.TodoCards = v
+	return s
+}
+
+type QueryOrgTodoByUserResponseBodyTodoCards struct {
+	// 所属应用
+	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
+	// 创建时间
+	CreatedTime *int64 `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
+	// 创建者id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 详情页链接
+	DetailUrl *QueryOrgTodoByUserResponseBodyTodoCardsDetailUrl `json:"detailUrl,omitempty" xml:"detailUrl,omitempty" type:"Struct"`
+	// 待办截止时间
+	DueTime *int64 `json:"dueTime,omitempty" xml:"dueTime,omitempty"`
+	// 待办完成状态
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// 更新时间
+	ModifiedTime *int64 `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// 优先级
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 来源id
+	SourceId *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	// 待办标题
+	Subject *string `json:"subject,omitempty" xml:"subject,omitempty"`
+	// 待办id
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s QueryOrgTodoByUserResponseBodyTodoCards) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgTodoByUserResponseBodyTodoCards) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgTodoByUserResponseBodyTodoCards) SetBizTag(v string) *QueryOrgTodoByUserResponseBodyTodoCards {
+	s.BizTag = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserResponseBodyTodoCards) SetCreatedTime(v int64) *QueryOrgTodoByUserResponseBodyTodoCards {
+	s.CreatedTime = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserResponseBodyTodoCards) SetCreatorId(v string) *QueryOrgTodoByUserResponseBodyTodoCards {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserResponseBodyTodoCards) SetDetailUrl(v *QueryOrgTodoByUserResponseBodyTodoCardsDetailUrl) *QueryOrgTodoByUserResponseBodyTodoCards {
+	s.DetailUrl = v
+	return s
+}
+
+func (s *QueryOrgTodoByUserResponseBodyTodoCards) SetDueTime(v int64) *QueryOrgTodoByUserResponseBodyTodoCards {
+	s.DueTime = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserResponseBodyTodoCards) SetIsDone(v bool) *QueryOrgTodoByUserResponseBodyTodoCards {
+	s.IsDone = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserResponseBodyTodoCards) SetModifiedTime(v int64) *QueryOrgTodoByUserResponseBodyTodoCards {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserResponseBodyTodoCards) SetPriority(v int32) *QueryOrgTodoByUserResponseBodyTodoCards {
+	s.Priority = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserResponseBodyTodoCards) SetSourceId(v string) *QueryOrgTodoByUserResponseBodyTodoCards {
+	s.SourceId = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserResponseBodyTodoCards) SetSubject(v string) *QueryOrgTodoByUserResponseBodyTodoCards {
+	s.Subject = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserResponseBodyTodoCards) SetTaskId(v string) *QueryOrgTodoByUserResponseBodyTodoCards {
+	s.TaskId = &v
+	return s
+}
+
+type QueryOrgTodoByUserResponseBodyTodoCardsDetailUrl struct {
+	// 移动端url地址
+	AppUrl *string `json:"appUrl,omitempty" xml:"appUrl,omitempty"`
+	// pc端url地址
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+}
+
+func (s QueryOrgTodoByUserResponseBodyTodoCardsDetailUrl) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgTodoByUserResponseBodyTodoCardsDetailUrl) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgTodoByUserResponseBodyTodoCardsDetailUrl) SetAppUrl(v string) *QueryOrgTodoByUserResponseBodyTodoCardsDetailUrl {
+	s.AppUrl = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserResponseBodyTodoCardsDetailUrl) SetPcUrl(v string) *QueryOrgTodoByUserResponseBodyTodoCardsDetailUrl {
+	s.PcUrl = &v
+	return s
+}
+
+type QueryOrgTodoByUserResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryOrgTodoByUserResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryOrgTodoByUserResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgTodoByUserResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgTodoByUserResponse) SetHeaders(v map[string]*string) *QueryOrgTodoByUserResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryOrgTodoByUserResponse) SetBody(v *QueryOrgTodoByUserResponseBody) *QueryOrgTodoByUserResponse {
+	s.Body = v
+	return s
+}
+
 type QueryOrgTodoTasksHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3589,6 +3812,59 @@ func (client *Client) GetTodoTypeConfigWithOptions(unionId *string, cardTypeId *
 	}
 	_result = &GetTodoTypeConfigResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetTodoTypeConfig"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/configs/types/"+tea.StringValue(cardTypeId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryOrgTodoByUser(unionId *string, request *QueryOrgTodoByUserRequest) (_result *QueryOrgTodoByUserResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryOrgTodoByUserHeaders{}
+	_result = &QueryOrgTodoByUserResponse{}
+	_body, _err := client.QueryOrgTodoByUserWithOptions(unionId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryOrgTodoByUserWithOptions(unionId *string, request *QueryOrgTodoByUserRequest, headers *QueryOrgTodoByUserHeaders, runtime *util.RuntimeOptions) (_result *QueryOrgTodoByUserResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	unionId = openapiutil.GetEncodeParam(unionId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IsDone)) {
+		body["isDone"] = request.IsDone
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryOrgTodoByUserResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryOrgTodoByUser"), tea.String("todo_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/todo/users/"+tea.StringValue(unionId)+"/organizations/tasks/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

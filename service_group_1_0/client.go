@@ -1345,6 +1345,220 @@ func (s *BatchGetGroupSetConfigResponse) SetBody(v *BatchGetGroupSetConfigRespon
 	return s
 }
 
+type BatchQuerySendMessageTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchQuerySendMessageTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQuerySendMessageTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQuerySendMessageTaskHeaders) SetCommonHeaders(v map[string]*string) *BatchQuerySendMessageTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskHeaders) SetXAcsDingtalkAccessToken(v string) *BatchQuerySendMessageTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchQuerySendMessageTaskRequest struct {
+	// 是否获取群发任务已读数量，默认false
+	GetReadCount *bool `json:"getReadCount,omitempty" xml:"getReadCount,omitempty"`
+	// 任务查询结束时间
+	GmtCreateEnd *string `json:"gmtCreateEnd,omitempty" xml:"gmtCreateEnd,omitempty"`
+	// 任务查询开始时间
+	GmtCreateStart *string `json:"gmtCreateStart,omitempty" xml:"gmtCreateStart,omitempty"`
+	// 每页条数
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 游标
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 开放群组ID，在服务群-群组- ID信息中获取
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 任务名称
+	TaskName *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
+}
+
+func (s BatchQuerySendMessageTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQuerySendMessageTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQuerySendMessageTaskRequest) SetGetReadCount(v bool) *BatchQuerySendMessageTaskRequest {
+	s.GetReadCount = &v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskRequest) SetGmtCreateEnd(v string) *BatchQuerySendMessageTaskRequest {
+	s.GmtCreateEnd = &v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskRequest) SetGmtCreateStart(v string) *BatchQuerySendMessageTaskRequest {
+	s.GmtCreateStart = &v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskRequest) SetMaxResults(v int64) *BatchQuerySendMessageTaskRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskRequest) SetNextToken(v string) *BatchQuerySendMessageTaskRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskRequest) SetOpenGroupSetId(v string) *BatchQuerySendMessageTaskRequest {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskRequest) SetOpenTeamId(v string) *BatchQuerySendMessageTaskRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskRequest) SetTaskName(v string) *BatchQuerySendMessageTaskRequest {
+	s.TaskName = &v
+	return s
+}
+
+type BatchQuerySendMessageTaskResponseBody struct {
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// Id of the request
+	NextToken  *string                                         `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Records    []*BatchQuerySendMessageTaskResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	TotalCount *float32                                        `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s BatchQuerySendMessageTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQuerySendMessageTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQuerySendMessageTaskResponseBody) SetMaxResults(v int64) *BatchQuerySendMessageTaskResponseBody {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskResponseBody) SetNextToken(v string) *BatchQuerySendMessageTaskResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskResponseBody) SetRecords(v []*BatchQuerySendMessageTaskResponseBodyRecords) *BatchQuerySendMessageTaskResponseBody {
+	s.Records = v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskResponseBody) SetTotalCount(v float32) *BatchQuerySendMessageTaskResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type BatchQuerySendMessageTaskResponseBodyRecords struct {
+	CreateName        *string `json:"createName,omitempty" xml:"createName,omitempty"`
+	CreateTimeStr     *string `json:"createTimeStr,omitempty" xml:"createTimeStr,omitempty"`
+	CreateUnionId     *string `json:"createUnionId,omitempty" xml:"createUnionId,omitempty"`
+	OpenBatchTaskId   *string `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
+	ReadGroupInc      *int64  `json:"readGroupInc,omitempty" xml:"readGroupInc,omitempty"`
+	SendGroupInc      *int64  `json:"sendGroupInc,omitempty" xml:"sendGroupInc,omitempty"`
+	SendMessageStatus *string `json:"sendMessageStatus,omitempty" xml:"sendMessageStatus,omitempty"`
+	SendTaskTimeStr   *string `json:"sendTaskTimeStr,omitempty" xml:"sendTaskTimeStr,omitempty"`
+	TaskName          *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
+}
+
+func (s BatchQuerySendMessageTaskResponseBodyRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQuerySendMessageTaskResponseBodyRecords) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQuerySendMessageTaskResponseBodyRecords) SetCreateName(v string) *BatchQuerySendMessageTaskResponseBodyRecords {
+	s.CreateName = &v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskResponseBodyRecords) SetCreateTimeStr(v string) *BatchQuerySendMessageTaskResponseBodyRecords {
+	s.CreateTimeStr = &v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskResponseBodyRecords) SetCreateUnionId(v string) *BatchQuerySendMessageTaskResponseBodyRecords {
+	s.CreateUnionId = &v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskResponseBodyRecords) SetOpenBatchTaskId(v string) *BatchQuerySendMessageTaskResponseBodyRecords {
+	s.OpenBatchTaskId = &v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskResponseBodyRecords) SetReadGroupInc(v int64) *BatchQuerySendMessageTaskResponseBodyRecords {
+	s.ReadGroupInc = &v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskResponseBodyRecords) SetSendGroupInc(v int64) *BatchQuerySendMessageTaskResponseBodyRecords {
+	s.SendGroupInc = &v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskResponseBodyRecords) SetSendMessageStatus(v string) *BatchQuerySendMessageTaskResponseBodyRecords {
+	s.SendMessageStatus = &v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskResponseBodyRecords) SetSendTaskTimeStr(v string) *BatchQuerySendMessageTaskResponseBodyRecords {
+	s.SendTaskTimeStr = &v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskResponseBodyRecords) SetTaskName(v string) *BatchQuerySendMessageTaskResponseBodyRecords {
+	s.TaskName = &v
+	return s
+}
+
+type BatchQuerySendMessageTaskResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchQuerySendMessageTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchQuerySendMessageTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQuerySendMessageTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQuerySendMessageTaskResponse) SetHeaders(v map[string]*string) *BatchQuerySendMessageTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchQuerySendMessageTaskResponse) SetBody(v *BatchQuerySendMessageTaskResponseBody) *BatchQuerySendMessageTaskResponse {
+	s.Body = v
+	return s
+}
+
 type BoundTemplateToTeamHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3747,6 +3961,431 @@ func (s *QueryGroupSetResponse) SetHeaders(v map[string]*string) *QueryGroupSetR
 }
 
 func (s *QueryGroupSetResponse) SetBody(v *QueryGroupSetResponseBody) *QueryGroupSetResponse {
+	s.Body = v
+	return s
+}
+
+type QuerySendMsgTaskStatisticsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QuerySendMsgTaskStatisticsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySendMsgTaskStatisticsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySendMsgTaskStatisticsHeaders) SetCommonHeaders(v map[string]*string) *QuerySendMsgTaskStatisticsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySendMsgTaskStatisticsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QuerySendMsgTaskStatisticsRequest struct {
+	// 每页条数
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 游标，首页为空
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 开放群发任务ID
+	OpenBatchTaskId *string `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s QuerySendMsgTaskStatisticsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySendMsgTaskStatisticsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySendMsgTaskStatisticsRequest) SetMaxResults(v int64) *QuerySendMsgTaskStatisticsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsRequest) SetNextToken(v string) *QuerySendMsgTaskStatisticsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsRequest) SetOpenBatchTaskId(v string) *QuerySendMsgTaskStatisticsRequest {
+	s.OpenBatchTaskId = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsRequest) SetOpenTeamId(v string) *QuerySendMsgTaskStatisticsRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type QuerySendMsgTaskStatisticsResponseBody struct {
+	MaxResults *int64                                           `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string                                          `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Records    []*QuerySendMsgTaskStatisticsResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	// Id of the request
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QuerySendMsgTaskStatisticsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySendMsgTaskStatisticsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBody) SetMaxResults(v int64) *QuerySendMsgTaskStatisticsResponseBody {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBody) SetNextToken(v string) *QuerySendMsgTaskStatisticsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBody) SetRecords(v []*QuerySendMsgTaskStatisticsResponseBodyRecords) *QuerySendMsgTaskStatisticsResponseBody {
+	s.Records = v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBody) SetTotalCount(v int64) *QuerySendMsgTaskStatisticsResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QuerySendMsgTaskStatisticsResponseBodyRecords struct {
+	ErrorDetail             *string                                                               `json:"errorDetail,omitempty" xml:"errorDetail,omitempty"`
+	Group                   *QuerySendMsgTaskStatisticsResponseBodyRecordsGroup                   `json:"group,omitempty" xml:"group,omitempty" type:"Struct"`
+	GroupUserReadStatistics *QuerySendMsgTaskStatisticsResponseBodyRecordsGroupUserReadStatistics `json:"groupUserReadStatistics,omitempty" xml:"groupUserReadStatistics,omitempty" type:"Struct"`
+	OpenMsgId               *string                                                               `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
+	Status                  *string                                                               `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QuerySendMsgTaskStatisticsResponseBodyRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySendMsgTaskStatisticsResponseBodyRecords) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBodyRecords) SetErrorDetail(v string) *QuerySendMsgTaskStatisticsResponseBodyRecords {
+	s.ErrorDetail = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBodyRecords) SetGroup(v *QuerySendMsgTaskStatisticsResponseBodyRecordsGroup) *QuerySendMsgTaskStatisticsResponseBodyRecords {
+	s.Group = v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBodyRecords) SetGroupUserReadStatistics(v *QuerySendMsgTaskStatisticsResponseBodyRecordsGroupUserReadStatistics) *QuerySendMsgTaskStatisticsResponseBodyRecords {
+	s.GroupUserReadStatistics = v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBodyRecords) SetOpenMsgId(v string) *QuerySendMsgTaskStatisticsResponseBodyRecords {
+	s.OpenMsgId = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBodyRecords) SetStatus(v string) *QuerySendMsgTaskStatisticsResponseBodyRecords {
+	s.Status = &v
+	return s
+}
+
+type QuerySendMsgTaskStatisticsResponseBodyRecordsGroup struct {
+	BizId              *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	GroupName          *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	GroupSetName       *string `json:"groupSetName,omitempty" xml:"groupSetName,omitempty"`
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	OpenGroupSetId     *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s QuerySendMsgTaskStatisticsResponseBodyRecordsGroup) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySendMsgTaskStatisticsResponseBodyRecordsGroup) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBodyRecordsGroup) SetBizId(v string) *QuerySendMsgTaskStatisticsResponseBodyRecordsGroup {
+	s.BizId = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBodyRecordsGroup) SetGroupName(v string) *QuerySendMsgTaskStatisticsResponseBodyRecordsGroup {
+	s.GroupName = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBodyRecordsGroup) SetGroupSetName(v string) *QuerySendMsgTaskStatisticsResponseBodyRecordsGroup {
+	s.GroupSetName = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBodyRecordsGroup) SetOpenConversationId(v string) *QuerySendMsgTaskStatisticsResponseBodyRecordsGroup {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBodyRecordsGroup) SetOpenGroupSetId(v string) *QuerySendMsgTaskStatisticsResponseBodyRecordsGroup {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBodyRecordsGroup) SetOpenTeamId(v string) *QuerySendMsgTaskStatisticsResponseBodyRecordsGroup {
+	s.OpenTeamId = &v
+	return s
+}
+
+type QuerySendMsgTaskStatisticsResponseBodyRecordsGroupUserReadStatistics struct {
+	OpenBatchTaskId    *string `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	ReadUserInc        *int64  `json:"readUserInc,omitempty" xml:"readUserInc,omitempty"`
+	SendUserInc        *int64  `json:"sendUserInc,omitempty" xml:"sendUserInc,omitempty"`
+	UnReadUserInc      *int64  `json:"unReadUserInc,omitempty" xml:"unReadUserInc,omitempty"`
+}
+
+func (s QuerySendMsgTaskStatisticsResponseBodyRecordsGroupUserReadStatistics) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySendMsgTaskStatisticsResponseBodyRecordsGroupUserReadStatistics) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBodyRecordsGroupUserReadStatistics) SetOpenBatchTaskId(v string) *QuerySendMsgTaskStatisticsResponseBodyRecordsGroupUserReadStatistics {
+	s.OpenBatchTaskId = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBodyRecordsGroupUserReadStatistics) SetOpenConversationId(v string) *QuerySendMsgTaskStatisticsResponseBodyRecordsGroupUserReadStatistics {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBodyRecordsGroupUserReadStatistics) SetReadUserInc(v int64) *QuerySendMsgTaskStatisticsResponseBodyRecordsGroupUserReadStatistics {
+	s.ReadUserInc = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBodyRecordsGroupUserReadStatistics) SetSendUserInc(v int64) *QuerySendMsgTaskStatisticsResponseBodyRecordsGroupUserReadStatistics {
+	s.SendUserInc = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsResponseBodyRecordsGroupUserReadStatistics) SetUnReadUserInc(v int64) *QuerySendMsgTaskStatisticsResponseBodyRecordsGroupUserReadStatistics {
+	s.UnReadUserInc = &v
+	return s
+}
+
+type QuerySendMsgTaskStatisticsResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QuerySendMsgTaskStatisticsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QuerySendMsgTaskStatisticsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySendMsgTaskStatisticsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySendMsgTaskStatisticsResponse) SetHeaders(v map[string]*string) *QuerySendMsgTaskStatisticsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsResponse) SetBody(v *QuerySendMsgTaskStatisticsResponseBody) *QuerySendMsgTaskStatisticsResponse {
+	s.Body = v
+	return s
+}
+
+type QuerySendMsgTaskStatisticsDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QuerySendMsgTaskStatisticsDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySendMsgTaskStatisticsDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailHeaders) SetCommonHeaders(v map[string]*string) *QuerySendMsgTaskStatisticsDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySendMsgTaskStatisticsDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QuerySendMsgTaskStatisticsDetailRequest struct {
+	// 每页条数
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 游标，首页传递空
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 开放群发任务ID
+	OpenBatchTaskId *string `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
+	// 开放会话ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s QuerySendMsgTaskStatisticsDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySendMsgTaskStatisticsDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailRequest) SetMaxResults(v int64) *QuerySendMsgTaskStatisticsDetailRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailRequest) SetNextToken(v string) *QuerySendMsgTaskStatisticsDetailRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailRequest) SetOpenBatchTaskId(v string) *QuerySendMsgTaskStatisticsDetailRequest {
+	s.OpenBatchTaskId = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailRequest) SetOpenConversationId(v string) *QuerySendMsgTaskStatisticsDetailRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailRequest) SetOpenTeamId(v string) *QuerySendMsgTaskStatisticsDetailRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type QuerySendMsgTaskStatisticsDetailResponseBody struct {
+	MaxResults *int64                                                 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string                                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Records    []*QuerySendMsgTaskStatisticsDetailResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	// Id of the request
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QuerySendMsgTaskStatisticsDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySendMsgTaskStatisticsDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailResponseBody) SetMaxResults(v int64) *QuerySendMsgTaskStatisticsDetailResponseBody {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailResponseBody) SetNextToken(v string) *QuerySendMsgTaskStatisticsDetailResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailResponseBody) SetRecords(v []*QuerySendMsgTaskStatisticsDetailResponseBodyRecords) *QuerySendMsgTaskStatisticsDetailResponseBody {
+	s.Records = v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailResponseBody) SetTotalCount(v int64) *QuerySendMsgTaskStatisticsDetailResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QuerySendMsgTaskStatisticsDetailResponseBodyRecords struct {
+	OpenBatchTaskId    *string `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	ReadStatus         *int64  `json:"readStatus,omitempty" xml:"readStatus,omitempty"`
+	ReadTimeStr        *string `json:"readTimeStr,omitempty" xml:"readTimeStr,omitempty"`
+	ReceiverName       *string `json:"receiverName,omitempty" xml:"receiverName,omitempty"`
+	ReceiverUnionId    *string `json:"receiverUnionId,omitempty" xml:"receiverUnionId,omitempty"`
+}
+
+func (s QuerySendMsgTaskStatisticsDetailResponseBodyRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySendMsgTaskStatisticsDetailResponseBodyRecords) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailResponseBodyRecords) SetOpenBatchTaskId(v string) *QuerySendMsgTaskStatisticsDetailResponseBodyRecords {
+	s.OpenBatchTaskId = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailResponseBodyRecords) SetOpenConversationId(v string) *QuerySendMsgTaskStatisticsDetailResponseBodyRecords {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailResponseBodyRecords) SetReadStatus(v int64) *QuerySendMsgTaskStatisticsDetailResponseBodyRecords {
+	s.ReadStatus = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailResponseBodyRecords) SetReadTimeStr(v string) *QuerySendMsgTaskStatisticsDetailResponseBodyRecords {
+	s.ReadTimeStr = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailResponseBodyRecords) SetReceiverName(v string) *QuerySendMsgTaskStatisticsDetailResponseBodyRecords {
+	s.ReceiverName = &v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailResponseBodyRecords) SetReceiverUnionId(v string) *QuerySendMsgTaskStatisticsDetailResponseBodyRecords {
+	s.ReceiverUnionId = &v
+	return s
+}
+
+type QuerySendMsgTaskStatisticsDetailResponse struct {
+	Headers map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QuerySendMsgTaskStatisticsDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QuerySendMsgTaskStatisticsDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySendMsgTaskStatisticsDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailResponse) SetHeaders(v map[string]*string) *QuerySendMsgTaskStatisticsDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QuerySendMsgTaskStatisticsDetailResponse) SetBody(v *QuerySendMsgTaskStatisticsDetailResponseBody) *QuerySendMsgTaskStatisticsDetailResponse {
 	s.Body = v
 	return s
 }
@@ -6557,6 +7196,78 @@ func (client *Client) BatchGetGroupSetConfigWithOptions(request *BatchGetGroupSe
 	return _result, _err
 }
 
+func (client *Client) BatchQuerySendMessageTask(request *BatchQuerySendMessageTaskRequest) (_result *BatchQuerySendMessageTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchQuerySendMessageTaskHeaders{}
+	_result = &BatchQuerySendMessageTaskResponse{}
+	_body, _err := client.BatchQuerySendMessageTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchQuerySendMessageTaskWithOptions(request *BatchQuerySendMessageTaskRequest, headers *BatchQuerySendMessageTaskHeaders, runtime *util.RuntimeOptions) (_result *BatchQuerySendMessageTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GetReadCount)) {
+		body["getReadCount"] = request.GetReadCount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GmtCreateEnd)) {
+		body["gmtCreateEnd"] = request.GmtCreateEnd
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GmtCreateStart)) {
+		body["gmtCreateStart"] = request.GmtCreateStart
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
+		body["openGroupSetId"] = request.OpenGroupSetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskName)) {
+		body["taskName"] = request.TaskName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchQuerySendMessageTaskResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchQuerySendMessageTask"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tasks/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) BoundTemplateToTeam(request *BoundTemplateToTeamRequest) (_result *BoundTemplateToTeamResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BoundTemplateToTeamHeaders{}
@@ -7473,6 +8184,122 @@ func (client *Client) QueryGroupSetWithOptions(request *QueryGroupSetRequest, he
 	}
 	_result = &QueryGroupSetResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryGroupSet"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groupSets"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QuerySendMsgTaskStatistics(request *QuerySendMsgTaskStatisticsRequest) (_result *QuerySendMsgTaskStatisticsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QuerySendMsgTaskStatisticsHeaders{}
+	_result = &QuerySendMsgTaskStatisticsResponse{}
+	_body, _err := client.QuerySendMsgTaskStatisticsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QuerySendMsgTaskStatisticsWithOptions(request *QuerySendMsgTaskStatisticsRequest, headers *QuerySendMsgTaskStatisticsHeaders, runtime *util.RuntimeOptions) (_result *QuerySendMsgTaskStatisticsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenBatchTaskId)) {
+		body["openBatchTaskId"] = request.OpenBatchTaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QuerySendMsgTaskStatisticsResponse{}
+	_body, _err := client.DoROARequest(tea.String("QuerySendMsgTaskStatistics"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tasks/statistics/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QuerySendMsgTaskStatisticsDetail(request *QuerySendMsgTaskStatisticsDetailRequest) (_result *QuerySendMsgTaskStatisticsDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QuerySendMsgTaskStatisticsDetailHeaders{}
+	_result = &QuerySendMsgTaskStatisticsDetailResponse{}
+	_body, _err := client.QuerySendMsgTaskStatisticsDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QuerySendMsgTaskStatisticsDetailWithOptions(request *QuerySendMsgTaskStatisticsDetailRequest, headers *QuerySendMsgTaskStatisticsDetailHeaders, runtime *util.RuntimeOptions) (_result *QuerySendMsgTaskStatisticsDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenBatchTaskId)) {
+		body["openBatchTaskId"] = request.OpenBatchTaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QuerySendMsgTaskStatisticsDetailResponse{}
+	_body, _err := client.DoROARequest(tea.String("QuerySendMsgTaskStatisticsDetail"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tasks/statistics/details/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
