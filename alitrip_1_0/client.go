@@ -1091,6 +1091,8 @@ type BillSettementCarResponseBodyModuleDataList struct {
 	SpecialReason *string `json:"specialReason,omitempty" xml:"specialReason,omitempty"`
 	// 入账状态
 	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+	// 子订单号
+	SubOrderId *string `json:"subOrderId,omitempty" xml:"subOrderId,omitempty"`
 	// 出行人use id
 	TravelerId *string `json:"travelerId,omitempty" xml:"travelerId,omitempty"`
 	// 出行人工号
@@ -1348,6 +1350,11 @@ func (s *BillSettementCarResponseBodyModuleDataList) SetSpecialReason(v string) 
 
 func (s *BillSettementCarResponseBodyModuleDataList) SetStatus(v int64) *BillSettementCarResponseBodyModuleDataList {
 	s.Status = &v
+	return s
+}
+
+func (s *BillSettementCarResponseBodyModuleDataList) SetSubOrderId(v string) *BillSettementCarResponseBodyModuleDataList {
+	s.SubOrderId = &v
 	return s
 }
 

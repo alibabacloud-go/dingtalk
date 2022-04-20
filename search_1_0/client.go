@@ -163,6 +163,8 @@ type CreateSearchTabRequest struct {
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 数据源优先级，数值越小优先级越高
 	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 数据来源,非必填,默认来源为钉钉搜索内部引擎
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
 	// 数据源状态，1表示上线，0表示下线
 	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 }
@@ -182,6 +184,11 @@ func (s *CreateSearchTabRequest) SetName(v string) *CreateSearchTabRequest {
 
 func (s *CreateSearchTabRequest) SetPriority(v int32) *CreateSearchTabRequest {
 	s.Priority = &v
+	return s
+}
+
+func (s *CreateSearchTabRequest) SetSource(v string) *CreateSearchTabRequest {
+	s.Source = &v
 	return s
 }
 
@@ -674,6 +681,8 @@ type GetSearchTabResponseBody struct {
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 数据源优先级，数值越小优先级越高
 	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 数据来源,非必填,默认来源为钉钉搜索内部引擎
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
 	// 数据源状态，1表示上线，0表示下线
 	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 	// 数据源的id,范围为3000-4000
@@ -705,6 +714,11 @@ func (s *GetSearchTabResponseBody) SetName(v string) *GetSearchTabResponseBody {
 
 func (s *GetSearchTabResponseBody) SetPriority(v int32) *GetSearchTabResponseBody {
 	s.Priority = &v
+	return s
+}
+
+func (s *GetSearchTabResponseBody) SetSource(v string) *GetSearchTabResponseBody {
+	s.Source = &v
 	return s
 }
 
@@ -898,6 +912,8 @@ type ListSearchTabsByOrgIdResponseBodySearchTabResult struct {
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 数据源优先级，数值越小优先级越高
 	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 数据来源,非必填,默认来源为钉钉搜索内部引擎
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
 	// 数据源状态，1表示上线，0表示下线
 	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 	// 数据源的id,范围为3000-4000
@@ -929,6 +945,11 @@ func (s *ListSearchTabsByOrgIdResponseBodySearchTabResult) SetName(v string) *Li
 
 func (s *ListSearchTabsByOrgIdResponseBodySearchTabResult) SetPriority(v int32) *ListSearchTabsByOrgIdResponseBodySearchTabResult {
 	s.Priority = &v
+	return s
+}
+
+func (s *ListSearchTabsByOrgIdResponseBodySearchTabResult) SetSource(v string) *ListSearchTabsByOrgIdResponseBodySearchTabResult {
+	s.Source = &v
 	return s
 }
 
@@ -993,6 +1014,8 @@ type UpdateSearchTabRequest struct {
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 数据源优先级，数值越小优先级越高
 	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 数据来源,非必填,默认来源为钉钉搜索内部引擎
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
 	// 数据源状态，1表示上线，0表示下线
 	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 }
@@ -1012,6 +1035,11 @@ func (s *UpdateSearchTabRequest) SetName(v string) *UpdateSearchTabRequest {
 
 func (s *UpdateSearchTabRequest) SetPriority(v int32) *UpdateSearchTabRequest {
 	s.Priority = &v
+	return s
+}
+
+func (s *UpdateSearchTabRequest) SetSource(v string) *UpdateSearchTabRequest {
+	s.Source = &v
 	return s
 }
 
@@ -1129,6 +1157,10 @@ func (client *Client) CreateSearchTabWithOptions(request *CreateSearchTabRequest
 
 	if !tea.BoolValue(util.IsUnset(request.Priority)) {
 		body["priority"] = request.Priority
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Source)) {
+		body["source"] = request.Source
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Status)) {
@@ -1484,6 +1516,10 @@ func (client *Client) UpdateSearchTabWithOptions(tabId *string, request *UpdateS
 
 	if !tea.BoolValue(util.IsUnset(request.Priority)) {
 		body["priority"] = request.Priority
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Source)) {
+		body["source"] = request.Source
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Status)) {
