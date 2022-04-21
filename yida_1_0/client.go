@@ -12868,7 +12868,7 @@ type SearchFormDataSecondGenerationNoTableFieldResponseBodyData struct {
 	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
 	// 数据库表记录主键id
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
-	// 表单实例数据
+	// 表单实例数据以组件值格式展示
 	InstanceValue *string `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
 	// 修改时间
 	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
@@ -12972,10 +12972,6 @@ func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyData) SetVersion(
 }
 
 type SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser struct {
-	// 部门名称
-	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	// 电子邮箱
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
 	// 名称
 	Name *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
 	// 钉钉userId
@@ -12988,16 +12984,6 @@ func (s SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser) St
 
 func (s SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser) GoString() string {
 	return s.String()
-}
-
-func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser) SetDepartmentName(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser {
-	s.DepartmentName = &v
-	return s
-}
-
-func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser) SetEmail(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser {
-	s.Email = &v
-	return s
 }
 
 func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser) SetName(v *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser {
@@ -13036,10 +13022,6 @@ func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserNam
 }
 
 type SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator struct {
-	// 部门名称
-	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	// 电子邮箱
-	Email *string `json:"email,omitempty" xml:"email,omitempty"`
 	// 名称
 	Name *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
 	// 钉钉userId
@@ -13052,16 +13034,6 @@ func (s SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator) St
 
 func (s SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator) GoString() string {
 	return s.String()
-}
-
-func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator) SetDepartmentName(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator {
-	s.DepartmentName = &v
-	return s
-}
-
-func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator) SetEmail(v string) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator {
-	s.Email = &v
-	return s
 }
 
 func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator) SetName(v *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName) *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator {

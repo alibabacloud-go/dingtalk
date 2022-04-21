@@ -1838,6 +1838,173 @@ func (s *CancelTicketResponse) SetHeaders(v map[string]*string) *CancelTicketRes
 	return s
 }
 
+type CategoryStatisticsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CategoryStatisticsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoryStatisticsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CategoryStatisticsHeaders) SetCommonHeaders(v map[string]*string) *CategoryStatisticsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CategoryStatisticsHeaders) SetXAcsDingtalkAccessToken(v string) *CategoryStatisticsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CategoryStatisticsRequest struct {
+	// 截止日期
+	MaxDt *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
+	// 起始日期
+	MinDt *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s CategoryStatisticsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoryStatisticsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CategoryStatisticsRequest) SetMaxDt(v string) *CategoryStatisticsRequest {
+	s.MaxDt = &v
+	return s
+}
+
+func (s *CategoryStatisticsRequest) SetMinDt(v string) *CategoryStatisticsRequest {
+	s.MinDt = &v
+	return s
+}
+
+func (s *CategoryStatisticsRequest) SetOpenTeamId(v string) *CategoryStatisticsRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type CategoryStatisticsResponseBody struct {
+	// 分类统计
+	CategoryStatisticsRecords []*CategoryStatisticsResponseBodyCategoryStatisticsRecords `json:"categoryStatisticsRecords,omitempty" xml:"categoryStatisticsRecords,omitempty" type:"Repeated"`
+	// 分类趋势
+	CategoryTrend []*CategoryStatisticsResponseBodyCategoryTrend `json:"categoryTrend,omitempty" xml:"categoryTrend,omitempty" type:"Repeated"`
+}
+
+func (s CategoryStatisticsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoryStatisticsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CategoryStatisticsResponseBody) SetCategoryStatisticsRecords(v []*CategoryStatisticsResponseBodyCategoryStatisticsRecords) *CategoryStatisticsResponseBody {
+	s.CategoryStatisticsRecords = v
+	return s
+}
+
+func (s *CategoryStatisticsResponseBody) SetCategoryTrend(v []*CategoryStatisticsResponseBodyCategoryTrend) *CategoryStatisticsResponseBody {
+	s.CategoryTrend = v
+	return s
+}
+
+type CategoryStatisticsResponseBodyCategoryStatisticsRecords struct {
+	// 心声数量
+	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
+	// 上期心声数量
+	LastCount *int64 `json:"lastCount,omitempty" xml:"lastCount,omitempty"`
+	// 分类名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s CategoryStatisticsResponseBodyCategoryStatisticsRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoryStatisticsResponseBodyCategoryStatisticsRecords) GoString() string {
+	return s.String()
+}
+
+func (s *CategoryStatisticsResponseBodyCategoryStatisticsRecords) SetCount(v int64) *CategoryStatisticsResponseBodyCategoryStatisticsRecords {
+	s.Count = &v
+	return s
+}
+
+func (s *CategoryStatisticsResponseBodyCategoryStatisticsRecords) SetLastCount(v int64) *CategoryStatisticsResponseBodyCategoryStatisticsRecords {
+	s.LastCount = &v
+	return s
+}
+
+func (s *CategoryStatisticsResponseBodyCategoryStatisticsRecords) SetName(v string) *CategoryStatisticsResponseBodyCategoryStatisticsRecords {
+	s.Name = &v
+	return s
+}
+
+type CategoryStatisticsResponseBodyCategoryTrend struct {
+	// 心声数量
+	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
+	// 日期
+	Dt *string `json:"dt,omitempty" xml:"dt,omitempty"`
+	// 分类名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s CategoryStatisticsResponseBodyCategoryTrend) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoryStatisticsResponseBodyCategoryTrend) GoString() string {
+	return s.String()
+}
+
+func (s *CategoryStatisticsResponseBodyCategoryTrend) SetCount(v int64) *CategoryStatisticsResponseBodyCategoryTrend {
+	s.Count = &v
+	return s
+}
+
+func (s *CategoryStatisticsResponseBodyCategoryTrend) SetDt(v string) *CategoryStatisticsResponseBodyCategoryTrend {
+	s.Dt = &v
+	return s
+}
+
+func (s *CategoryStatisticsResponseBodyCategoryTrend) SetName(v string) *CategoryStatisticsResponseBodyCategoryTrend {
+	s.Name = &v
+	return s
+}
+
+type CategoryStatisticsResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CategoryStatisticsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CategoryStatisticsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CategoryStatisticsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CategoryStatisticsResponse) SetHeaders(v map[string]*string) *CategoryStatisticsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CategoryStatisticsResponse) SetBody(v *CategoryStatisticsResponseBody) *CategoryStatisticsResponse {
+	s.Body = v
+	return s
+}
+
 type CloseHumanSessionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2578,6 +2745,162 @@ func (s *DeleteKnowledgeResponse) SetBody(v *DeleteKnowledgeResponseBody) *Delet
 	return s
 }
 
+type EmotionStatisticsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s EmotionStatisticsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EmotionStatisticsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *EmotionStatisticsHeaders) SetCommonHeaders(v map[string]*string) *EmotionStatisticsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *EmotionStatisticsHeaders) SetXAcsDingtalkAccessToken(v string) *EmotionStatisticsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type EmotionStatisticsRequest struct {
+	// 截止日期
+	MaxDt *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
+	// 最大情绪值
+	MaxEmotion *float64 `json:"maxEmotion,omitempty" xml:"maxEmotion,omitempty"`
+	// 起始日期
+	MinDt *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// 最小情绪值
+	MinEmotion *float64 `json:"minEmotion,omitempty" xml:"minEmotion,omitempty"`
+	// 开放群ID列表（多个以逗号拼接）
+	OpenConversationIds *string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty"`
+	// 开放群分组ID
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s EmotionStatisticsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EmotionStatisticsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *EmotionStatisticsRequest) SetMaxDt(v string) *EmotionStatisticsRequest {
+	s.MaxDt = &v
+	return s
+}
+
+func (s *EmotionStatisticsRequest) SetMaxEmotion(v float64) *EmotionStatisticsRequest {
+	s.MaxEmotion = &v
+	return s
+}
+
+func (s *EmotionStatisticsRequest) SetMinDt(v string) *EmotionStatisticsRequest {
+	s.MinDt = &v
+	return s
+}
+
+func (s *EmotionStatisticsRequest) SetMinEmotion(v float64) *EmotionStatisticsRequest {
+	s.MinEmotion = &v
+	return s
+}
+
+func (s *EmotionStatisticsRequest) SetOpenConversationIds(v string) *EmotionStatisticsRequest {
+	s.OpenConversationIds = &v
+	return s
+}
+
+func (s *EmotionStatisticsRequest) SetOpenGroupSetId(v string) *EmotionStatisticsRequest {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *EmotionStatisticsRequest) SetOpenTeamId(v string) *EmotionStatisticsRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type EmotionStatisticsResponseBody struct {
+	// 情感统计
+	EmotionStatisticsRecords []*EmotionStatisticsResponseBodyEmotionStatisticsRecords `json:"emotionStatisticsRecords,omitempty" xml:"emotionStatisticsRecords,omitempty" type:"Repeated"`
+}
+
+func (s EmotionStatisticsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EmotionStatisticsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *EmotionStatisticsResponseBody) SetEmotionStatisticsRecords(v []*EmotionStatisticsResponseBodyEmotionStatisticsRecords) *EmotionStatisticsResponseBody {
+	s.EmotionStatisticsRecords = v
+	return s
+}
+
+type EmotionStatisticsResponseBodyEmotionStatisticsRecords struct {
+	// 心声数量
+	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
+	// 日期
+	Dt *string `json:"dt,omitempty" xml:"dt,omitempty"`
+	// 负面情绪值（0-1,越大越负面)
+	EmotionScore *float64 `json:"emotionScore,omitempty" xml:"emotionScore,omitempty"`
+}
+
+func (s EmotionStatisticsResponseBodyEmotionStatisticsRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EmotionStatisticsResponseBodyEmotionStatisticsRecords) GoString() string {
+	return s.String()
+}
+
+func (s *EmotionStatisticsResponseBodyEmotionStatisticsRecords) SetCount(v int64) *EmotionStatisticsResponseBodyEmotionStatisticsRecords {
+	s.Count = &v
+	return s
+}
+
+func (s *EmotionStatisticsResponseBodyEmotionStatisticsRecords) SetDt(v string) *EmotionStatisticsResponseBodyEmotionStatisticsRecords {
+	s.Dt = &v
+	return s
+}
+
+func (s *EmotionStatisticsResponseBodyEmotionStatisticsRecords) SetEmotionScore(v float64) *EmotionStatisticsResponseBodyEmotionStatisticsRecords {
+	s.EmotionScore = &v
+	return s
+}
+
+type EmotionStatisticsResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *EmotionStatisticsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s EmotionStatisticsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EmotionStatisticsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *EmotionStatisticsResponse) SetHeaders(v map[string]*string) *EmotionStatisticsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *EmotionStatisticsResponse) SetBody(v *EmotionStatisticsResponseBody) *EmotionStatisticsResponse {
+	s.Body = v
+	return s
+}
+
 type FinishTicketHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2742,6 +3065,113 @@ func (s FinishTicketResponse) GoString() string {
 
 func (s *FinishTicketResponse) SetHeaders(v map[string]*string) *FinishTicketResponse {
 	s.Headers = v
+	return s
+}
+
+type GetNegativeWordCloudHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetNegativeWordCloudHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNegativeWordCloudHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetNegativeWordCloudHeaders) SetCommonHeaders(v map[string]*string) *GetNegativeWordCloudHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetNegativeWordCloudHeaders) SetXAcsDingtalkAccessToken(v string) *GetNegativeWordCloudHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetNegativeWordCloudRequest struct {
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s GetNegativeWordCloudRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNegativeWordCloudRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetNegativeWordCloudRequest) SetOpenTeamId(v string) *GetNegativeWordCloudRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type GetNegativeWordCloudResponseBody struct {
+	// 词列表
+	Words []*GetNegativeWordCloudResponseBodyWords `json:"words,omitempty" xml:"words,omitempty" type:"Repeated"`
+}
+
+func (s GetNegativeWordCloudResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNegativeWordCloudResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetNegativeWordCloudResponseBody) SetWords(v []*GetNegativeWordCloudResponseBodyWords) *GetNegativeWordCloudResponseBody {
+	s.Words = v
+	return s
+}
+
+type GetNegativeWordCloudResponseBodyWords struct {
+	// 词数量
+	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
+	// 词名
+	Word *string `json:"word,omitempty" xml:"word,omitempty"`
+}
+
+func (s GetNegativeWordCloudResponseBodyWords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNegativeWordCloudResponseBodyWords) GoString() string {
+	return s.String()
+}
+
+func (s *GetNegativeWordCloudResponseBodyWords) SetCount(v int64) *GetNegativeWordCloudResponseBodyWords {
+	s.Count = &v
+	return s
+}
+
+func (s *GetNegativeWordCloudResponseBodyWords) SetWord(v string) *GetNegativeWordCloudResponseBodyWords {
+	s.Word = &v
+	return s
+}
+
+type GetNegativeWordCloudResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetNegativeWordCloudResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetNegativeWordCloudResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetNegativeWordCloudResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetNegativeWordCloudResponse) SetHeaders(v map[string]*string) *GetNegativeWordCloudResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetNegativeWordCloudResponse) SetBody(v *GetNegativeWordCloudResponseBody) *GetNegativeWordCloudResponse {
+	s.Body = v
 	return s
 }
 
@@ -3233,6 +3663,571 @@ func (s *GetTicketResponse) SetHeaders(v map[string]*string) *GetTicketResponse 
 }
 
 func (s *GetTicketResponse) SetBody(v *GetTicketResponseBody) *GetTicketResponse {
+	s.Body = v
+	return s
+}
+
+type GetWordCloudHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetWordCloudHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWordCloudHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetWordCloudHeaders) SetCommonHeaders(v map[string]*string) *GetWordCloudHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetWordCloudHeaders) SetXAcsDingtalkAccessToken(v string) *GetWordCloudHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetWordCloudRequest struct {
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s GetWordCloudRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWordCloudRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetWordCloudRequest) SetOpenTeamId(v string) *GetWordCloudRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type GetWordCloudResponseBody struct {
+	// 词列表
+	Words []*GetWordCloudResponseBodyWords `json:"words,omitempty" xml:"words,omitempty" type:"Repeated"`
+}
+
+func (s GetWordCloudResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWordCloudResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetWordCloudResponseBody) SetWords(v []*GetWordCloudResponseBodyWords) *GetWordCloudResponseBody {
+	s.Words = v
+	return s
+}
+
+type GetWordCloudResponseBodyWords struct {
+	// 词数量
+	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
+	// 词名
+	Word *string `json:"word,omitempty" xml:"word,omitempty"`
+}
+
+func (s GetWordCloudResponseBodyWords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWordCloudResponseBodyWords) GoString() string {
+	return s.String()
+}
+
+func (s *GetWordCloudResponseBodyWords) SetCount(v int64) *GetWordCloudResponseBodyWords {
+	s.Count = &v
+	return s
+}
+
+func (s *GetWordCloudResponseBodyWords) SetWord(v string) *GetWordCloudResponseBodyWords {
+	s.Word = &v
+	return s
+}
+
+type GetWordCloudResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetWordCloudResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetWordCloudResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWordCloudResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetWordCloudResponse) SetHeaders(v map[string]*string) *GetWordCloudResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetWordCloudResponse) SetBody(v *GetWordCloudResponseBody) *GetWordCloudResponse {
+	s.Body = v
+	return s
+}
+
+type GroupStatisticsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GroupStatisticsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupStatisticsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GroupStatisticsHeaders) SetCommonHeaders(v map[string]*string) *GroupStatisticsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GroupStatisticsHeaders) SetXAcsDingtalkAccessToken(v string) *GroupStatisticsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GroupStatisticsRequest struct {
+	// 截止日期
+	MaxDt *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
+	// 起始日期
+	MinDt *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s GroupStatisticsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupStatisticsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GroupStatisticsRequest) SetMaxDt(v string) *GroupStatisticsRequest {
+	s.MaxDt = &v
+	return s
+}
+
+func (s *GroupStatisticsRequest) SetMinDt(v string) *GroupStatisticsRequest {
+	s.MinDt = &v
+	return s
+}
+
+func (s *GroupStatisticsRequest) SetOpenTeamId(v string) *GroupStatisticsRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type GroupStatisticsResponseBody struct {
+	// (本期)群总数
+	GroupCount *int64 `json:"groupCount,omitempty" xml:"groupCount,omitempty"`
+	// 群趋势
+	GroupTrend []*GroupStatisticsResponseBodyGroupTrend `json:"groupTrend,omitempty" xml:"groupTrend,omitempty" type:"Repeated"`
+	// 较上期增长数
+	IncreaseGroupCount *int64 `json:"increaseGroupCount,omitempty" xml:"increaseGroupCount,omitempty"`
+	// 较上期增长率(已乘以100）
+	IncreaseRate *string `json:"increaseRate,omitempty" xml:"increaseRate,omitempty"`
+}
+
+func (s GroupStatisticsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupStatisticsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GroupStatisticsResponseBody) SetGroupCount(v int64) *GroupStatisticsResponseBody {
+	s.GroupCount = &v
+	return s
+}
+
+func (s *GroupStatisticsResponseBody) SetGroupTrend(v []*GroupStatisticsResponseBodyGroupTrend) *GroupStatisticsResponseBody {
+	s.GroupTrend = v
+	return s
+}
+
+func (s *GroupStatisticsResponseBody) SetIncreaseGroupCount(v int64) *GroupStatisticsResponseBody {
+	s.IncreaseGroupCount = &v
+	return s
+}
+
+func (s *GroupStatisticsResponseBody) SetIncreaseRate(v string) *GroupStatisticsResponseBody {
+	s.IncreaseRate = &v
+	return s
+}
+
+type GroupStatisticsResponseBodyGroupTrend struct {
+	// 群数量
+	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
+	// 日期
+	Dt *string `json:"dt,omitempty" xml:"dt,omitempty"`
+}
+
+func (s GroupStatisticsResponseBodyGroupTrend) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupStatisticsResponseBodyGroupTrend) GoString() string {
+	return s.String()
+}
+
+func (s *GroupStatisticsResponseBodyGroupTrend) SetCount(v int64) *GroupStatisticsResponseBodyGroupTrend {
+	s.Count = &v
+	return s
+}
+
+func (s *GroupStatisticsResponseBodyGroupTrend) SetDt(v string) *GroupStatisticsResponseBodyGroupTrend {
+	s.Dt = &v
+	return s
+}
+
+type GroupStatisticsResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GroupStatisticsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GroupStatisticsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupStatisticsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GroupStatisticsResponse) SetHeaders(v map[string]*string) *GroupStatisticsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GroupStatisticsResponse) SetBody(v *GroupStatisticsResponseBody) *GroupStatisticsResponse {
+	s.Body = v
+	return s
+}
+
+type IntentionCategoryStatisticsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IntentionCategoryStatisticsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IntentionCategoryStatisticsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IntentionCategoryStatisticsHeaders) SetCommonHeaders(v map[string]*string) *IntentionCategoryStatisticsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IntentionCategoryStatisticsHeaders) SetXAcsDingtalkAccessToken(v string) *IntentionCategoryStatisticsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IntentionCategoryStatisticsRequest struct {
+	// 截止日期
+	MaxDt *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
+	// 起始日期
+	MinDt *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s IntentionCategoryStatisticsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IntentionCategoryStatisticsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IntentionCategoryStatisticsRequest) SetMaxDt(v string) *IntentionCategoryStatisticsRequest {
+	s.MaxDt = &v
+	return s
+}
+
+func (s *IntentionCategoryStatisticsRequest) SetMinDt(v string) *IntentionCategoryStatisticsRequest {
+	s.MinDt = &v
+	return s
+}
+
+func (s *IntentionCategoryStatisticsRequest) SetOpenTeamId(v string) *IntentionCategoryStatisticsRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type IntentionCategoryStatisticsResponseBody struct {
+	// 统计明细
+	IntentionCategoryRecords []*IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords `json:"intentionCategoryRecords,omitempty" xml:"intentionCategoryRecords,omitempty" type:"Repeated"`
+}
+
+func (s IntentionCategoryStatisticsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IntentionCategoryStatisticsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IntentionCategoryStatisticsResponseBody) SetIntentionCategoryRecords(v []*IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords) *IntentionCategoryStatisticsResponseBody {
+	s.IntentionCategoryRecords = v
+	return s
+}
+
+type IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords struct {
+	// 求助咨询量
+	AskCount *int64 `json:"askCount,omitempty" xml:"askCount,omitempty"`
+	// 分类名
+	CategoryName *string `json:"categoryName,omitempty" xml:"categoryName,omitempty"`
+	// 不满辱骂量
+	DissatisfiedCount *int64 `json:"dissatisfiedCount,omitempty" xml:"dissatisfiedCount,omitempty"`
+	// 产品异常量
+	ErrorCount *int64 `json:"errorCount,omitempty" xml:"errorCount,omitempty"`
+	// 赞扬量
+	PraiseCount *int64 `json:"praiseCount,omitempty" xml:"praiseCount,omitempty"`
+	// 产品建议量
+	SuggestCount *int64 `json:"suggestCount,omitempty" xml:"suggestCount,omitempty"`
+}
+
+func (s IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords) GoString() string {
+	return s.String()
+}
+
+func (s *IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords) SetAskCount(v int64) *IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords {
+	s.AskCount = &v
+	return s
+}
+
+func (s *IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords) SetCategoryName(v string) *IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords {
+	s.CategoryName = &v
+	return s
+}
+
+func (s *IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords) SetDissatisfiedCount(v int64) *IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords {
+	s.DissatisfiedCount = &v
+	return s
+}
+
+func (s *IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords) SetErrorCount(v int64) *IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords {
+	s.ErrorCount = &v
+	return s
+}
+
+func (s *IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords) SetPraiseCount(v int64) *IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords {
+	s.PraiseCount = &v
+	return s
+}
+
+func (s *IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords) SetSuggestCount(v int64) *IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords {
+	s.SuggestCount = &v
+	return s
+}
+
+type IntentionCategoryStatisticsResponse struct {
+	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *IntentionCategoryStatisticsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IntentionCategoryStatisticsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IntentionCategoryStatisticsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IntentionCategoryStatisticsResponse) SetHeaders(v map[string]*string) *IntentionCategoryStatisticsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IntentionCategoryStatisticsResponse) SetBody(v *IntentionCategoryStatisticsResponseBody) *IntentionCategoryStatisticsResponse {
+	s.Body = v
+	return s
+}
+
+type IntentionStatisticsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IntentionStatisticsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IntentionStatisticsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IntentionStatisticsHeaders) SetCommonHeaders(v map[string]*string) *IntentionStatisticsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IntentionStatisticsHeaders) SetXAcsDingtalkAccessToken(v string) *IntentionStatisticsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IntentionStatisticsRequest struct {
+	// 截止日期
+	MaxDt *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
+	// 起始日期
+	MinDt *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s IntentionStatisticsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IntentionStatisticsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IntentionStatisticsRequest) SetMaxDt(v string) *IntentionStatisticsRequest {
+	s.MaxDt = &v
+	return s
+}
+
+func (s *IntentionStatisticsRequest) SetMinDt(v string) *IntentionStatisticsRequest {
+	s.MinDt = &v
+	return s
+}
+
+func (s *IntentionStatisticsRequest) SetOpenTeamId(v string) *IntentionStatisticsRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type IntentionStatisticsResponseBody struct {
+	// 意图统计
+	IntentionStatisticsRecords []*IntentionStatisticsResponseBodyIntentionStatisticsRecords `json:"intentionStatisticsRecords,omitempty" xml:"intentionStatisticsRecords,omitempty" type:"Repeated"`
+	// 意图趋势
+	IntentionTrend []*IntentionStatisticsResponseBodyIntentionTrend `json:"intentionTrend,omitempty" xml:"intentionTrend,omitempty" type:"Repeated"`
+}
+
+func (s IntentionStatisticsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IntentionStatisticsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IntentionStatisticsResponseBody) SetIntentionStatisticsRecords(v []*IntentionStatisticsResponseBodyIntentionStatisticsRecords) *IntentionStatisticsResponseBody {
+	s.IntentionStatisticsRecords = v
+	return s
+}
+
+func (s *IntentionStatisticsResponseBody) SetIntentionTrend(v []*IntentionStatisticsResponseBodyIntentionTrend) *IntentionStatisticsResponseBody {
+	s.IntentionTrend = v
+	return s
+}
+
+type IntentionStatisticsResponseBodyIntentionStatisticsRecords struct {
+	// 心声数量
+	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
+	// 意图
+	Intention *string `json:"intention,omitempty" xml:"intention,omitempty"`
+	// 上期心声数量
+	LastCount *int64 `json:"lastCount,omitempty" xml:"lastCount,omitempty"`
+}
+
+func (s IntentionStatisticsResponseBodyIntentionStatisticsRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IntentionStatisticsResponseBodyIntentionStatisticsRecords) GoString() string {
+	return s.String()
+}
+
+func (s *IntentionStatisticsResponseBodyIntentionStatisticsRecords) SetCount(v int64) *IntentionStatisticsResponseBodyIntentionStatisticsRecords {
+	s.Count = &v
+	return s
+}
+
+func (s *IntentionStatisticsResponseBodyIntentionStatisticsRecords) SetIntention(v string) *IntentionStatisticsResponseBodyIntentionStatisticsRecords {
+	s.Intention = &v
+	return s
+}
+
+func (s *IntentionStatisticsResponseBodyIntentionStatisticsRecords) SetLastCount(v int64) *IntentionStatisticsResponseBodyIntentionStatisticsRecords {
+	s.LastCount = &v
+	return s
+}
+
+type IntentionStatisticsResponseBodyIntentionTrend struct {
+	// 心声数量
+	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
+	// 日期
+	Dt *string `json:"dt,omitempty" xml:"dt,omitempty"`
+	// 意图
+	Intention *string `json:"intention,omitempty" xml:"intention,omitempty"`
+}
+
+func (s IntentionStatisticsResponseBodyIntentionTrend) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IntentionStatisticsResponseBodyIntentionTrend) GoString() string {
+	return s.String()
+}
+
+func (s *IntentionStatisticsResponseBodyIntentionTrend) SetCount(v int64) *IntentionStatisticsResponseBodyIntentionTrend {
+	s.Count = &v
+	return s
+}
+
+func (s *IntentionStatisticsResponseBodyIntentionTrend) SetDt(v string) *IntentionStatisticsResponseBodyIntentionTrend {
+	s.Dt = &v
+	return s
+}
+
+func (s *IntentionStatisticsResponseBodyIntentionTrend) SetIntention(v string) *IntentionStatisticsResponseBodyIntentionTrend {
+	s.Intention = &v
+	return s
+}
+
+type IntentionStatisticsResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *IntentionStatisticsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IntentionStatisticsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IntentionStatisticsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IntentionStatisticsResponse) SetHeaders(v map[string]*string) *IntentionStatisticsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IntentionStatisticsResponse) SetBody(v *IntentionStatisticsResponseBody) *IntentionStatisticsResponse {
 	s.Body = v
 	return s
 }
@@ -5940,6 +6935,155 @@ func (s *TakeTicketResponse) SetHeaders(v map[string]*string) *TakeTicketRespons
 	return s
 }
 
+type TopicStatisticsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TopicStatisticsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TopicStatisticsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TopicStatisticsHeaders) SetCommonHeaders(v map[string]*string) *TopicStatisticsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TopicStatisticsHeaders) SetXAcsDingtalkAccessToken(v string) *TopicStatisticsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TopicStatisticsRequest struct {
+	// 截止日期
+	MaxDt *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
+	// 起始日期
+	MinDt *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// 开放群ID列表（多个用逗号拼接）
+	OpenConversationIds *string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 搜索内容
+	SearchContent *string `json:"searchContent,omitempty" xml:"searchContent,omitempty"`
+}
+
+func (s TopicStatisticsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TopicStatisticsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TopicStatisticsRequest) SetMaxDt(v string) *TopicStatisticsRequest {
+	s.MaxDt = &v
+	return s
+}
+
+func (s *TopicStatisticsRequest) SetMinDt(v string) *TopicStatisticsRequest {
+	s.MinDt = &v
+	return s
+}
+
+func (s *TopicStatisticsRequest) SetOpenConversationIds(v string) *TopicStatisticsRequest {
+	s.OpenConversationIds = &v
+	return s
+}
+
+func (s *TopicStatisticsRequest) SetOpenTeamId(v string) *TopicStatisticsRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *TopicStatisticsRequest) SetSearchContent(v string) *TopicStatisticsRequest {
+	s.SearchContent = &v
+	return s
+}
+
+type TopicStatisticsResponseBody struct {
+	// 话题趋势
+	TopicStatisticsRecords []*TopicStatisticsResponseBodyTopicStatisticsRecords `json:"topicStatisticsRecords,omitempty" xml:"topicStatisticsRecords,omitempty" type:"Repeated"`
+}
+
+func (s TopicStatisticsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TopicStatisticsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TopicStatisticsResponseBody) SetTopicStatisticsRecords(v []*TopicStatisticsResponseBodyTopicStatisticsRecords) *TopicStatisticsResponseBody {
+	s.TopicStatisticsRecords = v
+	return s
+}
+
+type TopicStatisticsResponseBodyTopicStatisticsRecords struct {
+	// 日期
+	Dt *string `json:"dt,omitempty" xml:"dt,omitempty"`
+	// 消息量
+	MsgCount *int64 `json:"msgCount,omitempty" xml:"msgCount,omitempty"`
+	// 参与人数
+	ParticipantsNum *int64 `json:"participantsNum,omitempty" xml:"participantsNum,omitempty"`
+	// 话题数量
+	TopicNum *int64 `json:"topicNum,omitempty" xml:"topicNum,omitempty"`
+}
+
+func (s TopicStatisticsResponseBodyTopicStatisticsRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TopicStatisticsResponseBodyTopicStatisticsRecords) GoString() string {
+	return s.String()
+}
+
+func (s *TopicStatisticsResponseBodyTopicStatisticsRecords) SetDt(v string) *TopicStatisticsResponseBodyTopicStatisticsRecords {
+	s.Dt = &v
+	return s
+}
+
+func (s *TopicStatisticsResponseBodyTopicStatisticsRecords) SetMsgCount(v int64) *TopicStatisticsResponseBodyTopicStatisticsRecords {
+	s.MsgCount = &v
+	return s
+}
+
+func (s *TopicStatisticsResponseBodyTopicStatisticsRecords) SetParticipantsNum(v int64) *TopicStatisticsResponseBodyTopicStatisticsRecords {
+	s.ParticipantsNum = &v
+	return s
+}
+
+func (s *TopicStatisticsResponseBodyTopicStatisticsRecords) SetTopicNum(v int64) *TopicStatisticsResponseBodyTopicStatisticsRecords {
+	s.TopicNum = &v
+	return s
+}
+
+type TopicStatisticsResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *TopicStatisticsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s TopicStatisticsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TopicStatisticsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TopicStatisticsResponse) SetHeaders(v map[string]*string) *TopicStatisticsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TopicStatisticsResponse) SetBody(v *TopicStatisticsResponseBody) *TopicStatisticsResponse {
+	s.Body = v
+	return s
+}
+
 type TransferTicketHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7392,6 +8536,58 @@ func (client *Client) CancelTicketWithOptions(request *CancelTicketRequest, head
 	return _result, _err
 }
 
+func (client *Client) CategoryStatistics(request *CategoryStatisticsRequest) (_result *CategoryStatisticsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CategoryStatisticsHeaders{}
+	_result = &CategoryStatisticsResponse{}
+	_body, _err := client.CategoryStatisticsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CategoryStatisticsWithOptions(request *CategoryStatisticsRequest, headers *CategoryStatisticsHeaders, runtime *util.RuntimeOptions) (_result *CategoryStatisticsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxDt)) {
+		query["maxDt"] = request.MaxDt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MinDt)) {
+		query["minDt"] = request.MinDt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		query["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &CategoryStatisticsResponse{}
+	_body, _err := client.DoROARequest(tea.String("CategoryStatistics"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/voices/dashboards/categories/statistics"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CloseHumanSession(request *CloseHumanSessionRequest) (_result *CloseHumanSessionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CloseHumanSessionHeaders{}
@@ -7740,6 +8936,74 @@ func (client *Client) DeleteKnowledgeWithOptions(request *DeleteKnowledgeRequest
 	return _result, _err
 }
 
+func (client *Client) EmotionStatistics(request *EmotionStatisticsRequest) (_result *EmotionStatisticsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &EmotionStatisticsHeaders{}
+	_result = &EmotionStatisticsResponse{}
+	_body, _err := client.EmotionStatisticsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) EmotionStatisticsWithOptions(request *EmotionStatisticsRequest, headers *EmotionStatisticsHeaders, runtime *util.RuntimeOptions) (_result *EmotionStatisticsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxDt)) {
+		query["maxDt"] = request.MaxDt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxEmotion)) {
+		query["maxEmotion"] = request.MaxEmotion
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MinDt)) {
+		query["minDt"] = request.MinDt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MinEmotion)) {
+		query["minEmotion"] = request.MinEmotion
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationIds)) {
+		query["openConversationIds"] = request.OpenConversationIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
+		query["openGroupSetId"] = request.OpenGroupSetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		query["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &EmotionStatisticsResponse{}
+	_body, _err := client.DoROARequest(tea.String("EmotionStatistics"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/voices/emotions/statistics"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) FinishTicket(request *FinishTicketRequest) (_result *FinishTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &FinishTicketHeaders{}
@@ -7793,6 +9057,50 @@ func (client *Client) FinishTicketWithOptions(request *FinishTicketRequest, head
 	}
 	_result = &FinishTicketResponse{}
 	_body, _err := client.DoROARequest(tea.String("FinishTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets/finish"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetNegativeWordCloud(request *GetNegativeWordCloudRequest) (_result *GetNegativeWordCloudResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetNegativeWordCloudHeaders{}
+	_result = &GetNegativeWordCloudResponse{}
+	_body, _err := client.GetNegativeWordCloudWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetNegativeWordCloudWithOptions(request *GetNegativeWordCloudRequest, headers *GetNegativeWordCloudHeaders, runtime *util.RuntimeOptions) (_result *GetNegativeWordCloudResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		query["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetNegativeWordCloudResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetNegativeWordCloud"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/voices/negatives/wordClouds"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7953,6 +9261,206 @@ func (client *Client) GetTicketWithOptions(request *GetTicketRequest, headers *G
 	}
 	_result = &GetTicketResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetWordCloud(request *GetWordCloudRequest) (_result *GetWordCloudResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetWordCloudHeaders{}
+	_result = &GetWordCloudResponse{}
+	_body, _err := client.GetWordCloudWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetWordCloudWithOptions(request *GetWordCloudRequest, headers *GetWordCloudHeaders, runtime *util.RuntimeOptions) (_result *GetWordCloudResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		query["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetWordCloudResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetWordCloud"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/voices/wordClouds"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GroupStatistics(request *GroupStatisticsRequest) (_result *GroupStatisticsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GroupStatisticsHeaders{}
+	_result = &GroupStatisticsResponse{}
+	_body, _err := client.GroupStatisticsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GroupStatisticsWithOptions(request *GroupStatisticsRequest, headers *GroupStatisticsHeaders, runtime *util.RuntimeOptions) (_result *GroupStatisticsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxDt)) {
+		query["maxDt"] = request.MaxDt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MinDt)) {
+		query["minDt"] = request.MinDt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		query["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GroupStatisticsResponse{}
+	_body, _err := client.DoROARequest(tea.String("GroupStatistics"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/voices/dashboards/groups/statistics"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) IntentionCategoryStatistics(request *IntentionCategoryStatisticsRequest) (_result *IntentionCategoryStatisticsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IntentionCategoryStatisticsHeaders{}
+	_result = &IntentionCategoryStatisticsResponse{}
+	_body, _err := client.IntentionCategoryStatisticsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IntentionCategoryStatisticsWithOptions(request *IntentionCategoryStatisticsRequest, headers *IntentionCategoryStatisticsHeaders, runtime *util.RuntimeOptions) (_result *IntentionCategoryStatisticsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxDt)) {
+		query["maxDt"] = request.MaxDt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MinDt)) {
+		query["minDt"] = request.MinDt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		query["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &IntentionCategoryStatisticsResponse{}
+	_body, _err := client.DoROARequest(tea.String("IntentionCategoryStatistics"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/voices/dashboards/intentionCategories/statistics"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) IntentionStatistics(request *IntentionStatisticsRequest) (_result *IntentionStatisticsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IntentionStatisticsHeaders{}
+	_result = &IntentionStatisticsResponse{}
+	_body, _err := client.IntentionStatisticsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IntentionStatisticsWithOptions(request *IntentionStatisticsRequest, headers *IntentionStatisticsHeaders, runtime *util.RuntimeOptions) (_result *IntentionStatisticsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxDt)) {
+		query["maxDt"] = request.MaxDt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MinDt)) {
+		query["minDt"] = request.MinDt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		query["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &IntentionStatisticsResponse{}
+	_body, _err := client.DoROARequest(tea.String("IntentionStatistics"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/voices/dashboards/intentions/statistics"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8848,6 +10356,66 @@ func (client *Client) TakeTicketWithOptions(request *TakeTicketRequest, headers 
 	}
 	_result = &TakeTicketResponse{}
 	_body, _err := client.DoROARequest(tea.String("TakeTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets/apply"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) TopicStatistics(request *TopicStatisticsRequest) (_result *TopicStatisticsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TopicStatisticsHeaders{}
+	_result = &TopicStatisticsResponse{}
+	_body, _err := client.TopicStatisticsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) TopicStatisticsWithOptions(request *TopicStatisticsRequest, headers *TopicStatisticsHeaders, runtime *util.RuntimeOptions) (_result *TopicStatisticsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxDt)) {
+		query["maxDt"] = request.MaxDt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MinDt)) {
+		query["minDt"] = request.MinDt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationIds)) {
+		query["openConversationIds"] = request.OpenConversationIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		query["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchContent)) {
+		query["searchContent"] = request.SearchContent
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &TopicStatisticsResponse{}
+	_body, _err := client.DoROARequest(tea.String("TopicStatistics"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/voices/topics/statistics"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

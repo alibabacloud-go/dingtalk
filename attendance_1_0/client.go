@@ -11,6 +11,367 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AddLeaveTypeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddLeaveTypeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLeaveTypeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddLeaveTypeHeaders) SetCommonHeaders(v map[string]*string) *AddLeaveTypeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddLeaveTypeHeaders) SetXAcsDingtalkAccessToken(v string) *AddLeaveTypeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddLeaveTypeRequest struct {
+	// 假期类型，普通假期或者加班转调休假期。(general_leave、lieu_leave其中一种)
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 调休假有效期规则(validity_type:有效类型 absolute_time(绝对时间)、relative_time(相对时间)其中一种 validity_value:延长日期(当validity_type为absolute_time该值该值不为空且满足yy-mm格式 validity_type为relative_time该值为大于1的整数))
+	Extras *string `json:"extras,omitempty" xml:"extras,omitempty"`
+	// 每天折算的工作时长(百分之一 例如1天=10小时=1000)
+	HoursInPerDay *int64 `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	// 请假证明
+	LeaveCertificate *AddLeaveTypeRequestLeaveCertificate `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	// 假期名称
+	LeaveName *string `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	// 请假单位，可以按照天半天或者小时请假。(day、halfDay、hour其中一种)
+	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	// 是否按照自然日统计请假时长，当为false的时候，用户发起请假时候会根据用户在请假时间段内的排班情况来计算请假时长。
+	NaturalDayLeave *bool `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	// 限时提交规则
+	SubmitTimeRule *AddLeaveTypeRequestSubmitTimeRule `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	// 操作者ID
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s AddLeaveTypeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLeaveTypeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddLeaveTypeRequest) SetBizType(v string) *AddLeaveTypeRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *AddLeaveTypeRequest) SetExtras(v string) *AddLeaveTypeRequest {
+	s.Extras = &v
+	return s
+}
+
+func (s *AddLeaveTypeRequest) SetHoursInPerDay(v int64) *AddLeaveTypeRequest {
+	s.HoursInPerDay = &v
+	return s
+}
+
+func (s *AddLeaveTypeRequest) SetLeaveCertificate(v *AddLeaveTypeRequestLeaveCertificate) *AddLeaveTypeRequest {
+	s.LeaveCertificate = v
+	return s
+}
+
+func (s *AddLeaveTypeRequest) SetLeaveName(v string) *AddLeaveTypeRequest {
+	s.LeaveName = &v
+	return s
+}
+
+func (s *AddLeaveTypeRequest) SetLeaveViewUnit(v string) *AddLeaveTypeRequest {
+	s.LeaveViewUnit = &v
+	return s
+}
+
+func (s *AddLeaveTypeRequest) SetNaturalDayLeave(v bool) *AddLeaveTypeRequest {
+	s.NaturalDayLeave = &v
+	return s
+}
+
+func (s *AddLeaveTypeRequest) SetSubmitTimeRule(v *AddLeaveTypeRequestSubmitTimeRule) *AddLeaveTypeRequest {
+	s.SubmitTimeRule = v
+	return s
+}
+
+func (s *AddLeaveTypeRequest) SetOpUserId(v string) *AddLeaveTypeRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type AddLeaveTypeRequestLeaveCertificate struct {
+	// 超过多长时间需提供请假证明
+	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 是否开启请假证明
+	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
+	// 请假提示文案
+	PromptInformation *string `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
+	// 请假证明单位hour，day
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s AddLeaveTypeRequestLeaveCertificate) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLeaveTypeRequestLeaveCertificate) GoString() string {
+	return s.String()
+}
+
+func (s *AddLeaveTypeRequestLeaveCertificate) SetDuration(v float64) *AddLeaveTypeRequestLeaveCertificate {
+	s.Duration = &v
+	return s
+}
+
+func (s *AddLeaveTypeRequestLeaveCertificate) SetEnable(v bool) *AddLeaveTypeRequestLeaveCertificate {
+	s.Enable = &v
+	return s
+}
+
+func (s *AddLeaveTypeRequestLeaveCertificate) SetPromptInformation(v string) *AddLeaveTypeRequestLeaveCertificate {
+	s.PromptInformation = &v
+	return s
+}
+
+func (s *AddLeaveTypeRequestLeaveCertificate) SetUnit(v string) *AddLeaveTypeRequestLeaveCertificate {
+	s.Unit = &v
+	return s
+}
+
+type AddLeaveTypeRequestSubmitTimeRule struct {
+	// 是否开启限时提交功能：仅且为true时开启
+	EnableTimeLimit *bool `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
+	// 限制类型：before-提前；after-补交
+	TimeType *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
+	// 时间单位：day-天；hour-小时
+	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	// 限制值：timeUnit=day时，有效值范围[0~30] 天；timeUnit=hour时，有效值范围[0~24] 小时
+	TimeValue *int64 `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
+}
+
+func (s AddLeaveTypeRequestSubmitTimeRule) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLeaveTypeRequestSubmitTimeRule) GoString() string {
+	return s.String()
+}
+
+func (s *AddLeaveTypeRequestSubmitTimeRule) SetEnableTimeLimit(v bool) *AddLeaveTypeRequestSubmitTimeRule {
+	s.EnableTimeLimit = &v
+	return s
+}
+
+func (s *AddLeaveTypeRequestSubmitTimeRule) SetTimeType(v string) *AddLeaveTypeRequestSubmitTimeRule {
+	s.TimeType = &v
+	return s
+}
+
+func (s *AddLeaveTypeRequestSubmitTimeRule) SetTimeUnit(v string) *AddLeaveTypeRequestSubmitTimeRule {
+	s.TimeUnit = &v
+	return s
+}
+
+func (s *AddLeaveTypeRequestSubmitTimeRule) SetTimeValue(v int64) *AddLeaveTypeRequestSubmitTimeRule {
+	s.TimeValue = &v
+	return s
+}
+
+type AddLeaveTypeResponseBody struct {
+	// 返回参数
+	Result *AddLeaveTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s AddLeaveTypeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLeaveTypeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddLeaveTypeResponseBody) SetResult(v *AddLeaveTypeResponseBodyResult) *AddLeaveTypeResponseBody {
+	s.Result = v
+	return s
+}
+
+type AddLeaveTypeResponseBodyResult struct {
+	// 假期类型，普通假期或者加班转调休假期。(general_leave、lieu_leave其中一种)
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 每天折算的工作时长(百分之一 例如1天=10小时=1000)
+	HoursInPerDay *int64 `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	// 请假证明
+	LeaveCertificate *AddLeaveTypeResponseBodyResultLeaveCertificate `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	// 假期类型唯一标识
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// 假期名称
+	LeaveName *string `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	// 请假单位，可以按照天半天或者小时请假。(day、halfDay、hour其中一种)
+	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	// 是否按照自然日统计请假时长，当为false的时候，用户发起请假时候会根据用户在请假时间段内的排班情况来计算请假时长。
+	NaturalDayLeave *bool `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	// 限时提交规则
+	SubmitTimeRule *AddLeaveTypeResponseBodyResultSubmitTimeRule `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+}
+
+func (s AddLeaveTypeResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLeaveTypeResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AddLeaveTypeResponseBodyResult) SetBizType(v string) *AddLeaveTypeResponseBodyResult {
+	s.BizType = &v
+	return s
+}
+
+func (s *AddLeaveTypeResponseBodyResult) SetHoursInPerDay(v int64) *AddLeaveTypeResponseBodyResult {
+	s.HoursInPerDay = &v
+	return s
+}
+
+func (s *AddLeaveTypeResponseBodyResult) SetLeaveCertificate(v *AddLeaveTypeResponseBodyResultLeaveCertificate) *AddLeaveTypeResponseBodyResult {
+	s.LeaveCertificate = v
+	return s
+}
+
+func (s *AddLeaveTypeResponseBodyResult) SetLeaveCode(v string) *AddLeaveTypeResponseBodyResult {
+	s.LeaveCode = &v
+	return s
+}
+
+func (s *AddLeaveTypeResponseBodyResult) SetLeaveName(v string) *AddLeaveTypeResponseBodyResult {
+	s.LeaveName = &v
+	return s
+}
+
+func (s *AddLeaveTypeResponseBodyResult) SetLeaveViewUnit(v string) *AddLeaveTypeResponseBodyResult {
+	s.LeaveViewUnit = &v
+	return s
+}
+
+func (s *AddLeaveTypeResponseBodyResult) SetNaturalDayLeave(v bool) *AddLeaveTypeResponseBodyResult {
+	s.NaturalDayLeave = &v
+	return s
+}
+
+func (s *AddLeaveTypeResponseBodyResult) SetSubmitTimeRule(v *AddLeaveTypeResponseBodyResultSubmitTimeRule) *AddLeaveTypeResponseBodyResult {
+	s.SubmitTimeRule = v
+	return s
+}
+
+type AddLeaveTypeResponseBodyResultLeaveCertificate struct {
+	// 超过多长时间需提供请假证明
+	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 是否开启请假证明
+	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
+	// 请假提示文案
+	PromptInformation *string `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
+	// 请假证明单位hour，day
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s AddLeaveTypeResponseBodyResultLeaveCertificate) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLeaveTypeResponseBodyResultLeaveCertificate) GoString() string {
+	return s.String()
+}
+
+func (s *AddLeaveTypeResponseBodyResultLeaveCertificate) SetDuration(v float64) *AddLeaveTypeResponseBodyResultLeaveCertificate {
+	s.Duration = &v
+	return s
+}
+
+func (s *AddLeaveTypeResponseBodyResultLeaveCertificate) SetEnable(v bool) *AddLeaveTypeResponseBodyResultLeaveCertificate {
+	s.Enable = &v
+	return s
+}
+
+func (s *AddLeaveTypeResponseBodyResultLeaveCertificate) SetPromptInformation(v string) *AddLeaveTypeResponseBodyResultLeaveCertificate {
+	s.PromptInformation = &v
+	return s
+}
+
+func (s *AddLeaveTypeResponseBodyResultLeaveCertificate) SetUnit(v string) *AddLeaveTypeResponseBodyResultLeaveCertificate {
+	s.Unit = &v
+	return s
+}
+
+type AddLeaveTypeResponseBodyResultSubmitTimeRule struct {
+	// 是否开启限时提交功能：仅且为true时开启
+	EnableTimeLimit *bool `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
+	// 限制类型：before-提前；after-补交
+	TimeType *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
+	// 时间单位：day-天；hour-小时
+	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	// 限制值：timeUnit=day时，有效值范围[0~30] 天；timeUnit=hour时，有效值范围[0~24] 小时
+	TimeValue *int64 `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
+}
+
+func (s AddLeaveTypeResponseBodyResultSubmitTimeRule) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLeaveTypeResponseBodyResultSubmitTimeRule) GoString() string {
+	return s.String()
+}
+
+func (s *AddLeaveTypeResponseBodyResultSubmitTimeRule) SetEnableTimeLimit(v bool) *AddLeaveTypeResponseBodyResultSubmitTimeRule {
+	s.EnableTimeLimit = &v
+	return s
+}
+
+func (s *AddLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeType(v string) *AddLeaveTypeResponseBodyResultSubmitTimeRule {
+	s.TimeType = &v
+	return s
+}
+
+func (s *AddLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeUnit(v string) *AddLeaveTypeResponseBodyResultSubmitTimeRule {
+	s.TimeUnit = &v
+	return s
+}
+
+func (s *AddLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeValue(v int64) *AddLeaveTypeResponseBodyResultSubmitTimeRule {
+	s.TimeValue = &v
+	return s
+}
+
+type AddLeaveTypeResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddLeaveTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddLeaveTypeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLeaveTypeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddLeaveTypeResponse) SetHeaders(v map[string]*string) *AddLeaveTypeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddLeaveTypeResponse) SetBody(v *AddLeaveTypeResponseBody) *AddLeaveTypeResponse {
+	s.Body = v
+	return s
+}
+
 type AttendanceBleDevicesAddHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2040,6 +2401,374 @@ func (s *SyncScheduleInfoResponse) SetHeaders(v map[string]*string) *SyncSchedul
 	return s
 }
 
+type UpdateLeaveTypeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateLeaveTypeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLeaveTypeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLeaveTypeHeaders) SetCommonHeaders(v map[string]*string) *UpdateLeaveTypeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateLeaveTypeHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateLeaveTypeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateLeaveTypeRequest struct {
+	// 假期类型，普通假期或者加班转调休假期。(general_leave、lieu_leave其中一种)
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 调休假有效期规则(validity_type:有效类型 absolute_time(绝对时间)、relative_time(相对时间)其中一种 validity_value:延长日期(当validity_type为absolute_time该值该值不为空且满足yy-mm格式 validity_type为relative_time该值为大于1的整数))
+	Extras *string `json:"extras,omitempty" xml:"extras,omitempty"`
+	// 每天折算的工作时长(百分之一 例如1天=10小时=1000)
+	HoursInPerDay *int64 `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	// 请假证明
+	LeaveCertificate *UpdateLeaveTypeRequestLeaveCertificate `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	// 假期类型唯一标识
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// 假期名称
+	LeaveName *string `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	// 请假单位，可以按照天半天或者小时请假。(day、halfDay、hour其中一种)
+	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	// 是否按照自然日统计请假时长，当为false的时候，用户发起请假时候会根据用户在请假时间段内的排班情况来计算请假时长。
+	NaturalDayLeave *bool `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	// 限时提交规则
+	SubmitTimeRule *UpdateLeaveTypeRequestSubmitTimeRule `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	// 操作者ID
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s UpdateLeaveTypeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLeaveTypeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLeaveTypeRequest) SetBizType(v string) *UpdateLeaveTypeRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequest) SetExtras(v string) *UpdateLeaveTypeRequest {
+	s.Extras = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequest) SetHoursInPerDay(v int64) *UpdateLeaveTypeRequest {
+	s.HoursInPerDay = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequest) SetLeaveCertificate(v *UpdateLeaveTypeRequestLeaveCertificate) *UpdateLeaveTypeRequest {
+	s.LeaveCertificate = v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequest) SetLeaveCode(v string) *UpdateLeaveTypeRequest {
+	s.LeaveCode = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequest) SetLeaveName(v string) *UpdateLeaveTypeRequest {
+	s.LeaveName = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequest) SetLeaveViewUnit(v string) *UpdateLeaveTypeRequest {
+	s.LeaveViewUnit = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequest) SetNaturalDayLeave(v bool) *UpdateLeaveTypeRequest {
+	s.NaturalDayLeave = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequest) SetSubmitTimeRule(v *UpdateLeaveTypeRequestSubmitTimeRule) *UpdateLeaveTypeRequest {
+	s.SubmitTimeRule = v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequest) SetOpUserId(v string) *UpdateLeaveTypeRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type UpdateLeaveTypeRequestLeaveCertificate struct {
+	// 超过多长时间需提供请假证明
+	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 是否开启请假证明
+	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
+	// 请假提示文案
+	PromptInformation *string `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
+	// 请假证明单位hour，day
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s UpdateLeaveTypeRequestLeaveCertificate) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLeaveTypeRequestLeaveCertificate) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLeaveTypeRequestLeaveCertificate) SetDuration(v float64) *UpdateLeaveTypeRequestLeaveCertificate {
+	s.Duration = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequestLeaveCertificate) SetEnable(v bool) *UpdateLeaveTypeRequestLeaveCertificate {
+	s.Enable = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequestLeaveCertificate) SetPromptInformation(v string) *UpdateLeaveTypeRequestLeaveCertificate {
+	s.PromptInformation = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequestLeaveCertificate) SetUnit(v string) *UpdateLeaveTypeRequestLeaveCertificate {
+	s.Unit = &v
+	return s
+}
+
+type UpdateLeaveTypeRequestSubmitTimeRule struct {
+	// 是否开启限时提交功能：仅且为true时开启
+	EnableTimeLimit *bool `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
+	// 限制类型：before-提前；after-补交
+	TimeType *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
+	// 时间单位：day-天；hour-小时
+	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	// 限制值：timeUnit=day时，有效值范围[0~30] 天；timeUnit=hour时，有效值范围[0~24] 小时
+	TimeValue *int64 `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
+}
+
+func (s UpdateLeaveTypeRequestSubmitTimeRule) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLeaveTypeRequestSubmitTimeRule) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLeaveTypeRequestSubmitTimeRule) SetEnableTimeLimit(v bool) *UpdateLeaveTypeRequestSubmitTimeRule {
+	s.EnableTimeLimit = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequestSubmitTimeRule) SetTimeType(v string) *UpdateLeaveTypeRequestSubmitTimeRule {
+	s.TimeType = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequestSubmitTimeRule) SetTimeUnit(v string) *UpdateLeaveTypeRequestSubmitTimeRule {
+	s.TimeUnit = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequestSubmitTimeRule) SetTimeValue(v int64) *UpdateLeaveTypeRequestSubmitTimeRule {
+	s.TimeValue = &v
+	return s
+}
+
+type UpdateLeaveTypeResponseBody struct {
+	// 返回参数
+	Result *UpdateLeaveTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateLeaveTypeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLeaveTypeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLeaveTypeResponseBody) SetResult(v *UpdateLeaveTypeResponseBodyResult) *UpdateLeaveTypeResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateLeaveTypeResponseBodyResult struct {
+	// 假期类型，普通假期或者加班转调休假期。(general_leave、lieu_leave其中一种)
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 每天折算的工作时长(百分之一 例如1天=10小时=1000)
+	HoursInPerDay *int64 `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	// 请假证明
+	LeaveCertificate *UpdateLeaveTypeResponseBodyResultLeaveCertificate `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	// 假期类型唯一标识
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// 假期名称
+	LeaveName *string `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	// 请假单位，可以按照天半天或者小时请假。(day、halfDay、hour其中一种)
+	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	// 是否按照自然日统计请假时长，当为false的时候，用户发起请假时候会根据用户在请假时间段内的排班情况来计算请假时长。
+	NaturalDayLeave *bool `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	// 限时提交规则
+	SubmitTimeRule *UpdateLeaveTypeResponseBodyResultSubmitTimeRule `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+}
+
+func (s UpdateLeaveTypeResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLeaveTypeResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLeaveTypeResponseBodyResult) SetBizType(v string) *UpdateLeaveTypeResponseBodyResult {
+	s.BizType = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeResponseBodyResult) SetHoursInPerDay(v int64) *UpdateLeaveTypeResponseBodyResult {
+	s.HoursInPerDay = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeResponseBodyResult) SetLeaveCertificate(v *UpdateLeaveTypeResponseBodyResultLeaveCertificate) *UpdateLeaveTypeResponseBodyResult {
+	s.LeaveCertificate = v
+	return s
+}
+
+func (s *UpdateLeaveTypeResponseBodyResult) SetLeaveCode(v string) *UpdateLeaveTypeResponseBodyResult {
+	s.LeaveCode = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeResponseBodyResult) SetLeaveName(v string) *UpdateLeaveTypeResponseBodyResult {
+	s.LeaveName = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeResponseBodyResult) SetLeaveViewUnit(v string) *UpdateLeaveTypeResponseBodyResult {
+	s.LeaveViewUnit = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeResponseBodyResult) SetNaturalDayLeave(v bool) *UpdateLeaveTypeResponseBodyResult {
+	s.NaturalDayLeave = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeResponseBodyResult) SetSubmitTimeRule(v *UpdateLeaveTypeResponseBodyResultSubmitTimeRule) *UpdateLeaveTypeResponseBodyResult {
+	s.SubmitTimeRule = v
+	return s
+}
+
+type UpdateLeaveTypeResponseBodyResultLeaveCertificate struct {
+	// 超过多长时间需提供请假证明
+	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 是否开启请假证明
+	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
+	// 请假提示文案
+	PromptInformation *string `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
+	// 请假证明单位hour，day
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s UpdateLeaveTypeResponseBodyResultLeaveCertificate) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLeaveTypeResponseBodyResultLeaveCertificate) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLeaveTypeResponseBodyResultLeaveCertificate) SetDuration(v float64) *UpdateLeaveTypeResponseBodyResultLeaveCertificate {
+	s.Duration = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeResponseBodyResultLeaveCertificate) SetEnable(v bool) *UpdateLeaveTypeResponseBodyResultLeaveCertificate {
+	s.Enable = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeResponseBodyResultLeaveCertificate) SetPromptInformation(v string) *UpdateLeaveTypeResponseBodyResultLeaveCertificate {
+	s.PromptInformation = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeResponseBodyResultLeaveCertificate) SetUnit(v string) *UpdateLeaveTypeResponseBodyResultLeaveCertificate {
+	s.Unit = &v
+	return s
+}
+
+type UpdateLeaveTypeResponseBodyResultSubmitTimeRule struct {
+	// 是否开启限时提交功能：仅且为true时开启
+	EnableTimeLimit *bool `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
+	// 限制类型：before-提前；after-补交
+	TimeType *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
+	// 时间单位：day-天；hour-小时
+	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	// 限制值：timeUnit=day时，有效值范围[0~30] 天；timeUnit=hour时，有效值范围[0~24] 小时
+	TimeValue *int64 `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
+}
+
+func (s UpdateLeaveTypeResponseBodyResultSubmitTimeRule) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLeaveTypeResponseBodyResultSubmitTimeRule) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLeaveTypeResponseBodyResultSubmitTimeRule) SetEnableTimeLimit(v bool) *UpdateLeaveTypeResponseBodyResultSubmitTimeRule {
+	s.EnableTimeLimit = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeType(v string) *UpdateLeaveTypeResponseBodyResultSubmitTimeRule {
+	s.TimeType = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeUnit(v string) *UpdateLeaveTypeResponseBodyResultSubmitTimeRule {
+	s.TimeUnit = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeValue(v int64) *UpdateLeaveTypeResponseBodyResultSubmitTimeRule {
+	s.TimeValue = &v
+	return s
+}
+
+type UpdateLeaveTypeResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateLeaveTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateLeaveTypeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLeaveTypeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLeaveTypeResponse) SetHeaders(v map[string]*string) *UpdateLeaveTypeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateLeaveTypeResponse) SetBody(v *UpdateLeaveTypeResponseBody) *UpdateLeaveTypeResponse {
+	s.Body = v
+	return s
+}
+
 type ResultDurationSettingsValue struct {
 	CalcType     *int32 `json:"calcType,omitempty" xml:"calcType,omitempty"`
 	DurationType *int32 `json:"durationType,omitempty" xml:"durationType,omitempty"`
@@ -2211,6 +2940,84 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) AddLeaveType(request *AddLeaveTypeRequest) (_result *AddLeaveTypeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddLeaveTypeHeaders{}
+	_result = &AddLeaveTypeResponse{}
+	_body, _err := client.AddLeaveTypeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddLeaveTypeWithOptions(request *AddLeaveTypeRequest, headers *AddLeaveTypeHeaders, runtime *util.RuntimeOptions) (_result *AddLeaveTypeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		body["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extras)) {
+		body["extras"] = request.Extras
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HoursInPerDay)) {
+		body["hoursInPerDay"] = request.HoursInPerDay
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.LeaveCertificate))) {
+		body["leaveCertificate"] = request.LeaveCertificate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LeaveName)) {
+		body["leaveName"] = request.LeaveName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LeaveViewUnit)) {
+		body["leaveViewUnit"] = request.LeaveViewUnit
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NaturalDayLeave)) {
+		body["naturalDayLeave"] = request.NaturalDayLeave
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubmitTimeRule))) {
+		body["submitTimeRule"] = request.SubmitTimeRule
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddLeaveTypeResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddLeaveType"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/leaves/types"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) AttendanceBleDevicesAdd(request *AttendanceBleDevicesAddRequest) (_result *AttendanceBleDevicesAddResponse, _err error) {
@@ -2862,6 +3669,88 @@ func (client *Client) SyncScheduleInfoWithOptions(request *SyncScheduleInfoReque
 	}
 	_result = &SyncScheduleInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("SyncScheduleInfo"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/attendance/schedules/additionalInfo"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateLeaveType(request *UpdateLeaveTypeRequest) (_result *UpdateLeaveTypeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateLeaveTypeHeaders{}
+	_result = &UpdateLeaveTypeResponse{}
+	_body, _err := client.UpdateLeaveTypeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateLeaveTypeWithOptions(request *UpdateLeaveTypeRequest, headers *UpdateLeaveTypeHeaders, runtime *util.RuntimeOptions) (_result *UpdateLeaveTypeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		body["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extras)) {
+		body["extras"] = request.Extras
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HoursInPerDay)) {
+		body["hoursInPerDay"] = request.HoursInPerDay
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.LeaveCertificate))) {
+		body["leaveCertificate"] = request.LeaveCertificate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LeaveCode)) {
+		body["leaveCode"] = request.LeaveCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LeaveName)) {
+		body["leaveName"] = request.LeaveName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LeaveViewUnit)) {
+		body["leaveViewUnit"] = request.LeaveViewUnit
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NaturalDayLeave)) {
+		body["naturalDayLeave"] = request.NaturalDayLeave
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubmitTimeRule))) {
+		body["submitTimeRule"] = request.SubmitTimeRule
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateLeaveTypeResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateLeaveType"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/attendance/leaves/types"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

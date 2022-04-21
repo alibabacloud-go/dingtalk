@@ -36,7 +36,7 @@ func (s *GrantHonorHeaders) SetXAcsDingtalkAccessToken(v string) *GrantHonorHead
 
 type GrantHonorRequest struct {
 	// 有效期到期时间 时间戳. 会处理成到期那天的23:59:59秒的时间戳
-	ExpirationTime *string `json:"expirationTime,omitempty" xml:"expirationTime,omitempty"`
+	ExpirationTime *int64 `json:"expirationTime,omitempty" xml:"expirationTime,omitempty"`
 	// 颁奖词，最多可以填50字
 	GrantReason *string `json:"grantReason,omitempty" xml:"grantReason,omitempty"`
 	// 颁奖人名字，最多15个字
@@ -45,7 +45,7 @@ type GrantHonorRequest struct {
 	NoticeAnnouncer *bool `json:"noticeAnnouncer,omitempty" xml:"noticeAnnouncer,omitempty"`
 	// 是否触达单聊会话通知
 	NoticeSingle *bool `json:"noticeSingle,omitempty" xml:"noticeSingle,omitempty"`
-	// 接受人staffId
+	// 接受人userId
 	ReceiverUserIds []*string `json:"receiverUserIds,omitempty" xml:"receiverUserIds,omitempty" type:"Repeated"`
 	// 发送人userId
 	SenderUserId *string `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
@@ -59,7 +59,7 @@ func (s GrantHonorRequest) GoString() string {
 	return s.String()
 }
 
-func (s *GrantHonorRequest) SetExpirationTime(v string) *GrantHonorRequest {
+func (s *GrantHonorRequest) SetExpirationTime(v int64) *GrantHonorRequest {
 	s.ExpirationTime = &v
 	return s
 }
