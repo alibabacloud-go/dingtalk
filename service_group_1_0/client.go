@@ -2005,6 +2005,144 @@ func (s *CategoryStatisticsResponse) SetBody(v *CategoryStatisticsResponseBody) 
 	return s
 }
 
+type CloseConversationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CloseConversationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseConversationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CloseConversationHeaders) SetCommonHeaders(v map[string]*string) *CloseConversationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CloseConversationHeaders) SetXAcsDingtalkAccessToken(v string) *CloseConversationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CloseConversationRequest struct {
+	// DT端会话ID
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 客户信息
+	ServerTips *string `json:"serverTips,omitempty" xml:"serverTips,omitempty"`
+	// 对应外部渠道的会话ID
+	ServiceToken *string `json:"serviceToken,omitempty" xml:"serviceToken,omitempty"`
+	// 渠道类型
+	TargetChannel *string `json:"targetChannel,omitempty" xml:"targetChannel,omitempty"`
+	// DT端定义的
+	VisitorToken *string `json:"visitorToken,omitempty" xml:"visitorToken,omitempty"`
+}
+
+func (s CloseConversationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseConversationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CloseConversationRequest) SetConversationId(v string) *CloseConversationRequest {
+	s.ConversationId = &v
+	return s
+}
+
+func (s *CloseConversationRequest) SetOpenTeamId(v string) *CloseConversationRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *CloseConversationRequest) SetServerTips(v string) *CloseConversationRequest {
+	s.ServerTips = &v
+	return s
+}
+
+func (s *CloseConversationRequest) SetServiceToken(v string) *CloseConversationRequest {
+	s.ServiceToken = &v
+	return s
+}
+
+func (s *CloseConversationRequest) SetTargetChannel(v string) *CloseConversationRequest {
+	s.TargetChannel = &v
+	return s
+}
+
+func (s *CloseConversationRequest) SetVisitorToken(v string) *CloseConversationRequest {
+	s.VisitorToken = &v
+	return s
+}
+
+type CloseConversationResponseBody struct {
+	// dingOpenErrcode
+	DingOpenErrcode *int32 `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	// errorMsg
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// result
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CloseConversationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseConversationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CloseConversationResponseBody) SetDingOpenErrcode(v int32) *CloseConversationResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *CloseConversationResponseBody) SetErrorMsg(v string) *CloseConversationResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *CloseConversationResponseBody) SetResult(v bool) *CloseConversationResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *CloseConversationResponseBody) SetSuccess(v bool) *CloseConversationResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CloseConversationResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CloseConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CloseConversationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseConversationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CloseConversationResponse) SetHeaders(v map[string]*string) *CloseConversationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CloseConversationResponse) SetBody(v *CloseConversationResponseBody) *CloseConversationResponse {
+	s.Body = v
+	return s
+}
+
 type CloseHumanSessionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2089,6 +2227,454 @@ func (s *CloseHumanSessionResponse) SetHeaders(v map[string]*string) *CloseHuman
 }
 
 func (s *CloseHumanSessionResponse) SetBody(v *CloseHumanSessionResponseBody) *CloseHumanSessionResponse {
+	s.Body = v
+	return s
+}
+
+type ConversationCreatedNotifyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ConversationCreatedNotifyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConversationCreatedNotifyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ConversationCreatedNotifyHeaders) SetCommonHeaders(v map[string]*string) *ConversationCreatedNotifyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ConversationCreatedNotifyHeaders) SetXAcsDingtalkAccessToken(v string) *ConversationCreatedNotifyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ConversationCreatedNotifyRequest struct {
+	// 小二客服2088
+	AlipayUserId *string `json:"alipayUserId,omitempty" xml:"alipayUserId,omitempty"`
+	// DT端会话ID
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	// 小二客服昵称
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// 开放团队id
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 客服名称
+	ServerName *string `json:"serverName,omitempty" xml:"serverName,omitempty"`
+	// 客服服务提示
+	ServerTips   *string `json:"serverTips,omitempty" xml:"serverTips,omitempty"`
+	ServiceToken *string `json:"serviceToken,omitempty" xml:"serviceToken,omitempty"`
+	// 超时规则提示
+	TimeoutRemindTips *string `json:"timeoutRemindTips,omitempty" xml:"timeoutRemindTips,omitempty"`
+	// 小二客服id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// DT端定义的，标识唯一的访客
+	VisitorToken *string `json:"visitorToken,omitempty" xml:"visitorToken,omitempty"`
+}
+
+func (s ConversationCreatedNotifyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConversationCreatedNotifyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ConversationCreatedNotifyRequest) SetAlipayUserId(v string) *ConversationCreatedNotifyRequest {
+	s.AlipayUserId = &v
+	return s
+}
+
+func (s *ConversationCreatedNotifyRequest) SetConversationId(v string) *ConversationCreatedNotifyRequest {
+	s.ConversationId = &v
+	return s
+}
+
+func (s *ConversationCreatedNotifyRequest) SetNickName(v string) *ConversationCreatedNotifyRequest {
+	s.NickName = &v
+	return s
+}
+
+func (s *ConversationCreatedNotifyRequest) SetOpenTeamId(v string) *ConversationCreatedNotifyRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *ConversationCreatedNotifyRequest) SetServerName(v string) *ConversationCreatedNotifyRequest {
+	s.ServerName = &v
+	return s
+}
+
+func (s *ConversationCreatedNotifyRequest) SetServerTips(v string) *ConversationCreatedNotifyRequest {
+	s.ServerTips = &v
+	return s
+}
+
+func (s *ConversationCreatedNotifyRequest) SetServiceToken(v string) *ConversationCreatedNotifyRequest {
+	s.ServiceToken = &v
+	return s
+}
+
+func (s *ConversationCreatedNotifyRequest) SetTimeoutRemindTips(v string) *ConversationCreatedNotifyRequest {
+	s.TimeoutRemindTips = &v
+	return s
+}
+
+func (s *ConversationCreatedNotifyRequest) SetUserId(v string) *ConversationCreatedNotifyRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *ConversationCreatedNotifyRequest) SetVisitorToken(v string) *ConversationCreatedNotifyRequest {
+	s.VisitorToken = &v
+	return s
+}
+
+type ConversationCreatedNotifyResponseBody struct {
+	// dingOpenErrcode
+	DingOpenErrcode *int32 `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	// errorMsg
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// 回调是否执行成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// 回调是否请求成
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ConversationCreatedNotifyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConversationCreatedNotifyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ConversationCreatedNotifyResponseBody) SetDingOpenErrcode(v int32) *ConversationCreatedNotifyResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *ConversationCreatedNotifyResponseBody) SetErrorMsg(v string) *ConversationCreatedNotifyResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *ConversationCreatedNotifyResponseBody) SetResult(v bool) *ConversationCreatedNotifyResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *ConversationCreatedNotifyResponseBody) SetSuccess(v bool) *ConversationCreatedNotifyResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ConversationCreatedNotifyResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ConversationCreatedNotifyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ConversationCreatedNotifyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConversationCreatedNotifyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ConversationCreatedNotifyResponse) SetHeaders(v map[string]*string) *ConversationCreatedNotifyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ConversationCreatedNotifyResponse) SetBody(v *ConversationCreatedNotifyResponseBody) *ConversationCreatedNotifyResponse {
+	s.Body = v
+	return s
+}
+
+type ConversationTransferBeginNotifyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ConversationTransferBeginNotifyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConversationTransferBeginNotifyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ConversationTransferBeginNotifyHeaders) SetCommonHeaders(v map[string]*string) *ConversationTransferBeginNotifyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ConversationTransferBeginNotifyHeaders) SetXAcsDingtalkAccessToken(v string) *ConversationTransferBeginNotifyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ConversationTransferBeginNotifyRequest struct {
+	// DT端会话ID
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	// 转接备注
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// 团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 对应外部渠道的会话ID
+	ServiceToken *string `json:"serviceToken,omitempty" xml:"serviceToken,omitempty"`
+	// 原始技能组ID
+	SourceSkillGroupId *string `json:"sourceSkillGroupId,omitempty" xml:"sourceSkillGroupId,omitempty"`
+	// 目标技能组ID
+	TargetSkillGroupId *string `json:"targetSkillGroupId,omitempty" xml:"targetSkillGroupId,omitempty"`
+}
+
+func (s ConversationTransferBeginNotifyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConversationTransferBeginNotifyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ConversationTransferBeginNotifyRequest) SetConversationId(v string) *ConversationTransferBeginNotifyRequest {
+	s.ConversationId = &v
+	return s
+}
+
+func (s *ConversationTransferBeginNotifyRequest) SetMemo(v string) *ConversationTransferBeginNotifyRequest {
+	s.Memo = &v
+	return s
+}
+
+func (s *ConversationTransferBeginNotifyRequest) SetOpenTeamId(v string) *ConversationTransferBeginNotifyRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *ConversationTransferBeginNotifyRequest) SetServiceToken(v string) *ConversationTransferBeginNotifyRequest {
+	s.ServiceToken = &v
+	return s
+}
+
+func (s *ConversationTransferBeginNotifyRequest) SetSourceSkillGroupId(v string) *ConversationTransferBeginNotifyRequest {
+	s.SourceSkillGroupId = &v
+	return s
+}
+
+func (s *ConversationTransferBeginNotifyRequest) SetTargetSkillGroupId(v string) *ConversationTransferBeginNotifyRequest {
+	s.TargetSkillGroupId = &v
+	return s
+}
+
+type ConversationTransferBeginNotifyResponseBody struct {
+	// dingOpenErrcode
+	DingOpenErrcode *int32 `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	// errorMsg
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// result
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ConversationTransferBeginNotifyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConversationTransferBeginNotifyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ConversationTransferBeginNotifyResponseBody) SetDingOpenErrcode(v int32) *ConversationTransferBeginNotifyResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *ConversationTransferBeginNotifyResponseBody) SetErrorMsg(v string) *ConversationTransferBeginNotifyResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *ConversationTransferBeginNotifyResponseBody) SetResult(v bool) *ConversationTransferBeginNotifyResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *ConversationTransferBeginNotifyResponseBody) SetSuccess(v bool) *ConversationTransferBeginNotifyResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ConversationTransferBeginNotifyResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ConversationTransferBeginNotifyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ConversationTransferBeginNotifyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConversationTransferBeginNotifyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ConversationTransferBeginNotifyResponse) SetHeaders(v map[string]*string) *ConversationTransferBeginNotifyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ConversationTransferBeginNotifyResponse) SetBody(v *ConversationTransferBeginNotifyResponseBody) *ConversationTransferBeginNotifyResponse {
+	s.Body = v
+	return s
+}
+
+type ConversationTransferCompleteNotifyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ConversationTransferCompleteNotifyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConversationTransferCompleteNotifyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ConversationTransferCompleteNotifyHeaders) SetCommonHeaders(v map[string]*string) *ConversationTransferCompleteNotifyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ConversationTransferCompleteNotifyHeaders) SetXAcsDingtalkAccessToken(v string) *ConversationTransferCompleteNotifyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ConversationTransferCompleteNotifyRequest struct {
+	// 小二2088id
+	AlipayUserId *string `json:"alipayUserId,omitempty" xml:"alipayUserId,omitempty"`
+	// DT端会话ID
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	// 小二昵称
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// 开放团队id
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 对应外部渠道的会话ID
+	ServiceToken *string `json:"serviceToken,omitempty" xml:"serviceToken,omitempty"`
+	// 小二id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// DT端定义的，标识唯一的访
+	VisitorToken *string `json:"visitorToken,omitempty" xml:"visitorToken,omitempty"`
+}
+
+func (s ConversationTransferCompleteNotifyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConversationTransferCompleteNotifyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ConversationTransferCompleteNotifyRequest) SetAlipayUserId(v string) *ConversationTransferCompleteNotifyRequest {
+	s.AlipayUserId = &v
+	return s
+}
+
+func (s *ConversationTransferCompleteNotifyRequest) SetConversationId(v string) *ConversationTransferCompleteNotifyRequest {
+	s.ConversationId = &v
+	return s
+}
+
+func (s *ConversationTransferCompleteNotifyRequest) SetNickName(v string) *ConversationTransferCompleteNotifyRequest {
+	s.NickName = &v
+	return s
+}
+
+func (s *ConversationTransferCompleteNotifyRequest) SetOpenTeamId(v string) *ConversationTransferCompleteNotifyRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *ConversationTransferCompleteNotifyRequest) SetServiceToken(v string) *ConversationTransferCompleteNotifyRequest {
+	s.ServiceToken = &v
+	return s
+}
+
+func (s *ConversationTransferCompleteNotifyRequest) SetUserId(v string) *ConversationTransferCompleteNotifyRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *ConversationTransferCompleteNotifyRequest) SetVisitorToken(v string) *ConversationTransferCompleteNotifyRequest {
+	s.VisitorToken = &v
+	return s
+}
+
+type ConversationTransferCompleteNotifyResponseBody struct {
+	// dingOpenErrcode
+	DingOpenErrcode *int32 `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	// errorMsg
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// result
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ConversationTransferCompleteNotifyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConversationTransferCompleteNotifyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ConversationTransferCompleteNotifyResponseBody) SetDingOpenErrcode(v int32) *ConversationTransferCompleteNotifyResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *ConversationTransferCompleteNotifyResponseBody) SetErrorMsg(v string) *ConversationTransferCompleteNotifyResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *ConversationTransferCompleteNotifyResponseBody) SetResult(v bool) *ConversationTransferCompleteNotifyResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *ConversationTransferCompleteNotifyResponseBody) SetSuccess(v bool) *ConversationTransferCompleteNotifyResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ConversationTransferCompleteNotifyResponse struct {
+	Headers map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ConversationTransferCompleteNotifyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ConversationTransferCompleteNotifyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConversationTransferCompleteNotifyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ConversationTransferCompleteNotifyResponse) SetHeaders(v map[string]*string) *ConversationTransferCompleteNotifyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ConversationTransferCompleteNotifyResponse) SetBody(v *ConversationTransferCompleteNotifyResponseBody) *ConversationTransferCompleteNotifyResponse {
 	s.Body = v
 	return s
 }
@@ -3065,6 +3651,183 @@ func (s FinishTicketResponse) GoString() string {
 
 func (s *FinishTicketResponse) SetHeaders(v map[string]*string) *FinishTicketResponse {
 	s.Headers = v
+	return s
+}
+
+type GetAuthTokenHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAuthTokenHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAuthTokenHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAuthTokenHeaders) SetCommonHeaders(v map[string]*string) *GetAuthTokenHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAuthTokenHeaders) SetXAcsDingtalkAccessToken(v string) *GetAuthTokenHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAuthTokenRequest struct {
+	// 渠道DT/LINKS
+	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
+	// token有效时间（秒）-可不传
+	EffectiveTime *int64 `json:"effectiveTime,omitempty" xml:"effectiveTime,omitempty"`
+	// 团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 小二id
+	ServerId *string `json:"serverId,omitempty" xml:"serverId,omitempty"`
+	// 小二名称
+	ServerName *string `json:"serverName,omitempty" xml:"serverName,omitempty"`
+}
+
+func (s GetAuthTokenRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAuthTokenRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAuthTokenRequest) SetChannel(v string) *GetAuthTokenRequest {
+	s.Channel = &v
+	return s
+}
+
+func (s *GetAuthTokenRequest) SetEffectiveTime(v int64) *GetAuthTokenRequest {
+	s.EffectiveTime = &v
+	return s
+}
+
+func (s *GetAuthTokenRequest) SetOpenTeamId(v string) *GetAuthTokenRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *GetAuthTokenRequest) SetServerId(v string) *GetAuthTokenRequest {
+	s.ServerId = &v
+	return s
+}
+
+func (s *GetAuthTokenRequest) SetServerName(v string) *GetAuthTokenRequest {
+	s.ServerName = &v
+	return s
+}
+
+type GetAuthTokenResponseBody struct {
+	// 错误码
+	DingOpenErrcode *int32 `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	// errorMsg
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// 返回的对象
+	Result *GetAuthTokenResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetAuthTokenResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAuthTokenResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAuthTokenResponseBody) SetDingOpenErrcode(v int32) *GetAuthTokenResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *GetAuthTokenResponseBody) SetErrorMsg(v string) *GetAuthTokenResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *GetAuthTokenResponseBody) SetResult(v *GetAuthTokenResponseBodyResult) *GetAuthTokenResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetAuthTokenResponseBody) SetSuccess(v bool) *GetAuthTokenResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetAuthTokenResponseBodyResult struct {
+	// token
+	AuthToken *string `json:"authToken,omitempty" xml:"authToken,omitempty"`
+	// 小二渠道来源 DT/LINKS
+	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
+	// token有效期秒
+	EffectiveTime *int64 `json:"effectiveTime,omitempty" xml:"effectiveTime,omitempty"`
+	// 小二id
+	ServerId *string `json:"serverId,omitempty" xml:"serverId,omitempty"`
+	// 小二名称
+	ServerName *string `json:"serverName,omitempty" xml:"serverName,omitempty"`
+}
+
+func (s GetAuthTokenResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAuthTokenResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetAuthTokenResponseBodyResult) SetAuthToken(v string) *GetAuthTokenResponseBodyResult {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *GetAuthTokenResponseBodyResult) SetChannel(v string) *GetAuthTokenResponseBodyResult {
+	s.Channel = &v
+	return s
+}
+
+func (s *GetAuthTokenResponseBodyResult) SetEffectiveTime(v int64) *GetAuthTokenResponseBodyResult {
+	s.EffectiveTime = &v
+	return s
+}
+
+func (s *GetAuthTokenResponseBodyResult) SetServerId(v string) *GetAuthTokenResponseBodyResult {
+	s.ServerId = &v
+	return s
+}
+
+func (s *GetAuthTokenResponseBodyResult) SetServerName(v string) *GetAuthTokenResponseBodyResult {
+	s.ServerName = &v
+	return s
+}
+
+type GetAuthTokenResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetAuthTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAuthTokenResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAuthTokenResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAuthTokenResponse) SetHeaders(v map[string]*string) *GetAuthTokenResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAuthTokenResponse) SetBody(v *GetAuthTokenResponseBody) *GetAuthTokenResponse {
+	s.Body = v
 	return s
 }
 
@@ -4692,6 +5455,115 @@ func (s *QueryActiveUsersResponse) SetBody(v *QueryActiveUsersResponseBody) *Que
 	return s
 }
 
+type QueryCustomerCardHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCustomerCardHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerCardHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerCardHeaders) SetCommonHeaders(v map[string]*string) *QueryCustomerCardHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCustomerCardHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCustomerCardHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCustomerCardRequest struct {
+	// 查询jsonString
+	JsonParams *string `json:"jsonParams,omitempty" xml:"jsonParams,omitempty"`
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s QueryCustomerCardRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerCardRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerCardRequest) SetJsonParams(v string) *QueryCustomerCardRequest {
+	s.JsonParams = &v
+	return s
+}
+
+func (s *QueryCustomerCardRequest) SetOpenTeamId(v string) *QueryCustomerCardRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type QueryCustomerCardResponseBody struct {
+	// dingOpenErrcode
+	DingOpenErrcode *int32 `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	// errorMsg
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// result
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryCustomerCardResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerCardResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerCardResponseBody) SetDingOpenErrcode(v int32) *QueryCustomerCardResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *QueryCustomerCardResponseBody) SetErrorMsg(v string) *QueryCustomerCardResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *QueryCustomerCardResponseBody) SetResult(v bool) *QueryCustomerCardResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *QueryCustomerCardResponseBody) SetSuccess(v bool) *QueryCustomerCardResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryCustomerCardResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryCustomerCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryCustomerCardResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerCardResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerCardResponse) SetHeaders(v map[string]*string) *QueryCustomerCardResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCustomerCardResponse) SetBody(v *QueryCustomerCardResponseBody) *QueryCustomerCardResponse {
+	s.Body = v
+	return s
+}
+
 type QueryGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5572,6 +6444,151 @@ func (s *QueryServiceGroupMessageReadStatusResponse) SetHeaders(v map[string]*st
 }
 
 func (s *QueryServiceGroupMessageReadStatusResponse) SetBody(v *QueryServiceGroupMessageReadStatusResponseBody) *QueryServiceGroupMessageReadStatusResponse {
+	s.Body = v
+	return s
+}
+
+type QueueNotifyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueueNotifyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueueNotifyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueueNotifyHeaders) SetCommonHeaders(v map[string]*string) *QueueNotifyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueueNotifyHeaders) SetXAcsDingtalkAccessToken(v string) *QueueNotifyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueueNotifyRequest struct {
+	// 预计等待时间，单位：分钟
+	EstimateWaitMin *int64 `json:"estimateWaitMin,omitempty" xml:"estimateWaitMin,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 当前排队次序
+	QueuePlace *int64 `json:"queuePlace,omitempty" xml:"queuePlace,omitempty"`
+	// 会话id
+	ServiceToken *string `json:"serviceToken,omitempty" xml:"serviceToken,omitempty"`
+	// 渠道类型
+	TargetChannel *string `json:"targetChannel,omitempty" xml:"targetChannel,omitempty"`
+	// 展示文案
+	Tips *string `json:"tips,omitempty" xml:"tips,omitempty"`
+	// DT端定义的访客token
+	VisitorToken *string `json:"visitorToken,omitempty" xml:"visitorToken,omitempty"`
+}
+
+func (s QueueNotifyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueueNotifyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueueNotifyRequest) SetEstimateWaitMin(v int64) *QueueNotifyRequest {
+	s.EstimateWaitMin = &v
+	return s
+}
+
+func (s *QueueNotifyRequest) SetOpenTeamId(v string) *QueueNotifyRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *QueueNotifyRequest) SetQueuePlace(v int64) *QueueNotifyRequest {
+	s.QueuePlace = &v
+	return s
+}
+
+func (s *QueueNotifyRequest) SetServiceToken(v string) *QueueNotifyRequest {
+	s.ServiceToken = &v
+	return s
+}
+
+func (s *QueueNotifyRequest) SetTargetChannel(v string) *QueueNotifyRequest {
+	s.TargetChannel = &v
+	return s
+}
+
+func (s *QueueNotifyRequest) SetTips(v string) *QueueNotifyRequest {
+	s.Tips = &v
+	return s
+}
+
+func (s *QueueNotifyRequest) SetVisitorToken(v string) *QueueNotifyRequest {
+	s.VisitorToken = &v
+	return s
+}
+
+type QueueNotifyResponseBody struct {
+	// dingOpenErrcode
+	DingOpenErrcode *int32 `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	// errorMsg
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// 执行是否成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// 回调是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueueNotifyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueueNotifyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueueNotifyResponseBody) SetDingOpenErrcode(v int32) *QueueNotifyResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *QueueNotifyResponseBody) SetErrorMsg(v string) *QueueNotifyResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *QueueNotifyResponseBody) SetResult(v bool) *QueueNotifyResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *QueueNotifyResponseBody) SetSuccess(v bool) *QueueNotifyResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueueNotifyResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueueNotifyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueueNotifyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueueNotifyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueueNotifyResponse) SetHeaders(v map[string]*string) *QueueNotifyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueueNotifyResponse) SetBody(v *QueueNotifyResponseBody) *QueueNotifyResponse {
 	s.Body = v
 	return s
 }
@@ -8588,6 +9605,70 @@ func (client *Client) CategoryStatisticsWithOptions(request *CategoryStatisticsR
 	return _result, _err
 }
 
+func (client *Client) CloseConversation(request *CloseConversationRequest) (_result *CloseConversationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CloseConversationHeaders{}
+	_result = &CloseConversationResponse{}
+	_body, _err := client.CloseConversationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CloseConversationWithOptions(request *CloseConversationRequest, headers *CloseConversationHeaders, runtime *util.RuntimeOptions) (_result *CloseConversationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ConversationId)) {
+		body["conversationId"] = request.ConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ServerTips)) {
+		body["serverTips"] = request.ServerTips
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ServiceToken)) {
+		body["serviceToken"] = request.ServiceToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetChannel)) {
+		body["targetChannel"] = request.TargetChannel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VisitorToken)) {
+		body["visitorToken"] = request.VisitorToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CloseConversationResponse{}
+	_body, _err := client.DoROARequest(tea.String("CloseConversation"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/conversions"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CloseHumanSession(request *CloseHumanSessionRequest) (_result *CloseHumanSessionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CloseHumanSessionHeaders{}
@@ -8629,6 +9710,218 @@ func (client *Client) CloseHumanSessionWithOptions(request *CloseHumanSessionReq
 	}
 	_result = &CloseHumanSessionResponse{}
 	_body, _err := client.DoROARequest(tea.String("CloseHumanSession"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/humanSessions/close"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ConversationCreatedNotify(request *ConversationCreatedNotifyRequest) (_result *ConversationCreatedNotifyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ConversationCreatedNotifyHeaders{}
+	_result = &ConversationCreatedNotifyResponse{}
+	_body, _err := client.ConversationCreatedNotifyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ConversationCreatedNotifyWithOptions(request *ConversationCreatedNotifyRequest, headers *ConversationCreatedNotifyHeaders, runtime *util.RuntimeOptions) (_result *ConversationCreatedNotifyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AlipayUserId)) {
+		body["alipayUserId"] = request.AlipayUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ConversationId)) {
+		body["conversationId"] = request.ConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NickName)) {
+		body["nickName"] = request.NickName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ServerName)) {
+		body["serverName"] = request.ServerName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ServerTips)) {
+		body["serverTips"] = request.ServerTips
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ServiceToken)) {
+		body["serviceToken"] = request.ServiceToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TimeoutRemindTips)) {
+		body["timeoutRemindTips"] = request.TimeoutRemindTips
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VisitorToken)) {
+		body["visitorToken"] = request.VisitorToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ConversationCreatedNotifyResponse{}
+	_body, _err := client.DoROARequest(tea.String("ConversationCreatedNotify"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/customers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ConversationTransferBeginNotify(request *ConversationTransferBeginNotifyRequest) (_result *ConversationTransferBeginNotifyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ConversationTransferBeginNotifyHeaders{}
+	_result = &ConversationTransferBeginNotifyResponse{}
+	_body, _err := client.ConversationTransferBeginNotifyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ConversationTransferBeginNotifyWithOptions(request *ConversationTransferBeginNotifyRequest, headers *ConversationTransferBeginNotifyHeaders, runtime *util.RuntimeOptions) (_result *ConversationTransferBeginNotifyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ConversationId)) {
+		body["conversationId"] = request.ConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Memo)) {
+		body["memo"] = request.Memo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ServiceToken)) {
+		body["serviceToken"] = request.ServiceToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceSkillGroupId)) {
+		body["sourceSkillGroupId"] = request.SourceSkillGroupId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetSkillGroupId)) {
+		body["targetSkillGroupId"] = request.TargetSkillGroupId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ConversationTransferBeginNotifyResponse{}
+	_body, _err := client.DoROARequest(tea.String("ConversationTransferBeginNotify"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/transfers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ConversationTransferCompleteNotify(request *ConversationTransferCompleteNotifyRequest) (_result *ConversationTransferCompleteNotifyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ConversationTransferCompleteNotifyHeaders{}
+	_result = &ConversationTransferCompleteNotifyResponse{}
+	_body, _err := client.ConversationTransferCompleteNotifyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ConversationTransferCompleteNotifyWithOptions(request *ConversationTransferCompleteNotifyRequest, headers *ConversationTransferCompleteNotifyHeaders, runtime *util.RuntimeOptions) (_result *ConversationTransferCompleteNotifyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AlipayUserId)) {
+		body["alipayUserId"] = request.AlipayUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ConversationId)) {
+		body["conversationId"] = request.ConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NickName)) {
+		body["nickName"] = request.NickName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ServiceToken)) {
+		body["serviceToken"] = request.ServiceToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VisitorToken)) {
+		body["visitorToken"] = request.VisitorToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ConversationTransferCompleteNotifyResponse{}
+	_body, _err := client.DoROARequest(tea.String("ConversationTransferCompleteNotify"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/completes"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9057,6 +10350,66 @@ func (client *Client) FinishTicketWithOptions(request *FinishTicketRequest, head
 	}
 	_result = &FinishTicketResponse{}
 	_body, _err := client.DoROARequest(tea.String("FinishTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets/finish"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetAuthToken(request *GetAuthTokenRequest) (_result *GetAuthTokenResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAuthTokenHeaders{}
+	_result = &GetAuthTokenResponse{}
+	_body, _err := client.GetAuthTokenWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAuthTokenWithOptions(request *GetAuthTokenRequest, headers *GetAuthTokenHeaders, runtime *util.RuntimeOptions) (_result *GetAuthTokenResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Channel)) {
+		body["channel"] = request.Channel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EffectiveTime)) {
+		body["effectiveTime"] = request.EffectiveTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ServerId)) {
+		body["serverId"] = request.ServerId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ServerName)) {
+		body["serverName"] = request.ServerName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetAuthTokenResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetAuthToken"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/get/tokens"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9603,6 +10956,54 @@ func (client *Client) QueryActiveUsersWithOptions(request *QueryActiveUsersReque
 	return _result, _err
 }
 
+func (client *Client) QueryCustomerCard(request *QueryCustomerCardRequest) (_result *QueryCustomerCardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCustomerCardHeaders{}
+	_result = &QueryCustomerCardResponse{}
+	_body, _err := client.QueryCustomerCardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryCustomerCardWithOptions(request *QueryCustomerCardRequest, headers *QueryCustomerCardHeaders, runtime *util.RuntimeOptions) (_result *QueryCustomerCardResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.JsonParams)) {
+		body["jsonParams"] = request.JsonParams
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryCustomerCardResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryCustomerCard"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/userDetials"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryGroup(request *QueryGroupRequest) (_result *QueryGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryGroupHeaders{}
@@ -9868,6 +11269,74 @@ func (client *Client) QueryServiceGroupMessageReadStatusWithOptions(request *Que
 	}
 	_result = &QueryServiceGroupMessageReadStatusResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryServiceGroupMessageReadStatus"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/messages/readStatus/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueueNotify(request *QueueNotifyRequest) (_result *QueueNotifyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueueNotifyHeaders{}
+	_result = &QueueNotifyResponse{}
+	_body, _err := client.QueueNotifyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueueNotifyWithOptions(request *QueueNotifyRequest, headers *QueueNotifyHeaders, runtime *util.RuntimeOptions) (_result *QueueNotifyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EstimateWaitMin)) {
+		body["estimateWaitMin"] = request.EstimateWaitMin
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QueuePlace)) {
+		body["queuePlace"] = request.QueuePlace
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ServiceToken)) {
+		body["serviceToken"] = request.ServiceToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetChannel)) {
+		body["targetChannel"] = request.TargetChannel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Tips)) {
+		body["tips"] = request.Tips
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VisitorToken)) {
+		body["visitorToken"] = request.VisitorToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueueNotifyResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueueNotify"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/dts"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

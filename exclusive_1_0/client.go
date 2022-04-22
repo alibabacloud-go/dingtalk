@@ -209,6 +209,102 @@ func (s *CreateTrustedDeviceResponse) SetBody(v *CreateTrustedDeviceResponseBody
 	return s
 }
 
+type CreateTrustedDeviceBatchHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateTrustedDeviceBatchHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTrustedDeviceBatchHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTrustedDeviceBatchHeaders) SetCommonHeaders(v map[string]*string) *CreateTrustedDeviceBatchHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateTrustedDeviceBatchHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTrustedDeviceBatchHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateTrustedDeviceBatchRequest struct {
+	// mac地址列表
+	MacAddressList []*string `json:"macAddressList,omitempty" xml:"macAddressList,omitempty" type:"Repeated"`
+	// 平台
+	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateTrustedDeviceBatchRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTrustedDeviceBatchRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTrustedDeviceBatchRequest) SetMacAddressList(v []*string) *CreateTrustedDeviceBatchRequest {
+	s.MacAddressList = v
+	return s
+}
+
+func (s *CreateTrustedDeviceBatchRequest) SetPlatform(v string) *CreateTrustedDeviceBatchRequest {
+	s.Platform = &v
+	return s
+}
+
+func (s *CreateTrustedDeviceBatchRequest) SetUserId(v string) *CreateTrustedDeviceBatchRequest {
+	s.UserId = &v
+	return s
+}
+
+type CreateTrustedDeviceBatchResponseBody struct {
+	// 处理结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CreateTrustedDeviceBatchResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTrustedDeviceBatchResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTrustedDeviceBatchResponseBody) SetResult(v bool) *CreateTrustedDeviceBatchResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CreateTrustedDeviceBatchResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateTrustedDeviceBatchResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateTrustedDeviceBatchResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTrustedDeviceBatchResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTrustedDeviceBatchResponse) SetHeaders(v map[string]*string) *CreateTrustedDeviceBatchResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateTrustedDeviceBatchResponse) SetBody(v *CreateTrustedDeviceBatchResponseBody) *CreateTrustedDeviceBatchResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteCommentHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2886,6 +2982,373 @@ func (s *GetUserAppVersionSummaryResponse) SetBody(v *GetUserAppVersionSummaryRe
 	return s
 }
 
+type ListAuditLogHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListAuditLogHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAuditLogHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListAuditLogHeaders) SetCommonHeaders(v map[string]*string) *ListAuditLogHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListAuditLogHeaders) SetXAcsDingtalkAccessToken(v string) *ListAuditLogHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListAuditLogRequest struct {
+	// 操作日志截止时间，unix时间戳，单位ms
+	EndDate *int64 `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// 操作记录文件id，作为分页偏移量，与nextGmtCreate一起使用，返回记录的bizId为nextBizId且gmtCreate为nextGmtCreate之后的操作列表，分页查询获取下一页时，传最后一条记录的bizId和gmtCreate。
+	NextBizId *int64 `json:"nextBizId,omitempty" xml:"nextBizId,omitempty"`
+	// 操作记录生成时间，作为分页偏移量，分页查询时必传，unix时间戳，单位ms
+	NextGmtCreate *int64 `json:"nextGmtCreate,omitempty" xml:"nextGmtCreate,omitempty"`
+	// 操作列表长度，最大500
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 操作日志起始时间，unix时间戳，单位ms
+	StartDate *int64 `json:"startDate,omitempty" xml:"startDate,omitempty"`
+}
+
+func (s ListAuditLogRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAuditLogRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListAuditLogRequest) SetEndDate(v int64) *ListAuditLogRequest {
+	s.EndDate = &v
+	return s
+}
+
+func (s *ListAuditLogRequest) SetNextBizId(v int64) *ListAuditLogRequest {
+	s.NextBizId = &v
+	return s
+}
+
+func (s *ListAuditLogRequest) SetNextGmtCreate(v int64) *ListAuditLogRequest {
+	s.NextGmtCreate = &v
+	return s
+}
+
+func (s *ListAuditLogRequest) SetPageSize(v int32) *ListAuditLogRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ListAuditLogRequest) SetStartDate(v int64) *ListAuditLogRequest {
+	s.StartDate = &v
+	return s
+}
+
+type ListAuditLogResponseBody struct {
+	// 记录列表
+	List []*ListAuditLogResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s ListAuditLogResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAuditLogResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListAuditLogResponseBody) SetList(v []*ListAuditLogResponseBodyList) *ListAuditLogResponseBody {
+	s.List = v
+	return s
+}
+
+type ListAuditLogResponseBodyList struct {
+	// 操作类型
+	Action *int32 `json:"action,omitempty" xml:"action,omitempty"`
+	// 操作类型翻译值
+	ActionView *string `json:"actionView,omitempty" xml:"actionView,omitempty"`
+	// 文件id
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// 接收成员列表，仅分享文档返回
+	DocMemberList []*ListAuditLogResponseBodyListDocMemberList `json:"docMemberList,omitempty" xml:"docMemberList,omitempty" type:"Repeated"`
+	// 成员授权列表，仅文档授权返回
+	DocReceiverList []*ListAuditLogResponseBodyListDocReceiverList `json:"docReceiverList,omitempty" xml:"docReceiverList,omitempty" type:"Repeated"`
+	// 记录生成时间，unix时间戳，单位ms
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 记录修改时间，unix时间戳，单位ms
+	GmtModified *int64 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// 操作机器ip
+	IpAddress *string `json:"ipAddress,omitempty" xml:"ipAddress,omitempty"`
+	// 操作来源空间
+	OperateModule *int64 `json:"operateModule,omitempty" xml:"operateModule,omitempty"`
+	// 操作来源翻译值
+	OperateModuleView *string `json:"operateModuleView,omitempty" xml:"operateModuleView,omitempty"`
+	// 用户昵称
+	OperatorName *string `json:"operatorName,omitempty" xml:"operatorName,omitempty"`
+	// 文件所属组织名称
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// 操作端
+	Platform *int32 `json:"platform,omitempty" xml:"platform,omitempty"`
+	// 操作端翻译值
+	PlatformView *string `json:"platformView,omitempty" xml:"platformView,omitempty"`
+	// 用户姓名
+	RealName *string `json:"realName,omitempty" xml:"realName,omitempty"`
+	// 文件接收方名称
+	ReceiverName *string `json:"receiverName,omitempty" xml:"receiverName,omitempty"`
+	// 文件接收方类型
+	ReceiverType *int32 `json:"receiverType,omitempty" xml:"receiverType,omitempty"`
+	// 文件接收方类型翻译值
+	ReceiverTypeView *string `json:"receiverTypeView,omitempty" xml:"receiverTypeView,omitempty"`
+	// test.docx
+	Resource *string `json:"resource,omitempty" xml:"resource,omitempty"`
+	// 文件类型
+	ResourceExtension *string `json:"resourceExtension,omitempty" xml:"resourceExtension,omitempty"`
+	// 文件大小
+	ResourceSize *int64 `json:"resourceSize,omitempty" xml:"resourceSize,omitempty"`
+	// 记录状态
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 空间id
+	TargetSpaceId *int64 `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
+	// 员工的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListAuditLogResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAuditLogResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *ListAuditLogResponseBodyList) SetAction(v int32) *ListAuditLogResponseBodyList {
+	s.Action = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetActionView(v string) *ListAuditLogResponseBodyList {
+	s.ActionView = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetBizId(v string) *ListAuditLogResponseBodyList {
+	s.BizId = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetDocMemberList(v []*ListAuditLogResponseBodyListDocMemberList) *ListAuditLogResponseBodyList {
+	s.DocMemberList = v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetDocReceiverList(v []*ListAuditLogResponseBodyListDocReceiverList) *ListAuditLogResponseBodyList {
+	s.DocReceiverList = v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetGmtCreate(v int64) *ListAuditLogResponseBodyList {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetGmtModified(v int64) *ListAuditLogResponseBodyList {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetIpAddress(v string) *ListAuditLogResponseBodyList {
+	s.IpAddress = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetOperateModule(v int64) *ListAuditLogResponseBodyList {
+	s.OperateModule = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetOperateModuleView(v string) *ListAuditLogResponseBodyList {
+	s.OperateModuleView = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetOperatorName(v string) *ListAuditLogResponseBodyList {
+	s.OperatorName = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetOrgName(v string) *ListAuditLogResponseBodyList {
+	s.OrgName = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetPlatform(v int32) *ListAuditLogResponseBodyList {
+	s.Platform = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetPlatformView(v string) *ListAuditLogResponseBodyList {
+	s.PlatformView = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetRealName(v string) *ListAuditLogResponseBodyList {
+	s.RealName = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetReceiverName(v string) *ListAuditLogResponseBodyList {
+	s.ReceiverName = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetReceiverType(v int32) *ListAuditLogResponseBodyList {
+	s.ReceiverType = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetReceiverTypeView(v string) *ListAuditLogResponseBodyList {
+	s.ReceiverTypeView = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetResource(v string) *ListAuditLogResponseBodyList {
+	s.Resource = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetResourceExtension(v string) *ListAuditLogResponseBodyList {
+	s.ResourceExtension = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetResourceSize(v int64) *ListAuditLogResponseBodyList {
+	s.ResourceSize = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetStatus(v int32) *ListAuditLogResponseBodyList {
+	s.Status = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetTargetSpaceId(v int64) *ListAuditLogResponseBodyList {
+	s.TargetSpaceId = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetUserId(v string) *ListAuditLogResponseBodyList {
+	s.UserId = &v
+	return s
+}
+
+type ListAuditLogResponseBodyListDocMemberList struct {
+	// 成员名称
+	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+	// 成员类型
+	MemberType *int32 `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// 成员类型翻译值
+	MemberTypeView *string `json:"memberTypeView,omitempty" xml:"memberTypeView,omitempty"`
+	// 权限类型
+	PermissionRole *int64 `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
+	// 权限类型翻译值
+	PermissionRoleView *string `json:"permissionRoleView,omitempty" xml:"permissionRoleView,omitempty"`
+}
+
+func (s ListAuditLogResponseBodyListDocMemberList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAuditLogResponseBodyListDocMemberList) GoString() string {
+	return s.String()
+}
+
+func (s *ListAuditLogResponseBodyListDocMemberList) SetMemberName(v string) *ListAuditLogResponseBodyListDocMemberList {
+	s.MemberName = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyListDocMemberList) SetMemberType(v int32) *ListAuditLogResponseBodyListDocMemberList {
+	s.MemberType = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyListDocMemberList) SetMemberTypeView(v string) *ListAuditLogResponseBodyListDocMemberList {
+	s.MemberTypeView = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyListDocMemberList) SetPermissionRole(v int64) *ListAuditLogResponseBodyListDocMemberList {
+	s.PermissionRole = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyListDocMemberList) SetPermissionRoleView(v string) *ListAuditLogResponseBodyListDocMemberList {
+	s.PermissionRoleView = &v
+	return s
+}
+
+type ListAuditLogResponseBodyListDocReceiverList struct {
+	// 成员名称
+	ReceiverName *string `json:"receiverName,omitempty" xml:"receiverName,omitempty"`
+	// 成员类型
+	ReceiverType *int32 `json:"receiverType,omitempty" xml:"receiverType,omitempty"`
+	// 成员类型翻译值
+	ReceiverTypeView *string `json:"receiverTypeView,omitempty" xml:"receiverTypeView,omitempty"`
+}
+
+func (s ListAuditLogResponseBodyListDocReceiverList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAuditLogResponseBodyListDocReceiverList) GoString() string {
+	return s.String()
+}
+
+func (s *ListAuditLogResponseBodyListDocReceiverList) SetReceiverName(v string) *ListAuditLogResponseBodyListDocReceiverList {
+	s.ReceiverName = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyListDocReceiverList) SetReceiverType(v int32) *ListAuditLogResponseBodyListDocReceiverList {
+	s.ReceiverType = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyListDocReceiverList) SetReceiverTypeView(v string) *ListAuditLogResponseBodyListDocReceiverList {
+	s.ReceiverTypeView = &v
+	return s
+}
+
+type ListAuditLogResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListAuditLogResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListAuditLogResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAuditLogResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListAuditLogResponse) SetHeaders(v map[string]*string) *ListAuditLogResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListAuditLogResponse) SetBody(v *ListAuditLogResponseBody) *ListAuditLogResponse {
+	s.Body = v
+	return s
+}
+
 type ListMiniAppAvailableVersionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4708,6 +5171,58 @@ func (client *Client) CreateTrustedDeviceWithOptions(request *CreateTrustedDevic
 	return _result, _err
 }
 
+func (client *Client) CreateTrustedDeviceBatch(request *CreateTrustedDeviceBatchRequest) (_result *CreateTrustedDeviceBatchResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateTrustedDeviceBatchHeaders{}
+	_result = &CreateTrustedDeviceBatchResponse{}
+	_body, _err := client.CreateTrustedDeviceBatchWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateTrustedDeviceBatchWithOptions(request *CreateTrustedDeviceBatchRequest, headers *CreateTrustedDeviceBatchHeaders, runtime *util.RuntimeOptions) (_result *CreateTrustedDeviceBatchResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MacAddressList)) {
+		body["macAddressList"] = request.MacAddressList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Platform)) {
+		body["platform"] = request.Platform
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateTrustedDeviceBatchResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateTrustedDeviceBatch"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/trusts/devices"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteComment(publisherId *string, commentId *string) (_result *DeleteCommentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteCommentHeaders{}
@@ -5582,6 +6097,66 @@ func (client *Client) GetUserAppVersionSummaryWithOptions(dataId *string, reques
 	}
 	_result = &GetUserAppVersionSummaryResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetUserAppVersionSummary"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/data/appVersion/org/"+tea.StringValue(dataId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListAuditLog(request *ListAuditLogRequest) (_result *ListAuditLogResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListAuditLogHeaders{}
+	_result = &ListAuditLogResponse{}
+	_body, _err := client.ListAuditLogWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListAuditLogWithOptions(request *ListAuditLogRequest, headers *ListAuditLogHeaders, runtime *util.RuntimeOptions) (_result *ListAuditLogResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndDate)) {
+		query["endDate"] = request.EndDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextBizId)) {
+		query["nextBizId"] = request.NextBizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextGmtCreate)) {
+		query["nextGmtCreate"] = request.NextGmtCreate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartDate)) {
+		query["startDate"] = request.StartDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListAuditLogResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListAuditLog"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/fileAuditLogs"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
