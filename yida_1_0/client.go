@@ -9398,6 +9398,116 @@ func (s *ListConnectorInformationResponse) SetBody(v *ListConnectorInformationRe
 	return s
 }
 
+type ListFormRemarksHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListFormRemarksHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListFormRemarksHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListFormRemarksHeaders) SetCommonHeaders(v map[string]*string) *ListFormRemarksHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListFormRemarksHeaders) SetXAcsDingtalkAccessToken(v string) *ListFormRemarksHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListFormRemarksRequest struct {
+	// 宜搭应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 表单实例id列表
+	FormInstanceIdList []*string `json:"formInstanceIdList,omitempty" xml:"formInstanceIdList,omitempty" type:"Repeated"`
+	// 表单编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 宜搭应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListFormRemarksRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListFormRemarksRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListFormRemarksRequest) SetAppType(v string) *ListFormRemarksRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *ListFormRemarksRequest) SetFormInstanceIdList(v []*string) *ListFormRemarksRequest {
+	s.FormInstanceIdList = v
+	return s
+}
+
+func (s *ListFormRemarksRequest) SetFormUuid(v string) *ListFormRemarksRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *ListFormRemarksRequest) SetSystemToken(v string) *ListFormRemarksRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *ListFormRemarksRequest) SetUserId(v string) *ListFormRemarksRequest {
+	s.UserId = &v
+	return s
+}
+
+type ListFormRemarksResponseBody struct {
+	// formRemarkVoMap
+	FormRemarkVoMap map[string]interface{} `json:"formRemarkVoMap,omitempty" xml:"formRemarkVoMap,omitempty"`
+}
+
+func (s ListFormRemarksResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListFormRemarksResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListFormRemarksResponseBody) SetFormRemarkVoMap(v map[string]interface{}) *ListFormRemarksResponseBody {
+	s.FormRemarkVoMap = v
+	return s
+}
+
+type ListFormRemarksResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListFormRemarksResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListFormRemarksResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListFormRemarksResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListFormRemarksResponse) SetHeaders(v map[string]*string) *ListFormRemarksResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListFormRemarksResponse) SetBody(v *ListFormRemarksResponseBody) *ListFormRemarksResponse {
+	s.Body = v
+	return s
+}
+
 type ListNavigationByFormTypeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -18078,6 +18188,66 @@ func (client *Client) ListConnectorInformationWithOptions(instanceId *string, re
 	}
 	_result = &ListConnectorInformationResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListConnectorInformation"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/plugins/infos/"+tea.StringValue(instanceId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListFormRemarks(request *ListFormRemarksRequest) (_result *ListFormRemarksResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListFormRemarksHeaders{}
+	_result = &ListFormRemarksResponse{}
+	_body, _err := client.ListFormRemarksWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListFormRemarksWithOptions(request *ListFormRemarksRequest, headers *ListFormRemarksHeaders, runtime *util.RuntimeOptions) (_result *ListFormRemarksResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormInstanceIdList)) {
+		body["formInstanceIdList"] = request.FormInstanceIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ListFormRemarksResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListFormRemarks"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/forms/remarks/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -6593,6 +6593,472 @@ func (s *QueueNotifyResponse) SetBody(v *QueueNotifyResponseBody) *QueueNotifyRe
 	return s
 }
 
+type ReportCustomerDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ReportCustomerDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportCustomerDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ReportCustomerDetailHeaders) SetCommonHeaders(v map[string]*string) *ReportCustomerDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ReportCustomerDetailHeaders) SetXAcsDingtalkAccessToken(v string) *ReportCustomerDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ReportCustomerDetailRequest struct {
+	// 是否登录钉钉
+	HasLogin *bool `json:"hasLogin,omitempty" xml:"hasLogin,omitempty"`
+	// 是否打开群
+	HasOpenConv *bool `json:"hasOpenConv,omitempty" xml:"hasOpenConv,omitempty"`
+	// 截止日期
+	MaxDt *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
+	// 起始日期
+	MinDt *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// 开放群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 开发团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 页码
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页大小
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s ReportCustomerDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportCustomerDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ReportCustomerDetailRequest) SetHasLogin(v bool) *ReportCustomerDetailRequest {
+	s.HasLogin = &v
+	return s
+}
+
+func (s *ReportCustomerDetailRequest) SetHasOpenConv(v bool) *ReportCustomerDetailRequest {
+	s.HasOpenConv = &v
+	return s
+}
+
+func (s *ReportCustomerDetailRequest) SetMaxDt(v string) *ReportCustomerDetailRequest {
+	s.MaxDt = &v
+	return s
+}
+
+func (s *ReportCustomerDetailRequest) SetMinDt(v string) *ReportCustomerDetailRequest {
+	s.MinDt = &v
+	return s
+}
+
+func (s *ReportCustomerDetailRequest) SetOpenConversationId(v string) *ReportCustomerDetailRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *ReportCustomerDetailRequest) SetOpenTeamId(v string) *ReportCustomerDetailRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *ReportCustomerDetailRequest) SetPageNumber(v int64) *ReportCustomerDetailRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ReportCustomerDetailRequest) SetPageSize(v int64) *ReportCustomerDetailRequest {
+	s.PageSize = &v
+	return s
+}
+
+type ReportCustomerDetailResponseBody struct {
+	// 页码
+	CurrentPage *int64 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	// 每页大小
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 数据列表
+	Records []*ReportCustomerDetailResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	// 总数目
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s ReportCustomerDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportCustomerDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ReportCustomerDetailResponseBody) SetCurrentPage(v int64) *ReportCustomerDetailResponseBody {
+	s.CurrentPage = &v
+	return s
+}
+
+func (s *ReportCustomerDetailResponseBody) SetPageSize(v int64) *ReportCustomerDetailResponseBody {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ReportCustomerDetailResponseBody) SetRecords(v []*ReportCustomerDetailResponseBodyRecords) *ReportCustomerDetailResponseBody {
+	s.Records = v
+	return s
+}
+
+func (s *ReportCustomerDetailResponseBody) SetTotalCount(v int64) *ReportCustomerDetailResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type ReportCustomerDetailResponseBodyRecords struct {
+	// at机器人消息数
+	AtRobotCnt *int64 `json:"atRobotCnt,omitempty" xml:"atRobotCnt,omitempty"`
+	// 客户名称
+	CustomerName *string `json:"customerName,omitempty" xml:"customerName,omitempty"`
+	// 群名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 是否登录钉钉
+	HasLogin *bool `json:"hasLogin,omitempty" xml:"hasLogin,omitempty"`
+	// 是否打开群
+	HasOpenConv *bool `json:"hasOpenConv,omitempty" xml:"hasOpenConv,omitempty"`
+	// 发送消息数
+	SendMsgCnt *int64 `json:"sendMsgCnt,omitempty" xml:"sendMsgCnt,omitempty"`
+	// 开放用户ID
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ReportCustomerDetailResponseBodyRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportCustomerDetailResponseBodyRecords) GoString() string {
+	return s.String()
+}
+
+func (s *ReportCustomerDetailResponseBodyRecords) SetAtRobotCnt(v int64) *ReportCustomerDetailResponseBodyRecords {
+	s.AtRobotCnt = &v
+	return s
+}
+
+func (s *ReportCustomerDetailResponseBodyRecords) SetCustomerName(v string) *ReportCustomerDetailResponseBodyRecords {
+	s.CustomerName = &v
+	return s
+}
+
+func (s *ReportCustomerDetailResponseBodyRecords) SetGroupName(v string) *ReportCustomerDetailResponseBodyRecords {
+	s.GroupName = &v
+	return s
+}
+
+func (s *ReportCustomerDetailResponseBodyRecords) SetHasLogin(v bool) *ReportCustomerDetailResponseBodyRecords {
+	s.HasLogin = &v
+	return s
+}
+
+func (s *ReportCustomerDetailResponseBodyRecords) SetHasOpenConv(v bool) *ReportCustomerDetailResponseBodyRecords {
+	s.HasOpenConv = &v
+	return s
+}
+
+func (s *ReportCustomerDetailResponseBodyRecords) SetSendMsgCnt(v int64) *ReportCustomerDetailResponseBodyRecords {
+	s.SendMsgCnt = &v
+	return s
+}
+
+func (s *ReportCustomerDetailResponseBodyRecords) SetUnionId(v string) *ReportCustomerDetailResponseBodyRecords {
+	s.UnionId = &v
+	return s
+}
+
+func (s *ReportCustomerDetailResponseBodyRecords) SetUserId(v string) *ReportCustomerDetailResponseBodyRecords {
+	s.UserId = &v
+	return s
+}
+
+type ReportCustomerDetailResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ReportCustomerDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ReportCustomerDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportCustomerDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ReportCustomerDetailResponse) SetHeaders(v map[string]*string) *ReportCustomerDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ReportCustomerDetailResponse) SetBody(v *ReportCustomerDetailResponseBody) *ReportCustomerDetailResponse {
+	s.Body = v
+	return s
+}
+
+type ReportCustomerStatisticsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ReportCustomerStatisticsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportCustomerStatisticsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ReportCustomerStatisticsHeaders) SetCommonHeaders(v map[string]*string) *ReportCustomerStatisticsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ReportCustomerStatisticsHeaders) SetXAcsDingtalkAccessToken(v string) *ReportCustomerStatisticsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ReportCustomerStatisticsRequest struct {
+	// 群主列表
+	GroupOwnerUserIds []*string `json:"groupOwnerUserIds,omitempty" xml:"groupOwnerUserIds,omitempty" type:"Repeated"`
+	// 群标签列表
+	GroupTags []*string `json:"groupTags,omitempty" xml:"groupTags,omitempty" type:"Repeated"`
+	// 截止日期
+	MaxDt *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
+	// 起始日期
+	MinDt *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// 开放群id列表
+	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
+	// 开放群组id
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 开发团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 页码
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页大小
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s ReportCustomerStatisticsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportCustomerStatisticsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ReportCustomerStatisticsRequest) SetGroupOwnerUserIds(v []*string) *ReportCustomerStatisticsRequest {
+	s.GroupOwnerUserIds = v
+	return s
+}
+
+func (s *ReportCustomerStatisticsRequest) SetGroupTags(v []*string) *ReportCustomerStatisticsRequest {
+	s.GroupTags = v
+	return s
+}
+
+func (s *ReportCustomerStatisticsRequest) SetMaxDt(v string) *ReportCustomerStatisticsRequest {
+	s.MaxDt = &v
+	return s
+}
+
+func (s *ReportCustomerStatisticsRequest) SetMinDt(v string) *ReportCustomerStatisticsRequest {
+	s.MinDt = &v
+	return s
+}
+
+func (s *ReportCustomerStatisticsRequest) SetOpenConversationIds(v []*string) *ReportCustomerStatisticsRequest {
+	s.OpenConversationIds = v
+	return s
+}
+
+func (s *ReportCustomerStatisticsRequest) SetOpenGroupSetId(v string) *ReportCustomerStatisticsRequest {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *ReportCustomerStatisticsRequest) SetOpenTeamId(v string) *ReportCustomerStatisticsRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *ReportCustomerStatisticsRequest) SetPageNumber(v int64) *ReportCustomerStatisticsRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ReportCustomerStatisticsRequest) SetPageSize(v int64) *ReportCustomerStatisticsRequest {
+	s.PageSize = &v
+	return s
+}
+
+type ReportCustomerStatisticsResponseBody struct {
+	// 页码
+	CurrentPage *int64 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	// 每页大小
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 数据列表
+	Records []*ReportCustomerStatisticsResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	// 总数目
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s ReportCustomerStatisticsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportCustomerStatisticsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ReportCustomerStatisticsResponseBody) SetCurrentPage(v int64) *ReportCustomerStatisticsResponseBody {
+	s.CurrentPage = &v
+	return s
+}
+
+func (s *ReportCustomerStatisticsResponseBody) SetPageSize(v int64) *ReportCustomerStatisticsResponseBody {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ReportCustomerStatisticsResponseBody) SetRecords(v []*ReportCustomerStatisticsResponseBodyRecords) *ReportCustomerStatisticsResponseBody {
+	s.Records = v
+	return s
+}
+
+func (s *ReportCustomerStatisticsResponseBody) SetTotalCount(v int64) *ReportCustomerStatisticsResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type ReportCustomerStatisticsResponseBodyRecords struct {
+	// at机器人消息数
+	AtRobotCnt *int64 `json:"atRobotCnt,omitempty" xml:"atRobotCnt,omitempty"`
+	// 业务ID
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// 客户数
+	CustomerCnt *int64 `json:"customerCnt,omitempty" xml:"customerCnt,omitempty"`
+	// 群名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 群分组名称
+	GroupSetName *string `json:"groupSetName,omitempty" xml:"groupSetName,omitempty"`
+	// 打开钉钉客户数
+	LoginCnt *int64 `json:"loginCnt,omitempty" xml:"loginCnt,omitempty"`
+	// 打开群客户数
+	OpenConvCnt *int64 `json:"openConvCnt,omitempty" xml:"openConvCnt,omitempty"`
+	// 开放群ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 开放群分组ID
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 发送消息数
+	SendMsgCnt *int64 `json:"sendMsgCnt,omitempty" xml:"sendMsgCnt,omitempty"`
+	// 发消息的客户数
+	SenderCnt *int64 `json:"senderCnt,omitempty" xml:"senderCnt,omitempty"`
+}
+
+func (s ReportCustomerStatisticsResponseBodyRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportCustomerStatisticsResponseBodyRecords) GoString() string {
+	return s.String()
+}
+
+func (s *ReportCustomerStatisticsResponseBodyRecords) SetAtRobotCnt(v int64) *ReportCustomerStatisticsResponseBodyRecords {
+	s.AtRobotCnt = &v
+	return s
+}
+
+func (s *ReportCustomerStatisticsResponseBodyRecords) SetBizId(v string) *ReportCustomerStatisticsResponseBodyRecords {
+	s.BizId = &v
+	return s
+}
+
+func (s *ReportCustomerStatisticsResponseBodyRecords) SetCustomerCnt(v int64) *ReportCustomerStatisticsResponseBodyRecords {
+	s.CustomerCnt = &v
+	return s
+}
+
+func (s *ReportCustomerStatisticsResponseBodyRecords) SetGroupName(v string) *ReportCustomerStatisticsResponseBodyRecords {
+	s.GroupName = &v
+	return s
+}
+
+func (s *ReportCustomerStatisticsResponseBodyRecords) SetGroupSetName(v string) *ReportCustomerStatisticsResponseBodyRecords {
+	s.GroupSetName = &v
+	return s
+}
+
+func (s *ReportCustomerStatisticsResponseBodyRecords) SetLoginCnt(v int64) *ReportCustomerStatisticsResponseBodyRecords {
+	s.LoginCnt = &v
+	return s
+}
+
+func (s *ReportCustomerStatisticsResponseBodyRecords) SetOpenConvCnt(v int64) *ReportCustomerStatisticsResponseBodyRecords {
+	s.OpenConvCnt = &v
+	return s
+}
+
+func (s *ReportCustomerStatisticsResponseBodyRecords) SetOpenConversationId(v string) *ReportCustomerStatisticsResponseBodyRecords {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *ReportCustomerStatisticsResponseBodyRecords) SetOpenGroupSetId(v string) *ReportCustomerStatisticsResponseBodyRecords {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *ReportCustomerStatisticsResponseBodyRecords) SetSendMsgCnt(v int64) *ReportCustomerStatisticsResponseBodyRecords {
+	s.SendMsgCnt = &v
+	return s
+}
+
+func (s *ReportCustomerStatisticsResponseBodyRecords) SetSenderCnt(v int64) *ReportCustomerStatisticsResponseBodyRecords {
+	s.SenderCnt = &v
+	return s
+}
+
+type ReportCustomerStatisticsResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ReportCustomerStatisticsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ReportCustomerStatisticsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportCustomerStatisticsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ReportCustomerStatisticsResponse) SetHeaders(v map[string]*string) *ReportCustomerStatisticsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ReportCustomerStatisticsResponse) SetBody(v *ReportCustomerStatisticsResponseBody) *ReportCustomerStatisticsResponse {
+	s.Body = v
+	return s
+}
+
 type ResubmitTicketHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11337,6 +11803,154 @@ func (client *Client) QueueNotifyWithOptions(request *QueueNotifyRequest, header
 	}
 	_result = &QueueNotifyResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueueNotify"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/dts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ReportCustomerDetail(request *ReportCustomerDetailRequest) (_result *ReportCustomerDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ReportCustomerDetailHeaders{}
+	_result = &ReportCustomerDetailResponse{}
+	_body, _err := client.ReportCustomerDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ReportCustomerDetailWithOptions(request *ReportCustomerDetailRequest, headers *ReportCustomerDetailHeaders, runtime *util.RuntimeOptions) (_result *ReportCustomerDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.HasLogin)) {
+		body["hasLogin"] = request.HasLogin
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HasOpenConv)) {
+		body["hasOpenConv"] = request.HasOpenConv
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxDt)) {
+		body["maxDt"] = request.MaxDt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MinDt)) {
+		body["minDt"] = request.MinDt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ReportCustomerDetailResponse{}
+	_body, _err := client.DoROARequest(tea.String("ReportCustomerDetail"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/customers/activities/details/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ReportCustomerStatistics(request *ReportCustomerStatisticsRequest) (_result *ReportCustomerStatisticsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ReportCustomerStatisticsHeaders{}
+	_result = &ReportCustomerStatisticsResponse{}
+	_body, _err := client.ReportCustomerStatisticsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ReportCustomerStatisticsWithOptions(request *ReportCustomerStatisticsRequest, headers *ReportCustomerStatisticsHeaders, runtime *util.RuntimeOptions) (_result *ReportCustomerStatisticsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupOwnerUserIds)) {
+		body["groupOwnerUserIds"] = request.GroupOwnerUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupTags)) {
+		body["groupTags"] = request.GroupTags
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxDt)) {
+		body["maxDt"] = request.MaxDt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MinDt)) {
+		body["minDt"] = request.MinDt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationIds)) {
+		body["openConversationIds"] = request.OpenConversationIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
+		body["openGroupSetId"] = request.OpenGroupSetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ReportCustomerStatisticsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ReportCustomerStatistics"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/customers/activities/statistics/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

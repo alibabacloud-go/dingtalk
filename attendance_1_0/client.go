@@ -1543,6 +1543,261 @@ func (s *GetClosingAccountsResponse) SetBody(v *GetClosingAccountsResponseBody) 
 	return s
 }
 
+type GetLeaveTypeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetLeaveTypeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLeaveTypeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetLeaveTypeHeaders) SetCommonHeaders(v map[string]*string) *GetLeaveTypeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetLeaveTypeHeaders) SetXAcsDingtalkAccessToken(v string) *GetLeaveTypeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetLeaveTypeRequest struct {
+	// 操作者ID
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 空:开放接口定义假期类型;all:所有假期类型
+	VacationSource *string `json:"vacationSource,omitempty" xml:"vacationSource,omitempty"`
+}
+
+func (s GetLeaveTypeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLeaveTypeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetLeaveTypeRequest) SetOpUserId(v string) *GetLeaveTypeRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *GetLeaveTypeRequest) SetVacationSource(v string) *GetLeaveTypeRequest {
+	s.VacationSource = &v
+	return s
+}
+
+type GetLeaveTypeResponseBody struct {
+	// 返回参数
+	Result []*GetLeaveTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetLeaveTypeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLeaveTypeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetLeaveTypeResponseBody) SetResult(v []*GetLeaveTypeResponseBodyResult) *GetLeaveTypeResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetLeaveTypeResponseBodyResult struct {
+	// 假期类型，普通假期或者加班转调休假期。(general_leave、lieu_leave其中一种)
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 每天折算的工作时长(百分之一 例如1天=10小时=1000)
+	HoursInPerDay *int64 `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	// 请假证明
+	LeaveCertificate *GetLeaveTypeResponseBodyResultLeaveCertificate `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	// 假期类型唯一标识
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// 假期名称
+	LeaveName *string `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	// 请假单位，可以按照天半天或者小时请假。(day、halfDay、hour其中一种)
+	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	// 是否按照自然日统计请假时长，当为false的时候，用户发起请假时候会根据用户在请假时间段内的排班情况来计算请假时长。
+	NaturalDayLeave *bool `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	// 开放接口自定义的:external oa后台新建的：inner
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// 限时提交规则
+	SubmitTimeRule *GetLeaveTypeResponseBodyResultSubmitTimeRule `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	// 有效类型 absolute_time(绝对时间)、relative_time(相对时间)其中一种
+	ValidityType *string `json:"validityType,omitempty" xml:"validityType,omitempty"`
+	// 延长日期(当validity_type为absolute_time该值该值不为空且满足yy-mm格式 validity_type为relative_time该值为大于1的整数)
+	ValidityValue *string `json:"validityValue,omitempty" xml:"validityValue,omitempty"`
+}
+
+func (s GetLeaveTypeResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLeaveTypeResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetLeaveTypeResponseBodyResult) SetBizType(v string) *GetLeaveTypeResponseBodyResult {
+	s.BizType = &v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResult) SetHoursInPerDay(v int64) *GetLeaveTypeResponseBodyResult {
+	s.HoursInPerDay = &v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResult) SetLeaveCertificate(v *GetLeaveTypeResponseBodyResultLeaveCertificate) *GetLeaveTypeResponseBodyResult {
+	s.LeaveCertificate = v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResult) SetLeaveCode(v string) *GetLeaveTypeResponseBodyResult {
+	s.LeaveCode = &v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResult) SetLeaveName(v string) *GetLeaveTypeResponseBodyResult {
+	s.LeaveName = &v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResult) SetLeaveViewUnit(v string) *GetLeaveTypeResponseBodyResult {
+	s.LeaveViewUnit = &v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResult) SetNaturalDayLeave(v bool) *GetLeaveTypeResponseBodyResult {
+	s.NaturalDayLeave = &v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResult) SetSource(v string) *GetLeaveTypeResponseBodyResult {
+	s.Source = &v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResult) SetSubmitTimeRule(v *GetLeaveTypeResponseBodyResultSubmitTimeRule) *GetLeaveTypeResponseBodyResult {
+	s.SubmitTimeRule = v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResult) SetValidityType(v string) *GetLeaveTypeResponseBodyResult {
+	s.ValidityType = &v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResult) SetValidityValue(v string) *GetLeaveTypeResponseBodyResult {
+	s.ValidityValue = &v
+	return s
+}
+
+type GetLeaveTypeResponseBodyResultLeaveCertificate struct {
+	// 超过多长时间需提供请假证明
+	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 是否开启请假证明
+	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
+	// 请假提示文案
+	PromptInformation *string `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
+	// 请假证明单位hour，day
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s GetLeaveTypeResponseBodyResultLeaveCertificate) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLeaveTypeResponseBodyResultLeaveCertificate) GoString() string {
+	return s.String()
+}
+
+func (s *GetLeaveTypeResponseBodyResultLeaveCertificate) SetDuration(v float64) *GetLeaveTypeResponseBodyResultLeaveCertificate {
+	s.Duration = &v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResultLeaveCertificate) SetEnable(v bool) *GetLeaveTypeResponseBodyResultLeaveCertificate {
+	s.Enable = &v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResultLeaveCertificate) SetPromptInformation(v string) *GetLeaveTypeResponseBodyResultLeaveCertificate {
+	s.PromptInformation = &v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResultLeaveCertificate) SetUnit(v string) *GetLeaveTypeResponseBodyResultLeaveCertificate {
+	s.Unit = &v
+	return s
+}
+
+type GetLeaveTypeResponseBodyResultSubmitTimeRule struct {
+	// 是否开启限时提交功能：仅且为true时开启
+	EnableTimeLimit *bool `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
+	// 限制类型：before-提前；after-补交
+	TimeType *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
+	// 时间单位：day-天；hour-小时
+	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	// 限制值：timeUnit=day时，有效值范围[0~30] 天；timeUnit=hour时，有效值范围[0~24] 小时
+	TimeValue *int64 `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
+}
+
+func (s GetLeaveTypeResponseBodyResultSubmitTimeRule) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLeaveTypeResponseBodyResultSubmitTimeRule) GoString() string {
+	return s.String()
+}
+
+func (s *GetLeaveTypeResponseBodyResultSubmitTimeRule) SetEnableTimeLimit(v bool) *GetLeaveTypeResponseBodyResultSubmitTimeRule {
+	s.EnableTimeLimit = &v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeType(v string) *GetLeaveTypeResponseBodyResultSubmitTimeRule {
+	s.TimeType = &v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeUnit(v string) *GetLeaveTypeResponseBodyResultSubmitTimeRule {
+	s.TimeUnit = &v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeValue(v int64) *GetLeaveTypeResponseBodyResultSubmitTimeRule {
+	s.TimeValue = &v
+	return s
+}
+
+type GetLeaveTypeResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetLeaveTypeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetLeaveTypeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLeaveTypeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetLeaveTypeResponse) SetHeaders(v map[string]*string) *GetLeaveTypeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetLeaveTypeResponse) SetBody(v *GetLeaveTypeResponseBody) *GetLeaveTypeResponse {
+	s.Body = v
+	return s
+}
+
 type GetMachineHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2299,6 +2554,180 @@ func (s *GetUserHolidaysResponse) SetHeaders(v map[string]*string) *GetUserHolid
 }
 
 func (s *GetUserHolidaysResponse) SetBody(v *GetUserHolidaysResponseBody) *GetUserHolidaysResponse {
+	s.Body = v
+	return s
+}
+
+type ProcessApproveCreateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ProcessApproveCreateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessApproveCreateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessApproveCreateHeaders) SetCommonHeaders(v map[string]*string) *ProcessApproveCreateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ProcessApproveCreateHeaders) SetXAcsDingtalkAccessToken(v string) *ProcessApproveCreateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ProcessApproveCreateRequest struct {
+	// 三方审批单id，全局唯一
+	ApproveId *string `json:"approveId,omitempty" xml:"approveId,omitempty"`
+	// 审批人员工userId
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 审批单关联的打卡信息
+	PunchParam *ProcessApproveCreateRequestPunchParam `json:"punchParam,omitempty" xml:"punchParam,omitempty" type:"Struct"`
+	// 审批单子类型名称：调店:shiftGroup
+	SubType *string `json:"subType,omitempty" xml:"subType,omitempty"`
+	// 审批单类型名称
+	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+	// 员工的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ProcessApproveCreateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessApproveCreateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessApproveCreateRequest) SetApproveId(v string) *ProcessApproveCreateRequest {
+	s.ApproveId = &v
+	return s
+}
+
+func (s *ProcessApproveCreateRequest) SetOpUserId(v string) *ProcessApproveCreateRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *ProcessApproveCreateRequest) SetPunchParam(v *ProcessApproveCreateRequestPunchParam) *ProcessApproveCreateRequest {
+	s.PunchParam = v
+	return s
+}
+
+func (s *ProcessApproveCreateRequest) SetSubType(v string) *ProcessApproveCreateRequest {
+	s.SubType = &v
+	return s
+}
+
+func (s *ProcessApproveCreateRequest) SetTagName(v string) *ProcessApproveCreateRequest {
+	s.TagName = &v
+	return s
+}
+
+func (s *ProcessApproveCreateRequest) SetUserId(v string) *ProcessApproveCreateRequest {
+	s.UserId = &v
+	return s
+}
+
+type ProcessApproveCreateRequestPunchParam struct {
+	// 地理位置标识：wifi:ssid_macAddress ble: deviceId gps:longitude_latitude
+	PositionId *string `json:"positionId,omitempty" xml:"positionId,omitempty"`
+	// 地理位置名称
+	PositionName *string `json:"positionName,omitempty" xml:"positionName,omitempty"`
+	// 地理位置类型：wifi/ble/gps
+	PositionType *string `json:"positionType,omitempty" xml:"positionType,omitempty"`
+	// 审批单关联的打卡时间，单位毫秒
+	PunchTime *int64 `json:"punchTime,omitempty" xml:"punchTime,omitempty"`
+}
+
+func (s ProcessApproveCreateRequestPunchParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessApproveCreateRequestPunchParam) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessApproveCreateRequestPunchParam) SetPositionId(v string) *ProcessApproveCreateRequestPunchParam {
+	s.PositionId = &v
+	return s
+}
+
+func (s *ProcessApproveCreateRequestPunchParam) SetPositionName(v string) *ProcessApproveCreateRequestPunchParam {
+	s.PositionName = &v
+	return s
+}
+
+func (s *ProcessApproveCreateRequestPunchParam) SetPositionType(v string) *ProcessApproveCreateRequestPunchParam {
+	s.PositionType = &v
+	return s
+}
+
+func (s *ProcessApproveCreateRequestPunchParam) SetPunchTime(v int64) *ProcessApproveCreateRequestPunchParam {
+	s.PunchTime = &v
+	return s
+}
+
+type ProcessApproveCreateResponseBody struct {
+	// 审批单返回对象
+	Result *ProcessApproveCreateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s ProcessApproveCreateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessApproveCreateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessApproveCreateResponseBody) SetResult(v *ProcessApproveCreateResponseBodyResult) *ProcessApproveCreateResponseBody {
+	s.Result = v
+	return s
+}
+
+type ProcessApproveCreateResponseBodyResult struct {
+	// 钉钉侧生成的审批单id
+	DingtalkApproveId *string `json:"dingtalkApproveId,omitempty" xml:"dingtalkApproveId,omitempty"`
+}
+
+func (s ProcessApproveCreateResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessApproveCreateResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessApproveCreateResponseBodyResult) SetDingtalkApproveId(v string) *ProcessApproveCreateResponseBodyResult {
+	s.DingtalkApproveId = &v
+	return s
+}
+
+type ProcessApproveCreateResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ProcessApproveCreateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ProcessApproveCreateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessApproveCreateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessApproveCreateResponse) SetHeaders(v map[string]*string) *ProcessApproveCreateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ProcessApproveCreateResponse) SetBody(v *ProcessApproveCreateResponseBody) *ProcessApproveCreateResponse {
 	s.Body = v
 	return s
 }
@@ -3448,6 +3877,54 @@ func (client *Client) GetClosingAccountsWithOptions(request *GetClosingAccountsR
 	return _result, _err
 }
 
+func (client *Client) GetLeaveType(request *GetLeaveTypeRequest) (_result *GetLeaveTypeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetLeaveTypeHeaders{}
+	_result = &GetLeaveTypeResponse{}
+	_body, _err := client.GetLeaveTypeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetLeaveTypeWithOptions(request *GetLeaveTypeRequest, headers *GetLeaveTypeHeaders, runtime *util.RuntimeOptions) (_result *GetLeaveTypeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VacationSource)) {
+		query["vacationSource"] = request.VacationSource
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetLeaveTypeResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetLeaveType"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/leaves/types"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetMachine(devId *string) (_result *GetMachineResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetMachineHeaders{}
@@ -3621,6 +4098,70 @@ func (client *Client) GetUserHolidaysWithOptions(request *GetUserHolidaysRequest
 	}
 	_result = &GetUserHolidaysResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetUserHolidays"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/holidays"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ProcessApproveCreate(request *ProcessApproveCreateRequest) (_result *ProcessApproveCreateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ProcessApproveCreateHeaders{}
+	_result = &ProcessApproveCreateResponse{}
+	_body, _err := client.ProcessApproveCreateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ProcessApproveCreateWithOptions(request *ProcessApproveCreateRequest, headers *ProcessApproveCreateHeaders, runtime *util.RuntimeOptions) (_result *ProcessApproveCreateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ApproveId)) {
+		body["approveId"] = request.ApproveId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.PunchParam))) {
+		body["punchParam"] = request.PunchParam
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubType)) {
+		body["subType"] = request.SubType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TagName)) {
+		body["tagName"] = request.TagName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ProcessApproveCreateResponse{}
+	_body, _err := client.DoROARequest(tea.String("ProcessApproveCreate"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/workflows/checkInForms"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

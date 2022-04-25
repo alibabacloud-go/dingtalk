@@ -1899,6 +1899,7 @@ type CreateGroupSetRequest struct {
 	OwnerUserId    *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
 	RelationType   *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 	TemplateId     *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Welcome        *string `json:"welcome,omitempty" xml:"welcome,omitempty"`
 }
 
 func (s CreateGroupSetRequest) String() string {
@@ -1954,9 +1955,15 @@ func (s *CreateGroupSetRequest) SetTemplateId(v string) *CreateGroupSetRequest {
 	return s
 }
 
+func (s *CreateGroupSetRequest) SetWelcome(v string) *CreateGroupSetRequest {
+	s.Welcome = &v
+	return s
+}
+
 type CreateGroupSetResponseBody struct {
 	GmtCreate              *string                              `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
 	GmtModified            *string                              `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	InviteLink             *string                              `json:"inviteLink,omitempty" xml:"inviteLink,omitempty"`
 	LastOpenConversationId *string                              `json:"lastOpenConversationId,omitempty" xml:"lastOpenConversationId,omitempty"`
 	Manager                []*CreateGroupSetResponseBodyManager `json:"manager,omitempty" xml:"manager,omitempty" type:"Repeated"`
 	ManagerUserIds         *string                              `json:"managerUserIds,omitempty" xml:"managerUserIds,omitempty"`
@@ -1987,6 +1994,11 @@ func (s *CreateGroupSetResponseBody) SetGmtCreate(v string) *CreateGroupSetRespo
 
 func (s *CreateGroupSetResponseBody) SetGmtModified(v string) *CreateGroupSetResponseBody {
 	s.GmtModified = &v
+	return s
+}
+
+func (s *CreateGroupSetResponseBody) SetInviteLink(v string) *CreateGroupSetResponseBody {
+	s.InviteLink = &v
 	return s
 }
 
@@ -6605,6 +6617,7 @@ type GetGroupSetResponseBody struct {
 	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
 	// 群组内群数量（不包含已解散的群）。
 	GroupChatCount         *int32                            `json:"groupChatCount,omitempty" xml:"groupChatCount,omitempty"`
+	InviteLink             *string                           `json:"inviteLink,omitempty" xml:"inviteLink,omitempty"`
 	LastOpenConversationId *string                           `json:"lastOpenConversationId,omitempty" xml:"lastOpenConversationId,omitempty"`
 	Manager                []*GetGroupSetResponseBodyManager `json:"manager,omitempty" xml:"manager,omitempty" type:"Repeated"`
 	ManagerUserIds         *string                           `json:"managerUserIds,omitempty" xml:"managerUserIds,omitempty"`
@@ -6640,6 +6653,11 @@ func (s *GetGroupSetResponseBody) SetGmtModified(v string) *GetGroupSetResponseB
 
 func (s *GetGroupSetResponseBody) SetGroupChatCount(v int32) *GetGroupSetResponseBody {
 	s.GroupChatCount = &v
+	return s
+}
+
+func (s *GetGroupSetResponseBody) SetInviteLink(v string) *GetGroupSetResponseBody {
+	s.InviteLink = &v
 	return s
 }
 
@@ -11420,6 +11438,10 @@ func (client *Client) CreateGroupSetWithOptions(request *CreateGroupSetRequest, 
 
 	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
 		body["templateId"] = request.TemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Welcome)) {
+		body["welcome"] = request.Welcome
 	}
 
 	realHeaders := make(map[string]*string)
