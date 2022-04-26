@@ -5675,6 +5675,145 @@ func (s *QueryMedicalEventsResponse) SetBody(v *QueryMedicalEventsResponseBody) 
 	return s
 }
 
+type QueryUserCredentialsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryUserCredentialsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserCredentialsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserCredentialsHeaders) SetCommonHeaders(v map[string]*string) *QueryUserCredentialsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryUserCredentialsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUserCredentialsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryUserCredentialsRequest struct {
+	// userId列表
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s QueryUserCredentialsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserCredentialsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserCredentialsRequest) SetUserIds(v []*string) *QueryUserCredentialsRequest {
+	s.UserIds = v
+	return s
+}
+
+type QueryUserCredentialsResponseBody struct {
+	// 人员证书
+	Content []*QueryUserCredentialsResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+}
+
+func (s QueryUserCredentialsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserCredentialsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserCredentialsResponseBody) SetContent(v []*QueryUserCredentialsResponseBodyContent) *QueryUserCredentialsResponseBody {
+	s.Content = v
+	return s
+}
+
+type QueryUserCredentialsResponseBodyContent struct {
+	// 证书
+	CredentialList []*QueryUserCredentialsResponseBodyContentCredentialList `json:"credentialList,omitempty" xml:"credentialList,omitempty" type:"Repeated"`
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryUserCredentialsResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserCredentialsResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserCredentialsResponseBodyContent) SetCredentialList(v []*QueryUserCredentialsResponseBodyContentCredentialList) *QueryUserCredentialsResponseBodyContent {
+	s.CredentialList = v
+	return s
+}
+
+func (s *QueryUserCredentialsResponseBodyContent) SetUserId(v string) *QueryUserCredentialsResponseBodyContent {
+	s.UserId = &v
+	return s
+}
+
+type QueryUserCredentialsResponseBodyContentCredentialList struct {
+	// 证书名称
+	CredentialName *int32 `json:"credentialName,omitempty" xml:"credentialName,omitempty"`
+	// 证书类型
+	CredentialType *int32 `json:"credentialType,omitempty" xml:"credentialType,omitempty"`
+	// 有效日期
+	TermOfValidity *string `json:"termOfValidity,omitempty" xml:"termOfValidity,omitempty"`
+}
+
+func (s QueryUserCredentialsResponseBodyContentCredentialList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserCredentialsResponseBodyContentCredentialList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserCredentialsResponseBodyContentCredentialList) SetCredentialName(v int32) *QueryUserCredentialsResponseBodyContentCredentialList {
+	s.CredentialName = &v
+	return s
+}
+
+func (s *QueryUserCredentialsResponseBodyContentCredentialList) SetCredentialType(v int32) *QueryUserCredentialsResponseBodyContentCredentialList {
+	s.CredentialType = &v
+	return s
+}
+
+func (s *QueryUserCredentialsResponseBodyContentCredentialList) SetTermOfValidity(v string) *QueryUserCredentialsResponseBodyContentCredentialList {
+	s.TermOfValidity = &v
+	return s
+}
+
+type QueryUserCredentialsResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryUserCredentialsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryUserCredentialsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserCredentialsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserCredentialsResponse) SetHeaders(v map[string]*string) *QueryUserCredentialsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryUserCredentialsResponse) SetBody(v *QueryUserCredentialsResponseBody) *QueryUserCredentialsResponse {
+	s.Body = v
+	return s
+}
+
 type QueryUserExtInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8472,6 +8611,50 @@ func (client *Client) QueryMedicalEventsWithOptions(headers *QueryMedicalEventsH
 	}
 	_result = &QueryMedicalEventsResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryMedicalEvents"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/medicals/events"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryUserCredentials(request *QueryUserCredentialsRequest) (_result *QueryUserCredentialsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryUserCredentialsHeaders{}
+	_result = &QueryUserCredentialsResponse{}
+	_body, _err := client.QueryUserCredentialsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryUserCredentialsWithOptions(request *QueryUserCredentialsRequest, headers *QueryUserCredentialsHeaders, runtime *util.RuntimeOptions) (_result *QueryUserCredentialsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryUserCredentialsResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryUserCredentials"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/medicals/users/credentials/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

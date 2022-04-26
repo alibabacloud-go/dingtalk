@@ -5425,6 +5425,8 @@ func (s *GetBindChildInfoRequest) SetUnionId(v string) *GetBindChildInfoRequest 
 type GetBindChildInfoResponseBody struct {
 	// 孩子id
 	ChildUserId *string `json:"childUserId,omitempty" xml:"childUserId,omitempty"`
+	// 当前用户id
+	CurrentUserId *string `json:"currentUserId,omitempty" xml:"currentUserId,omitempty"`
 	// 家庭id
 	FamilyCorpId *string `json:"familyCorpId,omitempty" xml:"familyCorpId,omitempty"`
 }
@@ -5439,6 +5441,11 @@ func (s GetBindChildInfoResponseBody) GoString() string {
 
 func (s *GetBindChildInfoResponseBody) SetChildUserId(v string) *GetBindChildInfoResponseBody {
 	s.ChildUserId = &v
+	return s
+}
+
+func (s *GetBindChildInfoResponseBody) SetCurrentUserId(v string) *GetBindChildInfoResponseBody {
+	s.CurrentUserId = &v
 	return s
 }
 

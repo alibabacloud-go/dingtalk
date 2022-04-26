@@ -2295,7 +2295,9 @@ func (s *GetPartnerTypeByParentIdResponseBody) SetData(v []*GetPartnerTypeByPare
 }
 
 type GetPartnerTypeByParentIdResponseBodyData struct {
-	// 自标签id
+	// 子标签id
+	LabelId *string `json:"labelId,omitempty" xml:"labelId,omitempty"`
+	// 目前无意义
 	TypeId *float32 `json:"typeId,omitempty" xml:"typeId,omitempty"`
 	// 子标签名
 	TypeName *string `json:"typeName,omitempty" xml:"typeName,omitempty"`
@@ -2307,6 +2309,11 @@ func (s GetPartnerTypeByParentIdResponseBodyData) String() string {
 
 func (s GetPartnerTypeByParentIdResponseBodyData) GoString() string {
 	return s.String()
+}
+
+func (s *GetPartnerTypeByParentIdResponseBodyData) SetLabelId(v string) *GetPartnerTypeByParentIdResponseBodyData {
+	s.LabelId = &v
+	return s
 }
 
 func (s *GetPartnerTypeByParentIdResponseBodyData) SetTypeId(v float32) *GetPartnerTypeByParentIdResponseBodyData {
