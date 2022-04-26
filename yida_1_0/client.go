@@ -1734,6 +1734,144 @@ func (s *DeployFunctionCallbackResponse) SetBody(v *DeployFunctionCallbackRespon
 	return s
 }
 
+type ExecuteBatchTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ExecuteBatchTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteBatchTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteBatchTaskHeaders) SetCommonHeaders(v map[string]*string) *ExecuteBatchTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ExecuteBatchTaskHeaders) SetXAcsDingtalkAccessToken(v string) *ExecuteBatchTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ExecuteBatchTaskRequest struct {
+	// 宜搭应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 文件
+	Files *string `json:"files,omitempty" xml:"files,omitempty"`
+	// 审批动作
+	OutResult *string `json:"outResult,omitempty" xml:"outResult,omitempty"`
+	// 审批意见
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// 宜搭应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// taskInfoList
+	TaskInformationList *string `json:"taskInformationList,omitempty" xml:"taskInformationList,omitempty"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ExecuteBatchTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteBatchTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteBatchTaskRequest) SetAppType(v string) *ExecuteBatchTaskRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *ExecuteBatchTaskRequest) SetFiles(v string) *ExecuteBatchTaskRequest {
+	s.Files = &v
+	return s
+}
+
+func (s *ExecuteBatchTaskRequest) SetOutResult(v string) *ExecuteBatchTaskRequest {
+	s.OutResult = &v
+	return s
+}
+
+func (s *ExecuteBatchTaskRequest) SetRemark(v string) *ExecuteBatchTaskRequest {
+	s.Remark = &v
+	return s
+}
+
+func (s *ExecuteBatchTaskRequest) SetSystemToken(v string) *ExecuteBatchTaskRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *ExecuteBatchTaskRequest) SetTaskInformationList(v string) *ExecuteBatchTaskRequest {
+	s.TaskInformationList = &v
+	return s
+}
+
+func (s *ExecuteBatchTaskRequest) SetUserId(v string) *ExecuteBatchTaskRequest {
+	s.UserId = &v
+	return s
+}
+
+type ExecuteBatchTaskResponseBody struct {
+	// 审批失败的任务数
+	FailNumber *int32 `json:"failNumber,omitempty" xml:"failNumber,omitempty"`
+	// 审批成功的任务数
+	SuccessNumber *int32 `json:"successNumber,omitempty" xml:"successNumber,omitempty"`
+	// 总任务数
+	Total *int32 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s ExecuteBatchTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteBatchTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteBatchTaskResponseBody) SetFailNumber(v int32) *ExecuteBatchTaskResponseBody {
+	s.FailNumber = &v
+	return s
+}
+
+func (s *ExecuteBatchTaskResponseBody) SetSuccessNumber(v int32) *ExecuteBatchTaskResponseBody {
+	s.SuccessNumber = &v
+	return s
+}
+
+func (s *ExecuteBatchTaskResponseBody) SetTotal(v int32) *ExecuteBatchTaskResponseBody {
+	s.Total = &v
+	return s
+}
+
+type ExecuteBatchTaskResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ExecuteBatchTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ExecuteBatchTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteBatchTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteBatchTaskResponse) SetHeaders(v map[string]*string) *ExecuteBatchTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ExecuteBatchTaskResponse) SetBody(v *ExecuteBatchTaskResponseBody) *ExecuteBatchTaskResponse {
+	s.Body = v
+	return s
+}
+
 type ExecuteCustomApiHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9681,6 +9819,116 @@ func (s *ListNavigationByFormTypeResponse) SetBody(v *ListNavigationByFormTypeRe
 	return s
 }
 
+type ListOperationLogsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListOperationLogsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOperationLogsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListOperationLogsHeaders) SetCommonHeaders(v map[string]*string) *ListOperationLogsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListOperationLogsHeaders) SetXAcsDingtalkAccessToken(v string) *ListOperationLogsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListOperationLogsRequest struct {
+	// 宜搭应用编码
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 表单实例id列表
+	FormInstanceIdList []*string `json:"formInstanceIdList,omitempty" xml:"formInstanceIdList,omitempty" type:"Repeated"`
+	// 表单编码
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 宜搭应用秘钥
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListOperationLogsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOperationLogsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListOperationLogsRequest) SetAppType(v string) *ListOperationLogsRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *ListOperationLogsRequest) SetFormInstanceIdList(v []*string) *ListOperationLogsRequest {
+	s.FormInstanceIdList = v
+	return s
+}
+
+func (s *ListOperationLogsRequest) SetFormUuid(v string) *ListOperationLogsRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *ListOperationLogsRequest) SetSystemToken(v string) *ListOperationLogsRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *ListOperationLogsRequest) SetUserId(v string) *ListOperationLogsRequest {
+	s.UserId = &v
+	return s
+}
+
+type ListOperationLogsResponseBody struct {
+	// 操作记录对象
+	OperationLogMap map[string]interface{} `json:"operationLogMap,omitempty" xml:"operationLogMap,omitempty"`
+}
+
+func (s ListOperationLogsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOperationLogsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListOperationLogsResponseBody) SetOperationLogMap(v map[string]interface{}) *ListOperationLogsResponseBody {
+	s.OperationLogMap = v
+	return s
+}
+
+type ListOperationLogsResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListOperationLogsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListOperationLogsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOperationLogsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListOperationLogsResponse) SetHeaders(v map[string]*string) *ListOperationLogsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListOperationLogsResponse) SetBody(v *ListOperationLogsResponseBody) *ListOperationLogsResponse {
+	s.Body = v
+	return s
+}
+
 type ListTableDataByFormInstanceIdTableIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -15925,6 +16173,74 @@ func (client *Client) DeployFunctionCallbackWithOptions(request *DeployFunctionC
 	return _result, _err
 }
 
+func (client *Client) ExecuteBatchTask(request *ExecuteBatchTaskRequest) (_result *ExecuteBatchTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ExecuteBatchTaskHeaders{}
+	_result = &ExecuteBatchTaskResponse{}
+	_body, _err := client.ExecuteBatchTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ExecuteBatchTaskWithOptions(request *ExecuteBatchTaskRequest, headers *ExecuteBatchTaskHeaders, runtime *util.RuntimeOptions) (_result *ExecuteBatchTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Files)) {
+		body["files"] = request.Files
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutResult)) {
+		body["outResult"] = request.OutResult
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskInformationList)) {
+		body["taskInformationList"] = request.TaskInformationList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ExecuteBatchTaskResponse{}
+	_body, _err := client.DoROARequest(tea.String("ExecuteBatchTask"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/tasks/batches/execute"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ExecuteCustomApi(request *ExecuteCustomApiRequest) (_result *ExecuteCustomApiResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ExecuteCustomApiHeaders{}
@@ -18308,6 +18624,66 @@ func (client *Client) ListNavigationByFormTypeWithOptions(request *ListNavigatio
 	}
 	_result = &ListNavigationByFormTypeResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListNavigationByFormType"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/apps/navigations"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListOperationLogs(request *ListOperationLogsRequest) (_result *ListOperationLogsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListOperationLogsHeaders{}
+	_result = &ListOperationLogsResponse{}
+	_body, _err := client.ListOperationLogsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListOperationLogsWithOptions(request *ListOperationLogsRequest, headers *ListOperationLogsHeaders, runtime *util.RuntimeOptions) (_result *ListOperationLogsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormInstanceIdList)) {
+		body["formInstanceIdList"] = request.FormInstanceIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ListOperationLogsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListOperationLogs"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/forms/operationsLogs/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
