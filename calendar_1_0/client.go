@@ -52,7 +52,8 @@ func (s *AddAttendeeRequest) SetAttendeesToAdd(v []*AddAttendeeRequestAttendeesT
 }
 
 type AddAttendeeRequestAttendeesToAdd struct {
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	Id         *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsOptional *bool   `json:"isOptional,omitempty" xml:"isOptional,omitempty"`
 }
 
 func (s AddAttendeeRequestAttendeesToAdd) String() string {
@@ -65,6 +66,11 @@ func (s AddAttendeeRequestAttendeesToAdd) GoString() string {
 
 func (s *AddAttendeeRequestAttendeesToAdd) SetId(v string) *AddAttendeeRequestAttendeesToAdd {
 	s.Id = &v
+	return s
+}
+
+func (s *AddAttendeeRequestAttendeesToAdd) SetIsOptional(v bool) *AddAttendeeRequestAttendeesToAdd {
+	s.IsOptional = &v
 	return s
 }
 
@@ -498,7 +504,8 @@ func (s *CreateEventRequest) SetSummary(v string) *CreateEventRequest {
 }
 
 type CreateEventRequestAttendees struct {
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	Id         *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsOptional *bool   `json:"isOptional,omitempty" xml:"isOptional,omitempty"`
 }
 
 func (s CreateEventRequestAttendees) String() string {
@@ -511,6 +518,11 @@ func (s CreateEventRequestAttendees) GoString() string {
 
 func (s *CreateEventRequestAttendees) SetId(v string) *CreateEventRequestAttendees {
 	s.Id = &v
+	return s
+}
+
+func (s *CreateEventRequestAttendees) SetIsOptional(v bool) *CreateEventRequestAttendees {
+	s.IsOptional = &v
 	return s
 }
 
@@ -832,6 +844,7 @@ func (s *CreateEventResponseBody) SetUpdateTime(v string) *CreateEventResponseBo
 type CreateEventResponseBodyAttendees struct {
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsOptional  *bool   `json:"isOptional,omitempty" xml:"isOptional,omitempty"`
 	// 回复状态
 	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
 	Self           *bool   `json:"self,omitempty" xml:"self,omitempty"`
@@ -852,6 +865,11 @@ func (s *CreateEventResponseBodyAttendees) SetDisplayName(v string) *CreateEvent
 
 func (s *CreateEventResponseBodyAttendees) SetId(v string) *CreateEventResponseBodyAttendees {
 	s.Id = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyAttendees) SetIsOptional(v bool) *CreateEventResponseBodyAttendees {
+	s.IsOptional = &v
 	return s
 }
 
@@ -1492,6 +1510,7 @@ type GetEventResponseBodyAttendees struct {
 	// 用户名
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsOptional  *bool   `json:"isOptional,omitempty" xml:"isOptional,omitempty"`
 	// 回复状态
 	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
 	// 是否是当前登陆用户
@@ -1513,6 +1532,11 @@ func (s *GetEventResponseBodyAttendees) SetDisplayName(v string) *GetEventRespon
 
 func (s *GetEventResponseBodyAttendees) SetId(v string) *GetEventResponseBodyAttendees {
 	s.Id = &v
+	return s
+}
+
+func (s *GetEventResponseBodyAttendees) SetIsOptional(v bool) *GetEventResponseBodyAttendees {
+	s.IsOptional = &v
 	return s
 }
 
@@ -2505,7 +2529,8 @@ type ListAttendeesResponseBodyAttendees struct {
 	// 用户名
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	// 用户id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	Id         *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsOptional *bool   `json:"isOptional,omitempty" xml:"isOptional,omitempty"`
 	// 回复状态
 	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
 	// 是否当前用户
@@ -2527,6 +2552,11 @@ func (s *ListAttendeesResponseBodyAttendees) SetDisplayName(v string) *ListAtten
 
 func (s *ListAttendeesResponseBodyAttendees) SetId(v string) *ListAttendeesResponseBodyAttendees {
 	s.Id = &v
+	return s
+}
+
+func (s *ListAttendeesResponseBodyAttendees) SetIsOptional(v bool) *ListAttendeesResponseBodyAttendees {
+	s.IsOptional = &v
 	return s
 }
 
@@ -2944,7 +2974,8 @@ type ListEventsResponseBodyEventsAttendees struct {
 	// 用户名
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	// 用户id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	Id         *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsOptional *bool   `json:"isOptional,omitempty" xml:"isOptional,omitempty"`
 	// 回复状态
 	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
 	// 是否是当前登陆用户
@@ -2966,6 +2997,11 @@ func (s *ListEventsResponseBodyEventsAttendees) SetDisplayName(v string) *ListEv
 
 func (s *ListEventsResponseBodyEventsAttendees) SetId(v string) *ListEventsResponseBodyEventsAttendees {
 	s.Id = &v
+	return s
+}
+
+func (s *ListEventsResponseBodyEventsAttendees) SetIsOptional(v bool) *ListEventsResponseBodyEventsAttendees {
+	s.IsOptional = &v
 	return s
 }
 
@@ -3482,7 +3518,8 @@ type ListEventsInstancesResponseBodyEventsAttendees struct {
 	// 用户名
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	// 用户id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	Id         *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsOptional *bool   `json:"isOptional,omitempty" xml:"isOptional,omitempty"`
 	// 回复状态
 	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
 	// 是否是当前登陆用户
@@ -3504,6 +3541,11 @@ func (s *ListEventsInstancesResponseBodyEventsAttendees) SetDisplayName(v string
 
 func (s *ListEventsInstancesResponseBodyEventsAttendees) SetId(v string) *ListEventsInstancesResponseBodyEventsAttendees {
 	s.Id = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsAttendees) SetIsOptional(v bool) *ListEventsInstancesResponseBodyEventsAttendees {
+	s.IsOptional = &v
 	return s
 }
 
@@ -4034,7 +4076,8 @@ type ListEventsViewResponseBodyEventsAttendees struct {
 	// 用户名
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	// 用户id
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	Id         *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsOptional *bool   `json:"isOptional,omitempty" xml:"isOptional,omitempty"`
 	// 回复状态
 	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
 	// 是否是当前登陆用户
@@ -4056,6 +4099,11 @@ func (s *ListEventsViewResponseBodyEventsAttendees) SetDisplayName(v string) *Li
 
 func (s *ListEventsViewResponseBodyEventsAttendees) SetId(v string) *ListEventsViewResponseBodyEventsAttendees {
 	s.Id = &v
+	return s
+}
+
+func (s *ListEventsViewResponseBodyEventsAttendees) SetIsOptional(v bool) *ListEventsViewResponseBodyEventsAttendees {
+	s.IsOptional = &v
 	return s
 }
 
@@ -4447,7 +4495,8 @@ func (s *PatchEventRequest) SetSummary(v string) *PatchEventRequest {
 }
 
 type PatchEventRequestAttendees struct {
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	Id         *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsOptional *bool   `json:"isOptional,omitempty" xml:"isOptional,omitempty"`
 }
 
 func (s PatchEventRequestAttendees) String() string {
@@ -4460,6 +4509,11 @@ func (s PatchEventRequestAttendees) GoString() string {
 
 func (s *PatchEventRequestAttendees) SetId(v string) *PatchEventRequestAttendees {
 	s.Id = &v
+	return s
+}
+
+func (s *PatchEventRequestAttendees) SetIsOptional(v bool) *PatchEventRequestAttendees {
+	s.IsOptional = &v
 	return s
 }
 
@@ -4750,6 +4804,7 @@ type PatchEventResponseBodyAttendees struct {
 	// 用户名
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsOptional  *bool   `json:"isOptional,omitempty" xml:"isOptional,omitempty"`
 	// 回复状态
 	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
 	// 是否是当前登陆用户
@@ -4771,6 +4826,11 @@ func (s *PatchEventResponseBodyAttendees) SetDisplayName(v string) *PatchEventRe
 
 func (s *PatchEventResponseBodyAttendees) SetId(v string) *PatchEventResponseBodyAttendees {
 	s.Id = &v
+	return s
+}
+
+func (s *PatchEventResponseBodyAttendees) SetIsOptional(v bool) *PatchEventResponseBodyAttendees {
+	s.IsOptional = &v
 	return s
 }
 
