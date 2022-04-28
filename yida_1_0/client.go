@@ -1760,8 +1760,6 @@ func (s *ExecuteBatchTaskHeaders) SetXAcsDingtalkAccessToken(v string) *ExecuteB
 type ExecuteBatchTaskRequest struct {
 	// 宜搭应用编码
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	// 文件
-	Files *string `json:"files,omitempty" xml:"files,omitempty"`
 	// 审批动作
 	OutResult *string `json:"outResult,omitempty" xml:"outResult,omitempty"`
 	// 审批意见
@@ -1784,11 +1782,6 @@ func (s ExecuteBatchTaskRequest) GoString() string {
 
 func (s *ExecuteBatchTaskRequest) SetAppType(v string) *ExecuteBatchTaskRequest {
 	s.AppType = &v
-	return s
-}
-
-func (s *ExecuteBatchTaskRequest) SetFiles(v string) *ExecuteBatchTaskRequest {
-	s.Files = &v
 	return s
 }
 
@@ -16193,10 +16186,6 @@ func (client *Client) ExecuteBatchTaskWithOptions(request *ExecuteBatchTaskReque
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AppType)) {
 		body["appType"] = request.AppType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Files)) {
-		body["files"] = request.Files
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OutResult)) {

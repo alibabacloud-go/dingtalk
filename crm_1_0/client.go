@@ -688,6 +688,191 @@ func (s *AddRelationMetaFieldResponse) SetBody(v *AddRelationMetaFieldResponseBo
 	return s
 }
 
+type BatchAddContactsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchAddContactsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddContactsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddContactsHeaders) SetCommonHeaders(v map[string]*string) *BatchAddContactsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchAddContactsHeaders) SetXAcsDingtalkAccessToken(v string) *BatchAddContactsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchAddContactsRequest struct {
+	// 操作人userId
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// 关系数据列表。
+	RelationList []*BatchAddContactsRequestRelationList `json:"relationList,omitempty" xml:"relationList,omitempty" type:"Repeated"`
+}
+
+func (s BatchAddContactsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddContactsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddContactsRequest) SetOperatorUserId(v string) *BatchAddContactsRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *BatchAddContactsRequest) SetRelationList(v []*BatchAddContactsRequestRelationList) *BatchAddContactsRequest {
+	s.RelationList = v
+	return s
+}
+
+type BatchAddContactsRequestRelationList struct {
+	// 关系模型数据。
+	BizDataList []*BatchAddContactsRequestRelationListBizDataList `json:"bizDataList,omitempty" xml:"bizDataList,omitempty" type:"Repeated"`
+	// 扩展业务字段。
+	BizExtMap map[string]*string `json:"bizExtMap,omitempty" xml:"bizExtMap,omitempty"`
+}
+
+func (s BatchAddContactsRequestRelationList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddContactsRequestRelationList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddContactsRequestRelationList) SetBizDataList(v []*BatchAddContactsRequestRelationListBizDataList) *BatchAddContactsRequestRelationList {
+	s.BizDataList = v
+	return s
+}
+
+func (s *BatchAddContactsRequestRelationList) SetBizExtMap(v map[string]*string) *BatchAddContactsRequestRelationList {
+	s.BizExtMap = v
+	return s
+}
+
+type BatchAddContactsRequestRelationListBizDataList struct {
+	// 模型字段extendValue。
+	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
+	// 模型字段id。
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// 模型字段value。
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s BatchAddContactsRequestRelationListBizDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddContactsRequestRelationListBizDataList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddContactsRequestRelationListBizDataList) SetExtendValue(v string) *BatchAddContactsRequestRelationListBizDataList {
+	s.ExtendValue = &v
+	return s
+}
+
+func (s *BatchAddContactsRequestRelationListBizDataList) SetKey(v string) *BatchAddContactsRequestRelationListBizDataList {
+	s.Key = &v
+	return s
+}
+
+func (s *BatchAddContactsRequestRelationListBizDataList) SetValue(v string) *BatchAddContactsRequestRelationListBizDataList {
+	s.Value = &v
+	return s
+}
+
+type BatchAddContactsResponseBody struct {
+	// 批量插入结果列表，results的结果和要新增的数据是一一对应的，可以获取到每条数据分别是否成功。
+	Results []*BatchAddContactsResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
+}
+
+func (s BatchAddContactsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddContactsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddContactsResponseBody) SetResults(v []*BatchAddContactsResponseBodyResults) *BatchAddContactsResponseBody {
+	s.Results = v
+	return s
+}
+
+type BatchAddContactsResponseBodyResults struct {
+	// 如果保存失败，则表示失败的错误码。
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// 如果保存失败，则表示失败的错误原因。
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// 保存成功的联系人id。
+	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
+	// 数据是否保存成功。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchAddContactsResponseBodyResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddContactsResponseBodyResults) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddContactsResponseBodyResults) SetErrorCode(v string) *BatchAddContactsResponseBodyResults {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *BatchAddContactsResponseBodyResults) SetErrorMsg(v string) *BatchAddContactsResponseBodyResults {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *BatchAddContactsResponseBodyResults) SetRelationId(v string) *BatchAddContactsResponseBodyResults {
+	s.RelationId = &v
+	return s
+}
+
+func (s *BatchAddContactsResponseBodyResults) SetSuccess(v bool) *BatchAddContactsResponseBodyResults {
+	s.Success = &v
+	return s
+}
+
+type BatchAddContactsResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchAddContactsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchAddContactsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddContactsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddContactsResponse) SetHeaders(v map[string]*string) *BatchAddContactsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchAddContactsResponse) SetBody(v *BatchAddContactsResponseBody) *BatchAddContactsResponse {
+	s.Body = v
+	return s
+}
+
 type BatchAddRelationDatasHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1294,6 +1479,198 @@ func (s *BatchSendOfficialAccountOTOMessageResponse) SetHeaders(v map[string]*st
 }
 
 func (s *BatchSendOfficialAccountOTOMessageResponse) SetBody(v *BatchSendOfficialAccountOTOMessageResponseBody) *BatchSendOfficialAccountOTOMessageResponse {
+	s.Body = v
+	return s
+}
+
+type BatchUpdateContactsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchUpdateContactsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateContactsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateContactsHeaders) SetCommonHeaders(v map[string]*string) *BatchUpdateContactsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchUpdateContactsHeaders) SetXAcsDingtalkAccessToken(v string) *BatchUpdateContactsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchUpdateContactsRequest struct {
+	// 操作人userId
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// 联系人数据列表。
+	RelationList []*BatchUpdateContactsRequestRelationList `json:"relationList,omitempty" xml:"relationList,omitempty" type:"Repeated"`
+}
+
+func (s BatchUpdateContactsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateContactsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateContactsRequest) SetOperatorUserId(v string) *BatchUpdateContactsRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *BatchUpdateContactsRequest) SetRelationList(v []*BatchUpdateContactsRequestRelationList) *BatchUpdateContactsRequest {
+	s.RelationList = v
+	return s
+}
+
+type BatchUpdateContactsRequestRelationList struct {
+	// 联系人模型数据。
+	BizDataList []*BatchUpdateContactsRequestRelationListBizDataList `json:"bizDataList,omitempty" xml:"bizDataList,omitempty" type:"Repeated"`
+	// 扩展业务字段。
+	BizExtMap map[string]*string `json:"bizExtMap,omitempty" xml:"bizExtMap,omitempty"`
+	// 客户id
+	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
+}
+
+func (s BatchUpdateContactsRequestRelationList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateContactsRequestRelationList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateContactsRequestRelationList) SetBizDataList(v []*BatchUpdateContactsRequestRelationListBizDataList) *BatchUpdateContactsRequestRelationList {
+	s.BizDataList = v
+	return s
+}
+
+func (s *BatchUpdateContactsRequestRelationList) SetBizExtMap(v map[string]*string) *BatchUpdateContactsRequestRelationList {
+	s.BizExtMap = v
+	return s
+}
+
+func (s *BatchUpdateContactsRequestRelationList) SetRelationId(v string) *BatchUpdateContactsRequestRelationList {
+	s.RelationId = &v
+	return s
+}
+
+type BatchUpdateContactsRequestRelationListBizDataList struct {
+	// 模型字段extendValue。
+	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
+	// 模型字段id。
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// 模型字段value。
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s BatchUpdateContactsRequestRelationListBizDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateContactsRequestRelationListBizDataList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateContactsRequestRelationListBizDataList) SetExtendValue(v string) *BatchUpdateContactsRequestRelationListBizDataList {
+	s.ExtendValue = &v
+	return s
+}
+
+func (s *BatchUpdateContactsRequestRelationListBizDataList) SetKey(v string) *BatchUpdateContactsRequestRelationListBizDataList {
+	s.Key = &v
+	return s
+}
+
+func (s *BatchUpdateContactsRequestRelationListBizDataList) SetValue(v string) *BatchUpdateContactsRequestRelationListBizDataList {
+	s.Value = &v
+	return s
+}
+
+type BatchUpdateContactsResponseBody struct {
+	// 批量插入结果列表，results的结果和要新增的数据是一一对应的，可以获取到每条数据分别是否成功。
+	Results []*BatchUpdateContactsResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
+}
+
+func (s BatchUpdateContactsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateContactsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateContactsResponseBody) SetResults(v []*BatchUpdateContactsResponseBodyResults) *BatchUpdateContactsResponseBody {
+	s.Results = v
+	return s
+}
+
+type BatchUpdateContactsResponseBodyResults struct {
+	// 如果保存失败，则表示失败的错误码。
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// 如果保存失败，则表示失败的错误原因。
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// 保存成功的关系id。
+	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
+	// 数据是否保存成功。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchUpdateContactsResponseBodyResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateContactsResponseBodyResults) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateContactsResponseBodyResults) SetErrorCode(v string) *BatchUpdateContactsResponseBodyResults {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *BatchUpdateContactsResponseBodyResults) SetErrorMsg(v string) *BatchUpdateContactsResponseBodyResults {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *BatchUpdateContactsResponseBodyResults) SetRelationId(v string) *BatchUpdateContactsResponseBodyResults {
+	s.RelationId = &v
+	return s
+}
+
+func (s *BatchUpdateContactsResponseBodyResults) SetSuccess(v bool) *BatchUpdateContactsResponseBodyResults {
+	s.Success = &v
+	return s
+}
+
+type BatchUpdateContactsResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchUpdateContactsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchUpdateContactsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateContactsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateContactsResponse) SetHeaders(v map[string]*string) *BatchUpdateContactsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchUpdateContactsResponse) SetBody(v *BatchUpdateContactsResponseBody) *BatchUpdateContactsResponse {
 	s.Body = v
 	return s
 }
@@ -5965,8 +6342,6 @@ func (s *GetCrmGroupChatSingleRequest) SetOpenConversationId(v string) *GetCrmGr
 }
 
 type GetCrmGroupChatSingleResponseBody struct {
-	// 客户群chatId
-	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
 	// 创建时间(时间戳)
 	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
 	// 群头像地址
@@ -5991,11 +6366,6 @@ func (s GetCrmGroupChatSingleResponseBody) String() string {
 
 func (s GetCrmGroupChatSingleResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *GetCrmGroupChatSingleResponseBody) SetChatId(v string) *GetCrmGroupChatSingleResponseBody {
-	s.ChatId = &v
-	return s
 }
 
 func (s *GetCrmGroupChatSingleResponseBody) SetGmtCreate(v int64) *GetCrmGroupChatSingleResponseBody {
@@ -8525,8 +8895,6 @@ func (s *QueryCrmGroupChatsResponseBody) SetTotalCount(v int32) *QueryCrmGroupCh
 }
 
 type QueryCrmGroupChatsResponseBodyResultList struct {
-	// 客户群chatId
-	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
 	// 创建时间(时间戳)
 	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
 	// 客户群成员数
@@ -8549,11 +8917,6 @@ func (s QueryCrmGroupChatsResponseBodyResultList) String() string {
 
 func (s QueryCrmGroupChatsResponseBodyResultList) GoString() string {
 	return s.String()
-}
-
-func (s *QueryCrmGroupChatsResponseBodyResultList) SetChatId(v string) *QueryCrmGroupChatsResponseBodyResultList {
-	s.ChatId = &v
-	return s
 }
 
 func (s *QueryCrmGroupChatsResponseBodyResultList) SetGmtCreate(v int64) *QueryCrmGroupChatsResponseBodyResultList {
@@ -11094,6 +11457,54 @@ func (client *Client) AddRelationMetaFieldWithOptions(request *AddRelationMetaFi
 	return _result, _err
 }
 
+func (client *Client) BatchAddContacts(request *BatchAddContactsRequest) (_result *BatchAddContactsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchAddContactsHeaders{}
+	_result = &BatchAddContactsResponse{}
+	_body, _err := client.BatchAddContactsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchAddContactsWithOptions(request *BatchAddContactsRequest, headers *BatchAddContactsHeaders, runtime *util.RuntimeOptions) (_result *BatchAddContactsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationList)) {
+		body["relationList"] = request.RelationList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchAddContactsResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchAddContacts"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/contacts/batch"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) BatchAddRelationDatas(request *BatchAddRelationDatasRequest) (_result *BatchAddRelationDatasResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchAddRelationDatasHeaders{}
@@ -11195,6 +11606,54 @@ func (client *Client) BatchSendOfficialAccountOTOMessageWithOptions(request *Bat
 	}
 	_result = &BatchSendOfficialAccountOTOMessageResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchSendOfficialAccountOTOMessage"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/officialAccounts/oToMessages/batchSend"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchUpdateContacts(request *BatchUpdateContactsRequest) (_result *BatchUpdateContactsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchUpdateContactsHeaders{}
+	_result = &BatchUpdateContactsResponse{}
+	_body, _err := client.BatchUpdateContactsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchUpdateContactsWithOptions(request *BatchUpdateContactsRequest, headers *BatchUpdateContactsHeaders, runtime *util.RuntimeOptions) (_result *BatchUpdateContactsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationList)) {
+		body["relationList"] = request.RelationList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchUpdateContactsResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchUpdateContacts"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/crm/contacts/batch"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

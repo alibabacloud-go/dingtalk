@@ -365,6 +365,144 @@ func (s *ECertQueryResponse) SetBody(v *ECertQueryResponseBody) *ECertQueryRespo
 	return s
 }
 
+type HrmProcessTransferHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrmProcessTransferHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmProcessTransferHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrmProcessTransferHeaders) SetCommonHeaders(v map[string]*string) *HrmProcessTransferHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrmProcessTransferHeaders) SetXAcsDingtalkAccessToken(v string) *HrmProcessTransferHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrmProcessTransferRequest struct {
+	// 员工调岗后的部门id列表
+	DeptIdsAfterTransfer []*int64 `json:"deptIdsAfterTransfer,omitempty" xml:"deptIdsAfterTransfer,omitempty" type:"Repeated"`
+	// 员工调岗后的职务id
+	JobIdAfterTransfer *string `json:"jobIdAfterTransfer,omitempty" xml:"jobIdAfterTransfer,omitempty"`
+	// 员工调岗后的人事主部门id
+	MainDeptIdAfterTransfer *int64 `json:"mainDeptIdAfterTransfer,omitempty" xml:"mainDeptIdAfterTransfer,omitempty"`
+	// 操作人
+	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
+	// 员工调岗后的职位id，参数同时有职位名称以及id，以id为准
+	PositionIdAfterTransfer *string `json:"positionIdAfterTransfer,omitempty" xml:"positionIdAfterTransfer,omitempty"`
+	// 员工调岗后的职级名称，长度不超过64，参数同时有职级名称以及id，以id为准
+	PositionLevelAfterTransfer *string `json:"positionLevelAfterTransfer,omitempty" xml:"positionLevelAfterTransfer,omitempty"`
+	// 员工调岗后的职位名称，长度不超过124，参数同时有职位名称以及id，以id为准
+	PositionNameAfterTransfer *string `json:"positionNameAfterTransfer,omitempty" xml:"positionNameAfterTransfer,omitempty"`
+	// 员工调岗后的职级id，参数同时有职级名称以及id，以id为准
+	RankIdAfterTransfer *string `json:"rankIdAfterTransfer,omitempty" xml:"rankIdAfterTransfer,omitempty"`
+	// 被调岗员工userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s HrmProcessTransferRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmProcessTransferRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrmProcessTransferRequest) SetDeptIdsAfterTransfer(v []*int64) *HrmProcessTransferRequest {
+	s.DeptIdsAfterTransfer = v
+	return s
+}
+
+func (s *HrmProcessTransferRequest) SetJobIdAfterTransfer(v string) *HrmProcessTransferRequest {
+	s.JobIdAfterTransfer = &v
+	return s
+}
+
+func (s *HrmProcessTransferRequest) SetMainDeptIdAfterTransfer(v int64) *HrmProcessTransferRequest {
+	s.MainDeptIdAfterTransfer = &v
+	return s
+}
+
+func (s *HrmProcessTransferRequest) SetOperateUserId(v string) *HrmProcessTransferRequest {
+	s.OperateUserId = &v
+	return s
+}
+
+func (s *HrmProcessTransferRequest) SetPositionIdAfterTransfer(v string) *HrmProcessTransferRequest {
+	s.PositionIdAfterTransfer = &v
+	return s
+}
+
+func (s *HrmProcessTransferRequest) SetPositionLevelAfterTransfer(v string) *HrmProcessTransferRequest {
+	s.PositionLevelAfterTransfer = &v
+	return s
+}
+
+func (s *HrmProcessTransferRequest) SetPositionNameAfterTransfer(v string) *HrmProcessTransferRequest {
+	s.PositionNameAfterTransfer = &v
+	return s
+}
+
+func (s *HrmProcessTransferRequest) SetRankIdAfterTransfer(v string) *HrmProcessTransferRequest {
+	s.RankIdAfterTransfer = &v
+	return s
+}
+
+func (s *HrmProcessTransferRequest) SetUserId(v string) *HrmProcessTransferRequest {
+	s.UserId = &v
+	return s
+}
+
+type HrmProcessTransferResponseBody struct {
+	// 是否转岗成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s HrmProcessTransferResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmProcessTransferResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrmProcessTransferResponseBody) SetResult(v bool) *HrmProcessTransferResponseBody {
+	s.Result = &v
+	return s
+}
+
+type HrmProcessTransferResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *HrmProcessTransferResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s HrmProcessTransferResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmProcessTransferResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrmProcessTransferResponse) SetHeaders(v map[string]*string) *HrmProcessTransferResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrmProcessTransferResponse) SetBody(v *HrmProcessTransferResponseBody) *HrmProcessTransferResponse {
+	s.Body = v
+	return s
+}
+
 type MasterDataQueryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1785,6 +1923,8 @@ func (s *QueryPositionsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryPosit
 }
 
 type QueryPositionsRequest struct {
+	// 部门id
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 	// 职位类别列表
 	InCategoryIds []*string `json:"inCategoryIds,omitempty" xml:"inCategoryIds,omitempty" type:"Repeated"`
 	// 职位id列表
@@ -1803,6 +1943,11 @@ func (s QueryPositionsRequest) String() string {
 
 func (s QueryPositionsRequest) GoString() string {
 	return s.String()
+}
+
+func (s *QueryPositionsRequest) SetDeptId(v int64) *QueryPositionsRequest {
+	s.DeptId = &v
+	return s
 }
 
 func (s *QueryPositionsRequest) SetInCategoryIds(v []*string) *QueryPositionsRequest {
@@ -2348,6 +2493,82 @@ func (client *Client) ECertQueryWithOptions(request *ECertQueryRequest, headers 
 	return _result, _err
 }
 
+func (client *Client) HrmProcessTransfer(request *HrmProcessTransferRequest) (_result *HrmProcessTransferResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrmProcessTransferHeaders{}
+	_result = &HrmProcessTransferResponse{}
+	_body, _err := client.HrmProcessTransferWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) HrmProcessTransferWithOptions(request *HrmProcessTransferRequest, headers *HrmProcessTransferHeaders, runtime *util.RuntimeOptions) (_result *HrmProcessTransferResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptIdsAfterTransfer)) {
+		body["deptIdsAfterTransfer"] = request.DeptIdsAfterTransfer
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.JobIdAfterTransfer)) {
+		body["jobIdAfterTransfer"] = request.JobIdAfterTransfer
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MainDeptIdAfterTransfer)) {
+		body["mainDeptIdAfterTransfer"] = request.MainDeptIdAfterTransfer
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperateUserId)) {
+		body["operateUserId"] = request.OperateUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PositionIdAfterTransfer)) {
+		body["positionIdAfterTransfer"] = request.PositionIdAfterTransfer
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PositionLevelAfterTransfer)) {
+		body["positionLevelAfterTransfer"] = request.PositionLevelAfterTransfer
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PositionNameAfterTransfer)) {
+		body["positionNameAfterTransfer"] = request.PositionNameAfterTransfer
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RankIdAfterTransfer)) {
+		body["rankIdAfterTransfer"] = request.RankIdAfterTransfer
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &HrmProcessTransferResponse{}
+	_body, _err := client.DoROARequest(tea.String("HrmProcessTransfer"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/processes/transfer"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) MasterDataQuery(request *MasterDataQueryRequest) (_result *MasterDataQueryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &MasterDataQueryHeaders{}
@@ -2758,6 +2979,10 @@ func (client *Client) QueryPositionsWithOptions(request *QueryPositionsRequest, 
 	}
 
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.InCategoryIds)) {
 		body["inCategoryIds"] = request.InCategoryIds
 	}
