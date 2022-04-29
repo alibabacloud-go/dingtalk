@@ -1169,6 +1169,141 @@ func (s *CreateEventResponse) SetBody(v *CreateEventResponseBody) *CreateEventRe
 	return s
 }
 
+type CreateSubscribedCalendarHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateSubscribedCalendarHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSubscribedCalendarHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSubscribedCalendarHeaders) SetCommonHeaders(v map[string]*string) *CreateSubscribedCalendarHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateSubscribedCalendarHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSubscribedCalendarHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateSubscribedCalendarRequest struct {
+	// 日历介绍
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 日历管理员列表
+	Managers []*string `json:"managers,omitempty" xml:"managers,omitempty" type:"Repeated"`
+	// 日历名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 可订阅列表
+	SubscribeScope *CreateSubscribedCalendarRequestSubscribeScope `json:"subscribeScope,omitempty" xml:"subscribeScope,omitempty" type:"Struct"`
+}
+
+func (s CreateSubscribedCalendarRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSubscribedCalendarRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSubscribedCalendarRequest) SetDescription(v string) *CreateSubscribedCalendarRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *CreateSubscribedCalendarRequest) SetManagers(v []*string) *CreateSubscribedCalendarRequest {
+	s.Managers = v
+	return s
+}
+
+func (s *CreateSubscribedCalendarRequest) SetName(v string) *CreateSubscribedCalendarRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateSubscribedCalendarRequest) SetSubscribeScope(v *CreateSubscribedCalendarRequestSubscribeScope) *CreateSubscribedCalendarRequest {
+	s.SubscribeScope = v
+	return s
+}
+
+type CreateSubscribedCalendarRequestSubscribeScope struct {
+	// 可订阅组织列表
+	CorpIds []*string `json:"corpIds,omitempty" xml:"corpIds,omitempty" type:"Repeated"`
+	// 可订阅群组列表
+	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
+	// 可订阅人员列表
+	UnionIds []*string `json:"unionIds,omitempty" xml:"unionIds,omitempty" type:"Repeated"`
+}
+
+func (s CreateSubscribedCalendarRequestSubscribeScope) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSubscribedCalendarRequestSubscribeScope) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSubscribedCalendarRequestSubscribeScope) SetCorpIds(v []*string) *CreateSubscribedCalendarRequestSubscribeScope {
+	s.CorpIds = v
+	return s
+}
+
+func (s *CreateSubscribedCalendarRequestSubscribeScope) SetOpenConversationIds(v []*string) *CreateSubscribedCalendarRequestSubscribeScope {
+	s.OpenConversationIds = v
+	return s
+}
+
+func (s *CreateSubscribedCalendarRequestSubscribeScope) SetUnionIds(v []*string) *CreateSubscribedCalendarRequestSubscribeScope {
+	s.UnionIds = v
+	return s
+}
+
+type CreateSubscribedCalendarResponseBody struct {
+	// 日历id
+	CalendarId *string `json:"calendarId,omitempty" xml:"calendarId,omitempty"`
+}
+
+func (s CreateSubscribedCalendarResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSubscribedCalendarResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSubscribedCalendarResponseBody) SetCalendarId(v string) *CreateSubscribedCalendarResponseBody {
+	s.CalendarId = &v
+	return s
+}
+
+type CreateSubscribedCalendarResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateSubscribedCalendarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateSubscribedCalendarResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSubscribedCalendarResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSubscribedCalendarResponse) SetHeaders(v map[string]*string) *CreateSubscribedCalendarResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateSubscribedCalendarResponse) SetBody(v *CreateSubscribedCalendarResponseBody) *CreateSubscribedCalendarResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteAclHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1246,6 +1381,69 @@ func (s DeleteEventResponse) GoString() string {
 
 func (s *DeleteEventResponse) SetHeaders(v map[string]*string) *DeleteEventResponse {
 	s.Headers = v
+	return s
+}
+
+type DeleteSubscribedCalendarHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteSubscribedCalendarHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteSubscribedCalendarHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteSubscribedCalendarHeaders) SetCommonHeaders(v map[string]*string) *DeleteSubscribedCalendarHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteSubscribedCalendarHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteSubscribedCalendarHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteSubscribedCalendarResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteSubscribedCalendarResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteSubscribedCalendarResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteSubscribedCalendarResponseBody) SetResult(v bool) *DeleteSubscribedCalendarResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeleteSubscribedCalendarResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteSubscribedCalendarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteSubscribedCalendarResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteSubscribedCalendarResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteSubscribedCalendarResponse) SetHeaders(v map[string]*string) *DeleteSubscribedCalendarResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteSubscribedCalendarResponse) SetBody(v *DeleteSubscribedCalendarResponseBody) *DeleteSubscribedCalendarResponse {
+	s.Body = v
 	return s
 }
 
@@ -2329,6 +2527,137 @@ func (s *GetSignOutListResponse) SetHeaders(v map[string]*string) *GetSignOutLis
 }
 
 func (s *GetSignOutListResponse) SetBody(v *GetSignOutListResponseBody) *GetSignOutListResponse {
+	s.Body = v
+	return s
+}
+
+type GetSubscribedCalendarHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSubscribedCalendarHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSubscribedCalendarHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSubscribedCalendarHeaders) SetCommonHeaders(v map[string]*string) *GetSubscribedCalendarHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSubscribedCalendarHeaders) SetXAcsDingtalkAccessToken(v string) *GetSubscribedCalendarHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSubscribedCalendarResponseBody struct {
+	// 日历作者
+	Author *string `json:"author,omitempty" xml:"author,omitempty"`
+	// 订阅日历id
+	CalendarId *string `json:"calendarId,omitempty" xml:"calendarId,omitempty"`
+	// 日历描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 可管理人群
+	Managers []*string `json:"managers,omitempty" xml:"managers,omitempty" type:"Repeated"`
+	// 日历名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 可订阅范围
+	SubscribeScope *GetSubscribedCalendarResponseBodySubscribeScope `json:"subscribeScope,omitempty" xml:"subscribeScope,omitempty" type:"Struct"`
+}
+
+func (s GetSubscribedCalendarResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSubscribedCalendarResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSubscribedCalendarResponseBody) SetAuthor(v string) *GetSubscribedCalendarResponseBody {
+	s.Author = &v
+	return s
+}
+
+func (s *GetSubscribedCalendarResponseBody) SetCalendarId(v string) *GetSubscribedCalendarResponseBody {
+	s.CalendarId = &v
+	return s
+}
+
+func (s *GetSubscribedCalendarResponseBody) SetDescription(v string) *GetSubscribedCalendarResponseBody {
+	s.Description = &v
+	return s
+}
+
+func (s *GetSubscribedCalendarResponseBody) SetManagers(v []*string) *GetSubscribedCalendarResponseBody {
+	s.Managers = v
+	return s
+}
+
+func (s *GetSubscribedCalendarResponseBody) SetName(v string) *GetSubscribedCalendarResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *GetSubscribedCalendarResponseBody) SetSubscribeScope(v *GetSubscribedCalendarResponseBodySubscribeScope) *GetSubscribedCalendarResponseBody {
+	s.SubscribeScope = v
+	return s
+}
+
+type GetSubscribedCalendarResponseBodySubscribeScope struct {
+	// 可订阅组织
+	CorpIds []*string `json:"corpIds,omitempty" xml:"corpIds,omitempty" type:"Repeated"`
+	// 可订阅群组
+	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
+	// 可订阅用户
+	UnionIds []*string `json:"unionIds,omitempty" xml:"unionIds,omitempty" type:"Repeated"`
+}
+
+func (s GetSubscribedCalendarResponseBodySubscribeScope) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSubscribedCalendarResponseBodySubscribeScope) GoString() string {
+	return s.String()
+}
+
+func (s *GetSubscribedCalendarResponseBodySubscribeScope) SetCorpIds(v []*string) *GetSubscribedCalendarResponseBodySubscribeScope {
+	s.CorpIds = v
+	return s
+}
+
+func (s *GetSubscribedCalendarResponseBodySubscribeScope) SetOpenConversationIds(v []*string) *GetSubscribedCalendarResponseBodySubscribeScope {
+	s.OpenConversationIds = v
+	return s
+}
+
+func (s *GetSubscribedCalendarResponseBodySubscribeScope) SetUnionIds(v []*string) *GetSubscribedCalendarResponseBodySubscribeScope {
+	s.UnionIds = v
+	return s
+}
+
+type GetSubscribedCalendarResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetSubscribedCalendarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSubscribedCalendarResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSubscribedCalendarResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSubscribedCalendarResponse) SetHeaders(v map[string]*string) *GetSubscribedCalendarResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSubscribedCalendarResponse) SetBody(v *GetSubscribedCalendarResponseBody) *GetSubscribedCalendarResponse {
 	s.Body = v
 	return s
 }
@@ -5395,6 +5724,140 @@ func (s *SubscribeCalendarResponse) SetHeaders(v map[string]*string) *SubscribeC
 	return s
 }
 
+type UpdateSubscribedCalendarsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateSubscribedCalendarsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSubscribedCalendarsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSubscribedCalendarsHeaders) SetCommonHeaders(v map[string]*string) *UpdateSubscribedCalendarsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateSubscribedCalendarsHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateSubscribedCalendarsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateSubscribedCalendarsRequest struct {
+	// 日历介绍
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 日历管理员列表
+	Managers []*string `json:"managers,omitempty" xml:"managers,omitempty" type:"Repeated"`
+	// 日历名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 可订阅列表
+	SubscribeScope *UpdateSubscribedCalendarsRequestSubscribeScope `json:"subscribeScope,omitempty" xml:"subscribeScope,omitempty" type:"Struct"`
+}
+
+func (s UpdateSubscribedCalendarsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSubscribedCalendarsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSubscribedCalendarsRequest) SetDescription(v string) *UpdateSubscribedCalendarsRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *UpdateSubscribedCalendarsRequest) SetManagers(v []*string) *UpdateSubscribedCalendarsRequest {
+	s.Managers = v
+	return s
+}
+
+func (s *UpdateSubscribedCalendarsRequest) SetName(v string) *UpdateSubscribedCalendarsRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateSubscribedCalendarsRequest) SetSubscribeScope(v *UpdateSubscribedCalendarsRequestSubscribeScope) *UpdateSubscribedCalendarsRequest {
+	s.SubscribeScope = v
+	return s
+}
+
+type UpdateSubscribedCalendarsRequestSubscribeScope struct {
+	// 可订阅组织列表
+	CorpIds []*string `json:"corpIds,omitempty" xml:"corpIds,omitempty" type:"Repeated"`
+	// 可订阅群组列表
+	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
+	// 可订阅人员列表
+	UnionIds []*string `json:"unionIds,omitempty" xml:"unionIds,omitempty" type:"Repeated"`
+}
+
+func (s UpdateSubscribedCalendarsRequestSubscribeScope) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSubscribedCalendarsRequestSubscribeScope) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSubscribedCalendarsRequestSubscribeScope) SetCorpIds(v []*string) *UpdateSubscribedCalendarsRequestSubscribeScope {
+	s.CorpIds = v
+	return s
+}
+
+func (s *UpdateSubscribedCalendarsRequestSubscribeScope) SetOpenConversationIds(v []*string) *UpdateSubscribedCalendarsRequestSubscribeScope {
+	s.OpenConversationIds = v
+	return s
+}
+
+func (s *UpdateSubscribedCalendarsRequestSubscribeScope) SetUnionIds(v []*string) *UpdateSubscribedCalendarsRequestSubscribeScope {
+	s.UnionIds = v
+	return s
+}
+
+type UpdateSubscribedCalendarsResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateSubscribedCalendarsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSubscribedCalendarsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSubscribedCalendarsResponseBody) SetResult(v bool) *UpdateSubscribedCalendarsResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateSubscribedCalendarsResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateSubscribedCalendarsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateSubscribedCalendarsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSubscribedCalendarsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSubscribedCalendarsResponse) SetHeaders(v map[string]*string) *UpdateSubscribedCalendarsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateSubscribedCalendarsResponse) SetBody(v *UpdateSubscribedCalendarsResponseBody) *UpdateSubscribedCalendarsResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -5687,6 +6150,63 @@ func (client *Client) CreateEventWithOptions(userId *string, calendarId *string,
 	return _result, _err
 }
 
+func (client *Client) CreateSubscribedCalendar(userId *string, request *CreateSubscribedCalendarRequest) (_result *CreateSubscribedCalendarResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateSubscribedCalendarHeaders{}
+	_result = &CreateSubscribedCalendarResponse{}
+	_body, _err := client.CreateSubscribedCalendarWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateSubscribedCalendarWithOptions(userId *string, request *CreateSubscribedCalendarRequest, headers *CreateSubscribedCalendarHeaders, runtime *util.RuntimeOptions) (_result *CreateSubscribedCalendarResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Managers)) {
+		body["managers"] = request.Managers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubscribeScope))) {
+		body["subscribeScope"] = request.SubscribeScope
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateSubscribedCalendarResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateSubscribedCalendar"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/subscribedCalendars"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteAcl(userId *string, calendarId *string, aclId *string) (_result *DeleteAclResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteAclHeaders{}
@@ -5754,6 +6274,42 @@ func (client *Client) DeleteEventWithOptions(userId *string, calendarId *string,
 	}
 	_result = &DeleteEventResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteEvent"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteSubscribedCalendar(userId *string, calendarId *string) (_result *DeleteSubscribedCalendarResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteSubscribedCalendarHeaders{}
+	_result = &DeleteSubscribedCalendarResponse{}
+	_body, _err := client.DeleteSubscribedCalendarWithOptions(userId, calendarId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteSubscribedCalendarWithOptions(userId *string, calendarId *string, headers *DeleteSubscribedCalendarHeaders, runtime *util.RuntimeOptions) (_result *DeleteSubscribedCalendarResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &DeleteSubscribedCalendarResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteSubscribedCalendar"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/subscribedCalendars/"+tea.StringValue(calendarId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6013,6 +6569,42 @@ func (client *Client) GetSignOutListWithOptions(userId *string, calendarId *stri
 	}
 	_result = &GetSignOutListResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetSignOutList"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/signOut"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSubscribedCalendar(userId *string, calendarId *string) (_result *GetSubscribedCalendarResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSubscribedCalendarHeaders{}
+	_result = &GetSubscribedCalendarResponse{}
+	_body, _err := client.GetSubscribedCalendarWithOptions(userId, calendarId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSubscribedCalendarWithOptions(userId *string, calendarId *string, headers *GetSubscribedCalendarHeaders, runtime *util.RuntimeOptions) (_result *GetSubscribedCalendarResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetSubscribedCalendarResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetSubscribedCalendar"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/subscribedCalendars/"+tea.StringValue(calendarId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6616,6 +7208,64 @@ func (client *Client) SubscribeCalendarWithOptions(userId *string, calendarId *s
 	}
 	_result = &SubscribeCalendarResponse{}
 	_body, _err := client.DoROARequest(tea.String("SubscribeCalendar"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/subscribe"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateSubscribedCalendars(calendarId *string, userId *string, request *UpdateSubscribedCalendarsRequest) (_result *UpdateSubscribedCalendarsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateSubscribedCalendarsHeaders{}
+	_result = &UpdateSubscribedCalendarsResponse{}
+	_body, _err := client.UpdateSubscribedCalendarsWithOptions(calendarId, userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateSubscribedCalendarsWithOptions(calendarId *string, userId *string, request *UpdateSubscribedCalendarsRequest, headers *UpdateSubscribedCalendarsHeaders, runtime *util.RuntimeOptions) (_result *UpdateSubscribedCalendarsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	userId = openapiutil.GetEncodeParam(userId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Managers)) {
+		body["managers"] = request.Managers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubscribeScope))) {
+		body["subscribeScope"] = request.SubscribeScope
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateSubscribedCalendarsResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateSubscribedCalendars"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/subscribedCalendars/"+tea.StringValue(calendarId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
