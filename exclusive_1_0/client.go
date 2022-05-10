@@ -11,6 +11,95 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AddOrgHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddOrgHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOrgHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddOrgHeaders) SetCommonHeaders(v map[string]*string) *AddOrgHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddOrgHeaders) SetXAcsDingtalkAccessToken(v string) *AddOrgHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddOrgRequest struct {
+	// 手机号
+	MobileNum *string `json:"mobileNum,omitempty" xml:"mobileNum,omitempty"`
+	// 组织名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s AddOrgRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOrgRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddOrgRequest) SetMobileNum(v string) *AddOrgRequest {
+	s.MobileNum = &v
+	return s
+}
+
+func (s *AddOrgRequest) SetName(v string) *AddOrgRequest {
+	s.Name = &v
+	return s
+}
+
+type AddOrgResponseBody struct {
+	// 组织id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+}
+
+func (s AddOrgResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOrgResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddOrgResponseBody) SetCorpId(v string) *AddOrgResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+type AddOrgResponse struct {
+	Headers map[string]*string  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddOrgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddOrgResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOrgResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddOrgResponse) SetHeaders(v map[string]*string) *AddOrgResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddOrgResponse) SetBody(v *AddOrgResponseBody) *AddOrgResponse {
+	s.Body = v
+	return s
+}
+
 type BanOrOpenGroupWordsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -348,6 +437,595 @@ func (s *DeleteCommentResponse) SetHeaders(v map[string]*string) *DeleteCommentR
 
 func (s *DeleteCommentResponse) SetBody(v bool) *DeleteCommentResponse {
 	s.Body = &v
+	return s
+}
+
+type FileStorageActiveStorageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s FileStorageActiveStorageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageActiveStorageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageActiveStorageHeaders) SetCommonHeaders(v map[string]*string) *FileStorageActiveStorageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *FileStorageActiveStorageHeaders) SetXAcsDingtalkAccessToken(v string) *FileStorageActiveStorageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type FileStorageActiveStorageRequest struct {
+	// 密匙id
+	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	// 密匙密码
+	AccessKeySecret *string `json:"accessKeySecret,omitempty" xml:"accessKeySecret,omitempty"`
+	// 带bucket的oss域名
+	Oss *string `json:"oss,omitempty" xml:"oss,omitempty"`
+	// 企业id
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+}
+
+func (s FileStorageActiveStorageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageActiveStorageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageActiveStorageRequest) SetAccessKeyId(v string) *FileStorageActiveStorageRequest {
+	s.AccessKeyId = &v
+	return s
+}
+
+func (s *FileStorageActiveStorageRequest) SetAccessKeySecret(v string) *FileStorageActiveStorageRequest {
+	s.AccessKeySecret = &v
+	return s
+}
+
+func (s *FileStorageActiveStorageRequest) SetOss(v string) *FileStorageActiveStorageRequest {
+	s.Oss = &v
+	return s
+}
+
+func (s *FileStorageActiveStorageRequest) SetTargetCorpId(v string) *FileStorageActiveStorageRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+type FileStorageActiveStorageResponseBody struct {
+	// oss开启时间
+	CreateDate *string `json:"createDate,omitempty" xml:"createDate,omitempty"`
+	// 是否开启专属存储 0开启1关闭
+	FileStorageOpenStatus *int32 `json:"fileStorageOpenStatus,omitempty" xml:"fileStorageOpenStatus,omitempty"`
+	// 存储状态 0正常1异常
+	StorageStatus *int32 `json:"storageStatus,omitempty" xml:"storageStatus,omitempty"`
+	// 已经使用的容量Bytes
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+}
+
+func (s FileStorageActiveStorageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageActiveStorageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageActiveStorageResponseBody) SetCreateDate(v string) *FileStorageActiveStorageResponseBody {
+	s.CreateDate = &v
+	return s
+}
+
+func (s *FileStorageActiveStorageResponseBody) SetFileStorageOpenStatus(v int32) *FileStorageActiveStorageResponseBody {
+	s.FileStorageOpenStatus = &v
+	return s
+}
+
+func (s *FileStorageActiveStorageResponseBody) SetStorageStatus(v int32) *FileStorageActiveStorageResponseBody {
+	s.StorageStatus = &v
+	return s
+}
+
+func (s *FileStorageActiveStorageResponseBody) SetUsedQuota(v int64) *FileStorageActiveStorageResponseBody {
+	s.UsedQuota = &v
+	return s
+}
+
+type FileStorageActiveStorageResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *FileStorageActiveStorageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s FileStorageActiveStorageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageActiveStorageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageActiveStorageResponse) SetHeaders(v map[string]*string) *FileStorageActiveStorageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *FileStorageActiveStorageResponse) SetBody(v *FileStorageActiveStorageResponseBody) *FileStorageActiveStorageResponse {
+	s.Body = v
+	return s
+}
+
+type FileStorageCheckConnectionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s FileStorageCheckConnectionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageCheckConnectionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageCheckConnectionHeaders) SetCommonHeaders(v map[string]*string) *FileStorageCheckConnectionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *FileStorageCheckConnectionHeaders) SetXAcsDingtalkAccessToken(v string) *FileStorageCheckConnectionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type FileStorageCheckConnectionRequest struct {
+	// 密匙id
+	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	// 密匙密码
+	AccessKeySecret *string `json:"accessKeySecret,omitempty" xml:"accessKeySecret,omitempty"`
+	// 带bucket的oss域名
+	Oss *string `json:"oss,omitempty" xml:"oss,omitempty"`
+	// 企业id
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+}
+
+func (s FileStorageCheckConnectionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageCheckConnectionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageCheckConnectionRequest) SetAccessKeyId(v string) *FileStorageCheckConnectionRequest {
+	s.AccessKeyId = &v
+	return s
+}
+
+func (s *FileStorageCheckConnectionRequest) SetAccessKeySecret(v string) *FileStorageCheckConnectionRequest {
+	s.AccessKeySecret = &v
+	return s
+}
+
+func (s *FileStorageCheckConnectionRequest) SetOss(v string) *FileStorageCheckConnectionRequest {
+	s.Oss = &v
+	return s
+}
+
+func (s *FileStorageCheckConnectionRequest) SetTargetCorpId(v string) *FileStorageCheckConnectionRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+type FileStorageCheckConnectionResponseBody struct {
+	// 密匙ID
+	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	// 检测oss状态 0正常1异常
+	CheckState *int32 `json:"checkState,omitempty" xml:"checkState,omitempty"`
+	// OSS链接
+	Oss *string `json:"oss,omitempty" xml:"oss,omitempty"`
+}
+
+func (s FileStorageCheckConnectionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageCheckConnectionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageCheckConnectionResponseBody) SetAccessKeyId(v string) *FileStorageCheckConnectionResponseBody {
+	s.AccessKeyId = &v
+	return s
+}
+
+func (s *FileStorageCheckConnectionResponseBody) SetCheckState(v int32) *FileStorageCheckConnectionResponseBody {
+	s.CheckState = &v
+	return s
+}
+
+func (s *FileStorageCheckConnectionResponseBody) SetOss(v string) *FileStorageCheckConnectionResponseBody {
+	s.Oss = &v
+	return s
+}
+
+type FileStorageCheckConnectionResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *FileStorageCheckConnectionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s FileStorageCheckConnectionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageCheckConnectionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageCheckConnectionResponse) SetHeaders(v map[string]*string) *FileStorageCheckConnectionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *FileStorageCheckConnectionResponse) SetBody(v *FileStorageCheckConnectionResponseBody) *FileStorageCheckConnectionResponse {
+	s.Body = v
+	return s
+}
+
+type FileStorageGetQuotaDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s FileStorageGetQuotaDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageGetQuotaDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageGetQuotaDataHeaders) SetCommonHeaders(v map[string]*string) *FileStorageGetQuotaDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *FileStorageGetQuotaDataHeaders) SetXAcsDingtalkAccessToken(v string) *FileStorageGetQuotaDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type FileStorageGetQuotaDataRequest struct {
+	// 结束时间
+	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 开始时间
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 企业的corpId
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	// 查询类型 0按天查询；1按月查询
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s FileStorageGetQuotaDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageGetQuotaDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageGetQuotaDataRequest) SetEndTime(v string) *FileStorageGetQuotaDataRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *FileStorageGetQuotaDataRequest) SetStartTime(v string) *FileStorageGetQuotaDataRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *FileStorageGetQuotaDataRequest) SetTargetCorpId(v string) *FileStorageGetQuotaDataRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+func (s *FileStorageGetQuotaDataRequest) SetType(v string) *FileStorageGetQuotaDataRequest {
+	s.Type = &v
+	return s
+}
+
+type FileStorageGetQuotaDataResponseBody struct {
+	// 文件存储使用容量列表
+	QuotaModelList []*FileStorageGetQuotaDataResponseBodyQuotaModelList `json:"quotaModelList,omitempty" xml:"quotaModelList,omitempty" type:"Repeated"`
+}
+
+func (s FileStorageGetQuotaDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageGetQuotaDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageGetQuotaDataResponseBody) SetQuotaModelList(v []*FileStorageGetQuotaDataResponseBodyQuotaModelList) *FileStorageGetQuotaDataResponseBody {
+	s.QuotaModelList = v
+	return s
+}
+
+type FileStorageGetQuotaDataResponseBodyQuotaModelList struct {
+	// 统计时间点
+	StatisticTime *string `json:"statisticTime,omitempty" xml:"statisticTime,omitempty"`
+	// 使用的容量（byte）
+	UsedStorage *int64 `json:"usedStorage,omitempty" xml:"usedStorage,omitempty"`
+}
+
+func (s FileStorageGetQuotaDataResponseBodyQuotaModelList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageGetQuotaDataResponseBodyQuotaModelList) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageGetQuotaDataResponseBodyQuotaModelList) SetStatisticTime(v string) *FileStorageGetQuotaDataResponseBodyQuotaModelList {
+	s.StatisticTime = &v
+	return s
+}
+
+func (s *FileStorageGetQuotaDataResponseBodyQuotaModelList) SetUsedStorage(v int64) *FileStorageGetQuotaDataResponseBodyQuotaModelList {
+	s.UsedStorage = &v
+	return s
+}
+
+type FileStorageGetQuotaDataResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *FileStorageGetQuotaDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s FileStorageGetQuotaDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageGetQuotaDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageGetQuotaDataResponse) SetHeaders(v map[string]*string) *FileStorageGetQuotaDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *FileStorageGetQuotaDataResponse) SetBody(v *FileStorageGetQuotaDataResponseBody) *FileStorageGetQuotaDataResponse {
+	s.Body = v
+	return s
+}
+
+type FileStorageGetStorageStateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s FileStorageGetStorageStateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageGetStorageStateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageGetStorageStateHeaders) SetCommonHeaders(v map[string]*string) *FileStorageGetStorageStateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *FileStorageGetStorageStateHeaders) SetXAcsDingtalkAccessToken(v string) *FileStorageGetStorageStateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type FileStorageGetStorageStateRequest struct {
+	// 企业的corpId
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+}
+
+func (s FileStorageGetStorageStateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageGetStorageStateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageGetStorageStateRequest) SetTargetCorpId(v string) *FileStorageGetStorageStateRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+type FileStorageGetStorageStateResponseBody struct {
+	// 密匙ID
+	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	// oss开启时间
+	CreateDate *string `json:"createDate,omitempty" xml:"createDate,omitempty"`
+	// 是否开启专属存储 0开启1关闭
+	FileStorageOpenStatus *int32 `json:"fileStorageOpenStatus,omitempty" xml:"fileStorageOpenStatus,omitempty"`
+	// OSS链接
+	Oss *string `json:"oss,omitempty" xml:"oss,omitempty"`
+	// 存储状态 0正常1异常
+	StorageStatus *int32 `json:"storageStatus,omitempty" xml:"storageStatus,omitempty"`
+	// 已经使用的容量Bytes
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+}
+
+func (s FileStorageGetStorageStateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageGetStorageStateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageGetStorageStateResponseBody) SetAccessKeyId(v string) *FileStorageGetStorageStateResponseBody {
+	s.AccessKeyId = &v
+	return s
+}
+
+func (s *FileStorageGetStorageStateResponseBody) SetCreateDate(v string) *FileStorageGetStorageStateResponseBody {
+	s.CreateDate = &v
+	return s
+}
+
+func (s *FileStorageGetStorageStateResponseBody) SetFileStorageOpenStatus(v int32) *FileStorageGetStorageStateResponseBody {
+	s.FileStorageOpenStatus = &v
+	return s
+}
+
+func (s *FileStorageGetStorageStateResponseBody) SetOss(v string) *FileStorageGetStorageStateResponseBody {
+	s.Oss = &v
+	return s
+}
+
+func (s *FileStorageGetStorageStateResponseBody) SetStorageStatus(v int32) *FileStorageGetStorageStateResponseBody {
+	s.StorageStatus = &v
+	return s
+}
+
+func (s *FileStorageGetStorageStateResponseBody) SetUsedQuota(v int64) *FileStorageGetStorageStateResponseBody {
+	s.UsedQuota = &v
+	return s
+}
+
+type FileStorageGetStorageStateResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *FileStorageGetStorageStateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s FileStorageGetStorageStateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageGetStorageStateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageGetStorageStateResponse) SetHeaders(v map[string]*string) *FileStorageGetStorageStateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *FileStorageGetStorageStateResponse) SetBody(v *FileStorageGetStorageStateResponseBody) *FileStorageGetStorageStateResponse {
+	s.Body = v
+	return s
+}
+
+type FileStorageUpdateStorageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s FileStorageUpdateStorageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageUpdateStorageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageUpdateStorageHeaders) SetCommonHeaders(v map[string]*string) *FileStorageUpdateStorageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *FileStorageUpdateStorageHeaders) SetXAcsDingtalkAccessToken(v string) *FileStorageUpdateStorageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type FileStorageUpdateStorageRequest struct {
+	// 密匙id
+	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	// 密匙密码
+	AccessKeySecret *string `json:"accessKeySecret,omitempty" xml:"accessKeySecret,omitempty"`
+	// 企业id
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+}
+
+func (s FileStorageUpdateStorageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageUpdateStorageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageUpdateStorageRequest) SetAccessKeyId(v string) *FileStorageUpdateStorageRequest {
+	s.AccessKeyId = &v
+	return s
+}
+
+func (s *FileStorageUpdateStorageRequest) SetAccessKeySecret(v string) *FileStorageUpdateStorageRequest {
+	s.AccessKeySecret = &v
+	return s
+}
+
+func (s *FileStorageUpdateStorageRequest) SetTargetCorpId(v string) *FileStorageUpdateStorageRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+type FileStorageUpdateStorageResponseBody struct {
+	// 密匙ID
+	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	// OSS链接
+	Oss *string `json:"oss,omitempty" xml:"oss,omitempty"`
+}
+
+func (s FileStorageUpdateStorageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageUpdateStorageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageUpdateStorageResponseBody) SetAccessKeyId(v string) *FileStorageUpdateStorageResponseBody {
+	s.AccessKeyId = &v
+	return s
+}
+
+func (s *FileStorageUpdateStorageResponseBody) SetOss(v string) *FileStorageUpdateStorageResponseBody {
+	s.Oss = &v
+	return s
+}
+
+type FileStorageUpdateStorageResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *FileStorageUpdateStorageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s FileStorageUpdateStorageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileStorageUpdateStorageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *FileStorageUpdateStorageResponse) SetHeaders(v map[string]*string) *FileStorageUpdateStorageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *FileStorageUpdateStorageResponse) SetBody(v *FileStorageUpdateStorageResponseBody) *FileStorageUpdateStorageResponse {
+	s.Body = v
 	return s
 }
 
@@ -2077,6 +2755,95 @@ func (s *GetInActiveUserListResponse) SetBody(v *GetInActiveUserListResponseBody
 	return s
 }
 
+type GetLastOrgAuthDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetLastOrgAuthDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLastOrgAuthDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetLastOrgAuthDataHeaders) SetCommonHeaders(v map[string]*string) *GetLastOrgAuthDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetLastOrgAuthDataHeaders) SetXAcsDingtalkAccessToken(v string) *GetLastOrgAuthDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetLastOrgAuthDataRequest struct {
+	// 企业的corpId
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+}
+
+func (s GetLastOrgAuthDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLastOrgAuthDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetLastOrgAuthDataRequest) SetTargetCorpId(v string) *GetLastOrgAuthDataRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+type GetLastOrgAuthDataResponseBody struct {
+	// 未通过原因
+	AuthRemark *string `json:"authRemark,omitempty" xml:"authRemark,omitempty"`
+	// 审核状态 0 未提交， 1未审核 2 失败 3通过
+	AuthStatus *int32 `json:"authStatus,omitempty" xml:"authStatus,omitempty"`
+}
+
+func (s GetLastOrgAuthDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLastOrgAuthDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetLastOrgAuthDataResponseBody) SetAuthRemark(v string) *GetLastOrgAuthDataResponseBody {
+	s.AuthRemark = &v
+	return s
+}
+
+func (s *GetLastOrgAuthDataResponseBody) SetAuthStatus(v int32) *GetLastOrgAuthDataResponseBody {
+	s.AuthStatus = &v
+	return s
+}
+
+type GetLastOrgAuthDataResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetLastOrgAuthDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetLastOrgAuthDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLastOrgAuthDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetLastOrgAuthDataResponse) SetHeaders(v map[string]*string) *GetLastOrgAuthDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetLastOrgAuthDataResponse) SetBody(v *GetLastOrgAuthDataResponseBody) *GetLastOrgAuthDataResponse {
+	s.Body = v
+	return s
+}
+
 type GetOaOperatorLogListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3356,6 +4123,127 @@ func (s *ListAuditLogResponse) SetBody(v *ListAuditLogResponseBody) *ListAuditLo
 	return s
 }
 
+type ListJoinOrgInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListJoinOrgInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListJoinOrgInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListJoinOrgInfoHeaders) SetCommonHeaders(v map[string]*string) *ListJoinOrgInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListJoinOrgInfoHeaders) SetXAcsDingtalkAccessToken(v string) *ListJoinOrgInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListJoinOrgInfoRequest struct {
+	// 手机号码，企业内必须唯一，不可重复。如果是国际号码，请使用+xx-xxxxxx的格式。
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+}
+
+func (s ListJoinOrgInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListJoinOrgInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListJoinOrgInfoRequest) SetMobile(v string) *ListJoinOrgInfoRequest {
+	s.Mobile = &v
+	return s
+}
+
+type ListJoinOrgInfoResponseBody struct {
+	// 组织信息列表
+	OrgInfoList []*ListJoinOrgInfoResponseBodyOrgInfoList `json:"orgInfoList,omitempty" xml:"orgInfoList,omitempty" type:"Repeated"`
+}
+
+func (s ListJoinOrgInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListJoinOrgInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListJoinOrgInfoResponseBody) SetOrgInfoList(v []*ListJoinOrgInfoResponseBodyOrgInfoList) *ListJoinOrgInfoResponseBody {
+	s.OrgInfoList = v
+	return s
+}
+
+type ListJoinOrgInfoResponseBodyOrgInfoList struct {
+	// 组织ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 组织代码
+	Domain *string `json:"domain,omitempty" xml:"domain,omitempty"`
+	// 组织全称
+	OrgFullName *string `json:"orgFullName,omitempty" xml:"orgFullName,omitempty"`
+	// 组织名称
+	OrgName *int64 `json:"orgName,omitempty" xml:"orgName,omitempty"`
+}
+
+func (s ListJoinOrgInfoResponseBodyOrgInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListJoinOrgInfoResponseBodyOrgInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *ListJoinOrgInfoResponseBodyOrgInfoList) SetCorpId(v string) *ListJoinOrgInfoResponseBodyOrgInfoList {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ListJoinOrgInfoResponseBodyOrgInfoList) SetDomain(v string) *ListJoinOrgInfoResponseBodyOrgInfoList {
+	s.Domain = &v
+	return s
+}
+
+func (s *ListJoinOrgInfoResponseBodyOrgInfoList) SetOrgFullName(v string) *ListJoinOrgInfoResponseBodyOrgInfoList {
+	s.OrgFullName = &v
+	return s
+}
+
+func (s *ListJoinOrgInfoResponseBodyOrgInfoList) SetOrgName(v int64) *ListJoinOrgInfoResponseBodyOrgInfoList {
+	s.OrgName = &v
+	return s
+}
+
+type ListJoinOrgInfoResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListJoinOrgInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListJoinOrgInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListJoinOrgInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListJoinOrgInfoResponse) SetHeaders(v map[string]*string) *ListJoinOrgInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListJoinOrgInfoResponse) SetBody(v *ListJoinOrgInfoResponseBody) *ListJoinOrgInfoResponse {
+	s.Body = v
+	return s
+}
+
 type ListMiniAppAvailableVersionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4204,6 +5092,200 @@ func (s *RollbackMiniAppVersionResponse) SetHeaders(v map[string]*string) *Rollb
 }
 
 func (s *RollbackMiniAppVersionResponse) SetBody(v *RollbackMiniAppVersionResponseBody) *RollbackMiniAppVersionResponse {
+	s.Body = v
+	return s
+}
+
+type SaveAndSubmitAuthInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SaveAndSubmitAuthInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveAndSubmitAuthInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SaveAndSubmitAuthInfoHeaders) SetCommonHeaders(v map[string]*string) *SaveAndSubmitAuthInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoHeaders) SetXAcsDingtalkAccessToken(v string) *SaveAndSubmitAuthInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SaveAndSubmitAuthInfoRequest struct {
+	// 申请说明
+	ApplyRemark *string `json:"applyRemark,omitempty" xml:"applyRemark,omitempty"`
+	// 认证书图片mediaId
+	AuthorizeMediaId *string `json:"authorizeMediaId,omitempty" xml:"authorizeMediaId,omitempty"`
+	// 行业
+	Industry *string `json:"industry,omitempty" xml:"industry,omitempty"`
+	// 企业法人
+	LegalPerson *string `json:"legalPerson,omitempty" xml:"legalPerson,omitempty"`
+	// 企业法人身份证
+	LegalPersonIdCard *string `json:"legalPersonIdCard,omitempty" xml:"legalPersonIdCard,omitempty"`
+	// 营业执照图片mediaId
+	LicenseMediaId *string `json:"licenseMediaId,omitempty" xml:"licenseMediaId,omitempty"`
+	// 城市名字
+	LocCityName *string `json:"locCityName,omitempty" xml:"locCityName,omitempty"`
+	// 省份名字
+	LocProvinceName *string `json:"locProvinceName,omitempty" xml:"locProvinceName,omitempty"`
+	// 申请人手机号（需要实名认证）
+	MobileNum *string `json:"mobileNum,omitempty" xml:"mobileNum,omitempty"`
+	// 组织名，提交认证的时候可以修改
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// 组织机构代码证号（格式11111111-1）
+	OrganizationCode *string `json:"organizationCode,omitempty" xml:"organizationCode,omitempty"`
+	// 组织机构代码证图片mediaId
+	OrganizationCodeMediaId *string `json:"organizationCodeMediaId,omitempty" xml:"organizationCodeMediaId,omitempty"`
+	// 认证企业详细地址
+	RegistLocation *string `json:"registLocation,omitempty" xml:"registLocation,omitempty"`
+	// 营业执照注册号（一般15位）
+	RegistNum *string `json:"registNum,omitempty" xml:"registNum,omitempty"`
+	// 企业id
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	// 社会统一信用代码（固定18位）
+	UnifiedSocialCredit *string `json:"unifiedSocialCredit,omitempty" xml:"unifiedSocialCredit,omitempty"`
+}
+
+func (s SaveAndSubmitAuthInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveAndSubmitAuthInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SaveAndSubmitAuthInfoRequest) SetApplyRemark(v string) *SaveAndSubmitAuthInfoRequest {
+	s.ApplyRemark = &v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoRequest) SetAuthorizeMediaId(v string) *SaveAndSubmitAuthInfoRequest {
+	s.AuthorizeMediaId = &v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoRequest) SetIndustry(v string) *SaveAndSubmitAuthInfoRequest {
+	s.Industry = &v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoRequest) SetLegalPerson(v string) *SaveAndSubmitAuthInfoRequest {
+	s.LegalPerson = &v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoRequest) SetLegalPersonIdCard(v string) *SaveAndSubmitAuthInfoRequest {
+	s.LegalPersonIdCard = &v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoRequest) SetLicenseMediaId(v string) *SaveAndSubmitAuthInfoRequest {
+	s.LicenseMediaId = &v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoRequest) SetLocCityName(v string) *SaveAndSubmitAuthInfoRequest {
+	s.LocCityName = &v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoRequest) SetLocProvinceName(v string) *SaveAndSubmitAuthInfoRequest {
+	s.LocProvinceName = &v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoRequest) SetMobileNum(v string) *SaveAndSubmitAuthInfoRequest {
+	s.MobileNum = &v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoRequest) SetOrgName(v string) *SaveAndSubmitAuthInfoRequest {
+	s.OrgName = &v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoRequest) SetOrganizationCode(v string) *SaveAndSubmitAuthInfoRequest {
+	s.OrganizationCode = &v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoRequest) SetOrganizationCodeMediaId(v string) *SaveAndSubmitAuthInfoRequest {
+	s.OrganizationCodeMediaId = &v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoRequest) SetRegistLocation(v string) *SaveAndSubmitAuthInfoRequest {
+	s.RegistLocation = &v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoRequest) SetRegistNum(v string) *SaveAndSubmitAuthInfoRequest {
+	s.RegistNum = &v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoRequest) SetTargetCorpId(v string) *SaveAndSubmitAuthInfoRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoRequest) SetUnifiedSocialCredit(v string) *SaveAndSubmitAuthInfoRequest {
+	s.UnifiedSocialCredit = &v
+	return s
+}
+
+type SaveAndSubmitAuthInfoResponseBody struct {
+	// 密匙ID
+	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	// OSS链接
+	Oss *string `json:"oss,omitempty" xml:"oss,omitempty"`
+}
+
+func (s SaveAndSubmitAuthInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveAndSubmitAuthInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SaveAndSubmitAuthInfoResponseBody) SetAccessKeyId(v string) *SaveAndSubmitAuthInfoResponseBody {
+	s.AccessKeyId = &v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoResponseBody) SetOss(v string) *SaveAndSubmitAuthInfoResponseBody {
+	s.Oss = &v
+	return s
+}
+
+type SaveAndSubmitAuthInfoResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SaveAndSubmitAuthInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SaveAndSubmitAuthInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveAndSubmitAuthInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SaveAndSubmitAuthInfoResponse) SetHeaders(v map[string]*string) *SaveAndSubmitAuthInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoResponse) SetBody(v *SaveAndSubmitAuthInfoResponseBody) *SaveAndSubmitAuthInfoResponse {
 	s.Body = v
 	return s
 }
@@ -5074,6 +6156,54 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) AddOrg(request *AddOrgRequest) (_result *AddOrgResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddOrgHeaders{}
+	_result = &AddOrgResponse{}
+	_body, _err := client.AddOrgWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddOrgWithOptions(request *AddOrgRequest, headers *AddOrgHeaders, runtime *util.RuntimeOptions) (_result *AddOrgResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MobileNum)) {
+		body["mobileNum"] = request.MobileNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddOrgResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddOrg"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/orgnizations"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) BanOrOpenGroupWords(request *BanOrOpenGroupWordsRequest) (_result *BanOrOpenGroupWordsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BanOrOpenGroupWordsHeaders{}
@@ -5259,6 +6389,270 @@ func (client *Client) DeleteCommentWithOptions(publisherId *string, commentId *s
 	}
 	_result = &DeleteCommentResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteComment"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/exclusive/publishers/"+tea.StringValue(publisherId)+"/comments/"+tea.StringValue(commentId)), tea.String("boolean"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) FileStorageActiveStorage(request *FileStorageActiveStorageRequest) (_result *FileStorageActiveStorageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &FileStorageActiveStorageHeaders{}
+	_result = &FileStorageActiveStorageResponse{}
+	_body, _err := client.FileStorageActiveStorageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) FileStorageActiveStorageWithOptions(request *FileStorageActiveStorageRequest, headers *FileStorageActiveStorageHeaders, runtime *util.RuntimeOptions) (_result *FileStorageActiveStorageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKeyId)) {
+		body["accessKeyId"] = request.AccessKeyId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccessKeySecret)) {
+		body["accessKeySecret"] = request.AccessKeySecret
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Oss)) {
+		body["oss"] = request.Oss
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		body["targetCorpId"] = request.TargetCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &FileStorageActiveStorageResponse{}
+	_body, _err := client.DoROARequest(tea.String("FileStorageActiveStorage"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/fileStorages/active"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) FileStorageCheckConnection(request *FileStorageCheckConnectionRequest) (_result *FileStorageCheckConnectionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &FileStorageCheckConnectionHeaders{}
+	_result = &FileStorageCheckConnectionResponse{}
+	_body, _err := client.FileStorageCheckConnectionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) FileStorageCheckConnectionWithOptions(request *FileStorageCheckConnectionRequest, headers *FileStorageCheckConnectionHeaders, runtime *util.RuntimeOptions) (_result *FileStorageCheckConnectionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKeyId)) {
+		body["accessKeyId"] = request.AccessKeyId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccessKeySecret)) {
+		body["accessKeySecret"] = request.AccessKeySecret
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Oss)) {
+		body["oss"] = request.Oss
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		body["targetCorpId"] = request.TargetCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &FileStorageCheckConnectionResponse{}
+	_body, _err := client.DoROARequest(tea.String("FileStorageCheckConnection"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/fileStorages/connections/check"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) FileStorageGetQuotaData(request *FileStorageGetQuotaDataRequest) (_result *FileStorageGetQuotaDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &FileStorageGetQuotaDataHeaders{}
+	_result = &FileStorageGetQuotaDataResponse{}
+	_body, _err := client.FileStorageGetQuotaDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) FileStorageGetQuotaDataWithOptions(request *FileStorageGetQuotaDataRequest, headers *FileStorageGetQuotaDataHeaders, runtime *util.RuntimeOptions) (_result *FileStorageGetQuotaDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		query["targetCorpId"] = request.TargetCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		query["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &FileStorageGetQuotaDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("FileStorageGetQuotaData"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/fileStorages/quotaDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) FileStorageGetStorageState(request *FileStorageGetStorageStateRequest) (_result *FileStorageGetStorageStateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &FileStorageGetStorageStateHeaders{}
+	_result = &FileStorageGetStorageStateResponse{}
+	_body, _err := client.FileStorageGetStorageStateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) FileStorageGetStorageStateWithOptions(request *FileStorageGetStorageStateRequest, headers *FileStorageGetStorageStateHeaders, runtime *util.RuntimeOptions) (_result *FileStorageGetStorageStateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		query["targetCorpId"] = request.TargetCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &FileStorageGetStorageStateResponse{}
+	_body, _err := client.DoROARequest(tea.String("FileStorageGetStorageState"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/fileStorages/states"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) FileStorageUpdateStorage(request *FileStorageUpdateStorageRequest) (_result *FileStorageUpdateStorageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &FileStorageUpdateStorageHeaders{}
+	_result = &FileStorageUpdateStorageResponse{}
+	_body, _err := client.FileStorageUpdateStorageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) FileStorageUpdateStorageWithOptions(request *FileStorageUpdateStorageRequest, headers *FileStorageUpdateStorageHeaders, runtime *util.RuntimeOptions) (_result *FileStorageUpdateStorageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKeyId)) {
+		body["accessKeyId"] = request.AccessKeyId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccessKeySecret)) {
+		body["accessKeySecret"] = request.AccessKeySecret
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		body["targetCorpId"] = request.TargetCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &FileStorageUpdateStorageResponse{}
+	_body, _err := client.DoROARequest(tea.String("FileStorageUpdateStorage"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/exclusive/fileStorages/configurations"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5818,6 +7212,50 @@ func (client *Client) GetInActiveUserListWithOptions(request *GetInActiveUserLis
 	return _result, _err
 }
 
+func (client *Client) GetLastOrgAuthData(request *GetLastOrgAuthDataRequest) (_result *GetLastOrgAuthDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetLastOrgAuthDataHeaders{}
+	_result = &GetLastOrgAuthDataResponse{}
+	_body, _err := client.GetLastOrgAuthDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetLastOrgAuthDataWithOptions(request *GetLastOrgAuthDataRequest, headers *GetLastOrgAuthDataHeaders, runtime *util.RuntimeOptions) (_result *GetLastOrgAuthDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		query["targetCorpId"] = request.TargetCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetLastOrgAuthDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetLastOrgAuthData"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/organizations/authInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetOaOperatorLogList(request *GetOaOperatorLogListRequest) (_result *GetOaOperatorLogListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOaOperatorLogListHeaders{}
@@ -6171,6 +7609,50 @@ func (client *Client) ListAuditLogWithOptions(request *ListAuditLogRequest, head
 	return _result, _err
 }
 
+func (client *Client) ListJoinOrgInfo(request *ListJoinOrgInfoRequest) (_result *ListJoinOrgInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListJoinOrgInfoHeaders{}
+	_result = &ListJoinOrgInfoResponse{}
+	_body, _err := client.ListJoinOrgInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListJoinOrgInfoWithOptions(request *ListJoinOrgInfoRequest, headers *ListJoinOrgInfoHeaders, runtime *util.RuntimeOptions) (_result *ListJoinOrgInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Mobile)) {
+		query["mobile"] = request.Mobile
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListJoinOrgInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListJoinOrgInfo"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/exclusiveAccounts/organizations/infos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ListMiniAppAvailableVersion(request *ListMiniAppAvailableVersionRequest) (_result *ListMiniAppAvailableVersionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListMiniAppAvailableVersionHeaders{}
@@ -6479,6 +7961,110 @@ func (client *Client) RollbackMiniAppVersionWithOptions(request *RollbackMiniApp
 	}
 	_result = &RollbackMiniAppVersionResponse{}
 	_body, _err := client.DoROARequest(tea.String("RollbackMiniAppVersion"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/miniApps/versions/rollback"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SaveAndSubmitAuthInfo(request *SaveAndSubmitAuthInfoRequest) (_result *SaveAndSubmitAuthInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SaveAndSubmitAuthInfoHeaders{}
+	_result = &SaveAndSubmitAuthInfoResponse{}
+	_body, _err := client.SaveAndSubmitAuthInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SaveAndSubmitAuthInfoWithOptions(request *SaveAndSubmitAuthInfoRequest, headers *SaveAndSubmitAuthInfoHeaders, runtime *util.RuntimeOptions) (_result *SaveAndSubmitAuthInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ApplyRemark)) {
+		body["applyRemark"] = request.ApplyRemark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AuthorizeMediaId)) {
+		body["authorizeMediaId"] = request.AuthorizeMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Industry)) {
+		body["industry"] = request.Industry
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LegalPerson)) {
+		body["legalPerson"] = request.LegalPerson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LegalPersonIdCard)) {
+		body["legalPersonIdCard"] = request.LegalPersonIdCard
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LicenseMediaId)) {
+		body["licenseMediaId"] = request.LicenseMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LocCityName)) {
+		body["locCityName"] = request.LocCityName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LocProvinceName)) {
+		body["locProvinceName"] = request.LocProvinceName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MobileNum)) {
+		body["mobileNum"] = request.MobileNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrgName)) {
+		body["orgName"] = request.OrgName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrganizationCode)) {
+		body["organizationCode"] = request.OrganizationCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrganizationCodeMediaId)) {
+		body["organizationCodeMediaId"] = request.OrganizationCodeMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RegistLocation)) {
+		body["registLocation"] = request.RegistLocation
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RegistNum)) {
+		body["registNum"] = request.RegistNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		body["targetCorpId"] = request.TargetCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnifiedSocialCredit)) {
+		body["unifiedSocialCredit"] = request.UnifiedSocialCredit
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SaveAndSubmitAuthInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("SaveAndSubmitAuthInfo"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/ognizations/authInfos/saveAndSubmit"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

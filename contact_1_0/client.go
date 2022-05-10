@@ -460,6 +460,70 @@ func (s *DeleteContactHideSettingResponse) SetHeaders(v map[string]*string) *Del
 	return s
 }
 
+type DeleteContactRestrictSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteContactRestrictSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteContactRestrictSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteContactRestrictSettingHeaders) SetCommonHeaders(v map[string]*string) *DeleteContactRestrictSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteContactRestrictSettingHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteContactRestrictSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteContactRestrictSettingResponseBody struct {
+	// 是否成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteContactRestrictSettingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteContactRestrictSettingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteContactRestrictSettingResponseBody) SetResult(v bool) *DeleteContactRestrictSettingResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeleteContactRestrictSettingResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteContactRestrictSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteContactRestrictSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteContactRestrictSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteContactRestrictSettingResponse) SetHeaders(v map[string]*string) *DeleteContactRestrictSettingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteContactRestrictSettingResponse) SetBody(v *DeleteContactRestrictSettingResponseBody) *DeleteContactRestrictSettingResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteEmpAttributeVisibilityHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2655,6 +2719,197 @@ func (s *ListContactHideSettingsResponse) SetBody(v *ListContactHideSettingsResp
 	return s
 }
 
+type ListContactRestrictSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListContactRestrictSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListContactRestrictSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListContactRestrictSettingHeaders) SetCommonHeaders(v map[string]*string) *ListContactRestrictSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListContactRestrictSettingHeaders) SetXAcsDingtalkAccessToken(v string) *ListContactRestrictSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListContactRestrictSettingRequest struct {
+	// 最大返回结果数
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页token
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListContactRestrictSettingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListContactRestrictSettingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListContactRestrictSettingRequest) SetMaxResults(v int32) *ListContactRestrictSettingRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListContactRestrictSettingRequest) SetNextToken(v int64) *ListContactRestrictSettingRequest {
+	s.NextToken = &v
+	return s
+}
+
+type ListContactRestrictSettingResponseBody struct {
+	// 是否还有数据
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 设置列表
+	List []*ListContactRestrictSettingResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// 下一次拉取数据时的token
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListContactRestrictSettingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListContactRestrictSettingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListContactRestrictSettingResponseBody) SetHasMore(v bool) *ListContactRestrictSettingResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *ListContactRestrictSettingResponseBody) SetList(v []*ListContactRestrictSettingResponseBodyList) *ListContactRestrictSettingResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *ListContactRestrictSettingResponseBody) SetNextToken(v int64) *ListContactRestrictSettingResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type ListContactRestrictSettingResponseBodyList struct {
+	// 是否生效
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+	// 规则描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 白名单用户deptId列表
+	ExcludeDeptIds []*int64 `json:"excludeDeptIds,omitempty" xml:"excludeDeptIds,omitempty" type:"Repeated"`
+	// 白名单用户tagId列表
+	ExcludeTagIds []*int64 `json:"excludeTagIds,omitempty" xml:"excludeTagIds,omitempty" type:"Repeated"`
+	// 白名单用户userId列表
+	ExcludeUserIds []*string `json:"excludeUserIds,omitempty" xml:"excludeUserIds,omitempty" type:"Repeated"`
+	// 设置id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 规则名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 主体用户deptId列表
+	SubjectDeptIds []*int64 `json:"subjectDeptIds,omitempty" xml:"subjectDeptIds,omitempty" type:"Repeated"`
+	// 主体用户tagId列表
+	SubjectTagIds []*int64 `json:"subjectTagIds,omitempty" xml:"subjectTagIds,omitempty" type:"Repeated"`
+	// 主体用户userId列表
+	SubjectUserIds []*string `json:"subjectUserIds,omitempty" xml:"subjectUserIds,omitempty" type:"Repeated"`
+	// 限制类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s ListContactRestrictSettingResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListContactRestrictSettingResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *ListContactRestrictSettingResponseBodyList) SetActive(v bool) *ListContactRestrictSettingResponseBodyList {
+	s.Active = &v
+	return s
+}
+
+func (s *ListContactRestrictSettingResponseBodyList) SetDescription(v string) *ListContactRestrictSettingResponseBodyList {
+	s.Description = &v
+	return s
+}
+
+func (s *ListContactRestrictSettingResponseBodyList) SetExcludeDeptIds(v []*int64) *ListContactRestrictSettingResponseBodyList {
+	s.ExcludeDeptIds = v
+	return s
+}
+
+func (s *ListContactRestrictSettingResponseBodyList) SetExcludeTagIds(v []*int64) *ListContactRestrictSettingResponseBodyList {
+	s.ExcludeTagIds = v
+	return s
+}
+
+func (s *ListContactRestrictSettingResponseBodyList) SetExcludeUserIds(v []*string) *ListContactRestrictSettingResponseBodyList {
+	s.ExcludeUserIds = v
+	return s
+}
+
+func (s *ListContactRestrictSettingResponseBodyList) SetId(v int64) *ListContactRestrictSettingResponseBodyList {
+	s.Id = &v
+	return s
+}
+
+func (s *ListContactRestrictSettingResponseBodyList) SetName(v string) *ListContactRestrictSettingResponseBodyList {
+	s.Name = &v
+	return s
+}
+
+func (s *ListContactRestrictSettingResponseBodyList) SetSubjectDeptIds(v []*int64) *ListContactRestrictSettingResponseBodyList {
+	s.SubjectDeptIds = v
+	return s
+}
+
+func (s *ListContactRestrictSettingResponseBodyList) SetSubjectTagIds(v []*int64) *ListContactRestrictSettingResponseBodyList {
+	s.SubjectTagIds = v
+	return s
+}
+
+func (s *ListContactRestrictSettingResponseBodyList) SetSubjectUserIds(v []*string) *ListContactRestrictSettingResponseBodyList {
+	s.SubjectUserIds = v
+	return s
+}
+
+func (s *ListContactRestrictSettingResponseBodyList) SetType(v string) *ListContactRestrictSettingResponseBodyList {
+	s.Type = &v
+	return s
+}
+
+type ListContactRestrictSettingResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListContactRestrictSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListContactRestrictSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListContactRestrictSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListContactRestrictSettingResponse) SetHeaders(v map[string]*string) *ListContactRestrictSettingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListContactRestrictSettingResponse) SetBody(v *ListContactRestrictSettingResponseBody) *ListContactRestrictSettingResponse {
+	s.Body = v
+	return s
+}
+
 type ListEmpAttributeVisibilityHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4846,6 +5101,158 @@ func (s *UpdateContactHideSettingResponse) SetBody(v *UpdateContactHideSettingRe
 	return s
 }
 
+type UpdateContactRestrictSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateContactRestrictSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateContactRestrictSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateContactRestrictSettingHeaders) SetCommonHeaders(v map[string]*string) *UpdateContactRestrictSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateContactRestrictSettingHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateContactRestrictSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateContactRestrictSettingRequest struct {
+	// 是否生效
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+	// 规则描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 白名单deptId列表
+	ExcludeDeptIds []*int64 `json:"excludeDeptIds,omitempty" xml:"excludeDeptIds,omitempty" type:"Repeated"`
+	// 白名单tagId列表
+	ExcludeTagIds []*int64 `json:"excludeTagIds,omitempty" xml:"excludeTagIds,omitempty" type:"Repeated"`
+	// 白名单userid列表
+	ExcludeUserIds []*string `json:"excludeUserIds,omitempty" xml:"excludeUserIds,omitempty" type:"Repeated"`
+	// id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 规则名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 主体的部门id列表
+	SubjectDeptIds []*int64 `json:"subjectDeptIds,omitempty" xml:"subjectDeptIds,omitempty" type:"Repeated"`
+	// 主体的角色id列表
+	SubjectTagIds []*int64 `json:"subjectTagIds,omitempty" xml:"subjectTagIds,omitempty" type:"Repeated"`
+	// 主体的userId列表
+	SubjectUserIds []*string `json:"subjectUserIds,omitempty" xml:"subjectUserIds,omitempty" type:"Repeated"`
+	// 限制类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s UpdateContactRestrictSettingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateContactRestrictSettingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateContactRestrictSettingRequest) SetActive(v bool) *UpdateContactRestrictSettingRequest {
+	s.Active = &v
+	return s
+}
+
+func (s *UpdateContactRestrictSettingRequest) SetDescription(v string) *UpdateContactRestrictSettingRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *UpdateContactRestrictSettingRequest) SetExcludeDeptIds(v []*int64) *UpdateContactRestrictSettingRequest {
+	s.ExcludeDeptIds = v
+	return s
+}
+
+func (s *UpdateContactRestrictSettingRequest) SetExcludeTagIds(v []*int64) *UpdateContactRestrictSettingRequest {
+	s.ExcludeTagIds = v
+	return s
+}
+
+func (s *UpdateContactRestrictSettingRequest) SetExcludeUserIds(v []*string) *UpdateContactRestrictSettingRequest {
+	s.ExcludeUserIds = v
+	return s
+}
+
+func (s *UpdateContactRestrictSettingRequest) SetId(v int64) *UpdateContactRestrictSettingRequest {
+	s.Id = &v
+	return s
+}
+
+func (s *UpdateContactRestrictSettingRequest) SetName(v string) *UpdateContactRestrictSettingRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateContactRestrictSettingRequest) SetSubjectDeptIds(v []*int64) *UpdateContactRestrictSettingRequest {
+	s.SubjectDeptIds = v
+	return s
+}
+
+func (s *UpdateContactRestrictSettingRequest) SetSubjectTagIds(v []*int64) *UpdateContactRestrictSettingRequest {
+	s.SubjectTagIds = v
+	return s
+}
+
+func (s *UpdateContactRestrictSettingRequest) SetSubjectUserIds(v []*string) *UpdateContactRestrictSettingRequest {
+	s.SubjectUserIds = v
+	return s
+}
+
+func (s *UpdateContactRestrictSettingRequest) SetType(v string) *UpdateContactRestrictSettingRequest {
+	s.Type = &v
+	return s
+}
+
+type UpdateContactRestrictSettingResponseBody struct {
+	// settingId
+	Result *int64 `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateContactRestrictSettingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateContactRestrictSettingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateContactRestrictSettingResponseBody) SetResult(v int64) *UpdateContactRestrictSettingResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateContactRestrictSettingResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateContactRestrictSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateContactRestrictSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateContactRestrictSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateContactRestrictSettingResponse) SetHeaders(v map[string]*string) *UpdateContactRestrictSettingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateContactRestrictSettingResponse) SetBody(v *UpdateContactRestrictSettingResponseBody) *UpdateContactRestrictSettingResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateDeptSettngTailFirstHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5630,6 +6037,41 @@ func (client *Client) DeleteContactHideSettingWithOptions(settingId *string, hea
 	}
 	_result = &DeleteContactHideSettingResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteContactHideSetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/contact/contactHideSettings/"+tea.StringValue(settingId)), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteContactRestrictSetting(settingId *string) (_result *DeleteContactRestrictSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteContactRestrictSettingHeaders{}
+	_result = &DeleteContactRestrictSettingResponse{}
+	_body, _err := client.DeleteContactRestrictSettingWithOptions(settingId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteContactRestrictSettingWithOptions(settingId *string, headers *DeleteContactRestrictSettingHeaders, runtime *util.RuntimeOptions) (_result *DeleteContactRestrictSettingResponse, _err error) {
+	settingId = openapiutil.GetEncodeParam(settingId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &DeleteContactRestrictSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteContactRestrictSetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/contact/restrictions/settings/"+tea.StringValue(settingId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6432,6 +6874,54 @@ func (client *Client) ListContactHideSettingsWithOptions(request *ListContactHid
 	}
 	_result = &ListContactHideSettingsResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListContactHideSettings"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/contactHideSettings"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListContactRestrictSetting(request *ListContactRestrictSettingRequest) (_result *ListContactRestrictSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListContactRestrictSettingHeaders{}
+	_result = &ListContactRestrictSettingResponse{}
+	_body, _err := client.ListContactRestrictSettingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListContactRestrictSettingWithOptions(request *ListContactRestrictSettingRequest, headers *ListContactRestrictSettingHeaders, runtime *util.RuntimeOptions) (_result *ListContactRestrictSettingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListContactRestrictSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListContactRestrictSetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/restrictions/settings"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7444,6 +7934,90 @@ func (client *Client) UpdateContactHideSettingWithOptions(request *UpdateContact
 	}
 	_result = &UpdateContactHideSettingResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateContactHideSetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/contact/contactHideSettings"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateContactRestrictSetting(request *UpdateContactRestrictSettingRequest) (_result *UpdateContactRestrictSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateContactRestrictSettingHeaders{}
+	_result = &UpdateContactRestrictSettingResponse{}
+	_body, _err := client.UpdateContactRestrictSettingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateContactRestrictSettingWithOptions(request *UpdateContactRestrictSettingRequest, headers *UpdateContactRestrictSettingHeaders, runtime *util.RuntimeOptions) (_result *UpdateContactRestrictSettingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Active)) {
+		body["active"] = request.Active
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeDeptIds)) {
+		body["excludeDeptIds"] = request.ExcludeDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeTagIds)) {
+		body["excludeTagIds"] = request.ExcludeTagIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeUserIds)) {
+		body["excludeUserIds"] = request.ExcludeUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Id)) {
+		body["id"] = request.Id
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubjectDeptIds)) {
+		body["subjectDeptIds"] = request.SubjectDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubjectTagIds)) {
+		body["subjectTagIds"] = request.SubjectTagIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubjectUserIds)) {
+		body["subjectUserIds"] = request.SubjectUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateContactRestrictSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateContactRestrictSetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/contact/restrictions/settings"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -488,6 +488,8 @@ type BillSettementBtripTrainResponseBodyModuleDataList struct {
 	ArrStation *string `json:"arrStation,omitempty" xml:"arrStation,omitempty"`
 	// 到达时间
 	ArrTime *string `json:"arrTime,omitempty" xml:"arrTime,omitempty"`
+	// 入账时间
+	BillRecordTime *string `json:"billRecordTime,omitempty" xml:"billRecordTime,omitempty"`
 	// 预定时间
 	BookTime *string `json:"bookTime,omitempty" xml:"bookTime,omitempty"`
 	// 预定人use id
@@ -602,6 +604,11 @@ func (s *BillSettementBtripTrainResponseBodyModuleDataList) SetArrStation(v stri
 
 func (s *BillSettementBtripTrainResponseBodyModuleDataList) SetArrTime(v string) *BillSettementBtripTrainResponseBodyModuleDataList {
 	s.ArrTime = &v
+	return s
+}
+
+func (s *BillSettementBtripTrainResponseBodyModuleDataList) SetBillRecordTime(v string) *BillSettementBtripTrainResponseBodyModuleDataList {
+	s.BillRecordTime = &v
 	return s
 }
 
@@ -1008,6 +1015,8 @@ type BillSettementCarResponseBodyModuleDataList struct {
 	ArrLocation *string `json:"arrLocation,omitempty" xml:"arrLocation,omitempty"`
 	// 到达时间
 	ArrTime *string `json:"arrTime,omitempty" xml:"arrTime,omitempty"`
+	// 入账时间
+	BillRecordTime *string `json:"billRecordTime,omitempty" xml:"billRecordTime,omitempty"`
 	// 预定时间
 	BookTime *string `json:"bookTime,omitempty" xml:"bookTime,omitempty"`
 	// 预定人use id
@@ -1140,6 +1149,11 @@ func (s *BillSettementCarResponseBodyModuleDataList) SetArrLocation(v string) *B
 
 func (s *BillSettementCarResponseBodyModuleDataList) SetArrTime(v string) *BillSettementCarResponseBodyModuleDataList {
 	s.ArrTime = &v
+	return s
+}
+
+func (s *BillSettementCarResponseBodyModuleDataList) SetBillRecordTime(v string) *BillSettementCarResponseBodyModuleDataList {
+	s.BillRecordTime = &v
 	return s
 }
 
@@ -1595,6 +1609,8 @@ type BillSettementFlightResponseBodyModuleDataList struct {
 	ArrStation *string `json:"arrStation,omitempty" xml:"arrStation,omitempty"`
 	// 到达时间
 	ArrTime *string `json:"arrTime,omitempty" xml:"arrTime,omitempty"`
+	// 入账时间
+	BillRecordTime *string `json:"billRecordTime,omitempty" xml:"billRecordTime,omitempty"`
 	// 预定时间
 	BookTime *string `json:"bookTime,omitempty" xml:"bookTime,omitempty"`
 	// 预订人use id
@@ -1768,6 +1784,11 @@ func (s *BillSettementFlightResponseBodyModuleDataList) SetArrStation(v string) 
 
 func (s *BillSettementFlightResponseBodyModuleDataList) SetArrTime(v string) *BillSettementFlightResponseBodyModuleDataList {
 	s.ArrTime = &v
+	return s
+}
+
+func (s *BillSettementFlightResponseBodyModuleDataList) SetBillRecordTime(v string) *BillSettementFlightResponseBodyModuleDataList {
+	s.BillRecordTime = &v
 	return s
 }
 
@@ -2257,6 +2278,8 @@ type BillSettementHotelResponseBodyModuleDataList struct {
 	AlipayTradeNo *string `json:"alipayTradeNo,omitempty" xml:"alipayTradeNo,omitempty"`
 	// 审批单号
 	ApplyId *string `json:"applyId,omitempty" xml:"applyId,omitempty"`
+	// 入账时间
+	BillRecordTime *string `json:"billRecordTime,omitempty" xml:"billRecordTime,omitempty"`
 	// 预定时间
 	BookTime *string `json:"bookTime,omitempty" xml:"bookTime,omitempty"`
 	// 预定人use id
@@ -2370,6 +2393,11 @@ func (s *BillSettementHotelResponseBodyModuleDataList) SetAlipayTradeNo(v string
 
 func (s *BillSettementHotelResponseBodyModuleDataList) SetApplyId(v string) *BillSettementHotelResponseBodyModuleDataList {
 	s.ApplyId = &v
+	return s
+}
+
+func (s *BillSettementHotelResponseBodyModuleDataList) SetBillRecordTime(v string) *BillSettementHotelResponseBodyModuleDataList {
+	s.BillRecordTime = &v
 	return s
 }
 

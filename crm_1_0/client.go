@@ -10818,6 +10818,7 @@ type UpdateGroupSetRequest struct {
 	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
 	OwnerUserId    *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
 	TemplateId     *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Welcome        *string `json:"welcome,omitempty" xml:"welcome,omitempty"`
 }
 
 func (s UpdateGroupSetRequest) String() string {
@@ -10865,6 +10866,11 @@ func (s *UpdateGroupSetRequest) SetOwnerUserId(v string) *UpdateGroupSetRequest 
 
 func (s *UpdateGroupSetRequest) SetTemplateId(v string) *UpdateGroupSetRequest {
 	s.TemplateId = &v
+	return s
+}
+
+func (s *UpdateGroupSetRequest) SetWelcome(v string) *UpdateGroupSetRequest {
+	s.Welcome = &v
 	return s
 }
 
@@ -13471,6 +13477,10 @@ func (client *Client) UpdateGroupSetWithOptions(request *UpdateGroupSetRequest, 
 
 	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
 		body["templateId"] = request.TemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Welcome)) {
+		body["welcome"] = request.Welcome
 	}
 
 	realHeaders := make(map[string]*string)

@@ -1373,6 +1373,1004 @@ func (s *CustomizeContactUpdateResponse) SetBody(v *CustomizeContactUpdateRespon
 	return s
 }
 
+type DigitalStoreContactInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DigitalStoreContactInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreContactInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreContactInfoHeaders) SetCommonHeaders(v map[string]*string) *DigitalStoreContactInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DigitalStoreContactInfoHeaders) SetXAcsDingtalkAccessToken(v string) *DigitalStoreContactInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DigitalStoreContactInfoResponseBody struct {
+	// 门店通通讯录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 门店通通讯录名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 门店通通讯录根节点Id
+	RootDeptId *int64 `json:"rootDeptId,omitempty" xml:"rootDeptId,omitempty"`
+}
+
+func (s DigitalStoreContactInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreContactInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreContactInfoResponseBody) SetCode(v string) *DigitalStoreContactInfoResponseBody {
+	s.Code = &v
+	return s
+}
+
+func (s *DigitalStoreContactInfoResponseBody) SetName(v string) *DigitalStoreContactInfoResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *DigitalStoreContactInfoResponseBody) SetRootDeptId(v int64) *DigitalStoreContactInfoResponseBody {
+	s.RootDeptId = &v
+	return s
+}
+
+type DigitalStoreContactInfoResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DigitalStoreContactInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DigitalStoreContactInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreContactInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreContactInfoResponse) SetHeaders(v map[string]*string) *DigitalStoreContactInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DigitalStoreContactInfoResponse) SetBody(v *DigitalStoreContactInfoResponseBody) *DigitalStoreContactInfoResponse {
+	s.Body = v
+	return s
+}
+
+type DigitalStoreGroupInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DigitalStoreGroupInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreGroupInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreGroupInfoHeaders) SetCommonHeaders(v map[string]*string) *DigitalStoreGroupInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DigitalStoreGroupInfoHeaders) SetXAcsDingtalkAccessToken(v string) *DigitalStoreGroupInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DigitalStoreGroupInfoRequest struct {
+	// 门店分组Id
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+}
+
+func (s DigitalStoreGroupInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreGroupInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreGroupInfoRequest) SetGroupId(v int64) *DigitalStoreGroupInfoRequest {
+	s.GroupId = &v
+	return s
+}
+
+type DigitalStoreGroupInfoResponseBody struct {
+	// 分组Id
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// 分组名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 分组中门店Id列表
+	StoreIdList []*int64 `json:"storeIdList,omitempty" xml:"storeIdList,omitempty" type:"Repeated"`
+}
+
+func (s DigitalStoreGroupInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreGroupInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreGroupInfoResponseBody) SetGroupId(v int64) *DigitalStoreGroupInfoResponseBody {
+	s.GroupId = &v
+	return s
+}
+
+func (s *DigitalStoreGroupInfoResponseBody) SetGroupName(v string) *DigitalStoreGroupInfoResponseBody {
+	s.GroupName = &v
+	return s
+}
+
+func (s *DigitalStoreGroupInfoResponseBody) SetStoreIdList(v []*int64) *DigitalStoreGroupInfoResponseBody {
+	s.StoreIdList = v
+	return s
+}
+
+type DigitalStoreGroupInfoResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DigitalStoreGroupInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DigitalStoreGroupInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreGroupInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreGroupInfoResponse) SetHeaders(v map[string]*string) *DigitalStoreGroupInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DigitalStoreGroupInfoResponse) SetBody(v *DigitalStoreGroupInfoResponseBody) *DigitalStoreGroupInfoResponse {
+	s.Body = v
+	return s
+}
+
+type DigitalStoreGroupsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DigitalStoreGroupsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreGroupsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreGroupsHeaders) SetCommonHeaders(v map[string]*string) *DigitalStoreGroupsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DigitalStoreGroupsHeaders) SetXAcsDingtalkAccessToken(v string) *DigitalStoreGroupsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DigitalStoreGroupsResponseBody struct {
+	Content []*DigitalStoreGroupsResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+}
+
+func (s DigitalStoreGroupsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreGroupsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreGroupsResponseBody) SetContent(v []*DigitalStoreGroupsResponseBodyContent) *DigitalStoreGroupsResponseBody {
+	s.Content = v
+	return s
+}
+
+type DigitalStoreGroupsResponseBodyContent struct {
+	// 分组Id
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// 分组名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+}
+
+func (s DigitalStoreGroupsResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreGroupsResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreGroupsResponseBodyContent) SetGroupId(v int64) *DigitalStoreGroupsResponseBodyContent {
+	s.GroupId = &v
+	return s
+}
+
+func (s *DigitalStoreGroupsResponseBodyContent) SetGroupName(v string) *DigitalStoreGroupsResponseBodyContent {
+	s.GroupName = &v
+	return s
+}
+
+type DigitalStoreGroupsResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DigitalStoreGroupsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DigitalStoreGroupsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreGroupsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreGroupsResponse) SetHeaders(v map[string]*string) *DigitalStoreGroupsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DigitalStoreGroupsResponse) SetBody(v *DigitalStoreGroupsResponseBody) *DigitalStoreGroupsResponse {
+	s.Body = v
+	return s
+}
+
+type DigitalStoreNodeInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DigitalStoreNodeInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreNodeInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreNodeInfoHeaders) SetCommonHeaders(v map[string]*string) *DigitalStoreNodeInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DigitalStoreNodeInfoHeaders) SetXAcsDingtalkAccessToken(v string) *DigitalStoreNodeInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DigitalStoreNodeInfoRequest struct {
+	// 门店通通讯录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 节点Id
+	NodeId *int64 `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+}
+
+func (s DigitalStoreNodeInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreNodeInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreNodeInfoRequest) SetCode(v string) *DigitalStoreNodeInfoRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *DigitalStoreNodeInfoRequest) SetNodeId(v int64) *DigitalStoreNodeInfoRequest {
+	s.NodeId = &v
+	return s
+}
+
+type DigitalStoreNodeInfoResponseBody struct {
+	// 节点Id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 门店名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 上级节点id
+	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// 节点类型
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s DigitalStoreNodeInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreNodeInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreNodeInfoResponseBody) SetId(v int64) *DigitalStoreNodeInfoResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *DigitalStoreNodeInfoResponseBody) SetName(v string) *DigitalStoreNodeInfoResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *DigitalStoreNodeInfoResponseBody) SetParentId(v int64) *DigitalStoreNodeInfoResponseBody {
+	s.ParentId = &v
+	return s
+}
+
+func (s *DigitalStoreNodeInfoResponseBody) SetType(v int64) *DigitalStoreNodeInfoResponseBody {
+	s.Type = &v
+	return s
+}
+
+type DigitalStoreNodeInfoResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DigitalStoreNodeInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DigitalStoreNodeInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreNodeInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreNodeInfoResponse) SetHeaders(v map[string]*string) *DigitalStoreNodeInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DigitalStoreNodeInfoResponse) SetBody(v *DigitalStoreNodeInfoResponseBody) *DigitalStoreNodeInfoResponse {
+	s.Body = v
+	return s
+}
+
+type DigitalStoreRolesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DigitalStoreRolesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreRolesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreRolesHeaders) SetCommonHeaders(v map[string]*string) *DigitalStoreRolesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DigitalStoreRolesHeaders) SetXAcsDingtalkAccessToken(v string) *DigitalStoreRolesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DigitalStoreRolesResponseBody struct {
+	Content []*DigitalStoreRolesResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+}
+
+func (s DigitalStoreRolesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreRolesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreRolesResponseBody) SetContent(v []*DigitalStoreRolesResponseBodyContent) *DigitalStoreRolesResponseBody {
+	s.Content = v
+	return s
+}
+
+type DigitalStoreRolesResponseBodyContent struct {
+	// 优先级
+	Level *int64 `json:"level,omitempty" xml:"level,omitempty"`
+	// 角色Code
+	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	// 角色Id
+	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// 角色名称
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+}
+
+func (s DigitalStoreRolesResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreRolesResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreRolesResponseBodyContent) SetLevel(v int64) *DigitalStoreRolesResponseBodyContent {
+	s.Level = &v
+	return s
+}
+
+func (s *DigitalStoreRolesResponseBodyContent) SetRoleCode(v string) *DigitalStoreRolesResponseBodyContent {
+	s.RoleCode = &v
+	return s
+}
+
+func (s *DigitalStoreRolesResponseBodyContent) SetRoleId(v int64) *DigitalStoreRolesResponseBodyContent {
+	s.RoleId = &v
+	return s
+}
+
+func (s *DigitalStoreRolesResponseBodyContent) SetRoleName(v string) *DigitalStoreRolesResponseBodyContent {
+	s.RoleName = &v
+	return s
+}
+
+type DigitalStoreRolesResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DigitalStoreRolesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DigitalStoreRolesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreRolesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreRolesResponse) SetHeaders(v map[string]*string) *DigitalStoreRolesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DigitalStoreRolesResponse) SetBody(v *DigitalStoreRolesResponseBody) *DigitalStoreRolesResponse {
+	s.Body = v
+	return s
+}
+
+type DigitalStoreStoreInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DigitalStoreStoreInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreStoreInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreStoreInfoHeaders) SetCommonHeaders(v map[string]*string) *DigitalStoreStoreInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DigitalStoreStoreInfoHeaders) SetXAcsDingtalkAccessToken(v string) *DigitalStoreStoreInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DigitalStoreStoreInfoRequest struct {
+	// 门店通通讯录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 门店Id
+	StoreId *int64 `json:"storeId,omitempty" xml:"storeId,omitempty"`
+}
+
+func (s DigitalStoreStoreInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreStoreInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreStoreInfoRequest) SetCode(v string) *DigitalStoreStoreInfoRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *DigitalStoreStoreInfoRequest) SetStoreId(v int64) *DigitalStoreStoreInfoRequest {
+	s.StoreId = &v
+	return s
+}
+
+type DigitalStoreStoreInfoResponseBody struct {
+	// 门店地址
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// 营业时间
+	BusinessHours *string `json:"businessHours,omitempty" xml:"businessHours,omitempty"`
+	// 纬度
+	Latitude *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	// 定位地址
+	LocationAddress *string `json:"locationAddress,omitempty" xml:"locationAddress,omitempty"`
+	// 经度
+	Longitude *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
+	// 门店名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 上级节点id
+	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// 门店状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 门店面积
+	StoreAcreage *string `json:"storeAcreage,omitempty" xml:"storeAcreage,omitempty"`
+	// 门店带宽
+	StoreBandwidth *string `json:"storeBandwidth,omitempty" xml:"storeBandwidth,omitempty"`
+	// 门店编号
+	StoreCode *string `json:"storeCode,omitempty" xml:"storeCode,omitempty"`
+	// 门店Id
+	StoreId *int64 `json:"storeId,omitempty" xml:"storeId,omitempty"`
+	// 门店电话
+	Telephone *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
+}
+
+func (s DigitalStoreStoreInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreStoreInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreStoreInfoResponseBody) SetAddress(v string) *DigitalStoreStoreInfoResponseBody {
+	s.Address = &v
+	return s
+}
+
+func (s *DigitalStoreStoreInfoResponseBody) SetBusinessHours(v string) *DigitalStoreStoreInfoResponseBody {
+	s.BusinessHours = &v
+	return s
+}
+
+func (s *DigitalStoreStoreInfoResponseBody) SetLatitude(v string) *DigitalStoreStoreInfoResponseBody {
+	s.Latitude = &v
+	return s
+}
+
+func (s *DigitalStoreStoreInfoResponseBody) SetLocationAddress(v string) *DigitalStoreStoreInfoResponseBody {
+	s.LocationAddress = &v
+	return s
+}
+
+func (s *DigitalStoreStoreInfoResponseBody) SetLongitude(v string) *DigitalStoreStoreInfoResponseBody {
+	s.Longitude = &v
+	return s
+}
+
+func (s *DigitalStoreStoreInfoResponseBody) SetName(v string) *DigitalStoreStoreInfoResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *DigitalStoreStoreInfoResponseBody) SetParentId(v int64) *DigitalStoreStoreInfoResponseBody {
+	s.ParentId = &v
+	return s
+}
+
+func (s *DigitalStoreStoreInfoResponseBody) SetStatus(v string) *DigitalStoreStoreInfoResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *DigitalStoreStoreInfoResponseBody) SetStoreAcreage(v string) *DigitalStoreStoreInfoResponseBody {
+	s.StoreAcreage = &v
+	return s
+}
+
+func (s *DigitalStoreStoreInfoResponseBody) SetStoreBandwidth(v string) *DigitalStoreStoreInfoResponseBody {
+	s.StoreBandwidth = &v
+	return s
+}
+
+func (s *DigitalStoreStoreInfoResponseBody) SetStoreCode(v string) *DigitalStoreStoreInfoResponseBody {
+	s.StoreCode = &v
+	return s
+}
+
+func (s *DigitalStoreStoreInfoResponseBody) SetStoreId(v int64) *DigitalStoreStoreInfoResponseBody {
+	s.StoreId = &v
+	return s
+}
+
+func (s *DigitalStoreStoreInfoResponseBody) SetTelephone(v string) *DigitalStoreStoreInfoResponseBody {
+	s.Telephone = &v
+	return s
+}
+
+type DigitalStoreStoreInfoResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DigitalStoreStoreInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DigitalStoreStoreInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreStoreInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreStoreInfoResponse) SetHeaders(v map[string]*string) *DigitalStoreStoreInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DigitalStoreStoreInfoResponse) SetBody(v *DigitalStoreStoreInfoResponseBody) *DigitalStoreStoreInfoResponse {
+	s.Body = v
+	return s
+}
+
+type DigitalStoreSubNodesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DigitalStoreSubNodesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreSubNodesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreSubNodesHeaders) SetCommonHeaders(v map[string]*string) *DigitalStoreSubNodesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DigitalStoreSubNodesHeaders) SetXAcsDingtalkAccessToken(v string) *DigitalStoreSubNodesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DigitalStoreSubNodesRequest struct {
+	// 门店通通讯录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 节点Id
+	NodeId *int64 `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+}
+
+func (s DigitalStoreSubNodesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreSubNodesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreSubNodesRequest) SetCode(v string) *DigitalStoreSubNodesRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *DigitalStoreSubNodesRequest) SetNodeId(v int64) *DigitalStoreSubNodesRequest {
+	s.NodeId = &v
+	return s
+}
+
+type DigitalStoreSubNodesResponseBody struct {
+	Content []*DigitalStoreSubNodesResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+}
+
+func (s DigitalStoreSubNodesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreSubNodesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreSubNodesResponseBody) SetContent(v []*DigitalStoreSubNodesResponseBodyContent) *DigitalStoreSubNodesResponseBody {
+	s.Content = v
+	return s
+}
+
+type DigitalStoreSubNodesResponseBodyContent struct {
+	// 节点Id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 门店名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 上级节点id
+	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// 节点类型
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s DigitalStoreSubNodesResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreSubNodesResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreSubNodesResponseBodyContent) SetId(v int64) *DigitalStoreSubNodesResponseBodyContent {
+	s.Id = &v
+	return s
+}
+
+func (s *DigitalStoreSubNodesResponseBodyContent) SetName(v string) *DigitalStoreSubNodesResponseBodyContent {
+	s.Name = &v
+	return s
+}
+
+func (s *DigitalStoreSubNodesResponseBodyContent) SetParentId(v int64) *DigitalStoreSubNodesResponseBodyContent {
+	s.ParentId = &v
+	return s
+}
+
+func (s *DigitalStoreSubNodesResponseBodyContent) SetType(v int64) *DigitalStoreSubNodesResponseBodyContent {
+	s.Type = &v
+	return s
+}
+
+type DigitalStoreSubNodesResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DigitalStoreSubNodesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DigitalStoreSubNodesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreSubNodesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreSubNodesResponse) SetHeaders(v map[string]*string) *DigitalStoreSubNodesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DigitalStoreSubNodesResponse) SetBody(v *DigitalStoreSubNodesResponseBody) *DigitalStoreSubNodesResponse {
+	s.Body = v
+	return s
+}
+
+type DigitalStoreUserInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DigitalStoreUserInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreUserInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreUserInfoHeaders) SetCommonHeaders(v map[string]*string) *DigitalStoreUserInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DigitalStoreUserInfoHeaders) SetXAcsDingtalkAccessToken(v string) *DigitalStoreUserInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DigitalStoreUserInfoRequest struct {
+	// 门店通迅录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 人员Id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DigitalStoreUserInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreUserInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreUserInfoRequest) SetCode(v string) *DigitalStoreUserInfoRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *DigitalStoreUserInfoRequest) SetUserId(v string) *DigitalStoreUserInfoRequest {
+	s.UserId = &v
+	return s
+}
+
+type DigitalStoreUserInfoResponseBody struct {
+	// 人员名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 管理范围
+	ScopeList []*int64 `json:"scopeList,omitempty" xml:"scopeList,omitempty" type:"Repeated"`
+	// 所在节点列表
+	StoreList []*int64 `json:"storeList,omitempty" xml:"storeList,omitempty" type:"Repeated"`
+	// 人员Id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DigitalStoreUserInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreUserInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreUserInfoResponseBody) SetName(v string) *DigitalStoreUserInfoResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *DigitalStoreUserInfoResponseBody) SetScopeList(v []*int64) *DigitalStoreUserInfoResponseBody {
+	s.ScopeList = v
+	return s
+}
+
+func (s *DigitalStoreUserInfoResponseBody) SetStoreList(v []*int64) *DigitalStoreUserInfoResponseBody {
+	s.StoreList = v
+	return s
+}
+
+func (s *DigitalStoreUserInfoResponseBody) SetUserId(v string) *DigitalStoreUserInfoResponseBody {
+	s.UserId = &v
+	return s
+}
+
+type DigitalStoreUserInfoResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DigitalStoreUserInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DigitalStoreUserInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreUserInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreUserInfoResponse) SetHeaders(v map[string]*string) *DigitalStoreUserInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DigitalStoreUserInfoResponse) SetBody(v *DigitalStoreUserInfoResponseBody) *DigitalStoreUserInfoResponse {
+	s.Body = v
+	return s
+}
+
+type DigitalStoreUsersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DigitalStoreUsersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreUsersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreUsersHeaders) SetCommonHeaders(v map[string]*string) *DigitalStoreUsersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DigitalStoreUsersHeaders) SetXAcsDingtalkAccessToken(v string) *DigitalStoreUsersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DigitalStoreUsersRequest struct {
+	// 门店通通讯录Cod
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 节点Id
+	NodeId *int64 `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+}
+
+func (s DigitalStoreUsersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreUsersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreUsersRequest) SetCode(v string) *DigitalStoreUsersRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *DigitalStoreUsersRequest) SetNodeId(v int64) *DigitalStoreUsersRequest {
+	s.NodeId = &v
+	return s
+}
+
+type DigitalStoreUsersResponseBody struct {
+	// 人员列表
+	Content []*DigitalStoreUsersResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+}
+
+func (s DigitalStoreUsersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreUsersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreUsersResponseBody) SetContent(v []*DigitalStoreUsersResponseBodyContent) *DigitalStoreUsersResponseBody {
+	s.Content = v
+	return s
+}
+
+type DigitalStoreUsersResponseBodyContent struct {
+	// 人员姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 人员Id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DigitalStoreUsersResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreUsersResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreUsersResponseBodyContent) SetName(v string) *DigitalStoreUsersResponseBodyContent {
+	s.Name = &v
+	return s
+}
+
+func (s *DigitalStoreUsersResponseBodyContent) SetUserId(v string) *DigitalStoreUsersResponseBodyContent {
+	s.UserId = &v
+	return s
+}
+
+type DigitalStoreUsersResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DigitalStoreUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DigitalStoreUsersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreUsersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreUsersResponse) SetHeaders(v map[string]*string) *DigitalStoreUsersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DigitalStoreUsersResponse) SetBody(v *DigitalStoreUsersResponseBody) *DigitalStoreUsersResponse {
+	s.Body = v
+	return s
+}
+
 type IndustryManufactureCostRecordListGetHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7438,6 +8436,392 @@ func (client *Client) CustomizeContactUpdateWithOptions(request *CustomizeContac
 	}
 	_result = &CustomizeContactUpdateResponse{}
 	_body, _err := client.DoROARequest(tea.String("CustomizeContactUpdate"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/industry/customizations/contacts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreContactInfo() (_result *DigitalStoreContactInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DigitalStoreContactInfoHeaders{}
+	_result = &DigitalStoreContactInfoResponse{}
+	_body, _err := client.DigitalStoreContactInfoWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreContactInfoWithOptions(headers *DigitalStoreContactInfoHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreContactInfoResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &DigitalStoreContactInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("DigitalStoreContactInfo"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/digitalStores/contactInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreGroupInfo(request *DigitalStoreGroupInfoRequest) (_result *DigitalStoreGroupInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DigitalStoreGroupInfoHeaders{}
+	_result = &DigitalStoreGroupInfoResponse{}
+	_body, _err := client.DigitalStoreGroupInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreGroupInfoWithOptions(request *DigitalStoreGroupInfoRequest, headers *DigitalStoreGroupInfoHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreGroupInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupId)) {
+		query["groupId"] = request.GroupId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DigitalStoreGroupInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("DigitalStoreGroupInfo"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/digitalStores/groupInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreGroups() (_result *DigitalStoreGroupsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DigitalStoreGroupsHeaders{}
+	_result = &DigitalStoreGroupsResponse{}
+	_body, _err := client.DigitalStoreGroupsWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreGroupsWithOptions(headers *DigitalStoreGroupsHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreGroupsResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &DigitalStoreGroupsResponse{}
+	_body, _err := client.DoROARequest(tea.String("DigitalStoreGroups"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/digitalStores/groups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreNodeInfo(request *DigitalStoreNodeInfoRequest) (_result *DigitalStoreNodeInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DigitalStoreNodeInfoHeaders{}
+	_result = &DigitalStoreNodeInfoResponse{}
+	_body, _err := client.DigitalStoreNodeInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreNodeInfoWithOptions(request *DigitalStoreNodeInfoRequest, headers *DigitalStoreNodeInfoHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreNodeInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		query["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NodeId)) {
+		query["nodeId"] = request.NodeId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DigitalStoreNodeInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("DigitalStoreNodeInfo"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/digitalStores/nodeInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreRoles() (_result *DigitalStoreRolesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DigitalStoreRolesHeaders{}
+	_result = &DigitalStoreRolesResponse{}
+	_body, _err := client.DigitalStoreRolesWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreRolesWithOptions(headers *DigitalStoreRolesHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreRolesResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &DigitalStoreRolesResponse{}
+	_body, _err := client.DoROARequest(tea.String("DigitalStoreRoles"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/digitalStores/roles"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreStoreInfo(request *DigitalStoreStoreInfoRequest) (_result *DigitalStoreStoreInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DigitalStoreStoreInfoHeaders{}
+	_result = &DigitalStoreStoreInfoResponse{}
+	_body, _err := client.DigitalStoreStoreInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreStoreInfoWithOptions(request *DigitalStoreStoreInfoRequest, headers *DigitalStoreStoreInfoHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreStoreInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		query["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StoreId)) {
+		query["storeId"] = request.StoreId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DigitalStoreStoreInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("DigitalStoreStoreInfo"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/digitalStores/storeInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreSubNodes(request *DigitalStoreSubNodesRequest) (_result *DigitalStoreSubNodesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DigitalStoreSubNodesHeaders{}
+	_result = &DigitalStoreSubNodesResponse{}
+	_body, _err := client.DigitalStoreSubNodesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreSubNodesWithOptions(request *DigitalStoreSubNodesRequest, headers *DigitalStoreSubNodesHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreSubNodesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		query["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NodeId)) {
+		query["nodeId"] = request.NodeId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DigitalStoreSubNodesResponse{}
+	_body, _err := client.DoROARequest(tea.String("DigitalStoreSubNodes"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/digitalStores/subsidiaryNodes"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreUserInfo(request *DigitalStoreUserInfoRequest) (_result *DigitalStoreUserInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DigitalStoreUserInfoHeaders{}
+	_result = &DigitalStoreUserInfoResponse{}
+	_body, _err := client.DigitalStoreUserInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreUserInfoWithOptions(request *DigitalStoreUserInfoRequest, headers *DigitalStoreUserInfoHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreUserInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		query["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DigitalStoreUserInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("DigitalStoreUserInfo"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/digitalStores/userInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreUsers(request *DigitalStoreUsersRequest) (_result *DigitalStoreUsersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DigitalStoreUsersHeaders{}
+	_result = &DigitalStoreUsersResponse{}
+	_body, _err := client.DigitalStoreUsersWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreUsersWithOptions(request *DigitalStoreUsersRequest, headers *DigitalStoreUsersHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreUsersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		query["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NodeId)) {
+		query["nodeId"] = request.NodeId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DigitalStoreUsersResponse{}
+	_body, _err := client.DoROARequest(tea.String("DigitalStoreUsers"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/digitalStores/nodes/users"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

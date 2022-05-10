@@ -2857,6 +2857,141 @@ func (s *ListTemplateResponse) SetBody(v *ListTemplateResponseBody) *ListTemplat
 	return s
 }
 
+type RangeFindNextHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RangeFindNextHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RangeFindNextHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RangeFindNextHeaders) SetCommonHeaders(v map[string]*string) *RangeFindNextHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RangeFindNextHeaders) SetXAcsDingtalkAccessToken(v string) *RangeFindNextHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RangeFindNextRequest struct {
+	// 查找选项
+	FindOptions *RangeFindNextRequestFindOptions `json:"findOptions,omitempty" xml:"findOptions,omitempty" type:"Struct"`
+	// 要查找的文本
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+	// 操作人unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s RangeFindNextRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RangeFindNextRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RangeFindNextRequest) SetFindOptions(v *RangeFindNextRequestFindOptions) *RangeFindNextRequest {
+	s.FindOptions = v
+	return s
+}
+
+func (s *RangeFindNextRequest) SetText(v string) *RangeFindNextRequest {
+	s.Text = &v
+	return s
+}
+
+func (s *RangeFindNextRequest) SetOperatorId(v string) *RangeFindNextRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type RangeFindNextRequestFindOptions struct {
+	// 匹配大小写
+	MatchCase *bool `json:"matchCase,omitempty" xml:"matchCase,omitempty"`
+	// 匹配整个单元格
+	MatchEntireCell *bool `json:"matchEntireCell,omitempty" xml:"matchEntireCell,omitempty"`
+	// 在公式内搜索
+	MatchFormulaText *bool `json:"matchFormulaText,omitempty" xml:"matchFormulaText,omitempty"`
+	// text是正则表达式
+	UseRegExp *bool `json:"useRegExp,omitempty" xml:"useRegExp,omitempty"`
+}
+
+func (s RangeFindNextRequestFindOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RangeFindNextRequestFindOptions) GoString() string {
+	return s.String()
+}
+
+func (s *RangeFindNextRequestFindOptions) SetMatchCase(v bool) *RangeFindNextRequestFindOptions {
+	s.MatchCase = &v
+	return s
+}
+
+func (s *RangeFindNextRequestFindOptions) SetMatchEntireCell(v bool) *RangeFindNextRequestFindOptions {
+	s.MatchEntireCell = &v
+	return s
+}
+
+func (s *RangeFindNextRequestFindOptions) SetMatchFormulaText(v bool) *RangeFindNextRequestFindOptions {
+	s.MatchFormulaText = &v
+	return s
+}
+
+func (s *RangeFindNextRequestFindOptions) SetUseRegExp(v bool) *RangeFindNextRequestFindOptions {
+	s.UseRegExp = &v
+	return s
+}
+
+type RangeFindNextResponseBody struct {
+	// 找到的单元格的地址，使用A1表示法
+	A1Notation *string `json:"a1Notation,omitempty" xml:"a1Notation,omitempty"`
+}
+
+func (s RangeFindNextResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RangeFindNextResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RangeFindNextResponseBody) SetA1Notation(v string) *RangeFindNextResponseBody {
+	s.A1Notation = &v
+	return s
+}
+
+type RangeFindNextResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RangeFindNextResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RangeFindNextResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RangeFindNextResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RangeFindNextResponse) SetHeaders(v map[string]*string) *RangeFindNextResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RangeFindNextResponse) SetBody(v *RangeFindNextResponseBody) *RangeFindNextResponse {
+	s.Body = v
+	return s
+}
+
 type SearchWorkspaceDocsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4483,6 +4618,63 @@ func (client *Client) ListTemplateWithOptions(request *ListTemplateRequest, head
 	}
 	_result = &ListTemplateResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListTemplate"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/templates"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RangeFindNext(workbookId *string, sheetId *string, rangeAddress *string, request *RangeFindNextRequest) (_result *RangeFindNextResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RangeFindNextHeaders{}
+	_result = &RangeFindNextResponse{}
+	_body, _err := client.RangeFindNextWithOptions(workbookId, sheetId, rangeAddress, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RangeFindNextWithOptions(workbookId *string, sheetId *string, rangeAddress *string, request *RangeFindNextRequest, headers *RangeFindNextHeaders, runtime *util.RuntimeOptions) (_result *RangeFindNextResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
+	sheetId = openapiutil.GetEncodeParam(sheetId)
+	rangeAddress = openapiutil.GetEncodeParam(rangeAddress)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.FindOptions))) {
+		body["findOptions"] = request.FindOptions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Text)) {
+		body["text"] = request.Text
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RangeFindNextResponse{}
+	_body, _err := client.DoROARequest(tea.String("RangeFindNext"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/ranges/"+tea.StringValue(rangeAddress)+"/findNext"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

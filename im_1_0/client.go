@@ -2599,6 +2599,8 @@ type TopboxOpenRequest struct {
 	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
 	// 期望吊顶的端（多个'|'隔开，如："ios|win|"）
 	Platforms *string `json:"platforms,omitempty" xml:"platforms,omitempty"`
+	// 接收人的员工号列表
+	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
 }
 
 func (s TopboxOpenRequest) String() string {
@@ -2631,6 +2633,11 @@ func (s *TopboxOpenRequest) SetOutTrackId(v string) *TopboxOpenRequest {
 
 func (s *TopboxOpenRequest) SetPlatforms(v string) *TopboxOpenRequest {
 	s.Platforms = &v
+	return s
+}
+
+func (s *TopboxOpenRequest) SetReceiverUserIdList(v []*string) *TopboxOpenRequest {
+	s.ReceiverUserIdList = v
 	return s
 }
 
@@ -4885,6 +4892,10 @@ func (client *Client) TopboxOpenWithOptions(request *TopboxOpenRequest, headers 
 
 	if !tea.BoolValue(util.IsUnset(request.Platforms)) {
 		body["platforms"] = request.Platforms
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverUserIdList)) {
+		body["receiverUserIdList"] = request.ReceiverUserIdList
 	}
 
 	realHeaders := make(map[string]*string)
