@@ -1125,6 +1125,391 @@ func (s *GetSceneGroupMembersResponse) SetBody(v *GetSceneGroupMembersResponseBo
 	return s
 }
 
+type GroupCapacityInquiryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GroupCapacityInquiryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupCapacityInquiryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GroupCapacityInquiryHeaders) SetCommonHeaders(v map[string]*string) *GroupCapacityInquiryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GroupCapacityInquiryHeaders) SetXAcsDingtalkAccessToken(v string) *GroupCapacityInquiryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GroupCapacityInquiryRequest struct {
+	// 有效生命周期
+	EffectiveDuration *string `json:"effectiveDuration,omitempty" xml:"effectiveDuration,omitempty"`
+	// 开放的群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 当前操作人工号
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	// 扩展参数
+	Options map[string]interface{} `json:"options,omitempty" xml:"options,omitempty"`
+	// 目标容量
+	TargetCapacity *int32 `json:"targetCapacity,omitempty" xml:"targetCapacity,omitempty"`
+}
+
+func (s GroupCapacityInquiryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupCapacityInquiryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GroupCapacityInquiryRequest) SetEffectiveDuration(v string) *GroupCapacityInquiryRequest {
+	s.EffectiveDuration = &v
+	return s
+}
+
+func (s *GroupCapacityInquiryRequest) SetOpenConversationId(v string) *GroupCapacityInquiryRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GroupCapacityInquiryRequest) SetOperator(v string) *GroupCapacityInquiryRequest {
+	s.Operator = &v
+	return s
+}
+
+func (s *GroupCapacityInquiryRequest) SetOptions(v map[string]interface{}) *GroupCapacityInquiryRequest {
+	s.Options = v
+	return s
+}
+
+func (s *GroupCapacityInquiryRequest) SetTargetCapacity(v int32) *GroupCapacityInquiryRequest {
+	s.TargetCapacity = &v
+	return s
+}
+
+type GroupCapacityInquiryResponseBody struct {
+	// 实际价格
+	ActualPrice *int64 `json:"actualPrice,omitempty" xml:"actualPrice,omitempty"`
+	// 群创建时间
+	CreatedAt *int64 `json:"createdAt,omitempty" xml:"createdAt,omitempty"`
+	// 当前容量
+	CurrentCapacity *int32 `json:"currentCapacity,omitempty" xml:"currentCapacity,omitempty"`
+	// 当前容量生效至何时
+	CurrentEffectUntil *int64 `json:"currentEffectUntil,omitempty" xml:"currentEffectUntil,omitempty"`
+	// 折扣
+	Discount *int32 `json:"discount,omitempty" xml:"discount,omitempty"`
+	// 扩展信息
+	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// 群主userId
+	GroupOwner *string `json:"groupOwner,omitempty" xml:"groupOwner,omitempty"`
+	// 群标题
+	GroupTitle *string `json:"groupTitle,omitempty" xml:"groupTitle,omitempty"`
+	// 标价
+	MarkedPrice *int64 `json:"markedPrice,omitempty" xml:"markedPrice,omitempty"`
+	// 群人数
+	MemberCount *int32 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	// 开放的群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 当前操作人工号
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	// 目标容量
+	TargetCapacity *int32 `json:"targetCapacity,omitempty" xml:"targetCapacity,omitempty"`
+	// 目标容量生效至何时
+	TargetEffectUntil *int64 `json:"targetEffectUntil,omitempty" xml:"targetEffectUntil,omitempty"`
+	// 校验令牌
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+}
+
+func (s GroupCapacityInquiryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupCapacityInquiryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GroupCapacityInquiryResponseBody) SetActualPrice(v int64) *GroupCapacityInquiryResponseBody {
+	s.ActualPrice = &v
+	return s
+}
+
+func (s *GroupCapacityInquiryResponseBody) SetCreatedAt(v int64) *GroupCapacityInquiryResponseBody {
+	s.CreatedAt = &v
+	return s
+}
+
+func (s *GroupCapacityInquiryResponseBody) SetCurrentCapacity(v int32) *GroupCapacityInquiryResponseBody {
+	s.CurrentCapacity = &v
+	return s
+}
+
+func (s *GroupCapacityInquiryResponseBody) SetCurrentEffectUntil(v int64) *GroupCapacityInquiryResponseBody {
+	s.CurrentEffectUntil = &v
+	return s
+}
+
+func (s *GroupCapacityInquiryResponseBody) SetDiscount(v int32) *GroupCapacityInquiryResponseBody {
+	s.Discount = &v
+	return s
+}
+
+func (s *GroupCapacityInquiryResponseBody) SetExtInfo(v map[string]interface{}) *GroupCapacityInquiryResponseBody {
+	s.ExtInfo = v
+	return s
+}
+
+func (s *GroupCapacityInquiryResponseBody) SetGroupOwner(v string) *GroupCapacityInquiryResponseBody {
+	s.GroupOwner = &v
+	return s
+}
+
+func (s *GroupCapacityInquiryResponseBody) SetGroupTitle(v string) *GroupCapacityInquiryResponseBody {
+	s.GroupTitle = &v
+	return s
+}
+
+func (s *GroupCapacityInquiryResponseBody) SetMarkedPrice(v int64) *GroupCapacityInquiryResponseBody {
+	s.MarkedPrice = &v
+	return s
+}
+
+func (s *GroupCapacityInquiryResponseBody) SetMemberCount(v int32) *GroupCapacityInquiryResponseBody {
+	s.MemberCount = &v
+	return s
+}
+
+func (s *GroupCapacityInquiryResponseBody) SetOpenConversationId(v string) *GroupCapacityInquiryResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GroupCapacityInquiryResponseBody) SetOperator(v string) *GroupCapacityInquiryResponseBody {
+	s.Operator = &v
+	return s
+}
+
+func (s *GroupCapacityInquiryResponseBody) SetTargetCapacity(v int32) *GroupCapacityInquiryResponseBody {
+	s.TargetCapacity = &v
+	return s
+}
+
+func (s *GroupCapacityInquiryResponseBody) SetTargetEffectUntil(v int64) *GroupCapacityInquiryResponseBody {
+	s.TargetEffectUntil = &v
+	return s
+}
+
+func (s *GroupCapacityInquiryResponseBody) SetToken(v string) *GroupCapacityInquiryResponseBody {
+	s.Token = &v
+	return s
+}
+
+type GroupCapacityInquiryResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GroupCapacityInquiryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GroupCapacityInquiryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupCapacityInquiryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GroupCapacityInquiryResponse) SetHeaders(v map[string]*string) *GroupCapacityInquiryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GroupCapacityInquiryResponse) SetBody(v *GroupCapacityInquiryResponseBody) *GroupCapacityInquiryResponse {
+	s.Body = v
+	return s
+}
+
+type GroupManageQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GroupManageQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupManageQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GroupManageQueryHeaders) SetCommonHeaders(v map[string]*string) *GroupManageQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GroupManageQueryHeaders) SetXAcsDingtalkAccessToken(v string) *GroupManageQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GroupManageQueryRequest struct {
+	// 群号
+	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// 群成员样例工号列表
+	GroupMemberSamples []*string `json:"groupMemberSamples,omitempty" xml:"groupMemberSamples,omitempty" type:"Repeated"`
+	// 群主工号
+	GroupOwner *string `json:"groupOwner,omitempty" xml:"groupOwner,omitempty"`
+	// 群标题关键词列表
+	GroupTitleKeywords []*string `json:"groupTitleKeywords,omitempty" xml:"groupTitleKeywords,omitempty" type:"Repeated"`
+	// 群链接
+	GroupUrl *string `json:"groupUrl,omitempty" xml:"groupUrl,omitempty"`
+	// 开放群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s GroupManageQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupManageQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GroupManageQueryRequest) SetGroupId(v string) *GroupManageQueryRequest {
+	s.GroupId = &v
+	return s
+}
+
+func (s *GroupManageQueryRequest) SetGroupMemberSamples(v []*string) *GroupManageQueryRequest {
+	s.GroupMemberSamples = v
+	return s
+}
+
+func (s *GroupManageQueryRequest) SetGroupOwner(v string) *GroupManageQueryRequest {
+	s.GroupOwner = &v
+	return s
+}
+
+func (s *GroupManageQueryRequest) SetGroupTitleKeywords(v []*string) *GroupManageQueryRequest {
+	s.GroupTitleKeywords = v
+	return s
+}
+
+func (s *GroupManageQueryRequest) SetGroupUrl(v string) *GroupManageQueryRequest {
+	s.GroupUrl = &v
+	return s
+}
+
+func (s *GroupManageQueryRequest) SetOpenConversationId(v string) *GroupManageQueryRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type GroupManageQueryResponseBody struct {
+	// 群信息列表
+	GroupInfoList []*GroupManageQueryResponseBodyGroupInfoList `json:"groupInfoList,omitempty" xml:"groupInfoList,omitempty" type:"Repeated"`
+}
+
+func (s GroupManageQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupManageQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GroupManageQueryResponseBody) SetGroupInfoList(v []*GroupManageQueryResponseBodyGroupInfoList) *GroupManageQueryResponseBody {
+	s.GroupInfoList = v
+	return s
+}
+
+type GroupManageQueryResponseBodyGroupInfoList struct {
+	// 群容量
+	Capacity *int32 `json:"capacity,omitempty" xml:"capacity,omitempty"`
+	// 群创建时间
+	CreatedAt *int64 `json:"createdAt,omitempty" xml:"createdAt,omitempty"`
+	// 扩展信息
+	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// 群主userid
+	GroupOwner *string `json:"groupOwner,omitempty" xml:"groupOwner,omitempty"`
+	// 群标题
+	GroupTitle *string `json:"groupTitle,omitempty" xml:"groupTitle,omitempty"`
+	// 当前群人数
+	MemberCount *int32 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	// 开放的群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s GroupManageQueryResponseBodyGroupInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupManageQueryResponseBodyGroupInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *GroupManageQueryResponseBodyGroupInfoList) SetCapacity(v int32) *GroupManageQueryResponseBodyGroupInfoList {
+	s.Capacity = &v
+	return s
+}
+
+func (s *GroupManageQueryResponseBodyGroupInfoList) SetCreatedAt(v int64) *GroupManageQueryResponseBodyGroupInfoList {
+	s.CreatedAt = &v
+	return s
+}
+
+func (s *GroupManageQueryResponseBodyGroupInfoList) SetExtInfo(v map[string]interface{}) *GroupManageQueryResponseBodyGroupInfoList {
+	s.ExtInfo = v
+	return s
+}
+
+func (s *GroupManageQueryResponseBodyGroupInfoList) SetGroupOwner(v string) *GroupManageQueryResponseBodyGroupInfoList {
+	s.GroupOwner = &v
+	return s
+}
+
+func (s *GroupManageQueryResponseBodyGroupInfoList) SetGroupTitle(v string) *GroupManageQueryResponseBodyGroupInfoList {
+	s.GroupTitle = &v
+	return s
+}
+
+func (s *GroupManageQueryResponseBodyGroupInfoList) SetMemberCount(v int32) *GroupManageQueryResponseBodyGroupInfoList {
+	s.MemberCount = &v
+	return s
+}
+
+func (s *GroupManageQueryResponseBodyGroupInfoList) SetOpenConversationId(v string) *GroupManageQueryResponseBodyGroupInfoList {
+	s.OpenConversationId = &v
+	return s
+}
+
+type GroupManageQueryResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GroupManageQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GroupManageQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupManageQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GroupManageQueryResponse) SetHeaders(v map[string]*string) *GroupManageQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GroupManageQueryResponse) SetBody(v *GroupManageQueryResponseBody) *GroupManageQueryResponse {
+	s.Body = v
+	return s
+}
+
 type InteractiveCardCreateInstanceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4241,6 +4626,130 @@ func (client *Client) GetSceneGroupMembersWithOptions(request *GetSceneGroupMemb
 	}
 	_result = &GetSceneGroupMembersResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetSceneGroupMembers"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/members/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GroupCapacityInquiry(request *GroupCapacityInquiryRequest) (_result *GroupCapacityInquiryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GroupCapacityInquiryHeaders{}
+	_result = &GroupCapacityInquiryResponse{}
+	_body, _err := client.GroupCapacityInquiryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GroupCapacityInquiryWithOptions(request *GroupCapacityInquiryRequest, headers *GroupCapacityInquiryHeaders, runtime *util.RuntimeOptions) (_result *GroupCapacityInquiryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EffectiveDuration)) {
+		body["effectiveDuration"] = request.EffectiveDuration
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Options)) {
+		body["options"] = request.Options
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCapacity)) {
+		body["targetCapacity"] = request.TargetCapacity
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GroupCapacityInquiryResponse{}
+	_body, _err := client.DoROARequest(tea.String("GroupCapacityInquiry"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/groups/capacities/inquiries/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GroupManageQuery(request *GroupManageQueryRequest) (_result *GroupManageQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GroupManageQueryHeaders{}
+	_result = &GroupManageQueryResponse{}
+	_body, _err := client.GroupManageQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GroupManageQueryWithOptions(request *GroupManageQueryRequest, headers *GroupManageQueryHeaders, runtime *util.RuntimeOptions) (_result *GroupManageQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupId)) {
+		body["groupId"] = request.GroupId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupMemberSamples)) {
+		body["groupMemberSamples"] = request.GroupMemberSamples
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupOwner)) {
+		body["groupOwner"] = request.GroupOwner
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupTitleKeywords)) {
+		body["groupTitleKeywords"] = request.GroupTitleKeywords
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupUrl)) {
+		body["groupUrl"] = request.GroupUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GroupManageQueryResponse{}
+	_body, _err := client.DoROARequest(tea.String("GroupManageQuery"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/groups/managements/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

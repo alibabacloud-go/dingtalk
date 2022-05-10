@@ -394,6 +394,70 @@ func (s *CreateTrustedDeviceBatchResponse) SetBody(v *CreateTrustedDeviceBatchRe
 	return s
 }
 
+type DeleteAcrossCloudStroageConfigsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteAcrossCloudStroageConfigsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteAcrossCloudStroageConfigsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteAcrossCloudStroageConfigsHeaders) SetCommonHeaders(v map[string]*string) *DeleteAcrossCloudStroageConfigsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteAcrossCloudStroageConfigsHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteAcrossCloudStroageConfigsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteAcrossCloudStroageConfigsResponseBody struct {
+	// 执行结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteAcrossCloudStroageConfigsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteAcrossCloudStroageConfigsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteAcrossCloudStroageConfigsResponseBody) SetResult(v bool) *DeleteAcrossCloudStroageConfigsResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeleteAcrossCloudStroageConfigsResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteAcrossCloudStroageConfigsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteAcrossCloudStroageConfigsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteAcrossCloudStroageConfigsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteAcrossCloudStroageConfigsResponse) SetHeaders(v map[string]*string) *DeleteAcrossCloudStroageConfigsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteAcrossCloudStroageConfigsResponse) SetBody(v *DeleteAcrossCloudStroageConfigsResponseBody) *DeleteAcrossCloudStroageConfigsResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteCommentHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4993,6 +5057,123 @@ func (s *PublishFileChangeNoticeResponse) SetHeaders(v map[string]*string) *Publ
 	return s
 }
 
+type QueryAcrossCloudStroageConfigsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryAcrossCloudStroageConfigsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAcrossCloudStroageConfigsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAcrossCloudStroageConfigsHeaders) SetCommonHeaders(v map[string]*string) *QueryAcrossCloudStroageConfigsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryAcrossCloudStroageConfigsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryAcrossCloudStroageConfigsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryAcrossCloudStroageConfigsRequest struct {
+	// 云厂商类型
+	TargetCloudType *int32 `json:"targetCloudType,omitempty" xml:"targetCloudType,omitempty"`
+	// 企业的corpId
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+}
+
+func (s QueryAcrossCloudStroageConfigsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAcrossCloudStroageConfigsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAcrossCloudStroageConfigsRequest) SetTargetCloudType(v int32) *QueryAcrossCloudStroageConfigsRequest {
+	s.TargetCloudType = &v
+	return s
+}
+
+func (s *QueryAcrossCloudStroageConfigsRequest) SetTargetCorpId(v string) *QueryAcrossCloudStroageConfigsRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+type QueryAcrossCloudStroageConfigsResponseBody struct {
+	// 密匙id
+	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	// 密匙密码
+	AccessKeySecret *string `json:"accessKeySecret,omitempty" xml:"accessKeySecret,omitempty"`
+	// bucket名称
+	BucketName *string `json:"bucketName,omitempty" xml:"bucketName,omitempty"`
+	// 云厂商类型
+	CloudType *int32 `json:"cloudType,omitempty" xml:"cloudType,omitempty"`
+	// 存储域名地址
+	Endpoint *string `json:"endpoint,omitempty" xml:"endpoint,omitempty"`
+}
+
+func (s QueryAcrossCloudStroageConfigsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAcrossCloudStroageConfigsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAcrossCloudStroageConfigsResponseBody) SetAccessKeyId(v string) *QueryAcrossCloudStroageConfigsResponseBody {
+	s.AccessKeyId = &v
+	return s
+}
+
+func (s *QueryAcrossCloudStroageConfigsResponseBody) SetAccessKeySecret(v string) *QueryAcrossCloudStroageConfigsResponseBody {
+	s.AccessKeySecret = &v
+	return s
+}
+
+func (s *QueryAcrossCloudStroageConfigsResponseBody) SetBucketName(v string) *QueryAcrossCloudStroageConfigsResponseBody {
+	s.BucketName = &v
+	return s
+}
+
+func (s *QueryAcrossCloudStroageConfigsResponseBody) SetCloudType(v int32) *QueryAcrossCloudStroageConfigsResponseBody {
+	s.CloudType = &v
+	return s
+}
+
+func (s *QueryAcrossCloudStroageConfigsResponseBody) SetEndpoint(v string) *QueryAcrossCloudStroageConfigsResponseBody {
+	s.Endpoint = &v
+	return s
+}
+
+type QueryAcrossCloudStroageConfigsResponse struct {
+	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryAcrossCloudStroageConfigsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryAcrossCloudStroageConfigsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAcrossCloudStroageConfigsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAcrossCloudStroageConfigsResponse) SetHeaders(v map[string]*string) *QueryAcrossCloudStroageConfigsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryAcrossCloudStroageConfigsResponse) SetBody(v *QueryAcrossCloudStroageConfigsResponseBody) *QueryAcrossCloudStroageConfigsResponse {
+	s.Body = v
+	return s
+}
+
 type RollbackMiniAppVersionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5092,6 +5273,137 @@ func (s *RollbackMiniAppVersionResponse) SetHeaders(v map[string]*string) *Rollb
 }
 
 func (s *RollbackMiniAppVersionResponse) SetBody(v *RollbackMiniAppVersionResponseBody) *RollbackMiniAppVersionResponse {
+	s.Body = v
+	return s
+}
+
+type SaveAcrossCloudStroageConfigsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SaveAcrossCloudStroageConfigsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveAcrossCloudStroageConfigsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SaveAcrossCloudStroageConfigsHeaders) SetCommonHeaders(v map[string]*string) *SaveAcrossCloudStroageConfigsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SaveAcrossCloudStroageConfigsHeaders) SetXAcsDingtalkAccessToken(v string) *SaveAcrossCloudStroageConfigsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SaveAcrossCloudStroageConfigsRequest struct {
+	// 密匙id
+	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	// 密匙密码
+	AccessKeySecret *string `json:"accessKeySecret,omitempty" xml:"accessKeySecret,omitempty"`
+	// bucket名称
+	BucketName *string `json:"bucketName,omitempty" xml:"bucketName,omitempty"`
+	// 云厂商类型
+	CloudType *int32 `json:"cloudType,omitempty" xml:"cloudType,omitempty"`
+	// 存储域名地址
+	Endpoint *string `json:"endpoint,omitempty" xml:"endpoint,omitempty"`
+	// 企业id
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+}
+
+func (s SaveAcrossCloudStroageConfigsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveAcrossCloudStroageConfigsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SaveAcrossCloudStroageConfigsRequest) SetAccessKeyId(v string) *SaveAcrossCloudStroageConfigsRequest {
+	s.AccessKeyId = &v
+	return s
+}
+
+func (s *SaveAcrossCloudStroageConfigsRequest) SetAccessKeySecret(v string) *SaveAcrossCloudStroageConfigsRequest {
+	s.AccessKeySecret = &v
+	return s
+}
+
+func (s *SaveAcrossCloudStroageConfigsRequest) SetBucketName(v string) *SaveAcrossCloudStroageConfigsRequest {
+	s.BucketName = &v
+	return s
+}
+
+func (s *SaveAcrossCloudStroageConfigsRequest) SetCloudType(v int32) *SaveAcrossCloudStroageConfigsRequest {
+	s.CloudType = &v
+	return s
+}
+
+func (s *SaveAcrossCloudStroageConfigsRequest) SetEndpoint(v string) *SaveAcrossCloudStroageConfigsRequest {
+	s.Endpoint = &v
+	return s
+}
+
+func (s *SaveAcrossCloudStroageConfigsRequest) SetTargetCorpId(v string) *SaveAcrossCloudStroageConfigsRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+type SaveAcrossCloudStroageConfigsResponseBody struct {
+	// 密匙ID
+	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	// 存储域名地址
+	Endpoint *string `json:"endpoint,omitempty" xml:"endpoint,omitempty"`
+	// 执行结果
+	State *int32 `json:"state,omitempty" xml:"state,omitempty"`
+}
+
+func (s SaveAcrossCloudStroageConfigsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveAcrossCloudStroageConfigsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SaveAcrossCloudStroageConfigsResponseBody) SetAccessKeyId(v string) *SaveAcrossCloudStroageConfigsResponseBody {
+	s.AccessKeyId = &v
+	return s
+}
+
+func (s *SaveAcrossCloudStroageConfigsResponseBody) SetEndpoint(v string) *SaveAcrossCloudStroageConfigsResponseBody {
+	s.Endpoint = &v
+	return s
+}
+
+func (s *SaveAcrossCloudStroageConfigsResponseBody) SetState(v int32) *SaveAcrossCloudStroageConfigsResponseBody {
+	s.State = &v
+	return s
+}
+
+type SaveAcrossCloudStroageConfigsResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SaveAcrossCloudStroageConfigsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SaveAcrossCloudStroageConfigsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveAcrossCloudStroageConfigsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SaveAcrossCloudStroageConfigsResponse) SetHeaders(v map[string]*string) *SaveAcrossCloudStroageConfigsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SaveAcrossCloudStroageConfigsResponse) SetBody(v *SaveAcrossCloudStroageConfigsResponseBody) *SaveAcrossCloudStroageConfigsResponse {
 	s.Body = v
 	return s
 }
@@ -5243,10 +5555,8 @@ func (s *SaveAndSubmitAuthInfoRequest) SetUnifiedSocialCredit(v string) *SaveAnd
 }
 
 type SaveAndSubmitAuthInfoResponseBody struct {
-	// 密匙ID
-	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
-	// OSS链接
-	Oss *string `json:"oss,omitempty" xml:"oss,omitempty"`
+	// 是否成功。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s SaveAndSubmitAuthInfoResponseBody) String() string {
@@ -5257,13 +5567,8 @@ func (s SaveAndSubmitAuthInfoResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *SaveAndSubmitAuthInfoResponseBody) SetAccessKeyId(v string) *SaveAndSubmitAuthInfoResponseBody {
-	s.AccessKeyId = &v
-	return s
-}
-
-func (s *SaveAndSubmitAuthInfoResponseBody) SetOss(v string) *SaveAndSubmitAuthInfoResponseBody {
-	s.Oss = &v
+func (s *SaveAndSubmitAuthInfoResponseBody) SetSuccess(v bool) *SaveAndSubmitAuthInfoResponseBody {
+	s.Success = &v
 	return s
 }
 
@@ -6133,6 +6438,95 @@ func (s *UpdateRoleVisibilityResponse) SetBody(v bool) *UpdateRoleVisibilityResp
 	return s
 }
 
+type UpdateStorageModeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateStorageModeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateStorageModeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateStorageModeHeaders) SetCommonHeaders(v map[string]*string) *UpdateStorageModeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateStorageModeHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateStorageModeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateStorageModeRequest struct {
+	// 专属文件跨云存储类型 0：公有模式，1：私有模式，注意，如不更新，则不填写这个字段，字段一旦有值，都会触发原有配置的删除
+	FileStorageMode *string `json:"fileStorageMode,omitempty" xml:"fileStorageMode,omitempty"`
+	// 企业id
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+}
+
+func (s UpdateStorageModeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateStorageModeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateStorageModeRequest) SetFileStorageMode(v string) *UpdateStorageModeRequest {
+	s.FileStorageMode = &v
+	return s
+}
+
+func (s *UpdateStorageModeRequest) SetTargetCorpId(v string) *UpdateStorageModeRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+type UpdateStorageModeResponseBody struct {
+	// 组织id
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+}
+
+func (s UpdateStorageModeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateStorageModeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateStorageModeResponseBody) SetTargetCorpId(v string) *UpdateStorageModeResponseBody {
+	s.TargetCorpId = &v
+	return s
+}
+
+type UpdateStorageModeResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateStorageModeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateStorageModeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateStorageModeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateStorageModeResponse) SetHeaders(v map[string]*string) *UpdateStorageModeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateStorageModeResponse) SetBody(v *UpdateStorageModeResponseBody) *UpdateStorageModeResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -6353,6 +6747,41 @@ func (client *Client) CreateTrustedDeviceBatchWithOptions(request *CreateTrusted
 	}
 	_result = &CreateTrustedDeviceBatchResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateTrustedDeviceBatch"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/trusts/devices"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteAcrossCloudStroageConfigs(targetCorpId *string) (_result *DeleteAcrossCloudStroageConfigsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteAcrossCloudStroageConfigsHeaders{}
+	_result = &DeleteAcrossCloudStroageConfigsResponse{}
+	_body, _err := client.DeleteAcrossCloudStroageConfigsWithOptions(targetCorpId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteAcrossCloudStroageConfigsWithOptions(targetCorpId *string, headers *DeleteAcrossCloudStroageConfigsHeaders, runtime *util.RuntimeOptions) (_result *DeleteAcrossCloudStroageConfigsResponse, _err error) {
+	targetCorpId = openapiutil.GetEncodeParam(targetCorpId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &DeleteAcrossCloudStroageConfigsResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteAcrossCloudStroageConfigs"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/exclusive/fileStorages/acrossClouds/configurations/"+tea.StringValue(targetCorpId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7916,6 +8345,54 @@ func (client *Client) PublishFileChangeNoticeWithOptions(request *PublishFileCha
 	return _result, _err
 }
 
+func (client *Client) QueryAcrossCloudStroageConfigs(request *QueryAcrossCloudStroageConfigsRequest) (_result *QueryAcrossCloudStroageConfigsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryAcrossCloudStroageConfigsHeaders{}
+	_result = &QueryAcrossCloudStroageConfigsResponse{}
+	_body, _err := client.QueryAcrossCloudStroageConfigsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryAcrossCloudStroageConfigsWithOptions(request *QueryAcrossCloudStroageConfigsRequest, headers *QueryAcrossCloudStroageConfigsHeaders, runtime *util.RuntimeOptions) (_result *QueryAcrossCloudStroageConfigsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TargetCloudType)) {
+		query["targetCloudType"] = request.TargetCloudType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		query["targetCorpId"] = request.TargetCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryAcrossCloudStroageConfigsResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryAcrossCloudStroageConfigs"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/fileStorages/acrossClouds/configurations"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) RollbackMiniAppVersion(request *RollbackMiniAppVersionRequest) (_result *RollbackMiniAppVersionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RollbackMiniAppVersionHeaders{}
@@ -7961,6 +8438,70 @@ func (client *Client) RollbackMiniAppVersionWithOptions(request *RollbackMiniApp
 	}
 	_result = &RollbackMiniAppVersionResponse{}
 	_body, _err := client.DoROARequest(tea.String("RollbackMiniAppVersion"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/miniApps/versions/rollback"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SaveAcrossCloudStroageConfigs(request *SaveAcrossCloudStroageConfigsRequest) (_result *SaveAcrossCloudStroageConfigsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SaveAcrossCloudStroageConfigsHeaders{}
+	_result = &SaveAcrossCloudStroageConfigsResponse{}
+	_body, _err := client.SaveAcrossCloudStroageConfigsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SaveAcrossCloudStroageConfigsWithOptions(request *SaveAcrossCloudStroageConfigsRequest, headers *SaveAcrossCloudStroageConfigsHeaders, runtime *util.RuntimeOptions) (_result *SaveAcrossCloudStroageConfigsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccessKeyId)) {
+		body["accessKeyId"] = request.AccessKeyId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AccessKeySecret)) {
+		body["accessKeySecret"] = request.AccessKeySecret
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BucketName)) {
+		body["bucketName"] = request.BucketName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CloudType)) {
+		body["cloudType"] = request.CloudType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Endpoint)) {
+		body["endpoint"] = request.Endpoint
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		body["targetCorpId"] = request.TargetCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SaveAcrossCloudStroageConfigsResponse{}
+	_body, _err := client.DoROARequest(tea.String("SaveAcrossCloudStroageConfigs"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/fileStorages/acrossClouds/configurations"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8521,6 +9062,54 @@ func (client *Client) UpdateRoleVisibilityWithOptions(request *UpdateRoleVisibil
 	}
 	_result = &UpdateRoleVisibilityResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateRoleVisibility"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/exclusive/partnerDepartments/visibilityRoles"), tea.String("boolean"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateStorageMode(request *UpdateStorageModeRequest) (_result *UpdateStorageModeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateStorageModeHeaders{}
+	_result = &UpdateStorageModeResponse{}
+	_body, _err := client.UpdateStorageModeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateStorageModeWithOptions(request *UpdateStorageModeRequest, headers *UpdateStorageModeHeaders, runtime *util.RuntimeOptions) (_result *UpdateStorageModeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FileStorageMode)) {
+		body["fileStorageMode"] = request.FileStorageMode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		body["targetCorpId"] = request.TargetCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateStorageModeResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateStorageMode"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/exclusive/fileStorages/acrossClouds/storageModes"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
