@@ -2569,6 +2569,8 @@ func (s *SendRobotInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type SendRobotInteractiveCardRequest struct {
+	// 可交互卡片回调的url【可空：不填写无需回调】
+	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
 	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）【备注：同一个outTrackId重复创建，卡片数据不覆盖更新】
 	CardBizId *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
 	// 卡片模板-文本内容参数（卡片json结构体）
@@ -2583,6 +2585,10 @@ type SendRobotInteractiveCardRequest struct {
 	SendOptions *SendRobotInteractiveCardRequestSendOptions `json:"sendOptions,omitempty" xml:"sendOptions,omitempty" type:"Struct"`
 	// 【openConversationId & singleChatReceiver 二选一必填】单聊会话接受者json串
 	SingleChatReceiver *string `json:"singleChatReceiver,omitempty" xml:"singleChatReceiver,omitempty"`
+	// 卡片模板-userId差异用户参数（json结构体）
+	UnionIdPrivateDataMap *string `json:"unionIdPrivateDataMap,omitempty" xml:"unionIdPrivateDataMap,omitempty"`
+	// 卡片模板-userId差异用户参数（json结构体）
+	UserIdPrivateDataMap *string `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
 }
 
 func (s SendRobotInteractiveCardRequest) String() string {
@@ -2591,6 +2597,11 @@ func (s SendRobotInteractiveCardRequest) String() string {
 
 func (s SendRobotInteractiveCardRequest) GoString() string {
 	return s.String()
+}
+
+func (s *SendRobotInteractiveCardRequest) SetCallbackUrl(v string) *SendRobotInteractiveCardRequest {
+	s.CallbackUrl = &v
+	return s
 }
 
 func (s *SendRobotInteractiveCardRequest) SetCardBizId(v string) *SendRobotInteractiveCardRequest {
@@ -2625,6 +2636,16 @@ func (s *SendRobotInteractiveCardRequest) SetSendOptions(v *SendRobotInteractive
 
 func (s *SendRobotInteractiveCardRequest) SetSingleChatReceiver(v string) *SendRobotInteractiveCardRequest {
 	s.SingleChatReceiver = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetUnionIdPrivateDataMap(v string) *SendRobotInteractiveCardRequest {
+	s.UnionIdPrivateDataMap = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetUserIdPrivateDataMap(v string) *SendRobotInteractiveCardRequest {
+	s.UserIdPrivateDataMap = &v
 	return s
 }
 
@@ -2982,7 +3003,7 @@ type TopboxOpenRequest struct {
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）
 	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	// 期望吊顶的端（多个'|'隔开，如："ios|win|"）
+	// 期望吊顶的端（多个"|"隔开，如："ios|win|"）
 	Platforms *string `json:"platforms,omitempty" xml:"platforms,omitempty"`
 	// 接收人的员工号列表
 	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
@@ -3566,6 +3587,141 @@ func (s *UpdateMemberGroupNickResponse) SetHeaders(v map[string]*string) *Update
 }
 
 func (s *UpdateMemberGroupNickResponse) SetBody(v *UpdateMemberGroupNickResponseBody) *UpdateMemberGroupNickResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateRobotInteractiveCardHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateRobotInteractiveCardHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRobotInteractiveCardHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRobotInteractiveCardHeaders) SetCommonHeaders(v map[string]*string) *UpdateRobotInteractiveCardHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateRobotInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRobotInteractiveCardHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateRobotInteractiveCardRequest struct {
+	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）【备注：同一个outTrackId重复创建，卡片数据不覆盖更新】
+	CardBizId *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
+	// 卡片模板-文本内容参数（卡片json结构体）
+	CardData *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	// 卡片模板-userId差异用户参数（json结构体）
+	UnionIdPrivateDataMap *string `json:"unionIdPrivateDataMap,omitempty" xml:"unionIdPrivateDataMap,omitempty"`
+	// 互动卡片更新选项
+	UpdateOptions *UpdateRobotInteractiveCardRequestUpdateOptions `json:"updateOptions,omitempty" xml:"updateOptions,omitempty" type:"Struct"`
+	// 卡片模板-userId差异用户参数（json结构体）
+	UserIdPrivateDataMap *string `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
+}
+
+func (s UpdateRobotInteractiveCardRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRobotInteractiveCardRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRobotInteractiveCardRequest) SetCardBizId(v string) *UpdateRobotInteractiveCardRequest {
+	s.CardBizId = &v
+	return s
+}
+
+func (s *UpdateRobotInteractiveCardRequest) SetCardData(v string) *UpdateRobotInteractiveCardRequest {
+	s.CardData = &v
+	return s
+}
+
+func (s *UpdateRobotInteractiveCardRequest) SetUnionIdPrivateDataMap(v string) *UpdateRobotInteractiveCardRequest {
+	s.UnionIdPrivateDataMap = &v
+	return s
+}
+
+func (s *UpdateRobotInteractiveCardRequest) SetUpdateOptions(v *UpdateRobotInteractiveCardRequestUpdateOptions) *UpdateRobotInteractiveCardRequest {
+	s.UpdateOptions = v
+	return s
+}
+
+func (s *UpdateRobotInteractiveCardRequest) SetUserIdPrivateDataMap(v string) *UpdateRobotInteractiveCardRequest {
+	s.UserIdPrivateDataMap = &v
+	return s
+}
+
+type UpdateRobotInteractiveCardRequestUpdateOptions struct {
+	// 按key更新数据(默认全量更新)
+	UpdateCardDataByKey *bool `json:"updateCardDataByKey,omitempty" xml:"updateCardDataByKey,omitempty"`
+	// 按key更新用户数据(默认全量更新)
+	UpdatePrivateDataByKey *bool `json:"updatePrivateDataByKey,omitempty" xml:"updatePrivateDataByKey,omitempty"`
+}
+
+func (s UpdateRobotInteractiveCardRequestUpdateOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRobotInteractiveCardRequestUpdateOptions) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRobotInteractiveCardRequestUpdateOptions) SetUpdateCardDataByKey(v bool) *UpdateRobotInteractiveCardRequestUpdateOptions {
+	s.UpdateCardDataByKey = &v
+	return s
+}
+
+func (s *UpdateRobotInteractiveCardRequestUpdateOptions) SetUpdatePrivateDataByKey(v bool) *UpdateRobotInteractiveCardRequestUpdateOptions {
+	s.UpdatePrivateDataByKey = &v
+	return s
+}
+
+type UpdateRobotInteractiveCardResponseBody struct {
+	// 用于业务方后续查看已读列表的查询key
+	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
+}
+
+func (s UpdateRobotInteractiveCardResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRobotInteractiveCardResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRobotInteractiveCardResponseBody) SetProcessQueryKey(v string) *UpdateRobotInteractiveCardResponseBody {
+	s.ProcessQueryKey = &v
+	return s
+}
+
+type UpdateRobotInteractiveCardResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateRobotInteractiveCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateRobotInteractiveCardResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRobotInteractiveCardResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRobotInteractiveCardResponse) SetHeaders(v map[string]*string) *UpdateRobotInteractiveCardResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateRobotInteractiveCardResponse) SetBody(v *UpdateRobotInteractiveCardResponseBody) *UpdateRobotInteractiveCardResponse {
 	s.Body = v
 	return s
 }
@@ -5191,6 +5347,10 @@ func (client *Client) SendRobotInteractiveCardWithOptions(request *SendRobotInte
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CallbackUrl)) {
+		body["callbackUrl"] = request.CallbackUrl
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.CardBizId)) {
 		body["cardBizId"] = request.CardBizId
 	}
@@ -5217,6 +5377,14 @@ func (client *Client) SendRobotInteractiveCardWithOptions(request *SendRobotInte
 
 	if !tea.BoolValue(util.IsUnset(request.SingleChatReceiver)) {
 		body["singleChatReceiver"] = request.SingleChatReceiver
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionIdPrivateDataMap)) {
+		body["unionIdPrivateDataMap"] = request.UnionIdPrivateDataMap
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdPrivateDataMap)) {
+		body["userIdPrivateDataMap"] = request.UserIdPrivateDataMap
 	}
 
 	realHeaders := make(map[string]*string)
@@ -5694,6 +5862,66 @@ func (client *Client) UpdateMemberGroupNickWithOptions(request *UpdateMemberGrou
 	}
 	_result = &UpdateMemberGroupNickResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateMemberGroupNick"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/members/groupNicks"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateRobotInteractiveCard(request *UpdateRobotInteractiveCardRequest) (_result *UpdateRobotInteractiveCardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateRobotInteractiveCardHeaders{}
+	_result = &UpdateRobotInteractiveCardResponse{}
+	_body, _err := client.UpdateRobotInteractiveCardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateRobotInteractiveCardWithOptions(request *UpdateRobotInteractiveCardRequest, headers *UpdateRobotInteractiveCardHeaders, runtime *util.RuntimeOptions) (_result *UpdateRobotInteractiveCardResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CardBizId)) {
+		body["cardBizId"] = request.CardBizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardData)) {
+		body["cardData"] = request.CardData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionIdPrivateDataMap)) {
+		body["unionIdPrivateDataMap"] = request.UnionIdPrivateDataMap
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.UpdateOptions))) {
+		body["updateOptions"] = request.UpdateOptions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdPrivateDataMap)) {
+		body["userIdPrivateDataMap"] = request.UserIdPrivateDataMap
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateRobotInteractiveCardResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateRobotInteractiveCard"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/robots/interactiveCards"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

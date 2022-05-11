@@ -504,6 +504,107 @@ func (s *DeleteCommentResponse) SetBody(v bool) *DeleteCommentResponse {
 	return s
 }
 
+type DistributePartnerAppHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DistributePartnerAppHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DistributePartnerAppHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DistributePartnerAppHeaders) SetCommonHeaders(v map[string]*string) *DistributePartnerAppHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DistributePartnerAppHeaders) SetXAcsDingtalkAccessToken(v string) *DistributePartnerAppHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DistributePartnerAppRequest struct {
+	// 应用id
+	AppId     *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
+	DeptId    *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
+	// 分发对象类型
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s DistributePartnerAppRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DistributePartnerAppRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DistributePartnerAppRequest) SetAppId(v int64) *DistributePartnerAppRequest {
+	s.AppId = &v
+	return s
+}
+
+func (s *DistributePartnerAppRequest) SetDeptId(v int64) *DistributePartnerAppRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *DistributePartnerAppRequest) SetSubCorpId(v string) *DistributePartnerAppRequest {
+	s.SubCorpId = &v
+	return s
+}
+
+func (s *DistributePartnerAppRequest) SetType(v int64) *DistributePartnerAppRequest {
+	s.Type = &v
+	return s
+}
+
+type DistributePartnerAppResponseBody struct {
+	// 安装邀请链接
+	InviteUrl *string `json:"inviteUrl,omitempty" xml:"inviteUrl,omitempty"`
+}
+
+func (s DistributePartnerAppResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DistributePartnerAppResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DistributePartnerAppResponseBody) SetInviteUrl(v string) *DistributePartnerAppResponseBody {
+	s.InviteUrl = &v
+	return s
+}
+
+type DistributePartnerAppResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DistributePartnerAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DistributePartnerAppResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DistributePartnerAppResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DistributePartnerAppResponse) SetHeaders(v map[string]*string) *DistributePartnerAppResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DistributePartnerAppResponse) SetBody(v *DistributePartnerAppResponseBody) *DistributePartnerAppResponse {
+	s.Body = v
+	return s
+}
+
 type FileStorageActiveStorageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6818,6 +6919,62 @@ func (client *Client) DeleteCommentWithOptions(publisherId *string, commentId *s
 	}
 	_result = &DeleteCommentResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteComment"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/exclusive/publishers/"+tea.StringValue(publisherId)+"/comments/"+tea.StringValue(commentId)), tea.String("boolean"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DistributePartnerApp(request *DistributePartnerAppRequest) (_result *DistributePartnerAppResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DistributePartnerAppHeaders{}
+	_result = &DistributePartnerAppResponse{}
+	_body, _err := client.DistributePartnerAppWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DistributePartnerAppWithOptions(request *DistributePartnerAppRequest, headers *DistributePartnerAppHeaders, runtime *util.RuntimeOptions) (_result *DistributePartnerAppResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		body["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubCorpId)) {
+		body["subCorpId"] = request.SubCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DistributePartnerAppResponse{}
+	_body, _err := client.DoROARequest(tea.String("DistributePartnerApp"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/partners/applications/distribute"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
