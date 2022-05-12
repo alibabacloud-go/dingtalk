@@ -1409,6 +1409,224 @@ func (s *RegisterDeviceResponse) SetBody(v *RegisterDeviceResponseBody) *Registe
 	return s
 }
 
+type SendCardHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendCardHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendCardHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendCardHeaders) SetCommonHeaders(v map[string]*string) *SendCardHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendCardHeaders) SetXAcsDingtalkAccessToken(v string) *SendCardHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendCardRequest struct {
+	BizId      *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	CardData   *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	DeviceUuid *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	EncodeCid  *string `json:"encodeCid,omitempty" xml:"encodeCid,omitempty"`
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SendCardRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendCardRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendCardRequest) SetBizId(v string) *SendCardRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *SendCardRequest) SetCardData(v string) *SendCardRequest {
+	s.CardData = &v
+	return s
+}
+
+func (s *SendCardRequest) SetDeviceCode(v string) *SendCardRequest {
+	s.DeviceCode = &v
+	return s
+}
+
+func (s *SendCardRequest) SetDeviceUuid(v string) *SendCardRequest {
+	s.DeviceUuid = &v
+	return s
+}
+
+func (s *SendCardRequest) SetEncodeCid(v string) *SendCardRequest {
+	s.EncodeCid = &v
+	return s
+}
+
+func (s *SendCardRequest) SetTemplateId(v string) *SendCardRequest {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *SendCardRequest) SetUserId(v string) *SendCardRequest {
+	s.UserId = &v
+	return s
+}
+
+type SendCardResponseBody struct {
+	// result
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SendCardResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendCardResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendCardResponseBody) SetResult(v string) *SendCardResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *SendCardResponseBody) SetSuccess(v bool) *SendCardResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SendCardResponse struct {
+	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SendCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendCardResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendCardResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendCardResponse) SetHeaders(v map[string]*string) *SendCardResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendCardResponse) SetBody(v *SendCardResponseBody) *SendCardResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateCardHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateCardHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCardHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCardHeaders) SetCommonHeaders(v map[string]*string) *UpdateCardHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateCardHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateCardHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateCardRequest struct {
+	BizId    *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	CardData *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
+}
+
+func (s UpdateCardRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCardRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCardRequest) SetBizId(v string) *UpdateCardRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *UpdateCardRequest) SetCardData(v string) *UpdateCardRequest {
+	s.CardData = &v
+	return s
+}
+
+type UpdateCardResponseBody struct {
+	// 响应数据
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateCardResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCardResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCardResponseBody) SetResult(v string) *UpdateCardResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *UpdateCardResponseBody) SetSuccess(v bool) *UpdateCardResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateCardResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateCardResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCardResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCardResponse) SetHeaders(v map[string]*string) *UpdateCardResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateCardResponse) SetBody(v *UpdateCardResponseBody) *UpdateCardResponse {
+	s.Body = v
+	return s
+}
+
 type UploadEventHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2023,6 +2241,122 @@ func (client *Client) RegisterDeviceWithOptions(request *RegisterDeviceRequest, 
 	}
 	_result = &RegisterDeviceResponse{}
 	_body, _err := client.DoROARequest(tea.String("RegisterDevice"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/devices"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendCard(request *SendCardRequest) (_result *SendCardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendCardHeaders{}
+	_result = &SendCardResponse{}
+	_body, _err := client.SendCardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendCardWithOptions(request *SendCardRequest, headers *SendCardHeaders, runtime *util.RuntimeOptions) (_result *SendCardResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardData)) {
+		body["cardData"] = request.CardData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceCode)) {
+		body["deviceCode"] = request.DeviceCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceUuid)) {
+		body["deviceUuid"] = request.DeviceUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EncodeCid)) {
+		body["encodeCid"] = request.EncodeCid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendCardResponse{}
+	_body, _err := client.DoROARequest(tea.String("SendCard"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/cards/send"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateCard(request *UpdateCardRequest) (_result *UpdateCardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateCardHeaders{}
+	_result = &UpdateCardResponse{}
+	_body, _err := client.UpdateCardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateCardWithOptions(request *UpdateCardRequest, headers *UpdateCardHeaders, runtime *util.RuntimeOptions) (_result *UpdateCardResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardData)) {
+		body["cardData"] = request.CardData
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateCardResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateCard"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/cards"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
