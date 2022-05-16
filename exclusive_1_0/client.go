@@ -5545,8 +5545,12 @@ type SaveAndSubmitAuthInfoRequest struct {
 	LegalPersonIdCard *string `json:"legalPersonIdCard,omitempty" xml:"legalPersonIdCard,omitempty"`
 	// 营业执照图片mediaId
 	LicenseMediaId *string `json:"licenseMediaId,omitempty" xml:"licenseMediaId,omitempty"`
+	// 城市编码
+	LocCity *int64 `json:"locCity,omitempty" xml:"locCity,omitempty"`
 	// 城市名字
 	LocCityName *string `json:"locCityName,omitempty" xml:"locCityName,omitempty"`
+	// 省份编码
+	LocProvince *int64 `json:"locProvince,omitempty" xml:"locProvince,omitempty"`
 	// 省份名字
 	LocProvinceName *string `json:"locProvinceName,omitempty" xml:"locProvinceName,omitempty"`
 	// 申请人手机号（需要实名认证）
@@ -5605,8 +5609,18 @@ func (s *SaveAndSubmitAuthInfoRequest) SetLicenseMediaId(v string) *SaveAndSubmi
 	return s
 }
 
+func (s *SaveAndSubmitAuthInfoRequest) SetLocCity(v int64) *SaveAndSubmitAuthInfoRequest {
+	s.LocCity = &v
+	return s
+}
+
 func (s *SaveAndSubmitAuthInfoRequest) SetLocCityName(v string) *SaveAndSubmitAuthInfoRequest {
 	s.LocCityName = &v
+	return s
+}
+
+func (s *SaveAndSubmitAuthInfoRequest) SetLocProvince(v int64) *SaveAndSubmitAuthInfoRequest {
+	s.LocProvince = &v
 	return s
 }
 
@@ -8708,8 +8722,16 @@ func (client *Client) SaveAndSubmitAuthInfoWithOptions(request *SaveAndSubmitAut
 		body["licenseMediaId"] = request.LicenseMediaId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.LocCity)) {
+		body["locCity"] = request.LocCity
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.LocCityName)) {
 		body["locCityName"] = request.LocCityName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LocProvince)) {
+		body["locProvince"] = request.LocProvince
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.LocProvinceName)) {

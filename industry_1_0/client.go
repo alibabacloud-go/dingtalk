@@ -3581,6 +3581,312 @@ func (s *IndustryManufactureMaterialListResponse) SetBody(v *IndustryManufacture
 	return s
 }
 
+type IndustryManufactureMesTeamMgmtHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IndustryManufactureMesTeamMgmtHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesTeamMgmtHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesTeamMgmtHeaders) SetCommonHeaders(v map[string]*string) *IndustryManufactureMesTeamMgmtHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtHeaders) SetXAcsDingtalkAccessToken(v string) *IndustryManufactureMesTeamMgmtHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IndustryManufactureMesTeamMgmtRequest struct {
+	// 本次操作的行为，取值： ● add：增加   -- 创建群 ● update：更新 -- 群成员变更
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// ISV的唯一标识,由BPaaS分配
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// 基础数据名称。比如班组
+	BaseDataName *string `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
+	// 事件配置列表(启用卡片列表),所有枚举值： 任务分配提醒: TASK_ASSIGN_REMINDER 任务逾期提醒: TASK_OVERDUE_REMINDER 置顶加急任务: STICK_URGET_TASK 报工审批提醒: OUTPUT_APPROVE_REMINDER 报工审批反馈: OUTPUT_APPROVE_RESULT 班组概览 :TEAM_OVERVIEW 我的任务:MYTASK_OVERVIEW     例如： ["STICK_URGET_TASK","OUTPUT_APPROVE_REMINDER"]
+	Events []*string `json:"events,omitempty" xml:"events,omitempty" type:"Repeated"`
+	// 扩展字段
+	ExtendData []*IndustryManufactureMesTeamMgmtRequestExtendData `json:"extendData,omitempty" xml:"extendData,omitempty" type:"Repeated"`
+	// 群配置
+	GroupConfig map[string]interface{} `json:"groupConfig,omitempty" xml:"groupConfig,omitempty"`
+	// 群插件列表
+	GroupPlugins []*IndustryManufactureMesTeamMgmtRequestGroupPlugins `json:"groupPlugins,omitempty" xml:"groupPlugins,omitempty" type:"Repeated"`
+	// 群类型，枚举
+	GroupType *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	// 班组模型实例的唯一Id， 由业务方传递
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 班组长(支持多个)
+	Leaders []*IndustryManufactureMesTeamMgmtRequestLeaders `json:"leaders,omitempty" xml:"leaders,omitempty" type:"Repeated"`
+	// 班组成员(群成员)
+	Members []*IndustryManufactureMesTeamMgmtRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// 班组群名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 关联的工序
+	ProcessIds []*string `json:"processIds,omitempty" xml:"processIds,omitempty" type:"Repeated"`
+}
+
+func (s IndustryManufactureMesTeamMgmtRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesTeamMgmtRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequest) SetAction(v string) *IndustryManufactureMesTeamMgmtRequest {
+	s.Action = &v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequest) SetAppKey(v string) *IndustryManufactureMesTeamMgmtRequest {
+	s.AppKey = &v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequest) SetBaseDataName(v string) *IndustryManufactureMesTeamMgmtRequest {
+	s.BaseDataName = &v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequest) SetEvents(v []*string) *IndustryManufactureMesTeamMgmtRequest {
+	s.Events = v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequest) SetExtendData(v []*IndustryManufactureMesTeamMgmtRequestExtendData) *IndustryManufactureMesTeamMgmtRequest {
+	s.ExtendData = v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequest) SetGroupConfig(v map[string]interface{}) *IndustryManufactureMesTeamMgmtRequest {
+	s.GroupConfig = v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequest) SetGroupPlugins(v []*IndustryManufactureMesTeamMgmtRequestGroupPlugins) *IndustryManufactureMesTeamMgmtRequest {
+	s.GroupPlugins = v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequest) SetGroupType(v string) *IndustryManufactureMesTeamMgmtRequest {
+	s.GroupType = &v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequest) SetId(v string) *IndustryManufactureMesTeamMgmtRequest {
+	s.Id = &v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequest) SetLeaders(v []*IndustryManufactureMesTeamMgmtRequestLeaders) *IndustryManufactureMesTeamMgmtRequest {
+	s.Leaders = v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequest) SetMembers(v []*IndustryManufactureMesTeamMgmtRequestMembers) *IndustryManufactureMesTeamMgmtRequest {
+	s.Members = v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequest) SetName(v string) *IndustryManufactureMesTeamMgmtRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequest) SetProcessIds(v []*string) *IndustryManufactureMesTeamMgmtRequest {
+	s.ProcessIds = v
+	return s
+}
+
+type IndustryManufactureMesTeamMgmtRequestExtendData struct {
+	// 字段唯一标识
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 字段中文描述
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 字段的取值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 字段的类型(string,number,boolean)
+	ValueType *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
+}
+
+func (s IndustryManufactureMesTeamMgmtRequestExtendData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesTeamMgmtRequestExtendData) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequestExtendData) SetCode(v string) *IndustryManufactureMesTeamMgmtRequestExtendData {
+	s.Code = &v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequestExtendData) SetName(v string) *IndustryManufactureMesTeamMgmtRequestExtendData {
+	s.Name = &v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequestExtendData) SetValue(v string) *IndustryManufactureMesTeamMgmtRequestExtendData {
+	s.Value = &v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequestExtendData) SetValueType(v string) *IndustryManufactureMesTeamMgmtRequestExtendData {
+	s.ValueType = &v
+	return s
+}
+
+type IndustryManufactureMesTeamMgmtRequestGroupPlugins struct {
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s IndustryManufactureMesTeamMgmtRequestGroupPlugins) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesTeamMgmtRequestGroupPlugins) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequestGroupPlugins) SetLabel(v string) *IndustryManufactureMesTeamMgmtRequestGroupPlugins {
+	s.Label = &v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequestGroupPlugins) SetValue(v string) *IndustryManufactureMesTeamMgmtRequestGroupPlugins {
+	s.Value = &v
+	return s
+}
+
+type IndustryManufactureMesTeamMgmtRequestLeaders struct {
+	// 工人姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 工人staffNo
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s IndustryManufactureMesTeamMgmtRequestLeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesTeamMgmtRequestLeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequestLeaders) SetName(v string) *IndustryManufactureMesTeamMgmtRequestLeaders {
+	s.Name = &v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequestLeaders) SetUserId(v string) *IndustryManufactureMesTeamMgmtRequestLeaders {
+	s.UserId = &v
+	return s
+}
+
+type IndustryManufactureMesTeamMgmtRequestMembers struct {
+	// 工人姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 工人staffNo
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s IndustryManufactureMesTeamMgmtRequestMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesTeamMgmtRequestMembers) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequestMembers) SetName(v string) *IndustryManufactureMesTeamMgmtRequestMembers {
+	s.Name = &v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtRequestMembers) SetUserId(v string) *IndustryManufactureMesTeamMgmtRequestMembers {
+	s.UserId = &v
+	return s
+}
+
+type IndustryManufactureMesTeamMgmtResponseBody struct {
+	DingOpenErrcode *int32                                            `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	ErrorMsg        *string                                           `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result          *IndustryManufactureMesTeamMgmtResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s IndustryManufactureMesTeamMgmtResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesTeamMgmtResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesTeamMgmtResponseBody) SetDingOpenErrcode(v int32) *IndustryManufactureMesTeamMgmtResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtResponseBody) SetErrorMsg(v string) *IndustryManufactureMesTeamMgmtResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtResponseBody) SetResult(v *IndustryManufactureMesTeamMgmtResponseBodyResult) *IndustryManufactureMesTeamMgmtResponseBody {
+	s.Result = v
+	return s
+}
+
+type IndustryManufactureMesTeamMgmtResponseBodyResult struct {
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s IndustryManufactureMesTeamMgmtResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesTeamMgmtResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesTeamMgmtResponseBodyResult) SetContent(v string) *IndustryManufactureMesTeamMgmtResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+type IndustryManufactureMesTeamMgmtResponse struct {
+	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *IndustryManufactureMesTeamMgmtResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IndustryManufactureMesTeamMgmtResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesTeamMgmtResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesTeamMgmtResponse) SetHeaders(v map[string]*string) *IndustryManufactureMesTeamMgmtResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IndustryManufactureMesTeamMgmtResponse) SetBody(v *IndustryManufactureMesTeamMgmtResponseBody) *IndustryManufactureMesTeamMgmtResponse {
+	s.Body = v
+	return s
+}
+
 type IndustryMmanufactureMaterialCostGetHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9250,6 +9556,98 @@ func (client *Client) IndustryManufactureMaterialListWithOptions(request *Indust
 	}
 	_result = &IndustryManufactureMaterialListResponse{}
 	_body, _err := client.DoROARequest(tea.String("IndustryManufactureMaterialList"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/manufactures/materials/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureMesTeamMgmt(request *IndustryManufactureMesTeamMgmtRequest) (_result *IndustryManufactureMesTeamMgmtResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IndustryManufactureMesTeamMgmtHeaders{}
+	_result = &IndustryManufactureMesTeamMgmtResponse{}
+	_body, _err := client.IndustryManufactureMesTeamMgmtWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureMesTeamMgmtWithOptions(request *IndustryManufactureMesTeamMgmtRequest, headers *IndustryManufactureMesTeamMgmtHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureMesTeamMgmtResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Action)) {
+		body["action"] = request.Action
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppKey)) {
+		body["appKey"] = request.AppKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BaseDataName)) {
+		body["baseDataName"] = request.BaseDataName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Events)) {
+		body["events"] = request.Events
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtendData)) {
+		body["extendData"] = request.ExtendData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupConfig)) {
+		body["groupConfig"] = request.GroupConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupPlugins)) {
+		body["groupPlugins"] = request.GroupPlugins
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupType)) {
+		body["groupType"] = request.GroupType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Id)) {
+		body["id"] = request.Id
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Leaders)) {
+		body["leaders"] = request.Leaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Members)) {
+		body["members"] = request.Members
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessIds)) {
+		body["processIds"] = request.ProcessIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &IndustryManufactureMesTeamMgmtResponse{}
+	_body, _err := client.DoROARequest(tea.String("IndustryManufactureMesTeamMgmt"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/manufacturing/base/data/team"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
