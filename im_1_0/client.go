@@ -1125,6 +1125,78 @@ func (s *GetSceneGroupMembersResponse) SetBody(v *GetSceneGroupMembersResponseBo
 	return s
 }
 
+type GroupBanWordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GroupBanWordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupBanWordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GroupBanWordsHeaders) SetCommonHeaders(v map[string]*string) *GroupBanWordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GroupBanWordsHeaders) SetXAcsDingtalkAccessToken(v string) *GroupBanWordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GroupBanWordsRequest struct {
+	// 禁言模式
+	BanWordsMode *int32 `json:"banWordsMode,omitempty" xml:"banWordsMode,omitempty"`
+	// 开放群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 扩展参数
+	Options map[string]interface{} `json:"options,omitempty" xml:"options,omitempty"`
+}
+
+func (s GroupBanWordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupBanWordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GroupBanWordsRequest) SetBanWordsMode(v int32) *GroupBanWordsRequest {
+	s.BanWordsMode = &v
+	return s
+}
+
+func (s *GroupBanWordsRequest) SetOpenConversationId(v string) *GroupBanWordsRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GroupBanWordsRequest) SetOptions(v map[string]interface{}) *GroupBanWordsRequest {
+	s.Options = v
+	return s
+}
+
+type GroupBanWordsResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s GroupBanWordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupBanWordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GroupBanWordsResponse) SetHeaders(v map[string]*string) *GroupBanWordsResponse {
+	s.Headers = v
+	return s
+}
+
 type GroupCapacityInquiryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1333,6 +1405,300 @@ func (s *GroupCapacityInquiryResponse) SetBody(v *GroupCapacityInquiryResponseBo
 	return s
 }
 
+type GroupCapacityOrderConfirmHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GroupCapacityOrderConfirmHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupCapacityOrderConfirmHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GroupCapacityOrderConfirmHeaders) SetCommonHeaders(v map[string]*string) *GroupCapacityOrderConfirmHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GroupCapacityOrderConfirmHeaders) SetXAcsDingtalkAccessToken(v string) *GroupCapacityOrderConfirmHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GroupCapacityOrderConfirmRequest struct {
+	// 操作人工号
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	// 订单号
+	OrderId *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
+}
+
+func (s GroupCapacityOrderConfirmRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupCapacityOrderConfirmRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GroupCapacityOrderConfirmRequest) SetOperator(v string) *GroupCapacityOrderConfirmRequest {
+	s.Operator = &v
+	return s
+}
+
+func (s *GroupCapacityOrderConfirmRequest) SetOrderId(v string) *GroupCapacityOrderConfirmRequest {
+	s.OrderId = &v
+	return s
+}
+
+type GroupCapacityOrderConfirmResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s GroupCapacityOrderConfirmResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupCapacityOrderConfirmResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GroupCapacityOrderConfirmResponse) SetHeaders(v map[string]*string) *GroupCapacityOrderConfirmResponse {
+	s.Headers = v
+	return s
+}
+
+type GroupCapacityOrderPlaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GroupCapacityOrderPlaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupCapacityOrderPlaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GroupCapacityOrderPlaceHeaders) SetCommonHeaders(v map[string]*string) *GroupCapacityOrderPlaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceHeaders) SetXAcsDingtalkAccessToken(v string) *GroupCapacityOrderPlaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GroupCapacityOrderPlaceRequest struct {
+	// 实际价格
+	ActualPrice *int64 `json:"actualPrice,omitempty" xml:"actualPrice,omitempty"`
+	// 当前容量
+	CurrentCapacity *int32 `json:"currentCapacity,omitempty" xml:"currentCapacity,omitempty"`
+	// 当前操当前容量生效至何时
+	CurrentEffectUntil *int64 `json:"currentEffectUntil,omitempty" xml:"currentEffectUntil,omitempty"`
+	// 折扣
+	Discount *int32 `json:"discount,omitempty" xml:"discount,omitempty"`
+	// 扩展信息
+	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// 标价
+	MarkedPrice *int64 `json:"markedPrice,omitempty" xml:"markedPrice,omitempty"`
+	// 开放的群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 当前操作人工号
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	// 目标容量
+	TargetCapacity *int32 `json:"targetCapacity,omitempty" xml:"targetCapacity,omitempty"`
+	// 目标容量生效至何时
+	TargetEffectUntil *int64 `json:"targetEffectUntil,omitempty" xml:"targetEffectUntil,omitempty"`
+	// 校验令牌
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+}
+
+func (s GroupCapacityOrderPlaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupCapacityOrderPlaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GroupCapacityOrderPlaceRequest) SetActualPrice(v int64) *GroupCapacityOrderPlaceRequest {
+	s.ActualPrice = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceRequest) SetCurrentCapacity(v int32) *GroupCapacityOrderPlaceRequest {
+	s.CurrentCapacity = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceRequest) SetCurrentEffectUntil(v int64) *GroupCapacityOrderPlaceRequest {
+	s.CurrentEffectUntil = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceRequest) SetDiscount(v int32) *GroupCapacityOrderPlaceRequest {
+	s.Discount = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceRequest) SetExtInfo(v map[string]interface{}) *GroupCapacityOrderPlaceRequest {
+	s.ExtInfo = v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceRequest) SetMarkedPrice(v int64) *GroupCapacityOrderPlaceRequest {
+	s.MarkedPrice = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceRequest) SetOpenConversationId(v string) *GroupCapacityOrderPlaceRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceRequest) SetOperator(v string) *GroupCapacityOrderPlaceRequest {
+	s.Operator = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceRequest) SetTargetCapacity(v int32) *GroupCapacityOrderPlaceRequest {
+	s.TargetCapacity = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceRequest) SetTargetEffectUntil(v int64) *GroupCapacityOrderPlaceRequest {
+	s.TargetEffectUntil = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceRequest) SetToken(v string) *GroupCapacityOrderPlaceRequest {
+	s.Token = &v
+	return s
+}
+
+type GroupCapacityOrderPlaceResponseBody struct {
+	// 实际价格
+	ActualPrice *int64 `json:"actualPrice,omitempty" xml:"actualPrice,omitempty"`
+	// 当前容量
+	CurrentCapacity *int32 `json:"currentCapacity,omitempty" xml:"currentCapacity,omitempty"`
+	// 当前容量生效至何时
+	CurrentEffectUntil *int64 `json:"currentEffectUntil,omitempty" xml:"currentEffectUntil,omitempty"`
+	// 折扣
+	Discount *int32 `json:"discount,omitempty" xml:"discount,omitempty"`
+	// 扩展信息
+	ExtInfo map[string]*string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// 标价
+	MarkedPrice *int64 `json:"markedPrice,omitempty" xml:"markedPrice,omitempty"`
+	// 群标识
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 当前操作人工号
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	// 订单号
+	OrderId *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	// 目标容量
+	TargetCapacity *int32 `json:"targetCapacity,omitempty" xml:"targetCapacity,omitempty"`
+	// 目标容量生效至何时
+	TargetEffectUntil *int64 `json:"targetEffectUntil,omitempty" xml:"targetEffectUntil,omitempty"`
+	// 校验令牌
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+}
+
+func (s GroupCapacityOrderPlaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupCapacityOrderPlaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GroupCapacityOrderPlaceResponseBody) SetActualPrice(v int64) *GroupCapacityOrderPlaceResponseBody {
+	s.ActualPrice = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceResponseBody) SetCurrentCapacity(v int32) *GroupCapacityOrderPlaceResponseBody {
+	s.CurrentCapacity = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceResponseBody) SetCurrentEffectUntil(v int64) *GroupCapacityOrderPlaceResponseBody {
+	s.CurrentEffectUntil = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceResponseBody) SetDiscount(v int32) *GroupCapacityOrderPlaceResponseBody {
+	s.Discount = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceResponseBody) SetExtInfo(v map[string]*string) *GroupCapacityOrderPlaceResponseBody {
+	s.ExtInfo = v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceResponseBody) SetMarkedPrice(v int64) *GroupCapacityOrderPlaceResponseBody {
+	s.MarkedPrice = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceResponseBody) SetOpenConversationId(v string) *GroupCapacityOrderPlaceResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceResponseBody) SetOperator(v string) *GroupCapacityOrderPlaceResponseBody {
+	s.Operator = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceResponseBody) SetOrderId(v string) *GroupCapacityOrderPlaceResponseBody {
+	s.OrderId = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceResponseBody) SetTargetCapacity(v int32) *GroupCapacityOrderPlaceResponseBody {
+	s.TargetCapacity = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceResponseBody) SetTargetEffectUntil(v int64) *GroupCapacityOrderPlaceResponseBody {
+	s.TargetEffectUntil = &v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceResponseBody) SetToken(v string) *GroupCapacityOrderPlaceResponseBody {
+	s.Token = &v
+	return s
+}
+
+type GroupCapacityOrderPlaceResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GroupCapacityOrderPlaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GroupCapacityOrderPlaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupCapacityOrderPlaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GroupCapacityOrderPlaceResponse) SetHeaders(v map[string]*string) *GroupCapacityOrderPlaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GroupCapacityOrderPlaceResponse) SetBody(v *GroupCapacityOrderPlaceResponseBody) *GroupCapacityOrderPlaceResponse {
+	s.Body = v
+	return s
+}
+
 type GroupManageQueryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1357,6 +1723,8 @@ func (s *GroupManageQueryHeaders) SetXAcsDingtalkAccessToken(v string) *GroupMan
 }
 
 type GroupManageQueryRequest struct {
+	// 建群时间不早于（辅助性条件，结合非排他条件使用）
+	CreatedAfter *int64 `json:"createdAfter,omitempty" xml:"createdAfter,omitempty"`
 	// 群号
 	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
 	// 群成员样例工号列表
@@ -1367,6 +1735,12 @@ type GroupManageQueryRequest struct {
 	GroupTitleKeywords []*string `json:"groupTitleKeywords,omitempty" xml:"groupTitleKeywords,omitempty" type:"Repeated"`
 	// 群链接
 	GroupUrl *string `json:"groupUrl,omitempty" xml:"groupUrl,omitempty"`
+	// 分页拉取的页大小, 最大不可超过1000
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 群成员数下限（辅助性条件，结合非排他条件使用）
+	MembersOver *int32 `json:"membersOver,omitempty" xml:"membersOver,omitempty"`
+	// 分页拉取游标, 若不指定，则从头开始拉
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 开放群id
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
@@ -1377,6 +1751,11 @@ func (s GroupManageQueryRequest) String() string {
 
 func (s GroupManageQueryRequest) GoString() string {
 	return s.String()
+}
+
+func (s *GroupManageQueryRequest) SetCreatedAfter(v int64) *GroupManageQueryRequest {
+	s.CreatedAfter = &v
+	return s
 }
 
 func (s *GroupManageQueryRequest) SetGroupId(v string) *GroupManageQueryRequest {
@@ -1404,6 +1783,21 @@ func (s *GroupManageQueryRequest) SetGroupUrl(v string) *GroupManageQueryRequest
 	return s
 }
 
+func (s *GroupManageQueryRequest) SetMaxResults(v int32) *GroupManageQueryRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GroupManageQueryRequest) SetMembersOver(v int32) *GroupManageQueryRequest {
+	s.MembersOver = &v
+	return s
+}
+
+func (s *GroupManageQueryRequest) SetNextToken(v string) *GroupManageQueryRequest {
+	s.NextToken = &v
+	return s
+}
+
 func (s *GroupManageQueryRequest) SetOpenConversationId(v string) *GroupManageQueryRequest {
 	s.OpenConversationId = &v
 	return s
@@ -1412,6 +1806,10 @@ func (s *GroupManageQueryRequest) SetOpenConversationId(v string) *GroupManageQu
 type GroupManageQueryResponseBody struct {
 	// 群信息列表
 	GroupInfoList []*GroupManageQueryResponseBodyGroupInfoList `json:"groupInfoList,omitempty" xml:"groupInfoList,omitempty" type:"Repeated"`
+	// 分页拉取时, 是否还有更多
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 分页拉取游标, 请求下一页时回传
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GroupManageQueryResponseBody) String() string {
@@ -1427,13 +1825,26 @@ func (s *GroupManageQueryResponseBody) SetGroupInfoList(v []*GroupManageQueryRes
 	return s
 }
 
+func (s *GroupManageQueryResponseBody) SetHasMore(v bool) *GroupManageQueryResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GroupManageQueryResponseBody) SetNextToken(v string) *GroupManageQueryResponseBody {
+	s.NextToken = &v
+	return s
+}
+
 type GroupManageQueryResponseBodyGroupInfoList struct {
+	// 禁言模式
+	BanWordsMode *int32 `json:"banWordsMode,omitempty" xml:"banWordsMode,omitempty"`
 	// 群容量
 	Capacity *int32 `json:"capacity,omitempty" xml:"capacity,omitempty"`
 	// 群创建时间
 	CreatedAt *int64 `json:"createdAt,omitempty" xml:"createdAt,omitempty"`
 	// 扩展信息
-	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	ExtInfo        map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	GroupAdminList []*string              `json:"groupAdminList,omitempty" xml:"groupAdminList,omitempty" type:"Repeated"`
 	// 群主userid
 	GroupOwner *string `json:"groupOwner,omitempty" xml:"groupOwner,omitempty"`
 	// 群标题
@@ -1442,6 +1853,8 @@ type GroupManageQueryResponseBodyGroupInfoList struct {
 	MemberCount *int32 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
 	// 开放的群id
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 群类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GroupManageQueryResponseBodyGroupInfoList) String() string {
@@ -1450,6 +1863,11 @@ func (s GroupManageQueryResponseBodyGroupInfoList) String() string {
 
 func (s GroupManageQueryResponseBodyGroupInfoList) GoString() string {
 	return s.String()
+}
+
+func (s *GroupManageQueryResponseBodyGroupInfoList) SetBanWordsMode(v int32) *GroupManageQueryResponseBodyGroupInfoList {
+	s.BanWordsMode = &v
+	return s
 }
 
 func (s *GroupManageQueryResponseBodyGroupInfoList) SetCapacity(v int32) *GroupManageQueryResponseBodyGroupInfoList {
@@ -1464,6 +1882,11 @@ func (s *GroupManageQueryResponseBodyGroupInfoList) SetCreatedAt(v int64) *Group
 
 func (s *GroupManageQueryResponseBodyGroupInfoList) SetExtInfo(v map[string]interface{}) *GroupManageQueryResponseBodyGroupInfoList {
 	s.ExtInfo = v
+	return s
+}
+
+func (s *GroupManageQueryResponseBodyGroupInfoList) SetGroupAdminList(v []*string) *GroupManageQueryResponseBodyGroupInfoList {
+	s.GroupAdminList = v
 	return s
 }
 
@@ -1487,6 +1910,11 @@ func (s *GroupManageQueryResponseBodyGroupInfoList) SetOpenConversationId(v stri
 	return s
 }
 
+func (s *GroupManageQueryResponseBodyGroupInfoList) SetType(v string) *GroupManageQueryResponseBodyGroupInfoList {
+	s.Type = &v
+	return s
+}
+
 type GroupManageQueryResponse struct {
 	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
 	Body    *GroupManageQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
@@ -1507,6 +1935,78 @@ func (s *GroupManageQueryResponse) SetHeaders(v map[string]*string) *GroupManage
 
 func (s *GroupManageQueryResponse) SetBody(v *GroupManageQueryResponseBody) *GroupManageQueryResponse {
 	s.Body = v
+	return s
+}
+
+type GroupManageReduceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GroupManageReduceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupManageReduceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GroupManageReduceHeaders) SetCommonHeaders(v map[string]*string) *GroupManageReduceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GroupManageReduceHeaders) SetXAcsDingtalkAccessToken(v string) *GroupManageReduceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GroupManageReduceRequest struct {
+	// 群容量限定值
+	CapacityLimit *int32 `json:"capacityLimit,omitempty" xml:"capacityLimit,omitempty"`
+	// 开放群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 扩展参数
+	Options map[string]interface{} `json:"options,omitempty" xml:"options,omitempty"`
+}
+
+func (s GroupManageReduceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupManageReduceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GroupManageReduceRequest) SetCapacityLimit(v int32) *GroupManageReduceRequest {
+	s.CapacityLimit = &v
+	return s
+}
+
+func (s *GroupManageReduceRequest) SetOpenConversationId(v string) *GroupManageReduceRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GroupManageReduceRequest) SetOptions(v map[string]interface{}) *GroupManageReduceRequest {
+	s.Options = v
+	return s
+}
+
+type GroupManageReduceResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+}
+
+func (s GroupManageReduceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupManageReduceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GroupManageReduceResponse) SetHeaders(v map[string]*string) *GroupManageReduceResponse {
+	s.Headers = v
 	return s
 }
 
@@ -4789,6 +5289,58 @@ func (client *Client) GetSceneGroupMembersWithOptions(request *GetSceneGroupMemb
 	return _result, _err
 }
 
+func (client *Client) GroupBanWords(request *GroupBanWordsRequest) (_result *GroupBanWordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GroupBanWordsHeaders{}
+	_result = &GroupBanWordsResponse{}
+	_body, _err := client.GroupBanWordsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GroupBanWordsWithOptions(request *GroupBanWordsRequest, headers *GroupBanWordsHeaders, runtime *util.RuntimeOptions) (_result *GroupBanWordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BanWordsMode)) {
+		body["banWordsMode"] = request.BanWordsMode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Options)) {
+		body["options"] = request.Options
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GroupBanWordsResponse{}
+	_body, _err := client.DoROARequest(tea.String("GroupBanWords"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/groups/words/ban"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GroupCapacityInquiry(request *GroupCapacityInquiryRequest) (_result *GroupCapacityInquiryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GroupCapacityInquiryHeaders{}
@@ -4849,6 +5401,138 @@ func (client *Client) GroupCapacityInquiryWithOptions(request *GroupCapacityInqu
 	return _result, _err
 }
 
+func (client *Client) GroupCapacityOrderConfirm(request *GroupCapacityOrderConfirmRequest) (_result *GroupCapacityOrderConfirmResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GroupCapacityOrderConfirmHeaders{}
+	_result = &GroupCapacityOrderConfirmResponse{}
+	_body, _err := client.GroupCapacityOrderConfirmWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GroupCapacityOrderConfirmWithOptions(request *GroupCapacityOrderConfirmRequest, headers *GroupCapacityOrderConfirmHeaders, runtime *util.RuntimeOptions) (_result *GroupCapacityOrderConfirmResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderId)) {
+		body["orderId"] = request.OrderId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GroupCapacityOrderConfirmResponse{}
+	_body, _err := client.DoROARequest(tea.String("GroupCapacityOrderConfirm"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/groups/capacities/orders/confirm"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GroupCapacityOrderPlace(request *GroupCapacityOrderPlaceRequest) (_result *GroupCapacityOrderPlaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GroupCapacityOrderPlaceHeaders{}
+	_result = &GroupCapacityOrderPlaceResponse{}
+	_body, _err := client.GroupCapacityOrderPlaceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GroupCapacityOrderPlaceWithOptions(request *GroupCapacityOrderPlaceRequest, headers *GroupCapacityOrderPlaceHeaders, runtime *util.RuntimeOptions) (_result *GroupCapacityOrderPlaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActualPrice)) {
+		body["actualPrice"] = request.ActualPrice
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CurrentCapacity)) {
+		body["currentCapacity"] = request.CurrentCapacity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CurrentEffectUntil)) {
+		body["currentEffectUntil"] = request.CurrentEffectUntil
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Discount)) {
+		body["discount"] = request.Discount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtInfo)) {
+		body["extInfo"] = request.ExtInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MarkedPrice)) {
+		body["markedPrice"] = request.MarkedPrice
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCapacity)) {
+		body["targetCapacity"] = request.TargetCapacity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetEffectUntil)) {
+		body["targetEffectUntil"] = request.TargetEffectUntil
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		body["token"] = request.Token
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GroupCapacityOrderPlaceResponse{}
+	_body, _err := client.DoROARequest(tea.String("GroupCapacityOrderPlace"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/groups/capacities/orders/place"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GroupManageQuery(request *GroupManageQueryRequest) (_result *GroupManageQueryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GroupManageQueryHeaders{}
@@ -4867,6 +5551,10 @@ func (client *Client) GroupManageQueryWithOptions(request *GroupManageQueryReque
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CreatedAfter)) {
+		body["createdAfter"] = request.CreatedAfter
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.GroupId)) {
 		body["groupId"] = request.GroupId
 	}
@@ -4885,6 +5573,18 @@ func (client *Client) GroupManageQueryWithOptions(request *GroupManageQueryReque
 
 	if !tea.BoolValue(util.IsUnset(request.GroupUrl)) {
 		body["groupUrl"] = request.GroupUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MembersOver)) {
+		body["membersOver"] = request.MembersOver
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
@@ -4906,6 +5606,58 @@ func (client *Client) GroupManageQueryWithOptions(request *GroupManageQueryReque
 	}
 	_result = &GroupManageQueryResponse{}
 	_body, _err := client.DoROARequest(tea.String("GroupManageQuery"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/groups/managements/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GroupManageReduce(request *GroupManageReduceRequest) (_result *GroupManageReduceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GroupManageReduceHeaders{}
+	_result = &GroupManageReduceResponse{}
+	_body, _err := client.GroupManageReduceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GroupManageReduceWithOptions(request *GroupManageReduceRequest, headers *GroupManageReduceHeaders, runtime *util.RuntimeOptions) (_result *GroupManageReduceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CapacityLimit)) {
+		body["capacityLimit"] = request.CapacityLimit
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Options)) {
+		body["options"] = request.Options
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GroupManageReduceResponse{}
+	_body, _err := client.DoROARequest(tea.String("GroupManageReduce"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/groups/capacities/reduce"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

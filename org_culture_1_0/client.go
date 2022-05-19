@@ -41,6 +41,8 @@ type ConsumeUserPointsRequest struct {
 	OutId *string `json:"outId,omitempty" xml:"outId,omitempty"`
 	// 备注，最长32个字符
 	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// 用途，可用值：OPEN_EMP_POINT_CONSUME_DEFAULT-默认扣减，OPEN_EMP_POINT_PUNISH_CONSUME-惩罚扣减；默认为: OPEN_EMP_POINT_CONSUME_DEFAULT
+	Usage *string `json:"usage,omitempty" xml:"usage,omitempty"`
 }
 
 func (s ConsumeUserPointsRequest) String() string {
@@ -63,6 +65,11 @@ func (s *ConsumeUserPointsRequest) SetOutId(v string) *ConsumeUserPointsRequest 
 
 func (s *ConsumeUserPointsRequest) SetRemark(v string) *ConsumeUserPointsRequest {
 	s.Remark = &v
+	return s
+}
+
+func (s *ConsumeUserPointsRequest) SetUsage(v string) *ConsumeUserPointsRequest {
+	s.Usage = &v
 	return s
 }
 
@@ -886,6 +893,10 @@ func (client *Client) ConsumeUserPointsWithOptions(userId *string, request *Cons
 
 	if !tea.BoolValue(util.IsUnset(request.Remark)) {
 		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Usage)) {
+		body["usage"] = request.Usage
 	}
 
 	realHeaders := make(map[string]*string)

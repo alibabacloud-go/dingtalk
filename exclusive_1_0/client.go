@@ -3921,6 +3921,155 @@ func (s *GetUserAppVersionSummaryResponse) SetBody(v *GetUserAppVersionSummaryRe
 	return s
 }
 
+type GetUserStayLengthHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetUserStayLengthHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserStayLengthHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserStayLengthHeaders) SetCommonHeaders(v map[string]*string) *GetUserStayLengthHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetUserStayLengthHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserStayLengthHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetUserStayLengthRequest struct {
+	// 分页页数
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 统计日期（只保留当前日期的前30天）
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s GetUserStayLengthRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserStayLengthRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserStayLengthRequest) SetPageNumber(v int64) *GetUserStayLengthRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetUserStayLengthRequest) SetPageSize(v int64) *GetUserStayLengthRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetUserStayLengthRequest) SetStatDate(v string) *GetUserStayLengthRequest {
+	s.StatDate = &v
+	return s
+}
+
+type GetUserStayLengthResponseBody struct {
+	// 员工使用时长列表
+	ItemList []*GetUserStayLengthResponseBodyItemList `json:"itemList,omitempty" xml:"itemList,omitempty" type:"Repeated"`
+	// 总数据量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s GetUserStayLengthResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserStayLengthResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserStayLengthResponseBody) SetItemList(v []*GetUserStayLengthResponseBodyItemList) *GetUserStayLengthResponseBody {
+	s.ItemList = v
+	return s
+}
+
+func (s *GetUserStayLengthResponseBody) SetTotalCount(v int64) *GetUserStayLengthResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type GetUserStayLengthResponseBodyItemList struct {
+	// 员工名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 统计日期
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+	// 1日app使用时长（秒）
+	StayTimeLenApp1d *int64 `json:"stayTimeLenApp1d,omitempty" xml:"stayTimeLenApp1d,omitempty"`
+	// 1日PC端使用时长（秒）
+	StayTimeLenPc1d *int64 `json:"stayTimeLenPc1d,omitempty" xml:"stayTimeLenPc1d,omitempty"`
+	// 工号
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetUserStayLengthResponseBodyItemList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserStayLengthResponseBodyItemList) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserStayLengthResponseBodyItemList) SetName(v string) *GetUserStayLengthResponseBodyItemList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetUserStayLengthResponseBodyItemList) SetStatDate(v string) *GetUserStayLengthResponseBodyItemList {
+	s.StatDate = &v
+	return s
+}
+
+func (s *GetUserStayLengthResponseBodyItemList) SetStayTimeLenApp1d(v int64) *GetUserStayLengthResponseBodyItemList {
+	s.StayTimeLenApp1d = &v
+	return s
+}
+
+func (s *GetUserStayLengthResponseBodyItemList) SetStayTimeLenPc1d(v int64) *GetUserStayLengthResponseBodyItemList {
+	s.StayTimeLenPc1d = &v
+	return s
+}
+
+func (s *GetUserStayLengthResponseBodyItemList) SetUserId(v string) *GetUserStayLengthResponseBodyItemList {
+	s.UserId = &v
+	return s
+}
+
+type GetUserStayLengthResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetUserStayLengthResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetUserStayLengthResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserStayLengthResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserStayLengthResponse) SetHeaders(v map[string]*string) *GetUserStayLengthResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetUserStayLengthResponse) SetBody(v *GetUserStayLengthResponseBody) *GetUserStayLengthResponse {
+	s.Body = v
+	return s
+}
+
 type ListAuditLogHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8142,6 +8291,58 @@ func (client *Client) GetUserAppVersionSummaryWithOptions(dataId *string, reques
 	}
 	_result = &GetUserAppVersionSummaryResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetUserAppVersionSummary"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/data/appVersion/org/"+tea.StringValue(dataId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetUserStayLength(request *GetUserStayLengthRequest) (_result *GetUserStayLengthResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetUserStayLengthHeaders{}
+	_result = &GetUserStayLengthResponse{}
+	_body, _err := client.GetUserStayLengthWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetUserStayLengthWithOptions(request *GetUserStayLengthRequest, headers *GetUserStayLengthHeaders, runtime *util.RuntimeOptions) (_result *GetUserStayLengthResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetUserStayLengthResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetUserStayLength"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/data/users/stayTimes"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
