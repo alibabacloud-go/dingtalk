@@ -614,6 +614,14 @@ func (s *CreateSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSpaceHe
 }
 
 type CreateSpaceRequest struct {
+	// 仅当tag未房屋时有用
+	BillingArea *float32 `json:"billingArea,omitempty" xml:"billingArea,omitempty"`
+	// 仅当tag未房屋时有用
+	BuildingArea *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
+	// 仅当tag未房屋时有用
+	Floor *string `json:"floor,omitempty" xml:"floor,omitempty"`
+	// 仅当tag未房屋时有用
+	HouseState *int64 `json:"houseState,omitempty" xml:"houseState,omitempty"`
 	// 空间名称，如A栋，二单元，406室等
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 父节点id，根节点为-7
@@ -630,6 +638,26 @@ func (s CreateSpaceRequest) String() string {
 
 func (s CreateSpaceRequest) GoString() string {
 	return s.String()
+}
+
+func (s *CreateSpaceRequest) SetBillingArea(v float32) *CreateSpaceRequest {
+	s.BillingArea = &v
+	return s
+}
+
+func (s *CreateSpaceRequest) SetBuildingArea(v float32) *CreateSpaceRequest {
+	s.BuildingArea = &v
+	return s
+}
+
+func (s *CreateSpaceRequest) SetFloor(v string) *CreateSpaceRequest {
+	s.Floor = &v
+	return s
+}
+
+func (s *CreateSpaceRequest) SetHouseState(v int64) *CreateSpaceRequest {
+	s.HouseState = &v
+	return s
 }
 
 func (s *CreateSpaceRequest) SetName(v string) *CreateSpaceRequest {
@@ -2535,6 +2563,95 @@ func (s *PagePointHistoryResponse) SetBody(v *PagePointHistoryResponseBody) *Pag
 	return s
 }
 
+type RemoveResidentMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RemoveResidentMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveResidentMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveResidentMemberHeaders) SetCommonHeaders(v map[string]*string) *RemoveResidentMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveResidentMemberHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveResidentMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RemoveResidentMemberRequest struct {
+	// 空位标识
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 人员标识
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s RemoveResidentMemberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveResidentMemberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveResidentMemberRequest) SetDeptId(v int64) *RemoveResidentMemberRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *RemoveResidentMemberRequest) SetUserId(v string) *RemoveResidentMemberRequest {
+	s.UserId = &v
+	return s
+}
+
+type RemoveResidentMemberResponseBody struct {
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s RemoveResidentMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveResidentMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveResidentMemberResponseBody) SetSuccess(v bool) *RemoveResidentMemberResponseBody {
+	s.Success = &v
+	return s
+}
+
+type RemoveResidentMemberResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RemoveResidentMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RemoveResidentMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveResidentMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveResidentMemberResponse) SetHeaders(v map[string]*string) *RemoveResidentMemberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RemoveResidentMemberResponse) SetBody(v *RemoveResidentMemberResponseBody) *RemoveResidentMemberResponse {
+	s.Body = v
+	return s
+}
+
 type RemoveResidentUserHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3098,14 +3215,25 @@ func (s *UpdateResidentInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Update
 }
 
 type UpdateResidentInfoRequest struct {
-	// 小区地址
 	Address *string `json:"address,omitempty" xml:"address,omitempty"`
-	// 小区类型1纯住宅；2:商住混合；3:办公；4:办公商业混合；5:商业；6:公共场所；7:其他
+	// 建筑面积，组多支持2位小数，总长不超过8位
+	BuildingArea *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
+	// 市的名字，有值时provName必填
+	CityName *string `json:"cityName,omitempty" xml:"cityName,omitempty"`
+	// 1纯住宅；2:商住混合；3:办公；4:办公商业混合；5:商业；6:公共场所；7:其他
 	CommunityType *int64 `json:"communityType,omitempty" xml:"communityType,omitempty"`
+	// 区/县名，有值是provName，cityName必填
+	CountyName *string `json:"countyName,omitempty" xml:"countyName,omitempty"`
+	// 经纬度，格式：经度,纬度
+	Location *string `json:"location,omitempty" xml:"location,omitempty"`
 	// 小区名
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 省的名字
+	ProvName *string `json:"provName,omitempty" xml:"provName,omitempty"`
 	// 小区状态：0正常/1关闭/2作废
 	State *int64 `json:"state,omitempty" xml:"state,omitempty"`
+	// 小区服务电话
+	Telephone *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
 }
 
 func (s UpdateResidentInfoRequest) String() string {
@@ -3121,8 +3249,28 @@ func (s *UpdateResidentInfoRequest) SetAddress(v string) *UpdateResidentInfoRequ
 	return s
 }
 
+func (s *UpdateResidentInfoRequest) SetBuildingArea(v float32) *UpdateResidentInfoRequest {
+	s.BuildingArea = &v
+	return s
+}
+
+func (s *UpdateResidentInfoRequest) SetCityName(v string) *UpdateResidentInfoRequest {
+	s.CityName = &v
+	return s
+}
+
 func (s *UpdateResidentInfoRequest) SetCommunityType(v int64) *UpdateResidentInfoRequest {
 	s.CommunityType = &v
+	return s
+}
+
+func (s *UpdateResidentInfoRequest) SetCountyName(v string) *UpdateResidentInfoRequest {
+	s.CountyName = &v
+	return s
+}
+
+func (s *UpdateResidentInfoRequest) SetLocation(v string) *UpdateResidentInfoRequest {
+	s.Location = &v
 	return s
 }
 
@@ -3131,8 +3279,18 @@ func (s *UpdateResidentInfoRequest) SetName(v string) *UpdateResidentInfoRequest
 	return s
 }
 
+func (s *UpdateResidentInfoRequest) SetProvName(v string) *UpdateResidentInfoRequest {
+	s.ProvName = &v
+	return s
+}
+
 func (s *UpdateResidentInfoRequest) SetState(v int64) *UpdateResidentInfoRequest {
 	s.State = &v
+	return s
+}
+
+func (s *UpdateResidentInfoRequest) SetTelephone(v string) *UpdateResidentInfoRequest {
+	s.Telephone = &v
 	return s
 }
 
@@ -3981,6 +4139,22 @@ func (client *Client) CreateSpaceWithOptions(request *CreateSpaceRequest, header
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BillingArea)) {
+		body["billingArea"] = request.BillingArea
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BuildingArea)) {
+		body["buildingArea"] = request.BuildingArea
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Floor)) {
+		body["floor"] = request.Floor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HouseState)) {
+		body["houseState"] = request.HouseState
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
 		body["name"] = request.Name
 	}
@@ -4669,6 +4843,54 @@ func (client *Client) PagePointHistoryWithOptions(request *PagePointHistoryReque
 	return _result, _err
 }
 
+func (client *Client) RemoveResidentMember(request *RemoveResidentMemberRequest) (_result *RemoveResidentMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RemoveResidentMemberHeaders{}
+	_result = &RemoveResidentMemberResponse{}
+	_body, _err := client.RemoveResidentMemberWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RemoveResidentMemberWithOptions(request *RemoveResidentMemberRequest, headers *RemoveResidentMemberHeaders, runtime *util.RuntimeOptions) (_result *RemoveResidentMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RemoveResidentMemberResponse{}
+	_body, _err := client.DoROARequest(tea.String("RemoveResidentMember"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/resident/members/remove"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) RemoveResidentUser(request *RemoveResidentUserRequest) (_result *RemoveResidentUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RemoveResidentUserHeaders{}
@@ -4963,16 +5185,40 @@ func (client *Client) UpdateResidentInfoWithOptions(request *UpdateResidentInfoR
 		body["address"] = request.Address
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.BuildingArea)) {
+		body["buildingArea"] = request.BuildingArea
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CityName)) {
+		body["cityName"] = request.CityName
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.CommunityType)) {
 		body["communityType"] = request.CommunityType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CountyName)) {
+		body["countyName"] = request.CountyName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Location)) {
+		body["location"] = request.Location
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
 		body["name"] = request.Name
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.ProvName)) {
+		body["provName"] = request.ProvName
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.State)) {
 		body["state"] = request.State
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Telephone)) {
+		body["telephone"] = request.Telephone
 	}
 
 	realHeaders := make(map[string]*string)

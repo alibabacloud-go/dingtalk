@@ -1461,6 +1461,130 @@ func (s *UpdateVideoConferenceExtInfoResponse) SetBody(v *UpdateVideoConferenceE
 	return s
 }
 
+type UpdateVideoConferenceSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateVideoConferenceSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateVideoConferenceSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateVideoConferenceSettingHeaders) SetCommonHeaders(v map[string]*string) *UpdateVideoConferenceSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateVideoConferenceSettingHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateVideoConferenceSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateVideoConferenceSettingRequest struct {
+	// 允许参会人员取消静音
+	AllowUnmuteSelf *bool `json:"allowUnmuteSelf,omitempty" xml:"allowUnmuteSelf,omitempty"`
+	// 主持人离会，是否自动转移主持人角色
+	AutoTransferHost *bool `json:"autoTransferHost,omitempty" xml:"autoTransferHost,omitempty"`
+	// 禁止共享屏幕
+	ForbiddenShareScreen *bool `json:"forbiddenShareScreen,omitempty" xml:"forbiddenShareScreen,omitempty"`
+	// 锁定会议，禁止邀请入会
+	LockConference *bool `json:"lockConference,omitempty" xml:"lockConference,omitempty"`
+	// 全员静音
+	MuteAll *bool `json:"muteAll,omitempty" xml:"muteAll,omitempty"`
+	// 仅允许企业内员工加入会议
+	OnlyInternalEmployeesJoin *bool `json:"onlyInternalEmployeesJoin,omitempty" xml:"onlyInternalEmployeesJoin,omitempty"`
+}
+
+func (s UpdateVideoConferenceSettingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateVideoConferenceSettingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateVideoConferenceSettingRequest) SetAllowUnmuteSelf(v bool) *UpdateVideoConferenceSettingRequest {
+	s.AllowUnmuteSelf = &v
+	return s
+}
+
+func (s *UpdateVideoConferenceSettingRequest) SetAutoTransferHost(v bool) *UpdateVideoConferenceSettingRequest {
+	s.AutoTransferHost = &v
+	return s
+}
+
+func (s *UpdateVideoConferenceSettingRequest) SetForbiddenShareScreen(v bool) *UpdateVideoConferenceSettingRequest {
+	s.ForbiddenShareScreen = &v
+	return s
+}
+
+func (s *UpdateVideoConferenceSettingRequest) SetLockConference(v bool) *UpdateVideoConferenceSettingRequest {
+	s.LockConference = &v
+	return s
+}
+
+func (s *UpdateVideoConferenceSettingRequest) SetMuteAll(v bool) *UpdateVideoConferenceSettingRequest {
+	s.MuteAll = &v
+	return s
+}
+
+func (s *UpdateVideoConferenceSettingRequest) SetOnlyInternalEmployeesJoin(v bool) *UpdateVideoConferenceSettingRequest {
+	s.OnlyInternalEmployeesJoin = &v
+	return s
+}
+
+type UpdateVideoConferenceSettingResponseBody struct {
+	// 结果详情
+	Case *string `json:"case,omitempty" xml:"case,omitempty"`
+	// 返回编码
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+}
+
+func (s UpdateVideoConferenceSettingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateVideoConferenceSettingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateVideoConferenceSettingResponseBody) SetCase(v string) *UpdateVideoConferenceSettingResponseBody {
+	s.Case = &v
+	return s
+}
+
+func (s *UpdateVideoConferenceSettingResponseBody) SetCode(v string) *UpdateVideoConferenceSettingResponseBody {
+	s.Code = &v
+	return s
+}
+
+type UpdateVideoConferenceSettingResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateVideoConferenceSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateVideoConferenceSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateVideoConferenceSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateVideoConferenceSettingResponse) SetHeaders(v map[string]*string) *UpdateVideoConferenceSettingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateVideoConferenceSettingResponse) SetBody(v *UpdateVideoConferenceSettingResponseBody) *UpdateVideoConferenceSettingResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -2032,6 +2156,71 @@ func (client *Client) UpdateVideoConferenceExtInfoWithOptions(conferenceId *stri
 	}
 	_result = &UpdateVideoConferenceExtInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateVideoConferenceExtInfo"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)+"/extInfo"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateVideoConferenceSetting(conferenceId *string, request *UpdateVideoConferenceSettingRequest) (_result *UpdateVideoConferenceSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateVideoConferenceSettingHeaders{}
+	_result = &UpdateVideoConferenceSettingResponse{}
+	_body, _err := client.UpdateVideoConferenceSettingWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateVideoConferenceSettingWithOptions(conferenceId *string, request *UpdateVideoConferenceSettingRequest, headers *UpdateVideoConferenceSettingHeaders, runtime *util.RuntimeOptions) (_result *UpdateVideoConferenceSettingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	conferenceId = openapiutil.GetEncodeParam(conferenceId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AllowUnmuteSelf)) {
+		body["allowUnmuteSelf"] = request.AllowUnmuteSelf
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AutoTransferHost)) {
+		body["autoTransferHost"] = request.AutoTransferHost
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ForbiddenShareScreen)) {
+		body["forbiddenShareScreen"] = request.ForbiddenShareScreen
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LockConference)) {
+		body["lockConference"] = request.LockConference
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MuteAll)) {
+		body["muteAll"] = request.MuteAll
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OnlyInternalEmployeesJoin)) {
+		body["onlyInternalEmployeesJoin"] = request.OnlyInternalEmployeesJoin
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateVideoConferenceSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateVideoConferenceSetting"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -35,11 +35,12 @@ func (s *CreateMiniAppHeaders) SetXAcsDingtalkAccessToken(v string) *CreateMiniA
 }
 
 type CreateMiniAppRequest struct {
-	BizId   *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	BizType *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Desc    *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	Icon    *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+	BizId    *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	BizType  *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	BundleId *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
+	Desc     *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	Icon     *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CreateMiniAppRequest) String() string {
@@ -57,6 +58,11 @@ func (s *CreateMiniAppRequest) SetBizId(v string) *CreateMiniAppRequest {
 
 func (s *CreateMiniAppRequest) SetBizType(v int32) *CreateMiniAppRequest {
 	s.BizType = &v
+	return s
+}
+
+func (s *CreateMiniAppRequest) SetBundleId(v string) *CreateMiniAppRequest {
+	s.BundleId = &v
 	return s
 }
 
@@ -140,11 +146,12 @@ func (s *CreateMiniAppPluginHeaders) SetXAcsDingtalkAccessToken(v string) *Creat
 }
 
 type CreateMiniAppPluginRequest struct {
-	BizId   *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	BizType *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Desc    *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	Icon    *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+	BizId    *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	BizType  *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	BundleId *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
+	Desc     *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	Icon     *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CreateMiniAppPluginRequest) String() string {
@@ -162,6 +169,11 @@ func (s *CreateMiniAppPluginRequest) SetBizId(v string) *CreateMiniAppPluginRequ
 
 func (s *CreateMiniAppPluginRequest) SetBizType(v int32) *CreateMiniAppPluginRequest {
 	s.BizType = &v
+	return s
+}
+
+func (s *CreateMiniAppPluginRequest) SetBundleId(v string) *CreateMiniAppPluginRequest {
+	s.BundleId = &v
 	return s
 }
 
@@ -1055,6 +1067,10 @@ func (client *Client) CreateMiniAppWithOptions(request *CreateMiniAppRequest, he
 		body["bizType"] = request.BizType
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.BundleId)) {
+		body["bundleId"] = request.BundleId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Desc)) {
 		body["desc"] = request.Desc
 	}
@@ -1113,6 +1129,10 @@ func (client *Client) CreateMiniAppPluginWithOptions(request *CreateMiniAppPlugi
 
 	if !tea.BoolValue(util.IsUnset(request.BizType)) {
 		body["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BundleId)) {
+		body["bundleId"] = request.BundleId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Desc)) {

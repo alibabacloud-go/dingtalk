@@ -163,6 +163,102 @@ func (s *AddDeviceResponse) SetBody(v *AddDeviceResponseBody) *AddDeviceResponse
 	return s
 }
 
+type AddSchoolConfigHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddSchoolConfigHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddSchoolConfigHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddSchoolConfigHeaders) SetCommonHeaders(v map[string]*string) *AddSchoolConfigHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddSchoolConfigHeaders) SetXAcsDingtalkAccessToken(v string) *AddSchoolConfigHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddSchoolConfigRequest struct {
+	// 123
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// 123
+	OperatorName *string `json:"operatorName,omitempty" xml:"operatorName,omitempty"`
+	// 3700
+	TemperatureUpLimit *int64 `json:"temperatureUpLimit,omitempty" xml:"temperatureUpLimit,omitempty"`
+}
+
+func (s AddSchoolConfigRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddSchoolConfigRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddSchoolConfigRequest) SetOperatorId(v string) *AddSchoolConfigRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *AddSchoolConfigRequest) SetOperatorName(v string) *AddSchoolConfigRequest {
+	s.OperatorName = &v
+	return s
+}
+
+func (s *AddSchoolConfigRequest) SetTemperatureUpLimit(v int64) *AddSchoolConfigRequest {
+	s.TemperatureUpLimit = &v
+	return s
+}
+
+type AddSchoolConfigResponseBody struct {
+	// 结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s AddSchoolConfigResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddSchoolConfigResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddSchoolConfigResponseBody) SetResult(v bool) *AddSchoolConfigResponseBody {
+	s.Result = &v
+	return s
+}
+
+type AddSchoolConfigResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddSchoolConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddSchoolConfigResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddSchoolConfigResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddSchoolConfigResponse) SetHeaders(v map[string]*string) *AddSchoolConfigResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddSchoolConfigResponse) SetBody(v *AddSchoolConfigResponseBody) *AddSchoolConfigResponse {
+	s.Body = v
+	return s
+}
+
 type BatchCreateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7288,6 +7384,7 @@ type ListOrderResponseBodyList struct {
 	EndTime      *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
 	OrderNo      *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
 	PayTime      *int64  `json:"payTime,omitempty" xml:"payTime,omitempty"`
+	RefundNo     *string `json:"refundNo,omitempty" xml:"refundNo,omitempty"`
 	Scene        *int64  `json:"scene,omitempty" xml:"scene,omitempty"`
 	StartTime    *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
 	Status       *int64  `json:"status,omitempty" xml:"status,omitempty"`
@@ -7335,6 +7432,11 @@ func (s *ListOrderResponseBodyList) SetOrderNo(v string) *ListOrderResponseBodyL
 
 func (s *ListOrderResponseBodyList) SetPayTime(v int64) *ListOrderResponseBodyList {
 	s.PayTime = &v
+	return s
+}
+
+func (s *ListOrderResponseBodyList) SetRefundNo(v string) *ListOrderResponseBodyList {
+	s.RefundNo = &v
 	return s
 }
 
@@ -13843,6 +13945,58 @@ func (client *Client) AddDeviceWithOptions(request *AddDeviceRequest, headers *A
 	}
 	_result = &AddDeviceResponse{}
 	_body, _err := client.DoROARequest(tea.String("AddDevice"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/devices"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddSchoolConfig(request *AddSchoolConfigRequest) (_result *AddSchoolConfigResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddSchoolConfigHeaders{}
+	_result = &AddSchoolConfigResponse{}
+	_body, _err := client.AddSchoolConfigWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddSchoolConfigWithOptions(request *AddSchoolConfigRequest, headers *AddSchoolConfigHeaders, runtime *util.RuntimeOptions) (_result *AddSchoolConfigResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorName)) {
+		body["operatorName"] = request.OperatorName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemperatureUpLimit)) {
+		body["temperatureUpLimit"] = request.TemperatureUpLimit
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddSchoolConfigResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddSchoolConfig"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/schools/configurations"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
