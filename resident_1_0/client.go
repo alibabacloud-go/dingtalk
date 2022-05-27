@@ -1864,6 +1864,88 @@ func (s *GetSpacesInfoResponse) SetBody(v *GetSpacesInfoResponseBody) *GetSpaces
 	return s
 }
 
+type ListIndustryRoleUsersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListIndustryRoleUsersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListIndustryRoleUsersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListIndustryRoleUsersHeaders) SetCommonHeaders(v map[string]*string) *ListIndustryRoleUsersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListIndustryRoleUsersHeaders) SetXAcsDingtalkAccessToken(v string) *ListIndustryRoleUsersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListIndustryRoleUsersRequest struct {
+	// 行业角色编码
+	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+}
+
+func (s ListIndustryRoleUsersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListIndustryRoleUsersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListIndustryRoleUsersRequest) SetTagCode(v string) *ListIndustryRoleUsersRequest {
+	s.TagCode = &v
+	return s
+}
+
+type ListIndustryRoleUsersResponseBody struct {
+	// 用户id列表
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s ListIndustryRoleUsersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListIndustryRoleUsersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListIndustryRoleUsersResponseBody) SetUserIdList(v []*string) *ListIndustryRoleUsersResponseBody {
+	s.UserIdList = v
+	return s
+}
+
+type ListIndustryRoleUsersResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListIndustryRoleUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListIndustryRoleUsersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListIndustryRoleUsersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListIndustryRoleUsersResponse) SetHeaders(v map[string]*string) *ListIndustryRoleUsersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListIndustryRoleUsersResponse) SetBody(v *ListIndustryRoleUsersResponseBody) *ListIndustryRoleUsersResponse {
+	s.Body = v
+	return s
+}
+
 type ListPointRulesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2361,6 +2443,120 @@ func (s *ListUncheckUsersResponse) SetHeaders(v map[string]*string) *ListUncheck
 }
 
 func (s *ListUncheckUsersResponse) SetBody(v *ListUncheckUsersResponseBody) *ListUncheckUsersResponse {
+	s.Body = v
+	return s
+}
+
+type ListUserIndustryRolesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListUserIndustryRolesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserIndustryRolesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserIndustryRolesHeaders) SetCommonHeaders(v map[string]*string) *ListUserIndustryRolesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListUserIndustryRolesHeaders) SetXAcsDingtalkAccessToken(v string) *ListUserIndustryRolesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListUserIndustryRolesRequest struct {
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListUserIndustryRolesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserIndustryRolesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserIndustryRolesRequest) SetUserId(v string) *ListUserIndustryRolesRequest {
+	s.UserId = &v
+	return s
+}
+
+type ListUserIndustryRolesResponseBody struct {
+	// result
+	RoleList []*ListUserIndustryRolesResponseBodyRoleList `json:"roleList,omitempty" xml:"roleList,omitempty" type:"Repeated"`
+}
+
+func (s ListUserIndustryRolesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserIndustryRolesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserIndustryRolesResponseBody) SetRoleList(v []*ListUserIndustryRolesResponseBodyRoleList) *ListUserIndustryRolesResponseBody {
+	s.RoleList = v
+	return s
+}
+
+type ListUserIndustryRolesResponseBodyRoleList struct {
+	// 角色id
+	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// 角色名字
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// 行业角色编码
+	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+}
+
+func (s ListUserIndustryRolesResponseBodyRoleList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserIndustryRolesResponseBodyRoleList) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserIndustryRolesResponseBodyRoleList) SetRoleId(v int64) *ListUserIndustryRolesResponseBodyRoleList {
+	s.RoleId = &v
+	return s
+}
+
+func (s *ListUserIndustryRolesResponseBodyRoleList) SetRoleName(v string) *ListUserIndustryRolesResponseBodyRoleList {
+	s.RoleName = &v
+	return s
+}
+
+func (s *ListUserIndustryRolesResponseBodyRoleList) SetTagCode(v string) *ListUserIndustryRolesResponseBodyRoleList {
+	s.TagCode = &v
+	return s
+}
+
+type ListUserIndustryRolesResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListUserIndustryRolesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListUserIndustryRolesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserIndustryRolesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserIndustryRolesResponse) SetHeaders(v map[string]*string) *ListUserIndustryRolesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListUserIndustryRolesResponse) SetBody(v *ListUserIndustryRolesResponseBody) *ListUserIndustryRolesResponse {
 	s.Body = v
 	return s
 }
@@ -4631,6 +4827,50 @@ func (client *Client) GetSpacesInfoWithOptions(request *GetSpacesInfoRequest, he
 	return _result, _err
 }
 
+func (client *Client) ListIndustryRoleUsers(request *ListIndustryRoleUsersRequest) (_result *ListIndustryRoleUsersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListIndustryRoleUsersHeaders{}
+	_result = &ListIndustryRoleUsersResponse{}
+	_body, _err := client.ListIndustryRoleUsersWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListIndustryRoleUsersWithOptions(request *ListIndustryRoleUsersRequest, headers *ListIndustryRoleUsersHeaders, runtime *util.RuntimeOptions) (_result *ListIndustryRoleUsersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TagCode)) {
+		query["tagCode"] = request.TagCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListIndustryRoleUsersResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListIndustryRoleUsers"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/industryRoles/users"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ListPointRules(request *ListPointRulesRequest) (_result *ListPointRulesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListPointRulesHeaders{}
@@ -4772,6 +5012,50 @@ func (client *Client) ListUncheckUsersWithOptions(request *ListUncheckUsersReque
 	}
 	_result = &ListUncheckUsersResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListUncheckUsers"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/organizations/noJoinUsers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListUserIndustryRoles(request *ListUserIndustryRolesRequest) (_result *ListUserIndustryRolesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListUserIndustryRolesHeaders{}
+	_result = &ListUserIndustryRolesResponse{}
+	_body, _err := client.ListUserIndustryRolesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListUserIndustryRolesWithOptions(request *ListUserIndustryRolesRequest, headers *ListUserIndustryRolesHeaders, runtime *util.RuntimeOptions) (_result *ListUserIndustryRolesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListUserIndustryRolesResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListUserIndustryRoles"), tea.String("resident_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/resident/users/industryRoles"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

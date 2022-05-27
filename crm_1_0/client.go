@@ -6457,6 +6457,8 @@ func (s *GetCrmRolePermissionHeaders) SetXAcsDingtalkAccessToken(v string) *GetC
 type GetCrmRolePermissionRequest struct {
 	// 表单bizType
 	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 资源id，填表单code
+	ResourceId *string `json:"resourceId,omitempty" xml:"resourceId,omitempty"`
 }
 
 func (s GetCrmRolePermissionRequest) String() string {
@@ -6469,6 +6471,11 @@ func (s GetCrmRolePermissionRequest) GoString() string {
 
 func (s *GetCrmRolePermissionRequest) SetBizType(v string) *GetCrmRolePermissionRequest {
 	s.BizType = &v
+	return s
+}
+
+func (s *GetCrmRolePermissionRequest) SetResourceId(v string) *GetCrmRolePermissionRequest {
+	s.ResourceId = &v
 	return s
 }
 
@@ -12376,6 +12383,10 @@ func (client *Client) GetCrmRolePermissionWithOptions(request *GetCrmRolePermiss
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.BizType)) {
 		query["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ResourceId)) {
+		query["resourceId"] = request.ResourceId
 	}
 
 	realHeaders := make(map[string]*string)

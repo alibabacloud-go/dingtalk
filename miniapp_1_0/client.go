@@ -438,6 +438,144 @@ func (s *GetMaxVersionResponse) SetBody(v *GetMaxVersionResponseBody) *GetMaxVer
 	return s
 }
 
+type GetMiniAppMetaDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetMiniAppMetaDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMiniAppMetaDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetMiniAppMetaDataHeaders) SetCommonHeaders(v map[string]*string) *GetMiniAppMetaDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetMiniAppMetaDataHeaders) SetXAcsDingtalkAccessToken(v string) *GetMiniAppMetaDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetMiniAppMetaDataRequest struct {
+	BundleId                  *string                `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
+	BundleIdTableGmtModified  map[string]interface{} `json:"bundleIdTableGmtModified,omitempty" xml:"bundleIdTableGmtModified,omitempty"`
+	FromAppName               *string                `json:"fromAppName,omitempty" xml:"fromAppName,omitempty"`
+	MiniAppIdTableGmtModified map[string]interface{} `json:"miniAppIdTableGmtModified,omitempty" xml:"miniAppIdTableGmtModified,omitempty"`
+}
+
+func (s GetMiniAppMetaDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMiniAppMetaDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetMiniAppMetaDataRequest) SetBundleId(v string) *GetMiniAppMetaDataRequest {
+	s.BundleId = &v
+	return s
+}
+
+func (s *GetMiniAppMetaDataRequest) SetBundleIdTableGmtModified(v map[string]interface{}) *GetMiniAppMetaDataRequest {
+	s.BundleIdTableGmtModified = v
+	return s
+}
+
+func (s *GetMiniAppMetaDataRequest) SetFromAppName(v string) *GetMiniAppMetaDataRequest {
+	s.FromAppName = &v
+	return s
+}
+
+func (s *GetMiniAppMetaDataRequest) SetMiniAppIdTableGmtModified(v map[string]interface{}) *GetMiniAppMetaDataRequest {
+	s.MiniAppIdTableGmtModified = v
+	return s
+}
+
+type GetMiniAppMetaDataResponseBody struct {
+	// receiveTime
+	DingOpenErrcode *int64 `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	// errorMsg
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// result
+	Result *GetMiniAppMetaDataResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// requestId
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetMiniAppMetaDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMiniAppMetaDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetMiniAppMetaDataResponseBody) SetDingOpenErrcode(v int64) *GetMiniAppMetaDataResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *GetMiniAppMetaDataResponseBody) SetErrorMsg(v string) *GetMiniAppMetaDataResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *GetMiniAppMetaDataResponseBody) SetResult(v *GetMiniAppMetaDataResponseBodyResult) *GetMiniAppMetaDataResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetMiniAppMetaDataResponseBody) SetSuccess(v bool) *GetMiniAppMetaDataResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetMiniAppMetaDataResponseBodyResult struct {
+	// data
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+}
+
+func (s GetMiniAppMetaDataResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMiniAppMetaDataResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetMiniAppMetaDataResponseBodyResult) SetData(v map[string]interface{}) *GetMiniAppMetaDataResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+type GetMiniAppMetaDataResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetMiniAppMetaDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetMiniAppMetaDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMiniAppMetaDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetMiniAppMetaDataResponse) SetHeaders(v map[string]*string) *GetMiniAppMetaDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetMiniAppMetaDataResponse) SetBody(v *GetMiniAppMetaDataResponseBody) *GetMiniAppMetaDataResponse {
+	s.Body = v
+	return s
+}
+
 type GetSettingByMiniAppIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1274,6 +1412,62 @@ func (client *Client) GetMaxVersionWithOptions(request *GetMaxVersionRequest, he
 	}
 	_result = &GetMaxVersionResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetMaxVersion"), tea.String("miniapp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/miniapp/apps/maxVersions"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetMiniAppMetaData(request *GetMiniAppMetaDataRequest) (_result *GetMiniAppMetaDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetMiniAppMetaDataHeaders{}
+	_result = &GetMiniAppMetaDataResponse{}
+	_body, _err := client.GetMiniAppMetaDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetMiniAppMetaDataWithOptions(request *GetMiniAppMetaDataRequest, headers *GetMiniAppMetaDataHeaders, runtime *util.RuntimeOptions) (_result *GetMiniAppMetaDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BundleId)) {
+		body["bundleId"] = request.BundleId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BundleIdTableGmtModified)) {
+		body["bundleIdTableGmtModified"] = request.BundleIdTableGmtModified
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FromAppName)) {
+		body["fromAppName"] = request.FromAppName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MiniAppIdTableGmtModified)) {
+		body["miniAppIdTableGmtModified"] = request.MiniAppIdTableGmtModified
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetMiniAppMetaDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetMiniAppMetaData"), tea.String("miniapp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/miniapp/apps/metadata"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

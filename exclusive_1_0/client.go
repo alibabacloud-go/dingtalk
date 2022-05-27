@@ -1774,6 +1774,123 @@ func (s *GetCommentListResponse) SetBody(v *GetCommentListResponseBody) *GetComm
 	return s
 }
 
+type GetConfBaseInfoByLogicalIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetConfBaseInfoByLogicalIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConfBaseInfoByLogicalIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetConfBaseInfoByLogicalIdHeaders) SetCommonHeaders(v map[string]*string) *GetConfBaseInfoByLogicalIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetConfBaseInfoByLogicalIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetConfBaseInfoByLogicalIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetConfBaseInfoByLogicalIdRequest struct {
+	// 会议id
+	LogicalConferenceId *string `json:"logicalConferenceId,omitempty" xml:"logicalConferenceId,omitempty"`
+}
+
+func (s GetConfBaseInfoByLogicalIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConfBaseInfoByLogicalIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetConfBaseInfoByLogicalIdRequest) SetLogicalConferenceId(v string) *GetConfBaseInfoByLogicalIdRequest {
+	s.LogicalConferenceId = &v
+	return s
+}
+
+type GetConfBaseInfoByLogicalIdResponseBody struct {
+	// 会议ID（仅在会议正式开始后才返回该字段）
+	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	// 会议逻辑id
+	LogicalConferenceId *string `json:"logicalConferenceId,omitempty" xml:"logicalConferenceId,omitempty"`
+	// 会议创建用户昵称
+	Nickname *string `json:"nickname,omitempty" xml:"nickname,omitempty"`
+	// 开始时间
+	StartTime *float32 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 会议标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 会议创建用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetConfBaseInfoByLogicalIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConfBaseInfoByLogicalIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetConfBaseInfoByLogicalIdResponseBody) SetConferenceId(v string) *GetConfBaseInfoByLogicalIdResponseBody {
+	s.ConferenceId = &v
+	return s
+}
+
+func (s *GetConfBaseInfoByLogicalIdResponseBody) SetLogicalConferenceId(v string) *GetConfBaseInfoByLogicalIdResponseBody {
+	s.LogicalConferenceId = &v
+	return s
+}
+
+func (s *GetConfBaseInfoByLogicalIdResponseBody) SetNickname(v string) *GetConfBaseInfoByLogicalIdResponseBody {
+	s.Nickname = &v
+	return s
+}
+
+func (s *GetConfBaseInfoByLogicalIdResponseBody) SetStartTime(v float32) *GetConfBaseInfoByLogicalIdResponseBody {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetConfBaseInfoByLogicalIdResponseBody) SetTitle(v string) *GetConfBaseInfoByLogicalIdResponseBody {
+	s.Title = &v
+	return s
+}
+
+func (s *GetConfBaseInfoByLogicalIdResponseBody) SetUnionId(v string) *GetConfBaseInfoByLogicalIdResponseBody {
+	s.UnionId = &v
+	return s
+}
+
+type GetConfBaseInfoByLogicalIdResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetConfBaseInfoByLogicalIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetConfBaseInfoByLogicalIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConfBaseInfoByLogicalIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetConfBaseInfoByLogicalIdResponse) SetHeaders(v map[string]*string) *GetConfBaseInfoByLogicalIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetConfBaseInfoByLogicalIdResponse) SetBody(v *GetConfBaseInfoByLogicalIdResponseBody) *GetConfBaseInfoByLogicalIdResponse {
+	s.Body = v
+	return s
+}
+
 type GetConferenceDetailHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7555,6 +7672,50 @@ func (client *Client) GetCommentListWithOptions(publisherId *string, request *Ge
 	}
 	_result = &GetCommentListResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetCommentList"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/publishers/"+tea.StringValue(publisherId)+"/comments/list"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetConfBaseInfoByLogicalId(request *GetConfBaseInfoByLogicalIdRequest) (_result *GetConfBaseInfoByLogicalIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetConfBaseInfoByLogicalIdHeaders{}
+	_result = &GetConfBaseInfoByLogicalIdResponse{}
+	_body, _err := client.GetConfBaseInfoByLogicalIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetConfBaseInfoByLogicalIdWithOptions(request *GetConfBaseInfoByLogicalIdRequest, headers *GetConfBaseInfoByLogicalIdHeaders, runtime *util.RuntimeOptions) (_result *GetConfBaseInfoByLogicalIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LogicalConferenceId)) {
+		query["logicalConferenceId"] = request.LogicalConferenceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetConfBaseInfoByLogicalIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetConfBaseInfoByLogicalId"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/data/conferences"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -2100,12 +2100,20 @@ func (s *QueryOrgTodoByUserHeaders) SetXAcsDingtalkAccessToken(v string) *QueryO
 }
 
 type QueryOrgTodoByUserRequest struct {
+	// 查询从计划完成时间开始
+	FromDueTime *int64 `json:"fromDueTime,omitempty" xml:"fromDueTime,omitempty"`
 	// 待办完成状态。
 	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
 	// 每页数量。
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	// 分页游标。如果一个查询条件一次无法全部返回结果，会返回分页token，下次查询带上该token后会返回后续数据，直到分页token为null表示数据已经全部查询完毕。
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 查询目标用户角色类型，执行人 | 创建人 | 参与人，可以同时传多个值。如：[["executor"], ["creator"],["participant"]] 或 [["executor", "creator"]]
+	RoleTypes [][]*string `json:"roleTypes,omitempty" xml:"roleTypes,omitempty" type:"Repeated"`
+	// 待办标题
+	Subject *string `json:"subject,omitempty" xml:"subject,omitempty"`
+	// 查询到计划完成时间结束
+	ToDueTime *int64 `json:"toDueTime,omitempty" xml:"toDueTime,omitempty"`
 }
 
 func (s QueryOrgTodoByUserRequest) String() string {
@@ -2114,6 +2122,11 @@ func (s QueryOrgTodoByUserRequest) String() string {
 
 func (s QueryOrgTodoByUserRequest) GoString() string {
 	return s.String()
+}
+
+func (s *QueryOrgTodoByUserRequest) SetFromDueTime(v int64) *QueryOrgTodoByUserRequest {
+	s.FromDueTime = &v
+	return s
 }
 
 func (s *QueryOrgTodoByUserRequest) SetIsDone(v bool) *QueryOrgTodoByUserRequest {
@@ -2128,6 +2141,21 @@ func (s *QueryOrgTodoByUserRequest) SetMaxResults(v int32) *QueryOrgTodoByUserRe
 
 func (s *QueryOrgTodoByUserRequest) SetNextToken(v string) *QueryOrgTodoByUserRequest {
 	s.NextToken = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserRequest) SetRoleTypes(v [][]*string) *QueryOrgTodoByUserRequest {
+	s.RoleTypes = v
+	return s
+}
+
+func (s *QueryOrgTodoByUserRequest) SetSubject(v string) *QueryOrgTodoByUserRequest {
+	s.Subject = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserRequest) SetToDueTime(v int64) *QueryOrgTodoByUserRequest {
+	s.ToDueTime = &v
 	return s
 }
 
@@ -3838,6 +3866,10 @@ func (client *Client) QueryOrgTodoByUserWithOptions(unionId *string, request *Qu
 	}
 	unionId = openapiutil.GetEncodeParam(unionId)
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FromDueTime)) {
+		body["fromDueTime"] = request.FromDueTime
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.IsDone)) {
 		body["isDone"] = request.IsDone
 	}
@@ -3848,6 +3880,18 @@ func (client *Client) QueryOrgTodoByUserWithOptions(unionId *string, request *Qu
 
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleTypes)) {
+		body["roleTypes"] = request.RoleTypes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Subject)) {
+		body["subject"] = request.Subject
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToDueTime)) {
+		body["toDueTime"] = request.ToDueTime
 	}
 
 	realHeaders := make(map[string]*string)

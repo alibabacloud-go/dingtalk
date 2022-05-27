@@ -1351,6 +1351,150 @@ func (s *DingTalkSecurityCheckResponse) SetBody(v *DingTalkSecurityCheckResponse
 	return s
 }
 
+type GetAdjustmentsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAdjustmentsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAdjustmentsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAdjustmentsHeaders) SetCommonHeaders(v map[string]*string) *GetAdjustmentsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAdjustmentsHeaders) SetXAcsDingtalkAccessToken(v string) *GetAdjustmentsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAdjustmentsRequest struct {
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s GetAdjustmentsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAdjustmentsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAdjustmentsRequest) SetPageNumber(v int64) *GetAdjustmentsRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetAdjustmentsRequest) SetPageSize(v int64) *GetAdjustmentsRequest {
+	s.PageSize = &v
+	return s
+}
+
+type GetAdjustmentsResponseBody struct {
+	// Id of the request
+	Result []*GetAdjustmentsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetAdjustmentsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAdjustmentsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAdjustmentsResponseBody) SetResult(v []*GetAdjustmentsResponseBodyResult) *GetAdjustmentsResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetAdjustmentsResponseBodyResult struct {
+	// 补卡规则集合
+	Items []*GetAdjustmentsResponseBodyResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	// 当前页码
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 总页数
+	TotalPage *int64 `json:"totalPage,omitempty" xml:"totalPage,omitempty"`
+}
+
+func (s GetAdjustmentsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAdjustmentsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetAdjustmentsResponseBodyResult) SetItems(v []*GetAdjustmentsResponseBodyResultItems) *GetAdjustmentsResponseBodyResult {
+	s.Items = v
+	return s
+}
+
+func (s *GetAdjustmentsResponseBodyResult) SetPageNumber(v int64) *GetAdjustmentsResponseBodyResult {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetAdjustmentsResponseBodyResult) SetTotalPage(v int64) *GetAdjustmentsResponseBodyResult {
+	s.TotalPage = &v
+	return s
+}
+
+type GetAdjustmentsResponseBodyResultItems struct {
+	// 补卡规则id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 补卡规则名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetAdjustmentsResponseBodyResultItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAdjustmentsResponseBodyResultItems) GoString() string {
+	return s.String()
+}
+
+func (s *GetAdjustmentsResponseBodyResultItems) SetId(v int64) *GetAdjustmentsResponseBodyResultItems {
+	s.Id = &v
+	return s
+}
+
+func (s *GetAdjustmentsResponseBodyResultItems) SetName(v string) *GetAdjustmentsResponseBodyResultItems {
+	s.Name = &v
+	return s
+}
+
+type GetAdjustmentsResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetAdjustmentsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAdjustmentsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAdjustmentsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAdjustmentsResponse) SetHeaders(v map[string]*string) *GetAdjustmentsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAdjustmentsResponse) SetBody(v *GetAdjustmentsResponseBody) *GetAdjustmentsResponse {
+	s.Body = v
+	return s
+}
+
 type GetClosingAccountsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2394,6 +2538,150 @@ func (s *GetOvertimeSettingResponse) SetHeaders(v map[string]*string) *GetOverti
 }
 
 func (s *GetOvertimeSettingResponse) SetBody(v *GetOvertimeSettingResponseBody) *GetOvertimeSettingResponse {
+	s.Body = v
+	return s
+}
+
+type GetSimpleOvertimeSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSimpleOvertimeSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleOvertimeSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleOvertimeSettingHeaders) SetCommonHeaders(v map[string]*string) *GetSimpleOvertimeSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSimpleOvertimeSettingHeaders) SetXAcsDingtalkAccessToken(v string) *GetSimpleOvertimeSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSimpleOvertimeSettingRequest struct {
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s GetSimpleOvertimeSettingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleOvertimeSettingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleOvertimeSettingRequest) SetPageNumber(v int64) *GetSimpleOvertimeSettingRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetSimpleOvertimeSettingRequest) SetPageSize(v int64) *GetSimpleOvertimeSettingRequest {
+	s.PageSize = &v
+	return s
+}
+
+type GetSimpleOvertimeSettingResponseBody struct {
+	// Id of the request
+	Result []*GetSimpleOvertimeSettingResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetSimpleOvertimeSettingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleOvertimeSettingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleOvertimeSettingResponseBody) SetResult(v []*GetSimpleOvertimeSettingResponseBodyResult) *GetSimpleOvertimeSettingResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetSimpleOvertimeSettingResponseBodyResult struct {
+	// 加班规则集合
+	Items []*GetSimpleOvertimeSettingResponseBodyResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	// 当前页码
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 总页数
+	TotalPage *int64 `json:"totalPage,omitempty" xml:"totalPage,omitempty"`
+}
+
+func (s GetSimpleOvertimeSettingResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleOvertimeSettingResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleOvertimeSettingResponseBodyResult) SetItems(v []*GetSimpleOvertimeSettingResponseBodyResultItems) *GetSimpleOvertimeSettingResponseBodyResult {
+	s.Items = v
+	return s
+}
+
+func (s *GetSimpleOvertimeSettingResponseBodyResult) SetPageNumber(v int64) *GetSimpleOvertimeSettingResponseBodyResult {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetSimpleOvertimeSettingResponseBodyResult) SetTotalPage(v int64) *GetSimpleOvertimeSettingResponseBodyResult {
+	s.TotalPage = &v
+	return s
+}
+
+type GetSimpleOvertimeSettingResponseBodyResultItems struct {
+	// 加班规则id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 加班规则名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetSimpleOvertimeSettingResponseBodyResultItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleOvertimeSettingResponseBodyResultItems) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleOvertimeSettingResponseBodyResultItems) SetId(v int64) *GetSimpleOvertimeSettingResponseBodyResultItems {
+	s.Id = &v
+	return s
+}
+
+func (s *GetSimpleOvertimeSettingResponseBodyResultItems) SetName(v string) *GetSimpleOvertimeSettingResponseBodyResultItems {
+	s.Name = &v
+	return s
+}
+
+type GetSimpleOvertimeSettingResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetSimpleOvertimeSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSimpleOvertimeSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSimpleOvertimeSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSimpleOvertimeSettingResponse) SetHeaders(v map[string]*string) *GetSimpleOvertimeSettingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSimpleOvertimeSettingResponse) SetBody(v *GetSimpleOvertimeSettingResponseBody) *GetSimpleOvertimeSettingResponse {
 	s.Body = v
 	return s
 }
@@ -3833,6 +4121,54 @@ func (client *Client) DingTalkSecurityCheckWithOptions(request *DingTalkSecurity
 	return _result, _err
 }
 
+func (client *Client) GetAdjustments(request *GetAdjustmentsRequest) (_result *GetAdjustmentsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAdjustmentsHeaders{}
+	_result = &GetAdjustmentsResponse{}
+	_body, _err := client.GetAdjustmentsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAdjustmentsWithOptions(request *GetAdjustmentsRequest, headers *GetAdjustmentsHeaders, runtime *util.RuntimeOptions) (_result *GetAdjustmentsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetAdjustmentsResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetAdjustments"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/adjustments"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetClosingAccounts(request *GetClosingAccountsRequest) (_result *GetClosingAccountsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetClosingAccountsHeaders{}
@@ -4046,6 +4382,54 @@ func (client *Client) GetOvertimeSettingWithOptions(request *GetOvertimeSettingR
 	}
 	_result = &GetOvertimeSettingResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetOvertimeSetting"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/overtimeSettings/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSimpleOvertimeSetting(request *GetSimpleOvertimeSettingRequest) (_result *GetSimpleOvertimeSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSimpleOvertimeSettingHeaders{}
+	_result = &GetSimpleOvertimeSettingResponse{}
+	_body, _err := client.GetSimpleOvertimeSettingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSimpleOvertimeSettingWithOptions(request *GetSimpleOvertimeSettingRequest, headers *GetSimpleOvertimeSettingHeaders, runtime *util.RuntimeOptions) (_result *GetSimpleOvertimeSettingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetSimpleOvertimeSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetSimpleOvertimeSetting"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/overtimeSettings"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

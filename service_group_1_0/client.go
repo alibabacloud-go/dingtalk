@@ -38,7 +38,9 @@ type AddKnowledgeRequest struct {
 	// 附件列表
 	AttachmentList []*AddKnowledgeRequestAttachmentList `json:"attachmentList,omitempty" xml:"attachmentList,omitempty" type:"Repeated"`
 	// 知识点内容
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	Content         *string `json:"content,omitempty" xml:"content,omitempty"`
+	EffectTimeend   *int64  `json:"effectTimeend,omitempty" xml:"effectTimeend,omitempty"`
+	EffectTimestart *int64  `json:"effectTimestart,omitempty" xml:"effectTimestart,omitempty"`
 	// 知识点扩展问(多个用英文逗号隔开)
 	ExtTitle *string `json:"extTitle,omitempty" xml:"extTitle,omitempty"`
 	// 关键字(多个用英文逗号隔开)
@@ -76,6 +78,16 @@ func (s *AddKnowledgeRequest) SetAttachmentList(v []*AddKnowledgeRequestAttachme
 
 func (s *AddKnowledgeRequest) SetContent(v string) *AddKnowledgeRequest {
 	s.Content = &v
+	return s
+}
+
+func (s *AddKnowledgeRequest) SetEffectTimeend(v int64) *AddKnowledgeRequest {
+	s.EffectTimeend = &v
+	return s
+}
+
+func (s *AddKnowledgeRequest) SetEffectTimestart(v int64) *AddKnowledgeRequest {
+	s.EffectTimestart = &v
 	return s
 }
 
@@ -5978,6 +5990,183 @@ func (s *QueryGroupResponse) SetBody(v *QueryGroupResponseBody) *QueryGroupRespo
 	return s
 }
 
+type QueryGroupMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryGroupMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupMemberHeaders) SetCommonHeaders(v map[string]*string) *QueryGroupMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGroupMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryGroupMemberRequest struct {
+	// 群开放ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 开放团队ID
+	OpenTeamId   *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+}
+
+func (s QueryGroupMemberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupMemberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupMemberRequest) SetOpenConversationId(v string) *QueryGroupMemberRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QueryGroupMemberRequest) SetOpenTeamId(v string) *QueryGroupMemberRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *QueryGroupMemberRequest) SetTargetCorpId(v string) *QueryGroupMemberRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+type QueryGroupMemberResponseBody struct {
+	Result  *QueryGroupMemberResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                               `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryGroupMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupMemberResponseBody) SetResult(v *QueryGroupMemberResponseBodyResult) *QueryGroupMemberResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryGroupMemberResponseBody) SetSuccess(v bool) *QueryGroupMemberResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryGroupMemberResponseBodyResult struct {
+	// 群成员列表
+	GroupMemberList []*QueryGroupMemberResponseBodyResultGroupMemberList `json:"groupMemberList,omitempty" xml:"groupMemberList,omitempty" type:"Repeated"`
+	// 群开放id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s QueryGroupMemberResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupMemberResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupMemberResponseBodyResult) SetGroupMemberList(v []*QueryGroupMemberResponseBodyResultGroupMemberList) *QueryGroupMemberResponseBodyResult {
+	s.GroupMemberList = v
+	return s
+}
+
+func (s *QueryGroupMemberResponseBodyResult) SetOpenConversationId(v string) *QueryGroupMemberResponseBodyResult {
+	s.OpenConversationId = &v
+	return s
+}
+
+type QueryGroupMemberResponseBodyResultGroupMemberList struct {
+	// 头像mediaId
+	AvatarMediaId *string `json:"avatarMediaId,omitempty" xml:"avatarMediaId,omitempty"`
+	// 是否企业员工
+	IsUser *bool `json:"isUser,omitempty" xml:"isUser,omitempty"`
+	// 昵称
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// 是否群主
+	Owner   *bool   `json:"owner,omitempty" xml:"owner,omitempty"`
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 企业员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryGroupMemberResponseBodyResultGroupMemberList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupMemberResponseBodyResultGroupMemberList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupMemberResponseBodyResultGroupMemberList) SetAvatarMediaId(v string) *QueryGroupMemberResponseBodyResultGroupMemberList {
+	s.AvatarMediaId = &v
+	return s
+}
+
+func (s *QueryGroupMemberResponseBodyResultGroupMemberList) SetIsUser(v bool) *QueryGroupMemberResponseBodyResultGroupMemberList {
+	s.IsUser = &v
+	return s
+}
+
+func (s *QueryGroupMemberResponseBodyResultGroupMemberList) SetNickName(v string) *QueryGroupMemberResponseBodyResultGroupMemberList {
+	s.NickName = &v
+	return s
+}
+
+func (s *QueryGroupMemberResponseBodyResultGroupMemberList) SetOwner(v bool) *QueryGroupMemberResponseBodyResultGroupMemberList {
+	s.Owner = &v
+	return s
+}
+
+func (s *QueryGroupMemberResponseBodyResultGroupMemberList) SetUnionId(v string) *QueryGroupMemberResponseBodyResultGroupMemberList {
+	s.UnionId = &v
+	return s
+}
+
+func (s *QueryGroupMemberResponseBodyResultGroupMemberList) SetUserId(v string) *QueryGroupMemberResponseBodyResultGroupMemberList {
+	s.UserId = &v
+	return s
+}
+
+type QueryGroupMemberResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryGroupMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupMemberResponse) SetHeaders(v map[string]*string) *QueryGroupMemberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryGroupMemberResponse) SetBody(v *QueryGroupMemberResponseBody) *QueryGroupMemberResponse {
+	s.Body = v
+	return s
+}
+
 type QueryGroupSetHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9572,6 +9761,14 @@ func (client *Client) AddKnowledgeWithOptions(request *AddKnowledgeRequest, head
 		body["content"] = request.Content
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.EffectTimeend)) {
+		body["effectTimeend"] = request.EffectTimeend
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EffectTimestart)) {
+		body["effectTimestart"] = request.EffectTimestart
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ExtTitle)) {
 		body["extTitle"] = request.ExtTitle
 	}
@@ -11922,6 +12119,58 @@ func (client *Client) QueryGroupWithOptions(request *QueryGroupRequest, headers 
 	}
 	_result = &QueryGroupResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryGroup"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryGroupMember(request *QueryGroupMemberRequest) (_result *QueryGroupMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryGroupMemberHeaders{}
+	_result = &QueryGroupMemberResponse{}
+	_body, _err := client.QueryGroupMemberWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryGroupMemberWithOptions(request *QueryGroupMemberRequest, headers *QueryGroupMemberHeaders, runtime *util.RuntimeOptions) (_result *QueryGroupMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		body["targetCorpId"] = request.TargetCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryGroupMemberResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryGroupMember"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/members/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -1028,8 +1028,6 @@ func (s *StartCloudRecordRequest) SetUnionId(v string) *StartCloudRecordRequest 
 }
 
 type StartCloudRecordResponseBody struct {
-	// 是否成功
-	Cause *string `json:"cause,omitempty" xml:"cause,omitempty"`
 	// 返回码
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
 }
@@ -1040,11 +1038,6 @@ func (s StartCloudRecordResponseBody) String() string {
 
 func (s StartCloudRecordResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *StartCloudRecordResponseBody) SetCause(v string) *StartCloudRecordResponseBody {
-	s.Cause = &v
-	return s
 }
 
 func (s *StartCloudRecordResponseBody) SetCode(v string) *StartCloudRecordResponseBody {
@@ -1240,8 +1233,6 @@ func (s *StopCloudRecordRequest) SetUnionId(v string) *StopCloudRecordRequest {
 }
 
 type StopCloudRecordResponseBody struct {
-	// 是否成功
-	Cause *string `json:"cause,omitempty" xml:"cause,omitempty"`
 	// 返回码
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
 }
@@ -1252,11 +1243,6 @@ func (s StopCloudRecordResponseBody) String() string {
 
 func (s StopCloudRecordResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *StopCloudRecordResponseBody) SetCause(v string) *StopCloudRecordResponseBody {
-	s.Cause = &v
-	return s
 }
 
 func (s *StopCloudRecordResponseBody) SetCode(v string) *StopCloudRecordResponseBody {
@@ -1343,8 +1329,6 @@ func (s *StopStreamOutRequest) SetUnionId(v string) *StopStreamOutRequest {
 }
 
 type StopStreamOutResponseBody struct {
-	// 会议密码
-	Cause *string `json:"cause,omitempty" xml:"cause,omitempty"`
 	// conferenceId
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
 }
@@ -1355,11 +1339,6 @@ func (s StopStreamOutResponseBody) String() string {
 
 func (s StopStreamOutResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *StopStreamOutResponseBody) SetCause(v string) *StopStreamOutResponseBody {
-	s.Cause = &v
-	return s
 }
 
 func (s *StopStreamOutResponseBody) SetCode(v string) *StopStreamOutResponseBody {
