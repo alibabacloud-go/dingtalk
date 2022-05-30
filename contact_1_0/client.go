@@ -4990,6 +4990,10 @@ type UpdateContactHideSettingRequest struct {
 	ExcludeStaffIds []*string `json:"excludeStaffIds,omitempty" xml:"excludeStaffIds,omitempty" type:"Repeated"`
 	// 白名单角色列表
 	ExcludeTagIds []*int64 `json:"excludeTagIds,omitempty" xml:"excludeTagIds,omitempty" type:"Repeated"`
+	// 是否同时在被搜索时隐藏
+	HideInSearch *bool `json:"hideInSearch,omitempty" xml:"hideInSearch,omitempty"`
+	// 是否同时在被查看个人资料页时隐藏
+	HideInUserProfile *bool `json:"hideInUserProfile,omitempty" xml:"hideInUserProfile,omitempty"`
 	// settingId
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
 	// 设置名称
@@ -5032,6 +5036,16 @@ func (s *UpdateContactHideSettingRequest) SetExcludeStaffIds(v []*string) *Updat
 
 func (s *UpdateContactHideSettingRequest) SetExcludeTagIds(v []*int64) *UpdateContactHideSettingRequest {
 	s.ExcludeTagIds = v
+	return s
+}
+
+func (s *UpdateContactHideSettingRequest) SetHideInSearch(v bool) *UpdateContactHideSettingRequest {
+	s.HideInSearch = &v
+	return s
+}
+
+func (s *UpdateContactHideSettingRequest) SetHideInUserProfile(v bool) *UpdateContactHideSettingRequest {
+	s.HideInUserProfile = &v
 	return s
 }
 
@@ -5139,6 +5153,10 @@ type UpdateContactRestrictSettingRequest struct {
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
 	// 规则名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 是否同时限制搜索
+	RestrictInSearch *bool `json:"restrictInSearch,omitempty" xml:"restrictInSearch,omitempty"`
+	// 是否同时限制查看个人资料页
+	RestrictInUserProfile *bool `json:"restrictInUserProfile,omitempty" xml:"restrictInUserProfile,omitempty"`
 	// 主体的部门id列表
 	SubjectDeptIds []*int64 `json:"subjectDeptIds,omitempty" xml:"subjectDeptIds,omitempty" type:"Repeated"`
 	// 主体的角色id列表
@@ -5189,6 +5207,16 @@ func (s *UpdateContactRestrictSettingRequest) SetId(v int64) *UpdateContactRestr
 
 func (s *UpdateContactRestrictSettingRequest) SetName(v string) *UpdateContactRestrictSettingRequest {
 	s.Name = &v
+	return s
+}
+
+func (s *UpdateContactRestrictSettingRequest) SetRestrictInSearch(v bool) *UpdateContactRestrictSettingRequest {
+	s.RestrictInSearch = &v
+	return s
+}
+
+func (s *UpdateContactRestrictSettingRequest) SetRestrictInUserProfile(v bool) *UpdateContactRestrictSettingRequest {
+	s.RestrictInUserProfile = &v
 	return s
 }
 
@@ -7899,6 +7927,14 @@ func (client *Client) UpdateContactHideSettingWithOptions(request *UpdateContact
 		body["excludeTagIds"] = request.ExcludeTagIds
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.HideInSearch)) {
+		body["hideInSearch"] = request.HideInSearch
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HideInUserProfile)) {
+		body["hideInUserProfile"] = request.HideInUserProfile
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Id)) {
 		body["id"] = request.Id
 	}
@@ -7985,6 +8021,14 @@ func (client *Client) UpdateContactRestrictSettingWithOptions(request *UpdateCon
 
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
 		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RestrictInSearch)) {
+		body["restrictInSearch"] = request.RestrictInSearch
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RestrictInUserProfile)) {
+		body["restrictInUserProfile"] = request.RestrictInUserProfile
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.SubjectDeptIds)) {
