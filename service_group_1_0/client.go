@@ -3186,6 +3186,130 @@ func (s *CreateGroupSetResponse) SetBody(v *CreateGroupSetResponseBody) *CreateG
 	return s
 }
 
+type CreateInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInstanceHeaders) SetCommonHeaders(v map[string]*string) *CreateInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *CreateInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateInstanceRequest struct {
+	// 渠道
+	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
+	// 外部业务ID，由英文、数字构成
+	ExternalBizId *string `json:"externalBizId,omitempty" xml:"externalBizId,omitempty"`
+	// 表单CODE,客户表单：DING_CUSTOMER；联系人表单：DING_CONTACT
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// 表单数据，JSON格式
+	FormDataList *string `json:"formDataList,omitempty" xml:"formDataList,omitempty"`
+	// 开放团队ID，从服务群后台ID信息中获取
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 操作人unionId
+	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
+	// 拥有人unionId
+	OwnerUnionId *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
+}
+
+func (s CreateInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInstanceRequest) SetChannel(v string) *CreateInstanceRequest {
+	s.Channel = &v
+	return s
+}
+
+func (s *CreateInstanceRequest) SetExternalBizId(v string) *CreateInstanceRequest {
+	s.ExternalBizId = &v
+	return s
+}
+
+func (s *CreateInstanceRequest) SetFormCode(v string) *CreateInstanceRequest {
+	s.FormCode = &v
+	return s
+}
+
+func (s *CreateInstanceRequest) SetFormDataList(v string) *CreateInstanceRequest {
+	s.FormDataList = &v
+	return s
+}
+
+func (s *CreateInstanceRequest) SetOpenTeamId(v string) *CreateInstanceRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *CreateInstanceRequest) SetOperatorUnionId(v string) *CreateInstanceRequest {
+	s.OperatorUnionId = &v
+	return s
+}
+
+func (s *CreateInstanceRequest) SetOwnerUnionId(v string) *CreateInstanceRequest {
+	s.OwnerUnionId = &v
+	return s
+}
+
+type CreateInstanceResponseBody struct {
+	// 数据实例ID
+	OpenDataInstanceId *string `json:"openDataInstanceId,omitempty" xml:"openDataInstanceId,omitempty"`
+}
+
+func (s CreateInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInstanceResponseBody) SetOpenDataInstanceId(v string) *CreateInstanceResponseBody {
+	s.OpenDataInstanceId = &v
+	return s
+}
+
+type CreateInstanceResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInstanceResponse) SetHeaders(v map[string]*string) *CreateInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateInstanceResponse) SetBody(v *CreateInstanceResponseBody) *CreateInstanceResponse {
+	s.Body = v
+	return s
+}
+
 type CreateTeamHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3505,6 +3629,109 @@ func (s *CreateTicketResponse) SetHeaders(v map[string]*string) *CreateTicketRes
 }
 
 func (s *CreateTicketResponse) SetBody(v *CreateTicketResponseBody) *CreateTicketResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteInstanceHeaders) SetCommonHeaders(v map[string]*string) *DeleteInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteInstanceRequest struct {
+	// 表单CODE
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// 开放数据实例ID
+	OpenDataInstanceId *string `json:"openDataInstanceId,omitempty" xml:"openDataInstanceId,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 操作人unionid
+	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
+}
+
+func (s DeleteInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteInstanceRequest) SetFormCode(v string) *DeleteInstanceRequest {
+	s.FormCode = &v
+	return s
+}
+
+func (s *DeleteInstanceRequest) SetOpenDataInstanceId(v string) *DeleteInstanceRequest {
+	s.OpenDataInstanceId = &v
+	return s
+}
+
+func (s *DeleteInstanceRequest) SetOpenTeamId(v string) *DeleteInstanceRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *DeleteInstanceRequest) SetOperatorUnionId(v string) *DeleteInstanceRequest {
+	s.OperatorUnionId = &v
+	return s
+}
+
+type DeleteInstanceResponseBody struct {
+	// Id of the request
+	OpenDataInstanceId *string `json:"openDataInstanceId,omitempty" xml:"openDataInstanceId,omitempty"`
+}
+
+func (s DeleteInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteInstanceResponseBody) SetOpenDataInstanceId(v string) *DeleteInstanceResponseBody {
+	s.OpenDataInstanceId = &v
+	return s
+}
+
+type DeleteInstanceResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteInstanceResponse) SetHeaders(v map[string]*string) *DeleteInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteInstanceResponse) SetBody(v *DeleteInstanceResponseBody) *DeleteInstanceResponse {
 	s.Body = v
 	return s
 }
@@ -4108,6 +4335,167 @@ func (s *GetAuthTokenResponse) SetHeaders(v map[string]*string) *GetAuthTokenRes
 }
 
 func (s *GetAuthTokenResponse) SetBody(v *GetAuthTokenResponseBody) *GetAuthTokenResponse {
+	s.Body = v
+	return s
+}
+
+type GetInstancesByIdsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetInstancesByIdsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesByIdsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesByIdsHeaders) SetCommonHeaders(v map[string]*string) *GetInstancesByIdsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetInstancesByIdsHeaders) SetXAcsDingtalkAccessToken(v string) *GetInstancesByIdsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetInstancesByIdsRequest struct {
+	// 表单CODE
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// 开放数据实例ID集合
+	OpenDataInstanceIdList []*string `json:"openDataInstanceIdList,omitempty" xml:"openDataInstanceIdList,omitempty" type:"Repeated"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s GetInstancesByIdsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesByIdsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesByIdsRequest) SetFormCode(v string) *GetInstancesByIdsRequest {
+	s.FormCode = &v
+	return s
+}
+
+func (s *GetInstancesByIdsRequest) SetOpenDataInstanceIdList(v []*string) *GetInstancesByIdsRequest {
+	s.OpenDataInstanceIdList = v
+	return s
+}
+
+func (s *GetInstancesByIdsRequest) SetOpenTeamId(v string) *GetInstancesByIdsRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type GetInstancesByIdsResponseBody struct {
+	// Id of the request
+	CustomFormInstanceResponseList []*GetInstancesByIdsResponseBodyCustomFormInstanceResponseList `json:"customFormInstanceResponseList,omitempty" xml:"customFormInstanceResponseList,omitempty" type:"Repeated"`
+}
+
+func (s GetInstancesByIdsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesByIdsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesByIdsResponseBody) SetCustomFormInstanceResponseList(v []*GetInstancesByIdsResponseBodyCustomFormInstanceResponseList) *GetInstancesByIdsResponseBody {
+	s.CustomFormInstanceResponseList = v
+	return s
+}
+
+type GetInstancesByIdsResponseBodyCustomFormInstanceResponseList struct {
+	CreatorUnionId     *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	Fields             *string `json:"fields,omitempty" xml:"fields,omitempty"`
+	FormCode           *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	GmtCreate          *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified        *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	ModifiedUnionId    *string `json:"modifiedUnionId,omitempty" xml:"modifiedUnionId,omitempty"`
+	OpenDataInstanceId *string `json:"openDataInstanceId,omitempty" xml:"openDataInstanceId,omitempty"`
+	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	OwnerUnionId       *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
+}
+
+func (s GetInstancesByIdsResponseBodyCustomFormInstanceResponseList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesByIdsResponseBodyCustomFormInstanceResponseList) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList) SetCreatorUnionId(v string) *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList) SetFields(v string) *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList {
+	s.Fields = &v
+	return s
+}
+
+func (s *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList) SetFormCode(v string) *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList {
+	s.FormCode = &v
+	return s
+}
+
+func (s *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList) SetGmtCreate(v string) *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList) SetGmtModified(v string) *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList) SetModifiedUnionId(v string) *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList {
+	s.ModifiedUnionId = &v
+	return s
+}
+
+func (s *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList) SetOpenDataInstanceId(v string) *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList {
+	s.OpenDataInstanceId = &v
+	return s
+}
+
+func (s *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList) SetOpenTeamId(v string) *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList) SetOwnerUnionId(v string) *GetInstancesByIdsResponseBodyCustomFormInstanceResponseList {
+	s.OwnerUnionId = &v
+	return s
+}
+
+type GetInstancesByIdsResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetInstancesByIdsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetInstancesByIdsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInstancesByIdsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetInstancesByIdsResponse) SetHeaders(v map[string]*string) *GetInstancesByIdsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetInstancesByIdsResponse) SetBody(v *GetInstancesByIdsResponseBody) *GetInstancesByIdsResponse {
 	s.Body = v
 	return s
 }
@@ -6286,6 +6674,231 @@ func (s *QueryGroupSetResponse) SetHeaders(v map[string]*string) *QueryGroupSetR
 }
 
 func (s *QueryGroupSetResponse) SetBody(v *QueryGroupSetResponseBody) *QueryGroupSetResponse {
+	s.Body = v
+	return s
+}
+
+type QueryInstancesByMultiConditionsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryInstancesByMultiConditionsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstancesByMultiConditionsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstancesByMultiConditionsHeaders) SetCommonHeaders(v map[string]*string) *QueryInstancesByMultiConditionsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryInstancesByMultiConditionsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryInstancesByMultiConditionsRequest struct {
+	// 表单CODE
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// 分页大小
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 游标位置
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 检索条件
+	SearchFields *string `json:"searchFields,omitempty" xml:"searchFields,omitempty"`
+	// 排序条件
+	SortFields []*QueryInstancesByMultiConditionsRequestSortFields `json:"sortFields,omitempty" xml:"sortFields,omitempty" type:"Repeated"`
+}
+
+func (s QueryInstancesByMultiConditionsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstancesByMultiConditionsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstancesByMultiConditionsRequest) SetFormCode(v string) *QueryInstancesByMultiConditionsRequest {
+	s.FormCode = &v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsRequest) SetMaxResults(v int64) *QueryInstancesByMultiConditionsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsRequest) SetNextToken(v string) *QueryInstancesByMultiConditionsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsRequest) SetOpenTeamId(v string) *QueryInstancesByMultiConditionsRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsRequest) SetSearchFields(v string) *QueryInstancesByMultiConditionsRequest {
+	s.SearchFields = &v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsRequest) SetSortFields(v []*QueryInstancesByMultiConditionsRequestSortFields) *QueryInstancesByMultiConditionsRequest {
+	s.SortFields = v
+	return s
+}
+
+type QueryInstancesByMultiConditionsRequestSortFields struct {
+	// 排序字段
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// 排序方式
+	SortBy *string `json:"sortBy,omitempty" xml:"sortBy,omitempty"`
+}
+
+func (s QueryInstancesByMultiConditionsRequestSortFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstancesByMultiConditionsRequestSortFields) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstancesByMultiConditionsRequestSortFields) SetFieldCode(v string) *QueryInstancesByMultiConditionsRequestSortFields {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsRequestSortFields) SetSortBy(v string) *QueryInstancesByMultiConditionsRequestSortFields {
+	s.SortBy = &v
+	return s
+}
+
+type QueryInstancesByMultiConditionsResponseBody struct {
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// Id of the request
+	NextToken  *string                                               `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Records    []*QueryInstancesByMultiConditionsResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	TotalCount *int64                                                `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryInstancesByMultiConditionsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstancesByMultiConditionsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstancesByMultiConditionsResponseBody) SetMaxResults(v int64) *QueryInstancesByMultiConditionsResponseBody {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsResponseBody) SetNextToken(v string) *QueryInstancesByMultiConditionsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsResponseBody) SetRecords(v []*QueryInstancesByMultiConditionsResponseBodyRecords) *QueryInstancesByMultiConditionsResponseBody {
+	s.Records = v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsResponseBody) SetTotalCount(v int64) *QueryInstancesByMultiConditionsResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryInstancesByMultiConditionsResponseBodyRecords struct {
+	CreatorUnionId     *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	Fields             *string `json:"fields,omitempty" xml:"fields,omitempty"`
+	FormCode           *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	GmtCreate          *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified        *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	ModifiedUnionId    *string `json:"modifiedUnionId,omitempty" xml:"modifiedUnionId,omitempty"`
+	OpenDataInstanceId *string `json:"openDataInstanceId,omitempty" xml:"openDataInstanceId,omitempty"`
+	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	OwnerUnionId       *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
+}
+
+func (s QueryInstancesByMultiConditionsResponseBodyRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstancesByMultiConditionsResponseBodyRecords) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstancesByMultiConditionsResponseBodyRecords) SetCreatorUnionId(v string) *QueryInstancesByMultiConditionsResponseBodyRecords {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsResponseBodyRecords) SetFields(v string) *QueryInstancesByMultiConditionsResponseBodyRecords {
+	s.Fields = &v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsResponseBodyRecords) SetFormCode(v string) *QueryInstancesByMultiConditionsResponseBodyRecords {
+	s.FormCode = &v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsResponseBodyRecords) SetGmtCreate(v string) *QueryInstancesByMultiConditionsResponseBodyRecords {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsResponseBodyRecords) SetGmtModified(v string) *QueryInstancesByMultiConditionsResponseBodyRecords {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsResponseBodyRecords) SetModifiedUnionId(v string) *QueryInstancesByMultiConditionsResponseBodyRecords {
+	s.ModifiedUnionId = &v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsResponseBodyRecords) SetOpenDataInstanceId(v string) *QueryInstancesByMultiConditionsResponseBodyRecords {
+	s.OpenDataInstanceId = &v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsResponseBodyRecords) SetOpenTeamId(v string) *QueryInstancesByMultiConditionsResponseBodyRecords {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsResponseBodyRecords) SetOwnerUnionId(v string) *QueryInstancesByMultiConditionsResponseBodyRecords {
+	s.OwnerUnionId = &v
+	return s
+}
+
+type QueryInstancesByMultiConditionsResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryInstancesByMultiConditionsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryInstancesByMultiConditionsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstancesByMultiConditionsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstancesByMultiConditionsResponse) SetHeaders(v map[string]*string) *QueryInstancesByMultiConditionsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryInstancesByMultiConditionsResponse) SetBody(v *QueryInstancesByMultiConditionsResponseBody) *QueryInstancesByMultiConditionsResponse {
 	s.Body = v
 	return s
 }
@@ -9282,6 +9895,130 @@ func (s *UpdateGroupTagResponse) SetHeaders(v map[string]*string) *UpdateGroupTa
 	return s
 }
 
+type UpdateInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInstanceHeaders) SetCommonHeaders(v map[string]*string) *UpdateInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateInstanceRequest struct {
+	// 外部业务ID
+	ExternalBizId *string `json:"externalBizId,omitempty" xml:"externalBizId,omitempty"`
+	// 表单CODE
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// 数据表单实例数据，JSON格式
+	FormDataList *string `json:"formDataList,omitempty" xml:"formDataList,omitempty"`
+	// 开放数据实例ID
+	OpenDataInstanceId *string `json:"openDataInstanceId,omitempty" xml:"openDataInstanceId,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 操作人unionId
+	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
+	// 拥有人unionId
+	OwnerUnionId *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
+}
+
+func (s UpdateInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInstanceRequest) SetExternalBizId(v string) *UpdateInstanceRequest {
+	s.ExternalBizId = &v
+	return s
+}
+
+func (s *UpdateInstanceRequest) SetFormCode(v string) *UpdateInstanceRequest {
+	s.FormCode = &v
+	return s
+}
+
+func (s *UpdateInstanceRequest) SetFormDataList(v string) *UpdateInstanceRequest {
+	s.FormDataList = &v
+	return s
+}
+
+func (s *UpdateInstanceRequest) SetOpenDataInstanceId(v string) *UpdateInstanceRequest {
+	s.OpenDataInstanceId = &v
+	return s
+}
+
+func (s *UpdateInstanceRequest) SetOpenTeamId(v string) *UpdateInstanceRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *UpdateInstanceRequest) SetOperatorUnionId(v string) *UpdateInstanceRequest {
+	s.OperatorUnionId = &v
+	return s
+}
+
+func (s *UpdateInstanceRequest) SetOwnerUnionId(v string) *UpdateInstanceRequest {
+	s.OwnerUnionId = &v
+	return s
+}
+
+type UpdateInstanceResponseBody struct {
+	// Id of the request
+	OpenDataInstanceId *string `json:"openDataInstanceId,omitempty" xml:"openDataInstanceId,omitempty"`
+}
+
+func (s UpdateInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInstanceResponseBody) SetOpenDataInstanceId(v string) *UpdateInstanceResponseBody {
+	s.OpenDataInstanceId = &v
+	return s
+}
+
+type UpdateInstanceResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInstanceResponse) SetHeaders(v map[string]*string) *UpdateInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateInstanceResponse) SetBody(v *UpdateInstanceResponseBody) *UpdateInstanceResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateTicketHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11119,6 +11856,74 @@ func (client *Client) CreateGroupSetWithOptions(request *CreateGroupSetRequest, 
 	return _result, _err
 }
 
+func (client *Client) CreateInstance(request *CreateInstanceRequest) (_result *CreateInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateInstanceHeaders{}
+	_result = &CreateInstanceResponse{}
+	_body, _err := client.CreateInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateInstanceWithOptions(request *CreateInstanceRequest, headers *CreateInstanceHeaders, runtime *util.RuntimeOptions) (_result *CreateInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Channel)) {
+		body["channel"] = request.Channel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExternalBizId)) {
+		body["externalBizId"] = request.ExternalBizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormCode)) {
+		body["formCode"] = request.FormCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormDataList)) {
+		body["formDataList"] = request.FormDataList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUnionId)) {
+		body["operatorUnionId"] = request.OperatorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnerUnionId)) {
+		body["ownerUnionId"] = request.OwnerUnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateInstanceResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateInstance"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/customForms/instances"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateTeam(request *CreateTeamRequest) (_result *CreateTeamResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateTeamHeaders{}
@@ -11236,6 +12041,62 @@ func (client *Client) CreateTicketWithOptions(request *CreateTicketRequest, head
 	}
 	_result = &CreateTicketResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteInstance(request *DeleteInstanceRequest) (_result *DeleteInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteInstanceHeaders{}
+	_result = &DeleteInstanceResponse{}
+	_body, _err := client.DeleteInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteInstanceWithOptions(request *DeleteInstanceRequest, headers *DeleteInstanceHeaders, runtime *util.RuntimeOptions) (_result *DeleteInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormCode)) {
+		body["formCode"] = request.FormCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenDataInstanceId)) {
+		body["openDataInstanceId"] = request.OpenDataInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUnionId)) {
+		body["operatorUnionId"] = request.OperatorUnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DeleteInstanceResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteInstance"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/customForms/instances/remove"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11480,6 +12341,58 @@ func (client *Client) GetAuthTokenWithOptions(request *GetAuthTokenRequest, head
 	}
 	_result = &GetAuthTokenResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetAuthToken"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/get/tokens"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetInstancesByIds(request *GetInstancesByIdsRequest) (_result *GetInstancesByIdsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetInstancesByIdsHeaders{}
+	_result = &GetInstancesByIdsResponse{}
+	_body, _err := client.GetInstancesByIdsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetInstancesByIdsWithOptions(request *GetInstancesByIdsRequest, headers *GetInstancesByIdsHeaders, runtime *util.RuntimeOptions) (_result *GetInstancesByIdsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormCode)) {
+		body["formCode"] = request.FormCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenDataInstanceIdList)) {
+		body["openDataInstanceIdList"] = request.OpenDataInstanceIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetInstancesByIdsResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetInstancesByIds"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/customForms/instances/batchQuery"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12215,6 +13128,70 @@ func (client *Client) QueryGroupSetWithOptions(request *QueryGroupSetRequest, he
 	}
 	_result = &QueryGroupSetResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryGroupSet"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groupSets"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryInstancesByMultiConditions(request *QueryInstancesByMultiConditionsRequest) (_result *QueryInstancesByMultiConditionsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryInstancesByMultiConditionsHeaders{}
+	_result = &QueryInstancesByMultiConditionsResponse{}
+	_body, _err := client.QueryInstancesByMultiConditionsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryInstancesByMultiConditionsWithOptions(request *QueryInstancesByMultiConditionsRequest, headers *QueryInstancesByMultiConditionsHeaders, runtime *util.RuntimeOptions) (_result *QueryInstancesByMultiConditionsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormCode)) {
+		body["formCode"] = request.FormCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchFields)) {
+		body["searchFields"] = request.SearchFields
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SortFields)) {
+		body["sortFields"] = request.SortFields
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryInstancesByMultiConditionsResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryInstancesByMultiConditions"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/customForms/instances/multiConditions/batchQuery"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13271,6 +14248,74 @@ func (client *Client) UpdateGroupTagWithOptions(request *UpdateGroupTagRequest, 
 	}
 	_result = &UpdateGroupTagResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateGroupTag"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tags"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateInstance(request *UpdateInstanceRequest) (_result *UpdateInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateInstanceHeaders{}
+	_result = &UpdateInstanceResponse{}
+	_body, _err := client.UpdateInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateInstanceWithOptions(request *UpdateInstanceRequest, headers *UpdateInstanceHeaders, runtime *util.RuntimeOptions) (_result *UpdateInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ExternalBizId)) {
+		body["externalBizId"] = request.ExternalBizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormCode)) {
+		body["formCode"] = request.FormCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormDataList)) {
+		body["formDataList"] = request.FormDataList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenDataInstanceId)) {
+		body["openDataInstanceId"] = request.OpenDataInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUnionId)) {
+		body["operatorUnionId"] = request.OperatorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnerUnionId)) {
+		body["ownerUnionId"] = request.OwnerUnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateInstanceResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateInstance"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/serviceGroup/customForms/instances"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

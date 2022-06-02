@@ -605,6 +605,109 @@ func (s *DistributePartnerAppResponse) SetBody(v *DistributePartnerAppResponseBo
 	return s
 }
 
+type ExclusiveCreateDingPortalHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ExclusiveCreateDingPortalHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusiveCreateDingPortalHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusiveCreateDingPortalHeaders) SetCommonHeaders(v map[string]*string) *ExclusiveCreateDingPortalHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ExclusiveCreateDingPortalHeaders) SetXAcsDingtalkAccessToken(v string) *ExclusiveCreateDingPortalHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ExclusiveCreateDingPortalRequest struct {
+	// 工作台名称。
+	DingPortalName *string `json:"dingPortalName,omitempty" xml:"dingPortalName,omitempty"`
+	// 被操纵企业ID。
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	// 模版id。
+	TemplateAppUuid *string `json:"templateAppUuid,omitempty" xml:"templateAppUuid,omitempty"`
+	// 模版所属的组织id。
+	TemplateCorpId *string `json:"templateCorpId,omitempty" xml:"templateCorpId,omitempty"`
+}
+
+func (s ExclusiveCreateDingPortalRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusiveCreateDingPortalRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusiveCreateDingPortalRequest) SetDingPortalName(v string) *ExclusiveCreateDingPortalRequest {
+	s.DingPortalName = &v
+	return s
+}
+
+func (s *ExclusiveCreateDingPortalRequest) SetTargetCorpId(v string) *ExclusiveCreateDingPortalRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+func (s *ExclusiveCreateDingPortalRequest) SetTemplateAppUuid(v string) *ExclusiveCreateDingPortalRequest {
+	s.TemplateAppUuid = &v
+	return s
+}
+
+func (s *ExclusiveCreateDingPortalRequest) SetTemplateCorpId(v string) *ExclusiveCreateDingPortalRequest {
+	s.TemplateCorpId = &v
+	return s
+}
+
+type ExclusiveCreateDingPortalResponseBody struct {
+	// 是否成功。
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ExclusiveCreateDingPortalResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusiveCreateDingPortalResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusiveCreateDingPortalResponseBody) SetSuccess(v string) *ExclusiveCreateDingPortalResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ExclusiveCreateDingPortalResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ExclusiveCreateDingPortalResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ExclusiveCreateDingPortalResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusiveCreateDingPortalResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusiveCreateDingPortalResponse) SetHeaders(v map[string]*string) *ExclusiveCreateDingPortalResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ExclusiveCreateDingPortalResponse) SetBody(v *ExclusiveCreateDingPortalResponseBody) *ExclusiveCreateDingPortalResponse {
+	s.Body = v
+	return s
+}
+
 type FileStorageActiveStorageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5424,6 +5527,109 @@ func (s *PublishFileChangeNoticeResponse) SetHeaders(v map[string]*string) *Publ
 	return s
 }
 
+type PushBadgeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PushBadgeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushBadgeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PushBadgeHeaders) SetCommonHeaders(v map[string]*string) *PushBadgeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PushBadgeHeaders) SetXAcsDingtalkAccessToken(v string) *PushBadgeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PushBadgeRequest struct {
+	// 微应用agentId
+	AgentId *string `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// 推送类型
+	PushType *string `json:"pushType,omitempty" xml:"pushType,omitempty"`
+	// 推送的内容（目前仅限数字）
+	PushValue *string `json:"pushValue,omitempty" xml:"pushValue,omitempty"`
+	// 员工userId列表
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s PushBadgeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushBadgeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PushBadgeRequest) SetAgentId(v string) *PushBadgeRequest {
+	s.AgentId = &v
+	return s
+}
+
+func (s *PushBadgeRequest) SetPushType(v string) *PushBadgeRequest {
+	s.PushType = &v
+	return s
+}
+
+func (s *PushBadgeRequest) SetPushValue(v string) *PushBadgeRequest {
+	s.PushValue = &v
+	return s
+}
+
+func (s *PushBadgeRequest) SetUserIdList(v []*string) *PushBadgeRequest {
+	s.UserIdList = v
+	return s
+}
+
+type PushBadgeResponseBody struct {
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PushBadgeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushBadgeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PushBadgeResponseBody) SetSuccess(v bool) *PushBadgeResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PushBadgeResponse struct {
+	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PushBadgeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PushBadgeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushBadgeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PushBadgeResponse) SetHeaders(v map[string]*string) *PushBadgeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PushBadgeResponse) SetBody(v *PushBadgeResponseBody) *PushBadgeResponse {
+	s.Body = v
+	return s
+}
+
 type QueryAcrossCloudStroageConfigsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7262,6 +7468,62 @@ func (client *Client) DistributePartnerAppWithOptions(request *DistributePartner
 	return _result, _err
 }
 
+func (client *Client) ExclusiveCreateDingPortal(request *ExclusiveCreateDingPortalRequest) (_result *ExclusiveCreateDingPortalResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ExclusiveCreateDingPortalHeaders{}
+	_result = &ExclusiveCreateDingPortalResponse{}
+	_body, _err := client.ExclusiveCreateDingPortalWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ExclusiveCreateDingPortalWithOptions(request *ExclusiveCreateDingPortalRequest, headers *ExclusiveCreateDingPortalHeaders, runtime *util.RuntimeOptions) (_result *ExclusiveCreateDingPortalResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingPortalName)) {
+		body["dingPortalName"] = request.DingPortalName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		body["targetCorpId"] = request.TargetCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateAppUuid)) {
+		body["templateAppUuid"] = request.TemplateAppUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateCorpId)) {
+		body["templateCorpId"] = request.TemplateCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ExclusiveCreateDingPortalResponse{}
+	_body, _err := client.DoROARequest(tea.String("ExclusiveCreateDingPortal"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/workbenches/templates/spread"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) FileStorageActiveStorage(request *FileStorageActiveStorageRequest) (_result *FileStorageActiveStorageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &FileStorageActiveStorageHeaders{}
@@ -8871,6 +9133,62 @@ func (client *Client) PublishFileChangeNoticeWithOptions(request *PublishFileCha
 	}
 	_result = &PublishFileChangeNoticeResponse{}
 	_body, _err := client.DoROARequest(tea.String("PublishFileChangeNotice"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/comments/send"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PushBadge(request *PushBadgeRequest) (_result *PushBadgeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PushBadgeHeaders{}
+	_result = &PushBadgeResponse{}
+	_body, _err := client.PushBadgeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PushBadgeWithOptions(request *PushBadgeRequest, headers *PushBadgeHeaders, runtime *util.RuntimeOptions) (_result *PushBadgeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentId)) {
+		body["agentId"] = request.AgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PushType)) {
+		body["pushType"] = request.PushType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PushValue)) {
+		body["pushValue"] = request.PushValue
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdList)) {
+		body["userIdList"] = request.UserIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &PushBadgeResponse{}
+	_body, _err := client.DoROARequest(tea.String("PushBadge"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/exclusiveDesigns/redPoints/push"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

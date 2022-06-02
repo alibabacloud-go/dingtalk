@@ -6467,6 +6467,7 @@ type QueryHospitalRoleUserInfoResponseBodyContent struct {
 	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
 	// 角色名称
 	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	Status   *int32  `json:"status,omitempty" xml:"status,omitempty"`
 	// 用户编码
 	UserCode *string `json:"userCode,omitempty" xml:"userCode,omitempty"`
 	// 用户名称
@@ -6503,6 +6504,11 @@ func (s *QueryHospitalRoleUserInfoResponseBodyContent) SetRoleCode(v string) *Qu
 
 func (s *QueryHospitalRoleUserInfoResponseBodyContent) SetRoleName(v string) *QueryHospitalRoleUserInfoResponseBodyContent {
 	s.RoleName = &v
+	return s
+}
+
+func (s *QueryHospitalRoleUserInfoResponseBodyContent) SetStatus(v int32) *QueryHospitalRoleUserInfoResponseBodyContent {
+	s.Status = &v
 	return s
 }
 
