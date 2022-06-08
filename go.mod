@@ -9,5 +9,5 @@ require (
 	github.com/alibabacloud-go/tea v1.1.17
 	github.com/alibabacloud-go/tea-utils v1.4.3
 	github.com/alibabacloud-go/tea-xml v1.1.2 // indirect
-	github.com/clbanning/mxj/v2 v2.5.5 // indirect
+	github.com/clbanning/mxj/v2 v2.5.6 // indirect
 )

@@ -3900,9 +3900,8 @@ type UpdateSpaceRequestSpaceInfoVOList struct {
 	// 房屋类型，当tagcode为House时必填
 	HouseType *int64 `json:"houseType,omitempty" xml:"houseType,omitempty"`
 	// 修改后名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 父节点id
-	ParentDeptId *float32 `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
+	Name         *string `json:"name,omitempty" xml:"name,omitempty"`
+	ParentDeptId *int64  `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
 	// 空间类型
 	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
 }
@@ -3955,7 +3954,7 @@ func (s *UpdateSpaceRequestSpaceInfoVOList) SetName(v string) *UpdateSpaceReques
 	return s
 }
 
-func (s *UpdateSpaceRequestSpaceInfoVOList) SetParentDeptId(v float32) *UpdateSpaceRequestSpaceInfoVOList {
+func (s *UpdateSpaceRequestSpaceInfoVOList) SetParentDeptId(v int64) *UpdateSpaceRequestSpaceInfoVOList {
 	s.ParentDeptId = &v
 	return s
 }

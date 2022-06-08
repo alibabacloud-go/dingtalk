@@ -394,6 +394,128 @@ func (s *CreateDepartmentResponse) SetBody(v *CreateDepartmentResponseBody) *Cre
 	return s
 }
 
+type CreateDeviceChatRoomHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateDeviceChatRoomHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDeviceChatRoomHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDeviceChatRoomHeaders) SetCommonHeaders(v map[string]*string) *CreateDeviceChatRoomHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateDeviceChatRoomHeaders) SetXAcsDingtalkAccessToken(v string) *CreateDeviceChatRoomHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateDeviceChatRoomRequest struct {
+	// 场景群类型，不填，为默认普通设备群，示例值--维修群：REPAIR_GROUP，点检群:INSPECT_GROUP,保养群：MAINTAIN_GROUP。
+	ChatType *string `json:"chatType,omitempty" xml:"chatType,omitempty"`
+	// 设备编码，客户侧生成的设备标识，能够唯一标识一个设备，该字段与deviceUuids字段需要二选一，并且不能都填充。
+	DeviceCodes []*string `json:"deviceCodes,omitempty" xml:"deviceCodes,omitempty" type:"Repeated"`
+	// 设备唯一标识，钉钉侧生成的设备标识，能够唯一标识一个设备，该字段与deviceCodes字段需要二选一，并且不能都填充。
+	DeviceUuids []*string `json:"deviceUuids,omitempty" xml:"deviceUuids,omitempty" type:"Repeated"`
+	// 群主钉钉账户。
+	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	// 设备场景群名称。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 需要被拉入群聊的钉钉账号，可以传多个，通过英文逗号分隔。
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s CreateDeviceChatRoomRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDeviceChatRoomRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDeviceChatRoomRequest) SetChatType(v string) *CreateDeviceChatRoomRequest {
+	s.ChatType = &v
+	return s
+}
+
+func (s *CreateDeviceChatRoomRequest) SetDeviceCodes(v []*string) *CreateDeviceChatRoomRequest {
+	s.DeviceCodes = v
+	return s
+}
+
+func (s *CreateDeviceChatRoomRequest) SetDeviceUuids(v []*string) *CreateDeviceChatRoomRequest {
+	s.DeviceUuids = v
+	return s
+}
+
+func (s *CreateDeviceChatRoomRequest) SetOwnerUserId(v string) *CreateDeviceChatRoomRequest {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *CreateDeviceChatRoomRequest) SetTitle(v string) *CreateDeviceChatRoomRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *CreateDeviceChatRoomRequest) SetUserIds(v []*string) *CreateDeviceChatRoomRequest {
+	s.UserIds = v
+	return s
+}
+
+type CreateDeviceChatRoomResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateDeviceChatRoomResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDeviceChatRoomResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDeviceChatRoomResponseBody) SetResult(v string) *CreateDeviceChatRoomResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *CreateDeviceChatRoomResponseBody) SetSuccess(v bool) *CreateDeviceChatRoomResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateDeviceChatRoomResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateDeviceChatRoomResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateDeviceChatRoomResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDeviceChatRoomResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDeviceChatRoomResponse) SetHeaders(v map[string]*string) *CreateDeviceChatRoomResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateDeviceChatRoomResponse) SetBody(v *CreateDeviceChatRoomResponseBody) *CreateDeviceChatRoomResponse {
+	s.Body = v
+	return s
+}
+
 type DeviceDingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -485,6 +607,361 @@ func (s *DeviceDingResponse) SetHeaders(v map[string]*string) *DeviceDingRespons
 }
 
 func (s *DeviceDingResponse) SetBody(v *DeviceDingResponseBody) *DeviceDingResponse {
+	s.Body = v
+	return s
+}
+
+type DissolveGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DissolveGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DissolveGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DissolveGroupHeaders) SetCommonHeaders(v map[string]*string) *DissolveGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DissolveGroupHeaders) SetXAcsDingtalkAccessToken(v string) *DissolveGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DissolveGroupRequest struct {
+	// 场景群唯一标识，调用创建场景群接口时，会返回该标识。
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s DissolveGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DissolveGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DissolveGroupRequest) SetOpenConversationId(v string) *DissolveGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type DissolveGroupResponseBody struct {
+	// 接口处理返回结果。
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// 接口处理是否成功。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DissolveGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DissolveGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DissolveGroupResponseBody) SetResult(v string) *DissolveGroupResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *DissolveGroupResponseBody) SetSuccess(v bool) *DissolveGroupResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DissolveGroupResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DissolveGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DissolveGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DissolveGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DissolveGroupResponse) SetHeaders(v map[string]*string) *DissolveGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DissolveGroupResponse) SetBody(v *DissolveGroupResponseBody) *DissolveGroupResponse {
+	s.Body = v
+	return s
+}
+
+type EditDeviceAdminHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s EditDeviceAdminHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EditDeviceAdminHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *EditDeviceAdminHeaders) SetCommonHeaders(v map[string]*string) *EditDeviceAdminHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *EditDeviceAdminHeaders) SetXAcsDingtalkAccessToken(v string) *EditDeviceAdminHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type EditDeviceAdminRequest struct {
+	// 需要处理的设备编号。客户侧生成的设备标识，能够唯一标识一个设备，该字段与uuid字段需要二选一，并且不能都填充。
+	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	// 角色唯一标识
+	RoleUuid *string `json:"roleUuid,omitempty" xml:"roleUuid,omitempty"`
+	// 需要编辑的角色唯一标识，非必填，不传默认为管理员。
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// 设备唯一标识，钉钉侧生成的设备标识，能够唯一标识一个设备，该字段与deviceCode字段需要二选一，并且不能都填充。
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s EditDeviceAdminRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EditDeviceAdminRequest) GoString() string {
+	return s.String()
+}
+
+func (s *EditDeviceAdminRequest) SetDeviceCode(v string) *EditDeviceAdminRequest {
+	s.DeviceCode = &v
+	return s
+}
+
+func (s *EditDeviceAdminRequest) SetRoleUuid(v string) *EditDeviceAdminRequest {
+	s.RoleUuid = &v
+	return s
+}
+
+func (s *EditDeviceAdminRequest) SetUserIds(v []*string) *EditDeviceAdminRequest {
+	s.UserIds = v
+	return s
+}
+
+func (s *EditDeviceAdminRequest) SetUuid(v string) *EditDeviceAdminRequest {
+	s.Uuid = &v
+	return s
+}
+
+type EditDeviceAdminResponseBody struct {
+	// 接口处理返回结果。
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// 接口处理是否成功。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s EditDeviceAdminResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EditDeviceAdminResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *EditDeviceAdminResponseBody) SetResult(v string) *EditDeviceAdminResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *EditDeviceAdminResponseBody) SetSuccess(v bool) *EditDeviceAdminResponseBody {
+	s.Success = &v
+	return s
+}
+
+type EditDeviceAdminResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *EditDeviceAdminResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s EditDeviceAdminResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EditDeviceAdminResponse) GoString() string {
+	return s.String()
+}
+
+func (s *EditDeviceAdminResponse) SetHeaders(v map[string]*string) *EditDeviceAdminResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *EditDeviceAdminResponse) SetBody(v *EditDeviceAdminResponseBody) *EditDeviceAdminResponse {
+	s.Body = v
+	return s
+}
+
+type GetDeviceGroupInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetDeviceGroupInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDeviceGroupInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetDeviceGroupInfoHeaders) SetCommonHeaders(v map[string]*string) *GetDeviceGroupInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetDeviceGroupInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetDeviceGroupInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetDeviceGroupInfoRequest struct {
+	// 开放群唯一标识
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s GetDeviceGroupInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDeviceGroupInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetDeviceGroupInfoRequest) SetOpenConversationId(v string) *GetDeviceGroupInfoRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type GetDeviceGroupInfoResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetDeviceGroupInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDeviceGroupInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetDeviceGroupInfoResponseBody) SetResult(v string) *GetDeviceGroupInfoResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *GetDeviceGroupInfoResponseBody) SetSuccess(v bool) *GetDeviceGroupInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetDeviceGroupInfoResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetDeviceGroupInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetDeviceGroupInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDeviceGroupInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetDeviceGroupInfoResponse) SetHeaders(v map[string]*string) *GetDeviceGroupInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetDeviceGroupInfoResponse) SetBody(v *GetDeviceGroupInfoResponseBody) *GetDeviceGroupInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetWholeDeviceGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetWholeDeviceGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWholeDeviceGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetWholeDeviceGroupHeaders) SetCommonHeaders(v map[string]*string) *GetWholeDeviceGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetWholeDeviceGroupHeaders) SetXAcsDingtalkAccessToken(v string) *GetWholeDeviceGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetWholeDeviceGroupResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetWholeDeviceGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWholeDeviceGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetWholeDeviceGroupResponseBody) SetResult(v string) *GetWholeDeviceGroupResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *GetWholeDeviceGroupResponseBody) SetSuccess(v bool) *GetWholeDeviceGroupResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetWholeDeviceGroupResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetWholeDeviceGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetWholeDeviceGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWholeDeviceGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetWholeDeviceGroupResponse) SetHeaders(v map[string]*string) *GetWholeDeviceGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetWholeDeviceGroupResponse) SetBody(v *GetWholeDeviceGroupResponseBody) *GetWholeDeviceGroupResponse {
 	s.Body = v
 	return s
 }
@@ -589,7 +1066,6 @@ func (s *ListActivateDevicesResponseBody) SetTotalCount(v int64) *ListActivateDe
 
 type ListActivateDevicesResponseBodyResult struct {
 	BizExt            *string `json:"bizExt,omitempty" xml:"bizExt,omitempty"`
-	CorpId            *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	DeviceCallbackUrl *string `json:"deviceCallbackUrl,omitempty" xml:"deviceCallbackUrl,omitempty"`
 	DeviceCode        *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
 	DeviceDetailUrl   *string `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
@@ -611,11 +1087,6 @@ func (s ListActivateDevicesResponseBodyResult) GoString() string {
 
 func (s *ListActivateDevicesResponseBodyResult) SetBizExt(v string) *ListActivateDevicesResponseBodyResult {
 	s.BizExt = &v
-	return s
-}
-
-func (s *ListActivateDevicesResponseBodyResult) SetCorpId(v string) *ListActivateDevicesResponseBodyResult {
-	s.CorpId = &v
 	return s
 }
 
@@ -683,6 +1154,208 @@ func (s *ListActivateDevicesResponse) SetHeaders(v map[string]*string) *ListActi
 }
 
 func (s *ListActivateDevicesResponse) SetBody(v *ListActivateDevicesResponseBody) *ListActivateDevicesResponse {
+	s.Body = v
+	return s
+}
+
+type PullDeviceToGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PullDeviceToGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PullDeviceToGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PullDeviceToGroupHeaders) SetCommonHeaders(v map[string]*string) *PullDeviceToGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PullDeviceToGroupHeaders) SetXAcsDingtalkAccessToken(v string) *PullDeviceToGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PullDeviceToGroupRequest struct {
+	// 设备业务标识
+	DeviceCodes []*string `json:"deviceCodes,omitempty" xml:"deviceCodes,omitempty" type:"Repeated"`
+	// 设备uuid，系统唯一标识
+	DeviceUuids []*string `json:"deviceUuids,omitempty" xml:"deviceUuids,omitempty" type:"Repeated"`
+	// 群id，群的唯一标识
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 操作人userId
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+}
+
+func (s PullDeviceToGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PullDeviceToGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PullDeviceToGroupRequest) SetDeviceCodes(v []*string) *PullDeviceToGroupRequest {
+	s.DeviceCodes = v
+	return s
+}
+
+func (s *PullDeviceToGroupRequest) SetDeviceUuids(v []*string) *PullDeviceToGroupRequest {
+	s.DeviceUuids = v
+	return s
+}
+
+func (s *PullDeviceToGroupRequest) SetOpenConversationId(v string) *PullDeviceToGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *PullDeviceToGroupRequest) SetOperator(v string) *PullDeviceToGroupRequest {
+	s.Operator = &v
+	return s
+}
+
+type PullDeviceToGroupResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PullDeviceToGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PullDeviceToGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PullDeviceToGroupResponseBody) SetResult(v string) *PullDeviceToGroupResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *PullDeviceToGroupResponseBody) SetSuccess(v bool) *PullDeviceToGroupResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PullDeviceToGroupResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PullDeviceToGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PullDeviceToGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PullDeviceToGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PullDeviceToGroupResponse) SetHeaders(v map[string]*string) *PullDeviceToGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PullDeviceToGroupResponse) SetBody(v *PullDeviceToGroupResponseBody) *PullDeviceToGroupResponse {
+	s.Body = v
+	return s
+}
+
+type PullUserToGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PullUserToGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PullUserToGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PullUserToGroupHeaders) SetCommonHeaders(v map[string]*string) *PullUserToGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PullUserToGroupHeaders) SetXAcsDingtalkAccessToken(v string) *PullUserToGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PullUserToGroupRequest struct {
+	// 开放群唯一标识
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 入群用户唯一标识列表
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s PullUserToGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PullUserToGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PullUserToGroupRequest) SetOpenConversationId(v string) *PullUserToGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *PullUserToGroupRequest) SetUserIds(v []*string) *PullUserToGroupRequest {
+	s.UserIds = v
+	return s
+}
+
+type PullUserToGroupResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PullUserToGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PullUserToGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PullUserToGroupResponseBody) SetResult(v string) *PullUserToGroupResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *PullUserToGroupResponseBody) SetSuccess(v bool) *PullUserToGroupResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PullUserToGroupResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PullUserToGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PullUserToGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PullUserToGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PullUserToGroupResponse) SetHeaders(v map[string]*string) *PullUserToGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PullUserToGroupResponse) SetBody(v *PullUserToGroupResponseBody) *PullUserToGroupResponse {
 	s.Body = v
 	return s
 }
@@ -794,7 +1467,6 @@ func (s *RegisterAndActivateDeviceResponseBody) SetSuccess(v bool) *RegisterAndA
 }
 
 type RegisterAndActivateDeviceResponseBodyResult struct {
-	CorpId          *string   `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	DeviceCode      *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
 	DeviceDetailUrl *string   `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
 	DeviceName      *string   `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
@@ -811,11 +1483,6 @@ func (s RegisterAndActivateDeviceResponseBodyResult) String() string {
 
 func (s RegisterAndActivateDeviceResponseBodyResult) GoString() string {
 	return s.String()
-}
-
-func (s *RegisterAndActivateDeviceResponseBodyResult) SetCorpId(v string) *RegisterAndActivateDeviceResponseBodyResult {
-	s.CorpId = &v
-	return s
 }
 
 func (s *RegisterAndActivateDeviceResponseBodyResult) SetDeviceCode(v string) *RegisterAndActivateDeviceResponseBodyResult {
@@ -1051,7 +1718,6 @@ func (s *RegisterAndActivateDeviceBatchResponseBodyFailItems) SetSuccess(v bool)
 }
 
 type RegisterAndActivateDeviceBatchResponseBodyFailItemsResult struct {
-	CorpId            *string   `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	DeviceCallbackUrl *string   `json:"deviceCallbackUrl,omitempty" xml:"deviceCallbackUrl,omitempty"`
 	DeviceCode        *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
 	DeviceDetailUrl   *string   `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
@@ -1072,11 +1738,6 @@ func (s RegisterAndActivateDeviceBatchResponseBodyFailItemsResult) String() stri
 
 func (s RegisterAndActivateDeviceBatchResponseBodyFailItemsResult) GoString() string {
 	return s.String()
-}
-
-func (s *RegisterAndActivateDeviceBatchResponseBodyFailItemsResult) SetCorpId(v string) *RegisterAndActivateDeviceBatchResponseBodyFailItemsResult {
-	s.CorpId = &v
-	return s
 }
 
 func (s *RegisterAndActivateDeviceBatchResponseBodyFailItemsResult) SetDeviceCallbackUrl(v string) *RegisterAndActivateDeviceBatchResponseBodyFailItemsResult {
@@ -1175,7 +1836,6 @@ func (s *RegisterAndActivateDeviceBatchResponseBodySuccessItems) SetSuccess(v bo
 }
 
 type RegisterAndActivateDeviceBatchResponseBodySuccessItemsResult struct {
-	CorpId            *string   `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	DeviceCallbackUrl *string   `json:"deviceCallbackUrl,omitempty" xml:"deviceCallbackUrl,omitempty"`
 	DeviceCode        *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
 	DeviceDetailUrl   *string   `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
@@ -1196,11 +1856,6 @@ func (s RegisterAndActivateDeviceBatchResponseBodySuccessItemsResult) String() s
 
 func (s RegisterAndActivateDeviceBatchResponseBodySuccessItemsResult) GoString() string {
 	return s.String()
-}
-
-func (s *RegisterAndActivateDeviceBatchResponseBodySuccessItemsResult) SetCorpId(v string) *RegisterAndActivateDeviceBatchResponseBodySuccessItemsResult {
-	s.CorpId = &v
-	return s
 }
 
 func (s *RegisterAndActivateDeviceBatchResponseBodySuccessItemsResult) SetDeviceCallbackUrl(v string) *RegisterAndActivateDeviceBatchResponseBodySuccessItemsResult {
@@ -1409,6 +2064,208 @@ func (s *RegisterDeviceResponse) SetBody(v *RegisterDeviceResponseBody) *Registe
 	return s
 }
 
+type RemoveDeviceFromGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RemoveDeviceFromGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveDeviceFromGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveDeviceFromGroupHeaders) SetCommonHeaders(v map[string]*string) *RemoveDeviceFromGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveDeviceFromGroupHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveDeviceFromGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RemoveDeviceFromGroupRequest struct {
+	// 设备编号列表（与设备唯一标识列表二选一）
+	DeviceCodes []*string `json:"deviceCodes,omitempty" xml:"deviceCodes,omitempty" type:"Repeated"`
+	// 设备唯一标识列表（与设备编码列表二选一）
+	DeviceUuids []*string `json:"deviceUuids,omitempty" xml:"deviceUuids,omitempty" type:"Repeated"`
+	// 开放群唯一标识
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 操作人唯一标识
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+}
+
+func (s RemoveDeviceFromGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveDeviceFromGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveDeviceFromGroupRequest) SetDeviceCodes(v []*string) *RemoveDeviceFromGroupRequest {
+	s.DeviceCodes = v
+	return s
+}
+
+func (s *RemoveDeviceFromGroupRequest) SetDeviceUuids(v []*string) *RemoveDeviceFromGroupRequest {
+	s.DeviceUuids = v
+	return s
+}
+
+func (s *RemoveDeviceFromGroupRequest) SetOpenConversationId(v string) *RemoveDeviceFromGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *RemoveDeviceFromGroupRequest) SetOperator(v string) *RemoveDeviceFromGroupRequest {
+	s.Operator = &v
+	return s
+}
+
+type RemoveDeviceFromGroupResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s RemoveDeviceFromGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveDeviceFromGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveDeviceFromGroupResponseBody) SetResult(v string) *RemoveDeviceFromGroupResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *RemoveDeviceFromGroupResponseBody) SetSuccess(v bool) *RemoveDeviceFromGroupResponseBody {
+	s.Success = &v
+	return s
+}
+
+type RemoveDeviceFromGroupResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RemoveDeviceFromGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RemoveDeviceFromGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveDeviceFromGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveDeviceFromGroupResponse) SetHeaders(v map[string]*string) *RemoveDeviceFromGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RemoveDeviceFromGroupResponse) SetBody(v *RemoveDeviceFromGroupResponseBody) *RemoveDeviceFromGroupResponse {
+	s.Body = v
+	return s
+}
+
+type RemoveUserFromGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RemoveUserFromGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveUserFromGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveUserFromGroupHeaders) SetCommonHeaders(v map[string]*string) *RemoveUserFromGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveUserFromGroupHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveUserFromGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RemoveUserFromGroupRequest struct {
+	// 开放群唯一标识
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 用户唯一标识列表
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s RemoveUserFromGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveUserFromGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveUserFromGroupRequest) SetOpenConversationId(v string) *RemoveUserFromGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *RemoveUserFromGroupRequest) SetUserIds(v []*string) *RemoveUserFromGroupRequest {
+	s.UserIds = v
+	return s
+}
+
+type RemoveUserFromGroupResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s RemoveUserFromGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveUserFromGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveUserFromGroupResponseBody) SetResult(v string) *RemoveUserFromGroupResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *RemoveUserFromGroupResponseBody) SetSuccess(v bool) *RemoveUserFromGroupResponseBody {
+	s.Success = &v
+	return s
+}
+
+type RemoveUserFromGroupResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RemoveUserFromGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RemoveUserFromGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveUserFromGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveUserFromGroupResponse) SetHeaders(v map[string]*string) *RemoveUserFromGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RemoveUserFromGroupResponse) SetBody(v *RemoveUserFromGroupResponseBody) *RemoveUserFromGroupResponse {
+	s.Body = v
+	return s
+}
+
 type SendCardHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1433,13 +2290,22 @@ func (s *SendCardHeaders) SetXAcsDingtalkAccessToken(v string) *SendCardHeaders 
 }
 
 type SendCardRequest struct {
-	BizId      *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	CardData   *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	// 卡片实例唯一标识
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// 卡片变量赋值，json结构
+	CardData *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	// 设备业务标识
 	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	// 设备uuid，唯一标识
 	DeviceUuid *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
-	EncodeCid  *string `json:"encodeCid,omitempty" xml:"encodeCid,omitempty"`
+	// 群id，群的唯一标识
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 卡片模板唯一标识，开放平台获取
 	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 是否为吊顶卡片
+	Topbox *bool `json:"topbox,omitempty" xml:"topbox,omitempty"`
+	// 用户通讯录唯一标识
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SendCardRequest) String() string {
@@ -1470,13 +2336,18 @@ func (s *SendCardRequest) SetDeviceUuid(v string) *SendCardRequest {
 	return s
 }
 
-func (s *SendCardRequest) SetEncodeCid(v string) *SendCardRequest {
-	s.EncodeCid = &v
+func (s *SendCardRequest) SetOpenConversationId(v string) *SendCardRequest {
+	s.OpenConversationId = &v
 	return s
 }
 
 func (s *SendCardRequest) SetTemplateId(v string) *SendCardRequest {
 	s.TemplateId = &v
+	return s
+}
+
+func (s *SendCardRequest) SetTopbox(v bool) *SendCardRequest {
+	s.Topbox = &v
 	return s
 }
 
@@ -1533,6 +2404,102 @@ func (s *SendCardResponse) SetBody(v *SendCardResponseBody) *SendCardResponse {
 	return s
 }
 
+type UninstallDeviceRobotHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UninstallDeviceRobotHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UninstallDeviceRobotHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UninstallDeviceRobotHeaders) SetCommonHeaders(v map[string]*string) *UninstallDeviceRobotHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UninstallDeviceRobotHeaders) SetXAcsDingtalkAccessToken(v string) *UninstallDeviceRobotHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UninstallDeviceRobotRequest struct {
+	// 设备编码，客户侧生成的设备标识，能够唯一标识一个设备，该字段与deviceUuid字段需要二选一，并且不能都填充。
+	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	// 设备唯一标识，钉钉侧生成的设备标识，能够唯一标识一个设备，该字段与deviceCode字段需要二选一，并且不能都填充。
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s UninstallDeviceRobotRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UninstallDeviceRobotRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UninstallDeviceRobotRequest) SetDeviceCode(v string) *UninstallDeviceRobotRequest {
+	s.DeviceCode = &v
+	return s
+}
+
+func (s *UninstallDeviceRobotRequest) SetUuid(v string) *UninstallDeviceRobotRequest {
+	s.Uuid = &v
+	return s
+}
+
+type UninstallDeviceRobotResponseBody struct {
+	// 接口处理返回结果，内容为群的唯一标识。
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// 接口处理是否成功。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UninstallDeviceRobotResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UninstallDeviceRobotResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UninstallDeviceRobotResponseBody) SetResult(v string) *UninstallDeviceRobotResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *UninstallDeviceRobotResponseBody) SetSuccess(v bool) *UninstallDeviceRobotResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UninstallDeviceRobotResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UninstallDeviceRobotResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UninstallDeviceRobotResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UninstallDeviceRobotResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UninstallDeviceRobotResponse) SetHeaders(v map[string]*string) *UninstallDeviceRobotResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UninstallDeviceRobotResponse) SetBody(v *UninstallDeviceRobotResponseBody) *UninstallDeviceRobotResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateCardHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1557,7 +2524,9 @@ func (s *UpdateCardHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateCardHead
 }
 
 type UpdateCardRequest struct {
-	BizId    *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// 卡片实例唯一标识
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// 卡片变量赋值，json结构
 	CardData *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
 }
 
@@ -1952,6 +2921,70 @@ func (client *Client) CreateDepartmentWithOptions(request *CreateDepartmentReque
 	return _result, _err
 }
 
+func (client *Client) CreateDeviceChatRoom(request *CreateDeviceChatRoomRequest) (_result *CreateDeviceChatRoomResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateDeviceChatRoomHeaders{}
+	_result = &CreateDeviceChatRoomResponse{}
+	_body, _err := client.CreateDeviceChatRoomWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateDeviceChatRoomWithOptions(request *CreateDeviceChatRoomRequest, headers *CreateDeviceChatRoomHeaders, runtime *util.RuntimeOptions) (_result *CreateDeviceChatRoomResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChatType)) {
+		body["chatType"] = request.ChatType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceCodes)) {
+		body["deviceCodes"] = request.DeviceCodes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceUuids)) {
+		body["deviceUuids"] = request.DeviceUuids
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnerUserId)) {
+		body["ownerUserId"] = request.OwnerUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateDeviceChatRoomResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateDeviceChatRoom"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/chatRooms/groups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeviceDing(request *DeviceDingRequest) (_result *DeviceDingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeviceDingHeaders{}
@@ -1997,6 +3030,184 @@ func (client *Client) DeviceDingWithOptions(request *DeviceDingRequest, headers 
 	}
 	_result = &DeviceDingResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeviceDing"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/ding"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DissolveGroup(request *DissolveGroupRequest) (_result *DissolveGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DissolveGroupHeaders{}
+	_result = &DissolveGroupResponse{}
+	_body, _err := client.DissolveGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DissolveGroupWithOptions(request *DissolveGroupRequest, headers *DissolveGroupHeaders, runtime *util.RuntimeOptions) (_result *DissolveGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DissolveGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("DissolveGroup"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/chatRooms/groups/dissolve"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) EditDeviceAdmin(request *EditDeviceAdminRequest) (_result *EditDeviceAdminResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &EditDeviceAdminHeaders{}
+	_result = &EditDeviceAdminResponse{}
+	_body, _err := client.EditDeviceAdminWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) EditDeviceAdminWithOptions(request *EditDeviceAdminRequest, headers *EditDeviceAdminHeaders, runtime *util.RuntimeOptions) (_result *EditDeviceAdminResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceCode)) {
+		body["deviceCode"] = request.DeviceCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleUuid)) {
+		body["roleUuid"] = request.RoleUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		body["uuid"] = request.Uuid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &EditDeviceAdminResponse{}
+	_body, _err := client.DoROARequest(tea.String("EditDeviceAdmin"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/devices/administrators/edit"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetDeviceGroupInfo(request *GetDeviceGroupInfoRequest) (_result *GetDeviceGroupInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetDeviceGroupInfoHeaders{}
+	_result = &GetDeviceGroupInfoResponse{}
+	_body, _err := client.GetDeviceGroupInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetDeviceGroupInfoWithOptions(request *GetDeviceGroupInfoRequest, headers *GetDeviceGroupInfoHeaders, runtime *util.RuntimeOptions) (_result *GetDeviceGroupInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetDeviceGroupInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetDeviceGroupInfo"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/chatRooms/groupInfos/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetWholeDeviceGroup() (_result *GetWholeDeviceGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetWholeDeviceGroupHeaders{}
+	_result = &GetWholeDeviceGroupResponse{}
+	_body, _err := client.GetWholeDeviceGroupWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetWholeDeviceGroupWithOptions(headers *GetWholeDeviceGroupHeaders, runtime *util.RuntimeOptions) (_result *GetWholeDeviceGroupResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetWholeDeviceGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetWholeDeviceGroup"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/chatRooms/wholeGroupId"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2057,6 +3268,110 @@ func (client *Client) ListActivateDevicesWithOptions(request *ListActivateDevice
 	}
 	_result = &ListActivateDevicesResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListActivateDevices"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/devices/activations/infos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PullDeviceToGroup(request *PullDeviceToGroupRequest) (_result *PullDeviceToGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PullDeviceToGroupHeaders{}
+	_result = &PullDeviceToGroupResponse{}
+	_body, _err := client.PullDeviceToGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PullDeviceToGroupWithOptions(request *PullDeviceToGroupRequest, headers *PullDeviceToGroupHeaders, runtime *util.RuntimeOptions) (_result *PullDeviceToGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceCodes)) {
+		body["deviceCodes"] = request.DeviceCodes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceUuids)) {
+		body["deviceUuids"] = request.DeviceUuids
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &PullDeviceToGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("PullDeviceToGroup"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/chatRooms/devices"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PullUserToGroup(request *PullUserToGroupRequest) (_result *PullUserToGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PullUserToGroupHeaders{}
+	_result = &PullUserToGroupResponse{}
+	_body, _err := client.PullUserToGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PullUserToGroupWithOptions(request *PullUserToGroupRequest, headers *PullUserToGroupHeaders, runtime *util.RuntimeOptions) (_result *PullUserToGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &PullUserToGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("PullUserToGroup"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/chatRooms/users"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2248,6 +3563,110 @@ func (client *Client) RegisterDeviceWithOptions(request *RegisterDeviceRequest, 
 	return _result, _err
 }
 
+func (client *Client) RemoveDeviceFromGroup(request *RemoveDeviceFromGroupRequest) (_result *RemoveDeviceFromGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RemoveDeviceFromGroupHeaders{}
+	_result = &RemoveDeviceFromGroupResponse{}
+	_body, _err := client.RemoveDeviceFromGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RemoveDeviceFromGroupWithOptions(request *RemoveDeviceFromGroupRequest, headers *RemoveDeviceFromGroupHeaders, runtime *util.RuntimeOptions) (_result *RemoveDeviceFromGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceCodes)) {
+		body["deviceCodes"] = request.DeviceCodes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceUuids)) {
+		body["deviceUuids"] = request.DeviceUuids
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RemoveDeviceFromGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("RemoveDeviceFromGroup"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/chatRooms/devices/remove"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RemoveUserFromGroup(request *RemoveUserFromGroupRequest) (_result *RemoveUserFromGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RemoveUserFromGroupHeaders{}
+	_result = &RemoveUserFromGroupResponse{}
+	_body, _err := client.RemoveUserFromGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RemoveUserFromGroupWithOptions(request *RemoveUserFromGroupRequest, headers *RemoveUserFromGroupHeaders, runtime *util.RuntimeOptions) (_result *RemoveUserFromGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RemoveUserFromGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("RemoveUserFromGroup"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/chatRooms/users/remove"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) SendCard(request *SendCardRequest) (_result *SendCardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendCardHeaders{}
@@ -2282,12 +3701,16 @@ func (client *Client) SendCardWithOptions(request *SendCardRequest, headers *Sen
 		body["deviceUuid"] = request.DeviceUuid
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.EncodeCid)) {
-		body["encodeCid"] = request.EncodeCid
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
 		body["templateId"] = request.TemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Topbox)) {
+		body["topbox"] = request.Topbox
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
@@ -2309,6 +3732,54 @@ func (client *Client) SendCardWithOptions(request *SendCardRequest, headers *Sen
 	}
 	_result = &SendCardResponse{}
 	_body, _err := client.DoROARequest(tea.String("SendCard"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/cards/send"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UninstallDeviceRobot(request *UninstallDeviceRobotRequest) (_result *UninstallDeviceRobotResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UninstallDeviceRobotHeaders{}
+	_result = &UninstallDeviceRobotResponse{}
+	_body, _err := client.UninstallDeviceRobotWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UninstallDeviceRobotWithOptions(request *UninstallDeviceRobotRequest, headers *UninstallDeviceRobotHeaders, runtime *util.RuntimeOptions) (_result *UninstallDeviceRobotResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceCode)) {
+		body["deviceCode"] = request.DeviceCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		body["uuid"] = request.Uuid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UninstallDeviceRobotResponse{}
+	_body, _err := client.DoROARequest(tea.String("UninstallDeviceRobot"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/devices/uninstall"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
