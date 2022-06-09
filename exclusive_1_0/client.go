@@ -1361,6 +1361,95 @@ func (s *GetActiveUserSummaryResponse) SetBody(v *GetActiveUserSummaryResponseBo
 	return s
 }
 
+type GetAgentIdByRelatedAppIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAgentIdByRelatedAppIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAgentIdByRelatedAppIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAgentIdByRelatedAppIdHeaders) SetCommonHeaders(v map[string]*string) *GetAgentIdByRelatedAppIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAgentIdByRelatedAppIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetAgentIdByRelatedAppIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAgentIdByRelatedAppIdRequest struct {
+	// 应用的appId。
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// 被查询的组织id。
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+}
+
+func (s GetAgentIdByRelatedAppIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAgentIdByRelatedAppIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAgentIdByRelatedAppIdRequest) SetAppId(v int64) *GetAgentIdByRelatedAppIdRequest {
+	s.AppId = &v
+	return s
+}
+
+func (s *GetAgentIdByRelatedAppIdRequest) SetTargetCorpId(v string) *GetAgentIdByRelatedAppIdRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+type GetAgentIdByRelatedAppIdResponseBody struct {
+	// 微应用agentId。
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+}
+
+func (s GetAgentIdByRelatedAppIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAgentIdByRelatedAppIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAgentIdByRelatedAppIdResponseBody) SetAgentId(v int64) *GetAgentIdByRelatedAppIdResponseBody {
+	s.AgentId = &v
+	return s
+}
+
+type GetAgentIdByRelatedAppIdResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetAgentIdByRelatedAppIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAgentIdByRelatedAppIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAgentIdByRelatedAppIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAgentIdByRelatedAppIdResponse) SetHeaders(v map[string]*string) *GetAgentIdByRelatedAppIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAgentIdByRelatedAppIdResponse) SetBody(v *GetAgentIdByRelatedAppIdResponseBody) *GetAgentIdByRelatedAppIdResponse {
+	s.Body = v
+	return s
+}
+
 type GetAllLabelableDeptsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7816,6 +7905,54 @@ func (client *Client) GetActiveUserSummaryWithOptions(dataId *string, headers *G
 	}
 	_result = &GetActiveUserSummaryResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetActiveUserSummary"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/data/dau/org/"+tea.StringValue(dataId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetAgentIdByRelatedAppId(request *GetAgentIdByRelatedAppIdRequest) (_result *GetAgentIdByRelatedAppIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAgentIdByRelatedAppIdHeaders{}
+	_result = &GetAgentIdByRelatedAppIdResponse{}
+	_body, _err := client.GetAgentIdByRelatedAppIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAgentIdByRelatedAppIdWithOptions(request *GetAgentIdByRelatedAppIdRequest, headers *GetAgentIdByRelatedAppIdHeaders, runtime *util.RuntimeOptions) (_result *GetAgentIdByRelatedAppIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		query["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		query["targetCorpId"] = request.TargetCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetAgentIdByRelatedAppIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetAgentIdByRelatedAppId"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/exclusiveDesigns/agentId"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

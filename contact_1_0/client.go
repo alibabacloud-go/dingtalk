@@ -83,8 +83,26 @@ func (s *BatchApproveUnionApplyRequestBody) SetUnionRootName(v string) *BatchApp
 	return s
 }
 
+type BatchApproveUnionApplyResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s BatchApproveUnionApplyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchApproveUnionApplyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchApproveUnionApplyResponseBody) SetResult(v bool) *BatchApproveUnionApplyResponseBody {
+	s.Result = &v
+	return s
+}
+
 type BatchApproveUnionApplyResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchApproveUnionApplyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s BatchApproveUnionApplyResponse) String() string {
@@ -97,6 +115,11 @@ func (s BatchApproveUnionApplyResponse) GoString() string {
 
 func (s *BatchApproveUnionApplyResponse) SetHeaders(v map[string]*string) *BatchApproveUnionApplyResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *BatchApproveUnionApplyResponse) SetBody(v *BatchApproveUnionApplyResponseBody) *BatchApproveUnionApplyResponse {
+	s.Body = v
 	return s
 }
 
@@ -5869,7 +5892,7 @@ func (client *Client) BatchApproveUnionApplyWithOptions(request *BatchApproveUni
 		Body:    util.ToArray(request.Body),
 	}
 	_result = &BatchApproveUnionApplyResponse{}
-	_body, _err := client.DoROARequest(tea.String("BatchApproveUnionApply"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/cooperateCorps/unionApplications/approve"), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("BatchApproveUnionApply"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/cooperateCorps/unionApplications/approve"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

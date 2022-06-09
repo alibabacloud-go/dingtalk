@@ -2371,6 +2371,121 @@ func (s *DigitalStoreUsersResponse) SetBody(v *DigitalStoreUsersResponseBody) *D
 	return s
 }
 
+type IndustryManufactureCommonEventHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IndustryManufactureCommonEventHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureCommonEventHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureCommonEventHeaders) SetCommonHeaders(v map[string]*string) *IndustryManufactureCommonEventHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IndustryManufactureCommonEventHeaders) SetXAcsDingtalkAccessToken(v string) *IndustryManufactureCommonEventHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IndustryManufactureCommonEventRequest struct {
+	// add 创建事件/update 更新事件
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// 应用appkey
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// 业务参数，作为事件业务body
+	BizData map[string]interface{} `json:"bizData,omitempty" xml:"bizData,omitempty"`
+	// 事件集合，目前仅1个有效
+	EventType []*string `json:"eventType,omitempty" xml:"eventType,omitempty" type:"Repeated"`
+}
+
+func (s IndustryManufactureCommonEventRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureCommonEventRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureCommonEventRequest) SetAction(v string) *IndustryManufactureCommonEventRequest {
+	s.Action = &v
+	return s
+}
+
+func (s *IndustryManufactureCommonEventRequest) SetAppKey(v string) *IndustryManufactureCommonEventRequest {
+	s.AppKey = &v
+	return s
+}
+
+func (s *IndustryManufactureCommonEventRequest) SetBizData(v map[string]interface{}) *IndustryManufactureCommonEventRequest {
+	s.BizData = v
+	return s
+}
+
+func (s *IndustryManufactureCommonEventRequest) SetEventType(v []*string) *IndustryManufactureCommonEventRequest {
+	s.EventType = v
+	return s
+}
+
+type IndustryManufactureCommonEventResponseBody struct {
+	// Id of the request
+	RequestId *string     `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    interface{} `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool       `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s IndustryManufactureCommonEventResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureCommonEventResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureCommonEventResponseBody) SetRequestId(v string) *IndustryManufactureCommonEventResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *IndustryManufactureCommonEventResponseBody) SetResult(v interface{}) *IndustryManufactureCommonEventResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *IndustryManufactureCommonEventResponseBody) SetSuccess(v bool) *IndustryManufactureCommonEventResponseBody {
+	s.Success = &v
+	return s
+}
+
+type IndustryManufactureCommonEventResponse struct {
+	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *IndustryManufactureCommonEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IndustryManufactureCommonEventResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureCommonEventResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureCommonEventResponse) SetHeaders(v map[string]*string) *IndustryManufactureCommonEventResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IndustryManufactureCommonEventResponse) SetBody(v *IndustryManufactureCommonEventResponseBody) *IndustryManufactureCommonEventResponse {
+	s.Body = v
+	return s
+}
+
 type IndustryManufactureCostRecordListGetHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4322,8 +4437,6 @@ func (s *QueryAllDepartmentResponseBodyContentDeptAndExt) SetExtendInfos(v []*Qu
 }
 
 type QueryAllDepartmentResponseBodyContentDeptAndExtDepartment struct {
-	// 租户CorpID
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 部门code
 	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
 	// 科室名称，同name
@@ -4356,11 +4469,6 @@ func (s QueryAllDepartmentResponseBodyContentDeptAndExtDepartment) String() stri
 
 func (s QueryAllDepartmentResponseBodyContentDeptAndExtDepartment) GoString() string {
 	return s.String()
-}
-
-func (s *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment) SetCorpId(v string) *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment {
-	s.CorpId = &v
-	return s
 }
 
 func (s *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment) SetDeptCode(v string) *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment {
@@ -4424,8 +4532,6 @@ func (s *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment) SetWardIdLis
 }
 
 type QueryAllDepartmentResponseBodyContentDeptAndExtExtendInfos struct {
-	// 租户CorpID
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 部门code
 	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
 	// 科室扩展字段描述
@@ -4450,11 +4556,6 @@ func (s QueryAllDepartmentResponseBodyContentDeptAndExtExtendInfos) String() str
 
 func (s QueryAllDepartmentResponseBodyContentDeptAndExtExtendInfos) GoString() string {
 	return s.String()
-}
-
-func (s *QueryAllDepartmentResponseBodyContentDeptAndExtExtendInfos) SetCorpId(v string) *QueryAllDepartmentResponseBodyContentDeptAndExtExtendInfos {
-	s.CorpId = &v
-	return s
 }
 
 func (s *QueryAllDepartmentResponseBodyContentDeptAndExtExtendInfos) SetDeptCode(v string) *QueryAllDepartmentResponseBodyContentDeptAndExtExtendInfos {
@@ -4523,8 +4624,6 @@ func (s *QueryAllDepartmentResponseBodyContentGroupAndExtList) SetGroup(v *Query
 }
 
 type QueryAllDepartmentResponseBodyContentGroupAndExtListExtendInfos struct {
-	// 租户CorpID
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 部门code
 	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
 	// 医疗组扩展字段描述
@@ -4549,11 +4648,6 @@ func (s QueryAllDepartmentResponseBodyContentGroupAndExtListExtendInfos) String(
 
 func (s QueryAllDepartmentResponseBodyContentGroupAndExtListExtendInfos) GoString() string {
 	return s.String()
-}
-
-func (s *QueryAllDepartmentResponseBodyContentGroupAndExtListExtendInfos) SetCorpId(v string) *QueryAllDepartmentResponseBodyContentGroupAndExtListExtendInfos {
-	s.CorpId = &v
-	return s
 }
 
 func (s *QueryAllDepartmentResponseBodyContentGroupAndExtListExtendInfos) SetDeptCode(v string) *QueryAllDepartmentResponseBodyContentGroupAndExtListExtendInfos {
@@ -4597,8 +4691,6 @@ func (s *QueryAllDepartmentResponseBodyContentGroupAndExtListExtendInfos) SetSta
 }
 
 type QueryAllDepartmentResponseBodyContentGroupAndExtListGroup struct {
-	// 租户CorpID
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 科室ID，同parentDeptCode，这里保留是做兼容，原来定义成Long不太好改成了String了
 	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 	// 部门状态：0-正常，1-删除
@@ -4625,11 +4717,6 @@ func (s QueryAllDepartmentResponseBodyContentGroupAndExtListGroup) String() stri
 
 func (s QueryAllDepartmentResponseBodyContentGroupAndExtListGroup) GoString() string {
 	return s.String()
-}
-
-func (s *QueryAllDepartmentResponseBodyContentGroupAndExtListGroup) SetCorpId(v string) *QueryAllDepartmentResponseBodyContentGroupAndExtListGroup {
-	s.CorpId = &v
-	return s
 }
 
 func (s *QueryAllDepartmentResponseBodyContentGroupAndExtListGroup) SetDeptId(v int64) *QueryAllDepartmentResponseBodyContentGroupAndExtListGroup {
@@ -4824,8 +4911,6 @@ type QueryAllDoctorsResponseBodyContent struct {
 	AssessGroupId *string `json:"assessGroupId,omitempty" xml:"assessGroupId,omitempty"`
 	// 考核医疗组名称
 	AssessGroupName *string `json:"assessGroupName,omitempty" xml:"assessGroupName,omitempty"`
-	// 租户CorpId
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 关联的部门id
 	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
 	// 科室医疗组标识
@@ -4863,11 +4948,6 @@ func (s *QueryAllDoctorsResponseBodyContent) SetAssessGroupId(v string) *QueryAl
 
 func (s *QueryAllDoctorsResponseBodyContent) SetAssessGroupName(v string) *QueryAllDoctorsResponseBodyContent {
 	s.AssessGroupName = &v
-	return s
-}
-
-func (s *QueryAllDoctorsResponseBodyContent) SetCorpId(v string) *QueryAllDoctorsResponseBodyContent {
-	s.CorpId = &v
 	return s
 }
 
@@ -9134,6 +9214,62 @@ func (client *Client) DigitalStoreUsersWithOptions(request *DigitalStoreUsersReq
 	}
 	_result = &DigitalStoreUsersResponse{}
 	_body, _err := client.DoROARequest(tea.String("DigitalStoreUsers"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/digitalStores/nodes/users"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureCommonEvent(request *IndustryManufactureCommonEventRequest) (_result *IndustryManufactureCommonEventResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IndustryManufactureCommonEventHeaders{}
+	_result = &IndustryManufactureCommonEventResponse{}
+	_body, _err := client.IndustryManufactureCommonEventWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureCommonEventWithOptions(request *IndustryManufactureCommonEventRequest, headers *IndustryManufactureCommonEventHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureCommonEventResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Action)) {
+		body["action"] = request.Action
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppKey)) {
+		body["appKey"] = request.AppKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizData)) {
+		body["bizData"] = request.BizData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EventType)) {
+		body["eventType"] = request.EventType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &IndustryManufactureCommonEventResponse{}
+	_body, _err := client.DoROARequest(tea.String("IndustryManufactureCommonEvent"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/manufacturing/bases/commons/events"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

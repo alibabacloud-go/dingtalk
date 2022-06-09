@@ -3580,7 +3580,7 @@ type UpdateResidentMemberRequestResidentUpdateInfo struct {
 	// 是否保留旧部门，默认不保存
 	IsRetainOldDept *bool `json:"isRetainOldDept,omitempty" xml:"isRetainOldDept,omitempty"`
 	// 人员扩展信息，目前只有租客的起止时间
-	MemberDeptExtension map[string]interface{} `json:"memberDeptExtension,omitempty" xml:"memberDeptExtension,omitempty"`
+	MemberDeptExtension map[string]*string `json:"memberDeptExtension,omitempty" xml:"memberDeptExtension,omitempty"`
 	// 姓名
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 旧部门id
@@ -3614,7 +3614,7 @@ func (s *UpdateResidentMemberRequestResidentUpdateInfo) SetIsRetainOldDept(v boo
 	return s
 }
 
-func (s *UpdateResidentMemberRequestResidentUpdateInfo) SetMemberDeptExtension(v map[string]interface{}) *UpdateResidentMemberRequestResidentUpdateInfo {
+func (s *UpdateResidentMemberRequestResidentUpdateInfo) SetMemberDeptExtension(v map[string]*string) *UpdateResidentMemberRequestResidentUpdateInfo {
 	s.MemberDeptExtension = v
 	return s
 }
