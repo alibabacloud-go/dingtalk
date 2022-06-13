@@ -1778,7 +1778,8 @@ func (s *GetEventResponseBodyEnd) SetTimeZone(v string) *GetEventResponseBodyEnd
 }
 
 type GetEventResponseBodyLocation struct {
-	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	DisplayName  *string   `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	MeetingRooms []*string `json:"meetingRooms,omitempty" xml:"meetingRooms,omitempty" type:"Repeated"`
 }
 
 func (s GetEventResponseBodyLocation) String() string {
@@ -1791,6 +1792,11 @@ func (s GetEventResponseBodyLocation) GoString() string {
 
 func (s *GetEventResponseBodyLocation) SetDisplayName(v string) *GetEventResponseBodyLocation {
 	s.DisplayName = &v
+	return s
+}
+
+func (s *GetEventResponseBodyLocation) SetMeetingRooms(v []*string) *GetEventResponseBodyLocation {
+	s.MeetingRooms = v
 	return s
 }
 
@@ -3375,7 +3381,8 @@ func (s *ListEventsResponseBodyEventsEnd) SetTimeZone(v string) *ListEventsRespo
 
 type ListEventsResponseBodyEventsLocation struct {
 	// 展示名称
-	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	DisplayName  *string   `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	MeetingRooms []*string `json:"meetingRooms,omitempty" xml:"meetingRooms,omitempty" type:"Repeated"`
 }
 
 func (s ListEventsResponseBodyEventsLocation) String() string {
@@ -3388,6 +3395,11 @@ func (s ListEventsResponseBodyEventsLocation) GoString() string {
 
 func (s *ListEventsResponseBodyEventsLocation) SetDisplayName(v string) *ListEventsResponseBodyEventsLocation {
 	s.DisplayName = &v
+	return s
+}
+
+func (s *ListEventsResponseBodyEventsLocation) SetMeetingRooms(v []*string) *ListEventsResponseBodyEventsLocation {
+	s.MeetingRooms = v
 	return s
 }
 
@@ -3922,7 +3934,8 @@ func (s *ListEventsInstancesResponseBodyEventsEnd) SetTimeZone(v string) *ListEv
 
 type ListEventsInstancesResponseBodyEventsLocation struct {
 	// 展示名称
-	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	DisplayName  *string   `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	MeetingRooms []*string `json:"meetingRooms,omitempty" xml:"meetingRooms,omitempty" type:"Repeated"`
 }
 
 func (s ListEventsInstancesResponseBodyEventsLocation) String() string {
@@ -3935,6 +3948,11 @@ func (s ListEventsInstancesResponseBodyEventsLocation) GoString() string {
 
 func (s *ListEventsInstancesResponseBodyEventsLocation) SetDisplayName(v string) *ListEventsInstancesResponseBodyEventsLocation {
 	s.DisplayName = &v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEventsLocation) SetMeetingRooms(v []*string) *ListEventsInstancesResponseBodyEventsLocation {
+	s.MeetingRooms = v
 	return s
 }
 
@@ -4477,7 +4495,8 @@ func (s *ListEventsViewResponseBodyEventsEnd) SetTimeZone(v string) *ListEventsV
 
 type ListEventsViewResponseBodyEventsLocation struct {
 	// 展示名称
-	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	DisplayName  *string   `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	MeetingRooms []*string `json:"meetingRooms,omitempty" xml:"meetingRooms,omitempty" type:"Repeated"`
 }
 
 func (s ListEventsViewResponseBodyEventsLocation) String() string {
@@ -4490,6 +4509,11 @@ func (s ListEventsViewResponseBodyEventsLocation) GoString() string {
 
 func (s *ListEventsViewResponseBodyEventsLocation) SetDisplayName(v string) *ListEventsViewResponseBodyEventsLocation {
 	s.DisplayName = &v
+	return s
+}
+
+func (s *ListEventsViewResponseBodyEventsLocation) SetMeetingRooms(v []*string) *ListEventsViewResponseBodyEventsLocation {
+	s.MeetingRooms = v
 	return s
 }
 
@@ -5203,7 +5227,8 @@ func (s *PatchEventResponseBodyEnd) SetTimeZone(v string) *PatchEventResponseBod
 }
 
 type PatchEventResponseBodyLocation struct {
-	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	DisplayName  *string   `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	MeetingRooms []*string `json:"meetingRooms,omitempty" xml:"meetingRooms,omitempty" type:"Repeated"`
 }
 
 func (s PatchEventResponseBodyLocation) String() string {
@@ -5216,6 +5241,11 @@ func (s PatchEventResponseBodyLocation) GoString() string {
 
 func (s *PatchEventResponseBodyLocation) SetDisplayName(v string) *PatchEventResponseBodyLocation {
 	s.DisplayName = &v
+	return s
+}
+
+func (s *PatchEventResponseBodyLocation) SetMeetingRooms(v []*string) *PatchEventResponseBodyLocation {
+	s.MeetingRooms = v
 	return s
 }
 

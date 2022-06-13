@@ -4843,6 +4843,7 @@ func (s *QueryAllDoctorsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryAllD
 }
 
 type QueryAllDoctorsRequest struct {
+	MonthMark *string `json:"monthMark,omitempty" xml:"monthMark,omitempty"`
 	// 分页查询页码
 	PageNum *int32 `json:"pageNum,omitempty" xml:"pageNum,omitempty"`
 	// 分页查询页容量
@@ -4855,6 +4856,11 @@ func (s QueryAllDoctorsRequest) String() string {
 
 func (s QueryAllDoctorsRequest) GoString() string {
 	return s.String()
+}
+
+func (s *QueryAllDoctorsRequest) SetMonthMark(v string) *QueryAllDoctorsRequest {
+	s.MonthMark = &v
+	return s
 }
 
 func (s *QueryAllDoctorsRequest) SetPageNum(v int32) *QueryAllDoctorsRequest {
@@ -9967,6 +9973,10 @@ func (client *Client) QueryAllDoctorsWithOptions(request *QueryAllDoctorsRequest
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MonthMark)) {
+		query["monthMark"] = request.MonthMark
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.PageNum)) {
 		query["pageNum"] = request.PageNum
 	}

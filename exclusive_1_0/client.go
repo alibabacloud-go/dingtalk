@@ -5642,12 +5642,10 @@ func (s *PushBadgeHeaders) SetXAcsDingtalkAccessToken(v string) *PushBadgeHeader
 type PushBadgeRequest struct {
 	// 微应用agentId
 	AgentId *string `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// 推送列表
+	BadgeItems []*PushBadgeRequestBadgeItems `json:"badgeItems,omitempty" xml:"badgeItems,omitempty" type:"Repeated"`
 	// 推送类型
 	PushType *string `json:"pushType,omitempty" xml:"pushType,omitempty"`
-	// 推送的内容（目前仅限数字）
-	PushValue *string `json:"pushValue,omitempty" xml:"pushValue,omitempty"`
-	// 员工userId列表
-	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
 func (s PushBadgeRequest) String() string {
@@ -5663,18 +5661,38 @@ func (s *PushBadgeRequest) SetAgentId(v string) *PushBadgeRequest {
 	return s
 }
 
+func (s *PushBadgeRequest) SetBadgeItems(v []*PushBadgeRequestBadgeItems) *PushBadgeRequest {
+	s.BadgeItems = v
+	return s
+}
+
 func (s *PushBadgeRequest) SetPushType(v string) *PushBadgeRequest {
 	s.PushType = &v
 	return s
 }
 
-func (s *PushBadgeRequest) SetPushValue(v string) *PushBadgeRequest {
+type PushBadgeRequestBadgeItems struct {
+	// 推送的内容（目前仅限数字）
+	PushValue *string `json:"pushValue,omitempty" xml:"pushValue,omitempty"`
+	// 员工ID。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PushBadgeRequestBadgeItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushBadgeRequestBadgeItems) GoString() string {
+	return s.String()
+}
+
+func (s *PushBadgeRequestBadgeItems) SetPushValue(v string) *PushBadgeRequestBadgeItems {
 	s.PushValue = &v
 	return s
 }
 
-func (s *PushBadgeRequest) SetUserIdList(v []*string) *PushBadgeRequest {
-	s.UserIdList = v
+func (s *PushBadgeRequestBadgeItems) SetUserId(v string) *PushBadgeRequestBadgeItems {
+	s.UserId = &v
 	return s
 }
 
@@ -9299,16 +9317,12 @@ func (client *Client) PushBadgeWithOptions(request *PushBadgeRequest, headers *P
 		body["agentId"] = request.AgentId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.BadgeItems)) {
+		body["badgeItems"] = request.BadgeItems
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.PushType)) {
 		body["pushType"] = request.PushType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.PushValue)) {
-		body["pushValue"] = request.PushValue
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.UserIdList)) {
-		body["userIdList"] = request.UserIdList
 	}
 
 	realHeaders := make(map[string]*string)
