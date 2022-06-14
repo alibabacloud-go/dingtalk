@@ -471,8 +471,8 @@ func (s *CreateDeviceChatRoomRequest) SetUserIds(v []*string) *CreateDeviceChatR
 }
 
 type CreateDeviceChatRoomResponseBody struct {
-	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
-	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *CreateDeviceChatRoomResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s CreateDeviceChatRoomResponseBody) String() string {
@@ -483,13 +483,42 @@ func (s CreateDeviceChatRoomResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *CreateDeviceChatRoomResponseBody) SetResult(v string) *CreateDeviceChatRoomResponseBody {
-	s.Result = &v
+func (s *CreateDeviceChatRoomResponseBody) SetResult(v *CreateDeviceChatRoomResponseBodyResult) *CreateDeviceChatRoomResponseBody {
+	s.Result = v
 	return s
 }
 
 func (s *CreateDeviceChatRoomResponseBody) SetSuccess(v bool) *CreateDeviceChatRoomResponseBody {
 	s.Success = &v
+	return s
+}
+
+type CreateDeviceChatRoomResponseBodyResult struct {
+	ChatId             *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	EncodedCid         *string `json:"encodedCid,omitempty" xml:"encodedCid,omitempty"`
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s CreateDeviceChatRoomResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDeviceChatRoomResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDeviceChatRoomResponseBodyResult) SetChatId(v string) *CreateDeviceChatRoomResponseBodyResult {
+	s.ChatId = &v
+	return s
+}
+
+func (s *CreateDeviceChatRoomResponseBodyResult) SetEncodedCid(v string) *CreateDeviceChatRoomResponseBodyResult {
+	s.EncodedCid = &v
+	return s
+}
+
+func (s *CreateDeviceChatRoomResponseBodyResult) SetOpenConversationId(v string) *CreateDeviceChatRoomResponseBodyResult {
+	s.OpenConversationId = &v
 	return s
 }
 
@@ -852,8 +881,8 @@ func (s *GetDeviceGroupInfoRequest) SetOpenConversationId(v string) *GetDeviceGr
 }
 
 type GetDeviceGroupInfoResponseBody struct {
-	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
-	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *GetDeviceGroupInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                 `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetDeviceGroupInfoResponseBody) String() string {
@@ -864,13 +893,89 @@ func (s GetDeviceGroupInfoResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *GetDeviceGroupInfoResponseBody) SetResult(v string) *GetDeviceGroupInfoResponseBody {
-	s.Result = &v
+func (s *GetDeviceGroupInfoResponseBody) SetResult(v *GetDeviceGroupInfoResponseBodyResult) *GetDeviceGroupInfoResponseBody {
+	s.Result = v
 	return s
 }
 
 func (s *GetDeviceGroupInfoResponseBody) SetSuccess(v bool) *GetDeviceGroupInfoResponseBody {
 	s.Success = &v
+	return s
+}
+
+type GetDeviceGroupInfoResponseBodyResult struct {
+	Devices       []*GetDeviceGroupInfoResponseBodyResultDevices `json:"devices,omitempty" xml:"devices,omitempty" type:"Repeated"`
+	OwnerUser     *string                                        `json:"ownerUser,omitempty" xml:"ownerUser,omitempty"`
+	SubAdminUsers []*string                                      `json:"subAdminUsers,omitempty" xml:"subAdminUsers,omitempty" type:"Repeated"`
+	Title         *string                                        `json:"title,omitempty" xml:"title,omitempty"`
+	Users         map[string]*string                             `json:"users,omitempty" xml:"users,omitempty"`
+}
+
+func (s GetDeviceGroupInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDeviceGroupInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetDeviceGroupInfoResponseBodyResult) SetDevices(v []*GetDeviceGroupInfoResponseBodyResultDevices) *GetDeviceGroupInfoResponseBodyResult {
+	s.Devices = v
+	return s
+}
+
+func (s *GetDeviceGroupInfoResponseBodyResult) SetOwnerUser(v string) *GetDeviceGroupInfoResponseBodyResult {
+	s.OwnerUser = &v
+	return s
+}
+
+func (s *GetDeviceGroupInfoResponseBodyResult) SetSubAdminUsers(v []*string) *GetDeviceGroupInfoResponseBodyResult {
+	s.SubAdminUsers = v
+	return s
+}
+
+func (s *GetDeviceGroupInfoResponseBodyResult) SetTitle(v string) *GetDeviceGroupInfoResponseBodyResult {
+	s.Title = &v
+	return s
+}
+
+func (s *GetDeviceGroupInfoResponseBodyResult) SetUsers(v map[string]*string) *GetDeviceGroupInfoResponseBodyResult {
+	s.Users = v
+	return s
+}
+
+type GetDeviceGroupInfoResponseBodyResultDevices struct {
+	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	DeviceUuid *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	Uuid       *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s GetDeviceGroupInfoResponseBodyResultDevices) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDeviceGroupInfoResponseBodyResultDevices) GoString() string {
+	return s.String()
+}
+
+func (s *GetDeviceGroupInfoResponseBodyResultDevices) SetDeviceCode(v string) *GetDeviceGroupInfoResponseBodyResultDevices {
+	s.DeviceCode = &v
+	return s
+}
+
+func (s *GetDeviceGroupInfoResponseBodyResultDevices) SetDeviceName(v string) *GetDeviceGroupInfoResponseBodyResultDevices {
+	s.DeviceName = &v
+	return s
+}
+
+func (s *GetDeviceGroupInfoResponseBodyResultDevices) SetDeviceUuid(v string) *GetDeviceGroupInfoResponseBodyResultDevices {
+	s.DeviceUuid = &v
+	return s
+}
+
+func (s *GetDeviceGroupInfoResponseBodyResultDevices) SetUuid(v string) *GetDeviceGroupInfoResponseBodyResultDevices {
+	s.Uuid = &v
 	return s
 }
 
@@ -2404,6 +2509,121 @@ func (s *SendCardResponse) SetBody(v *SendCardResponseBody) *SendCardResponse {
 	return s
 }
 
+type SendMsgHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendMsgHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgHeaders) SetCommonHeaders(v map[string]*string) *SendMsgHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendMsgHeaders) SetXAcsDingtalkAccessToken(v string) *SendMsgHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendMsgRequest struct {
+	// 消息内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 设备业务标识
+	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	// 设备唯一系统标识
+	DeviceUuid *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	// 开放群唯一标识
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 用户列表，群聊时为被@的人，单聊时为目标对象
+	UserList []*string `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+}
+
+func (s SendMsgRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgRequest) SetContent(v string) *SendMsgRequest {
+	s.Content = &v
+	return s
+}
+
+func (s *SendMsgRequest) SetDeviceCode(v string) *SendMsgRequest {
+	s.DeviceCode = &v
+	return s
+}
+
+func (s *SendMsgRequest) SetDeviceUuid(v string) *SendMsgRequest {
+	s.DeviceUuid = &v
+	return s
+}
+
+func (s *SendMsgRequest) SetOpenConversationId(v string) *SendMsgRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SendMsgRequest) SetUserList(v []*string) *SendMsgRequest {
+	s.UserList = v
+	return s
+}
+
+type SendMsgResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SendMsgResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgResponseBody) SetResult(v string) *SendMsgResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *SendMsgResponseBody) SetSuccess(v bool) *SendMsgResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SendMsgResponse struct {
+	Headers map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SendMsgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendMsgResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMsgResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendMsgResponse) SetHeaders(v map[string]*string) *SendMsgResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendMsgResponse) SetBody(v *SendMsgResponseBody) *SendMsgResponse {
+	s.Body = v
+	return s
+}
+
 type UninstallDeviceRobotHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3732,6 +3952,66 @@ func (client *Client) SendCardWithOptions(request *SendCardRequest, headers *Sen
 	}
 	_result = &SendCardResponse{}
 	_body, _err := client.DoROARequest(tea.String("SendCard"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/cards/send"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendMsg(request *SendMsgRequest) (_result *SendMsgResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendMsgHeaders{}
+	_result = &SendMsgResponse{}
+	_body, _err := client.SendMsgWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendMsgWithOptions(request *SendMsgRequest, headers *SendMsgHeaders, runtime *util.RuntimeOptions) (_result *SendMsgResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceCode)) {
+		body["deviceCode"] = request.DeviceCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceUuid)) {
+		body["deviceUuid"] = request.DeviceUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserList)) {
+		body["userList"] = request.UserList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendMsgResponse{}
+	_body, _err := client.DoROARequest(tea.String("SendMsg"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/messages/send"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
