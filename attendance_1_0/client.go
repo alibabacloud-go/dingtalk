@@ -2846,6 +2846,183 @@ func (s *GetUserHolidaysResponse) SetBody(v *GetUserHolidaysResponseBody) *GetUs
 	return s
 }
 
+type InitAndGetLeaveALlocationQuotasHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s InitAndGetLeaveALlocationQuotasHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitAndGetLeaveALlocationQuotasHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *InitAndGetLeaveALlocationQuotasHeaders) SetCommonHeaders(v map[string]*string) *InitAndGetLeaveALlocationQuotasHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *InitAndGetLeaveALlocationQuotasHeaders) SetXAcsDingtalkAccessToken(v string) *InitAndGetLeaveALlocationQuotasHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type InitAndGetLeaveALlocationQuotasRequest struct {
+	// 假期类型的标识。
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// 操作者的userId。
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 用户id。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s InitAndGetLeaveALlocationQuotasRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitAndGetLeaveALlocationQuotasRequest) GoString() string {
+	return s.String()
+}
+
+func (s *InitAndGetLeaveALlocationQuotasRequest) SetLeaveCode(v string) *InitAndGetLeaveALlocationQuotasRequest {
+	s.LeaveCode = &v
+	return s
+}
+
+func (s *InitAndGetLeaveALlocationQuotasRequest) SetOpUserId(v string) *InitAndGetLeaveALlocationQuotasRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *InitAndGetLeaveALlocationQuotasRequest) SetUserId(v string) *InitAndGetLeaveALlocationQuotasRequest {
+	s.UserId = &v
+	return s
+}
+
+type InitAndGetLeaveALlocationQuotasResponseBody struct {
+	// 返回结果。
+	Result []*InitAndGetLeaveALlocationQuotasResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s InitAndGetLeaveALlocationQuotasResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitAndGetLeaveALlocationQuotasResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *InitAndGetLeaveALlocationQuotasResponseBody) SetResult(v []*InitAndGetLeaveALlocationQuotasResponseBodyResult) *InitAndGetLeaveALlocationQuotasResponseBody {
+	s.Result = v
+	return s
+}
+
+type InitAndGetLeaveALlocationQuotasResponseBodyResult struct {
+	// 额度有效期结束时间。
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 假期类型标识。
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// 年度。
+	QuotaCycle *string `json:"quotaCycle,omitempty" xml:"quotaCycle,omitempty"`
+	// 余额标识。
+	QuotaId *string `json:"quotaId,omitempty" xml:"quotaId,omitempty"`
+	// 以天计算额度总数。
+	QuotaNumPerDay *int64 `json:"quotaNumPerDay,omitempty" xml:"quotaNumPerDay,omitempty"`
+	// 以小时计算额度总数。
+	QuotaNumPerHour *int64 `json:"quotaNumPerHour,omitempty" xml:"quotaNumPerHour,omitempty"`
+	// 额度有效期开始时间。
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 用过的配额天数。
+	UsedNumPerDay *int64 `json:"usedNumPerDay,omitempty" xml:"usedNumPerDay,omitempty"`
+	// 用过的配额小时数。
+	UsedNumPerHour *int64 `json:"usedNumPerHour,omitempty" xml:"usedNumPerHour,omitempty"`
+	// 用户id。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s InitAndGetLeaveALlocationQuotasResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitAndGetLeaveALlocationQuotasResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *InitAndGetLeaveALlocationQuotasResponseBodyResult) SetEndTime(v int64) *InitAndGetLeaveALlocationQuotasResponseBodyResult {
+	s.EndTime = &v
+	return s
+}
+
+func (s *InitAndGetLeaveALlocationQuotasResponseBodyResult) SetLeaveCode(v string) *InitAndGetLeaveALlocationQuotasResponseBodyResult {
+	s.LeaveCode = &v
+	return s
+}
+
+func (s *InitAndGetLeaveALlocationQuotasResponseBodyResult) SetQuotaCycle(v string) *InitAndGetLeaveALlocationQuotasResponseBodyResult {
+	s.QuotaCycle = &v
+	return s
+}
+
+func (s *InitAndGetLeaveALlocationQuotasResponseBodyResult) SetQuotaId(v string) *InitAndGetLeaveALlocationQuotasResponseBodyResult {
+	s.QuotaId = &v
+	return s
+}
+
+func (s *InitAndGetLeaveALlocationQuotasResponseBodyResult) SetQuotaNumPerDay(v int64) *InitAndGetLeaveALlocationQuotasResponseBodyResult {
+	s.QuotaNumPerDay = &v
+	return s
+}
+
+func (s *InitAndGetLeaveALlocationQuotasResponseBodyResult) SetQuotaNumPerHour(v int64) *InitAndGetLeaveALlocationQuotasResponseBodyResult {
+	s.QuotaNumPerHour = &v
+	return s
+}
+
+func (s *InitAndGetLeaveALlocationQuotasResponseBodyResult) SetStartTime(v int64) *InitAndGetLeaveALlocationQuotasResponseBodyResult {
+	s.StartTime = &v
+	return s
+}
+
+func (s *InitAndGetLeaveALlocationQuotasResponseBodyResult) SetUsedNumPerDay(v int64) *InitAndGetLeaveALlocationQuotasResponseBodyResult {
+	s.UsedNumPerDay = &v
+	return s
+}
+
+func (s *InitAndGetLeaveALlocationQuotasResponseBodyResult) SetUsedNumPerHour(v int64) *InitAndGetLeaveALlocationQuotasResponseBodyResult {
+	s.UsedNumPerHour = &v
+	return s
+}
+
+func (s *InitAndGetLeaveALlocationQuotasResponseBodyResult) SetUserId(v string) *InitAndGetLeaveALlocationQuotasResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+type InitAndGetLeaveALlocationQuotasResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *InitAndGetLeaveALlocationQuotasResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s InitAndGetLeaveALlocationQuotasResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitAndGetLeaveALlocationQuotasResponse) GoString() string {
+	return s.String()
+}
+
+func (s *InitAndGetLeaveALlocationQuotasResponse) SetHeaders(v map[string]*string) *InitAndGetLeaveALlocationQuotasResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *InitAndGetLeaveALlocationQuotasResponse) SetBody(v *InitAndGetLeaveALlocationQuotasResponseBody) *InitAndGetLeaveALlocationQuotasResponse {
+	s.Body = v
+	return s
+}
+
 type ProcessApproveCreateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4482,6 +4659,58 @@ func (client *Client) GetUserHolidaysWithOptions(request *GetUserHolidaysRequest
 	}
 	_result = &GetUserHolidaysResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetUserHolidays"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/holidays"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) InitAndGetLeaveALlocationQuotas(request *InitAndGetLeaveALlocationQuotasRequest) (_result *InitAndGetLeaveALlocationQuotasResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &InitAndGetLeaveALlocationQuotasHeaders{}
+	_result = &InitAndGetLeaveALlocationQuotasResponse{}
+	_body, _err := client.InitAndGetLeaveALlocationQuotasWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) InitAndGetLeaveALlocationQuotasWithOptions(request *InitAndGetLeaveALlocationQuotasRequest, headers *InitAndGetLeaveALlocationQuotasHeaders, runtime *util.RuntimeOptions) (_result *InitAndGetLeaveALlocationQuotasResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LeaveCode)) {
+		query["leaveCode"] = request.LeaveCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &InitAndGetLeaveALlocationQuotasResponse{}
+	_body, _err := client.DoROARequest(tea.String("InitAndGetLeaveALlocationQuotas"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/leaves/initializations/balances"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

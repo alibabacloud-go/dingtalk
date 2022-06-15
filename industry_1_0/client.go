@@ -7256,8 +7256,6 @@ type QueryUserExtInfoResponseBodyContent struct {
 	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
 	// 修改时间
 	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	// 组织id
-	OrgId *string `json:"orgId,omitempty" xml:"orgId,omitempty"`
 	// 状态：0-有效，1-无效
 	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 	// 用户标识
@@ -7285,11 +7283,6 @@ func (s *QueryUserExtInfoResponseBodyContent) SetGmtCreate(v string) *QueryUserE
 
 func (s *QueryUserExtInfoResponseBodyContent) SetGmtModified(v string) *QueryUserExtInfoResponseBodyContent {
 	s.GmtModified = &v
-	return s
-}
-
-func (s *QueryUserExtInfoResponseBodyContent) SetOrgId(v string) *QueryUserExtInfoResponseBodyContent {
-	s.OrgId = &v
 	return s
 }
 

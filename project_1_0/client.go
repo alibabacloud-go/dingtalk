@@ -11,6 +11,419 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type CreateOrganizationTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateOrganizationTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrganizationTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrganizationTaskHeaders) SetCommonHeaders(v map[string]*string) *CreateOrganizationTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateOrganizationTaskHeaders) SetXAcsDingtalkAccessToken(v string) *CreateOrganizationTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateOrganizationTaskRequest struct {
+	// 任务标题
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 任务创建日期
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 是否禁止动态
+	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	// 是否禁止通知
+	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	// 任务截止日期
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// 执行者id
+	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	// 参与者id
+	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	// 任务是否完成
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// 任务自定义标记
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// 任务备注
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// 优先级【-10,0,1,2】中选一个
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 任务可见性。involves：仅参与者可见。members:所有人可见
+	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
+}
+
+func (s CreateOrganizationTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrganizationTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrganizationTaskRequest) SetContent(v string) *CreateOrganizationTaskRequest {
+	s.Content = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskRequest) SetCreateTime(v string) *CreateOrganizationTaskRequest {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskRequest) SetDisableActivity(v bool) *CreateOrganizationTaskRequest {
+	s.DisableActivity = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskRequest) SetDisableNotification(v bool) *CreateOrganizationTaskRequest {
+	s.DisableNotification = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskRequest) SetDueDate(v string) *CreateOrganizationTaskRequest {
+	s.DueDate = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskRequest) SetExecutorId(v string) *CreateOrganizationTaskRequest {
+	s.ExecutorId = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskRequest) SetInvolveMembers(v []*string) *CreateOrganizationTaskRequest {
+	s.InvolveMembers = v
+	return s
+}
+
+func (s *CreateOrganizationTaskRequest) SetIsDone(v bool) *CreateOrganizationTaskRequest {
+	s.IsDone = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskRequest) SetLabel(v string) *CreateOrganizationTaskRequest {
+	s.Label = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskRequest) SetNote(v string) *CreateOrganizationTaskRequest {
+	s.Note = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskRequest) SetPriority(v int32) *CreateOrganizationTaskRequest {
+	s.Priority = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskRequest) SetVisible(v string) *CreateOrganizationTaskRequest {
+	s.Visible = &v
+	return s
+}
+
+type CreateOrganizationTaskResponseBody struct {
+	// 返回结果对象
+	Result *CreateOrganizationTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s CreateOrganizationTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrganizationTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrganizationTaskResponseBody) SetResult(v *CreateOrganizationTaskResponseBodyResult) *CreateOrganizationTaskResponseBody {
+	s.Result = v
+	return s
+}
+
+type CreateOrganizationTaskResponseBodyResult struct {
+	// 父任务Id
+	AncestorIds []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	// 附件数量
+	AttachmentsCount *int32 `json:"attachmentsCount,omitempty" xml:"attachmentsCount,omitempty"`
+	// 任务标题
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 创建时间
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// 创建者
+	Creator *CreateOrganizationTaskResponseBodyResultCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	// 创建者id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 任务截止日期
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// 执行者
+	Executor *CreateOrganizationTaskResponseBodyResultExecutor `json:"executor,omitempty" xml:"executor,omitempty" type:"Struct"`
+	// 执行者id
+	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	// 是否有提醒
+	HasReminder *bool `json:"hasReminder,omitempty" xml:"hasReminder,omitempty"`
+	// 任务id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 参与者id列表
+	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	// 参与者列表
+	Involvers []*CreateOrganizationTaskResponseBodyResultInvolvers `json:"involvers,omitempty" xml:"involvers,omitempty" type:"Repeated"`
+	// 是否删除
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// 是否完成
+	IsDone *string `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// 任务自定义标记
+	Labels []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
+	// 任务备注
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// 优先级【-10,0,1,2】中选一个
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 标签
+	TagIds []*string `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
+	// 更新时间
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// 任务可见性。involves：仅参与者可见。members:所有人可见
+	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
+}
+
+func (s CreateOrganizationTaskResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrganizationTaskResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetAncestorIds(v []*string) *CreateOrganizationTaskResponseBodyResult {
+	s.AncestorIds = v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetAttachmentsCount(v int32) *CreateOrganizationTaskResponseBodyResult {
+	s.AttachmentsCount = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetContent(v string) *CreateOrganizationTaskResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetCreated(v string) *CreateOrganizationTaskResponseBodyResult {
+	s.Created = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetCreator(v *CreateOrganizationTaskResponseBodyResultCreator) *CreateOrganizationTaskResponseBodyResult {
+	s.Creator = v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetCreatorId(v string) *CreateOrganizationTaskResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetDueDate(v string) *CreateOrganizationTaskResponseBodyResult {
+	s.DueDate = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetExecutor(v *CreateOrganizationTaskResponseBodyResultExecutor) *CreateOrganizationTaskResponseBodyResult {
+	s.Executor = v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetExecutorId(v string) *CreateOrganizationTaskResponseBodyResult {
+	s.ExecutorId = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetHasReminder(v bool) *CreateOrganizationTaskResponseBodyResult {
+	s.HasReminder = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetId(v string) *CreateOrganizationTaskResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetInvolveMembers(v []*string) *CreateOrganizationTaskResponseBodyResult {
+	s.InvolveMembers = v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetInvolvers(v []*CreateOrganizationTaskResponseBodyResultInvolvers) *CreateOrganizationTaskResponseBodyResult {
+	s.Involvers = v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetIsDeleted(v bool) *CreateOrganizationTaskResponseBodyResult {
+	s.IsDeleted = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetIsDone(v string) *CreateOrganizationTaskResponseBodyResult {
+	s.IsDone = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetLabels(v []*string) *CreateOrganizationTaskResponseBodyResult {
+	s.Labels = v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetNote(v string) *CreateOrganizationTaskResponseBodyResult {
+	s.Note = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetPriority(v int32) *CreateOrganizationTaskResponseBodyResult {
+	s.Priority = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetTagIds(v []*string) *CreateOrganizationTaskResponseBodyResult {
+	s.TagIds = v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetUpdated(v string) *CreateOrganizationTaskResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResult) SetVisible(v string) *CreateOrganizationTaskResponseBodyResult {
+	s.Visible = &v
+	return s
+}
+
+type CreateOrganizationTaskResponseBodyResultCreator struct {
+	// 创建者头像地址
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// 创建者姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 创建者id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateOrganizationTaskResponseBodyResultCreator) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrganizationTaskResponseBodyResultCreator) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrganizationTaskResponseBodyResultCreator) SetAvatarUrl(v string) *CreateOrganizationTaskResponseBodyResultCreator {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResultCreator) SetName(v string) *CreateOrganizationTaskResponseBodyResultCreator {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResultCreator) SetUserId(v string) *CreateOrganizationTaskResponseBodyResultCreator {
+	s.UserId = &v
+	return s
+}
+
+type CreateOrganizationTaskResponseBodyResultExecutor struct {
+	// 头像地址
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// 姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 执行者id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateOrganizationTaskResponseBodyResultExecutor) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrganizationTaskResponseBodyResultExecutor) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrganizationTaskResponseBodyResultExecutor) SetAvatarUrl(v string) *CreateOrganizationTaskResponseBodyResultExecutor {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResultExecutor) SetName(v string) *CreateOrganizationTaskResponseBodyResultExecutor {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResultExecutor) SetUserId(v string) *CreateOrganizationTaskResponseBodyResultExecutor {
+	s.UserId = &v
+	return s
+}
+
+type CreateOrganizationTaskResponseBodyResultInvolvers struct {
+	// 头像
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// 用户id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s CreateOrganizationTaskResponseBodyResultInvolvers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrganizationTaskResponseBodyResultInvolvers) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrganizationTaskResponseBodyResultInvolvers) SetAvatarUrl(v string) *CreateOrganizationTaskResponseBodyResultInvolvers {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResultInvolvers) SetId(v string) *CreateOrganizationTaskResponseBodyResultInvolvers {
+	s.Id = &v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponseBodyResultInvolvers) SetName(v string) *CreateOrganizationTaskResponseBodyResultInvolvers {
+	s.Name = &v
+	return s
+}
+
+type CreateOrganizationTaskResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateOrganizationTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateOrganizationTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrganizationTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrganizationTaskResponse) SetHeaders(v map[string]*string) *CreateOrganizationTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateOrganizationTaskResponse) SetBody(v *CreateOrganizationTaskResponseBody) *CreateOrganizationTaskResponse {
+	s.Body = v
+	return s
+}
+
 type GetDeptsByOrgIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	DingAccessTokenType     *string            `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
@@ -353,6 +766,569 @@ func (s *GetEmpsByOrgIdResponse) SetBody(v *GetEmpsByOrgIdResponseBody) *GetEmps
 	return s
 }
 
+type GetOrganizatioTaskByIdsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetOrganizatioTaskByIdsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrganizatioTaskByIdsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrganizatioTaskByIdsHeaders) SetCommonHeaders(v map[string]*string) *GetOrganizatioTaskByIdsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsHeaders) SetXAcsDingtalkAccessToken(v string) *GetOrganizatioTaskByIdsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetOrganizatioTaskByIdsRequest struct {
+	// 多个任务id
+	TaskIds *string `json:"taskIds,omitempty" xml:"taskIds,omitempty"`
+}
+
+func (s GetOrganizatioTaskByIdsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrganizatioTaskByIdsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrganizatioTaskByIdsRequest) SetTaskIds(v string) *GetOrganizatioTaskByIdsRequest {
+	s.TaskIds = &v
+	return s
+}
+
+type GetOrganizatioTaskByIdsResponseBody struct {
+	// 返回结构体
+	Result []*GetOrganizatioTaskByIdsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetOrganizatioTaskByIdsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrganizatioTaskByIdsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrganizatioTaskByIdsResponseBody) SetResult(v []*GetOrganizatioTaskByIdsResponseBodyResult) *GetOrganizatioTaskByIdsResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetOrganizatioTaskByIdsResponseBodyResult struct {
+	// 父任务id
+	AncestorIds []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	// 任务标题
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 创建时间
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// 创建者id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 任务截止时间
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// 执行者id
+	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	// 参与者列表
+	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	// 任务是否已删除
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// 任务是否已完成
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// 任务自定义标记
+	Labels []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
+	// 任务备注
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// 优先级【-10,0,1,2】中选一个
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 任务开始时间
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 任务id
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// 更新时间
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// 任务可见性。involves：仅参与者可见。members:所有人可见
+	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
+}
+
+func (s GetOrganizatioTaskByIdsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrganizatioTaskByIdsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrganizatioTaskByIdsResponseBodyResult) SetAncestorIds(v []*string) *GetOrganizatioTaskByIdsResponseBodyResult {
+	s.AncestorIds = v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsResponseBodyResult) SetContent(v string) *GetOrganizatioTaskByIdsResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsResponseBodyResult) SetCreated(v string) *GetOrganizatioTaskByIdsResponseBodyResult {
+	s.Created = &v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsResponseBodyResult) SetCreatorId(v string) *GetOrganizatioTaskByIdsResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsResponseBodyResult) SetDueDate(v string) *GetOrganizatioTaskByIdsResponseBodyResult {
+	s.DueDate = &v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsResponseBodyResult) SetExecutorId(v string) *GetOrganizatioTaskByIdsResponseBodyResult {
+	s.ExecutorId = &v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsResponseBodyResult) SetInvolveMembers(v []*string) *GetOrganizatioTaskByIdsResponseBodyResult {
+	s.InvolveMembers = v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsResponseBodyResult) SetIsDeleted(v bool) *GetOrganizatioTaskByIdsResponseBodyResult {
+	s.IsDeleted = &v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsResponseBodyResult) SetIsDone(v bool) *GetOrganizatioTaskByIdsResponseBodyResult {
+	s.IsDone = &v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsResponseBodyResult) SetLabels(v []*string) *GetOrganizatioTaskByIdsResponseBodyResult {
+	s.Labels = v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsResponseBodyResult) SetNote(v string) *GetOrganizatioTaskByIdsResponseBodyResult {
+	s.Note = &v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsResponseBodyResult) SetPriority(v int32) *GetOrganizatioTaskByIdsResponseBodyResult {
+	s.Priority = &v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsResponseBodyResult) SetStartDate(v string) *GetOrganizatioTaskByIdsResponseBodyResult {
+	s.StartDate = &v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsResponseBodyResult) SetTaskId(v string) *GetOrganizatioTaskByIdsResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsResponseBodyResult) SetUpdated(v string) *GetOrganizatioTaskByIdsResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsResponseBodyResult) SetVisible(v string) *GetOrganizatioTaskByIdsResponseBodyResult {
+	s.Visible = &v
+	return s
+}
+
+type GetOrganizatioTaskByIdsResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetOrganizatioTaskByIdsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetOrganizatioTaskByIdsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrganizatioTaskByIdsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrganizatioTaskByIdsResponse) SetHeaders(v map[string]*string) *GetOrganizatioTaskByIdsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetOrganizatioTaskByIdsResponse) SetBody(v *GetOrganizatioTaskByIdsResponseBody) *GetOrganizatioTaskByIdsResponse {
+	s.Body = v
+	return s
+}
+
+type GetOrganizationPriorityListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetOrganizationPriorityListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrganizationPriorityListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrganizationPriorityListHeaders) SetCommonHeaders(v map[string]*string) *GetOrganizationPriorityListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetOrganizationPriorityListHeaders) SetXAcsDingtalkAccessToken(v string) *GetOrganizationPriorityListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetOrganizationPriorityListResponseBody struct {
+	// 优先级列表
+	Result []*GetOrganizationPriorityListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetOrganizationPriorityListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrganizationPriorityListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrganizationPriorityListResponseBody) SetResult(v []*GetOrganizationPriorityListResponseBodyResult) *GetOrganizationPriorityListResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetOrganizationPriorityListResponseBodyResult struct {
+	// 颜色
+	Color *string `json:"color,omitempty" xml:"color,omitempty"`
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 额外信息
+	Payload *GetOrganizationPriorityListResponseBodyResultPayload `json:"payload,omitempty" xml:"payload,omitempty" type:"Struct"`
+	// 优先级值
+	Priority *string `json:"priority,omitempty" xml:"priority,omitempty"`
+	// id
+	PriorityId *string `json:"priorityId,omitempty" xml:"priorityId,omitempty"`
+}
+
+func (s GetOrganizationPriorityListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrganizationPriorityListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrganizationPriorityListResponseBodyResult) SetColor(v string) *GetOrganizationPriorityListResponseBodyResult {
+	s.Color = &v
+	return s
+}
+
+func (s *GetOrganizationPriorityListResponseBodyResult) SetName(v string) *GetOrganizationPriorityListResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *GetOrganizationPriorityListResponseBodyResult) SetPayload(v *GetOrganizationPriorityListResponseBodyResultPayload) *GetOrganizationPriorityListResponseBodyResult {
+	s.Payload = v
+	return s
+}
+
+func (s *GetOrganizationPriorityListResponseBodyResult) SetPriority(v string) *GetOrganizationPriorityListResponseBodyResult {
+	s.Priority = &v
+	return s
+}
+
+func (s *GetOrganizationPriorityListResponseBodyResult) SetPriorityId(v string) *GetOrganizationPriorityListResponseBodyResult {
+	s.PriorityId = &v
+	return s
+}
+
+type GetOrganizationPriorityListResponseBodyResultPayload struct {
+	// 优先级多语言
+	Locales *GetOrganizationPriorityListResponseBodyResultPayloadLocales `json:"locales,omitempty" xml:"locales,omitempty" type:"Struct"`
+}
+
+func (s GetOrganizationPriorityListResponseBodyResultPayload) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrganizationPriorityListResponseBodyResultPayload) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrganizationPriorityListResponseBodyResultPayload) SetLocales(v *GetOrganizationPriorityListResponseBodyResultPayloadLocales) *GetOrganizationPriorityListResponseBodyResultPayload {
+	s.Locales = v
+	return s
+}
+
+type GetOrganizationPriorityListResponseBodyResultPayloadLocales struct {
+	// 名称
+	Name *GetOrganizationPriorityListResponseBodyResultPayloadLocalesName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+}
+
+func (s GetOrganizationPriorityListResponseBodyResultPayloadLocales) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrganizationPriorityListResponseBodyResultPayloadLocales) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrganizationPriorityListResponseBodyResultPayloadLocales) SetName(v *GetOrganizationPriorityListResponseBodyResultPayloadLocalesName) *GetOrganizationPriorityListResponseBodyResultPayloadLocales {
+	s.Name = v
+	return s
+}
+
+type GetOrganizationPriorityListResponseBodyResultPayloadLocalesName struct {
+	// 英文名
+	En *string `json:"en,omitempty" xml:"en,omitempty"`
+	// 中文名
+	Zh *string `json:"zh,omitempty" xml:"zh,omitempty"`
+}
+
+func (s GetOrganizationPriorityListResponseBodyResultPayloadLocalesName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrganizationPriorityListResponseBodyResultPayloadLocalesName) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrganizationPriorityListResponseBodyResultPayloadLocalesName) SetEn(v string) *GetOrganizationPriorityListResponseBodyResultPayloadLocalesName {
+	s.En = &v
+	return s
+}
+
+func (s *GetOrganizationPriorityListResponseBodyResultPayloadLocalesName) SetZh(v string) *GetOrganizationPriorityListResponseBodyResultPayloadLocalesName {
+	s.Zh = &v
+	return s
+}
+
+type GetOrganizationPriorityListResponse struct {
+	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetOrganizationPriorityListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetOrganizationPriorityListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrganizationPriorityListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrganizationPriorityListResponse) SetHeaders(v map[string]*string) *GetOrganizationPriorityListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetOrganizationPriorityListResponse) SetBody(v *GetOrganizationPriorityListResponseBody) *GetOrganizationPriorityListResponse {
+	s.Body = v
+	return s
+}
+
+type GetOrganizationTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetOrganizationTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrganizationTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrganizationTaskHeaders) SetCommonHeaders(v map[string]*string) *GetOrganizationTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetOrganizationTaskHeaders) SetXAcsDingtalkAccessToken(v string) *GetOrganizationTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetOrganizationTaskResponseBody struct {
+	// 返回结构体
+	Result *GetOrganizationTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetOrganizationTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrganizationTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrganizationTaskResponseBody) SetResult(v *GetOrganizationTaskResponseBodyResult) *GetOrganizationTaskResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetOrganizationTaskResponseBodyResult struct {
+	// 父任务id
+	AncestorIds []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	// 任务标题
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 创建时间
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// 创建者id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 任务截止时间
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// 执行者id
+	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	// 参与者列表
+	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	// 任务是否已删除
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// 任务是否已完成
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// 任务自定义标记
+	Labels []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
+	// 任务备注
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// 优先级【-10,0,1,2】中选一个
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 任务开始时间
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 任务id
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// 更新时间
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// 任务可见性。involves：仅参与者可见。members:所有人可见
+	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
+}
+
+func (s GetOrganizationTaskResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrganizationTaskResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrganizationTaskResponseBodyResult) SetAncestorIds(v []*string) *GetOrganizationTaskResponseBodyResult {
+	s.AncestorIds = v
+	return s
+}
+
+func (s *GetOrganizationTaskResponseBodyResult) SetContent(v string) *GetOrganizationTaskResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+func (s *GetOrganizationTaskResponseBodyResult) SetCreated(v string) *GetOrganizationTaskResponseBodyResult {
+	s.Created = &v
+	return s
+}
+
+func (s *GetOrganizationTaskResponseBodyResult) SetCreatorId(v string) *GetOrganizationTaskResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *GetOrganizationTaskResponseBodyResult) SetDueDate(v string) *GetOrganizationTaskResponseBodyResult {
+	s.DueDate = &v
+	return s
+}
+
+func (s *GetOrganizationTaskResponseBodyResult) SetExecutorId(v string) *GetOrganizationTaskResponseBodyResult {
+	s.ExecutorId = &v
+	return s
+}
+
+func (s *GetOrganizationTaskResponseBodyResult) SetInvolveMembers(v []*string) *GetOrganizationTaskResponseBodyResult {
+	s.InvolveMembers = v
+	return s
+}
+
+func (s *GetOrganizationTaskResponseBodyResult) SetIsDeleted(v bool) *GetOrganizationTaskResponseBodyResult {
+	s.IsDeleted = &v
+	return s
+}
+
+func (s *GetOrganizationTaskResponseBodyResult) SetIsDone(v bool) *GetOrganizationTaskResponseBodyResult {
+	s.IsDone = &v
+	return s
+}
+
+func (s *GetOrganizationTaskResponseBodyResult) SetLabels(v []*string) *GetOrganizationTaskResponseBodyResult {
+	s.Labels = v
+	return s
+}
+
+func (s *GetOrganizationTaskResponseBodyResult) SetNote(v string) *GetOrganizationTaskResponseBodyResult {
+	s.Note = &v
+	return s
+}
+
+func (s *GetOrganizationTaskResponseBodyResult) SetPriority(v int32) *GetOrganizationTaskResponseBodyResult {
+	s.Priority = &v
+	return s
+}
+
+func (s *GetOrganizationTaskResponseBodyResult) SetStartDate(v string) *GetOrganizationTaskResponseBodyResult {
+	s.StartDate = &v
+	return s
+}
+
+func (s *GetOrganizationTaskResponseBodyResult) SetTaskId(v string) *GetOrganizationTaskResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetOrganizationTaskResponseBodyResult) SetUpdated(v string) *GetOrganizationTaskResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+func (s *GetOrganizationTaskResponseBodyResult) SetVisible(v string) *GetOrganizationTaskResponseBodyResult {
+	s.Visible = &v
+	return s
+}
+
+type GetOrganizationTaskResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetOrganizationTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetOrganizationTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrganizationTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrganizationTaskResponse) SetHeaders(v map[string]*string) *GetOrganizationTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetOrganizationTaskResponse) SetBody(v *GetOrganizationTaskResponseBody) *GetOrganizationTaskResponse {
+	s.Body = v
+	return s
+}
+
 type GetTbProjectGrayHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	DingAccessTokenType     *string            `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
@@ -564,6 +1540,973 @@ func (s *GetTbProjectSourceResponse) SetBody(v *GetTbProjectSourceResponseBody) 
 	return s
 }
 
+type UpdateOrganizationTaskContentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateOrganizationTaskContentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskContentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskContentHeaders) SetCommonHeaders(v map[string]*string) *UpdateOrganizationTaskContentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskContentHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateOrganizationTaskContentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateOrganizationTaskContentRequest struct {
+	// 任务标题
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 是否禁止动态
+	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	// 是否禁止通知
+	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+}
+
+func (s UpdateOrganizationTaskContentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskContentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskContentRequest) SetContent(v string) *UpdateOrganizationTaskContentRequest {
+	s.Content = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskContentRequest) SetDisableActivity(v bool) *UpdateOrganizationTaskContentRequest {
+	s.DisableActivity = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskContentRequest) SetDisableNotification(v bool) *UpdateOrganizationTaskContentRequest {
+	s.DisableNotification = &v
+	return s
+}
+
+type UpdateOrganizationTaskContentResponseBody struct {
+	// 返回对象
+	Result *UpdateOrganizationTaskContentResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateOrganizationTaskContentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskContentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskContentResponseBody) SetResult(v *UpdateOrganizationTaskContentResponseBodyResult) *UpdateOrganizationTaskContentResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateOrganizationTaskContentResponseBodyResult struct {
+	// 任务标题
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 更新时间
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s UpdateOrganizationTaskContentResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskContentResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskContentResponseBodyResult) SetContent(v string) *UpdateOrganizationTaskContentResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskContentResponseBodyResult) SetUpdated(v string) *UpdateOrganizationTaskContentResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type UpdateOrganizationTaskContentResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateOrganizationTaskContentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateOrganizationTaskContentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskContentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskContentResponse) SetHeaders(v map[string]*string) *UpdateOrganizationTaskContentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskContentResponse) SetBody(v *UpdateOrganizationTaskContentResponseBody) *UpdateOrganizationTaskContentResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateOrganizationTaskDueDateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateOrganizationTaskDueDateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskDueDateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskDueDateHeaders) SetCommonHeaders(v map[string]*string) *UpdateOrganizationTaskDueDateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskDueDateHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateOrganizationTaskDueDateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateOrganizationTaskDueDateRequest struct {
+	// 是否禁止动态
+	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	// 是否禁止通知
+	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	// 任务截止时间
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+}
+
+func (s UpdateOrganizationTaskDueDateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskDueDateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskDueDateRequest) SetDisableActivity(v bool) *UpdateOrganizationTaskDueDateRequest {
+	s.DisableActivity = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskDueDateRequest) SetDisableNotification(v bool) *UpdateOrganizationTaskDueDateRequest {
+	s.DisableNotification = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskDueDateRequest) SetDueDate(v string) *UpdateOrganizationTaskDueDateRequest {
+	s.DueDate = &v
+	return s
+}
+
+type UpdateOrganizationTaskDueDateResponseBody struct {
+	// 返回对象
+	Result *UpdateOrganizationTaskDueDateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateOrganizationTaskDueDateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskDueDateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskDueDateResponseBody) SetResult(v *UpdateOrganizationTaskDueDateResponseBodyResult) *UpdateOrganizationTaskDueDateResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateOrganizationTaskDueDateResponseBodyResult struct {
+	// 任务截止时间
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// 更新时间
+	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+}
+
+func (s UpdateOrganizationTaskDueDateResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskDueDateResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskDueDateResponseBodyResult) SetDueDate(v string) *UpdateOrganizationTaskDueDateResponseBodyResult {
+	s.DueDate = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskDueDateResponseBodyResult) SetUpdateTime(v string) *UpdateOrganizationTaskDueDateResponseBodyResult {
+	s.UpdateTime = &v
+	return s
+}
+
+type UpdateOrganizationTaskDueDateResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateOrganizationTaskDueDateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateOrganizationTaskDueDateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskDueDateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskDueDateResponse) SetHeaders(v map[string]*string) *UpdateOrganizationTaskDueDateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskDueDateResponse) SetBody(v *UpdateOrganizationTaskDueDateResponseBody) *UpdateOrganizationTaskDueDateResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateOrganizationTaskExecutorHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateOrganizationTaskExecutorHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskExecutorHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskExecutorHeaders) SetCommonHeaders(v map[string]*string) *UpdateOrganizationTaskExecutorHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskExecutorHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateOrganizationTaskExecutorHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateOrganizationTaskExecutorRequest struct {
+	DisableActivity     *bool   `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	DisableNotification *bool   `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	ExecutorId          *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+}
+
+func (s UpdateOrganizationTaskExecutorRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskExecutorRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskExecutorRequest) SetDisableActivity(v bool) *UpdateOrganizationTaskExecutorRequest {
+	s.DisableActivity = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskExecutorRequest) SetDisableNotification(v bool) *UpdateOrganizationTaskExecutorRequest {
+	s.DisableNotification = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskExecutorRequest) SetExecutorId(v string) *UpdateOrganizationTaskExecutorRequest {
+	s.ExecutorId = &v
+	return s
+}
+
+type UpdateOrganizationTaskExecutorResponseBody struct {
+	// 返回对象
+	Result *UpdateOrganizationTaskExecutorResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateOrganizationTaskExecutorResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskExecutorResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskExecutorResponseBody) SetResult(v *UpdateOrganizationTaskExecutorResponseBodyResult) *UpdateOrganizationTaskExecutorResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateOrganizationTaskExecutorResponseBodyResult struct {
+	// 执行者信息
+	Executor *UpdateOrganizationTaskExecutorResponseBodyResultExecutor `json:"executor,omitempty" xml:"executor,omitempty" type:"Struct"`
+	// 执行者id
+	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	// 参与者列表
+	Involvers []*UpdateOrganizationTaskExecutorResponseBodyResultInvolvers `json:"involvers,omitempty" xml:"involvers,omitempty" type:"Repeated"`
+	// 更新时间
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s UpdateOrganizationTaskExecutorResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskExecutorResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskExecutorResponseBodyResult) SetExecutor(v *UpdateOrganizationTaskExecutorResponseBodyResultExecutor) *UpdateOrganizationTaskExecutorResponseBodyResult {
+	s.Executor = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskExecutorResponseBodyResult) SetExecutorId(v string) *UpdateOrganizationTaskExecutorResponseBodyResult {
+	s.ExecutorId = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskExecutorResponseBodyResult) SetInvolvers(v []*UpdateOrganizationTaskExecutorResponseBodyResultInvolvers) *UpdateOrganizationTaskExecutorResponseBodyResult {
+	s.Involvers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskExecutorResponseBodyResult) SetUpdated(v string) *UpdateOrganizationTaskExecutorResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type UpdateOrganizationTaskExecutorResponseBodyResultExecutor struct {
+	// 头像
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// 名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 用户uid
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateOrganizationTaskExecutorResponseBodyResultExecutor) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskExecutorResponseBodyResultExecutor) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskExecutorResponseBodyResultExecutor) SetAvatarUrl(v string) *UpdateOrganizationTaskExecutorResponseBodyResultExecutor {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskExecutorResponseBodyResultExecutor) SetName(v string) *UpdateOrganizationTaskExecutorResponseBodyResultExecutor {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskExecutorResponseBodyResultExecutor) SetUserId(v string) *UpdateOrganizationTaskExecutorResponseBodyResultExecutor {
+	s.UserId = &v
+	return s
+}
+
+type UpdateOrganizationTaskExecutorResponseBodyResultInvolvers struct {
+	// 头像
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// 名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 用户uid
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateOrganizationTaskExecutorResponseBodyResultInvolvers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskExecutorResponseBodyResultInvolvers) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskExecutorResponseBodyResultInvolvers) SetAvatarUrl(v string) *UpdateOrganizationTaskExecutorResponseBodyResultInvolvers {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskExecutorResponseBodyResultInvolvers) SetName(v string) *UpdateOrganizationTaskExecutorResponseBodyResultInvolvers {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskExecutorResponseBodyResultInvolvers) SetUserId(v string) *UpdateOrganizationTaskExecutorResponseBodyResultInvolvers {
+	s.UserId = &v
+	return s
+}
+
+type UpdateOrganizationTaskExecutorResponse struct {
+	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateOrganizationTaskExecutorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateOrganizationTaskExecutorResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskExecutorResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskExecutorResponse) SetHeaders(v map[string]*string) *UpdateOrganizationTaskExecutorResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskExecutorResponse) SetBody(v *UpdateOrganizationTaskExecutorResponseBody) *UpdateOrganizationTaskExecutorResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateOrganizationTaskInvolveMembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateOrganizationTaskInvolveMembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskInvolveMembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskInvolveMembersHeaders) SetCommonHeaders(v map[string]*string) *UpdateOrganizationTaskInvolveMembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskInvolveMembersHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateOrganizationTaskInvolveMembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateOrganizationTaskInvolveMembersRequest struct {
+	// 增加的参与者uid
+	AddInvolvers []*string `json:"addInvolvers,omitempty" xml:"addInvolvers,omitempty" type:"Repeated"`
+	// 删除的参与者uid
+	DelInvolvers []*string `json:"delInvolvers,omitempty" xml:"delInvolvers,omitempty" type:"Repeated"`
+	// 是否禁用动态
+	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	// 是否禁用通知
+	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	// 所有参与者uid
+	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+}
+
+func (s UpdateOrganizationTaskInvolveMembersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskInvolveMembersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskInvolveMembersRequest) SetAddInvolvers(v []*string) *UpdateOrganizationTaskInvolveMembersRequest {
+	s.AddInvolvers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskInvolveMembersRequest) SetDelInvolvers(v []*string) *UpdateOrganizationTaskInvolveMembersRequest {
+	s.DelInvolvers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskInvolveMembersRequest) SetDisableActivity(v bool) *UpdateOrganizationTaskInvolveMembersRequest {
+	s.DisableActivity = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskInvolveMembersRequest) SetDisableNotification(v bool) *UpdateOrganizationTaskInvolveMembersRequest {
+	s.DisableNotification = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskInvolveMembersRequest) SetInvolveMembers(v []*string) *UpdateOrganizationTaskInvolveMembersRequest {
+	s.InvolveMembers = v
+	return s
+}
+
+type UpdateOrganizationTaskInvolveMembersResponseBody struct {
+	// 返回对象
+	Result *UpdateOrganizationTaskInvolveMembersResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateOrganizationTaskInvolveMembersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskInvolveMembersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskInvolveMembersResponseBody) SetResult(v *UpdateOrganizationTaskInvolveMembersResponseBodyResult) *UpdateOrganizationTaskInvolveMembersResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateOrganizationTaskInvolveMembersResponseBodyResult struct {
+	// 参与者列表
+	Involvers []*UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers `json:"involvers,omitempty" xml:"involvers,omitempty" type:"Repeated"`
+	// 更新时间
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s UpdateOrganizationTaskInvolveMembersResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskInvolveMembersResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskInvolveMembersResponseBodyResult) SetInvolvers(v []*UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers) *UpdateOrganizationTaskInvolveMembersResponseBodyResult {
+	s.Involvers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskInvolveMembersResponseBodyResult) SetUpdated(v string) *UpdateOrganizationTaskInvolveMembersResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers struct {
+	// 头像
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// 名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 用户uid
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers) SetAvatarUrl(v string) *UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers) SetName(v string) *UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers) SetUserId(v string) *UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers {
+	s.UserId = &v
+	return s
+}
+
+type UpdateOrganizationTaskInvolveMembersResponse struct {
+	Headers map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateOrganizationTaskInvolveMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateOrganizationTaskInvolveMembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskInvolveMembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskInvolveMembersResponse) SetHeaders(v map[string]*string) *UpdateOrganizationTaskInvolveMembersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskInvolveMembersResponse) SetBody(v *UpdateOrganizationTaskInvolveMembersResponseBody) *UpdateOrganizationTaskInvolveMembersResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateOrganizationTaskNoteHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateOrganizationTaskNoteHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskNoteHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskNoteHeaders) SetCommonHeaders(v map[string]*string) *UpdateOrganizationTaskNoteHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskNoteHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateOrganizationTaskNoteHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateOrganizationTaskNoteRequest struct {
+	// 是否禁用动态
+	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	// 是否禁用通知
+	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	// 任务备注
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+}
+
+func (s UpdateOrganizationTaskNoteRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskNoteRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskNoteRequest) SetDisableActivity(v bool) *UpdateOrganizationTaskNoteRequest {
+	s.DisableActivity = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskNoteRequest) SetDisableNotification(v bool) *UpdateOrganizationTaskNoteRequest {
+	s.DisableNotification = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskNoteRequest) SetNote(v string) *UpdateOrganizationTaskNoteRequest {
+	s.Note = &v
+	return s
+}
+
+type UpdateOrganizationTaskNoteResponseBody struct {
+	Result *UpdateOrganizationTaskNoteResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateOrganizationTaskNoteResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskNoteResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskNoteResponseBody) SetResult(v *UpdateOrganizationTaskNoteResponseBodyResult) *UpdateOrganizationTaskNoteResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateOrganizationTaskNoteResponseBodyResult struct {
+	// 任务备注
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// 更新时间
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s UpdateOrganizationTaskNoteResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskNoteResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskNoteResponseBodyResult) SetNote(v string) *UpdateOrganizationTaskNoteResponseBodyResult {
+	s.Note = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskNoteResponseBodyResult) SetUpdated(v string) *UpdateOrganizationTaskNoteResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type UpdateOrganizationTaskNoteResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateOrganizationTaskNoteResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateOrganizationTaskNoteResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskNoteResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskNoteResponse) SetHeaders(v map[string]*string) *UpdateOrganizationTaskNoteResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskNoteResponse) SetBody(v *UpdateOrganizationTaskNoteResponseBody) *UpdateOrganizationTaskNoteResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateOrganizationTaskPriorityHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateOrganizationTaskPriorityHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskPriorityHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskPriorityHeaders) SetCommonHeaders(v map[string]*string) *UpdateOrganizationTaskPriorityHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskPriorityHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateOrganizationTaskPriorityHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateOrganizationTaskPriorityRequest struct {
+	// 是否禁止动态
+	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	// 是否禁止通知
+	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	// 优先级【-10,0,1,2】中的一个值
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+}
+
+func (s UpdateOrganizationTaskPriorityRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskPriorityRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskPriorityRequest) SetDisableActivity(v bool) *UpdateOrganizationTaskPriorityRequest {
+	s.DisableActivity = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskPriorityRequest) SetDisableNotification(v bool) *UpdateOrganizationTaskPriorityRequest {
+	s.DisableNotification = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskPriorityRequest) SetPriority(v int32) *UpdateOrganizationTaskPriorityRequest {
+	s.Priority = &v
+	return s
+}
+
+type UpdateOrganizationTaskPriorityResponseBody struct {
+	// 返回对象
+	Result *UpdateOrganizationTaskPriorityResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateOrganizationTaskPriorityResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskPriorityResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskPriorityResponseBody) SetResult(v *UpdateOrganizationTaskPriorityResponseBodyResult) *UpdateOrganizationTaskPriorityResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateOrganizationTaskPriorityResponseBodyResult struct {
+	// 优先级【-10,0,1,2】中的一个
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 更新时间
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s UpdateOrganizationTaskPriorityResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskPriorityResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskPriorityResponseBodyResult) SetPriority(v int32) *UpdateOrganizationTaskPriorityResponseBodyResult {
+	s.Priority = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskPriorityResponseBodyResult) SetUpdated(v string) *UpdateOrganizationTaskPriorityResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type UpdateOrganizationTaskPriorityResponse struct {
+	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateOrganizationTaskPriorityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateOrganizationTaskPriorityResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskPriorityResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskPriorityResponse) SetHeaders(v map[string]*string) *UpdateOrganizationTaskPriorityResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskPriorityResponse) SetBody(v *UpdateOrganizationTaskPriorityResponseBody) *UpdateOrganizationTaskPriorityResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateOrganizationTaskStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateOrganizationTaskStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskStatusHeaders) SetCommonHeaders(v map[string]*string) *UpdateOrganizationTaskStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskStatusHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateOrganizationTaskStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateOrganizationTaskStatusRequest struct {
+	// 是否禁用动态
+	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	// 是否禁用通知
+	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	// true改成完成，false 改成未完成
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+}
+
+func (s UpdateOrganizationTaskStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskStatusRequest) SetDisableActivity(v bool) *UpdateOrganizationTaskStatusRequest {
+	s.DisableActivity = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskStatusRequest) SetDisableNotification(v bool) *UpdateOrganizationTaskStatusRequest {
+	s.DisableNotification = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskStatusRequest) SetIsDone(v bool) *UpdateOrganizationTaskStatusRequest {
+	s.IsDone = &v
+	return s
+}
+
+type UpdateOrganizationTaskStatusResponseBody struct {
+	// 返回对象
+	Result *UpdateOrganizationTaskStatusResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateOrganizationTaskStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskStatusResponseBody) SetResult(v *UpdateOrganizationTaskStatusResponseBodyResult) *UpdateOrganizationTaskStatusResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateOrganizationTaskStatusResponseBodyResult struct {
+	// 是否已完成
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// 更新时间
+	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+}
+
+func (s UpdateOrganizationTaskStatusResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskStatusResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskStatusResponseBodyResult) SetIsDone(v bool) *UpdateOrganizationTaskStatusResponseBodyResult {
+	s.IsDone = &v
+	return s
+}
+
+func (s *UpdateOrganizationTaskStatusResponseBodyResult) SetUpdateTime(v string) *UpdateOrganizationTaskStatusResponseBodyResult {
+	s.UpdateTime = &v
+	return s
+}
+
+type UpdateOrganizationTaskStatusResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateOrganizationTaskStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateOrganizationTaskStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrganizationTaskStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrganizationTaskStatusResponse) SetHeaders(v map[string]*string) *UpdateOrganizationTaskStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateOrganizationTaskStatusResponse) SetBody(v *UpdateOrganizationTaskStatusResponseBody) *UpdateOrganizationTaskStatusResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -585,6 +2528,94 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) CreateOrganizationTask(request *CreateOrganizationTaskRequest) (_result *CreateOrganizationTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateOrganizationTaskHeaders{}
+	_result = &CreateOrganizationTaskResponse{}
+	_body, _err := client.CreateOrganizationTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateOrganizationTaskWithOptions(request *CreateOrganizationTaskRequest, headers *CreateOrganizationTaskHeaders, runtime *util.RuntimeOptions) (_result *CreateOrganizationTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateTime)) {
+		body["createTime"] = request.CreateTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
+		body["disableActivity"] = request.DisableActivity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DisableNotification)) {
+		body["disableNotification"] = request.DisableNotification
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DueDate)) {
+		body["dueDate"] = request.DueDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExecutorId)) {
+		body["executorId"] = request.ExecutorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvolveMembers)) {
+		body["involveMembers"] = request.InvolveMembers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsDone)) {
+		body["isDone"] = request.IsDone
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Label)) {
+		body["label"] = request.Label
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Note)) {
+		body["note"] = request.Note
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Priority)) {
+		body["priority"] = request.Priority
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Visible)) {
+		body["visible"] = request.Visible
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateOrganizationTaskResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateOrganizationTask"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) GetDeptsByOrgId(request *GetDeptsByOrgIdRequest) (_result *GetDeptsByOrgIdResponse, _err error) {
@@ -703,6 +2734,119 @@ func (client *Client) GetEmpsByOrgIdWithOptions(request *GetEmpsByOrgIdRequest, 
 	return _result, _err
 }
 
+func (client *Client) GetOrganizatioTaskByIds(request *GetOrganizatioTaskByIdsRequest) (_result *GetOrganizatioTaskByIdsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOrganizatioTaskByIdsHeaders{}
+	_result = &GetOrganizatioTaskByIdsResponse{}
+	_body, _err := client.GetOrganizatioTaskByIdsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetOrganizatioTaskByIdsWithOptions(request *GetOrganizatioTaskByIdsRequest, headers *GetOrganizatioTaskByIdsHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizatioTaskByIdsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskIds)) {
+		query["taskIds"] = request.TaskIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetOrganizatioTaskByIdsResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetOrganizatioTaskByIds"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetOrganizationPriorityList() (_result *GetOrganizationPriorityListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOrganizationPriorityListHeaders{}
+	_result = &GetOrganizationPriorityListResponse{}
+	_body, _err := client.GetOrganizationPriorityListWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetOrganizationPriorityListWithOptions(headers *GetOrganizationPriorityListHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizationPriorityListResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetOrganizationPriorityListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetOrganizationPriorityList"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/organizations/priorities"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetOrganizationTask(taskId *string) (_result *GetOrganizationTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOrganizationTaskHeaders{}
+	_result = &GetOrganizationTaskResponse{}
+	_body, _err := client.GetOrganizationTaskWithOptions(taskId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetOrganizationTaskWithOptions(taskId *string, headers *GetOrganizationTaskHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizationTaskResponse, _err error) {
+	taskId = openapiutil.GetEncodeParam(taskId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetOrganizationTaskResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetOrganizationTask"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks/"+tea.StringValue(taskId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetTbProjectGray(request *GetTbProjectGrayRequest) (_result *GetTbProjectGrayResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTbProjectGrayHeaders{}
@@ -814,6 +2958,385 @@ func (client *Client) GetTbProjectSourceWithOptions(headers *GetTbProjectSourceH
 	}
 	_result = &GetTbProjectSourceResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetTbProjectSource"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/projects/source"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateOrganizationTaskContent(taskId *string, request *UpdateOrganizationTaskContentRequest) (_result *UpdateOrganizationTaskContentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateOrganizationTaskContentHeaders{}
+	_result = &UpdateOrganizationTaskContentResponse{}
+	_body, _err := client.UpdateOrganizationTaskContentWithOptions(taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateOrganizationTaskContentWithOptions(taskId *string, request *UpdateOrganizationTaskContentRequest, headers *UpdateOrganizationTaskContentHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskContentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	taskId = openapiutil.GetEncodeParam(taskId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
+		body["disableActivity"] = request.DisableActivity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DisableNotification)) {
+		body["disableNotification"] = request.DisableNotification
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateOrganizationTaskContentResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskContent"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks/"+tea.StringValue(taskId)+"/contents"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateOrganizationTaskDueDate(taskId *string, request *UpdateOrganizationTaskDueDateRequest) (_result *UpdateOrganizationTaskDueDateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateOrganizationTaskDueDateHeaders{}
+	_result = &UpdateOrganizationTaskDueDateResponse{}
+	_body, _err := client.UpdateOrganizationTaskDueDateWithOptions(taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateOrganizationTaskDueDateWithOptions(taskId *string, request *UpdateOrganizationTaskDueDateRequest, headers *UpdateOrganizationTaskDueDateHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskDueDateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	taskId = openapiutil.GetEncodeParam(taskId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
+		body["disableActivity"] = request.DisableActivity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DisableNotification)) {
+		body["disableNotification"] = request.DisableNotification
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DueDate)) {
+		body["dueDate"] = request.DueDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateOrganizationTaskDueDateResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskDueDate"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks/"+tea.StringValue(taskId)+"/dueDates"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateOrganizationTaskExecutor(taskId *string, request *UpdateOrganizationTaskExecutorRequest) (_result *UpdateOrganizationTaskExecutorResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateOrganizationTaskExecutorHeaders{}
+	_result = &UpdateOrganizationTaskExecutorResponse{}
+	_body, _err := client.UpdateOrganizationTaskExecutorWithOptions(taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateOrganizationTaskExecutorWithOptions(taskId *string, request *UpdateOrganizationTaskExecutorRequest, headers *UpdateOrganizationTaskExecutorHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskExecutorResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	taskId = openapiutil.GetEncodeParam(taskId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
+		body["disableActivity"] = request.DisableActivity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DisableNotification)) {
+		body["disableNotification"] = request.DisableNotification
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExecutorId)) {
+		body["executorId"] = request.ExecutorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateOrganizationTaskExecutorResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskExecutor"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks/"+tea.StringValue(taskId)+"/executors"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateOrganizationTaskInvolveMembers(taskId *string, request *UpdateOrganizationTaskInvolveMembersRequest) (_result *UpdateOrganizationTaskInvolveMembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateOrganizationTaskInvolveMembersHeaders{}
+	_result = &UpdateOrganizationTaskInvolveMembersResponse{}
+	_body, _err := client.UpdateOrganizationTaskInvolveMembersWithOptions(taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateOrganizationTaskInvolveMembersWithOptions(taskId *string, request *UpdateOrganizationTaskInvolveMembersRequest, headers *UpdateOrganizationTaskInvolveMembersHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskInvolveMembersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	taskId = openapiutil.GetEncodeParam(taskId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AddInvolvers)) {
+		body["addInvolvers"] = request.AddInvolvers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DelInvolvers)) {
+		body["delInvolvers"] = request.DelInvolvers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
+		body["disableActivity"] = request.DisableActivity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DisableNotification)) {
+		body["disableNotification"] = request.DisableNotification
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvolveMembers)) {
+		body["involveMembers"] = request.InvolveMembers
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateOrganizationTaskInvolveMembersResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskInvolveMembers"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks/"+tea.StringValue(taskId)+"/involveMembers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateOrganizationTaskNote(taskId *string, request *UpdateOrganizationTaskNoteRequest) (_result *UpdateOrganizationTaskNoteResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateOrganizationTaskNoteHeaders{}
+	_result = &UpdateOrganizationTaskNoteResponse{}
+	_body, _err := client.UpdateOrganizationTaskNoteWithOptions(taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateOrganizationTaskNoteWithOptions(taskId *string, request *UpdateOrganizationTaskNoteRequest, headers *UpdateOrganizationTaskNoteHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskNoteResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	taskId = openapiutil.GetEncodeParam(taskId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
+		body["disableActivity"] = request.DisableActivity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DisableNotification)) {
+		body["disableNotification"] = request.DisableNotification
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Note)) {
+		body["note"] = request.Note
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateOrganizationTaskNoteResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskNote"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks/"+tea.StringValue(taskId)+"/notes"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateOrganizationTaskPriority(taskId *string, request *UpdateOrganizationTaskPriorityRequest) (_result *UpdateOrganizationTaskPriorityResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateOrganizationTaskPriorityHeaders{}
+	_result = &UpdateOrganizationTaskPriorityResponse{}
+	_body, _err := client.UpdateOrganizationTaskPriorityWithOptions(taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateOrganizationTaskPriorityWithOptions(taskId *string, request *UpdateOrganizationTaskPriorityRequest, headers *UpdateOrganizationTaskPriorityHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskPriorityResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	taskId = openapiutil.GetEncodeParam(taskId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
+		body["disableActivity"] = request.DisableActivity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DisableNotification)) {
+		body["disableNotification"] = request.DisableNotification
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Priority)) {
+		body["priority"] = request.Priority
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateOrganizationTaskPriorityResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskPriority"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks/"+tea.StringValue(taskId)+"/priorities"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateOrganizationTaskStatus(taskId *string, request *UpdateOrganizationTaskStatusRequest) (_result *UpdateOrganizationTaskStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateOrganizationTaskStatusHeaders{}
+	_result = &UpdateOrganizationTaskStatusResponse{}
+	_body, _err := client.UpdateOrganizationTaskStatusWithOptions(taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateOrganizationTaskStatusWithOptions(taskId *string, request *UpdateOrganizationTaskStatusRequest, headers *UpdateOrganizationTaskStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	taskId = openapiutil.GetEncodeParam(taskId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
+		body["disableActivity"] = request.DisableActivity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DisableNotification)) {
+		body["disableNotification"] = request.DisableNotification
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsDone)) {
+		body["isDone"] = request.IsDone
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateOrganizationTaskStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskStatus"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks/"+tea.StringValue(taskId)+"/states"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

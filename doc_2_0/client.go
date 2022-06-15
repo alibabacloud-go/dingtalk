@@ -851,6 +851,102 @@ func (s *GetSpaceDirectoriesResponse) SetBody(v *GetSpaceDirectoriesResponseBody
 	return s
 }
 
+type GetUserInfoByOpenTokenHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetUserInfoByOpenTokenHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserInfoByOpenTokenHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserInfoByOpenTokenHeaders) SetCommonHeaders(v map[string]*string) *GetUserInfoByOpenTokenHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetUserInfoByOpenTokenHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserInfoByOpenTokenHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetUserInfoByOpenTokenRequest struct {
+	// 文档docKey，标识一篇文档的key。
+	DocKey *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
+	// 文档颁发给三方应用的 OpenToken，用于三方应用在文档中的免登。
+	OpenToken *string `json:"openToken,omitempty" xml:"openToken,omitempty"`
+}
+
+func (s GetUserInfoByOpenTokenRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserInfoByOpenTokenRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserInfoByOpenTokenRequest) SetDocKey(v string) *GetUserInfoByOpenTokenRequest {
+	s.DocKey = &v
+	return s
+}
+
+func (s *GetUserInfoByOpenTokenRequest) SetOpenToken(v string) *GetUserInfoByOpenTokenRequest {
+	s.OpenToken = &v
+	return s
+}
+
+type GetUserInfoByOpenTokenResponseBody struct {
+	// 用户的 unionId。
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 用户的userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetUserInfoByOpenTokenResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserInfoByOpenTokenResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserInfoByOpenTokenResponseBody) SetUnionId(v string) *GetUserInfoByOpenTokenResponseBody {
+	s.UnionId = &v
+	return s
+}
+
+func (s *GetUserInfoByOpenTokenResponseBody) SetUserId(v string) *GetUserInfoByOpenTokenResponseBody {
+	s.UserId = &v
+	return s
+}
+
+type GetUserInfoByOpenTokenResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetUserInfoByOpenTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetUserInfoByOpenTokenResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserInfoByOpenTokenResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserInfoByOpenTokenResponse) SetHeaders(v map[string]*string) *GetUserInfoByOpenTokenResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetUserInfoByOpenTokenResponse) SetBody(v *GetUserInfoByOpenTokenResponseBody) *GetUserInfoByOpenTokenResponse {
+	s.Body = v
+	return s
+}
+
 type MoveDentryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1212,6 +1308,54 @@ func (client *Client) GetSpaceDirectoriesWithOptions(spaceId *string, request *G
 	}
 	_result = &GetSpaceDirectoriesResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetSpaceDirectories"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)+"/directories"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetUserInfoByOpenToken(request *GetUserInfoByOpenTokenRequest) (_result *GetUserInfoByOpenTokenResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetUserInfoByOpenTokenHeaders{}
+	_result = &GetUserInfoByOpenTokenResponse{}
+	_body, _err := client.GetUserInfoByOpenTokenWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetUserInfoByOpenTokenWithOptions(request *GetUserInfoByOpenTokenRequest, headers *GetUserInfoByOpenTokenHeaders, runtime *util.RuntimeOptions) (_result *GetUserInfoByOpenTokenResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DocKey)) {
+		query["docKey"] = request.DocKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenToken)) {
+		query["openToken"] = request.OpenToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetUserInfoByOpenTokenResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetUserInfoByOpenToken"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/userInfos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
