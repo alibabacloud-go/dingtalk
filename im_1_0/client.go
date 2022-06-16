@@ -11,6 +11,69 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AutoOpenDingTalkConnectHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AutoOpenDingTalkConnectHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AutoOpenDingTalkConnectHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AutoOpenDingTalkConnectHeaders) SetCommonHeaders(v map[string]*string) *AutoOpenDingTalkConnectHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AutoOpenDingTalkConnectHeaders) SetXAcsDingtalkAccessToken(v string) *AutoOpenDingTalkConnectHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AutoOpenDingTalkConnectResponseBody struct {
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+}
+
+func (s AutoOpenDingTalkConnectResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AutoOpenDingTalkConnectResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AutoOpenDingTalkConnectResponseBody) SetMessage(v string) *AutoOpenDingTalkConnectResponseBody {
+	s.Message = &v
+	return s
+}
+
+type AutoOpenDingTalkConnectResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AutoOpenDingTalkConnectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AutoOpenDingTalkConnectResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AutoOpenDingTalkConnectResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AutoOpenDingTalkConnectResponse) SetHeaders(v map[string]*string) *AutoOpenDingTalkConnectResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AutoOpenDingTalkConnectResponse) SetBody(v *AutoOpenDingTalkConnectResponseBody) *AutoOpenDingTalkConnectResponse {
+	s.Body = v
+	return s
+}
+
 type BatchQueryGroupMemberHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4784,6 +4847,40 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) AutoOpenDingTalkConnect() (_result *AutoOpenDingTalkConnectResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AutoOpenDingTalkConnectHeaders{}
+	_result = &AutoOpenDingTalkConnectResponse{}
+	_body, _err := client.AutoOpenDingTalkConnectWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AutoOpenDingTalkConnectWithOptions(headers *AutoOpenDingTalkConnectHeaders, runtime *util.RuntimeOptions) (_result *AutoOpenDingTalkConnectResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &AutoOpenDingTalkConnectResponse{}
+	_body, _err := client.DoROARequest(tea.String("AutoOpenDingTalkConnect"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/apps/open"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) BatchQueryGroupMember(request *BatchQueryGroupMemberRequest) (_result *BatchQueryGroupMemberResponse, _err error) {

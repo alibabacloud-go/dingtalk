@@ -5338,6 +5338,8 @@ func (s *QueryAllMemberByDeptHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryAllMemberByDeptRequest struct {
+	// 按月查询标识
+	MonthMark *string `json:"monthMark,omitempty" xml:"monthMark,omitempty"`
 	// 分页查询页码
 	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
 	// 分页查询页容量
@@ -5350,6 +5352,11 @@ func (s QueryAllMemberByDeptRequest) String() string {
 
 func (s QueryAllMemberByDeptRequest) GoString() string {
 	return s.String()
+}
+
+func (s *QueryAllMemberByDeptRequest) SetMonthMark(v string) *QueryAllMemberByDeptRequest {
+	s.MonthMark = &v
+	return s
 }
 
 func (s *QueryAllMemberByDeptRequest) SetPageNumber(v int32) *QueryAllMemberByDeptRequest {
@@ -5480,6 +5487,8 @@ func (s *QueryAllMemberByGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 }
 
 type QueryAllMemberByGroupRequest struct {
+	// 按月查询标识
+	MonthMark *string `json:"monthMark,omitempty" xml:"monthMark,omitempty"`
 	// 分页查询页码
 	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
 	// 分页查询分页大小
@@ -5492,6 +5501,11 @@ func (s QueryAllMemberByGroupRequest) String() string {
 
 func (s QueryAllMemberByGroupRequest) GoString() string {
 	return s.String()
+}
+
+func (s *QueryAllMemberByGroupRequest) SetMonthMark(v string) *QueryAllMemberByGroupRequest {
+	s.MonthMark = &v
+	return s
 }
 
 func (s *QueryAllMemberByGroupRequest) SetPageNumber(v int32) *QueryAllMemberByGroupRequest {
@@ -5866,14 +5880,10 @@ func (s *QueryDepartmentInfoResponseBody) SetContent(v *QueryDepartmentInfoRespo
 }
 
 type QueryDepartmentInfoResponseBodyContent struct {
-	// 科室Id
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
-	// 科室主任
-	Leader *QueryDepartmentInfoResponseBodyContentLeader `json:"leader,omitempty" xml:"leader,omitempty" type:"Struct"`
-	// 科室名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 住院总医师
-	ResidentLeader *QueryDepartmentInfoResponseBodyContentResidentLeader `json:"residentLeader,omitempty" xml:"residentLeader,omitempty" type:"Struct"`
+	// 科室列表
+	Department *QueryDepartmentInfoResponseBodyContentDepartment `json:"department,omitempty" xml:"department,omitempty" type:"Struct"`
+	// 科室扩展属性值
+	ExtendInfos []*QueryDepartmentInfoResponseBodyContentExtendInfos `json:"extendInfos,omitempty" xml:"extendInfos,omitempty" type:"Repeated"`
 }
 
 func (s QueryDepartmentInfoResponseBodyContent) String() string {
@@ -5884,179 +5894,175 @@ func (s QueryDepartmentInfoResponseBodyContent) GoString() string {
 	return s.String()
 }
 
-func (s *QueryDepartmentInfoResponseBodyContent) SetId(v int64) *QueryDepartmentInfoResponseBodyContent {
+func (s *QueryDepartmentInfoResponseBodyContent) SetDepartment(v *QueryDepartmentInfoResponseBodyContentDepartment) *QueryDepartmentInfoResponseBodyContent {
+	s.Department = v
+	return s
+}
+
+func (s *QueryDepartmentInfoResponseBodyContent) SetExtendInfos(v []*QueryDepartmentInfoResponseBodyContentExtendInfos) *QueryDepartmentInfoResponseBodyContent {
+	s.ExtendInfos = v
+	return s
+}
+
+type QueryDepartmentInfoResponseBodyContentDepartment struct {
+	// 科室code
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// 科室名称
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// 顺序
+	DeptOrder *int64 `json:"deptOrder,omitempty" xml:"deptOrder,omitempty"`
+	// 状态
+	DeptStatus *int32 `json:"deptStatus,omitempty" xml:"deptStatus,omitempty"`
+	// 类型
+	DeptType *int32 `json:"deptType,omitempty" xml:"deptType,omitempty"`
+	// 创建时间
+	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// 修改时间
+	GmtModifiedStr *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
+	// 科室id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 科室名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 父code
+	ParentDeptCode *string `json:"parentDeptCode,omitempty" xml:"parentDeptCode,omitempty"`
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// 病区id
+	WardIdList []*int64 `json:"wardIdList,omitempty" xml:"wardIdList,omitempty" type:"Repeated"`
+}
+
+func (s QueryDepartmentInfoResponseBodyContentDepartment) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDepartmentInfoResponseBodyContentDepartment) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDepartmentInfoResponseBodyContentDepartment) SetDeptCode(v string) *QueryDepartmentInfoResponseBodyContentDepartment {
+	s.DeptCode = &v
+	return s
+}
+
+func (s *QueryDepartmentInfoResponseBodyContentDepartment) SetDeptName(v string) *QueryDepartmentInfoResponseBodyContentDepartment {
+	s.DeptName = &v
+	return s
+}
+
+func (s *QueryDepartmentInfoResponseBodyContentDepartment) SetDeptOrder(v int64) *QueryDepartmentInfoResponseBodyContentDepartment {
+	s.DeptOrder = &v
+	return s
+}
+
+func (s *QueryDepartmentInfoResponseBodyContentDepartment) SetDeptStatus(v int32) *QueryDepartmentInfoResponseBodyContentDepartment {
+	s.DeptStatus = &v
+	return s
+}
+
+func (s *QueryDepartmentInfoResponseBodyContentDepartment) SetDeptType(v int32) *QueryDepartmentInfoResponseBodyContentDepartment {
+	s.DeptType = &v
+	return s
+}
+
+func (s *QueryDepartmentInfoResponseBodyContentDepartment) SetGmtCreateStr(v string) *QueryDepartmentInfoResponseBodyContentDepartment {
+	s.GmtCreateStr = &v
+	return s
+}
+
+func (s *QueryDepartmentInfoResponseBodyContentDepartment) SetGmtModifiedStr(v string) *QueryDepartmentInfoResponseBodyContentDepartment {
+	s.GmtModifiedStr = &v
+	return s
+}
+
+func (s *QueryDepartmentInfoResponseBodyContentDepartment) SetId(v int64) *QueryDepartmentInfoResponseBodyContentDepartment {
 	s.Id = &v
 	return s
 }
 
-func (s *QueryDepartmentInfoResponseBodyContent) SetLeader(v *QueryDepartmentInfoResponseBodyContentLeader) *QueryDepartmentInfoResponseBodyContent {
-	s.Leader = v
-	return s
-}
-
-func (s *QueryDepartmentInfoResponseBodyContent) SetName(v string) *QueryDepartmentInfoResponseBodyContent {
+func (s *QueryDepartmentInfoResponseBodyContentDepartment) SetName(v string) *QueryDepartmentInfoResponseBodyContentDepartment {
 	s.Name = &v
 	return s
 }
 
-func (s *QueryDepartmentInfoResponseBodyContent) SetResidentLeader(v *QueryDepartmentInfoResponseBodyContentResidentLeader) *QueryDepartmentInfoResponseBodyContent {
-	s.ResidentLeader = v
+func (s *QueryDepartmentInfoResponseBodyContentDepartment) SetParentDeptCode(v string) *QueryDepartmentInfoResponseBodyContentDepartment {
+	s.ParentDeptCode = &v
 	return s
 }
 
-type QueryDepartmentInfoResponseBodyContentLeader struct {
-	// 工作标签
-	Job *QueryDepartmentInfoResponseBodyContentLeaderJob `json:"job,omitempty" xml:"job,omitempty" type:"Struct"`
-	// 工号
-	JobNumber *string `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
-	// 姓名
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 人员Id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+func (s *QueryDepartmentInfoResponseBodyContentDepartment) SetRemark(v string) *QueryDepartmentInfoResponseBodyContentDepartment {
+	s.Remark = &v
+	return s
 }
 
-func (s QueryDepartmentInfoResponseBodyContentLeader) String() string {
+func (s *QueryDepartmentInfoResponseBodyContentDepartment) SetWardIdList(v []*int64) *QueryDepartmentInfoResponseBodyContentDepartment {
+	s.WardIdList = v
+	return s
+}
+
+type QueryDepartmentInfoResponseBodyContentExtendInfos struct {
+	// 部门code
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// 扩展属性描述
+	DeptExtendDisplayName *string `json:"deptExtendDisplayName,omitempty" xml:"deptExtendDisplayName,omitempty"`
+	// 扩展属性key
+	DeptExtendKey *string `json:"deptExtendKey,omitempty" xml:"deptExtendKey,omitempty"`
+	// 扩展属性value
+	DeptExtendValue *string `json:"deptExtendValue,omitempty" xml:"deptExtendValue,omitempty"`
+	// 创建时间
+	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// 修改时间
+	GmtModifiedStr *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
+	// id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 状态
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QueryDepartmentInfoResponseBodyContentExtendInfos) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryDepartmentInfoResponseBodyContentLeader) GoString() string {
+func (s QueryDepartmentInfoResponseBodyContentExtendInfos) GoString() string {
 	return s.String()
 }
 
-func (s *QueryDepartmentInfoResponseBodyContentLeader) SetJob(v *QueryDepartmentInfoResponseBodyContentLeaderJob) *QueryDepartmentInfoResponseBodyContentLeader {
-	s.Job = v
+func (s *QueryDepartmentInfoResponseBodyContentExtendInfos) SetDeptCode(v string) *QueryDepartmentInfoResponseBodyContentExtendInfos {
+	s.DeptCode = &v
 	return s
 }
 
-func (s *QueryDepartmentInfoResponseBodyContentLeader) SetJobNumber(v string) *QueryDepartmentInfoResponseBodyContentLeader {
-	s.JobNumber = &v
+func (s *QueryDepartmentInfoResponseBodyContentExtendInfos) SetDeptExtendDisplayName(v string) *QueryDepartmentInfoResponseBodyContentExtendInfos {
+	s.DeptExtendDisplayName = &v
 	return s
 }
 
-func (s *QueryDepartmentInfoResponseBodyContentLeader) SetName(v string) *QueryDepartmentInfoResponseBodyContentLeader {
-	s.Name = &v
+func (s *QueryDepartmentInfoResponseBodyContentExtendInfos) SetDeptExtendKey(v string) *QueryDepartmentInfoResponseBodyContentExtendInfos {
+	s.DeptExtendKey = &v
 	return s
 }
 
-func (s *QueryDepartmentInfoResponseBodyContentLeader) SetUserId(v string) *QueryDepartmentInfoResponseBodyContentLeader {
-	s.UserId = &v
+func (s *QueryDepartmentInfoResponseBodyContentExtendInfos) SetDeptExtendValue(v string) *QueryDepartmentInfoResponseBodyContentExtendInfos {
+	s.DeptExtendValue = &v
 	return s
 }
 
-type QueryDepartmentInfoResponseBodyContentLeaderJob struct {
-	// 业务类型
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 分类
-	Category *string `json:"category,omitempty" xml:"category,omitempty"`
-	// 标签Code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 展示名称
-	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
-}
-
-func (s QueryDepartmentInfoResponseBodyContentLeaderJob) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryDepartmentInfoResponseBodyContentLeaderJob) GoString() string {
-	return s.String()
-}
-
-func (s *QueryDepartmentInfoResponseBodyContentLeaderJob) SetBizType(v string) *QueryDepartmentInfoResponseBodyContentLeaderJob {
-	s.BizType = &v
+func (s *QueryDepartmentInfoResponseBodyContentExtendInfos) SetGmtCreateStr(v string) *QueryDepartmentInfoResponseBodyContentExtendInfos {
+	s.GmtCreateStr = &v
 	return s
 }
 
-func (s *QueryDepartmentInfoResponseBodyContentLeaderJob) SetCategory(v string) *QueryDepartmentInfoResponseBodyContentLeaderJob {
-	s.Category = &v
+func (s *QueryDepartmentInfoResponseBodyContentExtendInfos) SetGmtModifiedStr(v string) *QueryDepartmentInfoResponseBodyContentExtendInfos {
+	s.GmtModifiedStr = &v
 	return s
 }
 
-func (s *QueryDepartmentInfoResponseBodyContentLeaderJob) SetCode(v string) *QueryDepartmentInfoResponseBodyContentLeaderJob {
-	s.Code = &v
+func (s *QueryDepartmentInfoResponseBodyContentExtendInfos) SetId(v int64) *QueryDepartmentInfoResponseBodyContentExtendInfos {
+	s.Id = &v
 	return s
 }
 
-func (s *QueryDepartmentInfoResponseBodyContentLeaderJob) SetDisplayName(v string) *QueryDepartmentInfoResponseBodyContentLeaderJob {
-	s.DisplayName = &v
-	return s
-}
-
-type QueryDepartmentInfoResponseBodyContentResidentLeader struct {
-	// 工作标签
-	Job *QueryDepartmentInfoResponseBodyContentResidentLeaderJob `json:"job,omitempty" xml:"job,omitempty" type:"Struct"`
-	// 工号
-	JobNumber *string `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
-	// 姓名
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 人员Id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-}
-
-func (s QueryDepartmentInfoResponseBodyContentResidentLeader) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryDepartmentInfoResponseBodyContentResidentLeader) GoString() string {
-	return s.String()
-}
-
-func (s *QueryDepartmentInfoResponseBodyContentResidentLeader) SetJob(v *QueryDepartmentInfoResponseBodyContentResidentLeaderJob) *QueryDepartmentInfoResponseBodyContentResidentLeader {
-	s.Job = v
-	return s
-}
-
-func (s *QueryDepartmentInfoResponseBodyContentResidentLeader) SetJobNumber(v string) *QueryDepartmentInfoResponseBodyContentResidentLeader {
-	s.JobNumber = &v
-	return s
-}
-
-func (s *QueryDepartmentInfoResponseBodyContentResidentLeader) SetName(v string) *QueryDepartmentInfoResponseBodyContentResidentLeader {
-	s.Name = &v
-	return s
-}
-
-func (s *QueryDepartmentInfoResponseBodyContentResidentLeader) SetUserId(v string) *QueryDepartmentInfoResponseBodyContentResidentLeader {
-	s.UserId = &v
-	return s
-}
-
-type QueryDepartmentInfoResponseBodyContentResidentLeaderJob struct {
-	// 业务类型
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 分类
-	Category *string `json:"category,omitempty" xml:"category,omitempty"`
-	// 标签Code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 展示名称
-	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
-}
-
-func (s QueryDepartmentInfoResponseBodyContentResidentLeaderJob) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryDepartmentInfoResponseBodyContentResidentLeaderJob) GoString() string {
-	return s.String()
-}
-
-func (s *QueryDepartmentInfoResponseBodyContentResidentLeaderJob) SetBizType(v string) *QueryDepartmentInfoResponseBodyContentResidentLeaderJob {
-	s.BizType = &v
-	return s
-}
-
-func (s *QueryDepartmentInfoResponseBodyContentResidentLeaderJob) SetCategory(v string) *QueryDepartmentInfoResponseBodyContentResidentLeaderJob {
-	s.Category = &v
-	return s
-}
-
-func (s *QueryDepartmentInfoResponseBodyContentResidentLeaderJob) SetCode(v string) *QueryDepartmentInfoResponseBodyContentResidentLeaderJob {
-	s.Code = &v
-	return s
-}
-
-func (s *QueryDepartmentInfoResponseBodyContentResidentLeaderJob) SetDisplayName(v string) *QueryDepartmentInfoResponseBodyContentResidentLeaderJob {
-	s.DisplayName = &v
+func (s *QueryDepartmentInfoResponseBodyContentExtendInfos) SetStatus(v int32) *QueryDepartmentInfoResponseBodyContentExtendInfos {
+	s.Status = &v
 	return s
 }
 
@@ -6125,18 +6131,10 @@ func (s *QueryGroupInfoResponseBody) SetContent(v *QueryGroupInfoResponseBodyCon
 }
 
 type QueryGroupInfoResponseBodyContent struct {
-	// 科室Id
-	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 有效期结束时间
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 医疗组Id
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
-	// 医疗组组长
-	Leader *QueryGroupInfoResponseBodyContentLeader `json:"leader,omitempty" xml:"leader,omitempty" type:"Struct"`
-	// 医疗组名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 有效期开始时间
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 扩展信息
+	ExtendInfos []*QueryGroupInfoResponseBodyContentExtendInfos `json:"extendInfos,omitempty" xml:"extendInfos,omitempty" type:"Repeated"`
+	// 医疗组
+	Group *QueryGroupInfoResponseBodyContentGroup `json:"group,omitempty" xml:"group,omitempty" type:"Struct"`
 }
 
 func (s QueryGroupInfoResponseBodyContent) String() string {
@@ -6147,111 +6145,186 @@ func (s QueryGroupInfoResponseBodyContent) GoString() string {
 	return s.String()
 }
 
-func (s *QueryGroupInfoResponseBodyContent) SetDeptId(v int64) *QueryGroupInfoResponseBodyContent {
-	s.DeptId = &v
+func (s *QueryGroupInfoResponseBodyContent) SetExtendInfos(v []*QueryGroupInfoResponseBodyContentExtendInfos) *QueryGroupInfoResponseBodyContent {
+	s.ExtendInfos = v
 	return s
 }
 
-func (s *QueryGroupInfoResponseBodyContent) SetEndTime(v int64) *QueryGroupInfoResponseBodyContent {
-	s.EndTime = &v
+func (s *QueryGroupInfoResponseBodyContent) SetGroup(v *QueryGroupInfoResponseBodyContentGroup) *QueryGroupInfoResponseBodyContent {
+	s.Group = v
 	return s
 }
 
-func (s *QueryGroupInfoResponseBodyContent) SetId(v int64) *QueryGroupInfoResponseBodyContent {
+type QueryGroupInfoResponseBodyContentExtendInfos struct {
+	// 医疗组code
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// 扩展属性显示名称
+	DeptExtendDisplayName *string `json:"deptExtendDisplayName,omitempty" xml:"deptExtendDisplayName,omitempty"`
+	// 扩展属性key
+	DeptExtendKey *string `json:"deptExtendKey,omitempty" xml:"deptExtendKey,omitempty"`
+	// 扩展属性value
+	DeptExtendValue *string `json:"deptExtendValue,omitempty" xml:"deptExtendValue,omitempty"`
+	// 创建时间
+	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// 修改时间
+	GmtModifiedStr *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
+	// id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 状态
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QueryGroupInfoResponseBodyContentExtendInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupInfoResponseBodyContentExtendInfos) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupInfoResponseBodyContentExtendInfos) SetDeptCode(v string) *QueryGroupInfoResponseBodyContentExtendInfos {
+	s.DeptCode = &v
+	return s
+}
+
+func (s *QueryGroupInfoResponseBodyContentExtendInfos) SetDeptExtendDisplayName(v string) *QueryGroupInfoResponseBodyContentExtendInfos {
+	s.DeptExtendDisplayName = &v
+	return s
+}
+
+func (s *QueryGroupInfoResponseBodyContentExtendInfos) SetDeptExtendKey(v string) *QueryGroupInfoResponseBodyContentExtendInfos {
+	s.DeptExtendKey = &v
+	return s
+}
+
+func (s *QueryGroupInfoResponseBodyContentExtendInfos) SetDeptExtendValue(v string) *QueryGroupInfoResponseBodyContentExtendInfos {
+	s.DeptExtendValue = &v
+	return s
+}
+
+func (s *QueryGroupInfoResponseBodyContentExtendInfos) SetGmtCreateStr(v string) *QueryGroupInfoResponseBodyContentExtendInfos {
+	s.GmtCreateStr = &v
+	return s
+}
+
+func (s *QueryGroupInfoResponseBodyContentExtendInfos) SetGmtModifiedStr(v string) *QueryGroupInfoResponseBodyContentExtendInfos {
+	s.GmtModifiedStr = &v
+	return s
+}
+
+func (s *QueryGroupInfoResponseBodyContentExtendInfos) SetId(v int64) *QueryGroupInfoResponseBodyContentExtendInfos {
 	s.Id = &v
 	return s
 }
 
-func (s *QueryGroupInfoResponseBodyContent) SetLeader(v *QueryGroupInfoResponseBodyContentLeader) *QueryGroupInfoResponseBodyContent {
+func (s *QueryGroupInfoResponseBodyContentExtendInfos) SetStatus(v int32) *QueryGroupInfoResponseBodyContentExtendInfos {
+	s.Status = &v
+	return s
+}
+
+type QueryGroupInfoResponseBodyContentGroup struct {
+	// 医疗组id
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 医疗组状态
+	DeptStatus *int32 `json:"deptStatus,omitempty" xml:"deptStatus,omitempty"`
+	// 创建时间
+	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// 修改时间
+	GmtModifiedStr *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
+	// id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 组长
+	Leader *QueryGroupInfoResponseBodyContentGroupLeader `json:"leader,omitempty" xml:"leader,omitempty" type:"Struct"`
+	// 医疗组名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 父code
+	ParentDeptCode *string `json:"parentDeptCode,omitempty" xml:"parentDeptCode,omitempty"`
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+}
+
+func (s QueryGroupInfoResponseBodyContentGroup) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupInfoResponseBodyContentGroup) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupInfoResponseBodyContentGroup) SetDeptId(v int64) *QueryGroupInfoResponseBodyContentGroup {
+	s.DeptId = &v
+	return s
+}
+
+func (s *QueryGroupInfoResponseBodyContentGroup) SetDeptStatus(v int32) *QueryGroupInfoResponseBodyContentGroup {
+	s.DeptStatus = &v
+	return s
+}
+
+func (s *QueryGroupInfoResponseBodyContentGroup) SetGmtCreateStr(v string) *QueryGroupInfoResponseBodyContentGroup {
+	s.GmtCreateStr = &v
+	return s
+}
+
+func (s *QueryGroupInfoResponseBodyContentGroup) SetGmtModifiedStr(v string) *QueryGroupInfoResponseBodyContentGroup {
+	s.GmtModifiedStr = &v
+	return s
+}
+
+func (s *QueryGroupInfoResponseBodyContentGroup) SetId(v int64) *QueryGroupInfoResponseBodyContentGroup {
+	s.Id = &v
+	return s
+}
+
+func (s *QueryGroupInfoResponseBodyContentGroup) SetLeader(v *QueryGroupInfoResponseBodyContentGroupLeader) *QueryGroupInfoResponseBodyContentGroup {
 	s.Leader = v
 	return s
 }
 
-func (s *QueryGroupInfoResponseBodyContent) SetName(v string) *QueryGroupInfoResponseBodyContent {
+func (s *QueryGroupInfoResponseBodyContentGroup) SetName(v string) *QueryGroupInfoResponseBodyContentGroup {
 	s.Name = &v
 	return s
 }
 
-func (s *QueryGroupInfoResponseBodyContent) SetStartTime(v int64) *QueryGroupInfoResponseBodyContent {
-	s.StartTime = &v
+func (s *QueryGroupInfoResponseBodyContentGroup) SetParentDeptCode(v string) *QueryGroupInfoResponseBodyContentGroup {
+	s.ParentDeptCode = &v
 	return s
 }
 
-type QueryGroupInfoResponseBodyContentLeader struct {
-	// 工作标签
-	Job *QueryGroupInfoResponseBodyContentLeaderJob `json:"job,omitempty" xml:"job,omitempty" type:"Struct"`
+func (s *QueryGroupInfoResponseBodyContentGroup) SetRemark(v string) *QueryGroupInfoResponseBodyContentGroup {
+	s.Remark = &v
+	return s
+}
+
+type QueryGroupInfoResponseBodyContentGroupLeader struct {
 	// 工号
 	JobNumber *string `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
-	// 姓名
+	// 组长名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 人员Id
+	// 用户id
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
-func (s QueryGroupInfoResponseBodyContentLeader) String() string {
+func (s QueryGroupInfoResponseBodyContentGroupLeader) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryGroupInfoResponseBodyContentLeader) GoString() string {
+func (s QueryGroupInfoResponseBodyContentGroupLeader) GoString() string {
 	return s.String()
 }
 
-func (s *QueryGroupInfoResponseBodyContentLeader) SetJob(v *QueryGroupInfoResponseBodyContentLeaderJob) *QueryGroupInfoResponseBodyContentLeader {
-	s.Job = v
-	return s
-}
-
-func (s *QueryGroupInfoResponseBodyContentLeader) SetJobNumber(v string) *QueryGroupInfoResponseBodyContentLeader {
+func (s *QueryGroupInfoResponseBodyContentGroupLeader) SetJobNumber(v string) *QueryGroupInfoResponseBodyContentGroupLeader {
 	s.JobNumber = &v
 	return s
 }
 
-func (s *QueryGroupInfoResponseBodyContentLeader) SetName(v string) *QueryGroupInfoResponseBodyContentLeader {
+func (s *QueryGroupInfoResponseBodyContentGroupLeader) SetName(v string) *QueryGroupInfoResponseBodyContentGroupLeader {
 	s.Name = &v
 	return s
 }
 
-func (s *QueryGroupInfoResponseBodyContentLeader) SetUserId(v string) *QueryGroupInfoResponseBodyContentLeader {
+func (s *QueryGroupInfoResponseBodyContentGroupLeader) SetUserId(v string) *QueryGroupInfoResponseBodyContentGroupLeader {
 	s.UserId = &v
-	return s
-}
-
-type QueryGroupInfoResponseBodyContentLeaderJob struct {
-	// 业务类型
-	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 分类
-	Category *string `json:"category,omitempty" xml:"category,omitempty"`
-	// 标签Code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 展示名称
-	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
-}
-
-func (s QueryGroupInfoResponseBodyContentLeaderJob) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryGroupInfoResponseBodyContentLeaderJob) GoString() string {
-	return s.String()
-}
-
-func (s *QueryGroupInfoResponseBodyContentLeaderJob) SetBizType(v string) *QueryGroupInfoResponseBodyContentLeaderJob {
-	s.BizType = &v
-	return s
-}
-
-func (s *QueryGroupInfoResponseBodyContentLeaderJob) SetCategory(v string) *QueryGroupInfoResponseBodyContentLeaderJob {
-	s.Category = &v
-	return s
-}
-
-func (s *QueryGroupInfoResponseBodyContentLeaderJob) SetCode(v string) *QueryGroupInfoResponseBodyContentLeaderJob {
-	s.Code = &v
-	return s
-}
-
-func (s *QueryGroupInfoResponseBodyContentLeaderJob) SetDisplayName(v string) *QueryGroupInfoResponseBodyContentLeaderJob {
-	s.DisplayName = &v
 	return s
 }
 
@@ -10116,6 +10189,10 @@ func (client *Client) QueryAllMemberByDeptWithOptions(deptId *string, request *Q
 	}
 	deptId = openapiutil.GetEncodeParam(deptId)
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MonthMark)) {
+		query["monthMark"] = request.MonthMark
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
 		query["pageNumber"] = request.PageNumber
 	}
@@ -10165,6 +10242,10 @@ func (client *Client) QueryAllMemberByGroupWithOptions(groupId *string, request 
 	}
 	groupId = openapiutil.GetEncodeParam(groupId)
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MonthMark)) {
+		query["monthMark"] = request.MonthMark
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
 		query["pageNumber"] = request.PageNumber
 	}
