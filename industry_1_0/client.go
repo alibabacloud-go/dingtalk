@@ -5838,6 +5838,162 @@ func (s *QueryBizOptLogResponse) SetBody(v *QueryBizOptLogResponseBody) *QueryBi
 	return s
 }
 
+type QueryDepartmentExtendInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryDepartmentExtendInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDepartmentExtendInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDepartmentExtendInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryDepartmentExtendInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryDepartmentExtendInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryDepartmentExtendInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryDepartmentExtendInfoRequest struct {
+	// 科室或医疗组code
+	DeptCode *int64 `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// 扩展属性code
+	PropCode *string `json:"propCode,omitempty" xml:"propCode,omitempty"`
+}
+
+func (s QueryDepartmentExtendInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDepartmentExtendInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDepartmentExtendInfoRequest) SetDeptCode(v int64) *QueryDepartmentExtendInfoRequest {
+	s.DeptCode = &v
+	return s
+}
+
+func (s *QueryDepartmentExtendInfoRequest) SetPropCode(v string) *QueryDepartmentExtendInfoRequest {
+	s.PropCode = &v
+	return s
+}
+
+type QueryDepartmentExtendInfoResponseBody struct {
+	// 扩展属性列表
+	Content []*QueryDepartmentExtendInfoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+}
+
+func (s QueryDepartmentExtendInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDepartmentExtendInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDepartmentExtendInfoResponseBody) SetContent(v []*QueryDepartmentExtendInfoResponseBodyContent) *QueryDepartmentExtendInfoResponseBody {
+	s.Content = v
+	return s
+}
+
+type QueryDepartmentExtendInfoResponseBodyContent struct {
+	// 科室或医疗组code
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// 扩展属性显示名称
+	DeptExtendDisplayName *string `json:"deptExtendDisplayName,omitempty" xml:"deptExtendDisplayName,omitempty"`
+	// 扩展属性key
+	DeptExtendKey *string `json:"deptExtendKey,omitempty" xml:"deptExtendKey,omitempty"`
+	// 扩展属性value
+	DeptExtendValue *string `json:"deptExtendValue,omitempty" xml:"deptExtendValue,omitempty"`
+	// 创建时间
+	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// 修改时间
+	GmtModifiedStr *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
+	// id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 删除标识
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QueryDepartmentExtendInfoResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDepartmentExtendInfoResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDepartmentExtendInfoResponseBodyContent) SetDeptCode(v string) *QueryDepartmentExtendInfoResponseBodyContent {
+	s.DeptCode = &v
+	return s
+}
+
+func (s *QueryDepartmentExtendInfoResponseBodyContent) SetDeptExtendDisplayName(v string) *QueryDepartmentExtendInfoResponseBodyContent {
+	s.DeptExtendDisplayName = &v
+	return s
+}
+
+func (s *QueryDepartmentExtendInfoResponseBodyContent) SetDeptExtendKey(v string) *QueryDepartmentExtendInfoResponseBodyContent {
+	s.DeptExtendKey = &v
+	return s
+}
+
+func (s *QueryDepartmentExtendInfoResponseBodyContent) SetDeptExtendValue(v string) *QueryDepartmentExtendInfoResponseBodyContent {
+	s.DeptExtendValue = &v
+	return s
+}
+
+func (s *QueryDepartmentExtendInfoResponseBodyContent) SetGmtCreateStr(v string) *QueryDepartmentExtendInfoResponseBodyContent {
+	s.GmtCreateStr = &v
+	return s
+}
+
+func (s *QueryDepartmentExtendInfoResponseBodyContent) SetGmtModifiedStr(v string) *QueryDepartmentExtendInfoResponseBodyContent {
+	s.GmtModifiedStr = &v
+	return s
+}
+
+func (s *QueryDepartmentExtendInfoResponseBodyContent) SetId(v int64) *QueryDepartmentExtendInfoResponseBodyContent {
+	s.Id = &v
+	return s
+}
+
+func (s *QueryDepartmentExtendInfoResponseBodyContent) SetStatus(v int32) *QueryDepartmentExtendInfoResponseBodyContent {
+	s.Status = &v
+	return s
+}
+
+type QueryDepartmentExtendInfoResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryDepartmentExtendInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryDepartmentExtendInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDepartmentExtendInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDepartmentExtendInfoResponse) SetHeaders(v map[string]*string) *QueryDepartmentExtendInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryDepartmentExtendInfoResponse) SetBody(v *QueryDepartmentExtendInfoResponseBody) *QueryDepartmentExtendInfoResponse {
+	s.Body = v
+	return s
+}
+
 type QueryDepartmentInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10317,6 +10473,54 @@ func (client *Client) QueryBizOptLogWithOptions(request *QueryBizOptLogRequest, 
 	}
 	_result = &QueryBizOptLogResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryBizOptLog"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/medicals/bizOptLogs"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryDepartmentExtendInfo(request *QueryDepartmentExtendInfoRequest) (_result *QueryDepartmentExtendInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryDepartmentExtendInfoHeaders{}
+	_result = &QueryDepartmentExtendInfoResponse{}
+	_body, _err := client.QueryDepartmentExtendInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryDepartmentExtendInfoWithOptions(request *QueryDepartmentExtendInfoRequest, headers *QueryDepartmentExtendInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryDepartmentExtendInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptCode)) {
+		query["deptCode"] = request.DeptCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PropCode)) {
+		query["propCode"] = request.PropCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryDepartmentExtendInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryDepartmentExtendInfo"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/medicals/departments/extensions/infos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

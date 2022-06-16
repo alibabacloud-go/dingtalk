@@ -1297,6 +1297,113 @@ func (s *FileStorageUpdateStorageResponse) SetBody(v *FileStorageUpdateStorageRe
 	return s
 }
 
+type GenerateDarkWaterMarkHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GenerateDarkWaterMarkHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateDarkWaterMarkHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateDarkWaterMarkHeaders) SetCommonHeaders(v map[string]*string) *GenerateDarkWaterMarkHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GenerateDarkWaterMarkHeaders) SetXAcsDingtalkAccessToken(v string) *GenerateDarkWaterMarkHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GenerateDarkWaterMarkRequest struct {
+	// 工号列表
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s GenerateDarkWaterMarkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateDarkWaterMarkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateDarkWaterMarkRequest) SetUserIdList(v []*string) *GenerateDarkWaterMarkRequest {
+	s.UserIdList = v
+	return s
+}
+
+type GenerateDarkWaterMarkResponseBody struct {
+	// 返回码
+	DarkWatermarkVOList []*GenerateDarkWaterMarkResponseBodyDarkWatermarkVOList `json:"darkWatermarkVOList,omitempty" xml:"darkWatermarkVOList,omitempty" type:"Repeated"`
+}
+
+func (s GenerateDarkWaterMarkResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateDarkWaterMarkResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateDarkWaterMarkResponseBody) SetDarkWatermarkVOList(v []*GenerateDarkWaterMarkResponseBodyDarkWatermarkVOList) *GenerateDarkWaterMarkResponseBody {
+	s.DarkWatermarkVOList = v
+	return s
+}
+
+type GenerateDarkWaterMarkResponseBodyDarkWatermarkVOList struct {
+	// 暗水印链接
+	DarkWatermark *string `json:"darkWatermark,omitempty" xml:"darkWatermark,omitempty"`
+	// 员工工号
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GenerateDarkWaterMarkResponseBodyDarkWatermarkVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateDarkWaterMarkResponseBodyDarkWatermarkVOList) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateDarkWaterMarkResponseBodyDarkWatermarkVOList) SetDarkWatermark(v string) *GenerateDarkWaterMarkResponseBodyDarkWatermarkVOList {
+	s.DarkWatermark = &v
+	return s
+}
+
+func (s *GenerateDarkWaterMarkResponseBodyDarkWatermarkVOList) SetUserId(v string) *GenerateDarkWaterMarkResponseBodyDarkWatermarkVOList {
+	s.UserId = &v
+	return s
+}
+
+type GenerateDarkWaterMarkResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GenerateDarkWaterMarkResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GenerateDarkWaterMarkResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateDarkWaterMarkResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateDarkWaterMarkResponse) SetHeaders(v map[string]*string) *GenerateDarkWaterMarkResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GenerateDarkWaterMarkResponse) SetBody(v *GenerateDarkWaterMarkResponseBody) *GenerateDarkWaterMarkResponse {
+	s.Body = v
+	return s
+}
+
 type GetActiveUserSummaryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4020,7 +4127,8 @@ type GetTrustDeviceListResponseBodyData struct {
 	// 平台类型
 	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
 	// 设备状态
-	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	Status *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	Title  *string `json:"title,omitempty" xml:"title,omitempty"`
 	// 员工Id
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -4050,6 +4158,11 @@ func (s *GetTrustDeviceListResponseBodyData) SetPlatform(v string) *GetTrustDevi
 
 func (s *GetTrustDeviceListResponseBodyData) SetStatus(v int32) *GetTrustDeviceListResponseBodyData {
 	s.Status = &v
+	return s
+}
+
+func (s *GetTrustDeviceListResponseBodyData) SetTitle(v string) *GetTrustDeviceListResponseBodyData {
+	s.Title = &v
 	return s
 }
 
@@ -7888,6 +8001,50 @@ func (client *Client) FileStorageUpdateStorageWithOptions(request *FileStorageUp
 	}
 	_result = &FileStorageUpdateStorageResponse{}
 	_body, _err := client.DoROARequest(tea.String("FileStorageUpdateStorage"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/exclusive/fileStorages/configurations"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GenerateDarkWaterMark(request *GenerateDarkWaterMarkRequest) (_result *GenerateDarkWaterMarkResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GenerateDarkWaterMarkHeaders{}
+	_result = &GenerateDarkWaterMarkResponse{}
+	_body, _err := client.GenerateDarkWaterMarkWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GenerateDarkWaterMarkWithOptions(request *GenerateDarkWaterMarkRequest, headers *GenerateDarkWaterMarkHeaders, runtime *util.RuntimeOptions) (_result *GenerateDarkWaterMarkResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserIdList)) {
+		body["userIdList"] = request.UserIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GenerateDarkWaterMarkResponse{}
+	_body, _err := client.DoROARequest(tea.String("GenerateDarkWaterMark"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/enterpriseSecurities/darkWatermarks/generate"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

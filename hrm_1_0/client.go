@@ -2252,8 +2252,6 @@ func (s *SolutionTaskSaveHeaders) SetXAcsDingtalkAccessToken(v string) *Solution
 }
 
 type SolutionTaskSaveRequest struct {
-	// 任务业务模块，如training, performance等
-	Category *string `json:"category,omitempty" xml:"category,omitempty"`
 	// 任务要求的截止时间
 	ClaimTime *int64 `json:"claimTime,omitempty" xml:"claimTime,omitempty"`
 	// 任务描述
@@ -2261,9 +2259,14 @@ type SolutionTaskSaveRequest struct {
 	// 任务完成时间
 	FinishTime *int64 `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
 	// 外部的任务唯一标识
-	OuterId *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	OuterId            *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	SolutionInstanceId *string `json:"solutionInstanceId,omitempty" xml:"solutionInstanceId,omitempty"`
+	StartTime          *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
 	// 任务状态，如running,finished
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 任务业务模块，如training, performance等
+	TaskType        *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	TemplateOuterId *string `json:"templateOuterId,omitempty" xml:"templateOuterId,omitempty"`
 	// 任务名称
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 	// 任务执行人userId
@@ -2278,11 +2281,6 @@ func (s SolutionTaskSaveRequest) String() string {
 
 func (s SolutionTaskSaveRequest) GoString() string {
 	return s.String()
-}
-
-func (s *SolutionTaskSaveRequest) SetCategory(v string) *SolutionTaskSaveRequest {
-	s.Category = &v
-	return s
 }
 
 func (s *SolutionTaskSaveRequest) SetClaimTime(v int64) *SolutionTaskSaveRequest {
@@ -2305,8 +2303,28 @@ func (s *SolutionTaskSaveRequest) SetOuterId(v string) *SolutionTaskSaveRequest 
 	return s
 }
 
+func (s *SolutionTaskSaveRequest) SetSolutionInstanceId(v string) *SolutionTaskSaveRequest {
+	s.SolutionInstanceId = &v
+	return s
+}
+
+func (s *SolutionTaskSaveRequest) SetStartTime(v int64) *SolutionTaskSaveRequest {
+	s.StartTime = &v
+	return s
+}
+
 func (s *SolutionTaskSaveRequest) SetStatus(v string) *SolutionTaskSaveRequest {
 	s.Status = &v
+	return s
+}
+
+func (s *SolutionTaskSaveRequest) SetTaskType(v string) *SolutionTaskSaveRequest {
+	s.TaskType = &v
+	return s
+}
+
+func (s *SolutionTaskSaveRequest) SetTemplateOuterId(v string) *SolutionTaskSaveRequest {
+	s.TemplateOuterId = &v
 	return s
 }
 
@@ -2362,6 +2380,174 @@ func (s *SolutionTaskSaveResponse) SetHeaders(v map[string]*string) *SolutionTas
 }
 
 func (s *SolutionTaskSaveResponse) SetBody(v *SolutionTaskSaveResponseBody) *SolutionTaskSaveResponse {
+	s.Body = v
+	return s
+}
+
+type SyncTaskTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncTaskTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTaskTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTaskTemplateHeaders) SetCommonHeaders(v map[string]*string) *SyncTaskTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncTaskTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *SyncTaskTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncTaskTemplateRequest struct {
+	// 任务模板描述
+	Des *string `json:"des,omitempty" xml:"des,omitempty"`
+	// 扩展信息，json串
+	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
+	// 模版名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 任务模版创建人staffId
+	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+	// isv对应的任务模版唯一键
+	OuterId *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	// 圈人规则
+	TaskScopeVO *SyncTaskTemplateRequestTaskScopeVO `json:"taskScopeVO,omitempty" xml:"taskScopeVO,omitempty" type:"Struct"`
+	// 任务模版类型：TRAIN_TASK、PERFORMANCE_TASK
+	TaskType     *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	SolutionType *string `json:"solutionType,omitempty" xml:"solutionType,omitempty"`
+}
+
+func (s SyncTaskTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTaskTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTaskTemplateRequest) SetDes(v string) *SyncTaskTemplateRequest {
+	s.Des = &v
+	return s
+}
+
+func (s *SyncTaskTemplateRequest) SetExt(v string) *SyncTaskTemplateRequest {
+	s.Ext = &v
+	return s
+}
+
+func (s *SyncTaskTemplateRequest) SetName(v string) *SyncTaskTemplateRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *SyncTaskTemplateRequest) SetOptUserId(v string) *SyncTaskTemplateRequest {
+	s.OptUserId = &v
+	return s
+}
+
+func (s *SyncTaskTemplateRequest) SetOuterId(v string) *SyncTaskTemplateRequest {
+	s.OuterId = &v
+	return s
+}
+
+func (s *SyncTaskTemplateRequest) SetTaskScopeVO(v *SyncTaskTemplateRequestTaskScopeVO) *SyncTaskTemplateRequest {
+	s.TaskScopeVO = v
+	return s
+}
+
+func (s *SyncTaskTemplateRequest) SetTaskType(v string) *SyncTaskTemplateRequest {
+	s.TaskType = &v
+	return s
+}
+
+func (s *SyncTaskTemplateRequest) SetSolutionType(v string) *SyncTaskTemplateRequest {
+	s.SolutionType = &v
+	return s
+}
+
+type SyncTaskTemplateRequestTaskScopeVO struct {
+	// 按照部门圈人
+	DeptIds []*int64 `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	// 按照职位圈人
+	PositionIds []*string `json:"positionIds,omitempty" xml:"positionIds,omitempty" type:"Repeated"`
+	// 按照角色圈人
+	RoleIds []*string `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
+	// 按照员工userId圈人
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s SyncTaskTemplateRequestTaskScopeVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTaskTemplateRequestTaskScopeVO) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTaskTemplateRequestTaskScopeVO) SetDeptIds(v []*int64) *SyncTaskTemplateRequestTaskScopeVO {
+	s.DeptIds = v
+	return s
+}
+
+func (s *SyncTaskTemplateRequestTaskScopeVO) SetPositionIds(v []*string) *SyncTaskTemplateRequestTaskScopeVO {
+	s.PositionIds = v
+	return s
+}
+
+func (s *SyncTaskTemplateRequestTaskScopeVO) SetRoleIds(v []*string) *SyncTaskTemplateRequestTaskScopeVO {
+	s.RoleIds = v
+	return s
+}
+
+func (s *SyncTaskTemplateRequestTaskScopeVO) SetUserIds(v []*string) *SyncTaskTemplateRequestTaskScopeVO {
+	s.UserIds = v
+	return s
+}
+
+type SyncTaskTemplateResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SyncTaskTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTaskTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTaskTemplateResponseBody) SetResult(v bool) *SyncTaskTemplateResponseBody {
+	s.Result = &v
+	return s
+}
+
+type SyncTaskTemplateResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SyncTaskTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SyncTaskTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTaskTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTaskTemplateResponse) SetHeaders(v map[string]*string) *SyncTaskTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncTaskTemplateResponse) SetBody(v *SyncTaskTemplateResponseBody) *SyncTaskTemplateResponse {
 	s.Body = v
 	return s
 }
@@ -3119,10 +3305,6 @@ func (client *Client) SolutionTaskSaveWithOptions(request *SolutionTaskSaveReque
 	}
 
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Category)) {
-		body["category"] = request.Category
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.ClaimTime)) {
 		body["claimTime"] = request.ClaimTime
 	}
@@ -3139,8 +3321,24 @@ func (client *Client) SolutionTaskSaveWithOptions(request *SolutionTaskSaveReque
 		body["outerId"] = request.OuterId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.SolutionInstanceId)) {
+		body["solutionInstanceId"] = request.SolutionInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Status)) {
 		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskType)) {
+		body["taskType"] = request.TaskType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateOuterId)) {
+		body["templateOuterId"] = request.TemplateOuterId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Title)) {
@@ -3167,6 +3365,80 @@ func (client *Client) SolutionTaskSaveWithOptions(request *SolutionTaskSaveReque
 	}
 	_result = &SolutionTaskSaveResponse{}
 	_body, _err := client.DoROARequest(tea.String("SolutionTaskSave"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/solutions/tasks/save"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SyncTaskTemplate(request *SyncTaskTemplateRequest) (_result *SyncTaskTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncTaskTemplateHeaders{}
+	_result = &SyncTaskTemplateResponse{}
+	_body, _err := client.SyncTaskTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SyncTaskTemplateWithOptions(request *SyncTaskTemplateRequest, headers *SyncTaskTemplateHeaders, runtime *util.RuntimeOptions) (_result *SyncTaskTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SolutionType)) {
+		query["solutionType"] = request.SolutionType
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Des)) {
+		body["des"] = request.Des
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Ext)) {
+		body["ext"] = request.Ext
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OptUserId)) {
+		body["optUserId"] = request.OptUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OuterId)) {
+		body["outerId"] = request.OuterId
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TaskScopeVO))) {
+		body["taskScopeVO"] = request.TaskScopeVO
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskType)) {
+		body["taskType"] = request.TaskType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SyncTaskTemplateResponse{}
+	_body, _err := client.DoROARequest(tea.String("SyncTaskTemplate"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/solutions/tasks/templates/sync"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
