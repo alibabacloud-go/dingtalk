@@ -540,6 +540,8 @@ type BillSettementBtripTrainResponseBodyModuleDataList struct {
 	ProjectName *string `json:"projectName,omitempty" xml:"projectName,omitempty"`
 	// 退款手续费
 	RefundFee *float64 `json:"refundFee,omitempty" xml:"refundFee,omitempty"`
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 	// 运行时长
 	RunTime *string `json:"runTime,omitempty" xml:"runTime,omitempty"`
 	// 座位号
@@ -550,6 +552,8 @@ type BillSettementBtripTrainResponseBodyModuleDataList struct {
 	ServiceFee *float64 `json:"serviceFee,omitempty" xml:"serviceFee,omitempty"`
 	// 结算金额
 	SettlementFee *float64 `json:"settlementFee,omitempty" xml:"settlementFee,omitempty"`
+	// 预存赠送金额消费
+	SettlementGrantFee *float64 `json:"settlementGrantFee,omitempty" xml:"settlementGrantFee,omitempty"`
 	// 结算时间
 	SettlementTime *string `json:"settlementTime,omitempty" xml:"settlementTime,omitempty"`
 	// 结算类型
@@ -737,6 +741,11 @@ func (s *BillSettementBtripTrainResponseBodyModuleDataList) SetRefundFee(v float
 	return s
 }
 
+func (s *BillSettementBtripTrainResponseBodyModuleDataList) SetRemark(v string) *BillSettementBtripTrainResponseBodyModuleDataList {
+	s.Remark = &v
+	return s
+}
+
 func (s *BillSettementBtripTrainResponseBodyModuleDataList) SetRunTime(v string) *BillSettementBtripTrainResponseBodyModuleDataList {
 	s.RunTime = &v
 	return s
@@ -759,6 +768,11 @@ func (s *BillSettementBtripTrainResponseBodyModuleDataList) SetServiceFee(v floa
 
 func (s *BillSettementBtripTrainResponseBodyModuleDataList) SetSettlementFee(v float64) *BillSettementBtripTrainResponseBodyModuleDataList {
 	s.SettlementFee = &v
+	return s
+}
+
+func (s *BillSettementBtripTrainResponseBodyModuleDataList) SetSettlementGrantFee(v float64) *BillSettementBtripTrainResponseBodyModuleDataList {
+	s.SettlementGrantFee = &v
 	return s
 }
 
@@ -1086,10 +1100,14 @@ type BillSettementCarResponseBodyModuleDataList struct {
 	RealFromAddr *string `json:"realFromAddr,omitempty" xml:"realFromAddr,omitempty"`
 	// 实际下车点
 	RealToAddr *string `json:"realToAddr,omitempty" xml:"realToAddr,omitempty"`
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 	// 服务费，仅在feeType 40111 中展示
 	ServiceFee *string `json:"serviceFee,omitempty" xml:"serviceFee,omitempty"`
 	// 结算金额
 	SettlementFee *float64 `json:"settlementFee,omitempty" xml:"settlementFee,omitempty"`
+	// 预存赠送金额消费
+	SettlementGrantFee *float64 `json:"settlementGrantFee,omitempty" xml:"settlementGrantFee,omitempty"`
 	// 结算时间
 	SettlementTime *string `json:"settlementTime,omitempty" xml:"settlementTime,omitempty"`
 	// 结算类型
@@ -1332,6 +1350,11 @@ func (s *BillSettementCarResponseBodyModuleDataList) SetRealToAddr(v string) *Bi
 	return s
 }
 
+func (s *BillSettementCarResponseBodyModuleDataList) SetRemark(v string) *BillSettementCarResponseBodyModuleDataList {
+	s.Remark = &v
+	return s
+}
+
 func (s *BillSettementCarResponseBodyModuleDataList) SetServiceFee(v string) *BillSettementCarResponseBodyModuleDataList {
 	s.ServiceFee = &v
 	return s
@@ -1339,6 +1362,11 @@ func (s *BillSettementCarResponseBodyModuleDataList) SetServiceFee(v string) *Bi
 
 func (s *BillSettementCarResponseBodyModuleDataList) SetSettlementFee(v float64) *BillSettementCarResponseBodyModuleDataList {
 	s.SettlementFee = &v
+	return s
+}
+
+func (s *BillSettementCarResponseBodyModuleDataList) SetSettlementGrantFee(v float64) *BillSettementCarResponseBodyModuleDataList {
+	s.SettlementGrantFee = &v
 	return s
 }
 
@@ -1701,6 +1729,8 @@ type BillSettementFlightResponseBodyModuleDataList struct {
 	RefundFee *float64 `json:"refundFee,omitempty" xml:"refundFee,omitempty"`
 	// 改签退票手续费
 	RefundUpgradeCost *float64 `json:"refundUpgradeCost,omitempty" xml:"refundUpgradeCost,omitempty"`
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 	// 是否重复退
 	RepeatRefund *string `json:"repeatRefund,omitempty" xml:"repeatRefund,omitempty"`
 	// 销售价
@@ -1709,6 +1739,8 @@ type BillSettementFlightResponseBodyModuleDataList struct {
 	ServiceFee *float64 `json:"serviceFee,omitempty" xml:"serviceFee,omitempty"`
 	// 结算金额
 	SettlementFee *float64 `json:"settlementFee,omitempty" xml:"settlementFee,omitempty"`
+	// 预存赠送金额消费
+	SettlementGrantFee *float64 `json:"settlementGrantFee,omitempty" xml:"settlementGrantFee,omitempty"`
 	// 结算时间
 	SettlementTime *string `json:"settlementTime,omitempty" xml:"settlementTime,omitempty"`
 	// 结算类型
@@ -2017,6 +2049,11 @@ func (s *BillSettementFlightResponseBodyModuleDataList) SetRefundUpgradeCost(v f
 	return s
 }
 
+func (s *BillSettementFlightResponseBodyModuleDataList) SetRemark(v string) *BillSettementFlightResponseBodyModuleDataList {
+	s.Remark = &v
+	return s
+}
+
 func (s *BillSettementFlightResponseBodyModuleDataList) SetRepeatRefund(v string) *BillSettementFlightResponseBodyModuleDataList {
 	s.RepeatRefund = &v
 	return s
@@ -2034,6 +2071,11 @@ func (s *BillSettementFlightResponseBodyModuleDataList) SetServiceFee(v float64)
 
 func (s *BillSettementFlightResponseBodyModuleDataList) SetSettlementFee(v float64) *BillSettementFlightResponseBodyModuleDataList {
 	s.SettlementFee = &v
+	return s
+}
+
+func (s *BillSettementFlightResponseBodyModuleDataList) SetSettlementGrantFee(v float64) *BillSettementFlightResponseBodyModuleDataList {
+	s.SettlementGrantFee = &v
 	return s
 }
 
@@ -2350,6 +2392,8 @@ type BillSettementHotelResponseBodyModuleDataList struct {
 	ProjectName *string `json:"projectName,omitempty" xml:"projectName,omitempty"`
 	// 优惠券
 	PromotionFee *float64 `json:"promotionFee,omitempty" xml:"promotionFee,omitempty"`
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 	// 房间数
 	RoomNumber *int64 `json:"roomNumber,omitempty" xml:"roomNumber,omitempty"`
 	// 房价
@@ -2360,6 +2404,8 @@ type BillSettementHotelResponseBodyModuleDataList struct {
 	ServiceFee *float64 `json:"serviceFee,omitempty" xml:"serviceFee,omitempty"`
 	// 结算金额
 	SettlementFee *float64 `json:"settlementFee,omitempty" xml:"settlementFee,omitempty"`
+	// 预存赠送金额消费
+	SettlementGrantFee *float64 `json:"settlementGrantFee,omitempty" xml:"settlementGrantFee,omitempty"`
 	// 结算时间
 	SettlementTime *string `json:"settlementTime,omitempty" xml:"settlementTime,omitempty"`
 	// 结算类型
@@ -2576,6 +2622,11 @@ func (s *BillSettementHotelResponseBodyModuleDataList) SetPromotionFee(v float64
 	return s
 }
 
+func (s *BillSettementHotelResponseBodyModuleDataList) SetRemark(v string) *BillSettementHotelResponseBodyModuleDataList {
+	s.Remark = &v
+	return s
+}
+
 func (s *BillSettementHotelResponseBodyModuleDataList) SetRoomNumber(v int64) *BillSettementHotelResponseBodyModuleDataList {
 	s.RoomNumber = &v
 	return s
@@ -2598,6 +2649,11 @@ func (s *BillSettementHotelResponseBodyModuleDataList) SetServiceFee(v float64) 
 
 func (s *BillSettementHotelResponseBodyModuleDataList) SetSettlementFee(v float64) *BillSettementHotelResponseBodyModuleDataList {
 	s.SettlementFee = &v
+	return s
+}
+
+func (s *BillSettementHotelResponseBodyModuleDataList) SetSettlementGrantFee(v float64) *BillSettementHotelResponseBodyModuleDataList {
+	s.SettlementGrantFee = &v
 	return s
 }
 

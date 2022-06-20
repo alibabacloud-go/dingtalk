@@ -1621,6 +1621,118 @@ func (s *QueryEnterpriseAccountByPageResponse) SetBody(v *QueryEnterpriseAccount
 	return s
 }
 
+type QueryPermissionByUserIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryPermissionByUserIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPermissionByUserIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPermissionByUserIdHeaders) SetCommonHeaders(v map[string]*string) *QueryPermissionByUserIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryPermissionByUserIdHeaders) SetXAcsDingtalkAccessToken(v string) *QueryPermissionByUserIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryPermissionByUserIdRequest struct {
+	// 用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryPermissionByUserIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPermissionByUserIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPermissionByUserIdRequest) SetUserId(v string) *QueryPermissionByUserIdRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryPermissionByUserIdResponseBody struct {
+	// 权限信息列表
+	PermissionDTOList []*QueryPermissionByUserIdResponseBodyPermissionDTOList `json:"permissionDTOList,omitempty" xml:"permissionDTOList,omitempty" type:"Repeated"`
+	// 用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryPermissionByUserIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPermissionByUserIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPermissionByUserIdResponseBody) SetPermissionDTOList(v []*QueryPermissionByUserIdResponseBodyPermissionDTOList) *QueryPermissionByUserIdResponseBody {
+	s.PermissionDTOList = v
+	return s
+}
+
+func (s *QueryPermissionByUserIdResponseBody) SetUserId(v string) *QueryPermissionByUserIdResponseBody {
+	s.UserId = &v
+	return s
+}
+
+type QueryPermissionByUserIdResponseBodyPermissionDTOList struct {
+	ActionIdList     []*string `json:"actionIdList,omitempty" xml:"actionIdList,omitempty" type:"Repeated"`
+	ResourceIdentity *string   `json:"resourceIdentity,omitempty" xml:"resourceIdentity,omitempty"`
+}
+
+func (s QueryPermissionByUserIdResponseBodyPermissionDTOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPermissionByUserIdResponseBodyPermissionDTOList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPermissionByUserIdResponseBodyPermissionDTOList) SetActionIdList(v []*string) *QueryPermissionByUserIdResponseBodyPermissionDTOList {
+	s.ActionIdList = v
+	return s
+}
+
+func (s *QueryPermissionByUserIdResponseBodyPermissionDTOList) SetResourceIdentity(v string) *QueryPermissionByUserIdResponseBodyPermissionDTOList {
+	s.ResourceIdentity = &v
+	return s
+}
+
+type QueryPermissionByUserIdResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryPermissionByUserIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryPermissionByUserIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPermissionByUserIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPermissionByUserIdResponse) SetHeaders(v map[string]*string) *QueryPermissionByUserIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryPermissionByUserIdResponse) SetBody(v *QueryPermissionByUserIdResponseBody) *QueryPermissionByUserIdResponse {
+	s.Body = v
+	return s
+}
+
 type QueryProjectByPageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2866,6 +2978,50 @@ func (client *Client) QueryEnterpriseAccountByPageWithOptions(request *QueryEnte
 	}
 	_result = &QueryEnterpriseAccountByPageResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryEnterpriseAccountByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/financeAccounts/list"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryPermissionByUserId(request *QueryPermissionByUserIdRequest) (_result *QueryPermissionByUserIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryPermissionByUserIdHeaders{}
+	_result = &QueryPermissionByUserIdResponse{}
+	_body, _err := client.QueryPermissionByUserIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryPermissionByUserIdWithOptions(request *QueryPermissionByUserIdRequest, headers *QueryPermissionByUserIdHeaders, runtime *util.RuntimeOptions) (_result *QueryPermissionByUserIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryPermissionByUserIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryPermissionByUserId"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/permissions"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

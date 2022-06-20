@@ -1202,7 +1202,7 @@ func (s *RegisterDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *RegisterDe
 }
 
 type RegisterDeviceRequest struct {
-	// 钉钉组织id
+	// 钉钉物联组织ID, 第三方平台必填，企业内部系统忽略
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 设备名称
 	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`

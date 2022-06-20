@@ -2530,11 +2530,11 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
-func (client *Client) CreateOrganizationTask(request *CreateOrganizationTaskRequest) (_result *CreateOrganizationTaskResponse, _err error) {
+func (client *Client) CreateOrganizationTask(userId *string, request *CreateOrganizationTaskRequest) (_result *CreateOrganizationTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateOrganizationTaskHeaders{}
 	_result = &CreateOrganizationTaskResponse{}
-	_body, _err := client.CreateOrganizationTaskWithOptions(request, headers, runtime)
+	_body, _err := client.CreateOrganizationTaskWithOptions(userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2542,11 +2542,12 @@ func (client *Client) CreateOrganizationTask(request *CreateOrganizationTaskRequ
 	return _result, _err
 }
 
-func (client *Client) CreateOrganizationTaskWithOptions(request *CreateOrganizationTaskRequest, headers *CreateOrganizationTaskHeaders, runtime *util.RuntimeOptions) (_result *CreateOrganizationTaskResponse, _err error) {
+func (client *Client) CreateOrganizationTaskWithOptions(userId *string, request *CreateOrganizationTaskRequest, headers *CreateOrganizationTaskHeaders, runtime *util.RuntimeOptions) (_result *CreateOrganizationTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
+	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Content)) {
 		body["content"] = request.Content
@@ -2610,7 +2611,7 @@ func (client *Client) CreateOrganizationTaskWithOptions(request *CreateOrganizat
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &CreateOrganizationTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreateOrganizationTask"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("CreateOrganizationTask"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2734,11 +2735,11 @@ func (client *Client) GetEmpsByOrgIdWithOptions(request *GetEmpsByOrgIdRequest, 
 	return _result, _err
 }
 
-func (client *Client) GetOrganizatioTaskByIds(request *GetOrganizatioTaskByIdsRequest) (_result *GetOrganizatioTaskByIdsResponse, _err error) {
+func (client *Client) GetOrganizatioTaskByIds(userId *string, request *GetOrganizatioTaskByIdsRequest) (_result *GetOrganizatioTaskByIdsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOrganizatioTaskByIdsHeaders{}
 	_result = &GetOrganizatioTaskByIdsResponse{}
-	_body, _err := client.GetOrganizatioTaskByIdsWithOptions(request, headers, runtime)
+	_body, _err := client.GetOrganizatioTaskByIdsWithOptions(userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2746,11 +2747,12 @@ func (client *Client) GetOrganizatioTaskByIds(request *GetOrganizatioTaskByIdsRe
 	return _result, _err
 }
 
-func (client *Client) GetOrganizatioTaskByIdsWithOptions(request *GetOrganizatioTaskByIdsRequest, headers *GetOrganizatioTaskByIdsHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizatioTaskByIdsResponse, _err error) {
+func (client *Client) GetOrganizatioTaskByIdsWithOptions(userId *string, request *GetOrganizatioTaskByIdsRequest, headers *GetOrganizatioTaskByIdsHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizatioTaskByIdsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
+	userId = openapiutil.GetEncodeParam(userId)
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.TaskIds)) {
 		query["taskIds"] = request.TaskIds
@@ -2770,7 +2772,7 @@ func (client *Client) GetOrganizatioTaskByIdsWithOptions(request *GetOrganizatio
 		Query:   openapiutil.Query(query),
 	}
 	_result = &GetOrganizatioTaskByIdsResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetOrganizatioTaskByIds"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("GetOrganizatioTaskByIds"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2778,11 +2780,11 @@ func (client *Client) GetOrganizatioTaskByIdsWithOptions(request *GetOrganizatio
 	return _result, _err
 }
 
-func (client *Client) GetOrganizationPriorityList() (_result *GetOrganizationPriorityListResponse, _err error) {
+func (client *Client) GetOrganizationPriorityList(userId *string) (_result *GetOrganizationPriorityListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOrganizationPriorityListHeaders{}
 	_result = &GetOrganizationPriorityListResponse{}
-	_body, _err := client.GetOrganizationPriorityListWithOptions(headers, runtime)
+	_body, _err := client.GetOrganizationPriorityListWithOptions(userId, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2790,7 +2792,8 @@ func (client *Client) GetOrganizationPriorityList() (_result *GetOrganizationPri
 	return _result, _err
 }
 
-func (client *Client) GetOrganizationPriorityListWithOptions(headers *GetOrganizationPriorityListHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizationPriorityListResponse, _err error) {
+func (client *Client) GetOrganizationPriorityListWithOptions(userId *string, headers *GetOrganizationPriorityListHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizationPriorityListResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -2804,7 +2807,7 @@ func (client *Client) GetOrganizationPriorityListWithOptions(headers *GetOrganiz
 		Headers: realHeaders,
 	}
 	_result = &GetOrganizationPriorityListResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetOrganizationPriorityList"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/organizations/priorities"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("GetOrganizationPriorityList"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/priorities"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2812,11 +2815,11 @@ func (client *Client) GetOrganizationPriorityListWithOptions(headers *GetOrganiz
 	return _result, _err
 }
 
-func (client *Client) GetOrganizationTask(taskId *string) (_result *GetOrganizationTaskResponse, _err error) {
+func (client *Client) GetOrganizationTask(taskId *string, userId *string) (_result *GetOrganizationTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOrganizationTaskHeaders{}
 	_result = &GetOrganizationTaskResponse{}
-	_body, _err := client.GetOrganizationTaskWithOptions(taskId, headers, runtime)
+	_body, _err := client.GetOrganizationTaskWithOptions(taskId, userId, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2824,8 +2827,9 @@ func (client *Client) GetOrganizationTask(taskId *string) (_result *GetOrganizat
 	return _result, _err
 }
 
-func (client *Client) GetOrganizationTaskWithOptions(taskId *string, headers *GetOrganizationTaskHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizationTaskResponse, _err error) {
+func (client *Client) GetOrganizationTaskWithOptions(taskId *string, userId *string, headers *GetOrganizationTaskHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizationTaskResponse, _err error) {
 	taskId = openapiutil.GetEncodeParam(taskId)
+	userId = openapiutil.GetEncodeParam(userId)
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -2839,7 +2843,7 @@ func (client *Client) GetOrganizationTaskWithOptions(taskId *string, headers *Ge
 		Headers: realHeaders,
 	}
 	_result = &GetOrganizationTaskResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetOrganizationTask"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks/"+tea.StringValue(taskId)), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("GetOrganizationTask"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2965,11 +2969,11 @@ func (client *Client) GetTbProjectSourceWithOptions(headers *GetTbProjectSourceH
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskContent(taskId *string, request *UpdateOrganizationTaskContentRequest) (_result *UpdateOrganizationTaskContentResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskContent(taskId *string, userId *string, request *UpdateOrganizationTaskContentRequest) (_result *UpdateOrganizationTaskContentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateOrganizationTaskContentHeaders{}
 	_result = &UpdateOrganizationTaskContentResponse{}
-	_body, _err := client.UpdateOrganizationTaskContentWithOptions(taskId, request, headers, runtime)
+	_body, _err := client.UpdateOrganizationTaskContentWithOptions(taskId, userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2977,12 +2981,13 @@ func (client *Client) UpdateOrganizationTaskContent(taskId *string, request *Upd
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskContentWithOptions(taskId *string, request *UpdateOrganizationTaskContentRequest, headers *UpdateOrganizationTaskContentHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskContentResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskContentWithOptions(taskId *string, userId *string, request *UpdateOrganizationTaskContentRequest, headers *UpdateOrganizationTaskContentHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskContentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	taskId = openapiutil.GetEncodeParam(taskId)
+	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Content)) {
 		body["content"] = request.Content
@@ -3010,7 +3015,7 @@ func (client *Client) UpdateOrganizationTaskContentWithOptions(taskId *string, r
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &UpdateOrganizationTaskContentResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskContent"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks/"+tea.StringValue(taskId)+"/contents"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskContent"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/contents"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3018,11 +3023,11 @@ func (client *Client) UpdateOrganizationTaskContentWithOptions(taskId *string, r
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskDueDate(taskId *string, request *UpdateOrganizationTaskDueDateRequest) (_result *UpdateOrganizationTaskDueDateResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskDueDate(taskId *string, userId *string, request *UpdateOrganizationTaskDueDateRequest) (_result *UpdateOrganizationTaskDueDateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateOrganizationTaskDueDateHeaders{}
 	_result = &UpdateOrganizationTaskDueDateResponse{}
-	_body, _err := client.UpdateOrganizationTaskDueDateWithOptions(taskId, request, headers, runtime)
+	_body, _err := client.UpdateOrganizationTaskDueDateWithOptions(taskId, userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3030,12 +3035,13 @@ func (client *Client) UpdateOrganizationTaskDueDate(taskId *string, request *Upd
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskDueDateWithOptions(taskId *string, request *UpdateOrganizationTaskDueDateRequest, headers *UpdateOrganizationTaskDueDateHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskDueDateResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskDueDateWithOptions(taskId *string, userId *string, request *UpdateOrganizationTaskDueDateRequest, headers *UpdateOrganizationTaskDueDateHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskDueDateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	taskId = openapiutil.GetEncodeParam(taskId)
+	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
 		body["disableActivity"] = request.DisableActivity
@@ -3063,7 +3069,7 @@ func (client *Client) UpdateOrganizationTaskDueDateWithOptions(taskId *string, r
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &UpdateOrganizationTaskDueDateResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskDueDate"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks/"+tea.StringValue(taskId)+"/dueDates"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskDueDate"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/dueDates"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3071,11 +3077,11 @@ func (client *Client) UpdateOrganizationTaskDueDateWithOptions(taskId *string, r
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskExecutor(taskId *string, request *UpdateOrganizationTaskExecutorRequest) (_result *UpdateOrganizationTaskExecutorResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskExecutor(taskId *string, userId *string, request *UpdateOrganizationTaskExecutorRequest) (_result *UpdateOrganizationTaskExecutorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateOrganizationTaskExecutorHeaders{}
 	_result = &UpdateOrganizationTaskExecutorResponse{}
-	_body, _err := client.UpdateOrganizationTaskExecutorWithOptions(taskId, request, headers, runtime)
+	_body, _err := client.UpdateOrganizationTaskExecutorWithOptions(taskId, userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3083,12 +3089,13 @@ func (client *Client) UpdateOrganizationTaskExecutor(taskId *string, request *Up
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskExecutorWithOptions(taskId *string, request *UpdateOrganizationTaskExecutorRequest, headers *UpdateOrganizationTaskExecutorHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskExecutorResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskExecutorWithOptions(taskId *string, userId *string, request *UpdateOrganizationTaskExecutorRequest, headers *UpdateOrganizationTaskExecutorHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskExecutorResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	taskId = openapiutil.GetEncodeParam(taskId)
+	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
 		body["disableActivity"] = request.DisableActivity
@@ -3116,7 +3123,7 @@ func (client *Client) UpdateOrganizationTaskExecutorWithOptions(taskId *string, 
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &UpdateOrganizationTaskExecutorResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskExecutor"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks/"+tea.StringValue(taskId)+"/executors"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskExecutor"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/executors"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3124,11 +3131,11 @@ func (client *Client) UpdateOrganizationTaskExecutorWithOptions(taskId *string, 
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskInvolveMembers(taskId *string, request *UpdateOrganizationTaskInvolveMembersRequest) (_result *UpdateOrganizationTaskInvolveMembersResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskInvolveMembers(taskId *string, userId *string, request *UpdateOrganizationTaskInvolveMembersRequest) (_result *UpdateOrganizationTaskInvolveMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateOrganizationTaskInvolveMembersHeaders{}
 	_result = &UpdateOrganizationTaskInvolveMembersResponse{}
-	_body, _err := client.UpdateOrganizationTaskInvolveMembersWithOptions(taskId, request, headers, runtime)
+	_body, _err := client.UpdateOrganizationTaskInvolveMembersWithOptions(taskId, userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3136,12 +3143,13 @@ func (client *Client) UpdateOrganizationTaskInvolveMembers(taskId *string, reque
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskInvolveMembersWithOptions(taskId *string, request *UpdateOrganizationTaskInvolveMembersRequest, headers *UpdateOrganizationTaskInvolveMembersHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskInvolveMembersResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskInvolveMembersWithOptions(taskId *string, userId *string, request *UpdateOrganizationTaskInvolveMembersRequest, headers *UpdateOrganizationTaskInvolveMembersHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskInvolveMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	taskId = openapiutil.GetEncodeParam(taskId)
+	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AddInvolvers)) {
 		body["addInvolvers"] = request.AddInvolvers
@@ -3177,7 +3185,7 @@ func (client *Client) UpdateOrganizationTaskInvolveMembersWithOptions(taskId *st
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &UpdateOrganizationTaskInvolveMembersResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskInvolveMembers"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks/"+tea.StringValue(taskId)+"/involveMembers"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskInvolveMembers"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/involveMembers"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3185,11 +3193,11 @@ func (client *Client) UpdateOrganizationTaskInvolveMembersWithOptions(taskId *st
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskNote(taskId *string, request *UpdateOrganizationTaskNoteRequest) (_result *UpdateOrganizationTaskNoteResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskNote(taskId *string, userId *string, request *UpdateOrganizationTaskNoteRequest) (_result *UpdateOrganizationTaskNoteResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateOrganizationTaskNoteHeaders{}
 	_result = &UpdateOrganizationTaskNoteResponse{}
-	_body, _err := client.UpdateOrganizationTaskNoteWithOptions(taskId, request, headers, runtime)
+	_body, _err := client.UpdateOrganizationTaskNoteWithOptions(taskId, userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3197,12 +3205,13 @@ func (client *Client) UpdateOrganizationTaskNote(taskId *string, request *Update
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskNoteWithOptions(taskId *string, request *UpdateOrganizationTaskNoteRequest, headers *UpdateOrganizationTaskNoteHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskNoteResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskNoteWithOptions(taskId *string, userId *string, request *UpdateOrganizationTaskNoteRequest, headers *UpdateOrganizationTaskNoteHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskNoteResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	taskId = openapiutil.GetEncodeParam(taskId)
+	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
 		body["disableActivity"] = request.DisableActivity
@@ -3230,7 +3239,7 @@ func (client *Client) UpdateOrganizationTaskNoteWithOptions(taskId *string, requ
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &UpdateOrganizationTaskNoteResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskNote"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks/"+tea.StringValue(taskId)+"/notes"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskNote"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/notes"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3238,11 +3247,11 @@ func (client *Client) UpdateOrganizationTaskNoteWithOptions(taskId *string, requ
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskPriority(taskId *string, request *UpdateOrganizationTaskPriorityRequest) (_result *UpdateOrganizationTaskPriorityResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskPriority(taskId *string, userId *string, request *UpdateOrganizationTaskPriorityRequest) (_result *UpdateOrganizationTaskPriorityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateOrganizationTaskPriorityHeaders{}
 	_result = &UpdateOrganizationTaskPriorityResponse{}
-	_body, _err := client.UpdateOrganizationTaskPriorityWithOptions(taskId, request, headers, runtime)
+	_body, _err := client.UpdateOrganizationTaskPriorityWithOptions(taskId, userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3250,12 +3259,13 @@ func (client *Client) UpdateOrganizationTaskPriority(taskId *string, request *Up
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskPriorityWithOptions(taskId *string, request *UpdateOrganizationTaskPriorityRequest, headers *UpdateOrganizationTaskPriorityHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskPriorityResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskPriorityWithOptions(taskId *string, userId *string, request *UpdateOrganizationTaskPriorityRequest, headers *UpdateOrganizationTaskPriorityHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskPriorityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	taskId = openapiutil.GetEncodeParam(taskId)
+	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
 		body["disableActivity"] = request.DisableActivity
@@ -3283,7 +3293,7 @@ func (client *Client) UpdateOrganizationTaskPriorityWithOptions(taskId *string, 
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &UpdateOrganizationTaskPriorityResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskPriority"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks/"+tea.StringValue(taskId)+"/priorities"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskPriority"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/priorities"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3291,11 +3301,11 @@ func (client *Client) UpdateOrganizationTaskPriorityWithOptions(taskId *string, 
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskStatus(taskId *string, request *UpdateOrganizationTaskStatusRequest) (_result *UpdateOrganizationTaskStatusResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskStatus(taskId *string, userId *string, request *UpdateOrganizationTaskStatusRequest) (_result *UpdateOrganizationTaskStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateOrganizationTaskStatusHeaders{}
 	_result = &UpdateOrganizationTaskStatusResponse{}
-	_body, _err := client.UpdateOrganizationTaskStatusWithOptions(taskId, request, headers, runtime)
+	_body, _err := client.UpdateOrganizationTaskStatusWithOptions(taskId, userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3303,12 +3313,13 @@ func (client *Client) UpdateOrganizationTaskStatus(taskId *string, request *Upda
 	return _result, _err
 }
 
-func (client *Client) UpdateOrganizationTaskStatusWithOptions(taskId *string, request *UpdateOrganizationTaskStatusRequest, headers *UpdateOrganizationTaskStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskStatusResponse, _err error) {
+func (client *Client) UpdateOrganizationTaskStatusWithOptions(taskId *string, userId *string, request *UpdateOrganizationTaskStatusRequest, headers *UpdateOrganizationTaskStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	taskId = openapiutil.GetEncodeParam(taskId)
+	userId = openapiutil.GetEncodeParam(userId)
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DisableActivity)) {
 		body["disableActivity"] = request.DisableActivity
@@ -3336,7 +3347,7 @@ func (client *Client) UpdateOrganizationTaskStatusWithOptions(taskId *string, re
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &UpdateOrganizationTaskStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskStatus"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/tasks/"+tea.StringValue(taskId)+"/states"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("UpdateOrganizationTaskStatus"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/states"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

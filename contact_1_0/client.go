@@ -4787,6 +4787,144 @@ func (s *TranslateFileResponse) SetBody(v *TranslateFileResponseBody) *Translate
 	return s
 }
 
+type UniqueQueryUserCardHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UniqueQueryUserCardHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UniqueQueryUserCardHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UniqueQueryUserCardHeaders) SetCommonHeaders(v map[string]*string) *UniqueQueryUserCardHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UniqueQueryUserCardHeaders) SetXAcsDingtalkAccessToken(v string) *UniqueQueryUserCardHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UniqueQueryUserCardRequest struct {
+	// 用户unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s UniqueQueryUserCardRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UniqueQueryUserCardRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UniqueQueryUserCardRequest) SetUnionId(v string) *UniqueQueryUserCardRequest {
+	s.UnionId = &v
+	return s
+}
+
+type UniqueQueryUserCardResponseBody struct {
+	// 图标
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// 名片id
+	CardId *string `json:"cardId,omitempty" xml:"cardId,omitempty"`
+	// 额外信息
+	Extension map[string]interface{} `json:"extension,omitempty" xml:"extension,omitempty"`
+	// 工业名
+	IndustryName *string `json:"industryName,omitempty" xml:"industryName,omitempty"`
+	// 介绍
+	Introduce *string `json:"introduce,omitempty" xml:"introduce,omitempty"`
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 组织名
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// 模版id
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// 标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s UniqueQueryUserCardResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UniqueQueryUserCardResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UniqueQueryUserCardResponseBody) SetAvatarUrl(v string) *UniqueQueryUserCardResponseBody {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *UniqueQueryUserCardResponseBody) SetCardId(v string) *UniqueQueryUserCardResponseBody {
+	s.CardId = &v
+	return s
+}
+
+func (s *UniqueQueryUserCardResponseBody) SetExtension(v map[string]interface{}) *UniqueQueryUserCardResponseBody {
+	s.Extension = v
+	return s
+}
+
+func (s *UniqueQueryUserCardResponseBody) SetIndustryName(v string) *UniqueQueryUserCardResponseBody {
+	s.IndustryName = &v
+	return s
+}
+
+func (s *UniqueQueryUserCardResponseBody) SetIntroduce(v string) *UniqueQueryUserCardResponseBody {
+	s.Introduce = &v
+	return s
+}
+
+func (s *UniqueQueryUserCardResponseBody) SetName(v string) *UniqueQueryUserCardResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *UniqueQueryUserCardResponseBody) SetOrgName(v string) *UniqueQueryUserCardResponseBody {
+	s.OrgName = &v
+	return s
+}
+
+func (s *UniqueQueryUserCardResponseBody) SetTemplateId(v string) *UniqueQueryUserCardResponseBody {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *UniqueQueryUserCardResponseBody) SetTitle(v string) *UniqueQueryUserCardResponseBody {
+	s.Title = &v
+	return s
+}
+
+type UniqueQueryUserCardResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UniqueQueryUserCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UniqueQueryUserCardResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UniqueQueryUserCardResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UniqueQueryUserCardResponse) SetHeaders(v map[string]*string) *UniqueQueryUserCardResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UniqueQueryUserCardResponse) SetBody(v *UniqueQueryUserCardResponseBody) *UniqueQueryUserCardResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateBranchAttributesInCooperateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7827,6 +7965,50 @@ func (client *Client) TranslateFileWithOptions(request *TranslateFileRequest, he
 	}
 	_result = &TranslateFileResponse{}
 	_body, _err := client.DoROARequest(tea.String("TranslateFile"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/files/translate"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UniqueQueryUserCard(request *UniqueQueryUserCardRequest) (_result *UniqueQueryUserCardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UniqueQueryUserCardHeaders{}
+	_result = &UniqueQueryUserCardResponse{}
+	_body, _err := client.UniqueQueryUserCardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UniqueQueryUserCardWithOptions(request *UniqueQueryUserCardRequest, headers *UniqueQueryUserCardHeaders, runtime *util.RuntimeOptions) (_result *UniqueQueryUserCardResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &UniqueQueryUserCardResponse{}
+	_body, _err := client.DoROARequest(tea.String("UniqueQueryUserCard"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/uniques/cards"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
