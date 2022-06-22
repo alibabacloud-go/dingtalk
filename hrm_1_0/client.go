@@ -2408,6 +2408,8 @@ func (s *SyncTaskTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *SyncTask
 }
 
 type SyncTaskTemplateRequest struct {
+	// 是否删除任务模版，true删除，false不删除
+	Delete *bool `json:"delete,omitempty" xml:"delete,omitempty"`
 	// 任务模板描述
 	Des *string `json:"des,omitempty" xml:"des,omitempty"`
 	// 扩展信息，json串
@@ -2431,6 +2433,11 @@ func (s SyncTaskTemplateRequest) String() string {
 
 func (s SyncTaskTemplateRequest) GoString() string {
 	return s.String()
+}
+
+func (s *SyncTaskTemplateRequest) SetDelete(v bool) *SyncTaskTemplateRequest {
+	s.Delete = &v
+	return s
 }
 
 func (s *SyncTaskTemplateRequest) SetDes(v string) *SyncTaskTemplateRequest {
@@ -3395,6 +3402,10 @@ func (client *Client) SyncTaskTemplateWithOptions(request *SyncTaskTemplateReque
 	}
 
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Delete)) {
+		body["delete"] = request.Delete
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Des)) {
 		body["des"] = request.Des
 	}

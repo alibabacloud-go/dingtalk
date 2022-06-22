@@ -1862,6 +1862,352 @@ func (s *GetAllLabelableDeptsResponse) SetBody(v *GetAllLabelableDeptsResponseBo
 	return s
 }
 
+type GetAppDispatchInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAppDispatchInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAppDispatchInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAppDispatchInfoHeaders) SetCommonHeaders(v map[string]*string) *GetAppDispatchInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAppDispatchInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetAppDispatchInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAppDispatchInfoRequest struct {
+	// 打包结束日期查询参数
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 打包开始日期查询参数
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s GetAppDispatchInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAppDispatchInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAppDispatchInfoRequest) SetEndTime(v int64) *GetAppDispatchInfoRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoRequest) SetStartTime(v int64) *GetAppDispatchInfoRequest {
+	s.StartTime = &v
+	return s
+}
+
+type GetAppDispatchInfoResponseBody struct {
+	// android打包记录
+	Android []*GetAppDispatchInfoResponseBodyAndroid `json:"android,omitempty" xml:"android,omitempty" type:"Repeated"`
+	// iOS打包记录
+	IOS []*GetAppDispatchInfoResponseBodyIOS `json:"iOS,omitempty" xml:"iOS,omitempty" type:"Repeated"`
+	// mac打包记录
+	Mac []*GetAppDispatchInfoResponseBodyMac `json:"mac,omitempty" xml:"mac,omitempty" type:"Repeated"`
+	// windows打包记录
+	Windows []*GetAppDispatchInfoResponseBodyWindows `json:"windows,omitempty" xml:"windows,omitempty" type:"Repeated"`
+}
+
+func (s GetAppDispatchInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAppDispatchInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAppDispatchInfoResponseBody) SetAndroid(v []*GetAppDispatchInfoResponseBodyAndroid) *GetAppDispatchInfoResponseBody {
+	s.Android = v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBody) SetIOS(v []*GetAppDispatchInfoResponseBodyIOS) *GetAppDispatchInfoResponseBody {
+	s.IOS = v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBody) SetMac(v []*GetAppDispatchInfoResponseBodyMac) *GetAppDispatchInfoResponseBody {
+	s.Mac = v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBody) SetWindows(v []*GetAppDispatchInfoResponseBodyWindows) *GetAppDispatchInfoResponseBody {
+	s.Windows = v
+	return s
+}
+
+type GetAppDispatchInfoResponseBodyAndroid struct {
+	// 基线版本
+	BaseLineVersion *string `json:"baseLineVersion,omitempty" xml:"baseLineVersion,omitempty"`
+	// 下载地址
+	DownloadUrl *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	// 是否灰度。true 灰度发布中 | false 全量灰度发布。为空则为未发布
+	InGray *bool `json:"inGray,omitempty" xml:"inGray,omitempty"`
+	// 打包时间
+	PackTime *int64 `json:"packTime,omitempty" xml:"packTime,omitempty"`
+	// 客户端类型
+	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	// 版本号
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s GetAppDispatchInfoResponseBodyAndroid) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAppDispatchInfoResponseBodyAndroid) GoString() string {
+	return s.String()
+}
+
+func (s *GetAppDispatchInfoResponseBodyAndroid) SetBaseLineVersion(v string) *GetAppDispatchInfoResponseBodyAndroid {
+	s.BaseLineVersion = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyAndroid) SetDownloadUrl(v string) *GetAppDispatchInfoResponseBodyAndroid {
+	s.DownloadUrl = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyAndroid) SetInGray(v bool) *GetAppDispatchInfoResponseBodyAndroid {
+	s.InGray = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyAndroid) SetPackTime(v int64) *GetAppDispatchInfoResponseBodyAndroid {
+	s.PackTime = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyAndroid) SetPlatform(v string) *GetAppDispatchInfoResponseBodyAndroid {
+	s.Platform = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyAndroid) SetVersion(v string) *GetAppDispatchInfoResponseBodyAndroid {
+	s.Version = &v
+	return s
+}
+
+type GetAppDispatchInfoResponseBodyIOS struct {
+	// 基线版本
+	BaseLineVersion *string `json:"baseLineVersion,omitempty" xml:"baseLineVersion,omitempty"`
+	// 下载地址
+	DownloadUrl *string                               `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	Ext         *GetAppDispatchInfoResponseBodyIOSExt `json:"ext,omitempty" xml:"ext,omitempty" type:"Struct"`
+	// 是否灰度。true 灰度发布中 | false 全量灰度发布。为空则为未发布
+	InGray *bool `json:"inGray,omitempty" xml:"inGray,omitempty"`
+	// 打包时间
+	PackTime *int64 `json:"packTime,omitempty" xml:"packTime,omitempty"`
+	// 客户端类型
+	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	// 版本号
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s GetAppDispatchInfoResponseBodyIOS) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAppDispatchInfoResponseBodyIOS) GoString() string {
+	return s.String()
+}
+
+func (s *GetAppDispatchInfoResponseBodyIOS) SetBaseLineVersion(v string) *GetAppDispatchInfoResponseBodyIOS {
+	s.BaseLineVersion = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyIOS) SetDownloadUrl(v string) *GetAppDispatchInfoResponseBodyIOS {
+	s.DownloadUrl = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyIOS) SetExt(v *GetAppDispatchInfoResponseBodyIOSExt) *GetAppDispatchInfoResponseBodyIOS {
+	s.Ext = v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyIOS) SetInGray(v bool) *GetAppDispatchInfoResponseBodyIOS {
+	s.InGray = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyIOS) SetPackTime(v int64) *GetAppDispatchInfoResponseBodyIOS {
+	s.PackTime = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyIOS) SetPlatform(v string) *GetAppDispatchInfoResponseBodyIOS {
+	s.Platform = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyIOS) SetVersion(v string) *GetAppDispatchInfoResponseBodyIOS {
+	s.Version = &v
+	return s
+}
+
+type GetAppDispatchInfoResponseBodyIOSExt struct {
+	// plist下载地址
+	Plist *string `json:"plist,omitempty" xml:"plist,omitempty"`
+}
+
+func (s GetAppDispatchInfoResponseBodyIOSExt) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAppDispatchInfoResponseBodyIOSExt) GoString() string {
+	return s.String()
+}
+
+func (s *GetAppDispatchInfoResponseBodyIOSExt) SetPlist(v string) *GetAppDispatchInfoResponseBodyIOSExt {
+	s.Plist = &v
+	return s
+}
+
+type GetAppDispatchInfoResponseBodyMac struct {
+	// 基线版本
+	BaseLineVersion *string `json:"baseLineVersion,omitempty" xml:"baseLineVersion,omitempty"`
+	// 下载地址
+	DownloadUrl *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	// 是否灰度。true 灰度发布中 | false 全量灰度发布。为空则为未发布
+	InGray *bool `json:"inGray,omitempty" xml:"inGray,omitempty"`
+	// 打包时间
+	PackTime *int64 `json:"packTime,omitempty" xml:"packTime,omitempty"`
+	// 客户端类型
+	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	// 版本号
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s GetAppDispatchInfoResponseBodyMac) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAppDispatchInfoResponseBodyMac) GoString() string {
+	return s.String()
+}
+
+func (s *GetAppDispatchInfoResponseBodyMac) SetBaseLineVersion(v string) *GetAppDispatchInfoResponseBodyMac {
+	s.BaseLineVersion = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyMac) SetDownloadUrl(v string) *GetAppDispatchInfoResponseBodyMac {
+	s.DownloadUrl = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyMac) SetInGray(v bool) *GetAppDispatchInfoResponseBodyMac {
+	s.InGray = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyMac) SetPackTime(v int64) *GetAppDispatchInfoResponseBodyMac {
+	s.PackTime = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyMac) SetPlatform(v string) *GetAppDispatchInfoResponseBodyMac {
+	s.Platform = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyMac) SetVersion(v string) *GetAppDispatchInfoResponseBodyMac {
+	s.Version = &v
+	return s
+}
+
+type GetAppDispatchInfoResponseBodyWindows struct {
+	// 基线版本
+	BaseLineVersion *string `json:"baseLineVersion,omitempty" xml:"baseLineVersion,omitempty"`
+	// 下载地址
+	DownloadUrl *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	// 是否灰度。true 灰度发布中 | false 全量灰度发布。为空则为未发布
+	InGray *bool `json:"inGray,omitempty" xml:"inGray,omitempty"`
+	// 打包时间
+	PackTime *int64 `json:"packTime,omitempty" xml:"packTime,omitempty"`
+	// 客户端类型
+	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	// 版本号
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s GetAppDispatchInfoResponseBodyWindows) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAppDispatchInfoResponseBodyWindows) GoString() string {
+	return s.String()
+}
+
+func (s *GetAppDispatchInfoResponseBodyWindows) SetBaseLineVersion(v string) *GetAppDispatchInfoResponseBodyWindows {
+	s.BaseLineVersion = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyWindows) SetDownloadUrl(v string) *GetAppDispatchInfoResponseBodyWindows {
+	s.DownloadUrl = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyWindows) SetInGray(v bool) *GetAppDispatchInfoResponseBodyWindows {
+	s.InGray = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyWindows) SetPackTime(v int64) *GetAppDispatchInfoResponseBodyWindows {
+	s.PackTime = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyWindows) SetPlatform(v string) *GetAppDispatchInfoResponseBodyWindows {
+	s.Platform = &v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponseBodyWindows) SetVersion(v string) *GetAppDispatchInfoResponseBodyWindows {
+	s.Version = &v
+	return s
+}
+
+type GetAppDispatchInfoResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetAppDispatchInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAppDispatchInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAppDispatchInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAppDispatchInfoResponse) SetHeaders(v map[string]*string) *GetAppDispatchInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAppDispatchInfoResponse) SetBody(v *GetAppDispatchInfoResponseBody) *GetAppDispatchInfoResponse {
+	s.Body = v
+	return s
+}
+
 type GetCalenderSummaryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8162,6 +8508,54 @@ func (client *Client) GetAllLabelableDeptsWithOptions(headers *GetAllLabelableDe
 	}
 	_result = &GetAllLabelableDeptsResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetAllLabelableDepts"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/partnerDepartments"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetAppDispatchInfo(request *GetAppDispatchInfoRequest) (_result *GetAppDispatchInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAppDispatchInfoHeaders{}
+	_result = &GetAppDispatchInfoResponse{}
+	_body, _err := client.GetAppDispatchInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAppDispatchInfoWithOptions(request *GetAppDispatchInfoRequest, headers *GetAppDispatchInfoHeaders, runtime *util.RuntimeOptions) (_result *GetAppDispatchInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetAppDispatchInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetAppDispatchInfo"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/apps/distributionInfos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

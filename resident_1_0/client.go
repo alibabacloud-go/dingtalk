@@ -302,7 +302,11 @@ func (s *AddResidentMemberRequestResidentAddInfo) SetRelateType(v string) *AddRe
 }
 
 type AddResidentMemberResponseBody struct {
-	// userId
+	// 用户状态
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 用户ID
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 用户员工ID
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -312,6 +316,16 @@ func (s AddResidentMemberResponseBody) String() string {
 
 func (s AddResidentMemberResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *AddResidentMemberResponseBody) SetStatus(v int32) *AddResidentMemberResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *AddResidentMemberResponseBody) SetUnionId(v string) *AddResidentMemberResponseBody {
+	s.UnionId = &v
+	return s
 }
 
 func (s *AddResidentMemberResponseBody) SetUserId(v string) *AddResidentMemberResponseBody {
@@ -2785,6 +2799,8 @@ func (s *RemoveResidentMemberHeaders) SetXAcsDingtalkAccessToken(v string) *Remo
 type RemoveResidentMemberRequest struct {
 	// 空位标识
 	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	// 人员标识
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -2799,6 +2815,11 @@ func (s RemoveResidentMemberRequest) GoString() string {
 
 func (s *RemoveResidentMemberRequest) SetDeptId(v int64) *RemoveResidentMemberRequest {
 	s.DeptId = &v
+	return s
+}
+
+func (s *RemoveResidentMemberRequest) SetUnionId(v string) *RemoveResidentMemberRequest {
+	s.UnionId = &v
 	return s
 }
 
@@ -3557,6 +3578,8 @@ func (s *UpdateResidentMemberHeaders) SetXAcsDingtalkAccessToken(v string) *Upda
 type UpdateResidentMemberRequest struct {
 	// 人员更新信息
 	ResidentUpdateInfo *UpdateResidentMemberRequestResidentUpdateInfo `json:"residentUpdateInfo,omitempty" xml:"residentUpdateInfo,omitempty" type:"Struct"`
+	// unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s UpdateResidentMemberRequest) String() string {
@@ -3572,13 +3595,16 @@ func (s *UpdateResidentMemberRequest) SetResidentUpdateInfo(v *UpdateResidentMem
 	return s
 }
 
+func (s *UpdateResidentMemberRequest) SetUnionId(v string) *UpdateResidentMemberRequest {
+	s.UnionId = &v
+	return s
+}
+
 type UpdateResidentMemberRequestResidentUpdateInfo struct {
 	// 部门id
 	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 	// 是否是产权人
 	IsPropertyOwner *bool `json:"isPropertyOwner,omitempty" xml:"isPropertyOwner,omitempty"`
-	// 是否保留旧部门，默认不保存
-	IsRetainOldDept *bool `json:"isRetainOldDept,omitempty" xml:"isRetainOldDept,omitempty"`
 	// 人员扩展信息，目前只有租客的起止时间
 	MemberDeptExtension map[string]*string `json:"memberDeptExtension,omitempty" xml:"memberDeptExtension,omitempty"`
 	// 姓名
@@ -3606,11 +3632,6 @@ func (s *UpdateResidentMemberRequestResidentUpdateInfo) SetDeptId(v int64) *Upda
 
 func (s *UpdateResidentMemberRequestResidentUpdateInfo) SetIsPropertyOwner(v bool) *UpdateResidentMemberRequestResidentUpdateInfo {
 	s.IsPropertyOwner = &v
-	return s
-}
-
-func (s *UpdateResidentMemberRequestResidentUpdateInfo) SetIsRetainOldDept(v bool) *UpdateResidentMemberRequestResidentUpdateInfo {
-	s.IsRetainOldDept = &v
 	return s
 }
 
@@ -5148,6 +5169,10 @@ func (client *Client) RemoveResidentMemberWithOptions(request *RemoveResidentMem
 		body["deptId"] = request.DeptId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		body["userId"] = request.UserId
 	}
@@ -5546,6 +5571,10 @@ func (client *Client) UpdateResidentMemberWithOptions(request *UpdateResidentMem
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ResidentUpdateInfo))) {
 		body["residentUpdateInfo"] = request.ResidentUpdateInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
 	}
 
 	realHeaders := make(map[string]*string)

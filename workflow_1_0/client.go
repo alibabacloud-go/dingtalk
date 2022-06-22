@@ -604,6 +604,444 @@ func (s *FormCreateResponse) SetBody(v *FormCreateResponseBody) *FormCreateRespo
 	return s
 }
 
+type GetCrmProcCodesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCrmProcCodesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmProcCodesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmProcCodesHeaders) SetCommonHeaders(v map[string]*string) *GetCrmProcCodesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCrmProcCodesHeaders) SetXAcsDingtalkAccessToken(v string) *GetCrmProcCodesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCrmProcCodesResponseBody struct {
+	Result []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetCrmProcCodesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmProcCodesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmProcCodesResponseBody) SetResult(v []*string) *GetCrmProcCodesResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetCrmProcCodesResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCrmProcCodesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCrmProcCodesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCrmProcCodesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCrmProcCodesResponse) SetHeaders(v map[string]*string) *GetCrmProcCodesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCrmProcCodesResponse) SetBody(v *GetCrmProcCodesResponseBody) *GetCrmProcCodesResponse {
+	s.Body = v
+	return s
+}
+
+type GetProcessConfigHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetProcessConfigHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessConfigHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessConfigHeaders) SetCommonHeaders(v map[string]*string) *GetProcessConfigHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetProcessConfigHeaders) SetXAcsDingtalkAccessToken(v string) *GetProcessConfigHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetProcessConfigRequest struct {
+	// 模板code
+	ProcCode *string `json:"procCode,omitempty" xml:"procCode,omitempty"`
+}
+
+func (s GetProcessConfigRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessConfigRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessConfigRequest) SetProcCode(v string) *GetProcessConfigRequest {
+	s.ProcCode = &v
+	return s
+}
+
+type GetProcessConfigResponseBody struct {
+	Result *GetProcessConfigResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetProcessConfigResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessConfigResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessConfigResponseBody) SetResult(v *GetProcessConfigResponseBodyResult) *GetProcessConfigResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetProcessConfigResponseBodyResult struct {
+	// 自定义摘要信息
+	AbstractGenRule []*string `json:"abstractGenRule,omitempty" xml:"abstractGenRule,omitempty" type:"Repeated"`
+	// 是否允许撤销
+	AllowRevoke *bool `json:"allowRevoke,omitempty" xml:"allowRevoke,omitempty"`
+	// 是否允许加签
+	AppendEnable *bool `json:"appendEnable,omitempty" xml:"appendEnable,omitempty"`
+	// 如果审批人和发起人是同一个人，则去重
+	AutoExecuteOriginatorTasks *bool `json:"autoExecuteOriginatorTasks,omitempty" xml:"autoExecuteOriginatorTasks,omitempty"`
+	// 流程表单业务标识
+	BizCategoryId *string `json:"bizCategoryId,omitempty" xml:"bizCategoryId,omitempty"`
+	// 纯表单业务标识
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 评论配置
+	CommentConf *GetProcessConfigResponseBodyResultCommentConf `json:"commentConf,omitempty" xml:"commentConf,omitempty" type:"Struct"`
+	// 审批人自动去重
+	DuplicateRemoval *string `json:"duplicateRemoval,omitempty" xml:"duplicateRemoval,omitempty"`
+	// 手写签名配置
+	HandSignConf *GetProcessConfigResponseBodyResultHandSignConf `json:"handSignConf,omitempty" xml:"handSignConf,omitempty" type:"Struct"`
+	// 表单管理员
+	Managers []*string `json:"managers,omitempty" xml:"managers,omitempty" type:"Repeated"`
+	// 表单名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 是否流程表单
+	ProcessAppType *bool `json:"processAppType,omitempty" xml:"processAppType,omitempty"`
+	// 流程配置
+	ProcessConfig *string `json:"processConfig,omitempty" xml:"processConfig,omitempty"`
+	// 是否静态流程
+	StaticProc *bool `json:"staticProc,omitempty" xml:"staticProc,omitempty"`
+	// 代提交配置
+	SubstituteSubmitConf *GetProcessConfigResponseBodyResultSubstituteSubmitConf `json:"substituteSubmitConf,omitempty" xml:"substituteSubmitConf,omitempty" type:"Struct"`
+	// 自定义标题规则
+	TitleGenRule *GetProcessConfigResponseBodyResultTitleGenRule `json:"titleGenRule,omitempty" xml:"titleGenRule,omitempty" type:"Struct"`
+	// 模板可见性
+	Visibility []*GetProcessConfigResponseBodyResultVisibility `json:"visibility,omitempty" xml:"visibility,omitempty" type:"Repeated"`
+}
+
+func (s GetProcessConfigResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessConfigResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetAbstractGenRule(v []*string) *GetProcessConfigResponseBodyResult {
+	s.AbstractGenRule = v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetAllowRevoke(v bool) *GetProcessConfigResponseBodyResult {
+	s.AllowRevoke = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetAppendEnable(v bool) *GetProcessConfigResponseBodyResult {
+	s.AppendEnable = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetAutoExecuteOriginatorTasks(v bool) *GetProcessConfigResponseBodyResult {
+	s.AutoExecuteOriginatorTasks = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetBizCategoryId(v string) *GetProcessConfigResponseBodyResult {
+	s.BizCategoryId = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetBizType(v string) *GetProcessConfigResponseBodyResult {
+	s.BizType = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetCommentConf(v *GetProcessConfigResponseBodyResultCommentConf) *GetProcessConfigResponseBodyResult {
+	s.CommentConf = v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetDuplicateRemoval(v string) *GetProcessConfigResponseBodyResult {
+	s.DuplicateRemoval = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetHandSignConf(v *GetProcessConfigResponseBodyResultHandSignConf) *GetProcessConfigResponseBodyResult {
+	s.HandSignConf = v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetManagers(v []*string) *GetProcessConfigResponseBodyResult {
+	s.Managers = v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetName(v string) *GetProcessConfigResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetProcessAppType(v bool) *GetProcessConfigResponseBodyResult {
+	s.ProcessAppType = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetProcessConfig(v string) *GetProcessConfigResponseBodyResult {
+	s.ProcessConfig = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetStaticProc(v bool) *GetProcessConfigResponseBodyResult {
+	s.StaticProc = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetSubstituteSubmitConf(v *GetProcessConfigResponseBodyResultSubstituteSubmitConf) *GetProcessConfigResponseBodyResult {
+	s.SubstituteSubmitConf = v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetTitleGenRule(v *GetProcessConfigResponseBodyResultTitleGenRule) *GetProcessConfigResponseBodyResult {
+	s.TitleGenRule = v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetVisibility(v []*GetProcessConfigResponseBodyResultVisibility) *GetProcessConfigResponseBodyResult {
+	s.Visibility = v
+	return s
+}
+
+type GetProcessConfigResponseBodyResultCommentConf struct {
+	// 提示内容
+	CommentDescription *string `json:"commentDescription,omitempty" xml:"commentDescription,omitempty"`
+	// 评论对发起人不可见
+	CommentHiddenForProposer *bool `json:"commentHiddenForProposer,omitempty" xml:"commentHiddenForProposer,omitempty"`
+	// 评论必填
+	CommentRequired *bool `json:"commentRequired,omitempty" xml:"commentRequired,omitempty"`
+}
+
+func (s GetProcessConfigResponseBodyResultCommentConf) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessConfigResponseBodyResultCommentConf) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessConfigResponseBodyResultCommentConf) SetCommentDescription(v string) *GetProcessConfigResponseBodyResultCommentConf {
+	s.CommentDescription = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResultCommentConf) SetCommentHiddenForProposer(v bool) *GetProcessConfigResponseBodyResultCommentConf {
+	s.CommentHiddenForProposer = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResultCommentConf) SetCommentRequired(v bool) *GetProcessConfigResponseBodyResultCommentConf {
+	s.CommentRequired = &v
+	return s
+}
+
+type GetProcessConfigResponseBodyResultHandSignConf struct {
+	// 开启手写签名
+	HandSignEnable *bool `json:"handSignEnable,omitempty" xml:"handSignEnable,omitempty"`
+	// 是否使用上次签名
+	ResignEnable *bool `json:"resignEnable,omitempty" xml:"resignEnable,omitempty"`
+}
+
+func (s GetProcessConfigResponseBodyResultHandSignConf) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessConfigResponseBodyResultHandSignConf) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessConfigResponseBodyResultHandSignConf) SetHandSignEnable(v bool) *GetProcessConfigResponseBodyResultHandSignConf {
+	s.HandSignEnable = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResultHandSignConf) SetResignEnable(v bool) *GetProcessConfigResponseBodyResultHandSignConf {
+	s.ResignEnable = &v
+	return s
+}
+
+type GetProcessConfigResponseBodyResultSubstituteSubmitConf struct {
+	// 是否允许代提交
+	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
+	// 代提交人
+	SubmitterList []*GetProcessConfigResponseBodyResultSubstituteSubmitConfSubmitterList `json:"submitterList,omitempty" xml:"submitterList,omitempty" type:"Repeated"`
+}
+
+func (s GetProcessConfigResponseBodyResultSubstituteSubmitConf) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessConfigResponseBodyResultSubstituteSubmitConf) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessConfigResponseBodyResultSubstituteSubmitConf) SetEnable(v bool) *GetProcessConfigResponseBodyResultSubstituteSubmitConf {
+	s.Enable = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResultSubstituteSubmitConf) SetSubmitterList(v []*GetProcessConfigResponseBodyResultSubstituteSubmitConfSubmitterList) *GetProcessConfigResponseBodyResultSubstituteSubmitConf {
+	s.SubmitterList = v
+	return s
+}
+
+type GetProcessConfigResponseBodyResultSubstituteSubmitConfSubmitterList struct {
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 员工staffId/部门id
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetProcessConfigResponseBodyResultSubstituteSubmitConfSubmitterList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessConfigResponseBodyResultSubstituteSubmitConfSubmitterList) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessConfigResponseBodyResultSubstituteSubmitConfSubmitterList) SetName(v string) *GetProcessConfigResponseBodyResultSubstituteSubmitConfSubmitterList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResultSubstituteSubmitConfSubmitterList) SetType(v string) *GetProcessConfigResponseBodyResultSubstituteSubmitConfSubmitterList {
+	s.Type = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResultSubstituteSubmitConfSubmitterList) SetValue(v string) *GetProcessConfigResponseBodyResultSubstituteSubmitConfSubmitterList {
+	s.Value = &v
+	return s
+}
+
+type GetProcessConfigResponseBodyResultTitleGenRule struct {
+	// 规则表达式
+	Express *string `json:"express,omitempty" xml:"express,omitempty"`
+	// 规则类型
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s GetProcessConfigResponseBodyResultTitleGenRule) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessConfigResponseBodyResultTitleGenRule) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessConfigResponseBodyResultTitleGenRule) SetExpress(v string) *GetProcessConfigResponseBodyResultTitleGenRule {
+	s.Express = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResultTitleGenRule) SetType(v int32) *GetProcessConfigResponseBodyResultTitleGenRule {
+	s.Type = &v
+	return s
+}
+
+type GetProcessConfigResponseBodyResultVisibility struct {
+	// 类型
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	// 员工staffId/部门id
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetProcessConfigResponseBodyResultVisibility) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessConfigResponseBodyResultVisibility) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessConfigResponseBodyResultVisibility) SetType(v int32) *GetProcessConfigResponseBodyResultVisibility {
+	s.Type = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResultVisibility) SetValue(v string) *GetProcessConfigResponseBodyResultVisibility {
+	s.Value = &v
+	return s
+}
+
+type GetProcessConfigResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetProcessConfigResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetProcessConfigResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessConfigResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessConfigResponse) SetHeaders(v map[string]*string) *GetProcessConfigResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetProcessConfigResponse) SetBody(v *GetProcessConfigResponseBody) *GetProcessConfigResponse {
+	s.Body = v
+	return s
+}
+
 type GrantCspaceAuthorizationHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3412,6 +3850,84 @@ func (client *Client) FormCreateWithOptions(request *FormCreateRequest, headers 
 	}
 	_result = &FormCreateResponse{}
 	_body, _err := client.DoROARequest(tea.String("FormCreate"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/forms"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetCrmProcCodes() (_result *GetCrmProcCodesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCrmProcCodesHeaders{}
+	_result = &GetCrmProcCodesResponse{}
+	_body, _err := client.GetCrmProcCodesWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetCrmProcCodesWithOptions(headers *GetCrmProcCodesHeaders, runtime *util.RuntimeOptions) (_result *GetCrmProcCodesResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetCrmProcCodesResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetCrmProcCodes"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/crm/processes"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetProcessConfig(request *GetProcessConfigRequest) (_result *GetProcessConfigResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetProcessConfigHeaders{}
+	_result = &GetProcessConfigResponse{}
+	_body, _err := client.GetProcessConfigWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetProcessConfigWithOptions(request *GetProcessConfigRequest, headers *GetProcessConfigHeaders, runtime *util.RuntimeOptions) (_result *GetProcessConfigResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProcCode)) {
+		query["procCode"] = request.ProcCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetProcessConfigResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetProcessConfig"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/crm/processes/configurations"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

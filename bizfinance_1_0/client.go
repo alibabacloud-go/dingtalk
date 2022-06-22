@@ -1733,6 +1733,88 @@ func (s *QueryPermissionByUserIdResponse) SetBody(v *QueryPermissionByUserIdResp
 	return s
 }
 
+type QueryPermissionRoleMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryPermissionRoleMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPermissionRoleMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPermissionRoleMemberHeaders) SetCommonHeaders(v map[string]*string) *QueryPermissionRoleMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryPermissionRoleMemberHeaders) SetXAcsDingtalkAccessToken(v string) *QueryPermissionRoleMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryPermissionRoleMemberRequest struct {
+	// 角色的唯一标识列表
+	RoleCodeList []*string `json:"roleCodeList,omitempty" xml:"roleCodeList,omitempty" type:"Repeated"`
+}
+
+func (s QueryPermissionRoleMemberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPermissionRoleMemberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPermissionRoleMemberRequest) SetRoleCodeList(v []*string) *QueryPermissionRoleMemberRequest {
+	s.RoleCodeList = v
+	return s
+}
+
+type QueryPermissionRoleMemberResponseBody struct {
+	// 角色下的成员MAP
+	RoleMemberMap map[string]*RoleMemberMapValue `json:"roleMemberMap,omitempty" xml:"roleMemberMap,omitempty"`
+}
+
+func (s QueryPermissionRoleMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPermissionRoleMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPermissionRoleMemberResponseBody) SetRoleMemberMap(v map[string]*RoleMemberMapValue) *QueryPermissionRoleMemberResponseBody {
+	s.RoleMemberMap = v
+	return s
+}
+
+type QueryPermissionRoleMemberResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryPermissionRoleMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryPermissionRoleMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPermissionRoleMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPermissionRoleMemberResponse) SetHeaders(v map[string]*string) *QueryPermissionRoleMemberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryPermissionRoleMemberResponse) SetBody(v *QueryPermissionRoleMemberResponseBody) *QueryPermissionRoleMemberResponse {
+	s.Body = v
+	return s
+}
+
 type QueryProjectByPageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2424,6 +2506,63 @@ func (s *UpdateReceiptResponse) SetBody(v *UpdateReceiptResponseBody) *UpdateRec
 	return s
 }
 
+type RoleMemberMapValue struct {
+	// 角色唯一标识
+	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	// 成员信息列表
+	MemberList []*RoleMemberMapValueMemberList `json:"memberList,omitempty" xml:"memberList,omitempty" type:"Repeated"`
+}
+
+func (s RoleMemberMapValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RoleMemberMapValue) GoString() string {
+	return s.String()
+}
+
+func (s *RoleMemberMapValue) SetRoleCode(v string) *RoleMemberMapValue {
+	s.RoleCode = &v
+	return s
+}
+
+func (s *RoleMemberMapValue) SetMemberList(v []*RoleMemberMapValueMemberList) *RoleMemberMapValue {
+	s.MemberList = v
+	return s
+}
+
+type RoleMemberMapValueMemberList struct {
+	// 用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 昵称
+	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	// 头像URL
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+}
+
+func (s RoleMemberMapValueMemberList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RoleMemberMapValueMemberList) GoString() string {
+	return s.String()
+}
+
+func (s *RoleMemberMapValueMemberList) SetUserId(v string) *RoleMemberMapValueMemberList {
+	s.UserId = &v
+	return s
+}
+
+func (s *RoleMemberMapValueMemberList) SetNick(v string) *RoleMemberMapValueMemberList {
+	s.Nick = &v
+	return s
+}
+
+func (s *RoleMemberMapValueMemberList) SetAvatarUrl(v string) *RoleMemberMapValueMemberList {
+	s.AvatarUrl = &v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -3022,6 +3161,50 @@ func (client *Client) QueryPermissionByUserIdWithOptions(request *QueryPermissio
 	}
 	_result = &QueryPermissionByUserIdResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryPermissionByUserId"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/permissions"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryPermissionRoleMember(request *QueryPermissionRoleMemberRequest) (_result *QueryPermissionRoleMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryPermissionRoleMemberHeaders{}
+	_result = &QueryPermissionRoleMemberResponse{}
+	_body, _err := client.QueryPermissionRoleMemberWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryPermissionRoleMemberWithOptions(request *QueryPermissionRoleMemberRequest, headers *QueryPermissionRoleMemberHeaders, runtime *util.RuntimeOptions) (_result *QueryPermissionRoleMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RoleCodeList)) {
+		body["roleCodeList"] = request.RoleCodeList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryPermissionRoleMemberResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryPermissionRoleMember"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/roles/members/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
