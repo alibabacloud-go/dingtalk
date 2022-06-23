@@ -3240,7 +3240,8 @@ func (s *UpdateRangeHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRangeHe
 
 type UpdateRangeRequest struct {
 	// 背景色
-	BackgroundColors [][]*string `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
+	BackgroundColors [][]*string                       `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
+	Hyperlinks       [][]*UpdateRangeRequestHyperlinks `json:"hyperlinks,omitempty" xml:"hyperlinks,omitempty" type:"Repeated"`
 	// 值
 	Values [][]*string `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 	// 操作人unionId
@@ -3260,6 +3261,11 @@ func (s *UpdateRangeRequest) SetBackgroundColors(v [][]*string) *UpdateRangeRequ
 	return s
 }
 
+func (s *UpdateRangeRequest) SetHyperlinks(v [][]*UpdateRangeRequestHyperlinks) *UpdateRangeRequest {
+	s.Hyperlinks = v
+	return s
+}
+
 func (s *UpdateRangeRequest) SetValues(v [][]*string) *UpdateRangeRequest {
 	s.Values = v
 	return s
@@ -3267,6 +3273,38 @@ func (s *UpdateRangeRequest) SetValues(v [][]*string) *UpdateRangeRequest {
 
 func (s *UpdateRangeRequest) SetOperatorId(v string) *UpdateRangeRequest {
 	s.OperatorId = &v
+	return s
+}
+
+type UpdateRangeRequestHyperlinks struct {
+	// 超链接类型，可选 "path", "sheet", "range"
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 链接地址
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// 链接文本
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s UpdateRangeRequestHyperlinks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRangeRequestHyperlinks) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRangeRequestHyperlinks) SetType(v string) *UpdateRangeRequestHyperlinks {
+	s.Type = &v
+	return s
+}
+
+func (s *UpdateRangeRequestHyperlinks) SetLink(v string) *UpdateRangeRequestHyperlinks {
+	s.Link = &v
+	return s
+}
+
+func (s *UpdateRangeRequestHyperlinks) SetText(v string) *UpdateRangeRequestHyperlinks {
+	s.Text = &v
 	return s
 }
 
@@ -4770,6 +4808,10 @@ func (client *Client) UpdateRangeWithOptions(workbookId *string, sheetId *string
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.BackgroundColors)) {
 		body["backgroundColors"] = request.BackgroundColors
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Hyperlinks)) {
+		body["hyperlinks"] = request.Hyperlinks
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Values)) {

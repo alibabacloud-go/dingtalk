@@ -49,10 +49,6 @@ type CreateOrganizationTaskRequest struct {
 	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
 	// 参与者id
 	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	// 任务是否完成
-	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	// 任务自定义标记
-	Label *string `json:"label,omitempty" xml:"label,omitempty"`
 	// 任务备注
 	Note *string `json:"note,omitempty" xml:"note,omitempty"`
 	// 优先级【-10,0,1,2】中选一个
@@ -101,16 +97,6 @@ func (s *CreateOrganizationTaskRequest) SetExecutorId(v string) *CreateOrganizat
 
 func (s *CreateOrganizationTaskRequest) SetInvolveMembers(v []*string) *CreateOrganizationTaskRequest {
 	s.InvolveMembers = v
-	return s
-}
-
-func (s *CreateOrganizationTaskRequest) SetIsDone(v bool) *CreateOrganizationTaskRequest {
-	s.IsDone = &v
-	return s
-}
-
-func (s *CreateOrganizationTaskRequest) SetLabel(v string) *CreateOrganizationTaskRequest {
-	s.Label = &v
 	return s
 }
 
@@ -178,14 +164,10 @@ type CreateOrganizationTaskResponseBodyResult struct {
 	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
 	// 是否完成
 	IsDone *string `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	// 任务自定义标记
-	Labels []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
 	// 任务备注
 	Note *string `json:"note,omitempty" xml:"note,omitempty"`
 	// 优先级【-10,0,1,2】中选一个
 	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
-	// 标签
-	TagIds []*string `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
 	// 更新时间
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 	// 任务可见性。involves：仅参与者可见。members:所有人可见
@@ -275,11 +257,6 @@ func (s *CreateOrganizationTaskResponseBodyResult) SetIsDone(v string) *CreateOr
 	return s
 }
 
-func (s *CreateOrganizationTaskResponseBodyResult) SetLabels(v []*string) *CreateOrganizationTaskResponseBodyResult {
-	s.Labels = v
-	return s
-}
-
 func (s *CreateOrganizationTaskResponseBodyResult) SetNote(v string) *CreateOrganizationTaskResponseBodyResult {
 	s.Note = &v
 	return s
@@ -287,11 +264,6 @@ func (s *CreateOrganizationTaskResponseBodyResult) SetNote(v string) *CreateOrga
 
 func (s *CreateOrganizationTaskResponseBodyResult) SetPriority(v int32) *CreateOrganizationTaskResponseBodyResult {
 	s.Priority = &v
-	return s
-}
-
-func (s *CreateOrganizationTaskResponseBodyResult) SetTagIds(v []*string) *CreateOrganizationTaskResponseBodyResult {
-	s.TagIds = v
 	return s
 }
 
@@ -1017,8 +989,6 @@ type GetOrganizationPriorityListResponseBodyResult struct {
 	Color *string `json:"color,omitempty" xml:"color,omitempty"`
 	// 名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 额外信息
-	Payload *GetOrganizationPriorityListResponseBodyResultPayload `json:"payload,omitempty" xml:"payload,omitempty" type:"Struct"`
 	// 优先级值
 	Priority *string `json:"priority,omitempty" xml:"priority,omitempty"`
 	// id
@@ -1043,11 +1013,6 @@ func (s *GetOrganizationPriorityListResponseBodyResult) SetName(v string) *GetOr
 	return s
 }
 
-func (s *GetOrganizationPriorityListResponseBodyResult) SetPayload(v *GetOrganizationPriorityListResponseBodyResultPayload) *GetOrganizationPriorityListResponseBodyResult {
-	s.Payload = v
-	return s
-}
-
 func (s *GetOrganizationPriorityListResponseBodyResult) SetPriority(v string) *GetOrganizationPriorityListResponseBodyResult {
 	s.Priority = &v
 	return s
@@ -1055,67 +1020,6 @@ func (s *GetOrganizationPriorityListResponseBodyResult) SetPriority(v string) *G
 
 func (s *GetOrganizationPriorityListResponseBodyResult) SetPriorityId(v string) *GetOrganizationPriorityListResponseBodyResult {
 	s.PriorityId = &v
-	return s
-}
-
-type GetOrganizationPriorityListResponseBodyResultPayload struct {
-	// 优先级多语言
-	Locales *GetOrganizationPriorityListResponseBodyResultPayloadLocales `json:"locales,omitempty" xml:"locales,omitempty" type:"Struct"`
-}
-
-func (s GetOrganizationPriorityListResponseBodyResultPayload) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetOrganizationPriorityListResponseBodyResultPayload) GoString() string {
-	return s.String()
-}
-
-func (s *GetOrganizationPriorityListResponseBodyResultPayload) SetLocales(v *GetOrganizationPriorityListResponseBodyResultPayloadLocales) *GetOrganizationPriorityListResponseBodyResultPayload {
-	s.Locales = v
-	return s
-}
-
-type GetOrganizationPriorityListResponseBodyResultPayloadLocales struct {
-	// 名称
-	Name *GetOrganizationPriorityListResponseBodyResultPayloadLocalesName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
-}
-
-func (s GetOrganizationPriorityListResponseBodyResultPayloadLocales) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetOrganizationPriorityListResponseBodyResultPayloadLocales) GoString() string {
-	return s.String()
-}
-
-func (s *GetOrganizationPriorityListResponseBodyResultPayloadLocales) SetName(v *GetOrganizationPriorityListResponseBodyResultPayloadLocalesName) *GetOrganizationPriorityListResponseBodyResultPayloadLocales {
-	s.Name = v
-	return s
-}
-
-type GetOrganizationPriorityListResponseBodyResultPayloadLocalesName struct {
-	// 英文名
-	En *string `json:"en,omitempty" xml:"en,omitempty"`
-	// 中文名
-	Zh *string `json:"zh,omitempty" xml:"zh,omitempty"`
-}
-
-func (s GetOrganizationPriorityListResponseBodyResultPayloadLocalesName) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetOrganizationPriorityListResponseBodyResultPayloadLocalesName) GoString() string {
-	return s.String()
-}
-
-func (s *GetOrganizationPriorityListResponseBodyResultPayloadLocalesName) SetEn(v string) *GetOrganizationPriorityListResponseBodyResultPayloadLocalesName {
-	s.En = &v
-	return s
-}
-
-func (s *GetOrganizationPriorityListResponseBodyResultPayloadLocalesName) SetZh(v string) *GetOrganizationPriorityListResponseBodyResultPayloadLocalesName {
-	s.Zh = &v
 	return s
 }
 
@@ -2575,14 +2479,6 @@ func (client *Client) CreateOrganizationTaskWithOptions(userId *string, request 
 
 	if !tea.BoolValue(util.IsUnset(request.InvolveMembers)) {
 		body["involveMembers"] = request.InvolveMembers
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.IsDone)) {
-		body["isDone"] = request.IsDone
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Label)) {
-		body["label"] = request.Label
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Note)) {

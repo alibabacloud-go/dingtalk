@@ -525,6 +525,29 @@ func (s *CampusCreateRenterResponse) SetBody(v *CampusCreateRenterResponseBody) 
 	return s
 }
 
+type CampusDelRenterMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CampusDelRenterMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CampusDelRenterMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CampusDelRenterMemberHeaders) SetCommonHeaders(v map[string]*string) *CampusDelRenterMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CampusDelRenterMemberHeaders) SetXAcsDingtalkAccessToken(v string) *CampusDelRenterMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
 type CampusDelRenterMemberRequest struct {
 	// 租客唯一id
 	RenterId *int64 `json:"renterId,omitempty" xml:"renterId,omitempty"`
@@ -11098,7 +11121,7 @@ func (client *Client) CampusCreateRenterWithOptions(request *CampusCreateRenterR
 
 func (client *Client) CampusDelRenterMember(request *CampusDelRenterMemberRequest) (_result *CampusDelRenterMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := make(map[string]*string)
+	headers := &CampusDelRenterMemberHeaders{}
 	_result = &CampusDelRenterMemberResponse{}
 	_body, _err := client.CampusDelRenterMemberWithOptions(request, headers, runtime)
 	if _err != nil {
@@ -11108,7 +11131,7 @@ func (client *Client) CampusDelRenterMember(request *CampusDelRenterMemberReques
 	return _result, _err
 }
 
-func (client *Client) CampusDelRenterMemberWithOptions(request *CampusDelRenterMemberRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CampusDelRenterMemberResponse, _err error) {
+func (client *Client) CampusDelRenterMemberWithOptions(request *CampusDelRenterMemberRequest, headers *CampusDelRenterMemberHeaders, runtime *util.RuntimeOptions) (_result *CampusDelRenterMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
@@ -11122,8 +11145,17 @@ func (client *Client) CampusDelRenterMemberWithOptions(request *CampusDelRenterM
 		query["unionId"] = request.UnionId
 	}
 
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
 	req := &openapi.OpenApiRequest{
-		Headers: headers,
+		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
 	_result = &CampusDelRenterMemberResponse{}

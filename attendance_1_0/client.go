@@ -1216,6 +1216,120 @@ func (s *CreateApproveResponse) SetBody(v *CreateApproveResponseBody) *CreateApp
 	return s
 }
 
+type DeleteWaterMarkTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteWaterMarkTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteWaterMarkTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteWaterMarkTemplateHeaders) SetCommonHeaders(v map[string]*string) *DeleteWaterMarkTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteWaterMarkTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteWaterMarkTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteWaterMarkTemplateRequest struct {
+	// 模板的表单Code。
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// 模板的内容。
+	FormContent *string `json:"formContent,omitempty" xml:"formContent,omitempty"`
+	// 群会话ID。
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 是否是系统模板。
+	// - true：是
+	// - false：否
+	//
+	//
+	SystemTemplate *bool `json:"systemTemplate,omitempty" xml:"systemTemplate,omitempty"`
+	// 用户的userid。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DeleteWaterMarkTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteWaterMarkTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteWaterMarkTemplateRequest) SetFormCode(v string) *DeleteWaterMarkTemplateRequest {
+	s.FormCode = &v
+	return s
+}
+
+func (s *DeleteWaterMarkTemplateRequest) SetFormContent(v string) *DeleteWaterMarkTemplateRequest {
+	s.FormContent = &v
+	return s
+}
+
+func (s *DeleteWaterMarkTemplateRequest) SetOpenConversationId(v string) *DeleteWaterMarkTemplateRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *DeleteWaterMarkTemplateRequest) SetSystemTemplate(v bool) *DeleteWaterMarkTemplateRequest {
+	s.SystemTemplate = &v
+	return s
+}
+
+func (s *DeleteWaterMarkTemplateRequest) SetUserId(v string) *DeleteWaterMarkTemplateRequest {
+	s.UserId = &v
+	return s
+}
+
+type DeleteWaterMarkTemplateResponseBody struct {
+	// 模板的表单Code。
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteWaterMarkTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteWaterMarkTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteWaterMarkTemplateResponseBody) SetResult(v string) *DeleteWaterMarkTemplateResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeleteWaterMarkTemplateResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteWaterMarkTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteWaterMarkTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteWaterMarkTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteWaterMarkTemplateResponse) SetHeaders(v map[string]*string) *DeleteWaterMarkTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteWaterMarkTemplateResponse) SetBody(v *DeleteWaterMarkTemplateResponseBody) *DeleteWaterMarkTemplateResponse {
+	s.Body = v
+	return s
+}
+
 type DingTalkSecurityCheckHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1491,6 +1605,263 @@ func (s *GetAdjustmentsResponse) SetHeaders(v map[string]*string) *GetAdjustment
 }
 
 func (s *GetAdjustmentsResponse) SetBody(v *GetAdjustmentsResponseBody) *GetAdjustmentsResponse {
+	s.Body = v
+	return s
+}
+
+type GetCheckInSchemaTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCheckInSchemaTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCheckInSchemaTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCheckInSchemaTemplateHeaders) SetCommonHeaders(v map[string]*string) *GetCheckInSchemaTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *GetCheckInSchemaTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCheckInSchemaTemplateRequest struct {
+	// 业务码：
+	// - water_mark_checkin 水印签到
+	//
+	//
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// 群会话ID。
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 场景码：
+	// - water_mark_checkin_h3yun 开放场景码
+	//
+	//
+	SceneCode *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
+	// 用户的userid。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetCheckInSchemaTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCheckInSchemaTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetCheckInSchemaTemplateRequest) SetBizCode(v string) *GetCheckInSchemaTemplateRequest {
+	s.BizCode = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateRequest) SetOpenConversationId(v string) *GetCheckInSchemaTemplateRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateRequest) SetSceneCode(v string) *GetCheckInSchemaTemplateRequest {
+	s.SceneCode = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateRequest) SetUserId(v string) *GetCheckInSchemaTemplateRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetCheckInSchemaTemplateResponseBody struct {
+	// 返回对象。
+	Result *GetCheckInSchemaTemplateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetCheckInSchemaTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCheckInSchemaTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCheckInSchemaTemplateResponseBody) SetResult(v *GetCheckInSchemaTemplateResponseBodyResult) *GetCheckInSchemaTemplateResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetCheckInSchemaTemplateResponseBodyResult struct {
+	// 业务码。
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// 是否可以操作模板。
+	CanModifyAndAddTemplate *bool `json:"canModifyAndAddTemplate,omitempty" xml:"canModifyAndAddTemplate,omitempty"`
+	// 是否群管理员。
+	ConversationAdmin *bool `json:"conversationAdmin,omitempty" xml:"conversationAdmin,omitempty"`
+	// 自定义模板的最大数量。
+	CustomTemplateMaxSize *int32 `json:"customTemplateMaxSize,omitempty" xml:"customTemplateMaxSize,omitempty"`
+	// 群会话ID。
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 是否展示统计入口。
+	ShowStat *bool `json:"showStat,omitempty" xml:"showStat,omitempty"`
+	// 是否开启水印模板降级。
+	TemplateDegrade *bool `json:"templateDegrade,omitempty" xml:"templateDegrade,omitempty"`
+	// 模板列表。
+	WaterMarkTemplateModels []*GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels `json:"waterMarkTemplateModels,omitempty" xml:"waterMarkTemplateModels,omitempty" type:"Repeated"`
+}
+
+func (s GetCheckInSchemaTemplateResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCheckInSchemaTemplateResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResult) SetBizCode(v string) *GetCheckInSchemaTemplateResponseBodyResult {
+	s.BizCode = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResult) SetCanModifyAndAddTemplate(v bool) *GetCheckInSchemaTemplateResponseBodyResult {
+	s.CanModifyAndAddTemplate = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResult) SetConversationAdmin(v bool) *GetCheckInSchemaTemplateResponseBodyResult {
+	s.ConversationAdmin = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResult) SetCustomTemplateMaxSize(v int32) *GetCheckInSchemaTemplateResponseBodyResult {
+	s.CustomTemplateMaxSize = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResult) SetOpenConversationId(v string) *GetCheckInSchemaTemplateResponseBodyResult {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResult) SetShowStat(v bool) *GetCheckInSchemaTemplateResponseBodyResult {
+	s.ShowStat = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResult) SetTemplateDegrade(v bool) *GetCheckInSchemaTemplateResponseBodyResult {
+	s.TemplateDegrade = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResult) SetWaterMarkTemplateModels(v []*GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels) *GetCheckInSchemaTemplateResponseBodyResult {
+	s.WaterMarkTemplateModels = v
+	return s
+}
+
+type GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels struct {
+	// 是否可以修改。
+	CanModify *bool `json:"canModify,omitempty" xml:"canModify,omitempty"`
+	// 模板的表单Code。
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// 模板的预览图片。
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 模板的布局信息。
+	LayoutDesign *string `json:"layoutDesign,omitempty" xml:"layoutDesign,omitempty"`
+	// 模板的场景码。
+	SceneCode *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
+	// 模板的内容。
+	SchemaContent *string `json:"schemaContent,omitempty" xml:"schemaContent,omitempty"`
+	// suiteKey。
+	SuiteKey *string `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
+	// 是否系统模板。
+	SystemTemplate *bool `json:"systemTemplate,omitempty" xml:"systemTemplate,omitempty"`
+	// 模板的标题。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 模板的水印ID。
+	WaterMarkId *string `json:"waterMarkId,omitempty" xml:"waterMarkId,omitempty"`
+}
+
+func (s GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels) GoString() string {
+	return s.String()
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels) SetCanModify(v bool) *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels {
+	s.CanModify = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels) SetFormCode(v string) *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels {
+	s.FormCode = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels) SetIcon(v string) *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels {
+	s.Icon = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels) SetLayoutDesign(v string) *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels {
+	s.LayoutDesign = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels) SetSceneCode(v string) *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels {
+	s.SceneCode = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels) SetSchemaContent(v string) *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels {
+	s.SchemaContent = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels) SetSuiteKey(v string) *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels {
+	s.SuiteKey = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels) SetSystemTemplate(v bool) *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels {
+	s.SystemTemplate = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels) SetTitle(v string) *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels {
+	s.Title = &v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels) SetWaterMarkId(v string) *GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels {
+	s.WaterMarkId = &v
+	return s
+}
+
+type GetCheckInSchemaTemplateResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCheckInSchemaTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCheckInSchemaTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCheckInSchemaTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCheckInSchemaTemplateResponse) SetHeaders(v map[string]*string) *GetCheckInSchemaTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCheckInSchemaTemplateResponse) SetBody(v *GetCheckInSchemaTemplateResponseBody) *GetCheckInSchemaTemplateResponse {
 	s.Body = v
 	return s
 }
@@ -3023,6 +3394,137 @@ func (s *InitAndGetLeaveALlocationQuotasResponse) SetBody(v *InitAndGetLeaveALlo
 	return s
 }
 
+type ModifyWaterMarkTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ModifyWaterMarkTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ModifyWaterMarkTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ModifyWaterMarkTemplateHeaders) SetCommonHeaders(v map[string]*string) *ModifyWaterMarkTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ModifyWaterMarkTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *ModifyWaterMarkTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ModifyWaterMarkTemplateRequest struct {
+	// 模板的表单Code。
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// 模板的预览图片。
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 模板的布局ID。
+	LayoutDesignId *string `json:"layoutDesignId,omitempty" xml:"layoutDesignId,omitempty"`
+	// 模板的内容。
+	SchemaContent *string `json:"schemaContent,omitempty" xml:"schemaContent,omitempty"`
+	// 模板的标题。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 模板的水印ID。
+	WaterMarkId *string `json:"waterMarkId,omitempty" xml:"waterMarkId,omitempty"`
+	// 群会话ID。
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 用户的userid。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ModifyWaterMarkTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ModifyWaterMarkTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ModifyWaterMarkTemplateRequest) SetFormCode(v string) *ModifyWaterMarkTemplateRequest {
+	s.FormCode = &v
+	return s
+}
+
+func (s *ModifyWaterMarkTemplateRequest) SetIcon(v string) *ModifyWaterMarkTemplateRequest {
+	s.Icon = &v
+	return s
+}
+
+func (s *ModifyWaterMarkTemplateRequest) SetLayoutDesignId(v string) *ModifyWaterMarkTemplateRequest {
+	s.LayoutDesignId = &v
+	return s
+}
+
+func (s *ModifyWaterMarkTemplateRequest) SetSchemaContent(v string) *ModifyWaterMarkTemplateRequest {
+	s.SchemaContent = &v
+	return s
+}
+
+func (s *ModifyWaterMarkTemplateRequest) SetTitle(v string) *ModifyWaterMarkTemplateRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *ModifyWaterMarkTemplateRequest) SetWaterMarkId(v string) *ModifyWaterMarkTemplateRequest {
+	s.WaterMarkId = &v
+	return s
+}
+
+func (s *ModifyWaterMarkTemplateRequest) SetOpenConversationId(v string) *ModifyWaterMarkTemplateRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *ModifyWaterMarkTemplateRequest) SetUserId(v string) *ModifyWaterMarkTemplateRequest {
+	s.UserId = &v
+	return s
+}
+
+type ModifyWaterMarkTemplateResponseBody struct {
+	// Id of the request
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s ModifyWaterMarkTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ModifyWaterMarkTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ModifyWaterMarkTemplateResponseBody) SetResult(v string) *ModifyWaterMarkTemplateResponseBody {
+	s.Result = &v
+	return s
+}
+
+type ModifyWaterMarkTemplateResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ModifyWaterMarkTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ModifyWaterMarkTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ModifyWaterMarkTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ModifyWaterMarkTemplateResponse) SetHeaders(v map[string]*string) *ModifyWaterMarkTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ModifyWaterMarkTemplateResponse) SetBody(v *ModifyWaterMarkTemplateResponseBody) *ModifyWaterMarkTemplateResponse {
+	s.Body = v
+	return s
+}
+
 type ProcessApproveCreateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3193,6 +3695,168 @@ func (s *ProcessApproveCreateResponse) SetHeaders(v map[string]*string) *Process
 }
 
 func (s *ProcessApproveCreateResponse) SetBody(v *ProcessApproveCreateResponseBody) *ProcessApproveCreateResponse {
+	s.Body = v
+	return s
+}
+
+type SaveCustomWaterMarkTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SaveCustomWaterMarkTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveCustomWaterMarkTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SaveCustomWaterMarkTemplateHeaders) SetCommonHeaders(v map[string]*string) *SaveCustomWaterMarkTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SaveCustomWaterMarkTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *SaveCustomWaterMarkTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SaveCustomWaterMarkTemplateRequest struct {
+	// 模板的业务码：
+	// - water_mark_checkin
+	//
+	//
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// 模板的预览图片。
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 模板的布局ID。
+	LayoutDesignId *string `json:"layoutDesignId,omitempty" xml:"layoutDesignId,omitempty"`
+	// 模板的场景码：
+	// - water_mark_checkin_h3yun 开放场景码
+	//
+	//
+	SceneCode *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
+	// 模板的内容。
+	SchemaContent *string `json:"schemaContent,omitempty" xml:"schemaContent,omitempty"`
+	// 模板的标题。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 群会话ID。
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 用户的userid。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SaveCustomWaterMarkTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveCustomWaterMarkTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SaveCustomWaterMarkTemplateRequest) SetBizCode(v string) *SaveCustomWaterMarkTemplateRequest {
+	s.BizCode = &v
+	return s
+}
+
+func (s *SaveCustomWaterMarkTemplateRequest) SetIcon(v string) *SaveCustomWaterMarkTemplateRequest {
+	s.Icon = &v
+	return s
+}
+
+func (s *SaveCustomWaterMarkTemplateRequest) SetLayoutDesignId(v string) *SaveCustomWaterMarkTemplateRequest {
+	s.LayoutDesignId = &v
+	return s
+}
+
+func (s *SaveCustomWaterMarkTemplateRequest) SetSceneCode(v string) *SaveCustomWaterMarkTemplateRequest {
+	s.SceneCode = &v
+	return s
+}
+
+func (s *SaveCustomWaterMarkTemplateRequest) SetSchemaContent(v string) *SaveCustomWaterMarkTemplateRequest {
+	s.SchemaContent = &v
+	return s
+}
+
+func (s *SaveCustomWaterMarkTemplateRequest) SetTitle(v string) *SaveCustomWaterMarkTemplateRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *SaveCustomWaterMarkTemplateRequest) SetOpenConversationId(v string) *SaveCustomWaterMarkTemplateRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SaveCustomWaterMarkTemplateRequest) SetUserId(v string) *SaveCustomWaterMarkTemplateRequest {
+	s.UserId = &v
+	return s
+}
+
+type SaveCustomWaterMarkTemplateResponseBody struct {
+	// 返回对象。
+	Result *SaveCustomWaterMarkTemplateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s SaveCustomWaterMarkTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveCustomWaterMarkTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SaveCustomWaterMarkTemplateResponseBody) SetResult(v *SaveCustomWaterMarkTemplateResponseBodyResult) *SaveCustomWaterMarkTemplateResponseBody {
+	s.Result = v
+	return s
+}
+
+type SaveCustomWaterMarkTemplateResponseBodyResult struct {
+	// 模板的表单Code。
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// 模板的水印ID。
+	WaterMarkId *string `json:"waterMarkId,omitempty" xml:"waterMarkId,omitempty"`
+}
+
+func (s SaveCustomWaterMarkTemplateResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveCustomWaterMarkTemplateResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SaveCustomWaterMarkTemplateResponseBodyResult) SetFormCode(v string) *SaveCustomWaterMarkTemplateResponseBodyResult {
+	s.FormCode = &v
+	return s
+}
+
+func (s *SaveCustomWaterMarkTemplateResponseBodyResult) SetWaterMarkId(v string) *SaveCustomWaterMarkTemplateResponseBodyResult {
+	s.WaterMarkId = &v
+	return s
+}
+
+type SaveCustomWaterMarkTemplateResponse struct {
+	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SaveCustomWaterMarkTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SaveCustomWaterMarkTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveCustomWaterMarkTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SaveCustomWaterMarkTemplateResponse) SetHeaders(v map[string]*string) *SaveCustomWaterMarkTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SaveCustomWaterMarkTemplateResponse) SetBody(v *SaveCustomWaterMarkTemplateResponseBody) *SaveCustomWaterMarkTemplateResponse {
 	s.Body = v
 	return s
 }
@@ -4238,6 +4902,66 @@ func (client *Client) CreateApproveWithOptions(request *CreateApproveRequest, he
 	return _result, _err
 }
 
+func (client *Client) DeleteWaterMarkTemplate(request *DeleteWaterMarkTemplateRequest) (_result *DeleteWaterMarkTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteWaterMarkTemplateHeaders{}
+	_result = &DeleteWaterMarkTemplateResponse{}
+	_body, _err := client.DeleteWaterMarkTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteWaterMarkTemplateWithOptions(request *DeleteWaterMarkTemplateRequest, headers *DeleteWaterMarkTemplateHeaders, runtime *util.RuntimeOptions) (_result *DeleteWaterMarkTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormCode)) {
+		query["formCode"] = request.FormCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormContent)) {
+		query["formContent"] = request.FormContent
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		query["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemTemplate)) {
+		query["systemTemplate"] = request.SystemTemplate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteWaterMarkTemplateResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteWaterMarkTemplate"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/attendance/watermarks/templates"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DingTalkSecurityCheck(request *DingTalkSecurityCheckRequest) (_result *DingTalkSecurityCheckResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DingTalkSecurityCheckHeaders{}
@@ -4339,6 +5063,62 @@ func (client *Client) GetAdjustmentsWithOptions(request *GetAdjustmentsRequest, 
 	}
 	_result = &GetAdjustmentsResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetAdjustments"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/adjustments"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetCheckInSchemaTemplate(request *GetCheckInSchemaTemplateRequest) (_result *GetCheckInSchemaTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCheckInSchemaTemplateHeaders{}
+	_result = &GetCheckInSchemaTemplateResponse{}
+	_body, _err := client.GetCheckInSchemaTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetCheckInSchemaTemplateWithOptions(request *GetCheckInSchemaTemplateRequest, headers *GetCheckInSchemaTemplateHeaders, runtime *util.RuntimeOptions) (_result *GetCheckInSchemaTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		query["bizCode"] = request.BizCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		query["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SceneCode)) {
+		query["sceneCode"] = request.SceneCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetCheckInSchemaTemplateResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetCheckInSchemaTemplate"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/watermarks/templates"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4718,6 +5498,80 @@ func (client *Client) InitAndGetLeaveALlocationQuotasWithOptions(request *InitAn
 	return _result, _err
 }
 
+func (client *Client) ModifyWaterMarkTemplate(request *ModifyWaterMarkTemplateRequest) (_result *ModifyWaterMarkTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ModifyWaterMarkTemplateHeaders{}
+	_result = &ModifyWaterMarkTemplateResponse{}
+	_body, _err := client.ModifyWaterMarkTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ModifyWaterMarkTemplateWithOptions(request *ModifyWaterMarkTemplateRequest, headers *ModifyWaterMarkTemplateHeaders, runtime *util.RuntimeOptions) (_result *ModifyWaterMarkTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		query["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormCode)) {
+		body["formCode"] = request.FormCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Icon)) {
+		body["icon"] = request.Icon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LayoutDesignId)) {
+		body["layoutDesignId"] = request.LayoutDesignId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SchemaContent)) {
+		body["schemaContent"] = request.SchemaContent
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WaterMarkId)) {
+		body["waterMarkId"] = request.WaterMarkId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ModifyWaterMarkTemplateResponse{}
+	_body, _err := client.DoROARequest(tea.String("ModifyWaterMarkTemplate"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/attendance/watermarks/templates"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ProcessApproveCreate(request *ProcessApproveCreateRequest) (_result *ProcessApproveCreateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ProcessApproveCreateHeaders{}
@@ -4775,6 +5629,80 @@ func (client *Client) ProcessApproveCreateWithOptions(request *ProcessApproveCre
 	}
 	_result = &ProcessApproveCreateResponse{}
 	_body, _err := client.DoROARequest(tea.String("ProcessApproveCreate"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/workflows/checkInForms"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SaveCustomWaterMarkTemplate(request *SaveCustomWaterMarkTemplateRequest) (_result *SaveCustomWaterMarkTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SaveCustomWaterMarkTemplateHeaders{}
+	_result = &SaveCustomWaterMarkTemplateResponse{}
+	_body, _err := client.SaveCustomWaterMarkTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SaveCustomWaterMarkTemplateWithOptions(request *SaveCustomWaterMarkTemplateRequest, headers *SaveCustomWaterMarkTemplateHeaders, runtime *util.RuntimeOptions) (_result *SaveCustomWaterMarkTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		query["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		body["bizCode"] = request.BizCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Icon)) {
+		body["icon"] = request.Icon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LayoutDesignId)) {
+		body["layoutDesignId"] = request.LayoutDesignId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SceneCode)) {
+		body["sceneCode"] = request.SceneCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SchemaContent)) {
+		body["schemaContent"] = request.SchemaContent
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SaveCustomWaterMarkTemplateResponse{}
+	_body, _err := client.DoROARequest(tea.String("SaveCustomWaterMarkTemplate"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/watermarks/templates"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

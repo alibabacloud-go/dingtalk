@@ -6313,6 +6313,180 @@ func (s *QueryAcrossCloudStroageConfigsResponse) SetBody(v *QueryAcrossCloudStro
 	return s
 }
 
+type QueryPartnerInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryPartnerInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPartnerInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPartnerInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryPartnerInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryPartnerInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryPartnerInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryPartnerInfoResponseBody struct {
+	// 部门列表
+	PartnerDeptList []*QueryPartnerInfoResponseBodyPartnerDeptList `json:"partnerDeptList,omitempty" xml:"partnerDeptList,omitempty" type:"Repeated"`
+	// 伙伴标签
+	PartnerLabelList []*QueryPartnerInfoResponseBodyPartnerLabelList `json:"partnerLabelList,omitempty" xml:"partnerLabelList,omitempty" type:"Repeated"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryPartnerInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPartnerInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPartnerInfoResponseBody) SetPartnerDeptList(v []*QueryPartnerInfoResponseBodyPartnerDeptList) *QueryPartnerInfoResponseBody {
+	s.PartnerDeptList = v
+	return s
+}
+
+func (s *QueryPartnerInfoResponseBody) SetPartnerLabelList(v []*QueryPartnerInfoResponseBodyPartnerLabelList) *QueryPartnerInfoResponseBody {
+	s.PartnerLabelList = v
+	return s
+}
+
+func (s *QueryPartnerInfoResponseBody) SetUserId(v string) *QueryPartnerInfoResponseBody {
+	s.UserId = &v
+	return s
+}
+
+type QueryPartnerInfoResponseBodyPartnerDeptList struct {
+	// 部门人数
+	MemberCount *int64 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	// 一级伙伴类型
+	PartnerLabelModelLevel1 []*QueryPartnerInfoResponseBodyPartnerDeptListPartnerLabelModelLevel1 `json:"partnerLabelModelLevel1,omitempty" xml:"partnerLabelModelLevel1,omitempty" type:"Repeated"`
+	// 伙伴编码
+	PartnerNum *string `json:"partnerNum,omitempty" xml:"partnerNum,omitempty"`
+	// 部门名称
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 部门id
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s QueryPartnerInfoResponseBodyPartnerDeptList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPartnerInfoResponseBodyPartnerDeptList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPartnerInfoResponseBodyPartnerDeptList) SetMemberCount(v int64) *QueryPartnerInfoResponseBodyPartnerDeptList {
+	s.MemberCount = &v
+	return s
+}
+
+func (s *QueryPartnerInfoResponseBodyPartnerDeptList) SetPartnerLabelModelLevel1(v []*QueryPartnerInfoResponseBodyPartnerDeptListPartnerLabelModelLevel1) *QueryPartnerInfoResponseBodyPartnerDeptList {
+	s.PartnerLabelModelLevel1 = v
+	return s
+}
+
+func (s *QueryPartnerInfoResponseBodyPartnerDeptList) SetPartnerNum(v string) *QueryPartnerInfoResponseBodyPartnerDeptList {
+	s.PartnerNum = &v
+	return s
+}
+
+func (s *QueryPartnerInfoResponseBodyPartnerDeptList) SetTitle(v string) *QueryPartnerInfoResponseBodyPartnerDeptList {
+	s.Title = &v
+	return s
+}
+
+func (s *QueryPartnerInfoResponseBodyPartnerDeptList) SetValue(v string) *QueryPartnerInfoResponseBodyPartnerDeptList {
+	s.Value = &v
+	return s
+}
+
+type QueryPartnerInfoResponseBodyPartnerDeptListPartnerLabelModelLevel1 struct {
+	// 标签id
+	LabelId *int64 `json:"labelId,omitempty" xml:"labelId,omitempty"`
+	// 标签名称
+	Labelname *string `json:"labelname,omitempty" xml:"labelname,omitempty"`
+}
+
+func (s QueryPartnerInfoResponseBodyPartnerDeptListPartnerLabelModelLevel1) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPartnerInfoResponseBodyPartnerDeptListPartnerLabelModelLevel1) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPartnerInfoResponseBodyPartnerDeptListPartnerLabelModelLevel1) SetLabelId(v int64) *QueryPartnerInfoResponseBodyPartnerDeptListPartnerLabelModelLevel1 {
+	s.LabelId = &v
+	return s
+}
+
+func (s *QueryPartnerInfoResponseBodyPartnerDeptListPartnerLabelModelLevel1) SetLabelname(v string) *QueryPartnerInfoResponseBodyPartnerDeptListPartnerLabelModelLevel1 {
+	s.Labelname = &v
+	return s
+}
+
+type QueryPartnerInfoResponseBodyPartnerLabelList struct {
+	// label id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// label value
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s QueryPartnerInfoResponseBodyPartnerLabelList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPartnerInfoResponseBodyPartnerLabelList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPartnerInfoResponseBodyPartnerLabelList) SetId(v int64) *QueryPartnerInfoResponseBodyPartnerLabelList {
+	s.Id = &v
+	return s
+}
+
+func (s *QueryPartnerInfoResponseBodyPartnerLabelList) SetName(v string) *QueryPartnerInfoResponseBodyPartnerLabelList {
+	s.Name = &v
+	return s
+}
+
+type QueryPartnerInfoResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryPartnerInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryPartnerInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPartnerInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPartnerInfoResponse) SetHeaders(v map[string]*string) *QueryPartnerInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryPartnerInfoResponse) SetBody(v *QueryPartnerInfoResponseBody) *QueryPartnerInfoResponse {
+	s.Body = v
+	return s
+}
+
 type RollbackMiniAppVersionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9939,6 +10113,41 @@ func (client *Client) QueryAcrossCloudStroageConfigsWithOptions(request *QueryAc
 	}
 	_result = &QueryAcrossCloudStroageConfigsResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryAcrossCloudStroageConfigs"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/fileStorages/acrossClouds/configurations"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryPartnerInfo(userId *string) (_result *QueryPartnerInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryPartnerInfoHeaders{}
+	_result = &QueryPartnerInfoResponse{}
+	_body, _err := client.QueryPartnerInfoWithOptions(userId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryPartnerInfoWithOptions(userId *string, headers *QueryPartnerInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryPartnerInfoResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &QueryPartnerInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryPartnerInfo"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/partners/users/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
