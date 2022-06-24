@@ -220,6 +220,8 @@ func (s *CreateTrustedDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *Creat
 }
 
 type CreateTrustedDeviceRequest struct {
+	// 支持SDK集成的设备唯一标识。
+	Did *string `json:"did,omitempty" xml:"did,omitempty"`
 	// mac地址
 	MacAddress *string `json:"macAddress,omitempty" xml:"macAddress,omitempty"`
 	// 平台类型
@@ -236,6 +238,11 @@ func (s CreateTrustedDeviceRequest) String() string {
 
 func (s CreateTrustedDeviceRequest) GoString() string {
 	return s.String()
+}
+
+func (s *CreateTrustedDeviceRequest) SetDid(v string) *CreateTrustedDeviceRequest {
+	s.Did = &v
+	return s
 }
 
 func (s *CreateTrustedDeviceRequest) SetMacAddress(v string) *CreateTrustedDeviceRequest {
@@ -4470,11 +4477,14 @@ type GetTrustDeviceListResponseBodyData struct {
 	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// mac地址
 	MacAddress *string `json:"macAddress,omitempty" xml:"macAddress,omitempty"`
+	// 版本信息：Android端: Android,10，IOS端：iOS,12.0.1
+	Model *string `json:"model,omitempty" xml:"model,omitempty"`
 	// 平台类型
 	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
 	// 设备状态
-	Status *int32  `json:"status,omitempty" xml:"status,omitempty"`
-	Title  *string `json:"title,omitempty" xml:"title,omitempty"`
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 设备名称
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 	// 员工Id
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -4494,6 +4504,11 @@ func (s *GetTrustDeviceListResponseBodyData) SetCreateTime(v int64) *GetTrustDev
 
 func (s *GetTrustDeviceListResponseBodyData) SetMacAddress(v string) *GetTrustDeviceListResponseBodyData {
 	s.MacAddress = &v
+	return s
+}
+
+func (s *GetTrustDeviceListResponseBodyData) SetModel(v string) *GetTrustDeviceListResponseBodyData {
+	s.Model = &v
 	return s
 }
 
@@ -7991,6 +8006,10 @@ func (client *Client) CreateTrustedDeviceWithOptions(request *CreateTrustedDevic
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Did)) {
+		body["did"] = request.Did
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.MacAddress)) {
 		body["macAddress"] = request.MacAddress
 	}

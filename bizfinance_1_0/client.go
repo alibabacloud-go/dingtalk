@@ -816,6 +816,75 @@ func (s *GetFinanceAccountResponse) SetBody(v *GetFinanceAccountResponseBody) *G
 	return s
 }
 
+type GetIsNewVersionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetIsNewVersionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetIsNewVersionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetIsNewVersionHeaders) SetCommonHeaders(v map[string]*string) *GetIsNewVersionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetIsNewVersionHeaders) SetXAcsDingtalkAccessToken(v string) *GetIsNewVersionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetIsNewVersionResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetIsNewVersionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetIsNewVersionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetIsNewVersionResponseBody) SetResult(v bool) *GetIsNewVersionResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *GetIsNewVersionResponseBody) SetSuccess(v bool) *GetIsNewVersionResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetIsNewVersionResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetIsNewVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetIsNewVersionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetIsNewVersionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetIsNewVersionResponse) SetHeaders(v map[string]*string) *GetIsNewVersionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetIsNewVersionResponse) SetBody(v *GetIsNewVersionResponseBody) *GetIsNewVersionResponse {
+	s.Body = v
+	return s
+}
+
 type GetProjectHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2833,6 +2902,40 @@ func (client *Client) GetFinanceAccountWithOptions(request *GetFinanceAccountReq
 	}
 	_result = &GetFinanceAccountResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetFinanceAccount"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/financeAccounts/get"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetIsNewVersion() (_result *GetIsNewVersionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetIsNewVersionHeaders{}
+	_result = &GetIsNewVersionResponse{}
+	_body, _err := client.GetIsNewVersionWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetIsNewVersionWithOptions(headers *GetIsNewVersionHeaders, runtime *util.RuntimeOptions) (_result *GetIsNewVersionResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetIsNewVersionResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetIsNewVersion"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/accounts/uses"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

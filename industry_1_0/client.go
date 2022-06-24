@@ -6679,6 +6679,150 @@ func (s *IndustryMmanufactureMaterialCostGetResponse) SetBody(v *IndustryMmanufa
 	return s
 }
 
+type PushDingMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PushDingMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushDingMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PushDingMessageHeaders) SetCommonHeaders(v map[string]*string) *PushDingMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PushDingMessageHeaders) SetXAcsDingtalkAccessToken(v string) *PushDingMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PushDingMessageRequest struct {
+	// 应用Id，默认是医疗的应用。
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// 消息内容，长度不超过500。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 消息类型：CARD:卡片消息；LINK:链接消息；TEXT：文本消息；
+	MessageType *string `json:"messageType,omitempty" xml:"messageType,omitempty"`
+	// 链接消息时，消息文案下的URL。
+	MessageUrl *string `json:"messageUrl,omitempty" xml:"messageUrl,omitempty"`
+	// 链接消息时，右侧图片URL。
+	PictureUrl *string `json:"pictureUrl,omitempty" xml:"pictureUrl,omitempty"`
+	// 卡片消息时，消息下面action的标题，长度不超过20。
+	SingleTitle *string `json:"singleTitle,omitempty" xml:"singleTitle,omitempty"`
+	// 卡片消息时，消息下面action转跳URL，长度不超过500。
+	SingleUrl *string `json:"singleUrl,omitempty" xml:"singleUrl,omitempty"`
+	// 消息展示标题，长度不超过100。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 组织下的staffId列表
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s PushDingMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushDingMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PushDingMessageRequest) SetAppId(v int64) *PushDingMessageRequest {
+	s.AppId = &v
+	return s
+}
+
+func (s *PushDingMessageRequest) SetContent(v string) *PushDingMessageRequest {
+	s.Content = &v
+	return s
+}
+
+func (s *PushDingMessageRequest) SetMessageType(v string) *PushDingMessageRequest {
+	s.MessageType = &v
+	return s
+}
+
+func (s *PushDingMessageRequest) SetMessageUrl(v string) *PushDingMessageRequest {
+	s.MessageUrl = &v
+	return s
+}
+
+func (s *PushDingMessageRequest) SetPictureUrl(v string) *PushDingMessageRequest {
+	s.PictureUrl = &v
+	return s
+}
+
+func (s *PushDingMessageRequest) SetSingleTitle(v string) *PushDingMessageRequest {
+	s.SingleTitle = &v
+	return s
+}
+
+func (s *PushDingMessageRequest) SetSingleUrl(v string) *PushDingMessageRequest {
+	s.SingleUrl = &v
+	return s
+}
+
+func (s *PushDingMessageRequest) SetTitle(v string) *PushDingMessageRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *PushDingMessageRequest) SetUserIdList(v []*string) *PushDingMessageRequest {
+	s.UserIdList = v
+	return s
+}
+
+type PushDingMessageResponseBody struct {
+	// 返回1表示当前批次成功
+	Content *int64 `json:"content,omitempty" xml:"content,omitempty"`
+	Success *bool  `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PushDingMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushDingMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PushDingMessageResponseBody) SetContent(v int64) *PushDingMessageResponseBody {
+	s.Content = &v
+	return s
+}
+
+func (s *PushDingMessageResponseBody) SetSuccess(v bool) *PushDingMessageResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PushDingMessageResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PushDingMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PushDingMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushDingMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PushDingMessageResponse) SetHeaders(v map[string]*string) *PushDingMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PushDingMessageResponse) SetBody(v *PushDingMessageResponseBody) *PushDingMessageResponse {
+	s.Body = v
+	return s
+}
+
 type QueryAllDepartmentHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -13552,6 +13696,82 @@ func (client *Client) IndustryMmanufactureMaterialCostGetWithOptions(request *In
 	}
 	_result = &IndustryMmanufactureMaterialCostGetResponse{}
 	_body, _err := client.DoROARequest(tea.String("IndustryMmanufactureMaterialCostGet"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/manufactures/base/materialCosts/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PushDingMessage(request *PushDingMessageRequest) (_result *PushDingMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PushDingMessageHeaders{}
+	_result = &PushDingMessageResponse{}
+	_body, _err := client.PushDingMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PushDingMessageWithOptions(request *PushDingMessageRequest, headers *PushDingMessageHeaders, runtime *util.RuntimeOptions) (_result *PushDingMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		body["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MessageType)) {
+		body["messageType"] = request.MessageType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MessageUrl)) {
+		body["messageUrl"] = request.MessageUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PictureUrl)) {
+		body["pictureUrl"] = request.PictureUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SingleTitle)) {
+		body["singleTitle"] = request.SingleTitle
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SingleUrl)) {
+		body["singleUrl"] = request.SingleUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdList)) {
+		body["userIdList"] = request.UserIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &PushDingMessageResponse{}
+	_body, _err := client.DoROARequest(tea.String("PushDingMessage"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/works/notice"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
