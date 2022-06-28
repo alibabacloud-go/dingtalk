@@ -6387,7 +6387,7 @@ type QueryPartnerInfoResponseBodyPartnerDeptList struct {
 	// 部门人数
 	MemberCount *int64 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
 	// 一级伙伴类型
-	PartnerLabelModelLevel1 []*QueryPartnerInfoResponseBodyPartnerDeptListPartnerLabelModelLevel1 `json:"partnerLabelModelLevel1,omitempty" xml:"partnerLabelModelLevel1,omitempty" type:"Repeated"`
+	PartnerLabelModelLevel1 *QueryPartnerInfoResponseBodyPartnerDeptListPartnerLabelModelLevel1 `json:"partnerLabelModelLevel1,omitempty" xml:"partnerLabelModelLevel1,omitempty" type:"Struct"`
 	// 伙伴编码
 	PartnerNum *string `json:"partnerNum,omitempty" xml:"partnerNum,omitempty"`
 	// 部门名称
@@ -6409,7 +6409,7 @@ func (s *QueryPartnerInfoResponseBodyPartnerDeptList) SetMemberCount(v int64) *Q
 	return s
 }
 
-func (s *QueryPartnerInfoResponseBodyPartnerDeptList) SetPartnerLabelModelLevel1(v []*QueryPartnerInfoResponseBodyPartnerDeptListPartnerLabelModelLevel1) *QueryPartnerInfoResponseBodyPartnerDeptList {
+func (s *QueryPartnerInfoResponseBodyPartnerDeptList) SetPartnerLabelModelLevel1(v *QueryPartnerInfoResponseBodyPartnerDeptListPartnerLabelModelLevel1) *QueryPartnerInfoResponseBodyPartnerDeptList {
 	s.PartnerLabelModelLevel1 = v
 	return s
 }

@@ -2685,6 +2685,8 @@ func (s *QuerySchemaByProcessCodeHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type QuerySchemaByProcessCodeRequest struct {
+	// 应用搭建隔离信息
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
 	// 表单的唯一码
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
@@ -2695,6 +2697,11 @@ func (s QuerySchemaByProcessCodeRequest) String() string {
 
 func (s QuerySchemaByProcessCodeRequest) GoString() string {
 	return s.String()
+}
+
+func (s *QuerySchemaByProcessCodeRequest) SetAppUuid(v string) *QuerySchemaByProcessCodeRequest {
+	s.AppUuid = &v
+	return s
 }
 
 func (s *QuerySchemaByProcessCodeRequest) SetProcessCode(v string) *QuerySchemaByProcessCodeRequest {
@@ -4285,6 +4292,10 @@ func (client *Client) QuerySchemaByProcessCodeWithOptions(request *QuerySchemaBy
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppUuid)) {
+		query["appUuid"] = request.AppUuid
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
 		query["processCode"] = request.ProcessCode
 	}

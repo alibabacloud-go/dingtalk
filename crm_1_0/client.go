@@ -3617,44 +3617,46 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildren) SetPr
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps struct {
-	ActionName             *string                                                                                    `json:"actionName,omitempty" xml:"actionName,omitempty"`
-	Align                  *string                                                                                    `json:"align,omitempty" xml:"align,omitempty"`
-	AvailableTemplates     []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsAvailableTemplates `json:"availableTemplates,omitempty" xml:"availableTemplates,omitempty" type:"Repeated"`
-	BizAlias               *string                                                                                    `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	Choice                 *int64                                                                                     `json:"choice,omitempty" xml:"choice,omitempty"`
-	Content                *string                                                                                    `json:"content,omitempty" xml:"content,omitempty"`
-	DataSource             *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource           `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
-	Disabled               *bool                                                                                      `json:"disabled,omitempty" xml:"disabled,omitempty"`
-	Duration               *bool                                                                                      `json:"duration,omitempty" xml:"duration,omitempty"`
-	DurationLabel          *string                                                                                    `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
-	FieldId                *string                                                                                    `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Fields                 []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFields             `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
-	Format                 *string                                                                                    `json:"format,omitempty" xml:"format,omitempty"`
-	Formula                *string                                                                                    `json:"formula,omitempty" xml:"formula,omitempty"`
-	Invisible              *bool                                                                                      `json:"invisible,omitempty" xml:"invisible,omitempty"`
-	Label                  *string                                                                                    `json:"label,omitempty" xml:"label,omitempty"`
-	LabelEditableFreeze    *bool                                                                                      `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
-	Limit                  *int64                                                                                     `json:"limit,omitempty" xml:"limit,omitempty"`
-	Link                   *string                                                                                    `json:"link,omitempty" xml:"link,omitempty"`
-	Mode                   *string                                                                                    `json:"mode,omitempty" xml:"mode,omitempty"`
-	NotPrint               *string                                                                                    `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
-	NotUpper               *string                                                                                    `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
-	Options                []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOptions            `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
-	PayEnable              *bool                                                                                      `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
-	Placeholder            *string                                                                                    `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
-	Quote                  *int64                                                                                     `json:"quote,omitempty" xml:"quote,omitempty"`
-	Ratio                  *int64                                                                                     `json:"ratio,omitempty" xml:"ratio,omitempty"`
-	RelateSource           []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSource       `json:"relateSource,omitempty" xml:"relateSource,omitempty" type:"Repeated"`
-	Required               *bool                                                                                      `json:"required,omitempty" xml:"required,omitempty"`
-	RequiredEditableFreeze *bool                                                                                      `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
-	Rule                   []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRule               `json:"rule,omitempty" xml:"rule,omitempty" type:"Repeated"`
-	Sortable               *bool                                                                                      `json:"sortable,omitempty" xml:"sortable,omitempty"`
-	Spread                 *bool                                                                                      `json:"spread,omitempty" xml:"spread,omitempty"`
-	StatField              []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField          `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
-	TableViewMode          *string                                                                                    `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
-	Unit                   *string                                                                                    `json:"unit,omitempty" xml:"unit,omitempty"`
-	VerticalPrint          *bool                                                                                      `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
-	Watermark              *bool                                                                                      `json:"watermark,omitempty" xml:"watermark,omitempty"`
+	ActionName          *string                                                                                    `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	Align               *string                                                                                    `json:"align,omitempty" xml:"align,omitempty"`
+	AvailableTemplates  []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsAvailableTemplates `json:"availableTemplates,omitempty" xml:"availableTemplates,omitempty" type:"Repeated"`
+	BizAlias            *string                                                                                    `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	Choice              *int64                                                                                     `json:"choice,omitempty" xml:"choice,omitempty"`
+	Content             *string                                                                                    `json:"content,omitempty" xml:"content,omitempty"`
+	DataSource          *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource           `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
+	Disabled            *bool                                                                                      `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	Duration            *bool                                                                                      `json:"duration,omitempty" xml:"duration,omitempty"`
+	DurationLabel       *string                                                                                    `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
+	FieldId             *string                                                                                    `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Fields              []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFields             `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	Format              *string                                                                                    `json:"format,omitempty" xml:"format,omitempty"`
+	Formula             *string                                                                                    `json:"formula,omitempty" xml:"formula,omitempty"`
+	Invisible           *bool                                                                                      `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	Label               *string                                                                                    `json:"label,omitempty" xml:"label,omitempty"`
+	LabelEditableFreeze *bool                                                                                      `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	Limit               *int64                                                                                     `json:"limit,omitempty" xml:"limit,omitempty"`
+	Link                *string                                                                                    `json:"link,omitempty" xml:"link,omitempty"`
+	Mode                *string                                                                                    `json:"mode,omitempty" xml:"mode,omitempty"`
+	// 支持选择多个部门
+	Multiple               *bool                                                                                `json:"multiple,omitempty" xml:"multiple,omitempty"`
+	NotPrint               *string                                                                              `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	NotUpper               *string                                                                              `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	Options                []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOptions      `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	PayEnable              *bool                                                                                `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	Placeholder            *string                                                                              `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	Quote                  *int64                                                                               `json:"quote,omitempty" xml:"quote,omitempty"`
+	Ratio                  *int64                                                                               `json:"ratio,omitempty" xml:"ratio,omitempty"`
+	RelateSource           []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSource `json:"relateSource,omitempty" xml:"relateSource,omitempty" type:"Repeated"`
+	Required               *bool                                                                                `json:"required,omitempty" xml:"required,omitempty"`
+	RequiredEditableFreeze *bool                                                                                `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	Rule                   []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRule         `json:"rule,omitempty" xml:"rule,omitempty" type:"Repeated"`
+	Sortable               *bool                                                                                `json:"sortable,omitempty" xml:"sortable,omitempty"`
+	Spread                 *bool                                                                                `json:"spread,omitempty" xml:"spread,omitempty"`
+	StatField              []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField    `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	TableViewMode          *string                                                                              `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
+	Unit                   *string                                                                              `json:"unit,omitempty" xml:"unit,omitempty"`
+	VerticalPrint          *bool                                                                                `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	Watermark              *bool                                                                                `json:"watermark,omitempty" xml:"watermark,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) String() string {
@@ -3762,6 +3764,11 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) 
 
 func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetMode(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
 	s.Mode = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) SetMultiple(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps {
+	s.Multiple = &v
 	return s
 }
 
@@ -4826,8 +4833,10 @@ type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps struct {
 	// 说明文案的链接地址
 	Link *string `json:"link,omitempty" xml:"link,omitempty"`
 	// phone
-	Mode       *string `json:"mode,omitempty" xml:"mode,omitempty"`
-	Multi      *int64  `json:"multi,omitempty" xml:"multi,omitempty"`
+	Mode  *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	Multi *int64  `json:"multi,omitempty" xml:"multi,omitempty"`
+	// 支持选择多个部门
+	Multiple   *bool   `json:"multiple,omitempty" xml:"multiple,omitempty"`
 	NeedDetail *string `json:"needDetail,omitempty" xml:"needDetail,omitempty"`
 	// 是否参与打印
 	NotPrint *string `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
@@ -4975,6 +4984,11 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetMode(
 
 func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetMulti(v int64) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
 	s.Multi = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetMultiple(v bool) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.Multiple = &v
 	return s
 }
 
