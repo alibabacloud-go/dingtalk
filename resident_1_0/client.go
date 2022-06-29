@@ -2020,8 +2020,6 @@ func (s *ListPointRulesResponseBody) SetPointRuleList(v []*ListPointRulesRespons
 }
 
 type ListPointRulesResponseBodyPointRuleList struct {
-	// 组织id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 单日计次上限，0表示无上限
 	DayLimitTimes *int32 `json:"dayLimitTimes,omitempty" xml:"dayLimitTimes,omitempty"`
 	// 扩展字段
@@ -2046,11 +2044,6 @@ func (s ListPointRulesResponseBodyPointRuleList) String() string {
 
 func (s ListPointRulesResponseBodyPointRuleList) GoString() string {
 	return s.String()
-}
-
-func (s *ListPointRulesResponseBodyPointRuleList) SetCorpId(v string) *ListPointRulesResponseBodyPointRuleList {
-	s.CorpId = &v
-	return s
 }
 
 func (s *ListPointRulesResponseBodyPointRuleList) SetDayLimitTimes(v int32) *ListPointRulesResponseBodyPointRuleList {
@@ -2691,8 +2684,6 @@ func (s *PagePointHistoryResponseBody) SetTotalCount(v int64) *PagePointHistoryR
 }
 
 type PagePointHistoryResponseBodyPointRecordList struct {
-	// 组织id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 创建时间（精确到毫秒数）
 	CreateAt *int64 `json:"createAt,omitempty" xml:"createAt,omitempty"`
 	// 对应的行为代码（可空）
@@ -2713,11 +2704,6 @@ func (s PagePointHistoryResponseBodyPointRecordList) String() string {
 
 func (s PagePointHistoryResponseBodyPointRecordList) GoString() string {
 	return s.String()
-}
-
-func (s *PagePointHistoryResponseBodyPointRecordList) SetCorpId(v string) *PagePointHistoryResponseBodyPointRecordList {
-	s.CorpId = &v
-	return s
 }
 
 func (s *PagePointHistoryResponseBodyPointRecordList) SetCreateAt(v int64) *PagePointHistoryResponseBodyPointRecordList {

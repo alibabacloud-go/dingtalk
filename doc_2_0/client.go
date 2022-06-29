@@ -32,6 +32,8 @@ type DentryOpenVO struct {
 	LinkSourceInfo *LinkSourceInfo `json:"linkSourceInfo,omitempty" xml:"linkSourceInfo,omitempty"`
 	// 节点名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 节点的路径。
+	Path *string `json:"path,omitempty" xml:"path,omitempty"`
 	// 知识库信息。
 	Space *SpaceOpenVO `json:"space,omitempty" xml:"space,omitempty"`
 	// 知识库id。
@@ -40,6 +42,8 @@ type DentryOpenVO struct {
 	UpdatedTime *int64 `json:"updatedTime,omitempty" xml:"updatedTime,omitempty"`
 	// 更新人。
 	Updater *DentryOpenVOUpdater `json:"updater,omitempty" xml:"updater,omitempty" type:"Struct"`
+	// 节点访问url。
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 	// 访问者对当前节点的权限等信息。
 	VisitorInfo *DentryOpenVOVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
 }
@@ -102,6 +106,11 @@ func (s *DentryOpenVO) SetName(v string) *DentryOpenVO {
 	return s
 }
 
+func (s *DentryOpenVO) SetPath(v string) *DentryOpenVO {
+	s.Path = &v
+	return s
+}
+
 func (s *DentryOpenVO) SetSpace(v *SpaceOpenVO) *DentryOpenVO {
 	s.Space = v
 	return s
@@ -119,6 +128,11 @@ func (s *DentryOpenVO) SetUpdatedTime(v int64) *DentryOpenVO {
 
 func (s *DentryOpenVO) SetUpdater(v *DentryOpenVOUpdater) *DentryOpenVO {
 	s.Updater = v
+	return s
+}
+
+func (s *DentryOpenVO) SetUrl(v string) *DentryOpenVO {
+	s.Url = &v
 	return s
 }
 
@@ -223,6 +237,8 @@ type DentryOpenVOResult struct {
 	LinkSourceInfo *LinkSourceInfo `json:"linkSourceInfo,omitempty" xml:"linkSourceInfo,omitempty"`
 	// 节点名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 节点的路径。
+	Path *string `json:"path,omitempty" xml:"path,omitempty"`
 	// 知识库信息。
 	Space *SpaceOpenVO `json:"space,omitempty" xml:"space,omitempty"`
 	// 知识库id。
@@ -231,6 +247,8 @@ type DentryOpenVOResult struct {
 	UpdatedTime *int64 `json:"updatedTime,omitempty" xml:"updatedTime,omitempty"`
 	// 更新人。
 	Updater *DentryOpenVOResultUpdater `json:"updater,omitempty" xml:"updater,omitempty" type:"Struct"`
+	// 节点访问url。
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 	// 访问者对当前节点的权限等信息。
 	VisitorInfo *DentryOpenVOResultVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
 }
@@ -293,6 +311,11 @@ func (s *DentryOpenVOResult) SetName(v string) *DentryOpenVOResult {
 	return s
 }
 
+func (s *DentryOpenVOResult) SetPath(v string) *DentryOpenVOResult {
+	s.Path = &v
+	return s
+}
+
 func (s *DentryOpenVOResult) SetSpace(v *SpaceOpenVO) *DentryOpenVOResult {
 	s.Space = v
 	return s
@@ -310,6 +333,11 @@ func (s *DentryOpenVOResult) SetUpdatedTime(v int64) *DentryOpenVOResult {
 
 func (s *DentryOpenVOResult) SetUpdater(v *DentryOpenVOResultUpdater) *DentryOpenVOResult {
 	s.Updater = v
+	return s
+}
+
+func (s *DentryOpenVOResult) SetUrl(v string) *DentryOpenVOResult {
+	s.Url = &v
 	return s
 }
 
@@ -464,6 +492,31 @@ func (s *LinkSourceInfoIconUrl) SetSmall(v string) *LinkSourceInfoIconUrl {
 	return s
 }
 
+type OpenActionModel struct {
+	// 操作人名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 操作时间戳。
+	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+}
+
+func (s OpenActionModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenActionModel) GoString() string {
+	return s.String()
+}
+
+func (s *OpenActionModel) SetName(v string) *OpenActionModel {
+	s.Name = &v
+	return s
+}
+
+func (s *OpenActionModel) SetTimestamp(v int64) *OpenActionModel {
+	s.Timestamp = &v
+	return s
+}
+
 type SpaceOpenVO struct {
 	// 知识库id。
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
@@ -471,6 +524,8 @@ type SpaceOpenVO struct {
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 知识库所有者。
 	Owner *SpaceOpenVOOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	// 知识库访问url。
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 	// 访问者对当前知识库的权限等信息。
 	VisitorInfo *SpaceOpenVOVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
 }
@@ -495,6 +550,11 @@ func (s *SpaceOpenVO) SetName(v string) *SpaceOpenVO {
 
 func (s *SpaceOpenVO) SetOwner(v *SpaceOpenVOOwner) *SpaceOpenVO {
 	s.Owner = v
+	return s
+}
+
+func (s *SpaceOpenVO) SetUrl(v string) *SpaceOpenVO {
+	s.Url = &v
 	return s
 }
 
@@ -560,6 +620,8 @@ type SpaceOpenVOResult struct {
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 知识库所有者。
 	Owner *SpaceOpenVOResultOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	// 知识库访问url。
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 	// 访问者对当前知识库的权限等信息。
 	VisitorInfo *SpaceOpenVOResultVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
 }
@@ -584,6 +646,11 @@ func (s *SpaceOpenVOResult) SetName(v string) *SpaceOpenVOResult {
 
 func (s *SpaceOpenVOResult) SetOwner(v *SpaceOpenVOResultOwner) *SpaceOpenVOResult {
 	s.Owner = v
+	return s
+}
+
+func (s *SpaceOpenVOResult) SetUrl(v string) *SpaceOpenVOResult {
+	s.Url = &v
 	return s
 }
 

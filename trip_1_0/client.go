@@ -11,6 +11,176 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type SyncSecretKeyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncSecretKeyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncSecretKeyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncSecretKeyHeaders) SetCommonHeaders(v map[string]*string) *SyncSecretKeyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncSecretKeyHeaders) SetXAcsDingtalkAccessToken(v string) *SyncSecretKeyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncSecretKeyRequest struct {
+	// 操作类型，ADD/QUERY/MODIFY/DEL
+	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// 验签加密串
+	SecretString *string `json:"secretString,omitempty" xml:"secretString,omitempty"`
+	// 钉钉侧对应的组织ID
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	// 商旅侧appkey
+	TripAppKey *string `json:"tripAppKey,omitempty" xml:"tripAppKey,omitempty"`
+	// 商旅对接密钥
+	TripAppSecurity *string `json:"tripAppSecurity,omitempty" xml:"tripAppSecurity,omitempty"`
+	// 商旅侧组织ID
+	TripCorpId *string `json:"tripCorpId,omitempty" xml:"tripCorpId,omitempty"`
+}
+
+func (s SyncSecretKeyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncSecretKeyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncSecretKeyRequest) SetActionType(v string) *SyncSecretKeyRequest {
+	s.ActionType = &v
+	return s
+}
+
+func (s *SyncSecretKeyRequest) SetSecretString(v string) *SyncSecretKeyRequest {
+	s.SecretString = &v
+	return s
+}
+
+func (s *SyncSecretKeyRequest) SetTargetCorpId(v string) *SyncSecretKeyRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+func (s *SyncSecretKeyRequest) SetTripAppKey(v string) *SyncSecretKeyRequest {
+	s.TripAppKey = &v
+	return s
+}
+
+func (s *SyncSecretKeyRequest) SetTripAppSecurity(v string) *SyncSecretKeyRequest {
+	s.TripAppSecurity = &v
+	return s
+}
+
+func (s *SyncSecretKeyRequest) SetTripCorpId(v string) *SyncSecretKeyRequest {
+	s.TripCorpId = &v
+	return s
+}
+
+type SyncSecretKeyResponseBody struct {
+	Result *SyncSecretKeyResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// 是否成功
+	//
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SyncSecretKeyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncSecretKeyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncSecretKeyResponseBody) SetResult(v *SyncSecretKeyResponseBodyResult) *SyncSecretKeyResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SyncSecretKeyResponseBody) SetSuccess(v string) *SyncSecretKeyResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SyncSecretKeyResponseBodyResult struct {
+	// 验签加密串
+	SecretString *string `json:"secretString,omitempty" xml:"secretString,omitempty"`
+	// 钉钉侧对应的组织ID
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	// 商旅侧对接key
+	TripAppKey *string `json:"tripAppKey,omitempty" xml:"tripAppKey,omitempty"`
+	// 商旅侧对接密钥
+	TripAppSecurity *string `json:"tripAppSecurity,omitempty" xml:"tripAppSecurity,omitempty"`
+	// 商旅侧对应的组织ID
+	TripCorpId *string `json:"tripCorpId,omitempty" xml:"tripCorpId,omitempty"`
+}
+
+func (s SyncSecretKeyResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncSecretKeyResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SyncSecretKeyResponseBodyResult) SetSecretString(v string) *SyncSecretKeyResponseBodyResult {
+	s.SecretString = &v
+	return s
+}
+
+func (s *SyncSecretKeyResponseBodyResult) SetTargetCorpId(v string) *SyncSecretKeyResponseBodyResult {
+	s.TargetCorpId = &v
+	return s
+}
+
+func (s *SyncSecretKeyResponseBodyResult) SetTripAppKey(v string) *SyncSecretKeyResponseBodyResult {
+	s.TripAppKey = &v
+	return s
+}
+
+func (s *SyncSecretKeyResponseBodyResult) SetTripAppSecurity(v string) *SyncSecretKeyResponseBodyResult {
+	s.TripAppSecurity = &v
+	return s
+}
+
+func (s *SyncSecretKeyResponseBodyResult) SetTripCorpId(v string) *SyncSecretKeyResponseBodyResult {
+	s.TripCorpId = &v
+	return s
+}
+
+type SyncSecretKeyResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SyncSecretKeyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SyncSecretKeyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncSecretKeyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncSecretKeyResponse) SetHeaders(v map[string]*string) *SyncSecretKeyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncSecretKeyResponse) SetBody(v *SyncSecretKeyResponseBody) *SyncSecretKeyResponse {
+	s.Body = v
+	return s
+}
+
 type SyncTripOrderHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -471,6 +641,70 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) SyncSecretKey(request *SyncSecretKeyRequest) (_result *SyncSecretKeyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncSecretKeyHeaders{}
+	_result = &SyncSecretKeyResponse{}
+	_body, _err := client.SyncSecretKeyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SyncSecretKeyWithOptions(request *SyncSecretKeyRequest, headers *SyncSecretKeyHeaders, runtime *util.RuntimeOptions) (_result *SyncSecretKeyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActionType)) {
+		body["actionType"] = request.ActionType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SecretString)) {
+		body["secretString"] = request.SecretString
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		body["targetCorpId"] = request.TargetCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TripAppKey)) {
+		body["tripAppKey"] = request.TripAppKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TripAppSecurity)) {
+		body["tripAppSecurity"] = request.TripAppSecurity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TripCorpId)) {
+		body["tripCorpId"] = request.TripCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SyncSecretKeyResponse{}
+	_body, _err := client.DoROARequest(tea.String("SyncSecretKey"), tea.String("trip_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/trip/secretKeys/sync"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) SyncTripOrder(request *SyncTripOrderRequest) (_result *SyncTripOrderResponse, _err error) {
