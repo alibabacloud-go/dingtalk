@@ -351,6 +351,102 @@ func (s *ChatIdToOpenConversationIdResponse) SetBody(v *ChatIdToOpenConversation
 	return s
 }
 
+type ChatSubAdminUpdateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatSubAdminUpdateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatSubAdminUpdateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatSubAdminUpdateHeaders) SetCommonHeaders(v map[string]*string) *ChatSubAdminUpdateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatSubAdminUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *ChatSubAdminUpdateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatSubAdminUpdateRequest struct {
+	// 开放群ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 设置2添加为管理员，设置3删除该管理员
+	Role *int32 `json:"role,omitempty" xml:"role,omitempty"`
+	// 企业员工工号列表
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s ChatSubAdminUpdateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatSubAdminUpdateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatSubAdminUpdateRequest) SetOpenConversationId(v string) *ChatSubAdminUpdateRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *ChatSubAdminUpdateRequest) SetRole(v int32) *ChatSubAdminUpdateRequest {
+	s.Role = &v
+	return s
+}
+
+func (s *ChatSubAdminUpdateRequest) SetUserIds(v []*string) *ChatSubAdminUpdateRequest {
+	s.UserIds = v
+	return s
+}
+
+type ChatSubAdminUpdateResponseBody struct {
+	// result
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ChatSubAdminUpdateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatSubAdminUpdateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatSubAdminUpdateResponseBody) SetSuccess(v string) *ChatSubAdminUpdateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ChatSubAdminUpdateResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ChatSubAdminUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ChatSubAdminUpdateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatSubAdminUpdateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatSubAdminUpdateResponse) SetHeaders(v map[string]*string) *ChatSubAdminUpdateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatSubAdminUpdateResponse) SetBody(v *ChatSubAdminUpdateResponseBody) *ChatSubAdminUpdateResponse {
+	s.Body = v
+	return s
+}
+
 type CreateGroupConversationHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5015,6 +5111,58 @@ func (client *Client) ChatIdToOpenConversationIdWithOptions(chatId *string, head
 	}
 	_result = &ChatIdToOpenConversationIdResponse{}
 	_body, _err := client.DoROARequest(tea.String("ChatIdToOpenConversationId"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/chat/"+tea.StringValue(chatId)+"/convertToOpenConversationId"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ChatSubAdminUpdate(request *ChatSubAdminUpdateRequest) (_result *ChatSubAdminUpdateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatSubAdminUpdateHeaders{}
+	_result = &ChatSubAdminUpdateResponse{}
+	_body, _err := client.ChatSubAdminUpdateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ChatSubAdminUpdateWithOptions(request *ChatSubAdminUpdateRequest, headers *ChatSubAdminUpdateHeaders, runtime *util.RuntimeOptions) (_result *ChatSubAdminUpdateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Role)) {
+		body["role"] = request.Role
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ChatSubAdminUpdateResponse{}
+	_body, _err := client.DoROARequest(tea.String("ChatSubAdminUpdate"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/subAdministrators"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

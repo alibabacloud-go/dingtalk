@@ -11,6 +11,936 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type BatchAddInvoiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchAddInvoiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddInvoiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddInvoiceHeaders) SetCommonHeaders(v map[string]*string) *BatchAddInvoiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchAddInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *BatchAddInvoiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchAddInvoiceRequest struct {
+	// 发票模型
+	GeneralInvoiceVOList []*BatchAddInvoiceRequestGeneralInvoiceVOList `json:"generalInvoiceVOList,omitempty" xml:"generalInvoiceVOList,omitempty" type:"Repeated"`
+}
+
+func (s BatchAddInvoiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddInvoiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddInvoiceRequest) SetGeneralInvoiceVOList(v []*BatchAddInvoiceRequestGeneralInvoiceVOList) *BatchAddInvoiceRequest {
+	s.GeneralInvoiceVOList = v
+	return s
+}
+
+type BatchAddInvoiceRequestGeneralInvoiceVOList struct {
+	// 账期时间
+	AccountPeriod *string `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
+	// 不含税金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 含税金额
+	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	// 校验码
+	CheckCode *string `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
+	// 查验时间
+	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	// 开票日期
+	DrewDate *string `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
+	// 电票版式文件下载地址
+	ElectronicUrl *string `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
+	// 财务类型，INPUT-VAT(进项),OUTPUT_VAT(销项)
+	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	// 资金类型 ，RED（红票），（BLUE）蓝票
+	FundType *string `json:"fundType,omitempty" xml:"fundType,omitempty"`
+	// 常规发票明细
+	GeneralInvoiceDetailVO *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO `json:"generalInvoiceDetailVO,omitempty" xml:"generalInvoiceDetailVO,omitempty" type:"Struct"`
+	// 发票代码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票类型
+	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	// 机器码
+	MachineCode *string `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
+	// 成品油标识
+	OilFlag *string `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
+	// 收款人
+	Payee *string `json:"payee,omitempty" xml:"payee,omitempty"`
+	// 审批单实例
+	ProcessInstCode *string `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
+	// 审批单类型
+	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
+	// 购方地址
+	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	// 购方银行
+	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
+	// 购方名称
+	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	// 购方税号
+	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	// 购方电话
+	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// 二手车费用明细
+	SecondHandCarInvoiceDetail *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail `json:"secondHandCarInvoiceDetail,omitempty" xml:"secondHandCarInvoiceDetail,omitempty" type:"Struct"`
+	// 销方地址
+	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
+	// 销方银行
+	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
+	// 销方名称
+	SellerName *string `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
+	// 销方税号
+	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
+	// 销方电话
+	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
+	// 发票状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 代开发票标识 1-自开，2-代开
+	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
+	// 税额
+	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	// 二手车发票详情
+	UsedVehicleSaleDetailVO *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO `json:"usedVehicleSaleDetailVO,omitempty" xml:"usedVehicleSaleDetailVO,omitempty" type:"Struct"`
+	// 车辆售卖发票明细
+	VehicleSaleDetailVO *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO `json:"vehicleSaleDetailVO,omitempty" xml:"vehicleSaleDetailVO,omitempty" type:"Struct"`
+	// 发票查验状态
+	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+	// 凭证code
+	VoucherCode *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
+	// 生成凭证状态
+	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+}
+
+func (s BatchAddInvoiceRequestGeneralInvoiceVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddInvoiceRequestGeneralInvoiceVOList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetAccountPeriod(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.AccountPeriod = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetAmount(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.Amount = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetAmountWithTax(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.AmountWithTax = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetCheckCode(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.CheckCode = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetCheckTime(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.CheckTime = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetDrewDate(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.DrewDate = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetElectronicUrl(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.ElectronicUrl = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetFinanceType(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.FinanceType = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetFundType(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.FundType = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetGeneralInvoiceDetailVO(v *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.GeneralInvoiceDetailVO = v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetInvoiceCode(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetInvoiceNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.InvoiceNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetInvoiceType(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.InvoiceType = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetMachineCode(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.MachineCode = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetOilFlag(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.OilFlag = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetPayee(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.Payee = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetProcessInstCode(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.ProcessInstCode = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetProcessInstType(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.ProcessInstType = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetPurchaserAddress(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.PurchaserAddress = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetPurchaserBankNameAccount(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.PurchaserBankNameAccount = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetPurchaserName(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.PurchaserName = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetPurchaserTaxNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.PurchaserTaxNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetPurchaserTel(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.PurchaserTel = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetRemark(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.Remark = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetSecondHandCarInvoiceDetail(v *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.SecondHandCarInvoiceDetail = v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetSellerAddress(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.SellerAddress = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetSellerBankNameAccount(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.SellerBankNameAccount = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetSellerName(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.SellerName = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetSellerTaxNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.SellerTaxNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetSellerTel(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.SellerTel = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetStatus(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.Status = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetSupplySign(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.SupplySign = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetTaxAmount(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetUsedVehicleSaleDetailVO(v *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.UsedVehicleSaleDetailVO = v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetVehicleSaleDetailVO(v *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.VehicleSaleDetailVO = v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetVerifyStatus(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.VerifyStatus = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetVoucherCode(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.VoucherCode = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetVoucherStatus(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.VoucherStatus = &v
+	return s
+}
+
+type BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO struct {
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 商品名称
+	GoodName *string `json:"goodName,omitempty" xml:"goodName,omitempty"`
+	// 数量
+	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	// 税收分类编码
+	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	// 行号
+	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	// 规格型号
+	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
+	// 税额
+	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	// 是否享受税收优惠：0-不享受，1-享受
+	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 单价
+	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+}
+
+func (s BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO) SetAmount(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO {
+	s.Amount = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO) SetGoodName(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO {
+	s.GoodName = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO) SetQuantity(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO {
+	s.Quantity = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO) SetRevenueCode(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO {
+	s.RevenueCode = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO) SetRowNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO {
+	s.RowNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO) SetSpecification(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO {
+	s.Specification = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO) SetTaxAmount(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO) SetTaxPre(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO {
+	s.TaxPre = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO) SetTaxRate(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO) SetUnit(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO {
+	s.Unit = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO) SetUnitPrice(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVO {
+	s.UnitPrice = &v
+	return s
+}
+
+type BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail struct {
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// cardNo
+	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	// 通行日期止
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// 商品名称
+	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	// 税收分类编码
+	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	// 行号
+	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	// 通行日期起
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 税额
+	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail) SetAmount(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail {
+	s.Amount = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail) SetCardNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail {
+	s.CardNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail) SetEndDate(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail {
+	s.EndDate = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail) SetGoodsName(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail {
+	s.GoodsName = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail) SetRevenueCode(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail {
+	s.RevenueCode = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail) SetRowNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail {
+	s.RowNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail) SetStartDate(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail {
+	s.StartDate = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail) SetTaxAmount(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail) SetTaxRate(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail) SetVehicleType(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetail {
+	s.VehicleType = &v
+	return s
+}
+
+type BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO struct {
+	// 经营、拍卖单位
+	AuctionUnit *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
+	// 经营、拍卖单位地址
+	AuctionUnitAddress *string `json:"auctionUnitAddress,omitempty" xml:"auctionUnitAddress,omitempty"`
+	// 经营、拍卖单位银行
+	AuctionUnitBank *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
+	// 经营、拍卖单位税号
+	AuctionUnitTaxNo *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
+	// 经营、拍卖单位电话
+	AuctionUtilTel *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
+	// 厂牌型号
+	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	// 车牌照号
+	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	// 登记证号
+	Registration *string `json:"registration,omitempty" xml:"registration,omitempty"`
+	// 转入地车辆管理所名称
+	TransferVehicle *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
+	// 二手车市场地址
+	UsedCarAddress *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
+	// 二手车市场
+	UsedCarMarket *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
+	// 二手车市场开户银行、账号
+	UsedCarMarketBank *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
+	// 二手车市场电话
+	UsedCarMarketPhone *string `json:"usedCarMarketPhone,omitempty" xml:"usedCarMarketPhone,omitempty"`
+	// 二手车市场纳税人识别号
+	UsedCarMarketTaxNo *string `json:"usedCarMarketTaxNo,omitempty" xml:"usedCarMarketTaxNo,omitempty"`
+	// 车架号/车辆识别号
+	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	// 车辆类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) SetAuctionUnit(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO {
+	s.AuctionUnit = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) SetAuctionUnitAddress(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO {
+	s.AuctionUnitAddress = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) SetAuctionUnitBank(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO {
+	s.AuctionUnitBank = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) SetAuctionUnitTaxNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO {
+	s.AuctionUnitTaxNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) SetAuctionUtilTel(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO {
+	s.AuctionUtilTel = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) SetCarModel(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO {
+	s.CarModel = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) SetCardNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO {
+	s.CardNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) SetRegistration(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO {
+	s.Registration = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) SetTransferVehicle(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO {
+	s.TransferVehicle = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) SetUsedCarAddress(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO {
+	s.UsedCarAddress = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) SetUsedCarMarket(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO {
+	s.UsedCarMarket = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) SetUsedCarMarketBank(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO {
+	s.UsedCarMarketBank = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) SetUsedCarMarketPhone(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO {
+	s.UsedCarMarketPhone = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) SetUsedCarMarketTaxNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO {
+	s.UsedCarMarketTaxNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) SetVehicleNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO {
+	s.VehicleNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO) SetVehicleType(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListUsedVehicleSaleDetailVO {
+	s.VehicleType = &v
+	return s
+}
+
+type BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO struct {
+	// 品牌
+	Brand *string `json:"brand,omitempty" xml:"brand,omitempty"`
+	// 合格证号
+	CertificateNo *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
+	// 发动机号
+	EngineNo *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
+	// 身份证号/组织机构代码
+	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
+	// 进口证书号
+	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
+	// 商检单号
+	InspectionListNo *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
+	// 限乘人数
+	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
+	// 产地
+	OriginPlace *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
+	// 完税凭证号码
+	PaymentVoucherNo *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
+	// 主管税务机关名称
+	TaxAuthorityName *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
+	// 主管税务机关代码
+	TaxAuthorityNo *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 吨位
+	Tonnage *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
+	// 车架号码
+	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	// 车辆类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) SetBrand(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO {
+	s.Brand = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) SetCertificateNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO {
+	s.CertificateNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) SetEngineNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO {
+	s.EngineNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) SetIdCardNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO {
+	s.IdCardNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) SetImportCertificateNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO {
+	s.ImportCertificateNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) SetInspectionListNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO {
+	s.InspectionListNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) SetMaxPassengers(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO {
+	s.MaxPassengers = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) SetOriginPlace(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO {
+	s.OriginPlace = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) SetPaymentVoucherNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO {
+	s.PaymentVoucherNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) SetTaxAuthorityName(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO {
+	s.TaxAuthorityName = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) SetTaxAuthorityNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO {
+	s.TaxAuthorityNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) SetTaxRate(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) SetTonnage(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO {
+	s.Tonnage = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) SetVehicleNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO {
+	s.VehicleNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO) SetVehicleType(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVO {
+	s.VehicleType = &v
+	return s
+}
+
+type BatchAddInvoiceResponseBody struct {
+	// 错误信息
+	Result []*BatchAddInvoiceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s BatchAddInvoiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddInvoiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddInvoiceResponseBody) SetResult(v []*BatchAddInvoiceResponseBodyResult) *BatchAddInvoiceResponseBody {
+	s.Result = v
+	return s
+}
+
+type BatchAddInvoiceResponseBodyResult struct {
+	// 错误数据的key
+	ErrorKey *string `json:"errorKey,omitempty" xml:"errorKey,omitempty"`
+	// 错误信息
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+}
+
+func (s BatchAddInvoiceResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddInvoiceResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddInvoiceResponseBodyResult) SetErrorKey(v string) *BatchAddInvoiceResponseBodyResult {
+	s.ErrorKey = &v
+	return s
+}
+
+func (s *BatchAddInvoiceResponseBodyResult) SetErrorMsg(v string) *BatchAddInvoiceResponseBodyResult {
+	s.ErrorMsg = &v
+	return s
+}
+
+type BatchAddInvoiceResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchAddInvoiceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchAddInvoiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddInvoiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddInvoiceResponse) SetHeaders(v map[string]*string) *BatchAddInvoiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchAddInvoiceResponse) SetBody(v *BatchAddInvoiceResponseBody) *BatchAddInvoiceResponse {
+	s.Body = v
+	return s
+}
+
+type CreateCustomerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateCustomerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomerHeaders) SetCommonHeaders(v map[string]*string) *CreateCustomerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCustomerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateCustomerRequest struct {
+	// 创建人userId
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// 客户描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 客户名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 购方账户
+	PurchaserAccount *string `json:"purchaserAccount,omitempty" xml:"purchaserAccount,omitempty"`
+	// 购房地址
+	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	// 购方银行
+	PurchaserBankName *string `json:"purchaserBankName,omitempty" xml:"purchaserBankName,omitempty"`
+	// 购方名字
+	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	// 购方税号
+	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	// 购方电话
+	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+}
+
+func (s CreateCustomerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomerRequest) SetCreator(v string) *CreateCustomerRequest {
+	s.Creator = &v
+	return s
+}
+
+func (s *CreateCustomerRequest) SetDescription(v string) *CreateCustomerRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *CreateCustomerRequest) SetName(v string) *CreateCustomerRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateCustomerRequest) SetPurchaserAccount(v string) *CreateCustomerRequest {
+	s.PurchaserAccount = &v
+	return s
+}
+
+func (s *CreateCustomerRequest) SetPurchaserAddress(v string) *CreateCustomerRequest {
+	s.PurchaserAddress = &v
+	return s
+}
+
+func (s *CreateCustomerRequest) SetPurchaserBankName(v string) *CreateCustomerRequest {
+	s.PurchaserBankName = &v
+	return s
+}
+
+func (s *CreateCustomerRequest) SetPurchaserName(v string) *CreateCustomerRequest {
+	s.PurchaserName = &v
+	return s
+}
+
+func (s *CreateCustomerRequest) SetPurchaserTaxNo(v string) *CreateCustomerRequest {
+	s.PurchaserTaxNo = &v
+	return s
+}
+
+func (s *CreateCustomerRequest) SetPurchaserTel(v string) *CreateCustomerRequest {
+	s.PurchaserTel = &v
+	return s
+}
+
+type CreateCustomerResponseBody struct {
+	// 客户CODE
+	CustomerCode *string `json:"customerCode,omitempty" xml:"customerCode,omitempty"`
+}
+
+func (s CreateCustomerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomerResponseBody) SetCustomerCode(v string) *CreateCustomerResponseBody {
+	s.CustomerCode = &v
+	return s
+}
+
+type CreateCustomerResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateCustomerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomerResponse) SetHeaders(v map[string]*string) *CreateCustomerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateCustomerResponse) SetBody(v *CreateCustomerResponseBody) *CreateCustomerResponse {
+	s.Body = v
+	return s
+}
+
 type CreateReceiptHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -816,6 +1746,802 @@ func (s *GetFinanceAccountResponse) SetBody(v *GetFinanceAccountResponseBody) *G
 	return s
 }
 
+type GetInvoiceByPageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetInvoiceByPageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInvoiceByPageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetInvoiceByPageHeaders) SetCommonHeaders(v map[string]*string) *GetInvoiceByPageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetInvoiceByPageHeaders) SetXAcsDingtalkAccessToken(v string) *GetInvoiceByPageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetInvoiceByPageRequest struct {
+	// 查询结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 发票类型
+	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	PageNumber  *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize    *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 查询开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 税号
+	TaxNo *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+	// 发票状态
+	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+}
+
+func (s GetInvoiceByPageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInvoiceByPageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetInvoiceByPageRequest) SetEndTime(v int64) *GetInvoiceByPageRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetInvoiceByPageRequest) SetFinanceType(v string) *GetInvoiceByPageRequest {
+	s.FinanceType = &v
+	return s
+}
+
+func (s *GetInvoiceByPageRequest) SetPageNumber(v int64) *GetInvoiceByPageRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetInvoiceByPageRequest) SetPageSize(v int64) *GetInvoiceByPageRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetInvoiceByPageRequest) SetStartTime(v int64) *GetInvoiceByPageRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetInvoiceByPageRequest) SetTaxNo(v string) *GetInvoiceByPageRequest {
+	s.TaxNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageRequest) SetVerifyStatus(v string) *GetInvoiceByPageRequest {
+	s.VerifyStatus = &v
+	return s
+}
+
+type GetInvoiceByPageResponseBody struct {
+	List []*GetInvoiceByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s GetInvoiceByPageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInvoiceByPageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetInvoiceByPageResponseBody) SetList(v []*GetInvoiceByPageResponseBodyList) *GetInvoiceByPageResponseBody {
+	s.List = v
+	return s
+}
+
+type GetInvoiceByPageResponseBodyList struct {
+	// 账期时间
+	AccountPeriod *string `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
+	// 不含税金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 含税金额
+	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	// 校验码
+	CheckCode *string `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
+	// 查验时间
+	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	// 开票日期
+	DrewDate *string `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
+	// 电票版式文件下载地址
+	ElectronicUrl *string `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
+	// 财务类型，INPUT-VAT(进项),OUTPUT_VAT(销项)
+	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	// 资金类型 ，RED（红票），（BLUE）蓝票
+	FundType *string `json:"fundType,omitempty" xml:"fundType,omitempty"`
+	// 常规发票明细
+	GeneralInvoiceDetailVOList []*GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	// 发票代码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票类型
+	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	// 机器码
+	MachineCode *string `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
+	// 成品油标识
+	OilFlag *string `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
+	// 收款人
+	Payee *string `json:"payee,omitempty" xml:"payee,omitempty"`
+	// 审批单实例
+	ProcessInstCode *string `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
+	// 审批单类型
+	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
+	// 购方地址
+	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	// 购方银行
+	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
+	// 购方名称
+	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	// 购方税号
+	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	// 购方电话
+	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	// 备注
+	Remark                     *string                                                       `json:"remark,omitempty" xml:"remark,omitempty"`
+	SecondHandCarInvoiceDetail []*GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail `json:"secondHandCarInvoiceDetail,omitempty" xml:"secondHandCarInvoiceDetail,omitempty" type:"Repeated"`
+	// 销方地址
+	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
+	// 销方银行
+	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
+	// 销方名称
+	SellerName *string `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
+	// 销方税号
+	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
+	// 销方电话
+	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
+	// 发票状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 代开发票标识 1-自开，2-代开
+	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
+	// 税额
+	TaxAmount               *string                                                  `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	UsedVehicleSaleDetailVO *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO `json:"usedVehicleSaleDetailVO,omitempty" xml:"usedVehicleSaleDetailVO,omitempty" type:"Struct"`
+	VehicleSaleDetailVO     *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO     `json:"vehicleSaleDetailVO,omitempty" xml:"vehicleSaleDetailVO,omitempty" type:"Struct"`
+	// 发票查验状态
+	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+	// 凭证code
+	VoucherCode *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
+	// 生成凭证状态
+	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+}
+
+func (s GetInvoiceByPageResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInvoiceByPageResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetAccountPeriod(v string) *GetInvoiceByPageResponseBodyList {
+	s.AccountPeriod = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetAmount(v string) *GetInvoiceByPageResponseBodyList {
+	s.Amount = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetAmountWithTax(v string) *GetInvoiceByPageResponseBodyList {
+	s.AmountWithTax = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetCheckCode(v string) *GetInvoiceByPageResponseBodyList {
+	s.CheckCode = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetCheckTime(v string) *GetInvoiceByPageResponseBodyList {
+	s.CheckTime = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetDrewDate(v string) *GetInvoiceByPageResponseBodyList {
+	s.DrewDate = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetElectronicUrl(v string) *GetInvoiceByPageResponseBodyList {
+	s.ElectronicUrl = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetFinanceType(v string) *GetInvoiceByPageResponseBodyList {
+	s.FinanceType = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetFundType(v string) *GetInvoiceByPageResponseBodyList {
+	s.FundType = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetGeneralInvoiceDetailVOList(v []*GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList) *GetInvoiceByPageResponseBodyList {
+	s.GeneralInvoiceDetailVOList = v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetInvoiceCode(v string) *GetInvoiceByPageResponseBodyList {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetInvoiceNo(v string) *GetInvoiceByPageResponseBodyList {
+	s.InvoiceNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetInvoiceType(v string) *GetInvoiceByPageResponseBodyList {
+	s.InvoiceType = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetMachineCode(v string) *GetInvoiceByPageResponseBodyList {
+	s.MachineCode = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetOilFlag(v string) *GetInvoiceByPageResponseBodyList {
+	s.OilFlag = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetPayee(v string) *GetInvoiceByPageResponseBodyList {
+	s.Payee = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetProcessInstCode(v string) *GetInvoiceByPageResponseBodyList {
+	s.ProcessInstCode = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetProcessInstType(v string) *GetInvoiceByPageResponseBodyList {
+	s.ProcessInstType = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetPurchaserAddress(v string) *GetInvoiceByPageResponseBodyList {
+	s.PurchaserAddress = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetPurchaserBankNameAccount(v string) *GetInvoiceByPageResponseBodyList {
+	s.PurchaserBankNameAccount = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetPurchaserName(v string) *GetInvoiceByPageResponseBodyList {
+	s.PurchaserName = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetPurchaserTaxNo(v string) *GetInvoiceByPageResponseBodyList {
+	s.PurchaserTaxNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetPurchaserTel(v string) *GetInvoiceByPageResponseBodyList {
+	s.PurchaserTel = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetRemark(v string) *GetInvoiceByPageResponseBodyList {
+	s.Remark = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetSecondHandCarInvoiceDetail(v []*GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail) *GetInvoiceByPageResponseBodyList {
+	s.SecondHandCarInvoiceDetail = v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetSellerAddress(v string) *GetInvoiceByPageResponseBodyList {
+	s.SellerAddress = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetSellerBankNameAccount(v string) *GetInvoiceByPageResponseBodyList {
+	s.SellerBankNameAccount = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetSellerName(v string) *GetInvoiceByPageResponseBodyList {
+	s.SellerName = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetSellerTaxNo(v string) *GetInvoiceByPageResponseBodyList {
+	s.SellerTaxNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetSellerTel(v string) *GetInvoiceByPageResponseBodyList {
+	s.SellerTel = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetStatus(v string) *GetInvoiceByPageResponseBodyList {
+	s.Status = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetSupplySign(v string) *GetInvoiceByPageResponseBodyList {
+	s.SupplySign = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetTaxAmount(v string) *GetInvoiceByPageResponseBodyList {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetUsedVehicleSaleDetailVO(v *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) *GetInvoiceByPageResponseBodyList {
+	s.UsedVehicleSaleDetailVO = v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetVehicleSaleDetailVO(v *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO) *GetInvoiceByPageResponseBodyList {
+	s.VehicleSaleDetailVO = v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetVerifyStatus(v string) *GetInvoiceByPageResponseBodyList {
+	s.VerifyStatus = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetVoucherCode(v string) *GetInvoiceByPageResponseBodyList {
+	s.VoucherCode = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyList) SetVoucherStatus(v string) *GetInvoiceByPageResponseBodyList {
+	s.VoucherStatus = &v
+	return s
+}
+
+type GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList struct {
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 商品名称
+	GoodName *string `json:"goodName,omitempty" xml:"goodName,omitempty"`
+	// 数量
+	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	// 税收分类编码
+	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	// 行号
+	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	// 规格型号
+	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
+	// 税额
+	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	// 是否享受税收优惠：0-不享受，1-享受
+	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 单价
+	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+}
+
+func (s GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList) GoString() string {
+	return s.String()
+}
+
+func (s *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList) SetAmount(v string) *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList {
+	s.Amount = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList) SetGoodName(v string) *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList {
+	s.GoodName = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList) SetQuantity(v string) *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList {
+	s.Quantity = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList) SetRevenueCode(v string) *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList {
+	s.RevenueCode = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList) SetRowNo(v string) *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList {
+	s.RowNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList) SetSpecification(v string) *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList {
+	s.Specification = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList) SetTaxAmount(v string) *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList) SetTaxPre(v string) *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList {
+	s.TaxPre = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList) SetTaxRate(v string) *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList) SetUnit(v string) *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList {
+	s.Unit = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList) SetUnitPrice(v string) *GetInvoiceByPageResponseBodyListGeneralInvoiceDetailVOList {
+	s.UnitPrice = &v
+	return s
+}
+
+type GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail struct {
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 车牌号
+	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	// 通行日期止
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// 商品名称
+	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	// 税收分类编码
+	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	// 行号
+	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	// 通行日期起
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 税额
+	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail) GoString() string {
+	return s.String()
+}
+
+func (s *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail) SetAmount(v string) *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail {
+	s.Amount = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail) SetCardNo(v string) *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail {
+	s.CardNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail) SetEndDate(v string) *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail {
+	s.EndDate = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail) SetGoodsName(v string) *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail {
+	s.GoodsName = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail) SetRevenueCode(v string) *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail {
+	s.RevenueCode = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail) SetRowNo(v string) *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail {
+	s.RowNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail) SetStartDate(v string) *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail {
+	s.StartDate = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail) SetTaxAmount(v string) *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail) SetTaxRate(v string) *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail) SetVehicleType(v string) *GetInvoiceByPageResponseBodyListSecondHandCarInvoiceDetail {
+	s.VehicleType = &v
+	return s
+}
+
+type GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO struct {
+	// 经营、拍卖单位
+	AuctionUnit *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
+	// 经营、拍卖单位地址
+	AuctionUnitAddress *string `json:"auctionUnitAddress,omitempty" xml:"auctionUnitAddress,omitempty"`
+	// 经营、拍卖单位银行
+	AuctionUnitBank *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
+	// 经营、拍卖单位税号
+	AuctionUnitTaxNo *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
+	// 经营、拍卖单位电话
+	AuctionUtilTel *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
+	// 厂牌型号
+	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	// 车牌照号
+	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	// 登记证号
+	Registration *string `json:"registration,omitempty" xml:"registration,omitempty"`
+	// 转入地车辆管理所名称
+	TransferVehicle *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
+	// 二手车市场地址
+	UsedCarAddress *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
+	// 二手车市场
+	UsedCarMarket *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
+	// 二手车市场开户银行、账号
+	UsedCarMarketBank *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
+	// 二手车市场电话
+	UsedCarMarketPhone *string `json:"usedCarMarketPhone,omitempty" xml:"usedCarMarketPhone,omitempty"`
+	// 二手车市场纳税人识别号
+	UsedCarMarketTaxNo *string `json:"usedCarMarketTaxNo,omitempty" xml:"usedCarMarketTaxNo,omitempty"`
+	// 车架号/车辆识别号
+	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	// 车辆类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) GoString() string {
+	return s.String()
+}
+
+func (s *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) SetAuctionUnit(v string) *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO {
+	s.AuctionUnit = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) SetAuctionUnitAddress(v string) *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO {
+	s.AuctionUnitAddress = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) SetAuctionUnitBank(v string) *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO {
+	s.AuctionUnitBank = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) SetAuctionUnitTaxNo(v string) *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO {
+	s.AuctionUnitTaxNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) SetAuctionUtilTel(v string) *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO {
+	s.AuctionUtilTel = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) SetCarModel(v string) *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO {
+	s.CarModel = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) SetCardNo(v string) *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO {
+	s.CardNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) SetRegistration(v string) *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO {
+	s.Registration = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) SetTransferVehicle(v string) *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO {
+	s.TransferVehicle = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) SetUsedCarAddress(v string) *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO {
+	s.UsedCarAddress = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) SetUsedCarMarket(v string) *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO {
+	s.UsedCarMarket = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) SetUsedCarMarketBank(v string) *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO {
+	s.UsedCarMarketBank = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) SetUsedCarMarketPhone(v string) *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO {
+	s.UsedCarMarketPhone = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) SetUsedCarMarketTaxNo(v string) *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO {
+	s.UsedCarMarketTaxNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) SetVehicleNo(v string) *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO {
+	s.VehicleNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO) SetVehicleType(v string) *GetInvoiceByPageResponseBodyListUsedVehicleSaleDetailVO {
+	s.VehicleType = &v
+	return s
+}
+
+type GetInvoiceByPageResponseBodyListVehicleSaleDetailVO struct {
+	// 品牌
+	Brand *string `json:"brand,omitempty" xml:"brand,omitempty"`
+	// 合格证号
+	CertificateNo *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
+	// 发动机号
+	EngineNo *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
+	// 身份证号/组织机构代码
+	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
+	// 进口证书号
+	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
+	// 限乘人数
+	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
+	// 产地
+	OriginPlace *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
+	// 完税凭证号码
+	PaymentVoucherNo *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
+	// 主管税务机关名称
+	TaxAuthorityName *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
+	// 主管税务机关代码
+	TaxAuthorityNo *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 吨位
+	Tonnage *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
+	// 车架号码
+	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	// 车辆类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s GetInvoiceByPageResponseBodyListVehicleSaleDetailVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInvoiceByPageResponseBodyListVehicleSaleDetailVO) GoString() string {
+	return s.String()
+}
+
+func (s *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO) SetBrand(v string) *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO {
+	s.Brand = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO) SetCertificateNo(v string) *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO {
+	s.CertificateNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO) SetEngineNo(v string) *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO {
+	s.EngineNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO) SetIdCardNo(v string) *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO {
+	s.IdCardNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO) SetImportCertificateNo(v string) *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO {
+	s.ImportCertificateNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO) SetMaxPassengers(v string) *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO {
+	s.MaxPassengers = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO) SetOriginPlace(v string) *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO {
+	s.OriginPlace = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO) SetPaymentVoucherNo(v string) *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO {
+	s.PaymentVoucherNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO) SetTaxAuthorityName(v string) *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO {
+	s.TaxAuthorityName = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO) SetTaxAuthorityNo(v string) *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO {
+	s.TaxAuthorityNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO) SetTaxRate(v string) *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO) SetTonnage(v string) *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO {
+	s.Tonnage = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO) SetVehicleNo(v string) *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO {
+	s.VehicleNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO) SetVehicleType(v string) *GetInvoiceByPageResponseBodyListVehicleSaleDetailVO {
+	s.VehicleType = &v
+	return s
+}
+
+type GetInvoiceByPageResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetInvoiceByPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetInvoiceByPageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInvoiceByPageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetInvoiceByPageResponse) SetHeaders(v map[string]*string) *GetInvoiceByPageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetInvoiceByPageResponse) SetBody(v *GetInvoiceByPageResponseBody) *GetInvoiceByPageResponse {
+	s.Body = v
+	return s
+}
+
 type GetIsNewVersionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1527,6 +3253,218 @@ func (s *QueryCustomerByPageResponse) SetBody(v *QueryCustomerByPageResponseBody
 	return s
 }
 
+type QueryCustomerInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCustomerInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryCustomerInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCustomerInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCustomerInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCustomerInfoRequest struct {
+	// 客户名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 查询页码，从1开始
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页查询数量
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 购方税号
+	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	// 购方电话
+	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+}
+
+func (s QueryCustomerInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerInfoRequest) SetName(v string) *QueryCustomerInfoRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryCustomerInfoRequest) SetPageNumber(v int64) *QueryCustomerInfoRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryCustomerInfoRequest) SetPageSize(v int64) *QueryCustomerInfoRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryCustomerInfoRequest) SetPurchaserTaxNo(v string) *QueryCustomerInfoRequest {
+	s.PurchaserTaxNo = &v
+	return s
+}
+
+func (s *QueryCustomerInfoRequest) SetPurchaserTel(v string) *QueryCustomerInfoRequest {
+	s.PurchaserTel = &v
+	return s
+}
+
+type QueryCustomerInfoResponseBody struct {
+	// 是否还有数据
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 客户分页数据
+	List []*QueryCustomerInfoResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// 总数
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryCustomerInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerInfoResponseBody) SetHasMore(v bool) *QueryCustomerInfoResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBody) SetList(v []*QueryCustomerInfoResponseBodyList) *QueryCustomerInfoResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBody) SetTotalCount(v int64) *QueryCustomerInfoResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryCustomerInfoResponseBodyList struct {
+	// 客户code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 客户描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 客户名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 购方账户
+	PurchaserAccount *string `json:"purchaserAccount,omitempty" xml:"purchaserAccount,omitempty"`
+	// 购方地址
+	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	// 购方姓名
+	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	// 购方税号
+	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	// 购方电话
+	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	// 购方银行
+	PurchaserrBankName *string `json:"purchaserrBankName,omitempty" xml:"purchaserrBankName,omitempty"`
+	// 状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 用户自定义code
+	UserDefineCode *string `json:"userDefineCode,omitempty" xml:"userDefineCode,omitempty"`
+}
+
+func (s QueryCustomerInfoResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerInfoResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetCode(v string) *QueryCustomerInfoResponseBodyList {
+	s.Code = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetDescription(v string) *QueryCustomerInfoResponseBodyList {
+	s.Description = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetName(v string) *QueryCustomerInfoResponseBodyList {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetPurchaserAccount(v string) *QueryCustomerInfoResponseBodyList {
+	s.PurchaserAccount = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetPurchaserAddress(v string) *QueryCustomerInfoResponseBodyList {
+	s.PurchaserAddress = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetPurchaserName(v string) *QueryCustomerInfoResponseBodyList {
+	s.PurchaserName = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetPurchaserTaxNo(v string) *QueryCustomerInfoResponseBodyList {
+	s.PurchaserTaxNo = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetPurchaserTel(v string) *QueryCustomerInfoResponseBodyList {
+	s.PurchaserTel = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetPurchaserrBankName(v string) *QueryCustomerInfoResponseBodyList {
+	s.PurchaserrBankName = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetStatus(v string) *QueryCustomerInfoResponseBodyList {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetUserDefineCode(v string) *QueryCustomerInfoResponseBodyList {
+	s.UserDefineCode = &v
+	return s
+}
+
+type QueryCustomerInfoResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryCustomerInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryCustomerInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerInfoResponse) SetHeaders(v map[string]*string) *QueryCustomerInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCustomerInfoResponse) SetBody(v *QueryCustomerInfoResponseBody) *QueryCustomerInfoResponse {
+	s.Body = v
+	return s
+}
+
 type QueryEnterpriseAccountByPageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1686,6 +3624,69 @@ func (s *QueryEnterpriseAccountByPageResponse) SetHeaders(v map[string]*string) 
 }
 
 func (s *QueryEnterpriseAccountByPageResponse) SetBody(v *QueryEnterpriseAccountByPageResponseBody) *QueryEnterpriseAccountByPageResponse {
+	s.Body = v
+	return s
+}
+
+type QueryInvoiceRelationCountHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryInvoiceRelationCountHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInvoiceRelationCountHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInvoiceRelationCountHeaders) SetCommonHeaders(v map[string]*string) *QueryInvoiceRelationCountHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryInvoiceRelationCountHeaders) SetXAcsDingtalkAccessToken(v string) *QueryInvoiceRelationCountHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryInvoiceRelationCountResponseBody struct {
+	RelationCountMap map[string]*int64 `json:"relationCountMap,omitempty" xml:"relationCountMap,omitempty"`
+}
+
+func (s QueryInvoiceRelationCountResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInvoiceRelationCountResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInvoiceRelationCountResponseBody) SetRelationCountMap(v map[string]*int64) *QueryInvoiceRelationCountResponseBody {
+	s.RelationCountMap = v
+	return s
+}
+
+type QueryInvoiceRelationCountResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryInvoiceRelationCountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryInvoiceRelationCountResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInvoiceRelationCountResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInvoiceRelationCountResponse) SetHeaders(v map[string]*string) *QueryInvoiceRelationCountResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryInvoiceRelationCountResponse) SetBody(v *QueryInvoiceRelationCountResponseBody) *QueryInvoiceRelationCountResponse {
 	s.Body = v
 	return s
 }
@@ -2040,6 +4041,208 @@ func (s *QueryProjectByPageResponse) SetBody(v *QueryProjectByPageResponseBody) 
 	return s
 }
 
+type QueryReceiptForInvoiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryReceiptForInvoiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptForInvoiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptForInvoiceHeaders) SetCommonHeaders(v map[string]*string) *QueryReceiptForInvoiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryReceiptForInvoiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryReceiptForInvoiceRequest struct {
+	// 结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 发票筛选条件
+	InvoiceFilter *QueryReceiptForInvoiceRequestInvoiceFilter `json:"invoiceFilter,omitempty" xml:"invoiceFilter,omitempty" type:"Struct"`
+	// 分页参数，从1 开始
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页参数，每页查询个数
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 单据状态，审批中 RUNNING，已完成 COMPLETED
+	ReceiptStatus *string `json:"receiptStatus,omitempty" xml:"receiptStatus,omitempty"`
+	// 开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 单据标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QueryReceiptForInvoiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptForInvoiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptForInvoiceRequest) SetEndTime(v int64) *QueryReceiptForInvoiceRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceRequest) SetInvoiceFilter(v *QueryReceiptForInvoiceRequestInvoiceFilter) *QueryReceiptForInvoiceRequest {
+	s.InvoiceFilter = v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceRequest) SetPageNumber(v int64) *QueryReceiptForInvoiceRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceRequest) SetPageSize(v int64) *QueryReceiptForInvoiceRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceRequest) SetReceiptStatus(v string) *QueryReceiptForInvoiceRequest {
+	s.ReceiptStatus = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceRequest) SetStartTime(v int64) *QueryReceiptForInvoiceRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceRequest) SetTitle(v string) *QueryReceiptForInvoiceRequest {
+	s.Title = &v
+	return s
+}
+
+type QueryReceiptForInvoiceRequestInvoiceFilter struct {
+	// 发票类型 进项、销项
+	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	// 发票状态  待开票 已开票
+	RelationStatus *string `json:"relationStatus,omitempty" xml:"relationStatus,omitempty"`
+}
+
+func (s QueryReceiptForInvoiceRequestInvoiceFilter) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptForInvoiceRequestInvoiceFilter) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptForInvoiceRequestInvoiceFilter) SetFinanceType(v string) *QueryReceiptForInvoiceRequestInvoiceFilter {
+	s.FinanceType = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceRequestInvoiceFilter) SetRelationStatus(v string) *QueryReceiptForInvoiceRequestInvoiceFilter {
+	s.RelationStatus = &v
+	return s
+}
+
+type QueryReceiptForInvoiceResponseBody struct {
+	// 是否还有数据
+	HasMore *string `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 分页数据
+	List []*QueryReceiptForInvoiceResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// 总数
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryReceiptForInvoiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptForInvoiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptForInvoiceResponseBody) SetHasMore(v string) *QueryReceiptForInvoiceResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBody) SetList(v []*QueryReceiptForInvoiceResponseBodyList) *QueryReceiptForInvoiceResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBody) SetTotalCount(v int64) *QueryReceiptForInvoiceResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryReceiptForInvoiceResponseBodyList struct {
+	// 应用id
+	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	// 主数据
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 主数据modelID
+	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	// 来源
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+}
+
+func (s QueryReceiptForInvoiceResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptForInvoiceResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetAppId(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.AppId = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetData(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.Data = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetModelId(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.ModelId = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetSource(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.Source = &v
+	return s
+}
+
+type QueryReceiptForInvoiceResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryReceiptForInvoiceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryReceiptForInvoiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptForInvoiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptForInvoiceResponse) SetHeaders(v map[string]*string) *QueryReceiptForInvoiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponse) SetBody(v *QueryReceiptForInvoiceResponseBody) *QueryReceiptForInvoiceResponse {
+	s.Body = v
+	return s
+}
+
 type QueryReceiptsByPageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2341,6 +4544,3132 @@ func (s *QuerySupplierByPageResponse) SetHeaders(v map[string]*string) *QuerySup
 }
 
 func (s *QuerySupplierByPageResponse) SetBody(v *QuerySupplierByPageResponseBody) *QuerySupplierByPageResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateInvoiceAbandonStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateInvoiceAbandonStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAbandonStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAbandonStatusHeaders) SetCommonHeaders(v map[string]*string) *UpdateInvoiceAbandonStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateInvoiceAbandonStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateInvoiceAbandonStatusRequest struct {
+	// 发票全票面信息（蓝票）
+	BlueGeneralInvoiceVO *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO `json:"blueGeneralInvoiceVO,omitempty" xml:"blueGeneralInvoiceVO,omitempty" type:"Struct"`
+	// 发票编码（蓝票）
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码（蓝票）
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票全票面信息（红票）
+	RedGeneralInvoiceVO *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO `json:"redGeneralInvoiceVO,omitempty" xml:"redGeneralInvoiceVO,omitempty" type:"Struct"`
+	// 状态-红冲、废弃
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s UpdateInvoiceAbandonStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAbandonStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAbandonStatusRequest) SetBlueGeneralInvoiceVO(v *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) *UpdateInvoiceAbandonStatusRequest {
+	s.BlueGeneralInvoiceVO = v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequest) SetInvoiceCode(v string) *UpdateInvoiceAbandonStatusRequest {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequest) SetInvoiceNo(v string) *UpdateInvoiceAbandonStatusRequest {
+	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequest) SetRedGeneralInvoiceVO(v *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) *UpdateInvoiceAbandonStatusRequest {
+	s.RedGeneralInvoiceVO = v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequest) SetStatus(v string) *UpdateInvoiceAbandonStatusRequest {
+	s.Status = &v
+	return s
+}
+
+type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO struct {
+	// 账期时间
+	AccountPeriod *string `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
+	// 不含税金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 含税金额
+	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	// 校验码
+	CheckCode *string `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
+	// 查验时间
+	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	// 开票日期
+	DrewDate *string `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
+	// 电票版式文件下载地址
+	ElectronicUrl *string `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
+	// 财务类型，INPUT-VAT(进项),OUTPUT_VAT(销项)
+	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	// 资金类型 ，RED（红票），（BLUE）蓝票
+	FundType *string `json:"fundType,omitempty" xml:"fundType,omitempty"`
+	// 常规发票明细
+	GeneralInvoiceDetailVO *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO `json:"generalInvoiceDetailVO,omitempty" xml:"generalInvoiceDetailVO,omitempty" type:"Struct"`
+	// 发票代码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票类型
+	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	// 机器码
+	MachineCode *string `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
+	// 成品油标识
+	OilFlag *string `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
+	// 收款人
+	Payee *string `json:"payee,omitempty" xml:"payee,omitempty"`
+	// 审批单实例
+	ProcessInstCode *string `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
+	// 审批单类型
+	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
+	// 购方地址
+	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	// 购方银行
+	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
+	// 购方名称
+	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	// 购方税号
+	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	// 购方电话
+	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	// 备注
+	Remark                     *string                                                                          `json:"remark,omitempty" xml:"remark,omitempty"`
+	SecondHandCarInvoiceDetail *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail `json:"secondHandCarInvoiceDetail,omitempty" xml:"secondHandCarInvoiceDetail,omitempty" type:"Struct"`
+	// 销方地址
+	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
+	// 销方银行
+	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
+	// 销方名称
+	SellerName *string `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
+	// 销方税号
+	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
+	// 销方电话
+	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
+	// 发票状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 代开发票标识 1-自开，2-代开
+	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
+	// 税额
+	TaxAmount               *string                                                                       `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	UsedVehicleSaleDetailVO *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO `json:"usedVehicleSaleDetailVO,omitempty" xml:"usedVehicleSaleDetailVO,omitempty" type:"Struct"`
+	VehicleSaleDetailVO     *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO     `json:"vehicleSaleDetailVO,omitempty" xml:"vehicleSaleDetailVO,omitempty" type:"Struct"`
+	// 发票查验状态
+	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+	// 凭证code
+	VoucherCode *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
+	// 生成凭证状态
+	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+}
+
+func (s UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetAccountPeriod(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.AccountPeriod = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetAmount(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.Amount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetAmountWithTax(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.AmountWithTax = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetCheckCode(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.CheckCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetCheckTime(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.CheckTime = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetDrewDate(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.DrewDate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetElectronicUrl(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.ElectronicUrl = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetFinanceType(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.FinanceType = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetFundType(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.FundType = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetGeneralInvoiceDetailVO(v *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.GeneralInvoiceDetailVO = v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetInvoiceCode(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetInvoiceNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetInvoiceType(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.InvoiceType = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetMachineCode(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.MachineCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetOilFlag(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.OilFlag = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetPayee(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.Payee = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetProcessInstCode(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.ProcessInstCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetProcessInstType(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.ProcessInstType = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetPurchaserAddress(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.PurchaserAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetPurchaserBankNameAccount(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.PurchaserBankNameAccount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetPurchaserName(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.PurchaserName = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetPurchaserTaxNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.PurchaserTaxNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetPurchaserTel(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.PurchaserTel = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetRemark(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.Remark = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetSecondHandCarInvoiceDetail(v *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.SecondHandCarInvoiceDetail = v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetSellerAddress(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.SellerAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetSellerBankNameAccount(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.SellerBankNameAccount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetSellerName(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.SellerName = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetSellerTaxNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.SellerTaxNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetSellerTel(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.SellerTel = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetStatus(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.Status = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetSupplySign(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.SupplySign = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetTaxAmount(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetUsedVehicleSaleDetailVO(v *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.UsedVehicleSaleDetailVO = v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetVehicleSaleDetailVO(v *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.VehicleSaleDetailVO = v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetVerifyStatus(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.VerifyStatus = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetVoucherCode(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.VoucherCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetVoucherStatus(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.VoucherStatus = &v
+	return s
+}
+
+type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO struct {
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 商品名称
+	GoodName *string `json:"goodName,omitempty" xml:"goodName,omitempty"`
+	// 数量
+	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	// 税收分类编码
+	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	// 行号
+	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	// 规格型号
+	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
+	// 税额
+	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	// 是否享受税收优惠：0-不享受，1-享受
+	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 单价
+	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+}
+
+func (s UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO) SetAmount(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.Amount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO) SetGoodName(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.GoodName = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO) SetQuantity(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.Quantity = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO) SetRevenueCode(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.RevenueCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO) SetRowNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.RowNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO) SetSpecification(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.Specification = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO) SetTaxAmount(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO) SetTaxPre(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.TaxPre = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO) SetTaxRate(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO) SetUnit(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.Unit = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO) SetUnitPrice(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.UnitPrice = &v
+	return s
+}
+
+type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail struct {
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 车牌号
+	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	// 通行日期止
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// 商品名称
+	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	// 税收分类编码
+	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	// 行号
+	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	// 通行日期起
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 税额
+	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail) SetAmount(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.Amount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail) SetCardNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.CardNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail) SetEndDate(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.EndDate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail) SetGoodsName(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.GoodsName = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail) SetRevenueCode(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.RevenueCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail) SetRowNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.RowNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail) SetStartDate(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.StartDate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail) SetTaxAmount(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail) SetTaxRate(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail) SetVehicleType(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.VehicleType = &v
+	return s
+}
+
+type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO struct {
+	// 经营、拍卖单位
+	AuctionUnit *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
+	// 经营、拍卖单位地址
+	AuctionUnitAddress *string `json:"auctionUnitAddress,omitempty" xml:"auctionUnitAddress,omitempty"`
+	// 经营、拍卖单位银行
+	AuctionUnitBank *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
+	// 经营、拍卖单位税号
+	AuctionUnitTaxNo *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
+	// 经营、拍卖单位电话
+	AuctionUtilTel *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
+	// 厂牌型号
+	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	// 车牌照号
+	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	// 登记证号
+	Registration *string `json:"registration,omitempty" xml:"registration,omitempty"`
+	// 转入地车辆管理所名称
+	TransferVehicle *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
+	// 二手车市场地址
+	UsedCarAddress *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
+	// 二手车市场
+	UsedCarMarket *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
+	// 二手车市场开户银行、账号
+	UsedCarMarketBank *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
+	// 二手车市场电话
+	UsedCarMarketPhone *string `json:"usedCarMarketPhone,omitempty" xml:"usedCarMarketPhone,omitempty"`
+	// 二手车市场纳税人识别号
+	UsedCarMarketTaxNo *string `json:"usedCarMarketTaxNo,omitempty" xml:"usedCarMarketTaxNo,omitempty"`
+	// 车架号/车辆识别号
+	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	// 车辆类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUnit(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUnit = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUnitAddress(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUnitAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUnitBank(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUnitBank = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUnitTaxNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUnitTaxNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUtilTel(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUtilTel = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) SetCarModel(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.CarModel = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) SetCardNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.CardNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) SetRegistration(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.Registration = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) SetTransferVehicle(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.TransferVehicle = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarAddress(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarMarket(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarMarket = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarMarketBank(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarMarketBank = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarMarketPhone(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarMarketPhone = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarMarketTaxNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarMarketTaxNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) SetVehicleNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.VehicleNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO) SetVehicleType(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.VehicleType = &v
+	return s
+}
+
+type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO struct {
+	// 品牌
+	Brand *string `json:"brand,omitempty" xml:"brand,omitempty"`
+	// 合格证号
+	CertificateNo *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
+	// 发动机号
+	EngineNo *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
+	// 身份证号/组织机构代码
+	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
+	// 进口证书号
+	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
+	// 限乘人数
+	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
+	// 产地
+	OriginPlace *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
+	// 完税凭证号码
+	PaymentVoucherNo *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
+	// 主管税务机关名称
+	TaxAuthorityName *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
+	// 主管税务机关代码
+	TaxAuthorityNo *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 吨位
+	Tonnage *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
+	// 车架号码
+	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	// 车辆类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO) SetBrand(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO {
+	s.Brand = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO) SetCertificateNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO {
+	s.CertificateNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO) SetEngineNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO {
+	s.EngineNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO) SetIdCardNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO {
+	s.IdCardNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO) SetImportCertificateNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO {
+	s.ImportCertificateNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO) SetMaxPassengers(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO {
+	s.MaxPassengers = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO) SetOriginPlace(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO {
+	s.OriginPlace = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO) SetPaymentVoucherNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO {
+	s.PaymentVoucherNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO) SetTaxAuthorityName(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO {
+	s.TaxAuthorityName = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO) SetTaxAuthorityNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO {
+	s.TaxAuthorityNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO) SetTaxRate(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO) SetTonnage(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO {
+	s.Tonnage = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO) SetVehicleNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO {
+	s.VehicleNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO) SetVehicleType(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVO {
+	s.VehicleType = &v
+	return s
+}
+
+type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO struct {
+	// 账期时间
+	AccountPeriod *string `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
+	// 不含税金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 含税金额
+	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	// 校验码
+	CheckCode *string `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
+	// 查验时间
+	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	// 开票日期
+	DrewDate *string `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
+	// 电票版式文件下载地址
+	ElectronicUrl *string `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
+	// 财务类型，INPUT-VAT(进项),OUTPUT_VAT(销项)
+	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	// 资金类型 ，RED（红票），（BLUE）蓝票
+	FundType *string `json:"fundType,omitempty" xml:"fundType,omitempty"`
+	// 常规发票明细
+	GeneralInvoiceDetailVOList *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Struct"`
+	// 发票代码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票类型
+	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	// 机器码
+	MachineCode *string `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
+	// 成品油标识
+	OilFlag *string `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
+	// 收款人
+	Payee *string `json:"payee,omitempty" xml:"payee,omitempty"`
+	// 审批单实例
+	ProcessInstCode *string `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
+	// 审批单类型
+	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
+	// 购方地址
+	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	// 购方银行
+	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
+	// 购方名称
+	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	// 购方税号
+	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	// 购方电话
+	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	// 备注
+	Remark                     *string                                                                         `json:"remark,omitempty" xml:"remark,omitempty"`
+	SecondHandCarInvoiceDetail *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail `json:"secondHandCarInvoiceDetail,omitempty" xml:"secondHandCarInvoiceDetail,omitempty" type:"Struct"`
+	// 销方地址
+	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
+	// 销方银行
+	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
+	// 销方名称
+	SellerName *string `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
+	// 销方税号
+	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
+	// 销方电话
+	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
+	// 发票状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 代开发票标识 1-自开，2-代开
+	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
+	// 税额
+	TaxAmount               *string                                                                      `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	UsedVehicleSaleDetailVO *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO `json:"usedVehicleSaleDetailVO,omitempty" xml:"usedVehicleSaleDetailVO,omitempty" type:"Struct"`
+	VehicleSaleDetailVO     *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO     `json:"vehicleSaleDetailVO,omitempty" xml:"vehicleSaleDetailVO,omitempty" type:"Struct"`
+	// 发票查验状态
+	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+	// 凭证code
+	VoucherCode *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
+	// 生成凭证状态
+	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+}
+
+func (s UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetAccountPeriod(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.AccountPeriod = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetAmount(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.Amount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetAmountWithTax(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.AmountWithTax = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetCheckCode(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.CheckCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetCheckTime(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.CheckTime = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetDrewDate(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.DrewDate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetElectronicUrl(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.ElectronicUrl = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetFinanceType(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.FinanceType = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetFundType(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.FundType = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetGeneralInvoiceDetailVOList(v *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.GeneralInvoiceDetailVOList = v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetInvoiceCode(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetInvoiceNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetInvoiceType(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.InvoiceType = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetMachineCode(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.MachineCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetOilFlag(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.OilFlag = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetPayee(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.Payee = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetProcessInstCode(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.ProcessInstCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetProcessInstType(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.ProcessInstType = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetPurchaserAddress(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.PurchaserAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetPurchaserBankNameAccount(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.PurchaserBankNameAccount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetPurchaserName(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.PurchaserName = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetPurchaserTaxNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.PurchaserTaxNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetPurchaserTel(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.PurchaserTel = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetRemark(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.Remark = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetSecondHandCarInvoiceDetail(v *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.SecondHandCarInvoiceDetail = v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetSellerAddress(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.SellerAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetSellerBankNameAccount(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.SellerBankNameAccount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetSellerName(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.SellerName = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetSellerTaxNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.SellerTaxNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetSellerTel(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.SellerTel = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetStatus(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.Status = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetSupplySign(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.SupplySign = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetTaxAmount(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetUsedVehicleSaleDetailVO(v *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.UsedVehicleSaleDetailVO = v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetVehicleSaleDetailVO(v *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.VehicleSaleDetailVO = v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetVerifyStatus(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.VerifyStatus = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetVoucherCode(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.VoucherCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetVoucherStatus(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.VoucherStatus = &v
+	return s
+}
+
+type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList struct {
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 商品名称
+	GoodName *string `json:"goodName,omitempty" xml:"goodName,omitempty"`
+	// 数量
+	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	// 税收分类编码
+	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	// 行号
+	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	// 规格型号
+	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
+	// 税额
+	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	// 是否享受税收优惠：0-不享受，1-享受
+	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 单价
+	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+}
+
+func (s UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) SetAmount(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.Amount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) SetGoodName(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.GoodName = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) SetQuantity(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.Quantity = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) SetRevenueCode(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.RevenueCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) SetRowNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.RowNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) SetSpecification(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.Specification = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) SetTaxAmount(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) SetTaxPre(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.TaxPre = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) SetTaxRate(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) SetUnit(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.Unit = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) SetUnitPrice(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.UnitPrice = &v
+	return s
+}
+
+type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail struct {
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 车牌号
+	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	// 通行日期止
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// 商品名称
+	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	// 税收分类编码
+	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	// 行号
+	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	// 通行日期起
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 税额
+	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail) SetAmount(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.Amount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail) SetCardNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.CardNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail) SetEndDate(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.EndDate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail) SetGoodsName(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.GoodsName = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail) SetRevenueCode(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.RevenueCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail) SetRowNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.RowNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail) SetStartDate(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.StartDate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail) SetTaxAmount(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail) SetTaxRate(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail) SetVehicleType(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.VehicleType = &v
+	return s
+}
+
+type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO struct {
+	// 经营、拍卖单位
+	AuctionUnit *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
+	// 经营、拍卖单位地址
+	AuctionUnitAddress *string `json:"auctionUnitAddress,omitempty" xml:"auctionUnitAddress,omitempty"`
+	// 经营、拍卖单位银行
+	AuctionUnitBank *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
+	// 经营、拍卖单位税号
+	AuctionUnitTaxNo *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
+	// 经营、拍卖单位电话
+	AuctionUtilTel *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
+	// 厂牌型号
+	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	// 车牌照号
+	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	// 登记证号
+	Registration *string `json:"registration,omitempty" xml:"registration,omitempty"`
+	// 转入地车辆管理所名称
+	TransferVehicle *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
+	// 二手车市场地址
+	UsedCarAddress *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
+	// 二手车市场
+	UsedCarMarket *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
+	// 二手车市场开户银行、账号
+	UsedCarMarketBank *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
+	// 二手车市场电话
+	UsedCarMarketPhone *string `json:"usedCarMarketPhone,omitempty" xml:"usedCarMarketPhone,omitempty"`
+	// 二手车市场纳税人识别号
+	UsedCarMarketTaxNo *string `json:"usedCarMarketTaxNo,omitempty" xml:"usedCarMarketTaxNo,omitempty"`
+	// 车架号/车辆识别号
+	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	// 车辆类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUnit(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUnit = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUnitAddress(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUnitAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUnitBank(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUnitBank = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUnitTaxNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUnitTaxNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUtilTel(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUtilTel = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) SetCarModel(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.CarModel = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) SetCardNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.CardNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) SetRegistration(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.Registration = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) SetTransferVehicle(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.TransferVehicle = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarAddress(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarMarket(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarMarket = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarMarketBank(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarMarketBank = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarMarketPhone(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarMarketPhone = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarMarketTaxNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarMarketTaxNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) SetVehicleNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.VehicleNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO) SetVehicleType(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.VehicleType = &v
+	return s
+}
+
+type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO struct {
+	// 品牌
+	Brand *string `json:"brand,omitempty" xml:"brand,omitempty"`
+	// 合格证号
+	CertificateNo *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
+	// 发动机号
+	EngineNo *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
+	// 身份证号/组织机构代码
+	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
+	// 进口证书号
+	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
+	// 限乘人数
+	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
+	// 产地
+	OriginPlace *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
+	// 完税凭证号码
+	PaymentVoucherNo *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
+	// 主管税务机关名称
+	TaxAuthorityName *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
+	// 主管税务机关代码
+	TaxAuthorityNo *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 吨位
+	Tonnage *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
+	// 车架号码
+	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	// 车辆类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO) SetBrand(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO {
+	s.Brand = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO) SetCertificateNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO {
+	s.CertificateNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO) SetEngineNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO {
+	s.EngineNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO) SetIdCardNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO {
+	s.IdCardNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO) SetImportCertificateNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO {
+	s.ImportCertificateNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO) SetMaxPassengers(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO {
+	s.MaxPassengers = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO) SetOriginPlace(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO {
+	s.OriginPlace = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO) SetPaymentVoucherNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO {
+	s.PaymentVoucherNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO) SetTaxAuthorityName(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO {
+	s.TaxAuthorityName = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO) SetTaxAuthorityNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO {
+	s.TaxAuthorityNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO) SetTaxRate(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO) SetTonnage(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO {
+	s.Tonnage = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO) SetVehicleNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO {
+	s.VehicleNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO) SetVehicleType(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO {
+	s.VehicleType = &v
+	return s
+}
+
+type UpdateInvoiceAbandonStatusResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateInvoiceAbandonStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAbandonStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAbandonStatusResponseBody) SetResult(v bool) *UpdateInvoiceAbandonStatusResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateInvoiceAbandonStatusResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateInvoiceAbandonStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateInvoiceAbandonStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAbandonStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAbandonStatusResponse) SetHeaders(v map[string]*string) *UpdateInvoiceAbandonStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusResponse) SetBody(v *UpdateInvoiceAbandonStatusResponseBody) *UpdateInvoiceAbandonStatusResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateInvoiceAndReceiptRelatedHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateInvoiceAndReceiptRelatedHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAndReceiptRelatedHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedHeaders) SetCommonHeaders(v map[string]*string) *UpdateInvoiceAndReceiptRelatedHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateInvoiceAndReceiptRelatedHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateInvoiceAndReceiptRelatedRequest struct {
+	// 发票全票面信息
+	GeneralInvoiceVO *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO `json:"generalInvoiceVO,omitempty" xml:"generalInvoiceVO,omitempty" type:"Struct"`
+	// 发票代码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 钉钉审批单号
+	ReceiptCode *string `json:"receiptCode,omitempty" xml:"receiptCode,omitempty"`
+}
+
+func (s UpdateInvoiceAndReceiptRelatedRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAndReceiptRelatedRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequest) SetGeneralInvoiceVO(v *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) *UpdateInvoiceAndReceiptRelatedRequest {
+	s.GeneralInvoiceVO = v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequest) SetInvoiceCode(v string) *UpdateInvoiceAndReceiptRelatedRequest {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequest) SetInvoiceNo(v string) *UpdateInvoiceAndReceiptRelatedRequest {
+	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequest) SetReceiptCode(v string) *UpdateInvoiceAndReceiptRelatedRequest {
+	s.ReceiptCode = &v
+	return s
+}
+
+type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO struct {
+	// 账期时间
+	AccountPeriod *string `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
+	// 不含税金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 含税金额
+	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	// 校验码
+	CheckCode *string `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
+	// 查验时间
+	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	// 开票日期
+	DrewDate *string `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
+	// 电票版式文件下载地址
+	ElectronicUrl *string `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
+	// 财务类型，INPUT-VAT(进项),OUTPUT_VAT(销项)
+	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	// 资金类型 ，RED（红票），（BLUE）蓝票
+	FundType *string `json:"fundType,omitempty" xml:"fundType,omitempty"`
+	// 常规发票明细
+	GeneralInvoiceDetailVO *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO `json:"generalInvoiceDetailVO,omitempty" xml:"generalInvoiceDetailVO,omitempty" type:"Struct"`
+	// 发票代码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票类型
+	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	// 机器码
+	MachineCode *string `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
+	// 成品油标识
+	OilFlag *string `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
+	// 收款人
+	Payee *string `json:"payee,omitempty" xml:"payee,omitempty"`
+	// 审批单实例
+	ProcessInstCode *string `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
+	// 审批单类型
+	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
+	// 购方地址
+	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	// 购方银行
+	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
+	// 购方名称
+	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	// 购方税号
+	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	// 购方电话
+	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	// 备注
+	Remark                     *string                                                                          `json:"remark,omitempty" xml:"remark,omitempty"`
+	SecondHandCarInvoiceDetail *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail `json:"secondHandCarInvoiceDetail,omitempty" xml:"secondHandCarInvoiceDetail,omitempty" type:"Struct"`
+	// 销方地址
+	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
+	// 销方银行
+	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
+	// 销方名称
+	SellerName *string `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
+	// 销方税号
+	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
+	// 销方电话
+	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
+	// 发票状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 代开发票标识 1-自开，2-代开
+	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
+	// 税额
+	TaxAmount               *string                                                                       `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	UsedVehicleSaleDetailVO *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO `json:"usedVehicleSaleDetailVO,omitempty" xml:"usedVehicleSaleDetailVO,omitempty" type:"Struct"`
+	VehicleSaleDetailVO     *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO     `json:"vehicleSaleDetailVO,omitempty" xml:"vehicleSaleDetailVO,omitempty" type:"Struct"`
+	// 发票查验状态
+	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+	// 凭证code
+	VoucherCode *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
+	// 生成凭证状态
+	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+}
+
+func (s UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetAccountPeriod(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.AccountPeriod = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetAmount(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.Amount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetAmountWithTax(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.AmountWithTax = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetCheckCode(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.CheckCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetCheckTime(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.CheckTime = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetDrewDate(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.DrewDate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetElectronicUrl(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.ElectronicUrl = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetFinanceType(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.FinanceType = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetFundType(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.FundType = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetGeneralInvoiceDetailVO(v *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.GeneralInvoiceDetailVO = v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetInvoiceCode(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetInvoiceNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetInvoiceType(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.InvoiceType = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetMachineCode(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.MachineCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetOilFlag(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.OilFlag = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetPayee(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.Payee = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetProcessInstCode(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.ProcessInstCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetProcessInstType(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.ProcessInstType = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetPurchaserAddress(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.PurchaserAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetPurchaserBankNameAccount(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.PurchaserBankNameAccount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetPurchaserName(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.PurchaserName = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetPurchaserTaxNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.PurchaserTaxNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetPurchaserTel(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.PurchaserTel = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetRemark(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.Remark = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSecondHandCarInvoiceDetail(v *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.SecondHandCarInvoiceDetail = v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSellerAddress(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.SellerAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSellerBankNameAccount(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.SellerBankNameAccount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSellerName(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.SellerName = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSellerTaxNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.SellerTaxNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSellerTel(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.SellerTel = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetStatus(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.Status = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSupplySign(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.SupplySign = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetTaxAmount(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetUsedVehicleSaleDetailVO(v *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.UsedVehicleSaleDetailVO = v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetVehicleSaleDetailVO(v *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.VehicleSaleDetailVO = v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetVerifyStatus(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.VerifyStatus = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetVoucherCode(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.VoucherCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetVoucherStatus(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.VoucherStatus = &v
+	return s
+}
+
+type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO struct {
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 商品名称
+	GoodName *string `json:"goodName,omitempty" xml:"goodName,omitempty"`
+	// 数量
+	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	// 税收分类编码
+	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	// 行号
+	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	// 规格型号
+	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
+	// 税额
+	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	// 是否享受税收优惠：0-不享受，1-享受
+	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 单价
+	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+}
+
+func (s UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO) SetAmount(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.Amount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO) SetGoodName(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.GoodName = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO) SetQuantity(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.Quantity = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO) SetRevenueCode(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.RevenueCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO) SetRowNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.RowNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO) SetSpecification(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.Specification = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO) SetTaxAmount(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO) SetTaxPre(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.TaxPre = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO) SetTaxRate(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO) SetUnit(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.Unit = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO) SetUnitPrice(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO {
+	s.UnitPrice = &v
+	return s
+}
+
+type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail struct {
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 车牌号
+	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	// 通行日期止
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// 商品名称
+	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	// 税收分类编码
+	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	// 行号
+	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	// 通行日期起
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 税额
+	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetAmount(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.Amount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetCardNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.CardNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetEndDate(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.EndDate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetGoodsName(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.GoodsName = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetRevenueCode(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.RevenueCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetRowNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.RowNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetStartDate(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.StartDate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetTaxAmount(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetTaxRate(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetVehicleType(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.VehicleType = &v
+	return s
+}
+
+type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO struct {
+	// 经营、拍卖单位
+	AuctionUnit *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
+	// 经营、拍卖单位地址
+	AuctionUnitAddress *string `json:"auctionUnitAddress,omitempty" xml:"auctionUnitAddress,omitempty"`
+	// 经营、拍卖单位银行
+	AuctionUnitBank *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
+	// 经营、拍卖单位税号
+	AuctionUnitTaxNo *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
+	// 经营、拍卖单位电话
+	AuctionUtilTel *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
+	// 厂牌型号
+	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	// 车牌照号
+	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	// 登记证号
+	Registration *string `json:"registration,omitempty" xml:"registration,omitempty"`
+	// 转入地车辆管理所名称
+	TransferVehicle *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
+	// 二手车市场地址
+	UsedCarAddress *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
+	// 二手车市场
+	UsedCarMarket *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
+	// 二手车市场开户银行、账号
+	UsedCarMarketBank *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
+	// 二手车市场电话
+	UsedCarMarketPhone *string `json:"usedCarMarketPhone,omitempty" xml:"usedCarMarketPhone,omitempty"`
+	// 二手车市场纳税人识别号
+	UsedCarMarketTaxNo *string `json:"usedCarMarketTaxNo,omitempty" xml:"usedCarMarketTaxNo,omitempty"`
+	// 车架号/车辆识别号
+	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	// 车辆类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUnit(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUnit = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUnitAddress(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUnitAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUnitBank(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUnitBank = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUnitTaxNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUnitTaxNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUtilTel(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUtilTel = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetCarModel(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.CarModel = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetCardNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.CardNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetRegistration(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.Registration = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetTransferVehicle(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.TransferVehicle = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarAddress(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarMarket(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarMarket = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarMarketBank(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarMarketBank = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarMarketPhone(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarMarketPhone = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarMarketTaxNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarMarketTaxNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetVehicleNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.VehicleNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetVehicleType(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.VehicleType = &v
+	return s
+}
+
+type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO struct {
+	// 品牌
+	Brand *string `json:"brand,omitempty" xml:"brand,omitempty"`
+	// 合格证号
+	CertificateNo *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
+	// 发动机号
+	EngineNo *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
+	// 身份证号/组织机构代码
+	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
+	// 进口证书号
+	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
+	// 限乘人数
+	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
+	// 产地
+	OriginPlace *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
+	// 完税凭证号码
+	PaymentVoucherNo *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
+	// 主管税务机关名称
+	TaxAuthorityName *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
+	// 主管税务机关代码
+	TaxAuthorityNo *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 吨位
+	Tonnage *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
+	// 车架号码
+	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	// 车辆类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO) SetBrand(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.Brand = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO) SetCertificateNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.CertificateNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO) SetEngineNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.EngineNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO) SetIdCardNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.IdCardNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO) SetImportCertificateNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.ImportCertificateNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO) SetMaxPassengers(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.MaxPassengers = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO) SetOriginPlace(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.OriginPlace = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO) SetPaymentVoucherNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.PaymentVoucherNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO) SetTaxAuthorityName(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.TaxAuthorityName = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO) SetTaxAuthorityNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.TaxAuthorityNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO) SetTaxRate(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO) SetTonnage(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.Tonnage = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO) SetVehicleNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.VehicleNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO) SetVehicleType(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.VehicleType = &v
+	return s
+}
+
+type UpdateInvoiceAndReceiptRelatedResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateInvoiceAndReceiptRelatedResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAndReceiptRelatedResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedResponseBody) SetResult(v bool) *UpdateInvoiceAndReceiptRelatedResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateInvoiceAndReceiptRelatedResponse struct {
+	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateInvoiceAndReceiptRelatedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateInvoiceAndReceiptRelatedResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAndReceiptRelatedResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedResponse) SetHeaders(v map[string]*string) *UpdateInvoiceAndReceiptRelatedResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedResponse) SetBody(v *UpdateInvoiceAndReceiptRelatedResponseBody) *UpdateInvoiceAndReceiptRelatedResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateInvoiceIgnoreStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateInvoiceIgnoreStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceIgnoreStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceIgnoreStatusHeaders) SetCommonHeaders(v map[string]*string) *UpdateInvoiceIgnoreStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateInvoiceIgnoreStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateInvoiceIgnoreStatusRequest struct {
+	// 发票全票面信息
+	GeneralInvoiceVO *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO `json:"generalInvoiceVO,omitempty" xml:"generalInvoiceVO,omitempty" type:"Struct"`
+	// 发票编码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s UpdateInvoiceIgnoreStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceIgnoreStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequest) SetGeneralInvoiceVO(v *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) *UpdateInvoiceIgnoreStatusRequest {
+	s.GeneralInvoiceVO = v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequest) SetInvoiceCode(v string) *UpdateInvoiceIgnoreStatusRequest {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequest) SetInvoiceNo(v string) *UpdateInvoiceIgnoreStatusRequest {
+	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequest) SetStatus(v string) *UpdateInvoiceIgnoreStatusRequest {
+	s.Status = &v
+	return s
+}
+
+type UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO struct {
+	// 账期时间
+	AccountPeriod *string `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
+	// 不含税金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 含税金额
+	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	// 校验码
+	CheckCode *string `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
+	// 查验时间
+	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	// 开票日期
+	DrewDate *string `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
+	// 电票版式文件下载地址
+	ElectronicUrl *string `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
+	// 财务类型，INPUT-VAT(进项),OUTPUT_VAT(销项)
+	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	// 资金类型 ，RED（红票），（BLUE）蓝票
+	FundType *string `json:"fundType,omitempty" xml:"fundType,omitempty"`
+	// 常规发票明细
+	GeneralInvoiceDetailVOList *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Struct"`
+	// 发票代码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票类型
+	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	// 机器码
+	MachineCode *string `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
+	// 成品油标识
+	OilFlag *string `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
+	// 收款人
+	Payee *string `json:"payee,omitempty" xml:"payee,omitempty"`
+	// 审批单实例
+	ProcessInstCode *string `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
+	// 审批单类型
+	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
+	// 购方地址
+	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	// 购方银行
+	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
+	// 购方名称
+	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	// 购方税号
+	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	// 购方电话
+	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	// 备注
+	Remark                     *string                                                                     `json:"remark,omitempty" xml:"remark,omitempty"`
+	SecondHandCarInvoiceDetail *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail `json:"secondHandCarInvoiceDetail,omitempty" xml:"secondHandCarInvoiceDetail,omitempty" type:"Struct"`
+	// 销方地址
+	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
+	// 销方银行
+	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
+	// 销方名称
+	SellerName *string `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
+	// 销方税号
+	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
+	// 销方电话
+	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
+	// 发票状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 代开发票标识 1-自开，2-代开
+	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
+	// 税额
+	TaxAmount               *string                                                                  `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	UsedVehicleSaleDetailVO *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO `json:"usedVehicleSaleDetailVO,omitempty" xml:"usedVehicleSaleDetailVO,omitempty" type:"Struct"`
+	VehicleSaleDetailVO     *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO     `json:"vehicleSaleDetailVO,omitempty" xml:"vehicleSaleDetailVO,omitempty" type:"Struct"`
+	// 发票查验状态
+	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+	// 凭证code
+	VoucherCode *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
+	// 生成凭证状态
+	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+}
+
+func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetAccountPeriod(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.AccountPeriod = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetAmount(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.Amount = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetAmountWithTax(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.AmountWithTax = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetCheckCode(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.CheckCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetCheckTime(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.CheckTime = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetDrewDate(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.DrewDate = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetElectronicUrl(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.ElectronicUrl = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetFinanceType(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.FinanceType = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetFundType(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.FundType = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetGeneralInvoiceDetailVOList(v *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.GeneralInvoiceDetailVOList = v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetInvoiceCode(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetInvoiceNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetInvoiceType(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.InvoiceType = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetMachineCode(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.MachineCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetOilFlag(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.OilFlag = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetPayee(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.Payee = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetProcessInstCode(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.ProcessInstCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetProcessInstType(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.ProcessInstType = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetPurchaserAddress(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.PurchaserAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetPurchaserBankNameAccount(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.PurchaserBankNameAccount = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetPurchaserName(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.PurchaserName = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetPurchaserTaxNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.PurchaserTaxNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetPurchaserTel(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.PurchaserTel = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetRemark(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.Remark = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetSecondHandCarInvoiceDetail(v *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.SecondHandCarInvoiceDetail = v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetSellerAddress(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.SellerAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetSellerBankNameAccount(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.SellerBankNameAccount = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetSellerName(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.SellerName = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetSellerTaxNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.SellerTaxNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetSellerTel(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.SellerTel = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetStatus(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.Status = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetSupplySign(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.SupplySign = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetTaxAmount(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetUsedVehicleSaleDetailVO(v *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.UsedVehicleSaleDetailVO = v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetVehicleSaleDetailVO(v *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.VehicleSaleDetailVO = v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetVerifyStatus(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.VerifyStatus = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetVoucherCode(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.VoucherCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetVoucherStatus(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
+	s.VoucherStatus = &v
+	return s
+}
+
+type UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList struct {
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 商品名称
+	GoodName *string `json:"goodName,omitempty" xml:"goodName,omitempty"`
+	// 数量
+	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	// 税收分类编码
+	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	// 行号
+	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	// 规格型号
+	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
+	// 税额
+	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	// 是否享受税收优惠：0-不享受，1-享受
+	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// 单价
+	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+}
+
+func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetAmount(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.Amount = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetGoodName(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.GoodName = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetQuantity(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.Quantity = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetRevenueCode(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.RevenueCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetRowNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.RowNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetSpecification(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.Specification = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetTaxAmount(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetTaxPre(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.TaxPre = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetTaxRate(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetUnit(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.Unit = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetUnitPrice(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.UnitPrice = &v
+	return s
+}
+
+type UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail struct {
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 车牌号
+	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	// 通行日期止
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// 商品名称
+	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	// 税收分类编码
+	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
+	// 行号
+	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
+	// 通行日期起
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 税额
+	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetAmount(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.Amount = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetCardNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.CardNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetEndDate(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.EndDate = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetGoodsName(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.GoodsName = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetRevenueCode(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.RevenueCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetRowNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.RowNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetStartDate(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.StartDate = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetTaxAmount(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetTaxRate(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail) SetVehicleType(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetail {
+	s.VehicleType = &v
+	return s
+}
+
+type UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO struct {
+	// 经营、拍卖单位
+	AuctionUnit *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
+	// 经营、拍卖单位地址
+	AuctionUnitAddress *string `json:"auctionUnitAddress,omitempty" xml:"auctionUnitAddress,omitempty"`
+	// 经营、拍卖单位银行
+	AuctionUnitBank *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
+	// 经营、拍卖单位税号
+	AuctionUnitTaxNo *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
+	// 经营、拍卖单位电话
+	AuctionUtilTel *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
+	// 厂牌型号
+	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	// 车牌照号
+	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
+	// 登记证号
+	Registration *string `json:"registration,omitempty" xml:"registration,omitempty"`
+	// 转入地车辆管理所名称
+	TransferVehicle *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
+	// 二手车市场地址
+	UsedCarAddress *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
+	// 二手车市场
+	UsedCarMarket *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
+	// 二手车市场开户银行、账号
+	UsedCarMarketBank *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
+	// 二手车市场电话
+	UsedCarMarketPhone *string `json:"usedCarMarketPhone,omitempty" xml:"usedCarMarketPhone,omitempty"`
+	// 二手车市场纳税人识别号
+	UsedCarMarketTaxNo *string `json:"usedCarMarketTaxNo,omitempty" xml:"usedCarMarketTaxNo,omitempty"`
+	// 车架号/车辆识别号
+	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	// 车辆类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUnit(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUnit = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUnitAddress(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUnitAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUnitBank(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUnitBank = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUnitTaxNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUnitTaxNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetAuctionUtilTel(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.AuctionUtilTel = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetCarModel(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.CarModel = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetCardNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.CardNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetRegistration(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.Registration = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetTransferVehicle(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.TransferVehicle = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarAddress(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarMarket(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarMarket = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarMarketBank(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarMarketBank = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarMarketPhone(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarMarketPhone = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetUsedCarMarketTaxNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.UsedCarMarketTaxNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetVehicleNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.VehicleNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO) SetVehicleType(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVO {
+	s.VehicleType = &v
+	return s
+}
+
+type UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO struct {
+	// 品牌
+	Brand *string `json:"brand,omitempty" xml:"brand,omitempty"`
+	// 合格证号
+	CertificateNo *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
+	// 发动机号
+	EngineNo *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
+	// 身份证号/组织机构代码
+	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
+	// 进口证书号
+	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
+	// 限乘人数
+	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
+	// 产地
+	OriginPlace *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
+	// 完税凭证号码
+	PaymentVoucherNo *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
+	// 主管税务机关名称
+	TaxAuthorityName *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
+	// 主管税务机关代码
+	TaxAuthorityNo *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
+	// 税率
+	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	// 吨位
+	Tonnage *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
+	// 车架号码
+	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
+	// 车辆类型
+	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
+}
+
+func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO) SetBrand(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.Brand = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO) SetCertificateNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.CertificateNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO) SetEngineNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.EngineNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO) SetIdCardNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.IdCardNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO) SetImportCertificateNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.ImportCertificateNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO) SetMaxPassengers(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.MaxPassengers = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO) SetOriginPlace(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.OriginPlace = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO) SetPaymentVoucherNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.PaymentVoucherNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO) SetTaxAuthorityName(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.TaxAuthorityName = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO) SetTaxAuthorityNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.TaxAuthorityNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO) SetTaxRate(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO) SetTonnage(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.Tonnage = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO) SetVehicleNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.VehicleNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO) SetVehicleType(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVO {
+	s.VehicleType = &v
+	return s
+}
+
+type UpdateInvoiceIgnoreStatusResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateInvoiceIgnoreStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceIgnoreStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceIgnoreStatusResponseBody) SetResult(v bool) *UpdateInvoiceIgnoreStatusResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateInvoiceIgnoreStatusResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateInvoiceIgnoreStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateInvoiceIgnoreStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceIgnoreStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceIgnoreStatusResponse) SetHeaders(v map[string]*string) *UpdateInvoiceIgnoreStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusResponse) SetBody(v *UpdateInvoiceIgnoreStatusResponseBody) *UpdateInvoiceIgnoreStatusResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateInvoiceVerifyStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateInvoiceVerifyStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceVerifyStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceVerifyStatusHeaders) SetCommonHeaders(v map[string]*string) *UpdateInvoiceVerifyStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateInvoiceVerifyStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateInvoiceVerifyStatusRequest struct {
+	// 待更新
+	InvoiceKeyVOList []*UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList `json:"invoiceKeyVOList,omitempty" xml:"invoiceKeyVOList,omitempty" type:"Repeated"`
+	// 认证状态
+	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+}
+
+func (s UpdateInvoiceVerifyStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceVerifyStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceVerifyStatusRequest) SetInvoiceKeyVOList(v []*UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList) *UpdateInvoiceVerifyStatusRequest {
+	s.InvoiceKeyVOList = v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusRequest) SetVerifyStatus(v string) *UpdateInvoiceVerifyStatusRequest {
+	s.VerifyStatus = &v
+	return s
+}
+
+type UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList struct {
+	// 发票编码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+}
+
+func (s UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList) SetInvoiceCode(v string) *UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList) SetInvoiceNo(v string) *UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList {
+	s.InvoiceNo = &v
+	return s
+}
+
+type UpdateInvoiceVerifyStatusResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateInvoiceVerifyStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceVerifyStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceVerifyStatusResponseBody) SetResult(v bool) *UpdateInvoiceVerifyStatusResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateInvoiceVerifyStatusResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateInvoiceVerifyStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateInvoiceVerifyStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceVerifyStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceVerifyStatusResponse) SetHeaders(v map[string]*string) *UpdateInvoiceVerifyStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusResponse) SetBody(v *UpdateInvoiceVerifyStatusResponseBody) *UpdateInvoiceVerifyStatusResponse {
 	s.Body = v
 	return s
 }
@@ -2655,6 +7984,126 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) BatchAddInvoice(request *BatchAddInvoiceRequest) (_result *BatchAddInvoiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchAddInvoiceHeaders{}
+	_result = &BatchAddInvoiceResponse{}
+	_body, _err := client.BatchAddInvoiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchAddInvoiceWithOptions(request *BatchAddInvoiceRequest, headers *BatchAddInvoiceHeaders, runtime *util.RuntimeOptions) (_result *BatchAddInvoiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GeneralInvoiceVOList)) {
+		body["generalInvoiceVOList"] = request.GeneralInvoiceVOList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchAddInvoiceResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchAddInvoice"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/batch"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateCustomer(request *CreateCustomerRequest) (_result *CreateCustomerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateCustomerHeaders{}
+	_result = &CreateCustomerResponse{}
+	_body, _err := client.CreateCustomerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateCustomerWithOptions(request *CreateCustomerRequest, headers *CreateCustomerHeaders, runtime *util.RuntimeOptions) (_result *CreateCustomerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Creator)) {
+		body["creator"] = request.Creator
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PurchaserAccount)) {
+		body["purchaserAccount"] = request.PurchaserAccount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PurchaserAddress)) {
+		body["purchaserAddress"] = request.PurchaserAddress
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PurchaserBankName)) {
+		body["purchaserBankName"] = request.PurchaserBankName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PurchaserName)) {
+		body["purchaserName"] = request.PurchaserName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PurchaserTaxNo)) {
+		body["purchaserTaxNo"] = request.PurchaserTaxNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PurchaserTel)) {
+		body["purchaserTel"] = request.PurchaserTel
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateCustomerResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateCustomer"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/auxiliaries/customers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateReceipt(request *CreateReceiptRequest) (_result *CreateReceiptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateReceiptHeaders{}
@@ -2902,6 +8351,74 @@ func (client *Client) GetFinanceAccountWithOptions(request *GetFinanceAccountReq
 	}
 	_result = &GetFinanceAccountResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetFinanceAccount"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/financeAccounts/get"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetInvoiceByPage(request *GetInvoiceByPageRequest) (_result *GetInvoiceByPageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetInvoiceByPageHeaders{}
+	_result = &GetInvoiceByPageResponse{}
+	_body, _err := client.GetInvoiceByPageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetInvoiceByPageWithOptions(request *GetInvoiceByPageRequest, headers *GetInvoiceByPageHeaders, runtime *util.RuntimeOptions) (_result *GetInvoiceByPageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FinanceType)) {
+		query["financeType"] = request.FinanceType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaxNo)) {
+		query["taxNo"] = request.TaxNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VerifyStatus)) {
+		query["verifyStatus"] = request.VerifyStatus
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetInvoiceByPageResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetInvoiceByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3179,6 +8696,66 @@ func (client *Client) QueryCustomerByPageWithOptions(request *QueryCustomerByPag
 	return _result, _err
 }
 
+func (client *Client) QueryCustomerInfo(request *QueryCustomerInfoRequest) (_result *QueryCustomerInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCustomerInfoHeaders{}
+	_result = &QueryCustomerInfoResponse{}
+	_body, _err := client.QueryCustomerInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryCustomerInfoWithOptions(request *QueryCustomerInfoRequest, headers *QueryCustomerInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryCustomerInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		query["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PurchaserTaxNo)) {
+		query["purchaserTaxNo"] = request.PurchaserTaxNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PurchaserTel)) {
+		query["purchaserTel"] = request.PurchaserTel
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryCustomerInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryCustomerInfo"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/auxiliaries/customers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryEnterpriseAccountByPage(request *QueryEnterpriseAccountByPageRequest) (_result *QueryEnterpriseAccountByPageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryEnterpriseAccountByPageHeaders{}
@@ -3220,6 +8797,40 @@ func (client *Client) QueryEnterpriseAccountByPageWithOptions(request *QueryEnte
 	}
 	_result = &QueryEnterpriseAccountByPageResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryEnterpriseAccountByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/financeAccounts/list"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryInvoiceRelationCount() (_result *QueryInvoiceRelationCountResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryInvoiceRelationCountHeaders{}
+	_result = &QueryInvoiceRelationCountResponse{}
+	_body, _err := client.QueryInvoiceRelationCountWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryInvoiceRelationCountWithOptions(headers *QueryInvoiceRelationCountHeaders, runtime *util.RuntimeOptions) (_result *QueryInvoiceRelationCountResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &QueryInvoiceRelationCountResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryInvoiceRelationCount"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/relationReceipts/counts"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3363,6 +8974,74 @@ func (client *Client) QueryProjectByPageWithOptions(request *QueryProjectByPageR
 	return _result, _err
 }
 
+func (client *Client) QueryReceiptForInvoice(request *QueryReceiptForInvoiceRequest) (_result *QueryReceiptForInvoiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryReceiptForInvoiceHeaders{}
+	_result = &QueryReceiptForInvoiceResponse{}
+	_body, _err := client.QueryReceiptForInvoiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryReceiptForInvoiceWithOptions(request *QueryReceiptForInvoiceRequest, headers *QueryReceiptForInvoiceHeaders, runtime *util.RuntimeOptions) (_result *QueryReceiptForInvoiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.InvoiceFilter))) {
+		body["invoiceFilter"] = request.InvoiceFilter
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiptStatus)) {
+		body["receiptStatus"] = request.ReceiptStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryReceiptForInvoiceResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryReceiptForInvoice"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/receipts/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryReceiptsByPage(request *QueryReceiptsByPageRequest) (_result *QueryReceiptsByPageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryReceiptsByPageHeaders{}
@@ -3468,6 +9147,226 @@ func (client *Client) QuerySupplierByPageWithOptions(request *QuerySupplierByPag
 	}
 	_result = &QuerySupplierByPageResponse{}
 	_body, _err := client.DoROARequest(tea.String("QuerySupplierByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/suppliers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateInvoiceAbandonStatus(request *UpdateInvoiceAbandonStatusRequest) (_result *UpdateInvoiceAbandonStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateInvoiceAbandonStatusHeaders{}
+	_result = &UpdateInvoiceAbandonStatusResponse{}
+	_body, _err := client.UpdateInvoiceAbandonStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateInvoiceAbandonStatusWithOptions(request *UpdateInvoiceAbandonStatusRequest, headers *UpdateInvoiceAbandonStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateInvoiceAbandonStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.BlueGeneralInvoiceVO))) {
+		body["blueGeneralInvoiceVO"] = request.BlueGeneralInvoiceVO
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceCode)) {
+		body["invoiceCode"] = request.InvoiceCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceNo)) {
+		body["invoiceNo"] = request.InvoiceNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.RedGeneralInvoiceVO))) {
+		body["redGeneralInvoiceVO"] = request.RedGeneralInvoiceVO
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateInvoiceAbandonStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateInvoiceAbandonStatus"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/abandonStatus"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateInvoiceAndReceiptRelated(request *UpdateInvoiceAndReceiptRelatedRequest) (_result *UpdateInvoiceAndReceiptRelatedResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateInvoiceAndReceiptRelatedHeaders{}
+	_result = &UpdateInvoiceAndReceiptRelatedResponse{}
+	_body, _err := client.UpdateInvoiceAndReceiptRelatedWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateInvoiceAndReceiptRelatedWithOptions(request *UpdateInvoiceAndReceiptRelatedRequest, headers *UpdateInvoiceAndReceiptRelatedHeaders, runtime *util.RuntimeOptions) (_result *UpdateInvoiceAndReceiptRelatedResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.GeneralInvoiceVO))) {
+		body["generalInvoiceVO"] = request.GeneralInvoiceVO
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceCode)) {
+		body["invoiceCode"] = request.InvoiceCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceNo)) {
+		body["invoiceNo"] = request.InvoiceNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiptCode)) {
+		body["receiptCode"] = request.ReceiptCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateInvoiceAndReceiptRelatedResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateInvoiceAndReceiptRelated"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/approvalReceipts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateInvoiceIgnoreStatus(request *UpdateInvoiceIgnoreStatusRequest) (_result *UpdateInvoiceIgnoreStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateInvoiceIgnoreStatusHeaders{}
+	_result = &UpdateInvoiceIgnoreStatusResponse{}
+	_body, _err := client.UpdateInvoiceIgnoreStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateInvoiceIgnoreStatusWithOptions(request *UpdateInvoiceIgnoreStatusRequest, headers *UpdateInvoiceIgnoreStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateInvoiceIgnoreStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.GeneralInvoiceVO))) {
+		body["generalInvoiceVO"] = request.GeneralInvoiceVO
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceCode)) {
+		body["invoiceCode"] = request.InvoiceCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceNo)) {
+		body["invoiceNo"] = request.InvoiceNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateInvoiceIgnoreStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateInvoiceIgnoreStatus"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/ignoreStatus"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateInvoiceVerifyStatus(request *UpdateInvoiceVerifyStatusRequest) (_result *UpdateInvoiceVerifyStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateInvoiceVerifyStatusHeaders{}
+	_result = &UpdateInvoiceVerifyStatusResponse{}
+	_body, _err := client.UpdateInvoiceVerifyStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateInvoiceVerifyStatusWithOptions(request *UpdateInvoiceVerifyStatusRequest, headers *UpdateInvoiceVerifyStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateInvoiceVerifyStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InvoiceKeyVOList)) {
+		body["invoiceKeyVOList"] = request.InvoiceKeyVOList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VerifyStatus)) {
+		body["verifyStatus"] = request.VerifyStatus
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateInvoiceVerifyStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateInvoiceVerifyStatus"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/verifyStatus"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
