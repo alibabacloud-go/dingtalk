@@ -728,6 +728,8 @@ func (s *GetProcessConfigResponseBody) SetResult(v *GetProcessConfigResponseBody
 type GetProcessConfigResponseBodyResult struct {
 	// 自定义摘要信息
 	AbstractGenRule []*string `json:"abstractGenRule,omitempty" xml:"abstractGenRule,omitempty" type:"Repeated"`
+	// 表单节点权限
+	ActivityAuth *string `json:"activityAuth,omitempty" xml:"activityAuth,omitempty"`
 	// 是否允许撤销
 	AllowRevoke *bool `json:"allowRevoke,omitempty" xml:"allowRevoke,omitempty"`
 	// 是否允许加签
@@ -772,6 +774,11 @@ func (s GetProcessConfigResponseBodyResult) GoString() string {
 
 func (s *GetProcessConfigResponseBodyResult) SetAbstractGenRule(v []*string) *GetProcessConfigResponseBodyResult {
 	s.AbstractGenRule = v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetActivityAuth(v string) *GetProcessConfigResponseBodyResult {
+	s.ActivityAuth = &v
 	return s
 }
 

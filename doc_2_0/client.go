@@ -12,7 +12,7 @@ import (
 )
 
 type DentryOpenVO struct {
-	// 内容类型。alidoc-钉钉文档；link-快捷方式；archive-压缩包。
+	// 内容类型。alidoc-钉钉文档；link-快捷方式；archive-压缩包；document-文件。
 	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
 	// 创建时间。
 	CreatedTime *int64 `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
@@ -24,6 +24,8 @@ type DentryOpenVO struct {
 	DentryType *string `json:"dentryType,omitempty" xml:"dentryType,omitempty"`
 	// 节点全局唯一标识id。
 	DentryUuid *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	// 文档docKey，用于标识一篇钉钉文档的key。只有内容类型为alidoc的才会有值。
+	DocKey *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
 	// 文件后缀名。
 	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
 	// 是否有子节点。
@@ -83,6 +85,11 @@ func (s *DentryOpenVO) SetDentryType(v string) *DentryOpenVO {
 
 func (s *DentryOpenVO) SetDentryUuid(v string) *DentryOpenVO {
 	s.DentryUuid = &v
+	return s
+}
+
+func (s *DentryOpenVO) SetDocKey(v string) *DentryOpenVO {
+	s.DocKey = &v
 	return s
 }
 
@@ -217,7 +224,7 @@ func (s *DentryOpenVOVisitorInfo) SetSpaceActions(v []*string) *DentryOpenVOVisi
 }
 
 type DentryOpenVOResult struct {
-	// 内容类型。alidoc-钉钉文档；link-快捷方式；archive-压缩包。
+	// 内容类型。alidoc-钉钉文档；link-快捷方式；archive-压缩包；document-文件。
 	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
 	// 创建时间。
 	CreatedTime *int64 `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
@@ -229,6 +236,8 @@ type DentryOpenVOResult struct {
 	DentryType *string `json:"dentryType,omitempty" xml:"dentryType,omitempty"`
 	// 节点全局唯一标识id。
 	DentryUuid *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	// 文档docKey，用于标识一篇钉钉文档的key。只有内容类型为alidoc的才会有值。
+	DocKey *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
 	// 文件后缀名。
 	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
 	// 是否有子节点。
@@ -288,6 +297,11 @@ func (s *DentryOpenVOResult) SetDentryType(v string) *DentryOpenVOResult {
 
 func (s *DentryOpenVOResult) SetDentryUuid(v string) *DentryOpenVOResult {
 	s.DentryUuid = &v
+	return s
+}
+
+func (s *DentryOpenVOResult) SetDocKey(v string) *DentryOpenVOResult {
+	s.DocKey = &v
 	return s
 }
 
@@ -706,6 +720,105 @@ func (s *SpaceOpenVOResultVisitorInfo) SetDentryActions(v []*string) *SpaceOpenV
 
 func (s *SpaceOpenVOResultVisitorInfo) SetSpaceActions(v []*string) *SpaceOpenVOResultVisitorInfo {
 	s.SpaceActions = v
+	return s
+}
+
+type CopyDentryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CopyDentryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyDentryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CopyDentryHeaders) SetCommonHeaders(v map[string]*string) *CopyDentryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CopyDentryHeaders) SetXAcsDingtalkAccessToken(v string) *CopyDentryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CopyDentryRequest struct {
+	// 拷贝后的文档名称，长度不能超过50。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 操作人unionId。
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// 需要移动到的知识库id。
+	TargetSpaceId *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
+	// 移动到目标位置的后置节点id。不为空时，需要是归属于 toParentDentryId 的子节点。
+	ToNextDentryId *string `json:"toNextDentryId,omitempty" xml:"toNextDentryId,omitempty"`
+	// 需要移动到目标位置的父节点id。如果为根目录，则不传；如果为非根目录，则需要传对应的id。
+	ToParentDentryId *string `json:"toParentDentryId,omitempty" xml:"toParentDentryId,omitempty"`
+	// 移动到目标位置的前置节点id。不为空时，需要是归属于 toParentDentryId 的子节点。
+	ToPrevDentryId *string `json:"toPrevDentryId,omitempty" xml:"toPrevDentryId,omitempty"`
+}
+
+func (s CopyDentryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyDentryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CopyDentryRequest) SetName(v string) *CopyDentryRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CopyDentryRequest) SetOperatorId(v string) *CopyDentryRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *CopyDentryRequest) SetTargetSpaceId(v string) *CopyDentryRequest {
+	s.TargetSpaceId = &v
+	return s
+}
+
+func (s *CopyDentryRequest) SetToNextDentryId(v string) *CopyDentryRequest {
+	s.ToNextDentryId = &v
+	return s
+}
+
+func (s *CopyDentryRequest) SetToParentDentryId(v string) *CopyDentryRequest {
+	s.ToParentDentryId = &v
+	return s
+}
+
+func (s *CopyDentryRequest) SetToPrevDentryId(v string) *CopyDentryRequest {
+	s.ToPrevDentryId = &v
+	return s
+}
+
+type CopyDentryResponse struct {
+	Headers map[string]*string  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DentryOpenVOResult `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CopyDentryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyDentryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CopyDentryResponse) SetHeaders(v map[string]*string) *CopyDentryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CopyDentryResponse) SetBody(v *DentryOpenVOResult) *CopyDentryResponse {
+	s.Body = v
 	return s
 }
 
@@ -1177,6 +1290,215 @@ func (s *QueryDentryResponse) SetBody(v *DentryOpenVOResult) *QueryDentryRespons
 	return s
 }
 
+type QueryMineSpaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryMineSpaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMineSpaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMineSpaceHeaders) SetCommonHeaders(v map[string]*string) *QueryMineSpaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryMineSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMineSpaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryMineSpaceResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SpaceOpenVOResult `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryMineSpaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMineSpaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMineSpaceResponse) SetHeaders(v map[string]*string) *QueryMineSpaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryMineSpaceResponse) SetBody(v *SpaceOpenVOResult) *QueryMineSpaceResponse {
+	s.Body = v
+	return s
+}
+
+type QueryRecentListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryRecentListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRecentListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRecentListHeaders) SetCommonHeaders(v map[string]*string) *QueryRecentListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryRecentListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryRecentListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryRecentListRequest struct {
+	// 创建人类型。0-全部；1-我创建的；2-他人创建；不填也是查全部。
+	CreatorType *int32 `json:"creatorType,omitempty" xml:"creatorType,omitempty"`
+	// 访问文档类型：0-文字；1-表格；2-PPT；3-白板；6-脑图；7-多维表；不填的话，则默认是所有。
+	FileType *int32 `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// 每页最大条目数，最大值50。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页游标，第一页可不传。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 操作用户unionId。
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// 最近列表的类型：0-最近访问；1-最近编辑。
+	RecentType *int32 `json:"recentType,omitempty" xml:"recentType,omitempty"`
+}
+
+func (s QueryRecentListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRecentListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRecentListRequest) SetCreatorType(v int32) *QueryRecentListRequest {
+	s.CreatorType = &v
+	return s
+}
+
+func (s *QueryRecentListRequest) SetFileType(v int32) *QueryRecentListRequest {
+	s.FileType = &v
+	return s
+}
+
+func (s *QueryRecentListRequest) SetMaxResults(v int32) *QueryRecentListRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryRecentListRequest) SetNextToken(v string) *QueryRecentListRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryRecentListRequest) SetOperatorId(v string) *QueryRecentListRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *QueryRecentListRequest) SetRecentType(v int32) *QueryRecentListRequest {
+	s.RecentType = &v
+	return s
+}
+
+type QueryRecentListResponseBody struct {
+	// 是否还有更多数据。
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 分页游标。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 子节点列表。
+	RecentList []*QueryRecentListResponseBodyRecentList `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
+}
+
+func (s QueryRecentListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRecentListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRecentListResponseBody) SetHasMore(v bool) *QueryRecentListResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryRecentListResponseBody) SetNextToken(v string) *QueryRecentListResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryRecentListResponseBody) SetRecentList(v []*QueryRecentListResponseBodyRecentList) *QueryRecentListResponseBody {
+	s.RecentList = v
+	return s
+}
+
+type QueryRecentListResponseBodyRecentList struct {
+	// 是否被删除。
+	Deleted *bool `json:"deleted,omitempty" xml:"deleted,omitempty"`
+	// 节点信息。
+	Dentry *DentryOpenVO `json:"dentry,omitempty" xml:"dentry,omitempty"`
+	// 如果查询的是访问，那么这里是访问时间；否则就是编辑时间。
+	RecentTime *int64 `json:"recentTime,omitempty" xml:"recentTime,omitempty"`
+}
+
+func (s QueryRecentListResponseBodyRecentList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRecentListResponseBodyRecentList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRecentListResponseBodyRecentList) SetDeleted(v bool) *QueryRecentListResponseBodyRecentList {
+	s.Deleted = &v
+	return s
+}
+
+func (s *QueryRecentListResponseBodyRecentList) SetDentry(v *DentryOpenVO) *QueryRecentListResponseBodyRecentList {
+	s.Dentry = v
+	return s
+}
+
+func (s *QueryRecentListResponseBodyRecentList) SetRecentTime(v int64) *QueryRecentListResponseBodyRecentList {
+	s.RecentTime = &v
+	return s
+}
+
+type QueryRecentListResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryRecentListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryRecentListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRecentListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRecentListResponse) SetHeaders(v map[string]*string) *QueryRecentListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryRecentListResponse) SetBody(v *QueryRecentListResponseBody) *QueryRecentListResponse {
+	s.Body = v
+	return s
+}
+
 type QuerySpaceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1241,6 +1563,456 @@ func (s *QuerySpaceResponse) SetBody(v *SpaceOpenVOResult) *QuerySpaceResponse {
 	return s
 }
 
+type RenameDentryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RenameDentryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RenameDentryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RenameDentryHeaders) SetCommonHeaders(v map[string]*string) *RenameDentryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RenameDentryHeaders) SetXAcsDingtalkAccessToken(v string) *RenameDentryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RenameDentryRequest struct {
+	// 重命名之后的节点名称，长度不能超过50。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 操作人unionId。
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s RenameDentryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RenameDentryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RenameDentryRequest) SetName(v string) *RenameDentryRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *RenameDentryRequest) SetOperatorId(v string) *RenameDentryRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type RenameDentryResponse struct {
+	Headers map[string]*string  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DentryOpenVOResult `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RenameDentryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RenameDentryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RenameDentryResponse) SetHeaders(v map[string]*string) *RenameDentryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RenameDentryResponse) SetBody(v *DentryOpenVOResult) *RenameDentryResponse {
+	s.Body = v
+	return s
+}
+
+type SearchHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchHeaders) SetCommonHeaders(v map[string]*string) *SearchHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchHeaders) SetXAcsDingtalkAccessToken(v string) *SearchHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchRequest struct {
+	// 节点搜索请求，和空间搜索请求二选一必填。
+	DentryRequest *SearchRequestDentryRequest `json:"dentryRequest,omitempty" xml:"dentryRequest,omitempty" type:"Struct"`
+	//  搜索关键词。
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// 操作人unionId。
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// 空间搜索请求，和节点搜索请求二选一必填。
+	SpaceRequest *SearchRequestSpaceRequest `json:"spaceRequest,omitempty" xml:"spaceRequest,omitempty" type:"Struct"`
+}
+
+func (s SearchRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchRequest) SetDentryRequest(v *SearchRequestDentryRequest) *SearchRequest {
+	s.DentryRequest = v
+	return s
+}
+
+func (s *SearchRequest) SetKeyword(v string) *SearchRequest {
+	s.Keyword = &v
+	return s
+}
+
+func (s *SearchRequest) SetOperatorId(v string) *SearchRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *SearchRequest) SetSpaceRequest(v *SearchRequestSpaceRequest) *SearchRequest {
+	s.SpaceRequest = v
+	return s
+}
+
+type SearchRequestDentryRequest struct {
+	// 每页最大条目数，最大值50。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页游标。如果是首次调用，可不传；如果非首次调用，该参数传上次调用时返回的nextToken。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 搜索指定的文件类型。支持的类型有：1-文档；2-表格；3-脑图；4-演示；5-白板。
+	SearchFileType *int32 `json:"searchFileType,omitempty" xml:"searchFileType,omitempty"`
+	// 知识库id，在指定的知识库中搜索。
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s SearchRequestDentryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchRequestDentryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchRequestDentryRequest) SetMaxResults(v int32) *SearchRequestDentryRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchRequestDentryRequest) SetNextToken(v string) *SearchRequestDentryRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchRequestDentryRequest) SetSearchFileType(v int32) *SearchRequestDentryRequest {
+	s.SearchFileType = &v
+	return s
+}
+
+func (s *SearchRequestDentryRequest) SetSpaceId(v string) *SearchRequestDentryRequest {
+	s.SpaceId = &v
+	return s
+}
+
+type SearchRequestSpaceRequest struct {
+	// 每页最大条目数，最大值50。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页游标。如果是首次调用，可不传；如果非首次调用，该参数传上次调用时返回的nextToken。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s SearchRequestSpaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchRequestSpaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchRequestSpaceRequest) SetMaxResults(v int32) *SearchRequestSpaceRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchRequestSpaceRequest) SetNextToken(v string) *SearchRequestSpaceRequest {
+	s.NextToken = &v
+	return s
+}
+
+type SearchResponseBody struct {
+	// 节点搜索结果。
+	DentryResult *SearchResponseBodyDentryResult `json:"dentryResult,omitempty" xml:"dentryResult,omitempty" type:"Struct"`
+	// 知识库搜索结果。
+	SpaceResult *SearchResponseBodySpaceResult `json:"spaceResult,omitempty" xml:"spaceResult,omitempty" type:"Struct"`
+}
+
+func (s SearchResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchResponseBody) SetDentryResult(v *SearchResponseBodyDentryResult) *SearchResponseBody {
+	s.DentryResult = v
+	return s
+}
+
+func (s *SearchResponseBody) SetSpaceResult(v *SearchResponseBodySpaceResult) *SearchResponseBody {
+	s.SpaceResult = v
+	return s
+}
+
+type SearchResponseBodyDentryResult struct {
+	// 是否还有更多数据。
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 搜索命中的节点列表。
+	Items []*SearchResponseBodyDentryResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	// 分页游标。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s SearchResponseBodyDentryResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchResponseBodyDentryResult) GoString() string {
+	return s.String()
+}
+
+func (s *SearchResponseBodyDentryResult) SetHasMore(v bool) *SearchResponseBodyDentryResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *SearchResponseBodyDentryResult) SetItems(v []*SearchResponseBodyDentryResultItems) *SearchResponseBodyDentryResult {
+	s.Items = v
+	return s
+}
+
+func (s *SearchResponseBodyDentryResult) SetNextToken(v string) *SearchResponseBodyDentryResult {
+	s.NextToken = &v
+	return s
+}
+
+type SearchResponseBodyDentryResultItems struct {
+	// 如果内容命中了关键词，会返回该部分内容，带高亮。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 创建信息。
+	Creation *OpenActionModel `json:"creation,omitempty" xml:"creation,omitempty"`
+	// 节点id。
+	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// 节点唯一标识。
+	DentryUuid *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	// 文件名扩展。
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// 文件类型。1-文档；2-表格；3-脑图；4-演示；5-白板；6-office文字；7-office表格；8-office ppt；10-多维表格；11-文本；12-图片；13-视频；14-音频；15-压缩文件；16-其他。
+	FileType *int32 `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// 节点图标url。
+	IconUrl *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
+	// 最后修改信息。
+	LastEdition *OpenActionModel `json:"lastEdition,omitempty" xml:"lastEdition,omitempty"`
+	// 节点名称，如果命中了关键词，会带有高亮。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 节点原始名称，不带高亮。
+	OriginName *string `json:"originName,omitempty" xml:"originName,omitempty"`
+	// 节点的路径。
+	Path *string `json:"path,omitempty" xml:"path,omitempty"`
+	// 节点所属的知识库id。
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 节点访问url。
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s SearchResponseBodyDentryResultItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchResponseBodyDentryResultItems) GoString() string {
+	return s.String()
+}
+
+func (s *SearchResponseBodyDentryResultItems) SetContent(v string) *SearchResponseBodyDentryResultItems {
+	s.Content = &v
+	return s
+}
+
+func (s *SearchResponseBodyDentryResultItems) SetCreation(v *OpenActionModel) *SearchResponseBodyDentryResultItems {
+	s.Creation = v
+	return s
+}
+
+func (s *SearchResponseBodyDentryResultItems) SetDentryId(v string) *SearchResponseBodyDentryResultItems {
+	s.DentryId = &v
+	return s
+}
+
+func (s *SearchResponseBodyDentryResultItems) SetDentryUuid(v string) *SearchResponseBodyDentryResultItems {
+	s.DentryUuid = &v
+	return s
+}
+
+func (s *SearchResponseBodyDentryResultItems) SetExtension(v string) *SearchResponseBodyDentryResultItems {
+	s.Extension = &v
+	return s
+}
+
+func (s *SearchResponseBodyDentryResultItems) SetFileType(v int32) *SearchResponseBodyDentryResultItems {
+	s.FileType = &v
+	return s
+}
+
+func (s *SearchResponseBodyDentryResultItems) SetIconUrl(v string) *SearchResponseBodyDentryResultItems {
+	s.IconUrl = &v
+	return s
+}
+
+func (s *SearchResponseBodyDentryResultItems) SetLastEdition(v *OpenActionModel) *SearchResponseBodyDentryResultItems {
+	s.LastEdition = v
+	return s
+}
+
+func (s *SearchResponseBodyDentryResultItems) SetName(v string) *SearchResponseBodyDentryResultItems {
+	s.Name = &v
+	return s
+}
+
+func (s *SearchResponseBodyDentryResultItems) SetOriginName(v string) *SearchResponseBodyDentryResultItems {
+	s.OriginName = &v
+	return s
+}
+
+func (s *SearchResponseBodyDentryResultItems) SetPath(v string) *SearchResponseBodyDentryResultItems {
+	s.Path = &v
+	return s
+}
+
+func (s *SearchResponseBodyDentryResultItems) SetSpaceId(v string) *SearchResponseBodyDentryResultItems {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *SearchResponseBodyDentryResultItems) SetUrl(v string) *SearchResponseBodyDentryResultItems {
+	s.Url = &v
+	return s
+}
+
+type SearchResponseBodySpaceResult struct {
+	// 是否还有更多数据。
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 搜索命中的知识库列表。
+	Items []*SearchResponseBodySpaceResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	// 分页游标。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s SearchResponseBodySpaceResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchResponseBodySpaceResult) GoString() string {
+	return s.String()
+}
+
+func (s *SearchResponseBodySpaceResult) SetHasMore(v bool) *SearchResponseBodySpaceResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *SearchResponseBodySpaceResult) SetItems(v []*SearchResponseBodySpaceResultItems) *SearchResponseBodySpaceResult {
+	s.Items = v
+	return s
+}
+
+func (s *SearchResponseBodySpaceResult) SetNextToken(v string) *SearchResponseBodySpaceResult {
+	s.NextToken = &v
+	return s
+}
+
+type SearchResponseBodySpaceResultItems struct {
+	// 知识库名称，如果命中了关键词，会带有高亮。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 知识库原始名称，不带高亮。
+	OriginName *string `json:"originName,omitempty" xml:"originName,omitempty"`
+	// 知识库id。
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 知识库访问url。
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s SearchResponseBodySpaceResultItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchResponseBodySpaceResultItems) GoString() string {
+	return s.String()
+}
+
+func (s *SearchResponseBodySpaceResultItems) SetName(v string) *SearchResponseBodySpaceResultItems {
+	s.Name = &v
+	return s
+}
+
+func (s *SearchResponseBodySpaceResultItems) SetOriginName(v string) *SearchResponseBodySpaceResultItems {
+	s.OriginName = &v
+	return s
+}
+
+func (s *SearchResponseBodySpaceResultItems) SetSpaceId(v string) *SearchResponseBodySpaceResultItems {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *SearchResponseBodySpaceResultItems) SetUrl(v string) *SearchResponseBodySpaceResultItems {
+	s.Url = &v
+	return s
+}
+
+type SearchResponse struct {
+	Headers map[string]*string  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchResponse) SetHeaders(v map[string]*string) *SearchResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchResponse) SetBody(v *SearchResponseBody) *SearchResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -1262,6 +2034,72 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) CopyDentry(spaceId *string, dentryId *string, request *CopyDentryRequest) (_result *CopyDentryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CopyDentryHeaders{}
+	_result = &CopyDentryResponse{}
+	_body, _err := client.CopyDentryWithOptions(spaceId, dentryId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CopyDentryWithOptions(spaceId *string, dentryId *string, request *CopyDentryRequest, headers *CopyDentryHeaders, runtime *util.RuntimeOptions) (_result *CopyDentryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	dentryId = openapiutil.GetEncodeParam(dentryId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetSpaceId)) {
+		body["targetSpaceId"] = request.TargetSpaceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToNextDentryId)) {
+		body["toNextDentryId"] = request.ToNextDentryId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToParentDentryId)) {
+		body["toParentDentryId"] = request.ToParentDentryId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToPrevDentryId)) {
+		body["toPrevDentryId"] = request.ToPrevDentryId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CopyDentryResponse{}
+	_body, _err := client.DoROARequest(tea.String("CopyDentry"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)+"/dentries/"+tea.StringValue(dentryId)+"/copy"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) CreateDentry(spaceId *string, request *CreateDentryRequest) (_result *CreateDentryResponse, _err error) {
@@ -1542,6 +2380,105 @@ func (client *Client) QueryDentryWithOptions(spaceId *string, dentryId *string, 
 	return _result, _err
 }
 
+func (client *Client) QueryMineSpace(unionId *string) (_result *QueryMineSpaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryMineSpaceHeaders{}
+	_result = &QueryMineSpaceResponse{}
+	_body, _err := client.QueryMineSpaceWithOptions(unionId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryMineSpaceWithOptions(unionId *string, headers *QueryMineSpaceHeaders, runtime *util.RuntimeOptions) (_result *QueryMineSpaceResponse, _err error) {
+	unionId = openapiutil.GetEncodeParam(unionId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &QueryMineSpaceResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryMineSpace"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/spaces/users/"+tea.StringValue(unionId)+"/mine"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryRecentList(request *QueryRecentListRequest) (_result *QueryRecentListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryRecentListHeaders{}
+	_result = &QueryRecentListResponse{}
+	_body, _err := client.QueryRecentListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryRecentListWithOptions(request *QueryRecentListRequest, headers *QueryRecentListHeaders, runtime *util.RuntimeOptions) (_result *QueryRecentListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CreatorType)) {
+		query["creatorType"] = request.CreatorType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileType)) {
+		query["fileType"] = request.FileType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RecentType)) {
+		query["recentType"] = request.RecentType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryRecentListResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryRecentList"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/spaces/docs/recent"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QuerySpace(spaceId *string, request *QuerySpaceRequest) (_result *QuerySpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QuerySpaceHeaders{}
@@ -1580,6 +2517,112 @@ func (client *Client) QuerySpaceWithOptions(spaceId *string, request *QuerySpace
 	}
 	_result = &QuerySpaceResponse{}
 	_body, _err := client.DoROARequest(tea.String("QuerySpace"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RenameDentry(spaceId *string, dentryId *string, request *RenameDentryRequest) (_result *RenameDentryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RenameDentryHeaders{}
+	_result = &RenameDentryResponse{}
+	_body, _err := client.RenameDentryWithOptions(spaceId, dentryId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RenameDentryWithOptions(spaceId *string, dentryId *string, request *RenameDentryRequest, headers *RenameDentryHeaders, runtime *util.RuntimeOptions) (_result *RenameDentryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	dentryId = openapiutil.GetEncodeParam(dentryId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		query["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &RenameDentryResponse{}
+	_body, _err := client.DoROARequest(tea.String("RenameDentry"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)+"/dentries/"+tea.StringValue(dentryId)+"/rename"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) Search(request *SearchRequest) (_result *SearchResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchHeaders{}
+	_result = &SearchResponse{}
+	_body, _err := client.SearchWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchWithOptions(request *SearchRequest, headers *SearchHeaders, runtime *util.RuntimeOptions) (_result *SearchResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.DentryRequest))) {
+		body["dentryRequest"] = request.DentryRequest
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
+		body["keyword"] = request.Keyword
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SpaceRequest))) {
+		body["spaceRequest"] = request.SpaceRequest
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SearchResponse{}
+	_body, _err := client.DoROARequest(tea.String("Search"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/search"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

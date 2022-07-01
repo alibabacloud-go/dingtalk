@@ -9898,7 +9898,7 @@ func (s *QueryUserCredentialsResponseBody) SetContent(v []*QueryUserCredentialsR
 }
 
 type QueryUserCredentialsResponseBodyContent struct {
-	// 证书
+	// 证书列表
 	CredentialList []*QueryUserCredentialsResponseBodyContentCredentialList `json:"credentialList,omitempty" xml:"credentialList,omitempty" type:"Repeated"`
 	// 用户id
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
@@ -9924,7 +9924,7 @@ func (s *QueryUserCredentialsResponseBodyContent) SetUserId(v string) *QueryUser
 
 type QueryUserCredentialsResponseBodyContentCredentialList struct {
 	// 证书名称
-	CredentialName *int32 `json:"credentialName,omitempty" xml:"credentialName,omitempty"`
+	CredentialName *string `json:"credentialName,omitempty" xml:"credentialName,omitempty"`
 	// 证书类型
 	CredentialType *int32 `json:"credentialType,omitempty" xml:"credentialType,omitempty"`
 	// 有效日期
@@ -9939,7 +9939,7 @@ func (s QueryUserCredentialsResponseBodyContentCredentialList) GoString() string
 	return s.String()
 }
 
-func (s *QueryUserCredentialsResponseBodyContentCredentialList) SetCredentialName(v int32) *QueryUserCredentialsResponseBodyContentCredentialList {
+func (s *QueryUserCredentialsResponseBodyContentCredentialList) SetCredentialName(v string) *QueryUserCredentialsResponseBodyContentCredentialList {
 	s.CredentialName = &v
 	return s
 }
