@@ -42,7 +42,8 @@ type UpdatePermissionForUsersRequest struct {
 	// 要操作的闪记任务的创建者userId。
 	TaskCreator *int64 `json:"taskCreator,omitempty" xml:"taskCreator,omitempty"`
 	// 闪记任务的特定标识。是一个不定长的字符串。
-	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	Uuid        *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	OperatorUid *int64  `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
 }
 
 func (s UpdatePermissionForUsersRequest) String() string {
@@ -70,6 +71,11 @@ func (s *UpdatePermissionForUsersRequest) SetTaskCreator(v int64) *UpdatePermiss
 
 func (s *UpdatePermissionForUsersRequest) SetUuid(v string) *UpdatePermissionForUsersRequest {
 	s.Uuid = &v
+	return s
+}
+
+func (s *UpdatePermissionForUsersRequest) SetOperatorUid(v int64) *UpdatePermissionForUsersRequest {
+	s.OperatorUid = &v
 	return s
 }
 
@@ -109,8 +115,26 @@ func (s *UpdatePermissionForUsersRequestMembers) SetPolicyType(v string) *Update
 	return s
 }
 
+type UpdatePermissionForUsersResponseBody struct {
+	IsSuccess *bool `json:"isSuccess,omitempty" xml:"isSuccess,omitempty"`
+}
+
+func (s UpdatePermissionForUsersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePermissionForUsersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePermissionForUsersResponseBody) SetIsSuccess(v bool) *UpdatePermissionForUsersResponseBody {
+	s.IsSuccess = &v
+	return s
+}
+
 type UpdatePermissionForUsersResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdatePermissionForUsersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdatePermissionForUsersResponse) String() string {
@@ -123,6 +147,11 @@ func (s UpdatePermissionForUsersResponse) GoString() string {
 
 func (s *UpdatePermissionForUsersResponse) SetHeaders(v map[string]*string) *UpdatePermissionForUsersResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdatePermissionForUsersResponse) SetBody(v *UpdatePermissionForUsersResponseBody) *UpdatePermissionForUsersResponse {
+	s.Body = v
 	return s
 }
 
@@ -167,6 +196,11 @@ func (client *Client) UpdatePermissionForUsersWithOptions(taskId *string, reques
 		return _result, _err
 	}
 	taskId = openapiutil.GetEncodeParam(taskId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorUid)) {
+		query["operatorUid"] = request.OperatorUid
+	}
+
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.BizType)) {
 		body["bizType"] = request.BizType
@@ -195,10 +229,11 @@ func (client *Client) UpdatePermissionForUsersWithOptions(taskId *string, reques
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &UpdatePermissionForUsersResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdatePermissionForUsers"), tea.String("transcribe_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/transcribe/tasks/"+tea.StringValue(taskId)+"/permissions"), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("UpdatePermissionForUsers"), tea.String("transcribe_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/transcribe/tasks/"+tea.StringValue(taskId)+"/permissions"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

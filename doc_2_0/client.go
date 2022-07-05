@@ -11,13 +11,13 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
-type DentryOpenVO struct {
+type DentryModel struct {
 	// 内容类型。alidoc-钉钉文档；link-快捷方式；archive-压缩包；document-文件。
 	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
 	// 创建时间。
 	CreatedTime *int64 `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
 	// 创建者。
-	Creator *DentryOpenVOCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	Creator *DentryModelCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
 	// 节点id。
 	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
 	// 节点类型。file-文件；folder-文件夹。
@@ -37,199 +37,199 @@ type DentryOpenVO struct {
 	// 节点的路径。
 	Path *string `json:"path,omitempty" xml:"path,omitempty"`
 	// 知识库信息。
-	Space *SpaceOpenVO `json:"space,omitempty" xml:"space,omitempty"`
+	Space *SpaceModel `json:"space,omitempty" xml:"space,omitempty"`
 	// 知识库id。
 	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 	// 更新时间。
 	UpdatedTime *int64 `json:"updatedTime,omitempty" xml:"updatedTime,omitempty"`
 	// 更新人。
-	Updater *DentryOpenVOUpdater `json:"updater,omitempty" xml:"updater,omitempty" type:"Struct"`
+	Updater *DentryModelUpdater `json:"updater,omitempty" xml:"updater,omitempty" type:"Struct"`
 	// 节点访问url。
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 	// 访问者对当前节点的权限等信息。
-	VisitorInfo *DentryOpenVOVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
+	VisitorInfo *DentryModelVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
 }
 
-func (s DentryOpenVO) String() string {
+func (s DentryModel) String() string {
 	return tea.Prettify(s)
 }
 
-func (s DentryOpenVO) GoString() string {
+func (s DentryModel) GoString() string {
 	return s.String()
 }
 
-func (s *DentryOpenVO) SetContentType(v string) *DentryOpenVO {
+func (s *DentryModel) SetContentType(v string) *DentryModel {
 	s.ContentType = &v
 	return s
 }
 
-func (s *DentryOpenVO) SetCreatedTime(v int64) *DentryOpenVO {
+func (s *DentryModel) SetCreatedTime(v int64) *DentryModel {
 	s.CreatedTime = &v
 	return s
 }
 
-func (s *DentryOpenVO) SetCreator(v *DentryOpenVOCreator) *DentryOpenVO {
+func (s *DentryModel) SetCreator(v *DentryModelCreator) *DentryModel {
 	s.Creator = v
 	return s
 }
 
-func (s *DentryOpenVO) SetDentryId(v string) *DentryOpenVO {
+func (s *DentryModel) SetDentryId(v string) *DentryModel {
 	s.DentryId = &v
 	return s
 }
 
-func (s *DentryOpenVO) SetDentryType(v string) *DentryOpenVO {
+func (s *DentryModel) SetDentryType(v string) *DentryModel {
 	s.DentryType = &v
 	return s
 }
 
-func (s *DentryOpenVO) SetDentryUuid(v string) *DentryOpenVO {
+func (s *DentryModel) SetDentryUuid(v string) *DentryModel {
 	s.DentryUuid = &v
 	return s
 }
 
-func (s *DentryOpenVO) SetDocKey(v string) *DentryOpenVO {
+func (s *DentryModel) SetDocKey(v string) *DentryModel {
 	s.DocKey = &v
 	return s
 }
 
-func (s *DentryOpenVO) SetExtension(v string) *DentryOpenVO {
+func (s *DentryModel) SetExtension(v string) *DentryModel {
 	s.Extension = &v
 	return s
 }
 
-func (s *DentryOpenVO) SetHasChildren(v bool) *DentryOpenVO {
+func (s *DentryModel) SetHasChildren(v bool) *DentryModel {
 	s.HasChildren = &v
 	return s
 }
 
-func (s *DentryOpenVO) SetLinkSourceInfo(v *LinkSourceInfo) *DentryOpenVO {
+func (s *DentryModel) SetLinkSourceInfo(v *LinkSourceInfo) *DentryModel {
 	s.LinkSourceInfo = v
 	return s
 }
 
-func (s *DentryOpenVO) SetName(v string) *DentryOpenVO {
+func (s *DentryModel) SetName(v string) *DentryModel {
 	s.Name = &v
 	return s
 }
 
-func (s *DentryOpenVO) SetPath(v string) *DentryOpenVO {
+func (s *DentryModel) SetPath(v string) *DentryModel {
 	s.Path = &v
 	return s
 }
 
-func (s *DentryOpenVO) SetSpace(v *SpaceOpenVO) *DentryOpenVO {
+func (s *DentryModel) SetSpace(v *SpaceModel) *DentryModel {
 	s.Space = v
 	return s
 }
 
-func (s *DentryOpenVO) SetSpaceId(v string) *DentryOpenVO {
+func (s *DentryModel) SetSpaceId(v string) *DentryModel {
 	s.SpaceId = &v
 	return s
 }
 
-func (s *DentryOpenVO) SetUpdatedTime(v int64) *DentryOpenVO {
+func (s *DentryModel) SetUpdatedTime(v int64) *DentryModel {
 	s.UpdatedTime = &v
 	return s
 }
 
-func (s *DentryOpenVO) SetUpdater(v *DentryOpenVOUpdater) *DentryOpenVO {
+func (s *DentryModel) SetUpdater(v *DentryModelUpdater) *DentryModel {
 	s.Updater = v
 	return s
 }
 
-func (s *DentryOpenVO) SetUrl(v string) *DentryOpenVO {
+func (s *DentryModel) SetUrl(v string) *DentryModel {
 	s.Url = &v
 	return s
 }
 
-func (s *DentryOpenVO) SetVisitorInfo(v *DentryOpenVOVisitorInfo) *DentryOpenVO {
+func (s *DentryModel) SetVisitorInfo(v *DentryModelVisitorInfo) *DentryModel {
 	s.VisitorInfo = v
 	return s
 }
 
-type DentryOpenVOCreator struct {
+type DentryModelCreator struct {
 	// 用户名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 用户unionId。
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
-func (s DentryOpenVOCreator) String() string {
+func (s DentryModelCreator) String() string {
 	return tea.Prettify(s)
 }
 
-func (s DentryOpenVOCreator) GoString() string {
+func (s DentryModelCreator) GoString() string {
 	return s.String()
 }
 
-func (s *DentryOpenVOCreator) SetName(v string) *DentryOpenVOCreator {
+func (s *DentryModelCreator) SetName(v string) *DentryModelCreator {
 	s.Name = &v
 	return s
 }
 
-func (s *DentryOpenVOCreator) SetUnionId(v string) *DentryOpenVOCreator {
+func (s *DentryModelCreator) SetUnionId(v string) *DentryModelCreator {
 	s.UnionId = &v
 	return s
 }
 
-type DentryOpenVOUpdater struct {
+type DentryModelUpdater struct {
 	// 用户名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 用户unionId。
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
-func (s DentryOpenVOUpdater) String() string {
+func (s DentryModelUpdater) String() string {
 	return tea.Prettify(s)
 }
 
-func (s DentryOpenVOUpdater) GoString() string {
+func (s DentryModelUpdater) GoString() string {
 	return s.String()
 }
 
-func (s *DentryOpenVOUpdater) SetName(v string) *DentryOpenVOUpdater {
+func (s *DentryModelUpdater) SetName(v string) *DentryModelUpdater {
 	s.Name = &v
 	return s
 }
 
-func (s *DentryOpenVOUpdater) SetUnionId(v string) *DentryOpenVOUpdater {
+func (s *DentryModelUpdater) SetUnionId(v string) *DentryModelUpdater {
 	s.UnionId = &v
 	return s
 }
 
-type DentryOpenVOVisitorInfo struct {
+type DentryModelVisitorInfo struct {
 	// 节点的操作列表。
 	DentryActions []*string `json:"dentryActions,omitempty" xml:"dentryActions,omitempty" type:"Repeated"`
 	// 空间的操作列表。
 	SpaceActions []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
 }
 
-func (s DentryOpenVOVisitorInfo) String() string {
+func (s DentryModelVisitorInfo) String() string {
 	return tea.Prettify(s)
 }
 
-func (s DentryOpenVOVisitorInfo) GoString() string {
+func (s DentryModelVisitorInfo) GoString() string {
 	return s.String()
 }
 
-func (s *DentryOpenVOVisitorInfo) SetDentryActions(v []*string) *DentryOpenVOVisitorInfo {
+func (s *DentryModelVisitorInfo) SetDentryActions(v []*string) *DentryModelVisitorInfo {
 	s.DentryActions = v
 	return s
 }
 
-func (s *DentryOpenVOVisitorInfo) SetSpaceActions(v []*string) *DentryOpenVOVisitorInfo {
+func (s *DentryModelVisitorInfo) SetSpaceActions(v []*string) *DentryModelVisitorInfo {
 	s.SpaceActions = v
 	return s
 }
 
-type DentryOpenVOResult struct {
+type DentryVO struct {
 	// 内容类型。alidoc-钉钉文档；link-快捷方式；archive-压缩包；document-文件。
 	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
 	// 创建时间。
 	CreatedTime *int64 `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
 	// 创建者。
-	Creator *DentryOpenVOResultCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	Creator *DentryVOCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
 	// 节点id。
 	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
 	// 节点类型。file-文件；folder-文件夹。
@@ -249,188 +249,188 @@ type DentryOpenVOResult struct {
 	// 节点的路径。
 	Path *string `json:"path,omitempty" xml:"path,omitempty"`
 	// 知识库信息。
-	Space *SpaceOpenVO `json:"space,omitempty" xml:"space,omitempty"`
+	Space *SpaceModel `json:"space,omitempty" xml:"space,omitempty"`
 	// 知识库id。
 	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 	// 更新时间。
 	UpdatedTime *int64 `json:"updatedTime,omitempty" xml:"updatedTime,omitempty"`
 	// 更新人。
-	Updater *DentryOpenVOResultUpdater `json:"updater,omitempty" xml:"updater,omitempty" type:"Struct"`
+	Updater *DentryVOUpdater `json:"updater,omitempty" xml:"updater,omitempty" type:"Struct"`
 	// 节点访问url。
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 	// 访问者对当前节点的权限等信息。
-	VisitorInfo *DentryOpenVOResultVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
+	VisitorInfo *DentryVOVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
 }
 
-func (s DentryOpenVOResult) String() string {
+func (s DentryVO) String() string {
 	return tea.Prettify(s)
 }
 
-func (s DentryOpenVOResult) GoString() string {
+func (s DentryVO) GoString() string {
 	return s.String()
 }
 
-func (s *DentryOpenVOResult) SetContentType(v string) *DentryOpenVOResult {
+func (s *DentryVO) SetContentType(v string) *DentryVO {
 	s.ContentType = &v
 	return s
 }
 
-func (s *DentryOpenVOResult) SetCreatedTime(v int64) *DentryOpenVOResult {
+func (s *DentryVO) SetCreatedTime(v int64) *DentryVO {
 	s.CreatedTime = &v
 	return s
 }
 
-func (s *DentryOpenVOResult) SetCreator(v *DentryOpenVOResultCreator) *DentryOpenVOResult {
+func (s *DentryVO) SetCreator(v *DentryVOCreator) *DentryVO {
 	s.Creator = v
 	return s
 }
 
-func (s *DentryOpenVOResult) SetDentryId(v string) *DentryOpenVOResult {
+func (s *DentryVO) SetDentryId(v string) *DentryVO {
 	s.DentryId = &v
 	return s
 }
 
-func (s *DentryOpenVOResult) SetDentryType(v string) *DentryOpenVOResult {
+func (s *DentryVO) SetDentryType(v string) *DentryVO {
 	s.DentryType = &v
 	return s
 }
 
-func (s *DentryOpenVOResult) SetDentryUuid(v string) *DentryOpenVOResult {
+func (s *DentryVO) SetDentryUuid(v string) *DentryVO {
 	s.DentryUuid = &v
 	return s
 }
 
-func (s *DentryOpenVOResult) SetDocKey(v string) *DentryOpenVOResult {
+func (s *DentryVO) SetDocKey(v string) *DentryVO {
 	s.DocKey = &v
 	return s
 }
 
-func (s *DentryOpenVOResult) SetExtension(v string) *DentryOpenVOResult {
+func (s *DentryVO) SetExtension(v string) *DentryVO {
 	s.Extension = &v
 	return s
 }
 
-func (s *DentryOpenVOResult) SetHasChildren(v bool) *DentryOpenVOResult {
+func (s *DentryVO) SetHasChildren(v bool) *DentryVO {
 	s.HasChildren = &v
 	return s
 }
 
-func (s *DentryOpenVOResult) SetLinkSourceInfo(v *LinkSourceInfo) *DentryOpenVOResult {
+func (s *DentryVO) SetLinkSourceInfo(v *LinkSourceInfo) *DentryVO {
 	s.LinkSourceInfo = v
 	return s
 }
 
-func (s *DentryOpenVOResult) SetName(v string) *DentryOpenVOResult {
+func (s *DentryVO) SetName(v string) *DentryVO {
 	s.Name = &v
 	return s
 }
 
-func (s *DentryOpenVOResult) SetPath(v string) *DentryOpenVOResult {
+func (s *DentryVO) SetPath(v string) *DentryVO {
 	s.Path = &v
 	return s
 }
 
-func (s *DentryOpenVOResult) SetSpace(v *SpaceOpenVO) *DentryOpenVOResult {
+func (s *DentryVO) SetSpace(v *SpaceModel) *DentryVO {
 	s.Space = v
 	return s
 }
 
-func (s *DentryOpenVOResult) SetSpaceId(v string) *DentryOpenVOResult {
+func (s *DentryVO) SetSpaceId(v string) *DentryVO {
 	s.SpaceId = &v
 	return s
 }
 
-func (s *DentryOpenVOResult) SetUpdatedTime(v int64) *DentryOpenVOResult {
+func (s *DentryVO) SetUpdatedTime(v int64) *DentryVO {
 	s.UpdatedTime = &v
 	return s
 }
 
-func (s *DentryOpenVOResult) SetUpdater(v *DentryOpenVOResultUpdater) *DentryOpenVOResult {
+func (s *DentryVO) SetUpdater(v *DentryVOUpdater) *DentryVO {
 	s.Updater = v
 	return s
 }
 
-func (s *DentryOpenVOResult) SetUrl(v string) *DentryOpenVOResult {
+func (s *DentryVO) SetUrl(v string) *DentryVO {
 	s.Url = &v
 	return s
 }
 
-func (s *DentryOpenVOResult) SetVisitorInfo(v *DentryOpenVOResultVisitorInfo) *DentryOpenVOResult {
+func (s *DentryVO) SetVisitorInfo(v *DentryVOVisitorInfo) *DentryVO {
 	s.VisitorInfo = v
 	return s
 }
 
-type DentryOpenVOResultCreator struct {
+type DentryVOCreator struct {
 	// 用户名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 用户unionId。
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
-func (s DentryOpenVOResultCreator) String() string {
+func (s DentryVOCreator) String() string {
 	return tea.Prettify(s)
 }
 
-func (s DentryOpenVOResultCreator) GoString() string {
+func (s DentryVOCreator) GoString() string {
 	return s.String()
 }
 
-func (s *DentryOpenVOResultCreator) SetName(v string) *DentryOpenVOResultCreator {
+func (s *DentryVOCreator) SetName(v string) *DentryVOCreator {
 	s.Name = &v
 	return s
 }
 
-func (s *DentryOpenVOResultCreator) SetUnionId(v string) *DentryOpenVOResultCreator {
+func (s *DentryVOCreator) SetUnionId(v string) *DentryVOCreator {
 	s.UnionId = &v
 	return s
 }
 
-type DentryOpenVOResultUpdater struct {
+type DentryVOUpdater struct {
 	// 用户名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 用户unionId。
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
-func (s DentryOpenVOResultUpdater) String() string {
+func (s DentryVOUpdater) String() string {
 	return tea.Prettify(s)
 }
 
-func (s DentryOpenVOResultUpdater) GoString() string {
+func (s DentryVOUpdater) GoString() string {
 	return s.String()
 }
 
-func (s *DentryOpenVOResultUpdater) SetName(v string) *DentryOpenVOResultUpdater {
+func (s *DentryVOUpdater) SetName(v string) *DentryVOUpdater {
 	s.Name = &v
 	return s
 }
 
-func (s *DentryOpenVOResultUpdater) SetUnionId(v string) *DentryOpenVOResultUpdater {
+func (s *DentryVOUpdater) SetUnionId(v string) *DentryVOUpdater {
 	s.UnionId = &v
 	return s
 }
 
-type DentryOpenVOResultVisitorInfo struct {
+type DentryVOVisitorInfo struct {
 	// 节点的操作列表。
 	DentryActions []*string `json:"dentryActions,omitempty" xml:"dentryActions,omitempty" type:"Repeated"`
 	// 空间的操作列表。
 	SpaceActions []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
 }
 
-func (s DentryOpenVOResultVisitorInfo) String() string {
+func (s DentryVOVisitorInfo) String() string {
 	return tea.Prettify(s)
 }
 
-func (s DentryOpenVOResultVisitorInfo) GoString() string {
+func (s DentryVOVisitorInfo) GoString() string {
 	return s.String()
 }
 
-func (s *DentryOpenVOResultVisitorInfo) SetDentryActions(v []*string) *DentryOpenVOResultVisitorInfo {
+func (s *DentryVOVisitorInfo) SetDentryActions(v []*string) *DentryVOVisitorInfo {
 	s.DentryActions = v
 	return s
 }
 
-func (s *DentryOpenVOResultVisitorInfo) SetSpaceActions(v []*string) *DentryOpenVOResultVisitorInfo {
+func (s *DentryVOVisitorInfo) SetSpaceActions(v []*string) *DentryVOVisitorInfo {
 	s.SpaceActions = v
 	return s
 }
@@ -531,194 +531,194 @@ func (s *OpenActionModel) SetTimestamp(v int64) *OpenActionModel {
 	return s
 }
 
-type SpaceOpenVO struct {
+type SpaceModel struct {
 	// 知识库id。
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 	// 知识库名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 知识库所有者。
-	Owner *SpaceOpenVOOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	Owner *SpaceModelOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
 	// 知识库访问url。
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 	// 访问者对当前知识库的权限等信息。
-	VisitorInfo *SpaceOpenVOVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
+	VisitorInfo *SpaceModelVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
 }
 
-func (s SpaceOpenVO) String() string {
+func (s SpaceModel) String() string {
 	return tea.Prettify(s)
 }
 
-func (s SpaceOpenVO) GoString() string {
+func (s SpaceModel) GoString() string {
 	return s.String()
 }
 
-func (s *SpaceOpenVO) SetId(v string) *SpaceOpenVO {
+func (s *SpaceModel) SetId(v string) *SpaceModel {
 	s.Id = &v
 	return s
 }
 
-func (s *SpaceOpenVO) SetName(v string) *SpaceOpenVO {
+func (s *SpaceModel) SetName(v string) *SpaceModel {
 	s.Name = &v
 	return s
 }
 
-func (s *SpaceOpenVO) SetOwner(v *SpaceOpenVOOwner) *SpaceOpenVO {
+func (s *SpaceModel) SetOwner(v *SpaceModelOwner) *SpaceModel {
 	s.Owner = v
 	return s
 }
 
-func (s *SpaceOpenVO) SetUrl(v string) *SpaceOpenVO {
+func (s *SpaceModel) SetUrl(v string) *SpaceModel {
 	s.Url = &v
 	return s
 }
 
-func (s *SpaceOpenVO) SetVisitorInfo(v *SpaceOpenVOVisitorInfo) *SpaceOpenVO {
+func (s *SpaceModel) SetVisitorInfo(v *SpaceModelVisitorInfo) *SpaceModel {
 	s.VisitorInfo = v
 	return s
 }
 
-type SpaceOpenVOOwner struct {
+type SpaceModelOwner struct {
 	// 用户名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 用户unionId。
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
-func (s SpaceOpenVOOwner) String() string {
+func (s SpaceModelOwner) String() string {
 	return tea.Prettify(s)
 }
 
-func (s SpaceOpenVOOwner) GoString() string {
+func (s SpaceModelOwner) GoString() string {
 	return s.String()
 }
 
-func (s *SpaceOpenVOOwner) SetName(v string) *SpaceOpenVOOwner {
+func (s *SpaceModelOwner) SetName(v string) *SpaceModelOwner {
 	s.Name = &v
 	return s
 }
 
-func (s *SpaceOpenVOOwner) SetUnionId(v string) *SpaceOpenVOOwner {
+func (s *SpaceModelOwner) SetUnionId(v string) *SpaceModelOwner {
 	s.UnionId = &v
 	return s
 }
 
-type SpaceOpenVOVisitorInfo struct {
+type SpaceModelVisitorInfo struct {
 	// 节点的操作列表。
 	DentryActions []*string `json:"dentryActions,omitempty" xml:"dentryActions,omitempty" type:"Repeated"`
 	// 空间的操作列表。
 	SpaceActions []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
 }
 
-func (s SpaceOpenVOVisitorInfo) String() string {
+func (s SpaceModelVisitorInfo) String() string {
 	return tea.Prettify(s)
 }
 
-func (s SpaceOpenVOVisitorInfo) GoString() string {
+func (s SpaceModelVisitorInfo) GoString() string {
 	return s.String()
 }
 
-func (s *SpaceOpenVOVisitorInfo) SetDentryActions(v []*string) *SpaceOpenVOVisitorInfo {
+func (s *SpaceModelVisitorInfo) SetDentryActions(v []*string) *SpaceModelVisitorInfo {
 	s.DentryActions = v
 	return s
 }
 
-func (s *SpaceOpenVOVisitorInfo) SetSpaceActions(v []*string) *SpaceOpenVOVisitorInfo {
+func (s *SpaceModelVisitorInfo) SetSpaceActions(v []*string) *SpaceModelVisitorInfo {
 	s.SpaceActions = v
 	return s
 }
 
-type SpaceOpenVOResult struct {
+type SpaceVO struct {
 	// 知识库id。
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 	// 知识库名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 知识库所有者。
-	Owner *SpaceOpenVOResultOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	Owner *SpaceVOOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
 	// 知识库访问url。
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 	// 访问者对当前知识库的权限等信息。
-	VisitorInfo *SpaceOpenVOResultVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
+	VisitorInfo *SpaceVOVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
 }
 
-func (s SpaceOpenVOResult) String() string {
+func (s SpaceVO) String() string {
 	return tea.Prettify(s)
 }
 
-func (s SpaceOpenVOResult) GoString() string {
+func (s SpaceVO) GoString() string {
 	return s.String()
 }
 
-func (s *SpaceOpenVOResult) SetId(v string) *SpaceOpenVOResult {
+func (s *SpaceVO) SetId(v string) *SpaceVO {
 	s.Id = &v
 	return s
 }
 
-func (s *SpaceOpenVOResult) SetName(v string) *SpaceOpenVOResult {
+func (s *SpaceVO) SetName(v string) *SpaceVO {
 	s.Name = &v
 	return s
 }
 
-func (s *SpaceOpenVOResult) SetOwner(v *SpaceOpenVOResultOwner) *SpaceOpenVOResult {
+func (s *SpaceVO) SetOwner(v *SpaceVOOwner) *SpaceVO {
 	s.Owner = v
 	return s
 }
 
-func (s *SpaceOpenVOResult) SetUrl(v string) *SpaceOpenVOResult {
+func (s *SpaceVO) SetUrl(v string) *SpaceVO {
 	s.Url = &v
 	return s
 }
 
-func (s *SpaceOpenVOResult) SetVisitorInfo(v *SpaceOpenVOResultVisitorInfo) *SpaceOpenVOResult {
+func (s *SpaceVO) SetVisitorInfo(v *SpaceVOVisitorInfo) *SpaceVO {
 	s.VisitorInfo = v
 	return s
 }
 
-type SpaceOpenVOResultOwner struct {
+type SpaceVOOwner struct {
 	// 用户名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 用户unionId。
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
-func (s SpaceOpenVOResultOwner) String() string {
+func (s SpaceVOOwner) String() string {
 	return tea.Prettify(s)
 }
 
-func (s SpaceOpenVOResultOwner) GoString() string {
+func (s SpaceVOOwner) GoString() string {
 	return s.String()
 }
 
-func (s *SpaceOpenVOResultOwner) SetName(v string) *SpaceOpenVOResultOwner {
+func (s *SpaceVOOwner) SetName(v string) *SpaceVOOwner {
 	s.Name = &v
 	return s
 }
 
-func (s *SpaceOpenVOResultOwner) SetUnionId(v string) *SpaceOpenVOResultOwner {
+func (s *SpaceVOOwner) SetUnionId(v string) *SpaceVOOwner {
 	s.UnionId = &v
 	return s
 }
 
-type SpaceOpenVOResultVisitorInfo struct {
+type SpaceVOVisitorInfo struct {
 	// 节点的操作列表。
 	DentryActions []*string `json:"dentryActions,omitempty" xml:"dentryActions,omitempty" type:"Repeated"`
 	// 空间的操作列表。
 	SpaceActions []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
 }
 
-func (s SpaceOpenVOResultVisitorInfo) String() string {
+func (s SpaceVOVisitorInfo) String() string {
 	return tea.Prettify(s)
 }
 
-func (s SpaceOpenVOResultVisitorInfo) GoString() string {
+func (s SpaceVOVisitorInfo) GoString() string {
 	return s.String()
 }
 
-func (s *SpaceOpenVOResultVisitorInfo) SetDentryActions(v []*string) *SpaceOpenVOResultVisitorInfo {
+func (s *SpaceVOVisitorInfo) SetDentryActions(v []*string) *SpaceVOVisitorInfo {
 	s.DentryActions = v
 	return s
 }
 
-func (s *SpaceOpenVOResultVisitorInfo) SetSpaceActions(v []*string) *SpaceOpenVOResultVisitorInfo {
+func (s *SpaceVOVisitorInfo) SetSpaceActions(v []*string) *SpaceVOVisitorInfo {
 	s.SpaceActions = v
 	return s
 }
@@ -800,8 +800,8 @@ func (s *CopyDentryRequest) SetToPrevDentryId(v string) *CopyDentryRequest {
 }
 
 type CopyDentryResponse struct {
-	Headers map[string]*string  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DentryOpenVOResult `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DentryVO          `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CopyDentryResponse) String() string {
@@ -817,7 +817,7 @@ func (s *CopyDentryResponse) SetHeaders(v map[string]*string) *CopyDentryRespons
 	return s
 }
 
-func (s *CopyDentryResponse) SetBody(v *DentryOpenVOResult) *CopyDentryResponse {
+func (s *CopyDentryResponse) SetBody(v *DentryVO) *CopyDentryResponse {
 	s.Body = v
 	return s
 }
@@ -892,8 +892,8 @@ func (s *CreateDentryRequest) SetParentDentryId(v string) *CreateDentryRequest {
 }
 
 type CreateDentryResponse struct {
-	Headers map[string]*string  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DentryOpenVOResult `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DentryVO          `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s CreateDentryResponse) String() string {
@@ -909,7 +909,7 @@ func (s *CreateDentryResponse) SetHeaders(v map[string]*string) *CreateDentryRes
 	return s
 }
 
-func (s *CreateDentryResponse) SetBody(v *DentryOpenVOResult) *CreateDentryResponse {
+func (s *CreateDentryResponse) SetBody(v *DentryVO) *CreateDentryResponse {
 	s.Body = v
 	return s
 }
@@ -978,7 +978,7 @@ func (s *GetSpaceDirectoriesRequest) SetOperatorId(v string) *GetSpaceDirectorie
 
 type GetSpaceDirectoriesResponseBody struct {
 	// 子节点列表。
-	Children []*DentryOpenVO `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+	Children []*DentryModel `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
 	// 是否还有后续可查询子节点。
 	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 	// 分页token。
@@ -993,7 +993,7 @@ func (s GetSpaceDirectoriesResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *GetSpaceDirectoriesResponseBody) SetChildren(v []*DentryOpenVO) *GetSpaceDirectoriesResponseBody {
+func (s *GetSpaceDirectoriesResponseBody) SetChildren(v []*DentryModel) *GetSpaceDirectoriesResponseBody {
 	s.Children = v
 	return s
 }
@@ -1197,8 +1197,8 @@ func (s *MoveDentryRequest) SetToPrevDentryId(v string) *MoveDentryRequest {
 }
 
 type MoveDentryResponse struct {
-	Headers map[string]*string  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DentryOpenVOResult `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DentryVO          `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s MoveDentryResponse) String() string {
@@ -1214,7 +1214,7 @@ func (s *MoveDentryResponse) SetHeaders(v map[string]*string) *MoveDentryRespons
 	return s
 }
 
-func (s *MoveDentryResponse) SetBody(v *DentryOpenVOResult) *MoveDentryResponse {
+func (s *MoveDentryResponse) SetBody(v *DentryVO) *MoveDentryResponse {
 	s.Body = v
 	return s
 }
@@ -1268,8 +1268,8 @@ func (s *QueryDentryRequest) SetOperatorId(v string) *QueryDentryRequest {
 }
 
 type QueryDentryResponse struct {
-	Headers map[string]*string  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DentryOpenVOResult `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DentryVO          `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryDentryResponse) String() string {
@@ -1285,7 +1285,7 @@ func (s *QueryDentryResponse) SetHeaders(v map[string]*string) *QueryDentryRespo
 	return s
 }
 
-func (s *QueryDentryResponse) SetBody(v *DentryOpenVOResult) *QueryDentryResponse {
+func (s *QueryDentryResponse) SetBody(v *DentryVO) *QueryDentryResponse {
 	s.Body = v
 	return s
 }
@@ -1315,7 +1315,7 @@ func (s *QueryMineSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMineS
 
 type QueryMineSpaceResponse struct {
 	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SpaceOpenVOResult `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Body    *SpaceVO           `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QueryMineSpaceResponse) String() string {
@@ -1331,7 +1331,7 @@ func (s *QueryMineSpaceResponse) SetHeaders(v map[string]*string) *QueryMineSpac
 	return s
 }
 
-func (s *QueryMineSpaceResponse) SetBody(v *SpaceOpenVOResult) *QueryMineSpaceResponse {
+func (s *QueryMineSpaceResponse) SetBody(v *SpaceVO) *QueryMineSpaceResponse {
 	s.Body = v
 	return s
 }
@@ -1448,7 +1448,7 @@ type QueryRecentListResponseBodyRecentList struct {
 	// 是否被删除。
 	Deleted *bool `json:"deleted,omitempty" xml:"deleted,omitempty"`
 	// 节点信息。
-	Dentry *DentryOpenVO `json:"dentry,omitempty" xml:"dentry,omitempty"`
+	Dentry *DentryModel `json:"dentry,omitempty" xml:"dentry,omitempty"`
 	// 如果查询的是访问，那么这里是访问时间；否则就是编辑时间。
 	RecentTime *int64 `json:"recentTime,omitempty" xml:"recentTime,omitempty"`
 }
@@ -1466,7 +1466,7 @@ func (s *QueryRecentListResponseBodyRecentList) SetDeleted(v bool) *QueryRecentL
 	return s
 }
 
-func (s *QueryRecentListResponseBodyRecentList) SetDentry(v *DentryOpenVO) *QueryRecentListResponseBodyRecentList {
+func (s *QueryRecentListResponseBodyRecentList) SetDentry(v *DentryModel) *QueryRecentListResponseBodyRecentList {
 	s.Dentry = v
 	return s
 }
@@ -1542,7 +1542,7 @@ func (s *QuerySpaceRequest) SetOperatorId(v string) *QuerySpaceRequest {
 
 type QuerySpaceResponse struct {
 	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *SpaceOpenVOResult `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Body    *SpaceVO           `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s QuerySpaceResponse) String() string {
@@ -1558,7 +1558,7 @@ func (s *QuerySpaceResponse) SetHeaders(v map[string]*string) *QuerySpaceRespons
 	return s
 }
 
-func (s *QuerySpaceResponse) SetBody(v *SpaceOpenVOResult) *QuerySpaceResponse {
+func (s *QuerySpaceResponse) SetBody(v *SpaceVO) *QuerySpaceResponse {
 	s.Body = v
 	return s
 }
@@ -1612,8 +1612,8 @@ func (s *RenameDentryRequest) SetOperatorId(v string) *RenameDentryRequest {
 }
 
 type RenameDentryResponse struct {
-	Headers map[string]*string  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *DentryOpenVOResult `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DentryVO          `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RenameDentryResponse) String() string {
@@ -1629,7 +1629,7 @@ func (s *RenameDentryResponse) SetHeaders(v map[string]*string) *RenameDentryRes
 	return s
 }
 
-func (s *RenameDentryResponse) SetBody(v *DentryOpenVOResult) *RenameDentryResponse {
+func (s *RenameDentryResponse) SetBody(v *DentryVO) *RenameDentryResponse {
 	s.Body = v
 	return s
 }
@@ -1828,8 +1828,6 @@ type SearchResponseBodyDentryResultItems struct {
 	DentryUuid *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
 	// 文件名扩展。
 	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	// 文件类型。1-文档；2-表格；3-脑图；4-演示；5-白板；6-office文字；7-office表格；8-office ppt；10-多维表格；11-文本；12-图片；13-视频；14-音频；15-压缩文件；16-其他。
-	FileType *int32 `json:"fileType,omitempty" xml:"fileType,omitempty"`
 	// 节点图标url。
 	IconUrl *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
 	// 最后修改信息。
@@ -1840,6 +1838,8 @@ type SearchResponseBodyDentryResultItems struct {
 	OriginName *string `json:"originName,omitempty" xml:"originName,omitempty"`
 	// 节点的路径。
 	Path *string `json:"path,omitempty" xml:"path,omitempty"`
+	// 文件类型。1-文档；2-表格；3-脑图；4-演示；5-白板；6-office文字；7-office表格；8-office ppt；10-多维表格；11-文本；12-图片；13-视频；14-音频；15-压缩文件；16-其他。
+	SearchFileType *int32 `json:"searchFileType,omitempty" xml:"searchFileType,omitempty"`
 	// 节点所属的知识库id。
 	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 	// 节点访问url。
@@ -1879,11 +1879,6 @@ func (s *SearchResponseBodyDentryResultItems) SetExtension(v string) *SearchResp
 	return s
 }
 
-func (s *SearchResponseBodyDentryResultItems) SetFileType(v int32) *SearchResponseBodyDentryResultItems {
-	s.FileType = &v
-	return s
-}
-
 func (s *SearchResponseBodyDentryResultItems) SetIconUrl(v string) *SearchResponseBodyDentryResultItems {
 	s.IconUrl = &v
 	return s
@@ -1906,6 +1901,11 @@ func (s *SearchResponseBodyDentryResultItems) SetOriginName(v string) *SearchRes
 
 func (s *SearchResponseBodyDentryResultItems) SetPath(v string) *SearchResponseBodyDentryResultItems {
 	s.Path = &v
+	return s
+}
+
+func (s *SearchResponseBodyDentryResultItems) SetSearchFileType(v int32) *SearchResponseBodyDentryResultItems {
+	s.SearchFileType = &v
 	return s
 }
 

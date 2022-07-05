@@ -793,6 +793,149 @@ func (s *BatchAddInvoiceResponse) SetBody(v *BatchAddInvoiceResponseBody) *Batch
 	return s
 }
 
+type CheckVoucherStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CheckVoucherStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckVoucherStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CheckVoucherStatusHeaders) SetCommonHeaders(v map[string]*string) *CheckVoucherStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CheckVoucherStatusHeaders) SetXAcsDingtalkAccessToken(v string) *CheckVoucherStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CheckVoucherStatusRequest struct {
+	// 结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 进项发票/销项发票
+	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	// 发票编码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 页号
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 当前页大小
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 税号
+	TaxNo *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+	// 发票认证状态
+	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+}
+
+func (s CheckVoucherStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckVoucherStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CheckVoucherStatusRequest) SetEndTime(v int64) *CheckVoucherStatusRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *CheckVoucherStatusRequest) SetFinanceType(v string) *CheckVoucherStatusRequest {
+	s.FinanceType = &v
+	return s
+}
+
+func (s *CheckVoucherStatusRequest) SetInvoiceCode(v string) *CheckVoucherStatusRequest {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *CheckVoucherStatusRequest) SetInvoiceNo(v string) *CheckVoucherStatusRequest {
+	s.InvoiceNo = &v
+	return s
+}
+
+func (s *CheckVoucherStatusRequest) SetPageNumber(v int64) *CheckVoucherStatusRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *CheckVoucherStatusRequest) SetPageSize(v int64) *CheckVoucherStatusRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *CheckVoucherStatusRequest) SetStartTime(v int64) *CheckVoucherStatusRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *CheckVoucherStatusRequest) SetTaxNo(v string) *CheckVoucherStatusRequest {
+	s.TaxNo = &v
+	return s
+}
+
+func (s *CheckVoucherStatusRequest) SetVerifyStatus(v string) *CheckVoucherStatusRequest {
+	s.VerifyStatus = &v
+	return s
+}
+
+type CheckVoucherStatusResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CheckVoucherStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckVoucherStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CheckVoucherStatusResponseBody) SetResult(v bool) *CheckVoucherStatusResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *CheckVoucherStatusResponseBody) SetSuccess(v bool) *CheckVoucherStatusResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CheckVoucherStatusResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CheckVoucherStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CheckVoucherStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckVoucherStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CheckVoucherStatusResponse) SetHeaders(v map[string]*string) *CheckVoucherStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CheckVoucherStatusResponse) SetBody(v *CheckVoucherStatusResponseBody) *CheckVoucherStatusResponse {
+	s.Body = v
+	return s
+}
+
 type CreateCustomerHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2705,8 +2848,6 @@ func (s *GetProjectRequest) SetCode(v string) *GetProjectRequest {
 type GetProjectResponseBody struct {
 	// 项目code
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 创建时间
 	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 创建人工号
@@ -2735,11 +2876,6 @@ func (s GetProjectResponseBody) GoString() string {
 
 func (s *GetProjectResponseBody) SetCode(v string) *GetProjectResponseBody {
 	s.Code = &v
-	return s
-}
-
-func (s *GetProjectResponseBody) SetCorpId(v string) *GetProjectResponseBody {
-	s.CorpId = &v
 	return s
 }
 
@@ -4046,8 +4182,6 @@ func (s *QueryProjectByPageResponseBody) SetList(v []*QueryProjectByPageResponse
 type QueryProjectByPageResponseBodyList struct {
 	// 项目code
 	Caode *string `json:"caode,omitempty" xml:"caode,omitempty"`
-	// 企业id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 创建时间
 	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 创建人工号
@@ -4076,11 +4210,6 @@ func (s QueryProjectByPageResponseBodyList) GoString() string {
 
 func (s *QueryProjectByPageResponseBodyList) SetCaode(v string) *QueryProjectByPageResponseBodyList {
 	s.Caode = &v
-	return s
-}
-
-func (s *QueryProjectByPageResponseBodyList) SetCorpId(v string) *QueryProjectByPageResponseBodyList {
-	s.CorpId = &v
 	return s
 }
 
@@ -4233,8 +4362,8 @@ func (s *QueryReceiptForInvoiceRequest) SetTitle(v string) *QueryReceiptForInvoi
 type QueryReceiptForInvoiceRequestInvoiceFilter struct {
 	// 发票类型 进项、销项
 	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
-	// 发票状态  待开票 已开票
-	RelationStatus *string `json:"relationStatus,omitempty" xml:"relationStatus,omitempty"`
+	// 发票状态列表
+	RelationStatus []*string `json:"relationStatus,omitempty" xml:"relationStatus,omitempty" type:"Repeated"`
 }
 
 func (s QueryReceiptForInvoiceRequestInvoiceFilter) String() string {
@@ -4250,8 +4379,8 @@ func (s *QueryReceiptForInvoiceRequestInvoiceFilter) SetFinanceType(v string) *Q
 	return s
 }
 
-func (s *QueryReceiptForInvoiceRequestInvoiceFilter) SetRelationStatus(v string) *QueryReceiptForInvoiceRequestInvoiceFilter {
-	s.RelationStatus = &v
+func (s *QueryReceiptForInvoiceRequestInvoiceFilter) SetRelationStatus(v []*string) *QueryReceiptForInvoiceRequestInvoiceFilter {
+	s.RelationStatus = v
 	return s
 }
 
@@ -8134,6 +8263,82 @@ func (client *Client) BatchAddInvoiceWithOptions(request *BatchAddInvoiceRequest
 	}
 	_result = &BatchAddInvoiceResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchAddInvoice"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/batch"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CheckVoucherStatus(request *CheckVoucherStatusRequest) (_result *CheckVoucherStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CheckVoucherStatusHeaders{}
+	_result = &CheckVoucherStatusResponse{}
+	_body, _err := client.CheckVoucherStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CheckVoucherStatusWithOptions(request *CheckVoucherStatusRequest, headers *CheckVoucherStatusHeaders, runtime *util.RuntimeOptions) (_result *CheckVoucherStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FinanceType)) {
+		body["financeType"] = request.FinanceType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceCode)) {
+		body["invoiceCode"] = request.InvoiceCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceNo)) {
+		body["invoiceNo"] = request.InvoiceNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaxNo)) {
+		body["taxNo"] = request.TaxNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VerifyStatus)) {
+		body["verifyStatus"] = request.VerifyStatus
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CheckVoucherStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("CheckVoucherStatus"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/checkVoucherStatus/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

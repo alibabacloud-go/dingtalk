@@ -105,6 +105,101 @@ func (s *CreateAppGoodsServiceConversationResponse) SetBody(v *CreateAppGoodsSer
 	return s
 }
 
+type GetCoolAppAccessStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCoolAppAccessStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCoolAppAccessStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCoolAppAccessStatusHeaders) SetCommonHeaders(v map[string]*string) *GetCoolAppAccessStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCoolAppAccessStatusHeaders) SetXAcsDingtalkAccessToken(v string) *GetCoolAppAccessStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCoolAppAccessStatusRequest struct {
+	// 免登授权码
+	AuthCode *string `json:"authCode,omitempty" xml:"authCode,omitempty"`
+	// 酷应用的code
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	// 加密的场域业务code
+	EncFieldBizCode *string `json:"encFieldBizCode,omitempty" xml:"encFieldBizCode,omitempty"`
+}
+
+func (s GetCoolAppAccessStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCoolAppAccessStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetCoolAppAccessStatusRequest) SetAuthCode(v string) *GetCoolAppAccessStatusRequest {
+	s.AuthCode = &v
+	return s
+}
+
+func (s *GetCoolAppAccessStatusRequest) SetCoolAppCode(v string) *GetCoolAppAccessStatusRequest {
+	s.CoolAppCode = &v
+	return s
+}
+
+func (s *GetCoolAppAccessStatusRequest) SetEncFieldBizCode(v string) *GetCoolAppAccessStatusRequest {
+	s.EncFieldBizCode = &v
+	return s
+}
+
+type GetCoolAppAccessStatusResponseBody struct {
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetCoolAppAccessStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCoolAppAccessStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCoolAppAccessStatusResponseBody) SetStatus(v string) *GetCoolAppAccessStatusResponseBody {
+	s.Status = &v
+	return s
+}
+
+type GetCoolAppAccessStatusResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetCoolAppAccessStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetCoolAppAccessStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCoolAppAccessStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCoolAppAccessStatusResponse) SetHeaders(v map[string]*string) *GetCoolAppAccessStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCoolAppAccessStatusResponse) SetBody(v *GetCoolAppAccessStatusResponseBody) *GetCoolAppAccessStatusResponse {
+	s.Body = v
+	return s
+}
+
 type GetPersonalExperienceInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -509,6 +604,58 @@ func (client *Client) CreateAppGoodsServiceConversationWithOptions(request *Crea
 	}
 	_result = &CreateAppGoodsServiceConversationResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateAppGoodsServiceConversation"), tea.String("appMarket_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/appMarket/orders/serviceGroups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetCoolAppAccessStatus(request *GetCoolAppAccessStatusRequest) (_result *GetCoolAppAccessStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCoolAppAccessStatusHeaders{}
+	_result = &GetCoolAppAccessStatusResponse{}
+	_body, _err := client.GetCoolAppAccessStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetCoolAppAccessStatusWithOptions(request *GetCoolAppAccessStatusRequest, headers *GetCoolAppAccessStatusHeaders, runtime *util.RuntimeOptions) (_result *GetCoolAppAccessStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AuthCode)) {
+		body["authCode"] = request.AuthCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CoolAppCode)) {
+		body["coolAppCode"] = request.CoolAppCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EncFieldBizCode)) {
+		body["encFieldBizCode"] = request.EncFieldBizCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetCoolAppAccessStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetCoolAppAccessStatus"), tea.String("appMarket_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/appMarket/coolApps/accessions/statuses/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
