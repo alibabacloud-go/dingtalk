@@ -2345,6 +2345,95 @@ func (s *InteractiveCardCreateInstanceResponse) SetBody(v *InteractiveCardCreate
 	return s
 }
 
+type QueryGroupInfoByMemberAuthHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryGroupInfoByMemberAuthHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupInfoByMemberAuthHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupInfoByMemberAuthHeaders) SetCommonHeaders(v map[string]*string) *QueryGroupInfoByMemberAuthHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryGroupInfoByMemberAuthHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGroupInfoByMemberAuthHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryGroupInfoByMemberAuthRequest struct {
+	// 酷应用编码
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	// 群的openConversationId
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s QueryGroupInfoByMemberAuthRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupInfoByMemberAuthRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupInfoByMemberAuthRequest) SetCoolAppCode(v string) *QueryGroupInfoByMemberAuthRequest {
+	s.CoolAppCode = &v
+	return s
+}
+
+func (s *QueryGroupInfoByMemberAuthRequest) SetOpenConversationId(v string) *QueryGroupInfoByMemberAuthRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type QueryGroupInfoByMemberAuthResponseBody struct {
+	// 群内总人数
+	MemberCount *int32 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+}
+
+func (s QueryGroupInfoByMemberAuthResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupInfoByMemberAuthResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupInfoByMemberAuthResponseBody) SetMemberCount(v int32) *QueryGroupInfoByMemberAuthResponseBody {
+	s.MemberCount = &v
+	return s
+}
+
+type QueryGroupInfoByMemberAuthResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryGroupInfoByMemberAuthResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryGroupInfoByMemberAuthResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupInfoByMemberAuthResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupInfoByMemberAuthResponse) SetHeaders(v map[string]*string) *QueryGroupInfoByMemberAuthResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryGroupInfoByMemberAuthResponse) SetBody(v *QueryGroupInfoByMemberAuthResponseBody) *QueryGroupInfoByMemberAuthResponse {
+	s.Body = v
+	return s
+}
+
 type QueryGroupMemberHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2476,6 +2565,135 @@ func (s *QueryGroupMemberResponse) SetHeaders(v map[string]*string) *QueryGroupM
 }
 
 func (s *QueryGroupMemberResponse) SetBody(v *QueryGroupMemberResponseBody) *QueryGroupMemberResponse {
+	s.Body = v
+	return s
+}
+
+type QueryGroupMemberByMemberAuthHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryGroupMemberByMemberAuthHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupMemberByMemberAuthHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupMemberByMemberAuthHeaders) SetCommonHeaders(v map[string]*string) *QueryGroupMemberByMemberAuthHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryGroupMemberByMemberAuthHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGroupMemberByMemberAuthHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryGroupMemberByMemberAuthRequest struct {
+	// 酷应用编码
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	// 群的openConversationId
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s QueryGroupMemberByMemberAuthRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupMemberByMemberAuthRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupMemberByMemberAuthRequest) SetCoolAppCode(v string) *QueryGroupMemberByMemberAuthRequest {
+	s.CoolAppCode = &v
+	return s
+}
+
+func (s *QueryGroupMemberByMemberAuthRequest) SetOpenConversationId(v string) *QueryGroupMemberByMemberAuthRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type QueryGroupMemberByMemberAuthResponseBody struct {
+	// 群成员列表
+	GroupMemberList []*QueryGroupMemberByMemberAuthResponseBodyGroupMemberList `json:"groupMemberList,omitempty" xml:"groupMemberList,omitempty" type:"Repeated"`
+}
+
+func (s QueryGroupMemberByMemberAuthResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupMemberByMemberAuthResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupMemberByMemberAuthResponseBody) SetGroupMemberList(v []*QueryGroupMemberByMemberAuthResponseBodyGroupMemberList) *QueryGroupMemberByMemberAuthResponseBody {
+	s.GroupMemberList = v
+	return s
+}
+
+type QueryGroupMemberByMemberAuthResponseBodyGroupMemberList struct {
+	// 群内昵称
+	//
+	GroupNickName *string `json:"groupNickName,omitempty" xml:"groupNickName,omitempty"`
+	// 企业内成员姓名
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// 头像url
+	ProfilePhotoUrl *string `json:"profilePhotoUrl,omitempty" xml:"profilePhotoUrl,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryGroupMemberByMemberAuthResponseBodyGroupMemberList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupMemberByMemberAuthResponseBodyGroupMemberList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupMemberByMemberAuthResponseBodyGroupMemberList) SetGroupNickName(v string) *QueryGroupMemberByMemberAuthResponseBodyGroupMemberList {
+	s.GroupNickName = &v
+	return s
+}
+
+func (s *QueryGroupMemberByMemberAuthResponseBodyGroupMemberList) SetOrgName(v string) *QueryGroupMemberByMemberAuthResponseBodyGroupMemberList {
+	s.OrgName = &v
+	return s
+}
+
+func (s *QueryGroupMemberByMemberAuthResponseBodyGroupMemberList) SetProfilePhotoUrl(v string) *QueryGroupMemberByMemberAuthResponseBodyGroupMemberList {
+	s.ProfilePhotoUrl = &v
+	return s
+}
+
+func (s *QueryGroupMemberByMemberAuthResponseBodyGroupMemberList) SetUserId(v string) *QueryGroupMemberByMemberAuthResponseBodyGroupMemberList {
+	s.UserId = &v
+	return s
+}
+
+type QueryGroupMemberByMemberAuthResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryGroupMemberByMemberAuthResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryGroupMemberByMemberAuthResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGroupMemberByMemberAuthResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGroupMemberByMemberAuthResponse) SetHeaders(v map[string]*string) *QueryGroupMemberByMemberAuthResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryGroupMemberByMemberAuthResponse) SetBody(v *QueryGroupMemberByMemberAuthResponseBody) *QueryGroupMemberByMemberAuthResponse {
 	s.Body = v
 	return s
 }
@@ -5994,6 +6212,54 @@ func (client *Client) InteractiveCardCreateInstanceWithOptions(request *Interact
 	return _result, _err
 }
 
+func (client *Client) QueryGroupInfoByMemberAuth(request *QueryGroupInfoByMemberAuthRequest) (_result *QueryGroupInfoByMemberAuthResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryGroupInfoByMemberAuthHeaders{}
+	_result = &QueryGroupInfoByMemberAuthResponse{}
+	_body, _err := client.QueryGroupInfoByMemberAuthWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryGroupInfoByMemberAuthWithOptions(request *QueryGroupInfoByMemberAuthRequest, headers *QueryGroupInfoByMemberAuthHeaders, runtime *util.RuntimeOptions) (_result *QueryGroupInfoByMemberAuthResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CoolAppCode)) {
+		body["coolAppCode"] = request.CoolAppCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryGroupInfoByMemberAuthResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryGroupInfoByMemberAuth"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/memberAuthorizations/groups/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryGroupMember(request *QueryGroupMemberRequest) (_result *QueryGroupMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryGroupMemberHeaders{}
@@ -6031,6 +6297,54 @@ func (client *Client) QueryGroupMemberWithOptions(request *QueryGroupMemberReque
 	}
 	_result = &QueryGroupMemberResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryGroupMember"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/im/interconnections/conversations/members"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryGroupMemberByMemberAuth(request *QueryGroupMemberByMemberAuthRequest) (_result *QueryGroupMemberByMemberAuthResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryGroupMemberByMemberAuthHeaders{}
+	_result = &QueryGroupMemberByMemberAuthResponse{}
+	_body, _err := client.QueryGroupMemberByMemberAuthWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryGroupMemberByMemberAuthWithOptions(request *QueryGroupMemberByMemberAuthRequest, headers *QueryGroupMemberByMemberAuthHeaders, runtime *util.RuntimeOptions) (_result *QueryGroupMemberByMemberAuthResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CoolAppCode)) {
+		body["coolAppCode"] = request.CoolAppCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryGroupMemberByMemberAuthResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryGroupMemberByMemberAuth"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/memberAuthorizations/groups/members/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
