@@ -1383,6 +1383,8 @@ func (s *GetRangeRequest) SetOperatorId(v string) *GetRangeRequest {
 }
 
 type GetRangeResponseBody struct {
+	DisplayValues []*string `json:"displayValues,omitempty" xml:"displayValues,omitempty" type:"Repeated"`
+	Formulas      []*string `json:"formulas,omitempty" xml:"formulas,omitempty" type:"Repeated"`
 	// 值
 	Values []*string `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 }
@@ -1393,6 +1395,16 @@ func (s GetRangeResponseBody) String() string {
 
 func (s GetRangeResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *GetRangeResponseBody) SetDisplayValues(v []*string) *GetRangeResponseBody {
+	s.DisplayValues = v
+	return s
+}
+
+func (s *GetRangeResponseBody) SetFormulas(v []*string) *GetRangeResponseBody {
+	s.Formulas = v
+	return s
 }
 
 func (s *GetRangeResponseBody) SetValues(v []*string) *GetRangeResponseBody {
@@ -2918,7 +2930,8 @@ type RangeFindNextRequestFindOptions struct {
 	// 匹配整个单元格
 	MatchEntireCell *bool `json:"matchEntireCell,omitempty" xml:"matchEntireCell,omitempty"`
 	// 在公式内搜索
-	MatchFormulaText *bool `json:"matchFormulaText,omitempty" xml:"matchFormulaText,omitempty"`
+	MatchFormulaText *bool   `json:"matchFormulaText,omitempty" xml:"matchFormulaText,omitempty"`
+	Scope            *string `json:"scope,omitempty" xml:"scope,omitempty"`
 	// text是正则表达式
 	UseRegExp *bool `json:"useRegExp,omitempty" xml:"useRegExp,omitempty"`
 }
@@ -2943,6 +2956,11 @@ func (s *RangeFindNextRequestFindOptions) SetMatchEntireCell(v bool) *RangeFindN
 
 func (s *RangeFindNextRequestFindOptions) SetMatchFormulaText(v bool) *RangeFindNextRequestFindOptions {
 	s.MatchFormulaText = &v
+	return s
+}
+
+func (s *RangeFindNextRequestFindOptions) SetScope(v string) *RangeFindNextRequestFindOptions {
+	s.Scope = &v
 	return s
 }
 

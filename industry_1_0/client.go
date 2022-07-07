@@ -4816,8 +4816,8 @@ func (s *IndustryManufactureCommonEventRequest) SetEventType(v []*string) *Indus
 type IndustryManufactureCommonEventResponseBody struct {
 	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
 	// Id of the request
-	RequestId *string     `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Result    interface{} `json:"result,omitempty" xml:"result,omitempty"`
+	RequestId *string                                           `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *IndustryManufactureCommonEventResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s IndustryManufactureCommonEventResponseBody) String() string {
@@ -4838,8 +4838,33 @@ func (s *IndustryManufactureCommonEventResponseBody) SetRequestId(v string) *Ind
 	return s
 }
 
-func (s *IndustryManufactureCommonEventResponseBody) SetResult(v interface{}) *IndustryManufactureCommonEventResponseBody {
+func (s *IndustryManufactureCommonEventResponseBody) SetResult(v *IndustryManufactureCommonEventResponseBodyResult) *IndustryManufactureCommonEventResponseBody {
 	s.Result = v
+	return s
+}
+
+type IndustryManufactureCommonEventResponseBodyResult struct {
+	// 返回内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 状态码
+	HttpCode *string `json:"httpCode,omitempty" xml:"httpCode,omitempty"`
+}
+
+func (s IndustryManufactureCommonEventResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureCommonEventResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureCommonEventResponseBodyResult) SetContent(v string) *IndustryManufactureCommonEventResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+func (s *IndustryManufactureCommonEventResponseBodyResult) SetHttpCode(v string) *IndustryManufactureCommonEventResponseBodyResult {
+	s.HttpCode = &v
 	return s
 }
 

@@ -3849,6 +3849,81 @@ func (s *QueryEnterpriseAccountByPageResponse) SetBody(v *QueryEnterpriseAccount
 	return s
 }
 
+type QueryFinanceCompanyInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryFinanceCompanyInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFinanceCompanyInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFinanceCompanyInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryFinanceCompanyInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryFinanceCompanyInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryFinanceCompanyInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryFinanceCompanyInfoResponseBody struct {
+	CompanyName *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
+	TaxNature   *string `json:"taxNature,omitempty" xml:"taxNature,omitempty"`
+	TaxNo       *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+}
+
+func (s QueryFinanceCompanyInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFinanceCompanyInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFinanceCompanyInfoResponseBody) SetCompanyName(v string) *QueryFinanceCompanyInfoResponseBody {
+	s.CompanyName = &v
+	return s
+}
+
+func (s *QueryFinanceCompanyInfoResponseBody) SetTaxNature(v string) *QueryFinanceCompanyInfoResponseBody {
+	s.TaxNature = &v
+	return s
+}
+
+func (s *QueryFinanceCompanyInfoResponseBody) SetTaxNo(v string) *QueryFinanceCompanyInfoResponseBody {
+	s.TaxNo = &v
+	return s
+}
+
+type QueryFinanceCompanyInfoResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryFinanceCompanyInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryFinanceCompanyInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFinanceCompanyInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFinanceCompanyInfoResponse) SetHeaders(v map[string]*string) *QueryFinanceCompanyInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryFinanceCompanyInfoResponse) SetBody(v *QueryFinanceCompanyInfoResponseBody) *QueryFinanceCompanyInfoResponse {
+	s.Body = v
+	return s
+}
+
 type QueryInvoiceRelationCountHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4300,16 +4375,15 @@ func (s *QueryReceiptForInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *Qu
 }
 
 type QueryReceiptForInvoiceRequest struct {
-	// 结束时间
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 发票筛选条件
-	InvoiceFilter *QueryReceiptForInvoiceRequestInvoiceFilter `json:"invoiceFilter,omitempty" xml:"invoiceFilter,omitempty" type:"Struct"`
+	// 发票状态筛选列表 applied 已生成、unapplied 未生成 、 ignore 已忽略
+	ApplyStatusList []*string `json:"applyStatusList,omitempty" xml:"applyStatusList,omitempty" type:"Repeated"`
+	EndTime         *int64    `json:"endTime,omitempty" xml:"endTime,omitempty"`
 	// 分页参数，从1 开始
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
 	// 分页参数，每页查询个数
 	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 单据状态，审批中 RUNNING，已完成 COMPLETED
-	ReceiptStatus *string `json:"receiptStatus,omitempty" xml:"receiptStatus,omitempty"`
+	// 单据状态筛选条件列表，审批中、已通过 RUNNGIN、COMPLETED
+	ReceiptStatusList []*string `json:"receiptStatusList,omitempty" xml:"receiptStatusList,omitempty" type:"Repeated"`
 	// 开始时间
 	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
 	// 单据标题
@@ -4324,13 +4398,13 @@ func (s QueryReceiptForInvoiceRequest) GoString() string {
 	return s.String()
 }
 
-func (s *QueryReceiptForInvoiceRequest) SetEndTime(v int64) *QueryReceiptForInvoiceRequest {
-	s.EndTime = &v
+func (s *QueryReceiptForInvoiceRequest) SetApplyStatusList(v []*string) *QueryReceiptForInvoiceRequest {
+	s.ApplyStatusList = v
 	return s
 }
 
-func (s *QueryReceiptForInvoiceRequest) SetInvoiceFilter(v *QueryReceiptForInvoiceRequestInvoiceFilter) *QueryReceiptForInvoiceRequest {
-	s.InvoiceFilter = v
+func (s *QueryReceiptForInvoiceRequest) SetEndTime(v int64) *QueryReceiptForInvoiceRequest {
+	s.EndTime = &v
 	return s
 }
 
@@ -4344,8 +4418,8 @@ func (s *QueryReceiptForInvoiceRequest) SetPageSize(v int64) *QueryReceiptForInv
 	return s
 }
 
-func (s *QueryReceiptForInvoiceRequest) SetReceiptStatus(v string) *QueryReceiptForInvoiceRequest {
-	s.ReceiptStatus = &v
+func (s *QueryReceiptForInvoiceRequest) SetReceiptStatusList(v []*string) *QueryReceiptForInvoiceRequest {
+	s.ReceiptStatusList = v
 	return s
 }
 
@@ -4356,31 +4430,6 @@ func (s *QueryReceiptForInvoiceRequest) SetStartTime(v int64) *QueryReceiptForIn
 
 func (s *QueryReceiptForInvoiceRequest) SetTitle(v string) *QueryReceiptForInvoiceRequest {
 	s.Title = &v
-	return s
-}
-
-type QueryReceiptForInvoiceRequestInvoiceFilter struct {
-	// 发票类型 进项、销项
-	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
-	// 发票状态列表
-	RelationStatus []*string `json:"relationStatus,omitempty" xml:"relationStatus,omitempty" type:"Repeated"`
-}
-
-func (s QueryReceiptForInvoiceRequestInvoiceFilter) String() string {
-	return tea.Prettify(s)
-}
-
-func (s QueryReceiptForInvoiceRequestInvoiceFilter) GoString() string {
-	return s.String()
-}
-
-func (s *QueryReceiptForInvoiceRequestInvoiceFilter) SetFinanceType(v string) *QueryReceiptForInvoiceRequestInvoiceFilter {
-	s.FinanceType = &v
-	return s
-}
-
-func (s *QueryReceiptForInvoiceRequestInvoiceFilter) SetRelationStatus(v []*string) *QueryReceiptForInvoiceRequestInvoiceFilter {
-	s.RelationStatus = v
 	return s
 }
 
@@ -4474,6 +4523,169 @@ func (s *QueryReceiptForInvoiceResponse) SetHeaders(v map[string]*string) *Query
 }
 
 func (s *QueryReceiptForInvoiceResponse) SetBody(v *QueryReceiptForInvoiceResponseBody) *QueryReceiptForInvoiceResponse {
+	s.Body = v
+	return s
+}
+
+type QueryReceiptsBaseInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryReceiptsBaseInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptsBaseInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptsBaseInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryReceiptsBaseInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryReceiptsBaseInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryReceiptsBaseInfoRequest struct {
+	// 结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 分页参数，从1 开始
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页参数，每页查询个数
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 单据标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QueryReceiptsBaseInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptsBaseInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptsBaseInfoRequest) SetEndTime(v int64) *QueryReceiptsBaseInfoRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoRequest) SetPageNumber(v int64) *QueryReceiptsBaseInfoRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoRequest) SetPageSize(v int64) *QueryReceiptsBaseInfoRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoRequest) SetStartTime(v int64) *QueryReceiptsBaseInfoRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoRequest) SetTitle(v string) *QueryReceiptsBaseInfoRequest {
+	s.Title = &v
+	return s
+}
+
+type QueryReceiptsBaseInfoResponseBody struct {
+	// 是否还有数据
+	HasMore *string `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 分页数据
+	List []*QueryReceiptsBaseInfoResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// 总数
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryReceiptsBaseInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptsBaseInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptsBaseInfoResponseBody) SetHasMore(v string) *QueryReceiptsBaseInfoResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBody) SetList(v []*QueryReceiptsBaseInfoResponseBodyList) *QueryReceiptsBaseInfoResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBody) SetTotalCount(v int64) *QueryReceiptsBaseInfoResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryReceiptsBaseInfoResponseBodyList struct {
+	// 应用id
+	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	// 主数据
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 主数据modelID
+	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	// 来源
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+}
+
+func (s QueryReceiptsBaseInfoResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptsBaseInfoResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetAppId(v string) *QueryReceiptsBaseInfoResponseBodyList {
+	s.AppId = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetData(v string) *QueryReceiptsBaseInfoResponseBodyList {
+	s.Data = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetModelId(v string) *QueryReceiptsBaseInfoResponseBodyList {
+	s.ModelId = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetSource(v string) *QueryReceiptsBaseInfoResponseBodyList {
+	s.Source = &v
+	return s
+}
+
+type QueryReceiptsBaseInfoResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryReceiptsBaseInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryReceiptsBaseInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptsBaseInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptsBaseInfoResponse) SetHeaders(v map[string]*string) *QueryReceiptsBaseInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponse) SetBody(v *QueryReceiptsBaseInfoResponseBody) *QueryReceiptsBaseInfoResponse {
 	s.Body = v
 	return s
 }
@@ -4786,6 +4998,101 @@ func (s *QuerySupplierByPageResponse) SetHeaders(v map[string]*string) *QuerySup
 }
 
 func (s *QuerySupplierByPageResponse) SetBody(v *QuerySupplierByPageResponseBody) *QuerySupplierByPageResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateFinanceCompanyInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateFinanceCompanyInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFinanceCompanyInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFinanceCompanyInfoHeaders) SetCommonHeaders(v map[string]*string) *UpdateFinanceCompanyInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateFinanceCompanyInfoHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateFinanceCompanyInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateFinanceCompanyInfoRequest struct {
+	// 公司名字
+	CompanyName *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
+	// 纳税性质 小规模纳税人 一般纳税人
+	TaxNature *string `json:"taxNature,omitempty" xml:"taxNature,omitempty"`
+	// 税号
+	TaxNo *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+}
+
+func (s UpdateFinanceCompanyInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFinanceCompanyInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFinanceCompanyInfoRequest) SetCompanyName(v string) *UpdateFinanceCompanyInfoRequest {
+	s.CompanyName = &v
+	return s
+}
+
+func (s *UpdateFinanceCompanyInfoRequest) SetTaxNature(v string) *UpdateFinanceCompanyInfoRequest {
+	s.TaxNature = &v
+	return s
+}
+
+func (s *UpdateFinanceCompanyInfoRequest) SetTaxNo(v string) *UpdateFinanceCompanyInfoRequest {
+	s.TaxNo = &v
+	return s
+}
+
+type UpdateFinanceCompanyInfoResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateFinanceCompanyInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFinanceCompanyInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFinanceCompanyInfoResponseBody) SetResult(v bool) *UpdateFinanceCompanyInfoResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateFinanceCompanyInfoResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateFinanceCompanyInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateFinanceCompanyInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFinanceCompanyInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFinanceCompanyInfoResponse) SetHeaders(v map[string]*string) *UpdateFinanceCompanyInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateFinanceCompanyInfoResponse) SetBody(v *UpdateFinanceCompanyInfoResponseBody) *UpdateFinanceCompanyInfoResponse {
 	s.Body = v
 	return s
 }
@@ -9122,6 +9429,40 @@ func (client *Client) QueryEnterpriseAccountByPageWithOptions(request *QueryEnte
 	return _result, _err
 }
 
+func (client *Client) QueryFinanceCompanyInfo() (_result *QueryFinanceCompanyInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryFinanceCompanyInfoHeaders{}
+	_result = &QueryFinanceCompanyInfoResponse{}
+	_body, _err := client.QueryFinanceCompanyInfoWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryFinanceCompanyInfoWithOptions(headers *QueryFinanceCompanyInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryFinanceCompanyInfoResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &QueryFinanceCompanyInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryFinanceCompanyInfo"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/companies"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryInvoiceRelationCount() (_result *QueryInvoiceRelationCountResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryInvoiceRelationCountHeaders{}
@@ -9310,12 +9651,12 @@ func (client *Client) QueryReceiptForInvoiceWithOptions(request *QueryReceiptFor
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
-		body["endTime"] = request.EndTime
+	if !tea.BoolValue(util.IsUnset(request.ApplyStatusList)) {
+		body["applyStatusList"] = request.ApplyStatusList
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.InvoiceFilter))) {
-		body["invoiceFilter"] = request.InvoiceFilter
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
@@ -9326,8 +9667,8 @@ func (client *Client) QueryReceiptForInvoiceWithOptions(request *QueryReceiptFor
 		body["pageSize"] = request.PageSize
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ReceiptStatus)) {
-		body["receiptStatus"] = request.ReceiptStatus
+	if !tea.BoolValue(util.IsUnset(request.ReceiptStatusList)) {
+		body["receiptStatusList"] = request.ReceiptStatusList
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
@@ -9353,6 +9694,66 @@ func (client *Client) QueryReceiptForInvoiceWithOptions(request *QueryReceiptFor
 	}
 	_result = &QueryReceiptForInvoiceResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryReceiptForInvoice"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/receipts/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryReceiptsBaseInfo(request *QueryReceiptsBaseInfoRequest) (_result *QueryReceiptsBaseInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryReceiptsBaseInfoHeaders{}
+	_result = &QueryReceiptsBaseInfoResponse{}
+	_body, _err := client.QueryReceiptsBaseInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryReceiptsBaseInfoWithOptions(request *QueryReceiptsBaseInfoRequest, headers *QueryReceiptsBaseInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryReceiptsBaseInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		query["title"] = request.Title
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryReceiptsBaseInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryReceiptsBaseInfo"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/receipts/dataInfos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9465,6 +9866,58 @@ func (client *Client) QuerySupplierByPageWithOptions(request *QuerySupplierByPag
 	}
 	_result = &QuerySupplierByPageResponse{}
 	_body, _err := client.DoROARequest(tea.String("QuerySupplierByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/suppliers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateFinanceCompanyInfo(request *UpdateFinanceCompanyInfoRequest) (_result *UpdateFinanceCompanyInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateFinanceCompanyInfoHeaders{}
+	_result = &UpdateFinanceCompanyInfoResponse{}
+	_body, _err := client.UpdateFinanceCompanyInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateFinanceCompanyInfoWithOptions(request *UpdateFinanceCompanyInfoRequest, headers *UpdateFinanceCompanyInfoHeaders, runtime *util.RuntimeOptions) (_result *UpdateFinanceCompanyInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CompanyName)) {
+		query["companyName"] = request.CompanyName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaxNature)) {
+		query["taxNature"] = request.TaxNature
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaxNo)) {
+		query["taxNo"] = request.TaxNo
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &UpdateFinanceCompanyInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateFinanceCompanyInfo"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/companies"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
