@@ -91,7 +91,9 @@ type BatchAddInvoiceRequestGeneralInvoiceVOList struct {
 	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
 	// 购方地址
 	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
-	// 购方银行
+	// 购方银行账户
+	PurchaserBankAccount *string `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
+	// 购方银行名称
 	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
 	// 购方名称
 	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
@@ -104,7 +106,9 @@ type BatchAddInvoiceRequestGeneralInvoiceVOList struct {
 	SecondHandCarInvoiceDetailList []*BatchAddInvoiceRequestGeneralInvoiceVOListSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
 	// 销方地址
 	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
-	// 销方银行
+	// 销方银行账户
+	SellerBankAccount *string `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
+	// 销方银行名称
 	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
 	// 销方名称
 	SellerName *string `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
@@ -231,6 +235,11 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetPurchaserAddress(v strin
 	return s
 }
 
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetPurchaserBankAccount(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.PurchaserBankAccount = &v
+	return s
+}
+
 func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetPurchaserBankNameAccount(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
 	s.PurchaserBankNameAccount = &v
 	return s
@@ -263,6 +272,11 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetSecondHandCarInvoiceDeta
 
 func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetSellerAddress(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
 	s.SellerAddress = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetSellerBankAccount(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.SellerBankAccount = &v
 	return s
 }
 
@@ -343,6 +357,8 @@ type BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList struct
 	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
 	// 是否享受税收优惠：0-不享受，1-享受
 	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	// 优惠政策类型
+	TaxPreType *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
 	// 税率
 	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
 	// 单位
@@ -396,6 +412,11 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList) S
 
 func (s *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList) SetTaxPre(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList {
 	s.TaxPre = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList) SetTaxPreType(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList {
+	s.TaxPreType = &v
 	return s
 }
 
@@ -629,6 +650,8 @@ type BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVOList struct {
 	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
 	// 进口证书号
 	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
+	// 商检单号
+	InspectionListNo *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
 	// 限乘人数
 	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
 	// 产地
@@ -679,6 +702,11 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVOList) SetI
 
 func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVOList) SetImportCertificateNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVOList {
 	s.ImportCertificateNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVOList) SetInspectionListNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVOList {
+	s.InspectionListNo = &v
 	return s
 }
 

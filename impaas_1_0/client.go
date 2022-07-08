@@ -442,6 +442,133 @@ func (s *CreateGroupResponse) SetBody(v *CreateGroupResponseBody) *CreateGroupRe
 	return s
 }
 
+type CreateTrustGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	OperationSource         *string            `json:"operationSource,omitempty" xml:"operationSource,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateTrustGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTrustGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTrustGroupHeaders) SetCommonHeaders(v map[string]*string) *CreateTrustGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateTrustGroupHeaders) SetOperationSource(v string) *CreateTrustGroupHeaders {
+	s.OperationSource = &v
+	return s
+}
+
+func (s *CreateTrustGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTrustGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateTrustGroupRequest struct {
+	// MPASS渠道编码
+	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
+	// 素材ID
+	IconMediaId *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
+	// 群名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 其他扩展参数
+	Properties map[string]*string `json:"properties,omitempty" xml:"properties,omitempty"`
+	// 外部系统映射唯一标识
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s CreateTrustGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTrustGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTrustGroupRequest) SetChannel(v string) *CreateTrustGroupRequest {
+	s.Channel = &v
+	return s
+}
+
+func (s *CreateTrustGroupRequest) SetIconMediaId(v string) *CreateTrustGroupRequest {
+	s.IconMediaId = &v
+	return s
+}
+
+func (s *CreateTrustGroupRequest) SetName(v string) *CreateTrustGroupRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateTrustGroupRequest) SetProperties(v map[string]*string) *CreateTrustGroupRequest {
+	s.Properties = v
+	return s
+}
+
+func (s *CreateTrustGroupRequest) SetUuid(v string) *CreateTrustGroupRequest {
+	s.Uuid = &v
+	return s
+}
+
+type CreateTrustGroupResponseBody struct {
+	ChatId             *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	CreateTime         *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s CreateTrustGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTrustGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTrustGroupResponseBody) SetChatId(v string) *CreateTrustGroupResponseBody {
+	s.ChatId = &v
+	return s
+}
+
+func (s *CreateTrustGroupResponseBody) SetCreateTime(v int64) *CreateTrustGroupResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *CreateTrustGroupResponseBody) SetOpenConversationId(v string) *CreateTrustGroupResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+type CreateTrustGroupResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateTrustGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateTrustGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTrustGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTrustGroupResponse) SetHeaders(v map[string]*string) *CreateTrustGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateTrustGroupResponse) SetBody(v *CreateTrustGroupResponseBody) *CreateTrustGroupResponse {
+	s.Body = v
+	return s
+}
+
 type DismissGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	OperationSource         *string            `json:"operationSource,omitempty" xml:"operationSource,omitempty"`
@@ -1675,6 +1802,70 @@ func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, header
 	}
 	_result = &CreateGroupResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateGroup"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateTrustGroup(request *CreateTrustGroupRequest) (_result *CreateTrustGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateTrustGroupHeaders{}
+	_result = &CreateTrustGroupResponse{}
+	_body, _err := client.CreateTrustGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateTrustGroupWithOptions(request *CreateTrustGroupRequest, headers *CreateTrustGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateTrustGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Channel)) {
+		body["channel"] = request.Channel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IconMediaId)) {
+		body["iconMediaId"] = request.IconMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Properties)) {
+		body["properties"] = request.Properties
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		body["uuid"] = request.Uuid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.OperationSource)) {
+		realHeaders["operationSource"] = util.ToJSONString(headers.OperationSource)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateTrustGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateTrustGroup"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups/trusts"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

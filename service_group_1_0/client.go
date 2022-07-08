@@ -51,6 +51,8 @@ type AddKnowledgeRequest struct {
 	LinkUrl *string `json:"linkUrl,omitempty" xml:"linkUrl,omitempty"`
 	// 开放团队ID
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 关联问题id
+	QuestionIds []*int64 `json:"questionIds,omitempty" xml:"questionIds,omitempty" type:"Repeated"`
 	// 知识点来源
 	Source *string `json:"source,omitempty" xml:"source,omitempty"`
 	// 知识点唯一标识
@@ -113,6 +115,11 @@ func (s *AddKnowledgeRequest) SetLinkUrl(v string) *AddKnowledgeRequest {
 
 func (s *AddKnowledgeRequest) SetOpenTeamId(v string) *AddKnowledgeRequest {
 	s.OpenTeamId = &v
+	return s
+}
+
+func (s *AddKnowledgeRequest) SetQuestionIds(v []*int64) *AddKnowledgeRequest {
+	s.QuestionIds = v
 	return s
 }
 
@@ -10524,6 +10531,10 @@ func (client *Client) AddKnowledgeWithOptions(request *AddKnowledgeRequest, head
 
 	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
 		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QuestionIds)) {
+		body["questionIds"] = request.QuestionIds
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Source)) {

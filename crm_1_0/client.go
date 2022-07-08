@@ -8017,7 +8017,6 @@ type ListCrmPersonalCustomersResponseBodyResult struct {
 	GmtModified    *string                                               `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
 	InstanceId     *string                                               `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
 	ObjectType     *string                                               `json:"objectType,omitempty" xml:"objectType,omitempty"`
-	OrgId          *int64                                                `json:"orgId,omitempty" xml:"orgId,omitempty"`
 	Permission     *ListCrmPersonalCustomersResponseBodyResultPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
 	ProcInstStatus *string                                               `json:"procInstStatus,omitempty" xml:"procInstStatus,omitempty"`
 	ProcOutResult  *string                                               `json:"procOutResult,omitempty" xml:"procOutResult,omitempty"`
@@ -8078,11 +8077,6 @@ func (s *ListCrmPersonalCustomersResponseBodyResult) SetInstanceId(v string) *Li
 
 func (s *ListCrmPersonalCustomersResponseBodyResult) SetObjectType(v string) *ListCrmPersonalCustomersResponseBodyResult {
 	s.ObjectType = &v
-	return s
-}
-
-func (s *ListCrmPersonalCustomersResponseBodyResult) SetOrgId(v int64) *ListCrmPersonalCustomersResponseBodyResult {
-	s.OrgId = &v
 	return s
 }
 
@@ -8573,8 +8567,6 @@ type QueryAllCustomerResponseBodyResultValues struct {
 	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
 	// 数据类型
 	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
-	// 系统自动生成
-	OrgId *int64 `json:"orgId,omitempty" xml:"orgId,omitempty"`
 	// 数据权限信息
 	Permission *QueryAllCustomerResponseBodyResultValuesPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
 	// 审批状态
@@ -8628,11 +8620,6 @@ func (s *QueryAllCustomerResponseBodyResultValues) SetModifyTime(v string) *Quer
 
 func (s *QueryAllCustomerResponseBodyResultValues) SetObjectType(v string) *QueryAllCustomerResponseBodyResultValues {
 	s.ObjectType = &v
-	return s
-}
-
-func (s *QueryAllCustomerResponseBodyResultValues) SetOrgId(v int64) *QueryAllCustomerResponseBodyResultValues {
-	s.OrgId = &v
 	return s
 }
 

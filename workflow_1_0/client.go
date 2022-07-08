@@ -2895,7 +2895,7 @@ func (s *QuerySchemaByProcessCodeResponseBodyResult) SetVisibleRange(v string) *
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContent struct {
 	// 图标
 	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	// 控件列表。
+	// 控件列表
 	Items []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
 	// 表单名称。
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
@@ -2925,6 +2925,8 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContent) SetTitle(v str
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems struct {
+	// 子控件列表
+	Children []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
 	// 控件类型，取值：
 	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
 	// 控件属性。
@@ -2939,6 +2941,11 @@ func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems) GoString()
 	return s.String()
 }
 
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems) SetChildren(v []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems {
+	s.Children = v
+	return s
+}
+
 func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems) SetComponentName(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems {
 	s.ComponentName = &v
 	return s
@@ -2946,6 +2953,70 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems) SetCompon
 
 func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems) SetProps(v *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems {
 	s.Props = v
+	return s
+}
+
+type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren struct {
+	// 控件类型
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// 子控件属性
+	Props *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren) SetComponentName(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren) SetProps(v *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren {
+	s.Props = v
+	return s
+}
+
+type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps struct {
+	// 控件业务别名
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 控件id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 控件名称
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// 是否必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps) SetBizAlias(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps) SetId(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps {
+	s.Id = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps) SetLabel(v string) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps {
+	s.Label = &v
+	return s
+}
+
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps) SetRequired(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps {
+	s.Required = &v
 	return s
 }
 
