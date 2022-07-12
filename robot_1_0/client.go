@@ -930,6 +930,125 @@ func (s *SendRobotDingMessageResponse) SetBody(v *SendRobotDingMessageResponseBo
 	return s
 }
 
+type UpdateInstalledRobotHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateInstalledRobotHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInstalledRobotHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInstalledRobotHeaders) SetCommonHeaders(v map[string]*string) *UpdateInstalledRobotHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateInstalledRobotHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateInstalledRobotHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateInstalledRobotRequest struct {
+	// 机器人的简要描述。
+	Brief *string `json:"brief,omitempty" xml:"brief,omitempty"`
+	// 机器人的详细描述。
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 机器人图标的mediaId。
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 机器人的名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 机器人的robotCode。
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// 更新名字或头像时是否更新群里已添加机器人的名字或头像。
+	// 0-不更新群里机器人名字或头像
+	// 1-更新群里机器人名字或头像
+	UpdateType *int32 `json:"updateType,omitempty" xml:"updateType,omitempty"`
+}
+
+func (s UpdateInstalledRobotRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInstalledRobotRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInstalledRobotRequest) SetBrief(v string) *UpdateInstalledRobotRequest {
+	s.Brief = &v
+	return s
+}
+
+func (s *UpdateInstalledRobotRequest) SetDescription(v string) *UpdateInstalledRobotRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *UpdateInstalledRobotRequest) SetIcon(v string) *UpdateInstalledRobotRequest {
+	s.Icon = &v
+	return s
+}
+
+func (s *UpdateInstalledRobotRequest) SetName(v string) *UpdateInstalledRobotRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateInstalledRobotRequest) SetRobotCode(v string) *UpdateInstalledRobotRequest {
+	s.RobotCode = &v
+	return s
+}
+
+func (s *UpdateInstalledRobotRequest) SetUpdateType(v int32) *UpdateInstalledRobotRequest {
+	s.UpdateType = &v
+	return s
+}
+
+type UpdateInstalledRobotResponseBody struct {
+	// 本次更新操作是否成功。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateInstalledRobotResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInstalledRobotResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInstalledRobotResponseBody) SetSuccess(v bool) *UpdateInstalledRobotResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateInstalledRobotResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateInstalledRobotResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateInstalledRobotResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInstalledRobotResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInstalledRobotResponse) SetHeaders(v map[string]*string) *UpdateInstalledRobotResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateInstalledRobotResponse) SetBody(v *UpdateInstalledRobotResponseBody) *UpdateInstalledRobotResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -1390,6 +1509,70 @@ func (client *Client) SendRobotDingMessageWithOptions(request *SendRobotDingMess
 	}
 	_result = &SendRobotDingMessageResponse{}
 	_body, _err := client.DoROARequest(tea.String("SendRobotDingMessage"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/dingMessages/send"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateInstalledRobot(request *UpdateInstalledRobotRequest) (_result *UpdateInstalledRobotResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateInstalledRobotHeaders{}
+	_result = &UpdateInstalledRobotResponse{}
+	_body, _err := client.UpdateInstalledRobotWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateInstalledRobotWithOptions(request *UpdateInstalledRobotRequest, headers *UpdateInstalledRobotHeaders, runtime *util.RuntimeOptions) (_result *UpdateInstalledRobotResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Brief)) {
+		body["brief"] = request.Brief
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Icon)) {
+		body["icon"] = request.Icon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UpdateType)) {
+		body["updateType"] = request.UpdateType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateInstalledRobotResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateInstalledRobot"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/robot/managements/infos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -1095,6 +1095,8 @@ func (s *ListActivateDevicesHeaders) SetXAcsDingtalkAccessToken(v string) *ListA
 }
 
 type ListActivateDevicesRequest struct {
+	// 设备分类（0：设备，1 : 助手）
+	DeviceCategory *int32 `json:"deviceCategory,omitempty" xml:"deviceCategory,omitempty"`
 	// deviceCode
 	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
 	// deviceTypeId
@@ -1113,6 +1115,11 @@ func (s ListActivateDevicesRequest) String() string {
 
 func (s ListActivateDevicesRequest) GoString() string {
 	return s.String()
+}
+
+func (s *ListActivateDevicesRequest) SetDeviceCategory(v int32) *ListActivateDevicesRequest {
+	s.DeviceCategory = &v
+	return s
 }
 
 func (s *ListActivateDevicesRequest) SetDeviceCode(v string) *ListActivateDevicesRequest {
@@ -1172,6 +1179,7 @@ func (s *ListActivateDevicesResponseBody) SetTotalCount(v int64) *ListActivateDe
 type ListActivateDevicesResponseBodyResult struct {
 	BizExt            *string `json:"bizExt,omitempty" xml:"bizExt,omitempty"`
 	DeviceCallbackUrl *string `json:"deviceCallbackUrl,omitempty" xml:"deviceCallbackUrl,omitempty"`
+	DeviceCategory    *int32  `json:"deviceCategory,omitempty" xml:"deviceCategory,omitempty"`
 	DeviceCode        *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
 	DeviceDetailUrl   *string `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
 	DeviceName        *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
@@ -1197,6 +1205,11 @@ func (s *ListActivateDevicesResponseBodyResult) SetBizExt(v string) *ListActivat
 
 func (s *ListActivateDevicesResponseBodyResult) SetDeviceCallbackUrl(v string) *ListActivateDevicesResponseBodyResult {
 	s.DeviceCallbackUrl = &v
+	return s
+}
+
+func (s *ListActivateDevicesResponseBodyResult) SetDeviceCategory(v int32) *ListActivateDevicesResponseBodyResult {
+	s.DeviceCategory = &v
 	return s
 }
 
@@ -1489,14 +1502,16 @@ func (s *RegisterAndActivateDeviceHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type RegisterAndActivateDeviceRequest struct {
-	DeviceCallbackUrl *string   `json:"deviceCallbackUrl,omitempty" xml:"deviceCallbackUrl,omitempty"`
-	DeviceCode        *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
-	DeviceDetailUrl   *string   `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
-	DeviceName        *string   `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	Introduction      *string   `json:"introduction,omitempty" xml:"introduction,omitempty"`
-	RoleUuid          *string   `json:"roleUuid,omitempty" xml:"roleUuid,omitempty"`
-	TypeUuid          *string   `json:"typeUuid,omitempty" xml:"typeUuid,omitempty"`
-	UserIds           []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	DeviceCallbackUrl *string `json:"deviceCallbackUrl,omitempty" xml:"deviceCallbackUrl,omitempty"`
+	// 设备分类（0：设备，1 : 助手）
+	DeviceCategory  *int32    `json:"deviceCategory,omitempty" xml:"deviceCategory,omitempty"`
+	DeviceCode      *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	DeviceDetailUrl *string   `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
+	DeviceName      *string   `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	Introduction    *string   `json:"introduction,omitempty" xml:"introduction,omitempty"`
+	RoleUuid        *string   `json:"roleUuid,omitempty" xml:"roleUuid,omitempty"`
+	TypeUuid        *string   `json:"typeUuid,omitempty" xml:"typeUuid,omitempty"`
+	UserIds         []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s RegisterAndActivateDeviceRequest) String() string {
@@ -1509,6 +1524,11 @@ func (s RegisterAndActivateDeviceRequest) GoString() string {
 
 func (s *RegisterAndActivateDeviceRequest) SetDeviceCallbackUrl(v string) *RegisterAndActivateDeviceRequest {
 	s.DeviceCallbackUrl = &v
+	return s
+}
+
+func (s *RegisterAndActivateDeviceRequest) SetDeviceCategory(v int32) *RegisterAndActivateDeviceRequest {
+	s.DeviceCategory = &v
 	return s
 }
 
@@ -1572,6 +1592,7 @@ func (s *RegisterAndActivateDeviceResponseBody) SetSuccess(v bool) *RegisterAndA
 }
 
 type RegisterAndActivateDeviceResponseBodyResult struct {
+	DeviceCategory  *int32    `json:"deviceCategory,omitempty" xml:"deviceCategory,omitempty"`
 	DeviceCode      *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
 	DeviceDetailUrl *string   `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
 	DeviceName      *string   `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
@@ -1588,6 +1609,11 @@ func (s RegisterAndActivateDeviceResponseBodyResult) String() string {
 
 func (s RegisterAndActivateDeviceResponseBodyResult) GoString() string {
 	return s.String()
+}
+
+func (s *RegisterAndActivateDeviceResponseBodyResult) SetDeviceCategory(v int32) *RegisterAndActivateDeviceResponseBodyResult {
+	s.DeviceCategory = &v
+	return s
 }
 
 func (s *RegisterAndActivateDeviceResponseBodyResult) SetDeviceCode(v string) *RegisterAndActivateDeviceResponseBodyResult {
@@ -1694,15 +1720,17 @@ func (s *RegisterAndActivateDeviceBatchRequest) SetRegisterAndActivateVOS(v []*R
 }
 
 type RegisterAndActivateDeviceBatchRequestRegisterAndActivateVOS struct {
-	DeviceCallbackUrl *string   `json:"deviceCallbackUrl,omitempty" xml:"deviceCallbackUrl,omitempty"`
-	DeviceCode        *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
-	DeviceDetailUrl   *string   `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
-	DeviceName        *string   `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	GroupUuid         *string   `json:"groupUuid,omitempty" xml:"groupUuid,omitempty"`
-	Introduction      *string   `json:"introduction,omitempty" xml:"introduction,omitempty"`
-	RoleUuid          *string   `json:"roleUuid,omitempty" xml:"roleUuid,omitempty"`
-	TypeUuid          *string   `json:"typeUuid,omitempty" xml:"typeUuid,omitempty"`
-	UserIds           []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	DeviceCallbackUrl *string `json:"deviceCallbackUrl,omitempty" xml:"deviceCallbackUrl,omitempty"`
+	// 设备分类（0：设备，1 : 助手）
+	DeviceCategory  *int32    `json:"deviceCategory,omitempty" xml:"deviceCategory,omitempty"`
+	DeviceCode      *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	DeviceDetailUrl *string   `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
+	DeviceName      *string   `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	GroupUuid       *string   `json:"groupUuid,omitempty" xml:"groupUuid,omitempty"`
+	Introduction    *string   `json:"introduction,omitempty" xml:"introduction,omitempty"`
+	RoleUuid        *string   `json:"roleUuid,omitempty" xml:"roleUuid,omitempty"`
+	TypeUuid        *string   `json:"typeUuid,omitempty" xml:"typeUuid,omitempty"`
+	UserIds         []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s RegisterAndActivateDeviceBatchRequestRegisterAndActivateVOS) String() string {
@@ -1715,6 +1743,11 @@ func (s RegisterAndActivateDeviceBatchRequestRegisterAndActivateVOS) GoString() 
 
 func (s *RegisterAndActivateDeviceBatchRequestRegisterAndActivateVOS) SetDeviceCallbackUrl(v string) *RegisterAndActivateDeviceBatchRequestRegisterAndActivateVOS {
 	s.DeviceCallbackUrl = &v
+	return s
+}
+
+func (s *RegisterAndActivateDeviceBatchRequestRegisterAndActivateVOS) SetDeviceCategory(v int32) *RegisterAndActivateDeviceBatchRequestRegisterAndActivateVOS {
+	s.DeviceCategory = &v
 	return s
 }
 
@@ -1824,6 +1857,7 @@ func (s *RegisterAndActivateDeviceBatchResponseBodyFailItems) SetSuccess(v bool)
 
 type RegisterAndActivateDeviceBatchResponseBodyFailItemsResult struct {
 	DeviceCallbackUrl *string   `json:"deviceCallbackUrl,omitempty" xml:"deviceCallbackUrl,omitempty"`
+	DeviceCategory    *int32    `json:"deviceCategory,omitempty" xml:"deviceCategory,omitempty"`
 	DeviceCode        *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
 	DeviceDetailUrl   *string   `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
 	DeviceName        *string   `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
@@ -1847,6 +1881,11 @@ func (s RegisterAndActivateDeviceBatchResponseBodyFailItemsResult) GoString() st
 
 func (s *RegisterAndActivateDeviceBatchResponseBodyFailItemsResult) SetDeviceCallbackUrl(v string) *RegisterAndActivateDeviceBatchResponseBodyFailItemsResult {
 	s.DeviceCallbackUrl = &v
+	return s
+}
+
+func (s *RegisterAndActivateDeviceBatchResponseBodyFailItemsResult) SetDeviceCategory(v int32) *RegisterAndActivateDeviceBatchResponseBodyFailItemsResult {
+	s.DeviceCategory = &v
 	return s
 }
 
@@ -1942,6 +1981,7 @@ func (s *RegisterAndActivateDeviceBatchResponseBodySuccessItems) SetSuccess(v bo
 
 type RegisterAndActivateDeviceBatchResponseBodySuccessItemsResult struct {
 	DeviceCallbackUrl *string   `json:"deviceCallbackUrl,omitempty" xml:"deviceCallbackUrl,omitempty"`
+	DeviceCategory    *int32    `json:"deviceCategory,omitempty" xml:"deviceCategory,omitempty"`
 	DeviceCode        *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
 	DeviceDetailUrl   *string   `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
 	DeviceName        *string   `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
@@ -1965,6 +2005,11 @@ func (s RegisterAndActivateDeviceBatchResponseBodySuccessItemsResult) GoString()
 
 func (s *RegisterAndActivateDeviceBatchResponseBodySuccessItemsResult) SetDeviceCallbackUrl(v string) *RegisterAndActivateDeviceBatchResponseBodySuccessItemsResult {
 	s.DeviceCallbackUrl = &v
+	return s
+}
+
+func (s *RegisterAndActivateDeviceBatchResponseBodySuccessItemsResult) SetDeviceCategory(v int32) *RegisterAndActivateDeviceBatchResponseBodySuccessItemsResult {
+	s.DeviceCategory = &v
 	return s
 }
 
@@ -3453,6 +3498,10 @@ func (client *Client) ListActivateDevicesWithOptions(request *ListActivateDevice
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceCategory)) {
+		query["deviceCategory"] = request.DeviceCategory
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.DeviceCode)) {
 		query["deviceCode"] = request.DeviceCode
 	}
@@ -3619,6 +3668,10 @@ func (client *Client) RegisterAndActivateDeviceWithOptions(request *RegisterAndA
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DeviceCallbackUrl)) {
 		body["deviceCallbackUrl"] = request.DeviceCallbackUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceCategory)) {
+		body["deviceCategory"] = request.DeviceCategory
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.DeviceCode)) {
