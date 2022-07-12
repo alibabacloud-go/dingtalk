@@ -5060,6 +5060,8 @@ type UpdateFinanceCompanyInfoRequest struct {
 	TaxNature *string `json:"taxNature,omitempty" xml:"taxNature,omitempty"`
 	// 税号
 	TaxNo *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+	// 用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateFinanceCompanyInfoRequest) String() string {
@@ -5082,6 +5084,11 @@ func (s *UpdateFinanceCompanyInfoRequest) SetTaxNature(v string) *UpdateFinanceC
 
 func (s *UpdateFinanceCompanyInfoRequest) SetTaxNo(v string) *UpdateFinanceCompanyInfoRequest {
 	s.TaxNo = &v
+	return s
+}
+
+func (s *UpdateFinanceCompanyInfoRequest) SetUserId(v string) *UpdateFinanceCompanyInfoRequest {
+	s.UserId = &v
 	return s
 }
 
@@ -5233,7 +5240,9 @@ type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO struct {
 	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
 	// 购方地址
 	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
-	// 购方银行
+	// 购方银行账户
+	PurchaserBankAccount *string `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
+	// 购方银行名称
 	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
 	// 购方名称
 	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
@@ -5246,6 +5255,8 @@ type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO struct {
 	SecondHandCarInvoiceDetailList []*UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
 	// 销方地址
 	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
+	// 销方银行账户
+	SellerBankAccount *string `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
 	// 销方银行
 	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
 	// 销方名称
@@ -5373,6 +5384,11 @@ func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetPurchaserAddr
 	return s
 }
 
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetPurchaserBankAccount(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.PurchaserBankAccount = &v
+	return s
+}
+
 func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetPurchaserBankNameAccount(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
 	s.PurchaserBankNameAccount = &v
 	return s
@@ -5405,6 +5421,11 @@ func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetSecondHandCar
 
 func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetSellerAddress(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
 	s.SellerAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetSellerBankAccount(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.SellerBankAccount = &v
 	return s
 }
 
@@ -5485,6 +5506,8 @@ type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO
 	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
 	// 是否享受税收优惠：0-不享受，1-享受
 	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	// 优惠政策类型
+	TaxPreType *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
 	// 税率
 	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
 	// 单位
@@ -5538,6 +5561,11 @@ func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDeta
 
 func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVOList) SetTaxPre(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVOList {
 	s.TaxPre = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVOList) SetTaxPreType(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.TaxPreType = &v
 	return s
 }
 
@@ -5771,6 +5799,7 @@ type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVOLis
 	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
 	// 进口证书号
 	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
+	InspectionListNo    *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
 	// 限乘人数
 	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
 	// 产地
@@ -5821,6 +5850,11 @@ func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailV
 
 func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVOList) SetImportCertificateNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVOList {
 	s.ImportCertificateNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVOList) SetInspectionListNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOVehicleSaleDetailVOList {
+	s.InspectionListNo = &v
 	return s
 }
 
@@ -5908,6 +5942,8 @@ type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO struct {
 	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
 	// 购方地址
 	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	// 购方银行账户
+	PurchaserBankAccount *string `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
 	// 购方银行
 	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
 	// 购方名称
@@ -5921,6 +5957,8 @@ type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO struct {
 	SecondHandCarInvoiceDetailList []*UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
 	// 销方地址
 	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
+	// 购方银行账户
+	SellerBankAccount *string `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
 	// 销方银行
 	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
 	// 销方名称
@@ -6048,6 +6086,11 @@ func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetPurchaserAddre
 	return s
 }
 
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetPurchaserBankAccount(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.PurchaserBankAccount = &v
+	return s
+}
+
 func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetPurchaserBankNameAccount(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
 	s.PurchaserBankNameAccount = &v
 	return s
@@ -6080,6 +6123,11 @@ func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetSecondHandCarI
 
 func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetSellerAddress(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
 	s.SellerAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetSellerBankAccount(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.SellerBankAccount = &v
 	return s
 }
 
@@ -6160,6 +6208,8 @@ type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOL
 	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
 	// 是否享受税收优惠：0-不享受，1-享受
 	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	// 优惠政策类型
+	TaxPreType *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
 	// 税率
 	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
 	// 单位
@@ -6213,6 +6263,11 @@ func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetai
 
 func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) SetTaxPre(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList {
 	s.TaxPre = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) SetTaxPreType(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.TaxPreType = &v
 	return s
 }
 
@@ -6446,6 +6501,8 @@ type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVOList
 	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
 	// 进口证书号
 	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
+	// 商检单号
+	InspectionListNo *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
 	// 限乘人数
 	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
 	// 产地
@@ -6496,6 +6553,11 @@ func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVO
 
 func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVOList) SetImportCertificateNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVOList {
 	s.ImportCertificateNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVOList) SetInspectionListNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOVehicleSaleDetailVOList {
+	s.InspectionListNo = &v
 	return s
 }
 
@@ -9929,6 +9991,10 @@ func (client *Client) UpdateFinanceCompanyInfoWithOptions(request *UpdateFinance
 
 	if !tea.BoolValue(util.IsUnset(request.TaxNo)) {
 		query["taxNo"] = request.TaxNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
 	}
 
 	realHeaders := make(map[string]*string)

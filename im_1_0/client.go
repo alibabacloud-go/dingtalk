@@ -3941,6 +3941,184 @@ func (s *TopboxOpenResponse) SetHeaders(v map[string]*string) *TopboxOpenRespons
 	return s
 }
 
+type UpdateGroupAvatarHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateGroupAvatarHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupAvatarHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupAvatarHeaders) SetCommonHeaders(v map[string]*string) *UpdateGroupAvatarHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateGroupAvatarHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateGroupAvatarHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateGroupAvatarRequest struct {
+	// 群头像地址
+	GroupAvatar *string `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
+	// 群会话id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s UpdateGroupAvatarRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupAvatarRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupAvatarRequest) SetGroupAvatar(v string) *UpdateGroupAvatarRequest {
+	s.GroupAvatar = &v
+	return s
+}
+
+func (s *UpdateGroupAvatarRequest) SetOpenConversationId(v string) *UpdateGroupAvatarRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type UpdateGroupAvatarResponseBody struct {
+	// 新头像
+	NewGroupAvatar *string `json:"newGroupAvatar,omitempty" xml:"newGroupAvatar,omitempty"`
+}
+
+func (s UpdateGroupAvatarResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupAvatarResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupAvatarResponseBody) SetNewGroupAvatar(v string) *UpdateGroupAvatarResponseBody {
+	s.NewGroupAvatar = &v
+	return s
+}
+
+type UpdateGroupAvatarResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateGroupAvatarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateGroupAvatarResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupAvatarResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupAvatarResponse) SetHeaders(v map[string]*string) *UpdateGroupAvatarResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateGroupAvatarResponse) SetBody(v *UpdateGroupAvatarResponseBody) *UpdateGroupAvatarResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateGroupNameHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateGroupNameHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupNameHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupNameHeaders) SetCommonHeaders(v map[string]*string) *UpdateGroupNameHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateGroupNameHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateGroupNameHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateGroupNameRequest struct {
+	// 群名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 群会话id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s UpdateGroupNameRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupNameRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupNameRequest) SetGroupName(v string) *UpdateGroupNameRequest {
+	s.GroupName = &v
+	return s
+}
+
+func (s *UpdateGroupNameRequest) SetOpenConversationId(v string) *UpdateGroupNameRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type UpdateGroupNameResponseBody struct {
+	// Id of the request
+	NewGroupName *string `json:"newGroupName,omitempty" xml:"newGroupName,omitempty"`
+}
+
+func (s UpdateGroupNameResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupNameResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupNameResponseBody) SetNewGroupName(v string) *UpdateGroupNameResponseBody {
+	s.NewGroupName = &v
+	return s
+}
+
+type UpdateGroupNameResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateGroupNameResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateGroupNameResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupNameResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupNameResponse) SetHeaders(v map[string]*string) *UpdateGroupNameResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateGroupNameResponse) SetBody(v *UpdateGroupNameResponseBody) *UpdateGroupNameResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateGroupPermissionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6901,6 +7079,102 @@ func (client *Client) TopboxOpenWithOptions(request *TopboxOpenRequest, headers 
 	}
 	_result = &TopboxOpenResponse{}
 	_body, _err := client.DoROARequest(tea.String("TopboxOpen"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/topBoxes/open"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateGroupAvatar(request *UpdateGroupAvatarRequest) (_result *UpdateGroupAvatarResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateGroupAvatarHeaders{}
+	_result = &UpdateGroupAvatarResponse{}
+	_body, _err := client.UpdateGroupAvatarWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateGroupAvatarWithOptions(request *UpdateGroupAvatarRequest, headers *UpdateGroupAvatarHeaders, runtime *util.RuntimeOptions) (_result *UpdateGroupAvatarResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupAvatar)) {
+		body["groupAvatar"] = request.GroupAvatar
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateGroupAvatarResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateGroupAvatar"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/interconnections/groups/avatars"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateGroupName(request *UpdateGroupNameRequest) (_result *UpdateGroupNameResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateGroupNameHeaders{}
+	_result = &UpdateGroupNameResponse{}
+	_body, _err := client.UpdateGroupNameWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateGroupNameWithOptions(request *UpdateGroupNameRequest, headers *UpdateGroupNameHeaders, runtime *util.RuntimeOptions) (_result *UpdateGroupNameResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
+		body["groupName"] = request.GroupName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateGroupNameResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateGroupName"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/interconnections/groups/names"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
