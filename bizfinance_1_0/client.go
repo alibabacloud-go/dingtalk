@@ -7570,7 +7570,9 @@ type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO struct {
 	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
 	// 购方地址
 	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
-	// 购方银行
+	// 购方银行账户
+	//
+	PurchaserBankAccount     *string `json:"purchaserBankAccount,omitempty" xml:"purchaserBankAccount,omitempty"`
 	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
 	// 购方名称
 	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
@@ -7583,7 +7585,8 @@ type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO struct {
 	SecondHandCarInvoiceDetailList []*UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
 	// 销方地址
 	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
-	// 销方银行
+	// 销方银行账户
+	SellerBankAccount     *string `json:"sellerBankAccount,omitempty" xml:"sellerBankAccount,omitempty"`
 	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
 	// 销方名称
 	SellerName *string `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
@@ -7710,6 +7713,11 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetPurchaserAddr
 	return s
 }
 
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetPurchaserBankAccount(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.PurchaserBankAccount = &v
+	return s
+}
+
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetPurchaserBankNameAccount(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.PurchaserBankNameAccount = &v
 	return s
@@ -7742,6 +7750,11 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSecondHandCar
 
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSellerAddress(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.SellerAddress = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSellerBankAccount(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.SellerBankAccount = &v
 	return s
 }
 
@@ -7822,6 +7835,8 @@ type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO
 	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
 	// 是否享受税收优惠：0-不享受，1-享受
 	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
+	// 优惠政策类型
+	TaxPreType *string `json:"taxPreType,omitempty" xml:"taxPreType,omitempty"`
 	// 税率
 	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
 	// 单位
@@ -7875,6 +7890,11 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDeta
 
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetTaxPre(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
 	s.TaxPre = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetTaxPreType(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.TaxPreType = &v
 	return s
 }
 
@@ -8108,6 +8128,8 @@ type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVOLis
 	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
 	// 进口证书号
 	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
+	// 商检单号
+	InspectionListNo *string `json:"inspectionListNo,omitempty" xml:"inspectionListNo,omitempty"`
 	// 限乘人数
 	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
 	// 产地
@@ -8158,6 +8180,11 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailV
 
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVOList) SetImportCertificateNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVOList {
 	s.ImportCertificateNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVOList) SetInspectionListNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOVehicleSaleDetailVOList {
+	s.InspectionListNo = &v
 	return s
 }
 
@@ -8270,14 +8297,8 @@ func (s *UpdateInvoiceIgnoreStatusHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type UpdateInvoiceIgnoreStatusRequest struct {
-	// 发票全票面信息
-	GeneralInvoiceVO *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO `json:"generalInvoiceVO,omitempty" xml:"generalInvoiceVO,omitempty" type:"Struct"`
-	// 发票编码
-	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	// 发票状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 审批单id
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
 }
 
 func (s UpdateInvoiceIgnoreStatusRequest) String() string {
@@ -8288,698 +8309,8 @@ func (s UpdateInvoiceIgnoreStatusRequest) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateInvoiceIgnoreStatusRequest) SetGeneralInvoiceVO(v *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) *UpdateInvoiceIgnoreStatusRequest {
-	s.GeneralInvoiceVO = v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequest) SetInvoiceCode(v string) *UpdateInvoiceIgnoreStatusRequest {
-	s.InvoiceCode = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequest) SetInvoiceNo(v string) *UpdateInvoiceIgnoreStatusRequest {
-	s.InvoiceNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequest) SetStatus(v string) *UpdateInvoiceIgnoreStatusRequest {
-	s.Status = &v
-	return s
-}
-
-type UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO struct {
-	// 账期时间
-	AccountPeriod *string `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
-	// 不含税金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 含税金额
-	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
-	// 校验码
-	CheckCode *string `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
-	// 查验时间
-	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
-	// 开票日期
-	DrewDate *string `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
-	// 电票版式文件下载地址
-	ElectronicUrl *string `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
-	// 财务类型，INPUT-VAT(进项),OUTPUT_VAT(销项)
-	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
-	// 资金类型 ，RED（红票），（BLUE）蓝票
-	FundType *string `json:"fundType,omitempty" xml:"fundType,omitempty"`
-	// 常规发票明细
-	GeneralInvoiceDetailVOList []*UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
-	// 发票代码
-	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 发票号码
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	// 发票类型
-	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
-	// 机器码
-	MachineCode *string `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
-	// 成品油标识
-	OilFlag *string `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
-	// 收款人
-	Payee *string `json:"payee,omitempty" xml:"payee,omitempty"`
-	// 审批单实例
-	ProcessInstCode *string `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
-	// 审批单类型
-	ProcessInstType *string `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
-	// 购方地址
-	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
-	// 购方银行
-	PurchaserBankNameAccount *string `json:"purchaserBankNameAccount,omitempty" xml:"purchaserBankNameAccount,omitempty"`
-	// 购方名称
-	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
-	// 购方税号
-	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
-	// 购方电话
-	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
-	// 备注
-	Remark                         *string                                                                           `json:"remark,omitempty" xml:"remark,omitempty"`
-	SecondHandCarInvoiceDetailList []*UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
-	// 销方地址
-	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
-	// 销方银行
-	SellerBankNameAccount *string `json:"sellerBankNameAccount,omitempty" xml:"sellerBankNameAccount,omitempty"`
-	// 销方名称
-	SellerName *string `json:"sellerName,omitempty" xml:"sellerName,omitempty"`
-	// 销方税号
-	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
-	// 销方电话
-	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
-	// 发票状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// 代开发票标识 1-自开，2-代开
-	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
-	// 税额
-	TaxAmount                   *string                                                                        `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	UsedVehicleSaleDetailVOList []*UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
-	VehicleSaleDetailVOList     []*UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList     `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
-	// 发票查验状态
-	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
-	// 凭证code
-	VoucherCode *string `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
-	// 生成凭证状态
-	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
-}
-
-func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetAccountPeriod(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.AccountPeriod = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetAmount(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.Amount = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetAmountWithTax(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.AmountWithTax = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetCheckCode(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.CheckCode = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetCheckTime(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.CheckTime = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetDrewDate(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.DrewDate = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetElectronicUrl(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.ElectronicUrl = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetFinanceType(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.FinanceType = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetFundType(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.FundType = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetGeneralInvoiceDetailVOList(v []*UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.GeneralInvoiceDetailVOList = v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetInvoiceCode(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.InvoiceCode = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetInvoiceNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.InvoiceNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetInvoiceType(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.InvoiceType = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetMachineCode(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.MachineCode = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetOilFlag(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.OilFlag = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetPayee(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.Payee = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetProcessInstCode(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.ProcessInstCode = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetProcessInstType(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.ProcessInstType = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetPurchaserAddress(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.PurchaserAddress = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetPurchaserBankNameAccount(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.PurchaserBankNameAccount = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetPurchaserName(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.PurchaserName = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetPurchaserTaxNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.PurchaserTaxNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetPurchaserTel(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.PurchaserTel = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetRemark(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.Remark = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetSecondHandCarInvoiceDetailList(v []*UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.SecondHandCarInvoiceDetailList = v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetSellerAddress(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.SellerAddress = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetSellerBankNameAccount(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.SellerBankNameAccount = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetSellerName(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.SellerName = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetSellerTaxNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.SellerTaxNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetSellerTel(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.SellerTel = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetStatus(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.Status = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetSupplySign(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.SupplySign = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetTaxAmount(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.TaxAmount = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetUsedVehicleSaleDetailVOList(v []*UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.UsedVehicleSaleDetailVOList = v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetVehicleSaleDetailVOList(v []*UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.VehicleSaleDetailVOList = v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetVerifyStatus(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.VerifyStatus = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetVoucherCode(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.VoucherCode = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO) SetVoucherStatus(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVO {
-	s.VoucherStatus = &v
-	return s
-}
-
-type UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 商品名称
-	GoodName *string `json:"goodName,omitempty" xml:"goodName,omitempty"`
-	// 数量
-	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
-	// 税收分类编码
-	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 规格型号
-	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 是否享受税收优惠：0-不享受，1-享受
-	TaxPre *string `json:"taxPre,omitempty" xml:"taxPre,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 单位
-	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	// 单价
-	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
-}
-
-func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetAmount(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
-	s.Amount = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetGoodName(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
-	s.GoodName = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetQuantity(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
-	s.Quantity = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetRevenueCode(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
-	s.RevenueCode = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetRowNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
-	s.RowNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetSpecification(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
-	s.Specification = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetTaxAmount(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
-	s.TaxAmount = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetTaxPre(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
-	s.TaxPre = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetTaxRate(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
-	s.TaxRate = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetUnit(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
-	s.Unit = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetUnitPrice(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
-	s.UnitPrice = &v
-	return s
-}
-
-type UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList struct {
-	// 金额
-	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	// 车牌号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 通行日期止
-	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	// 商品名称
-	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	// 税收分类编码
-	RevenueCode *string `json:"revenueCode,omitempty" xml:"revenueCode,omitempty"`
-	// 行号
-	RowNo *string `json:"rowNo,omitempty" xml:"rowNo,omitempty"`
-	// 通行日期起
-	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 税额
-	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
-}
-
-func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList) SetAmount(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList {
-	s.Amount = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList) SetCardNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList {
-	s.CardNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList) SetEndDate(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList {
-	s.EndDate = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList) SetGoodsName(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList {
-	s.GoodsName = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList) SetRevenueCode(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList {
-	s.RevenueCode = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList) SetRowNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList {
-	s.RowNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList) SetStartDate(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList {
-	s.StartDate = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList) SetTaxAmount(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList {
-	s.TaxAmount = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList) SetTaxRate(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList {
-	s.TaxRate = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList) SetVehicleType(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOSecondHandCarInvoiceDetailList {
-	s.VehicleType = &v
-	return s
-}
-
-type UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList struct {
-	// 经营、拍卖单位
-	AuctionUnit *string `json:"auctionUnit,omitempty" xml:"auctionUnit,omitempty"`
-	// 经营、拍卖单位地址
-	AuctionUnitAddress *string `json:"auctionUnitAddress,omitempty" xml:"auctionUnitAddress,omitempty"`
-	// 经营、拍卖单位银行
-	AuctionUnitBank *string `json:"auctionUnitBank,omitempty" xml:"auctionUnitBank,omitempty"`
-	// 经营、拍卖单位税号
-	AuctionUnitTaxNo *string `json:"auctionUnitTaxNo,omitempty" xml:"auctionUnitTaxNo,omitempty"`
-	// 经营、拍卖单位电话
-	AuctionUtilTel *string `json:"auctionUtilTel,omitempty" xml:"auctionUtilTel,omitempty"`
-	// 厂牌型号
-	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
-	// 车牌照号
-	CardNo *string `json:"cardNo,omitempty" xml:"cardNo,omitempty"`
-	// 登记证号
-	Registration *string `json:"registration,omitempty" xml:"registration,omitempty"`
-	// 转入地车辆管理所名称
-	TransferVehicle *string `json:"transferVehicle,omitempty" xml:"transferVehicle,omitempty"`
-	// 二手车市场地址
-	UsedCarAddress *string `json:"usedCarAddress,omitempty" xml:"usedCarAddress,omitempty"`
-	// 二手车市场
-	UsedCarMarket *string `json:"usedCarMarket,omitempty" xml:"usedCarMarket,omitempty"`
-	// 二手车市场开户银行、账号
-	UsedCarMarketBank *string `json:"usedCarMarketBank,omitempty" xml:"usedCarMarketBank,omitempty"`
-	// 二手车市场电话
-	UsedCarMarketPhone *string `json:"usedCarMarketPhone,omitempty" xml:"usedCarMarketPhone,omitempty"`
-	// 二手车市场纳税人识别号
-	UsedCarMarketTaxNo *string `json:"usedCarMarketTaxNo,omitempty" xml:"usedCarMarketTaxNo,omitempty"`
-	// 车架号/车辆识别号
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
-}
-
-func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) SetAuctionUnit(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList {
-	s.AuctionUnit = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) SetAuctionUnitAddress(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList {
-	s.AuctionUnitAddress = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) SetAuctionUnitBank(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList {
-	s.AuctionUnitBank = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) SetAuctionUnitTaxNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList {
-	s.AuctionUnitTaxNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) SetAuctionUtilTel(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList {
-	s.AuctionUtilTel = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) SetCarModel(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList {
-	s.CarModel = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) SetCardNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList {
-	s.CardNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) SetRegistration(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList {
-	s.Registration = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) SetTransferVehicle(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList {
-	s.TransferVehicle = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) SetUsedCarAddress(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList {
-	s.UsedCarAddress = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) SetUsedCarMarket(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList {
-	s.UsedCarMarket = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) SetUsedCarMarketBank(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList {
-	s.UsedCarMarketBank = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) SetUsedCarMarketPhone(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList {
-	s.UsedCarMarketPhone = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) SetUsedCarMarketTaxNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList {
-	s.UsedCarMarketTaxNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) SetVehicleNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList {
-	s.VehicleNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList) SetVehicleType(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOUsedVehicleSaleDetailVOList {
-	s.VehicleType = &v
-	return s
-}
-
-type UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList struct {
-	// 品牌
-	Brand *string `json:"brand,omitempty" xml:"brand,omitempty"`
-	// 合格证号
-	CertificateNo *string `json:"certificateNo,omitempty" xml:"certificateNo,omitempty"`
-	// 发动机号
-	EngineNo *string `json:"engineNo,omitempty" xml:"engineNo,omitempty"`
-	// 身份证号/组织机构代码
-	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
-	// 进口证书号
-	ImportCertificateNo *string `json:"importCertificateNo,omitempty" xml:"importCertificateNo,omitempty"`
-	// 限乘人数
-	MaxPassengers *string `json:"maxPassengers,omitempty" xml:"maxPassengers,omitempty"`
-	// 产地
-	OriginPlace *string `json:"originPlace,omitempty" xml:"originPlace,omitempty"`
-	// 完税凭证号码
-	PaymentVoucherNo *string `json:"paymentVoucherNo,omitempty" xml:"paymentVoucherNo,omitempty"`
-	// 主管税务机关名称
-	TaxAuthorityName *string `json:"taxAuthorityName,omitempty" xml:"taxAuthorityName,omitempty"`
-	// 主管税务机关代码
-	TaxAuthorityNo *string `json:"taxAuthorityNo,omitempty" xml:"taxAuthorityNo,omitempty"`
-	// 税率
-	TaxRate *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
-	// 吨位
-	Tonnage *string `json:"tonnage,omitempty" xml:"tonnage,omitempty"`
-	// 车架号码
-	VehicleNo *string `json:"vehicleNo,omitempty" xml:"vehicleNo,omitempty"`
-	// 车辆类型
-	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
-}
-
-func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList) SetBrand(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList {
-	s.Brand = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList) SetCertificateNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList {
-	s.CertificateNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList) SetEngineNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList {
-	s.EngineNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList) SetIdCardNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList {
-	s.IdCardNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList) SetImportCertificateNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList {
-	s.ImportCertificateNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList) SetMaxPassengers(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList {
-	s.MaxPassengers = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList) SetOriginPlace(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList {
-	s.OriginPlace = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList) SetPaymentVoucherNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList {
-	s.PaymentVoucherNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList) SetTaxAuthorityName(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList {
-	s.TaxAuthorityName = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList) SetTaxAuthorityNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList {
-	s.TaxAuthorityNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList) SetTaxRate(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList {
-	s.TaxRate = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList) SetTonnage(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList {
-	s.Tonnage = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList) SetVehicleNo(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList {
-	s.VehicleNo = &v
-	return s
-}
-
-func (s *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList) SetVehicleType(v string) *UpdateInvoiceIgnoreStatusRequestGeneralInvoiceVOVehicleSaleDetailVOList {
-	s.VehicleType = &v
+func (s *UpdateInvoiceIgnoreStatusRequest) SetInstanceId(v string) *UpdateInvoiceIgnoreStatusRequest {
+	s.InstanceId = &v
 	return s
 }
 
@@ -9047,6 +8378,9 @@ func (s *UpdateInvoiceVerifyStatusHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type UpdateInvoiceVerifyStatusRequest struct {
+	// 抵扣状态
+	//
+	DeductStatus *string `json:"deductStatus,omitempty" xml:"deductStatus,omitempty"`
 	// 待更新
 	InvoiceKeyVOList []*UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList `json:"invoiceKeyVOList,omitempty" xml:"invoiceKeyVOList,omitempty" type:"Repeated"`
 	// 认证状态
@@ -9059,6 +8393,11 @@ func (s UpdateInvoiceVerifyStatusRequest) String() string {
 
 func (s UpdateInvoiceVerifyStatusRequest) GoString() string {
 	return s.String()
+}
+
+func (s *UpdateInvoiceVerifyStatusRequest) SetDeductStatus(v string) *UpdateInvoiceVerifyStatusRequest {
+	s.DeductStatus = &v
+	return s
 }
 
 func (s *UpdateInvoiceVerifyStatusRequest) SetInvoiceKeyVOList(v []*UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList) *UpdateInvoiceVerifyStatusRequest {
@@ -11027,21 +10366,9 @@ func (client *Client) UpdateInvoiceIgnoreStatusWithOptions(request *UpdateInvoic
 	if _err != nil {
 		return _result, _err
 	}
-	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.GeneralInvoiceVO))) {
-		body["generalInvoiceVO"] = request.GeneralInvoiceVO
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.InvoiceCode)) {
-		body["invoiceCode"] = request.InvoiceCode
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.InvoiceNo)) {
-		body["invoiceNo"] = request.InvoiceNo
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Status)) {
-		body["status"] = request.Status
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		query["instanceId"] = request.InstanceId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -11055,7 +10382,7 @@ func (client *Client) UpdateInvoiceIgnoreStatusWithOptions(request *UpdateInvoic
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Body:    openapiutil.ParseToMap(body),
+		Query:   openapiutil.Query(query),
 	}
 	_result = &UpdateInvoiceIgnoreStatusResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateInvoiceIgnoreStatus"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/ignoreStatus"), tea.String("json"), req, runtime)
@@ -11084,6 +10411,10 @@ func (client *Client) UpdateInvoiceVerifyStatusWithOptions(request *UpdateInvoic
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeductStatus)) {
+		body["deductStatus"] = request.DeductStatus
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.InvoiceKeyVOList)) {
 		body["invoiceKeyVOList"] = request.InvoiceKeyVOList
 	}

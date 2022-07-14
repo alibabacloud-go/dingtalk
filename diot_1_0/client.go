@@ -1178,6 +1178,205 @@ func (s *QueryDeviceResponse) SetBody(v *QueryDeviceResponseBody) *QueryDeviceRe
 	return s
 }
 
+type QueryEventHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryEventHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEventHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEventHeaders) SetCommonHeaders(v map[string]*string) *QueryEventHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryEventHeaders) SetXAcsDingtalkAccessToken(v string) *QueryEventHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryEventRequest struct {
+	CorpId          *string   `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DeviceIdList    []*string `json:"deviceIdList,omitempty" xml:"deviceIdList,omitempty" type:"Repeated"`
+	EndTime         *int64    `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	EventId         *string   `json:"eventId,omitempty" xml:"eventId,omitempty"`
+	EventStatusList []*int64  `json:"eventStatusList,omitempty" xml:"eventStatusList,omitempty" type:"Repeated"`
+	EventTypeList   []*string `json:"eventTypeList,omitempty" xml:"eventTypeList,omitempty" type:"Repeated"`
+	PageNumber      *int64    `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize        *int64    `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	StartTime       *int64    `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s QueryEventRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEventRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEventRequest) SetCorpId(v string) *QueryEventRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryEventRequest) SetDeviceIdList(v []*string) *QueryEventRequest {
+	s.DeviceIdList = v
+	return s
+}
+
+func (s *QueryEventRequest) SetEndTime(v int64) *QueryEventRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryEventRequest) SetEventId(v string) *QueryEventRequest {
+	s.EventId = &v
+	return s
+}
+
+func (s *QueryEventRequest) SetEventStatusList(v []*int64) *QueryEventRequest {
+	s.EventStatusList = v
+	return s
+}
+
+func (s *QueryEventRequest) SetEventTypeList(v []*string) *QueryEventRequest {
+	s.EventTypeList = v
+	return s
+}
+
+func (s *QueryEventRequest) SetPageNumber(v int64) *QueryEventRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryEventRequest) SetPageSize(v int64) *QueryEventRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryEventRequest) SetStartTime(v int64) *QueryEventRequest {
+	s.StartTime = &v
+	return s
+}
+
+type QueryEventResponseBody struct {
+	Data       []*QueryEventResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	PageNumber *int64                        `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64                        `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	TotalCount *int64                        `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryEventResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEventResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEventResponseBody) SetData(v []*QueryEventResponseBodyData) *QueryEventResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *QueryEventResponseBody) SetPageNumber(v int64) *QueryEventResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryEventResponseBody) SetPageSize(v int64) *QueryEventResponseBody {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryEventResponseBody) SetTotalCount(v int64) *QueryEventResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryEventResponseBodyData struct {
+	EventId        *string   `json:"eventId,omitempty" xml:"eventId,omitempty"`
+	EventName      *string   `json:"eventName,omitempty" xml:"eventName,omitempty"`
+	EventStatus    *int64    `json:"eventStatus,omitempty" xml:"eventStatus,omitempty"`
+	EventType      *string   `json:"eventType,omitempty" xml:"eventType,omitempty"`
+	Msg            *string   `json:"msg,omitempty" xml:"msg,omitempty"`
+	OccurrenceTime *int64    `json:"occurrenceTime,omitempty" xml:"occurrenceTime,omitempty"`
+	PicUrls        []*string `json:"picUrls,omitempty" xml:"picUrls,omitempty" type:"Repeated"`
+}
+
+func (s QueryEventResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEventResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEventResponseBodyData) SetEventId(v string) *QueryEventResponseBodyData {
+	s.EventId = &v
+	return s
+}
+
+func (s *QueryEventResponseBodyData) SetEventName(v string) *QueryEventResponseBodyData {
+	s.EventName = &v
+	return s
+}
+
+func (s *QueryEventResponseBodyData) SetEventStatus(v int64) *QueryEventResponseBodyData {
+	s.EventStatus = &v
+	return s
+}
+
+func (s *QueryEventResponseBodyData) SetEventType(v string) *QueryEventResponseBodyData {
+	s.EventType = &v
+	return s
+}
+
+func (s *QueryEventResponseBodyData) SetMsg(v string) *QueryEventResponseBodyData {
+	s.Msg = &v
+	return s
+}
+
+func (s *QueryEventResponseBodyData) SetOccurrenceTime(v int64) *QueryEventResponseBodyData {
+	s.OccurrenceTime = &v
+	return s
+}
+
+func (s *QueryEventResponseBodyData) SetPicUrls(v []*string) *QueryEventResponseBodyData {
+	s.PicUrls = v
+	return s
+}
+
+type QueryEventResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryEventResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEventResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEventResponse) SetHeaders(v map[string]*string) *QueryEventResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryEventResponse) SetBody(v *QueryEventResponseBody) *QueryEventResponse {
+	s.Body = v
+	return s
+}
+
 type RegisterDeviceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1818,6 +2017,82 @@ func (client *Client) QueryDeviceWithOptions(request *QueryDeviceRequest, header
 	}
 	_result = &QueryDeviceResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryDevice"), tea.String("diot_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/diot/devices"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryEvent(request *QueryEventRequest) (_result *QueryEventResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryEventHeaders{}
+	_result = &QueryEventResponse{}
+	_body, _err := client.QueryEventWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryEventWithOptions(request *QueryEventRequest, headers *QueryEventHeaders, runtime *util.RuntimeOptions) (_result *QueryEventResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeviceIdList)) {
+		body["deviceIdList"] = request.DeviceIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EventId)) {
+		body["eventId"] = request.EventId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EventStatusList)) {
+		body["eventStatusList"] = request.EventStatusList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EventTypeList)) {
+		body["eventTypeList"] = request.EventTypeList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryEventResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryEvent"), tea.String("diot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/diot/events/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
