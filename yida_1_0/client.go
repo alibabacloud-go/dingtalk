@@ -10283,6 +10283,232 @@ func (s *NotifyAuthorizationResultResponse) SetBody(v *NotifyAuthorizationResult
 	return s
 }
 
+type PageFormBaseInfosHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PageFormBaseInfosHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageFormBaseInfosHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PageFormBaseInfosHeaders) SetCommonHeaders(v map[string]*string) *PageFormBaseInfosHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PageFormBaseInfosHeaders) SetXAcsDingtalkAccessToken(v string) *PageFormBaseInfosHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PageFormBaseInfosRequest struct {
+	// 应用编码
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// 表单类型列表，可传"process", "receipt"
+	FormTypeList []*string `json:"formTypeList,omitempty" xml:"formTypeList,omitempty" type:"Repeated"`
+	// 语言。可选值：zh_CN/en_US 默认：zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// 当前页码
+	PageIndex *int32 `json:"pageIndex,omitempty" xml:"pageIndex,omitempty"`
+	// 每页数量，最大100
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 应用秘钥。在应用数据中获取。
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 钉钉userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PageFormBaseInfosRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageFormBaseInfosRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PageFormBaseInfosRequest) SetAppKey(v string) *PageFormBaseInfosRequest {
+	s.AppKey = &v
+	return s
+}
+
+func (s *PageFormBaseInfosRequest) SetFormTypeList(v []*string) *PageFormBaseInfosRequest {
+	s.FormTypeList = v
+	return s
+}
+
+func (s *PageFormBaseInfosRequest) SetLanguage(v string) *PageFormBaseInfosRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *PageFormBaseInfosRequest) SetPageIndex(v int32) *PageFormBaseInfosRequest {
+	s.PageIndex = &v
+	return s
+}
+
+func (s *PageFormBaseInfosRequest) SetPageSize(v int32) *PageFormBaseInfosRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *PageFormBaseInfosRequest) SetSystemToken(v string) *PageFormBaseInfosRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *PageFormBaseInfosRequest) SetUserId(v string) *PageFormBaseInfosRequest {
+	s.UserId = &v
+	return s
+}
+
+type PageFormBaseInfosResponseBody struct {
+	// 结果集
+	Result *PageFormBaseInfosResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PageFormBaseInfosResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageFormBaseInfosResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PageFormBaseInfosResponseBody) SetResult(v *PageFormBaseInfosResponseBodyResult) *PageFormBaseInfosResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *PageFormBaseInfosResponseBody) SetSuccess(v bool) *PageFormBaseInfosResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PageFormBaseInfosResponseBodyResult struct {
+	// 当前页
+	CurrentPage *int32                                     `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	Data        []*PageFormBaseInfosResponseBodyResultData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// 总行数
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s PageFormBaseInfosResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageFormBaseInfosResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PageFormBaseInfosResponseBodyResult) SetCurrentPage(v int32) *PageFormBaseInfosResponseBodyResult {
+	s.CurrentPage = &v
+	return s
+}
+
+func (s *PageFormBaseInfosResponseBodyResult) SetData(v []*PageFormBaseInfosResponseBodyResultData) *PageFormBaseInfosResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+func (s *PageFormBaseInfosResponseBodyResult) SetTotalCount(v int32) *PageFormBaseInfosResponseBodyResult {
+	s.TotalCount = &v
+	return s
+}
+
+type PageFormBaseInfosResponseBodyResultData struct {
+	Creator   *string                                       `json:"creator,omitempty" xml:"creator,omitempty"`
+	FormType  *string                                       `json:"formType,omitempty" xml:"formType,omitempty"`
+	FormUuid  *string                                       `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	GmtCreate *string                                       `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	Title     *PageFormBaseInfosResponseBodyResultDataTitle `json:"title,omitempty" xml:"title,omitempty" type:"Struct"`
+}
+
+func (s PageFormBaseInfosResponseBodyResultData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageFormBaseInfosResponseBodyResultData) GoString() string {
+	return s.String()
+}
+
+func (s *PageFormBaseInfosResponseBodyResultData) SetCreator(v string) *PageFormBaseInfosResponseBodyResultData {
+	s.Creator = &v
+	return s
+}
+
+func (s *PageFormBaseInfosResponseBodyResultData) SetFormType(v string) *PageFormBaseInfosResponseBodyResultData {
+	s.FormType = &v
+	return s
+}
+
+func (s *PageFormBaseInfosResponseBodyResultData) SetFormUuid(v string) *PageFormBaseInfosResponseBodyResultData {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *PageFormBaseInfosResponseBodyResultData) SetGmtCreate(v string) *PageFormBaseInfosResponseBodyResultData {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *PageFormBaseInfosResponseBodyResultData) SetTitle(v *PageFormBaseInfosResponseBodyResultDataTitle) *PageFormBaseInfosResponseBodyResultData {
+	s.Title = v
+	return s
+}
+
+type PageFormBaseInfosResponseBodyResultDataTitle struct {
+	EnUS *string `json:"enUS,omitempty" xml:"enUS,omitempty"`
+	ZhCN *string `json:"zhCN,omitempty" xml:"zhCN,omitempty"`
+}
+
+func (s PageFormBaseInfosResponseBodyResultDataTitle) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageFormBaseInfosResponseBodyResultDataTitle) GoString() string {
+	return s.String()
+}
+
+func (s *PageFormBaseInfosResponseBodyResultDataTitle) SetEnUS(v string) *PageFormBaseInfosResponseBodyResultDataTitle {
+	s.EnUS = &v
+	return s
+}
+
+func (s *PageFormBaseInfosResponseBodyResultDataTitle) SetZhCN(v string) *PageFormBaseInfosResponseBodyResultDataTitle {
+	s.ZhCN = &v
+	return s
+}
+
+type PageFormBaseInfosResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PageFormBaseInfosResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PageFormBaseInfosResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageFormBaseInfosResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PageFormBaseInfosResponse) SetHeaders(v map[string]*string) *PageFormBaseInfosResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PageFormBaseInfosResponse) SetBody(v *PageFormBaseInfosResponseBody) *PageFormBaseInfosResponse {
+	s.Body = v
+	return s
+}
+
 type QueryServiceRecordHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -18870,6 +19096,74 @@ func (client *Client) NotifyAuthorizationResultWithOptions(request *NotifyAuthor
 	}
 	_result = &NotifyAuthorizationResultResponse{}
 	_body, _err := client.DoROARequest(tea.String("NotifyAuthorizationResult"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/apps/authorizationResults/notify"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PageFormBaseInfos(request *PageFormBaseInfosRequest) (_result *PageFormBaseInfosResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PageFormBaseInfosHeaders{}
+	_result = &PageFormBaseInfosResponse{}
+	_body, _err := client.PageFormBaseInfosWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PageFormBaseInfosWithOptions(request *PageFormBaseInfosRequest, headers *PageFormBaseInfosHeaders, runtime *util.RuntimeOptions) (_result *PageFormBaseInfosResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppKey)) {
+		body["appKey"] = request.AppKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormTypeList)) {
+		body["formTypeList"] = request.FormTypeList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		body["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageIndex)) {
+		body["pageIndex"] = request.PageIndex
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &PageFormBaseInfosResponse{}
+	_body, _err := client.DoROARequest(tea.String("PageFormBaseInfos"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/yida/apps/forms/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
