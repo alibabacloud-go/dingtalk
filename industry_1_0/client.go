@@ -4126,6 +4126,98 @@ func (s *DigitalStoreNodeInfoResponse) SetBody(v *DigitalStoreNodeInfoResponseBo
 	return s
 }
 
+type DigitalStoreRightsInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DigitalStoreRightsInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreRightsInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreRightsInfoHeaders) SetCommonHeaders(v map[string]*string) *DigitalStoreRightsInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DigitalStoreRightsInfoHeaders) SetXAcsDingtalkAccessToken(v string) *DigitalStoreRightsInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DigitalStoreRightsInfoResponseBody struct {
+	// 权益过期时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 门店通通讯录根节点Id
+	Quantity *int64 `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	// 门店通通讯录名称
+	RightsCode *string `json:"rightsCode,omitempty" xml:"rightsCode,omitempty"`
+	// 门店通通讯录Code
+	RightsName *string `json:"rightsName,omitempty" xml:"rightsName,omitempty"`
+	// 权益开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s DigitalStoreRightsInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreRightsInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreRightsInfoResponseBody) SetEndTime(v int64) *DigitalStoreRightsInfoResponseBody {
+	s.EndTime = &v
+	return s
+}
+
+func (s *DigitalStoreRightsInfoResponseBody) SetQuantity(v int64) *DigitalStoreRightsInfoResponseBody {
+	s.Quantity = &v
+	return s
+}
+
+func (s *DigitalStoreRightsInfoResponseBody) SetRightsCode(v string) *DigitalStoreRightsInfoResponseBody {
+	s.RightsCode = &v
+	return s
+}
+
+func (s *DigitalStoreRightsInfoResponseBody) SetRightsName(v string) *DigitalStoreRightsInfoResponseBody {
+	s.RightsName = &v
+	return s
+}
+
+func (s *DigitalStoreRightsInfoResponseBody) SetStartTime(v int64) *DigitalStoreRightsInfoResponseBody {
+	s.StartTime = &v
+	return s
+}
+
+type DigitalStoreRightsInfoResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DigitalStoreRightsInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DigitalStoreRightsInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreRightsInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreRightsInfoResponse) SetHeaders(v map[string]*string) *DigitalStoreRightsInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DigitalStoreRightsInfoResponse) SetBody(v *DigitalStoreRightsInfoResponseBody) *DigitalStoreRightsInfoResponse {
+	s.Body = v
+	return s
+}
+
 type DigitalStoreRolesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -12807,6 +12899,40 @@ func (client *Client) DigitalStoreNodeInfoWithOptions(request *DigitalStoreNodeI
 	}
 	_result = &DigitalStoreNodeInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("DigitalStoreNodeInfo"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/digitalStores/nodeInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreRightsInfo() (_result *DigitalStoreRightsInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DigitalStoreRightsInfoHeaders{}
+	_result = &DigitalStoreRightsInfoResponse{}
+	_body, _err := client.DigitalStoreRightsInfoWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DigitalStoreRightsInfoWithOptions(headers *DigitalStoreRightsInfoHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreRightsInfoResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &DigitalStoreRightsInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("DigitalStoreRightsInfo"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/digitalStores/rightsInfos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
