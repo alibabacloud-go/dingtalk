@@ -767,6 +767,129 @@ func (s *CreateInterconnectionResponse) SetBody(v *CreateInterconnectionResponse
 	return s
 }
 
+type CreateStoreGroupConversationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateStoreGroupConversationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateStoreGroupConversationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateStoreGroupConversationHeaders) SetCommonHeaders(v map[string]*string) *CreateStoreGroupConversationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateStoreGroupConversationHeaders) SetXAcsDingtalkAccessToken(v string) *CreateStoreGroupConversationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateStoreGroupConversationRequest struct {
+	// 钉外用户在业务系统内的唯一标识
+	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
+	// 外部业务唯一标识（店铺唯一标识）
+	BusinessUniqueKey *string `json:"businessUniqueKey,omitempty" xml:"businessUniqueKey,omitempty"`
+	// 群头像
+	GroupAvatar *string `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
+	// 群名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 群模板
+	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
+	// 操作者在业务系统内的唯一标识
+	OperatorId *string   `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	UserIds    []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s CreateStoreGroupConversationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateStoreGroupConversationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateStoreGroupConversationRequest) SetAppUserId(v string) *CreateStoreGroupConversationRequest {
+	s.AppUserId = &v
+	return s
+}
+
+func (s *CreateStoreGroupConversationRequest) SetBusinessUniqueKey(v string) *CreateStoreGroupConversationRequest {
+	s.BusinessUniqueKey = &v
+	return s
+}
+
+func (s *CreateStoreGroupConversationRequest) SetGroupAvatar(v string) *CreateStoreGroupConversationRequest {
+	s.GroupAvatar = &v
+	return s
+}
+
+func (s *CreateStoreGroupConversationRequest) SetGroupName(v string) *CreateStoreGroupConversationRequest {
+	s.GroupName = &v
+	return s
+}
+
+func (s *CreateStoreGroupConversationRequest) SetGroupTemplateId(v string) *CreateStoreGroupConversationRequest {
+	s.GroupTemplateId = &v
+	return s
+}
+
+func (s *CreateStoreGroupConversationRequest) SetOperatorId(v string) *CreateStoreGroupConversationRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *CreateStoreGroupConversationRequest) SetUserIds(v []*string) *CreateStoreGroupConversationRequest {
+	s.UserIds = v
+	return s
+}
+
+type CreateStoreGroupConversationResponseBody struct {
+	// 群会话Id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s CreateStoreGroupConversationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateStoreGroupConversationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateStoreGroupConversationResponseBody) SetOpenConversationId(v string) *CreateStoreGroupConversationResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+type CreateStoreGroupConversationResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateStoreGroupConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateStoreGroupConversationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateStoreGroupConversationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateStoreGroupConversationResponse) SetHeaders(v map[string]*string) *CreateStoreGroupConversationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateStoreGroupConversationResponse) SetBody(v *CreateStoreGroupConversationResponseBody) *CreateStoreGroupConversationResponse {
+	s.Body = v
+	return s
+}
+
 type GetConversationUrlHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5717,6 +5840,74 @@ func (client *Client) CreateInterconnectionWithOptions(request *CreateInterconne
 	}
 	_result = &CreateInterconnectionResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateInterconnection"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateStoreGroupConversation(request *CreateStoreGroupConversationRequest) (_result *CreateStoreGroupConversationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateStoreGroupConversationHeaders{}
+	_result = &CreateStoreGroupConversationResponse{}
+	_body, _err := client.CreateStoreGroupConversationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateStoreGroupConversationWithOptions(request *CreateStoreGroupConversationRequest, headers *CreateStoreGroupConversationHeaders, runtime *util.RuntimeOptions) (_result *CreateStoreGroupConversationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppUserId)) {
+		body["appUserId"] = request.AppUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BusinessUniqueKey)) {
+		body["businessUniqueKey"] = request.BusinessUniqueKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupAvatar)) {
+		body["groupAvatar"] = request.GroupAvatar
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
+		body["groupName"] = request.GroupName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupTemplateId)) {
+		body["groupTemplateId"] = request.GroupTemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateStoreGroupConversationResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateStoreGroupConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/storeGroups"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

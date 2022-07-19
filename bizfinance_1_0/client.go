@@ -1959,18 +1959,7 @@ func (s *GetInvoiceByPageHeaders) SetXAcsDingtalkAccessToken(v string) *GetInvoi
 }
 
 type GetInvoiceByPageRequest struct {
-	// 查询结束时间
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 发票类型
-	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
-	PageNumber  *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize    *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 查询开始时间
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 税号
-	TaxNo *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
-	// 发票状态
-	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+	Request *GetInvoiceByPageRequestRequest `json:"request,omitempty" xml:"request,omitempty" type:"Struct"`
 }
 
 func (s GetInvoiceByPageRequest) String() string {
@@ -1981,38 +1970,86 @@ func (s GetInvoiceByPageRequest) GoString() string {
 	return s.String()
 }
 
-func (s *GetInvoiceByPageRequest) SetEndTime(v int64) *GetInvoiceByPageRequest {
+func (s *GetInvoiceByPageRequest) SetRequest(v *GetInvoiceByPageRequestRequest) *GetInvoiceByPageRequest {
+	s.Request = v
+	return s
+}
+
+type GetInvoiceByPageRequestRequest struct {
+	// 结束时间
+	//
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 进项票/销项票
+	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	// 分页参数
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页参数
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 税号
+	TaxNo *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+	// 认证状态
+	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
+}
+
+func (s GetInvoiceByPageRequestRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInvoiceByPageRequestRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetInvoiceByPageRequestRequest) SetEndTime(v int64) *GetInvoiceByPageRequestRequest {
 	s.EndTime = &v
 	return s
 }
 
-func (s *GetInvoiceByPageRequest) SetFinanceType(v string) *GetInvoiceByPageRequest {
+func (s *GetInvoiceByPageRequestRequest) SetFinanceType(v string) *GetInvoiceByPageRequestRequest {
 	s.FinanceType = &v
 	return s
 }
 
-func (s *GetInvoiceByPageRequest) SetPageNumber(v int64) *GetInvoiceByPageRequest {
+func (s *GetInvoiceByPageRequestRequest) SetPageNumber(v int64) *GetInvoiceByPageRequestRequest {
 	s.PageNumber = &v
 	return s
 }
 
-func (s *GetInvoiceByPageRequest) SetPageSize(v int64) *GetInvoiceByPageRequest {
+func (s *GetInvoiceByPageRequestRequest) SetPageSize(v int64) *GetInvoiceByPageRequestRequest {
 	s.PageSize = &v
 	return s
 }
 
-func (s *GetInvoiceByPageRequest) SetStartTime(v int64) *GetInvoiceByPageRequest {
+func (s *GetInvoiceByPageRequestRequest) SetStartTime(v int64) *GetInvoiceByPageRequestRequest {
 	s.StartTime = &v
 	return s
 }
 
-func (s *GetInvoiceByPageRequest) SetTaxNo(v string) *GetInvoiceByPageRequest {
+func (s *GetInvoiceByPageRequestRequest) SetTaxNo(v string) *GetInvoiceByPageRequestRequest {
 	s.TaxNo = &v
 	return s
 }
 
-func (s *GetInvoiceByPageRequest) SetVerifyStatus(v string) *GetInvoiceByPageRequest {
+func (s *GetInvoiceByPageRequestRequest) SetVerifyStatus(v string) *GetInvoiceByPageRequestRequest {
 	s.VerifyStatus = &v
+	return s
+}
+
+type GetInvoiceByPageShrinkRequest struct {
+	RequestShrink *string `json:"request,omitempty" xml:"request,omitempty"`
+}
+
+func (s GetInvoiceByPageShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInvoiceByPageShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetInvoiceByPageShrinkRequest) SetRequestShrink(v string) *GetInvoiceByPageShrinkRequest {
+	s.RequestShrink = &v
 	return s
 }
 
@@ -4529,14 +4566,42 @@ func (s *QueryReceiptForInvoiceResponseBody) SetTotalCount(v int64) *QueryReceip
 }
 
 type QueryReceiptForInvoiceResponseBodyList struct {
-	// 应用id
-	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
-	// 主数据
-	Data *string `json:"data,omitempty" xml:"data,omitempty"`
-	// 主数据modelID
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 开票状态
+	ApplyStatus *string `json:"applyStatus,omitempty" xml:"applyStatus,omitempty"`
+	// 创建人
+	Creator *QueryReceiptForInvoiceResponseBodyListCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	// 客户
+	Customer *QueryReceiptForInvoiceResponseBodyListCustomer `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
+	// 发票种类
+	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	// 主数据modelId
 	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	// 购方账户
+	PurchaserAccount *string `json:"purchaserAccount,omitempty" xml:"purchaserAccount,omitempty"`
+	// 购方地址
+	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	// 购方银行
+	PurchaserBankName *string `json:"purchaserBankName,omitempty" xml:"purchaserBankName,omitempty"`
+	// 购方抬头
+	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	// 购方税号
+	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	// 购方电话
+	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+	// 单据ID
+	ReceiptId *string `json:"receiptId,omitempty" xml:"receiptId,omitempty"`
+	// 记录时间，默认为审批通过时间
+	RecordTime *string `json:"recordTime,omitempty" xml:"recordTime,omitempty"`
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 	// 来源
 	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// 状态 agree running
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 单据标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryReceiptForInvoiceResponseBodyList) String() string {
@@ -4547,13 +4612,28 @@ func (s QueryReceiptForInvoiceResponseBodyList) GoString() string {
 	return s.String()
 }
 
-func (s *QueryReceiptForInvoiceResponseBodyList) SetAppId(v string) *QueryReceiptForInvoiceResponseBodyList {
-	s.AppId = &v
+func (s *QueryReceiptForInvoiceResponseBodyList) SetAmount(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.Amount = &v
 	return s
 }
 
-func (s *QueryReceiptForInvoiceResponseBodyList) SetData(v string) *QueryReceiptForInvoiceResponseBodyList {
-	s.Data = &v
+func (s *QueryReceiptForInvoiceResponseBodyList) SetApplyStatus(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.ApplyStatus = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetCreator(v *QueryReceiptForInvoiceResponseBodyListCreator) *QueryReceiptForInvoiceResponseBodyList {
+	s.Creator = v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetCustomer(v *QueryReceiptForInvoiceResponseBodyListCustomer) *QueryReceiptForInvoiceResponseBodyList {
+	s.Customer = v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetInvoiceType(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.InvoiceType = &v
 	return s
 }
 
@@ -4562,8 +4642,120 @@ func (s *QueryReceiptForInvoiceResponseBodyList) SetModelId(v string) *QueryRece
 	return s
 }
 
+func (s *QueryReceiptForInvoiceResponseBodyList) SetPurchaserAccount(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.PurchaserAccount = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetPurchaserAddress(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.PurchaserAddress = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetPurchaserBankName(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.PurchaserBankName = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetPurchaserName(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.PurchaserName = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetPurchaserTaxNo(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.PurchaserTaxNo = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetPurchaserTel(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.PurchaserTel = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetReceiptId(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.ReceiptId = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetRecordTime(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.RecordTime = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetRemark(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.Remark = &v
+	return s
+}
+
 func (s *QueryReceiptForInvoiceResponseBodyList) SetSource(v string) *QueryReceiptForInvoiceResponseBodyList {
 	s.Source = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetStatus(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetTitle(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.Title = &v
+	return s
+}
+
+type QueryReceiptForInvoiceResponseBodyListCreator struct {
+	// 创建人头像
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// 创建人昵称
+	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	// 创建人工号
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryReceiptForInvoiceResponseBodyListCreator) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptForInvoiceResponseBodyListCreator) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyListCreator) SetAvatarUrl(v string) *QueryReceiptForInvoiceResponseBodyListCreator {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyListCreator) SetNick(v string) *QueryReceiptForInvoiceResponseBodyListCreator {
+	s.Nick = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyListCreator) SetUserId(v string) *QueryReceiptForInvoiceResponseBodyListCreator {
+	s.UserId = &v
+	return s
+}
+
+type QueryReceiptForInvoiceResponseBodyListCustomer struct {
+	// 客户code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 客户名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s QueryReceiptForInvoiceResponseBodyListCustomer) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptForInvoiceResponseBodyListCustomer) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyListCustomer) SetCode(v string) *QueryReceiptForInvoiceResponseBodyListCustomer {
+	s.Code = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyListCustomer) SetName(v string) *QueryReceiptForInvoiceResponseBodyListCustomer {
+	s.Name = &v
 	return s
 }
 
@@ -4624,6 +4816,8 @@ type QueryReceiptsBaseInfoRequest struct {
 	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
 	// 单据标题
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 凭证状态
+	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
 }
 
 func (s QueryReceiptsBaseInfoRequest) String() string {
@@ -4656,6 +4850,11 @@ func (s *QueryReceiptsBaseInfoRequest) SetStartTime(v int64) *QueryReceiptsBaseI
 
 func (s *QueryReceiptsBaseInfoRequest) SetTitle(v string) *QueryReceiptsBaseInfoRequest {
 	s.Title = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoRequest) SetVoucherStatus(v string) *QueryReceiptsBaseInfoRequest {
+	s.VoucherStatus = &v
 	return s
 }
 
@@ -10289,38 +10488,20 @@ func (client *Client) GetInvoiceByPage(request *GetInvoiceByPageRequest) (_resul
 	return _result, _err
 }
 
-func (client *Client) GetInvoiceByPageWithOptions(request *GetInvoiceByPageRequest, headers *GetInvoiceByPageHeaders, runtime *util.RuntimeOptions) (_result *GetInvoiceByPageResponse, _err error) {
-	_err = util.ValidateModel(request)
+func (client *Client) GetInvoiceByPageWithOptions(tmpReq *GetInvoiceByPageRequest, headers *GetInvoiceByPageHeaders, runtime *util.RuntimeOptions) (_result *GetInvoiceByPageResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
 	if _err != nil {
 		return _result, _err
 	}
+	request := &GetInvoiceByPageShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(tmpReq.Request))) {
+		request.RequestShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tea.ToMap(tmpReq.Request), tea.String("request"), tea.String("json"))
+	}
+
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
-		query["endTime"] = request.EndTime
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.FinanceType)) {
-		query["financeType"] = request.FinanceType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
-		query["pageNumber"] = request.PageNumber
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
-		query["pageSize"] = request.PageSize
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
-		query["startTime"] = request.StartTime
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.TaxNo)) {
-		query["taxNo"] = request.TaxNo
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.VerifyStatus)) {
-		query["verifyStatus"] = request.VerifyStatus
+	if !tea.BoolValue(util.IsUnset(request.RequestShrink)) {
+		query["request"] = request.RequestShrink
 	}
 
 	realHeaders := make(map[string]*string)
@@ -11031,6 +11212,10 @@ func (client *Client) QueryReceiptsBaseInfoWithOptions(request *QueryReceiptsBas
 
 	if !tea.BoolValue(util.IsUnset(request.Title)) {
 		query["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VoucherStatus)) {
+		query["voucherStatus"] = request.VoucherStatus
 	}
 
 	realHeaders := make(map[string]*string)
