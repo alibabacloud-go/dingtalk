@@ -63,7 +63,8 @@ type CreateActionRequestActionInfo struct {
 	// 描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 	// 连接平台连接器id
-	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	DingConnectorId    *string                                          `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	InputMappingConfig *CreateActionRequestActionInfoInputMappingConfig `json:"inputMappingConfig,omitempty" xml:"inputMappingConfig,omitempty" type:"Struct"`
 	// 入参schema
 	InputSchema *string `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
 	// 服务商的执行事件Id
@@ -73,7 +74,8 @@ type CreateActionRequestActionInfo struct {
 	// 名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 执行动作接口成功调用规则。
-	OutputDataRules []*CreateActionRequestActionInfoOutputDataRules `json:"outputDataRules,omitempty" xml:"outputDataRules,omitempty" type:"Repeated"`
+	OutputDataRules     []*CreateActionRequestActionInfoOutputDataRules   `json:"outputDataRules,omitempty" xml:"outputDataRules,omitempty" type:"Repeated"`
+	OutputMappingConfig *CreateActionRequestActionInfoOutputMappingConfig `json:"outputMappingConfig,omitempty" xml:"outputMappingConfig,omitempty" type:"Struct"`
 	// 出参schema
 	OutputSchema *string `json:"outputSchema,omitempty" xml:"outputSchema,omitempty"`
 }
@@ -98,6 +100,11 @@ func (s *CreateActionRequestActionInfo) SetDescription(v string) *CreateActionRe
 
 func (s *CreateActionRequestActionInfo) SetDingConnectorId(v string) *CreateActionRequestActionInfo {
 	s.DingConnectorId = &v
+	return s
+}
+
+func (s *CreateActionRequestActionInfo) SetInputMappingConfig(v *CreateActionRequestActionInfoInputMappingConfig) *CreateActionRequestActionInfo {
+	s.InputMappingConfig = v
 	return s
 }
 
@@ -126,8 +133,36 @@ func (s *CreateActionRequestActionInfo) SetOutputDataRules(v []*CreateActionRequ
 	return s
 }
 
+func (s *CreateActionRequestActionInfo) SetOutputMappingConfig(v *CreateActionRequestActionInfoOutputMappingConfig) *CreateActionRequestActionInfo {
+	s.OutputMappingConfig = v
+	return s
+}
+
 func (s *CreateActionRequestActionInfo) SetOutputSchema(v string) *CreateActionRequestActionInfo {
 	s.OutputSchema = &v
+	return s
+}
+
+type CreateActionRequestActionInfoInputMappingConfig struct {
+	CustomSchemaMapping *string `json:"customSchemaMapping,omitempty" xml:"customSchemaMapping,omitempty"`
+	Rules               *string `json:"rules,omitempty" xml:"rules,omitempty"`
+}
+
+func (s CreateActionRequestActionInfoInputMappingConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateActionRequestActionInfoInputMappingConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CreateActionRequestActionInfoInputMappingConfig) SetCustomSchemaMapping(v string) *CreateActionRequestActionInfoInputMappingConfig {
+	s.CustomSchemaMapping = &v
+	return s
+}
+
+func (s *CreateActionRequestActionInfoInputMappingConfig) SetRules(v string) *CreateActionRequestActionInfoInputMappingConfig {
+	s.Rules = &v
 	return s
 }
 
@@ -160,6 +195,29 @@ func (s *CreateActionRequestActionInfoOutputDataRules) SetOperate(v string) *Cre
 
 func (s *CreateActionRequestActionInfoOutputDataRules) SetPropertyPath(v string) *CreateActionRequestActionInfoOutputDataRules {
 	s.PropertyPath = &v
+	return s
+}
+
+type CreateActionRequestActionInfoOutputMappingConfig struct {
+	CustomSchemaMapping *string `json:"customSchemaMapping,omitempty" xml:"customSchemaMapping,omitempty"`
+	Rules               *string `json:"rules,omitempty" xml:"rules,omitempty"`
+}
+
+func (s CreateActionRequestActionInfoOutputMappingConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateActionRequestActionInfoOutputMappingConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CreateActionRequestActionInfoOutputMappingConfig) SetCustomSchemaMapping(v string) *CreateActionRequestActionInfoOutputMappingConfig {
+	s.CustomSchemaMapping = &v
+	return s
+}
+
+func (s *CreateActionRequestActionInfoOutputMappingConfig) SetRules(v string) *CreateActionRequestActionInfoOutputMappingConfig {
+	s.Rules = &v
 	return s
 }
 
@@ -1225,7 +1283,8 @@ type UpdateActionRequestActionInfo struct {
 	// 连接平台的执行动作唯一标识。
 	DingActionId *string `json:"dingActionId,omitempty" xml:"dingActionId,omitempty"`
 	// 连接平台连接器id
-	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	DingConnectorId    *string                                          `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	InputMappingConfig *UpdateActionRequestActionInfoInputMappingConfig `json:"inputMappingConfig,omitempty" xml:"inputMappingConfig,omitempty" type:"Struct"`
 	// 入参schema
 	InputSchema *string `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
 	// 服务商的执行事件Id
@@ -1235,7 +1294,8 @@ type UpdateActionRequestActionInfo struct {
 	// 名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 执行动作接口成功调用规则。
-	OutputDataRules []*UpdateActionRequestActionInfoOutputDataRules `json:"outputDataRules,omitempty" xml:"outputDataRules,omitempty" type:"Repeated"`
+	OutputDataRules     []*UpdateActionRequestActionInfoOutputDataRules   `json:"outputDataRules,omitempty" xml:"outputDataRules,omitempty" type:"Repeated"`
+	OutputMappingConfig *UpdateActionRequestActionInfoOutputMappingConfig `json:"outputMappingConfig,omitempty" xml:"outputMappingConfig,omitempty" type:"Struct"`
 	// 出参schema
 	OutputSchema *string `json:"outputSchema,omitempty" xml:"outputSchema,omitempty"`
 }
@@ -1268,6 +1328,11 @@ func (s *UpdateActionRequestActionInfo) SetDingConnectorId(v string) *UpdateActi
 	return s
 }
 
+func (s *UpdateActionRequestActionInfo) SetInputMappingConfig(v *UpdateActionRequestActionInfoInputMappingConfig) *UpdateActionRequestActionInfo {
+	s.InputMappingConfig = v
+	return s
+}
+
 func (s *UpdateActionRequestActionInfo) SetInputSchema(v string) *UpdateActionRequestActionInfo {
 	s.InputSchema = &v
 	return s
@@ -1293,8 +1358,36 @@ func (s *UpdateActionRequestActionInfo) SetOutputDataRules(v []*UpdateActionRequ
 	return s
 }
 
+func (s *UpdateActionRequestActionInfo) SetOutputMappingConfig(v *UpdateActionRequestActionInfoOutputMappingConfig) *UpdateActionRequestActionInfo {
+	s.OutputMappingConfig = v
+	return s
+}
+
 func (s *UpdateActionRequestActionInfo) SetOutputSchema(v string) *UpdateActionRequestActionInfo {
 	s.OutputSchema = &v
+	return s
+}
+
+type UpdateActionRequestActionInfoInputMappingConfig struct {
+	CustomSchemaMapping *string `json:"customSchemaMapping,omitempty" xml:"customSchemaMapping,omitempty"`
+	Rules               *string `json:"rules,omitempty" xml:"rules,omitempty"`
+}
+
+func (s UpdateActionRequestActionInfoInputMappingConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateActionRequestActionInfoInputMappingConfig) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateActionRequestActionInfoInputMappingConfig) SetCustomSchemaMapping(v string) *UpdateActionRequestActionInfoInputMappingConfig {
+	s.CustomSchemaMapping = &v
+	return s
+}
+
+func (s *UpdateActionRequestActionInfoInputMappingConfig) SetRules(v string) *UpdateActionRequestActionInfoInputMappingConfig {
+	s.Rules = &v
 	return s
 }
 
@@ -1327,6 +1420,29 @@ func (s *UpdateActionRequestActionInfoOutputDataRules) SetOperate(v string) *Upd
 
 func (s *UpdateActionRequestActionInfoOutputDataRules) SetPropertyPath(v string) *UpdateActionRequestActionInfoOutputDataRules {
 	s.PropertyPath = &v
+	return s
+}
+
+type UpdateActionRequestActionInfoOutputMappingConfig struct {
+	CustomSchemaMapping *string `json:"customSchemaMapping,omitempty" xml:"customSchemaMapping,omitempty"`
+	Rules               *string `json:"rules,omitempty" xml:"rules,omitempty"`
+}
+
+func (s UpdateActionRequestActionInfoOutputMappingConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateActionRequestActionInfoOutputMappingConfig) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateActionRequestActionInfoOutputMappingConfig) SetCustomSchemaMapping(v string) *UpdateActionRequestActionInfoOutputMappingConfig {
+	s.CustomSchemaMapping = &v
+	return s
+}
+
+func (s *UpdateActionRequestActionInfoOutputMappingConfig) SetRules(v string) *UpdateActionRequestActionInfoOutputMappingConfig {
+	s.Rules = &v
 	return s
 }
 

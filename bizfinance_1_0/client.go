@@ -37,6 +37,8 @@ func (s *BatchAddInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *BatchAddI
 type BatchAddInvoiceRequest struct {
 	// 发票模型
 	GeneralInvoiceVOList []*BatchAddInvoiceRequestGeneralInvoiceVOList `json:"generalInvoiceVOList,omitempty" xml:"generalInvoiceVOList,omitempty" type:"Repeated"`
+	// 操作员
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
 }
 
 func (s BatchAddInvoiceRequest) String() string {
@@ -49,6 +51,11 @@ func (s BatchAddInvoiceRequest) GoString() string {
 
 func (s *BatchAddInvoiceRequest) SetGeneralInvoiceVOList(v []*BatchAddInvoiceRequestGeneralInvoiceVOList) *BatchAddInvoiceRequest {
 	s.GeneralInvoiceVOList = v
+	return s
+}
+
+func (s *BatchAddInvoiceRequest) SetOperator(v string) *BatchAddInvoiceRequest {
+	s.Operator = &v
 	return s
 }
 
@@ -6004,13 +6011,23 @@ type UpdateInvoiceAbandonStatusRequest struct {
 	// 发票全票面信息（蓝票）
 	BlueGeneralInvoiceVO *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO `json:"blueGeneralInvoiceVO,omitempty" xml:"blueGeneralInvoiceVO,omitempty" type:"Struct"`
 	// 发票编码（蓝票）
-	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	BlueInvoiceCode *string `json:"blueInvoiceCode,omitempty" xml:"blueInvoiceCode,omitempty"`
 	// 发票号码（蓝票）
-	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	BlueInvoiceNo *string `json:"blueInvoiceNo,omitempty" xml:"blueInvoiceNo,omitempty"`
+	// 状态-红冲、废弃
+	BlueInvoiceStatus *string `json:"blueInvoiceStatus,omitempty" xml:"blueInvoiceStatus,omitempty"`
+	// 操作员
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
 	// 发票全票面信息（红票）
 	RedGeneralInvoiceVO *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO `json:"redGeneralInvoiceVO,omitempty" xml:"redGeneralInvoiceVO,omitempty" type:"Struct"`
-	// 状态-红冲、废弃
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 红字发票code
+	RedInvoiceCode *string `json:"redInvoiceCode,omitempty" xml:"redInvoiceCode,omitempty"`
+	// 红字发票编码
+	RedInvoiceNo *string `json:"redInvoiceNo,omitempty" xml:"redInvoiceNo,omitempty"`
+	// 红字发票状态
+	RedInvoiceStatus *string `json:"redInvoiceStatus,omitempty" xml:"redInvoiceStatus,omitempty"`
+	// 目标发票
+	TargetInvoice *string `json:"targetInvoice,omitempty" xml:"targetInvoice,omitempty"`
 }
 
 func (s UpdateInvoiceAbandonStatusRequest) String() string {
@@ -6026,13 +6043,23 @@ func (s *UpdateInvoiceAbandonStatusRequest) SetBlueGeneralInvoiceVO(v *UpdateInv
 	return s
 }
 
-func (s *UpdateInvoiceAbandonStatusRequest) SetInvoiceCode(v string) *UpdateInvoiceAbandonStatusRequest {
-	s.InvoiceCode = &v
+func (s *UpdateInvoiceAbandonStatusRequest) SetBlueInvoiceCode(v string) *UpdateInvoiceAbandonStatusRequest {
+	s.BlueInvoiceCode = &v
 	return s
 }
 
-func (s *UpdateInvoiceAbandonStatusRequest) SetInvoiceNo(v string) *UpdateInvoiceAbandonStatusRequest {
-	s.InvoiceNo = &v
+func (s *UpdateInvoiceAbandonStatusRequest) SetBlueInvoiceNo(v string) *UpdateInvoiceAbandonStatusRequest {
+	s.BlueInvoiceNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequest) SetBlueInvoiceStatus(v string) *UpdateInvoiceAbandonStatusRequest {
+	s.BlueInvoiceStatus = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequest) SetOperator(v string) *UpdateInvoiceAbandonStatusRequest {
+	s.Operator = &v
 	return s
 }
 
@@ -6041,8 +6068,23 @@ func (s *UpdateInvoiceAbandonStatusRequest) SetRedGeneralInvoiceVO(v *UpdateInvo
 	return s
 }
 
-func (s *UpdateInvoiceAbandonStatusRequest) SetStatus(v string) *UpdateInvoiceAbandonStatusRequest {
-	s.Status = &v
+func (s *UpdateInvoiceAbandonStatusRequest) SetRedInvoiceCode(v string) *UpdateInvoiceAbandonStatusRequest {
+	s.RedInvoiceCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequest) SetRedInvoiceNo(v string) *UpdateInvoiceAbandonStatusRequest {
+	s.RedInvoiceNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequest) SetRedInvoiceStatus(v string) *UpdateInvoiceAbandonStatusRequest {
+	s.RedInvoiceStatus = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequest) SetTargetInvoice(v string) *UpdateInvoiceAbandonStatusRequest {
+	s.TargetInvoice = &v
 	return s
 }
 
@@ -7521,6 +7563,8 @@ type UpdateInvoiceAccountPeriodRequest struct {
 	GeneralInvoiceVOList []*UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList `json:"generalInvoiceVOList,omitempty" xml:"generalInvoiceVOList,omitempty" type:"Repeated"`
 	// 发票主键列表
 	InvoiceKeyVOList []*UpdateInvoiceAccountPeriodRequestInvoiceKeyVOList `json:"invoiceKeyVOList,omitempty" xml:"invoiceKeyVOList,omitempty" type:"Repeated"`
+	// 操作员
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
 }
 
 func (s UpdateInvoiceAccountPeriodRequest) String() string {
@@ -7543,6 +7587,11 @@ func (s *UpdateInvoiceAccountPeriodRequest) SetGeneralInvoiceVOList(v []*UpdateI
 
 func (s *UpdateInvoiceAccountPeriodRequest) SetInvoiceKeyVOList(v []*UpdateInvoiceAccountPeriodRequestInvoiceKeyVOList) *UpdateInvoiceAccountPeriodRequest {
 	s.InvoiceKeyVOList = v
+	return s
+}
+
+func (s *UpdateInvoiceAccountPeriodRequest) SetOperator(v string) *UpdateInvoiceAccountPeriodRequest {
+	s.Operator = &v
 	return s
 }
 
@@ -8344,6 +8393,8 @@ type UpdateInvoiceAndReceiptRelatedRequest struct {
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	// 发票号码
 	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 操作员
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
 	// 钉钉审批单号
 	ReceiptCode *string `json:"receiptCode,omitempty" xml:"receiptCode,omitempty"`
 }
@@ -8368,6 +8419,11 @@ func (s *UpdateInvoiceAndReceiptRelatedRequest) SetInvoiceCode(v string) *Update
 
 func (s *UpdateInvoiceAndReceiptRelatedRequest) SetInvoiceNo(v string) *UpdateInvoiceAndReceiptRelatedRequest {
 	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequest) SetOperator(v string) *UpdateInvoiceAndReceiptRelatedRequest {
+	s.Operator = &v
 	return s
 }
 
@@ -9144,7 +9200,10 @@ func (s *UpdateInvoiceIgnoreStatusHeaders) SetXAcsDingtalkAccessToken(v string) 
 type UpdateInvoiceIgnoreStatusRequest struct {
 	// 审批单id
 	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	Status     *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 操作员
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	// 状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s UpdateInvoiceIgnoreStatusRequest) String() string {
@@ -9157,6 +9216,11 @@ func (s UpdateInvoiceIgnoreStatusRequest) GoString() string {
 
 func (s *UpdateInvoiceIgnoreStatusRequest) SetInstanceId(v string) *UpdateInvoiceIgnoreStatusRequest {
 	s.InstanceId = &v
+	return s
+}
+
+func (s *UpdateInvoiceIgnoreStatusRequest) SetOperator(v string) *UpdateInvoiceIgnoreStatusRequest {
+	s.Operator = &v
 	return s
 }
 
@@ -9234,6 +9298,8 @@ type UpdateInvoiceVerifyStatusRequest struct {
 	DeductStatus *string `json:"deductStatus,omitempty" xml:"deductStatus,omitempty"`
 	// 待更新
 	InvoiceKeyVOList []*UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList `json:"invoiceKeyVOList,omitempty" xml:"invoiceKeyVOList,omitempty" type:"Repeated"`
+	// 操作员
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
 	// 认证状态
 	VerifyStatus *string `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
 }
@@ -9253,6 +9319,11 @@ func (s *UpdateInvoiceVerifyStatusRequest) SetDeductStatus(v string) *UpdateInvo
 
 func (s *UpdateInvoiceVerifyStatusRequest) SetInvoiceKeyVOList(v []*UpdateInvoiceVerifyStatusRequestInvoiceKeyVOList) *UpdateInvoiceVerifyStatusRequest {
 	s.InvoiceKeyVOList = v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusRequest) SetOperator(v string) *UpdateInvoiceVerifyStatusRequest {
+	s.Operator = &v
 	return s
 }
 
@@ -9772,6 +9843,10 @@ func (client *Client) BatchAddInvoiceWithOptions(request *BatchAddInvoiceRequest
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.GeneralInvoiceVOList)) {
 		body["generalInvoiceVOList"] = request.GeneralInvoiceVOList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
 	}
 
 	realHeaders := make(map[string]*string)
@@ -11218,20 +11293,40 @@ func (client *Client) UpdateInvoiceAbandonStatusWithOptions(request *UpdateInvoi
 		body["blueGeneralInvoiceVO"] = request.BlueGeneralInvoiceVO
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.InvoiceCode)) {
-		body["invoiceCode"] = request.InvoiceCode
+	if !tea.BoolValue(util.IsUnset(request.BlueInvoiceCode)) {
+		body["blueInvoiceCode"] = request.BlueInvoiceCode
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.InvoiceNo)) {
-		body["invoiceNo"] = request.InvoiceNo
+	if !tea.BoolValue(util.IsUnset(request.BlueInvoiceNo)) {
+		body["blueInvoiceNo"] = request.BlueInvoiceNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BlueInvoiceStatus)) {
+		body["blueInvoiceStatus"] = request.BlueInvoiceStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
 	}
 
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.RedGeneralInvoiceVO))) {
 		body["redGeneralInvoiceVO"] = request.RedGeneralInvoiceVO
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Status)) {
-		body["status"] = request.Status
+	if !tea.BoolValue(util.IsUnset(request.RedInvoiceCode)) {
+		body["redInvoiceCode"] = request.RedInvoiceCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RedInvoiceNo)) {
+		body["redInvoiceNo"] = request.RedInvoiceNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RedInvoiceStatus)) {
+		body["redInvoiceStatus"] = request.RedInvoiceStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetInvoice)) {
+		body["targetInvoice"] = request.TargetInvoice
 	}
 
 	realHeaders := make(map[string]*string)
@@ -11286,6 +11381,10 @@ func (client *Client) UpdateInvoiceAccountPeriodWithOptions(request *UpdateInvoi
 		body["invoiceKeyVOList"] = request.InvoiceKeyVOList
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -11338,6 +11437,10 @@ func (client *Client) UpdateInvoiceAndReceiptRelatedWithOptions(request *UpdateI
 		body["invoiceNo"] = request.InvoiceNo
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ReceiptCode)) {
 		body["receiptCode"] = request.ReceiptCode
 	}
@@ -11384,6 +11487,10 @@ func (client *Client) UpdateInvoiceIgnoreStatusWithOptions(request *UpdateInvoic
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
 		query["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		query["operator"] = request.Operator
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Status)) {
@@ -11436,6 +11543,10 @@ func (client *Client) UpdateInvoiceVerifyStatusWithOptions(request *UpdateInvoic
 
 	if !tea.BoolValue(util.IsUnset(request.InvoiceKeyVOList)) {
 		body["invoiceKeyVOList"] = request.InvoiceKeyVOList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.VerifyStatus)) {

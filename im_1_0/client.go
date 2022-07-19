@@ -2208,6 +2208,8 @@ type InteractiveCardCreateInstanceRequest struct {
 	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
 	// 指定用户可见的按钮列表（key：用户userId；value：用户数据）
 	PrivateData map[string]*PrivateDataValue `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	// 是否开启卡片纯拉模式
+	PullStrategy *bool `json:"pullStrategy,omitempty" xml:"pullStrategy,omitempty"`
 	// 接收人userId列表
 	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
 	// 【robotCode & chatBotId二选一必填】机器人编码（群模板机器人）
@@ -2261,6 +2263,11 @@ func (s *InteractiveCardCreateInstanceRequest) SetOutTrackId(v string) *Interact
 
 func (s *InteractiveCardCreateInstanceRequest) SetPrivateData(v map[string]*PrivateDataValue) *InteractiveCardCreateInstanceRequest {
 	s.PrivateData = v
+	return s
+}
+
+func (s *InteractiveCardCreateInstanceRequest) SetPullStrategy(v bool) *InteractiveCardCreateInstanceRequest {
+	s.PullStrategy = &v
 	return s
 }
 
@@ -3800,12 +3807,18 @@ func (s *TopboxCloseHeaders) SetXAcsDingtalkAccessToken(v string) *TopboxCloseHe
 }
 
 type TopboxCloseRequest struct {
+	// 发送的会话类型：单聊-0, 群聊-1
+	ConversationType *int32 `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
 	// 酷应用编码
 	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
 	// 接收卡片的群的openConversationId
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）
 	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	// 接收人的员工号列表
+	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
+	// 机器人编码
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s TopboxCloseRequest) String() string {
@@ -3814,6 +3827,11 @@ func (s TopboxCloseRequest) String() string {
 
 func (s TopboxCloseRequest) GoString() string {
 	return s.String()
+}
+
+func (s *TopboxCloseRequest) SetConversationType(v int32) *TopboxCloseRequest {
+	s.ConversationType = &v
+	return s
 }
 
 func (s *TopboxCloseRequest) SetCoolAppCode(v string) *TopboxCloseRequest {
@@ -3828,6 +3846,16 @@ func (s *TopboxCloseRequest) SetOpenConversationId(v string) *TopboxCloseRequest
 
 func (s *TopboxCloseRequest) SetOutTrackId(v string) *TopboxCloseRequest {
 	s.OutTrackId = &v
+	return s
+}
+
+func (s *TopboxCloseRequest) SetReceiverUserIdList(v []*string) *TopboxCloseRequest {
+	s.ReceiverUserIdList = v
+	return s
+}
+
+func (s *TopboxCloseRequest) SetRobotCode(v string) *TopboxCloseRequest {
+	s.RobotCode = &v
 	return s
 }
 
@@ -3872,6 +3900,8 @@ func (s *TopboxOpenHeaders) SetXAcsDingtalkAccessToken(v string) *TopboxOpenHead
 }
 
 type TopboxOpenRequest struct {
+	// 发送的会话类型：单聊-0, 群聊-1
+	ConversationType *int32 `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
 	// 酷应用编码
 	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
 	// 吊顶的过期时间（绝对时间）
@@ -3884,6 +3914,8 @@ type TopboxOpenRequest struct {
 	Platforms *string `json:"platforms,omitempty" xml:"platforms,omitempty"`
 	// 接收人的员工号列表
 	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
+	// 机器人编码
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s TopboxOpenRequest) String() string {
@@ -3892,6 +3924,11 @@ func (s TopboxOpenRequest) String() string {
 
 func (s TopboxOpenRequest) GoString() string {
 	return s.String()
+}
+
+func (s *TopboxOpenRequest) SetConversationType(v int32) *TopboxOpenRequest {
+	s.ConversationType = &v
+	return s
 }
 
 func (s *TopboxOpenRequest) SetCoolAppCode(v string) *TopboxOpenRequest {
@@ -3921,6 +3958,11 @@ func (s *TopboxOpenRequest) SetPlatforms(v string) *TopboxOpenRequest {
 
 func (s *TopboxOpenRequest) SetReceiverUserIdList(v []*string) *TopboxOpenRequest {
 	s.ReceiverUserIdList = v
+	return s
+}
+
+func (s *TopboxOpenRequest) SetRobotCode(v string) *TopboxOpenRequest {
+	s.RobotCode = &v
 	return s
 }
 
@@ -6356,6 +6398,10 @@ func (client *Client) InteractiveCardCreateInstanceWithOptions(request *Interact
 		body["privateData"] = request.PrivateData
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.PullStrategy)) {
+		body["pullStrategy"] = request.PullStrategy
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ReceiverUserIdList)) {
 		body["receiverUserIdList"] = request.ReceiverUserIdList
 	}
@@ -6988,6 +7034,10 @@ func (client *Client) TopboxCloseWithOptions(request *TopboxCloseRequest, header
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ConversationType)) {
+		body["conversationType"] = request.ConversationType
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.CoolAppCode)) {
 		body["coolAppCode"] = request.CoolAppCode
 	}
@@ -6998,6 +7048,14 @@ func (client *Client) TopboxCloseWithOptions(request *TopboxCloseRequest, header
 
 	if !tea.BoolValue(util.IsUnset(request.OutTrackId)) {
 		body["outTrackId"] = request.OutTrackId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverUserIdList)) {
+		body["receiverUserIdList"] = request.ReceiverUserIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
 	}
 
 	realHeaders := make(map[string]*string)
@@ -7040,6 +7098,10 @@ func (client *Client) TopboxOpenWithOptions(request *TopboxOpenRequest, headers 
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ConversationType)) {
+		body["conversationType"] = request.ConversationType
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.CoolAppCode)) {
 		body["coolAppCode"] = request.CoolAppCode
 	}
@@ -7062,6 +7124,10 @@ func (client *Client) TopboxOpenWithOptions(request *TopboxOpenRequest, headers 
 
 	if !tea.BoolValue(util.IsUnset(request.ReceiverUserIdList)) {
 		body["receiverUserIdList"] = request.ReceiverUserIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
 	}
 
 	realHeaders := make(map[string]*string)
