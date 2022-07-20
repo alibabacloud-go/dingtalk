@@ -4891,14 +4891,30 @@ func (s *QueryReceiptsBaseInfoResponseBody) SetTotalCount(v int64) *QueryReceipt
 }
 
 type QueryReceiptsBaseInfoResponseBodyList struct {
-	// 应用id
-	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
-	// 主数据
-	Data *string `json:"data,omitempty" xml:"data,omitempty"`
-	// 主数据modelID
-	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 创建人
+	Creator *QueryReceiptsBaseInfoResponseBodyListCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	// 客户
+	Customer *QueryReceiptsBaseInfoResponseBodyListCustomer `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
+	// 主数据modelId
+	ModelId   *string                                         `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	Principal *QueryReceiptsBaseInfoResponseBodyListPrincipal `json:"principal,omitempty" xml:"principal,omitempty" type:"Struct"`
+	Project   *QueryReceiptsBaseInfoResponseBodyListProject   `json:"project,omitempty" xml:"project,omitempty" type:"Struct"`
+	// 单据ID
+	ReceiptId *string `json:"receiptId,omitempty" xml:"receiptId,omitempty"`
+	// 记录时间，默认为审批通过时间
+	RecordTime *string `json:"recordTime,omitempty" xml:"recordTime,omitempty"`
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 	// 来源
 	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// 状态 agree running
+	Status   *string                                        `json:"status,omitempty" xml:"status,omitempty"`
+	Supplier *QueryReceiptsBaseInfoResponseBodyListSupplier `json:"supplier,omitempty" xml:"supplier,omitempty" type:"Struct"`
+	// 单据标题
+	Title         *string `json:"title,omitempty" xml:"title,omitempty"`
+	VoucherStatus *string `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
 }
 
 func (s QueryReceiptsBaseInfoResponseBodyList) String() string {
@@ -4909,13 +4925,18 @@ func (s QueryReceiptsBaseInfoResponseBodyList) GoString() string {
 	return s.String()
 }
 
-func (s *QueryReceiptsBaseInfoResponseBodyList) SetAppId(v string) *QueryReceiptsBaseInfoResponseBodyList {
-	s.AppId = &v
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetAmount(v string) *QueryReceiptsBaseInfoResponseBodyList {
+	s.Amount = &v
 	return s
 }
 
-func (s *QueryReceiptsBaseInfoResponseBodyList) SetData(v string) *QueryReceiptsBaseInfoResponseBodyList {
-	s.Data = &v
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetCreator(v *QueryReceiptsBaseInfoResponseBodyListCreator) *QueryReceiptsBaseInfoResponseBodyList {
+	s.Creator = v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetCustomer(v *QueryReceiptsBaseInfoResponseBodyListCustomer) *QueryReceiptsBaseInfoResponseBodyList {
+	s.Customer = v
 	return s
 }
 
@@ -4924,8 +4945,185 @@ func (s *QueryReceiptsBaseInfoResponseBodyList) SetModelId(v string) *QueryRecei
 	return s
 }
 
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetPrincipal(v *QueryReceiptsBaseInfoResponseBodyListPrincipal) *QueryReceiptsBaseInfoResponseBodyList {
+	s.Principal = v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetProject(v *QueryReceiptsBaseInfoResponseBodyListProject) *QueryReceiptsBaseInfoResponseBodyList {
+	s.Project = v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetReceiptId(v string) *QueryReceiptsBaseInfoResponseBodyList {
+	s.ReceiptId = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetRecordTime(v string) *QueryReceiptsBaseInfoResponseBodyList {
+	s.RecordTime = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetRemark(v string) *QueryReceiptsBaseInfoResponseBodyList {
+	s.Remark = &v
+	return s
+}
+
 func (s *QueryReceiptsBaseInfoResponseBodyList) SetSource(v string) *QueryReceiptsBaseInfoResponseBodyList {
 	s.Source = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetStatus(v string) *QueryReceiptsBaseInfoResponseBodyList {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetSupplier(v *QueryReceiptsBaseInfoResponseBodyListSupplier) *QueryReceiptsBaseInfoResponseBodyList {
+	s.Supplier = v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetTitle(v string) *QueryReceiptsBaseInfoResponseBodyList {
+	s.Title = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetVoucherStatus(v string) *QueryReceiptsBaseInfoResponseBodyList {
+	s.VoucherStatus = &v
+	return s
+}
+
+type QueryReceiptsBaseInfoResponseBodyListCreator struct {
+	// 创建人头像
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// 创建人昵称
+	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	// 创建人工号
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryReceiptsBaseInfoResponseBodyListCreator) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptsBaseInfoResponseBodyListCreator) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyListCreator) SetAvatarUrl(v string) *QueryReceiptsBaseInfoResponseBodyListCreator {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyListCreator) SetNick(v string) *QueryReceiptsBaseInfoResponseBodyListCreator {
+	s.Nick = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyListCreator) SetUserId(v string) *QueryReceiptsBaseInfoResponseBodyListCreator {
+	s.UserId = &v
+	return s
+}
+
+type QueryReceiptsBaseInfoResponseBodyListCustomer struct {
+	// 客户code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 客户名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s QueryReceiptsBaseInfoResponseBodyListCustomer) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptsBaseInfoResponseBodyListCustomer) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyListCustomer) SetCode(v string) *QueryReceiptsBaseInfoResponseBodyListCustomer {
+	s.Code = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyListCustomer) SetName(v string) *QueryReceiptsBaseInfoResponseBodyListCustomer {
+	s.Name = &v
+	return s
+}
+
+type QueryReceiptsBaseInfoResponseBodyListPrincipal struct {
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	Nick      *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryReceiptsBaseInfoResponseBodyListPrincipal) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptsBaseInfoResponseBodyListPrincipal) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyListPrincipal) SetAvatarUrl(v string) *QueryReceiptsBaseInfoResponseBodyListPrincipal {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyListPrincipal) SetNick(v string) *QueryReceiptsBaseInfoResponseBodyListPrincipal {
+	s.Nick = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyListPrincipal) SetUserId(v string) *QueryReceiptsBaseInfoResponseBodyListPrincipal {
+	s.UserId = &v
+	return s
+}
+
+type QueryReceiptsBaseInfoResponseBodyListProject struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s QueryReceiptsBaseInfoResponseBodyListProject) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptsBaseInfoResponseBodyListProject) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyListProject) SetCode(v string) *QueryReceiptsBaseInfoResponseBodyListProject {
+	s.Code = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyListProject) SetName(v string) *QueryReceiptsBaseInfoResponseBodyListProject {
+	s.Name = &v
+	return s
+}
+
+type QueryReceiptsBaseInfoResponseBodyListSupplier struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s QueryReceiptsBaseInfoResponseBodyListSupplier) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptsBaseInfoResponseBodyListSupplier) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyListSupplier) SetCode(v string) *QueryReceiptsBaseInfoResponseBodyListSupplier {
+	s.Code = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyListSupplier) SetName(v string) *QueryReceiptsBaseInfoResponseBodyListSupplier {
+	s.Name = &v
 	return s
 }
 
@@ -5292,6 +5490,8 @@ type UpdateApplyReceiptAndInvoiceRelatedRequest struct {
 	GeneralInvoiceVOList []*UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList `json:"generalInvoiceVOList,omitempty" xml:"generalInvoiceVOList,omitempty" type:"Repeated"`
 	// 审批单id
 	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// 操作员
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
 }
 
 func (s UpdateApplyReceiptAndInvoiceRelatedRequest) String() string {
@@ -5309,6 +5509,11 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedRequest) SetGeneralInvoiceVOList(v [
 
 func (s *UpdateApplyReceiptAndInvoiceRelatedRequest) SetInstanceId(v string) *UpdateApplyReceiptAndInvoiceRelatedRequest {
 	s.InstanceId = &v
+	return s
+}
+
+func (s *UpdateApplyReceiptAndInvoiceRelatedRequest) SetOperator(v string) *UpdateApplyReceiptAndInvoiceRelatedRequest {
+	s.Operator = &v
 	return s
 }
 
@@ -6016,8 +6221,11 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListVehicleSa
 }
 
 type UpdateApplyReceiptAndInvoiceRelatedResponseBody struct {
-	// 失败发票列表list
-	InvoiceKeyVOList []*UpdateApplyReceiptAndInvoiceRelatedResponseBodyInvoiceKeyVOList `json:"invoiceKeyVOList,omitempty" xml:"invoiceKeyVOList,omitempty" type:"Repeated"`
+	// 批量更新发票返回结果
+	//
+	BatchUpdateInvoiceResponse *UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse `json:"batchUpdateInvoiceResponse,omitempty" xml:"batchUpdateInvoiceResponse,omitempty" type:"Struct"`
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateApplyReceiptAndInvoiceRelatedResponseBody) String() string {
@@ -6028,32 +6236,56 @@ func (s UpdateApplyReceiptAndInvoiceRelatedResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateApplyReceiptAndInvoiceRelatedResponseBody) SetInvoiceKeyVOList(v []*UpdateApplyReceiptAndInvoiceRelatedResponseBodyInvoiceKeyVOList) *UpdateApplyReceiptAndInvoiceRelatedResponseBody {
+func (s *UpdateApplyReceiptAndInvoiceRelatedResponseBody) SetBatchUpdateInvoiceResponse(v *UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse) *UpdateApplyReceiptAndInvoiceRelatedResponseBody {
+	s.BatchUpdateInvoiceResponse = v
+	return s
+}
+
+func (s *UpdateApplyReceiptAndInvoiceRelatedResponseBody) SetSuccess(v bool) *UpdateApplyReceiptAndInvoiceRelatedResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse struct {
+	// 错误结果列表
+	//
+	InvoiceKeyVOList []*UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList `json:"invoiceKeyVOList,omitempty" xml:"invoiceKeyVOList,omitempty" type:"Repeated"`
+}
+
+func (s UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse) SetInvoiceKeyVOList(v []*UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList) *UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse {
 	s.InvoiceKeyVOList = v
 	return s
 }
 
-type UpdateApplyReceiptAndInvoiceRelatedResponseBodyInvoiceKeyVOList struct {
-	// 失败发票列表list
+type UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList struct {
+	// 发票编码
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	// 失败发票列表list
+	// 发票号码
 	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 }
 
-func (s UpdateApplyReceiptAndInvoiceRelatedResponseBodyInvoiceKeyVOList) String() string {
+func (s UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList) String() string {
 	return tea.Prettify(s)
 }
 
-func (s UpdateApplyReceiptAndInvoiceRelatedResponseBodyInvoiceKeyVOList) GoString() string {
+func (s UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateApplyReceiptAndInvoiceRelatedResponseBodyInvoiceKeyVOList) SetInvoiceCode(v string) *UpdateApplyReceiptAndInvoiceRelatedResponseBodyInvoiceKeyVOList {
+func (s *UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList) SetInvoiceCode(v string) *UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList {
 	s.InvoiceCode = &v
 	return s
 }
 
-func (s *UpdateApplyReceiptAndInvoiceRelatedResponseBodyInvoiceKeyVOList) SetInvoiceNo(v string) *UpdateApplyReceiptAndInvoiceRelatedResponseBodyInvoiceKeyVOList {
+func (s *UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList) SetInvoiceNo(v string) *UpdateApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList {
 	s.InvoiceNo = &v
 	return s
 }
@@ -11376,6 +11608,10 @@ func (client *Client) UpdateApplyReceiptAndInvoiceRelatedWithOptions(request *Up
 
 	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
 		body["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
 	}
 
 	realHeaders := make(map[string]*string)
