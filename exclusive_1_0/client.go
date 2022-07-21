@@ -3367,6 +3367,8 @@ func (s *GetGroupActiveInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetGro
 type GetGroupActiveInfoRequest struct {
 	// 钉钉群组id
 	DingGroupId *string `json:"dingGroupId,omitempty" xml:"dingGroupId,omitempty"`
+	// 群类型：1-全员群，2-部门群，3-（其他）内部群，4-场景群
+	GroupType *int64 `json:"groupType,omitempty" xml:"groupType,omitempty"`
 	// 分页起始页
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
 	// 分页大小
@@ -3385,6 +3387,11 @@ func (s GetGroupActiveInfoRequest) GoString() string {
 
 func (s *GetGroupActiveInfoRequest) SetDingGroupId(v string) *GetGroupActiveInfoRequest {
 	s.DingGroupId = &v
+	return s
+}
+
+func (s *GetGroupActiveInfoRequest) SetGroupType(v int64) *GetGroupActiveInfoRequest {
+	s.GroupType = &v
 	return s
 }
 
@@ -9191,6 +9198,10 @@ func (client *Client) GetGroupActiveInfoWithOptions(request *GetGroupActiveInfoR
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DingGroupId)) {
 		query["dingGroupId"] = request.DingGroupId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupType)) {
+		query["groupType"] = request.GroupType
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {

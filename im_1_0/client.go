@@ -447,6 +447,123 @@ func (s *ChatSubAdminUpdateResponse) SetBody(v *ChatSubAdminUpdateResponseBody) 
 	return s
 }
 
+type CreateCoupleGroupConversationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateCoupleGroupConversationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCoupleGroupConversationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCoupleGroupConversationHeaders) SetCommonHeaders(v map[string]*string) *CreateCoupleGroupConversationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateCoupleGroupConversationHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCoupleGroupConversationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateCoupleGroupConversationRequest struct {
+	// 钉外人员业务Id
+	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
+	// 群头像
+	GroupAvatar *string `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
+	// 群名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 钉外群主业务Id
+	GroupOwnerId *string `json:"groupOwnerId,omitempty" xml:"groupOwnerId,omitempty"`
+	// 群模板
+	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
+	// 操作者的钉钉Id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s CreateCoupleGroupConversationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCoupleGroupConversationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCoupleGroupConversationRequest) SetAppUserId(v string) *CreateCoupleGroupConversationRequest {
+	s.AppUserId = &v
+	return s
+}
+
+func (s *CreateCoupleGroupConversationRequest) SetGroupAvatar(v string) *CreateCoupleGroupConversationRequest {
+	s.GroupAvatar = &v
+	return s
+}
+
+func (s *CreateCoupleGroupConversationRequest) SetGroupName(v string) *CreateCoupleGroupConversationRequest {
+	s.GroupName = &v
+	return s
+}
+
+func (s *CreateCoupleGroupConversationRequest) SetGroupOwnerId(v string) *CreateCoupleGroupConversationRequest {
+	s.GroupOwnerId = &v
+	return s
+}
+
+func (s *CreateCoupleGroupConversationRequest) SetGroupTemplateId(v string) *CreateCoupleGroupConversationRequest {
+	s.GroupTemplateId = &v
+	return s
+}
+
+func (s *CreateCoupleGroupConversationRequest) SetOperatorId(v string) *CreateCoupleGroupConversationRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type CreateCoupleGroupConversationResponseBody struct {
+	// 群会话Id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s CreateCoupleGroupConversationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCoupleGroupConversationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCoupleGroupConversationResponseBody) SetOpenConversationId(v string) *CreateCoupleGroupConversationResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+type CreateCoupleGroupConversationResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateCoupleGroupConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateCoupleGroupConversationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCoupleGroupConversationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCoupleGroupConversationResponse) SetHeaders(v map[string]*string) *CreateCoupleGroupConversationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateCoupleGroupConversationResponse) SetBody(v *CreateCoupleGroupConversationResponseBody) *CreateCoupleGroupConversationResponse {
+	s.Body = v
+	return s
+}
+
 type CreateGroupConversationHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5724,6 +5841,70 @@ func (client *Client) ChatSubAdminUpdateWithOptions(request *ChatSubAdminUpdateR
 	}
 	_result = &ChatSubAdminUpdateResponse{}
 	_body, _err := client.DoROARequest(tea.String("ChatSubAdminUpdate"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/subAdministrators"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateCoupleGroupConversation(request *CreateCoupleGroupConversationRequest) (_result *CreateCoupleGroupConversationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateCoupleGroupConversationHeaders{}
+	_result = &CreateCoupleGroupConversationResponse{}
+	_body, _err := client.CreateCoupleGroupConversationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateCoupleGroupConversationWithOptions(request *CreateCoupleGroupConversationRequest, headers *CreateCoupleGroupConversationHeaders, runtime *util.RuntimeOptions) (_result *CreateCoupleGroupConversationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppUserId)) {
+		body["appUserId"] = request.AppUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupAvatar)) {
+		body["groupAvatar"] = request.GroupAvatar
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
+		body["groupName"] = request.GroupName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupOwnerId)) {
+		body["groupOwnerId"] = request.GroupOwnerId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupTemplateId)) {
+		body["groupTemplateId"] = request.GroupTemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateCoupleGroupConversationResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateCoupleGroupConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/coupleGroups"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

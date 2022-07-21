@@ -3584,16 +3584,12 @@ func (s *QueryCustomerInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCu
 }
 
 type QueryCustomerInfoRequest struct {
-	// 客户名字
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 查询条件，目前支持 名字、税号、购方电话
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
 	// 查询页码，从1开始
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
 	// 每页查询数量
 	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 购方税号
-	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
-	// 购方电话
-	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
 }
 
 func (s QueryCustomerInfoRequest) String() string {
@@ -3604,8 +3600,8 @@ func (s QueryCustomerInfoRequest) GoString() string {
 	return s.String()
 }
 
-func (s *QueryCustomerInfoRequest) SetName(v string) *QueryCustomerInfoRequest {
-	s.Name = &v
+func (s *QueryCustomerInfoRequest) SetKeyword(v string) *QueryCustomerInfoRequest {
+	s.Keyword = &v
 	return s
 }
 
@@ -3616,16 +3612,6 @@ func (s *QueryCustomerInfoRequest) SetPageNumber(v int64) *QueryCustomerInfoRequ
 
 func (s *QueryCustomerInfoRequest) SetPageSize(v int64) *QueryCustomerInfoRequest {
 	s.PageSize = &v
-	return s
-}
-
-func (s *QueryCustomerInfoRequest) SetPurchaserTaxNo(v string) *QueryCustomerInfoRequest {
-	s.PurchaserTaxNo = &v
-	return s
-}
-
-func (s *QueryCustomerInfoRequest) SetPurchaserTel(v string) *QueryCustomerInfoRequest {
-	s.PurchaserTel = &v
 	return s
 }
 
@@ -3663,7 +3649,12 @@ func (s *QueryCustomerInfoResponseBody) SetTotalCount(v int64) *QueryCustomerInf
 
 type QueryCustomerInfoResponseBodyList struct {
 	// 客户code
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	Code                    *string `json:"code,omitempty" xml:"code,omitempty"`
+	ContactAddress          *string `json:"contactAddress,omitempty" xml:"contactAddress,omitempty"`
+	ContactCompanyTelephone *string `json:"contactCompanyTelephone,omitempty" xml:"contactCompanyTelephone,omitempty"`
+	ContactEmail            *string `json:"contactEmail,omitempty" xml:"contactEmail,omitempty"`
+	ContactName             *string `json:"contactName,omitempty" xml:"contactName,omitempty"`
+	ContactTelephone        *string `json:"contactTelephone,omitempty" xml:"contactTelephone,omitempty"`
 	// 客户描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 	// 客户名字
@@ -3696,6 +3687,31 @@ func (s QueryCustomerInfoResponseBodyList) GoString() string {
 
 func (s *QueryCustomerInfoResponseBodyList) SetCode(v string) *QueryCustomerInfoResponseBodyList {
 	s.Code = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetContactAddress(v string) *QueryCustomerInfoResponseBodyList {
+	s.ContactAddress = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetContactCompanyTelephone(v string) *QueryCustomerInfoResponseBodyList {
+	s.ContactCompanyTelephone = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetContactEmail(v string) *QueryCustomerInfoResponseBodyList {
+	s.ContactEmail = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetContactName(v string) *QueryCustomerInfoResponseBodyList {
+	s.ContactName = &v
+	return s
+}
+
+func (s *QueryCustomerInfoResponseBodyList) SetContactTelephone(v string) *QueryCustomerInfoResponseBodyList {
+	s.ContactTelephone = &v
 	return s
 }
 
@@ -11046,8 +11062,8 @@ func (client *Client) QueryCustomerInfoWithOptions(request *QueryCustomerInfoReq
 		return _result, _err
 	}
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Name)) {
-		query["name"] = request.Name
+	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
+		query["keyword"] = request.Keyword
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
@@ -11056,14 +11072,6 @@ func (client *Client) QueryCustomerInfoWithOptions(request *QueryCustomerInfoReq
 
 	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
 		query["pageSize"] = request.PageSize
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.PurchaserTaxNo)) {
-		query["purchaserTaxNo"] = request.PurchaserTaxNo
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.PurchaserTel)) {
-		query["purchaserTel"] = request.PurchaserTel
 	}
 
 	realHeaders := make(map[string]*string)
