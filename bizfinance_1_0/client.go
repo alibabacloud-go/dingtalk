@@ -9844,6 +9844,123 @@ func (s *UpdateInvoiceVerifyStatusResponse) SetBody(v *UpdateInvoiceVerifyStatus
 	return s
 }
 
+type UpdateInvoiceVoucherStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateInvoiceVoucherStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceVoucherStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceVoucherStatusHeaders) SetCommonHeaders(v map[string]*string) *UpdateInvoiceVoucherStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateInvoiceVoucherStatusHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateInvoiceVoucherStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateInvoiceVoucherStatusRequest struct {
+	// 操作类型
+	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// 发票编码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 操作员
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	// 凭证id
+	VoucherId *string `json:"voucherId,omitempty" xml:"voucherId,omitempty"`
+}
+
+func (s UpdateInvoiceVoucherStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceVoucherStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceVoucherStatusRequest) SetActionType(v string) *UpdateInvoiceVoucherStatusRequest {
+	s.ActionType = &v
+	return s
+}
+
+func (s *UpdateInvoiceVoucherStatusRequest) SetInvoiceCode(v string) *UpdateInvoiceVoucherStatusRequest {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceVoucherStatusRequest) SetInvoiceNo(v string) *UpdateInvoiceVoucherStatusRequest {
+	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceVoucherStatusRequest) SetOperator(v string) *UpdateInvoiceVoucherStatusRequest {
+	s.Operator = &v
+	return s
+}
+
+func (s *UpdateInvoiceVoucherStatusRequest) SetVoucherId(v string) *UpdateInvoiceVoucherStatusRequest {
+	s.VoucherId = &v
+	return s
+}
+
+type UpdateInvoiceVoucherStatusResponseBody struct {
+	// 业务返回结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// 系统调用结果
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateInvoiceVoucherStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceVoucherStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceVoucherStatusResponseBody) SetResult(v bool) *UpdateInvoiceVoucherStatusResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *UpdateInvoiceVoucherStatusResponseBody) SetSuccess(v bool) *UpdateInvoiceVoucherStatusResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateInvoiceVoucherStatusResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateInvoiceVoucherStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateInvoiceVoucherStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceVoucherStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceVoucherStatusResponse) SetHeaders(v map[string]*string) *UpdateInvoiceVoucherStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateInvoiceVoucherStatusResponse) SetBody(v *UpdateInvoiceVoucherStatusResponseBody) *UpdateInvoiceVoucherStatusResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateReceiptHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11997,6 +12114,66 @@ func (client *Client) UpdateInvoiceVerifyStatusWithOptions(request *UpdateInvoic
 	}
 	_result = &UpdateInvoiceVerifyStatusResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateInvoiceVerifyStatus"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/verifyStatus"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateInvoiceVoucherStatus(request *UpdateInvoiceVoucherStatusRequest) (_result *UpdateInvoiceVoucherStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateInvoiceVoucherStatusHeaders{}
+	_result = &UpdateInvoiceVoucherStatusResponse{}
+	_body, _err := client.UpdateInvoiceVoucherStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateInvoiceVoucherStatusWithOptions(request *UpdateInvoiceVoucherStatusRequest, headers *UpdateInvoiceVoucherStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateInvoiceVoucherStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActionType)) {
+		body["actionType"] = request.ActionType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceCode)) {
+		body["invoiceCode"] = request.InvoiceCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceNo)) {
+		body["invoiceNo"] = request.InvoiceNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VoucherId)) {
+		body["voucherId"] = request.VoucherId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateInvoiceVoucherStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateInvoiceVoucherStatus"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/vouchers/states"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

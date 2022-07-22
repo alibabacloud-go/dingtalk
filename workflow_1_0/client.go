@@ -744,6 +744,8 @@ type GetProcessConfigResponseBodyResult struct {
 	CommentConf *GetProcessConfigResponseBodyResultCommentConf `json:"commentConf,omitempty" xml:"commentConf,omitempty" type:"Struct"`
 	// 审批人自动去重
 	DuplicateRemoval *string `json:"duplicateRemoval,omitempty" xml:"duplicateRemoval,omitempty"`
+	// 表单配置
+	FormSchema *string `json:"formSchema,omitempty" xml:"formSchema,omitempty"`
 	// 手写签名配置
 	HandSignConf *GetProcessConfigResponseBodyResultHandSignConf `json:"handSignConf,omitempty" xml:"handSignConf,omitempty" type:"Struct"`
 	// 表单管理员
@@ -814,6 +816,11 @@ func (s *GetProcessConfigResponseBodyResult) SetCommentConf(v *GetProcessConfigR
 
 func (s *GetProcessConfigResponseBodyResult) SetDuplicateRemoval(v string) *GetProcessConfigResponseBodyResult {
 	s.DuplicateRemoval = &v
+	return s
+}
+
+func (s *GetProcessConfigResponseBodyResult) SetFormSchema(v string) *GetProcessConfigResponseBodyResult {
+	s.FormSchema = &v
 	return s
 }
 

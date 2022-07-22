@@ -11771,7 +11771,7 @@ func (s *SaveFormRemarkHeaders) SetXAcsDingtalkAccessToken(v string) *SaveFormRe
 type SaveFormRemarkRequest struct {
 	// 应用ID
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	// 将评论内容通过钉钉发给指定用户
+	// 将评论内容通过钉钉发给指定用户, 逗号分隔
 	AtUserId *string `json:"atUserId,omitempty" xml:"atUserId,omitempty"`
 	// 评论内容
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`

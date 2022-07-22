@@ -3479,6 +3479,8 @@ type SendInteractiveCardRequest struct {
 	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
 	// 卡片用户私有差异部分数据（如卡片不同人显示不同按钮；key：用户userId；value：用户数据变量）
 	PrivateData map[string]*PrivateDataValue `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	// 是否开启卡片纯拉模式
+	PullStrategy *bool `json:"pullStrategy,omitempty" xml:"pullStrategy,omitempty"`
 	// 互动卡片消息需要群会话部分人可见时的接收人列表，不填写默认群会话所有人可见
 	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
 	// 【robotCode & chatBotId二选一必填】机器人编码（群模板机器人）
@@ -3542,6 +3544,11 @@ func (s *SendInteractiveCardRequest) SetOutTrackId(v string) *SendInteractiveCar
 
 func (s *SendInteractiveCardRequest) SetPrivateData(v map[string]*PrivateDataValue) *SendInteractiveCardRequest {
 	s.PrivateData = v
+	return s
+}
+
+func (s *SendInteractiveCardRequest) SetPullStrategy(v bool) *SendInteractiveCardRequest {
+	s.PullStrategy = &v
 	return s
 }
 
@@ -3703,6 +3710,8 @@ type SendRobotInteractiveCardRequest struct {
 	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
 	// 【openConversationId & singleChatReceiver 二选一必填】接收卡片的加密群ID，特指多人群会话（非单聊）
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 是否开启卡片纯拉模式
+	PullStrategy *bool `json:"pullStrategy,omitempty" xml:"pullStrategy,omitempty"`
 	// 机器人代码，群模板机器人网页有机器人ID；企业内部机器人为机器人appKey，企业三方机器人有robotCode
 	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 	// 互动卡片发送选项
@@ -3745,6 +3754,11 @@ func (s *SendRobotInteractiveCardRequest) SetCardTemplateId(v string) *SendRobot
 
 func (s *SendRobotInteractiveCardRequest) SetOpenConversationId(v string) *SendRobotInteractiveCardRequest {
 	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SendRobotInteractiveCardRequest) SetPullStrategy(v bool) *SendRobotInteractiveCardRequest {
+	s.PullStrategy = &v
 	return s
 }
 
@@ -7202,6 +7216,10 @@ func (client *Client) SendInteractiveCardWithOptions(request *SendInteractiveCar
 		body["privateData"] = request.PrivateData
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.PullStrategy)) {
+		body["pullStrategy"] = request.PullStrategy
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ReceiverUserIdList)) {
 		body["receiverUserIdList"] = request.ReceiverUserIdList
 	}
@@ -7272,6 +7290,10 @@ func (client *Client) SendRobotInteractiveCardWithOptions(request *SendRobotInte
 
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
 		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PullStrategy)) {
+		body["pullStrategy"] = request.PullStrategy
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
