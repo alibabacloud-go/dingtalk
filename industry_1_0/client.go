@@ -4844,6 +4844,307 @@ func (s *DigitalStoreUsersResponse) SetBody(v *DigitalStoreUsersResponseBody) *D
 	return s
 }
 
+type ExternalQueryExternalAppOrgsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ExternalQueryExternalAppOrgsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExternalQueryExternalAppOrgsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ExternalQueryExternalAppOrgsHeaders) SetCommonHeaders(v map[string]*string) *ExternalQueryExternalAppOrgsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ExternalQueryExternalAppOrgsHeaders) SetXAcsDingtalkAccessToken(v string) *ExternalQueryExternalAppOrgsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ExternalQueryExternalAppOrgsRequest struct {
+	// 外部组织类型
+	ExternalType *string `json:"externalType,omitempty" xml:"externalType,omitempty"`
+}
+
+func (s ExternalQueryExternalAppOrgsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExternalQueryExternalAppOrgsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExternalQueryExternalAppOrgsRequest) SetExternalType(v string) *ExternalQueryExternalAppOrgsRequest {
+	s.ExternalType = &v
+	return s
+}
+
+type ExternalQueryExternalAppOrgsResponseBody struct {
+	// 返回项目组
+	Result []*ExternalQueryExternalAppOrgsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s ExternalQueryExternalAppOrgsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExternalQueryExternalAppOrgsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ExternalQueryExternalAppOrgsResponseBody) SetResult(v []*ExternalQueryExternalAppOrgsResponseBodyResult) *ExternalQueryExternalAppOrgsResponseBody {
+	s.Result = v
+	return s
+}
+
+type ExternalQueryExternalAppOrgsResponseBodyResult struct {
+	// 外部合作组织ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 外部合作组织名称
+	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
+}
+
+func (s ExternalQueryExternalAppOrgsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExternalQueryExternalAppOrgsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ExternalQueryExternalAppOrgsResponseBodyResult) SetCorpId(v string) *ExternalQueryExternalAppOrgsResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ExternalQueryExternalAppOrgsResponseBodyResult) SetCorpName(v string) *ExternalQueryExternalAppOrgsResponseBodyResult {
+	s.CorpName = &v
+	return s
+}
+
+type ExternalQueryExternalAppOrgsResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ExternalQueryExternalAppOrgsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ExternalQueryExternalAppOrgsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExternalQueryExternalAppOrgsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExternalQueryExternalAppOrgsResponse) SetHeaders(v map[string]*string) *ExternalQueryExternalAppOrgsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ExternalQueryExternalAppOrgsResponse) SetBody(v *ExternalQueryExternalAppOrgsResponseBody) *ExternalQueryExternalAppOrgsResponse {
+	s.Body = v
+	return s
+}
+
+type ExternalQueryExternalBelongMainOrgHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ExternalQueryExternalBelongMainOrgHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExternalQueryExternalBelongMainOrgHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ExternalQueryExternalBelongMainOrgHeaders) SetCommonHeaders(v map[string]*string) *ExternalQueryExternalBelongMainOrgHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ExternalQueryExternalBelongMainOrgHeaders) SetXAcsDingtalkAccessToken(v string) *ExternalQueryExternalBelongMainOrgHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ExternalQueryExternalBelongMainOrgRequest struct {
+	// 外部组织类型
+	ExternalType *string `json:"externalType,omitempty" xml:"externalType,omitempty"`
+}
+
+func (s ExternalQueryExternalBelongMainOrgRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExternalQueryExternalBelongMainOrgRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExternalQueryExternalBelongMainOrgRequest) SetExternalType(v string) *ExternalQueryExternalBelongMainOrgRequest {
+	s.ExternalType = &v
+	return s
+}
+
+type ExternalQueryExternalBelongMainOrgResponseBody struct {
+	CorpId   *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
+}
+
+func (s ExternalQueryExternalBelongMainOrgResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExternalQueryExternalBelongMainOrgResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ExternalQueryExternalBelongMainOrgResponseBody) SetCorpId(v string) *ExternalQueryExternalBelongMainOrgResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ExternalQueryExternalBelongMainOrgResponseBody) SetCorpName(v string) *ExternalQueryExternalBelongMainOrgResponseBody {
+	s.CorpName = &v
+	return s
+}
+
+type ExternalQueryExternalBelongMainOrgResponse struct {
+	Headers map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ExternalQueryExternalBelongMainOrgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ExternalQueryExternalBelongMainOrgResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExternalQueryExternalBelongMainOrgResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExternalQueryExternalBelongMainOrgResponse) SetHeaders(v map[string]*string) *ExternalQueryExternalBelongMainOrgResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ExternalQueryExternalBelongMainOrgResponse) SetBody(v *ExternalQueryExternalBelongMainOrgResponseBody) *ExternalQueryExternalBelongMainOrgResponse {
+	s.Body = v
+	return s
+}
+
+type ExternalQueryExternalOrgsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ExternalQueryExternalOrgsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExternalQueryExternalOrgsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ExternalQueryExternalOrgsHeaders) SetCommonHeaders(v map[string]*string) *ExternalQueryExternalOrgsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ExternalQueryExternalOrgsHeaders) SetXAcsDingtalkAccessToken(v string) *ExternalQueryExternalOrgsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ExternalQueryExternalOrgsRequest struct {
+	// 外部组织类型,ecological:上下游
+	ExternalType *string `json:"externalType,omitempty" xml:"externalType,omitempty"`
+}
+
+func (s ExternalQueryExternalOrgsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExternalQueryExternalOrgsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExternalQueryExternalOrgsRequest) SetExternalType(v string) *ExternalQueryExternalOrgsRequest {
+	s.ExternalType = &v
+	return s
+}
+
+type ExternalQueryExternalOrgsResponseBody struct {
+	// 返回项目组
+	Result []*ExternalQueryExternalOrgsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s ExternalQueryExternalOrgsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExternalQueryExternalOrgsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ExternalQueryExternalOrgsResponseBody) SetResult(v []*ExternalQueryExternalOrgsResponseBodyResult) *ExternalQueryExternalOrgsResponseBody {
+	s.Result = v
+	return s
+}
+
+type ExternalQueryExternalOrgsResponseBodyResult struct {
+	// 外部合作组织ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 外部合作组织名称
+	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
+}
+
+func (s ExternalQueryExternalOrgsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExternalQueryExternalOrgsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ExternalQueryExternalOrgsResponseBodyResult) SetCorpId(v string) *ExternalQueryExternalOrgsResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ExternalQueryExternalOrgsResponseBodyResult) SetCorpName(v string) *ExternalQueryExternalOrgsResponseBodyResult {
+	s.CorpName = &v
+	return s
+}
+
+type ExternalQueryExternalOrgsResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ExternalQueryExternalOrgsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ExternalQueryExternalOrgsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExternalQueryExternalOrgsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExternalQueryExternalOrgsResponse) SetHeaders(v map[string]*string) *ExternalQueryExternalOrgsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ExternalQueryExternalOrgsResponse) SetBody(v *ExternalQueryExternalOrgsResponseBody) *ExternalQueryExternalOrgsResponse {
+	s.Body = v
+	return s
+}
+
 type IndustryManufactureCommonEventHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -13159,6 +13460,138 @@ func (client *Client) DigitalStoreUsersWithOptions(request *DigitalStoreUsersReq
 	}
 	_result = &DigitalStoreUsersResponse{}
 	_body, _err := client.DoROARequest(tea.String("DigitalStoreUsers"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/digitalStores/nodes/users"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ExternalQueryExternalAppOrgs(request *ExternalQueryExternalAppOrgsRequest) (_result *ExternalQueryExternalAppOrgsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ExternalQueryExternalAppOrgsHeaders{}
+	_result = &ExternalQueryExternalAppOrgsResponse{}
+	_body, _err := client.ExternalQueryExternalAppOrgsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ExternalQueryExternalAppOrgsWithOptions(request *ExternalQueryExternalAppOrgsRequest, headers *ExternalQueryExternalAppOrgsHeaders, runtime *util.RuntimeOptions) (_result *ExternalQueryExternalAppOrgsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ExternalType)) {
+		query["externalType"] = request.ExternalType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ExternalQueryExternalAppOrgsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ExternalQueryExternalAppOrgs"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/externals/apps/organizations"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ExternalQueryExternalBelongMainOrg(request *ExternalQueryExternalBelongMainOrgRequest) (_result *ExternalQueryExternalBelongMainOrgResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ExternalQueryExternalBelongMainOrgHeaders{}
+	_result = &ExternalQueryExternalBelongMainOrgResponse{}
+	_body, _err := client.ExternalQueryExternalBelongMainOrgWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ExternalQueryExternalBelongMainOrgWithOptions(request *ExternalQueryExternalBelongMainOrgRequest, headers *ExternalQueryExternalBelongMainOrgHeaders, runtime *util.RuntimeOptions) (_result *ExternalQueryExternalBelongMainOrgResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ExternalType)) {
+		query["externalType"] = request.ExternalType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ExternalQueryExternalBelongMainOrgResponse{}
+	_body, _err := client.DoROARequest(tea.String("ExternalQueryExternalBelongMainOrg"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/externals/attributions/masterOrganizations"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ExternalQueryExternalOrgs(request *ExternalQueryExternalOrgsRequest) (_result *ExternalQueryExternalOrgsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ExternalQueryExternalOrgsHeaders{}
+	_result = &ExternalQueryExternalOrgsResponse{}
+	_body, _err := client.ExternalQueryExternalOrgsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ExternalQueryExternalOrgsWithOptions(request *ExternalQueryExternalOrgsRequest, headers *ExternalQueryExternalOrgsHeaders, runtime *util.RuntimeOptions) (_result *ExternalQueryExternalOrgsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ExternalType)) {
+		query["externalType"] = request.ExternalType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ExternalQueryExternalOrgsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ExternalQueryExternalOrgs"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/externals/organizations"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

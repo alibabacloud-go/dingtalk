@@ -2171,8 +2171,7 @@ type GetInvoiceByPageResponseBodyResultList struct {
 	// 购方电话
 	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
 	// 备注
-	Remark                         *string                                                                 `json:"remark,omitempty" xml:"remark,omitempty"`
-	SecondHandCarInvoiceDetailList []*GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList `json:"secondHandCarInvoiceDetailList,omitempty" xml:"secondHandCarInvoiceDetailList,omitempty" type:"Repeated"`
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 	// 销方地址
 	SellerAddress *string `json:"sellerAddress,omitempty" xml:"sellerAddress,omitempty"`
 	// 销方银行
@@ -2189,6 +2188,7 @@ type GetInvoiceByPageResponseBodyResultList struct {
 	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
 	// 税额
 	TaxAmount                   *string                                                              `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	TransportFeeDetailVOList    []*GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList    `json:"transportFeeDetailVOList,omitempty" xml:"transportFeeDetailVOList,omitempty" type:"Repeated"`
 	UsedVehicleSaleDetailVOList []*GetInvoiceByPageResponseBodyResultListUsedVehicleSaleDetailVOList `json:"usedVehicleSaleDetailVOList,omitempty" xml:"usedVehicleSaleDetailVOList,omitempty" type:"Repeated"`
 	VehicleSaleDetailVOList     []*GetInvoiceByPageResponseBodyResultListVehicleSaleDetailVOList     `json:"vehicleSaleDetailVOList,omitempty" xml:"vehicleSaleDetailVOList,omitempty" type:"Repeated"`
 	// 发票查验状态
@@ -2327,11 +2327,6 @@ func (s *GetInvoiceByPageResponseBodyResultList) SetRemark(v string) *GetInvoice
 	return s
 }
 
-func (s *GetInvoiceByPageResponseBodyResultList) SetSecondHandCarInvoiceDetailList(v []*GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList) *GetInvoiceByPageResponseBodyResultList {
-	s.SecondHandCarInvoiceDetailList = v
-	return s
-}
-
 func (s *GetInvoiceByPageResponseBodyResultList) SetSellerAddress(v string) *GetInvoiceByPageResponseBodyResultList {
 	s.SellerAddress = &v
 	return s
@@ -2369,6 +2364,11 @@ func (s *GetInvoiceByPageResponseBodyResultList) SetSupplySign(v string) *GetInv
 
 func (s *GetInvoiceByPageResponseBodyResultList) SetTaxAmount(v string) *GetInvoiceByPageResponseBodyResultList {
 	s.TaxAmount = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultList) SetTransportFeeDetailVOList(v []*GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList) *GetInvoiceByPageResponseBodyResultList {
+	s.TransportFeeDetailVOList = v
 	return s
 }
 
@@ -2485,7 +2485,7 @@ func (s *GetInvoiceByPageResponseBodyResultListGeneralInvoiceDetailVOList) SetUn
 	return s
 }
 
-type GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList struct {
+type GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList struct {
 	// 金额
 	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
 	// 车牌号
@@ -2508,60 +2508,60 @@ type GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList struct
 	VehicleType *string `json:"vehicleType,omitempty" xml:"vehicleType,omitempty"`
 }
 
-func (s GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList) String() string {
+func (s GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList) GoString() string {
+func (s GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList) GoString() string {
 	return s.String()
 }
 
-func (s *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList) SetAmount(v string) *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList {
+func (s *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList) SetAmount(v string) *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList {
 	s.Amount = &v
 	return s
 }
 
-func (s *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList) SetCardNo(v string) *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList {
+func (s *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList) SetCardNo(v string) *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList {
 	s.CardNo = &v
 	return s
 }
 
-func (s *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList) SetEndDate(v string) *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList {
+func (s *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList) SetEndDate(v string) *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList {
 	s.EndDate = &v
 	return s
 }
 
-func (s *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList) SetGoodsName(v string) *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList {
+func (s *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList) SetGoodsName(v string) *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList {
 	s.GoodsName = &v
 	return s
 }
 
-func (s *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList) SetRevenueCode(v string) *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList {
+func (s *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList) SetRevenueCode(v string) *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList {
 	s.RevenueCode = &v
 	return s
 }
 
-func (s *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList) SetRowNo(v string) *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList {
+func (s *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList) SetRowNo(v string) *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList {
 	s.RowNo = &v
 	return s
 }
 
-func (s *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList) SetStartDate(v string) *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList {
+func (s *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList) SetStartDate(v string) *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList {
 	s.StartDate = &v
 	return s
 }
 
-func (s *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList) SetTaxAmount(v string) *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList {
+func (s *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList) SetTaxAmount(v string) *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList {
 	s.TaxAmount = &v
 	return s
 }
 
-func (s *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList) SetTaxRate(v string) *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList {
+func (s *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList) SetTaxRate(v string) *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList {
 	s.TaxRate = &v
 	return s
 }
 
-func (s *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList) SetVehicleType(v string) *GetInvoiceByPageResponseBodyResultListSecondHandCarInvoiceDetailList {
+func (s *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList) SetVehicleType(v string) *GetInvoiceByPageResponseBodyResultListTransportFeeDetailVOList {
 	s.VehicleType = &v
 	return s
 }

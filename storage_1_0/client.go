@@ -384,8 +384,6 @@ func (s *AddSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *AddSpaceHeaders 
 type AddSpaceRequest struct {
 	// 可选参数
 	Option *AddSpaceRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	// 必选参数
-	Param *AddSpaceRequestParam `json:"param,omitempty" xml:"param,omitempty" type:"Struct"`
 	// 用户id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
@@ -400,11 +398,6 @@ func (s AddSpaceRequest) GoString() string {
 
 func (s *AddSpaceRequest) SetOption(v *AddSpaceRequestOption) *AddSpaceRequest {
 	s.Option = v
-	return s
-}
-
-func (s *AddSpaceRequest) SetParam(v *AddSpaceRequestParam) *AddSpaceRequest {
-	s.Param = v
 	return s
 }
 
@@ -513,24 +506,6 @@ func (s *AddSpaceRequestOptionCapabilities) SetCanRename(v bool) *AddSpaceReques
 
 func (s *AddSpaceRequestOptionCapabilities) SetCanSearch(v bool) *AddSpaceRequestOptionCapabilities {
 	s.CanSearch = &v
-	return s
-}
-
-type AddSpaceRequestParam struct {
-	// 空间归属企业的Id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-}
-
-func (s AddSpaceRequestParam) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddSpaceRequestParam) GoString() string {
-	return s.String()
-}
-
-func (s *AddSpaceRequestParam) SetCorpId(v string) *AddSpaceRequestParam {
-	s.CorpId = &v
 	return s
 }
 
@@ -5272,10 +5247,6 @@ func (client *Client) AddSpaceWithOptions(request *AddSpaceRequest, headers *Add
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
-	}
-
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Param))) {
-		body["param"] = request.Param
 	}
 
 	realHeaders := make(map[string]*string)
