@@ -2120,6 +2120,8 @@ type QueryAllProcessInstancesResponseBodyResultList struct {
 	FormComponentValues []*QueryAllProcessInstancesResponseBodyResultListFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
 	// 主单实例Id
 	MainProcessInstanceId *string `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
+	// 审批单操作记录
+	OperationRecords []*QueryAllProcessInstancesResponseBodyResultListOperationRecords `json:"operationRecords,omitempty" xml:"operationRecords,omitempty" type:"Repeated"`
 	// 发起人部门id
 	OriginatorDeptId *string `json:"originatorDeptId,omitempty" xml:"originatorDeptId,omitempty"`
 	// 发起者userId
@@ -2130,6 +2132,8 @@ type QueryAllProcessInstancesResponseBodyResultList struct {
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 	// 审批单状态
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 任务列表
+	Tasks []*QueryAllProcessInstancesResponseBodyResultListTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
 	// 审批单标题
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
@@ -2172,6 +2176,11 @@ func (s *QueryAllProcessInstancesResponseBodyResultList) SetMainProcessInstanceI
 	return s
 }
 
+func (s *QueryAllProcessInstancesResponseBodyResultList) SetOperationRecords(v []*QueryAllProcessInstancesResponseBodyResultListOperationRecords) *QueryAllProcessInstancesResponseBodyResultList {
+	s.OperationRecords = v
+	return s
+}
+
 func (s *QueryAllProcessInstancesResponseBodyResultList) SetOriginatorDeptId(v string) *QueryAllProcessInstancesResponseBodyResultList {
 	s.OriginatorDeptId = &v
 	return s
@@ -2194,6 +2203,11 @@ func (s *QueryAllProcessInstancesResponseBodyResultList) SetResult(v string) *Qu
 
 func (s *QueryAllProcessInstancesResponseBodyResultList) SetStatus(v string) *QueryAllProcessInstancesResponseBodyResultList {
 	s.Status = &v
+	return s
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultList) SetTasks(v []*QueryAllProcessInstancesResponseBodyResultListTasks) *QueryAllProcessInstancesResponseBodyResultList {
+	s.Tasks = v
 	return s
 }
 
@@ -2238,6 +2252,158 @@ func (s *QueryAllProcessInstancesResponseBodyResultListFormComponentValues) SetN
 
 func (s *QueryAllProcessInstancesResponseBodyResultListFormComponentValues) SetValue(v string) *QueryAllProcessInstancesResponseBodyResultListFormComponentValues {
 	s.Value = &v
+	return s
+}
+
+type QueryAllProcessInstancesResponseBodyResultListOperationRecords struct {
+	// 评论附件
+	Attachments []*QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+	// 操作类型
+	OperationType *string `json:"operationType,omitempty" xml:"operationType,omitempty"`
+	// 评论
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// 操作结果
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// 操作时间戳
+	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	// 操作人staffId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryAllProcessInstancesResponseBodyResultListOperationRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAllProcessInstancesResponseBodyResultListOperationRecords) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultListOperationRecords) SetAttachments(v []*QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments) *QueryAllProcessInstancesResponseBodyResultListOperationRecords {
+	s.Attachments = v
+	return s
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultListOperationRecords) SetOperationType(v string) *QueryAllProcessInstancesResponseBodyResultListOperationRecords {
+	s.OperationType = &v
+	return s
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultListOperationRecords) SetRemark(v string) *QueryAllProcessInstancesResponseBodyResultListOperationRecords {
+	s.Remark = &v
+	return s
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultListOperationRecords) SetResult(v string) *QueryAllProcessInstancesResponseBodyResultListOperationRecords {
+	s.Result = &v
+	return s
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultListOperationRecords) SetTimestamp(v int64) *QueryAllProcessInstancesResponseBodyResultListOperationRecords {
+	s.Timestamp = &v
+	return s
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultListOperationRecords) SetUserId(v string) *QueryAllProcessInstancesResponseBodyResultListOperationRecords {
+	s.UserId = &v
+	return s
+}
+
+type QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments struct {
+	// 附件钉盘id
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// 附件名称
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// 文件大小
+	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// 文件类型
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+}
+
+func (s QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments) SetFileId(v string) *QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments {
+	s.FileId = &v
+	return s
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments) SetFileName(v string) *QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments {
+	s.FileName = &v
+	return s
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments) SetFileSize(v string) *QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments {
+	s.FileSize = &v
+	return s
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments) SetFileType(v string) *QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments {
+	s.FileType = &v
+	return s
+}
+
+type QueryAllProcessInstancesResponseBodyResultListTasks struct {
+	// 节点id
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// 任务创建时间戳
+	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	// 任务结束时间戳
+	FinishTimestamp *int64 `json:"finishTimestamp,omitempty" xml:"finishTimestamp,omitempty"`
+	// 任务结果
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// 任务状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 任务Id
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// 任务处理人
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryAllProcessInstancesResponseBodyResultListTasks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAllProcessInstancesResponseBodyResultListTasks) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultListTasks) SetActivityId(v string) *QueryAllProcessInstancesResponseBodyResultListTasks {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultListTasks) SetCreateTimestamp(v int64) *QueryAllProcessInstancesResponseBodyResultListTasks {
+	s.CreateTimestamp = &v
+	return s
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultListTasks) SetFinishTimestamp(v int64) *QueryAllProcessInstancesResponseBodyResultListTasks {
+	s.FinishTimestamp = &v
+	return s
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultListTasks) SetResult(v string) *QueryAllProcessInstancesResponseBodyResultListTasks {
+	s.Result = &v
+	return s
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultListTasks) SetStatus(v string) *QueryAllProcessInstancesResponseBodyResultListTasks {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultListTasks) SetTaskId(v int64) *QueryAllProcessInstancesResponseBodyResultListTasks {
+	s.TaskId = &v
+	return s
+}
+
+func (s *QueryAllProcessInstancesResponseBodyResultListTasks) SetUserId(v string) *QueryAllProcessInstancesResponseBodyResultListTasks {
+	s.UserId = &v
 	return s
 }
 

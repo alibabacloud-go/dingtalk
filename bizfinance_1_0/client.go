@@ -2401,7 +2401,7 @@ type GetInvoiceByPageResponseBodyResultListGeneralInvoiceDetailVOList struct {
 	// 金额
 	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
 	// 商品名称
-	GoodName *string `json:"goodName,omitempty" xml:"goodName,omitempty"`
+	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
 	// 数量
 	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
 	// 税收分类编码
@@ -2435,8 +2435,8 @@ func (s *GetInvoiceByPageResponseBodyResultListGeneralInvoiceDetailVOList) SetAm
 	return s
 }
 
-func (s *GetInvoiceByPageResponseBodyResultListGeneralInvoiceDetailVOList) SetGoodName(v string) *GetInvoiceByPageResponseBodyResultListGeneralInvoiceDetailVOList {
-	s.GoodName = &v
+func (s *GetInvoiceByPageResponseBodyResultListGeneralInvoiceDetailVOList) SetGoodsName(v string) *GetInvoiceByPageResponseBodyResultListGeneralInvoiceDetailVOList {
+	s.GoodsName = &v
 	return s
 }
 
