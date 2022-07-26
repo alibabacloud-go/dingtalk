@@ -4586,6 +4586,8 @@ type QueryReceiptForInvoiceResponseBodyList struct {
 	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
 	// 开票状态
 	ApplyStatus *string `json:"applyStatus,omitempty" xml:"applyStatus,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 创建人
 	Creator *QueryReceiptForInvoiceResponseBodyListCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
 	// 客户
@@ -4635,6 +4637,11 @@ func (s *QueryReceiptForInvoiceResponseBodyList) SetAmount(v string) *QueryRecei
 
 func (s *QueryReceiptForInvoiceResponseBodyList) SetApplyStatus(v string) *QueryReceiptForInvoiceResponseBodyList {
 	s.ApplyStatus = &v
+	return s
+}
+
+func (s *QueryReceiptForInvoiceResponseBodyList) SetCreateTime(v string) *QueryReceiptForInvoiceResponseBodyList {
+	s.CreateTime = &v
 	return s
 }
 
@@ -4909,6 +4916,8 @@ func (s *QueryReceiptsBaseInfoResponseBody) SetTotalCount(v int64) *QueryReceipt
 type QueryReceiptsBaseInfoResponseBodyList struct {
 	// 金额
 	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 创建人
 	Creator *QueryReceiptsBaseInfoResponseBodyListCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
 	// 客户
@@ -4943,6 +4952,11 @@ func (s QueryReceiptsBaseInfoResponseBodyList) GoString() string {
 
 func (s *QueryReceiptsBaseInfoResponseBodyList) SetAmount(v string) *QueryReceiptsBaseInfoResponseBodyList {
 	s.Amount = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoResponseBodyList) SetCreateTime(v string) *QueryReceiptsBaseInfoResponseBodyList {
+	s.CreateTime = &v
 	return s
 }
 

@@ -1383,10 +1383,11 @@ func (s *GetRangeRequest) SetOperatorId(v string) *GetRangeRequest {
 }
 
 type GetRangeResponseBody struct {
-	DisplayValues []*string `json:"displayValues,omitempty" xml:"displayValues,omitempty" type:"Repeated"`
-	Formulas      []*string `json:"formulas,omitempty" xml:"formulas,omitempty" type:"Repeated"`
+	BackgroundColors [][]*GetRangeResponseBodyBackgroundColors `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
+	DisplayValues    [][]*string                               `json:"displayValues,omitempty" xml:"displayValues,omitempty" type:"Repeated"`
+	Formulas         [][]*string                               `json:"formulas,omitempty" xml:"formulas,omitempty" type:"Repeated"`
 	// 值
-	Values []*string `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	Values [][]interface{} `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 }
 
 func (s GetRangeResponseBody) String() string {
@@ -1397,18 +1398,62 @@ func (s GetRangeResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *GetRangeResponseBody) SetDisplayValues(v []*string) *GetRangeResponseBody {
+func (s *GetRangeResponseBody) SetBackgroundColors(v [][]*GetRangeResponseBodyBackgroundColors) *GetRangeResponseBody {
+	s.BackgroundColors = v
+	return s
+}
+
+func (s *GetRangeResponseBody) SetDisplayValues(v [][]*string) *GetRangeResponseBody {
 	s.DisplayValues = v
 	return s
 }
 
-func (s *GetRangeResponseBody) SetFormulas(v []*string) *GetRangeResponseBody {
+func (s *GetRangeResponseBody) SetFormulas(v [][]*string) *GetRangeResponseBody {
 	s.Formulas = v
 	return s
 }
 
-func (s *GetRangeResponseBody) SetValues(v []*string) *GetRangeResponseBody {
+func (s *GetRangeResponseBody) SetValues(v [][]interface{}) *GetRangeResponseBody {
 	s.Values = v
+	return s
+}
+
+type GetRangeResponseBodyBackgroundColors struct {
+	// RGB值中的红色值
+	Red *int64 `json:"red,omitempty" xml:"red,omitempty"`
+	// RGB值中的绿色值
+	Green *int64 `json:"green,omitempty" xml:"green,omitempty"`
+	// RGB值中的蓝色值
+	Blue *int64 `json:"blue,omitempty" xml:"blue,omitempty"`
+	// 16进制表示的颜色
+	HexString *string `json:"hexString,omitempty" xml:"hexString,omitempty"`
+}
+
+func (s GetRangeResponseBodyBackgroundColors) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRangeResponseBodyBackgroundColors) GoString() string {
+	return s.String()
+}
+
+func (s *GetRangeResponseBodyBackgroundColors) SetRed(v int64) *GetRangeResponseBodyBackgroundColors {
+	s.Red = &v
+	return s
+}
+
+func (s *GetRangeResponseBodyBackgroundColors) SetGreen(v int64) *GetRangeResponseBodyBackgroundColors {
+	s.Green = &v
+	return s
+}
+
+func (s *GetRangeResponseBodyBackgroundColors) SetBlue(v int64) *GetRangeResponseBodyBackgroundColors {
+	s.Blue = &v
+	return s
+}
+
+func (s *GetRangeResponseBodyBackgroundColors) SetHexString(v string) *GetRangeResponseBodyBackgroundColors {
+	s.HexString = &v
 	return s
 }
 

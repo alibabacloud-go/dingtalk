@@ -236,6 +236,8 @@ type SyncTripOrderRequest struct {
 	RefundAmount *string `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
 	// 供应商关联订单号
 	RelativeOrderNo *string `json:"relativeOrderNo,omitempty" xml:"relativeOrderNo,omitempty"`
+	// 来源埋点
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
 	// 用户组织id
 	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
 	// 总金额
@@ -332,6 +334,11 @@ func (s *SyncTripOrderRequest) SetRelativeOrderNo(v string) *SyncTripOrderReques
 	return s
 }
 
+func (s *SyncTripOrderRequest) SetSource(v string) *SyncTripOrderRequest {
+	s.Source = &v
+	return s
+}
+
 func (s *SyncTripOrderRequest) SetTargetCorpId(v string) *SyncTripOrderRequest {
 	s.TargetCorpId = &v
 	return s
@@ -375,6 +382,10 @@ func (s *SyncTripOrderRequestEvent) SetGmtAction(v string) *SyncTripOrderRequest
 type SyncTripOrderRequestOrderDetails struct {
 	// 到达时间
 	ArrivalTime *string `json:"arrivalTime,omitempty" xml:"arrivalTime,omitempty"`
+	// 车辆颜色
+	CarColor *string `json:"carColor,omitempty" xml:"carColor,omitempty"`
+	// 车辆型号
+	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
 	// 车牌号
 	CarNumber *string `json:"carNumber,omitempty" xml:"carNumber,omitempty"`
 	// 餐食描述
@@ -403,6 +414,8 @@ type SyncTripOrderRequestOrderDetails struct {
 	RoomCount *int32 `json:"roomCount,omitempty" xml:"roomCount,omitempty"`
 	// 舱位
 	SeatInfo *string `json:"seatInfo,omitempty" xml:"seatInfo,omitempty"`
+	// “服务类型”
+	ServiceType *string `json:"serviceType,omitempty" xml:"serviceType,omitempty"`
 	// 下游供应商logo
 	SubSupplyLogo *string `json:"subSupplyLogo,omitempty" xml:"subSupplyLogo,omitempty"`
 	// 下游供应商名称
@@ -427,6 +440,16 @@ func (s SyncTripOrderRequestOrderDetails) GoString() string {
 
 func (s *SyncTripOrderRequestOrderDetails) SetArrivalTime(v string) *SyncTripOrderRequestOrderDetails {
 	s.ArrivalTime = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetails) SetCarColor(v string) *SyncTripOrderRequestOrderDetails {
+	s.CarColor = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetails) SetCarModel(v string) *SyncTripOrderRequestOrderDetails {
+	s.CarModel = &v
 	return s
 }
 
@@ -497,6 +520,11 @@ func (s *SyncTripOrderRequestOrderDetails) SetRoomCount(v int32) *SyncTripOrderR
 
 func (s *SyncTripOrderRequestOrderDetails) SetSeatInfo(v string) *SyncTripOrderRequestOrderDetails {
 	s.SeatInfo = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetails) SetServiceType(v string) *SyncTripOrderRequestOrderDetails {
+	s.ServiceType = &v
 	return s
 }
 
@@ -787,6 +815,10 @@ func (client *Client) SyncTripOrderWithOptions(request *SyncTripOrderRequest, he
 
 	if !tea.BoolValue(util.IsUnset(request.RelativeOrderNo)) {
 		body["relativeOrderNo"] = request.RelativeOrderNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Source)) {
+		body["source"] = request.Source
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {

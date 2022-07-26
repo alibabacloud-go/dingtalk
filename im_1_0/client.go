@@ -3867,6 +3867,123 @@ func (s *SendRobotInteractiveCardResponse) SetBody(v *SendRobotInteractiveCardRe
 	return s
 }
 
+type SendRobotMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendRobotMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRobotMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendRobotMessageHeaders) SetCommonHeaders(v map[string]*string) *SendRobotMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendRobotMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendRobotMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendRobotMessageRequest struct {
+	// @群所有人为true， 默认false。
+	AtAll *bool `json:"atAll,omitempty" xml:"atAll,omitempty"`
+	// @钉外在业务系统内的唯一标识（openId）。
+	AtAppUserId *string `json:"atAppUserId,omitempty" xml:"atAppUserId,omitempty"`
+	// @钉内用户在业务系统内的唯一标识（dingUserId）。
+	AtDingUserId *string `json:"atDingUserId,omitempty" xml:"atDingUserId,omitempty"`
+	// 消息体内容，按照下面参考示例格式上传。
+	MsgContent *string `json:"msgContent,omitempty" xml:"msgContent,omitempty"`
+	// 消息类型 文本：text，图片：photo，markdown：markdown，actionCard：actionCard。
+	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
+	// 群聊openConversationIds
+	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
+}
+
+func (s SendRobotMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRobotMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendRobotMessageRequest) SetAtAll(v bool) *SendRobotMessageRequest {
+	s.AtAll = &v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetAtAppUserId(v string) *SendRobotMessageRequest {
+	s.AtAppUserId = &v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetAtDingUserId(v string) *SendRobotMessageRequest {
+	s.AtDingUserId = &v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetMsgContent(v string) *SendRobotMessageRequest {
+	s.MsgContent = &v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetMsgType(v string) *SendRobotMessageRequest {
+	s.MsgType = &v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetOpenConversationIds(v []*string) *SendRobotMessageRequest {
+	s.OpenConversationIds = v
+	return s
+}
+
+type SendRobotMessageResponseBody struct {
+	// 本次操作是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SendRobotMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRobotMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendRobotMessageResponseBody) SetSuccess(v bool) *SendRobotMessageResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SendRobotMessageResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SendRobotMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendRobotMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRobotMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendRobotMessageResponse) SetHeaders(v map[string]*string) *SendRobotMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendRobotMessageResponse) SetBody(v *SendRobotMessageResponseBody) *SendRobotMessageResponse {
+	s.Body = v
+	return s
+}
+
 type SendTemplateInteractiveCardHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7331,6 +7448,70 @@ func (client *Client) SendRobotInteractiveCardWithOptions(request *SendRobotInte
 	}
 	_result = &SendRobotInteractiveCardResponse{}
 	_body, _err := client.DoROARequest(tea.String("SendRobotInteractiveCard"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/v1.0/robot/interactiveCards/send"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendRobotMessage(request *SendRobotMessageRequest) (_result *SendRobotMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendRobotMessageHeaders{}
+	_result = &SendRobotMessageResponse{}
+	_body, _err := client.SendRobotMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendRobotMessageWithOptions(request *SendRobotMessageRequest, headers *SendRobotMessageHeaders, runtime *util.RuntimeOptions) (_result *SendRobotMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AtAll)) {
+		body["atAll"] = request.AtAll
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AtAppUserId)) {
+		body["atAppUserId"] = request.AtAppUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AtDingUserId)) {
+		body["atDingUserId"] = request.AtDingUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgContent)) {
+		body["msgContent"] = request.MsgContent
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgType)) {
+		body["msgType"] = request.MsgType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationIds)) {
+		body["openConversationIds"] = request.OpenConversationIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendRobotMessageResponse{}
+	_body, _err := client.DoROARequest(tea.String("SendRobotMessage"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/robotMessages/send"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
