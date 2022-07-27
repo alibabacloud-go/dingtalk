@@ -744,6 +744,7 @@ func (s *CreateSheetRequest) SetOperatorId(v string) *CreateSheetRequest {
 }
 
 type CreateSheetResponseBody struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 	// 创建的工作表的名称。当输入参数中的工作表名称在表格中已存在时，可能与输入参数指定的工作表名称不同。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 工作表可见性
@@ -756,6 +757,11 @@ func (s CreateSheetResponseBody) String() string {
 
 func (s CreateSheetResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *CreateSheetResponseBody) SetId(v string) *CreateSheetResponseBody {
+	s.Id = &v
+	return s
 }
 
 func (s *CreateSheetResponseBody) SetName(v string) *CreateSheetResponseBody {

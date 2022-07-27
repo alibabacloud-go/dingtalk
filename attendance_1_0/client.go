@@ -51,6 +51,8 @@ type AddLeaveTypeRequest struct {
 	NaturalDayLeave *bool `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
 	// 限时提交规则
 	SubmitTimeRule *AddLeaveTypeRequestSubmitTimeRule `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	// 适用范围规则列表：哪些部门/员工可以使用该假期类型，不传默认为全公司
+	VisibilityRules []*AddLeaveTypeRequestVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
 	// 操作者ID
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
@@ -100,6 +102,11 @@ func (s *AddLeaveTypeRequest) SetNaturalDayLeave(v bool) *AddLeaveTypeRequest {
 
 func (s *AddLeaveTypeRequest) SetSubmitTimeRule(v *AddLeaveTypeRequestSubmitTimeRule) *AddLeaveTypeRequest {
 	s.SubmitTimeRule = v
+	return s
+}
+
+func (s *AddLeaveTypeRequest) SetVisibilityRules(v []*AddLeaveTypeRequestVisibilityRules) *AddLeaveTypeRequest {
+	s.VisibilityRules = v
 	return s
 }
 
@@ -186,6 +193,31 @@ func (s *AddLeaveTypeRequestSubmitTimeRule) SetTimeValue(v int64) *AddLeaveTypeR
 	return s
 }
 
+type AddLeaveTypeRequestVisibilityRules struct {
+	// 规则类型：dept-部门；staff-员工；label-角色
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 规则数据：当type=staff时，传员工userId列表；当type=dept时，传部门id列表；当type=label时，传角色id列表
+	Visible []*string `json:"visible,omitempty" xml:"visible,omitempty" type:"Repeated"`
+}
+
+func (s AddLeaveTypeRequestVisibilityRules) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLeaveTypeRequestVisibilityRules) GoString() string {
+	return s.String()
+}
+
+func (s *AddLeaveTypeRequestVisibilityRules) SetType(v string) *AddLeaveTypeRequestVisibilityRules {
+	s.Type = &v
+	return s
+}
+
+func (s *AddLeaveTypeRequestVisibilityRules) SetVisible(v []*string) *AddLeaveTypeRequestVisibilityRules {
+	s.Visible = v
+	return s
+}
+
 type AddLeaveTypeResponseBody struct {
 	// 返回参数
 	Result *AddLeaveTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
@@ -221,6 +253,8 @@ type AddLeaveTypeResponseBodyResult struct {
 	NaturalDayLeave *bool `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
 	// 限时提交规则
 	SubmitTimeRule *AddLeaveTypeResponseBodyResultSubmitTimeRule `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	// 适用范围规则列表：哪些部门/员工可以使用该假期类型，不传默认为全公司
+	VisibilityRules []*AddLeaveTypeResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
 }
 
 func (s AddLeaveTypeResponseBodyResult) String() string {
@@ -268,6 +302,11 @@ func (s *AddLeaveTypeResponseBodyResult) SetNaturalDayLeave(v bool) *AddLeaveTyp
 
 func (s *AddLeaveTypeResponseBodyResult) SetSubmitTimeRule(v *AddLeaveTypeResponseBodyResultSubmitTimeRule) *AddLeaveTypeResponseBodyResult {
 	s.SubmitTimeRule = v
+	return s
+}
+
+func (s *AddLeaveTypeResponseBodyResult) SetVisibilityRules(v []*AddLeaveTypeResponseBodyResultVisibilityRules) *AddLeaveTypeResponseBodyResult {
+	s.VisibilityRules = v
 	return s
 }
 
@@ -346,6 +385,31 @@ func (s *AddLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeUnit(v string) *Ad
 
 func (s *AddLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeValue(v int64) *AddLeaveTypeResponseBodyResultSubmitTimeRule {
 	s.TimeValue = &v
+	return s
+}
+
+type AddLeaveTypeResponseBodyResultVisibilityRules struct {
+	// 规则类型：dept-部门；staff-员工；label-角色
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 规则数据：当type=staff时，传员工userId列表；当type=dept时，传部门id列表；当type=label时，传角色id列表
+	Visible []*string `json:"visible,omitempty" xml:"visible,omitempty" type:"Repeated"`
+}
+
+func (s AddLeaveTypeResponseBodyResultVisibilityRules) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLeaveTypeResponseBodyResultVisibilityRules) GoString() string {
+	return s.String()
+}
+
+func (s *AddLeaveTypeResponseBodyResultVisibilityRules) SetType(v string) *AddLeaveTypeResponseBodyResultVisibilityRules {
+	s.Type = &v
+	return s
+}
+
+func (s *AddLeaveTypeResponseBodyResultVisibilityRules) SetVisible(v []*string) *AddLeaveTypeResponseBodyResultVisibilityRules {
+	s.Visible = v
 	return s
 }
 
@@ -2147,6 +2211,8 @@ type GetLeaveTypeResponseBodyResult struct {
 	ValidityType *string `json:"validityType,omitempty" xml:"validityType,omitempty"`
 	// 延长日期(当validity_type为absolute_time该值该值不为空且满足yy-mm格式 validity_type为relative_time该值为大于1的整数)
 	ValidityValue *string `json:"validityValue,omitempty" xml:"validityValue,omitempty"`
+	// 适用范围规则列表：哪些部门/员工可以使用该假期类型，不传默认为全公司
+	VisibilityRules []*GetLeaveTypeResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
 }
 
 func (s GetLeaveTypeResponseBodyResult) String() string {
@@ -2209,6 +2275,11 @@ func (s *GetLeaveTypeResponseBodyResult) SetValidityType(v string) *GetLeaveType
 
 func (s *GetLeaveTypeResponseBodyResult) SetValidityValue(v string) *GetLeaveTypeResponseBodyResult {
 	s.ValidityValue = &v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResult) SetVisibilityRules(v []*GetLeaveTypeResponseBodyResultVisibilityRules) *GetLeaveTypeResponseBodyResult {
+	s.VisibilityRules = v
 	return s
 }
 
@@ -2287,6 +2358,31 @@ func (s *GetLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeUnit(v string) *Ge
 
 func (s *GetLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeValue(v int64) *GetLeaveTypeResponseBodyResultSubmitTimeRule {
 	s.TimeValue = &v
+	return s
+}
+
+type GetLeaveTypeResponseBodyResultVisibilityRules struct {
+	// 规则类型：dept-部门；staff-员工；label-角色
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 规则数据：当type=staff时，传员工userId列表；当type=dept时，传部门id列表；当type=label时，传角色id列表
+	Visible []*string `json:"visible,omitempty" xml:"visible,omitempty" type:"Repeated"`
+}
+
+func (s GetLeaveTypeResponseBodyResultVisibilityRules) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLeaveTypeResponseBodyResultVisibilityRules) GoString() string {
+	return s.String()
+}
+
+func (s *GetLeaveTypeResponseBodyResultVisibilityRules) SetType(v string) *GetLeaveTypeResponseBodyResultVisibilityRules {
+	s.Type = &v
+	return s
+}
+
+func (s *GetLeaveTypeResponseBodyResultVisibilityRules) SetVisible(v []*string) *GetLeaveTypeResponseBodyResultVisibilityRules {
+	s.Visible = v
 	return s
 }
 
@@ -4001,6 +4097,8 @@ type UpdateLeaveTypeRequest struct {
 	NaturalDayLeave *bool `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
 	// 限时提交规则
 	SubmitTimeRule *UpdateLeaveTypeRequestSubmitTimeRule `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	// 适用范围规则列表：哪些部门/员工可以使用该假期类型，不传默认为全公司
+	VisibilityRules []*UpdateLeaveTypeRequestVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
 	// 操作者ID
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
@@ -4055,6 +4153,11 @@ func (s *UpdateLeaveTypeRequest) SetNaturalDayLeave(v bool) *UpdateLeaveTypeRequ
 
 func (s *UpdateLeaveTypeRequest) SetSubmitTimeRule(v *UpdateLeaveTypeRequestSubmitTimeRule) *UpdateLeaveTypeRequest {
 	s.SubmitTimeRule = v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequest) SetVisibilityRules(v []*UpdateLeaveTypeRequestVisibilityRules) *UpdateLeaveTypeRequest {
+	s.VisibilityRules = v
 	return s
 }
 
@@ -4141,6 +4244,31 @@ func (s *UpdateLeaveTypeRequestSubmitTimeRule) SetTimeValue(v int64) *UpdateLeav
 	return s
 }
 
+type UpdateLeaveTypeRequestVisibilityRules struct {
+	// 规则类型：dept-部门；staff-员工；label-角色
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 规则数据：当type=staff时，传员工userId列表；当type=dept时，传部门id列表；当type=label时，传角色id列表
+	Visible []*string `json:"visible,omitempty" xml:"visible,omitempty" type:"Repeated"`
+}
+
+func (s UpdateLeaveTypeRequestVisibilityRules) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLeaveTypeRequestVisibilityRules) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLeaveTypeRequestVisibilityRules) SetType(v string) *UpdateLeaveTypeRequestVisibilityRules {
+	s.Type = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequestVisibilityRules) SetVisible(v []*string) *UpdateLeaveTypeRequestVisibilityRules {
+	s.Visible = v
+	return s
+}
+
 type UpdateLeaveTypeResponseBody struct {
 	// 返回参数
 	Result *UpdateLeaveTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
@@ -4176,6 +4304,8 @@ type UpdateLeaveTypeResponseBodyResult struct {
 	NaturalDayLeave *bool `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
 	// 限时提交规则
 	SubmitTimeRule *UpdateLeaveTypeResponseBodyResultSubmitTimeRule `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	// 适用范围规则列表：哪些部门/员工可以使用该假期类型，不传默认为全公司
+	VisibilityRules []*UpdateLeaveTypeResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
 }
 
 func (s UpdateLeaveTypeResponseBodyResult) String() string {
@@ -4223,6 +4353,11 @@ func (s *UpdateLeaveTypeResponseBodyResult) SetNaturalDayLeave(v bool) *UpdateLe
 
 func (s *UpdateLeaveTypeResponseBodyResult) SetSubmitTimeRule(v *UpdateLeaveTypeResponseBodyResultSubmitTimeRule) *UpdateLeaveTypeResponseBodyResult {
 	s.SubmitTimeRule = v
+	return s
+}
+
+func (s *UpdateLeaveTypeResponseBodyResult) SetVisibilityRules(v []*UpdateLeaveTypeResponseBodyResultVisibilityRules) *UpdateLeaveTypeResponseBodyResult {
+	s.VisibilityRules = v
 	return s
 }
 
@@ -4301,6 +4436,31 @@ func (s *UpdateLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeUnit(v string) 
 
 func (s *UpdateLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeValue(v int64) *UpdateLeaveTypeResponseBodyResultSubmitTimeRule {
 	s.TimeValue = &v
+	return s
+}
+
+type UpdateLeaveTypeResponseBodyResultVisibilityRules struct {
+	// 规则类型：dept-部门；staff-员工；label-角色
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 规则数据：当type=staff时，传员工userId列表；当type=dept时，传部门id列表；当type=label时，传角色id列表
+	Visible []*string `json:"visible,omitempty" xml:"visible,omitempty" type:"Repeated"`
+}
+
+func (s UpdateLeaveTypeResponseBodyResultVisibilityRules) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLeaveTypeResponseBodyResultVisibilityRules) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLeaveTypeResponseBodyResultVisibilityRules) SetType(v string) *UpdateLeaveTypeResponseBodyResultVisibilityRules {
+	s.Type = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeResponseBodyResultVisibilityRules) SetVisible(v []*string) *UpdateLeaveTypeResponseBodyResultVisibilityRules {
+	s.Visible = v
 	return s
 }
 
@@ -4553,6 +4713,10 @@ func (client *Client) AddLeaveTypeWithOptions(request *AddLeaveTypeRequest, head
 
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubmitTimeRule))) {
 		body["submitTimeRule"] = request.SubmitTimeRule
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VisibilityRules)) {
+		body["visibilityRules"] = request.VisibilityRules
 	}
 
 	realHeaders := make(map[string]*string)
@@ -5815,6 +5979,10 @@ func (client *Client) UpdateLeaveTypeWithOptions(request *UpdateLeaveTypeRequest
 
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubmitTimeRule))) {
 		body["submitTimeRule"] = request.SubmitTimeRule
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VisibilityRules)) {
+		body["visibilityRules"] = request.VisibilityRules
 	}
 
 	realHeaders := make(map[string]*string)

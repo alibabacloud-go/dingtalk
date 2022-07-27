@@ -140,7 +140,7 @@ func (s *AddFolderRequestOptionAppProperties) SetVisibility(v string) *AddFolder
 
 type AddFolderResponseBody struct {
 	// 文件夹信息
-	// dentry.type等于DentryTypeEnum.FOLDER表示是文件夹
+	// dentry.type等于FOLDER表示是文件夹
 	Dentry *AddFolderResponseBodyDentry `json:"dentry,omitempty" xml:"dentry,omitempty" type:"Struct"`
 }
 
@@ -411,7 +411,7 @@ type AddSpaceRequestOption struct {
 	Capabilities *AddSpaceRequestOptionCapabilities `json:"capabilities,omitempty" xml:"capabilities,omitempty" type:"Struct"`
 	// 空间名称，默认无空间名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// owner类型, 空间Owner可以是用户或应用, 详见 SpaceOwnerTypeEnum
+	// owner类型, 空间Owner可以是用户或应用
 	// 如果是应用类型，需要单独授权
 	// 枚举值:
 	// 	USER: 用户类型
@@ -530,7 +530,7 @@ func (s *AddSpaceResponseBody) SetSpace(v *AddSpaceResponseBodySpace) *AddSpaceR
 type AddSpaceResponseBodySpace struct {
 	// 开放平台应用appId
 	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
-	// 空间能力项. key详见 SpaceCapabilityEnum
+	// 空间能力项
 	Capabilities *AddSpaceResponseBodySpaceCapabilities `json:"capabilities,omitempty" xml:"capabilities,omitempty" type:"Struct"`
 	// 空间归属企业的id
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
@@ -548,7 +548,7 @@ type AddSpaceResponseBodySpace struct {
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 所有者id, 根据ownerType定义, 确定值的所属类型
 	OwnerId *string `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
-	// owner类型, 详见SpaceOwnerTypeEnum
+	// owner类型
 	// 枚举值:
 	// 	USER: 用户类型
 	// 	APP: App类型
@@ -557,7 +557,8 @@ type AddSpaceResponseBodySpace struct {
 	OwnerType *string `json:"ownerType,omitempty" xml:"ownerType,omitempty"`
 	// 总容量
 	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
-	// 业务场景，可以自定义，表示多个不同空间的聚合，可以提供对特定场景做能力设计、容量管理，如根据场景来做搜索或查询。创建空间时，不指定scene, 默认值是default
+	// 业务场景，可以自定义，表示多个不同空间的聚合，可以提供对特定场景做能力设计、容量管理，如根据场景来做搜索或查询。
+	// 创建空间时，不指定scene, 默认值是default
 	// 默认值:
 	// 	default
 	Scene *string `json:"scene,omitempty" xml:"scene,omitempty"`
@@ -1547,7 +1548,7 @@ type DeleteDentryResponseBody struct {
 	// 是否是异步任务
 	// 如果操作对象有子节点，则会异步处理
 	Async *bool `json:"async,omitempty" xml:"async,omitempty"`
-	// 任务Id，用于查询任务执行状态; 查询接口开发中
+	// 任务id，用于查询任务执行状态; 查询接口开发中
 	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
@@ -1876,8 +1877,6 @@ func (s *GetCurrentAppHeaders) SetXAcsDingtalkAccessToken(v string) *GetCurrentA
 }
 
 type GetCurrentAppRequest struct {
-	// 应用归属企业的Id
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 用户id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
@@ -1888,11 +1887,6 @@ func (s GetCurrentAppRequest) String() string {
 
 func (s GetCurrentAppRequest) GoString() string {
 	return s.String()
-}
-
-func (s *GetCurrentAppRequest) SetCorpId(v string) *GetCurrentAppRequest {
-	s.CorpId = &v
-	return s
 }
 
 func (s *GetCurrentAppRequest) SetUnionId(v string) *GetCurrentAppRequest {
@@ -2005,6 +1999,7 @@ type GetCurrentAppResponseBodyAppPartitionsQuota struct {
 	// 当前应用容量未设置max时，返回空，此时应用共享该企业剩余可用容量
 	Max *int64 `json:"max,omitempty" xml:"max,omitempty"`
 	// 容量类型
+	// 如果是企业维度容量，此值是PRIVATE, 表示企业独占
 	// 枚举值:
 	// 	SHARE: 共享容量
 	// 此模式下，Quota.max为空，表示共享企业容量
@@ -3162,7 +3157,7 @@ func (s *GetSpaceResponseBody) SetSpace(v *GetSpaceResponseBodySpace) *GetSpaceR
 type GetSpaceResponseBodySpace struct {
 	// 开放平台应用appId
 	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
-	// 空间能力项. key详见 SpaceCapabilityEnum
+	// 空间能力项
 	Capabilities *GetSpaceResponseBodySpaceCapabilities `json:"capabilities,omitempty" xml:"capabilities,omitempty" type:"Struct"`
 	// 空间归属企业的id
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
@@ -3180,7 +3175,7 @@ type GetSpaceResponseBodySpace struct {
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 所有者id, 根据ownerType定义, 确定值的所属类型
 	OwnerId *string `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
-	// owner类型, 详见SpaceOwnerTypeEnum
+	// owner类型
 	// 枚举值:
 	// 	USER: 用户类型
 	// 	APP: App类型
@@ -3189,7 +3184,8 @@ type GetSpaceResponseBodySpace struct {
 	OwnerType *string `json:"ownerType,omitempty" xml:"ownerType,omitempty"`
 	// 总容量
 	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
-	// 业务场景，可以自定义，表示多个不同空间的聚合，可以提供对特定场景做能力设计、容量管理，如根据场景来做搜索或查询。创建空间时，不指定scene, 默认值是default
+	// 业务场景，可以自定义，表示多个不同空间的聚合，可以提供对特定场景做能力设计、容量管理，如根据场景来做搜索或查询。
+	// 创建空间时，不指定scene, 默认值是default
 	// 默认值:
 	// 	default
 	Scene *string `json:"scene,omitempty" xml:"scene,omitempty"`
@@ -3984,7 +3980,7 @@ type ListRecycleItemsRequest struct {
 	// 默认值:
 	// 	50
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	// 分页游标，首次拉取nextToken传null
+	// 分页游标，首次拉取nextToken传空
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 用户id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
@@ -4248,7 +4244,7 @@ type MoveDentryResponseBody struct {
 	Async *bool `json:"async,omitempty" xml:"async,omitempty"`
 	// 文件信息
 	Dentry *MoveDentryResponseBodyDentry `json:"dentry,omitempty" xml:"dentry,omitempty" type:"Struct"`
-	// 任务Id，用于查询任务执行状态; 查询接口开发中
+	// 任务id，用于查询任务执行状态; 查询接口开发中
 	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
@@ -5661,10 +5657,6 @@ func (client *Client) GetCurrentAppWithOptions(request *GetCurrentAppRequest, he
 		return _result, _err
 	}
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
-		query["corpId"] = request.CorpId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
 	}

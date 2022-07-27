@@ -2560,6 +2560,264 @@ func (s *IsvCardEventPushResponse) SetBody(v *IsvCardEventPushResponseBody) *Isv
 	return s
 }
 
+type ListBasicRoleInPageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListBasicRoleInPageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListBasicRoleInPageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListBasicRoleInPageHeaders) SetCommonHeaders(v map[string]*string) *ListBasicRoleInPageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListBasicRoleInPageHeaders) SetXAcsDingtalkAccessToken(v string) *ListBasicRoleInPageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListBasicRoleInPageRequest struct {
+	// 应用的agentId
+	AgentId *string `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// 单页查询的最大条目数
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 查询凭证，初始使用0
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListBasicRoleInPageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListBasicRoleInPageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListBasicRoleInPageRequest) SetAgentId(v string) *ListBasicRoleInPageRequest {
+	s.AgentId = &v
+	return s
+}
+
+func (s *ListBasicRoleInPageRequest) SetMaxResults(v int32) *ListBasicRoleInPageRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListBasicRoleInPageRequest) SetNextToken(v int64) *ListBasicRoleInPageRequest {
+	s.NextToken = &v
+	return s
+}
+
+type ListBasicRoleInPageResponseBody struct {
+	HasMore   *bool                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List      []*ListBasicRoleInPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken *int64                                 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListBasicRoleInPageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListBasicRoleInPageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListBasicRoleInPageResponseBody) SetHasMore(v bool) *ListBasicRoleInPageResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *ListBasicRoleInPageResponseBody) SetList(v []*ListBasicRoleInPageResponseBodyList) *ListBasicRoleInPageResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *ListBasicRoleInPageResponseBody) SetNextToken(v int64) *ListBasicRoleInPageResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type ListBasicRoleInPageResponseBodyList struct {
+	OpenAction    *ListBasicRoleInPageResponseBodyListOpenAction    `json:"openAction,omitempty" xml:"openAction,omitempty" type:"Struct"`
+	OpenMembers   []*ListBasicRoleInPageResponseBodyListOpenMembers `json:"openMembers,omitempty" xml:"openMembers,omitempty" type:"Repeated"`
+	OpenResources []*string                                         `json:"openResources,omitempty" xml:"openResources,omitempty" type:"Repeated"`
+	OpenRoleId    *string                                           `json:"openRoleId,omitempty" xml:"openRoleId,omitempty"`
+	OpenRoleName  *string                                           `json:"openRoleName,omitempty" xml:"openRoleName,omitempty"`
+}
+
+func (s ListBasicRoleInPageResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListBasicRoleInPageResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *ListBasicRoleInPageResponseBodyList) SetOpenAction(v *ListBasicRoleInPageResponseBodyListOpenAction) *ListBasicRoleInPageResponseBodyList {
+	s.OpenAction = v
+	return s
+}
+
+func (s *ListBasicRoleInPageResponseBodyList) SetOpenMembers(v []*ListBasicRoleInPageResponseBodyListOpenMembers) *ListBasicRoleInPageResponseBodyList {
+	s.OpenMembers = v
+	return s
+}
+
+func (s *ListBasicRoleInPageResponseBodyList) SetOpenResources(v []*string) *ListBasicRoleInPageResponseBodyList {
+	s.OpenResources = v
+	return s
+}
+
+func (s *ListBasicRoleInPageResponseBodyList) SetOpenRoleId(v string) *ListBasicRoleInPageResponseBodyList {
+	s.OpenRoleId = &v
+	return s
+}
+
+func (s *ListBasicRoleInPageResponseBodyList) SetOpenRoleName(v string) *ListBasicRoleInPageResponseBodyList {
+	s.OpenRoleName = &v
+	return s
+}
+
+type ListBasicRoleInPageResponseBodyListOpenAction struct {
+	ActionIds     []*string                                                   `json:"actionIds,omitempty" xml:"actionIds,omitempty" type:"Repeated"`
+	OpenCondition *ListBasicRoleInPageResponseBodyListOpenActionOpenCondition `json:"openCondition,omitempty" xml:"openCondition,omitempty" type:"Struct"`
+}
+
+func (s ListBasicRoleInPageResponseBodyListOpenAction) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListBasicRoleInPageResponseBodyListOpenAction) GoString() string {
+	return s.String()
+}
+
+func (s *ListBasicRoleInPageResponseBodyListOpenAction) SetActionIds(v []*string) *ListBasicRoleInPageResponseBodyListOpenAction {
+	s.ActionIds = v
+	return s
+}
+
+func (s *ListBasicRoleInPageResponseBodyListOpenAction) SetOpenCondition(v *ListBasicRoleInPageResponseBodyListOpenActionOpenCondition) *ListBasicRoleInPageResponseBodyListOpenAction {
+	s.OpenCondition = v
+	return s
+}
+
+type ListBasicRoleInPageResponseBodyListOpenActionOpenCondition struct {
+	OpenContactScope *ListBasicRoleInPageResponseBodyListOpenActionOpenConditionOpenContactScope `json:"openContactScope,omitempty" xml:"openContactScope,omitempty" type:"Struct"`
+}
+
+func (s ListBasicRoleInPageResponseBodyListOpenActionOpenCondition) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListBasicRoleInPageResponseBodyListOpenActionOpenCondition) GoString() string {
+	return s.String()
+}
+
+func (s *ListBasicRoleInPageResponseBodyListOpenActionOpenCondition) SetOpenContactScope(v *ListBasicRoleInPageResponseBodyListOpenActionOpenConditionOpenContactScope) *ListBasicRoleInPageResponseBodyListOpenActionOpenCondition {
+	s.OpenContactScope = v
+	return s
+}
+
+type ListBasicRoleInPageResponseBodyListOpenActionOpenConditionOpenContactScope struct {
+	DeptIds                []*int64  `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	IncludeMemberDepts     *bool     `json:"includeMemberDepts,omitempty" xml:"includeMemberDepts,omitempty"`
+	IncludeSelfManageDepts *bool     `json:"includeSelfManageDepts,omitempty" xml:"includeSelfManageDepts,omitempty"`
+	UserIds                []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s ListBasicRoleInPageResponseBodyListOpenActionOpenConditionOpenContactScope) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListBasicRoleInPageResponseBodyListOpenActionOpenConditionOpenContactScope) GoString() string {
+	return s.String()
+}
+
+func (s *ListBasicRoleInPageResponseBodyListOpenActionOpenConditionOpenContactScope) SetDeptIds(v []*int64) *ListBasicRoleInPageResponseBodyListOpenActionOpenConditionOpenContactScope {
+	s.DeptIds = v
+	return s
+}
+
+func (s *ListBasicRoleInPageResponseBodyListOpenActionOpenConditionOpenContactScope) SetIncludeMemberDepts(v bool) *ListBasicRoleInPageResponseBodyListOpenActionOpenConditionOpenContactScope {
+	s.IncludeMemberDepts = &v
+	return s
+}
+
+func (s *ListBasicRoleInPageResponseBodyListOpenActionOpenConditionOpenContactScope) SetIncludeSelfManageDepts(v bool) *ListBasicRoleInPageResponseBodyListOpenActionOpenConditionOpenContactScope {
+	s.IncludeSelfManageDepts = &v
+	return s
+}
+
+func (s *ListBasicRoleInPageResponseBodyListOpenActionOpenConditionOpenContactScope) SetUserIds(v []*string) *ListBasicRoleInPageResponseBodyListOpenActionOpenConditionOpenContactScope {
+	s.UserIds = v
+	return s
+}
+
+type ListBasicRoleInPageResponseBodyListOpenMembers struct {
+	BelongCorpId  *string `json:"belongCorpId,omitempty" xml:"belongCorpId,omitempty"`
+	MemberId      *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	MemberType    *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
+}
+
+func (s ListBasicRoleInPageResponseBodyListOpenMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListBasicRoleInPageResponseBodyListOpenMembers) GoString() string {
+	return s.String()
+}
+
+func (s *ListBasicRoleInPageResponseBodyListOpenMembers) SetBelongCorpId(v string) *ListBasicRoleInPageResponseBodyListOpenMembers {
+	s.BelongCorpId = &v
+	return s
+}
+
+func (s *ListBasicRoleInPageResponseBodyListOpenMembers) SetMemberId(v string) *ListBasicRoleInPageResponseBodyListOpenMembers {
+	s.MemberId = &v
+	return s
+}
+
+func (s *ListBasicRoleInPageResponseBodyListOpenMembers) SetMemberType(v string) *ListBasicRoleInPageResponseBodyListOpenMembers {
+	s.MemberType = &v
+	return s
+}
+
+func (s *ListBasicRoleInPageResponseBodyListOpenMembers) SetOperateUserId(v string) *ListBasicRoleInPageResponseBodyListOpenMembers {
+	s.OperateUserId = &v
+	return s
+}
+
+type ListBasicRoleInPageResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListBasicRoleInPageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListBasicRoleInPageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListBasicRoleInPageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListBasicRoleInPageResponse) SetHeaders(v map[string]*string) *ListBasicRoleInPageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListBasicRoleInPageResponse) SetBody(v *ListBasicRoleInPageResponseBody) *ListBasicRoleInPageResponse {
+	s.Body = v
+	return s
+}
+
 type ListContactHideSettingsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7015,6 +7273,58 @@ func (client *Client) IsvCardEventPushWithOptions(request *IsvCardEventPushReque
 	}
 	_result = &IsvCardEventPushResponse{}
 	_body, _err := client.DoROARequest(tea.String("IsvCardEventPush"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/cards/events/push"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListBasicRoleInPage(request *ListBasicRoleInPageRequest) (_result *ListBasicRoleInPageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListBasicRoleInPageHeaders{}
+	_result = &ListBasicRoleInPageResponse{}
+	_body, _err := client.ListBasicRoleInPageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListBasicRoleInPageWithOptions(request *ListBasicRoleInPageRequest, headers *ListBasicRoleInPageHeaders, runtime *util.RuntimeOptions) (_result *ListBasicRoleInPageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentId)) {
+		query["agentId"] = request.AgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListBasicRoleInPageResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListBasicRoleInPage"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/rbac/administrativeGroups/baseInfos"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
