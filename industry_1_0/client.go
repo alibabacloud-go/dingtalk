@@ -177,9 +177,9 @@ type CampusCreateCampusRequest struct {
 	// 园区项目描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 	// 扩展字段
-	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
-	// 项目订购结束时间
-	OrderInfo *int64 `json:"orderInfo,omitempty" xml:"orderInfo,omitempty"`
+	Extend       *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	OrderEndTime *int64  `json:"orderEndTime,omitempty" xml:"orderEndTime,omitempty"`
+	OrderInfo    *string `json:"orderInfo,omitempty" xml:"orderInfo,omitempty"`
 	// 项目订购开始时间
 	OrderStartTime *int64 `json:"orderStartTime,omitempty" xml:"orderStartTime,omitempty"`
 	// 园区所在省行政编码
@@ -251,7 +251,12 @@ func (s *CampusCreateCampusRequest) SetExtend(v string) *CampusCreateCampusReque
 	return s
 }
 
-func (s *CampusCreateCampusRequest) SetOrderInfo(v int64) *CampusCreateCampusRequest {
+func (s *CampusCreateCampusRequest) SetOrderEndTime(v int64) *CampusCreateCampusRequest {
+	s.OrderEndTime = &v
+	return s
+}
+
+func (s *CampusCreateCampusRequest) SetOrderInfo(v string) *CampusCreateCampusRequest {
 	s.OrderInfo = &v
 	return s
 }
@@ -368,8 +373,7 @@ func (s *CampusCreateCampusGroupRequest) SetName(v string) *CampusCreateCampusGr
 }
 
 type CampusCreateCampusGroupResponseBody struct {
-	// 项目组ID
-	Content *int64 `json:"content,omitempty" xml:"content,omitempty"`
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
 }
 
 func (s CampusCreateCampusGroupResponseBody) String() string {
@@ -380,8 +384,8 @@ func (s CampusCreateCampusGroupResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *CampusCreateCampusGroupResponseBody) SetContent(v int64) *CampusCreateCampusGroupResponseBody {
-	s.Content = &v
+func (s *CampusCreateCampusGroupResponseBody) SetGroupId(v int64) *CampusCreateCampusGroupResponseBody {
+	s.GroupId = &v
 	return s
 }
 
@@ -655,8 +659,7 @@ func (s *CampusDeleteCampusGroupRequest) SetCampusProjectGroupId(v int64) *Campu
 }
 
 type CampusDeleteCampusGroupResponseBody struct {
-	// result
-	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s CampusDeleteCampusGroupResponseBody) String() string {
@@ -667,8 +670,8 @@ func (s CampusDeleteCampusGroupResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *CampusDeleteCampusGroupResponseBody) SetContent(v string) *CampusDeleteCampusGroupResponseBody {
-	s.Content = &v
+func (s *CampusDeleteCampusGroupResponseBody) SetSuccess(v bool) *CampusDeleteCampusGroupResponseBody {
+	s.Success = &v
 	return s
 }
 
@@ -12301,6 +12304,10 @@ func (client *Client) CampusCreateCampusWithOptions(request *CampusCreateCampusR
 
 	if !tea.BoolValue(util.IsUnset(request.Extend)) {
 		body["extend"] = request.Extend
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderEndTime)) {
+		body["orderEndTime"] = request.OrderEndTime
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OrderInfo)) {

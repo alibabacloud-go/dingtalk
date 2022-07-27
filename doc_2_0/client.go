@@ -1563,6 +1563,122 @@ func (s *QuerySpaceResponse) SetBody(v *SpaceVO) *QuerySpaceResponse {
 	return s
 }
 
+type RelatedSpacesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RelatedSpacesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RelatedSpacesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RelatedSpacesHeaders) SetCommonHeaders(v map[string]*string) *RelatedSpacesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RelatedSpacesHeaders) SetXAcsDingtalkAccessToken(v string) *RelatedSpacesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RelatedSpacesRequest struct {
+	// 每页最大条目数，最大值50。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页游标，第一页可不传。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 操作用户unionId。
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// 团队id。
+	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
+}
+
+func (s RelatedSpacesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RelatedSpacesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RelatedSpacesRequest) SetMaxResults(v int32) *RelatedSpacesRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *RelatedSpacesRequest) SetNextToken(v string) *RelatedSpacesRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *RelatedSpacesRequest) SetOperatorId(v string) *RelatedSpacesRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *RelatedSpacesRequest) SetTeamId(v string) *RelatedSpacesRequest {
+	s.TeamId = &v
+	return s
+}
+
+type RelatedSpacesResponseBody struct {
+	// 是否还有更多数据。
+	HasMore *bool         `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	Items   []*SpaceModel `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	// 分页游标。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s RelatedSpacesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RelatedSpacesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RelatedSpacesResponseBody) SetHasMore(v bool) *RelatedSpacesResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *RelatedSpacesResponseBody) SetItems(v []*SpaceModel) *RelatedSpacesResponseBody {
+	s.Items = v
+	return s
+}
+
+func (s *RelatedSpacesResponseBody) SetNextToken(v string) *RelatedSpacesResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type RelatedSpacesResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RelatedSpacesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RelatedSpacesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RelatedSpacesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RelatedSpacesResponse) SetHeaders(v map[string]*string) *RelatedSpacesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RelatedSpacesResponse) SetBody(v *RelatedSpacesResponseBody) *RelatedSpacesResponse {
+	s.Body = v
+	return s
+}
+
 type RenameDentryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2517,6 +2633,62 @@ func (client *Client) QuerySpaceWithOptions(spaceId *string, request *QuerySpace
 	}
 	_result = &QuerySpaceResponse{}
 	_body, _err := client.DoROARequest(tea.String("QuerySpace"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RelatedSpaces(request *RelatedSpacesRequest) (_result *RelatedSpacesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RelatedSpacesHeaders{}
+	_result = &RelatedSpacesResponse{}
+	_body, _err := client.RelatedSpacesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RelatedSpacesWithOptions(request *RelatedSpacesRequest, headers *RelatedSpacesHeaders, runtime *util.RuntimeOptions) (_result *RelatedSpacesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TeamId)) {
+		query["teamId"] = request.TeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &RelatedSpacesResponse{}
+	_body, _err := client.DoROARequest(tea.String("RelatedSpaces"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/relations/spaces"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -152,8 +152,11 @@ func (s *CreateTodoTaskHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTodo
 }
 
 type CreateTodoTaskRequest struct {
+	ActionList []*CreateTodoTaskRequestActionList `json:"actionList,omitempty" xml:"actionList,omitempty" type:"Repeated"`
 	// 二级分类
 	BizCategoryId *string `json:"bizCategoryId,omitempty" xml:"bizCategoryId,omitempty"`
+	// 待办卡片内容区表单自定义字段列表
+	ContentFieldList []*CreateTodoTaskRequestContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
 	// 创建者id，需传用户的unionId
 	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
 	// 待办备注描述
@@ -188,8 +191,18 @@ func (s CreateTodoTaskRequest) GoString() string {
 	return s.String()
 }
 
+func (s *CreateTodoTaskRequest) SetActionList(v []*CreateTodoTaskRequestActionList) *CreateTodoTaskRequest {
+	s.ActionList = v
+	return s
+}
+
 func (s *CreateTodoTaskRequest) SetBizCategoryId(v string) *CreateTodoTaskRequest {
 	s.BizCategoryId = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequest) SetContentFieldList(v []*CreateTodoTaskRequestContentFieldList) *CreateTodoTaskRequest {
+	s.ContentFieldList = v
 	return s
 }
 
@@ -253,6 +266,107 @@ func (s *CreateTodoTaskRequest) SetOperatorId(v string) *CreateTodoTaskRequest {
 	return s
 }
 
+type CreateTodoTaskRequestActionList struct {
+	ActionKey       *string                               `json:"actionKey,omitempty" xml:"actionKey,omitempty"`
+	ActionType      *int32                                `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	ButtonStyleType *int32                                `json:"buttonStyleType,omitempty" xml:"buttonStyleType,omitempty"`
+	Param           *CreateTodoTaskRequestActionListParam `json:"param,omitempty" xml:"param,omitempty" type:"Struct"`
+	PcUrl           *string                               `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	Title           *string                               `json:"title,omitempty" xml:"title,omitempty"`
+	Url             *string                               `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s CreateTodoTaskRequestActionList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTaskRequestActionList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTodoTaskRequestActionList) SetActionKey(v string) *CreateTodoTaskRequestActionList {
+	s.ActionKey = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequestActionList) SetActionType(v int32) *CreateTodoTaskRequestActionList {
+	s.ActionType = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequestActionList) SetButtonStyleType(v int32) *CreateTodoTaskRequestActionList {
+	s.ButtonStyleType = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequestActionList) SetParam(v *CreateTodoTaskRequestActionListParam) *CreateTodoTaskRequestActionList {
+	s.Param = v
+	return s
+}
+
+func (s *CreateTodoTaskRequestActionList) SetPcUrl(v string) *CreateTodoTaskRequestActionList {
+	s.PcUrl = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequestActionList) SetTitle(v string) *CreateTodoTaskRequestActionList {
+	s.Title = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequestActionList) SetUrl(v string) *CreateTodoTaskRequestActionList {
+	s.Url = &v
+	return s
+}
+
+type CreateTodoTaskRequestActionListParam struct {
+	Body   *string                `json:"body,omitempty" xml:"body,omitempty"`
+	Header map[string]interface{} `json:"header,omitempty" xml:"header,omitempty"`
+}
+
+func (s CreateTodoTaskRequestActionListParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTaskRequestActionListParam) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTodoTaskRequestActionListParam) SetBody(v string) *CreateTodoTaskRequestActionListParam {
+	s.Body = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequestActionListParam) SetHeader(v map[string]interface{}) *CreateTodoTaskRequestActionListParam {
+	s.Header = v
+	return s
+}
+
+type CreateTodoTaskRequestContentFieldList struct {
+	// 字段唯一标识
+	FieldKey *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
+	// 字段值
+	FieldValue *string `json:"fieldValue,omitempty" xml:"fieldValue,omitempty"`
+}
+
+func (s CreateTodoTaskRequestContentFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTaskRequestContentFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTodoTaskRequestContentFieldList) SetFieldKey(v string) *CreateTodoTaskRequestContentFieldList {
+	s.FieldKey = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequestContentFieldList) SetFieldValue(v string) *CreateTodoTaskRequestContentFieldList {
+	s.FieldValue = &v
+	return s
+}
+
 type CreateTodoTaskRequestDetailUrl struct {
 	// app端详情页url
 	AppUrl *string `json:"appUrl,omitempty" xml:"appUrl,omitempty"`
@@ -299,6 +413,8 @@ func (s *CreateTodoTaskRequestNotifyConfigs) SetDingNotify(v string) *CreateTodo
 type CreateTodoTaskResponseBody struct {
 	// 接入应用标识
 	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
+	// 内容区表单字段配置
+	ContentFieldList []*CreateTodoTaskResponseBodyContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
 	// 创建时间
 	CreatedTime *int64 `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
 	// 创建者（用户的unionId）
@@ -351,6 +467,11 @@ func (s CreateTodoTaskResponseBody) GoString() string {
 
 func (s *CreateTodoTaskResponseBody) SetBizTag(v string) *CreateTodoTaskResponseBody {
 	s.BizTag = &v
+	return s
+}
+
+func (s *CreateTodoTaskResponseBody) SetContentFieldList(v []*CreateTodoTaskResponseBodyContentFieldList) *CreateTodoTaskResponseBody {
+	s.ContentFieldList = v
 	return s
 }
 
@@ -451,6 +572,31 @@ func (s *CreateTodoTaskResponseBody) SetStartTime(v int64) *CreateTodoTaskRespon
 
 func (s *CreateTodoTaskResponseBody) SetSubject(v string) *CreateTodoTaskResponseBody {
 	s.Subject = &v
+	return s
+}
+
+type CreateTodoTaskResponseBodyContentFieldList struct {
+	// 字段唯一标识
+	FieldKey *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
+	// 字段值
+	FieldValue *string `json:"fieldValue,omitempty" xml:"fieldValue,omitempty"`
+}
+
+func (s CreateTodoTaskResponseBodyContentFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTaskResponseBodyContentFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTodoTaskResponseBodyContentFieldList) SetFieldKey(v string) *CreateTodoTaskResponseBodyContentFieldList {
+	s.FieldKey = &v
+	return s
+}
+
+func (s *CreateTodoTaskResponseBodyContentFieldList) SetFieldValue(v string) *CreateTodoTaskResponseBodyContentFieldList {
+	s.FieldValue = &v
 	return s
 }
 
@@ -3515,8 +3661,16 @@ func (client *Client) CreateTodoTaskWithOptions(unionId *string, request *Create
 	}
 
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActionList)) {
+		body["actionList"] = request.ActionList
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.BizCategoryId)) {
 		body["bizCategoryId"] = request.BizCategoryId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContentFieldList)) {
+		body["contentFieldList"] = request.ContentFieldList
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.CreatorId)) {

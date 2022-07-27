@@ -2247,6 +2247,147 @@ func (s *GetSheetResponse) SetBody(v *GetSheetResponseBody) *GetSheetResponse {
 	return s
 }
 
+type GetTemplateByIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTemplateByIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTemplateByIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTemplateByIdHeaders) SetCommonHeaders(v map[string]*string) *GetTemplateByIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTemplateByIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetTemplateByIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTemplateByIdRequest struct {
+	// 模版归属
+	// public_template //公共模板
+	// team_template //团队模板
+	// user_template //个人模板
+	Belong *string `json:"belong,omitempty" xml:"belong,omitempty"`
+	// 操作用户unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetTemplateByIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTemplateByIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTemplateByIdRequest) SetBelong(v string) *GetTemplateByIdRequest {
+	s.Belong = &v
+	return s
+}
+
+func (s *GetTemplateByIdRequest) SetOperatorId(v string) *GetTemplateByIdRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetTemplateByIdResponseBody struct {
+	// 模版预览url
+	CoverUrl *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
+	// 模版创建时间
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 模版对应文档类型
+	DocType *string `json:"docType,omitempty" xml:"docType,omitempty"`
+	// 模版id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 模版类型
+	TemplateType *string `json:"templateType,omitempty" xml:"templateType,omitempty"`
+	// 模版标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 模版修改时间
+	UpdateTime *int64 `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	// 模版归属空间Id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+}
+
+func (s GetTemplateByIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTemplateByIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTemplateByIdResponseBody) SetCoverUrl(v string) *GetTemplateByIdResponseBody {
+	s.CoverUrl = &v
+	return s
+}
+
+func (s *GetTemplateByIdResponseBody) SetCreateTime(v int64) *GetTemplateByIdResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetTemplateByIdResponseBody) SetDocType(v string) *GetTemplateByIdResponseBody {
+	s.DocType = &v
+	return s
+}
+
+func (s *GetTemplateByIdResponseBody) SetId(v string) *GetTemplateByIdResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *GetTemplateByIdResponseBody) SetTemplateType(v string) *GetTemplateByIdResponseBody {
+	s.TemplateType = &v
+	return s
+}
+
+func (s *GetTemplateByIdResponseBody) SetTitle(v string) *GetTemplateByIdResponseBody {
+	s.Title = &v
+	return s
+}
+
+func (s *GetTemplateByIdResponseBody) SetUpdateTime(v int64) *GetTemplateByIdResponseBody {
+	s.UpdateTime = &v
+	return s
+}
+
+func (s *GetTemplateByIdResponseBody) SetWorkspaceId(v string) *GetTemplateByIdResponseBody {
+	s.WorkspaceId = &v
+	return s
+}
+
+type GetTemplateByIdResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetTemplateByIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetTemplateByIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTemplateByIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTemplateByIdResponse) SetHeaders(v map[string]*string) *GetTemplateByIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTemplateByIdResponse) SetBody(v *GetTemplateByIdResponseBody) *GetTemplateByIdResponse {
+	s.Body = v
+	return s
+}
+
 type GetWorkspaceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4545,6 +4686,55 @@ func (client *Client) GetSheetWithOptions(workbookId *string, sheetId *string, r
 	}
 	_result = &GetSheetResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetSheet"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetTemplateById(templateId *string, request *GetTemplateByIdRequest) (_result *GetTemplateByIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTemplateByIdHeaders{}
+	_result = &GetTemplateByIdResponse{}
+	_body, _err := client.GetTemplateByIdWithOptions(templateId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetTemplateByIdWithOptions(templateId *string, request *GetTemplateByIdRequest, headers *GetTemplateByIdHeaders, runtime *util.RuntimeOptions) (_result *GetTemplateByIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	templateId = openapiutil.GetEncodeParam(templateId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Belong)) {
+		query["belong"] = request.Belong
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetTemplateByIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetTemplateById"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/templates/"+tea.StringValue(templateId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
