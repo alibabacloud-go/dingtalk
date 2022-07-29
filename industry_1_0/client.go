@@ -6497,6 +6497,272 @@ func (s *IndustryManufactureMaterialListResponse) SetBody(v *IndustryManufacture
 	return s
 }
 
+type IndustryManufactureMesDispatchTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IndustryManufactureMesDispatchTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesDispatchTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesDispatchTaskHeaders) SetCommonHeaders(v map[string]*string) *IndustryManufactureMesDispatchTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskHeaders) SetXAcsDingtalkAccessToken(v string) *IndustryManufactureMesDispatchTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IndustryManufactureMesDispatchTaskRequest struct {
+	// 本次操作的行为
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// 生态唯一标识, 需要注册
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// 主数据名称
+	BaseDataName *string `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
+	// 不良品总数(多次报工)
+	DefectsAmount *string `json:"defectsAmount,omitempty" xml:"defectsAmount,omitempty"`
+	// 派工人名称
+	DispatchStaffName *string `json:"dispatchStaffName,omitempty" xml:"dispatchStaffName,omitempty"`
+	// 派工人ID
+	DispatchStaffNo *string `json:"dispatchStaffNo,omitempty" xml:"dispatchStaffNo,omitempty"`
+	// 良品总数(多次报工)
+	FineAmount *string `json:"fineAmount,omitempty" xml:"fineAmount,omitempty"`
+	// 任务逾期
+	Overdue *int32 `json:"overdue,omitempty" xml:"overdue,omitempty"`
+	// 派工(总)数
+	PlanQuantity *int64 `json:"planQuantity,omitempty" xml:"planQuantity,omitempty"`
+	// 是否加急
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 工序名称
+	ProcessName *string `json:"processName,omitempty" xml:"processName,omitempty"`
+	// 工序业务唯一标识
+	ProcessUuid *string `json:"processUuid,omitempty" xml:"processUuid,omitempty"`
+	// 产品编号(物料编号)
+	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	// 产品名称
+	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	// 产品(物料)规格
+	ProductSpecification *string `json:"productSpecification,omitempty" xml:"productSpecification,omitempty"`
+	// 工单编号(生产任务单)
+	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	// 工单(生产计划单)
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// 工单状态
+	ProjectStatus *string `json:"projectStatus,omitempty" xml:"projectStatus,omitempty"`
+	// 任务分配员工列表(生产人员)
+	TaskOperators *string `json:"taskOperators,omitempty" xml:"taskOperators,omitempty"`
+	// 任务计划结束(完成)时间
+	TaskPlanEndTime *string `json:"taskPlanEndTime,omitempty" xml:"taskPlanEndTime,omitempty"`
+	// 任务计划开始时间
+	TaskPlanStartTime *string `json:"taskPlanStartTime,omitempty" xml:"taskPlanStartTime,omitempty"`
+	// 派工任务状态
+	TaskStatus *string `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
+	// 任务类型(正常和委外)
+	TaskType *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	// 负责班组id
+	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
+	// 本次记录唯一标识
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s IndustryManufactureMesDispatchTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesDispatchTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetAction(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.Action = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetAppKey(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.AppKey = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetBaseDataName(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.BaseDataName = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetDefectsAmount(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.DefectsAmount = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetDispatchStaffName(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.DispatchStaffName = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetDispatchStaffNo(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.DispatchStaffNo = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetFineAmount(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.FineAmount = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetOverdue(v int32) *IndustryManufactureMesDispatchTaskRequest {
+	s.Overdue = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetPlanQuantity(v int64) *IndustryManufactureMesDispatchTaskRequest {
+	s.PlanQuantity = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetPriority(v int32) *IndustryManufactureMesDispatchTaskRequest {
+	s.Priority = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetProcessName(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.ProcessName = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetProcessUuid(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.ProcessUuid = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetProductCode(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.ProductCode = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetProductName(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.ProductName = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetProductSpecification(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.ProductSpecification = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetProjectCode(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.ProjectCode = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetProjectId(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.ProjectId = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetProjectStatus(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.ProjectStatus = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetTaskOperators(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.TaskOperators = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetTaskPlanEndTime(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.TaskPlanEndTime = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetTaskPlanStartTime(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.TaskPlanStartTime = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetTaskStatus(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.TaskStatus = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetTaskType(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.TaskType = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetTeamId(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.TeamId = &v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskRequest) SetUuid(v string) *IndustryManufactureMesDispatchTaskRequest {
+	s.Uuid = &v
+	return s
+}
+
+type IndustryManufactureMesDispatchTaskResponseBody struct {
+	Result *IndustryManufactureMesDispatchTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s IndustryManufactureMesDispatchTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesDispatchTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesDispatchTaskResponseBody) SetResult(v *IndustryManufactureMesDispatchTaskResponseBodyResult) *IndustryManufactureMesDispatchTaskResponseBody {
+	s.Result = v
+	return s
+}
+
+type IndustryManufactureMesDispatchTaskResponseBodyResult struct {
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s IndustryManufactureMesDispatchTaskResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesDispatchTaskResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesDispatchTaskResponseBodyResult) SetContent(v string) *IndustryManufactureMesDispatchTaskResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+type IndustryManufactureMesDispatchTaskResponse struct {
+	Headers map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *IndustryManufactureMesDispatchTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IndustryManufactureMesDispatchTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesDispatchTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesDispatchTaskResponse) SetHeaders(v map[string]*string) *IndustryManufactureMesDispatchTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IndustryManufactureMesDispatchTaskResponse) SetBody(v *IndustryManufactureMesDispatchTaskResponseBody) *IndustryManufactureMesDispatchTaskResponse {
+	s.Body = v
+	return s
+}
+
 type IndustryManufactureMesMaterialHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6700,6 +6966,517 @@ func (s *IndustryManufactureMesMaterialResponse) SetHeaders(v map[string]*string
 }
 
 func (s *IndustryManufactureMesMaterialResponse) SetBody(v *IndustryManufactureMesMaterialResponseBody) *IndustryManufactureMesMaterialResponse {
+	s.Body = v
+	return s
+}
+
+type IndustryManufactureMesOutPlanHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IndustryManufactureMesOutPlanHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesOutPlanHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesOutPlanHeaders) SetCommonHeaders(v map[string]*string) *IndustryManufactureMesOutPlanHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanHeaders) SetXAcsDingtalkAccessToken(v string) *IndustryManufactureMesOutPlanHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IndustryManufactureMesOutPlanRequest struct {
+	// 审批状态
+	ApprovalStatus *string `json:"approvalStatus,omitempty" xml:"approvalStatus,omitempty"`
+	// 审批人
+	Approver *string `json:"approver,omitempty" xml:"approver,omitempty"`
+	// 主数据名称
+	BaseDataName *string `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
+	// 委外计划单号
+	OutSourceProjectCode *string `json:"outSourceProjectCode,omitempty" xml:"outSourceProjectCode,omitempty"`
+	// 委外群
+	OutSourceTeamId *string `json:"outSourceTeamId,omitempty" xml:"outSourceTeamId,omitempty"`
+	// 单价（元）
+	Price *string `json:"price,omitempty" xml:"price,omitempty"`
+	// 工序识别码
+	ProcessIdentificationCode *string `json:"processIdentificationCode,omitempty" xml:"processIdentificationCode,omitempty"`
+	// 委外的工序列表(多个)
+	ProcessUuids *string `json:"processUuids,omitempty" xml:"processUuids,omitempty"`
+	// 产品代码(物料编号)
+	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	// 产品名称
+	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	// 规格型号
+	ProductSpecification *string `json:"productSpecification,omitempty" xml:"productSpecification,omitempty"`
+	// 工单编号(生产任务单)
+	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	// 工单(生产计划单)ID
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// 委外计划数
+	SendPlanQuantity *string `json:"sendPlanQuantity,omitempty" xml:"sendPlanQuantity,omitempty"`
+	// 供应商代码
+	SupplierCode *string `json:"supplierCode,omitempty" xml:"supplierCode,omitempty"`
+	// 供应商名称
+	SupplierName *string `json:"supplierName,omitempty" xml:"supplierName,omitempty"`
+	// 金额（元）
+	TotalWage *string `json:"totalWage,omitempty" xml:"totalWage,omitempty"`
+	// 记录唯一标识
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s IndustryManufactureMesOutPlanRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesOutPlanRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetApprovalStatus(v string) *IndustryManufactureMesOutPlanRequest {
+	s.ApprovalStatus = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetApprover(v string) *IndustryManufactureMesOutPlanRequest {
+	s.Approver = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetBaseDataName(v string) *IndustryManufactureMesOutPlanRequest {
+	s.BaseDataName = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetOutSourceProjectCode(v string) *IndustryManufactureMesOutPlanRequest {
+	s.OutSourceProjectCode = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetOutSourceTeamId(v string) *IndustryManufactureMesOutPlanRequest {
+	s.OutSourceTeamId = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetPrice(v string) *IndustryManufactureMesOutPlanRequest {
+	s.Price = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetProcessIdentificationCode(v string) *IndustryManufactureMesOutPlanRequest {
+	s.ProcessIdentificationCode = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetProcessUuids(v string) *IndustryManufactureMesOutPlanRequest {
+	s.ProcessUuids = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetProductCode(v string) *IndustryManufactureMesOutPlanRequest {
+	s.ProductCode = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetProductName(v string) *IndustryManufactureMesOutPlanRequest {
+	s.ProductName = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetProductSpecification(v string) *IndustryManufactureMesOutPlanRequest {
+	s.ProductSpecification = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetProjectCode(v string) *IndustryManufactureMesOutPlanRequest {
+	s.ProjectCode = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetProjectId(v string) *IndustryManufactureMesOutPlanRequest {
+	s.ProjectId = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetSendPlanQuantity(v string) *IndustryManufactureMesOutPlanRequest {
+	s.SendPlanQuantity = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetSupplierCode(v string) *IndustryManufactureMesOutPlanRequest {
+	s.SupplierCode = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetSupplierName(v string) *IndustryManufactureMesOutPlanRequest {
+	s.SupplierName = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetTotalWage(v string) *IndustryManufactureMesOutPlanRequest {
+	s.TotalWage = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanRequest) SetUuid(v string) *IndustryManufactureMesOutPlanRequest {
+	s.Uuid = &v
+	return s
+}
+
+type IndustryManufactureMesOutPlanResponseBody struct {
+	Result *IndustryManufactureMesOutPlanResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s IndustryManufactureMesOutPlanResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesOutPlanResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesOutPlanResponseBody) SetResult(v *IndustryManufactureMesOutPlanResponseBodyResult) *IndustryManufactureMesOutPlanResponseBody {
+	s.Result = v
+	return s
+}
+
+type IndustryManufactureMesOutPlanResponseBodyResult struct {
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s IndustryManufactureMesOutPlanResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesOutPlanResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesOutPlanResponseBodyResult) SetContent(v string) *IndustryManufactureMesOutPlanResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+type IndustryManufactureMesOutPlanResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *IndustryManufactureMesOutPlanResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IndustryManufactureMesOutPlanResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesOutPlanResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesOutPlanResponse) SetHeaders(v map[string]*string) *IndustryManufactureMesOutPlanResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IndustryManufactureMesOutPlanResponse) SetBody(v *IndustryManufactureMesOutPlanResponseBody) *IndustryManufactureMesOutPlanResponse {
+	s.Body = v
+	return s
+}
+
+type IndustryManufactureMesOutputHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IndustryManufactureMesOutputHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesOutputHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesOutputHeaders) SetCommonHeaders(v map[string]*string) *IndustryManufactureMesOutputHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputHeaders) SetXAcsDingtalkAccessToken(v string) *IndustryManufactureMesOutputHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IndustryManufactureMesOutputRequest struct {
+	// 本次操作的行为
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// 生态唯一标识, 需要注册
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// 审批状态
+	ApproveStatus *string `json:"approveStatus,omitempty" xml:"approveStatus,omitempty"`
+	// 主数据名称
+	BaseDataName *string `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
+	// 不良品总数(多次报工)
+	DefectsAmount *string `json:"defectsAmount,omitempty" xml:"defectsAmount,omitempty"`
+	// 不良品原因
+	DefectsReason *string `json:"defectsReason,omitempty" xml:"defectsReason,omitempty"`
+	// 良品总数(多次报工)
+	FineAmount *string `json:"fineAmount,omitempty" xml:"fineAmount,omitempty"`
+	// 是否已质检
+	HasQualityTest *string `json:"hasQualityTest,omitempty" xml:"hasQualityTest,omitempty"`
+	// 任务逾期
+	Overdue *int32 `json:"overdue,omitempty" xml:"overdue,omitempty"`
+	// 派工(总)数
+	PlanQuantity *int64 `json:"planQuantity,omitempty" xml:"planQuantity,omitempty"`
+	// 是否加急
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 工序名称
+	ProcessName *string `json:"processName,omitempty" xml:"processName,omitempty"`
+	// 工序业务唯一标识
+	ProcessUuid *string `json:"processUuid,omitempty" xml:"processUuid,omitempty"`
+	// 产品编号(物料编号)
+	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	// 产品名称
+	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	// 产品(物料)规格
+	ProductSpecification *string `json:"productSpecification,omitempty" xml:"productSpecification,omitempty"`
+	// 工单编号(生产任务单)
+	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	// 工单(生产计划单)
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// 工单状态
+	ProjectStatus *string `json:"projectStatus,omitempty" xml:"projectStatus,omitempty"`
+	// 检验状态
+	QualityTestStatus *string `json:"qualityTestStatus,omitempty" xml:"qualityTestStatus,omitempty"`
+	// 任务计划结束(完成)时间
+	TaskPlanEndTime *string `json:"taskPlanEndTime,omitempty" xml:"taskPlanEndTime,omitempty"`
+	// 任务计划开始时间
+	TaskPlanStartTime *string `json:"taskPlanStartTime,omitempty" xml:"taskPlanStartTime,omitempty"`
+	// 派工任务状态
+	TaskStatus *string `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
+	// 报工类型(正常,委外)
+	TaskType *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	// 派工任务唯一标识
+	TaskUuid *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
+	// 负责班组id
+	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
+	// 报工人staffNo(生产人员)
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 派工人名称
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// 本次记录唯一标识
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s IndustryManufactureMesOutputRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesOutputRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetAction(v string) *IndustryManufactureMesOutputRequest {
+	s.Action = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetAppKey(v string) *IndustryManufactureMesOutputRequest {
+	s.AppKey = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetApproveStatus(v string) *IndustryManufactureMesOutputRequest {
+	s.ApproveStatus = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetBaseDataName(v string) *IndustryManufactureMesOutputRequest {
+	s.BaseDataName = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetDefectsAmount(v string) *IndustryManufactureMesOutputRequest {
+	s.DefectsAmount = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetDefectsReason(v string) *IndustryManufactureMesOutputRequest {
+	s.DefectsReason = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetFineAmount(v string) *IndustryManufactureMesOutputRequest {
+	s.FineAmount = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetHasQualityTest(v string) *IndustryManufactureMesOutputRequest {
+	s.HasQualityTest = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetOverdue(v int32) *IndustryManufactureMesOutputRequest {
+	s.Overdue = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetPlanQuantity(v int64) *IndustryManufactureMesOutputRequest {
+	s.PlanQuantity = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetPriority(v int32) *IndustryManufactureMesOutputRequest {
+	s.Priority = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetProcessName(v string) *IndustryManufactureMesOutputRequest {
+	s.ProcessName = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetProcessUuid(v string) *IndustryManufactureMesOutputRequest {
+	s.ProcessUuid = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetProductCode(v string) *IndustryManufactureMesOutputRequest {
+	s.ProductCode = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetProductName(v string) *IndustryManufactureMesOutputRequest {
+	s.ProductName = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetProductSpecification(v string) *IndustryManufactureMesOutputRequest {
+	s.ProductSpecification = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetProjectCode(v string) *IndustryManufactureMesOutputRequest {
+	s.ProjectCode = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetProjectId(v string) *IndustryManufactureMesOutputRequest {
+	s.ProjectId = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetProjectStatus(v string) *IndustryManufactureMesOutputRequest {
+	s.ProjectStatus = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetQualityTestStatus(v string) *IndustryManufactureMesOutputRequest {
+	s.QualityTestStatus = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetTaskPlanEndTime(v string) *IndustryManufactureMesOutputRequest {
+	s.TaskPlanEndTime = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetTaskPlanStartTime(v string) *IndustryManufactureMesOutputRequest {
+	s.TaskPlanStartTime = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetTaskStatus(v string) *IndustryManufactureMesOutputRequest {
+	s.TaskStatus = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetTaskType(v string) *IndustryManufactureMesOutputRequest {
+	s.TaskType = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetTaskUuid(v string) *IndustryManufactureMesOutputRequest {
+	s.TaskUuid = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetTeamId(v string) *IndustryManufactureMesOutputRequest {
+	s.TeamId = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetUserId(v string) *IndustryManufactureMesOutputRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetUserName(v string) *IndustryManufactureMesOutputRequest {
+	s.UserName = &v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputRequest) SetUuid(v string) *IndustryManufactureMesOutputRequest {
+	s.Uuid = &v
+	return s
+}
+
+type IndustryManufactureMesOutputResponseBody struct {
+	Result *IndustryManufactureMesOutputResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s IndustryManufactureMesOutputResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesOutputResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesOutputResponseBody) SetResult(v *IndustryManufactureMesOutputResponseBodyResult) *IndustryManufactureMesOutputResponseBody {
+	s.Result = v
+	return s
+}
+
+type IndustryManufactureMesOutputResponseBodyResult struct {
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s IndustryManufactureMesOutputResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesOutputResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesOutputResponseBodyResult) SetContent(v string) *IndustryManufactureMesOutputResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+type IndustryManufactureMesOutputResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *IndustryManufactureMesOutputResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IndustryManufactureMesOutputResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesOutputResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesOutputResponse) SetHeaders(v map[string]*string) *IndustryManufactureMesOutputResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IndustryManufactureMesOutputResponse) SetBody(v *IndustryManufactureMesOutputResponseBody) *IndustryManufactureMesOutputResponse {
 	s.Body = v
 	return s
 }
@@ -7226,6 +8003,300 @@ func (s *IndustryManufactureMesProductionPlanResponse) SetHeaders(v map[string]*
 }
 
 func (s *IndustryManufactureMesProductionPlanResponse) SetBody(v *IndustryManufactureMesProductionPlanResponseBody) *IndustryManufactureMesProductionPlanResponse {
+	s.Body = v
+	return s
+}
+
+type IndustryManufactureMesSubCooperationTeamHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IndustryManufactureMesSubCooperationTeamHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesSubCooperationTeamHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamHeaders) SetCommonHeaders(v map[string]*string) *IndustryManufactureMesSubCooperationTeamHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamHeaders) SetXAcsDingtalkAccessToken(v string) *IndustryManufactureMesSubCooperationTeamHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IndustryManufactureMesSubCooperationTeamRequest struct {
+	// 本次操作的行为，取值： ● add：增加   -- 创建群 ● update：更新 -- 群成员变更
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// ISV的唯一标识,由BPaaS分配
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// 基础数据名称。比如班组
+	BaseDataName *string `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
+	// 事件配置列表(启用卡片列表),所有枚举值： 任务分配提醒: TASK_ASSIGN_REMINDER 任务逾期提醒: TASK_OVERDUE_REMINDER 置顶加急任务: STICK_URGET_TASK 报工审批提醒: OUTPUT_APPROVE_REMINDER 报工审批反馈: OUTPUT_APPROVE_RESULT 班组概览 :TEAM_OVERVIEW 我的任务:MYTASK_OVERVIEW     例如： ["STICK_URGET_TASK","OUTPUT_APPROVE_REMINDER"]
+	Events []*string `json:"events,omitempty" xml:"events,omitempty" type:"Repeated"`
+	// 扩展字段
+	ExtendData []*IndustryManufactureMesSubCooperationTeamRequestExtendData `json:"extendData,omitempty" xml:"extendData,omitempty" type:"Repeated"`
+	// 群插件列表
+	GroupPlugins []*IndustryManufactureMesSubCooperationTeamRequestGroupPlugins `json:"groupPlugins,omitempty" xml:"groupPlugins,omitempty" type:"Repeated"`
+	// 群类型，枚举
+	GroupType *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	// 班组长(支持多个)
+	Leaders []*IndustryManufactureMesSubCooperationTeamRequestLeaders `json:"leaders,omitempty" xml:"leaders,omitempty" type:"Repeated"`
+	// 班组成员(群成员)
+	Members []*IndustryManufactureMesSubCooperationTeamRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// 班组群名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 委外合作群所属组织
+	OutCorpId *string `json:"outCorpId,omitempty" xml:"outCorpId,omitempty"`
+	// 关联的工序
+	ProcessIds []*string `json:"processIds,omitempty" xml:"processIds,omitempty" type:"Repeated"`
+	// 班组模型实例的唯一Id， 由业务方传递
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s IndustryManufactureMesSubCooperationTeamRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesSubCooperationTeamRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequest) SetAction(v string) *IndustryManufactureMesSubCooperationTeamRequest {
+	s.Action = &v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequest) SetAppKey(v string) *IndustryManufactureMesSubCooperationTeamRequest {
+	s.AppKey = &v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequest) SetBaseDataName(v string) *IndustryManufactureMesSubCooperationTeamRequest {
+	s.BaseDataName = &v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequest) SetEvents(v []*string) *IndustryManufactureMesSubCooperationTeamRequest {
+	s.Events = v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequest) SetExtendData(v []*IndustryManufactureMesSubCooperationTeamRequestExtendData) *IndustryManufactureMesSubCooperationTeamRequest {
+	s.ExtendData = v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequest) SetGroupPlugins(v []*IndustryManufactureMesSubCooperationTeamRequestGroupPlugins) *IndustryManufactureMesSubCooperationTeamRequest {
+	s.GroupPlugins = v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequest) SetGroupType(v string) *IndustryManufactureMesSubCooperationTeamRequest {
+	s.GroupType = &v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequest) SetLeaders(v []*IndustryManufactureMesSubCooperationTeamRequestLeaders) *IndustryManufactureMesSubCooperationTeamRequest {
+	s.Leaders = v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequest) SetMembers(v []*IndustryManufactureMesSubCooperationTeamRequestMembers) *IndustryManufactureMesSubCooperationTeamRequest {
+	s.Members = v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequest) SetName(v string) *IndustryManufactureMesSubCooperationTeamRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequest) SetOutCorpId(v string) *IndustryManufactureMesSubCooperationTeamRequest {
+	s.OutCorpId = &v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequest) SetProcessIds(v []*string) *IndustryManufactureMesSubCooperationTeamRequest {
+	s.ProcessIds = v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequest) SetUuid(v string) *IndustryManufactureMesSubCooperationTeamRequest {
+	s.Uuid = &v
+	return s
+}
+
+type IndustryManufactureMesSubCooperationTeamRequestExtendData struct {
+	// 字段唯一标识
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 字段中文描述
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 字段的取值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 字段的类型(string,number,boolean)
+	ValueType *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
+}
+
+func (s IndustryManufactureMesSubCooperationTeamRequestExtendData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesSubCooperationTeamRequestExtendData) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequestExtendData) SetCode(v string) *IndustryManufactureMesSubCooperationTeamRequestExtendData {
+	s.Code = &v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequestExtendData) SetName(v string) *IndustryManufactureMesSubCooperationTeamRequestExtendData {
+	s.Name = &v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequestExtendData) SetValue(v string) *IndustryManufactureMesSubCooperationTeamRequestExtendData {
+	s.Value = &v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequestExtendData) SetValueType(v string) *IndustryManufactureMesSubCooperationTeamRequestExtendData {
+	s.ValueType = &v
+	return s
+}
+
+type IndustryManufactureMesSubCooperationTeamRequestGroupPlugins struct {
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s IndustryManufactureMesSubCooperationTeamRequestGroupPlugins) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesSubCooperationTeamRequestGroupPlugins) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequestGroupPlugins) SetLabel(v string) *IndustryManufactureMesSubCooperationTeamRequestGroupPlugins {
+	s.Label = &v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequestGroupPlugins) SetValue(v string) *IndustryManufactureMesSubCooperationTeamRequestGroupPlugins {
+	s.Value = &v
+	return s
+}
+
+type IndustryManufactureMesSubCooperationTeamRequestLeaders struct {
+	// 工人姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 工人staffNo
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s IndustryManufactureMesSubCooperationTeamRequestLeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesSubCooperationTeamRequestLeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequestLeaders) SetName(v string) *IndustryManufactureMesSubCooperationTeamRequestLeaders {
+	s.Name = &v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequestLeaders) SetUserId(v string) *IndustryManufactureMesSubCooperationTeamRequestLeaders {
+	s.UserId = &v
+	return s
+}
+
+type IndustryManufactureMesSubCooperationTeamRequestMembers struct {
+	// 工人姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 工人staffNo
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s IndustryManufactureMesSubCooperationTeamRequestMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesSubCooperationTeamRequestMembers) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequestMembers) SetName(v string) *IndustryManufactureMesSubCooperationTeamRequestMembers {
+	s.Name = &v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamRequestMembers) SetUserId(v string) *IndustryManufactureMesSubCooperationTeamRequestMembers {
+	s.UserId = &v
+	return s
+}
+
+type IndustryManufactureMesSubCooperationTeamResponseBody struct {
+	Result *IndustryManufactureMesSubCooperationTeamResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s IndustryManufactureMesSubCooperationTeamResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesSubCooperationTeamResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamResponseBody) SetResult(v *IndustryManufactureMesSubCooperationTeamResponseBodyResult) *IndustryManufactureMesSubCooperationTeamResponseBody {
+	s.Result = v
+	return s
+}
+
+type IndustryManufactureMesSubCooperationTeamResponseBodyResult struct {
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s IndustryManufactureMesSubCooperationTeamResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesSubCooperationTeamResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamResponseBodyResult) SetContent(v string) *IndustryManufactureMesSubCooperationTeamResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+type IndustryManufactureMesSubCooperationTeamResponse struct {
+	Headers map[string]*string                                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *IndustryManufactureMesSubCooperationTeamResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IndustryManufactureMesSubCooperationTeamResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IndustryManufactureMesSubCooperationTeamResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamResponse) SetHeaders(v map[string]*string) *IndustryManufactureMesSubCooperationTeamResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IndustryManufactureMesSubCooperationTeamResponse) SetBody(v *IndustryManufactureMesSubCooperationTeamResponseBody) *IndustryManufactureMesSubCooperationTeamResponse {
 	s.Body = v
 	return s
 }
@@ -14862,6 +15933,146 @@ func (client *Client) IndustryManufactureMaterialListWithOptions(request *Indust
 	return _result, _err
 }
 
+func (client *Client) IndustryManufactureMesDispatchTask(request *IndustryManufactureMesDispatchTaskRequest) (_result *IndustryManufactureMesDispatchTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IndustryManufactureMesDispatchTaskHeaders{}
+	_result = &IndustryManufactureMesDispatchTaskResponse{}
+	_body, _err := client.IndustryManufactureMesDispatchTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureMesDispatchTaskWithOptions(request *IndustryManufactureMesDispatchTaskRequest, headers *IndustryManufactureMesDispatchTaskHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureMesDispatchTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Action)) {
+		body["action"] = request.Action
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppKey)) {
+		body["appKey"] = request.AppKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BaseDataName)) {
+		body["baseDataName"] = request.BaseDataName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DefectsAmount)) {
+		body["defectsAmount"] = request.DefectsAmount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DispatchStaffName)) {
+		body["dispatchStaffName"] = request.DispatchStaffName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DispatchStaffNo)) {
+		body["dispatchStaffNo"] = request.DispatchStaffNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FineAmount)) {
+		body["fineAmount"] = request.FineAmount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Overdue)) {
+		body["overdue"] = request.Overdue
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PlanQuantity)) {
+		body["planQuantity"] = request.PlanQuantity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Priority)) {
+		body["priority"] = request.Priority
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessName)) {
+		body["processName"] = request.ProcessName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessUuid)) {
+		body["processUuid"] = request.ProcessUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductCode)) {
+		body["productCode"] = request.ProductCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductName)) {
+		body["productName"] = request.ProductName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductSpecification)) {
+		body["productSpecification"] = request.ProductSpecification
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProjectCode)) {
+		body["projectCode"] = request.ProjectCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProjectId)) {
+		body["projectId"] = request.ProjectId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProjectStatus)) {
+		body["projectStatus"] = request.ProjectStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskOperators)) {
+		body["taskOperators"] = request.TaskOperators
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskPlanEndTime)) {
+		body["taskPlanEndTime"] = request.TaskPlanEndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskPlanStartTime)) {
+		body["taskPlanStartTime"] = request.TaskPlanStartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskStatus)) {
+		body["taskStatus"] = request.TaskStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskType)) {
+		body["taskType"] = request.TaskType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TeamId)) {
+		body["teamId"] = request.TeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		body["uuid"] = request.Uuid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &IndustryManufactureMesDispatchTaskResponse{}
+	_body, _err := client.DoROARequest(tea.String("IndustryManufactureMesDispatchTask"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/manufacturings/dispatchTasks/manage"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) IndustryManufactureMesMaterial(request *IndustryManufactureMesMaterialRequest) (_result *IndustryManufactureMesMaterialResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IndustryManufactureMesMaterialHeaders{}
@@ -14939,6 +16150,274 @@ func (client *Client) IndustryManufactureMesMaterialWithOptions(request *Industr
 	}
 	_result = &IndustryManufactureMesMaterialResponse{}
 	_body, _err := client.DoROARequest(tea.String("IndustryManufactureMesMaterial"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/manufacturings/materials/manage"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureMesOutPlan(request *IndustryManufactureMesOutPlanRequest) (_result *IndustryManufactureMesOutPlanResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IndustryManufactureMesOutPlanHeaders{}
+	_result = &IndustryManufactureMesOutPlanResponse{}
+	_body, _err := client.IndustryManufactureMesOutPlanWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureMesOutPlanWithOptions(request *IndustryManufactureMesOutPlanRequest, headers *IndustryManufactureMesOutPlanHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureMesOutPlanResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ApprovalStatus)) {
+		body["approvalStatus"] = request.ApprovalStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Approver)) {
+		body["approver"] = request.Approver
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BaseDataName)) {
+		body["baseDataName"] = request.BaseDataName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutSourceProjectCode)) {
+		body["outSourceProjectCode"] = request.OutSourceProjectCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutSourceTeamId)) {
+		body["outSourceTeamId"] = request.OutSourceTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Price)) {
+		body["price"] = request.Price
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessIdentificationCode)) {
+		body["processIdentificationCode"] = request.ProcessIdentificationCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessUuids)) {
+		body["processUuids"] = request.ProcessUuids
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductCode)) {
+		body["productCode"] = request.ProductCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductName)) {
+		body["productName"] = request.ProductName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductSpecification)) {
+		body["productSpecification"] = request.ProductSpecification
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProjectCode)) {
+		body["projectCode"] = request.ProjectCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProjectId)) {
+		body["projectId"] = request.ProjectId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SendPlanQuantity)) {
+		body["sendPlanQuantity"] = request.SendPlanQuantity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SupplierCode)) {
+		body["supplierCode"] = request.SupplierCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SupplierName)) {
+		body["supplierName"] = request.SupplierName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TotalWage)) {
+		body["totalWage"] = request.TotalWage
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		body["uuid"] = request.Uuid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &IndustryManufactureMesOutPlanResponse{}
+	_body, _err := client.DoROARequest(tea.String("IndustryManufactureMesOutPlan"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/manufacturings/outPlans/manage"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureMesOutput(request *IndustryManufactureMesOutputRequest) (_result *IndustryManufactureMesOutputResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IndustryManufactureMesOutputHeaders{}
+	_result = &IndustryManufactureMesOutputResponse{}
+	_body, _err := client.IndustryManufactureMesOutputWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureMesOutputWithOptions(request *IndustryManufactureMesOutputRequest, headers *IndustryManufactureMesOutputHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureMesOutputResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Action)) {
+		body["action"] = request.Action
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppKey)) {
+		body["appKey"] = request.AppKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ApproveStatus)) {
+		body["approveStatus"] = request.ApproveStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BaseDataName)) {
+		body["baseDataName"] = request.BaseDataName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DefectsAmount)) {
+		body["defectsAmount"] = request.DefectsAmount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DefectsReason)) {
+		body["defectsReason"] = request.DefectsReason
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FineAmount)) {
+		body["fineAmount"] = request.FineAmount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HasQualityTest)) {
+		body["hasQualityTest"] = request.HasQualityTest
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Overdue)) {
+		body["overdue"] = request.Overdue
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PlanQuantity)) {
+		body["planQuantity"] = request.PlanQuantity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Priority)) {
+		body["priority"] = request.Priority
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessName)) {
+		body["processName"] = request.ProcessName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessUuid)) {
+		body["processUuid"] = request.ProcessUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductCode)) {
+		body["productCode"] = request.ProductCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductName)) {
+		body["productName"] = request.ProductName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductSpecification)) {
+		body["productSpecification"] = request.ProductSpecification
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProjectCode)) {
+		body["projectCode"] = request.ProjectCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProjectId)) {
+		body["projectId"] = request.ProjectId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProjectStatus)) {
+		body["projectStatus"] = request.ProjectStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QualityTestStatus)) {
+		body["qualityTestStatus"] = request.QualityTestStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskPlanEndTime)) {
+		body["taskPlanEndTime"] = request.TaskPlanEndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskPlanStartTime)) {
+		body["taskPlanStartTime"] = request.TaskPlanStartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskStatus)) {
+		body["taskStatus"] = request.TaskStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskType)) {
+		body["taskType"] = request.TaskType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskUuid)) {
+		body["taskUuid"] = request.TaskUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TeamId)) {
+		body["teamId"] = request.TeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserName)) {
+		body["userName"] = request.UserName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		body["uuid"] = request.Uuid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &IndustryManufactureMesOutputResponse{}
+	_body, _err := client.DoROARequest(tea.String("IndustryManufactureMesOutput"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/manufacturings/outputs/manage"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15171,6 +16650,98 @@ func (client *Client) IndustryManufactureMesProductionPlanWithOptions(request *I
 	}
 	_result = &IndustryManufactureMesProductionPlanResponse{}
 	_body, _err := client.DoROARequest(tea.String("IndustryManufactureMesProductionPlan"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/manufacturings/productionPlans/manage"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureMesSubCooperationTeam(request *IndustryManufactureMesSubCooperationTeamRequest) (_result *IndustryManufactureMesSubCooperationTeamResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IndustryManufactureMesSubCooperationTeamHeaders{}
+	_result = &IndustryManufactureMesSubCooperationTeamResponse{}
+	_body, _err := client.IndustryManufactureMesSubCooperationTeamWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IndustryManufactureMesSubCooperationTeamWithOptions(request *IndustryManufactureMesSubCooperationTeamRequest, headers *IndustryManufactureMesSubCooperationTeamHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureMesSubCooperationTeamResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Action)) {
+		body["action"] = request.Action
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppKey)) {
+		body["appKey"] = request.AppKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BaseDataName)) {
+		body["baseDataName"] = request.BaseDataName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Events)) {
+		body["events"] = request.Events
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtendData)) {
+		body["extendData"] = request.ExtendData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupPlugins)) {
+		body["groupPlugins"] = request.GroupPlugins
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupType)) {
+		body["groupType"] = request.GroupType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Leaders)) {
+		body["leaders"] = request.Leaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Members)) {
+		body["members"] = request.Members
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutCorpId)) {
+		body["outCorpId"] = request.OutCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessIds)) {
+		body["processIds"] = request.ProcessIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		body["uuid"] = request.Uuid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &IndustryManufactureMesSubCooperationTeamResponse{}
+	_body, _err := client.DoROARequest(tea.String("IndustryManufactureMesSubCooperationTeam"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/manufacturings/outTeams/manage"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

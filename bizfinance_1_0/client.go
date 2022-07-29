@@ -2148,6 +2148,8 @@ type GetInvoiceByPageResponseBodyResultList struct {
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	// 发票号码
 	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票状态
+	InvoiceStatus *string `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
 	// 发票类型
 	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
 	// 机器码
@@ -2264,6 +2266,11 @@ func (s *GetInvoiceByPageResponseBodyResultList) SetInvoiceCode(v string) *GetIn
 
 func (s *GetInvoiceByPageResponseBodyResultList) SetInvoiceNo(v string) *GetInvoiceByPageResponseBodyResultList {
 	s.InvoiceNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultList) SetInvoiceStatus(v string) *GetInvoiceByPageResponseBodyResultList {
+	s.InvoiceStatus = &v
 	return s
 }
 

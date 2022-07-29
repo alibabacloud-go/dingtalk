@@ -201,6 +201,8 @@ func (s *DentryModelUpdater) SetUnionId(v string) *DentryModelUpdater {
 type DentryModelVisitorInfo struct {
 	// 节点的操作列表。
 	DentryActions []*string `json:"dentryActions,omitempty" xml:"dentryActions,omitempty" type:"Repeated"`
+	// 当前用户对这个空间的访问角色。
+	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
 	// 空间的操作列表。
 	SpaceActions []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
 }
@@ -215,6 +217,11 @@ func (s DentryModelVisitorInfo) GoString() string {
 
 func (s *DentryModelVisitorInfo) SetDentryActions(v []*string) *DentryModelVisitorInfo {
 	s.DentryActions = v
+	return s
+}
+
+func (s *DentryModelVisitorInfo) SetRoleCode(v string) *DentryModelVisitorInfo {
+	s.RoleCode = &v
 	return s
 }
 
@@ -413,6 +420,8 @@ func (s *DentryVOUpdater) SetUnionId(v string) *DentryVOUpdater {
 type DentryVOVisitorInfo struct {
 	// 节点的操作列表。
 	DentryActions []*string `json:"dentryActions,omitempty" xml:"dentryActions,omitempty" type:"Repeated"`
+	// 当前用户对这个空间的访问角色。
+	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
 	// 空间的操作列表。
 	SpaceActions []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
 }
@@ -427,6 +436,11 @@ func (s DentryVOVisitorInfo) GoString() string {
 
 func (s *DentryVOVisitorInfo) SetDentryActions(v []*string) *DentryVOVisitorInfo {
 	s.DentryActions = v
+	return s
+}
+
+func (s *DentryVOVisitorInfo) SetRoleCode(v string) *DentryVOVisitorInfo {
+	s.RoleCode = &v
 	return s
 }
 
@@ -532,6 +546,12 @@ func (s *OpenActionModel) SetTimestamp(v int64) *OpenActionModel {
 }
 
 type SpaceModel struct {
+	// 封面
+	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
+	// 空间描述信息
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 知识库图标
+	IconVO *SpaceModelIconVO `json:"iconVO,omitempty" xml:"iconVO,omitempty" type:"Struct"`
 	// 知识库id。
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 	// 知识库名称。
@@ -550,6 +570,21 @@ func (s SpaceModel) String() string {
 
 func (s SpaceModel) GoString() string {
 	return s.String()
+}
+
+func (s *SpaceModel) SetCover(v string) *SpaceModel {
+	s.Cover = &v
+	return s
+}
+
+func (s *SpaceModel) SetDescription(v string) *SpaceModel {
+	s.Description = &v
+	return s
+}
+
+func (s *SpaceModel) SetIconVO(v *SpaceModelIconVO) *SpaceModel {
+	s.IconVO = v
+	return s
 }
 
 func (s *SpaceModel) SetId(v string) *SpaceModel {
@@ -574,6 +609,31 @@ func (s *SpaceModel) SetUrl(v string) *SpaceModel {
 
 func (s *SpaceModel) SetVisitorInfo(v *SpaceModelVisitorInfo) *SpaceModel {
 	s.VisitorInfo = v
+	return s
+}
+
+type SpaceModelIconVO struct {
+	// 图标
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 图标类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s SpaceModelIconVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SpaceModelIconVO) GoString() string {
+	return s.String()
+}
+
+func (s *SpaceModelIconVO) SetIcon(v string) *SpaceModelIconVO {
+	s.Icon = &v
+	return s
+}
+
+func (s *SpaceModelIconVO) SetType(v string) *SpaceModelIconVO {
+	s.Type = &v
 	return s
 }
 
@@ -605,6 +665,8 @@ func (s *SpaceModelOwner) SetUnionId(v string) *SpaceModelOwner {
 type SpaceModelVisitorInfo struct {
 	// 节点的操作列表。
 	DentryActions []*string `json:"dentryActions,omitempty" xml:"dentryActions,omitempty" type:"Repeated"`
+	// 权限
+	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
 	// 空间的操作列表。
 	SpaceActions []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
 }
@@ -622,12 +684,23 @@ func (s *SpaceModelVisitorInfo) SetDentryActions(v []*string) *SpaceModelVisitor
 	return s
 }
 
+func (s *SpaceModelVisitorInfo) SetRoleCode(v string) *SpaceModelVisitorInfo {
+	s.RoleCode = &v
+	return s
+}
+
 func (s *SpaceModelVisitorInfo) SetSpaceActions(v []*string) *SpaceModelVisitorInfo {
 	s.SpaceActions = v
 	return s
 }
 
 type SpaceVO struct {
+	// 封面
+	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
+	// 访问者对当前知识库的权限等信息
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 知识库图标
+	IconVO *SpaceVOIconVO `json:"iconVO,omitempty" xml:"iconVO,omitempty" type:"Struct"`
 	// 知识库id。
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 	// 知识库名称。
@@ -646,6 +719,21 @@ func (s SpaceVO) String() string {
 
 func (s SpaceVO) GoString() string {
 	return s.String()
+}
+
+func (s *SpaceVO) SetCover(v string) *SpaceVO {
+	s.Cover = &v
+	return s
+}
+
+func (s *SpaceVO) SetDescription(v string) *SpaceVO {
+	s.Description = &v
+	return s
+}
+
+func (s *SpaceVO) SetIconVO(v *SpaceVOIconVO) *SpaceVO {
+	s.IconVO = v
+	return s
 }
 
 func (s *SpaceVO) SetId(v string) *SpaceVO {
@@ -670,6 +758,31 @@ func (s *SpaceVO) SetUrl(v string) *SpaceVO {
 
 func (s *SpaceVO) SetVisitorInfo(v *SpaceVOVisitorInfo) *SpaceVO {
 	s.VisitorInfo = v
+	return s
+}
+
+type SpaceVOIconVO struct {
+	// 图标
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 图标类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s SpaceVOIconVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SpaceVOIconVO) GoString() string {
+	return s.String()
+}
+
+func (s *SpaceVOIconVO) SetIcon(v string) *SpaceVOIconVO {
+	s.Icon = &v
+	return s
+}
+
+func (s *SpaceVOIconVO) SetType(v string) *SpaceVOIconVO {
+	s.Type = &v
 	return s
 }
 
@@ -701,6 +814,8 @@ func (s *SpaceVOOwner) SetUnionId(v string) *SpaceVOOwner {
 type SpaceVOVisitorInfo struct {
 	// 节点的操作列表。
 	DentryActions []*string `json:"dentryActions,omitempty" xml:"dentryActions,omitempty" type:"Repeated"`
+	// 权限
+	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
 	// 空间的操作列表。
 	SpaceActions []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
 }
@@ -715,6 +830,11 @@ func (s SpaceVOVisitorInfo) GoString() string {
 
 func (s *SpaceVOVisitorInfo) SetDentryActions(v []*string) *SpaceVOVisitorInfo {
 	s.DentryActions = v
+	return s
+}
+
+func (s *SpaceVOVisitorInfo) SetRoleCode(v string) *SpaceVOVisitorInfo {
+	s.RoleCode = &v
 	return s
 }
 
