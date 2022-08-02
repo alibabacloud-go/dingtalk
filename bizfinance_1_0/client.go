@@ -84,6 +84,8 @@ type BatchAddInvoiceRequestGeneralInvoiceVOList struct {
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	// 发票号码
 	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票状态
+	InvoiceStatus *string `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
 	// 发票类型
 	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
 	// 机器码
@@ -123,8 +125,6 @@ type BatchAddInvoiceRequestGeneralInvoiceVOList struct {
 	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
 	// 销方电话
 	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
-	// 发票状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// 代开发票标识 1-自开，2-代开
 	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
 	// 税额
@@ -204,6 +204,11 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetInvoiceCode(v string) *B
 
 func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetInvoiceNo(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
 	s.InvoiceNo = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetInvoiceStatus(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.InvoiceStatus = &v
 	return s
 }
 
@@ -304,11 +309,6 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetSellerTaxNo(v string) *B
 
 func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetSellerTel(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
 	s.SellerTel = &v
-	return s
-}
-
-func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetStatus(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
-	s.Status = &v
 	return s
 }
 
@@ -5579,6 +5579,8 @@ type UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList struct {
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	// 发票号码
 	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票状态
+	InvoiceStatus *string `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
 	// 发票类型
 	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
 	// 机器码
@@ -5618,8 +5620,6 @@ type UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList struct {
 	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
 	// 销方电话
 	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
-	// 发票状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// 代开发票标识 1-自开，2-代开
 	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
 	// 税额
@@ -5699,6 +5699,11 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetInvo
 
 func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetInvoiceNo(v string) *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList {
 	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetInvoiceStatus(v string) *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList {
+	s.InvoiceStatus = &v
 	return s
 }
 
@@ -5802,11 +5807,6 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetSell
 	return s
 }
 
-func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetStatus(v string) *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList {
-	s.Status = &v
-	return s
-}
-
 func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList) SetSupplySign(v string) *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOList {
 	s.SupplySign = &v
 	return s
@@ -5846,7 +5846,7 @@ type UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListGeneralInvoic
 	// 金额
 	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
 	// 商品名称
-	GoodName *string `json:"goodName,omitempty" xml:"goodName,omitempty"`
+	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
 	// 数量
 	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
 	// 税收分类编码
@@ -5882,8 +5882,8 @@ func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListGeneralIn
 	return s
 }
 
-func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList) SetGoodName(v string) *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList {
-	s.GoodName = &v
+func (s *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList) SetGoodsName(v string) *UpdateApplyReceiptAndInvoiceRelatedRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList {
+	s.GoodsName = &v
 	return s
 }
 
@@ -6581,6 +6581,8 @@ type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO struct {
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	// 发票号码
 	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票状态
+	InvoiceStatus *string `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
 	// 发票类型
 	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
 	// 机器码
@@ -6620,8 +6622,6 @@ type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO struct {
 	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
 	// 销方电话
 	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
-	// 发票状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// 代开发票标识 1-自开，2-代开
 	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
 	// 税额
@@ -6701,6 +6701,11 @@ func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetInvoiceCode(v
 
 func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetInvoiceNo(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
 	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetInvoiceStatus(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
+	s.InvoiceStatus = &v
 	return s
 }
 
@@ -6804,11 +6809,6 @@ func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetSellerTel(v s
 	return s
 }
 
-func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetStatus(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
-	s.Status = &v
-	return s
-}
-
 func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO) SetSupplySign(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVO {
 	s.SupplySign = &v
 	return s
@@ -6848,7 +6848,7 @@ type UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVO
 	// 金额
 	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
 	// 商品名称
-	GoodName *string `json:"goodName,omitempty" xml:"goodName,omitempty"`
+	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
 	// 数量
 	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
 	// 税收分类编码
@@ -6884,8 +6884,8 @@ func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDeta
 	return s
 }
 
-func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVOList) SetGoodName(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVOList {
-	s.GoodName = &v
+func (s *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVOList) SetGoodsName(v string) *UpdateInvoiceAbandonStatusRequestBlueGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.GoodsName = &v
 	return s
 }
 
@@ -7550,7 +7550,7 @@ type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOL
 	// 金额
 	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
 	// 商品名称
-	GoodName *string `json:"goodName,omitempty" xml:"goodName,omitempty"`
+	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
 	// 数量
 	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
 	// 税收分类编码
@@ -7586,8 +7586,8 @@ func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetai
 	return s
 }
 
-func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) SetGoodName(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList {
-	s.GoodName = &v
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList) SetGoodsName(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.GoodsName = &v
 	return s
 }
 
@@ -8088,6 +8088,8 @@ type UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList struct {
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	// 发票号码
 	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票状态
+	InvoiceStatus *string `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
 	// 发票类型
 	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
 	// 机器码
@@ -8127,8 +8129,6 @@ type UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList struct {
 	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
 	// 销方电话
 	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
-	// 发票状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// 代开发票标识 1-自开，2-代开
 	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
 	// 税额
@@ -8208,6 +8208,11 @@ func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList) SetInvoiceCode(v
 
 func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList) SetInvoiceNo(v string) *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList {
 	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList) SetInvoiceStatus(v string) *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList {
+	s.InvoiceStatus = &v
 	return s
 }
 
@@ -8311,11 +8316,6 @@ func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList) SetSellerTel(v s
 	return s
 }
 
-func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList) SetStatus(v string) *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList {
-	s.Status = &v
-	return s
-}
-
 func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList) SetSupplySign(v string) *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOList {
 	s.SupplySign = &v
 	return s
@@ -8355,7 +8355,7 @@ type UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListGeneralInvoiceDetailVO
 	// 金额
 	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
 	// 商品名称
-	GoodName *string `json:"goodName,omitempty" xml:"goodName,omitempty"`
+	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
 	// 数量
 	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
 	// 税收分类编码
@@ -8391,8 +8391,8 @@ func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListGeneralInvoiceDeta
 	return s
 }
 
-func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList) SetGoodName(v string) *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList {
-	s.GoodName = &v
+func (s *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList) SetGoodsName(v string) *UpdateInvoiceAccountPeriodRequestGeneralInvoiceVOListGeneralInvoiceDetailVOList {
+	s.GoodsName = &v
 	return s
 }
 
@@ -8925,6 +8925,8 @@ type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO struct {
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	// 发票号码
 	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票状态
+	InvoiceStatus *string `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
 	// 发票类型
 	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
 	// 机器码
@@ -8963,8 +8965,6 @@ type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO struct {
 	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
 	// 销方电话
 	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
-	// 发票状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// 代开发票标识 1-自开，2-代开
 	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
 	// 税额
@@ -9044,6 +9044,11 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetInvoiceCode(v
 
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetInvoiceNo(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetInvoiceStatus(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
+	s.InvoiceStatus = &v
 	return s
 }
 
@@ -9144,11 +9149,6 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSellerTaxNo(v
 
 func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetSellerTel(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
 	s.SellerTel = &v
-	return s
-}
-
-func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO) SetStatus(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVO {
-	s.Status = &v
 	return s
 }
 
@@ -9832,6 +9832,8 @@ type UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList struct {
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	// 发票号码
 	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票状态
+	InvoiceStatus *string `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
 	// 发票类型
 	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
 	// 机器码
@@ -9871,8 +9873,6 @@ type UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList struct {
 	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
 	// 销方电话
 	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
-	// 发票状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// 代开发票标识 1-自开，2-代开
 	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
 	// 税额
@@ -9952,6 +9952,11 @@ func (s *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList) SetInvoiceCode(v 
 
 func (s *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList) SetInvoiceNo(v string) *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList {
 	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList) SetInvoiceStatus(v string) *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList {
+	s.InvoiceStatus = &v
 	return s
 }
 
@@ -10052,11 +10057,6 @@ func (s *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList) SetSellerTaxNo(v 
 
 func (s *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList) SetSellerTel(v string) *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList {
 	s.SellerTel = &v
-	return s
-}
-
-func (s *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList) SetStatus(v string) *UpdateInvoiceVerifyStatusRequestGeneralInvoiceVOList {
-	s.Status = &v
 	return s
 }
 

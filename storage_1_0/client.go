@@ -839,8 +839,6 @@ type CommitFileRequest struct {
 	Option *CommitFileRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
 	// 父目录id, 根目录id值为0
 	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	// 大小
-	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
 	// 添加文件唯一标识，可通过DentryService.getUploadInfo来生成
 	UploadKey *string `json:"uploadKey,omitempty" xml:"uploadKey,omitempty"`
 	// 用户id
@@ -870,11 +868,6 @@ func (s *CommitFileRequest) SetParentId(v string) *CommitFileRequest {
 	return s
 }
 
-func (s *CommitFileRequest) SetSize(v int64) *CommitFileRequest {
-	s.Size = &v
-	return s
-}
-
 func (s *CommitFileRequest) SetUploadKey(v string) *CommitFileRequest {
 	s.UploadKey = &v
 	return s
@@ -897,6 +890,9 @@ type CommitFileRequestOption struct {
 	// 默认值:
 	// 	AUTO_RENAME
 	ConflictStrategy *string `json:"conflictStrategy,omitempty" xml:"conflictStrategy,omitempty"`
+	// 默认文件大小, 单位:Byte
+	// 如果此字段不为空，企业存储系统会校验文件实际大小是否和此字段是否一致，不一致会报错
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
 }
 
 func (s CommitFileRequestOption) String() string {
@@ -914,6 +910,11 @@ func (s *CommitFileRequestOption) SetAppProperties(v []*CommitFileRequestOptionA
 
 func (s *CommitFileRequestOption) SetConflictStrategy(v string) *CommitFileRequestOption {
 	s.ConflictStrategy = &v
+	return s
+}
+
+func (s *CommitFileRequestOption) SetSize(v int64) *CommitFileRequestOption {
+	s.Size = &v
 	return s
 }
 
@@ -1002,7 +1003,7 @@ type CommitFileResponseBodyDentry struct {
 	Path *string `json:"path,omitempty" xml:"path,omitempty"`
 	// 属性
 	Properties *CommitFileResponseBodyDentryProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
-	// 大小
+	// 大小, 单位:Byte
 	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
 	// 所在空间id
 	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
@@ -5347,10 +5348,6 @@ func (client *Client) CommitFileWithOptions(spaceId *string, request *CommitFile
 
 	if !tea.BoolValue(util.IsUnset(request.ParentId)) {
 		body["parentId"] = request.ParentId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Size)) {
-		body["size"] = request.Size
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.UploadKey)) {
