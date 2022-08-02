@@ -11,6 +11,69 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type PostCorpAuthInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PostCorpAuthInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PostCorpAuthInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PostCorpAuthInfoHeaders) SetCommonHeaders(v map[string]*string) *PostCorpAuthInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PostCorpAuthInfoHeaders) SetXAcsDingtalkAccessToken(v string) *PostCorpAuthInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PostCorpAuthInfoResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PostCorpAuthInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PostCorpAuthInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PostCorpAuthInfoResponseBody) SetSuccess(v bool) *PostCorpAuthInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PostCorpAuthInfoResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PostCorpAuthInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PostCorpAuthInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PostCorpAuthInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PostCorpAuthInfoResponse) SetHeaders(v map[string]*string) *PostCorpAuthInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PostCorpAuthInfoResponse) SetBody(v *PostCorpAuthInfoResponseBody) *PostCorpAuthInfoResponse {
+	s.Body = v
+	return s
+}
+
 type QueryActiveUserStatisticalDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -142,6 +205,141 @@ func (s *QueryActiveUserStatisticalDataResponse) SetHeaders(v map[string]*string
 }
 
 func (s *QueryActiveUserStatisticalDataResponse) SetBody(v *QueryActiveUserStatisticalDataResponseBody) *QueryActiveUserStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryAnhmdStatisticalDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryAnhmdStatisticalDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAnhmdStatisticalDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAnhmdStatisticalDataHeaders) SetCommonHeaders(v map[string]*string) *QueryAnhmdStatisticalDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryAnhmdStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryAnhmdStatisticalDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryAnhmdStatisticalDataRequest struct {
+	// statDate
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+}
+
+func (s QueryAnhmdStatisticalDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAnhmdStatisticalDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAnhmdStatisticalDataRequest) SetStatDate(v string) *QueryAnhmdStatisticalDataRequest {
+	s.StatDate = &v
+	return s
+}
+
+type QueryAnhmdStatisticalDataResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryAnhmdStatisticalDataResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryAnhmdStatisticalDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAnhmdStatisticalDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAnhmdStatisticalDataResponseBody) SetDataList(v []map[string]interface{}) *QueryAnhmdStatisticalDataResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryAnhmdStatisticalDataResponseBody) SetMetaList(v []*QueryAnhmdStatisticalDataResponseBodyMetaList) *QueryAnhmdStatisticalDataResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryAnhmdStatisticalDataResponseBodyMetaList struct {
+	// 指标口径
+	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
+	// 指标ID
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// 指标名称
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// 指标周期
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// 指标单位
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s QueryAnhmdStatisticalDataResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAnhmdStatisticalDataResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAnhmdStatisticalDataResponseBodyMetaList) SetKpiCaliber(v string) *QueryAnhmdStatisticalDataResponseBodyMetaList {
+	s.KpiCaliber = &v
+	return s
+}
+
+func (s *QueryAnhmdStatisticalDataResponseBodyMetaList) SetKpiId(v string) *QueryAnhmdStatisticalDataResponseBodyMetaList {
+	s.KpiId = &v
+	return s
+}
+
+func (s *QueryAnhmdStatisticalDataResponseBodyMetaList) SetKpiName(v string) *QueryAnhmdStatisticalDataResponseBodyMetaList {
+	s.KpiName = &v
+	return s
+}
+
+func (s *QueryAnhmdStatisticalDataResponseBodyMetaList) SetPeriod(v string) *QueryAnhmdStatisticalDataResponseBodyMetaList {
+	s.Period = &v
+	return s
+}
+
+func (s *QueryAnhmdStatisticalDataResponseBodyMetaList) SetUnit(v string) *QueryAnhmdStatisticalDataResponseBodyMetaList {
+	s.Unit = &v
+	return s
+}
+
+type QueryAnhmdStatisticalDataResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryAnhmdStatisticalDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryAnhmdStatisticalDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAnhmdStatisticalDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAnhmdStatisticalDataResponse) SetHeaders(v map[string]*string) *QueryAnhmdStatisticalDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryAnhmdStatisticalDataResponse) SetBody(v *QueryAnhmdStatisticalDataResponseBody) *QueryAnhmdStatisticalDataResponse {
 	s.Body = v
 	return s
 }
@@ -8619,6 +8817,40 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) PostCorpAuthInfo() (_result *PostCorpAuthInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PostCorpAuthInfoHeaders{}
+	_result = &PostCorpAuthInfoResponse{}
+	_body, _err := client.PostCorpAuthInfoWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PostCorpAuthInfoWithOptions(headers *PostCorpAuthInfoHeaders, runtime *util.RuntimeOptions) (_result *PostCorpAuthInfoResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &PostCorpAuthInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("PostCorpAuthInfo"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/datacenter/corporations/authorize"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryActiveUserStatisticalData(request *QueryActiveUserStatisticalDataRequest) (_result *QueryActiveUserStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryActiveUserStatisticalDataHeaders{}
@@ -8656,6 +8888,50 @@ func (client *Client) QueryActiveUserStatisticalDataWithOptions(request *QueryAc
 	}
 	_result = &QueryActiveUserStatisticalDataResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryActiveUserStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/activeUserData"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryAnhmdStatisticalData(request *QueryAnhmdStatisticalDataRequest) (_result *QueryAnhmdStatisticalDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryAnhmdStatisticalDataHeaders{}
+	_result = &QueryAnhmdStatisticalDataResponse{}
+	_body, _err := client.QueryAnhmdStatisticalDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryAnhmdStatisticalDataWithOptions(request *QueryAnhmdStatisticalDataRequest, headers *QueryAnhmdStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryAnhmdStatisticalDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
+		query["statDate"] = request.StatDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryAnhmdStatisticalDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryAnhmdStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/statisticDatas/anHmd"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

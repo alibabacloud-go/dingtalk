@@ -158,7 +158,7 @@ func (s *CampusCreateCampusHeaders) SetXAcsDingtalkAccessToken(v string) *Campus
 type CampusCreateCampusRequest struct {
 	// 园区所在详细地址
 	Address *string `json:"address,omitempty" xml:"address,omitempty"`
-	// 园区面积
+	// 园区面积，单位：平方千米
 	Area *float64 `json:"area,omitempty" xml:"area,omitempty"`
 	// 归属项目组
 	BelongProjectGroupId *int64 `json:"belongProjectGroupId,omitempty" xml:"belongProjectGroupId,omitempty"`
@@ -177,7 +177,9 @@ type CampusCreateCampusRequest struct {
 	// 园区项目描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 	// 扩展字段
-	Extend       *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	// 园区经纬度,格式：经度,纬度
+	Location     *string `json:"location,omitempty" xml:"location,omitempty"`
 	OrderEndTime *int64  `json:"orderEndTime,omitempty" xml:"orderEndTime,omitempty"`
 	OrderInfo    *string `json:"orderInfo,omitempty" xml:"orderInfo,omitempty"`
 	// 项目订购开始时间
@@ -248,6 +250,11 @@ func (s *CampusCreateCampusRequest) SetDescription(v string) *CampusCreateCampus
 
 func (s *CampusCreateCampusRequest) SetExtend(v string) *CampusCreateCampusRequest {
 	s.Extend = &v
+	return s
+}
+
+func (s *CampusCreateCampusRequest) SetLocation(v string) *CampusCreateCampusRequest {
+	s.Location = &v
 	return s
 }
 
@@ -13375,6 +13382,10 @@ func (client *Client) CampusCreateCampusWithOptions(request *CampusCreateCampusR
 
 	if !tea.BoolValue(util.IsUnset(request.Extend)) {
 		body["extend"] = request.Extend
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Location)) {
+		body["location"] = request.Location
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OrderEndTime)) {

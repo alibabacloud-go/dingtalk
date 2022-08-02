@@ -471,17 +471,17 @@ func (s *CreateCoupleGroupConversationHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type CreateCoupleGroupConversationRequest struct {
-	// 钉外人员业务Id
+	// 钉外用户在业务系统内的唯一标识。
 	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	// 群头像
+	// 群头像。
 	GroupAvatar *string `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
-	// 群名称
+	// 群名称。
 	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 钉外群主业务Id
+	// 群主(钉外用户)userId。
 	GroupOwnerId *string `json:"groupOwnerId,omitempty" xml:"groupOwnerId,omitempty"`
-	// 群模板
+	// 群模板Id。
 	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
-	// 操作者的钉钉Id
+	// 操作者在业务系统内的唯一标识。
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -524,7 +524,9 @@ func (s *CreateCoupleGroupConversationRequest) SetOperatorId(v string) *CreateCo
 }
 
 type CreateCoupleGroupConversationResponseBody struct {
-	// 群会话Id
+	// 群chatId。
+	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -534,6 +536,11 @@ func (s CreateCoupleGroupConversationResponseBody) String() string {
 
 func (s CreateCoupleGroupConversationResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *CreateCoupleGroupConversationResponseBody) SetChatId(v string) *CreateCoupleGroupConversationResponseBody {
+	s.ChatId = &v
+	return s
 }
 
 func (s *CreateCoupleGroupConversationResponseBody) SetOpenConversationId(v string) *CreateCoupleGroupConversationResponseBody {
@@ -588,19 +595,19 @@ func (s *CreateGroupConversationHeaders) SetXAcsDingtalkAccessToken(v string) *C
 }
 
 type CreateGroupConversationRequest struct {
-	// C端客户成员列表
+	// 钉外成员列表。
 	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
-	// 群头像
+	// 群头像。
 	GroupAvatar *string `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
-	// 群名称
+	// 群名称。
 	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 群主钉钉Id
+	// 群主(钉内用户)userId。
 	GroupOwnerId *string `json:"groupOwnerId,omitempty" xml:"groupOwnerId,omitempty"`
-	// 群模板
+	// 群模板Id。
 	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
-	// 操作者的钉钉Id
+	// 操作者在业务系统内的唯一标识。
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// B端客服成员列表
+	// 钉内成员列表。
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -648,11 +655,12 @@ func (s *CreateGroupConversationRequest) SetUserIds(v []*string) *CreateGroupCon
 }
 
 type CreateGroupConversationResponseBody struct {
-	// 添加成功的C端客户列表
+	// 添加成功的钉外成员列表。
 	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
-	// 群会话Id
+	ChatId     *string   `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 添加成功的B端客服列表
+	// 添加成功的钉内成员列表。
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -666,6 +674,11 @@ func (s CreateGroupConversationResponseBody) GoString() string {
 
 func (s *CreateGroupConversationResponseBody) SetAppUserIds(v []*string) *CreateGroupConversationResponseBody {
 	s.AppUserIds = v
+	return s
+}
+
+func (s *CreateGroupConversationResponseBody) SetChatId(v string) *CreateGroupConversationResponseBody {
+	s.ChatId = &v
 	return s
 }
 
@@ -726,10 +739,8 @@ func (s *CreateInterconnectionHeaders) SetXAcsDingtalkAccessToken(v string) *Cre
 }
 
 type CreateInterconnectionRequest struct {
-	// bc关系列表
+	// 钉外钉内关系列表。
 	Interconnections []*CreateInterconnectionRequestInterconnections `json:"interconnections,omitempty" xml:"interconnections,omitempty" type:"Repeated"`
-	// 参数签名
-	Signature *string `json:"signature,omitempty" xml:"signature,omitempty"`
 }
 
 func (s CreateInterconnectionRequest) String() string {
@@ -745,28 +756,23 @@ func (s *CreateInterconnectionRequest) SetInterconnections(v []*CreateInterconne
 	return s
 }
 
-func (s *CreateInterconnectionRequest) SetSignature(v string) *CreateInterconnectionRequest {
-	s.Signature = &v
-	return s
-}
-
 type CreateInterconnectionRequestInterconnections struct {
-	// 客户头像链接
+	// 钉外用户头像链接。
 	AppUserAvatar *string `json:"appUserAvatar,omitempty" xml:"appUserAvatar,omitempty"`
-	// 客户头像类型，取值：
+	// 钉外用户头像类型，取值：
 	// 1：http
 	AppUserAvatarMediaType *int32 `json:"appUserAvatarMediaType,omitempty" xml:"appUserAvatarMediaType,omitempty"`
-	// 客户动态
+	// 钉外用户动态。
 	AppUserDynamics *string `json:"appUserDynamics,omitempty" xml:"appUserDynamics,omitempty"`
-	// 客户业务系统唯一标识
+	// 钉外用户在业务系统内的唯一标识。
 	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	// 客户手机号
+	// 钉外用户手机号。
 	AppUserMobile *string `json:"appUserMobile,omitempty" xml:"appUserMobile,omitempty"`
-	// 客户名称
+	// 钉外用户名称。
 	AppUserName *string `json:"appUserName,omitempty" xml:"appUserName,omitempty"`
-	// 客户渠道code
+	// 渠道code。
 	ChannelCode *string `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
-	// 客服钉钉Id
+	// 钉内用户userId。
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -819,7 +825,7 @@ func (s *CreateInterconnectionRequestInterconnections) SetUserId(v string) *Crea
 }
 
 type CreateInterconnectionResponseBody struct {
-	// 失败的bc关系列表
+	// 创建失败的钉外钉内关系列表。
 	Results []*CreateInterconnectionResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
 }
 
@@ -837,9 +843,9 @@ func (s *CreateInterconnectionResponseBody) SetResults(v []*CreateInterconnectio
 }
 
 type CreateInterconnectionResponseBodyResults struct {
-	// 客户业务身份唯一标识
+	// 钉外用户在业务系统内的唯一标识。
 	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	// 客服钉钉Id
+	// 钉内用户userId。
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -908,19 +914,20 @@ func (s *CreateStoreGroupConversationHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type CreateStoreGroupConversationRequest struct {
-	// 钉外用户在业务系统内的唯一标识
+	// 钉外用户在业务系统内的唯一标识。
 	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	// 外部业务唯一标识（店铺唯一标识）
+	// 外部业务唯一标识（店铺唯一标识）。
 	BusinessUniqueKey *string `json:"businessUniqueKey,omitempty" xml:"businessUniqueKey,omitempty"`
-	// 群头像
+	// 群头像。
 	GroupAvatar *string `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
-	// 群名称
+	// 群名称。
 	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	// 群模板
+	// 群模板Id。
 	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
-	// 操作者在业务系统内的唯一标识
-	OperatorId *string   `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	UserIds    []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// 操作者在业务系统内的唯一标识。
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// 钉内用户列表。
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s CreateStoreGroupConversationRequest) String() string {
@@ -967,7 +974,8 @@ func (s *CreateStoreGroupConversationRequest) SetUserIds(v []*string) *CreateSto
 }
 
 type CreateStoreGroupConversationResponseBody struct {
-	// 群会话Id
+	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -977,6 +985,11 @@ func (s CreateStoreGroupConversationResponseBody) String() string {
 
 func (s CreateStoreGroupConversationResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *CreateStoreGroupConversationResponseBody) SetChatId(v string) *CreateStoreGroupConversationResponseBody {
+	s.ChatId = &v
+	return s
 }
 
 func (s *CreateStoreGroupConversationResponseBody) SetOpenConversationId(v string) *CreateStoreGroupConversationResponseBody {
@@ -1031,15 +1044,15 @@ func (s *GetConversationUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetCon
 }
 
 type GetConversationUrlRequest struct {
-	// C端用户在业务账号体系内的用户userid，长度限制为1~64个字符。
+	// 钉外用户在业务系统内的唯一标志。
 	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	// C端客户渠道code。
+	// 渠道code。
 	ChannelCode *string `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
 	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// C端客户标识。
+	// 钉外用户标识。
 	SourceCode *string `json:"sourceCode,omitempty" xml:"sourceCode,omitempty"`
-	// B端用户的钉钉userId。
+	// 钉内用户userId。
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -2705,7 +2718,7 @@ func (s *QueryGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGro
 }
 
 type QueryGroupMemberRequest struct {
-	// 群会话Id
+	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -2723,9 +2736,9 @@ func (s *QueryGroupMemberRequest) SetOpenConversationId(v string) *QueryGroupMem
 }
 
 type QueryGroupMemberResponseBody struct {
-	// 群成员列表
+	// 群成员列表。
 	GroupMembers []*QueryGroupMemberResponseBodyGroupMembers `json:"groupMembers,omitempty" xml:"groupMembers,omitempty" type:"Repeated"`
-	// 群会话Id
+	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -2748,15 +2761,15 @@ func (s *QueryGroupMemberResponseBody) SetOpenConversationId(v string) *QueryGro
 }
 
 type QueryGroupMemberResponseBodyGroupMembers struct {
-	// 群成员头像
+	// 群成员头像。
 	GroupMemberAvatar *string `json:"groupMemberAvatar,omitempty" xml:"groupMemberAvatar,omitempty"`
-	// 群成员动态信息
+	// 群成员动态信息。
 	GroupMemberDynamics *string `json:"groupMemberDynamics,omitempty" xml:"groupMemberDynamics,omitempty"`
-	// 群成员Id
+	// 群成员Id。
 	GroupMemberId *string `json:"groupMemberId,omitempty" xml:"groupMemberId,omitempty"`
-	// 群成员名称
+	// 群成员名称。
 	GroupMemberName *string `json:"groupMemberName,omitempty" xml:"groupMemberName,omitempty"`
-	// 群成员类型
+	// 群成员类型。
 	GroupMemberType *int32 `json:"groupMemberType,omitempty" xml:"groupMemberType,omitempty"`
 }
 
@@ -3192,9 +3205,9 @@ func (s *QuerySingleGroupHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySin
 }
 
 type QuerySingleGroupRequest struct {
-	// 群成员列表
+	// 群成员列表。
 	GroupMembers []*QuerySingleGroupRequestGroupMembers `json:"groupMembers,omitempty" xml:"groupMembers,omitempty" type:"Repeated"`
-	// 群模版Id
+	// 群模版Id。
 	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
 }
 
@@ -3217,9 +3230,9 @@ func (s *QuerySingleGroupRequest) SetGroupTemplateId(v string) *QuerySingleGroup
 }
 
 type QuerySingleGroupRequestGroupMembers struct {
-	// 客户appUserId
+	// 钉外用户在业务系统内的唯一标识。
 	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	// 客服钉钉Id
+	// 钉内用户userId。
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -3242,7 +3255,7 @@ func (s *QuerySingleGroupRequestGroupMembers) SetUserId(v string) *QuerySingleGr
 }
 
 type QuerySingleGroupResponseBody struct {
-	// 群会话列表
+	// 群会话列表。
 	OpenConversations []*QuerySingleGroupResponseBodyOpenConversations `json:"openConversations,omitempty" xml:"openConversations,omitempty" type:"Repeated"`
 }
 
@@ -3260,11 +3273,11 @@ func (s *QuerySingleGroupResponseBody) SetOpenConversations(v []*QuerySingleGrou
 }
 
 type QuerySingleGroupResponseBodyOpenConversations struct {
-	// 客户appUserId
+	// 钉外用户在业务系统内的唯一标识。
 	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	// 群会话Id
+	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 客服钉钉Id
+	// 钉内用户userId。
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -3338,9 +3351,9 @@ func (s *QueryUnReadMessageHeaders) SetXAcsDingtalkAccessToken(v string) *QueryU
 }
 
 type QueryUnReadMessageRequest struct {
-	// C端客户appUserId
+	// 钉外用户在业务系统内的唯一标志。
 	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	// 群会话Id列表
+	// 群会话列表。
 	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
 }
 
@@ -3893,15 +3906,15 @@ func (s *SendRobotMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendRobo
 type SendRobotMessageRequest struct {
 	// @群所有人为true， 默认false。
 	AtAll *bool `json:"atAll,omitempty" xml:"atAll,omitempty"`
-	// @钉外在业务系统内的唯一标识（openId）。
+	// @钉外在业务系统内的唯一标志。
 	AtAppUserId *string `json:"atAppUserId,omitempty" xml:"atAppUserId,omitempty"`
-	// @钉内用户在业务系统内的唯一标识（dingUserId）。
+	// @钉内用户userId。
 	AtDingUserId *string `json:"atDingUserId,omitempty" xml:"atDingUserId,omitempty"`
 	// 消息体内容，按照下面参考示例格式上传。
 	MsgContent *string `json:"msgContent,omitempty" xml:"msgContent,omitempty"`
 	// 消息类型 文本：text，图片：photo，markdown：markdown，actionCard：actionCard。
 	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
-	// 群聊openConversationIds
+	// 群会话列表。
 	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
 }
 
@@ -5314,13 +5327,13 @@ func (s *AddGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *AddGroupMe
 }
 
 type AddGroupMemberRequest struct {
-	// C端客户成员列表
+	// 钉外成员列表。
 	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
-	// 群会话Id
+	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 操作者钉钉Id
+	// 操作者在业务系统内的唯一标识。
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// B端客服成员列表
+	// 钉内成员列表。
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -5353,9 +5366,9 @@ func (s *AddGroupMemberRequest) SetUserIds(v []*string) *AddGroupMemberRequest {
 }
 
 type AddGroupMemberResponseBody struct {
-	// 拉取成功的C端客户列表
+	// 添加成功的钉外用户列表。
 	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
-	// 拉取成功的B端客服列表
+	// 添加成功的钉内用户列表。
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -5424,13 +5437,13 @@ func (s *RemoveGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveG
 }
 
 type RemoveGroupMemberRequest struct {
-	// C端客户成员列表
+	// 钉外成员列表。
 	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
-	// 群会话Id
+	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// 操作者钉钉Id
+	// 操作者在业务系统内的唯一标识。
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// B端客服成员列表
+	// 钉内成员列表。
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -5503,17 +5516,17 @@ func (s *SendDingMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendDingM
 }
 
 type SendDingMessageRequest struct {
-	// 客服oauth2.0授权码
+	// 钉内用户oauth2.0授权码。
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// 消息内容
+	// 消息内容。
 	Message *string `json:"message,omitempty" xml:"message,omitempty"`
 	// 消息类型
 	MessageType *string `json:"messageType,omitempty" xml:"messageType,omitempty"`
-	// 群会话Id
+	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	// C端客户appUserId
+	// 钉外用户在业务系统内的唯一标志。
 	ReceiverId *string `json:"receiverId,omitempty" xml:"receiverId,omitempty"`
-	// B端客服钉钉Id
+	// 钉内用户userId。
 	SenderId *string `json:"senderId,omitempty" xml:"senderId,omitempty"`
 }
 
@@ -5556,7 +5569,7 @@ func (s *SendDingMessageRequest) SetSenderId(v string) *SendDingMessageRequest {
 }
 
 type SendDingMessageResponseBody struct {
-	// 发送消息请求Id
+	// 发送消息请求Id。
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
@@ -5630,6 +5643,8 @@ type SendMessageRequest struct {
 	ReceiverId *string `json:"receiverId,omitempty" xml:"receiverId,omitempty"`
 	// C端客户appUserId
 	SenderId *string `json:"senderId,omitempty" xml:"senderId,omitempty"`
+	// 渠道按钮跳转信息
+	SourceInfos map[string]interface{} `json:"sourceInfos,omitempty" xml:"sourceInfos,omitempty"`
 }
 
 func (s SendMessageRequest) String() string {
@@ -5662,6 +5677,11 @@ func (s *SendMessageRequest) SetReceiverId(v string) *SendMessageRequest {
 
 func (s *SendMessageRequest) SetSenderId(v string) *SendMessageRequest {
 	s.SenderId = &v
+	return s
+}
+
+func (s *SendMessageRequest) SetSourceInfos(v map[string]interface{}) *SendMessageRequest {
+	s.SourceInfos = v
 	return s
 }
 
@@ -6131,10 +6151,6 @@ func (client *Client) CreateInterconnectionWithOptions(request *CreateInterconne
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Interconnections)) {
 		body["interconnections"] = request.Interconnections
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Signature)) {
-		body["signature"] = request.Signature
 	}
 
 	realHeaders := make(map[string]*string)
@@ -8419,6 +8435,10 @@ func (client *Client) SendMessageWithOptions(request *SendMessageRequest, header
 
 	if !tea.BoolValue(util.IsUnset(request.SenderId)) {
 		body["senderId"] = request.SenderId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceInfos)) {
+		body["sourceInfos"] = request.SourceInfos
 	}
 
 	realHeaders := make(map[string]*string)

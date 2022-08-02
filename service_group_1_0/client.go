@@ -8565,6 +8565,102 @@ func (s *RetractTicketResponse) SetHeaders(v map[string]*string) *RetractTicketR
 	return s
 }
 
+type RobotMessageRecallHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RobotMessageRecallHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotMessageRecallHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RobotMessageRecallHeaders) SetCommonHeaders(v map[string]*string) *RobotMessageRecallHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RobotMessageRecallHeaders) SetXAcsDingtalkAccessToken(v string) *RobotMessageRecallHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RobotMessageRecallRequest struct {
+	// 开放群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 开放消息ID
+	OpenMsgId *string `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
+	// 开发团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s RobotMessageRecallRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotMessageRecallRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RobotMessageRecallRequest) SetOpenConversationId(v string) *RobotMessageRecallRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *RobotMessageRecallRequest) SetOpenMsgId(v string) *RobotMessageRecallRequest {
+	s.OpenMsgId = &v
+	return s
+}
+
+func (s *RobotMessageRecallRequest) SetOpenTeamId(v string) *RobotMessageRecallRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type RobotMessageRecallResponseBody struct {
+	// 撤回成功的消息ID，失败时为空
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s RobotMessageRecallResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotMessageRecallResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RobotMessageRecallResponseBody) SetResult(v string) *RobotMessageRecallResponseBody {
+	s.Result = &v
+	return s
+}
+
+type RobotMessageRecallResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RobotMessageRecallResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RobotMessageRecallResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotMessageRecallResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RobotMessageRecallResponse) SetHeaders(v map[string]*string) *RobotMessageRecallResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RobotMessageRecallResponse) SetBody(v *RobotMessageRecallResponseBody) *RobotMessageRecallResponse {
+	s.Body = v
+	return s
+}
+
 type SearchGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -13739,6 +13835,58 @@ func (client *Client) RetractTicketWithOptions(request *RetractTicketRequest, he
 	}
 	_result = &RetractTicketResponse{}
 	_body, _err := client.DoROARequest(tea.String("RetractTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets/retract"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RobotMessageRecall(request *RobotMessageRecallRequest) (_result *RobotMessageRecallResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RobotMessageRecallHeaders{}
+	_result = &RobotMessageRecallResponse{}
+	_body, _err := client.RobotMessageRecallWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RobotMessageRecallWithOptions(request *RobotMessageRecallRequest, headers *RobotMessageRecallHeaders, runtime *util.RuntimeOptions) (_result *RobotMessageRecallResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenMsgId)) {
+		body["openMsgId"] = request.OpenMsgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RobotMessageRecallResponse{}
+	_body, _err := client.DoROARequest(tea.String("RobotMessageRecall"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/robots/messages/recall"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
