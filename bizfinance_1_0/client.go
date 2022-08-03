@@ -9191,7 +9191,7 @@ type UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVO
 	// 金额
 	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
 	// 商品名称
-	GoodName *string `json:"goodName,omitempty" xml:"goodName,omitempty"`
+	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
 	// 数量
 	Quantity *string `json:"quantity,omitempty" xml:"quantity,omitempty"`
 	// 税收分类编码
@@ -9227,8 +9227,8 @@ func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDeta
 	return s
 }
 
-func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetGoodName(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
-	s.GoodName = &v
+func (s *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVOList) SetGoodsName(v string) *UpdateInvoiceAndReceiptRelatedRequestGeneralInvoiceVOGeneralInvoiceDetailVOList {
+	s.GoodsName = &v
 	return s
 }
 
