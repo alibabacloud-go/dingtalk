@@ -3295,7 +3295,7 @@ func (s *CollegeListStudentInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Co
 type CollegeListStudentInfoRequest struct {
 	// 部门id
 	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	// 学生在组织状态
+	// 人员状态
 	DingStudentStatus *string `json:"dingStudentStatus,omitempty" xml:"dingStudentStatus,omitempty"`
 	// 当前页数
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
@@ -3332,13 +3332,10 @@ func (s *CollegeListStudentInfoRequest) SetPageSize(v int64) *CollegeListStudent
 }
 
 type CollegeListStudentInfoResponseBody struct {
-	// 学生在组织状态
-	DingMemberStatus *string `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
-	// 账号是否激活
-	IsActive *bool `json:"isActive,omitempty" xml:"isActive,omitempty"`
 	// 学生信息列表
 	StudentInfoSimpleList []*CollegeListStudentInfoResponseBodyStudentInfoSimpleList `json:"studentInfoSimpleList,omitempty" xml:"studentInfoSimpleList,omitempty" type:"Repeated"`
-	TotalCount            *int64                                                     `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// 条目总数
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s CollegeListStudentInfoResponseBody) String() string {
@@ -3347,16 +3344,6 @@ func (s CollegeListStudentInfoResponseBody) String() string {
 
 func (s CollegeListStudentInfoResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *CollegeListStudentInfoResponseBody) SetDingMemberStatus(v string) *CollegeListStudentInfoResponseBody {
-	s.DingMemberStatus = &v
-	return s
-}
-
-func (s *CollegeListStudentInfoResponseBody) SetIsActive(v bool) *CollegeListStudentInfoResponseBody {
-	s.IsActive = &v
-	return s
 }
 
 func (s *CollegeListStudentInfoResponseBody) SetStudentInfoSimpleList(v []*CollegeListStudentInfoResponseBodyStudentInfoSimpleList) *CollegeListStudentInfoResponseBody {
@@ -3370,6 +3357,10 @@ func (s *CollegeListStudentInfoResponseBody) SetTotalCount(v int64) *CollegeList
 }
 
 type CollegeListStudentInfoResponseBodyStudentInfoSimpleList struct {
+	// 人员在组织的状态
+	DingMemberStatus *string `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
+	// 账号是否激活
+	IsActive *bool `json:"isActive,omitempty" xml:"isActive,omitempty"`
 	// 学生id
 	StudentId *int64 `json:"studentId,omitempty" xml:"studentId,omitempty"`
 	// 学生姓名
@@ -3386,6 +3377,16 @@ func (s CollegeListStudentInfoResponseBodyStudentInfoSimpleList) String() string
 
 func (s CollegeListStudentInfoResponseBodyStudentInfoSimpleList) GoString() string {
 	return s.String()
+}
+
+func (s *CollegeListStudentInfoResponseBodyStudentInfoSimpleList) SetDingMemberStatus(v string) *CollegeListStudentInfoResponseBodyStudentInfoSimpleList {
+	s.DingMemberStatus = &v
+	return s
+}
+
+func (s *CollegeListStudentInfoResponseBodyStudentInfoSimpleList) SetIsActive(v bool) *CollegeListStudentInfoResponseBodyStudentInfoSimpleList {
+	s.IsActive = &v
+	return s
 }
 
 func (s *CollegeListStudentInfoResponseBodyStudentInfoSimpleList) SetStudentId(v int64) *CollegeListStudentInfoResponseBodyStudentInfoSimpleList {

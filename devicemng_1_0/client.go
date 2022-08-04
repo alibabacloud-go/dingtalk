@@ -153,6 +153,101 @@ func (s *BatchRegisterDeviceResponse) SetBody(v *BatchRegisterDeviceResponseBody
 	return s
 }
 
+type ConnectorEventPushHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ConnectorEventPushHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConnectorEventPushHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ConnectorEventPushHeaders) SetCommonHeaders(v map[string]*string) *ConnectorEventPushHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ConnectorEventPushHeaders) SetXAcsDingtalkAccessToken(v string) *ConnectorEventPushHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ConnectorEventPushRequest struct {
+	// 设备类型唯一标识
+	DeviceTypeUuid *string `json:"deviceTypeUuid,omitempty" xml:"deviceTypeUuid,omitempty"`
+	// 事件名称
+	EventName *string `json:"eventName,omitempty" xml:"eventName,omitempty"`
+	// 事件入参，json字符串
+	Input *string `json:"input,omitempty" xml:"input,omitempty"`
+}
+
+func (s ConnectorEventPushRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConnectorEventPushRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ConnectorEventPushRequest) SetDeviceTypeUuid(v string) *ConnectorEventPushRequest {
+	s.DeviceTypeUuid = &v
+	return s
+}
+
+func (s *ConnectorEventPushRequest) SetEventName(v string) *ConnectorEventPushRequest {
+	s.EventName = &v
+	return s
+}
+
+func (s *ConnectorEventPushRequest) SetInput(v string) *ConnectorEventPushRequest {
+	s.Input = &v
+	return s
+}
+
+type ConnectorEventPushResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ConnectorEventPushResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConnectorEventPushResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ConnectorEventPushResponseBody) SetSuccess(v bool) *ConnectorEventPushResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ConnectorEventPushResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ConnectorEventPushResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ConnectorEventPushResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConnectorEventPushResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ConnectorEventPushResponse) SetHeaders(v map[string]*string) *ConnectorEventPushResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ConnectorEventPushResponse) SetBody(v *ConnectorEventPushResponseBody) *ConnectorEventPushResponse {
+	s.Body = v
+	return s
+}
+
 type CreateChatRoomHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3047,6 +3142,58 @@ func (client *Client) BatchRegisterDeviceWithOptions(request *BatchRegisterDevic
 	}
 	_result = &BatchRegisterDeviceResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchRegisterDevice"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/devices/batch"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ConnectorEventPush(request *ConnectorEventPushRequest) (_result *ConnectorEventPushResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ConnectorEventPushHeaders{}
+	_result = &ConnectorEventPushResponse{}
+	_body, _err := client.ConnectorEventPushWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ConnectorEventPushWithOptions(request *ConnectorEventPushRequest, headers *ConnectorEventPushHeaders, runtime *util.RuntimeOptions) (_result *ConnectorEventPushResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceTypeUuid)) {
+		body["deviceTypeUuid"] = request.DeviceTypeUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EventName)) {
+		body["eventName"] = request.EventName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Input)) {
+		body["input"] = request.Input
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ConnectorEventPushResponse{}
+	_body, _err := client.DoROARequest(tea.String("ConnectorEventPush"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/connectors/events/push"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

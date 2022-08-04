@@ -287,6 +287,108 @@ func (s *CardTemplateBuildActionResponse) SetBody(v *CardTemplateBuildActionResp
 	return s
 }
 
+type ChangeGroupOwnerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChangeGroupOwnerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChangeGroupOwnerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChangeGroupOwnerHeaders) SetCommonHeaders(v map[string]*string) *ChangeGroupOwnerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChangeGroupOwnerHeaders) SetXAcsDingtalkAccessToken(v string) *ChangeGroupOwnerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChangeGroupOwnerRequest struct {
+	// 群主id
+	GroupOwnerId *string `json:"groupOwnerId,omitempty" xml:"groupOwnerId,omitempty"`
+	// 群主类型<2.钉钉 3.C端>
+	GroupOwnerType *int32 `json:"groupOwnerType,omitempty" xml:"groupOwnerType,omitempty"`
+	// 群id(客联系业务系统内的群id)
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s ChangeGroupOwnerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChangeGroupOwnerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChangeGroupOwnerRequest) SetGroupOwnerId(v string) *ChangeGroupOwnerRequest {
+	s.GroupOwnerId = &v
+	return s
+}
+
+func (s *ChangeGroupOwnerRequest) SetGroupOwnerType(v int32) *ChangeGroupOwnerRequest {
+	s.GroupOwnerType = &v
+	return s
+}
+
+func (s *ChangeGroupOwnerRequest) SetOpenConversationId(v string) *ChangeGroupOwnerRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type ChangeGroupOwnerResponseBody struct {
+	// Id of the request
+	NewGroupOwnerId   *string `json:"newGroupOwnerId,omitempty" xml:"newGroupOwnerId,omitempty"`
+	NewGroupOwnerType *int32  `json:"newGroupOwnerType,omitempty" xml:"newGroupOwnerType,omitempty"`
+}
+
+func (s ChangeGroupOwnerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChangeGroupOwnerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChangeGroupOwnerResponseBody) SetNewGroupOwnerId(v string) *ChangeGroupOwnerResponseBody {
+	s.NewGroupOwnerId = &v
+	return s
+}
+
+func (s *ChangeGroupOwnerResponseBody) SetNewGroupOwnerType(v int32) *ChangeGroupOwnerResponseBody {
+	s.NewGroupOwnerType = &v
+	return s
+}
+
+type ChangeGroupOwnerResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ChangeGroupOwnerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ChangeGroupOwnerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChangeGroupOwnerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChangeGroupOwnerResponse) SetHeaders(v map[string]*string) *ChangeGroupOwnerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChangeGroupOwnerResponse) SetBody(v *ChangeGroupOwnerResponseBody) *ChangeGroupOwnerResponse {
+	s.Body = v
+	return s
+}
+
 type ChatIdToOpenConversationIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -603,6 +705,8 @@ type CreateGroupConversationRequest struct {
 	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
 	// 群主(钉内用户)userId。
 	GroupOwnerId *string `json:"groupOwnerId,omitempty" xml:"groupOwnerId,omitempty"`
+	// 群主类型<2.钉内用户类型 3.钉外用户类型>，如果不指定的话，默认是钉钉用户类型
+	GroupOwnerType *int32 `json:"groupOwnerType,omitempty" xml:"groupOwnerType,omitempty"`
 	// 群模板Id。
 	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
 	// 操作者在业务系统内的唯一标识。
@@ -636,6 +740,11 @@ func (s *CreateGroupConversationRequest) SetGroupName(v string) *CreateGroupConv
 
 func (s *CreateGroupConversationRequest) SetGroupOwnerId(v string) *CreateGroupConversationRequest {
 	s.GroupOwnerId = &v
+	return s
+}
+
+func (s *CreateGroupConversationRequest) SetGroupOwnerType(v int32) *CreateGroupConversationRequest {
+	s.GroupOwnerType = &v
 	return s
 }
 
@@ -1016,6 +1125,88 @@ func (s *CreateStoreGroupConversationResponse) SetHeaders(v map[string]*string) 
 }
 
 func (s *CreateStoreGroupConversationResponse) SetBody(v *CreateStoreGroupConversationResponseBody) *CreateStoreGroupConversationResponse {
+	s.Body = v
+	return s
+}
+
+type DismissGroupConversationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DismissGroupConversationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DismissGroupConversationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DismissGroupConversationHeaders) SetCommonHeaders(v map[string]*string) *DismissGroupConversationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DismissGroupConversationHeaders) SetXAcsDingtalkAccessToken(v string) *DismissGroupConversationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DismissGroupConversationRequest struct {
+	// 群id(客联系业务系统内的群id)
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s DismissGroupConversationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DismissGroupConversationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DismissGroupConversationRequest) SetOpenConversationId(v string) *DismissGroupConversationRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type DismissGroupConversationResponseBody struct {
+	// 群会话Id。
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s DismissGroupConversationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DismissGroupConversationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DismissGroupConversationResponseBody) SetOpenConversationId(v string) *DismissGroupConversationResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+type DismissGroupConversationResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DismissGroupConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DismissGroupConversationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DismissGroupConversationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DismissGroupConversationResponse) SetHeaders(v map[string]*string) *DismissGroupConversationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DismissGroupConversationResponse) SetBody(v *DismissGroupConversationResponseBody) *DismissGroupConversationResponse {
 	s.Body = v
 	return s
 }
@@ -5912,6 +6103,58 @@ func (client *Client) CardTemplateBuildActionWithOptions(request *CardTemplateBu
 	return _result, _err
 }
 
+func (client *Client) ChangeGroupOwner(request *ChangeGroupOwnerRequest) (_result *ChangeGroupOwnerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChangeGroupOwnerHeaders{}
+	_result = &ChangeGroupOwnerResponse{}
+	_body, _err := client.ChangeGroupOwnerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ChangeGroupOwnerWithOptions(request *ChangeGroupOwnerRequest, headers *ChangeGroupOwnerHeaders, runtime *util.RuntimeOptions) (_result *ChangeGroupOwnerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupOwnerId)) {
+		body["groupOwnerId"] = request.GroupOwnerId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupOwnerType)) {
+		body["groupOwnerType"] = request.GroupOwnerType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ChangeGroupOwnerResponse{}
+	_body, _err := client.DoROARequest(tea.String("ChangeGroupOwner"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/interconnections/groups/owners"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ChatIdToOpenConversationId(chatId *string) (_result *ChatIdToOpenConversationIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ChatIdToOpenConversationIdHeaders{}
@@ -6097,6 +6340,10 @@ func (client *Client) CreateGroupConversationWithOptions(request *CreateGroupCon
 		body["groupOwnerId"] = request.GroupOwnerId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.GroupOwnerType)) {
+		body["groupOwnerType"] = request.GroupOwnerType
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.GroupTemplateId)) {
 		body["groupTemplateId"] = request.GroupTemplateId
 	}
@@ -6236,6 +6483,50 @@ func (client *Client) CreateStoreGroupConversationWithOptions(request *CreateSto
 	}
 	_result = &CreateStoreGroupConversationResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateStoreGroupConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/storeGroups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DismissGroupConversation(request *DismissGroupConversationRequest) (_result *DismissGroupConversationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DismissGroupConversationHeaders{}
+	_result = &DismissGroupConversationResponse{}
+	_body, _err := client.DismissGroupConversationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DismissGroupConversationWithOptions(request *DismissGroupConversationRequest, headers *DismissGroupConversationHeaders, runtime *util.RuntimeOptions) (_result *DismissGroupConversationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DismissGroupConversationResponse{}
+	_body, _err := client.DoROARequest(tea.String("DismissGroupConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/groups/dismiss"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
