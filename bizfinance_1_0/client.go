@@ -7283,6 +7283,8 @@ type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO struct {
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
 	// 发票号码
 	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票状态
+	InvoiceStatus *string `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
 	// 发票类型
 	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
 	// 机器码
@@ -7322,8 +7324,6 @@ type UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO struct {
 	SellerTaxNo *string `json:"sellerTaxNo,omitempty" xml:"sellerTaxNo,omitempty"`
 	// 销方电话
 	SellerTel *string `json:"sellerTel,omitempty" xml:"sellerTel,omitempty"`
-	// 发票状态
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// 代开发票标识 1-自开，2-代开
 	SupplySign *string `json:"supplySign,omitempty" xml:"supplySign,omitempty"`
 	// 税额
@@ -7403,6 +7403,11 @@ func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetInvoiceCode(v 
 
 func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetInvoiceNo(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
 	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetInvoiceStatus(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
+	s.InvoiceStatus = &v
 	return s
 }
 
@@ -7503,11 +7508,6 @@ func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetSellerTaxNo(v 
 
 func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetSellerTel(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
 	s.SellerTel = &v
-	return s
-}
-
-func (s *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO) SetStatus(v string) *UpdateInvoiceAbandonStatusRequestRedGeneralInvoiceVO {
-	s.Status = &v
 	return s
 }
 

@@ -233,6 +233,8 @@ func (s *QueryAnhmdStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type QueryAnhmdStatisticalDataRequest struct {
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 	// statDate
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
@@ -243,6 +245,16 @@ func (s QueryAnhmdStatisticalDataRequest) String() string {
 
 func (s QueryAnhmdStatisticalDataRequest) GoString() string {
 	return s.String()
+}
+
+func (s *QueryAnhmdStatisticalDataRequest) SetPageNumber(v int64) *QueryAnhmdStatisticalDataRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryAnhmdStatisticalDataRequest) SetPageSize(v int64) *QueryAnhmdStatisticalDataRequest {
+	s.PageSize = &v
+	return s
 }
 
 func (s *QueryAnhmdStatisticalDataRequest) SetStatDate(v string) *QueryAnhmdStatisticalDataRequest {
@@ -8913,6 +8925,14 @@ func (client *Client) QueryAnhmdStatisticalDataWithOptions(request *QueryAnhmdSt
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.StatDate)) {
 		query["statDate"] = request.StatDate
 	}

@@ -2056,8 +2056,27 @@ func (s *GroupCapacityOrderConfirmRequest) SetOrderId(v string) *GroupCapacityOr
 	return s
 }
 
+type GroupCapacityOrderConfirmResponseBody struct {
+	// 本次操作是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GroupCapacityOrderConfirmResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupCapacityOrderConfirmResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GroupCapacityOrderConfirmResponseBody) SetSuccess(v bool) *GroupCapacityOrderConfirmResponseBody {
+	s.Success = &v
+	return s
+}
+
 type GroupCapacityOrderConfirmResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GroupCapacityOrderConfirmResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s GroupCapacityOrderConfirmResponse) String() string {
@@ -2070,6 +2089,11 @@ func (s GroupCapacityOrderConfirmResponse) GoString() string {
 
 func (s *GroupCapacityOrderConfirmResponse) SetHeaders(v map[string]*string) *GroupCapacityOrderConfirmResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *GroupCapacityOrderConfirmResponse) SetBody(v *GroupCapacityOrderConfirmResponseBody) *GroupCapacityOrderConfirmResponse {
+	s.Body = v
 	return s
 }
 
@@ -6934,7 +6958,7 @@ func (client *Client) GroupCapacityOrderConfirmWithOptions(request *GroupCapacit
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &GroupCapacityOrderConfirmResponse{}
-	_body, _err := client.DoROARequest(tea.String("GroupCapacityOrderConfirm"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/groups/capacities/orders/confirm"), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("GroupCapacityOrderConfirm"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/groups/capacities/orders/confirm"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

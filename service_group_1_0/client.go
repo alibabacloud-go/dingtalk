@@ -11,6 +11,109 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AddContactMemberToGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddContactMemberToGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddContactMemberToGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddContactMemberToGroupHeaders) SetCommonHeaders(v map[string]*string) *AddContactMemberToGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddContactMemberToGroupHeaders) SetXAcsDingtalkAccessToken(v string) *AddContactMemberToGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddContactMemberToGroupRequest struct {
+	// 员工unionId
+	MemberUnionId *string `json:"memberUnionId,omitempty" xml:"memberUnionId,omitempty"`
+	// 员工成员ID
+	MemberUserId *string `json:"memberUserId,omitempty" xml:"memberUserId,omitempty"`
+	// 群会话ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s AddContactMemberToGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddContactMemberToGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddContactMemberToGroupRequest) SetMemberUnionId(v string) *AddContactMemberToGroupRequest {
+	s.MemberUnionId = &v
+	return s
+}
+
+func (s *AddContactMemberToGroupRequest) SetMemberUserId(v string) *AddContactMemberToGroupRequest {
+	s.MemberUserId = &v
+	return s
+}
+
+func (s *AddContactMemberToGroupRequest) SetOpenConversationId(v string) *AddContactMemberToGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *AddContactMemberToGroupRequest) SetOpenTeamId(v string) *AddContactMemberToGroupRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type AddContactMemberToGroupResponseBody struct {
+	// Id of the request
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s AddContactMemberToGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddContactMemberToGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddContactMemberToGroupResponseBody) SetResult(v bool) *AddContactMemberToGroupResponseBody {
+	s.Result = &v
+	return s
+}
+
+type AddContactMemberToGroupResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddContactMemberToGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddContactMemberToGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddContactMemberToGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddContactMemberToGroupResponse) SetHeaders(v map[string]*string) *AddContactMemberToGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddContactMemberToGroupResponse) SetBody(v *AddContactMemberToGroupResponseBody) *AddContactMemberToGroupResponse {
+	s.Body = v
+	return s
+}
+
 type AddKnowledgeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3636,6 +3739,116 @@ func (s *CreateTicketResponse) SetHeaders(v map[string]*string) *CreateTicketRes
 }
 
 func (s *CreateTicketResponse) SetBody(v *CreateTicketResponseBody) *CreateTicketResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteGroupMembersFromGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteGroupMembersFromGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteGroupMembersFromGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteGroupMembersFromGroupHeaders) SetCommonHeaders(v map[string]*string) *DeleteGroupMembersFromGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteGroupMembersFromGroupHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteGroupMembersFromGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteGroupMembersFromGroupRequest struct {
+	// 删除类型
+	DeleteGroupType *string `json:"deleteGroupType,omitempty" xml:"deleteGroupType,omitempty"`
+	// 群成员unionId
+	MemberUnionId *string `json:"memberUnionId,omitempty" xml:"memberUnionId,omitempty"`
+	// 会话ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 开放群组ID
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s DeleteGroupMembersFromGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteGroupMembersFromGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteGroupMembersFromGroupRequest) SetDeleteGroupType(v string) *DeleteGroupMembersFromGroupRequest {
+	s.DeleteGroupType = &v
+	return s
+}
+
+func (s *DeleteGroupMembersFromGroupRequest) SetMemberUnionId(v string) *DeleteGroupMembersFromGroupRequest {
+	s.MemberUnionId = &v
+	return s
+}
+
+func (s *DeleteGroupMembersFromGroupRequest) SetOpenConversationId(v string) *DeleteGroupMembersFromGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *DeleteGroupMembersFromGroupRequest) SetOpenGroupSetId(v string) *DeleteGroupMembersFromGroupRequest {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *DeleteGroupMembersFromGroupRequest) SetOpenTeamId(v string) *DeleteGroupMembersFromGroupRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type DeleteGroupMembersFromGroupResponseBody struct {
+	// Id of the request
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteGroupMembersFromGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteGroupMembersFromGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteGroupMembersFromGroupResponseBody) SetResult(v bool) *DeleteGroupMembersFromGroupResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeleteGroupMembersFromGroupResponse struct {
+	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteGroupMembersFromGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteGroupMembersFromGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteGroupMembersFromGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteGroupMembersFromGroupResponse) SetHeaders(v map[string]*string) *DeleteGroupMembersFromGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteGroupMembersFromGroupResponse) SetBody(v *DeleteGroupMembersFromGroupResponseBody) *DeleteGroupMembersFromGroupResponse {
 	s.Body = v
 	return s
 }
@@ -7671,6 +7884,95 @@ func (s *QueueNotifyResponse) SetBody(v *QueueNotifyResponseBody) *QueueNotifyRe
 	return s
 }
 
+type RemoveContactFromOrgHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RemoveContactFromOrgHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveContactFromOrgHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveContactFromOrgHeaders) SetCommonHeaders(v map[string]*string) *RemoveContactFromOrgHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveContactFromOrgHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveContactFromOrgHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RemoveContactFromOrgRequest struct {
+	// 开放联系人uinionId
+	ContactUnionId *string `json:"contactUnionId,omitempty" xml:"contactUnionId,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s RemoveContactFromOrgRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveContactFromOrgRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveContactFromOrgRequest) SetContactUnionId(v string) *RemoveContactFromOrgRequest {
+	s.ContactUnionId = &v
+	return s
+}
+
+func (s *RemoveContactFromOrgRequest) SetOpenTeamId(v string) *RemoveContactFromOrgRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type RemoveContactFromOrgResponseBody struct {
+	// Id of the request
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s RemoveContactFromOrgResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveContactFromOrgResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveContactFromOrgResponseBody) SetResult(v bool) *RemoveContactFromOrgResponseBody {
+	s.Result = &v
+	return s
+}
+
+type RemoveContactFromOrgResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RemoveContactFromOrgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RemoveContactFromOrgResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveContactFromOrgResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveContactFromOrgResponse) SetHeaders(v map[string]*string) *RemoveContactFromOrgResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RemoveContactFromOrgResponse) SetBody(v *RemoveContactFromOrgResponseBody) *RemoveContactFromOrgResponse {
+	s.Body = v
+	return s
+}
+
 type ReportCustomerDetailHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10575,6 +10877,62 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) AddContactMemberToGroup(request *AddContactMemberToGroupRequest) (_result *AddContactMemberToGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddContactMemberToGroupHeaders{}
+	_result = &AddContactMemberToGroupResponse{}
+	_body, _err := client.AddContactMemberToGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddContactMemberToGroupWithOptions(request *AddContactMemberToGroupRequest, headers *AddContactMemberToGroupHeaders, runtime *util.RuntimeOptions) (_result *AddContactMemberToGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MemberUnionId)) {
+		body["memberUnionId"] = request.MemberUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MemberUserId)) {
+		body["memberUserId"] = request.MemberUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddContactMemberToGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddContactMemberToGroup"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/contacts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) AddKnowledge(request *AddKnowledgeRequest) (_result *AddKnowledgeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddKnowledgeHeaders{}
@@ -12155,6 +12513,66 @@ func (client *Client) CreateTicketWithOptions(request *CreateTicketRequest, head
 	return _result, _err
 }
 
+func (client *Client) DeleteGroupMembersFromGroup(request *DeleteGroupMembersFromGroupRequest) (_result *DeleteGroupMembersFromGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteGroupMembersFromGroupHeaders{}
+	_result = &DeleteGroupMembersFromGroupResponse{}
+	_body, _err := client.DeleteGroupMembersFromGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteGroupMembersFromGroupWithOptions(request *DeleteGroupMembersFromGroupRequest, headers *DeleteGroupMembersFromGroupHeaders, runtime *util.RuntimeOptions) (_result *DeleteGroupMembersFromGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeleteGroupType)) {
+		body["deleteGroupType"] = request.DeleteGroupType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MemberUnionId)) {
+		body["memberUnionId"] = request.MemberUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
+		body["openGroupSetId"] = request.OpenGroupSetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DeleteGroupMembersFromGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteGroupMembersFromGroup"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/members/remove"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteInstance(request *DeleteInstanceRequest) (_result *DeleteInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteInstanceHeaders{}
@@ -13543,6 +13961,54 @@ func (client *Client) QueueNotifyWithOptions(request *QueueNotifyRequest, header
 	}
 	_result = &QueueNotifyResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueueNotify"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/dts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RemoveContactFromOrg(request *RemoveContactFromOrgRequest) (_result *RemoveContactFromOrgResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RemoveContactFromOrgHeaders{}
+	_result = &RemoveContactFromOrgResponse{}
+	_body, _err := client.RemoveContactFromOrgWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RemoveContactFromOrgWithOptions(request *RemoveContactFromOrgRequest, headers *RemoveContactFromOrgHeaders, runtime *util.RuntimeOptions) (_result *RemoveContactFromOrgResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ContactUnionId)) {
+		body["contactUnionId"] = request.ContactUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RemoveContactFromOrgResponse{}
+	_body, _err := client.DoROARequest(tea.String("RemoveContactFromOrg"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/organizations/contacts/remove"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

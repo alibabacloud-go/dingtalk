@@ -3190,8 +3190,6 @@ func (s *CollegeListDeptManagerRequest) SetPageSize(v int64) *CollegeListDeptMan
 }
 
 type CollegeListDeptManagerResponseBody struct {
-	// 账号是否激活
-	IsActive *bool `json:"isActive,omitempty" xml:"isActive,omitempty"`
 	// 负责人信息列表
 	ManagerInfoSimpleList []*CollegeListDeptManagerResponseBodyManagerInfoSimpleList `json:"managerInfoSimpleList,omitempty" xml:"managerInfoSimpleList,omitempty" type:"Repeated"`
 	// 数据总条目数
@@ -3206,11 +3204,6 @@ func (s CollegeListDeptManagerResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *CollegeListDeptManagerResponseBody) SetIsActive(v bool) *CollegeListDeptManagerResponseBody {
-	s.IsActive = &v
-	return s
-}
-
 func (s *CollegeListDeptManagerResponseBody) SetManagerInfoSimpleList(v []*CollegeListDeptManagerResponseBodyManagerInfoSimpleList) *CollegeListDeptManagerResponseBody {
 	s.ManagerInfoSimpleList = v
 	return s
@@ -3222,6 +3215,8 @@ func (s *CollegeListDeptManagerResponseBody) SetTotalCount(v int64) *CollegeList
 }
 
 type CollegeListDeptManagerResponseBodyManagerInfoSimpleList struct {
+	// 账号是否激活
+	IsActive *bool `json:"isActive,omitempty" xml:"isActive,omitempty"`
 	// 负责人姓名
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// userId
@@ -3234,6 +3229,11 @@ func (s CollegeListDeptManagerResponseBodyManagerInfoSimpleList) String() string
 
 func (s CollegeListDeptManagerResponseBodyManagerInfoSimpleList) GoString() string {
 	return s.String()
+}
+
+func (s *CollegeListDeptManagerResponseBodyManagerInfoSimpleList) SetIsActive(v bool) *CollegeListDeptManagerResponseBodyManagerInfoSimpleList {
+	s.IsActive = &v
+	return s
 }
 
 func (s *CollegeListDeptManagerResponseBodyManagerInfoSimpleList) SetName(v string) *CollegeListDeptManagerResponseBodyManagerInfoSimpleList {

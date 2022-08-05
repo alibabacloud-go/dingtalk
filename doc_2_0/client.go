@@ -2860,10 +2860,16 @@ type SearchRequestDentryRequest struct {
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	// 分页游标。如果是首次调用，可不传；如果非首次调用，该参数传上次调用时返回的nextToken。
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 搜索的字段。支持的有：1-标题和内容；2-标题、内容和评论；3-标题和评论；4-标题；5-内容；6-评论。
+	SearchField *int32 `json:"searchField,omitempty" xml:"searchField,omitempty"`
 	// 搜索指定的文件类型。支持的类型有：1-文档；2-表格；3-脑图；4-演示；5-白板。
 	SearchFileType *int32 `json:"searchFileType,omitempty" xml:"searchFileType,omitempty"`
 	// 知识库id，在指定的知识库中搜索。
 	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 文档内容命中了搜索关键词的时候，需要返回的文档摘要长度。
+	SummaryLength *int32 `json:"summaryLength,omitempty" xml:"summaryLength,omitempty"`
+	// 文档访问时间的范围。
+	VisitTimeRange *SearchRequestDentryRequestVisitTimeRange `json:"visitTimeRange,omitempty" xml:"visitTimeRange,omitempty" type:"Struct"`
 }
 
 func (s SearchRequestDentryRequest) String() string {
@@ -2884,6 +2890,11 @@ func (s *SearchRequestDentryRequest) SetNextToken(v string) *SearchRequestDentry
 	return s
 }
 
+func (s *SearchRequestDentryRequest) SetSearchField(v int32) *SearchRequestDentryRequest {
+	s.SearchField = &v
+	return s
+}
+
 func (s *SearchRequestDentryRequest) SetSearchFileType(v int32) *SearchRequestDentryRequest {
 	s.SearchFileType = &v
 	return s
@@ -2891,6 +2902,41 @@ func (s *SearchRequestDentryRequest) SetSearchFileType(v int32) *SearchRequestDe
 
 func (s *SearchRequestDentryRequest) SetSpaceId(v string) *SearchRequestDentryRequest {
 	s.SpaceId = &v
+	return s
+}
+
+func (s *SearchRequestDentryRequest) SetSummaryLength(v int32) *SearchRequestDentryRequest {
+	s.SummaryLength = &v
+	return s
+}
+
+func (s *SearchRequestDentryRequest) SetVisitTimeRange(v *SearchRequestDentryRequestVisitTimeRange) *SearchRequestDentryRequest {
+	s.VisitTimeRange = v
+	return s
+}
+
+type SearchRequestDentryRequestVisitTimeRange struct {
+	// 结束时间戳（ms）。
+	End *int64 `json:"end,omitempty" xml:"end,omitempty"`
+	// 起始时间戳（ms）。
+	Start *int64 `json:"start,omitempty" xml:"start,omitempty"`
+}
+
+func (s SearchRequestDentryRequestVisitTimeRange) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchRequestDentryRequestVisitTimeRange) GoString() string {
+	return s.String()
+}
+
+func (s *SearchRequestDentryRequestVisitTimeRange) SetEnd(v int64) *SearchRequestDentryRequestVisitTimeRange {
+	s.End = &v
+	return s
+}
+
+func (s *SearchRequestDentryRequestVisitTimeRange) SetStart(v int64) *SearchRequestDentryRequestVisitTimeRange {
+	s.Start = &v
 	return s
 }
 
@@ -3001,6 +3047,8 @@ type SearchResponseBodyDentryResultItems struct {
 	SearchFileType *int32 `json:"searchFileType,omitempty" xml:"searchFileType,omitempty"`
 	// 节点所属的知识库id。
 	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 文档缩略图url。
+	ThumbnailUrl *string `json:"thumbnailUrl,omitempty" xml:"thumbnailUrl,omitempty"`
 	// 节点访问url。
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
@@ -3073,6 +3121,11 @@ func (s *SearchResponseBodyDentryResultItems) SetSpaceId(v string) *SearchRespon
 	return s
 }
 
+func (s *SearchResponseBodyDentryResultItems) SetThumbnailUrl(v string) *SearchResponseBodyDentryResultItems {
+	s.ThumbnailUrl = &v
+	return s
+}
+
 func (s *SearchResponseBodyDentryResultItems) SetUrl(v string) *SearchResponseBodyDentryResultItems {
 	s.Url = &v
 	return s
@@ -3111,6 +3164,8 @@ func (s *SearchResponseBodySpaceResult) SetNextToken(v string) *SearchResponseBo
 }
 
 type SearchResponseBodySpaceResultItems struct {
+	// 知识库图标。
+	IconVO *SearchResponseBodySpaceResultItemsIconVO `json:"iconVO,omitempty" xml:"iconVO,omitempty" type:"Struct"`
 	// 知识库名称，如果命中了关键词，会带有高亮。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 知识库原始名称，不带高亮。
@@ -3119,6 +3174,8 @@ type SearchResponseBodySpaceResultItems struct {
 	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 	// 知识库访问url。
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 用户最后一次操作信息。
+	UserLastOperation *SearchResponseBodySpaceResultItemsUserLastOperation `json:"userLastOperation,omitempty" xml:"userLastOperation,omitempty" type:"Struct"`
 }
 
 func (s SearchResponseBodySpaceResultItems) String() string {
@@ -3127,6 +3184,11 @@ func (s SearchResponseBodySpaceResultItems) String() string {
 
 func (s SearchResponseBodySpaceResultItems) GoString() string {
 	return s.String()
+}
+
+func (s *SearchResponseBodySpaceResultItems) SetIconVO(v *SearchResponseBodySpaceResultItemsIconVO) *SearchResponseBodySpaceResultItems {
+	s.IconVO = v
+	return s
 }
 
 func (s *SearchResponseBodySpaceResultItems) SetName(v string) *SearchResponseBodySpaceResultItems {
@@ -3146,6 +3208,61 @@ func (s *SearchResponseBodySpaceResultItems) SetSpaceId(v string) *SearchRespons
 
 func (s *SearchResponseBodySpaceResultItems) SetUrl(v string) *SearchResponseBodySpaceResultItems {
 	s.Url = &v
+	return s
+}
+
+func (s *SearchResponseBodySpaceResultItems) SetUserLastOperation(v *SearchResponseBodySpaceResultItemsUserLastOperation) *SearchResponseBodySpaceResultItems {
+	s.UserLastOperation = v
+	return s
+}
+
+type SearchResponseBodySpaceResultItemsIconVO struct {
+	// 图标信息。
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 知识库图标的类型。
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s SearchResponseBodySpaceResultItemsIconVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchResponseBodySpaceResultItemsIconVO) GoString() string {
+	return s.String()
+}
+
+func (s *SearchResponseBodySpaceResultItemsIconVO) SetIcon(v string) *SearchResponseBodySpaceResultItemsIconVO {
+	s.Icon = &v
+	return s
+}
+
+func (s *SearchResponseBodySpaceResultItemsIconVO) SetType(v string) *SearchResponseBodySpaceResultItemsIconVO {
+	s.Type = &v
+	return s
+}
+
+type SearchResponseBodySpaceResultItemsUserLastOperation struct {
+	// 操作人名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 操作的时间戳（ms）。
+	Time *int64 `json:"time,omitempty" xml:"time,omitempty"`
+}
+
+func (s SearchResponseBodySpaceResultItemsUserLastOperation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchResponseBodySpaceResultItemsUserLastOperation) GoString() string {
+	return s.String()
+}
+
+func (s *SearchResponseBodySpaceResultItemsUserLastOperation) SetName(v string) *SearchResponseBodySpaceResultItemsUserLastOperation {
+	s.Name = &v
+	return s
+}
+
+func (s *SearchResponseBodySpaceResultItemsUserLastOperation) SetTime(v int64) *SearchResponseBodySpaceResultItemsUserLastOperation {
+	s.Time = &v
 	return s
 }
 
