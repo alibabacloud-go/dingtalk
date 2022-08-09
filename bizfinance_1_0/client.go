@@ -764,7 +764,9 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOListVehicleSaleDetailVOList) SetV
 
 type BatchAddInvoiceResponseBody struct {
 	// 错误信息
-	Result []*BatchAddInvoiceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	ErrorResult []*BatchAddInvoiceResponseBodyErrorResult `json:"errorResult,omitempty" xml:"errorResult,omitempty" type:"Repeated"`
+	// 成功信息
+	SuccessResult []*BatchAddInvoiceResponseBodySuccessResult `json:"successResult,omitempty" xml:"successResult,omitempty" type:"Repeated"`
 }
 
 func (s BatchAddInvoiceResponseBody) String() string {
@@ -775,33 +777,63 @@ func (s BatchAddInvoiceResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *BatchAddInvoiceResponseBody) SetResult(v []*BatchAddInvoiceResponseBodyResult) *BatchAddInvoiceResponseBody {
-	s.Result = v
+func (s *BatchAddInvoiceResponseBody) SetErrorResult(v []*BatchAddInvoiceResponseBodyErrorResult) *BatchAddInvoiceResponseBody {
+	s.ErrorResult = v
 	return s
 }
 
-type BatchAddInvoiceResponseBodyResult struct {
+func (s *BatchAddInvoiceResponseBody) SetSuccessResult(v []*BatchAddInvoiceResponseBodySuccessResult) *BatchAddInvoiceResponseBody {
+	s.SuccessResult = v
+	return s
+}
+
+type BatchAddInvoiceResponseBodyErrorResult struct {
 	// 错误数据的key
 	ErrorKey *string `json:"errorKey,omitempty" xml:"errorKey,omitempty"`
 	// 错误信息
 	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
 }
 
-func (s BatchAddInvoiceResponseBodyResult) String() string {
+func (s BatchAddInvoiceResponseBodyErrorResult) String() string {
 	return tea.Prettify(s)
 }
 
-func (s BatchAddInvoiceResponseBodyResult) GoString() string {
+func (s BatchAddInvoiceResponseBodyErrorResult) GoString() string {
 	return s.String()
 }
 
-func (s *BatchAddInvoiceResponseBodyResult) SetErrorKey(v string) *BatchAddInvoiceResponseBodyResult {
+func (s *BatchAddInvoiceResponseBodyErrorResult) SetErrorKey(v string) *BatchAddInvoiceResponseBodyErrorResult {
 	s.ErrorKey = &v
 	return s
 }
 
-func (s *BatchAddInvoiceResponseBodyResult) SetErrorMsg(v string) *BatchAddInvoiceResponseBodyResult {
+func (s *BatchAddInvoiceResponseBodyErrorResult) SetErrorMsg(v string) *BatchAddInvoiceResponseBodyErrorResult {
 	s.ErrorMsg = &v
+	return s
+}
+
+type BatchAddInvoiceResponseBodySuccessResult struct {
+	// 发票代码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+}
+
+func (s BatchAddInvoiceResponseBodySuccessResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddInvoiceResponseBodySuccessResult) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddInvoiceResponseBodySuccessResult) SetInvoiceCode(v string) *BatchAddInvoiceResponseBodySuccessResult {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *BatchAddInvoiceResponseBodySuccessResult) SetInvoiceNo(v string) *BatchAddInvoiceResponseBodySuccessResult {
+	s.InvoiceNo = &v
 	return s
 }
 
@@ -8792,7 +8824,10 @@ func (s *UpdateInvoiceAccountPeriodRequestInvoiceKeyVOList) SetInvoiceNo(v strin
 }
 
 type UpdateInvoiceAccountPeriodResponseBody struct {
-	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// 错误信息
+	ErrorResult []*UpdateInvoiceAccountPeriodResponseBodyErrorResult `json:"errorResult,omitempty" xml:"errorResult,omitempty" type:"Repeated"`
+	// 成功信息
+	SuccessResult []*UpdateInvoiceAccountPeriodResponseBodySuccessResult `json:"successResult,omitempty" xml:"successResult,omitempty" type:"Repeated"`
 }
 
 func (s UpdateInvoiceAccountPeriodResponseBody) String() string {
@@ -8803,8 +8838,63 @@ func (s UpdateInvoiceAccountPeriodResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateInvoiceAccountPeriodResponseBody) SetResult(v bool) *UpdateInvoiceAccountPeriodResponseBody {
-	s.Result = &v
+func (s *UpdateInvoiceAccountPeriodResponseBody) SetErrorResult(v []*UpdateInvoiceAccountPeriodResponseBodyErrorResult) *UpdateInvoiceAccountPeriodResponseBody {
+	s.ErrorResult = v
+	return s
+}
+
+func (s *UpdateInvoiceAccountPeriodResponseBody) SetSuccessResult(v []*UpdateInvoiceAccountPeriodResponseBodySuccessResult) *UpdateInvoiceAccountPeriodResponseBody {
+	s.SuccessResult = v
+	return s
+}
+
+type UpdateInvoiceAccountPeriodResponseBodyErrorResult struct {
+	// 错误数据的key
+	ErrorKey *string `json:"errorKey,omitempty" xml:"errorKey,omitempty"`
+	// 错误信息
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+}
+
+func (s UpdateInvoiceAccountPeriodResponseBodyErrorResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAccountPeriodResponseBodyErrorResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAccountPeriodResponseBodyErrorResult) SetErrorKey(v string) *UpdateInvoiceAccountPeriodResponseBodyErrorResult {
+	s.ErrorKey = &v
+	return s
+}
+
+func (s *UpdateInvoiceAccountPeriodResponseBodyErrorResult) SetErrorMsg(v string) *UpdateInvoiceAccountPeriodResponseBodyErrorResult {
+	s.ErrorMsg = &v
+	return s
+}
+
+type UpdateInvoiceAccountPeriodResponseBodySuccessResult struct {
+	// 发票代码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+}
+
+func (s UpdateInvoiceAccountPeriodResponseBodySuccessResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateInvoiceAccountPeriodResponseBodySuccessResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateInvoiceAccountPeriodResponseBodySuccessResult) SetInvoiceCode(v string) *UpdateInvoiceAccountPeriodResponseBodySuccessResult {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *UpdateInvoiceAccountPeriodResponseBodySuccessResult) SetInvoiceNo(v string) *UpdateInvoiceAccountPeriodResponseBodySuccessResult {
+	s.InvoiceNo = &v
 	return s
 }
 

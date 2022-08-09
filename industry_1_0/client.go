@@ -3432,6 +3432,162 @@ func (s *CollegeListStudentInfoResponse) SetBody(v *CollegeListStudentInfoRespon
 	return s
 }
 
+type CollegeListUncheckedStudentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CollegeListUncheckedStudentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollegeListUncheckedStudentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CollegeListUncheckedStudentHeaders) SetCommonHeaders(v map[string]*string) *CollegeListUncheckedStudentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CollegeListUncheckedStudentHeaders) SetXAcsDingtalkAccessToken(v string) *CollegeListUncheckedStudentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CollegeListUncheckedStudentRequest struct {
+	// 部门id
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 页码
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页条目数
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s CollegeListUncheckedStudentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollegeListUncheckedStudentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CollegeListUncheckedStudentRequest) SetDeptId(v int64) *CollegeListUncheckedStudentRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *CollegeListUncheckedStudentRequest) SetPageNumber(v int64) *CollegeListUncheckedStudentRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *CollegeListUncheckedStudentRequest) SetPageSize(v int64) *CollegeListUncheckedStudentRequest {
+	s.PageSize = &v
+	return s
+}
+
+type CollegeListUncheckedStudentResponseBody struct {
+	// 学生信息列表
+	StudentInfoSimpleList []*CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList `json:"studentInfoSimpleList,omitempty" xml:"studentInfoSimpleList,omitempty" type:"Repeated"`
+	// 条目总数
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s CollegeListUncheckedStudentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollegeListUncheckedStudentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CollegeListUncheckedStudentResponseBody) SetStudentInfoSimpleList(v []*CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList) *CollegeListUncheckedStudentResponseBody {
+	s.StudentInfoSimpleList = v
+	return s
+}
+
+func (s *CollegeListUncheckedStudentResponseBody) SetTotalCount(v int64) *CollegeListUncheckedStudentResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList struct {
+	// 人员在组织的状态
+	DingMemberStatus *string `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
+	// 账号是否激活
+	IsActive *bool `json:"isActive,omitempty" xml:"isActive,omitempty"`
+	// 学生id
+	StudentId *int64 `json:"studentId,omitempty" xml:"studentId,omitempty"`
+	// 学生姓名
+	StudentName *string `json:"studentName,omitempty" xml:"studentName,omitempty"`
+	// unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList) GoString() string {
+	return s.String()
+}
+
+func (s *CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList) SetDingMemberStatus(v string) *CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList {
+	s.DingMemberStatus = &v
+	return s
+}
+
+func (s *CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList) SetIsActive(v bool) *CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList {
+	s.IsActive = &v
+	return s
+}
+
+func (s *CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList) SetStudentId(v int64) *CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList {
+	s.StudentId = &v
+	return s
+}
+
+func (s *CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList) SetStudentName(v string) *CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList {
+	s.StudentName = &v
+	return s
+}
+
+func (s *CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList) SetUnionId(v string) *CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList {
+	s.UnionId = &v
+	return s
+}
+
+func (s *CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList) SetUserId(v string) *CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList {
+	s.UserId = &v
+	return s
+}
+
+type CollegeListUncheckedStudentResponse struct {
+	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CollegeListUncheckedStudentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CollegeListUncheckedStudentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollegeListUncheckedStudentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CollegeListUncheckedStudentResponse) SetHeaders(v map[string]*string) *CollegeListUncheckedStudentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CollegeListUncheckedStudentResponse) SetBody(v *CollegeListUncheckedStudentResponseBody) *CollegeListUncheckedStudentResponse {
+	s.Body = v
+	return s
+}
+
 type CollegeQueryCollegeDeptGroupInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5188,6 +5344,95 @@ func (s *CustomizeContactDeptDeleteResponse) SetHeaders(v map[string]*string) *C
 }
 
 func (s *CustomizeContactDeptDeleteResponse) SetBody(v *CustomizeContactDeptDeleteResponseBody) *CustomizeContactDeptDeleteResponse {
+	s.Body = v
+	return s
+}
+
+type CustomizeContactDeptGroupCreateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CustomizeContactDeptGroupCreateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptGroupCreateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptGroupCreateHeaders) SetCommonHeaders(v map[string]*string) *CustomizeContactDeptGroupCreateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CustomizeContactDeptGroupCreateHeaders) SetXAcsDingtalkAccessToken(v string) *CustomizeContactDeptGroupCreateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CustomizeContactDeptGroupCreateRequest struct {
+	// 自定义通讯录Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 部门Id
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+}
+
+func (s CustomizeContactDeptGroupCreateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptGroupCreateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptGroupCreateRequest) SetCode(v string) *CustomizeContactDeptGroupCreateRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *CustomizeContactDeptGroupCreateRequest) SetDeptId(v int64) *CustomizeContactDeptGroupCreateRequest {
+	s.DeptId = &v
+	return s
+}
+
+type CustomizeContactDeptGroupCreateResponseBody struct {
+	// Id of the request
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s CustomizeContactDeptGroupCreateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptGroupCreateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptGroupCreateResponseBody) SetContent(v string) *CustomizeContactDeptGroupCreateResponseBody {
+	s.Content = &v
+	return s
+}
+
+type CustomizeContactDeptGroupCreateResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CustomizeContactDeptGroupCreateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CustomizeContactDeptGroupCreateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomizeContactDeptGroupCreateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CustomizeContactDeptGroupCreateResponse) SetHeaders(v map[string]*string) *CustomizeContactDeptGroupCreateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CustomizeContactDeptGroupCreateResponse) SetBody(v *CustomizeContactDeptGroupCreateResponseBody) *CustomizeContactDeptGroupCreateResponse {
 	s.Body = v
 	return s
 }
@@ -17130,6 +17375,58 @@ func (client *Client) CollegeListStudentInfoWithOptions(request *CollegeListStud
 	return _result, _err
 }
 
+func (client *Client) CollegeListUncheckedStudent(request *CollegeListUncheckedStudentRequest) (_result *CollegeListUncheckedStudentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CollegeListUncheckedStudentHeaders{}
+	_result = &CollegeListUncheckedStudentResponse{}
+	_body, _err := client.CollegeListUncheckedStudentWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CollegeListUncheckedStudentWithOptions(request *CollegeListUncheckedStudentRequest, headers *CollegeListUncheckedStudentHeaders, runtime *util.RuntimeOptions) (_result *CollegeListUncheckedStudentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		query["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &CollegeListUncheckedStudentResponse{}
+	_body, _err := client.DoROARequest(tea.String("CollegeListUncheckedStudent"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/colleges/members/organizations/unjoinedStudents"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CollegeQueryCollegeDeptGroupInfo(request *CollegeQueryCollegeDeptGroupInfoRequest) (_result *CollegeQueryCollegeDeptGroupInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeQueryCollegeDeptGroupInfoHeaders{}
@@ -17883,6 +18180,54 @@ func (client *Client) CustomizeContactDeptDeleteWithOptions(request *CustomizeCo
 	}
 	_result = &CustomizeContactDeptDeleteResponse{}
 	_body, _err := client.DoROARequest(tea.String("CustomizeContactDeptDelete"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/industry/customizations/departments"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactDeptGroupCreate(request *CustomizeContactDeptGroupCreateRequest) (_result *CustomizeContactDeptGroupCreateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CustomizeContactDeptGroupCreateHeaders{}
+	_result = &CustomizeContactDeptGroupCreateResponse{}
+	_body, _err := client.CustomizeContactDeptGroupCreateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CustomizeContactDeptGroupCreateWithOptions(request *CustomizeContactDeptGroupCreateRequest, headers *CustomizeContactDeptGroupCreateHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactDeptGroupCreateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		body["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CustomizeContactDeptGroupCreateResponse{}
+	_body, _err := client.DoROARequest(tea.String("CustomizeContactDeptGroupCreate"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/customizations/departmentGroups"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

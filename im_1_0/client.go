@@ -626,8 +626,8 @@ func (s *CreateCoupleGroupConversationRequest) SetOperatorId(v string) *CreateCo
 }
 
 type CreateCoupleGroupConversationResponseBody struct {
-	// 群chatId。
-	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	// 钉钉群会话id。
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
 	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
@@ -640,8 +640,8 @@ func (s CreateCoupleGroupConversationResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *CreateCoupleGroupConversationResponseBody) SetChatId(v string) *CreateCoupleGroupConversationResponseBody {
-	s.ChatId = &v
+func (s *CreateCoupleGroupConversationResponseBody) SetConversationId(v string) *CreateCoupleGroupConversationResponseBody {
+	s.ConversationId = &v
 	return s
 }
 
@@ -766,7 +766,8 @@ func (s *CreateGroupConversationRequest) SetUserIds(v []*string) *CreateGroupCon
 type CreateGroupConversationResponseBody struct {
 	// 添加成功的钉外成员列表。
 	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
-	ChatId     *string   `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	// 钉钉群会话Id。
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
 	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	// 添加成功的钉内成员列表。
@@ -786,8 +787,8 @@ func (s *CreateGroupConversationResponseBody) SetAppUserIds(v []*string) *Create
 	return s
 }
 
-func (s *CreateGroupConversationResponseBody) SetChatId(v string) *CreateGroupConversationResponseBody {
-	s.ChatId = &v
+func (s *CreateGroupConversationResponseBody) SetConversationId(v string) *CreateGroupConversationResponseBody {
+	s.ConversationId = &v
 	return s
 }
 
@@ -1083,7 +1084,8 @@ func (s *CreateStoreGroupConversationRequest) SetUserIds(v []*string) *CreateSto
 }
 
 type CreateStoreGroupConversationResponseBody struct {
-	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	// 钉钉群会话id
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
 	// 群会话Id。
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
@@ -1096,8 +1098,8 @@ func (s CreateStoreGroupConversationResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *CreateStoreGroupConversationResponseBody) SetChatId(v string) *CreateStoreGroupConversationResponseBody {
-	s.ChatId = &v
+func (s *CreateStoreGroupConversationResponseBody) SetConversationId(v string) *CreateStoreGroupConversationResponseBody {
+	s.ConversationId = &v
 	return s
 }
 
@@ -5690,8 +5692,27 @@ func (s *RemoveGroupMemberRequest) SetUserIds(v []*string) *RemoveGroupMemberReq
 	return s
 }
 
+type RemoveGroupMemberResponseBody struct {
+	// 操作结果
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+}
+
+func (s RemoveGroupMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveGroupMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveGroupMemberResponseBody) SetMessage(v string) *RemoveGroupMemberResponseBody {
+	s.Message = &v
+	return s
+}
+
 type RemoveGroupMemberResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RemoveGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s RemoveGroupMemberResponse) String() string {
@@ -5704,6 +5725,11 @@ func (s RemoveGroupMemberResponse) GoString() string {
 
 func (s *RemoveGroupMemberResponse) SetHeaders(v map[string]*string) *RemoveGroupMemberResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *RemoveGroupMemberResponse) SetBody(v *RemoveGroupMemberResponseBody) *RemoveGroupMemberResponse {
+	s.Body = v
 	return s
 }
 
@@ -8642,7 +8668,7 @@ func (client *Client) RemoveGroupMemberWithOptions(request *RemoveGroupMemberReq
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &RemoveGroupMemberResponse{}
-	_body, _err := client.DoROARequest(tea.String("removeGroupMember"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/groups/members/remove"), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("removeGroupMember"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/groups/members/remove"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
