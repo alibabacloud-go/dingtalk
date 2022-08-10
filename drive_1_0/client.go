@@ -1895,7 +1895,9 @@ func (s *GetPreviewInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetPreview
 
 type GetPreviewInfoRequest struct {
 	// 用户id
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	Version   *int64  `json:"version,omitempty" xml:"version,omitempty"`
+	Watermark *bool   `json:"watermark,omitempty" xml:"watermark,omitempty"`
 }
 
 func (s GetPreviewInfoRequest) String() string {
@@ -1908,6 +1910,16 @@ func (s GetPreviewInfoRequest) GoString() string {
 
 func (s *GetPreviewInfoRequest) SetUnionId(v string) *GetPreviewInfoRequest {
 	s.UnionId = &v
+	return s
+}
+
+func (s *GetPreviewInfoRequest) SetVersion(v int64) *GetPreviewInfoRequest {
+	s.Version = &v
+	return s
+}
+
+func (s *GetPreviewInfoRequest) SetWatermark(v bool) *GetPreviewInfoRequest {
+	s.Watermark = &v
 	return s
 }
 
@@ -5512,6 +5524,14 @@ func (client *Client) GetPreviewInfoWithOptions(spaceId *string, fileId *string,
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Version)) {
+		query["version"] = request.Version
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Watermark)) {
+		query["watermark"] = request.Watermark
 	}
 
 	realHeaders := make(map[string]*string)

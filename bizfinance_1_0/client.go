@@ -4876,6 +4876,8 @@ type QueryReceiptsBaseInfoRequest struct {
 	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 	// 开始时间
 	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 时间筛选条件 gmt_create / record_time
+	TimeFilterField *string `json:"timeFilterField,omitempty" xml:"timeFilterField,omitempty"`
 	// 单据标题
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 	// 凭证状态
@@ -4907,6 +4909,11 @@ func (s *QueryReceiptsBaseInfoRequest) SetPageSize(v int64) *QueryReceiptsBaseIn
 
 func (s *QueryReceiptsBaseInfoRequest) SetStartTime(v int64) *QueryReceiptsBaseInfoRequest {
 	s.StartTime = &v
+	return s
+}
+
+func (s *QueryReceiptsBaseInfoRequest) SetTimeFilterField(v string) *QueryReceiptsBaseInfoRequest {
+	s.TimeFilterField = &v
 	return s
 }
 
@@ -12386,6 +12393,10 @@ func (client *Client) QueryReceiptsBaseInfoWithOptions(request *QueryReceiptsBas
 
 	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
 		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TimeFilterField)) {
+		query["timeFilterField"] = request.TimeFilterField
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Title)) {

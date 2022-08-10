@@ -231,6 +231,244 @@ func (s *CreateCloudFeedResponse) SetBody(v *CreateCloudFeedResponseBody) *Creat
 	return s
 }
 
+type CreateLiveHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateLiveHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateLiveHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateLiveHeaders) SetCommonHeaders(v map[string]*string) *CreateLiveHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateLiveHeaders) SetXAcsDingtalkAccessToken(v string) *CreateLiveHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateLiveRequest struct {
+	// 直播封面
+	CoverUrl *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
+	// 简介
+	Introduction *string `json:"introduction,omitempty" xml:"introduction,omitempty"`
+	// 预计结束时间
+	PreEndTime *int64 `json:"preEndTime,omitempty" xml:"preEndTime,omitempty"`
+	// 预计开播时间
+	PreStartTime *int64 `json:"preStartTime,omitempty" xml:"preStartTime,omitempty"`
+	// 标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 用户id（主播id）
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s CreateLiveRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateLiveRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateLiveRequest) SetCoverUrl(v string) *CreateLiveRequest {
+	s.CoverUrl = &v
+	return s
+}
+
+func (s *CreateLiveRequest) SetIntroduction(v string) *CreateLiveRequest {
+	s.Introduction = &v
+	return s
+}
+
+func (s *CreateLiveRequest) SetPreEndTime(v int64) *CreateLiveRequest {
+	s.PreEndTime = &v
+	return s
+}
+
+func (s *CreateLiveRequest) SetPreStartTime(v int64) *CreateLiveRequest {
+	s.PreStartTime = &v
+	return s
+}
+
+func (s *CreateLiveRequest) SetTitle(v string) *CreateLiveRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *CreateLiveRequest) SetUnionId(v string) *CreateLiveRequest {
+	s.UnionId = &v
+	return s
+}
+
+type CreateLiveResponseBody struct {
+	Result *CreateLiveResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s CreateLiveResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateLiveResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateLiveResponseBody) SetResult(v *CreateLiveResponseBodyResult) *CreateLiveResponseBody {
+	s.Result = v
+	return s
+}
+
+type CreateLiveResponseBodyResult struct {
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+}
+
+func (s CreateLiveResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateLiveResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateLiveResponseBodyResult) SetLiveId(v string) *CreateLiveResponseBodyResult {
+	s.LiveId = &v
+	return s
+}
+
+type CreateLiveResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateLiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateLiveResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateLiveResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateLiveResponse) SetHeaders(v map[string]*string) *CreateLiveResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateLiveResponse) SetBody(v *CreateLiveResponseBody) *CreateLiveResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteLiveHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteLiveHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteLiveHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteLiveHeaders) SetCommonHeaders(v map[string]*string) *DeleteLiveHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteLiveHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteLiveHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteLiveRequest struct {
+	// 直播id
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s DeleteLiveRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteLiveRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteLiveRequest) SetLiveId(v string) *DeleteLiveRequest {
+	s.LiveId = &v
+	return s
+}
+
+func (s *DeleteLiveRequest) SetUnionId(v string) *DeleteLiveRequest {
+	s.UnionId = &v
+	return s
+}
+
+type DeleteLiveResponseBody struct {
+	Result *DeleteLiveResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s DeleteLiveResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteLiveResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteLiveResponseBody) SetResult(v *DeleteLiveResponseBodyResult) *DeleteLiveResponseBody {
+	s.Result = v
+	return s
+}
+
+type DeleteLiveResponseBodyResult struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteLiveResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteLiveResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteLiveResponseBodyResult) SetSuccess(v bool) *DeleteLiveResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type DeleteLiveResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteLiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteLiveResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteLiveResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteLiveResponse) SetHeaders(v map[string]*string) *DeleteLiveResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteLiveResponse) SetBody(v *DeleteLiveResponseBody) *DeleteLiveResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteLiveFeedHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -619,6 +857,585 @@ func (s *QueryFeedWhiteListResponse) SetBody(v *QueryFeedWhiteListResponseBody) 
 	return s
 }
 
+type QueryLiveInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryLiveInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryLiveInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryLiveInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryLiveInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryLiveInfoRequest struct {
+	LiveId  *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryLiveInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveInfoRequest) SetLiveId(v string) *QueryLiveInfoRequest {
+	s.LiveId = &v
+	return s
+}
+
+func (s *QueryLiveInfoRequest) SetUnionId(v string) *QueryLiveInfoRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryLiveInfoResponseBody struct {
+	Result *QueryLiveInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryLiveInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveInfoResponseBody) SetResult(v *QueryLiveInfoResponseBodyResult) *QueryLiveInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryLiveInfoResponseBodyResult struct {
+	LiveInfo *QueryLiveInfoResponseBodyResultLiveInfo `json:"liveInfo,omitempty" xml:"liveInfo,omitempty" type:"Struct"`
+}
+
+func (s QueryLiveInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveInfoResponseBodyResult) SetLiveInfo(v *QueryLiveInfoResponseBodyResultLiveInfo) *QueryLiveInfoResponseBodyResult {
+	s.LiveInfo = v
+	return s
+}
+
+type QueryLiveInfoResponseBodyResultLiveInfo struct {
+	// 直播封面
+	CoverUrl *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
+	// 直播时长
+	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 直播真实结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 直播简介
+	Introduction *string `json:"introduction,omitempty" xml:"introduction,omitempty"`
+	// 直播id
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// 直播观看地址
+	LivePlayUrl *string `json:"livePlayUrl,omitempty" xml:"livePlayUrl,omitempty"`
+	// 直播状态
+	LiveStatus *int32 `json:"liveStatus,omitempty" xml:"liveStatus,omitempty"`
+	// 直播真实开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 预约人数
+	SubscribeCount *int32 `json:"subscribeCount,omitempty" xml:"subscribeCount,omitempty"`
+	// 直播标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 主播id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 观看人数
+	Uv *int32 `json:"uv,omitempty" xml:"uv,omitempty"`
+}
+
+func (s QueryLiveInfoResponseBodyResultLiveInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveInfoResponseBodyResultLiveInfo) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveInfoResponseBodyResultLiveInfo) SetCoverUrl(v string) *QueryLiveInfoResponseBodyResultLiveInfo {
+	s.CoverUrl = &v
+	return s
+}
+
+func (s *QueryLiveInfoResponseBodyResultLiveInfo) SetDuration(v int64) *QueryLiveInfoResponseBodyResultLiveInfo {
+	s.Duration = &v
+	return s
+}
+
+func (s *QueryLiveInfoResponseBodyResultLiveInfo) SetEndTime(v int64) *QueryLiveInfoResponseBodyResultLiveInfo {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryLiveInfoResponseBodyResultLiveInfo) SetIntroduction(v string) *QueryLiveInfoResponseBodyResultLiveInfo {
+	s.Introduction = &v
+	return s
+}
+
+func (s *QueryLiveInfoResponseBodyResultLiveInfo) SetLiveId(v string) *QueryLiveInfoResponseBodyResultLiveInfo {
+	s.LiveId = &v
+	return s
+}
+
+func (s *QueryLiveInfoResponseBodyResultLiveInfo) SetLivePlayUrl(v string) *QueryLiveInfoResponseBodyResultLiveInfo {
+	s.LivePlayUrl = &v
+	return s
+}
+
+func (s *QueryLiveInfoResponseBodyResultLiveInfo) SetLiveStatus(v int32) *QueryLiveInfoResponseBodyResultLiveInfo {
+	s.LiveStatus = &v
+	return s
+}
+
+func (s *QueryLiveInfoResponseBodyResultLiveInfo) SetStartTime(v int64) *QueryLiveInfoResponseBodyResultLiveInfo {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryLiveInfoResponseBodyResultLiveInfo) SetSubscribeCount(v int32) *QueryLiveInfoResponseBodyResultLiveInfo {
+	s.SubscribeCount = &v
+	return s
+}
+
+func (s *QueryLiveInfoResponseBodyResultLiveInfo) SetTitle(v string) *QueryLiveInfoResponseBodyResultLiveInfo {
+	s.Title = &v
+	return s
+}
+
+func (s *QueryLiveInfoResponseBodyResultLiveInfo) SetUnionId(v string) *QueryLiveInfoResponseBodyResultLiveInfo {
+	s.UnionId = &v
+	return s
+}
+
+func (s *QueryLiveInfoResponseBodyResultLiveInfo) SetUv(v int32) *QueryLiveInfoResponseBodyResultLiveInfo {
+	s.Uv = &v
+	return s
+}
+
+type QueryLiveInfoResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryLiveInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryLiveInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveInfoResponse) SetHeaders(v map[string]*string) *QueryLiveInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryLiveInfoResponse) SetBody(v *QueryLiveInfoResponseBody) *QueryLiveInfoResponse {
+	s.Body = v
+	return s
+}
+
+type QueryLiveWatchDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryLiveWatchDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveWatchDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveWatchDetailHeaders) SetCommonHeaders(v map[string]*string) *QueryLiveWatchDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryLiveWatchDetailHeaders) SetXAcsDingtalkAccessToken(v string) *QueryLiveWatchDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryLiveWatchDetailRequest struct {
+	// 直播id
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryLiveWatchDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveWatchDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveWatchDetailRequest) SetLiveId(v string) *QueryLiveWatchDetailRequest {
+	s.LiveId = &v
+	return s
+}
+
+func (s *QueryLiveWatchDetailRequest) SetUnionId(v string) *QueryLiveWatchDetailRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryLiveWatchDetailResponseBody struct {
+	Result *QueryLiveWatchDetailResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryLiveWatchDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveWatchDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveWatchDetailResponseBody) SetResult(v *QueryLiveWatchDetailResponseBodyResult) *QueryLiveWatchDetailResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryLiveWatchDetailResponseBodyResult struct {
+	// 平均观看时长
+	AvgWatchTime *int64 `json:"avgWatchTime,omitempty" xml:"avgWatchTime,omitempty"`
+	// 观看直播人数
+	LiveUv *int32 `json:"liveUv,omitempty" xml:"liveUv,omitempty"`
+	// 消息数
+	MsgCount *int32 `json:"msgCount,omitempty" xml:"msgCount,omitempty"`
+	// 观看回放人数
+	PlaybackUv *int32 `json:"playbackUv,omitempty" xml:"playbackUv,omitempty"`
+	// 点赞数
+	PraiseCount *int32 `json:"praiseCount,omitempty" xml:"praiseCount,omitempty"`
+	// 观看次数
+	Pv *int32 `json:"pv,omitempty" xml:"pv,omitempty"`
+	// 观看总时长
+	TotalWatchTime *int64 `json:"totalWatchTime,omitempty" xml:"totalWatchTime,omitempty"`
+	// 观看人数
+	Uv *int32 `json:"uv,omitempty" xml:"uv,omitempty"`
+}
+
+func (s QueryLiveWatchDetailResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveWatchDetailResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveWatchDetailResponseBodyResult) SetAvgWatchTime(v int64) *QueryLiveWatchDetailResponseBodyResult {
+	s.AvgWatchTime = &v
+	return s
+}
+
+func (s *QueryLiveWatchDetailResponseBodyResult) SetLiveUv(v int32) *QueryLiveWatchDetailResponseBodyResult {
+	s.LiveUv = &v
+	return s
+}
+
+func (s *QueryLiveWatchDetailResponseBodyResult) SetMsgCount(v int32) *QueryLiveWatchDetailResponseBodyResult {
+	s.MsgCount = &v
+	return s
+}
+
+func (s *QueryLiveWatchDetailResponseBodyResult) SetPlaybackUv(v int32) *QueryLiveWatchDetailResponseBodyResult {
+	s.PlaybackUv = &v
+	return s
+}
+
+func (s *QueryLiveWatchDetailResponseBodyResult) SetPraiseCount(v int32) *QueryLiveWatchDetailResponseBodyResult {
+	s.PraiseCount = &v
+	return s
+}
+
+func (s *QueryLiveWatchDetailResponseBodyResult) SetPv(v int32) *QueryLiveWatchDetailResponseBodyResult {
+	s.Pv = &v
+	return s
+}
+
+func (s *QueryLiveWatchDetailResponseBodyResult) SetTotalWatchTime(v int64) *QueryLiveWatchDetailResponseBodyResult {
+	s.TotalWatchTime = &v
+	return s
+}
+
+func (s *QueryLiveWatchDetailResponseBodyResult) SetUv(v int32) *QueryLiveWatchDetailResponseBodyResult {
+	s.Uv = &v
+	return s
+}
+
+type QueryLiveWatchDetailResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryLiveWatchDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryLiveWatchDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveWatchDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveWatchDetailResponse) SetHeaders(v map[string]*string) *QueryLiveWatchDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryLiveWatchDetailResponse) SetBody(v *QueryLiveWatchDetailResponseBody) *QueryLiveWatchDetailResponse {
+	s.Body = v
+	return s
+}
+
+type QueryLiveWatchUserListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryLiveWatchUserListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveWatchUserListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveWatchUserListHeaders) SetCommonHeaders(v map[string]*string) *QueryLiveWatchUserListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryLiveWatchUserListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryLiveWatchUserListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryLiveWatchUserListRequest struct {
+	// 直播id
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// 分页起始位置
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryLiveWatchUserListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveWatchUserListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveWatchUserListRequest) SetLiveId(v string) *QueryLiveWatchUserListRequest {
+	s.LiveId = &v
+	return s
+}
+
+func (s *QueryLiveWatchUserListRequest) SetPageNumber(v int32) *QueryLiveWatchUserListRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryLiveWatchUserListRequest) SetPageSize(v int32) *QueryLiveWatchUserListRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryLiveWatchUserListRequest) SetUnionId(v string) *QueryLiveWatchUserListRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryLiveWatchUserListResponseBody struct {
+	Result *QueryLiveWatchUserListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryLiveWatchUserListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveWatchUserListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveWatchUserListResponseBody) SetResult(v *QueryLiveWatchUserListResponseBodyResult) *QueryLiveWatchUserListResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryLiveWatchUserListResponseBodyResult struct {
+	// 组织内的观看用户列表
+	OrgUsesList []*QueryLiveWatchUserListResponseBodyResultOrgUsesList `json:"orgUsesList,omitempty" xml:"orgUsesList,omitempty" type:"Repeated"`
+	// 组织外的观看用户列表
+	OutOrgUserList []*QueryLiveWatchUserListResponseBodyResultOutOrgUserList `json:"outOrgUserList,omitempty" xml:"outOrgUserList,omitempty" type:"Repeated"`
+}
+
+func (s QueryLiveWatchUserListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveWatchUserListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveWatchUserListResponseBodyResult) SetOrgUsesList(v []*QueryLiveWatchUserListResponseBodyResultOrgUsesList) *QueryLiveWatchUserListResponseBodyResult {
+	s.OrgUsesList = v
+	return s
+}
+
+func (s *QueryLiveWatchUserListResponseBodyResult) SetOutOrgUserList(v []*QueryLiveWatchUserListResponseBodyResultOutOrgUserList) *QueryLiveWatchUserListResponseBodyResult {
+	s.OutOrgUserList = v
+	return s
+}
+
+type QueryLiveWatchUserListResponseBodyResultOrgUsesList struct {
+	// 部门名称
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// 姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 观看直播时长
+	WatchLiveTime *int64 `json:"watchLiveTime,omitempty" xml:"watchLiveTime,omitempty"`
+	// 观看回放时长
+	WatchPlaybackTime *int64 `json:"watchPlaybackTime,omitempty" xml:"watchPlaybackTime,omitempty"`
+	// 回放观看进度
+	WatchProgressMs *int64 `json:"watchProgressMs,omitempty" xml:"watchProgressMs,omitempty"`
+}
+
+func (s QueryLiveWatchUserListResponseBodyResultOrgUsesList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveWatchUserListResponseBodyResultOrgUsesList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveWatchUserListResponseBodyResultOrgUsesList) SetDeptName(v string) *QueryLiveWatchUserListResponseBodyResultOrgUsesList {
+	s.DeptName = &v
+	return s
+}
+
+func (s *QueryLiveWatchUserListResponseBodyResultOrgUsesList) SetName(v string) *QueryLiveWatchUserListResponseBodyResultOrgUsesList {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryLiveWatchUserListResponseBodyResultOrgUsesList) SetUnionId(v string) *QueryLiveWatchUserListResponseBodyResultOrgUsesList {
+	s.UnionId = &v
+	return s
+}
+
+func (s *QueryLiveWatchUserListResponseBodyResultOrgUsesList) SetUserId(v string) *QueryLiveWatchUserListResponseBodyResultOrgUsesList {
+	s.UserId = &v
+	return s
+}
+
+func (s *QueryLiveWatchUserListResponseBodyResultOrgUsesList) SetWatchLiveTime(v int64) *QueryLiveWatchUserListResponseBodyResultOrgUsesList {
+	s.WatchLiveTime = &v
+	return s
+}
+
+func (s *QueryLiveWatchUserListResponseBodyResultOrgUsesList) SetWatchPlaybackTime(v int64) *QueryLiveWatchUserListResponseBodyResultOrgUsesList {
+	s.WatchPlaybackTime = &v
+	return s
+}
+
+func (s *QueryLiveWatchUserListResponseBodyResultOrgUsesList) SetWatchProgressMs(v int64) *QueryLiveWatchUserListResponseBodyResultOrgUsesList {
+	s.WatchProgressMs = &v
+	return s
+}
+
+type QueryLiveWatchUserListResponseBodyResultOutOrgUserList struct {
+	// 姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 观看直播时长
+	WatchLiveTime *int64 `json:"watchLiveTime,omitempty" xml:"watchLiveTime,omitempty"`
+	// 观看回放时长
+	WatchPlaybackTime *int64 `json:"watchPlaybackTime,omitempty" xml:"watchPlaybackTime,omitempty"`
+	// 回放观看进度
+	WatchProgressMs *int64 `json:"watchProgressMs,omitempty" xml:"watchProgressMs,omitempty"`
+}
+
+func (s QueryLiveWatchUserListResponseBodyResultOutOrgUserList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveWatchUserListResponseBodyResultOutOrgUserList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveWatchUserListResponseBodyResultOutOrgUserList) SetName(v string) *QueryLiveWatchUserListResponseBodyResultOutOrgUserList {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryLiveWatchUserListResponseBodyResultOutOrgUserList) SetWatchLiveTime(v int64) *QueryLiveWatchUserListResponseBodyResultOutOrgUserList {
+	s.WatchLiveTime = &v
+	return s
+}
+
+func (s *QueryLiveWatchUserListResponseBodyResultOutOrgUserList) SetWatchPlaybackTime(v int64) *QueryLiveWatchUserListResponseBodyResultOutOrgUserList {
+	s.WatchPlaybackTime = &v
+	return s
+}
+
+func (s *QueryLiveWatchUserListResponseBodyResultOutOrgUserList) SetWatchProgressMs(v int64) *QueryLiveWatchUserListResponseBodyResultOutOrgUserList {
+	s.WatchProgressMs = &v
+	return s
+}
+
+type QueryLiveWatchUserListResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryLiveWatchUserListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryLiveWatchUserListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveWatchUserListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveWatchUserListResponse) SetHeaders(v map[string]*string) *QueryLiveWatchUserListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryLiveWatchUserListResponse) SetBody(v *QueryLiveWatchUserListResponseBody) *QueryLiveWatchUserListResponse {
+	s.Body = v
+	return s
+}
+
 type StartCloudFeedHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -779,6 +1596,146 @@ func (s *StopCloudFeedResponse) SetHeaders(v map[string]*string) *StopCloudFeedR
 }
 
 func (s *StopCloudFeedResponse) SetBody(v *StopCloudFeedResponseBody) *StopCloudFeedResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateLiveHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateLiveHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLiveHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLiveHeaders) SetCommonHeaders(v map[string]*string) *UpdateLiveHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateLiveHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateLiveHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateLiveRequest struct {
+	// 直播封面
+	CoverUrl *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
+	// 简介
+	Introduction *string `json:"introduction,omitempty" xml:"introduction,omitempty"`
+	// 直播id
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// 预计结束时间
+	PreEndTime *int64 `json:"preEndTime,omitempty" xml:"preEndTime,omitempty"`
+	// 预计开播时间
+	PreStartTime *int64 `json:"preStartTime,omitempty" xml:"preStartTime,omitempty"`
+	// 标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 用户id（主播id）
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s UpdateLiveRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLiveRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLiveRequest) SetCoverUrl(v string) *UpdateLiveRequest {
+	s.CoverUrl = &v
+	return s
+}
+
+func (s *UpdateLiveRequest) SetIntroduction(v string) *UpdateLiveRequest {
+	s.Introduction = &v
+	return s
+}
+
+func (s *UpdateLiveRequest) SetLiveId(v string) *UpdateLiveRequest {
+	s.LiveId = &v
+	return s
+}
+
+func (s *UpdateLiveRequest) SetPreEndTime(v int64) *UpdateLiveRequest {
+	s.PreEndTime = &v
+	return s
+}
+
+func (s *UpdateLiveRequest) SetPreStartTime(v int64) *UpdateLiveRequest {
+	s.PreStartTime = &v
+	return s
+}
+
+func (s *UpdateLiveRequest) SetTitle(v string) *UpdateLiveRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *UpdateLiveRequest) SetUnionId(v string) *UpdateLiveRequest {
+	s.UnionId = &v
+	return s
+}
+
+type UpdateLiveResponseBody struct {
+	Result *UpdateLiveResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateLiveResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLiveResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLiveResponseBody) SetResult(v *UpdateLiveResponseBodyResult) *UpdateLiveResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateLiveResponseBodyResult struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateLiveResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLiveResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLiveResponseBodyResult) SetSuccess(v bool) *UpdateLiveResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type UpdateLiveResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateLiveResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateLiveResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLiveResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLiveResponse) SetHeaders(v map[string]*string) *UpdateLiveResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateLiveResponse) SetBody(v *UpdateLiveResponseBody) *UpdateLiveResponse {
 	s.Body = v
 	return s
 }
@@ -1033,6 +1990,118 @@ func (client *Client) CreateCloudFeedWithOptions(request *CreateCloudFeedRequest
 	return _result, _err
 }
 
+func (client *Client) CreateLive(request *CreateLiveRequest) (_result *CreateLiveResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateLiveHeaders{}
+	_result = &CreateLiveResponse{}
+	_body, _err := client.CreateLiveWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateLiveWithOptions(request *CreateLiveRequest, headers *CreateLiveHeaders, runtime *util.RuntimeOptions) (_result *CreateLiveResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CoverUrl)) {
+		body["coverUrl"] = request.CoverUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Introduction)) {
+		body["introduction"] = request.Introduction
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PreEndTime)) {
+		body["preEndTime"] = request.PreEndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PreStartTime)) {
+		body["preStartTime"] = request.PreStartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateLiveResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateLive"), tea.String("live_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/live/lives"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteLive(request *DeleteLiveRequest) (_result *DeleteLiveResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteLiveHeaders{}
+	_result = &DeleteLiveResponse{}
+	_body, _err := client.DeleteLiveWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteLiveWithOptions(request *DeleteLiveRequest, headers *DeleteLiveHeaders, runtime *util.RuntimeOptions) (_result *DeleteLiveResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LiveId)) {
+		query["liveId"] = request.LiveId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteLiveResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteLive"), tea.String("live_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/live/lives"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteLiveFeed(feedId *string, request *DeleteLiveFeedRequest) (_result *DeleteLiveFeedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteLiveFeedHeaders{}
@@ -1235,6 +2304,158 @@ func (client *Client) QueryFeedWhiteListWithOptions(feedId *string, request *Que
 	return _result, _err
 }
 
+func (client *Client) QueryLiveInfo(request *QueryLiveInfoRequest) (_result *QueryLiveInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryLiveInfoHeaders{}
+	_result = &QueryLiveInfoResponse{}
+	_body, _err := client.QueryLiveInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryLiveInfoWithOptions(request *QueryLiveInfoRequest, headers *QueryLiveInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryLiveInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LiveId)) {
+		query["liveId"] = request.LiveId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryLiveInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryLiveInfo"), tea.String("live_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/live/lives"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryLiveWatchDetail(request *QueryLiveWatchDetailRequest) (_result *QueryLiveWatchDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryLiveWatchDetailHeaders{}
+	_result = &QueryLiveWatchDetailResponse{}
+	_body, _err := client.QueryLiveWatchDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryLiveWatchDetailWithOptions(request *QueryLiveWatchDetailRequest, headers *QueryLiveWatchDetailHeaders, runtime *util.RuntimeOptions) (_result *QueryLiveWatchDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LiveId)) {
+		query["liveId"] = request.LiveId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryLiveWatchDetailResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryLiveWatchDetail"), tea.String("live_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/live/lives/watchDetails"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryLiveWatchUserList(request *QueryLiveWatchUserListRequest) (_result *QueryLiveWatchUserListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryLiveWatchUserListHeaders{}
+	_result = &QueryLiveWatchUserListResponse{}
+	_body, _err := client.QueryLiveWatchUserListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryLiveWatchUserListWithOptions(request *QueryLiveWatchUserListRequest, headers *QueryLiveWatchUserListHeaders, runtime *util.RuntimeOptions) (_result *QueryLiveWatchUserListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LiveId)) {
+		query["liveId"] = request.LiveId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryLiveWatchUserListResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryLiveWatchUserList"), tea.String("live_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/live/lives/watchUsers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) StartCloudFeed(feedId *string, request *StartCloudFeedRequest) (_result *StartCloudFeedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &StartCloudFeedHeaders{}
@@ -1318,6 +2539,74 @@ func (client *Client) StopCloudFeedWithOptions(feedId *string, request *StopClou
 	}
 	_result = &StopCloudFeedResponse{}
 	_body, _err := client.DoROARequest(tea.String("StopCloudFeed"), tea.String("live_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/live/cloudFeeds/"+tea.StringValue(feedId)+"/stop"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateLive(request *UpdateLiveRequest) (_result *UpdateLiveResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateLiveHeaders{}
+	_result = &UpdateLiveResponse{}
+	_body, _err := client.UpdateLiveWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateLiveWithOptions(request *UpdateLiveRequest, headers *UpdateLiveHeaders, runtime *util.RuntimeOptions) (_result *UpdateLiveResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CoverUrl)) {
+		body["coverUrl"] = request.CoverUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Introduction)) {
+		body["introduction"] = request.Introduction
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LiveId)) {
+		body["liveId"] = request.LiveId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PreEndTime)) {
+		body["preEndTime"] = request.PreEndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PreStartTime)) {
+		body["preStartTime"] = request.PreStartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateLiveResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateLive"), tea.String("live_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/live/lives"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
