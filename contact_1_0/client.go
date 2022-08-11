@@ -11,6 +11,208 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AnnualCertificationAuditHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AnnualCertificationAuditHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnnualCertificationAuditHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AnnualCertificationAuditHeaders) SetCommonHeaders(v map[string]*string) *AnnualCertificationAuditHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AnnualCertificationAuditHeaders) SetXAcsDingtalkAccessToken(v string) *AnnualCertificationAuditHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AnnualCertificationAuditRequest struct {
+	// 申请人手机号。
+	ApplicantMobile *string `json:"applicantMobile,omitempty" xml:"applicantMobile,omitempty"`
+	// 申请人姓名。
+	ApplicantName *string `json:"applicantName,omitempty" xml:"applicantName,omitempty"`
+	// 认证/修改认证授权函
+	ApplicationLetter *string `json:"applicationLetter,omitempty" xml:"applicationLetter,omitempty"`
+	// 结果状态
+	// 1: 认证中预警 和 认证中需要补充材料 合并，通过code区分
+	// 2:认证失败
+	// 3:审核通过
+	AuthStatus *int32 `json:"authStatus,omitempty" xml:"authStatus,omitempty"`
+	// 证书类型：
+	//
+	// 0：社会统一信用代码
+	//
+	// 1：其它
+	CertificateType *int32 `json:"certificateType,omitempty" xml:"certificateType,omitempty"`
+	// 用户提交的企业名称
+	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
+	// 开户行。
+	DepositaryBank *string `json:"depositaryBank,omitempty" xml:"depositaryBank,omitempty"`
+	// 扩展字段，json格式传递，传递上面字段的额外字段。
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// 法人姓名。
+	LegalPerson *string `json:"legalPerson,omitempty" xml:"legalPerson,omitempty"`
+	// 证件号：
+	//
+	// 营业执照注册号（一般15位）
+	//
+	// 社会统一信用代码（固定18位）
+	//
+	// 组织机构代码证号（格式11111111-1）
+	LicenseNumber *string `json:"licenseNumber,omitempty" xml:"licenseNumber,omitempty"`
+	// 企业证件照片url。
+	LicenseUrl *string `json:"licenseUrl,omitempty" xml:"licenseUrl,omitempty"`
+	// 订单ID
+	OrderId *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	// 对公账号。
+	PublicAccount *string `json:"publicAccount,omitempty" xml:"publicAccount,omitempty"`
+	// 失败原因，认证中预警 和 认证中需要补充材料以及认证失败时需要提供。
+	ReasonCode *string `json:"reasonCode,omitempty" xml:"reasonCode,omitempty"`
+	ReasonMsg  *string `json:"reasonMsg,omitempty" xml:"reasonMsg,omitempty"`
+	// 送审打标类型：
+	//
+	// "V":四要素通过
+	//
+	// "AV"：四要素未通过
+	Tag *string `json:"tag,omitempty" xml:"tag,omitempty"`
+}
+
+func (s AnnualCertificationAuditRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnnualCertificationAuditRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AnnualCertificationAuditRequest) SetApplicantMobile(v string) *AnnualCertificationAuditRequest {
+	s.ApplicantMobile = &v
+	return s
+}
+
+func (s *AnnualCertificationAuditRequest) SetApplicantName(v string) *AnnualCertificationAuditRequest {
+	s.ApplicantName = &v
+	return s
+}
+
+func (s *AnnualCertificationAuditRequest) SetApplicationLetter(v string) *AnnualCertificationAuditRequest {
+	s.ApplicationLetter = &v
+	return s
+}
+
+func (s *AnnualCertificationAuditRequest) SetAuthStatus(v int32) *AnnualCertificationAuditRequest {
+	s.AuthStatus = &v
+	return s
+}
+
+func (s *AnnualCertificationAuditRequest) SetCertificateType(v int32) *AnnualCertificationAuditRequest {
+	s.CertificateType = &v
+	return s
+}
+
+func (s *AnnualCertificationAuditRequest) SetCorpName(v string) *AnnualCertificationAuditRequest {
+	s.CorpName = &v
+	return s
+}
+
+func (s *AnnualCertificationAuditRequest) SetDepositaryBank(v string) *AnnualCertificationAuditRequest {
+	s.DepositaryBank = &v
+	return s
+}
+
+func (s *AnnualCertificationAuditRequest) SetExtension(v string) *AnnualCertificationAuditRequest {
+	s.Extension = &v
+	return s
+}
+
+func (s *AnnualCertificationAuditRequest) SetLegalPerson(v string) *AnnualCertificationAuditRequest {
+	s.LegalPerson = &v
+	return s
+}
+
+func (s *AnnualCertificationAuditRequest) SetLicenseNumber(v string) *AnnualCertificationAuditRequest {
+	s.LicenseNumber = &v
+	return s
+}
+
+func (s *AnnualCertificationAuditRequest) SetLicenseUrl(v string) *AnnualCertificationAuditRequest {
+	s.LicenseUrl = &v
+	return s
+}
+
+func (s *AnnualCertificationAuditRequest) SetOrderId(v string) *AnnualCertificationAuditRequest {
+	s.OrderId = &v
+	return s
+}
+
+func (s *AnnualCertificationAuditRequest) SetPublicAccount(v string) *AnnualCertificationAuditRequest {
+	s.PublicAccount = &v
+	return s
+}
+
+func (s *AnnualCertificationAuditRequest) SetReasonCode(v string) *AnnualCertificationAuditRequest {
+	s.ReasonCode = &v
+	return s
+}
+
+func (s *AnnualCertificationAuditRequest) SetReasonMsg(v string) *AnnualCertificationAuditRequest {
+	s.ReasonMsg = &v
+	return s
+}
+
+func (s *AnnualCertificationAuditRequest) SetTag(v string) *AnnualCertificationAuditRequest {
+	s.Tag = &v
+	return s
+}
+
+type AnnualCertificationAuditResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s AnnualCertificationAuditResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnnualCertificationAuditResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AnnualCertificationAuditResponseBody) SetResult(v bool) *AnnualCertificationAuditResponseBody {
+	s.Result = &v
+	return s
+}
+
+type AnnualCertificationAuditResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AnnualCertificationAuditResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AnnualCertificationAuditResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnnualCertificationAuditResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AnnualCertificationAuditResponse) SetHeaders(v map[string]*string) *AnnualCertificationAuditResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AnnualCertificationAuditResponse) SetBody(v *AnnualCertificationAuditResponseBody) *AnnualCertificationAuditResponse {
+	s.Body = v
+	return s
+}
+
 type BatchApproveUnionApplyHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6255,6 +6457,110 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) AnnualCertificationAudit(request *AnnualCertificationAuditRequest) (_result *AnnualCertificationAuditResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AnnualCertificationAuditHeaders{}
+	_result = &AnnualCertificationAuditResponse{}
+	_body, _err := client.AnnualCertificationAuditWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AnnualCertificationAuditWithOptions(request *AnnualCertificationAuditRequest, headers *AnnualCertificationAuditHeaders, runtime *util.RuntimeOptions) (_result *AnnualCertificationAuditResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ApplicantMobile)) {
+		body["applicantMobile"] = request.ApplicantMobile
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ApplicantName)) {
+		body["applicantName"] = request.ApplicantName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ApplicationLetter)) {
+		body["applicationLetter"] = request.ApplicationLetter
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AuthStatus)) {
+		body["authStatus"] = request.AuthStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CertificateType)) {
+		body["certificateType"] = request.CertificateType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpName)) {
+		body["corpName"] = request.CorpName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DepositaryBank)) {
+		body["depositaryBank"] = request.DepositaryBank
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extension)) {
+		body["extension"] = request.Extension
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LegalPerson)) {
+		body["legalPerson"] = request.LegalPerson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LicenseNumber)) {
+		body["licenseNumber"] = request.LicenseNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LicenseUrl)) {
+		body["licenseUrl"] = request.LicenseUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderId)) {
+		body["orderId"] = request.OrderId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PublicAccount)) {
+		body["publicAccount"] = request.PublicAccount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReasonCode)) {
+		body["reasonCode"] = request.ReasonCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReasonMsg)) {
+		body["reasonMsg"] = request.ReasonMsg
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Tag)) {
+		body["tag"] = request.Tag
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AnnualCertificationAuditResponse{}
+	_body, _err := client.DoROARequest(tea.String("AnnualCertificationAudit"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/organizations/authorities/audit"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) BatchApproveUnionApply(request *BatchApproveUnionApplyRequest) (_result *BatchApproveUnionApplyResponse, _err error) {
