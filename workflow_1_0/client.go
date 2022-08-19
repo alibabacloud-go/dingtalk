@@ -410,6 +410,184 @@ func (s *SelectOption) SetValue(v string) *SelectOption {
 	return s
 }
 
+type CopyProcessHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CopyProcessHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyProcessHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CopyProcessHeaders) SetCommonHeaders(v map[string]*string) *CopyProcessHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CopyProcessHeaders) SetXAcsDingtalkAccessToken(v string) *CopyProcessHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CopyProcessRequest struct {
+	// 复制选项
+	CopyOptions  *CopyProcessRequestCopyOptions `json:"copyOptions,omitempty" xml:"copyOptions,omitempty" type:"Struct"`
+	SourceCorpId *string                        `json:"sourceCorpId,omitempty" xml:"sourceCorpId,omitempty"`
+	// 源模版列表
+	SourceProcessVOList []*CopyProcessRequestSourceProcessVOList `json:"sourceProcessVOList,omitempty" xml:"sourceProcessVOList,omitempty" type:"Repeated"`
+}
+
+func (s CopyProcessRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyProcessRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CopyProcessRequest) SetCopyOptions(v *CopyProcessRequestCopyOptions) *CopyProcessRequest {
+	s.CopyOptions = v
+	return s
+}
+
+func (s *CopyProcessRequest) SetSourceCorpId(v string) *CopyProcessRequest {
+	s.SourceCorpId = &v
+	return s
+}
+
+func (s *CopyProcessRequest) SetSourceProcessVOList(v []*CopyProcessRequestSourceProcessVOList) *CopyProcessRequest {
+	s.SourceProcessVOList = v
+	return s
+}
+
+type CopyProcessRequestCopyOptions struct {
+	// 默认为1
+	// COPE_TYPE_DEFAULT = 1 默认会使用groupId进行隔离分组，审批首页不可见
+	// COPE_TYPE_INCLUDE_FLOW = 2 使用dingtalk 2作为隔离分组，审批首页可见
+	CopyType *int32 `json:"copyType,omitempty" xml:"copyType,omitempty"`
+}
+
+func (s CopyProcessRequestCopyOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyProcessRequestCopyOptions) GoString() string {
+	return s.String()
+}
+
+func (s *CopyProcessRequestCopyOptions) SetCopyType(v int32) *CopyProcessRequestCopyOptions {
+	s.CopyType = &v
+	return s
+}
+
+type CopyProcessRequestSourceProcessVOList struct {
+	// 套件业务标识
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 模板名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 模板code
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s CopyProcessRequestSourceProcessVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyProcessRequestSourceProcessVOList) GoString() string {
+	return s.String()
+}
+
+func (s *CopyProcessRequestSourceProcessVOList) SetBizType(v string) *CopyProcessRequestSourceProcessVOList {
+	s.BizType = &v
+	return s
+}
+
+func (s *CopyProcessRequestSourceProcessVOList) SetName(v string) *CopyProcessRequestSourceProcessVOList {
+	s.Name = &v
+	return s
+}
+
+func (s *CopyProcessRequestSourceProcessVOList) SetProcessCode(v string) *CopyProcessRequestSourceProcessVOList {
+	s.ProcessCode = &v
+	return s
+}
+
+type CopyProcessResponseBody struct {
+	Result []*CopyProcessResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s CopyProcessResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyProcessResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CopyProcessResponseBody) SetResult(v []*CopyProcessResponseBodyResult) *CopyProcessResponseBody {
+	s.Result = v
+	return s
+}
+
+type CopyProcessResponseBodyResult struct {
+	// 业务标识
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 模板名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 模板code
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s CopyProcessResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyProcessResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CopyProcessResponseBodyResult) SetBizType(v string) *CopyProcessResponseBodyResult {
+	s.BizType = &v
+	return s
+}
+
+func (s *CopyProcessResponseBodyResult) SetName(v string) *CopyProcessResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *CopyProcessResponseBodyResult) SetProcessCode(v string) *CopyProcessResponseBodyResult {
+	s.ProcessCode = &v
+	return s
+}
+
+type CopyProcessResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CopyProcessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CopyProcessResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyProcessResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CopyProcessResponse) SetHeaders(v map[string]*string) *CopyProcessResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CopyProcessResponse) SetBody(v *CopyProcessResponseBody) *CopyProcessResponse {
+	s.Body = v
+	return s
+}
+
 type FormCreateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2841,6 +3019,139 @@ func (s *QueryFormInstanceResponse) SetBody(v *QueryFormInstanceResponseBody) *Q
 	return s
 }
 
+type QueryProcessByBizCategoryIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryProcessByBizCategoryIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryProcessByBizCategoryIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryProcessByBizCategoryIdHeaders) SetCommonHeaders(v map[string]*string) *QueryProcessByBizCategoryIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryProcessByBizCategoryIdHeaders) SetXAcsDingtalkAccessToken(v string) *QueryProcessByBizCategoryIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryProcessByBizCategoryIdRequest struct {
+	// 业务标识
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryProcessByBizCategoryIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryProcessByBizCategoryIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryProcessByBizCategoryIdRequest) SetBizType(v string) *QueryProcessByBizCategoryIdRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *QueryProcessByBizCategoryIdRequest) SetUserId(v string) *QueryProcessByBizCategoryIdRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryProcessByBizCategoryIdResponseBody struct {
+	Result []*QueryProcessByBizCategoryIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s QueryProcessByBizCategoryIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryProcessByBizCategoryIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryProcessByBizCategoryIdResponseBody) SetResult(v []*QueryProcessByBizCategoryIdResponseBodyResult) *QueryProcessByBizCategoryIdResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryProcessByBizCategoryIdResponseBodyResult struct {
+	// 模板描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 模板名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 模板code
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// 模版发布状态。
+	//
+	// - PUBLISHED：已启用
+	//
+	// - INVALID：停用
+	//
+	// - SAVED：已保存
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QueryProcessByBizCategoryIdResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryProcessByBizCategoryIdResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryProcessByBizCategoryIdResponseBodyResult) SetDescription(v string) *QueryProcessByBizCategoryIdResponseBodyResult {
+	s.Description = &v
+	return s
+}
+
+func (s *QueryProcessByBizCategoryIdResponseBodyResult) SetName(v string) *QueryProcessByBizCategoryIdResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryProcessByBizCategoryIdResponseBodyResult) SetProcessCode(v string) *QueryProcessByBizCategoryIdResponseBodyResult {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *QueryProcessByBizCategoryIdResponseBodyResult) SetStatus(v string) *QueryProcessByBizCategoryIdResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+type QueryProcessByBizCategoryIdResponse struct {
+	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryProcessByBizCategoryIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryProcessByBizCategoryIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryProcessByBizCategoryIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryProcessByBizCategoryIdResponse) SetHeaders(v map[string]*string) *QueryProcessByBizCategoryIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryProcessByBizCategoryIdResponse) SetBody(v *QueryProcessByBizCategoryIdResponseBody) *QueryProcessByBizCategoryIdResponse {
+	s.Body = v
+	return s
+}
+
 type QuerySchemaByProcessCodeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4055,6 +4366,58 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) CopyProcess(request *CopyProcessRequest) (_result *CopyProcessResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CopyProcessHeaders{}
+	_result = &CopyProcessResponse{}
+	_body, _err := client.CopyProcessWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CopyProcessWithOptions(request *CopyProcessRequest, headers *CopyProcessHeaders, runtime *util.RuntimeOptions) (_result *CopyProcessResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CopyOptions))) {
+		body["copyOptions"] = request.CopyOptions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceCorpId)) {
+		body["sourceCorpId"] = request.SourceCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceProcessVOList)) {
+		body["sourceProcessVOList"] = request.SourceProcessVOList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CopyProcessResponse{}
+	_body, _err := client.DoROARequest(tea.String("CopyProcess"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processes/copy"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) FormCreate(request *FormCreateRequest) (_result *FormCreateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &FormCreateHeaders{}
@@ -4518,6 +4881,54 @@ func (client *Client) QueryFormInstanceWithOptions(request *QueryFormInstanceReq
 	}
 	_result = &QueryFormInstanceResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryFormInstance"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/forms/instances"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryProcessByBizCategoryId(request *QueryProcessByBizCategoryIdRequest) (_result *QueryProcessByBizCategoryIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryProcessByBizCategoryIdHeaders{}
+	_result = &QueryProcessByBizCategoryIdResponse{}
+	_body, _err := client.QueryProcessByBizCategoryIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryProcessByBizCategoryIdWithOptions(request *QueryProcessByBizCategoryIdRequest, headers *QueryProcessByBizCategoryIdHeaders, runtime *util.RuntimeOptions) (_result *QueryProcessByBizCategoryIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		query["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryProcessByBizCategoryIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryProcessByBizCategoryId"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/processes/categories/templates"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
