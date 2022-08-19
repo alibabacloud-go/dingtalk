@@ -1951,6 +1951,106 @@ func (s *GetProjectGroupResponse) SetBody(v *GetProjectGroupResponseBody) *GetPr
 	return s
 }
 
+type GetTbOrgIdByDingOrgIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTbOrgIdByDingOrgIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTbOrgIdByDingOrgIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTbOrgIdByDingOrgIdHeaders) SetCommonHeaders(v map[string]*string) *GetTbOrgIdByDingOrgIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTbOrgIdByDingOrgIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetTbOrgIdByDingOrgIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTbOrgIdByDingOrgIdRequest struct {
+	// 操作者userId
+	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+}
+
+func (s GetTbOrgIdByDingOrgIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTbOrgIdByDingOrgIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTbOrgIdByDingOrgIdRequest) SetOptUserId(v string) *GetTbOrgIdByDingOrgIdRequest {
+	s.OptUserId = &v
+	return s
+}
+
+type GetTbOrgIdByDingOrgIdResponseBody struct {
+	// 结果对象
+	Result *GetTbOrgIdByDingOrgIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetTbOrgIdByDingOrgIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTbOrgIdByDingOrgIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTbOrgIdByDingOrgIdResponseBody) SetResult(v *GetTbOrgIdByDingOrgIdResponseBodyResult) *GetTbOrgIdByDingOrgIdResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetTbOrgIdByDingOrgIdResponseBodyResult struct {
+	// Teambition企业Id
+	TbOrganizationId *string `json:"tbOrganizationId,omitempty" xml:"tbOrganizationId,omitempty"`
+}
+
+func (s GetTbOrgIdByDingOrgIdResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTbOrgIdByDingOrgIdResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetTbOrgIdByDingOrgIdResponseBodyResult) SetTbOrganizationId(v string) *GetTbOrgIdByDingOrgIdResponseBodyResult {
+	s.TbOrganizationId = &v
+	return s
+}
+
+type GetTbOrgIdByDingOrgIdResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetTbOrgIdByDingOrgIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetTbOrgIdByDingOrgIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTbOrgIdByDingOrgIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTbOrgIdByDingOrgIdResponse) SetHeaders(v map[string]*string) *GetTbOrgIdByDingOrgIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTbOrgIdByDingOrgIdResponse) SetBody(v *GetTbOrgIdByDingOrgIdResponseBody) *GetTbOrgIdByDingOrgIdResponse {
+	s.Body = v
+	return s
+}
+
 type GetTbProjectGrayHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	DingAccessTokenType     *string            `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
@@ -2158,6 +2258,113 @@ func (s *GetTbProjectSourceResponse) SetHeaders(v map[string]*string) *GetTbProj
 }
 
 func (s *GetTbProjectSourceResponse) SetBody(v *GetTbProjectSourceResponseBody) *GetTbProjectSourceResponse {
+	s.Body = v
+	return s
+}
+
+type GetTbUserIdByStaffIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTbUserIdByStaffIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTbUserIdByStaffIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTbUserIdByStaffIdHeaders) SetCommonHeaders(v map[string]*string) *GetTbUserIdByStaffIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTbUserIdByStaffIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetTbUserIdByStaffIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTbUserIdByStaffIdRequest struct {
+	// 操作者userId
+	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+	// 用户userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetTbUserIdByStaffIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTbUserIdByStaffIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTbUserIdByStaffIdRequest) SetOptUserId(v string) *GetTbUserIdByStaffIdRequest {
+	s.OptUserId = &v
+	return s
+}
+
+func (s *GetTbUserIdByStaffIdRequest) SetUserId(v string) *GetTbUserIdByStaffIdRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetTbUserIdByStaffIdResponseBody struct {
+	// 结果对象
+	Result *GetTbUserIdByStaffIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetTbUserIdByStaffIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTbUserIdByStaffIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTbUserIdByStaffIdResponseBody) SetResult(v *GetTbUserIdByStaffIdResponseBodyResult) *GetTbUserIdByStaffIdResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetTbUserIdByStaffIdResponseBodyResult struct {
+	// Teambition用户id
+	TbUserId *string `json:"tbUserId,omitempty" xml:"tbUserId,omitempty"`
+}
+
+func (s GetTbUserIdByStaffIdResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTbUserIdByStaffIdResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetTbUserIdByStaffIdResponseBodyResult) SetTbUserId(v string) *GetTbUserIdByStaffIdResponseBodyResult {
+	s.TbUserId = &v
+	return s
+}
+
+type GetTbUserIdByStaffIdResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetTbUserIdByStaffIdResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetTbUserIdByStaffIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTbUserIdByStaffIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTbUserIdByStaffIdResponse) SetHeaders(v map[string]*string) *GetTbUserIdByStaffIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTbUserIdByStaffIdResponse) SetBody(v *GetTbUserIdByStaffIdResponseBody) *GetTbUserIdByStaffIdResponse {
 	s.Body = v
 	return s
 }
@@ -3983,6 +4190,50 @@ func (client *Client) GetProjectGroupWithOptions(userId *string, request *GetPro
 	return _result, _err
 }
 
+func (client *Client) GetTbOrgIdByDingOrgId(request *GetTbOrgIdByDingOrgIdRequest) (_result *GetTbOrgIdByDingOrgIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTbOrgIdByDingOrgIdHeaders{}
+	_result = &GetTbOrgIdByDingOrgIdResponse{}
+	_body, _err := client.GetTbOrgIdByDingOrgIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetTbOrgIdByDingOrgIdWithOptions(request *GetTbOrgIdByDingOrgIdRequest, headers *GetTbOrgIdByDingOrgIdHeaders, runtime *util.RuntimeOptions) (_result *GetTbOrgIdByDingOrgIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OptUserId)) {
+		query["optUserId"] = request.OptUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetTbOrgIdByDingOrgIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetTbOrgIdByDingOrgId"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/teambition/organizations"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetTbProjectGray(request *GetTbProjectGrayRequest) (_result *GetTbProjectGrayResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTbProjectGrayHeaders{}
@@ -4094,6 +4345,54 @@ func (client *Client) GetTbProjectSourceWithOptions(headers *GetTbProjectSourceH
 	}
 	_result = &GetTbProjectSourceResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetTbProjectSource"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/projects/source"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetTbUserIdByStaffId(request *GetTbUserIdByStaffIdRequest) (_result *GetTbUserIdByStaffIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTbUserIdByStaffIdHeaders{}
+	_result = &GetTbUserIdByStaffIdResponse{}
+	_body, _err := client.GetTbUserIdByStaffIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetTbUserIdByStaffIdWithOptions(request *GetTbUserIdByStaffIdRequest, headers *GetTbUserIdByStaffIdHeaders, runtime *util.RuntimeOptions) (_result *GetTbUserIdByStaffIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OptUserId)) {
+		query["optUserId"] = request.OptUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetTbUserIdByStaffIdResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetTbUserIdByStaffId"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/teambition/users"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

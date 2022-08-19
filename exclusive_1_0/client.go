@@ -7367,6 +7367,95 @@ func (s *SendInvitationResponse) SetHeaders(v map[string]*string) *SendInvitatio
 	return s
 }
 
+type SendPhoneDingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendPhoneDingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendPhoneDingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendPhoneDingHeaders) SetCommonHeaders(v map[string]*string) *SendPhoneDingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendPhoneDingHeaders) SetXAcsDingtalkAccessToken(v string) *SendPhoneDingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendPhoneDingRequest struct {
+	// 消息内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 接收DING消息的用户列表
+	Userids []*string `json:"userids,omitempty" xml:"userids,omitempty" type:"Repeated"`
+}
+
+func (s SendPhoneDingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendPhoneDingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendPhoneDingRequest) SetContent(v string) *SendPhoneDingRequest {
+	s.Content = &v
+	return s
+}
+
+func (s *SendPhoneDingRequest) SetUserids(v []*string) *SendPhoneDingRequest {
+	s.Userids = v
+	return s
+}
+
+type SendPhoneDingResponseBody struct {
+	// 本次操作是否更新成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SendPhoneDingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendPhoneDingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendPhoneDingResponseBody) SetSuccess(v bool) *SendPhoneDingResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SendPhoneDingResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SendPhoneDingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendPhoneDingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendPhoneDingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendPhoneDingResponse) SetHeaders(v map[string]*string) *SendPhoneDingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendPhoneDingResponse) SetBody(v *SendPhoneDingResponseBody) *SendPhoneDingResponse {
+	s.Body = v
+	return s
+}
+
 type SetDeptPartnerTypeAndNumHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10606,6 +10695,54 @@ func (client *Client) SendInvitationWithOptions(request *SendInvitationRequest, 
 	}
 	_result = &SendInvitationResponse{}
 	_body, _err := client.DoROARequest(tea.String("SendInvitation"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/partnerDepartments/invitations/send"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendPhoneDing(request *SendPhoneDingRequest) (_result *SendPhoneDingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendPhoneDingHeaders{}
+	_result = &SendPhoneDingResponse{}
+	_body, _err := client.SendPhoneDingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendPhoneDingWithOptions(request *SendPhoneDingRequest, headers *SendPhoneDingHeaders, runtime *util.RuntimeOptions) (_result *SendPhoneDingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Userids)) {
+		body["userids"] = request.Userids
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendPhoneDingResponse{}
+	_body, _err := client.DoROARequest(tea.String("SendPhoneDing"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/phoneDings/send"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

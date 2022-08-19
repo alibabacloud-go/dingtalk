@@ -1629,7 +1629,8 @@ type GetAdjustmentsResponseBodyResultItems struct {
 	// 补卡规则id
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
 	// 补卡规则名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	SettingId *int64  `json:"settingId,omitempty" xml:"settingId,omitempty"`
 }
 
 func (s GetAdjustmentsResponseBodyResultItems) String() string {
@@ -1647,6 +1648,11 @@ func (s *GetAdjustmentsResponseBodyResultItems) SetId(v int64) *GetAdjustmentsRe
 
 func (s *GetAdjustmentsResponseBodyResultItems) SetName(v string) *GetAdjustmentsResponseBodyResultItems {
 	s.Name = &v
+	return s
+}
+
+func (s *GetAdjustmentsResponseBodyResultItems) SetSettingId(v int64) *GetAdjustmentsResponseBodyResultItems {
+	s.SettingId = &v
 	return s
 }
 
@@ -3109,7 +3115,8 @@ type GetSimpleOvertimeSettingResponseBodyResultItems struct {
 	// 加班规则id
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
 	// 加班规则名称
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	SettingId *int64  `json:"settingId,omitempty" xml:"settingId,omitempty"`
 }
 
 func (s GetSimpleOvertimeSettingResponseBodyResultItems) String() string {
@@ -3127,6 +3134,11 @@ func (s *GetSimpleOvertimeSettingResponseBodyResultItems) SetId(v int64) *GetSim
 
 func (s *GetSimpleOvertimeSettingResponseBodyResultItems) SetName(v string) *GetSimpleOvertimeSettingResponseBodyResultItems {
 	s.Name = &v
+	return s
+}
+
+func (s *GetSimpleOvertimeSettingResponseBodyResultItems) SetSettingId(v int64) *GetSimpleOvertimeSettingResponseBodyResultItems {
+	s.SettingId = &v
 	return s
 }
 
@@ -3309,6 +3321,1192 @@ func (s *GetUserHolidaysResponse) SetHeaders(v map[string]*string) *GetUserHolid
 }
 
 func (s *GetUserHolidaysResponse) SetBody(v *GetUserHolidaysResponseBody) *GetUserHolidaysResponse {
+	s.Body = v
+	return s
+}
+
+type GroupAddHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GroupAddHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupAddHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GroupAddHeaders) SetCommonHeaders(v map[string]*string) *GroupAddHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GroupAddHeaders) SetXAcsDingtalkAccessToken(v string) *GroupAddHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GroupAddRequest struct {
+	// 补卡规则settingId。
+	AdjustmentSettingId *int64 `json:"adjustmentSettingId,omitempty" xml:"adjustmentSettingId,omitempty"`
+	// 蓝牙打卡相关配置信息。
+	BleDeviceList []*GroupAddRequestBleDeviceList `json:"bleDeviceList,omitempty" xml:"bleDeviceList,omitempty" type:"Repeated"`
+	// 打卡是否需要健康码：
+	//
+	// true：开启
+	//
+	// false：关闭（默认值）
+	CheckNeedHealthyCode *bool `json:"checkNeedHealthyCode,omitempty" xml:"checkNeedHealthyCode,omitempty"`
+	// 默认班次ID。
+	//
+	// 说明 固定班制必填，可通过获取班次摘要信息接口获取
+	DefaultClassId *int64 `json:"defaultClassId,omitempty" xml:"defaultClassId,omitempty"`
+	// 休息日打卡是否需审批：
+	//
+	// true：需要
+	//
+	// false：不需要
+	DisableCheckWhenRest *bool `json:"disableCheckWhenRest,omitempty" xml:"disableCheckWhenRest,omitempty"`
+	// 未排班时是否禁止员工打卡。
+	DisableCheckWithoutSchedule *bool `json:"disableCheckWithoutSchedule,omitempty" xml:"disableCheckWithoutSchedule,omitempty"`
+	// 是否开启拍照打卡。
+	//
+	// true：开启
+	//
+	// false：关闭（默认值）
+	EnableCameraCheck *bool `json:"enableCameraCheck,omitempty" xml:"enableCameraCheck,omitempty"`
+	// 未排班时是否允许员工选择班次打卡。
+	EnableEmpSelectClass *bool `json:"enableEmpSelectClass,omitempty" xml:"enableEmpSelectClass,omitempty"`
+	// 是否开启人脸检测。
+	//
+	// true：开启
+	//
+	// false：关闭（默认值）
+	EnableFaceCheck *bool `json:"enableFaceCheck,omitempty" xml:"enableFaceCheck,omitempty"`
+	// 是否开启真人验证。
+	EnableFaceStrictMode *bool `json:"enableFaceStrictMode,omitempty" xml:"enableFaceStrictMode,omitempty"`
+	// 是否第二天生效。
+	// true：是
+	// false：否
+	EnableNextDay *bool `json:"enableNextDay,omitempty" xml:"enableNextDay,omitempty"`
+	// 是否允许外勤卡更新内勤卡。
+	EnableOutSideUpdateNormalCheck *bool `json:"enableOutSideUpdateNormalCheck,omitempty" xml:"enableOutSideUpdateNormalCheck,omitempty"`
+	// 外勤打卡是否需要审批。
+	EnableOutsideApply *bool `json:"enableOutsideApply,omitempty" xml:"enableOutsideApply,omitempty"`
+	// 是否开启外勤打卡必须拍照。
+	//
+	// true：开启
+	//
+	// false：关闭（默认值）
+	EnableOutsideCameraCheck *bool `json:"enableOutsideCameraCheck,omitempty" xml:"enableOutsideCameraCheck,omitempty"`
+	// 是否可以外勤打卡。
+	//
+	// true：允许（默认值）
+	//
+	// false：不允许
+	EnableOutsideCheck *bool `json:"enableOutsideCheck,omitempty" xml:"enableOutsideCheck,omitempty"`
+	// 外勤打卡是否需要拍照备注。
+	EnableOutsideRemark *bool `json:"enableOutsideRemark,omitempty" xml:"enableOutsideRemark,omitempty"`
+	// 是否启用蓝牙定位。
+	EnablePositionBle *bool `json:"enablePositionBle,omitempty" xml:"enablePositionBle,omitempty"`
+	// 是否允许地点微调距离。
+	EnableTrimDistance *bool `json:"enableTrimDistance,omitempty" xml:"enableTrimDistance,omitempty"`
+	// 是否禁止员工隐藏详细地址。
+	ForbidHideOutSideAddress *bool `json:"forbidHideOutSideAddress,omitempty" xml:"forbidHideOutSideAddress,omitempty"`
+	// 休息日打卡规则。
+	FreeCheckSetting *GroupAddRequestFreeCheckSetting `json:"freeCheckSetting,omitempty" xml:"freeCheckSetting,omitempty" type:"Struct"`
+	// 休息日打卡方式。
+	// 0严格打卡模式
+	// 1标准打卡模式
+	FreeCheckTypeId *int32 `json:"freeCheckTypeId,omitempty" xml:"freeCheckTypeId,omitempty"`
+	// 自由工时考勤组考勤开始时间与当天0点偏移分钟数。
+	//
+	// 例如：540表示9:00
+	FreecheckDayStartMinOffset *int32 `json:"freecheckDayStartMinOffset,omitempty" xml:"freecheckDayStartMinOffset,omitempty"`
+	// 自由工时考勤组工作日。
+	// 说明
+	// 0表示休息。
+	// 数组内的值，从左到右依次代表周日到周六，每日的排班情况。
+	FreecheckWorkDays []*int64 `json:"freecheckWorkDays,omitempty" xml:"freecheckWorkDays,omitempty" type:"Repeated"`
+	// 考勤组ID。
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// 考勤组名。
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 考勤组子管理员userid列表。
+	ManagerList []*string `json:"managerList,omitempty" xml:"managerList,omitempty" type:"Repeated"`
+	// 考勤组成员相关设置信息。
+	Members []*GroupAddRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// 是否有修改考勤组成员相关信息。
+	ModifyMember *bool `json:"modifyMember,omitempty" xml:"modifyMember,omitempty"`
+	// 考勤范围。
+	Offset *int32 `json:"offset,omitempty" xml:"offset,omitempty"`
+	// 是否开启人脸打卡。
+	OpenFaceCheck *bool `json:"openFaceCheck,omitempty" xml:"openFaceCheck,omitempty"`
+	// 外勤打卡审批模式-1无需审批，0先审批后打卡是1先打卡后审批
+	OutsideCheckApproveModeId *int32 `json:"outsideCheckApproveModeId,omitempty" xml:"outsideCheckApproveModeId,omitempty"`
+	// 加班规则settingId。
+	OvertimeSettingId *int64 `json:"overtimeSettingId,omitempty" xml:"overtimeSettingId,omitempty"`
+	// 考勤组负责人。
+	Owner *string `json:"owner,omitempty" xml:"owner,omitempty"`
+	// 考勤地点相关设置信息。
+	Positions []*GroupAddRequestPositions `json:"positions,omitempty" xml:"positions,omitempty" type:"Repeated"`
+	// 子管理员权限范围。
+	//
+	// w：可管理
+	//
+	// r：可读
+	ResourcePermissionMap []*GroupAddRequestResourcePermissionMap `json:"resourcePermissionMap,omitempty" xml:"resourcePermissionMap,omitempty" type:"Repeated"`
+	// 班次相关配置信息。
+	ShiftVOList []*GroupAddRequestShiftVOList `json:"shiftVOList,omitempty" xml:"shiftVOList,omitempty" type:"Repeated"`
+	// 是否跳过节假日。
+	//
+	// true：跳过（默认值）
+	//
+	// false：不跳过
+	SkipHolidays *bool `json:"skipHolidays,omitempty" xml:"skipHolidays,omitempty"`
+	// 特殊日期配置。
+	SpecialDays *string `json:"specialDays,omitempty" xml:"specialDays,omitempty"`
+	// 地点微调范围（单位米）。
+	TrimDistance *int32 `json:"trimDistance,omitempty" xml:"trimDistance,omitempty"`
+	// 考勤组类型：
+	//
+	// FIXED：固定班制考勤组
+	//
+	// TURN：排班制考勤组
+	//
+	// NONE：自由工时考勤组
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 考勤wifi打卡相关配置信息。
+	Wifis []*GroupAddRequestWifis `json:"wifis,omitempty" xml:"wifis,omitempty" type:"Repeated"`
+	// 周班次列表。
+	// 说明
+	// 固定班制必填，0表示休息。
+	// 数组内的值，从左到右依次代表周日到周六，每日的排班情况。
+	WorkdayClassList []*int64 `json:"workdayClassList,omitempty" xml:"workdayClassList,omitempty" type:"Repeated"`
+	// 操作人的userid。
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s GroupAddRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupAddRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GroupAddRequest) SetAdjustmentSettingId(v int64) *GroupAddRequest {
+	s.AdjustmentSettingId = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetBleDeviceList(v []*GroupAddRequestBleDeviceList) *GroupAddRequest {
+	s.BleDeviceList = v
+	return s
+}
+
+func (s *GroupAddRequest) SetCheckNeedHealthyCode(v bool) *GroupAddRequest {
+	s.CheckNeedHealthyCode = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetDefaultClassId(v int64) *GroupAddRequest {
+	s.DefaultClassId = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetDisableCheckWhenRest(v bool) *GroupAddRequest {
+	s.DisableCheckWhenRest = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetDisableCheckWithoutSchedule(v bool) *GroupAddRequest {
+	s.DisableCheckWithoutSchedule = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetEnableCameraCheck(v bool) *GroupAddRequest {
+	s.EnableCameraCheck = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetEnableEmpSelectClass(v bool) *GroupAddRequest {
+	s.EnableEmpSelectClass = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetEnableFaceCheck(v bool) *GroupAddRequest {
+	s.EnableFaceCheck = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetEnableFaceStrictMode(v bool) *GroupAddRequest {
+	s.EnableFaceStrictMode = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetEnableNextDay(v bool) *GroupAddRequest {
+	s.EnableNextDay = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetEnableOutSideUpdateNormalCheck(v bool) *GroupAddRequest {
+	s.EnableOutSideUpdateNormalCheck = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetEnableOutsideApply(v bool) *GroupAddRequest {
+	s.EnableOutsideApply = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetEnableOutsideCameraCheck(v bool) *GroupAddRequest {
+	s.EnableOutsideCameraCheck = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetEnableOutsideCheck(v bool) *GroupAddRequest {
+	s.EnableOutsideCheck = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetEnableOutsideRemark(v bool) *GroupAddRequest {
+	s.EnableOutsideRemark = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetEnablePositionBle(v bool) *GroupAddRequest {
+	s.EnablePositionBle = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetEnableTrimDistance(v bool) *GroupAddRequest {
+	s.EnableTrimDistance = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetForbidHideOutSideAddress(v bool) *GroupAddRequest {
+	s.ForbidHideOutSideAddress = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetFreeCheckSetting(v *GroupAddRequestFreeCheckSetting) *GroupAddRequest {
+	s.FreeCheckSetting = v
+	return s
+}
+
+func (s *GroupAddRequest) SetFreeCheckTypeId(v int32) *GroupAddRequest {
+	s.FreeCheckTypeId = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetFreecheckDayStartMinOffset(v int32) *GroupAddRequest {
+	s.FreecheckDayStartMinOffset = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetFreecheckWorkDays(v []*int64) *GroupAddRequest {
+	s.FreecheckWorkDays = v
+	return s
+}
+
+func (s *GroupAddRequest) SetGroupId(v int64) *GroupAddRequest {
+	s.GroupId = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetGroupName(v string) *GroupAddRequest {
+	s.GroupName = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetManagerList(v []*string) *GroupAddRequest {
+	s.ManagerList = v
+	return s
+}
+
+func (s *GroupAddRequest) SetMembers(v []*GroupAddRequestMembers) *GroupAddRequest {
+	s.Members = v
+	return s
+}
+
+func (s *GroupAddRequest) SetModifyMember(v bool) *GroupAddRequest {
+	s.ModifyMember = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetOffset(v int32) *GroupAddRequest {
+	s.Offset = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetOpenFaceCheck(v bool) *GroupAddRequest {
+	s.OpenFaceCheck = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetOutsideCheckApproveModeId(v int32) *GroupAddRequest {
+	s.OutsideCheckApproveModeId = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetOvertimeSettingId(v int64) *GroupAddRequest {
+	s.OvertimeSettingId = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetOwner(v string) *GroupAddRequest {
+	s.Owner = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetPositions(v []*GroupAddRequestPositions) *GroupAddRequest {
+	s.Positions = v
+	return s
+}
+
+func (s *GroupAddRequest) SetResourcePermissionMap(v []*GroupAddRequestResourcePermissionMap) *GroupAddRequest {
+	s.ResourcePermissionMap = v
+	return s
+}
+
+func (s *GroupAddRequest) SetShiftVOList(v []*GroupAddRequestShiftVOList) *GroupAddRequest {
+	s.ShiftVOList = v
+	return s
+}
+
+func (s *GroupAddRequest) SetSkipHolidays(v bool) *GroupAddRequest {
+	s.SkipHolidays = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetSpecialDays(v string) *GroupAddRequest {
+	s.SpecialDays = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetTrimDistance(v int32) *GroupAddRequest {
+	s.TrimDistance = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetType(v string) *GroupAddRequest {
+	s.Type = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetWifis(v []*GroupAddRequestWifis) *GroupAddRequest {
+	s.Wifis = v
+	return s
+}
+
+func (s *GroupAddRequest) SetWorkdayClassList(v []*int64) *GroupAddRequest {
+	s.WorkdayClassList = v
+	return s
+}
+
+func (s *GroupAddRequest) SetOpUserId(v string) *GroupAddRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type GroupAddRequestBleDeviceList struct {
+	// 设备ID，调用查询员工智能考勤机列表获取。
+	DeviceId *int64 `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+}
+
+func (s GroupAddRequestBleDeviceList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupAddRequestBleDeviceList) GoString() string {
+	return s.String()
+}
+
+func (s *GroupAddRequestBleDeviceList) SetDeviceId(v int64) *GroupAddRequestBleDeviceList {
+	s.DeviceId = &v
+	return s
+}
+
+type GroupAddRequestFreeCheckSetting struct {
+	// 休息日打卡间隔设置。
+	FreeCheckGap *GroupAddRequestFreeCheckSettingFreeCheckGap `json:"freeCheckGap,omitempty" xml:"freeCheckGap,omitempty" type:"Struct"`
+}
+
+func (s GroupAddRequestFreeCheckSetting) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupAddRequestFreeCheckSetting) GoString() string {
+	return s.String()
+}
+
+func (s *GroupAddRequestFreeCheckSetting) SetFreeCheckGap(v *GroupAddRequestFreeCheckSettingFreeCheckGap) *GroupAddRequestFreeCheckSetting {
+	s.FreeCheckGap = v
+	return s
+}
+
+type GroupAddRequestFreeCheckSettingFreeCheckGap struct {
+	// 下班打卡最小打卡间隔（单位分钟）。
+	OffOnCheckGapMinutes *int32 `json:"offOnCheckGapMinutes,omitempty" xml:"offOnCheckGapMinutes,omitempty"`
+	// 上班打卡最小打卡间隔（单位分钟）。
+	OnOffCheckGapMinutes *int32 `json:"onOffCheckGapMinutes,omitempty" xml:"onOffCheckGapMinutes,omitempty"`
+}
+
+func (s GroupAddRequestFreeCheckSettingFreeCheckGap) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupAddRequestFreeCheckSettingFreeCheckGap) GoString() string {
+	return s.String()
+}
+
+func (s *GroupAddRequestFreeCheckSettingFreeCheckGap) SetOffOnCheckGapMinutes(v int32) *GroupAddRequestFreeCheckSettingFreeCheckGap {
+	s.OffOnCheckGapMinutes = &v
+	return s
+}
+
+func (s *GroupAddRequestFreeCheckSettingFreeCheckGap) SetOnOffCheckGapMinutes(v int32) *GroupAddRequestFreeCheckSettingFreeCheckGap {
+	s.OnOffCheckGapMinutes = &v
+	return s
+}
+
+type GroupAddRequestMembers struct {
+	// 角色，固定值Attendance。
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
+	// 类型，固定值StaffMember。
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 用户userid。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GroupAddRequestMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupAddRequestMembers) GoString() string {
+	return s.String()
+}
+
+func (s *GroupAddRequestMembers) SetRole(v string) *GroupAddRequestMembers {
+	s.Role = &v
+	return s
+}
+
+func (s *GroupAddRequestMembers) SetType(v string) *GroupAddRequestMembers {
+	s.Type = &v
+	return s
+}
+
+func (s *GroupAddRequestMembers) SetUserId(v string) *GroupAddRequestMembers {
+	s.UserId = &v
+	return s
+}
+
+type GroupAddRequestPositions struct {
+	// 考勤地址。
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// 纬度。
+	Latitude *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	// 经度。
+	Longitude *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
+	// 考勤范围。
+	Offset *int32 `json:"offset,omitempty" xml:"offset,omitempty"`
+	// 考勤标题。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GroupAddRequestPositions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupAddRequestPositions) GoString() string {
+	return s.String()
+}
+
+func (s *GroupAddRequestPositions) SetAddress(v string) *GroupAddRequestPositions {
+	s.Address = &v
+	return s
+}
+
+func (s *GroupAddRequestPositions) SetLatitude(v string) *GroupAddRequestPositions {
+	s.Latitude = &v
+	return s
+}
+
+func (s *GroupAddRequestPositions) SetLongitude(v string) *GroupAddRequestPositions {
+	s.Longitude = &v
+	return s
+}
+
+func (s *GroupAddRequestPositions) SetOffset(v int32) *GroupAddRequestPositions {
+	s.Offset = &v
+	return s
+}
+
+func (s *GroupAddRequestPositions) SetTitle(v string) *GroupAddRequestPositions {
+	s.Title = &v
+	return s
+}
+
+type GroupAddRequestResourcePermissionMap struct {
+	// 设置拍照打卡规则。
+	CameraCheck *string `json:"cameraCheck,omitempty" xml:"cameraCheck,omitempty"`
+	// 设置打卡方式。
+	CheckPositionType *string `json:"checkPositionType,omitempty" xml:"checkPositionType,omitempty"`
+	// 设置考勤时间。
+	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	// 设置参与考勤人员。
+	GroupMember *string `json:"groupMember,omitempty" xml:"groupMember,omitempty"`
+	// 设置考勤类型。
+	GroupType *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	// 设置外勤打卡。
+	OutSideCheck *string `json:"outSideCheck,omitempty" xml:"outSideCheck,omitempty"`
+	// 设置加班规则。
+	OverTimeRule *string `json:"overTimeRule,omitempty" xml:"overTimeRule,omitempty"`
+	// 员工排班。
+	Schedule *string `json:"schedule,omitempty" xml:"schedule,omitempty"`
+}
+
+func (s GroupAddRequestResourcePermissionMap) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupAddRequestResourcePermissionMap) GoString() string {
+	return s.String()
+}
+
+func (s *GroupAddRequestResourcePermissionMap) SetCameraCheck(v string) *GroupAddRequestResourcePermissionMap {
+	s.CameraCheck = &v
+	return s
+}
+
+func (s *GroupAddRequestResourcePermissionMap) SetCheckPositionType(v string) *GroupAddRequestResourcePermissionMap {
+	s.CheckPositionType = &v
+	return s
+}
+
+func (s *GroupAddRequestResourcePermissionMap) SetCheckTime(v string) *GroupAddRequestResourcePermissionMap {
+	s.CheckTime = &v
+	return s
+}
+
+func (s *GroupAddRequestResourcePermissionMap) SetGroupMember(v string) *GroupAddRequestResourcePermissionMap {
+	s.GroupMember = &v
+	return s
+}
+
+func (s *GroupAddRequestResourcePermissionMap) SetGroupType(v string) *GroupAddRequestResourcePermissionMap {
+	s.GroupType = &v
+	return s
+}
+
+func (s *GroupAddRequestResourcePermissionMap) SetOutSideCheck(v string) *GroupAddRequestResourcePermissionMap {
+	s.OutSideCheck = &v
+	return s
+}
+
+func (s *GroupAddRequestResourcePermissionMap) SetOverTimeRule(v string) *GroupAddRequestResourcePermissionMap {
+	s.OverTimeRule = &v
+	return s
+}
+
+func (s *GroupAddRequestResourcePermissionMap) SetSchedule(v string) *GroupAddRequestResourcePermissionMap {
+	s.Schedule = &v
+	return s
+}
+
+type GroupAddRequestShiftVOList struct {
+	// 班次ID，可通过获取班次摘要信息接口获取。
+	ShiftId *int64 `json:"shiftId,omitempty" xml:"shiftId,omitempty"`
+}
+
+func (s GroupAddRequestShiftVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupAddRequestShiftVOList) GoString() string {
+	return s.String()
+}
+
+func (s *GroupAddRequestShiftVOList) SetShiftId(v int64) *GroupAddRequestShiftVOList {
+	s.ShiftId = &v
+	return s
+}
+
+type GroupAddRequestWifis struct {
+	// mac地址。
+	MacAddr *string `json:"macAddr,omitempty" xml:"macAddr,omitempty"`
+	// wifi的ssid。
+	Ssid *string `json:"ssid,omitempty" xml:"ssid,omitempty"`
+}
+
+func (s GroupAddRequestWifis) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupAddRequestWifis) GoString() string {
+	return s.String()
+}
+
+func (s *GroupAddRequestWifis) SetMacAddr(v string) *GroupAddRequestWifis {
+	s.MacAddr = &v
+	return s
+}
+
+func (s *GroupAddRequestWifis) SetSsid(v string) *GroupAddRequestWifis {
+	s.Ssid = &v
+	return s
+}
+
+type GroupAddResponseBody struct {
+	// Id of the request
+	Result []*GroupAddResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GroupAddResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupAddResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GroupAddResponseBody) SetResult(v []*GroupAddResponseBodyResult) *GroupAddResponseBody {
+	s.Result = v
+	return s
+}
+
+type GroupAddResponseBodyResult struct {
+	// 考勤组id
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// 考勤组名
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+}
+
+func (s GroupAddResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupAddResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GroupAddResponseBodyResult) SetGroupId(v int64) *GroupAddResponseBodyResult {
+	s.GroupId = &v
+	return s
+}
+
+func (s *GroupAddResponseBodyResult) SetGroupName(v string) *GroupAddResponseBodyResult {
+	s.GroupName = &v
+	return s
+}
+
+type GroupAddResponse struct {
+	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GroupAddResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GroupAddResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupAddResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GroupAddResponse) SetHeaders(v map[string]*string) *GroupAddResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GroupAddResponse) SetBody(v *GroupAddResponseBody) *GroupAddResponse {
+	s.Body = v
+	return s
+}
+
+type GroupUpdateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GroupUpdateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupUpdateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GroupUpdateHeaders) SetCommonHeaders(v map[string]*string) *GroupUpdateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GroupUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *GroupUpdateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GroupUpdateRequest struct {
+	// 补卡规则settingId。
+	AdjustmentSettingId *int64 `json:"adjustmentSettingId,omitempty" xml:"adjustmentSettingId,omitempty"`
+	// 休息日打卡是否需审批：true：需要false：不需要
+	DisableCheckWhenRest *bool `json:"disableCheckWhenRest,omitempty" xml:"disableCheckWhenRest,omitempty"`
+	// 未排班时是否禁止员工打卡。
+	DisableCheckWithoutSchedule *bool `json:"disableCheckWithoutSchedule,omitempty" xml:"disableCheckWithoutSchedule,omitempty"`
+	// 是否开启拍照打卡。true：开启false：关闭（默认值）
+	EnableCameraCheck *bool `json:"enableCameraCheck,omitempty" xml:"enableCameraCheck,omitempty"`
+	// 未排班时是否允许员工选择班次打卡。
+	EnableEmpSelectClass *bool `json:"enableEmpSelectClass,omitempty" xml:"enableEmpSelectClass,omitempty"`
+	// 是否开启人脸检测。true：开启false：关闭（默认值）
+	EnableFaceCheck *bool `json:"enableFaceCheck,omitempty" xml:"enableFaceCheck,omitempty"`
+	// 是否开启真人验证。
+	EnableFaceStrictMode *bool `json:"enableFaceStrictMode,omitempty" xml:"enableFaceStrictMode,omitempty"`
+	// 是否允许外勤卡更新内勤卡。
+	EnableOutSideUpdateNormalCheck *bool `json:"enableOutSideUpdateNormalCheck,omitempty" xml:"enableOutSideUpdateNormalCheck,omitempty"`
+	// 外勤打卡是否需要审批。
+	EnableOutsideApply *bool `json:"enableOutsideApply,omitempty" xml:"enableOutsideApply,omitempty"`
+	// 是否可以外勤打卡。true：允许（默认值）false：不允许
+	EnableOutsideCheck *bool `json:"enableOutsideCheck,omitempty" xml:"enableOutsideCheck,omitempty"`
+	// 外勤打卡是否需要拍照备注。
+	EnableOutsideRemark *bool `json:"enableOutsideRemark,omitempty" xml:"enableOutsideRemark,omitempty"`
+	// 是否允许地点微调距离。
+	EnableTrimDistance *bool `json:"enableTrimDistance,omitempty" xml:"enableTrimDistance,omitempty"`
+	// 是否禁止员工隐藏详细地址。
+	ForbidHideOutSideAddress *bool `json:"forbidHideOutSideAddress,omitempty" xml:"forbidHideOutSideAddress,omitempty"`
+	// 休息日打卡规则。
+	FreeCheckSetting *GroupUpdateRequestFreeCheckSetting `json:"freeCheckSetting,omitempty" xml:"freeCheckSetting,omitempty" type:"Struct"`
+	// 休息日打卡方式。0严格打卡模式 1标准打卡模式
+	FreeCheckTypeId *int32 `json:"freeCheckTypeId,omitempty" xml:"freeCheckTypeId,omitempty"`
+	// 考勤组ID。
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// 考勤组名。
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 考勤组子管理员userid列表。
+	ManagerList []*string `json:"managerList,omitempty" xml:"managerList,omitempty" type:"Repeated"`
+	// 考勤范围。
+	Offset *int32 `json:"offset,omitempty" xml:"offset,omitempty"`
+	// 是否开启人脸打卡。
+	OpenFaceCheck *bool `json:"openFaceCheck,omitempty" xml:"openFaceCheck,omitempty"`
+	// 外勤打卡审批模式-1无需审批，0先审批后打卡是1先打卡后审批
+	OutsideCheckApproveModeId *int32 `json:"outsideCheckApproveModeId,omitempty" xml:"outsideCheckApproveModeId,omitempty"`
+	// 加班规则settingId。
+	OvertimeSettingId *int64 `json:"overtimeSettingId,omitempty" xml:"overtimeSettingId,omitempty"`
+	// 考勤组负责人。
+	Owner *string `json:"owner,omitempty" xml:"owner,omitempty"`
+	// 考勤地点相关设置信息。
+	Positions []*GroupUpdateRequestPositions `json:"positions,omitempty" xml:"positions,omitempty" type:"Repeated"`
+	// 子管理员权限范围。w：可管理r：可读
+	ResourcePermissionMap []*GroupUpdateRequestResourcePermissionMap `json:"resourcePermissionMap,omitempty" xml:"resourcePermissionMap,omitempty" type:"Repeated"`
+	// 班次相关配置信息。
+	ShiftVOList []*GroupUpdateRequestShiftVOList `json:"shiftVOList,omitempty" xml:"shiftVOList,omitempty" type:"Repeated"`
+	// 是否跳过节假日。true：跳过（默认值）false：不跳过
+	SkipHolidays *bool `json:"skipHolidays,omitempty" xml:"skipHolidays,omitempty"`
+	// 地点微调范围（单位米）。
+	TrimDistance *int32 `json:"trimDistance,omitempty" xml:"trimDistance,omitempty"`
+	// 周班次列表。说明固定班制必填，0表示休息。数组内的值，从左到右依次代表周日到周六，每日的排班情况。
+	WorkdayClassList []*int64 `json:"workdayClassList,omitempty" xml:"workdayClassList,omitempty" type:"Repeated"`
+	// 操作人的userid。
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s GroupUpdateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupUpdateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GroupUpdateRequest) SetAdjustmentSettingId(v int64) *GroupUpdateRequest {
+	s.AdjustmentSettingId = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetDisableCheckWhenRest(v bool) *GroupUpdateRequest {
+	s.DisableCheckWhenRest = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetDisableCheckWithoutSchedule(v bool) *GroupUpdateRequest {
+	s.DisableCheckWithoutSchedule = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetEnableCameraCheck(v bool) *GroupUpdateRequest {
+	s.EnableCameraCheck = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetEnableEmpSelectClass(v bool) *GroupUpdateRequest {
+	s.EnableEmpSelectClass = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetEnableFaceCheck(v bool) *GroupUpdateRequest {
+	s.EnableFaceCheck = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetEnableFaceStrictMode(v bool) *GroupUpdateRequest {
+	s.EnableFaceStrictMode = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetEnableOutSideUpdateNormalCheck(v bool) *GroupUpdateRequest {
+	s.EnableOutSideUpdateNormalCheck = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetEnableOutsideApply(v bool) *GroupUpdateRequest {
+	s.EnableOutsideApply = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetEnableOutsideCheck(v bool) *GroupUpdateRequest {
+	s.EnableOutsideCheck = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetEnableOutsideRemark(v bool) *GroupUpdateRequest {
+	s.EnableOutsideRemark = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetEnableTrimDistance(v bool) *GroupUpdateRequest {
+	s.EnableTrimDistance = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetForbidHideOutSideAddress(v bool) *GroupUpdateRequest {
+	s.ForbidHideOutSideAddress = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetFreeCheckSetting(v *GroupUpdateRequestFreeCheckSetting) *GroupUpdateRequest {
+	s.FreeCheckSetting = v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetFreeCheckTypeId(v int32) *GroupUpdateRequest {
+	s.FreeCheckTypeId = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetGroupId(v int64) *GroupUpdateRequest {
+	s.GroupId = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetGroupName(v string) *GroupUpdateRequest {
+	s.GroupName = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetManagerList(v []*string) *GroupUpdateRequest {
+	s.ManagerList = v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetOffset(v int32) *GroupUpdateRequest {
+	s.Offset = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetOpenFaceCheck(v bool) *GroupUpdateRequest {
+	s.OpenFaceCheck = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetOutsideCheckApproveModeId(v int32) *GroupUpdateRequest {
+	s.OutsideCheckApproveModeId = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetOvertimeSettingId(v int64) *GroupUpdateRequest {
+	s.OvertimeSettingId = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetOwner(v string) *GroupUpdateRequest {
+	s.Owner = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetPositions(v []*GroupUpdateRequestPositions) *GroupUpdateRequest {
+	s.Positions = v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetResourcePermissionMap(v []*GroupUpdateRequestResourcePermissionMap) *GroupUpdateRequest {
+	s.ResourcePermissionMap = v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetShiftVOList(v []*GroupUpdateRequestShiftVOList) *GroupUpdateRequest {
+	s.ShiftVOList = v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetSkipHolidays(v bool) *GroupUpdateRequest {
+	s.SkipHolidays = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetTrimDistance(v int32) *GroupUpdateRequest {
+	s.TrimDistance = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetWorkdayClassList(v []*int64) *GroupUpdateRequest {
+	s.WorkdayClassList = v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetOpUserId(v string) *GroupUpdateRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type GroupUpdateRequestFreeCheckSetting struct {
+	// 休息日打卡间隔设置。
+	FreeCheckGap *GroupUpdateRequestFreeCheckSettingFreeCheckGap `json:"freeCheckGap,omitempty" xml:"freeCheckGap,omitempty" type:"Struct"`
+}
+
+func (s GroupUpdateRequestFreeCheckSetting) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupUpdateRequestFreeCheckSetting) GoString() string {
+	return s.String()
+}
+
+func (s *GroupUpdateRequestFreeCheckSetting) SetFreeCheckGap(v *GroupUpdateRequestFreeCheckSettingFreeCheckGap) *GroupUpdateRequestFreeCheckSetting {
+	s.FreeCheckGap = v
+	return s
+}
+
+type GroupUpdateRequestFreeCheckSettingFreeCheckGap struct {
+	// 下班打卡最小打卡间隔（单位分钟）。
+	OffOnCheckGapMinutes *int32 `json:"offOnCheckGapMinutes,omitempty" xml:"offOnCheckGapMinutes,omitempty"`
+	// 上班打卡最小打卡间隔（单位分钟）。
+	OnOffCheckGapMinutes *int32 `json:"onOffCheckGapMinutes,omitempty" xml:"onOffCheckGapMinutes,omitempty"`
+}
+
+func (s GroupUpdateRequestFreeCheckSettingFreeCheckGap) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupUpdateRequestFreeCheckSettingFreeCheckGap) GoString() string {
+	return s.String()
+}
+
+func (s *GroupUpdateRequestFreeCheckSettingFreeCheckGap) SetOffOnCheckGapMinutes(v int32) *GroupUpdateRequestFreeCheckSettingFreeCheckGap {
+	s.OffOnCheckGapMinutes = &v
+	return s
+}
+
+func (s *GroupUpdateRequestFreeCheckSettingFreeCheckGap) SetOnOffCheckGapMinutes(v int32) *GroupUpdateRequestFreeCheckSettingFreeCheckGap {
+	s.OnOffCheckGapMinutes = &v
+	return s
+}
+
+type GroupUpdateRequestPositions struct {
+	// 考勤地址。
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// 纬度。
+	Latitude *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	// 经度。
+	Longitude *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
+	// 考勤范围。
+	Offset *int32 `json:"offset,omitempty" xml:"offset,omitempty"`
+	// 考勤标题。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GroupUpdateRequestPositions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupUpdateRequestPositions) GoString() string {
+	return s.String()
+}
+
+func (s *GroupUpdateRequestPositions) SetAddress(v string) *GroupUpdateRequestPositions {
+	s.Address = &v
+	return s
+}
+
+func (s *GroupUpdateRequestPositions) SetLatitude(v string) *GroupUpdateRequestPositions {
+	s.Latitude = &v
+	return s
+}
+
+func (s *GroupUpdateRequestPositions) SetLongitude(v string) *GroupUpdateRequestPositions {
+	s.Longitude = &v
+	return s
+}
+
+func (s *GroupUpdateRequestPositions) SetOffset(v int32) *GroupUpdateRequestPositions {
+	s.Offset = &v
+	return s
+}
+
+func (s *GroupUpdateRequestPositions) SetTitle(v string) *GroupUpdateRequestPositions {
+	s.Title = &v
+	return s
+}
+
+type GroupUpdateRequestResourcePermissionMap struct {
+	// 设置拍照打卡规则。
+	CameraCheck *string `json:"cameraCheck,omitempty" xml:"cameraCheck,omitempty"`
+	// 设置打卡方式。
+	CheckPositionType *string `json:"checkPositionType,omitempty" xml:"checkPositionType,omitempty"`
+	// 设置考勤时间。
+	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	// 设置参与考勤人员。
+	GroupMember *string `json:"groupMember,omitempty" xml:"groupMember,omitempty"`
+	// 设置考勤类型。
+	GroupType *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	// 设置外勤打卡。
+	OutSideCheck *string `json:"outSideCheck,omitempty" xml:"outSideCheck,omitempty"`
+	// 设置加班规则。
+	OverTimeRule *string `json:"overTimeRule,omitempty" xml:"overTimeRule,omitempty"`
+	// 员工排班。
+	Schedule *string `json:"schedule,omitempty" xml:"schedule,omitempty"`
+}
+
+func (s GroupUpdateRequestResourcePermissionMap) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupUpdateRequestResourcePermissionMap) GoString() string {
+	return s.String()
+}
+
+func (s *GroupUpdateRequestResourcePermissionMap) SetCameraCheck(v string) *GroupUpdateRequestResourcePermissionMap {
+	s.CameraCheck = &v
+	return s
+}
+
+func (s *GroupUpdateRequestResourcePermissionMap) SetCheckPositionType(v string) *GroupUpdateRequestResourcePermissionMap {
+	s.CheckPositionType = &v
+	return s
+}
+
+func (s *GroupUpdateRequestResourcePermissionMap) SetCheckTime(v string) *GroupUpdateRequestResourcePermissionMap {
+	s.CheckTime = &v
+	return s
+}
+
+func (s *GroupUpdateRequestResourcePermissionMap) SetGroupMember(v string) *GroupUpdateRequestResourcePermissionMap {
+	s.GroupMember = &v
+	return s
+}
+
+func (s *GroupUpdateRequestResourcePermissionMap) SetGroupType(v string) *GroupUpdateRequestResourcePermissionMap {
+	s.GroupType = &v
+	return s
+}
+
+func (s *GroupUpdateRequestResourcePermissionMap) SetOutSideCheck(v string) *GroupUpdateRequestResourcePermissionMap {
+	s.OutSideCheck = &v
+	return s
+}
+
+func (s *GroupUpdateRequestResourcePermissionMap) SetOverTimeRule(v string) *GroupUpdateRequestResourcePermissionMap {
+	s.OverTimeRule = &v
+	return s
+}
+
+func (s *GroupUpdateRequestResourcePermissionMap) SetSchedule(v string) *GroupUpdateRequestResourcePermissionMap {
+	s.Schedule = &v
+	return s
+}
+
+type GroupUpdateRequestShiftVOList struct {
+	// 班次ID，可通过获取班次摘要信息接口获取。
+	ShiftId *int64 `json:"shiftId,omitempty" xml:"shiftId,omitempty"`
+}
+
+func (s GroupUpdateRequestShiftVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupUpdateRequestShiftVOList) GoString() string {
+	return s.String()
+}
+
+func (s *GroupUpdateRequestShiftVOList) SetShiftId(v int64) *GroupUpdateRequestShiftVOList {
+	s.ShiftId = &v
+	return s
+}
+
+type GroupUpdateResponseBody struct {
+	// Id of the request
+	Result []*GroupUpdateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GroupUpdateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupUpdateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GroupUpdateResponseBody) SetResult(v []*GroupUpdateResponseBodyResult) *GroupUpdateResponseBody {
+	s.Result = v
+	return s
+}
+
+type GroupUpdateResponseBodyResult struct {
+	// 考勤组id
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// 考勤组名
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+}
+
+func (s GroupUpdateResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupUpdateResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GroupUpdateResponseBodyResult) SetGroupId(v int64) *GroupUpdateResponseBodyResult {
+	s.GroupId = &v
+	return s
+}
+
+func (s *GroupUpdateResponseBodyResult) SetGroupName(v string) *GroupUpdateResponseBodyResult {
+	s.GroupName = &v
+	return s
+}
+
+type GroupUpdateResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GroupUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GroupUpdateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GroupUpdateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GroupUpdateResponse) SetHeaders(v map[string]*string) *GroupUpdateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GroupUpdateResponse) SetBody(v *GroupUpdateResponseBody) *GroupUpdateResponse {
 	s.Body = v
 	return s
 }
@@ -5603,6 +6801,382 @@ func (client *Client) GetUserHolidaysWithOptions(request *GetUserHolidaysRequest
 	}
 	_result = &GetUserHolidaysResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetUserHolidays"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/holidays"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GroupAdd(request *GroupAddRequest) (_result *GroupAddResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GroupAddHeaders{}
+	_result = &GroupAddResponse{}
+	_body, _err := client.GroupAddWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GroupAddWithOptions(request *GroupAddRequest, headers *GroupAddHeaders, runtime *util.RuntimeOptions) (_result *GroupAddResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AdjustmentSettingId)) {
+		body["adjustmentSettingId"] = request.AdjustmentSettingId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BleDeviceList)) {
+		body["bleDeviceList"] = request.BleDeviceList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CheckNeedHealthyCode)) {
+		body["checkNeedHealthyCode"] = request.CheckNeedHealthyCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DefaultClassId)) {
+		body["defaultClassId"] = request.DefaultClassId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DisableCheckWhenRest)) {
+		body["disableCheckWhenRest"] = request.DisableCheckWhenRest
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DisableCheckWithoutSchedule)) {
+		body["disableCheckWithoutSchedule"] = request.DisableCheckWithoutSchedule
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableCameraCheck)) {
+		body["enableCameraCheck"] = request.EnableCameraCheck
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableEmpSelectClass)) {
+		body["enableEmpSelectClass"] = request.EnableEmpSelectClass
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableFaceCheck)) {
+		body["enableFaceCheck"] = request.EnableFaceCheck
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableFaceStrictMode)) {
+		body["enableFaceStrictMode"] = request.EnableFaceStrictMode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableNextDay)) {
+		body["enableNextDay"] = request.EnableNextDay
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableOutSideUpdateNormalCheck)) {
+		body["enableOutSideUpdateNormalCheck"] = request.EnableOutSideUpdateNormalCheck
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableOutsideApply)) {
+		body["enableOutsideApply"] = request.EnableOutsideApply
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableOutsideCameraCheck)) {
+		body["enableOutsideCameraCheck"] = request.EnableOutsideCameraCheck
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableOutsideCheck)) {
+		body["enableOutsideCheck"] = request.EnableOutsideCheck
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableOutsideRemark)) {
+		body["enableOutsideRemark"] = request.EnableOutsideRemark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnablePositionBle)) {
+		body["enablePositionBle"] = request.EnablePositionBle
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableTrimDistance)) {
+		body["enableTrimDistance"] = request.EnableTrimDistance
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ForbidHideOutSideAddress)) {
+		body["forbidHideOutSideAddress"] = request.ForbidHideOutSideAddress
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.FreeCheckSetting))) {
+		body["freeCheckSetting"] = request.FreeCheckSetting
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FreeCheckTypeId)) {
+		body["freeCheckTypeId"] = request.FreeCheckTypeId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FreecheckDayStartMinOffset)) {
+		body["freecheckDayStartMinOffset"] = request.FreecheckDayStartMinOffset
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FreecheckWorkDays)) {
+		body["freecheckWorkDays"] = request.FreecheckWorkDays
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupId)) {
+		body["groupId"] = request.GroupId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
+		body["groupName"] = request.GroupName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManagerList)) {
+		body["managerList"] = request.ManagerList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Members)) {
+		body["members"] = request.Members
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModifyMember)) {
+		body["modifyMember"] = request.ModifyMember
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Offset)) {
+		body["offset"] = request.Offset
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenFaceCheck)) {
+		body["openFaceCheck"] = request.OpenFaceCheck
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutsideCheckApproveModeId)) {
+		body["outsideCheckApproveModeId"] = request.OutsideCheckApproveModeId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OvertimeSettingId)) {
+		body["overtimeSettingId"] = request.OvertimeSettingId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Owner)) {
+		body["owner"] = request.Owner
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Positions)) {
+		body["positions"] = request.Positions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ResourcePermissionMap)) {
+		body["resourcePermissionMap"] = request.ResourcePermissionMap
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ShiftVOList)) {
+		body["shiftVOList"] = request.ShiftVOList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SkipHolidays)) {
+		body["skipHolidays"] = request.SkipHolidays
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SpecialDays)) {
+		body["specialDays"] = request.SpecialDays
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TrimDistance)) {
+		body["trimDistance"] = request.TrimDistance
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Wifis)) {
+		body["wifis"] = request.Wifis
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WorkdayClassList)) {
+		body["workdayClassList"] = request.WorkdayClassList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GroupAddResponse{}
+	_body, _err := client.DoROARequest(tea.String("GroupAdd"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/groups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GroupUpdate(request *GroupUpdateRequest) (_result *GroupUpdateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GroupUpdateHeaders{}
+	_result = &GroupUpdateResponse{}
+	_body, _err := client.GroupUpdateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GroupUpdateWithOptions(request *GroupUpdateRequest, headers *GroupUpdateHeaders, runtime *util.RuntimeOptions) (_result *GroupUpdateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AdjustmentSettingId)) {
+		body["adjustmentSettingId"] = request.AdjustmentSettingId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DisableCheckWhenRest)) {
+		body["disableCheckWhenRest"] = request.DisableCheckWhenRest
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DisableCheckWithoutSchedule)) {
+		body["disableCheckWithoutSchedule"] = request.DisableCheckWithoutSchedule
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableCameraCheck)) {
+		body["enableCameraCheck"] = request.EnableCameraCheck
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableEmpSelectClass)) {
+		body["enableEmpSelectClass"] = request.EnableEmpSelectClass
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableFaceCheck)) {
+		body["enableFaceCheck"] = request.EnableFaceCheck
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableFaceStrictMode)) {
+		body["enableFaceStrictMode"] = request.EnableFaceStrictMode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableOutSideUpdateNormalCheck)) {
+		body["enableOutSideUpdateNormalCheck"] = request.EnableOutSideUpdateNormalCheck
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableOutsideApply)) {
+		body["enableOutsideApply"] = request.EnableOutsideApply
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableOutsideCheck)) {
+		body["enableOutsideCheck"] = request.EnableOutsideCheck
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableOutsideRemark)) {
+		body["enableOutsideRemark"] = request.EnableOutsideRemark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableTrimDistance)) {
+		body["enableTrimDistance"] = request.EnableTrimDistance
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ForbidHideOutSideAddress)) {
+		body["forbidHideOutSideAddress"] = request.ForbidHideOutSideAddress
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.FreeCheckSetting))) {
+		body["freeCheckSetting"] = request.FreeCheckSetting
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FreeCheckTypeId)) {
+		body["freeCheckTypeId"] = request.FreeCheckTypeId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupId)) {
+		body["groupId"] = request.GroupId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
+		body["groupName"] = request.GroupName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManagerList)) {
+		body["managerList"] = request.ManagerList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Offset)) {
+		body["offset"] = request.Offset
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenFaceCheck)) {
+		body["openFaceCheck"] = request.OpenFaceCheck
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutsideCheckApproveModeId)) {
+		body["outsideCheckApproveModeId"] = request.OutsideCheckApproveModeId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OvertimeSettingId)) {
+		body["overtimeSettingId"] = request.OvertimeSettingId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Owner)) {
+		body["owner"] = request.Owner
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Positions)) {
+		body["positions"] = request.Positions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ResourcePermissionMap)) {
+		body["resourcePermissionMap"] = request.ResourcePermissionMap
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ShiftVOList)) {
+		body["shiftVOList"] = request.ShiftVOList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SkipHolidays)) {
+		body["skipHolidays"] = request.SkipHolidays
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TrimDistance)) {
+		body["trimDistance"] = request.TrimDistance
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WorkdayClassList)) {
+		body["workdayClassList"] = request.WorkdayClassList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GroupUpdateResponse{}
+	_body, _err := client.DoROARequest(tea.String("GroupUpdate"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/attendance/groups"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

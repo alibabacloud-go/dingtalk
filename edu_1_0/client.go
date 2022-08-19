@@ -1130,6 +1130,155 @@ func (s *CancelOrderResponse) SetBody(v *CancelOrderResponseBody) *CancelOrderRe
 	return s
 }
 
+type CancelUserOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CancelUserOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelUserOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CancelUserOrderHeaders) SetCommonHeaders(v map[string]*string) *CancelUserOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CancelUserOrderHeaders) SetXAcsDingtalkAccessToken(v string) *CancelUserOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CancelUserOrderRequest struct {
+	// 支付宝应用id。
+	AlipayAppId *string `json:"alipayAppId,omitempty" xml:"alipayAppId,omitempty"`
+	// 商户id。
+	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	// 订单号。
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// 签名。
+	Signature *string `json:"signature,omitempty" xml:"signature,omitempty"`
+	// 时间戳。
+	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+}
+
+func (s CancelUserOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelUserOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CancelUserOrderRequest) SetAlipayAppId(v string) *CancelUserOrderRequest {
+	s.AlipayAppId = &v
+	return s
+}
+
+func (s *CancelUserOrderRequest) SetMerchantId(v string) *CancelUserOrderRequest {
+	s.MerchantId = &v
+	return s
+}
+
+func (s *CancelUserOrderRequest) SetOrderNo(v string) *CancelUserOrderRequest {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *CancelUserOrderRequest) SetSignature(v string) *CancelUserOrderRequest {
+	s.Signature = &v
+	return s
+}
+
+func (s *CancelUserOrderRequest) SetTimestamp(v int64) *CancelUserOrderRequest {
+	s.Timestamp = &v
+	return s
+}
+
+type CancelUserOrderResponseBody struct {
+	// 支付宝应用id。
+	AlipayAppId *string `json:"alipayAppId,omitempty" xml:"alipayAppId,omitempty"`
+	// 商户id。
+	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	// 商户订单号。
+	MerchantOrderNo *string `json:"merchantOrderNo,omitempty" xml:"merchantOrderNo,omitempty"`
+	// 订单号。
+	OrderNo      *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	PayStatus    *int32  `json:"payStatus,omitempty" xml:"payStatus,omitempty"`
+	RefundStatus *int32  `json:"refundStatus,omitempty" xml:"refundStatus,omitempty"`
+	TotalAmount  *int64  `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
+}
+
+func (s CancelUserOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelUserOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CancelUserOrderResponseBody) SetAlipayAppId(v string) *CancelUserOrderResponseBody {
+	s.AlipayAppId = &v
+	return s
+}
+
+func (s *CancelUserOrderResponseBody) SetMerchantId(v string) *CancelUserOrderResponseBody {
+	s.MerchantId = &v
+	return s
+}
+
+func (s *CancelUserOrderResponseBody) SetMerchantOrderNo(v string) *CancelUserOrderResponseBody {
+	s.MerchantOrderNo = &v
+	return s
+}
+
+func (s *CancelUserOrderResponseBody) SetOrderNo(v string) *CancelUserOrderResponseBody {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *CancelUserOrderResponseBody) SetPayStatus(v int32) *CancelUserOrderResponseBody {
+	s.PayStatus = &v
+	return s
+}
+
+func (s *CancelUserOrderResponseBody) SetRefundStatus(v int32) *CancelUserOrderResponseBody {
+	s.RefundStatus = &v
+	return s
+}
+
+func (s *CancelUserOrderResponseBody) SetTotalAmount(v int64) *CancelUserOrderResponseBody {
+	s.TotalAmount = &v
+	return s
+}
+
+type CancelUserOrderResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CancelUserOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CancelUserOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelUserOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CancelUserOrderResponse) SetHeaders(v map[string]*string) *CancelUserOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CancelUserOrderResponse) SetBody(v *CancelUserOrderResponseBody) *CancelUserOrderResponse {
+	s.Body = v
+	return s
+}
+
 type CheckRestrictionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1318,6 +1467,239 @@ func (s *CourseSchedulingComplimentNoticeResponse) SetHeaders(v map[string]*stri
 }
 
 func (s *CourseSchedulingComplimentNoticeResponse) SetBody(v *CourseSchedulingComplimentNoticeResponseBody) *CourseSchedulingComplimentNoticeResponse {
+	s.Body = v
+	return s
+}
+
+type CreateAppOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateAppOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAppOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAppOrderHeaders) SetCommonHeaders(v map[string]*string) *CreateAppOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateAppOrderHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAppOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateAppOrderRequest struct {
+	// 实际金额，单位分。
+	ActualAmount *int64 `json:"actualAmount,omitempty" xml:"actualAmount,omitempty"`
+	// 支付宝应用id。
+	AlipayAppId *string `json:"alipayAppId,omitempty" xml:"alipayAppId,omitempty"`
+	// 业务编码。
+	BizCode *int32 `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// 订单明细列表。
+	DetailList []*CreateAppOrderRequestDetailList `json:"detailList,omitempty" xml:"detailList,omitempty" type:"Repeated"`
+	// 标签金额，单位分。
+	LabelAmount *int64 `json:"labelAmount,omitempty" xml:"labelAmount,omitempty"`
+	// 商户id。
+	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	// 商户订单号。
+	MerchantOrderNo *string `json:"merchantOrderNo,omitempty" xml:"merchantOrderNo,omitempty"`
+	// 签名。
+	Signature *string `json:"signature,omitempty" xml:"signature,omitempty"`
+	// 订单标题。
+	Subject *string `json:"subject,omitempty" xml:"subject,omitempty"`
+	// 时间戳。
+	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	// 用户唯一id。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateAppOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAppOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAppOrderRequest) SetActualAmount(v int64) *CreateAppOrderRequest {
+	s.ActualAmount = &v
+	return s
+}
+
+func (s *CreateAppOrderRequest) SetAlipayAppId(v string) *CreateAppOrderRequest {
+	s.AlipayAppId = &v
+	return s
+}
+
+func (s *CreateAppOrderRequest) SetBizCode(v int32) *CreateAppOrderRequest {
+	s.BizCode = &v
+	return s
+}
+
+func (s *CreateAppOrderRequest) SetDetailList(v []*CreateAppOrderRequestDetailList) *CreateAppOrderRequest {
+	s.DetailList = v
+	return s
+}
+
+func (s *CreateAppOrderRequest) SetLabelAmount(v int64) *CreateAppOrderRequest {
+	s.LabelAmount = &v
+	return s
+}
+
+func (s *CreateAppOrderRequest) SetMerchantId(v string) *CreateAppOrderRequest {
+	s.MerchantId = &v
+	return s
+}
+
+func (s *CreateAppOrderRequest) SetMerchantOrderNo(v string) *CreateAppOrderRequest {
+	s.MerchantOrderNo = &v
+	return s
+}
+
+func (s *CreateAppOrderRequest) SetSignature(v string) *CreateAppOrderRequest {
+	s.Signature = &v
+	return s
+}
+
+func (s *CreateAppOrderRequest) SetSubject(v string) *CreateAppOrderRequest {
+	s.Subject = &v
+	return s
+}
+
+func (s *CreateAppOrderRequest) SetTimestamp(v int64) *CreateAppOrderRequest {
+	s.Timestamp = &v
+	return s
+}
+
+func (s *CreateAppOrderRequest) SetUserId(v string) *CreateAppOrderRequest {
+	s.UserId = &v
+	return s
+}
+
+type CreateAppOrderRequestDetailList struct {
+	// 扩展字段。
+	Feature *string `json:"feature,omitempty" xml:"feature,omitempty"`
+	// 商品id。
+	GoodsId *string `json:"goodsId,omitempty" xml:"goodsId,omitempty"`
+	// 商品名称。
+	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	// 商品价格，单位分。
+	GoodsPrice *int64 `json:"goodsPrice,omitempty" xml:"goodsPrice,omitempty"`
+	// 商品数量。
+	GoodsQuantity *int32 `json:"goodsQuantity,omitempty" xml:"goodsQuantity,omitempty"`
+}
+
+func (s CreateAppOrderRequestDetailList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAppOrderRequestDetailList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAppOrderRequestDetailList) SetFeature(v string) *CreateAppOrderRequestDetailList {
+	s.Feature = &v
+	return s
+}
+
+func (s *CreateAppOrderRequestDetailList) SetGoodsId(v string) *CreateAppOrderRequestDetailList {
+	s.GoodsId = &v
+	return s
+}
+
+func (s *CreateAppOrderRequestDetailList) SetGoodsName(v string) *CreateAppOrderRequestDetailList {
+	s.GoodsName = &v
+	return s
+}
+
+func (s *CreateAppOrderRequestDetailList) SetGoodsPrice(v int64) *CreateAppOrderRequestDetailList {
+	s.GoodsPrice = &v
+	return s
+}
+
+func (s *CreateAppOrderRequestDetailList) SetGoodsQuantity(v int32) *CreateAppOrderRequestDetailList {
+	s.GoodsQuantity = &v
+	return s
+}
+
+type CreateAppOrderResponseBody struct {
+	// 实际金额，单位分。
+	ActualAmount *int64 `json:"actualAmount,omitempty" xml:"actualAmount,omitempty"`
+	// 支付宝应用id。
+	AlipayAppId *string `json:"alipayAppId,omitempty" xml:"alipayAppId,omitempty"`
+	// 订单信息。
+	Body *string `json:"body,omitempty" xml:"body,omitempty"`
+	// 商户id。
+	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	// 商户订单号。
+	MerchantOrderNo *string `json:"merchantOrderNo,omitempty" xml:"merchantOrderNo,omitempty"`
+	// 订单号。
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+}
+
+func (s CreateAppOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAppOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAppOrderResponseBody) SetActualAmount(v int64) *CreateAppOrderResponseBody {
+	s.ActualAmount = &v
+	return s
+}
+
+func (s *CreateAppOrderResponseBody) SetAlipayAppId(v string) *CreateAppOrderResponseBody {
+	s.AlipayAppId = &v
+	return s
+}
+
+func (s *CreateAppOrderResponseBody) SetBody(v string) *CreateAppOrderResponseBody {
+	s.Body = &v
+	return s
+}
+
+func (s *CreateAppOrderResponseBody) SetMerchantId(v string) *CreateAppOrderResponseBody {
+	s.MerchantId = &v
+	return s
+}
+
+func (s *CreateAppOrderResponseBody) SetMerchantOrderNo(v string) *CreateAppOrderResponseBody {
+	s.MerchantOrderNo = &v
+	return s
+}
+
+func (s *CreateAppOrderResponseBody) SetOrderNo(v string) *CreateAppOrderResponseBody {
+	s.OrderNo = &v
+	return s
+}
+
+type CreateAppOrderResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateAppOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateAppOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAppOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAppOrderResponse) SetHeaders(v map[string]*string) *CreateAppOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateAppOrderResponse) SetBody(v *CreateAppOrderResponseBody) *CreateAppOrderResponse {
 	s.Body = v
 	return s
 }
@@ -9742,6 +10124,251 @@ func (s *QueryGroupIdResponse) SetBody(v *QueryGroupIdResponseBody) *QueryGroupI
 	return s
 }
 
+type QueryOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrderHeaders) SetCommonHeaders(v map[string]*string) *QueryOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryOrderHeaders) SetXAcsDingtalkAccessToken(v string) *QueryOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryOrderRequest struct {
+	// 支付宝应用id。
+	AlipayAppId *string `json:"alipayAppId,omitempty" xml:"alipayAppId,omitempty"`
+	// 商户id。
+	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	// 订单号。
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// 签名。
+	Signature *string `json:"signature,omitempty" xml:"signature,omitempty"`
+}
+
+func (s QueryOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrderRequest) SetAlipayAppId(v string) *QueryOrderRequest {
+	s.AlipayAppId = &v
+	return s
+}
+
+func (s *QueryOrderRequest) SetMerchantId(v string) *QueryOrderRequest {
+	s.MerchantId = &v
+	return s
+}
+
+func (s *QueryOrderRequest) SetOrderNo(v string) *QueryOrderRequest {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *QueryOrderRequest) SetSignature(v string) *QueryOrderRequest {
+	s.Signature = &v
+	return s
+}
+
+type QueryOrderResponseBody struct {
+	ActualAmount *int64 `json:"actualAmount,omitempty" xml:"actualAmount,omitempty"`
+	// 支付宝应用id。
+	AlipayAppId *string `json:"alipayAppId,omitempty" xml:"alipayAppId,omitempty"`
+	// 订单关单时间。
+	CloseTime *int64 `json:"closeTime,omitempty" xml:"closeTime,omitempty"`
+	// 订单创建时间。
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 扩展字段。
+	Feature     *string `json:"feature,omitempty" xml:"feature,omitempty"`
+	LabelAmount *int64  `json:"labelAmount,omitempty" xml:"labelAmount,omitempty"`
+	// 商户id。
+	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	// 商户聚合支付订单号。
+	MerchantMergeOrderNo *string `json:"merchantMergeOrderNo,omitempty" xml:"merchantMergeOrderNo,omitempty"`
+	// 商户订单号。
+	MerchantOrderNo *string `json:"merchantOrderNo,omitempty" xml:"merchantOrderNo,omitempty"`
+	// 订单号。
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// 订单类型。
+	OrderType *string `json:"orderType,omitempty" xml:"orderType,omitempty"`
+	// 买家支付id。
+	PayId *string `json:"payId,omitempty" xml:"payId,omitempty"`
+	// 买家支付登陆id。
+	PayLogonId *string `json:"payLogonId,omitempty" xml:"payLogonId,omitempty"`
+	PayStatus  *int32  `json:"payStatus,omitempty" xml:"payStatus,omitempty"`
+	// 订单支付时间。
+	PayTime *int64 `json:"payTime,omitempty" xml:"payTime,omitempty"`
+	// 买家支付渠道类型。
+	PayType      *string `json:"payType,omitempty" xml:"payType,omitempty"`
+	RefundAmount *int64  `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
+	RefundStatus *int32  `json:"refundStatus,omitempty" xml:"refundStatus,omitempty"`
+	// 订单退款时间。
+	RefundTime *int64 `json:"refundTime,omitempty" xml:"refundTime,omitempty"`
+	// 订单标题。
+	Subject *string `json:"subject,omitempty" xml:"subject,omitempty"`
+	// 交易流水号。
+	TradeNo *string `json:"tradeNo,omitempty" xml:"tradeNo,omitempty"`
+	// 用户唯一id。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrderResponseBody) SetActualAmount(v int64) *QueryOrderResponseBody {
+	s.ActualAmount = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetAlipayAppId(v string) *QueryOrderResponseBody {
+	s.AlipayAppId = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetCloseTime(v int64) *QueryOrderResponseBody {
+	s.CloseTime = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetCreateTime(v int64) *QueryOrderResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetFeature(v string) *QueryOrderResponseBody {
+	s.Feature = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetLabelAmount(v int64) *QueryOrderResponseBody {
+	s.LabelAmount = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetMerchantId(v string) *QueryOrderResponseBody {
+	s.MerchantId = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetMerchantMergeOrderNo(v string) *QueryOrderResponseBody {
+	s.MerchantMergeOrderNo = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetMerchantOrderNo(v string) *QueryOrderResponseBody {
+	s.MerchantOrderNo = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetOrderNo(v string) *QueryOrderResponseBody {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetOrderType(v string) *QueryOrderResponseBody {
+	s.OrderType = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetPayId(v string) *QueryOrderResponseBody {
+	s.PayId = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetPayLogonId(v string) *QueryOrderResponseBody {
+	s.PayLogonId = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetPayStatus(v int32) *QueryOrderResponseBody {
+	s.PayStatus = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetPayTime(v int64) *QueryOrderResponseBody {
+	s.PayTime = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetPayType(v string) *QueryOrderResponseBody {
+	s.PayType = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetRefundAmount(v int64) *QueryOrderResponseBody {
+	s.RefundAmount = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetRefundStatus(v int32) *QueryOrderResponseBody {
+	s.RefundStatus = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetRefundTime(v int64) *QueryOrderResponseBody {
+	s.RefundTime = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetSubject(v string) *QueryOrderResponseBody {
+	s.Subject = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetTradeNo(v string) *QueryOrderResponseBody {
+	s.TradeNo = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetUserId(v string) *QueryOrderResponseBody {
+	s.UserId = &v
+	return s
+}
+
+type QueryOrderResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryOrderResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrderResponse) SetHeaders(v map[string]*string) *QueryOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryOrderResponse) SetBody(v *QueryOrderResponseBody) *QueryOrderResponse {
+	s.Body = v
+	return s
+}
+
 type QueryOrgRelationListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -14248,6 +14875,66 @@ func (client *Client) CancelOrderWithOptions(request *CancelOrderRequest, header
 	return _result, _err
 }
 
+func (client *Client) CancelUserOrder(request *CancelUserOrderRequest) (_result *CancelUserOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CancelUserOrderHeaders{}
+	_result = &CancelUserOrderResponse{}
+	_body, _err := client.CancelUserOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CancelUserOrderWithOptions(request *CancelUserOrderRequest, headers *CancelUserOrderHeaders, runtime *util.RuntimeOptions) (_result *CancelUserOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AlipayAppId)) {
+		body["alipayAppId"] = request.AlipayAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MerchantId)) {
+		body["merchantId"] = request.MerchantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderNo)) {
+		body["orderNo"] = request.OrderNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Signature)) {
+		body["signature"] = request.Signature
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Timestamp)) {
+		body["timestamp"] = request.Timestamp
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CancelUserOrderResponse{}
+	_body, _err := client.DoROARequest(tea.String("CancelUserOrder"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/userOrders/cancel"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CheckRestriction(request *CheckRestrictionRequest) (_result *CheckRestrictionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CheckRestrictionHeaders{}
@@ -14345,6 +15032,90 @@ func (client *Client) CourseSchedulingComplimentNoticeWithOptions(request *Cours
 	}
 	_result = &CourseSchedulingComplimentNoticeResponse{}
 	_body, _err := client.DoROARequest(tea.String("CourseSchedulingComplimentNotice"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/schedules/finishNotify"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateAppOrder(request *CreateAppOrderRequest) (_result *CreateAppOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateAppOrderHeaders{}
+	_result = &CreateAppOrderResponse{}
+	_body, _err := client.CreateAppOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateAppOrderWithOptions(request *CreateAppOrderRequest, headers *CreateAppOrderHeaders, runtime *util.RuntimeOptions) (_result *CreateAppOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActualAmount)) {
+		body["actualAmount"] = request.ActualAmount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AlipayAppId)) {
+		body["alipayAppId"] = request.AlipayAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		body["bizCode"] = request.BizCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DetailList)) {
+		body["detailList"] = request.DetailList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LabelAmount)) {
+		body["labelAmount"] = request.LabelAmount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MerchantId)) {
+		body["merchantId"] = request.MerchantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MerchantOrderNo)) {
+		body["merchantOrderNo"] = request.MerchantOrderNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Signature)) {
+		body["signature"] = request.Signature
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Subject)) {
+		body["subject"] = request.Subject
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Timestamp)) {
+		body["timestamp"] = request.Timestamp
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateAppOrderResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateAppOrder"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/appOrders"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -17205,6 +17976,62 @@ func (client *Client) QueryGroupIdWithOptions(request *QueryGroupIdRequest, head
 	}
 	_result = &QueryGroupIdResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryGroupId"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/faces/groups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryOrder(request *QueryOrderRequest) (_result *QueryOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryOrderHeaders{}
+	_result = &QueryOrderResponse{}
+	_body, _err := client.QueryOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryOrderWithOptions(request *QueryOrderRequest, headers *QueryOrderHeaders, runtime *util.RuntimeOptions) (_result *QueryOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AlipayAppId)) {
+		query["alipayAppId"] = request.AlipayAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MerchantId)) {
+		query["merchantId"] = request.MerchantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderNo)) {
+		query["orderNo"] = request.OrderNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Signature)) {
+		query["signature"] = request.Signature
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryOrderResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryOrder"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/orders"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

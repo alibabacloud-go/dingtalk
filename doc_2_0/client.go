@@ -2042,6 +2042,95 @@ func (s *ListHotDocsResponse) SetBody(v *ListHotDocsResponseBody) *ListHotDocsRe
 	return s
 }
 
+type ListRelatedSpaceTeamsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListRelatedSpaceTeamsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRelatedSpaceTeamsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListRelatedSpaceTeamsHeaders) SetCommonHeaders(v map[string]*string) *ListRelatedSpaceTeamsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListRelatedSpaceTeamsHeaders) SetXAcsDingtalkAccessToken(v string) *ListRelatedSpaceTeamsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListRelatedSpaceTeamsRequest struct {
+	// 操作用户unionId。
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// 团队类型。
+	// 0-空白团队；1-部门；2-项目组；3-兴趣小组。
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s ListRelatedSpaceTeamsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRelatedSpaceTeamsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListRelatedSpaceTeamsRequest) SetOperatorId(v string) *ListRelatedSpaceTeamsRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *ListRelatedSpaceTeamsRequest) SetType(v int32) *ListRelatedSpaceTeamsRequest {
+	s.Type = &v
+	return s
+}
+
+type ListRelatedSpaceTeamsResponseBody struct {
+	Items []*TeamModel `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+}
+
+func (s ListRelatedSpaceTeamsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRelatedSpaceTeamsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListRelatedSpaceTeamsResponseBody) SetItems(v []*TeamModel) *ListRelatedSpaceTeamsResponseBody {
+	s.Items = v
+	return s
+}
+
+type ListRelatedSpaceTeamsResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListRelatedSpaceTeamsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListRelatedSpaceTeamsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRelatedSpaceTeamsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListRelatedSpaceTeamsResponse) SetHeaders(v map[string]*string) *ListRelatedSpaceTeamsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListRelatedSpaceTeamsResponse) SetBody(v *ListRelatedSpaceTeamsResponseBody) *ListRelatedSpaceTeamsResponse {
+	s.Body = v
+	return s
+}
+
 type ListSpaceSectionsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3729,6 +3818,54 @@ func (client *Client) ListHotDocsWithOptions(teamId *string, request *ListHotDoc
 	}
 	_result = &ListHotDocsResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListHotDocs"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/teams/"+tea.StringValue(teamId)+"/hotDocs"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListRelatedSpaceTeams(request *ListRelatedSpaceTeamsRequest) (_result *ListRelatedSpaceTeamsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListRelatedSpaceTeamsHeaders{}
+	_result = &ListRelatedSpaceTeamsResponse{}
+	_body, _err := client.ListRelatedSpaceTeamsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListRelatedSpaceTeamsWithOptions(request *ListRelatedSpaceTeamsRequest, headers *ListRelatedSpaceTeamsHeaders, runtime *util.RuntimeOptions) (_result *ListRelatedSpaceTeamsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		query["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListRelatedSpaceTeamsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListRelatedSpaceTeams"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/teams/relations/spaceTeams"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

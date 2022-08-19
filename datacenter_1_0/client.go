@@ -2596,6 +2596,397 @@ func (s *QueryMailStatisticalDataResponse) SetBody(v *QueryMailStatisticalDataRe
 	return s
 }
 
+type QueryOfficialDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryOfficialDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialDataHeaders) SetCommonHeaders(v map[string]*string) *QueryOfficialDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryOfficialDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryOfficialDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryOfficialDataRequest struct {
+	Param  *string `json:"param,omitempty" xml:"param,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryOfficialDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialDataRequest) SetParam(v string) *QueryOfficialDataRequest {
+	s.Param = &v
+	return s
+}
+
+func (s *QueryOfficialDataRequest) SetUserId(v string) *QueryOfficialDataRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryOfficialDataResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryOfficialDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialDataResponseBody) SetResult(v string) *QueryOfficialDataResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *QueryOfficialDataResponseBody) SetSuccess(v bool) *QueryOfficialDataResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryOfficialDataResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryOfficialDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryOfficialDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialDataResponse) SetHeaders(v map[string]*string) *QueryOfficialDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryOfficialDataResponse) SetBody(v *QueryOfficialDataResponseBody) *QueryOfficialDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryOfficialDatasetFieldsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryOfficialDatasetFieldsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialDatasetFieldsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialDatasetFieldsHeaders) SetCommonHeaders(v map[string]*string) *QueryOfficialDatasetFieldsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryOfficialDatasetFieldsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryOfficialDatasetFieldsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryOfficialDatasetFieldsRequest struct {
+	// 数据集id
+	DsId *string `json:"dsId,omitempty" xml:"dsId,omitempty"`
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryOfficialDatasetFieldsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialDatasetFieldsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialDatasetFieldsRequest) SetDsId(v string) *QueryOfficialDatasetFieldsRequest {
+	s.DsId = &v
+	return s
+}
+
+func (s *QueryOfficialDatasetFieldsRequest) SetUserId(v string) *QueryOfficialDatasetFieldsRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryOfficialDatasetFieldsResponseBody struct {
+	Result  *QueryOfficialDatasetFieldsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                         `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryOfficialDatasetFieldsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialDatasetFieldsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialDatasetFieldsResponseBody) SetResult(v *QueryOfficialDatasetFieldsResponseBodyResult) *QueryOfficialDatasetFieldsResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryOfficialDatasetFieldsResponseBody) SetSuccess(v bool) *QueryOfficialDatasetFieldsResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryOfficialDatasetFieldsResponseBodyResult struct {
+	DisplayName *string                                               `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	DsId        *string                                               `json:"dsId,omitempty" xml:"dsId,omitempty"`
+	Fields      []*QueryOfficialDatasetFieldsResponseBodyResultFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+}
+
+func (s QueryOfficialDatasetFieldsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialDatasetFieldsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialDatasetFieldsResponseBodyResult) SetDisplayName(v string) *QueryOfficialDatasetFieldsResponseBodyResult {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *QueryOfficialDatasetFieldsResponseBodyResult) SetDsId(v string) *QueryOfficialDatasetFieldsResponseBodyResult {
+	s.DsId = &v
+	return s
+}
+
+func (s *QueryOfficialDatasetFieldsResponseBodyResult) SetFields(v []*QueryOfficialDatasetFieldsResponseBodyResultFields) *QueryOfficialDatasetFieldsResponseBodyResult {
+	s.Fields = v
+	return s
+}
+
+type QueryOfficialDatasetFieldsResponseBodyResultFields struct {
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	FieldId     *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	FieldType   *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+}
+
+func (s QueryOfficialDatasetFieldsResponseBodyResultFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialDatasetFieldsResponseBodyResultFields) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialDatasetFieldsResponseBodyResultFields) SetDisplayName(v string) *QueryOfficialDatasetFieldsResponseBodyResultFields {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *QueryOfficialDatasetFieldsResponseBodyResultFields) SetFieldId(v string) *QueryOfficialDatasetFieldsResponseBodyResultFields {
+	s.FieldId = &v
+	return s
+}
+
+func (s *QueryOfficialDatasetFieldsResponseBodyResultFields) SetFieldType(v string) *QueryOfficialDatasetFieldsResponseBodyResultFields {
+	s.FieldType = &v
+	return s
+}
+
+type QueryOfficialDatasetFieldsResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryOfficialDatasetFieldsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryOfficialDatasetFieldsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialDatasetFieldsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialDatasetFieldsResponse) SetHeaders(v map[string]*string) *QueryOfficialDatasetFieldsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryOfficialDatasetFieldsResponse) SetBody(v *QueryOfficialDatasetFieldsResponseBody) *QueryOfficialDatasetFieldsResponse {
+	s.Body = v
+	return s
+}
+
+type QueryOfficialDatasetListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryOfficialDatasetListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialDatasetListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialDatasetListHeaders) SetCommonHeaders(v map[string]*string) *QueryOfficialDatasetListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryOfficialDatasetListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryOfficialDatasetListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryOfficialDatasetListRequest struct {
+	// 关键词搜索
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// 起始页，从1开始
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 单页大小，最大100
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s QueryOfficialDatasetListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialDatasetListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialDatasetListRequest) SetKeyword(v string) *QueryOfficialDatasetListRequest {
+	s.Keyword = &v
+	return s
+}
+
+func (s *QueryOfficialDatasetListRequest) SetPageNumber(v int32) *QueryOfficialDatasetListRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryOfficialDatasetListRequest) SetPageSize(v int32) *QueryOfficialDatasetListRequest {
+	s.PageSize = &v
+	return s
+}
+
+type QueryOfficialDatasetListResponseBody struct {
+	Result  *QueryOfficialDatasetListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                       `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryOfficialDatasetListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialDatasetListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialDatasetListResponseBody) SetResult(v *QueryOfficialDatasetListResponseBodyResult) *QueryOfficialDatasetListResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryOfficialDatasetListResponseBody) SetSuccess(v bool) *QueryOfficialDatasetListResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryOfficialDatasetListResponseBodyResult struct {
+	Rows       []*QueryOfficialDatasetListResponseBodyResultRows `json:"rows,omitempty" xml:"rows,omitempty" type:"Repeated"`
+	TotalCount *int64                                            `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryOfficialDatasetListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialDatasetListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialDatasetListResponseBodyResult) SetRows(v []*QueryOfficialDatasetListResponseBodyResultRows) *QueryOfficialDatasetListResponseBodyResult {
+	s.Rows = v
+	return s
+}
+
+func (s *QueryOfficialDatasetListResponseBodyResult) SetTotalCount(v int64) *QueryOfficialDatasetListResponseBodyResult {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryOfficialDatasetListResponseBodyResultRows struct {
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	DsId        *string `json:"dsId,omitempty" xml:"dsId,omitempty"`
+}
+
+func (s QueryOfficialDatasetListResponseBodyResultRows) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialDatasetListResponseBodyResultRows) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialDatasetListResponseBodyResultRows) SetDisplayName(v string) *QueryOfficialDatasetListResponseBodyResultRows {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *QueryOfficialDatasetListResponseBodyResultRows) SetDsId(v string) *QueryOfficialDatasetListResponseBodyResultRows {
+	s.DsId = &v
+	return s
+}
+
+type QueryOfficialDatasetListResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryOfficialDatasetListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryOfficialDatasetListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialDatasetListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialDatasetListResponse) SetHeaders(v map[string]*string) *QueryOfficialDatasetListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryOfficialDatasetListResponse) SetBody(v *QueryOfficialDatasetListResponseBody) *QueryOfficialDatasetListResponse {
+	s.Body = v
+	return s
+}
+
 type QueryOnlineUserStatisticalDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9712,6 +10103,154 @@ func (client *Client) QueryMailStatisticalDataWithOptions(request *QueryMailStat
 	}
 	_result = &QueryMailStatisticalDataResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryMailStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/mailData"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryOfficialData(request *QueryOfficialDataRequest) (_result *QueryOfficialDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryOfficialDataHeaders{}
+	_result = &QueryOfficialDataResponse{}
+	_body, _err := client.QueryOfficialDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryOfficialDataWithOptions(request *QueryOfficialDataRequest, headers *QueryOfficialDataHeaders, runtime *util.RuntimeOptions) (_result *QueryOfficialDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		query["param"] = request.Param
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryOfficialDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryOfficialData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/datas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryOfficialDatasetFields(request *QueryOfficialDatasetFieldsRequest) (_result *QueryOfficialDatasetFieldsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryOfficialDatasetFieldsHeaders{}
+	_result = &QueryOfficialDatasetFieldsResponse{}
+	_body, _err := client.QueryOfficialDatasetFieldsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryOfficialDatasetFieldsWithOptions(request *QueryOfficialDatasetFieldsRequest, headers *QueryOfficialDatasetFieldsHeaders, runtime *util.RuntimeOptions) (_result *QueryOfficialDatasetFieldsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DsId)) {
+		query["dsId"] = request.DsId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryOfficialDatasetFieldsResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryOfficialDatasetFields"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/datasetFields"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryOfficialDatasetList(request *QueryOfficialDatasetListRequest) (_result *QueryOfficialDatasetListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryOfficialDatasetListHeaders{}
+	_result = &QueryOfficialDatasetListResponse{}
+	_body, _err := client.QueryOfficialDatasetListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryOfficialDatasetListWithOptions(request *QueryOfficialDatasetListRequest, headers *QueryOfficialDatasetListHeaders, runtime *util.RuntimeOptions) (_result *QueryOfficialDatasetListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
+		query["keyword"] = request.Keyword
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryOfficialDatasetListResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryOfficialDatasetList"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/datasetLists"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

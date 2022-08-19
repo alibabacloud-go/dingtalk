@@ -70,8 +70,6 @@ func (s *AddFolderRequest) SetUnionId(v string) *AddFolderRequest {
 }
 
 type AddFolderRequestOption struct {
-	// 文件夹在应用上的属性, 一个应用最多只能设置3个属性
-	AppProperties []*AddFolderRequestOptionAppProperties `json:"appProperties,omitempty" xml:"appProperties,omitempty" type:"Repeated"`
 	// 文件夹名称冲突策略
 	// 枚举值:
 	// 	AUTO_RENAME: 自动重命名
@@ -91,48 +89,8 @@ func (s AddFolderRequestOption) GoString() string {
 	return s.String()
 }
 
-func (s *AddFolderRequestOption) SetAppProperties(v []*AddFolderRequestOptionAppProperties) *AddFolderRequestOption {
-	s.AppProperties = v
-	return s
-}
-
 func (s *AddFolderRequestOption) SetConflictStrategy(v string) *AddFolderRequestOption {
 	s.ConflictStrategy = &v
-	return s
-}
-
-type AddFolderRequestOptionAppProperties struct {
-	// 属性名称 该属性名称在当前app下需要保证唯一，不同app间同名属性互不影响
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 属性值
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
-	// 属性可见范围
-	// 枚举值:
-	// 	PUBLIC: 该属性所有App可见
-	// 	PRIVATE: 该属性仅其归属App可见
-	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
-}
-
-func (s AddFolderRequestOptionAppProperties) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AddFolderRequestOptionAppProperties) GoString() string {
-	return s.String()
-}
-
-func (s *AddFolderRequestOptionAppProperties) SetName(v string) *AddFolderRequestOptionAppProperties {
-	s.Name = &v
-	return s
-}
-
-func (s *AddFolderRequestOptionAppProperties) SetValue(v string) *AddFolderRequestOptionAppProperties {
-	s.Value = &v
-	return s
-}
-
-func (s *AddFolderRequestOptionAppProperties) SetVisibility(v string) *AddFolderRequestOptionAppProperties {
-	s.Visibility = &v
 	return s
 }
 
@@ -1024,8 +982,6 @@ func (s *CommitFileRequest) SetUnionId(v string) *CommitFileRequest {
 }
 
 type CommitFileRequestOption struct {
-	// 文件在应用上的属性, 一个应用最多只能设置3个属性
-	AppProperties []*CommitFileRequestOptionAppProperties `json:"appProperties,omitempty" xml:"appProperties,omitempty" type:"Repeated"`
 	// 文件名称冲突策略
 	// 枚举值:
 	// 	AUTO_RENAME: 自动重命名
@@ -1048,11 +1004,6 @@ func (s CommitFileRequestOption) GoString() string {
 	return s.String()
 }
 
-func (s *CommitFileRequestOption) SetAppProperties(v []*CommitFileRequestOptionAppProperties) *CommitFileRequestOption {
-	s.AppProperties = v
-	return s
-}
-
 func (s *CommitFileRequestOption) SetConflictStrategy(v string) *CommitFileRequestOption {
 	s.ConflictStrategy = &v
 	return s
@@ -1060,41 +1011,6 @@ func (s *CommitFileRequestOption) SetConflictStrategy(v string) *CommitFileReque
 
 func (s *CommitFileRequestOption) SetSize(v int64) *CommitFileRequestOption {
 	s.Size = &v
-	return s
-}
-
-type CommitFileRequestOptionAppProperties struct {
-	// 属性名称 该属性名称在当前app下需要保证唯一，不同app间同名属性互不影响
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 属性值
-	Value *string `json:"value,omitempty" xml:"value,omitempty"`
-	// 属性可见范围
-	// 枚举值:
-	// 	PUBLIC: 该属性所有App可见
-	// 	PRIVATE: 该属性仅其归属App可见
-	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
-}
-
-func (s CommitFileRequestOptionAppProperties) String() string {
-	return tea.Prettify(s)
-}
-
-func (s CommitFileRequestOptionAppProperties) GoString() string {
-	return s.String()
-}
-
-func (s *CommitFileRequestOptionAppProperties) SetName(v string) *CommitFileRequestOptionAppProperties {
-	s.Name = &v
-	return s
-}
-
-func (s *CommitFileRequestOptionAppProperties) SetValue(v string) *CommitFileRequestOptionAppProperties {
-	s.Value = &v
-	return s
-}
-
-func (s *CommitFileRequestOptionAppProperties) SetVisibility(v string) *CommitFileRequestOptionAppProperties {
-	s.Visibility = &v
 	return s
 }
 
@@ -4276,8 +4192,6 @@ type ListPermissionsResponseBodyPermissions struct {
 	Member *ListPermissionsResponseBodyPermissionsMember `json:"member,omitempty" xml:"member,omitempty" type:"Struct"`
 	// 修改时间
 	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	// 操作人id
-	OperatorId *int64 `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 	// 权限角色
 	Role *ListPermissionsResponseBodyPermissionsRole `json:"role,omitempty" xml:"role,omitempty" type:"Struct"`
 	// 空间id
@@ -4314,11 +4228,6 @@ func (s *ListPermissionsResponseBodyPermissions) SetMember(v *ListPermissionsRes
 
 func (s *ListPermissionsResponseBodyPermissions) SetModifiedTime(v string) *ListPermissionsResponseBodyPermissions {
 	s.ModifiedTime = &v
-	return s
-}
-
-func (s *ListPermissionsResponseBodyPermissions) SetOperatorId(v int64) *ListPermissionsResponseBodyPermissions {
-	s.OperatorId = &v
 	return s
 }
 
