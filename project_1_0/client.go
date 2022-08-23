@@ -654,6 +654,8 @@ func (s *CreateTaskHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTaskHead
 type CreateTaskRequest struct {
 	// 任务标题
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 自定义字段列表
+	Customfields []*CreateTaskRequestCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
 	// 任务截止时间
 	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
 	// 执行者userId
@@ -676,6 +678,11 @@ func (s CreateTaskRequest) GoString() string {
 
 func (s *CreateTaskRequest) SetContent(v string) *CreateTaskRequest {
 	s.Content = &v
+	return s
+}
+
+func (s *CreateTaskRequest) SetCustomfields(v []*CreateTaskRequestCustomfields) *CreateTaskRequest {
+	s.Customfields = v
 	return s
 }
 
@@ -704,6 +711,56 @@ func (s *CreateTaskRequest) SetProjectId(v string) *CreateTaskRequest {
 	return s
 }
 
+type CreateTaskRequestCustomfields struct {
+	// 自定义字段id
+	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	// 自定义字段名称
+	CustomfieldName *string `json:"customfieldName,omitempty" xml:"customfieldName,omitempty"`
+	// 自定义字段值
+	Value []*CreateTaskRequestCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+}
+
+func (s CreateTaskRequestCustomfields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTaskRequestCustomfields) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTaskRequestCustomfields) SetCustomfieldId(v string) *CreateTaskRequestCustomfields {
+	s.CustomfieldId = &v
+	return s
+}
+
+func (s *CreateTaskRequestCustomfields) SetCustomfieldName(v string) *CreateTaskRequestCustomfields {
+	s.CustomfieldName = &v
+	return s
+}
+
+func (s *CreateTaskRequestCustomfields) SetValue(v []*CreateTaskRequestCustomfieldsValue) *CreateTaskRequestCustomfields {
+	s.Value = v
+	return s
+}
+
+type CreateTaskRequestCustomfieldsValue struct {
+	// 自定义字段显示值
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s CreateTaskRequestCustomfieldsValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTaskRequestCustomfieldsValue) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTaskRequestCustomfieldsValue) SetTitle(v string) *CreateTaskRequestCustomfieldsValue {
+	s.Title = &v
+	return s
+}
+
 type CreateTaskResponseBody struct {
 	// 返回结果对象
 	Result *CreateTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
@@ -729,6 +786,8 @@ type CreateTaskResponseBodyResult struct {
 	Created *string `json:"created,omitempty" xml:"created,omitempty"`
 	// 任务创建者userId
 	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 自定义字段列表
+	Customfields []*CreateTaskResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
 	// 任务截止时间
 	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
 	// 任务执行者userId
@@ -770,6 +829,11 @@ func (s *CreateTaskResponseBodyResult) SetCreatorId(v string) *CreateTaskRespons
 	return s
 }
 
+func (s *CreateTaskResponseBodyResult) SetCustomfields(v []*CreateTaskResponseBodyResultCustomfields) *CreateTaskResponseBodyResult {
+	s.Customfields = v
+	return s
+}
+
 func (s *CreateTaskResponseBodyResult) SetDueDate(v string) *CreateTaskResponseBodyResult {
 	s.DueDate = &v
 	return s
@@ -807,6 +871,49 @@ func (s *CreateTaskResponseBodyResult) SetTaskId(v string) *CreateTaskResponseBo
 
 func (s *CreateTaskResponseBodyResult) SetUpdated(v string) *CreateTaskResponseBodyResult {
 	s.Updated = &v
+	return s
+}
+
+type CreateTaskResponseBodyResultCustomfields struct {
+	// 自定义字段id
+	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	// 自定义字段值
+	Value []*CreateTaskResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+}
+
+func (s CreateTaskResponseBodyResultCustomfields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTaskResponseBodyResultCustomfields) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTaskResponseBodyResultCustomfields) SetCustomfieldId(v string) *CreateTaskResponseBodyResultCustomfields {
+	s.CustomfieldId = &v
+	return s
+}
+
+func (s *CreateTaskResponseBodyResultCustomfields) SetValue(v []*CreateTaskResponseBodyResultCustomfieldsValue) *CreateTaskResponseBodyResultCustomfields {
+	s.Value = v
+	return s
+}
+
+type CreateTaskResponseBodyResultCustomfieldsValue struct {
+	// 自定义字段显示值
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s CreateTaskResponseBodyResultCustomfieldsValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTaskResponseBodyResultCustomfieldsValue) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTaskResponseBodyResultCustomfieldsValue) SetTitle(v string) *CreateTaskResponseBodyResultCustomfieldsValue {
+	s.Title = &v
 	return s
 }
 
@@ -2525,6 +2632,181 @@ func (s *SearchProjectTemplateResponse) SetBody(v *SearchProjectTemplateResponse
 	return s
 }
 
+type UpdateCustomfieldValueHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateCustomfieldValueHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomfieldValueHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomfieldValueHeaders) SetCommonHeaders(v map[string]*string) *UpdateCustomfieldValueHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateCustomfieldValueHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateCustomfieldValueHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateCustomfieldValueRequest struct {
+	// 自定义字段id
+	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	// 自定义字段名
+	CustomfieldName *string `json:"customfieldName,omitempty" xml:"customfieldName,omitempty"`
+	// 自定义字段值列表，最多10个
+	Value []*UpdateCustomfieldValueRequestValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+}
+
+func (s UpdateCustomfieldValueRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomfieldValueRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomfieldValueRequest) SetCustomfieldId(v string) *UpdateCustomfieldValueRequest {
+	s.CustomfieldId = &v
+	return s
+}
+
+func (s *UpdateCustomfieldValueRequest) SetCustomfieldName(v string) *UpdateCustomfieldValueRequest {
+	s.CustomfieldName = &v
+	return s
+}
+
+func (s *UpdateCustomfieldValueRequest) SetValue(v []*UpdateCustomfieldValueRequestValue) *UpdateCustomfieldValueRequest {
+	s.Value = v
+	return s
+}
+
+type UpdateCustomfieldValueRequestValue struct {
+	// 自定义字段显示值
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s UpdateCustomfieldValueRequestValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomfieldValueRequestValue) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomfieldValueRequestValue) SetTitle(v string) *UpdateCustomfieldValueRequestValue {
+	s.Title = &v
+	return s
+}
+
+type UpdateCustomfieldValueResponseBody struct {
+	// 返回对象
+	Result *UpdateCustomfieldValueResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateCustomfieldValueResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomfieldValueResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomfieldValueResponseBody) SetResult(v *UpdateCustomfieldValueResponseBodyResult) *UpdateCustomfieldValueResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateCustomfieldValueResponseBodyResult struct {
+	// 自定义字段数组
+	Customfields []*UpdateCustomfieldValueResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+}
+
+func (s UpdateCustomfieldValueResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomfieldValueResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomfieldValueResponseBodyResult) SetCustomfields(v []*UpdateCustomfieldValueResponseBodyResultCustomfields) *UpdateCustomfieldValueResponseBodyResult {
+	s.Customfields = v
+	return s
+}
+
+type UpdateCustomfieldValueResponseBodyResultCustomfields struct {
+	// 自定义字段id
+	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	// 自定义字段值对象
+	Value []*UpdateCustomfieldValueResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+}
+
+func (s UpdateCustomfieldValueResponseBodyResultCustomfields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomfieldValueResponseBodyResultCustomfields) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomfieldValueResponseBodyResultCustomfields) SetCustomfieldId(v string) *UpdateCustomfieldValueResponseBodyResultCustomfields {
+	s.CustomfieldId = &v
+	return s
+}
+
+func (s *UpdateCustomfieldValueResponseBodyResultCustomfields) SetValue(v []*UpdateCustomfieldValueResponseBodyResultCustomfieldsValue) *UpdateCustomfieldValueResponseBodyResultCustomfields {
+	s.Value = v
+	return s
+}
+
+type UpdateCustomfieldValueResponseBodyResultCustomfieldsValue struct {
+	// 自定义字段显示值
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s UpdateCustomfieldValueResponseBodyResultCustomfieldsValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomfieldValueResponseBodyResultCustomfieldsValue) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomfieldValueResponseBodyResultCustomfieldsValue) SetTitle(v string) *UpdateCustomfieldValueResponseBodyResultCustomfieldsValue {
+	s.Title = &v
+	return s
+}
+
+type UpdateCustomfieldValueResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateCustomfieldValueResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateCustomfieldValueResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomfieldValueResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomfieldValueResponse) SetHeaders(v map[string]*string) *UpdateCustomfieldValueResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateCustomfieldValueResponse) SetBody(v *UpdateCustomfieldValueResponseBody) *UpdateCustomfieldValueResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateOrganizationTaskContentHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3821,6 +4103,10 @@ func (client *Client) CreateTaskWithOptions(userId *string, request *CreateTaskR
 		body["content"] = request.Content
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Customfields)) {
+		body["customfields"] = request.Customfields
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.DueDate)) {
 		body["dueDate"] = request.DueDate
 	}
@@ -4438,6 +4724,60 @@ func (client *Client) SearchProjectTemplateWithOptions(userId *string, request *
 	}
 	_result = &SearchProjectTemplateResponse{}
 	_body, _err := client.DoROARequest(tea.String("SearchProjectTemplate"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/organizations/users/"+tea.StringValue(userId)+"/templates"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateCustomfieldValue(userId *string, taskId *string, request *UpdateCustomfieldValueRequest) (_result *UpdateCustomfieldValueResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateCustomfieldValueHeaders{}
+	_result = &UpdateCustomfieldValueResponse{}
+	_body, _err := client.UpdateCustomfieldValueWithOptions(userId, taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateCustomfieldValueWithOptions(userId *string, taskId *string, request *UpdateCustomfieldValueRequest, headers *UpdateCustomfieldValueHeaders, runtime *util.RuntimeOptions) (_result *UpdateCustomfieldValueResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	taskId = openapiutil.GetEncodeParam(taskId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CustomfieldId)) {
+		body["customfieldId"] = request.CustomfieldId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CustomfieldName)) {
+		body["customfieldName"] = request.CustomfieldName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Value)) {
+		body["value"] = request.Value
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateCustomfieldValueResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateCustomfieldValue"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/customFields"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

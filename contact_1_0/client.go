@@ -645,6 +645,166 @@ func (s *CreateManagementGroupResponse) SetBody(v *CreateManagementGroupResponse
 	return s
 }
 
+type CreateSecondaryManagementGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateSecondaryManagementGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSecondaryManagementGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSecondaryManagementGroupHeaders) SetCommonHeaders(v map[string]*string) *CreateSecondaryManagementGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateSecondaryManagementGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSecondaryManagementGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateSecondaryManagementGroupRequest struct {
+	// 管理组名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 管理组成员列表
+	Members []*CreateSecondaryManagementGroupRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// 资源id列表
+	ResourceIds []*string `json:"resourceIds,omitempty" xml:"resourceIds,omitempty" type:"Repeated"`
+	// 管理组权限范围信息
+	Scope *CreateSecondaryManagementGroupRequestScope `json:"scope,omitempty" xml:"scope,omitempty" type:"Struct"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateSecondaryManagementGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSecondaryManagementGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSecondaryManagementGroupRequest) SetGroupName(v string) *CreateSecondaryManagementGroupRequest {
+	s.GroupName = &v
+	return s
+}
+
+func (s *CreateSecondaryManagementGroupRequest) SetMembers(v []*CreateSecondaryManagementGroupRequestMembers) *CreateSecondaryManagementGroupRequest {
+	s.Members = v
+	return s
+}
+
+func (s *CreateSecondaryManagementGroupRequest) SetResourceIds(v []*string) *CreateSecondaryManagementGroupRequest {
+	s.ResourceIds = v
+	return s
+}
+
+func (s *CreateSecondaryManagementGroupRequest) SetScope(v *CreateSecondaryManagementGroupRequestScope) *CreateSecondaryManagementGroupRequest {
+	s.Scope = v
+	return s
+}
+
+func (s *CreateSecondaryManagementGroupRequest) SetUserId(v string) *CreateSecondaryManagementGroupRequest {
+	s.UserId = &v
+	return s
+}
+
+type CreateSecondaryManagementGroupRequestMembers struct {
+	// 员工id
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// 员工类型
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+}
+
+func (s CreateSecondaryManagementGroupRequestMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSecondaryManagementGroupRequestMembers) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSecondaryManagementGroupRequestMembers) SetMemberId(v string) *CreateSecondaryManagementGroupRequestMembers {
+	s.MemberId = &v
+	return s
+}
+
+func (s *CreateSecondaryManagementGroupRequestMembers) SetMemberType(v string) *CreateSecondaryManagementGroupRequestMembers {
+	s.MemberType = &v
+	return s
+}
+
+type CreateSecondaryManagementGroupRequestScope struct {
+	// 部门id列表
+	DeptIds []*int64 `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	// 权限范围
+	ScopeType *int32 `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+}
+
+func (s CreateSecondaryManagementGroupRequestScope) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSecondaryManagementGroupRequestScope) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSecondaryManagementGroupRequestScope) SetDeptIds(v []*int64) *CreateSecondaryManagementGroupRequestScope {
+	s.DeptIds = v
+	return s
+}
+
+func (s *CreateSecondaryManagementGroupRequestScope) SetScopeType(v int32) *CreateSecondaryManagementGroupRequestScope {
+	s.ScopeType = &v
+	return s
+}
+
+type CreateSecondaryManagementGroupResponseBody struct {
+	// 管理组id
+	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+}
+
+func (s CreateSecondaryManagementGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSecondaryManagementGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSecondaryManagementGroupResponseBody) SetGroupId(v string) *CreateSecondaryManagementGroupResponseBody {
+	s.GroupId = &v
+	return s
+}
+
+type CreateSecondaryManagementGroupResponse struct {
+	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateSecondaryManagementGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateSecondaryManagementGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSecondaryManagementGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSecondaryManagementGroupResponse) SetHeaders(v map[string]*string) *CreateSecondaryManagementGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateSecondaryManagementGroupResponse) SetBody(v *CreateSecondaryManagementGroupResponseBody) *CreateSecondaryManagementGroupResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteContactHideSettingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6755,6 +6915,68 @@ func (client *Client) CreateManagementGroupWithOptions(request *CreateManagement
 	}
 	_result = &CreateManagementGroupResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateManagementGroup"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/managementGroups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateSecondaryManagementGroup(request *CreateSecondaryManagementGroupRequest) (_result *CreateSecondaryManagementGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateSecondaryManagementGroupHeaders{}
+	_result = &CreateSecondaryManagementGroupResponse{}
+	_body, _err := client.CreateSecondaryManagementGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateSecondaryManagementGroupWithOptions(request *CreateSecondaryManagementGroupRequest, headers *CreateSecondaryManagementGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateSecondaryManagementGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
+		body["groupName"] = request.GroupName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Members)) {
+		body["members"] = request.Members
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ResourceIds)) {
+		body["resourceIds"] = request.ResourceIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Scope))) {
+		body["scope"] = request.Scope
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateSecondaryManagementGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateSecondaryManagementGroup"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/secondaryAdministrators/managementGroups"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

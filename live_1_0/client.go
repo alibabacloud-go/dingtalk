@@ -676,7 +676,7 @@ type GetUserAllLiveListRequest struct {
 	// 筛选直播开始时间
 	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
 	// 直播状态列表
-	Statuses []*int64 `json:"statuses,omitempty" xml:"statuses,omitempty" type:"Repeated"`
+	Statuses []*int32 `json:"statuses,omitempty" xml:"statuses,omitempty" type:"Repeated"`
 	// 筛选直播标题
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 	// 第几页，从1开始
@@ -705,7 +705,7 @@ func (s *GetUserAllLiveListRequest) SetStartTime(v int64) *GetUserAllLiveListReq
 	return s
 }
 
-func (s *GetUserAllLiveListRequest) SetStatuses(v []*int64) *GetUserAllLiveListRequest {
+func (s *GetUserAllLiveListRequest) SetStatuses(v []*int32) *GetUserAllLiveListRequest {
 	s.Statuses = v
 	return s
 }
@@ -773,18 +773,71 @@ func (s *GetUserAllLiveListResponseBodyResult) SetLiveInfoPopModelList(v []*GetU
 }
 
 type GetUserAllLiveListResponseBodyResultLiveInfoPopModelList struct {
+	// 直播额外信息
+	ExtraInfo *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListExtraInfo `json:"extraInfo,omitempty" xml:"extraInfo,omitempty" type:"Struct"`
+	// 直播基础信息
+	LiveBasicInfo *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo `json:"liveBasicInfo,omitempty" xml:"liveBasicInfo,omitempty" type:"Struct"`
+}
+
+func (s GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) SetExtraInfo(v *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListExtraInfo) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList {
+	s.ExtraInfo = v
+	return s
+}
+
+func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) SetLiveBasicInfo(v *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList {
+	s.LiveBasicInfo = v
+	return s
+}
+
+type GetUserAllLiveListResponseBodyResultLiveInfoPopModelListExtraInfo struct {
+	// 是否关注
+	HasSubscribed *bool `json:"hasSubscribed,omitempty" xml:"hasSubscribed,omitempty"`
+	// 预告是否过期
+	IsForecastExpired *bool `json:"isForecastExpired,omitempty" xml:"isForecastExpired,omitempty"`
+	// 回放观看进度
+	WatchProgressMs *int64 `json:"watchProgressMs,omitempty" xml:"watchProgressMs,omitempty"`
+}
+
+func (s GetUserAllLiveListResponseBodyResultLiveInfoPopModelListExtraInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserAllLiveListResponseBodyResultLiveInfoPopModelListExtraInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListExtraInfo) SetHasSubscribed(v bool) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListExtraInfo {
+	s.HasSubscribed = &v
+	return s
+}
+
+func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListExtraInfo) SetIsForecastExpired(v bool) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListExtraInfo {
+	s.IsForecastExpired = &v
+	return s
+}
+
+func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListExtraInfo) SetWatchProgressMs(v int64) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListExtraInfo {
+	s.WatchProgressMs = &v
+	return s
+}
+
+type GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo struct {
 	// 直播封面
 	CoverUrl *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
 	// 直播时长
 	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
 	// 直播真实结束时间
 	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 是否订阅
-	HasSubscribed *bool `json:"hasSubscribed,omitempty" xml:"hasSubscribed,omitempty"`
 	// 直播简介
 	Introduction *string `json:"introduction,omitempty" xml:"introduction,omitempty"`
-	// 预告是否过期
-	IsForecastExpired *bool `json:"isForecastExpired,omitempty" xml:"isForecastExpired,omitempty"`
 	// 直播id
 	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
 	// 直播观看地址
@@ -801,90 +854,73 @@ type GetUserAllLiveListResponseBodyResultLiveInfoPopModelList struct {
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	// 观看人数
 	Uv *int32 `json:"uv,omitempty" xml:"uv,omitempty"`
-	// 回放观看进度
-	WatchProgressMs *int64 `json:"watchProgressMs,omitempty" xml:"watchProgressMs,omitempty"`
 }
 
-func (s GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) String() string {
+func (s GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) GoString() string {
+func (s GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) GoString() string {
 	return s.String()
 }
 
-func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) SetCoverUrl(v string) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetCoverUrl(v string) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.CoverUrl = &v
 	return s
 }
 
-func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) SetDuration(v int64) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetDuration(v int64) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.Duration = &v
 	return s
 }
 
-func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) SetEndTime(v int64) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetEndTime(v int64) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.EndTime = &v
 	return s
 }
 
-func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) SetHasSubscribed(v bool) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList {
-	s.HasSubscribed = &v
-	return s
-}
-
-func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) SetIntroduction(v string) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetIntroduction(v string) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.Introduction = &v
 	return s
 }
 
-func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) SetIsForecastExpired(v bool) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList {
-	s.IsForecastExpired = &v
-	return s
-}
-
-func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) SetLiveId(v string) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetLiveId(v string) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.LiveId = &v
 	return s
 }
 
-func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) SetLivePlayUrl(v string) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetLivePlayUrl(v string) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.LivePlayUrl = &v
 	return s
 }
 
-func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) SetLiveStatus(v int32) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetLiveStatus(v int32) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.LiveStatus = &v
 	return s
 }
 
-func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) SetStartTime(v int64) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetStartTime(v int64) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.StartTime = &v
 	return s
 }
 
-func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) SetSubscribeCount(v int32) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetSubscribeCount(v int32) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.SubscribeCount = &v
 	return s
 }
 
-func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) SetTitle(v string) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetTitle(v string) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.Title = &v
 	return s
 }
 
-func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) SetUnionId(v string) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetUnionId(v string) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.UnionId = &v
 	return s
 }
 
-func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) SetUv(v int32) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetUv(v int32) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.Uv = &v
-	return s
-}
-
-func (s *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList) SetWatchProgressMs(v int64) *GetUserAllLiveListResponseBodyResultLiveInfoPopModelList {
-	s.WatchProgressMs = &v
 	return s
 }
 
@@ -935,12 +971,18 @@ func (s *GetUserCreateLiveListHeaders) SetXAcsDingtalkAccessToken(v string) *Get
 }
 
 type GetUserCreateLiveListRequest struct {
-	// post请求体, 开放平台建议以对象形式存储
-	Body *GetUserCreateLiveListRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Struct"`
+	// 筛选直播截止时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 筛选直播开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 直播状态列表
+	Statuses []*int64 `json:"statuses,omitempty" xml:"statuses,omitempty" type:"Repeated"`
+	// 筛选的直播标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 单次拉去上限，默认40个
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	// 分页游标 第一次可不填， 后面填回包的值
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 单次拉去上限，默认40个
-	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 	// 用户uid
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
@@ -953,8 +995,28 @@ func (s GetUserCreateLiveListRequest) GoString() string {
 	return s.String()
 }
 
-func (s *GetUserCreateLiveListRequest) SetBody(v *GetUserCreateLiveListRequestBody) *GetUserCreateLiveListRequest {
-	s.Body = v
+func (s *GetUserCreateLiveListRequest) SetEndTime(v int64) *GetUserCreateLiveListRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetUserCreateLiveListRequest) SetStartTime(v int64) *GetUserCreateLiveListRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetUserCreateLiveListRequest) SetStatuses(v []*int64) *GetUserCreateLiveListRequest {
+	s.Statuses = v
+	return s
+}
+
+func (s *GetUserCreateLiveListRequest) SetTitle(v string) *GetUserCreateLiveListRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *GetUserCreateLiveListRequest) SetMaxResults(v int32) *GetUserCreateLiveListRequest {
+	s.MaxResults = &v
 	return s
 }
 
@@ -963,90 +1025,7 @@ func (s *GetUserCreateLiveListRequest) SetNextToken(v string) *GetUserCreateLive
 	return s
 }
 
-func (s *GetUserCreateLiveListRequest) SetPageSize(v int32) *GetUserCreateLiveListRequest {
-	s.PageSize = &v
-	return s
-}
-
 func (s *GetUserCreateLiveListRequest) SetUnionId(v string) *GetUserCreateLiveListRequest {
-	s.UnionId = &v
-	return s
-}
-
-type GetUserCreateLiveListRequestBody struct {
-	// 筛选直播截止时间
-	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 筛选直播开始时间
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	// 直播状态列表
-	Statuses []*int64 `json:"statuses,omitempty" xml:"statuses,omitempty" type:"Repeated"`
-	// 筛选的直播标题
-	Title *string `json:"title,omitempty" xml:"title,omitempty"`
-}
-
-func (s GetUserCreateLiveListRequestBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetUserCreateLiveListRequestBody) GoString() string {
-	return s.String()
-}
-
-func (s *GetUserCreateLiveListRequestBody) SetEndTime(v int64) *GetUserCreateLiveListRequestBody {
-	s.EndTime = &v
-	return s
-}
-
-func (s *GetUserCreateLiveListRequestBody) SetStartTime(v int64) *GetUserCreateLiveListRequestBody {
-	s.StartTime = &v
-	return s
-}
-
-func (s *GetUserCreateLiveListRequestBody) SetStatuses(v []*int64) *GetUserCreateLiveListRequestBody {
-	s.Statuses = v
-	return s
-}
-
-func (s *GetUserCreateLiveListRequestBody) SetTitle(v string) *GetUserCreateLiveListRequestBody {
-	s.Title = &v
-	return s
-}
-
-type GetUserCreateLiveListShrinkRequest struct {
-	// post请求体, 开放平台建议以对象形式存储
-	BodyShrink *string `json:"body,omitempty" xml:"body,omitempty"`
-	// 分页游标 第一次可不填， 后面填回包的值
-	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	// 单次拉去上限，默认40个
-	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	// 用户uid
-	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-}
-
-func (s GetUserCreateLiveListShrinkRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetUserCreateLiveListShrinkRequest) GoString() string {
-	return s.String()
-}
-
-func (s *GetUserCreateLiveListShrinkRequest) SetBodyShrink(v string) *GetUserCreateLiveListShrinkRequest {
-	s.BodyShrink = &v
-	return s
-}
-
-func (s *GetUserCreateLiveListShrinkRequest) SetNextToken(v string) *GetUserCreateLiveListShrinkRequest {
-	s.NextToken = &v
-	return s
-}
-
-func (s *GetUserCreateLiveListShrinkRequest) SetPageSize(v int32) *GetUserCreateLiveListShrinkRequest {
-	s.PageSize = &v
-	return s
-}
-
-func (s *GetUserCreateLiveListShrinkRequest) SetUnionId(v string) *GetUserCreateLiveListShrinkRequest {
 	s.UnionId = &v
 	return s
 }
@@ -1073,7 +1052,7 @@ type GetUserCreateLiveListResponseBodyResult struct {
 	HasFinish *bool `json:"hasFinish,omitempty" xml:"hasFinish,omitempty"`
 	// 直播详情
 	LiveInfoPopModelList []*GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList `json:"liveInfoPopModelList,omitempty" xml:"liveInfoPopModelList,omitempty" type:"Repeated"`
-	// 分页游标 第一次可不填， 后面填回包的值
+	// 分页游标 分页时填到请求中
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 总数
 	Total *int32 `json:"total,omitempty" xml:"total,omitempty"`
@@ -1108,6 +1087,63 @@ func (s *GetUserCreateLiveListResponseBodyResult) SetTotal(v int32) *GetUserCrea
 }
 
 type GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList struct {
+	// 直播额外信息
+	HasSubscribed *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListHasSubscribed `json:"hasSubscribed,omitempty" xml:"hasSubscribed,omitempty" type:"Struct"`
+	// 直播基础信息
+	LiveBasicInfo *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo `json:"liveBasicInfo,omitempty" xml:"liveBasicInfo,omitempty" type:"Struct"`
+}
+
+func (s GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) SetHasSubscribed(v *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListHasSubscribed) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList {
+	s.HasSubscribed = v
+	return s
+}
+
+func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) SetLiveBasicInfo(v *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList {
+	s.LiveBasicInfo = v
+	return s
+}
+
+type GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListHasSubscribed struct {
+	// 是否关注
+	HasSubscribed *bool `json:"hasSubscribed,omitempty" xml:"hasSubscribed,omitempty"`
+	// 预告是否过期
+	IsForecastExpired *bool `json:"isForecastExpired,omitempty" xml:"isForecastExpired,omitempty"`
+	// 回放观看进度
+	WatchProgressMs *int64 `json:"watchProgressMs,omitempty" xml:"watchProgressMs,omitempty"`
+}
+
+func (s GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListHasSubscribed) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListHasSubscribed) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListHasSubscribed) SetHasSubscribed(v bool) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListHasSubscribed {
+	s.HasSubscribed = &v
+	return s
+}
+
+func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListHasSubscribed) SetIsForecastExpired(v bool) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListHasSubscribed {
+	s.IsForecastExpired = &v
+	return s
+}
+
+func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListHasSubscribed) SetWatchProgressMs(v int64) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListHasSubscribed {
+	s.WatchProgressMs = &v
+	return s
+}
+
+type GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo struct {
 	// 直播封面
 	CoverUrl *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
 	// 直播时长
@@ -1116,8 +1152,6 @@ type GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList struct {
 	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
 	// 直播简介
 	Introduction *string `json:"introduction,omitempty" xml:"introduction,omitempty"`
-	// 预告是否过期
-	IsForecastExpired *bool `json:"isForecastExpired,omitempty" xml:"isForecastExpired,omitempty"`
 	// 直播id
 	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
 	// 直播观看地址
@@ -1134,85 +1168,73 @@ type GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList struct {
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	// 观看人数
 	Uv *int32 `json:"uv,omitempty" xml:"uv,omitempty"`
-	// 回放观看进度
-	WatchProgressMs *int64 `json:"watchProgressMs,omitempty" xml:"watchProgressMs,omitempty"`
 }
 
-func (s GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) String() string {
+func (s GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) GoString() string {
+func (s GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) GoString() string {
 	return s.String()
 }
 
-func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) SetCoverUrl(v string) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetCoverUrl(v string) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.CoverUrl = &v
 	return s
 }
 
-func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) SetDuration(v int64) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetDuration(v int64) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.Duration = &v
 	return s
 }
 
-func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) SetEndTime(v int64) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetEndTime(v int64) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.EndTime = &v
 	return s
 }
 
-func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) SetIntroduction(v string) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetIntroduction(v string) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.Introduction = &v
 	return s
 }
 
-func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) SetIsForecastExpired(v bool) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList {
-	s.IsForecastExpired = &v
-	return s
-}
-
-func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) SetLiveId(v string) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetLiveId(v string) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.LiveId = &v
 	return s
 }
 
-func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) SetLivePlayUrl(v string) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetLivePlayUrl(v string) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.LivePlayUrl = &v
 	return s
 }
 
-func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) SetLiveStatus(v int32) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetLiveStatus(v int32) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.LiveStatus = &v
 	return s
 }
 
-func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) SetStartTime(v int64) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetStartTime(v int64) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.StartTime = &v
 	return s
 }
 
-func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) SetSubscribeCount(v int32) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetSubscribeCount(v int32) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.SubscribeCount = &v
 	return s
 }
 
-func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) SetTitle(v string) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetTitle(v string) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.Title = &v
 	return s
 }
 
-func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) SetUnionId(v string) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetUnionId(v string) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.UnionId = &v
 	return s
 }
 
-func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) SetUv(v int32) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetUv(v int32) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.Uv = &v
-	return s
-}
-
-func (s *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList) SetWatchProgressMs(v int64) *GetUserCreateLiveListResponseBodyResultLiveInfoPopModelList {
-	s.WatchProgressMs = &v
 	return s
 }
 
@@ -1358,14 +1380,69 @@ func (s *GetUserWatchLiveListResponseBodyResult) SetTotal(v int32) *GetUserWatch
 }
 
 type GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList struct {
+	// 直播额外信息
+	ExtraInfo *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListExtraInfo `json:"extraInfo,omitempty" xml:"extraInfo,omitempty" type:"Struct"`
+	// 直播基础信息
+	LiveBasicInfo *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo `json:"liveBasicInfo,omitempty" xml:"liveBasicInfo,omitempty" type:"Struct"`
+}
+
+func (s GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) SetExtraInfo(v *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListExtraInfo) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList {
+	s.ExtraInfo = v
+	return s
+}
+
+func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) SetLiveBasicInfo(v *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList {
+	s.LiveBasicInfo = v
+	return s
+}
+
+type GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListExtraInfo struct {
+	// 是否关注
+	HasSubscribed *bool `json:"hasSubscribed,omitempty" xml:"hasSubscribed,omitempty"`
+	// 预告是否过期
+	IsForecastExpired *bool `json:"isForecastExpired,omitempty" xml:"isForecastExpired,omitempty"`
+	// 回放观看进度
+	WatchProgressMs *int64 `json:"watchProgressMs,omitempty" xml:"watchProgressMs,omitempty"`
+}
+
+func (s GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListExtraInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListExtraInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListExtraInfo) SetHasSubscribed(v bool) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListExtraInfo {
+	s.HasSubscribed = &v
+	return s
+}
+
+func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListExtraInfo) SetIsForecastExpired(v bool) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListExtraInfo {
+	s.IsForecastExpired = &v
+	return s
+}
+
+func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListExtraInfo) SetWatchProgressMs(v int64) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListExtraInfo {
+	s.WatchProgressMs = &v
+	return s
+}
+
+type GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo struct {
 	// 直播封面
 	CoverUrl *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
 	// 直播时长
 	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
 	// 直播真实结束时间
 	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	// 是否订阅
-	HasSubscribed *bool `json:"hasSubscribed,omitempty" xml:"hasSubscribed,omitempty"`
 	// 直播简介
 	Introduction *string `json:"introduction,omitempty" xml:"introduction,omitempty"`
 	// 直播id
@@ -1384,85 +1461,73 @@ type GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList struct {
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	// 观看人数
 	Uv *int32 `json:"uv,omitempty" xml:"uv,omitempty"`
-	// 回放观看进度
-	WatchProgressMs *int64 `json:"watchProgressMs,omitempty" xml:"watchProgressMs,omitempty"`
 }
 
-func (s GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) String() string {
+func (s GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) String() string {
 	return tea.Prettify(s)
 }
 
-func (s GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) GoString() string {
+func (s GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) GoString() string {
 	return s.String()
 }
 
-func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) SetCoverUrl(v string) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetCoverUrl(v string) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.CoverUrl = &v
 	return s
 }
 
-func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) SetDuration(v int64) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetDuration(v int64) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.Duration = &v
 	return s
 }
 
-func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) SetEndTime(v int64) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetEndTime(v int64) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.EndTime = &v
 	return s
 }
 
-func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) SetHasSubscribed(v bool) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList {
-	s.HasSubscribed = &v
-	return s
-}
-
-func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) SetIntroduction(v string) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetIntroduction(v string) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.Introduction = &v
 	return s
 }
 
-func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) SetLiveId(v string) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetLiveId(v string) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.LiveId = &v
 	return s
 }
 
-func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) SetLivePlayUrl(v string) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetLivePlayUrl(v string) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.LivePlayUrl = &v
 	return s
 }
 
-func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) SetLiveStatus(v int32) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetLiveStatus(v int32) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.LiveStatus = &v
 	return s
 }
 
-func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) SetStartTime(v int64) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetStartTime(v int64) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.StartTime = &v
 	return s
 }
 
-func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) SetSubscribeCount(v int32) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetSubscribeCount(v int32) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.SubscribeCount = &v
 	return s
 }
 
-func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) SetTitle(v string) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetTitle(v string) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.Title = &v
 	return s
 }
 
-func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) SetUnionId(v string) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetUnionId(v string) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.UnionId = &v
 	return s
 }
 
-func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) SetUv(v int32) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList {
+func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo) SetUv(v int32) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelListLiveBasicInfo {
 	s.Uv = &v
-	return s
-}
-
-func (s *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList) SetWatchProgressMs(v int64) *GetUserWatchLiveListResponseBodyResultLiveInfoPopModelList {
-	s.WatchProgressMs = &v
 	return s
 }
 
@@ -3410,32 +3475,39 @@ func (client *Client) GetUserCreateLiveList(request *GetUserCreateLiveListReques
 	return _result, _err
 }
 
-func (client *Client) GetUserCreateLiveListWithOptions(tmpReq *GetUserCreateLiveListRequest, headers *GetUserCreateLiveListHeaders, runtime *util.RuntimeOptions) (_result *GetUserCreateLiveListResponse, _err error) {
-	_err = util.ValidateModel(tmpReq)
+func (client *Client) GetUserCreateLiveListWithOptions(request *GetUserCreateLiveListRequest, headers *GetUserCreateLiveListHeaders, runtime *util.RuntimeOptions) (_result *GetUserCreateLiveListResponse, _err error) {
+	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
-	request := &GetUserCreateLiveListShrinkRequest{}
-	openapiutil.Convert(tmpReq, request)
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(tmpReq.Body))) {
-		request.BodyShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tea.ToMap(tmpReq.Body), tea.String("body"), tea.String("json"))
-	}
-
 	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.BodyShrink)) {
-		query["body"] = request.BodyShrink
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		query["nextToken"] = request.NextToken
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
-		query["pageSize"] = request.PageSize
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Statuses)) {
+		body["statuses"] = request.Statuses
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
 	}
 
 	realHeaders := make(map[string]*string)
@@ -3450,6 +3522,7 @@ func (client *Client) GetUserCreateLiveListWithOptions(tmpReq *GetUserCreateLive
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &GetUserCreateLiveListResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetUserCreateLiveList"), tea.String("live_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/live/users/createLiveInfos/query"), tea.String("json"), req, runtime)
