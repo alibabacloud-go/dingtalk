@@ -1411,6 +1411,141 @@ func (s *GenerateDarkWaterMarkResponse) SetBody(v *GenerateDarkWaterMarkResponse
 	return s
 }
 
+type GetAccountTransferListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAccountTransferListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAccountTransferListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAccountTransferListHeaders) SetCommonHeaders(v map[string]*string) *GetAccountTransferListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAccountTransferListHeaders) SetXAcsDingtalkAccessToken(v string) *GetAccountTransferListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAccountTransferListRequest struct {
+	// 分页页数
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 迁移状态0-未迁移，1-已迁移，2-无需迁移
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetAccountTransferListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAccountTransferListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAccountTransferListRequest) SetPageNumber(v int64) *GetAccountTransferListRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetAccountTransferListRequest) SetPageSize(v int64) *GetAccountTransferListRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetAccountTransferListRequest) SetStatus(v int64) *GetAccountTransferListRequest {
+	s.Status = &v
+	return s
+}
+
+type GetAccountTransferListResponseBody struct {
+	// 迁移详情数据
+	ItemList []*GetAccountTransferListResponseBodyItemList `json:"itemList,omitempty" xml:"itemList,omitempty" type:"Repeated"`
+	// 总数据量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s GetAccountTransferListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAccountTransferListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAccountTransferListResponseBody) SetItemList(v []*GetAccountTransferListResponseBodyItemList) *GetAccountTransferListResponseBody {
+	s.ItemList = v
+	return s
+}
+
+func (s *GetAccountTransferListResponseBody) SetTotalCount(v int64) *GetAccountTransferListResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type GetAccountTransferListResponseBodyItemList struct {
+	// 部门名称
+	DeptName *int64 `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// 员工名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 工号
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetAccountTransferListResponseBodyItemList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAccountTransferListResponseBodyItemList) GoString() string {
+	return s.String()
+}
+
+func (s *GetAccountTransferListResponseBodyItemList) SetDeptName(v int64) *GetAccountTransferListResponseBodyItemList {
+	s.DeptName = &v
+	return s
+}
+
+func (s *GetAccountTransferListResponseBodyItemList) SetName(v string) *GetAccountTransferListResponseBodyItemList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetAccountTransferListResponseBodyItemList) SetUserId(v string) *GetAccountTransferListResponseBodyItemList {
+	s.UserId = &v
+	return s
+}
+
+type GetAccountTransferListResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetAccountTransferListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAccountTransferListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAccountTransferListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAccountTransferListResponse) SetHeaders(v map[string]*string) *GetAccountTransferListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAccountTransferListResponse) SetBody(v *GetAccountTransferListResponseBody) *GetAccountTransferListResponse {
+	s.Body = v
+	return s
+}
+
 type GetActiveUserSummaryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8680,6 +8815,58 @@ func (client *Client) GenerateDarkWaterMarkWithOptions(request *GenerateDarkWate
 	}
 	_result = &GenerateDarkWaterMarkResponse{}
 	_body, _err := client.DoROARequest(tea.String("GenerateDarkWaterMark"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/enterpriseSecurities/darkWatermarks/generate"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetAccountTransferList(request *GetAccountTransferListRequest) (_result *GetAccountTransferListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAccountTransferListHeaders{}
+	_result = &GetAccountTransferListResponse{}
+	_body, _err := client.GetAccountTransferListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAccountTransferListWithOptions(request *GetAccountTransferListRequest, headers *GetAccountTransferListHeaders, runtime *util.RuntimeOptions) (_result *GetAccountTransferListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		query["status"] = request.Status
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetAccountTransferListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetAccountTransferList"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/dataTransfer/accounts"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
