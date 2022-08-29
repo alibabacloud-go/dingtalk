@@ -695,6 +695,88 @@ func (s *BatchGetWorkspacesResponse) SetBody(v *BatchGetWorkspacesResponseBody) 
 	return s
 }
 
+type ClearHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ClearHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ClearHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ClearHeaders) SetCommonHeaders(v map[string]*string) *ClearHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ClearHeaders) SetXAcsDingtalkAccessToken(v string) *ClearHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ClearRequest struct {
+	// 操作人unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s ClearRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ClearRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ClearRequest) SetOperatorId(v string) *ClearRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type ClearResponseBody struct {
+	// 单元格地址
+	A1Notation *string `json:"a1Notation,omitempty" xml:"a1Notation,omitempty"`
+}
+
+func (s ClearResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ClearResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ClearResponseBody) SetA1Notation(v string) *ClearResponseBody {
+	s.A1Notation = &v
+	return s
+}
+
+type ClearResponse struct {
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ClearResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ClearResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ClearResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ClearResponse) SetHeaders(v map[string]*string) *ClearResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ClearResponse) SetBody(v *ClearResponseBody) *ClearResponse {
+	s.Body = v
+	return s
+}
+
 type ClearDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5115,6 +5197,53 @@ func (client *Client) BatchGetWorkspacesWithOptions(request *BatchGetWorkspacesR
 	}
 	_result = &BatchGetWorkspacesResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchGetWorkspaces"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workspaces/infos/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) Clear(workbookId *string, sheetId *string, rangeAddress *string, request *ClearRequest) (_result *ClearResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ClearHeaders{}
+	_result = &ClearResponse{}
+	_body, _err := client.ClearWithOptions(workbookId, sheetId, rangeAddress, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ClearWithOptions(workbookId *string, sheetId *string, rangeAddress *string, request *ClearRequest, headers *ClearHeaders, runtime *util.RuntimeOptions) (_result *ClearResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
+	sheetId = openapiutil.GetEncodeParam(sheetId)
+	rangeAddress = openapiutil.GetEncodeParam(rangeAddress)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ClearResponse{}
+	_body, _err := client.DoROARequest(tea.String("Clear"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/ranges/"+tea.StringValue(rangeAddress)+"/clear"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

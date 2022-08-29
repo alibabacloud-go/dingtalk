@@ -410,6 +410,222 @@ func (s *SelectOption) SetValue(v string) *SelectOption {
 	return s
 }
 
+type BatchUpdateProcessInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchUpdateProcessInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateProcessInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateProcessInstanceHeaders) SetCommonHeaders(v map[string]*string) *BatchUpdateProcessInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchUpdateProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *BatchUpdateProcessInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchUpdateProcessInstanceRequest struct {
+	// 实列列表。
+	UpdateProcessInstanceRequests []*BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests `json:"updateProcessInstanceRequests,omitempty" xml:"updateProcessInstanceRequests,omitempty" type:"Repeated"`
+}
+
+func (s BatchUpdateProcessInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateProcessInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateProcessInstanceRequest) SetUpdateProcessInstanceRequests(v []*BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests) *BatchUpdateProcessInstanceRequest {
+	s.UpdateProcessInstanceRequests = v
+	return s
+}
+
+type BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests struct {
+	// 实例id
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// 实例结果：
+	// 实例状态是COMPLETED，必须设置代表以下含义。
+	// agree：同意
+	// refuse：拒绝
+	// 实例状态为TERMINATED，必须设置代表含义，result取值agree和refuse均代表撤销审批流。
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// 实例状态：
+	// COMPLETED：结束审批流
+	// TERMINATED：终止审批流
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests) SetProcessInstanceId(v string) *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests) SetResult(v string) *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests {
+	s.Result = &v
+	return s
+}
+
+func (s *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests) SetStatus(v string) *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests {
+	s.Status = &v
+	return s
+}
+
+type BatchUpdateProcessInstanceResponseBody struct {
+	// 成功标识
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchUpdateProcessInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateProcessInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateProcessInstanceResponseBody) SetSuccess(v bool) *BatchUpdateProcessInstanceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type BatchUpdateProcessInstanceResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchUpdateProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchUpdateProcessInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateProcessInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateProcessInstanceResponse) SetHeaders(v map[string]*string) *BatchUpdateProcessInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchUpdateProcessInstanceResponse) SetBody(v *BatchUpdateProcessInstanceResponseBody) *BatchUpdateProcessInstanceResponse {
+	s.Body = v
+	return s
+}
+
+type CancelIntegratedTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CancelIntegratedTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelIntegratedTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CancelIntegratedTaskHeaders) SetCommonHeaders(v map[string]*string) *CancelIntegratedTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CancelIntegratedTaskHeaders) SetXAcsDingtalkAccessToken(v string) *CancelIntegratedTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CancelIntegratedTaskRequest struct {
+	// 待办组ID，需要在调用创建待办接口时，主动设置该值。
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// 待办组ID列表，用于批量取消。
+	ActivityIds []*string `json:"activityIds,omitempty" xml:"activityIds,omitempty" type:"Repeated"`
+	// OA审批流程实例ID
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+}
+
+func (s CancelIntegratedTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelIntegratedTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CancelIntegratedTaskRequest) SetActivityId(v string) *CancelIntegratedTaskRequest {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *CancelIntegratedTaskRequest) SetActivityIds(v []*string) *CancelIntegratedTaskRequest {
+	s.ActivityIds = v
+	return s
+}
+
+func (s *CancelIntegratedTaskRequest) SetProcessInstanceId(v string) *CancelIntegratedTaskRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+type CancelIntegratedTaskResponseBody struct {
+	// 是否更新成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CancelIntegratedTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelIntegratedTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CancelIntegratedTaskResponseBody) SetSuccess(v bool) *CancelIntegratedTaskResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CancelIntegratedTaskResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CancelIntegratedTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CancelIntegratedTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelIntegratedTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CancelIntegratedTaskResponse) SetHeaders(v map[string]*string) *CancelIntegratedTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CancelIntegratedTaskResponse) SetBody(v *CancelIntegratedTaskResponseBody) *CancelIntegratedTaskResponse {
+	s.Body = v
+	return s
+}
+
 type CopyProcessHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -584,6 +800,267 @@ func (s *CopyProcessResponse) SetHeaders(v map[string]*string) *CopyProcessRespo
 }
 
 func (s *CopyProcessResponse) SetBody(v *CopyProcessResponseBody) *CopyProcessResponse {
+	s.Body = v
+	return s
+}
+
+type CreateIntegratedTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateIntegratedTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateIntegratedTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateIntegratedTaskHeaders) SetCommonHeaders(v map[string]*string) *CreateIntegratedTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateIntegratedTaskHeaders) SetXAcsDingtalkAccessToken(v string) *CreateIntegratedTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateIntegratedTaskRequest struct {
+	// 待办组ID，调用方提供自定义唯一分组标识
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// OA审批实例ID，通过创建实例接口获取。
+	//
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// 任务列表
+	Tasks []*CreateIntegratedTaskRequestTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+}
+
+func (s CreateIntegratedTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateIntegratedTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateIntegratedTaskRequest) SetActivityId(v string) *CreateIntegratedTaskRequest {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *CreateIntegratedTaskRequest) SetProcessInstanceId(v string) *CreateIntegratedTaskRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *CreateIntegratedTaskRequest) SetTasks(v []*CreateIntegratedTaskRequestTasks) *CreateIntegratedTaskRequest {
+	s.Tasks = v
+	return s
+}
+
+type CreateIntegratedTaskRequestTasks struct {
+	// 待办事项跳转URL。
+	// 创建审批实例接口里的url，实现的是钉钉审批应用里的审批单跳转。这个接口里的url，实现的是钉钉待办页面，对应的待办卡片的跳转。两种跳转场景不同。需要注意的是，钉钉的待办页面，也同时支持移动端和PC端，所以这个接口里传的url参数，它所对应的页面也要适配好移动端和PC端。
+	//
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// OA审批任务执行人的用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateIntegratedTaskRequestTasks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateIntegratedTaskRequestTasks) GoString() string {
+	return s.String()
+}
+
+func (s *CreateIntegratedTaskRequestTasks) SetUrl(v string) *CreateIntegratedTaskRequestTasks {
+	s.Url = &v
+	return s
+}
+
+func (s *CreateIntegratedTaskRequestTasks) SetUserId(v string) *CreateIntegratedTaskRequestTasks {
+	s.UserId = &v
+	return s
+}
+
+type CreateIntegratedTaskResponseBody struct {
+	Result []*CreateIntegratedTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// 是否创建成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateIntegratedTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateIntegratedTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateIntegratedTaskResponseBody) SetResult(v []*CreateIntegratedTaskResponseBodyResult) *CreateIntegratedTaskResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *CreateIntegratedTaskResponseBody) SetSuccess(v bool) *CreateIntegratedTaskResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateIntegratedTaskResponseBodyResult struct {
+	// OA审批任务ID
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// OA审批任务执行人用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateIntegratedTaskResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateIntegratedTaskResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateIntegratedTaskResponseBodyResult) SetTaskId(v int64) *CreateIntegratedTaskResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *CreateIntegratedTaskResponseBodyResult) SetUserId(v string) *CreateIntegratedTaskResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+type CreateIntegratedTaskResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateIntegratedTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateIntegratedTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateIntegratedTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateIntegratedTaskResponse) SetHeaders(v map[string]*string) *CreateIntegratedTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateIntegratedTaskResponse) SetBody(v *CreateIntegratedTaskResponseBody) *CreateIntegratedTaskResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteProcessHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteProcessHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteProcessHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteProcessHeaders) SetCommonHeaders(v map[string]*string) *DeleteProcessHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteProcessHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteProcessHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteProcessRequest struct {
+	// 是否清理正在运行的任务
+	CleanRunningTask *bool `json:"cleanRunningTask,omitempty" xml:"cleanRunningTask,omitempty"`
+	// 模板code
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s DeleteProcessRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteProcessRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteProcessRequest) SetCleanRunningTask(v bool) *DeleteProcessRequest {
+	s.CleanRunningTask = &v
+	return s
+}
+
+func (s *DeleteProcessRequest) SetProcessCode(v string) *DeleteProcessRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+type DeleteProcessResponseBody struct {
+	Result *DeleteProcessResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s DeleteProcessResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteProcessResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteProcessResponseBody) SetResult(v *DeleteProcessResponseBodyResult) *DeleteProcessResponseBody {
+	s.Result = v
+	return s
+}
+
+type DeleteProcessResponseBodyResult struct {
+	// 模板code
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s DeleteProcessResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteProcessResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteProcessResponseBodyResult) SetProcessCode(v string) *DeleteProcessResponseBodyResult {
+	s.ProcessCode = &v
+	return s
+}
+
+type DeleteProcessResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteProcessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteProcessResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteProcessResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteProcessResponse) SetHeaders(v map[string]*string) *DeleteProcessResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteProcessResponse) SetBody(v *DeleteProcessResponseBody) *DeleteProcessResponse {
 	s.Body = v
 	return s
 }
@@ -841,6 +1318,106 @@ func (s *GetCrmProcCodesResponse) SetHeaders(v map[string]*string) *GetCrmProcCo
 }
 
 func (s *GetCrmProcCodesResponse) SetBody(v *GetCrmProcCodesResponseBody) *GetCrmProcCodesResponse {
+	s.Body = v
+	return s
+}
+
+type GetProcessCodeByNameHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetProcessCodeByNameHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessCodeByNameHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessCodeByNameHeaders) SetCommonHeaders(v map[string]*string) *GetProcessCodeByNameHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetProcessCodeByNameHeaders) SetXAcsDingtalkAccessToken(v string) *GetProcessCodeByNameHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetProcessCodeByNameRequest struct {
+	// 模板名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetProcessCodeByNameRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessCodeByNameRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessCodeByNameRequest) SetName(v string) *GetProcessCodeByNameRequest {
+	s.Name = &v
+	return s
+}
+
+type GetProcessCodeByNameResponseBody struct {
+	// 表单模板信息
+	Result *GetProcessCodeByNameResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetProcessCodeByNameResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessCodeByNameResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessCodeByNameResponseBody) SetResult(v *GetProcessCodeByNameResponseBodyResult) *GetProcessCodeByNameResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetProcessCodeByNameResponseBodyResult struct {
+	// 保存或更新的表单code
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s GetProcessCodeByNameResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessCodeByNameResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessCodeByNameResponseBodyResult) SetProcessCode(v string) *GetProcessCodeByNameResponseBodyResult {
+	s.ProcessCode = &v
+	return s
+}
+
+type GetProcessCodeByNameResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetProcessCodeByNameResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetProcessCodeByNameResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessCodeByNameResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessCodeByNameResponse) SetHeaders(v map[string]*string) *GetProcessCodeByNameResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetProcessCodeByNameResponse) SetBody(v *GetProcessCodeByNameResponseBody) *GetProcessCodeByNameResponse {
 	s.Body = v
 	return s
 }
@@ -3019,6 +3596,204 @@ func (s *QueryFormInstanceResponse) SetBody(v *QueryFormInstanceResponseBody) *Q
 	return s
 }
 
+type QueryIntegratedTodoTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryIntegratedTodoTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryIntegratedTodoTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryIntegratedTodoTaskHeaders) SetCommonHeaders(v map[string]*string) *QueryIntegratedTodoTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryIntegratedTodoTaskHeaders) SetXAcsDingtalkAccessToken(v string) *QueryIntegratedTodoTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryIntegratedTodoTaskRequest struct {
+	// 在此时间戳之前创建的
+	CreateBefore *int64 `json:"createBefore,omitempty" xml:"createBefore,omitempty"`
+	// 第几页，取值范围为 1 ≤ page ≤ 1000
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小，取值范围为 1 ≤ pageSize ≤ 40
+	PageSize *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryIntegratedTodoTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryIntegratedTodoTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryIntegratedTodoTaskRequest) SetCreateBefore(v int64) *QueryIntegratedTodoTaskRequest {
+	s.CreateBefore = &v
+	return s
+}
+
+func (s *QueryIntegratedTodoTaskRequest) SetPageNumber(v int32) *QueryIntegratedTodoTaskRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryIntegratedTodoTaskRequest) SetPageSize(v int32) *QueryIntegratedTodoTaskRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryIntegratedTodoTaskRequest) SetUserId(v string) *QueryIntegratedTodoTaskRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryIntegratedTodoTaskResponseBody struct {
+	RequestId *string                                      `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	TaskPage  *QueryIntegratedTodoTaskResponseBodyTaskPage `json:"taskPage,omitempty" xml:"taskPage,omitempty" type:"Struct"`
+}
+
+func (s QueryIntegratedTodoTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryIntegratedTodoTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryIntegratedTodoTaskResponseBody) SetRequestId(v string) *QueryIntegratedTodoTaskResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *QueryIntegratedTodoTaskResponseBody) SetTaskPage(v *QueryIntegratedTodoTaskResponseBodyTaskPage) *QueryIntegratedTodoTaskResponseBody {
+	s.TaskPage = v
+	return s
+}
+
+type QueryIntegratedTodoTaskResponseBodyTaskPage struct {
+	// 是否还有下一页
+	HasMore *bool                                              `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*QueryIntegratedTodoTaskResponseBodyTaskPageList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s QueryIntegratedTodoTaskResponseBodyTaskPage) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryIntegratedTodoTaskResponseBodyTaskPage) GoString() string {
+	return s.String()
+}
+
+func (s *QueryIntegratedTodoTaskResponseBodyTaskPage) SetHasMore(v bool) *QueryIntegratedTodoTaskResponseBodyTaskPage {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryIntegratedTodoTaskResponseBodyTaskPage) SetList(v []*QueryIntegratedTodoTaskResponseBodyTaskPageList) *QueryIntegratedTodoTaskResponseBodyTaskPage {
+	s.List = v
+	return s
+}
+
+type QueryIntegratedTodoTaskResponseBodyTaskPageList struct {
+	// 待办组ID，需要在调用创建流程中心集成任务接口时，主动设置该值。
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// OA审批任务创建时间
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// OA审批任务完成时间
+	FinishTime *string `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	// 流程实例ID
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// 任务处理结果：agree 或 refuse
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// 任务状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// OA审批任务ID
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// OA审批任务执行人的用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryIntegratedTodoTaskResponseBodyTaskPageList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryIntegratedTodoTaskResponseBodyTaskPageList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryIntegratedTodoTaskResponseBodyTaskPageList) SetActivityId(v string) *QueryIntegratedTodoTaskResponseBodyTaskPageList {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *QueryIntegratedTodoTaskResponseBodyTaskPageList) SetCreateTime(v int64) *QueryIntegratedTodoTaskResponseBodyTaskPageList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QueryIntegratedTodoTaskResponseBodyTaskPageList) SetFinishTime(v string) *QueryIntegratedTodoTaskResponseBodyTaskPageList {
+	s.FinishTime = &v
+	return s
+}
+
+func (s *QueryIntegratedTodoTaskResponseBodyTaskPageList) SetProcessInstanceId(v string) *QueryIntegratedTodoTaskResponseBodyTaskPageList {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *QueryIntegratedTodoTaskResponseBodyTaskPageList) SetResult(v string) *QueryIntegratedTodoTaskResponseBodyTaskPageList {
+	s.Result = &v
+	return s
+}
+
+func (s *QueryIntegratedTodoTaskResponseBodyTaskPageList) SetStatus(v string) *QueryIntegratedTodoTaskResponseBodyTaskPageList {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryIntegratedTodoTaskResponseBodyTaskPageList) SetTaskId(v int64) *QueryIntegratedTodoTaskResponseBodyTaskPageList {
+	s.TaskId = &v
+	return s
+}
+
+func (s *QueryIntegratedTodoTaskResponseBodyTaskPageList) SetUserId(v string) *QueryIntegratedTodoTaskResponseBodyTaskPageList {
+	s.UserId = &v
+	return s
+}
+
+type QueryIntegratedTodoTaskResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryIntegratedTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryIntegratedTodoTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryIntegratedTodoTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryIntegratedTodoTaskResponse) SetHeaders(v map[string]*string) *QueryIntegratedTodoTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryIntegratedTodoTaskResponse) SetBody(v *QueryIntegratedTodoTaskResponseBody) *QueryIntegratedTodoTaskResponse {
+	s.Body = v
+	return s
+}
+
 type QueryProcessByBizCategoryIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3991,6 +4766,482 @@ func (s *QuerySchemaByProcessCodeResponse) SetBody(v *QuerySchemaByProcessCodeRe
 	return s
 }
 
+type SaveIntegratedInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SaveIntegratedInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveIntegratedInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SaveIntegratedInstanceHeaders) SetCommonHeaders(v map[string]*string) *SaveIntegratedInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SaveIntegratedInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *SaveIntegratedInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SaveIntegratedInstanceRequest struct {
+	FormComponentValueList []*SaveIntegratedInstanceRequestFormComponentValueList `json:"formComponentValueList,omitempty" xml:"formComponentValueList,omitempty" type:"Repeated"`
+	Notifiers              []*SaveIntegratedInstanceRequestNotifiers              `json:"notifiers,omitempty" xml:"notifiers,omitempty" type:"Repeated"`
+	// 审批实例接收人的userId。
+	OriginatorUserId *string `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
+	// 审批模板唯一码
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// 实例标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 三方审批系统中审批单的详情页地址
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s SaveIntegratedInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveIntegratedInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SaveIntegratedInstanceRequest) SetFormComponentValueList(v []*SaveIntegratedInstanceRequestFormComponentValueList) *SaveIntegratedInstanceRequest {
+	s.FormComponentValueList = v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequest) SetNotifiers(v []*SaveIntegratedInstanceRequestNotifiers) *SaveIntegratedInstanceRequest {
+	s.Notifiers = v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequest) SetOriginatorUserId(v string) *SaveIntegratedInstanceRequest {
+	s.OriginatorUserId = &v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequest) SetProcessCode(v string) *SaveIntegratedInstanceRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequest) SetTitle(v string) *SaveIntegratedInstanceRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequest) SetUrl(v string) *SaveIntegratedInstanceRequest {
+	s.Url = &v
+	return s
+}
+
+type SaveIntegratedInstanceRequestFormComponentValueList struct {
+	// 控件别名
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// 控件类型，取值：
+	//
+	// TextField：单行输入框
+	//
+	// TextareaField：多行输入框
+	//
+	// NumberField：数字输入框
+	//
+	// DDSelectField：单选框
+	//
+	// DDMultiSelectField：多选框
+	//
+	// DDDateField：日期控件
+	//
+	// DDDateRangeField：时间区间控件
+	//
+	// TextNote：文字说明控件
+	//
+	// PhoneField：电话控件
+	//
+	// DDPhotoField：图片控件
+	//
+	// MoneyField：金额控件
+	//
+	// TableField：明细控件
+	//
+	// DDAttachment：附件
+	//
+	// InnerContactField：联系人控件
+	//
+	// RelateField：关联审批单
+	//
+	// FormRelateField：关联控件
+	//
+	// AddressField：省市区控件
+	//
+	// StarRatingField：评分控件
+	//
+	// DepartmentField：部门控件
+	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	// 表单扩展值
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// 控件id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 表单名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 表单值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s SaveIntegratedInstanceRequestFormComponentValueList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveIntegratedInstanceRequestFormComponentValueList) GoString() string {
+	return s.String()
+}
+
+func (s *SaveIntegratedInstanceRequestFormComponentValueList) SetBizAlias(v string) *SaveIntegratedInstanceRequestFormComponentValueList {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequestFormComponentValueList) SetComponentType(v string) *SaveIntegratedInstanceRequestFormComponentValueList {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequestFormComponentValueList) SetExtValue(v string) *SaveIntegratedInstanceRequestFormComponentValueList {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequestFormComponentValueList) SetId(v string) *SaveIntegratedInstanceRequestFormComponentValueList {
+	s.Id = &v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequestFormComponentValueList) SetName(v string) *SaveIntegratedInstanceRequestFormComponentValueList {
+	s.Name = &v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequestFormComponentValueList) SetValue(v string) *SaveIntegratedInstanceRequestFormComponentValueList {
+	s.Value = &v
+	return s
+}
+
+type SaveIntegratedInstanceRequestNotifiers struct {
+	// 抄送位置，可以值有：
+	// start - 审批发起时，通知抄送人
+	// finish - 审批通过后，通知抄送人
+	// start_finish - 审批发起时和审批通过后，都通知抄送人
+	Position *string `json:"position,omitempty" xml:"position,omitempty"`
+	// 抄送接收人用户ID
+	Userid *string `json:"userid,omitempty" xml:"userid,omitempty"`
+}
+
+func (s SaveIntegratedInstanceRequestNotifiers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveIntegratedInstanceRequestNotifiers) GoString() string {
+	return s.String()
+}
+
+func (s *SaveIntegratedInstanceRequestNotifiers) SetPosition(v string) *SaveIntegratedInstanceRequestNotifiers {
+	s.Position = &v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequestNotifiers) SetUserid(v string) *SaveIntegratedInstanceRequestNotifiers {
+	s.Userid = &v
+	return s
+}
+
+type SaveIntegratedInstanceResponseBody struct {
+	Result *SaveIntegratedInstanceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s SaveIntegratedInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveIntegratedInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SaveIntegratedInstanceResponseBody) SetResult(v *SaveIntegratedInstanceResponseBodyResult) *SaveIntegratedInstanceResponseBody {
+	s.Result = v
+	return s
+}
+
+type SaveIntegratedInstanceResponseBodyResult struct {
+	// 实例id
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+}
+
+func (s SaveIntegratedInstanceResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveIntegratedInstanceResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SaveIntegratedInstanceResponseBodyResult) SetProcessInstanceId(v string) *SaveIntegratedInstanceResponseBodyResult {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+type SaveIntegratedInstanceResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SaveIntegratedInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SaveIntegratedInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveIntegratedInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SaveIntegratedInstanceResponse) SetHeaders(v map[string]*string) *SaveIntegratedInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SaveIntegratedInstanceResponse) SetBody(v *SaveIntegratedInstanceResponseBody) *SaveIntegratedInstanceResponse {
+	s.Body = v
+	return s
+}
+
+type SaveProcessHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SaveProcessHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveProcessHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SaveProcessHeaders) SetCommonHeaders(v map[string]*string) *SaveProcessHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SaveProcessHeaders) SetXAcsDingtalkAccessToken(v string) *SaveProcessHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SaveProcessRequest struct {
+	// 表单模板描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 表单控件列表
+	FormComponents []*FormComponent `json:"formComponents,omitempty" xml:"formComponents,omitempty" type:"Repeated"`
+	// 表单模板名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 模板code
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// 流程中心集成配置
+	ProcessFeatureConfig *SaveProcessRequestProcessFeatureConfig `json:"processFeatureConfig,omitempty" xml:"processFeatureConfig,omitempty" type:"Struct"`
+}
+
+func (s SaveProcessRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveProcessRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SaveProcessRequest) SetDescription(v string) *SaveProcessRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *SaveProcessRequest) SetFormComponents(v []*FormComponent) *SaveProcessRequest {
+	s.FormComponents = v
+	return s
+}
+
+func (s *SaveProcessRequest) SetName(v string) *SaveProcessRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *SaveProcessRequest) SetProcessCode(v string) *SaveProcessRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *SaveProcessRequest) SetProcessFeatureConfig(v *SaveProcessRequestProcessFeatureConfig) *SaveProcessRequest {
+	s.ProcessFeatureConfig = v
+	return s
+}
+
+type SaveProcessRequestProcessFeatureConfig struct {
+	// 配置列表
+	Features []*SaveProcessRequestProcessFeatureConfigFeatures `json:"features,omitempty" xml:"features,omitempty" type:"Repeated"`
+}
+
+func (s SaveProcessRequestProcessFeatureConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveProcessRequestProcessFeatureConfig) GoString() string {
+	return s.String()
+}
+
+func (s *SaveProcessRequestProcessFeatureConfig) SetFeatures(v []*SaveProcessRequestProcessFeatureConfigFeatures) *SaveProcessRequestProcessFeatureConfig {
+	s.Features = v
+	return s
+}
+
+type SaveProcessRequestProcessFeatureConfigFeatures struct {
+	Callback *SaveProcessRequestProcessFeatureConfigFeaturesCallback `json:"callback,omitempty" xml:"callback,omitempty" type:"Struct"`
+	// 手机端链接
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// pc端链接
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// 运行方式：
+	// ORIGIN：原生运行，即在官方审批内运行对应功能；
+	// REDIRECT：外部跳转运行，需要跳转到三方地址运行对应功能
+	RunType *string `json:"runType,omitempty" xml:"runType,omitempty"`
+}
+
+func (s SaveProcessRequestProcessFeatureConfigFeatures) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveProcessRequestProcessFeatureConfigFeatures) GoString() string {
+	return s.String()
+}
+
+func (s *SaveProcessRequestProcessFeatureConfigFeatures) SetCallback(v *SaveProcessRequestProcessFeatureConfigFeaturesCallback) *SaveProcessRequestProcessFeatureConfigFeatures {
+	s.Callback = v
+	return s
+}
+
+func (s *SaveProcessRequestProcessFeatureConfigFeatures) SetMobileUrl(v string) *SaveProcessRequestProcessFeatureConfigFeatures {
+	s.MobileUrl = &v
+	return s
+}
+
+func (s *SaveProcessRequestProcessFeatureConfigFeatures) SetName(v string) *SaveProcessRequestProcessFeatureConfigFeatures {
+	s.Name = &v
+	return s
+}
+
+func (s *SaveProcessRequestProcessFeatureConfigFeatures) SetPcUrl(v string) *SaveProcessRequestProcessFeatureConfigFeatures {
+	s.PcUrl = &v
+	return s
+}
+
+func (s *SaveProcessRequestProcessFeatureConfigFeatures) SetRunType(v string) *SaveProcessRequestProcessFeatureConfigFeatures {
+	s.RunType = &v
+	return s
+}
+
+type SaveProcessRequestProcessFeatureConfigFeaturesCallback struct {
+	// 网关接口标识
+	ApiKey *string `json:"apiKey,omitempty" xml:"apiKey,omitempty"`
+	// 网关接口对应应用的uuid
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// 网关接口版本
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s SaveProcessRequestProcessFeatureConfigFeaturesCallback) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveProcessRequestProcessFeatureConfigFeaturesCallback) GoString() string {
+	return s.String()
+}
+
+func (s *SaveProcessRequestProcessFeatureConfigFeaturesCallback) SetApiKey(v string) *SaveProcessRequestProcessFeatureConfigFeaturesCallback {
+	s.ApiKey = &v
+	return s
+}
+
+func (s *SaveProcessRequestProcessFeatureConfigFeaturesCallback) SetAppUuid(v string) *SaveProcessRequestProcessFeatureConfigFeaturesCallback {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *SaveProcessRequestProcessFeatureConfigFeaturesCallback) SetVersion(v string) *SaveProcessRequestProcessFeatureConfigFeaturesCallback {
+	s.Version = &v
+	return s
+}
+
+type SaveProcessResponseBody struct {
+	// 表单模板信息
+	Result *SaveProcessResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s SaveProcessResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveProcessResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SaveProcessResponseBody) SetResult(v *SaveProcessResponseBodyResult) *SaveProcessResponseBody {
+	s.Result = v
+	return s
+}
+
+type SaveProcessResponseBodyResult struct {
+	// 保存或更新的表单code
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s SaveProcessResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveProcessResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SaveProcessResponseBodyResult) SetProcessCode(v string) *SaveProcessResponseBodyResult {
+	s.ProcessCode = &v
+	return s
+}
+
+type SaveProcessResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SaveProcessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SaveProcessResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveProcessResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SaveProcessResponse) SetHeaders(v map[string]*string) *SaveProcessResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SaveProcessResponse) SetBody(v *SaveProcessResponseBody) *SaveProcessResponse {
+	s.Body = v
+	return s
+}
+
 type StartProcessInstanceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4343,6 +5594,231 @@ func (s *StartProcessInstanceResponse) SetBody(v *StartProcessInstanceResponseBo
 	return s
 }
 
+type UpdateIntegratedTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateIntegratedTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateIntegratedTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateIntegratedTaskHeaders) SetCommonHeaders(v map[string]*string) *UpdateIntegratedTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateIntegratedTaskHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateIntegratedTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateIntegratedTaskRequest struct {
+	// OA审批流程实例ID，过创建实例接口获取
+	ProcessInstanceId *string                             `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	Tasks             []*UpdateIntegratedTaskRequestTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+}
+
+func (s UpdateIntegratedTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateIntegratedTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateIntegratedTaskRequest) SetProcessInstanceId(v string) *UpdateIntegratedTaskRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *UpdateIntegratedTaskRequest) SetTasks(v []*UpdateIntegratedTaskRequestTasks) *UpdateIntegratedTaskRequest {
+	s.Tasks = v
+	return s
+}
+
+type UpdateIntegratedTaskRequestTasks struct {
+	// 当status为COMPLETED时，必须指定任务结果：
+	// agree：同意
+	// refuse：拒绝
+	//
+	// 说明 当status为CANCELED时，不需要传result。
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// 更新为目标任务状态，可选值 CANCELED、COMPLETED
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// OA审批任务ID
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s UpdateIntegratedTaskRequestTasks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateIntegratedTaskRequestTasks) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateIntegratedTaskRequestTasks) SetResult(v string) *UpdateIntegratedTaskRequestTasks {
+	s.Result = &v
+	return s
+}
+
+func (s *UpdateIntegratedTaskRequestTasks) SetStatus(v string) *UpdateIntegratedTaskRequestTasks {
+	s.Status = &v
+	return s
+}
+
+func (s *UpdateIntegratedTaskRequestTasks) SetTaskId(v int64) *UpdateIntegratedTaskRequestTasks {
+	s.TaskId = &v
+	return s
+}
+
+type UpdateIntegratedTaskResponseBody struct {
+	// 是否更新成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateIntegratedTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateIntegratedTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateIntegratedTaskResponseBody) SetSuccess(v bool) *UpdateIntegratedTaskResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateIntegratedTaskResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateIntegratedTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateIntegratedTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateIntegratedTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateIntegratedTaskResponse) SetHeaders(v map[string]*string) *UpdateIntegratedTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateIntegratedTaskResponse) SetBody(v *UpdateIntegratedTaskResponseBody) *UpdateIntegratedTaskResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateProcessInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateProcessInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateProcessInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateProcessInstanceHeaders) SetCommonHeaders(v map[string]*string) *UpdateProcessInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateProcessInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateProcessInstanceRequest struct {
+	// 审批实例ID。
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// 实例结果：
+	// 实例状态是COMPLETED，必须设置代表以下含义。
+	// agree：同意
+	// refuse：拒绝
+	// 实例状态为TERMINATED，必须设置代表含义，result取值agree和refuse均代表撤销审批流。
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// 实例状态：
+	// COMPLETED：结束审批流
+	// TERMINATED：终止审批流
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s UpdateProcessInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateProcessInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateProcessInstanceRequest) SetProcessInstanceId(v string) *UpdateProcessInstanceRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *UpdateProcessInstanceRequest) SetResult(v string) *UpdateProcessInstanceRequest {
+	s.Result = &v
+	return s
+}
+
+func (s *UpdateProcessInstanceRequest) SetStatus(v string) *UpdateProcessInstanceRequest {
+	s.Status = &v
+	return s
+}
+
+type UpdateProcessInstanceResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateProcessInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateProcessInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateProcessInstanceResponseBody) SetSuccess(v bool) *UpdateProcessInstanceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateProcessInstanceResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateProcessInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateProcessInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateProcessInstanceResponse) SetHeaders(v map[string]*string) *UpdateProcessInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateProcessInstanceResponse) SetBody(v *UpdateProcessInstanceResponseBody) *UpdateProcessInstanceResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -4364,6 +5840,102 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) BatchUpdateProcessInstance(request *BatchUpdateProcessInstanceRequest) (_result *BatchUpdateProcessInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchUpdateProcessInstanceHeaders{}
+	_result = &BatchUpdateProcessInstanceResponse{}
+	_body, _err := client.BatchUpdateProcessInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchUpdateProcessInstanceWithOptions(request *BatchUpdateProcessInstanceRequest, headers *BatchUpdateProcessInstanceHeaders, runtime *util.RuntimeOptions) (_result *BatchUpdateProcessInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UpdateProcessInstanceRequests)) {
+		body["updateProcessInstanceRequests"] = request.UpdateProcessInstanceRequests
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchUpdateProcessInstanceResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchUpdateProcessInstance"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/instances/batch"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CancelIntegratedTask(request *CancelIntegratedTaskRequest) (_result *CancelIntegratedTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CancelIntegratedTaskHeaders{}
+	_result = &CancelIntegratedTaskResponse{}
+	_body, _err := client.CancelIntegratedTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CancelIntegratedTaskWithOptions(request *CancelIntegratedTaskRequest, headers *CancelIntegratedTaskHeaders, runtime *util.RuntimeOptions) (_result *CancelIntegratedTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActivityId)) {
+		body["activityId"] = request.ActivityId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ActivityIds)) {
+		body["activityIds"] = request.ActivityIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CancelIntegratedTaskResponse{}
+	_body, _err := client.DoROARequest(tea.String("CancelIntegratedTask"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/tasks/cancel"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) CopyProcess(request *CopyProcessRequest) (_result *CopyProcessResponse, _err error) {
@@ -4411,6 +5983,106 @@ func (client *Client) CopyProcessWithOptions(request *CopyProcessRequest, header
 	}
 	_result = &CopyProcessResponse{}
 	_body, _err := client.DoROARequest(tea.String("CopyProcess"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processes/copy"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateIntegratedTask(request *CreateIntegratedTaskRequest) (_result *CreateIntegratedTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateIntegratedTaskHeaders{}
+	_result = &CreateIntegratedTaskResponse{}
+	_body, _err := client.CreateIntegratedTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateIntegratedTaskWithOptions(request *CreateIntegratedTaskRequest, headers *CreateIntegratedTaskHeaders, runtime *util.RuntimeOptions) (_result *CreateIntegratedTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActivityId)) {
+		body["activityId"] = request.ActivityId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Tasks)) {
+		body["tasks"] = request.Tasks
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateIntegratedTaskResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateIntegratedTask"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/tasks"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteProcess(request *DeleteProcessRequest) (_result *DeleteProcessResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteProcessHeaders{}
+	_result = &DeleteProcessResponse{}
+	_body, _err := client.DeleteProcessWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteProcessWithOptions(request *DeleteProcessRequest, headers *DeleteProcessHeaders, runtime *util.RuntimeOptions) (_result *DeleteProcessResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CleanRunningTask)) {
+		query["cleanRunningTask"] = request.CleanRunningTask
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		query["processCode"] = request.ProcessCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteProcessResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteProcess"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/schemas"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4505,6 +6177,50 @@ func (client *Client) GetCrmProcCodesWithOptions(headers *GetCrmProcCodesHeaders
 	}
 	_result = &GetCrmProcCodesResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetCrmProcCodes"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/crm/processes"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetProcessCodeByName(request *GetProcessCodeByNameRequest) (_result *GetProcessCodeByNameResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetProcessCodeByNameHeaders{}
+	_result = &GetProcessCodeByNameResponse{}
+	_body, _err := client.GetProcessCodeByNameWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetProcessCodeByNameWithOptions(request *GetProcessCodeByNameRequest, headers *GetProcessCodeByNameHeaders, runtime *util.RuntimeOptions) (_result *GetProcessCodeByNameResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		query["name"] = request.Name
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetProcessCodeByNameResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetProcessCodeByName"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/schemaNames/processCodes"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4888,6 +6604,62 @@ func (client *Client) QueryFormInstanceWithOptions(request *QueryFormInstanceReq
 	return _result, _err
 }
 
+func (client *Client) QueryIntegratedTodoTask(request *QueryIntegratedTodoTaskRequest) (_result *QueryIntegratedTodoTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryIntegratedTodoTaskHeaders{}
+	_result = &QueryIntegratedTodoTaskResponse{}
+	_body, _err := client.QueryIntegratedTodoTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryIntegratedTodoTaskWithOptions(request *QueryIntegratedTodoTaskRequest, headers *QueryIntegratedTodoTaskHeaders, runtime *util.RuntimeOptions) (_result *QueryIntegratedTodoTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CreateBefore)) {
+		query["createBefore"] = request.CreateBefore
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryIntegratedTodoTaskResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryIntegratedTodoTask"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/todoTasks"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryProcessByBizCategoryId(request *QueryProcessByBizCategoryIdRequest) (_result *QueryProcessByBizCategoryIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryProcessByBizCategoryIdHeaders{}
@@ -4984,6 +6756,130 @@ func (client *Client) QuerySchemaByProcessCodeWithOptions(request *QuerySchemaBy
 	return _result, _err
 }
 
+func (client *Client) SaveIntegratedInstance(request *SaveIntegratedInstanceRequest) (_result *SaveIntegratedInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SaveIntegratedInstanceHeaders{}
+	_result = &SaveIntegratedInstanceResponse{}
+	_body, _err := client.SaveIntegratedInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SaveIntegratedInstanceWithOptions(request *SaveIntegratedInstanceRequest, headers *SaveIntegratedInstanceHeaders, runtime *util.RuntimeOptions) (_result *SaveIntegratedInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormComponentValueList)) {
+		body["formComponentValueList"] = request.FormComponentValueList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Notifiers)) {
+		body["notifiers"] = request.Notifiers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OriginatorUserId)) {
+		body["originatorUserId"] = request.OriginatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Url)) {
+		body["url"] = request.Url
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SaveIntegratedInstanceResponse{}
+	_body, _err := client.DoROARequest(tea.String("SaveIntegratedInstance"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/instances"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SaveProcess(request *SaveProcessRequest) (_result *SaveProcessResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SaveProcessHeaders{}
+	_result = &SaveProcessResponse{}
+	_body, _err := client.SaveProcessWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SaveProcessWithOptions(request *SaveProcessRequest, headers *SaveProcessHeaders, runtime *util.RuntimeOptions) (_result *SaveProcessResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormComponents)) {
+		body["formComponents"] = request.FormComponents
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ProcessFeatureConfig))) {
+		body["processFeatureConfig"] = request.ProcessFeatureConfig
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SaveProcessResponse{}
+	_body, _err := client.DoROARequest(tea.String("SaveProcess"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/schemas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) StartProcessInstance(request *StartProcessInstanceRequest) (_result *StartProcessInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &StartProcessInstanceHeaders{}
@@ -5053,6 +6949,106 @@ func (client *Client) StartProcessInstanceWithOptions(request *StartProcessInsta
 	}
 	_result = &StartProcessInstanceResponse{}
 	_body, _err := client.DoROARequest(tea.String("StartProcessInstance"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processInstances"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateIntegratedTask(request *UpdateIntegratedTaskRequest) (_result *UpdateIntegratedTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateIntegratedTaskHeaders{}
+	_result = &UpdateIntegratedTaskResponse{}
+	_body, _err := client.UpdateIntegratedTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateIntegratedTaskWithOptions(request *UpdateIntegratedTaskRequest, headers *UpdateIntegratedTaskHeaders, runtime *util.RuntimeOptions) (_result *UpdateIntegratedTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Tasks)) {
+		body["tasks"] = request.Tasks
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateIntegratedTaskResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateIntegratedTask"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/tasks"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateProcessInstance(request *UpdateProcessInstanceRequest) (_result *UpdateProcessInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateProcessInstanceHeaders{}
+	_result = &UpdateProcessInstanceResponse{}
+	_body, _err := client.UpdateProcessInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateProcessInstanceWithOptions(request *UpdateProcessInstanceRequest, headers *UpdateProcessInstanceHeaders, runtime *util.RuntimeOptions) (_result *UpdateProcessInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Result)) {
+		body["result"] = request.Result
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateProcessInstanceResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateProcessInstance"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/workflow/processCentres/instances"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

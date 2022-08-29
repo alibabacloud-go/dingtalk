@@ -1595,8 +1595,9 @@ type GetEventResponseBody struct {
 	// 日程描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 	// 日程结束时间
-	End *GetEventResponseBodyEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
-	Id  *string                  `json:"id,omitempty" xml:"id,omitempty"`
+	End                *GetEventResponseBodyEnd                `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	ExtendedProperties *GetEventResponseBodyExtendedProperties `json:"extendedProperties,omitempty" xml:"extendedProperties,omitempty" type:"Struct"`
+	Id                 *string                                 `json:"id,omitempty" xml:"id,omitempty"`
 	// 是否为全天日程
 	IsAllDay          *bool                                  `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
 	Location          *GetEventResponseBodyLocation          `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
@@ -1641,6 +1642,11 @@ func (s *GetEventResponseBody) SetDescription(v string) *GetEventResponseBody {
 
 func (s *GetEventResponseBody) SetEnd(v *GetEventResponseBodyEnd) *GetEventResponseBody {
 	s.End = v
+	return s
+}
+
+func (s *GetEventResponseBody) SetExtendedProperties(v *GetEventResponseBodyExtendedProperties) *GetEventResponseBody {
+	s.ExtendedProperties = v
 	return s
 }
 
@@ -1774,6 +1780,40 @@ func (s *GetEventResponseBodyEnd) SetDateTime(v string) *GetEventResponseBodyEnd
 
 func (s *GetEventResponseBodyEnd) SetTimeZone(v string) *GetEventResponseBodyEnd {
 	s.TimeZone = &v
+	return s
+}
+
+type GetEventResponseBodyExtendedProperties struct {
+	SharedProperties *GetEventResponseBodyExtendedPropertiesSharedProperties `json:"sharedProperties,omitempty" xml:"sharedProperties,omitempty" type:"Struct"`
+}
+
+func (s GetEventResponseBodyExtendedProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEventResponseBodyExtendedProperties) GoString() string {
+	return s.String()
+}
+
+func (s *GetEventResponseBodyExtendedProperties) SetSharedProperties(v *GetEventResponseBodyExtendedPropertiesSharedProperties) *GetEventResponseBodyExtendedProperties {
+	s.SharedProperties = v
+	return s
+}
+
+type GetEventResponseBodyExtendedPropertiesSharedProperties struct {
+	SourceOpenCid *string `json:"sourceOpenCid,omitempty" xml:"sourceOpenCid,omitempty"`
+}
+
+func (s GetEventResponseBodyExtendedPropertiesSharedProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEventResponseBodyExtendedPropertiesSharedProperties) GoString() string {
+	return s.String()
+}
+
+func (s *GetEventResponseBodyExtendedPropertiesSharedProperties) SetSourceOpenCid(v string) *GetEventResponseBodyExtendedPropertiesSharedProperties {
+	s.SourceOpenCid = &v
 	return s
 }
 
@@ -3192,7 +3232,8 @@ type ListEventsResponseBodyEvents struct {
 	// 日程描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 	// 日程结束时间
-	End *ListEventsResponseBodyEventsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	End                *ListEventsResponseBodyEventsEnd                `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	ExtendedProperties *ListEventsResponseBodyEventsExtendedProperties `json:"extendedProperties,omitempty" xml:"extendedProperties,omitempty" type:"Struct"`
 	// 日程事件id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 	// 是否为全天日程
@@ -3242,6 +3283,11 @@ func (s *ListEventsResponseBodyEvents) SetDescription(v string) *ListEventsRespo
 
 func (s *ListEventsResponseBodyEvents) SetEnd(v *ListEventsResponseBodyEventsEnd) *ListEventsResponseBodyEvents {
 	s.End = v
+	return s
+}
+
+func (s *ListEventsResponseBodyEvents) SetExtendedProperties(v *ListEventsResponseBodyEventsExtendedProperties) *ListEventsResponseBodyEvents {
+	s.ExtendedProperties = v
 	return s
 }
 
@@ -3376,6 +3422,40 @@ func (s *ListEventsResponseBodyEventsEnd) SetDateTime(v string) *ListEventsRespo
 
 func (s *ListEventsResponseBodyEventsEnd) SetTimeZone(v string) *ListEventsResponseBodyEventsEnd {
 	s.TimeZone = &v
+	return s
+}
+
+type ListEventsResponseBodyEventsExtendedProperties struct {
+	SharedProperties *ListEventsResponseBodyEventsExtendedPropertiesSharedProperties `json:"sharedProperties,omitempty" xml:"sharedProperties,omitempty" type:"Struct"`
+}
+
+func (s ListEventsResponseBodyEventsExtendedProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsResponseBodyEventsExtendedProperties) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsResponseBodyEventsExtendedProperties) SetSharedProperties(v *ListEventsResponseBodyEventsExtendedPropertiesSharedProperties) *ListEventsResponseBodyEventsExtendedProperties {
+	s.SharedProperties = v
+	return s
+}
+
+type ListEventsResponseBodyEventsExtendedPropertiesSharedProperties struct {
+	SourceOpenCid *string `json:"sourceOpenCid,omitempty" xml:"sourceOpenCid,omitempty"`
+}
+
+func (s ListEventsResponseBodyEventsExtendedPropertiesSharedProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsResponseBodyEventsExtendedPropertiesSharedProperties) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsResponseBodyEventsExtendedPropertiesSharedProperties) SetSourceOpenCid(v string) *ListEventsResponseBodyEventsExtendedPropertiesSharedProperties {
+	s.SourceOpenCid = &v
 	return s
 }
 
@@ -3740,7 +3820,8 @@ type ListEventsInstancesResponseBodyEvents struct {
 	// 日程描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 	// 日程结束时间
-	End *ListEventsInstancesResponseBodyEventsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	End                *ListEventsInstancesResponseBodyEventsEnd                `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	ExtendedProperties *ListEventsInstancesResponseBodyEventsExtendedProperties `json:"extendedProperties,omitempty" xml:"extendedProperties,omitempty" type:"Struct"`
 	// 日程事件id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 	// 是否为全天日程
@@ -3792,6 +3873,11 @@ func (s *ListEventsInstancesResponseBodyEvents) SetDescription(v string) *ListEv
 
 func (s *ListEventsInstancesResponseBodyEvents) SetEnd(v *ListEventsInstancesResponseBodyEventsEnd) *ListEventsInstancesResponseBodyEvents {
 	s.End = v
+	return s
+}
+
+func (s *ListEventsInstancesResponseBodyEvents) SetExtendedProperties(v *ListEventsInstancesResponseBodyEventsExtendedProperties) *ListEventsInstancesResponseBodyEvents {
+	s.ExtendedProperties = v
 	return s
 }
 
@@ -3929,6 +4015,40 @@ func (s *ListEventsInstancesResponseBodyEventsEnd) SetDateTime(v string) *ListEv
 
 func (s *ListEventsInstancesResponseBodyEventsEnd) SetTimeZone(v string) *ListEventsInstancesResponseBodyEventsEnd {
 	s.TimeZone = &v
+	return s
+}
+
+type ListEventsInstancesResponseBodyEventsExtendedProperties struct {
+	SharedProperties *ListEventsInstancesResponseBodyEventsExtendedPropertiesSharedProperties `json:"sharedProperties,omitempty" xml:"sharedProperties,omitempty" type:"Struct"`
+}
+
+func (s ListEventsInstancesResponseBodyEventsExtendedProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsInstancesResponseBodyEventsExtendedProperties) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsInstancesResponseBodyEventsExtendedProperties) SetSharedProperties(v *ListEventsInstancesResponseBodyEventsExtendedPropertiesSharedProperties) *ListEventsInstancesResponseBodyEventsExtendedProperties {
+	s.SharedProperties = v
+	return s
+}
+
+type ListEventsInstancesResponseBodyEventsExtendedPropertiesSharedProperties struct {
+	SourceOpenCid *string `json:"sourceOpenCid,omitempty" xml:"sourceOpenCid,omitempty"`
+}
+
+func (s ListEventsInstancesResponseBodyEventsExtendedPropertiesSharedProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsInstancesResponseBodyEventsExtendedPropertiesSharedProperties) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsInstancesResponseBodyEventsExtendedPropertiesSharedProperties) SetSourceOpenCid(v string) *ListEventsInstancesResponseBodyEventsExtendedPropertiesSharedProperties {
+	s.SourceOpenCid = &v
 	return s
 }
 
@@ -4312,7 +4432,8 @@ type ListEventsViewResponseBodyEvents struct {
 	// 日程描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 	// 日程结束时间
-	End *ListEventsViewResponseBodyEventsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	End                *ListEventsViewResponseBodyEventsEnd                `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	ExtendedProperties *ListEventsViewResponseBodyEventsExtendedProperties `json:"extendedProperties,omitempty" xml:"extendedProperties,omitempty" type:"Struct"`
 	// 日程事件id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 	// 是否为全天日程
@@ -4361,6 +4482,11 @@ func (s *ListEventsViewResponseBodyEvents) SetDescription(v string) *ListEventsV
 
 func (s *ListEventsViewResponseBodyEvents) SetEnd(v *ListEventsViewResponseBodyEventsEnd) *ListEventsViewResponseBodyEvents {
 	s.End = v
+	return s
+}
+
+func (s *ListEventsViewResponseBodyEvents) SetExtendedProperties(v *ListEventsViewResponseBodyEventsExtendedProperties) *ListEventsViewResponseBodyEvents {
+	s.ExtendedProperties = v
 	return s
 }
 
@@ -4490,6 +4616,40 @@ func (s *ListEventsViewResponseBodyEventsEnd) SetDateTime(v string) *ListEventsV
 
 func (s *ListEventsViewResponseBodyEventsEnd) SetTimeZone(v string) *ListEventsViewResponseBodyEventsEnd {
 	s.TimeZone = &v
+	return s
+}
+
+type ListEventsViewResponseBodyEventsExtendedProperties struct {
+	SharedProperties *ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties `json:"sharedProperties,omitempty" xml:"sharedProperties,omitempty" type:"Struct"`
+}
+
+func (s ListEventsViewResponseBodyEventsExtendedProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewResponseBodyEventsExtendedProperties) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewResponseBodyEventsExtendedProperties) SetSharedProperties(v *ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties) *ListEventsViewResponseBodyEventsExtendedProperties {
+	s.SharedProperties = v
+	return s
+}
+
+type ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties struct {
+	SourceOpenCid *string `json:"sourceOpenCid,omitempty" xml:"sourceOpenCid,omitempty"`
+}
+
+func (s ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties) SetSourceOpenCid(v string) *ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties {
+	s.SourceOpenCid = &v
 	return s
 }
 

@@ -3263,6 +3263,134 @@ func (s *GetDocCreatedSummaryResponse) SetBody(v *GetDocCreatedSummaryResponseBo
 	return s
 }
 
+type GetExclusiveAccountAllOrgListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetExclusiveAccountAllOrgListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetExclusiveAccountAllOrgListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetExclusiveAccountAllOrgListHeaders) SetCommonHeaders(v map[string]*string) *GetExclusiveAccountAllOrgListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetExclusiveAccountAllOrgListHeaders) SetXAcsDingtalkAccessToken(v string) *GetExclusiveAccountAllOrgListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetExclusiveAccountAllOrgListRequest struct {
+	// 用户unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetExclusiveAccountAllOrgListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetExclusiveAccountAllOrgListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetExclusiveAccountAllOrgListRequest) SetUnionId(v string) *GetExclusiveAccountAllOrgListRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetExclusiveAccountAllOrgListResponseBody struct {
+	// 组织信息列表
+	OrgInfoList []*GetExclusiveAccountAllOrgListResponseBodyOrgInfoList `json:"orgInfoList,omitempty" xml:"orgInfoList,omitempty" type:"Repeated"`
+}
+
+func (s GetExclusiveAccountAllOrgListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetExclusiveAccountAllOrgListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetExclusiveAccountAllOrgListResponseBody) SetOrgInfoList(v []*GetExclusiveAccountAllOrgListResponseBodyOrgInfoList) *GetExclusiveAccountAllOrgListResponseBody {
+	s.OrgInfoList = v
+	return s
+}
+
+type GetExclusiveAccountAllOrgListResponseBodyOrgInfoList struct {
+	// 组织ID
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 是否是主组织
+	IsMainOrg *bool `json:"isMainOrg,omitempty" xml:"isMainOrg,omitempty"`
+	// 组织图标地址
+	LogoUrl *string `json:"logoUrl,omitempty" xml:"logoUrl,omitempty"`
+	// 组织全称
+	OrgFullName *string `json:"orgFullName,omitempty" xml:"orgFullName,omitempty"`
+	// 组织名称
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+}
+
+func (s GetExclusiveAccountAllOrgListResponseBodyOrgInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetExclusiveAccountAllOrgListResponseBodyOrgInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *GetExclusiveAccountAllOrgListResponseBodyOrgInfoList) SetCorpId(v string) *GetExclusiveAccountAllOrgListResponseBodyOrgInfoList {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetExclusiveAccountAllOrgListResponseBodyOrgInfoList) SetIsMainOrg(v bool) *GetExclusiveAccountAllOrgListResponseBodyOrgInfoList {
+	s.IsMainOrg = &v
+	return s
+}
+
+func (s *GetExclusiveAccountAllOrgListResponseBodyOrgInfoList) SetLogoUrl(v string) *GetExclusiveAccountAllOrgListResponseBodyOrgInfoList {
+	s.LogoUrl = &v
+	return s
+}
+
+func (s *GetExclusiveAccountAllOrgListResponseBodyOrgInfoList) SetOrgFullName(v string) *GetExclusiveAccountAllOrgListResponseBodyOrgInfoList {
+	s.OrgFullName = &v
+	return s
+}
+
+func (s *GetExclusiveAccountAllOrgListResponseBodyOrgInfoList) SetOrgName(v string) *GetExclusiveAccountAllOrgListResponseBodyOrgInfoList {
+	s.OrgName = &v
+	return s
+}
+
+type GetExclusiveAccountAllOrgListResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetExclusiveAccountAllOrgListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetExclusiveAccountAllOrgListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetExclusiveAccountAllOrgListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetExclusiveAccountAllOrgListResponse) SetHeaders(v map[string]*string) *GetExclusiveAccountAllOrgListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetExclusiveAccountAllOrgListResponse) SetBody(v *GetExclusiveAccountAllOrgListResponseBody) *GetExclusiveAccountAllOrgListResponse {
+	s.Body = v
+	return s
+}
+
 type GetGeneralFormCreatedDeptSummaryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4380,6 +4508,374 @@ func (s *GetPublisherSummaryResponse) SetBody(v *GetPublisherSummaryResponseBody
 	return s
 }
 
+type GetRealPeopleRecordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetRealPeopleRecordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRealPeopleRecordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetRealPeopleRecordsHeaders) SetCommonHeaders(v map[string]*string) *GetRealPeopleRecordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetRealPeopleRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *GetRealPeopleRecordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetRealPeopleRecordsRequest struct {
+	// 应用唯一标识
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// 记录开始时间(毫秒时间戳)
+	FromTime *int64 `json:"fromTime,omitempty" xml:"fromTime,omitempty"`
+	// 一页最大值（最大50）
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 查询数据的起始位置，0表示从头开始。
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 实人认证结果 1-成功 2-失败
+	PersonIdentification *int32 `json:"personIdentification,omitempty" xml:"personIdentification,omitempty"`
+	// 记录结束时间(毫秒时间戳)
+	ToTime *int64 `json:"toTime,omitempty" xml:"toTime,omitempty"`
+	// 员工userIds
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s GetRealPeopleRecordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRealPeopleRecordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetRealPeopleRecordsRequest) SetAgentId(v int64) *GetRealPeopleRecordsRequest {
+	s.AgentId = &v
+	return s
+}
+
+func (s *GetRealPeopleRecordsRequest) SetFromTime(v int64) *GetRealPeopleRecordsRequest {
+	s.FromTime = &v
+	return s
+}
+
+func (s *GetRealPeopleRecordsRequest) SetMaxResults(v int32) *GetRealPeopleRecordsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetRealPeopleRecordsRequest) SetNextToken(v int64) *GetRealPeopleRecordsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetRealPeopleRecordsRequest) SetPersonIdentification(v int32) *GetRealPeopleRecordsRequest {
+	s.PersonIdentification = &v
+	return s
+}
+
+func (s *GetRealPeopleRecordsRequest) SetToTime(v int64) *GetRealPeopleRecordsRequest {
+	s.ToTime = &v
+	return s
+}
+
+func (s *GetRealPeopleRecordsRequest) SetUserIds(v []*string) *GetRealPeopleRecordsRequest {
+	s.UserIds = v
+	return s
+}
+
+type GetRealPeopleRecordsResponseBody struct {
+	// data
+	Data []*GetRealPeopleRecordsResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// 下一次拉取启始值
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 总数据数
+	Total *int32 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetRealPeopleRecordsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRealPeopleRecordsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetRealPeopleRecordsResponseBody) SetData(v []*GetRealPeopleRecordsResponseBodyData) *GetRealPeopleRecordsResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *GetRealPeopleRecordsResponseBody) SetNextToken(v int64) *GetRealPeopleRecordsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetRealPeopleRecordsResponseBody) SetTotal(v int32) *GetRealPeopleRecordsResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetRealPeopleRecordsResponseBodyData struct {
+	// agentId
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// 接口调用时间(毫秒时间戳)
+	InvokeTime *int64 `json:"invokeTime,omitempty" xml:"invokeTime,omitempty"`
+	// 实人认证结果 1-成功 2-失败
+	PersonIdentification *int32 `json:"personIdentification,omitempty" xml:"personIdentification,omitempty"`
+	// 平台 0-Android 或 1-iOS
+	Platform *int32 `json:"platform,omitempty" xml:"platform,omitempty"`
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetRealPeopleRecordsResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRealPeopleRecordsResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetRealPeopleRecordsResponseBodyData) SetAgentId(v int64) *GetRealPeopleRecordsResponseBodyData {
+	s.AgentId = &v
+	return s
+}
+
+func (s *GetRealPeopleRecordsResponseBodyData) SetInvokeTime(v int64) *GetRealPeopleRecordsResponseBodyData {
+	s.InvokeTime = &v
+	return s
+}
+
+func (s *GetRealPeopleRecordsResponseBodyData) SetPersonIdentification(v int32) *GetRealPeopleRecordsResponseBodyData {
+	s.PersonIdentification = &v
+	return s
+}
+
+func (s *GetRealPeopleRecordsResponseBodyData) SetPlatform(v int32) *GetRealPeopleRecordsResponseBodyData {
+	s.Platform = &v
+	return s
+}
+
+func (s *GetRealPeopleRecordsResponseBodyData) SetUserId(v string) *GetRealPeopleRecordsResponseBodyData {
+	s.UserId = &v
+	return s
+}
+
+type GetRealPeopleRecordsResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetRealPeopleRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetRealPeopleRecordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRealPeopleRecordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetRealPeopleRecordsResponse) SetHeaders(v map[string]*string) *GetRealPeopleRecordsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetRealPeopleRecordsResponse) SetBody(v *GetRealPeopleRecordsResponseBody) *GetRealPeopleRecordsResponse {
+	s.Body = v
+	return s
+}
+
+type GetRecognizeRecordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetRecognizeRecordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecognizeRecordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecognizeRecordsHeaders) SetCommonHeaders(v map[string]*string) *GetRecognizeRecordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetRecognizeRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *GetRecognizeRecordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetRecognizeRecordsRequest struct {
+	// 应用唯一标识
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// 人脸对比结果 1-成功 2-失败
+	FaceCompareResult *int32 `json:"faceCompareResult,omitempty" xml:"faceCompareResult,omitempty"`
+	// 记录开始时间(毫秒时间戳)
+	FromTime *int64 `json:"fromTime,omitempty" xml:"fromTime,omitempty"`
+	// 一页最大值（最大50）
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 查询数据的起始位置，0表示从头开始。
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 记录结束时间(毫秒时间戳)
+	ToTime *int64 `json:"toTime,omitempty" xml:"toTime,omitempty"`
+	// 员工userIds
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s GetRecognizeRecordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecognizeRecordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecognizeRecordsRequest) SetAgentId(v int64) *GetRecognizeRecordsRequest {
+	s.AgentId = &v
+	return s
+}
+
+func (s *GetRecognizeRecordsRequest) SetFaceCompareResult(v int32) *GetRecognizeRecordsRequest {
+	s.FaceCompareResult = &v
+	return s
+}
+
+func (s *GetRecognizeRecordsRequest) SetFromTime(v int64) *GetRecognizeRecordsRequest {
+	s.FromTime = &v
+	return s
+}
+
+func (s *GetRecognizeRecordsRequest) SetMaxResults(v int32) *GetRecognizeRecordsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetRecognizeRecordsRequest) SetNextToken(v int64) *GetRecognizeRecordsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetRecognizeRecordsRequest) SetToTime(v int64) *GetRecognizeRecordsRequest {
+	s.ToTime = &v
+	return s
+}
+
+func (s *GetRecognizeRecordsRequest) SetUserIds(v []*string) *GetRecognizeRecordsRequest {
+	s.UserIds = v
+	return s
+}
+
+type GetRecognizeRecordsResponseBody struct {
+	// data
+	Data []*GetRecognizeRecordsResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// 下一次拉取启始值
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 总数据数
+	Total *int32 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetRecognizeRecordsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecognizeRecordsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecognizeRecordsResponseBody) SetData(v []*GetRecognizeRecordsResponseBodyData) *GetRecognizeRecordsResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *GetRecognizeRecordsResponseBody) SetNextToken(v int64) *GetRecognizeRecordsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetRecognizeRecordsResponseBody) SetTotal(v int32) *GetRecognizeRecordsResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetRecognizeRecordsResponseBodyData struct {
+	// agentId
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// 人脸对比结果 1-成功 2-失败
+	FaceCompareResult *int32 `json:"faceCompareResult,omitempty" xml:"faceCompareResult,omitempty"`
+	// 接口调用时间(毫秒时间戳)
+	InvokeTime *int64 `json:"invokeTime,omitempty" xml:"invokeTime,omitempty"`
+	// 平台 0-Android 或 1-iOS
+	Platform *int32 `json:"platform,omitempty" xml:"platform,omitempty"`
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetRecognizeRecordsResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecognizeRecordsResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecognizeRecordsResponseBodyData) SetAgentId(v int64) *GetRecognizeRecordsResponseBodyData {
+	s.AgentId = &v
+	return s
+}
+
+func (s *GetRecognizeRecordsResponseBodyData) SetFaceCompareResult(v int32) *GetRecognizeRecordsResponseBodyData {
+	s.FaceCompareResult = &v
+	return s
+}
+
+func (s *GetRecognizeRecordsResponseBodyData) SetInvokeTime(v int64) *GetRecognizeRecordsResponseBodyData {
+	s.InvokeTime = &v
+	return s
+}
+
+func (s *GetRecognizeRecordsResponseBodyData) SetPlatform(v int32) *GetRecognizeRecordsResponseBodyData {
+	s.Platform = &v
+	return s
+}
+
+func (s *GetRecognizeRecordsResponseBodyData) SetUserId(v string) *GetRecognizeRecordsResponseBodyData {
+	s.UserId = &v
+	return s
+}
+
+type GetRecognizeRecordsResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetRecognizeRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetRecognizeRecordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecognizeRecordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecognizeRecordsResponse) SetHeaders(v map[string]*string) *GetRecognizeRecordsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetRecognizeRecordsResponse) SetBody(v *GetRecognizeRecordsResponseBody) *GetRecognizeRecordsResponse {
+	s.Body = v
+	return s
+}
+
 type GetSignedDetailByPageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4842,6 +5338,220 @@ func (s *GetUserAppVersionSummaryResponse) SetHeaders(v map[string]*string) *Get
 }
 
 func (s *GetUserAppVersionSummaryResponse) SetBody(v *GetUserAppVersionSummaryResponseBody) *GetUserAppVersionSummaryResponse {
+	s.Body = v
+	return s
+}
+
+type GetUserFaceStateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetUserFaceStateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserFaceStateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserFaceStateHeaders) SetCommonHeaders(v map[string]*string) *GetUserFaceStateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetUserFaceStateHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserFaceStateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetUserFaceStateRequest struct {
+	// userIds
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s GetUserFaceStateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserFaceStateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserFaceStateRequest) SetUserIds(v []*string) *GetUserFaceStateRequest {
+	s.UserIds = v
+	return s
+}
+
+type GetUserFaceStateResponseBody struct {
+	// data
+	Data []*GetUserFaceStateResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s GetUserFaceStateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserFaceStateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserFaceStateResponseBody) SetData(v []*GetUserFaceStateResponseBodyData) *GetUserFaceStateResponseBody {
+	s.Data = v
+	return s
+}
+
+type GetUserFaceStateResponseBodyData struct {
+	// 人脸录入状态 1-无人脸 2-有人脸
+	State *int32 `json:"state,omitempty" xml:"state,omitempty"`
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetUserFaceStateResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserFaceStateResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserFaceStateResponseBodyData) SetState(v int32) *GetUserFaceStateResponseBodyData {
+	s.State = &v
+	return s
+}
+
+func (s *GetUserFaceStateResponseBodyData) SetUserId(v string) *GetUserFaceStateResponseBodyData {
+	s.UserId = &v
+	return s
+}
+
+type GetUserFaceStateResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetUserFaceStateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetUserFaceStateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserFaceStateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserFaceStateResponse) SetHeaders(v map[string]*string) *GetUserFaceStateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetUserFaceStateResponse) SetBody(v *GetUserFaceStateResponseBody) *GetUserFaceStateResponse {
+	s.Body = v
+	return s
+}
+
+type GetUserRealPeopleStateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetUserRealPeopleStateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserRealPeopleStateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserRealPeopleStateHeaders) SetCommonHeaders(v map[string]*string) *GetUserRealPeopleStateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetUserRealPeopleStateHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserRealPeopleStateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetUserRealPeopleStateRequest struct {
+	// userIds
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s GetUserRealPeopleStateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserRealPeopleStateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserRealPeopleStateRequest) SetUserIds(v []*string) *GetUserRealPeopleStateRequest {
+	s.UserIds = v
+	return s
+}
+
+type GetUserRealPeopleStateResponseBody struct {
+	// data
+	Data []*GetUserRealPeopleStateResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s GetUserRealPeopleStateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserRealPeopleStateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserRealPeopleStateResponseBody) SetData(v []*GetUserRealPeopleStateResponseBodyData) *GetUserRealPeopleStateResponseBody {
+	s.Data = v
+	return s
+}
+
+type GetUserRealPeopleStateResponseBodyData struct {
+	// 认证状态 1-未认证 2-已认证
+	State *int32 `json:"state,omitempty" xml:"state,omitempty"`
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetUserRealPeopleStateResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserRealPeopleStateResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserRealPeopleStateResponseBodyData) SetState(v int32) *GetUserRealPeopleStateResponseBodyData {
+	s.State = &v
+	return s
+}
+
+func (s *GetUserRealPeopleStateResponseBodyData) SetUserId(v string) *GetUserRealPeopleStateResponseBodyData {
+	s.UserId = &v
+	return s
+}
+
+type GetUserRealPeopleStateResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetUserRealPeopleStateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetUserRealPeopleStateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserRealPeopleStateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserRealPeopleStateResponse) SetHeaders(v map[string]*string) *GetUserRealPeopleStateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetUserRealPeopleStateResponse) SetBody(v *GetUserRealPeopleStateResponseBody) *GetUserRealPeopleStateResponse {
 	s.Body = v
 	return s
 }
@@ -9370,6 +10080,50 @@ func (client *Client) GetDocCreatedSummaryWithOptions(dataId *string, headers *G
 	return _result, _err
 }
 
+func (client *Client) GetExclusiveAccountAllOrgList(request *GetExclusiveAccountAllOrgListRequest) (_result *GetExclusiveAccountAllOrgListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetExclusiveAccountAllOrgListHeaders{}
+	_result = &GetExclusiveAccountAllOrgListResponse{}
+	_body, _err := client.GetExclusiveAccountAllOrgListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetExclusiveAccountAllOrgListWithOptions(request *GetExclusiveAccountAllOrgListRequest, headers *GetExclusiveAccountAllOrgListHeaders, runtime *util.RuntimeOptions) (_result *GetExclusiveAccountAllOrgListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetExclusiveAccountAllOrgListResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetExclusiveAccountAllOrgList"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/exclusiveAccounts/organizations"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetGeneralFormCreatedDeptSummary(dataId *string, request *GetGeneralFormCreatedDeptSummaryRequest) (_result *GetGeneralFormCreatedDeptSummaryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetGeneralFormCreatedDeptSummaryHeaders{}
@@ -9762,6 +10516,142 @@ func (client *Client) GetPublisherSummaryWithOptions(dataId *string, request *Ge
 	return _result, _err
 }
 
+func (client *Client) GetRealPeopleRecords(request *GetRealPeopleRecordsRequest) (_result *GetRealPeopleRecordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetRealPeopleRecordsHeaders{}
+	_result = &GetRealPeopleRecordsResponse{}
+	_body, _err := client.GetRealPeopleRecordsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetRealPeopleRecordsWithOptions(request *GetRealPeopleRecordsRequest, headers *GetRealPeopleRecordsHeaders, runtime *util.RuntimeOptions) (_result *GetRealPeopleRecordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentId)) {
+		body["agentId"] = request.AgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FromTime)) {
+		body["fromTime"] = request.FromTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PersonIdentification)) {
+		body["personIdentification"] = request.PersonIdentification
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToTime)) {
+		body["toTime"] = request.ToTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetRealPeopleRecordsResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetRealPeopleRecords"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/persons/identificationRecords/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetRecognizeRecords(request *GetRecognizeRecordsRequest) (_result *GetRecognizeRecordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetRecognizeRecordsHeaders{}
+	_result = &GetRecognizeRecordsResponse{}
+	_body, _err := client.GetRecognizeRecordsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetRecognizeRecordsWithOptions(request *GetRecognizeRecordsRequest, headers *GetRecognizeRecordsHeaders, runtime *util.RuntimeOptions) (_result *GetRecognizeRecordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentId)) {
+		body["agentId"] = request.AgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FaceCompareResult)) {
+		body["faceCompareResult"] = request.FaceCompareResult
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FromTime)) {
+		body["fromTime"] = request.FromTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToTime)) {
+		body["toTime"] = request.ToTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetRecognizeRecordsResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetRecognizeRecords"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/faces/recognizeRecords/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetSignedDetailByPage(request *GetSignedDetailByPageRequest) (_result *GetSignedDetailByPageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSignedDetailByPageHeaders{}
@@ -9900,6 +10790,94 @@ func (client *Client) GetUserAppVersionSummaryWithOptions(dataId *string, reques
 	}
 	_result = &GetUserAppVersionSummaryResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetUserAppVersionSummary"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/data/appVersion/org/"+tea.StringValue(dataId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetUserFaceState(request *GetUserFaceStateRequest) (_result *GetUserFaceStateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetUserFaceStateHeaders{}
+	_result = &GetUserFaceStateResponse{}
+	_body, _err := client.GetUserFaceStateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetUserFaceStateWithOptions(request *GetUserFaceStateRequest, headers *GetUserFaceStateHeaders, runtime *util.RuntimeOptions) (_result *GetUserFaceStateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetUserFaceStateResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetUserFaceState"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/faces/recognizeStates/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetUserRealPeopleState(request *GetUserRealPeopleStateRequest) (_result *GetUserRealPeopleStateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetUserRealPeopleStateHeaders{}
+	_result = &GetUserRealPeopleStateResponse{}
+	_body, _err := client.GetUserRealPeopleStateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetUserRealPeopleStateWithOptions(request *GetUserRealPeopleStateRequest, headers *GetUserRealPeopleStateHeaders, runtime *util.RuntimeOptions) (_result *GetUserRealPeopleStateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetUserRealPeopleStateResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetUserRealPeopleState"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/persons/identificationStates/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

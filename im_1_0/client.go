@@ -3398,6 +3398,121 @@ func (s *QueryMembersOfGroupRoleResponse) SetBody(v *QueryMembersOfGroupRoleResp
 	return s
 }
 
+type QuerySceneGroupTemplateRobotHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QuerySceneGroupTemplateRobotHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySceneGroupTemplateRobotHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySceneGroupTemplateRobotHeaders) SetCommonHeaders(v map[string]*string) *QuerySceneGroupTemplateRobotHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QuerySceneGroupTemplateRobotHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySceneGroupTemplateRobotHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QuerySceneGroupTemplateRobotRequest struct {
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	RobotCode          *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s QuerySceneGroupTemplateRobotRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySceneGroupTemplateRobotRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySceneGroupTemplateRobotRequest) SetOpenConversationId(v string) *QuerySceneGroupTemplateRobotRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QuerySceneGroupTemplateRobotRequest) SetRobotCode(v string) *QuerySceneGroupTemplateRobotRequest {
+	s.RobotCode = &v
+	return s
+}
+
+type QuerySceneGroupTemplateRobotResponseBody struct {
+	Result  *QuerySceneGroupTemplateRobotResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QuerySceneGroupTemplateRobotResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySceneGroupTemplateRobotResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySceneGroupTemplateRobotResponseBody) SetResult(v *QuerySceneGroupTemplateRobotResponseBodyResult) *QuerySceneGroupTemplateRobotResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QuerySceneGroupTemplateRobotResponseBody) SetSuccess(v bool) *QuerySceneGroupTemplateRobotResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QuerySceneGroupTemplateRobotResponseBodyResult struct {
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QuerySceneGroupTemplateRobotResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySceneGroupTemplateRobotResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySceneGroupTemplateRobotResponseBodyResult) SetUnionId(v string) *QuerySceneGroupTemplateRobotResponseBodyResult {
+	s.UnionId = &v
+	return s
+}
+
+func (s *QuerySceneGroupTemplateRobotResponseBodyResult) SetUserId(v string) *QuerySceneGroupTemplateRobotResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+type QuerySceneGroupTemplateRobotResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QuerySceneGroupTemplateRobotResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QuerySceneGroupTemplateRobotResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySceneGroupTemplateRobotResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySceneGroupTemplateRobotResponse) SetHeaders(v map[string]*string) *QuerySceneGroupTemplateRobotResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QuerySceneGroupTemplateRobotResponse) SetBody(v *QuerySceneGroupTemplateRobotResponseBody) *QuerySceneGroupTemplateRobotResponse {
+	s.Body = v
+	return s
+}
+
 type QuerySingleGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7529,6 +7644,54 @@ func (client *Client) QueryMembersOfGroupRoleWithOptions(request *QueryMembersOf
 	}
 	_result = &QueryMembersOfGroupRoleResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryMembersOfGroupRole"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/roles/members/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QuerySceneGroupTemplateRobot(request *QuerySceneGroupTemplateRobotRequest) (_result *QuerySceneGroupTemplateRobotResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QuerySceneGroupTemplateRobotHeaders{}
+	_result = &QuerySceneGroupTemplateRobotResponse{}
+	_body, _err := client.QuerySceneGroupTemplateRobotWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QuerySceneGroupTemplateRobotWithOptions(request *QuerySceneGroupTemplateRobotRequest, headers *QuerySceneGroupTemplateRobotHeaders, runtime *util.RuntimeOptions) (_result *QuerySceneGroupTemplateRobotResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		query["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		query["robotCode"] = request.RobotCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QuerySceneGroupTemplateRobotResponse{}
+	_body, _err := client.DoROARequest(tea.String("QuerySceneGroupTemplateRobot"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/templates/robots"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

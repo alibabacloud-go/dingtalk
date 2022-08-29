@@ -860,6 +860,189 @@ func (s *BatchAddInvoiceResponse) SetBody(v *BatchAddInvoiceResponseBody) *Batch
 	return s
 }
 
+type BatchCreateCustomerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchCreateCustomerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateCustomerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateCustomerHeaders) SetCommonHeaders(v map[string]*string) *BatchCreateCustomerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchCreateCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *BatchCreateCustomerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchCreateCustomerRequest struct {
+	CreateCustomerRequestList []*BatchCreateCustomerRequestCreateCustomerRequestList `json:"createCustomerRequestList,omitempty" xml:"createCustomerRequestList,omitempty" type:"Repeated"`
+	// 创建人userId
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+}
+
+func (s BatchCreateCustomerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateCustomerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateCustomerRequest) SetCreateCustomerRequestList(v []*BatchCreateCustomerRequestCreateCustomerRequestList) *BatchCreateCustomerRequest {
+	s.CreateCustomerRequestList = v
+	return s
+}
+
+func (s *BatchCreateCustomerRequest) SetOperator(v string) *BatchCreateCustomerRequest {
+	s.Operator = &v
+	return s
+}
+
+type BatchCreateCustomerRequestCreateCustomerRequestList struct {
+	// 客户描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 客户名字
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 购方账户
+	PurchaserAccount *string `json:"purchaserAccount,omitempty" xml:"purchaserAccount,omitempty"`
+	// 购房地址
+	PurchaserAddress *string `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
+	// 购方银行
+	PurchaserBankName *string `json:"purchaserBankName,omitempty" xml:"purchaserBankName,omitempty"`
+	// 购方名字
+	PurchaserName *string `json:"purchaserName,omitempty" xml:"purchaserName,omitempty"`
+	// 购方税号
+	PurchaserTaxNo *string `json:"purchaserTaxNo,omitempty" xml:"purchaserTaxNo,omitempty"`
+	// 购方电话
+	PurchaserTel *string `json:"purchaserTel,omitempty" xml:"purchaserTel,omitempty"`
+}
+
+func (s BatchCreateCustomerRequestCreateCustomerRequestList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateCustomerRequestCreateCustomerRequestList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateCustomerRequestCreateCustomerRequestList) SetDescription(v string) *BatchCreateCustomerRequestCreateCustomerRequestList {
+	s.Description = &v
+	return s
+}
+
+func (s *BatchCreateCustomerRequestCreateCustomerRequestList) SetName(v string) *BatchCreateCustomerRequestCreateCustomerRequestList {
+	s.Name = &v
+	return s
+}
+
+func (s *BatchCreateCustomerRequestCreateCustomerRequestList) SetPurchaserAccount(v string) *BatchCreateCustomerRequestCreateCustomerRequestList {
+	s.PurchaserAccount = &v
+	return s
+}
+
+func (s *BatchCreateCustomerRequestCreateCustomerRequestList) SetPurchaserAddress(v string) *BatchCreateCustomerRequestCreateCustomerRequestList {
+	s.PurchaserAddress = &v
+	return s
+}
+
+func (s *BatchCreateCustomerRequestCreateCustomerRequestList) SetPurchaserBankName(v string) *BatchCreateCustomerRequestCreateCustomerRequestList {
+	s.PurchaserBankName = &v
+	return s
+}
+
+func (s *BatchCreateCustomerRequestCreateCustomerRequestList) SetPurchaserName(v string) *BatchCreateCustomerRequestCreateCustomerRequestList {
+	s.PurchaserName = &v
+	return s
+}
+
+func (s *BatchCreateCustomerRequestCreateCustomerRequestList) SetPurchaserTaxNo(v string) *BatchCreateCustomerRequestCreateCustomerRequestList {
+	s.PurchaserTaxNo = &v
+	return s
+}
+
+func (s *BatchCreateCustomerRequestCreateCustomerRequestList) SetPurchaserTel(v string) *BatchCreateCustomerRequestCreateCustomerRequestList {
+	s.PurchaserTel = &v
+	return s
+}
+
+type BatchCreateCustomerResponseBody struct {
+	ErrorResult []*BatchCreateCustomerResponseBodyErrorResult `json:"errorResult,omitempty" xml:"errorResult,omitempty" type:"Repeated"`
+	Success     *bool                                         `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchCreateCustomerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateCustomerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateCustomerResponseBody) SetErrorResult(v []*BatchCreateCustomerResponseBodyErrorResult) *BatchCreateCustomerResponseBody {
+	s.ErrorResult = v
+	return s
+}
+
+func (s *BatchCreateCustomerResponseBody) SetSuccess(v bool) *BatchCreateCustomerResponseBody {
+	s.Success = &v
+	return s
+}
+
+type BatchCreateCustomerResponseBodyErrorResult struct {
+	ErrorKey *string `json:"errorKey,omitempty" xml:"errorKey,omitempty"`
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+}
+
+func (s BatchCreateCustomerResponseBodyErrorResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateCustomerResponseBodyErrorResult) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateCustomerResponseBodyErrorResult) SetErrorKey(v string) *BatchCreateCustomerResponseBodyErrorResult {
+	s.ErrorKey = &v
+	return s
+}
+
+func (s *BatchCreateCustomerResponseBodyErrorResult) SetErrorMsg(v string) *BatchCreateCustomerResponseBodyErrorResult {
+	s.ErrorMsg = &v
+	return s
+}
+
+type BatchCreateCustomerResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchCreateCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchCreateCustomerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchCreateCustomerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchCreateCustomerResponse) SetHeaders(v map[string]*string) *BatchCreateCustomerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchCreateCustomerResponse) SetBody(v *BatchCreateCustomerResponseBody) *BatchCreateCustomerResponse {
+	s.Body = v
+	return s
+}
+
 type CheckVoucherStatusHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5534,6 +5717,179 @@ func (s *QuerySupplierByPageResponse) SetHeaders(v map[string]*string) *QuerySup
 }
 
 func (s *QuerySupplierByPageResponse) SetBody(v *QuerySupplierByPageResponseBody) *QuerySupplierByPageResponse {
+	s.Body = v
+	return s
+}
+
+type UnbindApplyReceiptAndInvoiceRelatedHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UnbindApplyReceiptAndInvoiceRelatedHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnbindApplyReceiptAndInvoiceRelatedHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedHeaders) SetCommonHeaders(v map[string]*string) *UnbindApplyReceiptAndInvoiceRelatedHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedHeaders) SetXAcsDingtalkAccessToken(v string) *UnbindApplyReceiptAndInvoiceRelatedHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UnbindApplyReceiptAndInvoiceRelatedRequest struct {
+	// 审批单id
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// 发票模型
+	InvoiceKeyVOList []*UnbindApplyReceiptAndInvoiceRelatedRequestInvoiceKeyVOList `json:"invoiceKeyVOList,omitempty" xml:"invoiceKeyVOList,omitempty" type:"Repeated"`
+	// 操作员
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+}
+
+func (s UnbindApplyReceiptAndInvoiceRelatedRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnbindApplyReceiptAndInvoiceRelatedRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedRequest) SetInstanceId(v string) *UnbindApplyReceiptAndInvoiceRelatedRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedRequest) SetInvoiceKeyVOList(v []*UnbindApplyReceiptAndInvoiceRelatedRequestInvoiceKeyVOList) *UnbindApplyReceiptAndInvoiceRelatedRequest {
+	s.InvoiceKeyVOList = v
+	return s
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedRequest) SetOperator(v string) *UnbindApplyReceiptAndInvoiceRelatedRequest {
+	s.Operator = &v
+	return s
+}
+
+type UnbindApplyReceiptAndInvoiceRelatedRequestInvoiceKeyVOList struct {
+	// 发票代码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+}
+
+func (s UnbindApplyReceiptAndInvoiceRelatedRequestInvoiceKeyVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnbindApplyReceiptAndInvoiceRelatedRequestInvoiceKeyVOList) GoString() string {
+	return s.String()
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedRequestInvoiceKeyVOList) SetInvoiceCode(v string) *UnbindApplyReceiptAndInvoiceRelatedRequestInvoiceKeyVOList {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedRequestInvoiceKeyVOList) SetInvoiceNo(v string) *UnbindApplyReceiptAndInvoiceRelatedRequestInvoiceKeyVOList {
+	s.InvoiceNo = &v
+	return s
+}
+
+type UnbindApplyReceiptAndInvoiceRelatedResponseBody struct {
+	// 批量更新发票返回结果
+	//
+	BatchUpdateInvoiceResponse *UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse `json:"batchUpdateInvoiceResponse,omitempty" xml:"batchUpdateInvoiceResponse,omitempty" type:"Struct"`
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UnbindApplyReceiptAndInvoiceRelatedResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnbindApplyReceiptAndInvoiceRelatedResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedResponseBody) SetBatchUpdateInvoiceResponse(v *UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse) *UnbindApplyReceiptAndInvoiceRelatedResponseBody {
+	s.BatchUpdateInvoiceResponse = v
+	return s
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedResponseBody) SetSuccess(v bool) *UnbindApplyReceiptAndInvoiceRelatedResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse struct {
+	// 错误结果列表
+	//
+	InvoiceKeyVOList []*UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList `json:"invoiceKeyVOList,omitempty" xml:"invoiceKeyVOList,omitempty" type:"Repeated"`
+}
+
+func (s UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse) SetInvoiceKeyVOList(v []*UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList) *UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponse {
+	s.InvoiceKeyVOList = v
+	return s
+}
+
+type UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList struct {
+	// 发票编码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+}
+
+func (s UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList) GoString() string {
+	return s.String()
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList) SetInvoiceCode(v string) *UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList) SetInvoiceNo(v string) *UnbindApplyReceiptAndInvoiceRelatedResponseBodyBatchUpdateInvoiceResponseInvoiceKeyVOList {
+	s.InvoiceNo = &v
+	return s
+}
+
+type UnbindApplyReceiptAndInvoiceRelatedResponse struct {
+	Headers map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UnbindApplyReceiptAndInvoiceRelatedResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UnbindApplyReceiptAndInvoiceRelatedResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnbindApplyReceiptAndInvoiceRelatedResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedResponse) SetHeaders(v map[string]*string) *UnbindApplyReceiptAndInvoiceRelatedResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UnbindApplyReceiptAndInvoiceRelatedResponse) SetBody(v *UnbindApplyReceiptAndInvoiceRelatedResponseBody) *UnbindApplyReceiptAndInvoiceRelatedResponse {
 	s.Body = v
 	return s
 }
@@ -11263,6 +11619,54 @@ func (client *Client) BatchAddInvoiceWithOptions(request *BatchAddInvoiceRequest
 	return _result, _err
 }
 
+func (client *Client) BatchCreateCustomer(request *BatchCreateCustomerRequest) (_result *BatchCreateCustomerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchCreateCustomerHeaders{}
+	_result = &BatchCreateCustomerResponse{}
+	_body, _err := client.BatchCreateCustomerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchCreateCustomerWithOptions(request *BatchCreateCustomerRequest, headers *BatchCreateCustomerHeaders, runtime *util.RuntimeOptions) (_result *BatchCreateCustomerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CreateCustomerRequestList)) {
+		body["createCustomerRequestList"] = request.CreateCustomerRequestList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchCreateCustomerResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchCreateCustomer"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/auxiliaries/batch"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CheckVoucherStatus(request *CheckVoucherStatusRequest) (_result *CheckVoucherStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CheckVoucherStatusHeaders{}
@@ -12534,6 +12938,58 @@ func (client *Client) QuerySupplierByPageWithOptions(request *QuerySupplierByPag
 	}
 	_result = &QuerySupplierByPageResponse{}
 	_body, _err := client.DoROARequest(tea.String("QuerySupplierByPage"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/suppliers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UnbindApplyReceiptAndInvoiceRelated(request *UnbindApplyReceiptAndInvoiceRelatedRequest) (_result *UnbindApplyReceiptAndInvoiceRelatedResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UnbindApplyReceiptAndInvoiceRelatedHeaders{}
+	_result = &UnbindApplyReceiptAndInvoiceRelatedResponse{}
+	_body, _err := client.UnbindApplyReceiptAndInvoiceRelatedWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UnbindApplyReceiptAndInvoiceRelatedWithOptions(request *UnbindApplyReceiptAndInvoiceRelatedRequest, headers *UnbindApplyReceiptAndInvoiceRelatedHeaders, runtime *util.RuntimeOptions) (_result *UnbindApplyReceiptAndInvoiceRelatedResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		body["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceKeyVOList)) {
+		body["invoiceKeyVOList"] = request.InvoiceKeyVOList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operator)) {
+		body["operator"] = request.Operator
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UnbindApplyReceiptAndInvoiceRelatedResponse{}
+	_body, _err := client.DoROARequest(tea.String("UnbindApplyReceiptAndInvoiceRelated"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/invoices/unbind"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

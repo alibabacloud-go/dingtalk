@@ -70,6 +70,8 @@ func (s *AddFolderRequest) SetUnionId(v string) *AddFolderRequest {
 }
 
 type AddFolderRequestOption struct {
+	// 文件夹在应用上的属性, 一个应用最多只能设置3个属性
+	AppProperties []*AddFolderRequestOptionAppProperties `json:"appProperties,omitempty" xml:"appProperties,omitempty" type:"Repeated"`
 	// 文件夹名称冲突策略
 	// 枚举值:
 	// 	AUTO_RENAME: 自动重命名
@@ -89,8 +91,48 @@ func (s AddFolderRequestOption) GoString() string {
 	return s.String()
 }
 
+func (s *AddFolderRequestOption) SetAppProperties(v []*AddFolderRequestOptionAppProperties) *AddFolderRequestOption {
+	s.AppProperties = v
+	return s
+}
+
 func (s *AddFolderRequestOption) SetConflictStrategy(v string) *AddFolderRequestOption {
 	s.ConflictStrategy = &v
+	return s
+}
+
+type AddFolderRequestOptionAppProperties struct {
+	// 属性名称 该属性名称在当前app下需要保证唯一，不同app间同名属性互不影响
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 属性值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 属性可见范围
+	// 枚举值:
+	// 	PUBLIC: 该属性所有App可见
+	// 	PRIVATE: 该属性仅其归属App可见
+	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
+}
+
+func (s AddFolderRequestOptionAppProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddFolderRequestOptionAppProperties) GoString() string {
+	return s.String()
+}
+
+func (s *AddFolderRequestOptionAppProperties) SetName(v string) *AddFolderRequestOptionAppProperties {
+	s.Name = &v
+	return s
+}
+
+func (s *AddFolderRequestOptionAppProperties) SetValue(v string) *AddFolderRequestOptionAppProperties {
+	s.Value = &v
+	return s
+}
+
+func (s *AddFolderRequestOptionAppProperties) SetVisibility(v string) *AddFolderRequestOptionAppProperties {
+	s.Visibility = &v
 	return s
 }
 
@@ -114,6 +156,9 @@ func (s *AddFolderResponseBody) SetDentry(v *AddFolderResponseBodyDentry) *AddFo
 }
 
 type AddFolderResponseBodyDentry struct {
+	// 在特定应用上的属性。key是微应用Id, value是属性列表。
+	// 可以通过修改DentryAppProperty里的scope来设置属性的可见性
+	AppProperties map[string][]*DentryAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 创建者id
@@ -174,6 +219,11 @@ func (s AddFolderResponseBodyDentry) String() string {
 
 func (s AddFolderResponseBodyDentry) GoString() string {
 	return s.String()
+}
+
+func (s *AddFolderResponseBodyDentry) SetAppProperties(v map[string][]*DentryAppPropertiesValue) *AddFolderResponseBodyDentry {
+	s.AppProperties = v
+	return s
 }
 
 func (s *AddFolderResponseBodyDentry) SetCreateTime(v string) *AddFolderResponseBodyDentry {
@@ -982,6 +1032,8 @@ func (s *CommitFileRequest) SetUnionId(v string) *CommitFileRequest {
 }
 
 type CommitFileRequestOption struct {
+	// 文件在应用上的属性, 一个应用最多只能设置3个属性
+	AppProperties []*CommitFileRequestOptionAppProperties `json:"appProperties,omitempty" xml:"appProperties,omitempty" type:"Repeated"`
 	// 文件名称冲突策略
 	// 枚举值:
 	// 	AUTO_RENAME: 自动重命名
@@ -1004,6 +1056,11 @@ func (s CommitFileRequestOption) GoString() string {
 	return s.String()
 }
 
+func (s *CommitFileRequestOption) SetAppProperties(v []*CommitFileRequestOptionAppProperties) *CommitFileRequestOption {
+	s.AppProperties = v
+	return s
+}
+
 func (s *CommitFileRequestOption) SetConflictStrategy(v string) *CommitFileRequestOption {
 	s.ConflictStrategy = &v
 	return s
@@ -1011,6 +1068,41 @@ func (s *CommitFileRequestOption) SetConflictStrategy(v string) *CommitFileReque
 
 func (s *CommitFileRequestOption) SetSize(v int64) *CommitFileRequestOption {
 	s.Size = &v
+	return s
+}
+
+type CommitFileRequestOptionAppProperties struct {
+	// 属性名称 该属性名称在当前app下需要保证唯一，不同app间同名属性互不影响
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 属性值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 属性可见范围
+	// 枚举值:
+	// 	PUBLIC: 该属性所有App可见
+	// 	PRIVATE: 该属性仅其归属App可见
+	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
+}
+
+func (s CommitFileRequestOptionAppProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CommitFileRequestOptionAppProperties) GoString() string {
+	return s.String()
+}
+
+func (s *CommitFileRequestOptionAppProperties) SetName(v string) *CommitFileRequestOptionAppProperties {
+	s.Name = &v
+	return s
+}
+
+func (s *CommitFileRequestOptionAppProperties) SetValue(v string) *CommitFileRequestOptionAppProperties {
+	s.Value = &v
+	return s
+}
+
+func (s *CommitFileRequestOptionAppProperties) SetVisibility(v string) *CommitFileRequestOptionAppProperties {
+	s.Visibility = &v
 	return s
 }
 
@@ -1033,6 +1125,9 @@ func (s *CommitFileResponseBody) SetDentry(v *CommitFileResponseBodyDentry) *Com
 }
 
 type CommitFileResponseBodyDentry struct {
+	// 在特定应用上的属性。key是微应用Id, value是属性列表。
+	// 可以通过修改DentryAppProperty里的scope来设置属性的可见性
+	AppProperties map[string][]*DentryAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 创建者id
@@ -1093,6 +1188,11 @@ func (s CommitFileResponseBodyDentry) String() string {
 
 func (s CommitFileResponseBodyDentry) GoString() string {
 	return s.String()
+}
+
+func (s *CommitFileResponseBodyDentry) SetAppProperties(v map[string][]*DentryAppPropertiesValue) *CommitFileResponseBodyDentry {
+	s.AppProperties = v
+	return s
 }
 
 func (s *CommitFileResponseBodyDentry) SetCreateTime(v string) *CommitFileResponseBodyDentry {
@@ -2266,6 +2366,8 @@ func (s *GetDentryHeaders) SetXAcsDingtalkAccessToken(v string) *GetDentryHeader
 }
 
 type GetDentryRequest struct {
+	// 可选参数
+	Option *GetDentryRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
 	// 用户id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
@@ -2278,8 +2380,33 @@ func (s GetDentryRequest) GoString() string {
 	return s.String()
 }
 
+func (s *GetDentryRequest) SetOption(v *GetDentryRequestOption) *GetDentryRequest {
+	s.Option = v
+	return s
+}
+
 func (s *GetDentryRequest) SetUnionId(v string) *GetDentryRequest {
 	s.UnionId = &v
+	return s
+}
+
+type GetDentryRequestOption struct {
+	// 通过指定应用id, 返回对应的可见属性，即dentry.appProperties，
+	// 默认都会返回当前应用的属性，
+	// 如不指定appIds, 则默认返回当前应用的appProperties
+	AppIdsForAppProperties []*string `json:"appIdsForAppProperties,omitempty" xml:"appIdsForAppProperties,omitempty" type:"Repeated"`
+}
+
+func (s GetDentryRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentryRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentryRequestOption) SetAppIdsForAppProperties(v []*string) *GetDentryRequestOption {
+	s.AppIdsForAppProperties = v
 	return s
 }
 
@@ -2302,6 +2429,9 @@ func (s *GetDentryResponseBody) SetDentry(v *GetDentryResponseBodyDentry) *GetDe
 }
 
 type GetDentryResponseBodyDentry struct {
+	// 在特定应用上的属性。key是微应用Id, value是属性列表。
+	// 可以通过修改DentryAppProperty里的scope来设置属性的可见性
+	AppProperties map[string][]*DentryAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 创建者id
@@ -2362,6 +2492,11 @@ func (s GetDentryResponseBodyDentry) String() string {
 
 func (s GetDentryResponseBodyDentry) GoString() string {
 	return s.String()
+}
+
+func (s *GetDentryResponseBodyDentry) SetAppProperties(v map[string][]*DentryAppPropertiesValue) *GetDentryResponseBodyDentry {
+	s.AppProperties = v
+	return s
 }
 
 func (s *GetDentryResponseBodyDentry) SetCreateTime(v string) *GetDentryResponseBodyDentry {
@@ -2939,6 +3074,183 @@ func (s *GetFileUploadInfoResponse) SetHeaders(v map[string]*string) *GetFileUpl
 }
 
 func (s *GetFileUploadInfoResponse) SetBody(v *GetFileUploadInfoResponseBody) *GetFileUploadInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetOrgHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetOrgHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgHeaders) SetCommonHeaders(v map[string]*string) *GetOrgHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetOrgHeaders) SetXAcsDingtalkAccessToken(v string) *GetOrgHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetOrgRequest struct {
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetOrgRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgRequest) SetUnionId(v string) *GetOrgRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetOrgResponseBody struct {
+	// 企业信息
+	Org *GetOrgResponseBodyOrg `json:"org,omitempty" xml:"org,omitempty" type:"Struct"`
+}
+
+func (s GetOrgResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgResponseBody) SetOrg(v *GetOrgResponseBodyOrg) *GetOrgResponseBody {
+	s.Org = v
+	return s
+}
+
+type GetOrgResponseBodyOrg struct {
+	// 企业id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 分区容量信息
+	Partitions []*GetOrgResponseBodyOrgPartitions `json:"partitions,omitempty" xml:"partitions,omitempty" type:"Repeated"`
+}
+
+func (s GetOrgResponseBodyOrg) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgResponseBodyOrg) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgResponseBodyOrg) SetCorpId(v string) *GetOrgResponseBodyOrg {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetOrgResponseBodyOrg) SetPartitions(v []*GetOrgResponseBodyOrgPartitions) *GetOrgResponseBodyOrg {
+	s.Partitions = v
+	return s
+}
+
+type GetOrgResponseBodyOrgPartitions struct {
+	// 分区类型
+	// 枚举值:
+	// 	PUBLIC_OSS_PARTITION: 公有云OSS存储分区
+	// 	MINI_OSS_PARTITION: 专属Mini OSS存储分区
+	PartitionType *string `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
+	// 容量信息
+	Quota *GetOrgResponseBodyOrgPartitionsQuota `json:"quota,omitempty" xml:"quota,omitempty" type:"Struct"`
+}
+
+func (s GetOrgResponseBodyOrgPartitions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgResponseBodyOrgPartitions) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgResponseBodyOrgPartitions) SetPartitionType(v string) *GetOrgResponseBodyOrgPartitions {
+	s.PartitionType = &v
+	return s
+}
+
+func (s *GetOrgResponseBodyOrgPartitions) SetQuota(v *GetOrgResponseBodyOrgPartitionsQuota) *GetOrgResponseBodyOrgPartitions {
+	s.Quota = v
+	return s
+}
+
+type GetOrgResponseBodyOrgPartitionsQuota struct {
+	// 最大容量, 单位: Byte
+	// 当前应用容量被设置为max时，代表当前应用容量设置了上限，used<=max
+	// 当前应用容量未设置max时，返回空，此时应用共享该企业剩余可用容量
+	Max *int64 `json:"max,omitempty" xml:"max,omitempty"`
+	// 容量类型
+	// 如果是企业维度容量，此值是PRIVATE, 表示企业独占
+	// 枚举值:
+	// 	SHARE: 共享容量
+	// 此模式下，Quota.max为空，表示共享企业容量
+	// 	PRIVATE: 专享容量
+	// 当Quota.max设置值后，表示容量独占
+	// 使用场景：当需要保证单个应用的可用容量不受其他应用影响时, 可使用共享容量
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 已使用容量, 单位: Byte
+	// 表示该应用下所用文件占用容量的总和，文件的上传、复制、删除相关操作会对used的值做相应变更
+	Used *int64 `json:"used,omitempty" xml:"used,omitempty"`
+}
+
+func (s GetOrgResponseBodyOrgPartitionsQuota) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgResponseBodyOrgPartitionsQuota) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgResponseBodyOrgPartitionsQuota) SetMax(v int64) *GetOrgResponseBodyOrgPartitionsQuota {
+	s.Max = &v
+	return s
+}
+
+func (s *GetOrgResponseBodyOrgPartitionsQuota) SetType(v string) *GetOrgResponseBodyOrgPartitionsQuota {
+	s.Type = &v
+	return s
+}
+
+func (s *GetOrgResponseBodyOrgPartitionsQuota) SetUsed(v int64) *GetOrgResponseBodyOrgPartitionsQuota {
+	s.Used = &v
+	return s
+}
+
+type GetOrgResponse struct {
+	Headers map[string]*string  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetOrgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetOrgResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgResponse) SetHeaders(v map[string]*string) *GetOrgResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetOrgResponse) SetBody(v *GetOrgResponseBody) *GetOrgResponse {
 	s.Body = v
 	return s
 }
@@ -4192,6 +4504,8 @@ type ListPermissionsResponseBodyPermissions struct {
 	Member *ListPermissionsResponseBodyPermissionsMember `json:"member,omitempty" xml:"member,omitempty" type:"Struct"`
 	// 修改时间
 	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// 操作人id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 	// 权限角色
 	Role *ListPermissionsResponseBodyPermissionsRole `json:"role,omitempty" xml:"role,omitempty" type:"Struct"`
 	// 空间id
@@ -4228,6 +4542,11 @@ func (s *ListPermissionsResponseBodyPermissions) SetMember(v *ListPermissionsRes
 
 func (s *ListPermissionsResponseBodyPermissions) SetModifiedTime(v string) *ListPermissionsResponseBodyPermissions {
 	s.ModifiedTime = &v
+	return s
+}
+
+func (s *ListPermissionsResponseBodyPermissions) SetOperatorId(v string) *ListPermissionsResponseBodyPermissions {
+	s.OperatorId = &v
 	return s
 }
 
@@ -5354,8 +5673,6 @@ type UpdateDentryAppPropertiesRequestAppProperties struct {
 	// 枚举值:
 	// 	PUBLIC: 该属性所有App可见
 	// 	PRIVATE: 该属性仅其归属App可见
-	// 默认值:
-	// 	PRIVATE
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
@@ -5583,6 +5900,41 @@ func (s *UpdatePermissionResponse) SetHeaders(v map[string]*string) *UpdatePermi
 
 func (s *UpdatePermissionResponse) SetBody(v *UpdatePermissionResponseBody) *UpdatePermissionResponse {
 	s.Body = v
+	return s
+}
+
+type DentryAppPropertiesValue struct {
+	// 属性名称 该属性名称在当前app下需要保证唯一，不同app间同名属性互不影响
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 属性值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 属性可见范围
+	// 枚举值:
+	// 	PUBLIC: 该属性所有App可见
+	// 	PRIVATE: 该属性仅其归属App可见
+	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
+}
+
+func (s DentryAppPropertiesValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DentryAppPropertiesValue) GoString() string {
+	return s.String()
+}
+
+func (s *DentryAppPropertiesValue) SetName(v string) *DentryAppPropertiesValue {
+	s.Name = &v
+	return s
+}
+
+func (s *DentryAppPropertiesValue) SetValue(v string) *DentryAppPropertiesValue {
+	s.Value = &v
+	return s
+}
+
+func (s *DentryAppPropertiesValue) SetVisibility(v string) *DentryAppPropertiesValue {
+	s.Visibility = &v
 	return s
 }
 
@@ -6266,6 +6618,11 @@ func (client *Client) GetDentryWithOptions(spaceId *string, dentryId *string, re
 		query["unionId"] = request.UnionId
 	}
 
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
+		body["option"] = request.Option
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -6278,6 +6635,7 @@ func (client *Client) GetDentryWithOptions(spaceId *string, dentryId *string, re
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &GetDentryResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetDentry"), tea.String("storage_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/storage/spaces/"+tea.StringValue(spaceId)+"/dentries/"+tea.StringValue(dentryId)+"/query"), tea.String("json"), req, runtime)
@@ -6392,6 +6750,51 @@ func (client *Client) GetFileUploadInfoWithOptions(spaceId *string, request *Get
 	}
 	_result = &GetFileUploadInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetFileUploadInfo"), tea.String("storage_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/storage/spaces/"+tea.StringValue(spaceId)+"/files/uploadInfos/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetOrg(corpId *string, request *GetOrgRequest) (_result *GetOrgResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOrgHeaders{}
+	_result = &GetOrgResponse{}
+	_body, _err := client.GetOrgWithOptions(corpId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetOrgWithOptions(corpId *string, request *GetOrgRequest, headers *GetOrgHeaders, runtime *util.RuntimeOptions) (_result *GetOrgResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	corpId = openapiutil.GetEncodeParam(corpId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetOrgResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetOrg"), tea.String("storage_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/storage/orgs/"+tea.StringValue(corpId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

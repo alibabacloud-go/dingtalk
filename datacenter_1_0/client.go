@@ -11,6 +11,795 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type GetAbnormalOperationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAbnormalOperationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAbnormalOperationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAbnormalOperationHeaders) SetCommonHeaders(v map[string]*string) *GetAbnormalOperationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAbnormalOperationHeaders) SetXAcsDingtalkAccessToken(v string) *GetAbnormalOperationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAbnormalOperationRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetAbnormalOperationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAbnormalOperationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAbnormalOperationRequest) SetPageNumber(v int32) *GetAbnormalOperationRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetAbnormalOperationRequest) SetPageSize(v int32) *GetAbnormalOperationRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetAbnormalOperationRequest) SetSearchKey(v string) *GetAbnormalOperationRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetAbnormalOperationResponseBody struct {
+	// 返回结果
+	// DEPARTMENT:列入决定机关
+	// IN_REASON 列入原因
+	// OUT_DATE:移出日期
+	// OUT_DEPARTMENT:移出决定机关
+	// OUT_REASON:移出原因
+	// IN_DATE:列入日期
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetAbnormalOperationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAbnormalOperationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAbnormalOperationResponseBody) SetData(v string) *GetAbnormalOperationResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetAbnormalOperationResponseBody) SetTotal(v int64) *GetAbnormalOperationResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetAbnormalOperationResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetAbnormalOperationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAbnormalOperationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAbnormalOperationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAbnormalOperationResponse) SetHeaders(v map[string]*string) *GetAbnormalOperationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAbnormalOperationResponse) SetBody(v *GetAbnormalOperationResponseBody) *GetAbnormalOperationResponse {
+	s.Body = v
+	return s
+}
+
+type GetAdministrativePenaltiesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAdministrativePenaltiesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAdministrativePenaltiesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAdministrativePenaltiesHeaders) SetCommonHeaders(v map[string]*string) *GetAdministrativePenaltiesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAdministrativePenaltiesHeaders) SetXAcsDingtalkAccessToken(v string) *GetAdministrativePenaltiesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAdministrativePenaltiesRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetAdministrativePenaltiesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAdministrativePenaltiesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAdministrativePenaltiesRequest) SetPageNumber(v int32) *GetAdministrativePenaltiesRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetAdministrativePenaltiesRequest) SetPageSize(v int32) *GetAdministrativePenaltiesRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetAdministrativePenaltiesRequest) SetSearchKey(v string) *GetAdministrativePenaltiesRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetAdministrativePenaltiesResponseBody struct {
+	// 返回结果
+	// DATE_COL:处罚日期
+	// NUMBER:决定书文号
+	// ILLEGAL_TYPE:处罚类型
+	// DEPARTMENT:处罚机关
+	// PUBLIC_DATE 公示日期
+	// CONTENT:处罚内容
+	// BASED_ON:处罚依据
+	// DESCRIPTION:处罚判决书
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetAdministrativePenaltiesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAdministrativePenaltiesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAdministrativePenaltiesResponseBody) SetData(v string) *GetAdministrativePenaltiesResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetAdministrativePenaltiesResponseBody) SetTotal(v int64) *GetAdministrativePenaltiesResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetAdministrativePenaltiesResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetAdministrativePenaltiesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAdministrativePenaltiesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAdministrativePenaltiesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAdministrativePenaltiesResponse) SetHeaders(v map[string]*string) *GetAdministrativePenaltiesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAdministrativePenaltiesResponse) SetBody(v *GetAdministrativePenaltiesResponseBody) *GetAdministrativePenaltiesResponse {
+	s.Body = v
+	return s
+}
+
+type GetBasicInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetBasicInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBasicInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetBasicInfoHeaders) SetCommonHeaders(v map[string]*string) *GetBasicInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetBasicInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetBasicInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetBasicInfoRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetBasicInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBasicInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetBasicInfoRequest) SetPageNumber(v int32) *GetBasicInfoRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetBasicInfoRequest) SetPageSize(v int32) *GetBasicInfoRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetBasicInfoRequest) SetSearchKey(v string) *GetBasicInfoRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetBasicInfoResponseBody struct {
+	// 返回结果
+	// ENT_NAME:企业名称
+	// LEGAL_NAME:法定代表人姓名
+	// ES_DATE:开业日期
+	// ENT_STATUS:经营状态
+	// REG_CAP:注册资本
+	// REC_CAP:实收资本
+	// SOCIAL_CREDIT_CODE:统一社会信用代码
+	// LICENSE_NUMBER:工商注册号
+	// ORG_NO:组织机构代码
+	// TAX_NUM:纳税人识别号
+	// ENT_TYPE:企业类型
+	// INDUSTRY_NAME_LV1:国民经济行业门类名称
+	// INDUSTRY_NAME_LV2:国民经济行业大类名称
+	// OP_FROM:经营期限自
+	// OP_TO:经营期限至
+	// COLLEGUES_NUM:人员规模
+	// INSURED_NUM:参保人数
+	// ENT_NAME_ENG:英文名称
+	// FORMER_NAMES:曾用名
+	// REG_ORG:登记机关
+	// CHECK_DATE:核准日期
+	// OP_SCOPE:经营范围
+	// IDENTITY_ID:ID
+	// ENT_ADDRESS:企业地址
+	// EMPLOYEES_INFO:主要管理人员
+	// ENT_BRIEF:公司简介
+	// REG_ORG_PROVINCE:注册地址所在省
+	// REG_ORG_CITY:注册地址所在城市
+	// REG_ORG_DISTRICT:注册地址所在区县
+	// STD_REG_CAP:清洗后注册资本
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetBasicInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBasicInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetBasicInfoResponseBody) SetData(v string) *GetBasicInfoResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetBasicInfoResponseBody) SetTotal(v int64) *GetBasicInfoResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetBasicInfoResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetBasicInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetBasicInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBasicInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetBasicInfoResponse) SetHeaders(v map[string]*string) *GetBasicInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetBasicInfoResponse) SetBody(v *GetBasicInfoResponseBody) *GetBasicInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetEnvironmentalPenaltiesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetEnvironmentalPenaltiesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEnvironmentalPenaltiesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetEnvironmentalPenaltiesHeaders) SetCommonHeaders(v map[string]*string) *GetEnvironmentalPenaltiesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetEnvironmentalPenaltiesHeaders) SetXAcsDingtalkAccessToken(v string) *GetEnvironmentalPenaltiesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetEnvironmentalPenaltiesRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetEnvironmentalPenaltiesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEnvironmentalPenaltiesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetEnvironmentalPenaltiesRequest) SetPageNumber(v int32) *GetEnvironmentalPenaltiesRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetEnvironmentalPenaltiesRequest) SetPageSize(v int32) *GetEnvironmentalPenaltiesRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetEnvironmentalPenaltiesRequest) SetSearchKey(v string) *GetEnvironmentalPenaltiesRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetEnvironmentalPenaltiesResponseBody struct {
+	// 返回结果
+	// DEPARTMENT:处罚单位
+	// ENT_NAME:企业名称
+	// EXEC_STATUS 执行情况
+	// PUNISH_BASIS:处罚依据
+	// PUNISH_CONTENT:处罚事由
+	// PUNISH_LAW:违反法律
+	// PUNISH_NUM:决定文书号
+	// PUNISH_RES:处罚结果
+	// PUNISH_DATE:处罚时间
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetEnvironmentalPenaltiesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEnvironmentalPenaltiesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetEnvironmentalPenaltiesResponseBody) SetData(v string) *GetEnvironmentalPenaltiesResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetEnvironmentalPenaltiesResponseBody) SetTotal(v int64) *GetEnvironmentalPenaltiesResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetEnvironmentalPenaltiesResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetEnvironmentalPenaltiesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetEnvironmentalPenaltiesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEnvironmentalPenaltiesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetEnvironmentalPenaltiesResponse) SetHeaders(v map[string]*string) *GetEnvironmentalPenaltiesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetEnvironmentalPenaltiesResponse) SetBody(v *GetEnvironmentalPenaltiesResponseBody) *GetEnvironmentalPenaltiesResponse {
+	s.Body = v
+	return s
+}
+
+type GetHolderInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetHolderInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetHolderInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetHolderInfoHeaders) SetCommonHeaders(v map[string]*string) *GetHolderInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetHolderInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetHolderInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetHolderInfoRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetHolderInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetHolderInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetHolderInfoRequest) SetPageNumber(v int32) *GetHolderInfoRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetHolderInfoRequest) SetPageSize(v int32) *GetHolderInfoRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetHolderInfoRequest) SetSearchKey(v string) *GetHolderInfoRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetHolderInfoResponseBody struct {
+	// 返回结果
+	// STOCK_TYPE:股东类型
+	// STOCK_NAME:股东名称
+	// STOCK_PERCENT:持股比例
+	// SHOULD_CAPI:认缴出资额
+	// SHOULD_CAPI_TIME:认缴出资日期
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetHolderInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetHolderInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetHolderInfoResponseBody) SetData(v string) *GetHolderInfoResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetHolderInfoResponseBody) SetTotal(v int64) *GetHolderInfoResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetHolderInfoResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetHolderInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetHolderInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetHolderInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetHolderInfoResponse) SetHeaders(v map[string]*string) *GetHolderInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetHolderInfoResponse) SetBody(v *GetHolderInfoResponseBody) *GetHolderInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetQeneralTaxpayerInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetQeneralTaxpayerInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetQeneralTaxpayerInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetQeneralTaxpayerInfoHeaders) SetCommonHeaders(v map[string]*string) *GetQeneralTaxpayerInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetQeneralTaxpayerInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetQeneralTaxpayerInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetQeneralTaxpayerInfoRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetQeneralTaxpayerInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetQeneralTaxpayerInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetQeneralTaxpayerInfoRequest) SetPageNumber(v int32) *GetQeneralTaxpayerInfoRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetQeneralTaxpayerInfoRequest) SetPageSize(v int32) *GetQeneralTaxpayerInfoRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetQeneralTaxpayerInfoRequest) SetSearchKey(v string) *GetQeneralTaxpayerInfoRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetQeneralTaxpayerInfoResponseBody struct {
+	// 返回结果
+	// DEPARTMENT:主管机关
+	// END_DATE:有效日期止
+	// ENT_NAME:纳税人名称
+	// QUALIFICATION 纳税人资格
+	// START_DATE:有效日期起
+	// TAXPAYER_NUM:纳税人识别号
+	// JUDGE_DATE:认定时间
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetQeneralTaxpayerInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetQeneralTaxpayerInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetQeneralTaxpayerInfoResponseBody) SetData(v string) *GetQeneralTaxpayerInfoResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetQeneralTaxpayerInfoResponseBody) SetTotal(v int64) *GetQeneralTaxpayerInfoResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetQeneralTaxpayerInfoResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetQeneralTaxpayerInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetQeneralTaxpayerInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetQeneralTaxpayerInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetQeneralTaxpayerInfoResponse) SetHeaders(v map[string]*string) *GetQeneralTaxpayerInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetQeneralTaxpayerInfoResponse) SetBody(v *GetQeneralTaxpayerInfoResponseBody) *GetQeneralTaxpayerInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetSeriousViolationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSeriousViolationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSeriousViolationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSeriousViolationHeaders) SetCommonHeaders(v map[string]*string) *GetSeriousViolationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSeriousViolationHeaders) SetXAcsDingtalkAccessToken(v string) *GetSeriousViolationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSeriousViolationRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetSeriousViolationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSeriousViolationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSeriousViolationRequest) SetPageNumber(v int32) *GetSeriousViolationRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetSeriousViolationRequest) SetPageSize(v int32) *GetSeriousViolationRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetSeriousViolationRequest) SetSearchKey(v string) *GetSeriousViolationRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetSeriousViolationResponseBody struct {
+	// 返回结果
+	// IN_DATE:列入日期
+	// IN_DEPARTMENT:列入决定机关
+	// IN_REASON:列入严重违法失信企业名单原因
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetSeriousViolationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSeriousViolationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSeriousViolationResponseBody) SetData(v string) *GetSeriousViolationResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetSeriousViolationResponseBody) SetTotal(v int64) *GetSeriousViolationResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetSeriousViolationResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetSeriousViolationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSeriousViolationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSeriousViolationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSeriousViolationResponse) SetHeaders(v map[string]*string) *GetSeriousViolationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSeriousViolationResponse) SetBody(v *GetSeriousViolationResponseBody) *GetSeriousViolationResponse {
+	s.Body = v
+	return s
+}
+
 type PostCorpAuthInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2052,6 +2841,176 @@ func (s *QueryEmployeeTypeStatisticalDataResponse) SetHeaders(v map[string]*stri
 }
 
 func (s *QueryEmployeeTypeStatisticalDataResponse) SetBody(v *QueryEmployeeTypeStatisticalDataResponseBody) *QueryEmployeeTypeStatisticalDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryGeneralDataServiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryGeneralDataServiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGeneralDataServiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGeneralDataServiceHeaders) SetCommonHeaders(v map[string]*string) *QueryGeneralDataServiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryGeneralDataServiceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGeneralDataServiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryGeneralDataServiceRequest struct {
+	// 部门ID
+	DeptId *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 结束日期
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// 分页页码
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页大小
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 服务编码
+	ServiceId *string `json:"serviceId,omitempty" xml:"serviceId,omitempty"`
+	// statDate
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 员工ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryGeneralDataServiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGeneralDataServiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGeneralDataServiceRequest) SetDeptId(v string) *QueryGeneralDataServiceRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceRequest) SetEndDate(v string) *QueryGeneralDataServiceRequest {
+	s.EndDate = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceRequest) SetPageNumber(v int64) *QueryGeneralDataServiceRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceRequest) SetPageSize(v int64) *QueryGeneralDataServiceRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceRequest) SetServiceId(v string) *QueryGeneralDataServiceRequest {
+	s.ServiceId = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceRequest) SetStartDate(v string) *QueryGeneralDataServiceRequest {
+	s.StartDate = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceRequest) SetUserId(v string) *QueryGeneralDataServiceRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryGeneralDataServiceResponseBody struct {
+	// 指标数据
+	DataList []map[string]interface{} `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// 指标元数据
+	MetaList []*QueryGeneralDataServiceResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+}
+
+func (s QueryGeneralDataServiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGeneralDataServiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGeneralDataServiceResponseBody) SetDataList(v []map[string]interface{}) *QueryGeneralDataServiceResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryGeneralDataServiceResponseBody) SetMetaList(v []*QueryGeneralDataServiceResponseBodyMetaList) *QueryGeneralDataServiceResponseBody {
+	s.MetaList = v
+	return s
+}
+
+type QueryGeneralDataServiceResponseBodyMetaList struct {
+	// 指标名称
+	FieldDesc *string `json:"fieldDesc,omitempty" xml:"fieldDesc,omitempty"`
+	// 指标口径
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// 指标ID
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// 指标单位
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+}
+
+func (s QueryGeneralDataServiceResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGeneralDataServiceResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGeneralDataServiceResponseBodyMetaList) SetFieldDesc(v string) *QueryGeneralDataServiceResponseBodyMetaList {
+	s.FieldDesc = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceResponseBodyMetaList) SetFieldId(v string) *QueryGeneralDataServiceResponseBodyMetaList {
+	s.FieldId = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceResponseBodyMetaList) SetFieldName(v string) *QueryGeneralDataServiceResponseBodyMetaList {
+	s.FieldName = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceResponseBodyMetaList) SetFieldType(v string) *QueryGeneralDataServiceResponseBodyMetaList {
+	s.FieldType = &v
+	return s
+}
+
+type QueryGeneralDataServiceResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryGeneralDataServiceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryGeneralDataServiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGeneralDataServiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGeneralDataServiceResponse) SetHeaders(v map[string]*string) *QueryGeneralDataServiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryGeneralDataServiceResponse) SetBody(v *QueryGeneralDataServiceResponseBody) *QueryGeneralDataServiceResponse {
 	s.Body = v
 	return s
 }
@@ -9197,6 +10156,109 @@ func (s *QueryYydTotalWeekStatisticalDataResponse) SetBody(v *QueryYydTotalWeekS
 	return s
 }
 
+type SearchCompanyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchCompanyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchCompanyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchCompanyHeaders) SetCommonHeaders(v map[string]*string) *SearchCompanyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchCompanyHeaders) SetXAcsDingtalkAccessToken(v string) *SearchCompanyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchCompanyRequest struct {
+	// 起始页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 页面大小
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s SearchCompanyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchCompanyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchCompanyRequest) SetPageNumber(v int32) *SearchCompanyRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *SearchCompanyRequest) SetPageSize(v int32) *SearchCompanyRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *SearchCompanyRequest) SetSearchKey(v string) *SearchCompanyRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type SearchCompanyResponseBody struct {
+	// 返回数据结果
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s SearchCompanyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchCompanyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchCompanyResponseBody) SetData(v string) *SearchCompanyResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *SearchCompanyResponseBody) SetTotal(v int64) *SearchCompanyResponseBody {
+	s.Total = &v
+	return s
+}
+
+type SearchCompanyResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchCompanyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchCompanyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchCompanyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchCompanyResponse) SetHeaders(v map[string]*string) *SearchCompanyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchCompanyResponse) SetBody(v *SearchCompanyResponseBody) *SearchCompanyResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -9218,6 +10280,370 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) GetAbnormalOperation(request *GetAbnormalOperationRequest) (_result *GetAbnormalOperationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAbnormalOperationHeaders{}
+	_result = &GetAbnormalOperationResponse{}
+	_body, _err := client.GetAbnormalOperationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAbnormalOperationWithOptions(request *GetAbnormalOperationRequest, headers *GetAbnormalOperationHeaders, runtime *util.RuntimeOptions) (_result *GetAbnormalOperationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetAbnormalOperationResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetAbnormalOperation"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/abnormalOperations"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetAdministrativePenalties(request *GetAdministrativePenaltiesRequest) (_result *GetAdministrativePenaltiesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAdministrativePenaltiesHeaders{}
+	_result = &GetAdministrativePenaltiesResponse{}
+	_body, _err := client.GetAdministrativePenaltiesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAdministrativePenaltiesWithOptions(request *GetAdministrativePenaltiesRequest, headers *GetAdministrativePenaltiesHeaders, runtime *util.RuntimeOptions) (_result *GetAdministrativePenaltiesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetAdministrativePenaltiesResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetAdministrativePenalties"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/administrativePenalties"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetBasicInfo(request *GetBasicInfoRequest) (_result *GetBasicInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetBasicInfoHeaders{}
+	_result = &GetBasicInfoResponse{}
+	_body, _err := client.GetBasicInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetBasicInfoWithOptions(request *GetBasicInfoRequest, headers *GetBasicInfoHeaders, runtime *util.RuntimeOptions) (_result *GetBasicInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetBasicInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetBasicInfo"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/businessBasicInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetEnvironmentalPenalties(request *GetEnvironmentalPenaltiesRequest) (_result *GetEnvironmentalPenaltiesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetEnvironmentalPenaltiesHeaders{}
+	_result = &GetEnvironmentalPenaltiesResponse{}
+	_body, _err := client.GetEnvironmentalPenaltiesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetEnvironmentalPenaltiesWithOptions(request *GetEnvironmentalPenaltiesRequest, headers *GetEnvironmentalPenaltiesHeaders, runtime *util.RuntimeOptions) (_result *GetEnvironmentalPenaltiesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetEnvironmentalPenaltiesResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetEnvironmentalPenalties"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/environmentalPenalties"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetHolderInfo(request *GetHolderInfoRequest) (_result *GetHolderInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetHolderInfoHeaders{}
+	_result = &GetHolderInfoResponse{}
+	_body, _err := client.GetHolderInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetHolderInfoWithOptions(request *GetHolderInfoRequest, headers *GetHolderInfoHeaders, runtime *util.RuntimeOptions) (_result *GetHolderInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetHolderInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetHolderInfo"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/shareholderInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetQeneralTaxpayerInfo(request *GetQeneralTaxpayerInfoRequest) (_result *GetQeneralTaxpayerInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetQeneralTaxpayerInfoHeaders{}
+	_result = &GetQeneralTaxpayerInfoResponse{}
+	_body, _err := client.GetQeneralTaxpayerInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetQeneralTaxpayerInfoWithOptions(request *GetQeneralTaxpayerInfoRequest, headers *GetQeneralTaxpayerInfoHeaders, runtime *util.RuntimeOptions) (_result *GetQeneralTaxpayerInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetQeneralTaxpayerInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetQeneralTaxpayerInfo"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/generalTaxpayerInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSeriousViolation(request *GetSeriousViolationRequest) (_result *GetSeriousViolationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSeriousViolationHeaders{}
+	_result = &GetSeriousViolationResponse{}
+	_body, _err := client.GetSeriousViolationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSeriousViolationWithOptions(request *GetSeriousViolationRequest, headers *GetSeriousViolationHeaders, runtime *util.RuntimeOptions) (_result *GetSeriousViolationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetSeriousViolationResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetSeriousViolation"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/seriousViolations"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) PostCorpAuthInfo() (_result *PostCorpAuthInfoResponse, _err error) {
@@ -9927,6 +11353,74 @@ func (client *Client) QueryEmployeeTypeStatisticalDataWithOptions(request *Query
 	}
 	_result = &QueryEmployeeTypeStatisticalDataResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryEmployeeTypeStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/employeeTypeData"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryGeneralDataService(request *QueryGeneralDataServiceRequest) (_result *QueryGeneralDataServiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryGeneralDataServiceHeaders{}
+	_result = &QueryGeneralDataServiceResponse{}
+	_body, _err := client.QueryGeneralDataServiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryGeneralDataServiceWithOptions(request *QueryGeneralDataServiceRequest, headers *QueryGeneralDataServiceHeaders, runtime *util.RuntimeOptions) (_result *QueryGeneralDataServiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		query["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndDate)) {
+		query["endDate"] = request.EndDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ServiceId)) {
+		query["serviceId"] = request.ServiceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartDate)) {
+		query["startDate"] = request.StartDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryGeneralDataServiceResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryGeneralDataService"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/generalDataServices"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12275,6 +13769,58 @@ func (client *Client) QueryYydTotalWeekStatisticalDataWithOptions(request *Query
 	}
 	_result = &QueryYydTotalWeekStatisticalDataResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryYydTotalWeekStatisticalData"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/yydTotalWeekDatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchCompany(request *SearchCompanyRequest) (_result *SearchCompanyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchCompanyHeaders{}
+	_result = &SearchCompanyResponse{}
+	_body, _err := client.SearchCompanyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchCompanyWithOptions(request *SearchCompanyRequest, headers *SearchCompanyHeaders, runtime *util.RuntimeOptions) (_result *SearchCompanyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &SearchCompanyResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchCompany"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/keywords/companies"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

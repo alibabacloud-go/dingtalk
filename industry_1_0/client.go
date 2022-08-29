@@ -7760,6 +7760,193 @@ func (s *ExternalQueryExternalOrgsResponse) SetBody(v *ExternalQueryExternalOrgs
 	return s
 }
 
+type HospitalDataCheckHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HospitalDataCheckHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HospitalDataCheckHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HospitalDataCheckHeaders) SetCommonHeaders(v map[string]*string) *HospitalDataCheckHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HospitalDataCheckHeaders) SetXAcsDingtalkAccessToken(v string) *HospitalDataCheckHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HospitalDataCheckRequest struct {
+	// 所有状态的科室数量
+	AllDeptCount *int64 `json:"allDeptCount,omitempty" xml:"allDeptCount,omitempty"`
+	// 正常状态的科室人员数量
+	AllDeptUserCount *int64 `json:"allDeptUserCount,omitempty" xml:"allDeptUserCount,omitempty"`
+	// 所有状态的医疗组数量
+	AllGroupCount *int64 `json:"allGroupCount,omitempty" xml:"allGroupCount,omitempty"`
+	// 所有状态的医疗组人员数量
+	AllGroupUserCount *int64 `json:"allGroupUserCount,omitempty" xml:"allGroupUserCount,omitempty"`
+	// 状态为0的科室数量
+	DeptCount *int64 `json:"deptCount,omitempty" xml:"deptCount,omitempty"`
+	// 正常状态的科室人员数量
+	DeptUserCount *int64 `json:"deptUserCount,omitempty" xml:"deptUserCount,omitempty"`
+	// 正常状态的医疗组数量
+	GroupCount *int64 `json:"groupCount,omitempty" xml:"groupCount,omitempty"`
+	// 正常状态的医疗组人员数量
+	GroupUserCount *int64 `json:"groupUserCount,omitempty" xml:"groupUserCount,omitempty"`
+}
+
+func (s HospitalDataCheckRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HospitalDataCheckRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HospitalDataCheckRequest) SetAllDeptCount(v int64) *HospitalDataCheckRequest {
+	s.AllDeptCount = &v
+	return s
+}
+
+func (s *HospitalDataCheckRequest) SetAllDeptUserCount(v int64) *HospitalDataCheckRequest {
+	s.AllDeptUserCount = &v
+	return s
+}
+
+func (s *HospitalDataCheckRequest) SetAllGroupCount(v int64) *HospitalDataCheckRequest {
+	s.AllGroupCount = &v
+	return s
+}
+
+func (s *HospitalDataCheckRequest) SetAllGroupUserCount(v int64) *HospitalDataCheckRequest {
+	s.AllGroupUserCount = &v
+	return s
+}
+
+func (s *HospitalDataCheckRequest) SetDeptCount(v int64) *HospitalDataCheckRequest {
+	s.DeptCount = &v
+	return s
+}
+
+func (s *HospitalDataCheckRequest) SetDeptUserCount(v int64) *HospitalDataCheckRequest {
+	s.DeptUserCount = &v
+	return s
+}
+
+func (s *HospitalDataCheckRequest) SetGroupCount(v int64) *HospitalDataCheckRequest {
+	s.GroupCount = &v
+	return s
+}
+
+func (s *HospitalDataCheckRequest) SetGroupUserCount(v int64) *HospitalDataCheckRequest {
+	s.GroupUserCount = &v
+	return s
+}
+
+type HospitalDataCheckResponseBody struct {
+	// 所有状态的科室数量
+	AllDeptCount *int64 `json:"allDeptCount,omitempty" xml:"allDeptCount,omitempty"`
+	// 所有状态的科室人员数量
+	AllDeptUserCount *int64 `json:"allDeptUserCount,omitempty" xml:"allDeptUserCount,omitempty"`
+	// 所有状态的医疗组数量
+	AllGroupCount *int64 `json:"allGroupCount,omitempty" xml:"allGroupCount,omitempty"`
+	// 所有状态的医疗组人员数量
+	AllGroupUserCount *int64 `json:"allGroupUserCount,omitempty" xml:"allGroupUserCount,omitempty"`
+	// 正常状态的科室数量
+	DeptCount *int64 `json:"deptCount,omitempty" xml:"deptCount,omitempty"`
+	// 正常状态的科室人员数量
+	DeptUserCount *int64 `json:"deptUserCount,omitempty" xml:"deptUserCount,omitempty"`
+	// 正常状态的医疗组数量
+	GroupCount *int64 `json:"groupCount,omitempty" xml:"groupCount,omitempty"`
+	// 正常状态的医疗组人员数量
+	GroupUserCount *int64 `json:"groupUserCount,omitempty" xml:"groupUserCount,omitempty"`
+	// 数据是否一致
+	Match *bool `json:"match,omitempty" xml:"match,omitempty"`
+}
+
+func (s HospitalDataCheckResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HospitalDataCheckResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HospitalDataCheckResponseBody) SetAllDeptCount(v int64) *HospitalDataCheckResponseBody {
+	s.AllDeptCount = &v
+	return s
+}
+
+func (s *HospitalDataCheckResponseBody) SetAllDeptUserCount(v int64) *HospitalDataCheckResponseBody {
+	s.AllDeptUserCount = &v
+	return s
+}
+
+func (s *HospitalDataCheckResponseBody) SetAllGroupCount(v int64) *HospitalDataCheckResponseBody {
+	s.AllGroupCount = &v
+	return s
+}
+
+func (s *HospitalDataCheckResponseBody) SetAllGroupUserCount(v int64) *HospitalDataCheckResponseBody {
+	s.AllGroupUserCount = &v
+	return s
+}
+
+func (s *HospitalDataCheckResponseBody) SetDeptCount(v int64) *HospitalDataCheckResponseBody {
+	s.DeptCount = &v
+	return s
+}
+
+func (s *HospitalDataCheckResponseBody) SetDeptUserCount(v int64) *HospitalDataCheckResponseBody {
+	s.DeptUserCount = &v
+	return s
+}
+
+func (s *HospitalDataCheckResponseBody) SetGroupCount(v int64) *HospitalDataCheckResponseBody {
+	s.GroupCount = &v
+	return s
+}
+
+func (s *HospitalDataCheckResponseBody) SetGroupUserCount(v int64) *HospitalDataCheckResponseBody {
+	s.GroupUserCount = &v
+	return s
+}
+
+func (s *HospitalDataCheckResponseBody) SetMatch(v bool) *HospitalDataCheckResponseBody {
+	s.Match = &v
+	return s
+}
+
+type HospitalDataCheckResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *HospitalDataCheckResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s HospitalDataCheckResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HospitalDataCheckResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HospitalDataCheckResponse) SetHeaders(v map[string]*string) *HospitalDataCheckResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HospitalDataCheckResponse) SetBody(v *HospitalDataCheckResponseBody) *HospitalDataCheckResponse {
+	s.Body = v
+	return s
+}
+
 type IndustryManufactureCommonEventHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -15103,6 +15290,24 @@ func (s *QueryUserInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUserIn
 	return s
 }
 
+type QueryUserInfoRequest struct {
+	// 按月标记。不填默认当月。填0为次月。
+	MonthMark *string `json:"monthMark,omitempty" xml:"monthMark,omitempty"`
+}
+
+func (s QueryUserInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserInfoRequest) SetMonthMark(v string) *QueryUserInfoRequest {
+	s.MonthMark = &v
+	return s
+}
+
 type QueryUserInfoResponseBody struct {
 	// 人员详情
 	Content *QueryUserInfoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
@@ -19185,6 +19390,78 @@ func (client *Client) ExternalQueryExternalOrgsWithOptions(request *ExternalQuer
 	return _result, _err
 }
 
+func (client *Client) HospitalDataCheck(request *HospitalDataCheckRequest) (_result *HospitalDataCheckResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HospitalDataCheckHeaders{}
+	_result = &HospitalDataCheckResponse{}
+	_body, _err := client.HospitalDataCheckWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) HospitalDataCheckWithOptions(request *HospitalDataCheckRequest, headers *HospitalDataCheckHeaders, runtime *util.RuntimeOptions) (_result *HospitalDataCheckResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AllDeptCount)) {
+		body["allDeptCount"] = request.AllDeptCount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AllDeptUserCount)) {
+		body["allDeptUserCount"] = request.AllDeptUserCount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AllGroupCount)) {
+		body["allGroupCount"] = request.AllGroupCount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AllGroupUserCount)) {
+		body["allGroupUserCount"] = request.AllGroupUserCount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptCount)) {
+		body["deptCount"] = request.DeptCount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptUserCount)) {
+		body["deptUserCount"] = request.DeptUserCount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupCount)) {
+		body["groupCount"] = request.GroupCount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupUserCount)) {
+		body["groupUserCount"] = request.GroupUserCount
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &HospitalDataCheckResponse{}
+	_body, _err := client.DoROARequest(tea.String("HospitalDataCheck"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/industry/medicals/datas/check"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) IndustryManufactureCommonEvent(request *IndustryManufactureCommonEventRequest) (_result *IndustryManufactureCommonEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IndustryManufactureCommonEventHeaders{}
@@ -21593,11 +21870,11 @@ func (client *Client) QueryUserExtendValuesWithOptions(request *QueryUserExtendV
 	return _result, _err
 }
 
-func (client *Client) QueryUserInfo(userId *string) (_result *QueryUserInfoResponse, _err error) {
+func (client *Client) QueryUserInfo(userId *string, request *QueryUserInfoRequest) (_result *QueryUserInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryUserInfoHeaders{}
 	_result = &QueryUserInfoResponse{}
-	_body, _err := client.QueryUserInfoWithOptions(userId, headers, runtime)
+	_body, _err := client.QueryUserInfoWithOptions(userId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -21605,8 +21882,17 @@ func (client *Client) QueryUserInfo(userId *string) (_result *QueryUserInfoRespo
 	return _result, _err
 }
 
-func (client *Client) QueryUserInfoWithOptions(userId *string, headers *QueryUserInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryUserInfoResponse, _err error) {
+func (client *Client) QueryUserInfoWithOptions(userId *string, request *QueryUserInfoRequest, headers *QueryUserInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryUserInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
 	userId = openapiutil.GetEncodeParam(userId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MonthMark)) {
+		query["monthMark"] = request.MonthMark
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -21618,6 +21904,7 @@ func (client *Client) QueryUserInfoWithOptions(userId *string, headers *QueryUse
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
 	}
 	_result = &QueryUserInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryUserInfo"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/medicals/users/"+tea.StringValue(userId)), tea.String("json"), req, runtime)

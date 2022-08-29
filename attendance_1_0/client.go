@@ -1529,6 +1529,134 @@ func (s *DingTalkSecurityCheckResponse) SetBody(v *DingTalkSecurityCheckResponse
 	return s
 }
 
+type GetATManageScopeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetATManageScopeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetATManageScopeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetATManageScopeHeaders) SetCommonHeaders(v map[string]*string) *GetATManageScopeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetATManageScopeHeaders) SetXAcsDingtalkAccessToken(v string) *GetATManageScopeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetATManageScopeRequest struct {
+	// 单次查询条数，最大200。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页游标。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 查询用户userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetATManageScopeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetATManageScopeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetATManageScopeRequest) SetMaxResults(v int32) *GetATManageScopeRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetATManageScopeRequest) SetNextToken(v string) *GetATManageScopeRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetATManageScopeRequest) SetUserId(v string) *GetATManageScopeRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetATManageScopeResponseBody struct {
+	// 管理范围。
+	Result []*GetATManageScopeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetATManageScopeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetATManageScopeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetATManageScopeResponseBody) SetResult(v []*GetATManageScopeResponseBodyResult) *GetATManageScopeResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetATManageScopeResponseBodyResult struct {
+	// 是否有更多数据。  true：有  false：没有
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 可见范围。boss/主管理员/管理范围包含根部门的管理员：all ，管理员/考勤组负责人：partial，无权限：none
+	ManageScope *string `json:"manageScope,omitempty" xml:"manageScope,omitempty"`
+	// 员工userid。只有manageScope为partial返回数据。
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s GetATManageScopeResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetATManageScopeResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetATManageScopeResponseBodyResult) SetHasMore(v bool) *GetATManageScopeResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetATManageScopeResponseBodyResult) SetManageScope(v string) *GetATManageScopeResponseBodyResult {
+	s.ManageScope = &v
+	return s
+}
+
+func (s *GetATManageScopeResponseBodyResult) SetUserIds(v []*string) *GetATManageScopeResponseBodyResult {
+	s.UserIds = v
+	return s
+}
+
+type GetATManageScopeResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetATManageScopeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetATManageScopeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetATManageScopeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetATManageScopeResponse) SetHeaders(v map[string]*string) *GetATManageScopeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetATManageScopeResponse) SetBody(v *GetATManageScopeResponseBody) *GetATManageScopeResponse {
+	s.Body = v
+	return s
+}
+
 type GetAdjustmentsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6377,6 +6505,58 @@ func (client *Client) DingTalkSecurityCheckWithOptions(request *DingTalkSecurity
 	}
 	_result = &DingTalkSecurityCheckResponse{}
 	_body, _err := client.DoROARequest(tea.String("DingTalkSecurityCheck"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/securities/check"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetATManageScope(request *GetATManageScopeRequest) (_result *GetATManageScopeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetATManageScopeHeaders{}
+	_result = &GetATManageScopeResponse{}
+	_body, _err := client.GetATManageScopeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetATManageScopeWithOptions(request *GetATManageScopeRequest, headers *GetATManageScopeHeaders, runtime *util.RuntimeOptions) (_result *GetATManageScopeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetATManageScopeResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetATManageScope"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/attendance/manageScopes"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
