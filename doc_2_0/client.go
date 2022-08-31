@@ -1715,6 +1715,182 @@ func (s *GetTeamResponse) SetBody(v *TeamVO) *GetTeamResponse {
 	return s
 }
 
+type GetTotalNumberOfDentriesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTotalNumberOfDentriesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTotalNumberOfDentriesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTotalNumberOfDentriesHeaders) SetCommonHeaders(v map[string]*string) *GetTotalNumberOfDentriesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTotalNumberOfDentriesHeaders) SetXAcsDingtalkAccessToken(v string) *GetTotalNumberOfDentriesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTotalNumberOfDentriesRequest struct {
+	// 是否包含文件夹。默认包含。
+	IncludeFolder *bool `json:"includeFolder,omitempty" xml:"includeFolder,omitempty"`
+	// 操作用户unionId。
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// 统计指定的知识库类型。0-我的文档；1-知识库。如果不传，则会统计全部数据。
+	SpaceTypes *string `json:"spaceTypes,omitempty" xml:"spaceTypes,omitempty"`
+}
+
+func (s GetTotalNumberOfDentriesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTotalNumberOfDentriesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTotalNumberOfDentriesRequest) SetIncludeFolder(v bool) *GetTotalNumberOfDentriesRequest {
+	s.IncludeFolder = &v
+	return s
+}
+
+func (s *GetTotalNumberOfDentriesRequest) SetOperatorId(v string) *GetTotalNumberOfDentriesRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *GetTotalNumberOfDentriesRequest) SetSpaceTypes(v string) *GetTotalNumberOfDentriesRequest {
+	s.SpaceTypes = &v
+	return s
+}
+
+type GetTotalNumberOfDentriesResponseBody struct {
+	DentriesCount *string `json:"dentriesCount,omitempty" xml:"dentriesCount,omitempty"`
+}
+
+func (s GetTotalNumberOfDentriesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTotalNumberOfDentriesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTotalNumberOfDentriesResponseBody) SetDentriesCount(v string) *GetTotalNumberOfDentriesResponseBody {
+	s.DentriesCount = &v
+	return s
+}
+
+type GetTotalNumberOfDentriesResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetTotalNumberOfDentriesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetTotalNumberOfDentriesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTotalNumberOfDentriesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTotalNumberOfDentriesResponse) SetHeaders(v map[string]*string) *GetTotalNumberOfDentriesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTotalNumberOfDentriesResponse) SetBody(v *GetTotalNumberOfDentriesResponseBody) *GetTotalNumberOfDentriesResponse {
+	s.Body = v
+	return s
+}
+
+type GetTotalNumberOfSpacesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTotalNumberOfSpacesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTotalNumberOfSpacesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTotalNumberOfSpacesHeaders) SetCommonHeaders(v map[string]*string) *GetTotalNumberOfSpacesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTotalNumberOfSpacesHeaders) SetXAcsDingtalkAccessToken(v string) *GetTotalNumberOfSpacesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTotalNumberOfSpacesRequest struct {
+	// 操作用户unionId。
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetTotalNumberOfSpacesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTotalNumberOfSpacesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTotalNumberOfSpacesRequest) SetOperatorId(v string) *GetTotalNumberOfSpacesRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetTotalNumberOfSpacesResponseBody struct {
+	SpacesCount *string `json:"spacesCount,omitempty" xml:"spacesCount,omitempty"`
+}
+
+func (s GetTotalNumberOfSpacesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTotalNumberOfSpacesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTotalNumberOfSpacesResponseBody) SetSpacesCount(v string) *GetTotalNumberOfSpacesResponseBody {
+	s.SpacesCount = &v
+	return s
+}
+
+type GetTotalNumberOfSpacesResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetTotalNumberOfSpacesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetTotalNumberOfSpacesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTotalNumberOfSpacesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTotalNumberOfSpacesResponse) SetHeaders(v map[string]*string) *GetTotalNumberOfSpacesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTotalNumberOfSpacesResponse) SetBody(v *GetTotalNumberOfSpacesResponseBody) *GetTotalNumberOfSpacesResponse {
+	s.Body = v
+	return s
+}
+
 type GetUserInfoByOpenTokenHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3668,6 +3844,102 @@ func (client *Client) GetTeamWithOptions(teamId *string, request *GetTeamRequest
 	}
 	_result = &GetTeamResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetTeam"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/teams/"+tea.StringValue(teamId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetTotalNumberOfDentries(request *GetTotalNumberOfDentriesRequest) (_result *GetTotalNumberOfDentriesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTotalNumberOfDentriesHeaders{}
+	_result = &GetTotalNumberOfDentriesResponse{}
+	_body, _err := client.GetTotalNumberOfDentriesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetTotalNumberOfDentriesWithOptions(request *GetTotalNumberOfDentriesRequest, headers *GetTotalNumberOfDentriesHeaders, runtime *util.RuntimeOptions) (_result *GetTotalNumberOfDentriesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IncludeFolder)) {
+		query["includeFolder"] = request.IncludeFolder
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SpaceTypes)) {
+		query["spaceTypes"] = request.SpaceTypes
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetTotalNumberOfDentriesResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetTotalNumberOfDentries"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/spaces/statistics/dentryCounts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetTotalNumberOfSpaces(request *GetTotalNumberOfSpacesRequest) (_result *GetTotalNumberOfSpacesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTotalNumberOfSpacesHeaders{}
+	_result = &GetTotalNumberOfSpacesResponse{}
+	_body, _err := client.GetTotalNumberOfSpacesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetTotalNumberOfSpacesWithOptions(request *GetTotalNumberOfSpacesRequest, headers *GetTotalNumberOfSpacesHeaders, runtime *util.RuntimeOptions) (_result *GetTotalNumberOfSpacesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetTotalNumberOfSpacesResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetTotalNumberOfSpaces"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/spaces/statistics/spaceCounts"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

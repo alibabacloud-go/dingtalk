@@ -6089,6 +6089,127 @@ func (s *GetDefaultChildResponse) SetBody(v *GetDefaultChildResponseBody) *GetDe
 	return s
 }
 
+type GetEduUserIdentityHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetEduUserIdentityHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEduUserIdentityHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetEduUserIdentityHeaders) SetCommonHeaders(v map[string]*string) *GetEduUserIdentityHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetEduUserIdentityHeaders) SetXAcsDingtalkAccessToken(v string) *GetEduUserIdentityHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetEduUserIdentityRequest struct {
+	// 用户unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetEduUserIdentityRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEduUserIdentityRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetEduUserIdentityRequest) SetUnionId(v string) *GetEduUserIdentityRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetEduUserIdentityResponseBody struct {
+	// 返回数据
+	Data *GetEduUserIdentityResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// 是否查询成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetEduUserIdentityResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEduUserIdentityResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetEduUserIdentityResponseBody) SetData(v *GetEduUserIdentityResponseBodyData) *GetEduUserIdentityResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *GetEduUserIdentityResponseBody) SetSuccess(v bool) *GetEduUserIdentityResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetEduUserIdentityResponseBodyData struct {
+	// 是否符合家长活动规则
+	MatchGuardianRule *bool `json:"matchGuardianRule,omitempty" xml:"matchGuardianRule,omitempty"`
+	// 是否符合教师活动规则
+	MatchTeacherRule *bool `json:"matchTeacherRule,omitempty" xml:"matchTeacherRule,omitempty"`
+	// 用户unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetEduUserIdentityResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEduUserIdentityResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetEduUserIdentityResponseBodyData) SetMatchGuardianRule(v bool) *GetEduUserIdentityResponseBodyData {
+	s.MatchGuardianRule = &v
+	return s
+}
+
+func (s *GetEduUserIdentityResponseBodyData) SetMatchTeacherRule(v bool) *GetEduUserIdentityResponseBodyData {
+	s.MatchTeacherRule = &v
+	return s
+}
+
+func (s *GetEduUserIdentityResponseBodyData) SetUnionId(v string) *GetEduUserIdentityResponseBodyData {
+	s.UnionId = &v
+	return s
+}
+
+type GetEduUserIdentityResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetEduUserIdentityResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetEduUserIdentityResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEduUserIdentityResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetEduUserIdentityResponse) SetHeaders(v map[string]*string) *GetEduUserIdentityResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetEduUserIdentityResponse) SetBody(v *GetEduUserIdentityResponseBody) *GetEduUserIdentityResponse {
+	s.Body = v
+	return s
+}
+
 type GetOpenCourseDetailHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -16964,6 +17085,50 @@ func (client *Client) GetDefaultChildWithOptions(headers *GetDefaultChildHeaders
 	}
 	_result = &GetDefaultChildResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetDefaultChild"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/defaultChildren"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetEduUserIdentity(request *GetEduUserIdentityRequest) (_result *GetEduUserIdentityResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetEduUserIdentityHeaders{}
+	_result = &GetEduUserIdentityResponse{}
+	_body, _err := client.GetEduUserIdentityWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetEduUserIdentityWithOptions(request *GetEduUserIdentityRequest, headers *GetEduUserIdentityHeaders, runtime *util.RuntimeOptions) (_result *GetEduUserIdentityResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetEduUserIdentityResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetEduUserIdentity"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/apollos/activities/userIdentities"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
