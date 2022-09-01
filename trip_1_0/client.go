@@ -11,6 +11,134 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type SyncBusinessSignInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncBusinessSignInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncBusinessSignInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncBusinessSignInfoHeaders) SetCommonHeaders(v map[string]*string) *SyncBusinessSignInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncBusinessSignInfoHeaders) SetXAcsDingtalkAccessToken(v string) *SyncBusinessSignInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncBusinessSignInfoRequest struct {
+	// 签约企业所支持的订单类目，如机票、酒店、火车票、打车。
+	// 枚举值如下：
+	// ["HOTEL","FLIGHT","TAXI","TRAIN"]
+	BizTypeList []*string `json:"bizTypeList,omitempty" xml:"bizTypeList,omitempty" type:"Repeated"`
+	// 开通企业支付的时间戳，毫秒
+	//
+	GmtOrgPay *string `json:"gmtOrgPay,omitempty" xml:"gmtOrgPay,omitempty"`
+	// 签约时间戳，毫秒
+	//
+	GmtSign *string `json:"gmtSign,omitempty" xml:"gmtSign,omitempty"`
+	// 开通企业支付状态
+	//
+	OrgPayStatus *string `json:"orgPayStatus,omitempty" xml:"orgPayStatus,omitempty"`
+	// 企业签约状态
+	SignStatus *string `json:"signStatus,omitempty" xml:"signStatus,omitempty"`
+	// 签约企业corpId
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+}
+
+func (s SyncBusinessSignInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncBusinessSignInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncBusinessSignInfoRequest) SetBizTypeList(v []*string) *SyncBusinessSignInfoRequest {
+	s.BizTypeList = v
+	return s
+}
+
+func (s *SyncBusinessSignInfoRequest) SetGmtOrgPay(v string) *SyncBusinessSignInfoRequest {
+	s.GmtOrgPay = &v
+	return s
+}
+
+func (s *SyncBusinessSignInfoRequest) SetGmtSign(v string) *SyncBusinessSignInfoRequest {
+	s.GmtSign = &v
+	return s
+}
+
+func (s *SyncBusinessSignInfoRequest) SetOrgPayStatus(v string) *SyncBusinessSignInfoRequest {
+	s.OrgPayStatus = &v
+	return s
+}
+
+func (s *SyncBusinessSignInfoRequest) SetSignStatus(v string) *SyncBusinessSignInfoRequest {
+	s.SignStatus = &v
+	return s
+}
+
+func (s *SyncBusinessSignInfoRequest) SetTargetCorpId(v string) *SyncBusinessSignInfoRequest {
+	s.TargetCorpId = &v
+	return s
+}
+
+type SyncBusinessSignInfoResponseBody struct {
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SyncBusinessSignInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncBusinessSignInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncBusinessSignInfoResponseBody) SetRequestId(v string) *SyncBusinessSignInfoResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *SyncBusinessSignInfoResponseBody) SetSuccess(v bool) *SyncBusinessSignInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SyncBusinessSignInfoResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SyncBusinessSignInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SyncBusinessSignInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncBusinessSignInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncBusinessSignInfoResponse) SetHeaders(v map[string]*string) *SyncBusinessSignInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncBusinessSignInfoResponse) SetBody(v *SyncBusinessSignInfoResponseBody) *SyncBusinessSignInfoResponse {
+	s.Body = v
+	return s
+}
+
 type SyncSecretKeyHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -669,6 +797,70 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) SyncBusinessSignInfo(request *SyncBusinessSignInfoRequest) (_result *SyncBusinessSignInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncBusinessSignInfoHeaders{}
+	_result = &SyncBusinessSignInfoResponse{}
+	_body, _err := client.SyncBusinessSignInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SyncBusinessSignInfoWithOptions(request *SyncBusinessSignInfoRequest, headers *SyncBusinessSignInfoHeaders, runtime *util.RuntimeOptions) (_result *SyncBusinessSignInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizTypeList)) {
+		body["bizTypeList"] = request.BizTypeList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GmtOrgPay)) {
+		body["gmtOrgPay"] = request.GmtOrgPay
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GmtSign)) {
+		body["gmtSign"] = request.GmtSign
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrgPayStatus)) {
+		body["orgPayStatus"] = request.OrgPayStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignStatus)) {
+		body["signStatus"] = request.SignStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
+		body["targetCorpId"] = request.TargetCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SyncBusinessSignInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("SyncBusinessSignInfo"), tea.String("trip_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/trip/businessSignInfos/sync"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) SyncSecretKey(request *SyncSecretKeyRequest) (_result *SyncSecretKeyResponse, _err error) {

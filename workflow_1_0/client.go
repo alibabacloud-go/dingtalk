@@ -4000,8 +4000,6 @@ type QuerySchemaByProcessCodeResponseBodyResult struct {
 	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
 	// 代表表单业务含义的类型。
 	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 创建人 uid。
-	CreatorUid *int64 `json:"creatorUid,omitempty" xml:"creatorUid,omitempty"`
 	// 创建人 userId。
 	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
 	// 业务自定义设置数据。
@@ -4024,8 +4022,6 @@ type QuerySchemaByProcessCodeResponseBodyResult struct {
 	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
 	// 表单名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 数据归属者的 id。
-	OwnerId *string `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
 	// 数据归属者的 id 类型。企业(orgId), 群(cid), 人(uid)。
 	OwnerIdType *string `json:"ownerIdType,omitempty" xml:"ownerIdType,omitempty"`
 	// 目标类型: inner, outer, customer。
@@ -4058,11 +4054,6 @@ func (s *QuerySchemaByProcessCodeResponseBodyResult) SetAppUuid(v string) *Query
 
 func (s *QuerySchemaByProcessCodeResponseBodyResult) SetBizType(v string) *QuerySchemaByProcessCodeResponseBodyResult {
 	s.BizType = &v
-	return s
-}
-
-func (s *QuerySchemaByProcessCodeResponseBodyResult) SetCreatorUid(v int64) *QuerySchemaByProcessCodeResponseBodyResult {
-	s.CreatorUid = &v
 	return s
 }
 
@@ -4118,11 +4109,6 @@ func (s *QuerySchemaByProcessCodeResponseBodyResult) SetMemo(v string) *QuerySch
 
 func (s *QuerySchemaByProcessCodeResponseBodyResult) SetName(v string) *QuerySchemaByProcessCodeResponseBodyResult {
 	s.Name = &v
-	return s
-}
-
-func (s *QuerySchemaByProcessCodeResponseBodyResult) SetOwnerId(v string) *QuerySchemaByProcessCodeResponseBodyResult {
-	s.OwnerId = &v
 	return s
 }
 
