@@ -171,6 +171,7 @@ type CreateVideoConferenceResponseBody struct {
 	HostPassword *string `json:"hostPassword,omitempty" xml:"hostPassword,omitempty"`
 	// 电话入会号码
 	PhoneNumbers []*string `json:"phoneNumbers,omitempty" xml:"phoneNumbers,omitempty" type:"Repeated"`
+	RoomCode     *string   `json:"roomCode,omitempty" xml:"roomCode,omitempty"`
 }
 
 func (s CreateVideoConferenceResponseBody) String() string {
@@ -203,6 +204,11 @@ func (s *CreateVideoConferenceResponseBody) SetHostPassword(v string) *CreateVid
 
 func (s *CreateVideoConferenceResponseBody) SetPhoneNumbers(v []*string) *CreateVideoConferenceResponseBody {
 	s.PhoneNumbers = v
+	return s
+}
+
+func (s *CreateVideoConferenceResponseBody) SetRoomCode(v string) *CreateVideoConferenceResponseBody {
+	s.RoomCode = &v
 	return s
 }
 

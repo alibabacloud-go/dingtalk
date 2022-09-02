@@ -2812,6 +2812,95 @@ func (s *GetUserCardHolderListResponse) SetBody(v *GetUserCardHolderListResponse
 	return s
 }
 
+type IsFriendHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IsFriendHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsFriendHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IsFriendHeaders) SetCommonHeaders(v map[string]*string) *IsFriendHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IsFriendHeaders) SetXAcsDingtalkAccessToken(v string) *IsFriendHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IsFriendRequest struct {
+	// 手机号码
+	MobileNo *string `json:"mobileNo,omitempty" xml:"mobileNo,omitempty"`
+	// 工号
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s IsFriendRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsFriendRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IsFriendRequest) SetMobileNo(v string) *IsFriendRequest {
+	s.MobileNo = &v
+	return s
+}
+
+func (s *IsFriendRequest) SetUserId(v string) *IsFriendRequest {
+	s.UserId = &v
+	return s
+}
+
+type IsFriendResponseBody struct {
+	// 是否有好友关系
+	IsFriend *bool `json:"isFriend,omitempty" xml:"isFriend,omitempty"`
+}
+
+func (s IsFriendResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsFriendResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IsFriendResponseBody) SetIsFriend(v bool) *IsFriendResponseBody {
+	s.IsFriend = &v
+	return s
+}
+
+type IsFriendResponse struct {
+	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *IsFriendResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s IsFriendResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsFriendResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IsFriendResponse) SetHeaders(v map[string]*string) *IsFriendResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IsFriendResponse) SetBody(v *IsFriendResponseBody) *IsFriendResponse {
+	s.Body = v
+	return s
+}
+
 type IsvCardEventPushHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7739,6 +7828,54 @@ func (client *Client) GetUserCardHolderListWithOptions(request *GetUserCardHolde
 	}
 	_result = &GetUserCardHolderListResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetUserCardHolderList"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/cards/holders/lists"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) IsFriend(request *IsFriendRequest) (_result *IsFriendResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IsFriendHeaders{}
+	_result = &IsFriendResponse{}
+	_body, _err := client.IsFriendWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) IsFriendWithOptions(request *IsFriendRequest, headers *IsFriendHeaders, runtime *util.RuntimeOptions) (_result *IsFriendResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MobileNo)) {
+		body["mobileNo"] = request.MobileNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &IsFriendResponse{}
+	_body, _err := client.DoROARequest(tea.String("IsFriend"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/relationships/friends/judge"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
