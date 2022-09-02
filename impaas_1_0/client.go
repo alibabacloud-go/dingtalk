@@ -1477,7 +1477,6 @@ func (s *UpdateGroupNameResponse) SetHeaders(v map[string]*string) *UpdateGroupN
 
 type UpdateGroupOwnerHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
-	OperationSource         *string            `json:"operationSource,omitempty" xml:"operationSource,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
 
@@ -1491,11 +1490,6 @@ func (s UpdateGroupOwnerHeaders) GoString() string {
 
 func (s *UpdateGroupOwnerHeaders) SetCommonHeaders(v map[string]*string) *UpdateGroupOwnerHeaders {
 	s.CommonHeaders = v
-	return s
-}
-
-func (s *UpdateGroupOwnerHeaders) SetOperationSource(v string) *UpdateGroupOwnerHeaders {
-	s.OperationSource = &v
 	return s
 }
 
@@ -1533,8 +1527,27 @@ func (s *UpdateGroupOwnerRequest) SetOwnerUid(v string) *UpdateGroupOwnerRequest
 	return s
 }
 
+type UpdateGroupOwnerResponseBody struct {
+	// 返回结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateGroupOwnerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupOwnerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupOwnerResponseBody) SetResult(v bool) *UpdateGroupOwnerResponseBody {
+	s.Result = &v
+	return s
+}
+
 type UpdateGroupOwnerResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateGroupOwnerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateGroupOwnerResponse) String() string {
@@ -1547,6 +1560,11 @@ func (s UpdateGroupOwnerResponse) GoString() string {
 
 func (s *UpdateGroupOwnerResponse) SetHeaders(v map[string]*string) *UpdateGroupOwnerResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateGroupOwnerResponse) SetBody(v *UpdateGroupOwnerResponseBody) *UpdateGroupOwnerResponse {
+	s.Body = v
 	return s
 }
 
@@ -2436,10 +2454,6 @@ func (client *Client) UpdateGroupOwnerWithOptions(request *UpdateGroupOwnerReque
 		realHeaders = headers.CommonHeaders
 	}
 
-	if !tea.BoolValue(util.IsUnset(headers.OperationSource)) {
-		realHeaders["operationSource"] = util.ToJSONString(headers.OperationSource)
-	}
-
 	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
 		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
 	}
@@ -2449,7 +2463,7 @@ func (client *Client) UpdateGroupOwnerWithOptions(request *UpdateGroupOwnerReque
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &UpdateGroupOwnerResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateGroupOwner"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups/owners"), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("UpdateGroupOwner"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/groups/owners"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

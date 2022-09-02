@@ -2630,6 +2630,148 @@ func (s *GetDentryResponse) SetBody(v *GetDentryResponseBody) *GetDentryResponse
 	return s
 }
 
+type GetDentryOpenInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetDentryOpenInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentryOpenInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentryOpenInfoHeaders) SetCommonHeaders(v map[string]*string) *GetDentryOpenInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetDentryOpenInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetDentryOpenInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetDentryOpenInfoRequest struct {
+	// 可选参数
+	Option *GetDentryOpenInfoRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetDentryOpenInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentryOpenInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentryOpenInfoRequest) SetOption(v *GetDentryOpenInfoRequestOption) *GetDentryOpenInfoRequest {
+	s.Option = v
+	return s
+}
+
+func (s *GetDentryOpenInfoRequest) SetUnionId(v string) *GetDentryOpenInfoRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetDentryOpenInfoRequestOption struct {
+	// 是否检查钉钉登录态, 目前仅对预览生效。
+	// 设置true时, 进入页面的时候会校验钉钉登录态。如果没有登录态, 会跳转到登录页面, 登录成功之后继续跳转到当前页面。
+	// 设置false时, 进入页面后不校验钉钉登录态, 但有以下的限制:
+	//     1. 只支持WPS格式文件、有限图片格式, 不支持显示toolbar
+	//     2. 一个链接只能使用一次(针对浏览器session)
+	//     3. 链接5分钟不使用会失效
+	// 默认值:
+	// 	false
+	CheckLogin *bool `json:"checkLogin,omitempty" xml:"checkLogin,omitempty"`
+	// 打开方式，可以分为预览和编辑
+	// 枚举值:
+	// 	PREVIEW: 预览
+	// 	EDIT: 编辑
+	// 默认值:
+	// 	PREVIEW
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// 历史版本号, 不填表示最新版本
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+	// 是否需要水印
+	// 默认值:
+	// 	false
+	WaterMark *bool `json:"waterMark,omitempty" xml:"waterMark,omitempty"`
+}
+
+func (s GetDentryOpenInfoRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentryOpenInfoRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentryOpenInfoRequestOption) SetCheckLogin(v bool) *GetDentryOpenInfoRequestOption {
+	s.CheckLogin = &v
+	return s
+}
+
+func (s *GetDentryOpenInfoRequestOption) SetType(v string) *GetDentryOpenInfoRequestOption {
+	s.Type = &v
+	return s
+}
+
+func (s *GetDentryOpenInfoRequestOption) SetVersion(v int64) *GetDentryOpenInfoRequestOption {
+	s.Version = &v
+	return s
+}
+
+func (s *GetDentryOpenInfoRequestOption) SetWaterMark(v bool) *GetDentryOpenInfoRequestOption {
+	s.WaterMark = &v
+	return s
+}
+
+type GetDentryOpenInfoResponseBody struct {
+	// 链接, 用于编辑或预览
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s GetDentryOpenInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentryOpenInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentryOpenInfoResponseBody) SetUrl(v string) *GetDentryOpenInfoResponseBody {
+	s.Url = &v
+	return s
+}
+
+type GetDentryOpenInfoResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetDentryOpenInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetDentryOpenInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentryOpenInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentryOpenInfoResponse) SetHeaders(v map[string]*string) *GetDentryOpenInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetDentryOpenInfoResponse) SetBody(v *GetDentryOpenInfoResponseBody) *GetDentryOpenInfoResponse {
+	s.Body = v
+	return s
+}
+
 type GetFileDownloadInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6639,6 +6781,58 @@ func (client *Client) GetDentryWithOptions(spaceId *string, dentryId *string, re
 	}
 	_result = &GetDentryResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetDentry"), tea.String("storage_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/storage/spaces/"+tea.StringValue(spaceId)+"/dentries/"+tea.StringValue(dentryId)+"/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetDentryOpenInfo(spaceId *string, dentryId *string, request *GetDentryOpenInfoRequest) (_result *GetDentryOpenInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetDentryOpenInfoHeaders{}
+	_result = &GetDentryOpenInfoResponse{}
+	_body, _err := client.GetDentryOpenInfoWithOptions(spaceId, dentryId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetDentryOpenInfoWithOptions(spaceId *string, dentryId *string, request *GetDentryOpenInfoRequest, headers *GetDentryOpenInfoHeaders, runtime *util.RuntimeOptions) (_result *GetDentryOpenInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	dentryId = openapiutil.GetEncodeParam(dentryId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
+		body["option"] = request.Option
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetDentryOpenInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetDentryOpenInfo"), tea.String("storage_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/storage/spaces/"+tea.StringValue(spaceId)+"/dentries/"+tea.StringValue(dentryId)+"/openInfos/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
