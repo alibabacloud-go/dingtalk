@@ -4752,6 +4752,109 @@ func (s *QuerySchemaByProcessCodeResponse) SetBody(v *QuerySchemaByProcessCodeRe
 	return s
 }
 
+type RedirectWorkflowTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RedirectWorkflowTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RedirectWorkflowTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RedirectWorkflowTaskHeaders) SetCommonHeaders(v map[string]*string) *RedirectWorkflowTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RedirectWorkflowTaskHeaders) SetXAcsDingtalkAccessToken(v string) *RedirectWorkflowTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RedirectWorkflowTaskRequest struct {
+	// 操作节点名
+	ActionName *string `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	// 转交备注信息
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// OA审批任务ID
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// OA审批任务被转交对象的用户ID
+	ToUserId *string `json:"toUserId,omitempty" xml:"toUserId,omitempty"`
+}
+
+func (s RedirectWorkflowTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RedirectWorkflowTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RedirectWorkflowTaskRequest) SetActionName(v string) *RedirectWorkflowTaskRequest {
+	s.ActionName = &v
+	return s
+}
+
+func (s *RedirectWorkflowTaskRequest) SetRemark(v string) *RedirectWorkflowTaskRequest {
+	s.Remark = &v
+	return s
+}
+
+func (s *RedirectWorkflowTaskRequest) SetTaskId(v int64) *RedirectWorkflowTaskRequest {
+	s.TaskId = &v
+	return s
+}
+
+func (s *RedirectWorkflowTaskRequest) SetToUserId(v string) *RedirectWorkflowTaskRequest {
+	s.ToUserId = &v
+	return s
+}
+
+type RedirectWorkflowTaskResponseBody struct {
+	// 是否转交成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s RedirectWorkflowTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RedirectWorkflowTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RedirectWorkflowTaskResponseBody) SetResult(v bool) *RedirectWorkflowTaskResponseBody {
+	s.Result = &v
+	return s
+}
+
+type RedirectWorkflowTaskResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RedirectWorkflowTaskResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RedirectWorkflowTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RedirectWorkflowTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RedirectWorkflowTaskResponse) SetHeaders(v map[string]*string) *RedirectWorkflowTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RedirectWorkflowTaskResponse) SetBody(v *RedirectWorkflowTaskResponseBody) *RedirectWorkflowTaskResponse {
+	s.Body = v
+	return s
+}
+
 type SaveIntegratedInstanceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6735,6 +6838,62 @@ func (client *Client) QuerySchemaByProcessCodeWithOptions(request *QuerySchemaBy
 	}
 	_result = &QuerySchemaByProcessCodeResponse{}
 	_body, _err := client.DoROARequest(tea.String("QuerySchemaByProcessCode"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/forms/schemas/processCodes"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RedirectWorkflowTask(request *RedirectWorkflowTaskRequest) (_result *RedirectWorkflowTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RedirectWorkflowTaskHeaders{}
+	_result = &RedirectWorkflowTaskResponse{}
+	_body, _err := client.RedirectWorkflowTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RedirectWorkflowTaskWithOptions(request *RedirectWorkflowTaskRequest, headers *RedirectWorkflowTaskHeaders, runtime *util.RuntimeOptions) (_result *RedirectWorkflowTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActionName)) {
+		body["actionName"] = request.ActionName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToUserId)) {
+		body["toUserId"] = request.ToUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RedirectWorkflowTaskResponse{}
+	_body, _err := client.DoROARequest(tea.String("RedirectWorkflowTask"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/tasks/redirect"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
