@@ -5793,6 +5793,349 @@ func (s *UpdateInvoiceVerifyStatusResponse) SetBody(v *UpdateInvoiceVerifyStatus
 	return s
 }
 
+type UploadInvoiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UploadInvoiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadInvoiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UploadInvoiceHeaders) SetCommonHeaders(v map[string]*string) *UploadInvoiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UploadInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *UploadInvoiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UploadInvoiceRequest struct {
+	Extension *UploadInvoiceRequestExtension `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
+	// 上传发票列表
+	Invoices     []*UploadInvoiceRequestInvoices   `json:"invoices,omitempty" xml:"invoices,omitempty" type:"Repeated"`
+	UserIdentity *UploadInvoiceRequestUserIdentity `json:"userIdentity,omitempty" xml:"userIdentity,omitempty" type:"Struct"`
+}
+
+func (s UploadInvoiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadInvoiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UploadInvoiceRequest) SetExtension(v *UploadInvoiceRequestExtension) *UploadInvoiceRequest {
+	s.Extension = v
+	return s
+}
+
+func (s *UploadInvoiceRequest) SetInvoices(v []*UploadInvoiceRequestInvoices) *UploadInvoiceRequest {
+	s.Invoices = v
+	return s
+}
+
+func (s *UploadInvoiceRequest) SetUserIdentity(v *UploadInvoiceRequestUserIdentity) *UploadInvoiceRequest {
+	s.UserIdentity = v
+	return s
+}
+
+type UploadInvoiceRequestExtension struct {
+	BizCode   *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	OrderNo   *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	OrderType *string `json:"orderType,omitempty" xml:"orderType,omitempty"`
+}
+
+func (s UploadInvoiceRequestExtension) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadInvoiceRequestExtension) GoString() string {
+	return s.String()
+}
+
+func (s *UploadInvoiceRequestExtension) SetBizCode(v string) *UploadInvoiceRequestExtension {
+	s.BizCode = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestExtension) SetOrderNo(v string) *UploadInvoiceRequestExtension {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestExtension) SetOrderType(v string) *UploadInvoiceRequestExtension {
+	s.OrderType = &v
+	return s
+}
+
+type UploadInvoiceRequestInvoices struct {
+	// 发票总金额
+	InvoiceAmount *string `json:"invoiceAmount,omitempty" xml:"invoiceAmount,omitempty"`
+	// 发票代码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 开票时间
+	InvoiceDate *string `json:"invoiceDate,omitempty" xml:"invoiceDate,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 发票类型
+	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	// 发票logo地址
+	LogoUrl *string `json:"logoUrl,omitempty" xml:"logoUrl,omitempty"`
+	// 收款方名称
+	PayeeName *string `json:"payeeName,omitempty" xml:"payeeName,omitempty"`
+	// 收款方税号
+	PayeeTaxNo *string `json:"payeeTaxNo,omitempty" xml:"payeeTaxNo,omitempty"`
+	// 付款方名称
+	PayerName *string `json:"payerName,omitempty" xml:"payerName,omitempty"`
+	// 付款方税号
+	PayerTaxNo *string `json:"payerTaxNo,omitempty" xml:"payerTaxNo,omitempty"`
+	// 发票pdf原件下载链接
+	PdfUrl *string `json:"pdfUrl,omitempty" xml:"pdfUrl,omitempty"`
+	// 税金额
+	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	// 发票校验码
+	VerifyCode *string `json:"verifyCode,omitempty" xml:"verifyCode,omitempty"`
+	// 不含税金额
+	WithoutTaxAmount *string `json:"withoutTaxAmount,omitempty" xml:"withoutTaxAmount,omitempty"`
+}
+
+func (s UploadInvoiceRequestInvoices) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadInvoiceRequestInvoices) GoString() string {
+	return s.String()
+}
+
+func (s *UploadInvoiceRequestInvoices) SetInvoiceAmount(v string) *UploadInvoiceRequestInvoices {
+	s.InvoiceAmount = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestInvoices) SetInvoiceCode(v string) *UploadInvoiceRequestInvoices {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestInvoices) SetInvoiceDate(v string) *UploadInvoiceRequestInvoices {
+	s.InvoiceDate = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestInvoices) SetInvoiceNo(v string) *UploadInvoiceRequestInvoices {
+	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestInvoices) SetInvoiceType(v string) *UploadInvoiceRequestInvoices {
+	s.InvoiceType = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestInvoices) SetLogoUrl(v string) *UploadInvoiceRequestInvoices {
+	s.LogoUrl = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestInvoices) SetPayeeName(v string) *UploadInvoiceRequestInvoices {
+	s.PayeeName = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestInvoices) SetPayeeTaxNo(v string) *UploadInvoiceRequestInvoices {
+	s.PayeeTaxNo = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestInvoices) SetPayerName(v string) *UploadInvoiceRequestInvoices {
+	s.PayerName = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestInvoices) SetPayerTaxNo(v string) *UploadInvoiceRequestInvoices {
+	s.PayerTaxNo = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestInvoices) SetPdfUrl(v string) *UploadInvoiceRequestInvoices {
+	s.PdfUrl = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestInvoices) SetTaxAmount(v string) *UploadInvoiceRequestInvoices {
+	s.TaxAmount = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestInvoices) SetVerifyCode(v string) *UploadInvoiceRequestInvoices {
+	s.VerifyCode = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestInvoices) SetWithoutTaxAmount(v string) *UploadInvoiceRequestInvoices {
+	s.WithoutTaxAmount = &v
+	return s
+}
+
+type UploadInvoiceRequestUserIdentity struct {
+	Mobile          *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	MobileStateCode *string `json:"mobileStateCode,omitempty" xml:"mobileStateCode,omitempty"`
+	TargetCorpId    *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	Type            *string `json:"type,omitempty" xml:"type,omitempty"`
+	UnionId         *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UploadInvoiceRequestUserIdentity) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadInvoiceRequestUserIdentity) GoString() string {
+	return s.String()
+}
+
+func (s *UploadInvoiceRequestUserIdentity) SetMobile(v string) *UploadInvoiceRequestUserIdentity {
+	s.Mobile = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestUserIdentity) SetMobileStateCode(v string) *UploadInvoiceRequestUserIdentity {
+	s.MobileStateCode = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestUserIdentity) SetTargetCorpId(v string) *UploadInvoiceRequestUserIdentity {
+	s.TargetCorpId = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestUserIdentity) SetType(v string) *UploadInvoiceRequestUserIdentity {
+	s.Type = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestUserIdentity) SetUnionId(v string) *UploadInvoiceRequestUserIdentity {
+	s.UnionId = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestUserIdentity) SetUserId(v string) *UploadInvoiceRequestUserIdentity {
+	s.UserId = &v
+	return s
+}
+
+type UploadInvoiceResponseBody struct {
+	// 结果
+	Result *UploadInvoiceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UploadInvoiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadInvoiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UploadInvoiceResponseBody) SetResult(v *UploadInvoiceResponseBodyResult) *UploadInvoiceResponseBody {
+	s.Result = v
+	return s
+}
+
+type UploadInvoiceResponseBodyResult struct {
+	// 上传结果
+	Results []*UploadInvoiceResponseBodyResultResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
+}
+
+func (s UploadInvoiceResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadInvoiceResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UploadInvoiceResponseBodyResult) SetResults(v []*UploadInvoiceResponseBodyResultResults) *UploadInvoiceResponseBodyResult {
+	s.Results = v
+	return s
+}
+
+type UploadInvoiceResponseBodyResultResults struct {
+	// 业务错误码
+	ErrCode *string `json:"errCode,omitempty" xml:"errCode,omitempty"`
+	// 发票代码
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// 发票号码
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// 失败原因
+	Reason *string `json:"reason,omitempty" xml:"reason,omitempty"`
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UploadInvoiceResponseBodyResultResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadInvoiceResponseBodyResultResults) GoString() string {
+	return s.String()
+}
+
+func (s *UploadInvoiceResponseBodyResultResults) SetErrCode(v string) *UploadInvoiceResponseBodyResultResults {
+	s.ErrCode = &v
+	return s
+}
+
+func (s *UploadInvoiceResponseBodyResultResults) SetInvoiceCode(v string) *UploadInvoiceResponseBodyResultResults {
+	s.InvoiceCode = &v
+	return s
+}
+
+func (s *UploadInvoiceResponseBodyResultResults) SetInvoiceNo(v string) *UploadInvoiceResponseBodyResultResults {
+	s.InvoiceNo = &v
+	return s
+}
+
+func (s *UploadInvoiceResponseBodyResultResults) SetReason(v string) *UploadInvoiceResponseBodyResultResults {
+	s.Reason = &v
+	return s
+}
+
+func (s *UploadInvoiceResponseBodyResultResults) SetSuccess(v bool) *UploadInvoiceResponseBodyResultResults {
+	s.Success = &v
+	return s
+}
+
+type UploadInvoiceResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UploadInvoiceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UploadInvoiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadInvoiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UploadInvoiceResponse) SetHeaders(v map[string]*string) *UploadInvoiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UploadInvoiceResponse) SetBody(v *UploadInvoiceResponseBody) *UploadInvoiceResponse {
+	s.Body = v
+	return s
+}
+
 type UploadInvoiceByAuthHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5817,6 +6160,7 @@ func (s *UploadInvoiceByAuthHeaders) SetXAcsDingtalkAccessToken(v string) *Uploa
 }
 
 type UploadInvoiceByAuthRequest struct {
+	Extension *UploadInvoiceByAuthRequestExtension `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
 	// 上传发票列表
 	Invoices []*UploadInvoiceByAuthRequestInvoices `json:"invoices,omitempty" xml:"invoices,omitempty" type:"Repeated"`
 }
@@ -5829,8 +6173,42 @@ func (s UploadInvoiceByAuthRequest) GoString() string {
 	return s.String()
 }
 
+func (s *UploadInvoiceByAuthRequest) SetExtension(v *UploadInvoiceByAuthRequestExtension) *UploadInvoiceByAuthRequest {
+	s.Extension = v
+	return s
+}
+
 func (s *UploadInvoiceByAuthRequest) SetInvoices(v []*UploadInvoiceByAuthRequestInvoices) *UploadInvoiceByAuthRequest {
 	s.Invoices = v
+	return s
+}
+
+type UploadInvoiceByAuthRequestExtension struct {
+	BizCode   *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	OrderNo   *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	OrderType *string `json:"orderType,omitempty" xml:"orderType,omitempty"`
+}
+
+func (s UploadInvoiceByAuthRequestExtension) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadInvoiceByAuthRequestExtension) GoString() string {
+	return s.String()
+}
+
+func (s *UploadInvoiceByAuthRequestExtension) SetBizCode(v string) *UploadInvoiceByAuthRequestExtension {
+	s.BizCode = &v
+	return s
+}
+
+func (s *UploadInvoiceByAuthRequestExtension) SetOrderNo(v string) *UploadInvoiceByAuthRequestExtension {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *UploadInvoiceByAuthRequestExtension) SetOrderType(v string) *UploadInvoiceByAuthRequestExtension {
+	s.OrderType = &v
 	return s
 }
 
@@ -8285,6 +8663,58 @@ func (client *Client) UpdateInvoiceVerifyStatusWithOptions(request *UpdateInvoic
 	return _result, _err
 }
 
+func (client *Client) UploadInvoice(request *UploadInvoiceRequest) (_result *UploadInvoiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UploadInvoiceHeaders{}
+	_result = &UploadInvoiceResponse{}
+	_body, _err := client.UploadInvoiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UploadInvoiceWithOptions(request *UploadInvoiceRequest, headers *UploadInvoiceHeaders, runtime *util.RuntimeOptions) (_result *UploadInvoiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Extension))) {
+		body["extension"] = request.Extension
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Invoices)) {
+		body["invoices"] = request.Invoices
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.UserIdentity))) {
+		body["userIdentity"] = request.UserIdentity
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UploadInvoiceResponse{}
+	_body, _err := client.DoROARequest(tea.String("UploadInvoice"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/finance/invoices/upload"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) UploadInvoiceByAuth(request *UploadInvoiceByAuthRequest) (_result *UploadInvoiceByAuthResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UploadInvoiceByAuthHeaders{}
@@ -8303,6 +8733,10 @@ func (client *Client) UploadInvoiceByAuthWithOptions(request *UploadInvoiceByAut
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Extension))) {
+		body["extension"] = request.Extension
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Invoices)) {
 		body["invoices"] = request.Invoices
 	}
