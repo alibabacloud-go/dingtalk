@@ -11,6 +11,158 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type GetFollowerInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFollowerInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFollowerInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFollowerInfoHeaders) SetCommonHeaders(v map[string]*string) *GetFollowerInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFollowerInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetFollowerInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFollowerInfoRequest struct {
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetFollowerInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFollowerInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFollowerInfoRequest) SetAccountId(v string) *GetFollowerInfoRequest {
+	s.AccountId = &v
+	return s
+}
+
+func (s *GetFollowerInfoRequest) SetUnionId(v string) *GetFollowerInfoRequest {
+	s.UnionId = &v
+	return s
+}
+
+func (s *GetFollowerInfoRequest) SetUserId(v string) *GetFollowerInfoRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetFollowerInfoResponseBody struct {
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// 响应结果
+	Result *GetFollowerInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetFollowerInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFollowerInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFollowerInfoResponseBody) SetRequestId(v string) *GetFollowerInfoResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *GetFollowerInfoResponseBody) SetResult(v *GetFollowerInfoResponseBodyResult) *GetFollowerInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetFollowerInfoResponseBodyResult struct {
+	User *GetFollowerInfoResponseBodyResultUser `json:"user,omitempty" xml:"user,omitempty" type:"Struct"`
+}
+
+func (s GetFollowerInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFollowerInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetFollowerInfoResponseBodyResult) SetUser(v *GetFollowerInfoResponseBodyResultUser) *GetFollowerInfoResponseBodyResult {
+	s.User = v
+	return s
+}
+
+type GetFollowerInfoResponseBodyResultUser struct {
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	Status    *string `json:"status,omitempty" xml:"status,omitempty"`
+	Timestamp *string `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetFollowerInfoResponseBodyResultUser) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFollowerInfoResponseBodyResultUser) GoString() string {
+	return s.String()
+}
+
+func (s *GetFollowerInfoResponseBodyResultUser) SetName(v string) *GetFollowerInfoResponseBodyResultUser {
+	s.Name = &v
+	return s
+}
+
+func (s *GetFollowerInfoResponseBodyResultUser) SetStatus(v string) *GetFollowerInfoResponseBodyResultUser {
+	s.Status = &v
+	return s
+}
+
+func (s *GetFollowerInfoResponseBodyResultUser) SetTimestamp(v string) *GetFollowerInfoResponseBodyResultUser {
+	s.Timestamp = &v
+	return s
+}
+
+func (s *GetFollowerInfoResponseBodyResultUser) SetUserId(v string) *GetFollowerInfoResponseBodyResultUser {
+	s.UserId = &v
+	return s
+}
+
+type GetFollowerInfoResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetFollowerInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetFollowerInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFollowerInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFollowerInfoResponse) SetHeaders(v map[string]*string) *GetFollowerInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFollowerInfoResponse) SetBody(v *GetFollowerInfoResponseBody) *GetFollowerInfoResponse {
+	s.Body = v
+	return s
+}
+
 type GetPictureDownloadUrlHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -119,6 +271,168 @@ func (s *GetPictureDownloadUrlResponse) SetHeaders(v map[string]*string) *GetPic
 }
 
 func (s *GetPictureDownloadUrlResponse) SetBody(v *GetPictureDownloadUrlResponseBody) *GetPictureDownloadUrlResponse {
+	s.Body = v
+	return s
+}
+
+type ListFollowerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListFollowerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListFollowerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListFollowerHeaders) SetCommonHeaders(v map[string]*string) *ListFollowerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListFollowerHeaders) SetXAcsDingtalkAccessToken(v string) *ListFollowerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListFollowerRequest struct {
+	// 服务窗帐号ID，用于非服务窗自建应用场景下指定服务窗帐号。
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// 分页查询页大小。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页查询下一页token,首页查询此字段可空，其它页查询时需要将此值设置炎上一次接口调用的token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListFollowerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListFollowerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListFollowerRequest) SetAccountId(v string) *ListFollowerRequest {
+	s.AccountId = &v
+	return s
+}
+
+func (s *ListFollowerRequest) SetMaxResults(v int32) *ListFollowerRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListFollowerRequest) SetNextToken(v string) *ListFollowerRequest {
+	s.NextToken = &v
+	return s
+}
+
+type ListFollowerResponseBody struct {
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// 响应结果
+	Result *ListFollowerResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s ListFollowerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListFollowerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListFollowerResponseBody) SetRequestId(v string) *ListFollowerResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *ListFollowerResponseBody) SetResult(v *ListFollowerResponseBodyResult) *ListFollowerResponseBody {
+	s.Result = v
+	return s
+}
+
+type ListFollowerResponseBodyResult struct {
+	// 下一页查询位置
+	// 当此返回值为空时，则说明全部数据查询完成。
+	// 当此返回值不为空时，可以将此值设置为下一次查询的参数。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 用户列表
+	UserList []*ListFollowerResponseBodyResultUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+}
+
+func (s ListFollowerResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListFollowerResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListFollowerResponseBodyResult) SetNextToken(v string) *ListFollowerResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListFollowerResponseBodyResult) SetUserList(v []*ListFollowerResponseBodyResultUserList) *ListFollowerResponseBodyResult {
+	s.UserList = v
+	return s
+}
+
+type ListFollowerResponseBodyResultUserList struct {
+	// 关注者昵称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 关注时间
+	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	// 关注者userId，可用于消息推送等场景。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListFollowerResponseBodyResultUserList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListFollowerResponseBodyResultUserList) GoString() string {
+	return s.String()
+}
+
+func (s *ListFollowerResponseBodyResultUserList) SetName(v string) *ListFollowerResponseBodyResultUserList {
+	s.Name = &v
+	return s
+}
+
+func (s *ListFollowerResponseBodyResultUserList) SetTimestamp(v int64) *ListFollowerResponseBodyResultUserList {
+	s.Timestamp = &v
+	return s
+}
+
+func (s *ListFollowerResponseBodyResultUserList) SetUserId(v string) *ListFollowerResponseBodyResultUserList {
+	s.UserId = &v
+	return s
+}
+
+type ListFollowerResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListFollowerResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListFollowerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListFollowerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListFollowerResponse) SetHeaders(v map[string]*string) *ListFollowerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListFollowerResponse) SetBody(v *ListFollowerResponseBody) *ListFollowerResponse {
 	s.Body = v
 	return s
 }
@@ -817,6 +1131,58 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) GetFollowerInfo(request *GetFollowerInfoRequest) (_result *GetFollowerInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFollowerInfoHeaders{}
+	_result = &GetFollowerInfoResponse{}
+	_body, _err := client.GetFollowerInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetFollowerInfoWithOptions(request *GetFollowerInfoRequest, headers *GetFollowerInfoHeaders, runtime *util.RuntimeOptions) (_result *GetFollowerInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccountId)) {
+		query["accountId"] = request.AccountId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetFollowerInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetFollowerInfo"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/link/followers/infos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetPictureDownloadUrl(request *GetPictureDownloadUrlRequest) (_result *GetPictureDownloadUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPictureDownloadUrlHeaders{}
@@ -858,6 +1224,58 @@ func (client *Client) GetPictureDownloadUrlWithOptions(request *GetPictureDownlo
 	}
 	_result = &GetPictureDownloadUrlResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetPictureDownloadUrl"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/link/oToMessages/pictures/downloadUrls"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListFollower(request *ListFollowerRequest) (_result *ListFollowerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListFollowerHeaders{}
+	_result = &ListFollowerResponse{}
+	_body, _err := client.ListFollowerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListFollowerWithOptions(request *ListFollowerRequest, headers *ListFollowerHeaders, runtime *util.RuntimeOptions) (_result *ListFollowerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccountId)) {
+		query["accountId"] = request.AccountId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListFollowerResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListFollower"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/link/followers"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

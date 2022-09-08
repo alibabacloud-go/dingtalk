@@ -5520,6 +5520,8 @@ func (s *UniqueQueryUserCardHeaders) SetXAcsDingtalkAccessToken(v string) *Uniqu
 }
 
 type UniqueQueryUserCardRequest struct {
+	// 名片模版id
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 	// 用户unionId
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
@@ -5530,6 +5532,11 @@ func (s UniqueQueryUserCardRequest) String() string {
 
 func (s UniqueQueryUserCardRequest) GoString() string {
 	return s.String()
+}
+
+func (s *UniqueQueryUserCardRequest) SetTemplateId(v string) *UniqueQueryUserCardRequest {
+	s.TemplateId = &v
+	return s
 }
 
 func (s *UniqueQueryUserCardRequest) SetUnionId(v string) *UniqueQueryUserCardRequest {
@@ -8965,6 +8972,10 @@ func (client *Client) UniqueQueryUserCardWithOptions(request *UniqueQueryUserCar
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		query["templateId"] = request.TemplateId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
 	}
