@@ -333,6 +333,8 @@ func (s *SyncTripOrderHeaders) SetXAcsDingtalkAccessToken(v string) *SyncTripOrd
 }
 
 type SyncTripOrderRequest struct {
+	// 订单渠道，枚举值：BUSINESS、CUSTOMER
+	ChannelType *string `json:"channelType,omitempty" xml:"channelType,omitempty"`
 	// 币种
 	Currency *string `json:"currency,omitempty" xml:"currency,omitempty"`
 	// 钉钉用户id
@@ -380,6 +382,11 @@ func (s SyncTripOrderRequest) String() string {
 
 func (s SyncTripOrderRequest) GoString() string {
 	return s.String()
+}
+
+func (s *SyncTripOrderRequest) SetChannelType(v string) *SyncTripOrderRequest {
+	s.ChannelType = &v
+	return s
 }
 
 func (s *SyncTripOrderRequest) SetCurrency(v string) *SyncTripOrderRequest {
@@ -945,6 +952,10 @@ func (client *Client) SyncTripOrderWithOptions(request *SyncTripOrderRequest, he
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChannelType)) {
+		body["channelType"] = request.ChannelType
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Currency)) {
 		body["currency"] = request.Currency
 	}

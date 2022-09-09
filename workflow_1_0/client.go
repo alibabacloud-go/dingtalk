@@ -484,8 +484,6 @@ func (s *AddApproveDentryAuthRequestFileInfos) SetSpaceId(v int64) *AddApproveDe
 }
 
 type AddApproveDentryAuthResponseBody struct {
-	// 请求ID。
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	// 返回结果。
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 	// 接口调用是否成功。
@@ -498,11 +496,6 @@ func (s AddApproveDentryAuthResponseBody) String() string {
 
 func (s AddApproveDentryAuthResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *AddApproveDentryAuthResponseBody) SetRequestId(v string) *AddApproveDentryAuthResponseBody {
-	s.RequestId = &v
-	return s
 }
 
 func (s *AddApproveDentryAuthResponseBody) SetResult(v bool) *AddApproveDentryAuthResponseBody {
@@ -672,8 +665,6 @@ func (s *AddProcessInstanceCommentRequestFileAttachments) SetSpaceId(v string) *
 }
 
 type AddProcessInstanceCommentResponseBody struct {
-	// 请求ID。
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	// 评论是否成功。
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 	// 接口调用是否成功。
@@ -686,11 +677,6 @@ func (s AddProcessInstanceCommentResponseBody) String() string {
 
 func (s AddProcessInstanceCommentResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *AddProcessInstanceCommentResponseBody) SetRequestId(v string) *AddProcessInstanceCommentResponseBody {
-	s.RequestId = &v
-	return s
 }
 
 func (s *AddProcessInstanceCommentResponseBody) SetResult(v bool) *AddProcessInstanceCommentResponseBody {
@@ -1533,8 +1519,6 @@ func (s *ExecuteProcessInstanceRequestFileAttachments) SetSpaceId(v string) *Exe
 }
 
 type ExecuteProcessInstanceResponseBody struct {
-	// 请求ID。
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	// 同意或拒绝结果。
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 	// 接口调用是否成功。
@@ -1547,11 +1531,6 @@ func (s ExecuteProcessInstanceResponseBody) String() string {
 
 func (s ExecuteProcessInstanceResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *ExecuteProcessInstanceResponseBody) SetRequestId(v string) *ExecuteProcessInstanceResponseBody {
-	s.RequestId = &v
-	return s
 }
 
 func (s *ExecuteProcessInstanceResponseBody) SetResult(v bool) *ExecuteProcessInstanceResponseBody {
@@ -1830,8 +1809,6 @@ func (s *GetAttachmentSpaceRequest) SetUserId(v string) *GetAttachmentSpaceReque
 }
 
 type GetAttachmentSpaceResponseBody struct {
-	// 请求ID。
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	// 返回结果。
 	Result *GetAttachmentSpaceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 	// 接口调用是否成功。
@@ -1844,11 +1821,6 @@ func (s GetAttachmentSpaceResponseBody) String() string {
 
 func (s GetAttachmentSpaceResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *GetAttachmentSpaceResponseBody) SetRequestId(v string) *GetAttachmentSpaceResponseBody {
-	s.RequestId = &v
-	return s
 }
 
 func (s *GetAttachmentSpaceResponseBody) SetResult(v *GetAttachmentSpaceResponseBodyResult) *GetAttachmentSpaceResponseBody {
@@ -2007,8 +1979,6 @@ func (s *GetManageProcessByStaffIdRequest) SetUserId(v string) *GetManageProcess
 }
 
 type GetManageProcessByStaffIdResponseBody struct {
-	// 请求ID。
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	// 返回结果列表。
 	Result []*GetManageProcessByStaffIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 	// 接口调用是否成功。
@@ -2021,11 +1991,6 @@ func (s GetManageProcessByStaffIdResponseBody) String() string {
 
 func (s GetManageProcessByStaffIdResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *GetManageProcessByStaffIdResponseBody) SetRequestId(v string) *GetManageProcessByStaffIdResponseBody {
-	s.RequestId = &v
-	return s
 }
 
 func (s *GetManageProcessByStaffIdResponseBody) SetResult(v []*GetManageProcessByStaffIdResponseBodyResult) *GetManageProcessByStaffIdResponseBody {
@@ -2656,8 +2621,6 @@ func (s *GetProcessInstanceRequest) SetProcessInstanceId(v string) *GetProcessIn
 }
 
 type GetProcessInstanceResponseBody struct {
-	// 请求ID。
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	// 返回结果。
 	Result *GetProcessInstanceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 	// 调用是否成功。
@@ -2670,11 +2633,6 @@ func (s GetProcessInstanceResponseBody) String() string {
 
 func (s GetProcessInstanceResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *GetProcessInstanceResponseBody) SetRequestId(v string) *GetProcessInstanceResponseBody {
-	s.RequestId = &v
-	return s
 }
 
 func (s *GetProcessInstanceResponseBody) SetResult(v *GetProcessInstanceResponseBodyResult) *GetProcessInstanceResponseBody {
@@ -3144,8 +3102,6 @@ func (s *GetSpaceWithDownloadAuthRequest) SetUserId(v string) *GetSpaceWithDownl
 }
 
 type GetSpaceWithDownloadAuthResponseBody struct {
-	// 请求ID。
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	// 返回结果。
 	Result *GetSpaceWithDownloadAuthResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 	// 接口调用是否成功。
@@ -3158,11 +3114,6 @@ func (s GetSpaceWithDownloadAuthResponseBody) String() string {
 
 func (s GetSpaceWithDownloadAuthResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *GetSpaceWithDownloadAuthResponseBody) SetRequestId(v string) *GetSpaceWithDownloadAuthResponseBody {
-	s.RequestId = &v
-	return s
 }
 
 func (s *GetSpaceWithDownloadAuthResponseBody) SetResult(v *GetSpaceWithDownloadAuthResponseBodyResult) *GetSpaceWithDownloadAuthResponseBody {
@@ -3258,8 +3209,6 @@ func (s *GetUserTodoTaskSumRequest) SetUserId(v string) *GetUserTodoTaskSumReque
 }
 
 type GetUserTodoTaskSumResponseBody struct {
-	// 请求ID。
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	// 待处理的审批数量。
 	Result *int32 `json:"result,omitempty" xml:"result,omitempty"`
 }
@@ -3270,11 +3219,6 @@ func (s GetUserTodoTaskSumResponseBody) String() string {
 
 func (s GetUserTodoTaskSumResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *GetUserTodoTaskSumResponseBody) SetRequestId(v string) *GetUserTodoTaskSumResponseBody {
-	s.RequestId = &v
-	return s
 }
 
 func (s *GetUserTodoTaskSumResponseBody) SetResult(v int32) *GetUserTodoTaskSumResponseBody {
@@ -3435,8 +3379,6 @@ func (s *GrantProcessInstanceForDownloadFileRequest) SetProcessInstanceId(v stri
 }
 
 type GrantProcessInstanceForDownloadFileResponseBody struct {
-	// 请求ID。
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	// 返回结果。
 	Result *GrantProcessInstanceForDownloadFileResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 	// 接口调用是否成功。
@@ -3449,11 +3391,6 @@ func (s GrantProcessInstanceForDownloadFileResponseBody) String() string {
 
 func (s GrantProcessInstanceForDownloadFileResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *GrantProcessInstanceForDownloadFileResponseBody) SetRequestId(v string) *GrantProcessInstanceForDownloadFileResponseBody {
-	s.RequestId = &v
-	return s
 }
 
 func (s *GrantProcessInstanceForDownloadFileResponseBody) SetResult(v *GrantProcessInstanceForDownloadFileResponseBodyResult) *GrantProcessInstanceForDownloadFileResponseBody {
@@ -3602,8 +3539,6 @@ func (s *ListProcessInstanceIdsRequest) SetUserIds(v []*string) *ListProcessInst
 }
 
 type ListProcessInstanceIdsResponseBody struct {
-	// 请求ID。
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	// 返回结果。
 	Result *ListProcessInstanceIdsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 	// 接口请求是否成功。
@@ -3616,11 +3551,6 @@ func (s ListProcessInstanceIdsResponseBody) String() string {
 
 func (s ListProcessInstanceIdsResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *ListProcessInstanceIdsResponseBody) SetRequestId(v string) *ListProcessInstanceIdsResponseBody {
-	s.RequestId = &v
-	return s
 }
 
 func (s *ListProcessInstanceIdsResponseBody) SetResult(v *ListProcessInstanceIdsResponseBodyResult) *ListProcessInstanceIdsResponseBody {
@@ -3737,8 +3667,6 @@ func (s *ListUserVisibleBpmsProcessesRequest) SetUserId(v string) *ListUserVisib
 }
 
 type ListUserVisibleBpmsProcessesResponseBody struct {
-	// 请求ID。
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	// 返回结果。
 	Result *ListUserVisibleBpmsProcessesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
@@ -3749,11 +3677,6 @@ func (s ListUserVisibleBpmsProcessesResponseBody) String() string {
 
 func (s ListUserVisibleBpmsProcessesResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *ListUserVisibleBpmsProcessesResponseBody) SetRequestId(v string) *ListUserVisibleBpmsProcessesResponseBody {
-	s.RequestId = &v
-	return s
 }
 
 func (s *ListUserVisibleBpmsProcessesResponseBody) SetResult(v *ListUserVisibleBpmsProcessesResponseBodyResult) *ListUserVisibleBpmsProcessesResponseBody {
@@ -7710,8 +7633,6 @@ func (s *TerminateProcessInstanceRequest) SetRemark(v string) *TerminateProcessI
 }
 
 type TerminateProcessInstanceResponseBody struct {
-	// 请求ID。
-	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	// 撤销结果。
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 	// 接口调用是否成功。
@@ -7724,11 +7645,6 @@ func (s TerminateProcessInstanceResponseBody) String() string {
 
 func (s TerminateProcessInstanceResponseBody) GoString() string {
 	return s.String()
-}
-
-func (s *TerminateProcessInstanceResponseBody) SetRequestId(v string) *TerminateProcessInstanceResponseBody {
-	s.RequestId = &v
-	return s
 }
 
 func (s *TerminateProcessInstanceResponseBody) SetResult(v bool) *TerminateProcessInstanceResponseBody {

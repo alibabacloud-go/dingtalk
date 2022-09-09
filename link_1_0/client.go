@@ -107,7 +107,6 @@ func (s *GetFollowerInfoResponseBodyResult) SetUser(v *GetFollowerInfoResponseBo
 
 type GetFollowerInfoResponseBodyResultUser struct {
 	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	Status    *string `json:"status,omitempty" xml:"status,omitempty"`
 	Timestamp *string `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
 	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -122,11 +121,6 @@ func (s GetFollowerInfoResponseBodyResultUser) GoString() string {
 
 func (s *GetFollowerInfoResponseBodyResultUser) SetName(v string) *GetFollowerInfoResponseBodyResultUser {
 	s.Name = &v
-	return s
-}
-
-func (s *GetFollowerInfoResponseBodyResultUser) SetStatus(v string) *GetFollowerInfoResponseBodyResultUser {
-	s.Status = &v
 	return s
 }
 
