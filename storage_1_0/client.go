@@ -1447,6 +1447,9 @@ func (s *CopyDentryResponseBody) SetTaskId(v string) *CopyDentryResponseBody {
 }
 
 type CopyDentryResponseBodyDentry struct {
+	// 在特定应用上的属性。key是微应用Id, value是属性列表。
+	// 可以通过修改DentryAppProperty里的scope来设置属性的可见性
+	AppProperties map[string][]*DentryAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 创建者id
@@ -1507,6 +1510,11 @@ func (s CopyDentryResponseBodyDentry) String() string {
 
 func (s CopyDentryResponseBodyDentry) GoString() string {
 	return s.String()
+}
+
+func (s *CopyDentryResponseBodyDentry) SetAppProperties(v map[string][]*DentryAppPropertiesValue) *CopyDentryResponseBodyDentry {
+	s.AppProperties = v
+	return s
 }
 
 func (s *CopyDentryResponseBodyDentry) SetCreateTime(v string) *CopyDentryResponseBodyDentry {
@@ -4058,6 +4066,9 @@ func (s *ListDentriesResponseBody) SetNextToken(v string) *ListDentriesResponseB
 }
 
 type ListDentriesResponseBodyDentries struct {
+	// 在特定应用上的属性。key是微应用Id, value是属性列表。
+	// 可以通过修改DentryAppProperty里的scope来设置属性的可见性
+	AppProperties map[string][]*DentriesAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 创建者id
@@ -4118,6 +4129,11 @@ func (s ListDentriesResponseBodyDentries) String() string {
 
 func (s ListDentriesResponseBodyDentries) GoString() string {
 	return s.String()
+}
+
+func (s *ListDentriesResponseBodyDentries) SetAppProperties(v map[string][]*DentriesAppPropertiesValue) *ListDentriesResponseBodyDentries {
+	s.AppProperties = v
+	return s
 }
 
 func (s *ListDentriesResponseBodyDentries) SetCreateTime(v string) *ListDentriesResponseBodyDentries {
@@ -4335,6 +4351,9 @@ func (s *ListDentryVersionsResponseBody) SetNextToken(v string) *ListDentryVersi
 }
 
 type ListDentryVersionsResponseBodyDentries struct {
+	// 在特定应用上的属性。key是微应用Id, value是属性列表。
+	// 可以通过修改DentryAppProperty里的scope来设置属性的可见性
+	AppProperties map[string][]*DentriesAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 创建者id
@@ -4395,6 +4414,11 @@ func (s ListDentryVersionsResponseBodyDentries) String() string {
 
 func (s ListDentryVersionsResponseBodyDentries) GoString() string {
 	return s.String()
+}
+
+func (s *ListDentryVersionsResponseBodyDentries) SetAppProperties(v map[string][]*DentriesAppPropertiesValue) *ListDentryVersionsResponseBodyDentries {
+	s.AppProperties = v
+	return s
 }
 
 func (s *ListDentryVersionsResponseBodyDentries) SetCreateTime(v string) *ListDentryVersionsResponseBodyDentries {
@@ -5105,6 +5129,9 @@ func (s *MoveDentryResponseBody) SetTaskId(v string) *MoveDentryResponseBody {
 }
 
 type MoveDentryResponseBodyDentry struct {
+	// 在特定应用上的属性。key是微应用Id, value是属性列表。
+	// 可以通过修改DentryAppProperty里的scope来设置属性的可见性
+	AppProperties map[string][]*DentryAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 创建者id
@@ -5165,6 +5192,11 @@ func (s MoveDentryResponseBodyDentry) String() string {
 
 func (s MoveDentryResponseBodyDentry) GoString() string {
 	return s.String()
+}
+
+func (s *MoveDentryResponseBodyDentry) SetAppProperties(v map[string][]*DentryAppPropertiesValue) *MoveDentryResponseBodyDentry {
+	s.AppProperties = v
+	return s
 }
 
 func (s *MoveDentryResponseBodyDentry) SetCreateTime(v string) *MoveDentryResponseBodyDentry {
@@ -5368,6 +5400,9 @@ func (s *RenameDentryResponseBody) SetDentry(v *RenameDentryResponseBodyDentry) 
 }
 
 type RenameDentryResponseBodyDentry struct {
+	// 在特定应用上的属性。key是微应用Id, value是属性列表。
+	// 可以通过修改DentryAppProperty里的scope来设置属性的可见性
+	AppProperties map[string][]*DentryAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
 	// 创建时间
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 创建者id
@@ -5428,6 +5463,11 @@ func (s RenameDentryResponseBodyDentry) String() string {
 
 func (s RenameDentryResponseBodyDentry) GoString() string {
 	return s.String()
+}
+
+func (s *RenameDentryResponseBodyDentry) SetAppProperties(v map[string][]*DentryAppPropertiesValue) *RenameDentryResponseBodyDentry {
+	s.AppProperties = v
+	return s
 }
 
 func (s *RenameDentryResponseBodyDentry) SetCreateTime(v string) *RenameDentryResponseBodyDentry {
@@ -6076,6 +6116,41 @@ func (s *DentryAppPropertiesValue) SetValue(v string) *DentryAppPropertiesValue 
 }
 
 func (s *DentryAppPropertiesValue) SetVisibility(v string) *DentryAppPropertiesValue {
+	s.Visibility = &v
+	return s
+}
+
+type DentriesAppPropertiesValue struct {
+	// 属性名称 该属性名称在当前app下需要保证唯一，不同app间同名属性互不影响
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 属性值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 属性可见范围
+	// 枚举值:
+	// 	PUBLIC: 该属性所有App可见
+	// 	PRIVATE: 该属性仅其归属App可见
+	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
+}
+
+func (s DentriesAppPropertiesValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DentriesAppPropertiesValue) GoString() string {
+	return s.String()
+}
+
+func (s *DentriesAppPropertiesValue) SetName(v string) *DentriesAppPropertiesValue {
+	s.Name = &v
+	return s
+}
+
+func (s *DentriesAppPropertiesValue) SetValue(v string) *DentriesAppPropertiesValue {
+	s.Value = &v
+	return s
+}
+
+func (s *DentriesAppPropertiesValue) SetVisibility(v string) *DentriesAppPropertiesValue {
 	s.Visibility = &v
 	return s
 }

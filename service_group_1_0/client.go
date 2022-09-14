@@ -462,6 +462,101 @@ func (s *AddLibraryResponse) SetBody(v *AddLibraryResponseBody) *AddLibraryRespo
 	return s
 }
 
+type AddMemberToServiceGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddMemberToServiceGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddMemberToServiceGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddMemberToServiceGroupHeaders) SetCommonHeaders(v map[string]*string) *AddMemberToServiceGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddMemberToServiceGroupHeaders) SetXAcsDingtalkAccessToken(v string) *AddMemberToServiceGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddMemberToServiceGroupRequest struct {
+	// 钉群ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 服务群团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 员工在钉钉组织内的工号
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s AddMemberToServiceGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddMemberToServiceGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddMemberToServiceGroupRequest) SetOpenConversationId(v string) *AddMemberToServiceGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *AddMemberToServiceGroupRequest) SetOpenTeamId(v string) *AddMemberToServiceGroupRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *AddMemberToServiceGroupRequest) SetUserIds(v []*string) *AddMemberToServiceGroupRequest {
+	s.UserIds = v
+	return s
+}
+
+type AddMemberToServiceGroupResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AddMemberToServiceGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddMemberToServiceGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddMemberToServiceGroupResponseBody) SetSuccess(v bool) *AddMemberToServiceGroupResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AddMemberToServiceGroupResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddMemberToServiceGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddMemberToServiceGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddMemberToServiceGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddMemberToServiceGroupResponse) SetHeaders(v map[string]*string) *AddMemberToServiceGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddMemberToServiceGroupResponse) SetBody(v *AddMemberToServiceGroupResponseBody) *AddMemberToServiceGroupResponse {
+	s.Body = v
+	return s
+}
+
 type AddOpenCategoryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11094,6 +11189,58 @@ func (client *Client) AddLibraryWithOptions(request *AddLibraryRequest, headers 
 	}
 	_result = &AddLibraryResponse{}
 	_body, _err := client.DoROARequest(tea.String("AddLibrary"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/librarys"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddMemberToServiceGroup(request *AddMemberToServiceGroupRequest) (_result *AddMemberToServiceGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddMemberToServiceGroupHeaders{}
+	_result = &AddMemberToServiceGroupResponse{}
+	_body, _err := client.AddMemberToServiceGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddMemberToServiceGroupWithOptions(request *AddMemberToServiceGroupRequest, headers *AddMemberToServiceGroupHeaders, runtime *util.RuntimeOptions) (_result *AddMemberToServiceGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddMemberToServiceGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddMemberToServiceGroup"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/members"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
