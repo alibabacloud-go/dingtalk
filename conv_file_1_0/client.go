@@ -39,9 +39,6 @@ type SendByAppRequest struct {
 	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
 	// 文件所在空间id
 	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	// 目标用户id
-	// 会通过应用发送消息给指定用户
-	TargetUnionId *string `json:"targetUnionId,omitempty" xml:"targetUnionId,omitempty"`
 	// 用户id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
@@ -61,11 +58,6 @@ func (s *SendByAppRequest) SetDentryId(v string) *SendByAppRequest {
 
 func (s *SendByAppRequest) SetSpaceId(v string) *SendByAppRequest {
 	s.SpaceId = &v
-	return s
-}
-
-func (s *SendByAppRequest) SetTargetUnionId(v string) *SendByAppRequest {
-	s.TargetUnionId = &v
 	return s
 }
 
@@ -297,10 +289,6 @@ func (client *Client) SendByAppWithOptions(request *SendByAppRequest, headers *S
 
 	if !tea.BoolValue(util.IsUnset(request.SpaceId)) {
 		body["spaceId"] = request.SpaceId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.TargetUnionId)) {
-		body["targetUnionId"] = request.TargetUnionId
 	}
 
 	realHeaders := make(map[string]*string)

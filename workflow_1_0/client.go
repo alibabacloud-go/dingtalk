@@ -928,6 +928,95 @@ func (s *CancelIntegratedTaskResponse) SetBody(v *CancelIntegratedTaskResponseBo
 	return s
 }
 
+type CleanProcessDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CleanProcessDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CleanProcessDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CleanProcessDataHeaders) SetCommonHeaders(v map[string]*string) *CleanProcessDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CleanProcessDataHeaders) SetXAcsDingtalkAccessToken(v string) *CleanProcessDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CleanProcessDataRequest struct {
+	// 企业的corpId。
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 模板唯一码。
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s CleanProcessDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CleanProcessDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CleanProcessDataRequest) SetCorpId(v string) *CleanProcessDataRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *CleanProcessDataRequest) SetProcessCode(v string) *CleanProcessDataRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+type CleanProcessDataResponseBody struct {
+	// 是否调用成功。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CleanProcessDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CleanProcessDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CleanProcessDataResponseBody) SetSuccess(v bool) *CleanProcessDataResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CleanProcessDataResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CleanProcessDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CleanProcessDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CleanProcessDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CleanProcessDataResponse) SetHeaders(v map[string]*string) *CleanProcessDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CleanProcessDataResponse) SetBody(v *CleanProcessDataResponseBody) *CleanProcessDataResponse {
+	s.Body = v
+	return s
+}
+
 type CopyProcessHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1874,6 +1963,122 @@ func (s *GetAttachmentSpaceResponse) SetBody(v *GetAttachmentSpaceResponseBody) 
 	return s
 }
 
+type GetConditionFormComponentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetConditionFormComponentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConditionFormComponentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetConditionFormComponentHeaders) SetCommonHeaders(v map[string]*string) *GetConditionFormComponentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetConditionFormComponentHeaders) SetXAcsDingtalkAccessToken(v string) *GetConditionFormComponentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetConditionFormComponentRequest struct {
+	// 应用ID (三方应用为AppID)，可在开发者管理后台后台的应用详情页面获取。
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// 审批模板ID。
+	//
+	// processCode需要OA管理后台，在编辑审批表单的URL中获取。
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s GetConditionFormComponentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConditionFormComponentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetConditionFormComponentRequest) SetAgentId(v int64) *GetConditionFormComponentRequest {
+	s.AgentId = &v
+	return s
+}
+
+func (s *GetConditionFormComponentRequest) SetProcessCode(v string) *GetConditionFormComponentRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+type GetConditionFormComponentResponseBody struct {
+	// 返回结果。
+	Result []*GetConditionFormComponentResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetConditionFormComponentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConditionFormComponentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetConditionFormComponentResponseBody) SetResult(v []*GetConditionFormComponentResponseBodyResult) *GetConditionFormComponentResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetConditionFormComponentResponseBodyResult struct {
+	// 表单ID。
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 表单名称。
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+}
+
+func (s GetConditionFormComponentResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConditionFormComponentResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetConditionFormComponentResponseBodyResult) SetId(v string) *GetConditionFormComponentResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *GetConditionFormComponentResponseBodyResult) SetLabel(v string) *GetConditionFormComponentResponseBodyResult {
+	s.Label = &v
+	return s
+}
+
+type GetConditionFormComponentResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetConditionFormComponentResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetConditionFormComponentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConditionFormComponentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetConditionFormComponentResponse) SetHeaders(v map[string]*string) *GetConditionFormComponentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetConditionFormComponentResponse) SetBody(v *GetConditionFormComponentResponseBody) *GetConditionFormComponentResponse {
+	s.Body = v
+	return s
+}
+
 type GetCrmProcCodesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1898,6 +2103,7 @@ func (s *GetCrmProcCodesHeaders) SetXAcsDingtalkAccessToken(v string) *GetCrmPro
 }
 
 type GetCrmProcCodesResponseBody struct {
+	// 模板code列表。
 	Result []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -8128,6 +8334,54 @@ func (client *Client) CancelIntegratedTaskWithOptions(request *CancelIntegratedT
 	return _result, _err
 }
 
+func (client *Client) CleanProcessData(request *CleanProcessDataRequest) (_result *CleanProcessDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CleanProcessDataHeaders{}
+	_result = &CleanProcessDataResponse{}
+	_body, _err := client.CleanProcessDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CleanProcessDataWithOptions(request *CleanProcessDataRequest, headers *CleanProcessDataHeaders, runtime *util.RuntimeOptions) (_result *CleanProcessDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CleanProcessDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("CleanProcessData"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processes/clean"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CopyProcess(request *CopyProcessRequest) (_result *CopyProcessResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CopyProcessHeaders{}
@@ -8445,6 +8699,54 @@ func (client *Client) GetAttachmentSpaceWithOptions(request *GetAttachmentSpaceR
 	}
 	_result = &GetAttachmentSpaceResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetAttachmentSpace"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processInstances/spaces/infos/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetConditionFormComponent(request *GetConditionFormComponentRequest) (_result *GetConditionFormComponentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetConditionFormComponentHeaders{}
+	_result = &GetConditionFormComponentResponse{}
+	_body, _err := client.GetConditionFormComponentWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetConditionFormComponentWithOptions(request *GetConditionFormComponentRequest, headers *GetConditionFormComponentHeaders, runtime *util.RuntimeOptions) (_result *GetConditionFormComponentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentId)) {
+		query["agentId"] = request.AgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		query["processCode"] = request.ProcessCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetConditionFormComponentResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetConditionFormComponent"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/processes/conditions/components"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
