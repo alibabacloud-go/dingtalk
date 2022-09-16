@@ -1000,6 +1000,188 @@ func (s *CreateInterconnectionResponse) SetBody(v *CreateInterconnectionResponse
 	return s
 }
 
+type CreateSceneGroupConversationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateSceneGroupConversationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSceneGroupConversationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSceneGroupConversationHeaders) SetCommonHeaders(v map[string]*string) *CreateSceneGroupConversationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateSceneGroupConversationHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSceneGroupConversationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateSceneGroupConversationRequest struct {
+	// 功能增强
+	Features map[string]*string `json:"features,omitempty" xml:"features,omitempty"`
+	// 群名称。
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 群主(钉外用户)userId。
+	GroupOwnerId *string `json:"groupOwnerId,omitempty" xml:"groupOwnerId,omitempty"`
+	// 群头像。
+	Icon              *string                                               `json:"icon,omitempty" xml:"icon,omitempty"`
+	ManagementOptions *CreateSceneGroupConversationRequestManagementOptions `json:"managementOptions,omitempty" xml:"managementOptions,omitempty" type:"Struct"`
+	// 群模板Id。
+	TemplateId *string   `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	// 建群去重的业务ID。
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s CreateSceneGroupConversationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSceneGroupConversationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSceneGroupConversationRequest) SetFeatures(v map[string]*string) *CreateSceneGroupConversationRequest {
+	s.Features = v
+	return s
+}
+
+func (s *CreateSceneGroupConversationRequest) SetGroupName(v string) *CreateSceneGroupConversationRequest {
+	s.GroupName = &v
+	return s
+}
+
+func (s *CreateSceneGroupConversationRequest) SetGroupOwnerId(v string) *CreateSceneGroupConversationRequest {
+	s.GroupOwnerId = &v
+	return s
+}
+
+func (s *CreateSceneGroupConversationRequest) SetIcon(v string) *CreateSceneGroupConversationRequest {
+	s.Icon = &v
+	return s
+}
+
+func (s *CreateSceneGroupConversationRequest) SetManagementOptions(v *CreateSceneGroupConversationRequestManagementOptions) *CreateSceneGroupConversationRequest {
+	s.ManagementOptions = v
+	return s
+}
+
+func (s *CreateSceneGroupConversationRequest) SetTemplateId(v string) *CreateSceneGroupConversationRequest {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *CreateSceneGroupConversationRequest) SetUserIdList(v []*string) *CreateSceneGroupConversationRequest {
+	s.UserIdList = v
+	return s
+}
+
+func (s *CreateSceneGroupConversationRequest) SetUuid(v string) *CreateSceneGroupConversationRequest {
+	s.Uuid = &v
+	return s
+}
+
+type CreateSceneGroupConversationRequestManagementOptions struct {
+	// 群禁言，0-默认，不禁言，1-全员禁言
+	ChatBannedType *int32 `json:"chatBannedType,omitempty" xml:"chatBannedType,omitempty"`
+	// 管理类型，0-默认，所有人可管理，1-仅群主可管理
+	ManagementType *int32 `json:"managementType,omitempty" xml:"managementType,omitempty"`
+	// @ all 权限，0-默认，所有人，1-仅群主可@all
+	MentionAllAuthority *int32 `json:"mentionAllAuthority,omitempty" xml:"mentionAllAuthority,omitempty"`
+	// 群可搜索，0-默认，不可搜索，1-可搜索
+	Searchable *int32 `json:"searchable,omitempty" xml:"searchable,omitempty"`
+	// 新成员是否可查看聊天历史消息，0-默认，否，1-是
+	ShowHistoryType *int32 `json:"showHistoryType,omitempty" xml:"showHistoryType,omitempty"`
+	// 入群验证，0：不入群验证（默认） 1：入群验证
+	ValidationType *int32 `json:"validationType,omitempty" xml:"validationType,omitempty"`
+}
+
+func (s CreateSceneGroupConversationRequestManagementOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSceneGroupConversationRequestManagementOptions) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSceneGroupConversationRequestManagementOptions) SetChatBannedType(v int32) *CreateSceneGroupConversationRequestManagementOptions {
+	s.ChatBannedType = &v
+	return s
+}
+
+func (s *CreateSceneGroupConversationRequestManagementOptions) SetManagementType(v int32) *CreateSceneGroupConversationRequestManagementOptions {
+	s.ManagementType = &v
+	return s
+}
+
+func (s *CreateSceneGroupConversationRequestManagementOptions) SetMentionAllAuthority(v int32) *CreateSceneGroupConversationRequestManagementOptions {
+	s.MentionAllAuthority = &v
+	return s
+}
+
+func (s *CreateSceneGroupConversationRequestManagementOptions) SetSearchable(v int32) *CreateSceneGroupConversationRequestManagementOptions {
+	s.Searchable = &v
+	return s
+}
+
+func (s *CreateSceneGroupConversationRequestManagementOptions) SetShowHistoryType(v int32) *CreateSceneGroupConversationRequestManagementOptions {
+	s.ShowHistoryType = &v
+	return s
+}
+
+func (s *CreateSceneGroupConversationRequestManagementOptions) SetValidationType(v int32) *CreateSceneGroupConversationRequestManagementOptions {
+	s.ValidationType = &v
+	return s
+}
+
+type CreateSceneGroupConversationResponseBody struct {
+	// 群会话Id。
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s CreateSceneGroupConversationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSceneGroupConversationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSceneGroupConversationResponseBody) SetOpenConversationId(v string) *CreateSceneGroupConversationResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+type CreateSceneGroupConversationResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateSceneGroupConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateSceneGroupConversationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSceneGroupConversationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSceneGroupConversationResponse) SetHeaders(v map[string]*string) *CreateSceneGroupConversationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateSceneGroupConversationResponse) SetBody(v *CreateSceneGroupConversationResponseBody) *CreateSceneGroupConversationResponse {
+	s.Body = v
+	return s
+}
+
 type CreateStoreGroupConversationHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6580,6 +6762,78 @@ func (client *Client) CreateInterconnectionWithOptions(request *CreateInterconne
 	}
 	_result = &CreateInterconnectionResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateInterconnection"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateSceneGroupConversation(request *CreateSceneGroupConversationRequest) (_result *CreateSceneGroupConversationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateSceneGroupConversationHeaders{}
+	_result = &CreateSceneGroupConversationResponse{}
+	_body, _err := client.CreateSceneGroupConversationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateSceneGroupConversationWithOptions(request *CreateSceneGroupConversationRequest, headers *CreateSceneGroupConversationHeaders, runtime *util.RuntimeOptions) (_result *CreateSceneGroupConversationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Features)) {
+		body["features"] = request.Features
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupName)) {
+		body["groupName"] = request.GroupName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupOwnerId)) {
+		body["groupOwnerId"] = request.GroupOwnerId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Icon)) {
+		body["icon"] = request.Icon
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ManagementOptions))) {
+		body["managementOptions"] = request.ManagementOptions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdList)) {
+		body["userIdList"] = request.UserIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		body["uuid"] = request.Uuid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateSceneGroupConversationResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateSceneGroupConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

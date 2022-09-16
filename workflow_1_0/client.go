@@ -6865,6 +6865,8 @@ func (s *RedirectWorkflowTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Redi
 type RedirectWorkflowTaskRequest struct {
 	// 操作节点名
 	ActionName *string `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	// 操作人的用户ID，需要跟任务的当前执行人保持一致，否则无法通过校验
+	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
 	// 转交备注信息
 	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 	// OA审批任务ID
@@ -6883,6 +6885,11 @@ func (s RedirectWorkflowTaskRequest) GoString() string {
 
 func (s *RedirectWorkflowTaskRequest) SetActionName(v string) *RedirectWorkflowTaskRequest {
 	s.ActionName = &v
+	return s
+}
+
+func (s *RedirectWorkflowTaskRequest) SetOperateUserId(v string) *RedirectWorkflowTaskRequest {
+	s.OperateUserId = &v
 	return s
 }
 
@@ -9736,6 +9743,10 @@ func (client *Client) RedirectWorkflowTaskWithOptions(request *RedirectWorkflowT
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ActionName)) {
 		body["actionName"] = request.ActionName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperateUserId)) {
+		body["operateUserId"] = request.OperateUserId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Remark)) {

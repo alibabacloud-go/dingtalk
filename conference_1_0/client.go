@@ -791,6 +791,175 @@ func (s *QueryCloudRecordVideoPlayInfoResponse) SetBody(v *QueryCloudRecordVideo
 	return s
 }
 
+type QueryConferenceInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryConferenceInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryConferenceInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryConferenceInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryConferenceInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryConferenceInfoResponseBody struct {
+	// 会议信息结构体
+	ConfInfo *QueryConferenceInfoResponseBodyConfInfo `json:"confInfo,omitempty" xml:"confInfo,omitempty" type:"Struct"`
+}
+
+func (s QueryConferenceInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceInfoResponseBody) SetConfInfo(v *QueryConferenceInfoResponseBodyConfInfo) *QueryConferenceInfoResponseBody {
+	s.ConfInfo = v
+	return s
+}
+
+type QueryConferenceInfoResponseBodyConfInfo struct {
+	// 当前在会人数
+	ActiveNum *int32 `json:"activeNum,omitempty" xml:"activeNum,omitempty"`
+	// 累积入会人数
+	AttendNum *int32 `json:"attendNum,omitempty" xml:"attendNum,omitempty"`
+	// 会议时长
+	ConfDuration *int64 `json:"confDuration,omitempty" xml:"confDuration,omitempty"`
+	// 会议id
+	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	// 会议创建人unionId
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 会议创建人昵称
+	CreatorNick *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	// 会议结束时间
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 会议web入会链接
+	ExternalLinkUrl *string `json:"externalLinkUrl,omitempty" xml:"externalLinkUrl,omitempty"`
+	// 邀请人数
+	InvitedNum *int32 `json:"invitedNum,omitempty" xml:"invitedNum,omitempty"`
+	// 会议码
+	RoomCode *string `json:"roomCode,omitempty" xml:"roomCode,omitempty"`
+	// 会议开始时间
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 会议状态
+	// 0 初始化
+	// 1 开始
+	// 2 结束
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 会议标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QueryConferenceInfoResponseBodyConfInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceInfoResponseBodyConfInfo) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetActiveNum(v int32) *QueryConferenceInfoResponseBodyConfInfo {
+	s.ActiveNum = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetAttendNum(v int32) *QueryConferenceInfoResponseBodyConfInfo {
+	s.AttendNum = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetConfDuration(v int64) *QueryConferenceInfoResponseBodyConfInfo {
+	s.ConfDuration = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetConferenceId(v string) *QueryConferenceInfoResponseBodyConfInfo {
+	s.ConferenceId = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetCreatorId(v string) *QueryConferenceInfoResponseBodyConfInfo {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetCreatorNick(v string) *QueryConferenceInfoResponseBodyConfInfo {
+	s.CreatorNick = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetEndTime(v int64) *QueryConferenceInfoResponseBodyConfInfo {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetExternalLinkUrl(v string) *QueryConferenceInfoResponseBodyConfInfo {
+	s.ExternalLinkUrl = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetInvitedNum(v int32) *QueryConferenceInfoResponseBodyConfInfo {
+	s.InvitedNum = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetRoomCode(v string) *QueryConferenceInfoResponseBodyConfInfo {
+	s.RoomCode = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetStartTime(v int64) *QueryConferenceInfoResponseBodyConfInfo {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetStatus(v int32) *QueryConferenceInfoResponseBodyConfInfo {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetTitle(v string) *QueryConferenceInfoResponseBodyConfInfo {
+	s.Title = &v
+	return s
+}
+
+type QueryConferenceInfoResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryConferenceInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryConferenceInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceInfoResponse) SetHeaders(v map[string]*string) *QueryConferenceInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryConferenceInfoResponse) SetBody(v *QueryConferenceInfoResponseBody) *QueryConferenceInfoResponse {
+	s.Body = v
+	return s
+}
+
 type QueryConferenceInfoBatchHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -974,6 +1143,203 @@ func (s *QueryConferenceInfoBatchResponse) SetHeaders(v map[string]*string) *Que
 }
 
 func (s *QueryConferenceInfoBatchResponse) SetBody(v *QueryConferenceInfoBatchResponseBody) *QueryConferenceInfoBatchResponse {
+	s.Body = v
+	return s
+}
+
+type QueryConferenceMembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryConferenceMembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceMembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceMembersHeaders) SetCommonHeaders(v map[string]*string) *QueryConferenceMembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryConferenceMembersHeaders) SetXAcsDingtalkAccessToken(v string) *QueryConferenceMembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryConferenceMembersRequest struct {
+	// 返回的最大结果数
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s QueryConferenceMembersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceMembersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceMembersRequest) SetMaxResults(v int32) *QueryConferenceMembersRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryConferenceMembersRequest) SetNextToken(v string) *QueryConferenceMembersRequest {
+	s.NextToken = &v
+	return s
+}
+
+type QueryConferenceMembersResponseBody struct {
+	// 成员列表
+	MemberModels []*QueryConferenceMembersResponseBodyMemberModels `json:"memberModels,omitempty" xml:"memberModels,omitempty" type:"Repeated"`
+	// 分页查询下一页token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 本次返回结果数
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryConferenceMembersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceMembersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceMembersResponseBody) SetMemberModels(v []*QueryConferenceMembersResponseBodyMemberModels) *QueryConferenceMembersResponseBody {
+	s.MemberModels = v
+	return s
+}
+
+func (s *QueryConferenceMembersResponseBody) SetNextToken(v string) *QueryConferenceMembersResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryConferenceMembersResponseBody) SetTotalCount(v int32) *QueryConferenceMembersResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryConferenceMembersResponseBodyMemberModels struct {
+	// 成员状态
+	// 1 初始化
+	// 2 呼叫中
+	// 3 活跃（在会）
+	// 4 入会失败（拒接等）
+	// 5 被踢
+	// 6 离会
+	AttendStatus *int32 `json:"attendStatus,omitempty" xml:"attendStatus,omitempty"`
+	// 是否为联席主持人
+	CoHost *bool `json:"coHost,omitempty" xml:"coHost,omitempty"`
+	// 会议id
+	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	// 在会时长
+	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// 是否为主持人
+	Host *bool `json:"host,omitempty" xml:"host,omitempty"`
+	// 入会时间
+	JoinTime *int64 `json:"joinTime,omitempty" xml:"joinTime,omitempty"`
+	// 离会时间
+	LeaveTime *int64 `json:"leaveTime,omitempty" xml:"leaveTime,omitempty"`
+	// 是否为非会议所属企业内成员
+	OuterOrgMember *bool `json:"outerOrgMember,omitempty" xml:"outerOrgMember,omitempty"`
+	// 是否为pstn入会
+	PstnJoin *bool `json:"pstnJoin,omitempty" xml:"pstnJoin,omitempty"`
+	// 用户unionId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 成员昵称
+	UserNick *string `json:"userNick,omitempty" xml:"userNick,omitempty"`
+}
+
+func (s QueryConferenceMembersResponseBodyMemberModels) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceMembersResponseBodyMemberModels) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceMembersResponseBodyMemberModels) SetAttendStatus(v int32) *QueryConferenceMembersResponseBodyMemberModels {
+	s.AttendStatus = &v
+	return s
+}
+
+func (s *QueryConferenceMembersResponseBodyMemberModels) SetCoHost(v bool) *QueryConferenceMembersResponseBodyMemberModels {
+	s.CoHost = &v
+	return s
+}
+
+func (s *QueryConferenceMembersResponseBodyMemberModels) SetConferenceId(v string) *QueryConferenceMembersResponseBodyMemberModels {
+	s.ConferenceId = &v
+	return s
+}
+
+func (s *QueryConferenceMembersResponseBodyMemberModels) SetDuration(v int64) *QueryConferenceMembersResponseBodyMemberModels {
+	s.Duration = &v
+	return s
+}
+
+func (s *QueryConferenceMembersResponseBodyMemberModels) SetHost(v bool) *QueryConferenceMembersResponseBodyMemberModels {
+	s.Host = &v
+	return s
+}
+
+func (s *QueryConferenceMembersResponseBodyMemberModels) SetJoinTime(v int64) *QueryConferenceMembersResponseBodyMemberModels {
+	s.JoinTime = &v
+	return s
+}
+
+func (s *QueryConferenceMembersResponseBodyMemberModels) SetLeaveTime(v int64) *QueryConferenceMembersResponseBodyMemberModels {
+	s.LeaveTime = &v
+	return s
+}
+
+func (s *QueryConferenceMembersResponseBodyMemberModels) SetOuterOrgMember(v bool) *QueryConferenceMembersResponseBodyMemberModels {
+	s.OuterOrgMember = &v
+	return s
+}
+
+func (s *QueryConferenceMembersResponseBodyMemberModels) SetPstnJoin(v bool) *QueryConferenceMembersResponseBodyMemberModels {
+	s.PstnJoin = &v
+	return s
+}
+
+func (s *QueryConferenceMembersResponseBodyMemberModels) SetUserId(v string) *QueryConferenceMembersResponseBodyMemberModels {
+	s.UserId = &v
+	return s
+}
+
+func (s *QueryConferenceMembersResponseBodyMemberModels) SetUserNick(v string) *QueryConferenceMembersResponseBodyMemberModels {
+	s.UserNick = &v
+	return s
+}
+
+type QueryConferenceMembersResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryConferenceMembersResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryConferenceMembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceMembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceMembersResponse) SetHeaders(v map[string]*string) *QueryConferenceMembersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryConferenceMembersResponse) SetBody(v *QueryConferenceMembersResponseBody) *QueryConferenceMembersResponse {
 	s.Body = v
 	return s
 }
@@ -1853,6 +2219,41 @@ func (client *Client) QueryCloudRecordVideoPlayInfoWithOptions(conferenceId *str
 	return _result, _err
 }
 
+func (client *Client) QueryConferenceInfo(conferenceId *string) (_result *QueryConferenceInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryConferenceInfoHeaders{}
+	_result = &QueryConferenceInfoResponse{}
+	_body, _err := client.QueryConferenceInfoWithOptions(conferenceId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryConferenceInfoWithOptions(conferenceId *string, headers *QueryConferenceInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryConferenceInfoResponse, _err error) {
+	conferenceId = openapiutil.GetEncodeParam(conferenceId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &QueryConferenceInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryConferenceInfo"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryConferenceInfoBatch(request *QueryConferenceInfoBatchRequest) (_result *QueryConferenceInfoBatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryConferenceInfoBatchHeaders{}
@@ -1890,6 +2291,55 @@ func (client *Client) QueryConferenceInfoBatchWithOptions(request *QueryConferen
 	}
 	_result = &QueryConferenceInfoBatchResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryConferenceInfoBatch"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryConferenceMembers(conferenceId *string, request *QueryConferenceMembersRequest) (_result *QueryConferenceMembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryConferenceMembersHeaders{}
+	_result = &QueryConferenceMembersResponse{}
+	_body, _err := client.QueryConferenceMembersWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryConferenceMembersWithOptions(conferenceId *string, request *QueryConferenceMembersRequest, headers *QueryConferenceMembersHeaders, runtime *util.RuntimeOptions) (_result *QueryConferenceMembersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	conferenceId = openapiutil.GetEncodeParam(conferenceId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryConferenceMembersResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryConferenceMembers"), tea.String("conference_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/conference/videoConferences/"+tea.StringValue(conferenceId)+"/members"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
