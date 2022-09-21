@@ -7,9 +7,436 @@ package link_1_0
 import (
 	openapi "github.com/alibabacloud-go/darabonba-openapi/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
-	util "github.com/alibabacloud-go/tea-utils/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
+
+type ApplyFollowerAuthInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ApplyFollowerAuthInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApplyFollowerAuthInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ApplyFollowerAuthInfoHeaders) SetCommonHeaders(v map[string]*string) *ApplyFollowerAuthInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ApplyFollowerAuthInfoHeaders) SetXAcsDingtalkAccessToken(v string) *ApplyFollowerAuthInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ApplyFollowerAuthInfoRequest struct {
+	// 申请的授权数据，多个数据时使用,分隔
+	FieldScope *string `json:"fieldScope,omitempty" xml:"fieldScope,omitempty"`
+	// 客服会话sessionId
+	SessionId *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
+	// 用户信息
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ApplyFollowerAuthInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApplyFollowerAuthInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ApplyFollowerAuthInfoRequest) SetFieldScope(v string) *ApplyFollowerAuthInfoRequest {
+	s.FieldScope = &v
+	return s
+}
+
+func (s *ApplyFollowerAuthInfoRequest) SetSessionId(v string) *ApplyFollowerAuthInfoRequest {
+	s.SessionId = &v
+	return s
+}
+
+func (s *ApplyFollowerAuthInfoRequest) SetUserId(v string) *ApplyFollowerAuthInfoRequest {
+	s.UserId = &v
+	return s
+}
+
+type ApplyFollowerAuthInfoResponseBody struct {
+	// 推送结果
+	Result *ApplyFollowerAuthInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s ApplyFollowerAuthInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApplyFollowerAuthInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ApplyFollowerAuthInfoResponseBody) SetResult(v *ApplyFollowerAuthInfoResponseBodyResult) *ApplyFollowerAuthInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+type ApplyFollowerAuthInfoResponseBodyResult struct {
+	// 发送申请ID
+	OpenApplyId *string `json:"openApplyId,omitempty" xml:"openApplyId,omitempty"`
+}
+
+func (s ApplyFollowerAuthInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApplyFollowerAuthInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ApplyFollowerAuthInfoResponseBodyResult) SetOpenApplyId(v string) *ApplyFollowerAuthInfoResponseBodyResult {
+	s.OpenApplyId = &v
+	return s
+}
+
+type ApplyFollowerAuthInfoResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ApplyFollowerAuthInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ApplyFollowerAuthInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ApplyFollowerAuthInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ApplyFollowerAuthInfoResponse) SetHeaders(v map[string]*string) *ApplyFollowerAuthInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ApplyFollowerAuthInfoResponse) SetBody(v *ApplyFollowerAuthInfoResponseBody) *ApplyFollowerAuthInfoResponse {
+	s.Body = v
+	return s
+}
+
+type CloseTopBoxInteractiveOTOMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CloseTopBoxInteractiveOTOMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseTopBoxInteractiveOTOMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CloseTopBoxInteractiveOTOMessageHeaders) SetCommonHeaders(v map[string]*string) *CloseTopBoxInteractiveOTOMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CloseTopBoxInteractiveOTOMessageHeaders) SetXAcsDingtalkAccessToken(v string) *CloseTopBoxInteractiveOTOMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CloseTopBoxInteractiveOTOMessageRequest struct {
+	// 卡片参数
+	Detail *CloseTopBoxInteractiveOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
+}
+
+func (s CloseTopBoxInteractiveOTOMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseTopBoxInteractiveOTOMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CloseTopBoxInteractiveOTOMessageRequest) SetDetail(v *CloseTopBoxInteractiveOTOMessageRequestDetail) *CloseTopBoxInteractiveOTOMessageRequest {
+	s.Detail = v
+	return s
+}
+
+type CloseTopBoxInteractiveOTOMessageRequestDetail struct {
+	// 唯一标识一张卡片的ID，卡片幂等ID
+	CardBizId *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
+	// 卡片模板 ID
+	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+	// 用户 userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CloseTopBoxInteractiveOTOMessageRequestDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseTopBoxInteractiveOTOMessageRequestDetail) GoString() string {
+	return s.String()
+}
+
+func (s *CloseTopBoxInteractiveOTOMessageRequestDetail) SetCardBizId(v string) *CloseTopBoxInteractiveOTOMessageRequestDetail {
+	s.CardBizId = &v
+	return s
+}
+
+func (s *CloseTopBoxInteractiveOTOMessageRequestDetail) SetCardTemplateId(v string) *CloseTopBoxInteractiveOTOMessageRequestDetail {
+	s.CardTemplateId = &v
+	return s
+}
+
+func (s *CloseTopBoxInteractiveOTOMessageRequestDetail) SetUserId(v string) *CloseTopBoxInteractiveOTOMessageRequestDetail {
+	s.UserId = &v
+	return s
+}
+
+type CloseTopBoxInteractiveOTOMessageResponseBody struct {
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CloseTopBoxInteractiveOTOMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseTopBoxInteractiveOTOMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CloseTopBoxInteractiveOTOMessageResponseBody) SetRequestId(v string) *CloseTopBoxInteractiveOTOMessageResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *CloseTopBoxInteractiveOTOMessageResponseBody) SetResult(v bool) *CloseTopBoxInteractiveOTOMessageResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CloseTopBoxInteractiveOTOMessageResponse struct {
+	Headers map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CloseTopBoxInteractiveOTOMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CloseTopBoxInteractiveOTOMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseTopBoxInteractiveOTOMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CloseTopBoxInteractiveOTOMessageResponse) SetHeaders(v map[string]*string) *CloseTopBoxInteractiveOTOMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CloseTopBoxInteractiveOTOMessageResponse) SetBody(v *CloseTopBoxInteractiveOTOMessageResponseBody) *CloseTopBoxInteractiveOTOMessageResponse {
+	s.Body = v
+	return s
+}
+
+type GetFollowerAuthInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFollowerAuthInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFollowerAuthInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFollowerAuthInfoHeaders) SetCommonHeaders(v map[string]*string) *GetFollowerAuthInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFollowerAuthInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetFollowerAuthInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFollowerAuthInfoRequest struct {
+	// 服务窗帐号ID，用于非服务窗自建应用场景下指定服务窗帐号。
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// 关注用户的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetFollowerAuthInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFollowerAuthInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFollowerAuthInfoRequest) SetAccountId(v string) *GetFollowerAuthInfoRequest {
+	s.AccountId = &v
+	return s
+}
+
+func (s *GetFollowerAuthInfoRequest) SetUserId(v string) *GetFollowerAuthInfoRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetFollowerAuthInfoResponseBody struct {
+	// 响应结果
+	Result *GetFollowerAuthInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetFollowerAuthInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFollowerAuthInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFollowerAuthInfoResponseBody) SetResult(v *GetFollowerAuthInfoResponseBodyResult) *GetFollowerAuthInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetFollowerAuthInfoResponseBodyResult struct {
+	// 授权详情
+	AuthInfo *GetFollowerAuthInfoResponseBodyResultAuthInfo `json:"authInfo,omitempty" xml:"authInfo,omitempty" type:"Struct"`
+}
+
+func (s GetFollowerAuthInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFollowerAuthInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetFollowerAuthInfoResponseBodyResult) SetAuthInfo(v *GetFollowerAuthInfoResponseBodyResultAuthInfo) *GetFollowerAuthInfoResponseBodyResult {
+	s.AuthInfo = v
+	return s
+}
+
+type GetFollowerAuthInfoResponseBodyResultAuthInfo struct {
+	// 用户主组织信息
+	// 需要用户授权给应用后返回此信息。
+	MainCorp *GetFollowerAuthInfoResponseBodyResultAuthInfoMainCorp `json:"mainCorp,omitempty" xml:"mainCorp,omitempty" type:"Struct"`
+	// 手机号码授权详情。
+	// 需要用户授权给应用后返回此信息。
+	Mobile *GetFollowerAuthInfoResponseBodyResultAuthInfoMobile `json:"mobile,omitempty" xml:"mobile,omitempty" type:"Struct"`
+}
+
+func (s GetFollowerAuthInfoResponseBodyResultAuthInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFollowerAuthInfoResponseBodyResultAuthInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetFollowerAuthInfoResponseBodyResultAuthInfo) SetMainCorp(v *GetFollowerAuthInfoResponseBodyResultAuthInfoMainCorp) *GetFollowerAuthInfoResponseBodyResultAuthInfo {
+	s.MainCorp = v
+	return s
+}
+
+func (s *GetFollowerAuthInfoResponseBodyResultAuthInfo) SetMobile(v *GetFollowerAuthInfoResponseBodyResultAuthInfoMobile) *GetFollowerAuthInfoResponseBodyResultAuthInfo {
+	s.Mobile = v
+	return s
+}
+
+type GetFollowerAuthInfoResponseBodyResultAuthInfoMainCorp struct {
+	// 是否授权主组织信息。
+	// 当且仅当此值为true时返回用户主组织信息。
+	Authorized *bool `json:"authorized,omitempty" xml:"authorized,omitempty"`
+	// 主组织名
+	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
+}
+
+func (s GetFollowerAuthInfoResponseBodyResultAuthInfoMainCorp) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFollowerAuthInfoResponseBodyResultAuthInfoMainCorp) GoString() string {
+	return s.String()
+}
+
+func (s *GetFollowerAuthInfoResponseBodyResultAuthInfoMainCorp) SetAuthorized(v bool) *GetFollowerAuthInfoResponseBodyResultAuthInfoMainCorp {
+	s.Authorized = &v
+	return s
+}
+
+func (s *GetFollowerAuthInfoResponseBodyResultAuthInfoMainCorp) SetCorpName(v string) *GetFollowerAuthInfoResponseBodyResultAuthInfoMainCorp {
+	s.CorpName = &v
+	return s
+}
+
+type GetFollowerAuthInfoResponseBodyResultAuthInfoMobile struct {
+	// 用户是否授权手机号码信息。
+	// 当且仅当此值为true时返回手机号码信息。
+	Authorized *bool `json:"authorized,omitempty" xml:"authorized,omitempty"`
+	// 手机号码
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// 地区码
+	StateCode *string `json:"stateCode,omitempty" xml:"stateCode,omitempty"`
+}
+
+func (s GetFollowerAuthInfoResponseBodyResultAuthInfoMobile) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFollowerAuthInfoResponseBodyResultAuthInfoMobile) GoString() string {
+	return s.String()
+}
+
+func (s *GetFollowerAuthInfoResponseBodyResultAuthInfoMobile) SetAuthorized(v bool) *GetFollowerAuthInfoResponseBodyResultAuthInfoMobile {
+	s.Authorized = &v
+	return s
+}
+
+func (s *GetFollowerAuthInfoResponseBodyResultAuthInfoMobile) SetMobile(v string) *GetFollowerAuthInfoResponseBodyResultAuthInfoMobile {
+	s.Mobile = &v
+	return s
+}
+
+func (s *GetFollowerAuthInfoResponseBodyResultAuthInfoMobile) SetStateCode(v string) *GetFollowerAuthInfoResponseBodyResultAuthInfoMobile {
+	s.StateCode = &v
+	return s
+}
+
+type GetFollowerAuthInfoResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetFollowerAuthInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetFollowerAuthInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFollowerAuthInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFollowerAuthInfoResponse) SetHeaders(v map[string]*string) *GetFollowerAuthInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFollowerAuthInfoResponse) SetBody(v *GetFollowerAuthInfoResponseBody) *GetFollowerAuthInfoResponse {
+	s.Body = v
+	return s
+}
 
 type GetFollowerInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
@@ -937,6 +1364,179 @@ func (s *SendInteractiveOTOMessageResponse) SetBody(v *SendInteractiveOTOMessage
 	return s
 }
 
+type SendTopBoxInteractiveOTOMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendTopBoxInteractiveOTOMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendTopBoxInteractiveOTOMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendTopBoxInteractiveOTOMessageHeaders) SetCommonHeaders(v map[string]*string) *SendTopBoxInteractiveOTOMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendTopBoxInteractiveOTOMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendTopBoxInteractiveOTOMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendTopBoxInteractiveOTOMessageRequest struct {
+	// 卡片信息
+	Detail *SendTopBoxInteractiveOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
+}
+
+func (s SendTopBoxInteractiveOTOMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendTopBoxInteractiveOTOMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendTopBoxInteractiveOTOMessageRequest) SetDetail(v *SendTopBoxInteractiveOTOMessageRequestDetail) *SendTopBoxInteractiveOTOMessageRequest {
+	s.Detail = v
+	return s
+}
+
+type SendTopBoxInteractiveOTOMessageRequestDetail struct {
+	// 卡片回调 URL 地址，不填则无回调
+	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+	// 唯一标识一张卡片的ID，卡片幂等ID
+	CardBizId *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
+	// 卡片数据
+	CardData *SendTopBoxInteractiveOTOMessageRequestDetailCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	// 卡片模板 ID
+	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+	// 失效时间，时间戳（毫秒），最长时间不超过 90 天
+	ExpiredTime *int64 `json:"expiredTime,omitempty" xml:"expiredTime,omitempty"`
+	// 接收人 userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 卡片用户差异化数据
+	UserIdPrivateDataMap map[string]*DetailUserIdPrivateDataMapValue `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
+}
+
+func (s SendTopBoxInteractiveOTOMessageRequestDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendTopBoxInteractiveOTOMessageRequestDetail) GoString() string {
+	return s.String()
+}
+
+func (s *SendTopBoxInteractiveOTOMessageRequestDetail) SetCallbackUrl(v string) *SendTopBoxInteractiveOTOMessageRequestDetail {
+	s.CallbackUrl = &v
+	return s
+}
+
+func (s *SendTopBoxInteractiveOTOMessageRequestDetail) SetCardBizId(v string) *SendTopBoxInteractiveOTOMessageRequestDetail {
+	s.CardBizId = &v
+	return s
+}
+
+func (s *SendTopBoxInteractiveOTOMessageRequestDetail) SetCardData(v *SendTopBoxInteractiveOTOMessageRequestDetailCardData) *SendTopBoxInteractiveOTOMessageRequestDetail {
+	s.CardData = v
+	return s
+}
+
+func (s *SendTopBoxInteractiveOTOMessageRequestDetail) SetCardTemplateId(v string) *SendTopBoxInteractiveOTOMessageRequestDetail {
+	s.CardTemplateId = &v
+	return s
+}
+
+func (s *SendTopBoxInteractiveOTOMessageRequestDetail) SetExpiredTime(v int64) *SendTopBoxInteractiveOTOMessageRequestDetail {
+	s.ExpiredTime = &v
+	return s
+}
+
+func (s *SendTopBoxInteractiveOTOMessageRequestDetail) SetUserId(v string) *SendTopBoxInteractiveOTOMessageRequestDetail {
+	s.UserId = &v
+	return s
+}
+
+func (s *SendTopBoxInteractiveOTOMessageRequestDetail) SetUserIdPrivateDataMap(v map[string]*DetailUserIdPrivateDataMapValue) *SendTopBoxInteractiveOTOMessageRequestDetail {
+	s.UserIdPrivateDataMap = v
+	return s
+}
+
+type SendTopBoxInteractiveOTOMessageRequestDetailCardData struct {
+	// 富媒体卡片数据
+	CardMediaIdParamMap map[string]interface{} `json:"cardMediaIdParamMap,omitempty" xml:"cardMediaIdParamMap,omitempty"`
+	// 普通文本卡片数据
+	CardParamMap map[string]interface{} `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
+}
+
+func (s SendTopBoxInteractiveOTOMessageRequestDetailCardData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendTopBoxInteractiveOTOMessageRequestDetailCardData) GoString() string {
+	return s.String()
+}
+
+func (s *SendTopBoxInteractiveOTOMessageRequestDetailCardData) SetCardMediaIdParamMap(v map[string]interface{}) *SendTopBoxInteractiveOTOMessageRequestDetailCardData {
+	s.CardMediaIdParamMap = v
+	return s
+}
+
+func (s *SendTopBoxInteractiveOTOMessageRequestDetailCardData) SetCardParamMap(v map[string]interface{}) *SendTopBoxInteractiveOTOMessageRequestDetailCardData {
+	s.CardParamMap = v
+	return s
+}
+
+type SendTopBoxInteractiveOTOMessageResponseBody struct {
+	// Id of the request
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SendTopBoxInteractiveOTOMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendTopBoxInteractiveOTOMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendTopBoxInteractiveOTOMessageResponseBody) SetRequestId(v string) *SendTopBoxInteractiveOTOMessageResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *SendTopBoxInteractiveOTOMessageResponseBody) SetResult(v bool) *SendTopBoxInteractiveOTOMessageResponseBody {
+	s.Result = &v
+	return s
+}
+
+type SendTopBoxInteractiveOTOMessageResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SendTopBoxInteractiveOTOMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendTopBoxInteractiveOTOMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendTopBoxInteractiveOTOMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendTopBoxInteractiveOTOMessageResponse) SetHeaders(v map[string]*string) *SendTopBoxInteractiveOTOMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendTopBoxInteractiveOTOMessageResponse) SetBody(v *SendTopBoxInteractiveOTOMessageResponseBody) *SendTopBoxInteractiveOTOMessageResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateInteractiveOTOMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1102,6 +1702,31 @@ func (s *UpdateInteractiveOTOMessageResponse) SetBody(v *UpdateInteractiveOTOMes
 	return s
 }
 
+type DetailUserIdPrivateDataMapValue struct {
+	// 卡片模板的文本内容参数。
+	CardParamMap map[string]interface{} `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
+	// 卡片模板的图片内容参数。
+	CardMediaIdParamMap map[string]interface{} `json:"cardMediaIdParamMap,omitempty" xml:"cardMediaIdParamMap,omitempty"`
+}
+
+func (s DetailUserIdPrivateDataMapValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DetailUserIdPrivateDataMapValue) GoString() string {
+	return s.String()
+}
+
+func (s *DetailUserIdPrivateDataMapValue) SetCardParamMap(v map[string]interface{}) *DetailUserIdPrivateDataMapValue {
+	s.CardParamMap = v
+	return s
+}
+
+func (s *DetailUserIdPrivateDataMapValue) SetCardMediaIdParamMap(v map[string]interface{}) *DetailUserIdPrivateDataMapValue {
+	s.CardMediaIdParamMap = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -1123,6 +1748,150 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) ApplyFollowerAuthInfo(request *ApplyFollowerAuthInfoRequest) (_result *ApplyFollowerAuthInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ApplyFollowerAuthInfoHeaders{}
+	_result = &ApplyFollowerAuthInfoResponse{}
+	_body, _err := client.ApplyFollowerAuthInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ApplyFollowerAuthInfoWithOptions(request *ApplyFollowerAuthInfoRequest, headers *ApplyFollowerAuthInfoHeaders, runtime *util.RuntimeOptions) (_result *ApplyFollowerAuthInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FieldScope)) {
+		body["fieldScope"] = request.FieldScope
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SessionId)) {
+		body["sessionId"] = request.SessionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ApplyFollowerAuthInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("ApplyFollowerAuthInfo"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/link/followers/authInfos/apply"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CloseTopBoxInteractiveOTOMessage(request *CloseTopBoxInteractiveOTOMessageRequest) (_result *CloseTopBoxInteractiveOTOMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CloseTopBoxInteractiveOTOMessageHeaders{}
+	_result = &CloseTopBoxInteractiveOTOMessageResponse{}
+	_body, _err := client.CloseTopBoxInteractiveOTOMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CloseTopBoxInteractiveOTOMessageWithOptions(request *CloseTopBoxInteractiveOTOMessageRequest, headers *CloseTopBoxInteractiveOTOMessageHeaders, runtime *util.RuntimeOptions) (_result *CloseTopBoxInteractiveOTOMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Detail))) {
+		body["detail"] = request.Detail
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CloseTopBoxInteractiveOTOMessageResponse{}
+	_body, _err := client.DoROARequest(tea.String("CloseTopBoxInteractiveOTOMessage"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/link/oToMessages/topBoxes/close"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetFollowerAuthInfo(request *GetFollowerAuthInfoRequest) (_result *GetFollowerAuthInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFollowerAuthInfoHeaders{}
+	_result = &GetFollowerAuthInfoResponse{}
+	_body, _err := client.GetFollowerAuthInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetFollowerAuthInfoWithOptions(request *GetFollowerAuthInfoRequest, headers *GetFollowerAuthInfoHeaders, runtime *util.RuntimeOptions) (_result *GetFollowerAuthInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccountId)) {
+		query["accountId"] = request.AccountId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetFollowerAuthInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetFollowerAuthInfo"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/link/followers/authInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) GetFollowerInfo(request *GetFollowerInfoRequest) (_result *GetFollowerInfoResponse, _err error) {
@@ -1358,6 +2127,50 @@ func (client *Client) SendInteractiveOTOMessageWithOptions(request *SendInteract
 	}
 	_result = &SendInteractiveOTOMessageResponse{}
 	_body, _err := client.DoROARequest(tea.String("SendInteractiveOTOMessage"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/link/oToMessages/interactiveMessages"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendTopBoxInteractiveOTOMessage(request *SendTopBoxInteractiveOTOMessageRequest) (_result *SendTopBoxInteractiveOTOMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendTopBoxInteractiveOTOMessageHeaders{}
+	_result = &SendTopBoxInteractiveOTOMessageResponse{}
+	_body, _err := client.SendTopBoxInteractiveOTOMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendTopBoxInteractiveOTOMessageWithOptions(request *SendTopBoxInteractiveOTOMessageRequest, headers *SendTopBoxInteractiveOTOMessageHeaders, runtime *util.RuntimeOptions) (_result *SendTopBoxInteractiveOTOMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Detail))) {
+		body["detail"] = request.Detail
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendTopBoxInteractiveOTOMessageResponse{}
+	_body, _err := client.DoROARequest(tea.String("SendTopBoxInteractiveOTOMessage"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/link/oToMessages/topBoxes/send"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

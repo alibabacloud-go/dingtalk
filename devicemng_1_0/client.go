@@ -7,7 +7,7 @@ package devicemng_1_0
 import (
 	openapi "github.com/alibabacloud-go/darabonba-openapi/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
-	util "github.com/alibabacloud-go/tea-utils/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -2545,6 +2545,10 @@ type SendCardRequest struct {
 	DeviceUuid *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
 	// 群id，群的唯一标识
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 卡片是否群内部分人员可见
+	PartVisible *bool `json:"partVisible,omitempty" xml:"partVisible,omitempty"`
+	// 群内指定人员可见
+	Receivers []*string `json:"receivers,omitempty" xml:"receivers,omitempty" type:"Repeated"`
 	// 卡片模板唯一标识，开放平台获取
 	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 	// 是否为吊顶卡片
@@ -2583,6 +2587,16 @@ func (s *SendCardRequest) SetDeviceUuid(v string) *SendCardRequest {
 
 func (s *SendCardRequest) SetOpenConversationId(v string) *SendCardRequest {
 	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SendCardRequest) SetPartVisible(v bool) *SendCardRequest {
+	s.PartVisible = &v
+	return s
+}
+
+func (s *SendCardRequest) SetReceivers(v []*string) *SendCardRequest {
+	s.Receivers = v
 	return s
 }
 
@@ -2888,6 +2902,8 @@ type UpdateCardRequest struct {
 	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
 	// 卡片变量赋值，json结构
 	CardData *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	// 卡片更新群系统通知
+	Tips *UpdateCardRequestTips `json:"tips,omitempty" xml:"tips,omitempty" type:"Struct"`
 }
 
 func (s UpdateCardRequest) String() string {
@@ -2908,9 +2924,45 @@ func (s *UpdateCardRequest) SetCardData(v string) *UpdateCardRequest {
 	return s
 }
 
+func (s *UpdateCardRequest) SetTips(v *UpdateCardRequestTips) *UpdateCardRequest {
+	s.Tips = v
+	return s
+}
+
+type UpdateCardRequestTips struct {
+	// 系统通知的群组
+	Cids *string `json:"cids,omitempty" xml:"cids,omitempty"`
+	// 系统通知内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 发送人
+	Sender *string `json:"sender,omitempty" xml:"sender,omitempty"`
+}
+
+func (s UpdateCardRequestTips) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCardRequestTips) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCardRequestTips) SetCids(v string) *UpdateCardRequestTips {
+	s.Cids = &v
+	return s
+}
+
+func (s *UpdateCardRequestTips) SetContent(v string) *UpdateCardRequestTips {
+	s.Content = &v
+	return s
+}
+
+func (s *UpdateCardRequestTips) SetSender(v string) *UpdateCardRequestTips {
+	s.Sender = &v
+	return s
+}
+
 type UpdateCardResponseBody struct {
-	// 响应数据
-	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 	// 是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
@@ -2923,7 +2975,7 @@ func (s UpdateCardResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *UpdateCardResponseBody) SetResult(v string) *UpdateCardResponseBody {
+func (s *UpdateCardResponseBody) SetResult(v bool) *UpdateCardResponseBody {
 	s.Result = &v
 	return s
 }
@@ -4125,6 +4177,14 @@ func (client *Client) SendCardWithOptions(request *SendCardRequest, headers *Sen
 		body["openConversationId"] = request.OpenConversationId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.PartVisible)) {
+		body["partVisible"] = request.PartVisible
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Receivers)) {
+		body["receivers"] = request.Receivers
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
 		body["templateId"] = request.TemplateId
 	}
@@ -4291,6 +4351,10 @@ func (client *Client) UpdateCardWithOptions(request *UpdateCardRequest, headers 
 
 	if !tea.BoolValue(util.IsUnset(request.CardData)) {
 		body["cardData"] = request.CardData
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Tips))) {
+		body["tips"] = request.Tips
 	}
 
 	realHeaders := make(map[string]*string)

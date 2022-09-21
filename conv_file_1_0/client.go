@@ -7,7 +7,7 @@ package conv_file_1_0
 import (
 	openapi "github.com/alibabacloud-go/darabonba-openapi/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
-	util "github.com/alibabacloud-go/tea-utils/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 

@@ -7,7 +7,7 @@ package exclusive_1_0
 import (
 	openapi "github.com/alibabacloud-go/darabonba-openapi/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
-	util "github.com/alibabacloud-go/tea-utils/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -2610,7 +2610,7 @@ type GetConfBaseInfoByLogicalIdResponseBody struct {
 	// 会议创建用户昵称
 	Nickname *string `json:"nickname,omitempty" xml:"nickname,omitempty"`
 	// 开始时间
-	StartTime *float32 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
 	// 会议标题
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 	// 会议创建用户id
@@ -2640,7 +2640,7 @@ func (s *GetConfBaseInfoByLogicalIdResponseBody) SetNickname(v string) *GetConfB
 	return s
 }
 
-func (s *GetConfBaseInfoByLogicalIdResponseBody) SetStartTime(v float32) *GetConfBaseInfoByLogicalIdResponseBody {
+func (s *GetConfBaseInfoByLogicalIdResponseBody) SetStartTime(v int64) *GetConfBaseInfoByLogicalIdResponseBody {
 	s.StartTime = &v
 	return s
 }

@@ -7,7 +7,7 @@ package doc_2_0
 import (
 	openapi "github.com/alibabacloud-go/darabonba-openapi/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
-	util "github.com/alibabacloud-go/tea-utils/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -560,6 +560,8 @@ type SpaceModel struct {
 	Owner *SpaceModelOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
 	// 知识库中最近编辑的三篇文档。
 	RecentList []*DentryModel `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
+	// 知识库类型。
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
 	// 知识库访问url。
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 	// 访问者对当前知识库的权限等信息。
@@ -606,6 +608,11 @@ func (s *SpaceModel) SetOwner(v *SpaceModelOwner) *SpaceModel {
 
 func (s *SpaceModel) SetRecentList(v []*DentryModel) *SpaceModel {
 	s.RecentList = v
+	return s
+}
+
+func (s *SpaceModel) SetType(v int32) *SpaceModel {
+	s.Type = &v
 	return s
 }
 
@@ -714,6 +721,8 @@ type SpaceVO struct {
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 知识库所有者。
 	Owner *SpaceVOOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	// 知识库类型。
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
 	// 知识库访问url。
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 	// 访问者对当前知识库的权限等信息。
@@ -755,6 +764,11 @@ func (s *SpaceVO) SetName(v string) *SpaceVO {
 
 func (s *SpaceVO) SetOwner(v *SpaceVOOwner) *SpaceVO {
 	s.Owner = v
+	return s
+}
+
+func (s *SpaceVO) SetType(v int32) *SpaceVO {
+	s.Type = &v
 	return s
 }
 
@@ -3182,6 +3196,186 @@ func (s *QueryDentryResponse) SetBody(v *DentryVO) *QueryDentryResponse {
 	return s
 }
 
+type QueryItemByUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryItemByUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryItemByUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryItemByUrlHeaders) SetCommonHeaders(v map[string]*string) *QueryItemByUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryItemByUrlHeaders) SetXAcsDingtalkAccessToken(v string) *QueryItemByUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryItemByUrlRequest struct {
+	// 操作用户unionId。
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// 链接url。
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s QueryItemByUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryItemByUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryItemByUrlRequest) SetOperatorId(v string) *QueryItemByUrlRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *QueryItemByUrlRequest) SetUrl(v string) *QueryItemByUrlRequest {
+	s.Url = &v
+	return s
+}
+
+type QueryItemByUrlResponseBody struct {
+	// 业务类型。可选值：dingpan-云盘中的文档；mainsite-知识库中的文档。
+	BizType *string      `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Dentry  *DentryModel `json:"dentry,omitempty" xml:"dentry,omitempty"`
+	// 资源类型。可选值有：space-知识库；file-文档；folder-文件夹。
+	ResourceType *string `json:"resourceType,omitempty" xml:"resourceType,omitempty"`
+	// 当resourceType为space时，这里会返回知识库信息。
+	Space *QueryItemByUrlResponseBodySpace `json:"space,omitempty" xml:"space,omitempty" type:"Struct"`
+}
+
+func (s QueryItemByUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryItemByUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryItemByUrlResponseBody) SetBizType(v string) *QueryItemByUrlResponseBody {
+	s.BizType = &v
+	return s
+}
+
+func (s *QueryItemByUrlResponseBody) SetDentry(v *DentryModel) *QueryItemByUrlResponseBody {
+	s.Dentry = v
+	return s
+}
+
+func (s *QueryItemByUrlResponseBody) SetResourceType(v string) *QueryItemByUrlResponseBody {
+	s.ResourceType = &v
+	return s
+}
+
+func (s *QueryItemByUrlResponseBody) SetSpace(v *QueryItemByUrlResponseBodySpace) *QueryItemByUrlResponseBody {
+	s.Space = v
+	return s
+}
+
+type QueryItemByUrlResponseBodySpace struct {
+	// 知识库简介。
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 知识库id。
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 知识库名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 如果type=2，会返回其所有者。
+	Owner *QueryItemByUrlResponseBodySpaceOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	// 知识库类型。1-知识库；2-我的文档。
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s QueryItemByUrlResponseBodySpace) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryItemByUrlResponseBodySpace) GoString() string {
+	return s.String()
+}
+
+func (s *QueryItemByUrlResponseBodySpace) SetDescription(v string) *QueryItemByUrlResponseBodySpace {
+	s.Description = &v
+	return s
+}
+
+func (s *QueryItemByUrlResponseBodySpace) SetId(v string) *QueryItemByUrlResponseBodySpace {
+	s.Id = &v
+	return s
+}
+
+func (s *QueryItemByUrlResponseBodySpace) SetName(v string) *QueryItemByUrlResponseBodySpace {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryItemByUrlResponseBodySpace) SetOwner(v *QueryItemByUrlResponseBodySpaceOwner) *QueryItemByUrlResponseBodySpace {
+	s.Owner = v
+	return s
+}
+
+func (s *QueryItemByUrlResponseBodySpace) SetType(v int32) *QueryItemByUrlResponseBodySpace {
+	s.Type = &v
+	return s
+}
+
+type QueryItemByUrlResponseBodySpaceOwner struct {
+	// 知识库所有者名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 知识库所有者的unionId。
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryItemByUrlResponseBodySpaceOwner) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryItemByUrlResponseBodySpaceOwner) GoString() string {
+	return s.String()
+}
+
+func (s *QueryItemByUrlResponseBodySpaceOwner) SetName(v string) *QueryItemByUrlResponseBodySpaceOwner {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryItemByUrlResponseBodySpaceOwner) SetUnionId(v string) *QueryItemByUrlResponseBodySpaceOwner {
+	s.UnionId = &v
+	return s
+}
+
+type QueryItemByUrlResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryItemByUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryItemByUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryItemByUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryItemByUrlResponse) SetHeaders(v map[string]*string) *QueryItemByUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryItemByUrlResponse) SetBody(v *QueryItemByUrlResponseBody) *QueryItemByUrlResponse {
+	s.Body = v
+	return s
+}
+
 type QueryMineSpaceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5597,6 +5791,54 @@ func (client *Client) QueryDentryWithOptions(spaceId *string, dentryId *string, 
 	}
 	_result = &QueryDentryResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryDentry"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)+"/dentries/"+tea.StringValue(dentryId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryItemByUrl(request *QueryItemByUrlRequest) (_result *QueryItemByUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryItemByUrlHeaders{}
+	_result = &QueryItemByUrlResponse{}
+	_body, _err := client.QueryItemByUrlWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryItemByUrlWithOptions(request *QueryItemByUrlRequest, headers *QueryItemByUrlHeaders, runtime *util.RuntimeOptions) (_result *QueryItemByUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Url)) {
+		query["url"] = request.Url
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryItemByUrlResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryItemByUrl"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/items"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

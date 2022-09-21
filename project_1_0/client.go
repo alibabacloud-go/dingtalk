@@ -7,7 +7,7 @@ package project_1_0
 import (
 	openapi "github.com/alibabacloud-go/darabonba-openapi/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
-	util "github.com/alibabacloud-go/tea-utils/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -496,6 +496,197 @@ func (s *CreateOrganizationTaskResponse) SetHeaders(v map[string]*string) *Creat
 }
 
 func (s *CreateOrganizationTaskResponse) SetBody(v *CreateOrganizationTaskResponseBody) *CreateOrganizationTaskResponse {
+	s.Body = v
+	return s
+}
+
+type CreatePlanTimeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreatePlanTimeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePlanTimeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePlanTimeHeaders) SetCommonHeaders(v map[string]*string) *CreatePlanTimeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreatePlanTimeHeaders) SetXAcsDingtalkAccessToken(v string) *CreatePlanTimeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreatePlanTimeRequest struct {
+	// 结束时间
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// 是否包含假期
+	IncludesHolidays *bool `json:"includesHolidays,omitempty" xml:"includesHolidays,omitempty"`
+	// 是否连续
+	IsDuration *bool `json:"isDuration,omitempty" xml:"isDuration,omitempty"`
+	// 对象id，比如任务id
+	ObjectId *string `json:"objectId,omitempty" xml:"objectId,omitempty"`
+	// 对象类型，默认为task
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	// 操作者用户id
+	OptUser *string `json:"optUser,omitempty" xml:"optUser,omitempty"`
+	// 计划工时数（单位：毫秒，1小时即为 3600000）
+	PlanTime *int64 `json:"planTime,omitempty" xml:"planTime,omitempty"`
+	// 开始时间
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 工时提交人员用户id
+	SubmitterId *string `json:"submitterId,omitempty" xml:"submitterId,omitempty"`
+	TenantType  *string `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
+}
+
+func (s CreatePlanTimeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePlanTimeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePlanTimeRequest) SetEndDate(v string) *CreatePlanTimeRequest {
+	s.EndDate = &v
+	return s
+}
+
+func (s *CreatePlanTimeRequest) SetIncludesHolidays(v bool) *CreatePlanTimeRequest {
+	s.IncludesHolidays = &v
+	return s
+}
+
+func (s *CreatePlanTimeRequest) SetIsDuration(v bool) *CreatePlanTimeRequest {
+	s.IsDuration = &v
+	return s
+}
+
+func (s *CreatePlanTimeRequest) SetObjectId(v string) *CreatePlanTimeRequest {
+	s.ObjectId = &v
+	return s
+}
+
+func (s *CreatePlanTimeRequest) SetObjectType(v string) *CreatePlanTimeRequest {
+	s.ObjectType = &v
+	return s
+}
+
+func (s *CreatePlanTimeRequest) SetOptUser(v string) *CreatePlanTimeRequest {
+	s.OptUser = &v
+	return s
+}
+
+func (s *CreatePlanTimeRequest) SetPlanTime(v int64) *CreatePlanTimeRequest {
+	s.PlanTime = &v
+	return s
+}
+
+func (s *CreatePlanTimeRequest) SetStartDate(v string) *CreatePlanTimeRequest {
+	s.StartDate = &v
+	return s
+}
+
+func (s *CreatePlanTimeRequest) SetSubmitterId(v string) *CreatePlanTimeRequest {
+	s.SubmitterId = &v
+	return s
+}
+
+func (s *CreatePlanTimeRequest) SetTenantType(v string) *CreatePlanTimeRequest {
+	s.TenantType = &v
+	return s
+}
+
+type CreatePlanTimeResponseBody struct {
+	Result *CreatePlanTimeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s CreatePlanTimeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePlanTimeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePlanTimeResponseBody) SetResult(v *CreatePlanTimeResponseBodyResult) *CreatePlanTimeResponseBody {
+	s.Result = v
+	return s
+}
+
+type CreatePlanTimeResponseBodyResult struct {
+	Body []*CreatePlanTimeResponseBodyResultBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// 执行结果描述
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	Ok      *bool   `json:"ok,omitempty" xml:"ok,omitempty"`
+}
+
+func (s CreatePlanTimeResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePlanTimeResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePlanTimeResponseBodyResult) SetBody(v []*CreatePlanTimeResponseBodyResultBody) *CreatePlanTimeResponseBodyResult {
+	s.Body = v
+	return s
+}
+
+func (s *CreatePlanTimeResponseBodyResult) SetMessage(v string) *CreatePlanTimeResponseBodyResult {
+	s.Message = &v
+	return s
+}
+
+func (s *CreatePlanTimeResponseBodyResult) SetOk(v bool) *CreatePlanTimeResponseBodyResult {
+	s.Ok = &v
+	return s
+}
+
+type CreatePlanTimeResponseBodyResultBody struct {
+	// 工时关联的数据id
+	ObjectId *string `json:"objectId,omitempty" xml:"objectId,omitempty"`
+}
+
+func (s CreatePlanTimeResponseBodyResultBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePlanTimeResponseBodyResultBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePlanTimeResponseBodyResultBody) SetObjectId(v string) *CreatePlanTimeResponseBodyResultBody {
+	s.ObjectId = &v
+	return s
+}
+
+type CreatePlanTimeResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreatePlanTimeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreatePlanTimeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePlanTimeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePlanTimeResponse) SetHeaders(v map[string]*string) *CreatePlanTimeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreatePlanTimeResponse) SetBody(v *CreatePlanTimeResponseBody) *CreatePlanTimeResponse {
 	s.Body = v
 	return s
 }
@@ -1082,6 +1273,197 @@ func (s *CreateTaskObjectLinkResponse) SetHeaders(v map[string]*string) *CreateT
 }
 
 func (s *CreateTaskObjectLinkResponse) SetBody(v *CreateTaskObjectLinkResponseBody) *CreateTaskObjectLinkResponse {
+	s.Body = v
+	return s
+}
+
+type CreateWorkTimeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateWorkTimeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkTimeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkTimeHeaders) SetCommonHeaders(v map[string]*string) *CreateWorkTimeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateWorkTimeHeaders) SetXAcsDingtalkAccessToken(v string) *CreateWorkTimeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateWorkTimeRequest struct {
+	// 结束时间
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// 是否包含节假日
+	IncludesHolidays *bool `json:"includesHolidays,omitempty" xml:"includesHolidays,omitempty"`
+	// 是否连续
+	IsDuration *bool `json:"isDuration,omitempty" xml:"isDuration,omitempty"`
+	// 对象 ID，比如 任务 ID
+	ObjectId *string `json:"objectId,omitempty" xml:"objectId,omitempty"`
+	// 对象类型，默认为 task
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	// 操作者用户id
+	OptUser *string `json:"optUser,omitempty" xml:"optUser,omitempty"`
+	// 开始时间
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 工时提交人员用户id
+	SubmitterId *string `json:"submitterId,omitempty" xml:"submitterId,omitempty"`
+	// 实际工时数（单位毫秒，1小时即为3600000）
+	WorkTime   *int64  `json:"workTime,omitempty" xml:"workTime,omitempty"`
+	TenantType *string `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
+}
+
+func (s CreateWorkTimeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkTimeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkTimeRequest) SetEndDate(v string) *CreateWorkTimeRequest {
+	s.EndDate = &v
+	return s
+}
+
+func (s *CreateWorkTimeRequest) SetIncludesHolidays(v bool) *CreateWorkTimeRequest {
+	s.IncludesHolidays = &v
+	return s
+}
+
+func (s *CreateWorkTimeRequest) SetIsDuration(v bool) *CreateWorkTimeRequest {
+	s.IsDuration = &v
+	return s
+}
+
+func (s *CreateWorkTimeRequest) SetObjectId(v string) *CreateWorkTimeRequest {
+	s.ObjectId = &v
+	return s
+}
+
+func (s *CreateWorkTimeRequest) SetObjectType(v string) *CreateWorkTimeRequest {
+	s.ObjectType = &v
+	return s
+}
+
+func (s *CreateWorkTimeRequest) SetOptUser(v string) *CreateWorkTimeRequest {
+	s.OptUser = &v
+	return s
+}
+
+func (s *CreateWorkTimeRequest) SetStartDate(v string) *CreateWorkTimeRequest {
+	s.StartDate = &v
+	return s
+}
+
+func (s *CreateWorkTimeRequest) SetSubmitterId(v string) *CreateWorkTimeRequest {
+	s.SubmitterId = &v
+	return s
+}
+
+func (s *CreateWorkTimeRequest) SetWorkTime(v int64) *CreateWorkTimeRequest {
+	s.WorkTime = &v
+	return s
+}
+
+func (s *CreateWorkTimeRequest) SetTenantType(v string) *CreateWorkTimeRequest {
+	s.TenantType = &v
+	return s
+}
+
+type CreateWorkTimeResponseBody struct {
+	Result *CreateWorkTimeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s CreateWorkTimeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkTimeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkTimeResponseBody) SetResult(v *CreateWorkTimeResponseBodyResult) *CreateWorkTimeResponseBody {
+	s.Result = v
+	return s
+}
+
+type CreateWorkTimeResponseBodyResult struct {
+	Body []*CreateWorkTimeResponseBodyResultBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// 执行结果描述
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	Ok      *bool   `json:"ok,omitempty" xml:"ok,omitempty"`
+}
+
+func (s CreateWorkTimeResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkTimeResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkTimeResponseBodyResult) SetBody(v []*CreateWorkTimeResponseBodyResultBody) *CreateWorkTimeResponseBodyResult {
+	s.Body = v
+	return s
+}
+
+func (s *CreateWorkTimeResponseBodyResult) SetMessage(v string) *CreateWorkTimeResponseBodyResult {
+	s.Message = &v
+	return s
+}
+
+func (s *CreateWorkTimeResponseBodyResult) SetOk(v bool) *CreateWorkTimeResponseBodyResult {
+	s.Ok = &v
+	return s
+}
+
+type CreateWorkTimeResponseBodyResultBody struct {
+	// 工时关联的数据 ID
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s CreateWorkTimeResponseBodyResultBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkTimeResponseBodyResultBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkTimeResponseBodyResultBody) SetTaskId(v string) *CreateWorkTimeResponseBodyResultBody {
+	s.TaskId = &v
+	return s
+}
+
+type CreateWorkTimeResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateWorkTimeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateWorkTimeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateWorkTimeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateWorkTimeResponse) SetHeaders(v map[string]*string) *CreateWorkTimeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateWorkTimeResponse) SetBody(v *CreateWorkTimeResponseBody) *CreateWorkTimeResponse {
 	s.Body = v
 	return s
 }
@@ -4031,6 +4413,89 @@ func (client *Client) CreateOrganizationTaskWithOptions(userId *string, request 
 	return _result, _err
 }
 
+func (client *Client) CreatePlanTime(userId *string, request *CreatePlanTimeRequest) (_result *CreatePlanTimeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreatePlanTimeHeaders{}
+	_result = &CreatePlanTimeResponse{}
+	_body, _err := client.CreatePlanTimeWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreatePlanTimeWithOptions(userId *string, request *CreatePlanTimeRequest, headers *CreatePlanTimeHeaders, runtime *util.RuntimeOptions) (_result *CreatePlanTimeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TenantType)) {
+		query["tenantType"] = request.TenantType
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndDate)) {
+		body["endDate"] = request.EndDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IncludesHolidays)) {
+		body["includesHolidays"] = request.IncludesHolidays
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsDuration)) {
+		body["isDuration"] = request.IsDuration
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectId)) {
+		body["objectId"] = request.ObjectId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectType)) {
+		body["objectType"] = request.ObjectType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OptUser)) {
+		body["optUser"] = request.OptUser
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PlanTime)) {
+		body["planTime"] = request.PlanTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartDate)) {
+		body["startDate"] = request.StartDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubmitterId)) {
+		body["submitterId"] = request.SubmitterId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreatePlanTimeResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreatePlanTime"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/planTimes"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateProjectByTemplate(userId *string, request *CreateProjectByTemplateRequest) (_result *CreateProjectByTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateProjectByTemplateHeaders{}
@@ -4188,6 +4653,89 @@ func (client *Client) CreateTaskObjectLinkWithOptions(userId *string, taskId *st
 	}
 	_result = &CreateTaskObjectLinkResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateTaskObjectLink"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/objectLinks"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateWorkTime(userId *string, request *CreateWorkTimeRequest) (_result *CreateWorkTimeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateWorkTimeHeaders{}
+	_result = &CreateWorkTimeResponse{}
+	_body, _err := client.CreateWorkTimeWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateWorkTimeWithOptions(userId *string, request *CreateWorkTimeRequest, headers *CreateWorkTimeHeaders, runtime *util.RuntimeOptions) (_result *CreateWorkTimeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TenantType)) {
+		query["tenantType"] = request.TenantType
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndDate)) {
+		body["endDate"] = request.EndDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IncludesHolidays)) {
+		body["includesHolidays"] = request.IncludesHolidays
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsDuration)) {
+		body["isDuration"] = request.IsDuration
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectId)) {
+		body["objectId"] = request.ObjectId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectType)) {
+		body["objectType"] = request.ObjectType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OptUser)) {
+		body["optUser"] = request.OptUser
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartDate)) {
+		body["startDate"] = request.StartDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubmitterId)) {
+		body["submitterId"] = request.SubmitterId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WorkTime)) {
+		body["workTime"] = request.WorkTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateWorkTimeResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateWorkTime"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/workTimes"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

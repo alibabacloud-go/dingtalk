@@ -7,7 +7,7 @@ package service_group_1_0
 import (
 	openapi "github.com/alibabacloud-go/darabonba-openapi/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
-	util "github.com/alibabacloud-go/tea-utils/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -6435,6 +6435,169 @@ func (s *QueryActiveUsersResponse) SetHeaders(v map[string]*string) *QueryActive
 }
 
 func (s *QueryActiveUsersResponse) SetBody(v *QueryActiveUsersResponseBody) *QueryActiveUsersResponse {
+	s.Body = v
+	return s
+}
+
+type QueryCrmGroupContactHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCrmGroupContactHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCrmGroupContactHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCrmGroupContactHeaders) SetCommonHeaders(v map[string]*string) *QueryCrmGroupContactHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCrmGroupContactHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCrmGroupContactHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCrmGroupContactRequest struct {
+	// 条数
+	MinResult *int64 `json:"minResult,omitempty" xml:"minResult,omitempty"`
+	// 游标
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 群ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// 检索条件
+	SearchFields *string `json:"searchFields,omitempty" xml:"searchFields,omitempty"`
+}
+
+func (s QueryCrmGroupContactRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCrmGroupContactRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCrmGroupContactRequest) SetMinResult(v int64) *QueryCrmGroupContactRequest {
+	s.MinResult = &v
+	return s
+}
+
+func (s *QueryCrmGroupContactRequest) SetNextToken(v string) *QueryCrmGroupContactRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryCrmGroupContactRequest) SetOpenConversationId(v string) *QueryCrmGroupContactRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QueryCrmGroupContactRequest) SetOpenTeamId(v string) *QueryCrmGroupContactRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+func (s *QueryCrmGroupContactRequest) SetSearchFields(v string) *QueryCrmGroupContactRequest {
+	s.SearchFields = &v
+	return s
+}
+
+type QueryCrmGroupContactResponseBody struct {
+	// 游标
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 开放会话ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 群成员数据列表
+	Records []*QueryCrmGroupContactResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+}
+
+func (s QueryCrmGroupContactResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCrmGroupContactResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCrmGroupContactResponseBody) SetNextToken(v string) *QueryCrmGroupContactResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryCrmGroupContactResponseBody) SetOpenConversationId(v string) *QueryCrmGroupContactResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QueryCrmGroupContactResponseBody) SetRecords(v []*QueryCrmGroupContactResponseBodyRecords) *QueryCrmGroupContactResponseBody {
+	s.Records = v
+	return s
+}
+
+type QueryCrmGroupContactResponseBodyRecords struct {
+	// 联系人画像数据
+	ContactData *string `json:"contactData,omitempty" xml:"contactData,omitempty"`
+	// 成员unionId
+	MemberUnionId *string `json:"memberUnionId,omitempty" xml:"memberUnionId,omitempty"`
+	// 成员昵称
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// 成员ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryCrmGroupContactResponseBodyRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCrmGroupContactResponseBodyRecords) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCrmGroupContactResponseBodyRecords) SetContactData(v string) *QueryCrmGroupContactResponseBodyRecords {
+	s.ContactData = &v
+	return s
+}
+
+func (s *QueryCrmGroupContactResponseBodyRecords) SetMemberUnionId(v string) *QueryCrmGroupContactResponseBodyRecords {
+	s.MemberUnionId = &v
+	return s
+}
+
+func (s *QueryCrmGroupContactResponseBodyRecords) SetNickName(v string) *QueryCrmGroupContactResponseBodyRecords {
+	s.NickName = &v
+	return s
+}
+
+func (s *QueryCrmGroupContactResponseBodyRecords) SetUserId(v string) *QueryCrmGroupContactResponseBodyRecords {
+	s.UserId = &v
+	return s
+}
+
+type QueryCrmGroupContactResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryCrmGroupContactResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryCrmGroupContactResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCrmGroupContactResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCrmGroupContactResponse) SetHeaders(v map[string]*string) *QueryCrmGroupContactResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCrmGroupContactResponse) SetBody(v *QueryCrmGroupContactResponseBody) *QueryCrmGroupContactResponse {
 	s.Body = v
 	return s
 }
@@ -13604,6 +13767,66 @@ func (client *Client) QueryActiveUsersWithOptions(request *QueryActiveUsersReque
 	}
 	_result = &QueryActiveUsersResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryActiveUsers"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/queryActiveUsers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryCrmGroupContact(request *QueryCrmGroupContactRequest) (_result *QueryCrmGroupContactResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCrmGroupContactHeaders{}
+	_result = &QueryCrmGroupContactResponse{}
+	_body, _err := client.QueryCrmGroupContactWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryCrmGroupContactWithOptions(request *QueryCrmGroupContactRequest, headers *QueryCrmGroupContactHeaders, runtime *util.RuntimeOptions) (_result *QueryCrmGroupContactResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MinResult)) {
+		body["minResult"] = request.MinResult
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchFields)) {
+		body["searchFields"] = request.SearchFields
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryCrmGroupContactResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryCrmGroupContact"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/contacts/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
