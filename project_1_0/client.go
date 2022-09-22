@@ -526,6 +526,8 @@ func (s *CreatePlanTimeHeaders) SetXAcsDingtalkAccessToken(v string) *CreatePlan
 type CreatePlanTimeRequest struct {
 	// 结束时间
 	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// 执行者userid
+	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
 	// 是否包含假期
 	IncludesHolidays *bool `json:"includesHolidays,omitempty" xml:"includesHolidays,omitempty"`
 	// 是否连续
@@ -534,15 +536,14 @@ type CreatePlanTimeRequest struct {
 	ObjectId *string `json:"objectId,omitempty" xml:"objectId,omitempty"`
 	// 对象类型，默认为task
 	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
-	// 操作者用户id
-	OptUser *string `json:"optUser,omitempty" xml:"optUser,omitempty"`
 	// 计划工时数（单位：毫秒，1小时即为 3600000）
 	PlanTime *int64 `json:"planTime,omitempty" xml:"planTime,omitempty"`
 	// 开始时间
 	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 工时提交人员用户id
+	// 工时所属人员userid
 	SubmitterId *string `json:"submitterId,omitempty" xml:"submitterId,omitempty"`
-	TenantType  *string `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
+	// 接口校验类型，当前默认organization
+	TenantType *string `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
 }
 
 func (s CreatePlanTimeRequest) String() string {
@@ -555,6 +556,11 @@ func (s CreatePlanTimeRequest) GoString() string {
 
 func (s *CreatePlanTimeRequest) SetEndDate(v string) *CreatePlanTimeRequest {
 	s.EndDate = &v
+	return s
+}
+
+func (s *CreatePlanTimeRequest) SetExecutorId(v string) *CreatePlanTimeRequest {
+	s.ExecutorId = &v
 	return s
 }
 
@@ -575,11 +581,6 @@ func (s *CreatePlanTimeRequest) SetObjectId(v string) *CreatePlanTimeRequest {
 
 func (s *CreatePlanTimeRequest) SetObjectType(v string) *CreatePlanTimeRequest {
 	s.ObjectType = &v
-	return s
-}
-
-func (s *CreatePlanTimeRequest) SetOptUser(v string) *CreatePlanTimeRequest {
-	s.OptUser = &v
 	return s
 }
 
@@ -1303,6 +1304,8 @@ func (s *CreateWorkTimeHeaders) SetXAcsDingtalkAccessToken(v string) *CreateWork
 type CreateWorkTimeRequest struct {
 	// 结束时间
 	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// 执行者userid
+	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
 	// 是否包含节假日
 	IncludesHolidays *bool `json:"includesHolidays,omitempty" xml:"includesHolidays,omitempty"`
 	// 是否连续
@@ -1311,14 +1314,13 @@ type CreateWorkTimeRequest struct {
 	ObjectId *string `json:"objectId,omitempty" xml:"objectId,omitempty"`
 	// 对象类型，默认为 task
 	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
-	// 操作者用户id
-	OptUser *string `json:"optUser,omitempty" xml:"optUser,omitempty"`
 	// 开始时间
 	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	// 工时提交人员用户id
+	// 工时所属人员userid
 	SubmitterId *string `json:"submitterId,omitempty" xml:"submitterId,omitempty"`
 	// 实际工时数（单位毫秒，1小时即为3600000）
-	WorkTime   *int64  `json:"workTime,omitempty" xml:"workTime,omitempty"`
+	WorkTime *int64 `json:"workTime,omitempty" xml:"workTime,omitempty"`
+	// 接口校验类型，当前默认organization
 	TenantType *string `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
 }
 
@@ -1332,6 +1334,11 @@ func (s CreateWorkTimeRequest) GoString() string {
 
 func (s *CreateWorkTimeRequest) SetEndDate(v string) *CreateWorkTimeRequest {
 	s.EndDate = &v
+	return s
+}
+
+func (s *CreateWorkTimeRequest) SetExecutorId(v string) *CreateWorkTimeRequest {
+	s.ExecutorId = &v
 	return s
 }
 
@@ -1352,11 +1359,6 @@ func (s *CreateWorkTimeRequest) SetObjectId(v string) *CreateWorkTimeRequest {
 
 func (s *CreateWorkTimeRequest) SetObjectType(v string) *CreateWorkTimeRequest {
 	s.ObjectType = &v
-	return s
-}
-
-func (s *CreateWorkTimeRequest) SetOptUser(v string) *CreateWorkTimeRequest {
-	s.OptUser = &v
 	return s
 }
 
@@ -4441,6 +4443,10 @@ func (client *Client) CreatePlanTimeWithOptions(userId *string, request *CreateP
 		body["endDate"] = request.EndDate
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.ExecutorId)) {
+		body["executorId"] = request.ExecutorId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.IncludesHolidays)) {
 		body["includesHolidays"] = request.IncludesHolidays
 	}
@@ -4455,10 +4461,6 @@ func (client *Client) CreatePlanTimeWithOptions(userId *string, request *CreateP
 
 	if !tea.BoolValue(util.IsUnset(request.ObjectType)) {
 		body["objectType"] = request.ObjectType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OptUser)) {
-		body["optUser"] = request.OptUser
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.PlanTime)) {
@@ -4688,6 +4690,10 @@ func (client *Client) CreateWorkTimeWithOptions(userId *string, request *CreateW
 		body["endDate"] = request.EndDate
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.ExecutorId)) {
+		body["executorId"] = request.ExecutorId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.IncludesHolidays)) {
 		body["includesHolidays"] = request.IncludesHolidays
 	}
@@ -4702,10 +4708,6 @@ func (client *Client) CreateWorkTimeWithOptions(userId *string, request *CreateW
 
 	if !tea.BoolValue(util.IsUnset(request.ObjectType)) {
 		body["objectType"] = request.ObjectType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OptUser)) {
-		body["optUser"] = request.OptUser
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.StartDate)) {

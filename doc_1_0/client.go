@@ -510,7 +510,7 @@ type BatchGetWorkspacesRequest struct {
 	IncludeRecent *bool `json:"includeRecent,omitempty" xml:"includeRecent,omitempty"`
 	// 操作用户unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 待查询空间Id
+	// 待查询知识库id。
 	WorkspaceIds []*string `json:"workspaceIds,omitempty" xml:"workspaceIds,omitempty" type:"Repeated"`
 }
 
@@ -556,9 +556,9 @@ func (s *BatchGetWorkspacesResponseBody) SetWorkspaces(v []*BatchGetWorkspacesRe
 }
 
 type BatchGetWorkspacesResponseBodyWorkspaces struct {
-	// 是否有访问团队空间权限
+	// 是否有访问知识库权限。
 	HasPermission *bool `json:"hasPermission,omitempty" xml:"hasPermission,omitempty"`
-	// 团队空间信息
+	// 知识库信息。
 	Workspace *BatchGetWorkspacesResponseBodyWorkspacesWorkspace `json:"workspace,omitempty" xml:"workspace,omitempty" type:"Struct"`
 }
 
@@ -581,17 +581,17 @@ func (s *BatchGetWorkspacesResponseBodyWorkspaces) SetWorkspace(v *BatchGetWorks
 }
 
 type BatchGetWorkspacesResponseBodyWorkspacesWorkspace struct {
-	// 团队空间创建时间
+	// 知识库创建时间。
 	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 团队空间名称
+	// 知识库名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 是否全员公开
 	OrgPublished *bool `json:"orgPublished,omitempty" xml:"orgPublished,omitempty"`
 	// 最近访问列表
 	RecentList []*BatchGetWorkspacesResponseBodyWorkspacesWorkspaceRecentList `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
-	// 团队空间打开url
+	// 知识库打开url。
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 团队空间Id
+	// 知识库id。
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
@@ -1074,11 +1074,11 @@ func (s *CreateWorkspaceHeaders) SetXAcsDingtalkAccessToken(v string) *CreateWor
 }
 
 type CreateWorkspaceRequest struct {
-	// 团队空间描述
+	// 知识库描述。
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 团队空间名称
+	// 知识库名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 用户id
+	// 用户id。
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -1106,13 +1106,13 @@ func (s *CreateWorkspaceRequest) SetOperatorId(v string) *CreateWorkspaceRequest
 }
 
 type CreateWorkspaceResponseBody struct {
-	// 工作空间描述
+	// 知识库描述。
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	// 工作空间名称
+	// 知识库名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 工作空间打开url
+	// 知识库打开url。
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 工作空间id
+	// 知识库id。
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
@@ -1249,7 +1249,7 @@ type CreateWorkspaceDocResponseBody struct {
 	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
 	// 文档打开url
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 团队空间Id
+	// 知识库id。
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
@@ -2094,7 +2094,7 @@ func (s *GetRecentEditDocsResponseBody) SetRecentList(v []*GetRecentEditDocsResp
 type GetRecentEditDocsResponseBodyRecentList struct {
 	// 文档信息
 	NodeBO *GetRecentEditDocsResponseBodyRecentListNodeBO `json:"nodeBO,omitempty" xml:"nodeBO,omitempty" type:"Struct"`
-	// 团队空间信息
+	// 知识库信息。
 	WorkspaceBO *GetRecentEditDocsResponseBodyRecentListWorkspaceBO `json:"workspaceBO,omitempty" xml:"workspaceBO,omitempty" type:"Struct"`
 }
 
@@ -2184,11 +2184,11 @@ func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetUrl(v string) *GetRec
 }
 
 type GetRecentEditDocsResponseBodyRecentListWorkspaceBO struct {
-	// 团队空间打开url
+	// 知识库打开url。
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 团队空间Id
+	// 知识库id。
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
-	// 团队空间名称
+	// 知识库名称。
 	WorkspaceName *string `json:"workspaceName,omitempty" xml:"workspaceName,omitempty"`
 }
 
@@ -2319,7 +2319,7 @@ func (s *GetRecentOpenDocsResponseBody) SetRecentList(v []*GetRecentOpenDocsResp
 type GetRecentOpenDocsResponseBodyRecentList struct {
 	// 文档信息
 	NodeBO *GetRecentOpenDocsResponseBodyRecentListNodeBO `json:"nodeBO,omitempty" xml:"nodeBO,omitempty" type:"Struct"`
-	// 团队空间信息
+	// 知识库信息。
 	WorkspaceBO *GetRecentOpenDocsResponseBodyRecentListWorkspaceBO `json:"workspaceBO,omitempty" xml:"workspaceBO,omitempty" type:"Struct"`
 }
 
@@ -2409,11 +2409,11 @@ func (s *GetRecentOpenDocsResponseBodyRecentListNodeBO) SetUrl(v string) *GetRec
 }
 
 type GetRecentOpenDocsResponseBodyRecentListWorkspaceBO struct {
-	// 团队空间打开url
+	// 知识库打开url。
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 团队空间Id
+	// 知识库id。
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
-	// 团队空间名称
+	// 知识库名称。
 	WorkspaceName *string `json:"workspaceName,omitempty" xml:"workspaceName,omitempty"`
 }
 
@@ -2512,7 +2512,7 @@ func (s *GetRelatedWorkspacesRequest) SetOperatorId(v string) *GetRelatedWorkspa
 }
 
 type GetRelatedWorkspacesResponseBody struct {
-	// 团队空间结果集
+	// 知识库结果集。
 	Workspaces []*GetRelatedWorkspacesResponseBodyWorkspaces `json:"workspaces,omitempty" xml:"workspaces,omitempty" type:"Repeated"`
 }
 
@@ -2530,20 +2530,20 @@ func (s *GetRelatedWorkspacesResponseBody) SetWorkspaces(v []*GetRelatedWorkspac
 }
 
 type GetRelatedWorkspacesResponseBodyWorkspaces struct {
-	// 团队空间创建时间
+	// 知识库创建时间。
 	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// 团队空间是否被删除
+	// 知识库是否被删除。
 	Deleted *bool `json:"deleted,omitempty" xml:"deleted,omitempty"`
-	// 团队空间名称
+	// 知识库名称。
 	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
 	Owner *string `json:"owner,omitempty" xml:"owner,omitempty"`
-	// 团队空间最近访问文档列表
+	// 知识库最近访问文档列表。
 	RecentList []*GetRelatedWorkspacesResponseBodyWorkspacesRecentList `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
 	// 用户的角色
 	Role *string `json:"role,omitempty" xml:"role,omitempty"`
-	// 团队空间打开url
+	// 知识库打开url。
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
-	// 团队空间Id
+	// 知识库id。
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
@@ -2847,7 +2847,7 @@ type GetTemplateByIdResponseBody struct {
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 	// 模版修改时间
 	UpdateTime *int64 `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
-	// 模版归属空间Id
+	// 模版归属知识库id。
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
@@ -3043,7 +3043,7 @@ type GetWorkspaceNodeResponseBody struct {
 	HasPermission *bool `json:"hasPermission,omitempty" xml:"hasPermission,omitempty"`
 	// 节点信息
 	NodeBO *GetWorkspaceNodeResponseBodyNodeBO `json:"nodeBO,omitempty" xml:"nodeBO,omitempty" type:"Struct"`
-	// 节点所属团队空间信息
+	// 节点所属知识库信息。
 	WorkspaceBO *GetWorkspaceNodeResponseBodyWorkspaceBO `json:"workspaceBO,omitempty" xml:"workspaceBO,omitempty" type:"Struct"`
 }
 
@@ -3117,9 +3117,9 @@ func (s *GetWorkspaceNodeResponseBodyNodeBO) SetUrl(v string) *GetWorkspaceNodeR
 }
 
 type GetWorkspaceNodeResponseBodyWorkspaceBO struct {
-	// 团队空间名称
+	// 知识库名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 团队空间Id
+	// 知识库id。
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
@@ -3635,7 +3635,7 @@ type ListTemplateRequest struct {
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 	// 模版类型
 	TemplateType *string `json:"templateType,omitempty" xml:"templateType,omitempty"`
-	// 团队空间Id
+	// 知识库id。
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
@@ -3719,7 +3719,7 @@ type ListTemplateResponseBodyTemplateList struct {
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 	// 模版修改时间
 	UpdateTime *int64 `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
-	// 模版归属空间Id
+	// 模版归属知识库id。
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
@@ -4055,7 +4055,7 @@ type SearchWorkspaceDocsRequest struct {
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 发起操作用户unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 团队空间Id
+	// 知识库id。
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
@@ -4199,9 +4199,9 @@ func (s *SearchWorkspaceDocsResponseBodyDocsNodeBO) SetUrl(v string) *SearchWork
 }
 
 type SearchWorkspaceDocsResponseBodyDocsWorkspaceBO struct {
-	// 团队空间名称
+	// 知识库名称。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 团队空间Id
+	// 知识库id。
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 

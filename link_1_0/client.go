@@ -1702,6 +1702,147 @@ func (s *UpdateInteractiveOTOMessageResponse) SetBody(v *UpdateInteractiveOTOMes
 	return s
 }
 
+type UpdateShortcutsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateShortcutsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateShortcutsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateShortcutsHeaders) SetCommonHeaders(v map[string]*string) *UpdateShortcutsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateShortcutsHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateShortcutsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateShortcutsRequest struct {
+	// 配置详情
+	Details []*UpdateShortcutsRequestDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
+	// 用户信息
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateShortcutsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateShortcutsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateShortcutsRequest) SetDetails(v []*UpdateShortcutsRequestDetails) *UpdateShortcutsRequest {
+	s.Details = v
+	return s
+}
+
+func (s *UpdateShortcutsRequest) SetUserId(v string) *UpdateShortcutsRequest {
+	s.UserId = &v
+	return s
+}
+
+type UpdateShortcutsRequestDetails struct {
+	// 跳转链接
+	ActionUrl *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
+	// windows侧边栏图标的unicode
+	IconFont *string `json:"iconFont,omitempty" xml:"iconFont,omitempty"`
+	// 移动端图标
+	IconMediaId *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
+	// 插件唯一标识
+	ShortcutId *string `json:"shortcutId,omitempty" xml:"shortcutId,omitempty"`
+	// 适配mac端侧边栏图标的mediaId
+	SlideIconMediaId *string `json:"slideIconMediaId,omitempty" xml:"slideIconMediaId,omitempty"`
+	// 插件标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s UpdateShortcutsRequestDetails) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateShortcutsRequestDetails) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateShortcutsRequestDetails) SetActionUrl(v string) *UpdateShortcutsRequestDetails {
+	s.ActionUrl = &v
+	return s
+}
+
+func (s *UpdateShortcutsRequestDetails) SetIconFont(v string) *UpdateShortcutsRequestDetails {
+	s.IconFont = &v
+	return s
+}
+
+func (s *UpdateShortcutsRequestDetails) SetIconMediaId(v string) *UpdateShortcutsRequestDetails {
+	s.IconMediaId = &v
+	return s
+}
+
+func (s *UpdateShortcutsRequestDetails) SetShortcutId(v string) *UpdateShortcutsRequestDetails {
+	s.ShortcutId = &v
+	return s
+}
+
+func (s *UpdateShortcutsRequestDetails) SetSlideIconMediaId(v string) *UpdateShortcutsRequestDetails {
+	s.SlideIconMediaId = &v
+	return s
+}
+
+func (s *UpdateShortcutsRequestDetails) SetTitle(v string) *UpdateShortcutsRequestDetails {
+	s.Title = &v
+	return s
+}
+
+type UpdateShortcutsResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateShortcutsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateShortcutsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateShortcutsResponseBody) SetResult(v bool) *UpdateShortcutsResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateShortcutsResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateShortcutsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateShortcutsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateShortcutsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateShortcutsResponse) SetHeaders(v map[string]*string) *UpdateShortcutsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateShortcutsResponse) SetBody(v *UpdateShortcutsResponseBody) *UpdateShortcutsResponse {
+	s.Body = v
+	return s
+}
+
 type DetailUserIdPrivateDataMapValue struct {
 	// 卡片模板的文本内容参数。
 	CardParamMap map[string]interface{} `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
@@ -2215,6 +2356,54 @@ func (client *Client) UpdateInteractiveOTOMessageWithOptions(request *UpdateInte
 	}
 	_result = &UpdateInteractiveOTOMessageResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateInteractiveOTOMessage"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/link/oToMessages/interactiveMessages"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateShortcuts(request *UpdateShortcutsRequest) (_result *UpdateShortcutsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateShortcutsHeaders{}
+	_result = &UpdateShortcutsResponse{}
+	_body, _err := client.UpdateShortcutsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateShortcutsWithOptions(request *UpdateShortcutsRequest, headers *UpdateShortcutsHeaders, runtime *util.RuntimeOptions) (_result *UpdateShortcutsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Details)) {
+		body["details"] = request.Details
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateShortcutsResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateShortcuts"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/link/shortcuts"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

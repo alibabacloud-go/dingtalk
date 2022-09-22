@@ -754,6 +754,8 @@ func (s *BatchUpdateProcessInstanceRequest) SetUpdateProcessInstanceRequests(v [
 }
 
 type BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests struct {
+	// 抄送列表，注意最大抄送人数量不能超过30。
+	Notifiers []*BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequestsNotifiers `json:"notifiers,omitempty" xml:"notifiers,omitempty" type:"Repeated"`
 	// 实例id
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
 	// 实例结果：
@@ -776,6 +778,11 @@ func (s BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests) GoString
 	return s.String()
 }
 
+func (s *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests) SetNotifiers(v []*BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequestsNotifiers) *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests {
+	s.Notifiers = v
+	return s
+}
+
 func (s *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests) SetProcessInstanceId(v string) *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests {
 	s.ProcessInstanceId = &v
 	return s
@@ -788,6 +795,24 @@ func (s *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests) SetResu
 
 func (s *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests) SetStatus(v string) *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests {
 	s.Status = &v
+	return s
+}
+
+type BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequestsNotifiers struct {
+	// 抄送接收人用户userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequestsNotifiers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequestsNotifiers) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequestsNotifiers) SetUserId(v string) *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequestsNotifiers {
+	s.UserId = &v
 	return s
 }
 
@@ -8041,6 +8066,8 @@ func (s *UpdateProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *Upd
 }
 
 type UpdateProcessInstanceRequest struct {
+	// 抄送列表，注意最大抄送人数量不能超过30。
+	Notifiers []*UpdateProcessInstanceRequestNotifiers `json:"notifiers,omitempty" xml:"notifiers,omitempty" type:"Repeated"`
 	// 审批实例ID。
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
 	// 实例结果：
@@ -8063,6 +8090,11 @@ func (s UpdateProcessInstanceRequest) GoString() string {
 	return s.String()
 }
 
+func (s *UpdateProcessInstanceRequest) SetNotifiers(v []*UpdateProcessInstanceRequestNotifiers) *UpdateProcessInstanceRequest {
+	s.Notifiers = v
+	return s
+}
+
 func (s *UpdateProcessInstanceRequest) SetProcessInstanceId(v string) *UpdateProcessInstanceRequest {
 	s.ProcessInstanceId = &v
 	return s
@@ -8075,6 +8107,24 @@ func (s *UpdateProcessInstanceRequest) SetResult(v string) *UpdateProcessInstanc
 
 func (s *UpdateProcessInstanceRequest) SetStatus(v string) *UpdateProcessInstanceRequest {
 	s.Status = &v
+	return s
+}
+
+type UpdateProcessInstanceRequestNotifiers struct {
+	// 抄送接收人用户userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateProcessInstanceRequestNotifiers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateProcessInstanceRequestNotifiers) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateProcessInstanceRequestNotifiers) SetUserId(v string) *UpdateProcessInstanceRequestNotifiers {
+	s.UserId = &v
 	return s
 }
 
@@ -10105,6 +10155,10 @@ func (client *Client) UpdateProcessInstanceWithOptions(request *UpdateProcessIns
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Notifiers)) {
+		body["notifiers"] = request.Notifiers
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
 		body["processInstanceId"] = request.ProcessInstanceId
 	}
