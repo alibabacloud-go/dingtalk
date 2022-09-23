@@ -652,8 +652,12 @@ func (s *CreatePlanTimeResponseBodyResult) SetOk(v bool) *CreatePlanTimeResponse
 }
 
 type CreatePlanTimeResponseBodyResultBody struct {
+	// 更新工时所属日期
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
 	// 工时关联的数据id
 	ObjectId *string `json:"objectId,omitempty" xml:"objectId,omitempty"`
+	// 计划工时数
+	PlanTime *int64 `json:"planTime,omitempty" xml:"planTime,omitempty"`
 }
 
 func (s CreatePlanTimeResponseBodyResultBody) String() string {
@@ -664,8 +668,18 @@ func (s CreatePlanTimeResponseBodyResultBody) GoString() string {
 	return s.String()
 }
 
+func (s *CreatePlanTimeResponseBodyResultBody) SetDate(v string) *CreatePlanTimeResponseBodyResultBody {
+	s.Date = &v
+	return s
+}
+
 func (s *CreatePlanTimeResponseBodyResultBody) SetObjectId(v string) *CreatePlanTimeResponseBodyResultBody {
 	s.ObjectId = &v
+	return s
+}
+
+func (s *CreatePlanTimeResponseBodyResultBody) SetPlanTime(v int64) *CreatePlanTimeResponseBodyResultBody {
+	s.PlanTime = &v
 	return s
 }
 
@@ -1430,8 +1444,12 @@ func (s *CreateWorkTimeResponseBodyResult) SetOk(v bool) *CreateWorkTimeResponse
 }
 
 type CreateWorkTimeResponseBodyResultBody struct {
+	// 工时所属日期
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
 	// 工时关联的数据 ID
 	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// 实际工时
+	WorkTime *int64 `json:"workTime,omitempty" xml:"workTime,omitempty"`
 }
 
 func (s CreateWorkTimeResponseBodyResultBody) String() string {
@@ -1442,8 +1460,18 @@ func (s CreateWorkTimeResponseBodyResultBody) GoString() string {
 	return s.String()
 }
 
+func (s *CreateWorkTimeResponseBodyResultBody) SetDate(v string) *CreateWorkTimeResponseBodyResultBody {
+	s.Date = &v
+	return s
+}
+
 func (s *CreateWorkTimeResponseBodyResultBody) SetTaskId(v string) *CreateWorkTimeResponseBodyResultBody {
 	s.TaskId = &v
+	return s
+}
+
+func (s *CreateWorkTimeResponseBodyResultBody) SetWorkTime(v int64) *CreateWorkTimeResponseBodyResultBody {
+	s.WorkTime = &v
 	return s
 }
 

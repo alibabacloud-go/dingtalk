@@ -1874,6 +1874,113 @@ func (s *DeleteWorkspaceMembersResponse) SetHeaders(v map[string]*string) *Delet
 	return s
 }
 
+type GetAllSheetsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAllSheetsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllSheetsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllSheetsHeaders) SetCommonHeaders(v map[string]*string) *GetAllSheetsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAllSheetsHeaders) SetXAcsDingtalkAccessToken(v string) *GetAllSheetsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAllSheetsRequest struct {
+	// 操作人unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetAllSheetsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllSheetsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllSheetsRequest) SetOperatorId(v string) *GetAllSheetsRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetAllSheetsResponseBody struct {
+	// 所有工作表信息
+	Value []*GetAllSheetsResponseBodyValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+}
+
+func (s GetAllSheetsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllSheetsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllSheetsResponseBody) SetValue(v []*GetAllSheetsResponseBodyValue) *GetAllSheetsResponseBody {
+	s.Value = v
+	return s
+}
+
+type GetAllSheetsResponseBodyValue struct {
+	// 工作表ID
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 工作表名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetAllSheetsResponseBodyValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllSheetsResponseBodyValue) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllSheetsResponseBodyValue) SetId(v string) *GetAllSheetsResponseBodyValue {
+	s.Id = &v
+	return s
+}
+
+func (s *GetAllSheetsResponseBodyValue) SetName(v string) *GetAllSheetsResponseBodyValue {
+	s.Name = &v
+	return s
+}
+
+type GetAllSheetsResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetAllSheetsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAllSheetsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllSheetsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllSheetsResponse) SetHeaders(v map[string]*string) *GetAllSheetsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAllSheetsResponse) SetBody(v *GetAllSheetsResponseBody) *GetAllSheetsResponse {
+	s.Body = v
+	return s
+}
+
 type GetRangeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1900,6 +2007,8 @@ func (s *GetRangeHeaders) SetXAcsDingtalkAccessToken(v string) *GetRangeHeaders 
 type GetRangeRequest struct {
 	// 操作人unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// 限定要返回的字段
+	Select *string `json:"select,omitempty" xml:"select,omitempty"`
 }
 
 func (s GetRangeRequest) String() string {
@@ -1912,6 +2021,11 @@ func (s GetRangeRequest) GoString() string {
 
 func (s *GetRangeRequest) SetOperatorId(v string) *GetRangeRequest {
 	s.OperatorId = &v
+	return s
+}
+
+func (s *GetRangeRequest) SetSelect(v string) *GetRangeRequest {
+	s.Select = &v
 	return s
 }
 
@@ -5870,6 +5984,51 @@ func (client *Client) DeleteWorkspaceMembersWithOptions(workspaceId *string, req
 	return _result, _err
 }
 
+func (client *Client) GetAllSheets(workbookId *string, request *GetAllSheetsRequest) (_result *GetAllSheetsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAllSheetsHeaders{}
+	_result = &GetAllSheetsResponse{}
+	_body, _err := client.GetAllSheetsWithOptions(workbookId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAllSheetsWithOptions(workbookId *string, request *GetAllSheetsRequest, headers *GetAllSheetsHeaders, runtime *util.RuntimeOptions) (_result *GetAllSheetsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetAllSheetsResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetAllSheets"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetRange(workbookId *string, sheetId *string, rangeAddress *string, request *GetRangeRequest) (_result *GetRangeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetRangeHeaders{}
@@ -5893,6 +6052,10 @@ func (client *Client) GetRangeWithOptions(workbookId *string, sheetId *string, r
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Select)) {
+		query["select"] = request.Select
 	}
 
 	realHeaders := make(map[string]*string)
