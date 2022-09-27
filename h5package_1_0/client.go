@@ -5,7 +5,7 @@
 package h5package_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/client"
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
@@ -525,7 +525,7 @@ func (client *Client) CreatePackageWithOptions(request *CreatePackageRequest, he
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &CreatePackageResponse{}
-	_body, _err := client.DoROARequest(tea.String("CreatePackage"), tea.String("h5package_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/h5package"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("CreatePackage"), tea.String("h5package_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/h5package/asyncUpload"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -617,7 +617,7 @@ func (client *Client) GetCreateStatusWithOptions(request *GetCreateStatusRequest
 		Query:   openapiutil.Query(query),
 	}
 	_result = &GetCreateStatusResponse{}
-	_body, _err := client.DoROARequest(tea.String("GetCreateStatus"), tea.String("h5package_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/h5package/createStatus"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("GetCreateStatus"), tea.String("h5package_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/h5package/uploadStatus"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

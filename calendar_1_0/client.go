@@ -5,7 +5,7 @@
 package calendar_1_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/client"
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
@@ -1801,6 +1801,7 @@ func (s *GetEventResponseBodyExtendedProperties) SetSharedProperties(v *GetEvent
 }
 
 type GetEventResponseBodyExtendedPropertiesSharedProperties struct {
+	BelongCorpId  *string `json:"belongCorpId,omitempty" xml:"belongCorpId,omitempty"`
 	SourceOpenCid *string `json:"sourceOpenCid,omitempty" xml:"sourceOpenCid,omitempty"`
 }
 
@@ -1810,6 +1811,11 @@ func (s GetEventResponseBodyExtendedPropertiesSharedProperties) String() string 
 
 func (s GetEventResponseBodyExtendedPropertiesSharedProperties) GoString() string {
 	return s.String()
+}
+
+func (s *GetEventResponseBodyExtendedPropertiesSharedProperties) SetBelongCorpId(v string) *GetEventResponseBodyExtendedPropertiesSharedProperties {
+	s.BelongCorpId = &v
+	return s
 }
 
 func (s *GetEventResponseBodyExtendedPropertiesSharedProperties) SetSourceOpenCid(v string) *GetEventResponseBodyExtendedPropertiesSharedProperties {
@@ -3443,6 +3449,7 @@ func (s *ListEventsResponseBodyEventsExtendedProperties) SetSharedProperties(v *
 }
 
 type ListEventsResponseBodyEventsExtendedPropertiesSharedProperties struct {
+	BelongCorpId  *string `json:"belongCorpId,omitempty" xml:"belongCorpId,omitempty"`
 	SourceOpenCid *string `json:"sourceOpenCid,omitempty" xml:"sourceOpenCid,omitempty"`
 }
 
@@ -3452,6 +3459,11 @@ func (s ListEventsResponseBodyEventsExtendedPropertiesSharedProperties) String()
 
 func (s ListEventsResponseBodyEventsExtendedPropertiesSharedProperties) GoString() string {
 	return s.String()
+}
+
+func (s *ListEventsResponseBodyEventsExtendedPropertiesSharedProperties) SetBelongCorpId(v string) *ListEventsResponseBodyEventsExtendedPropertiesSharedProperties {
+	s.BelongCorpId = &v
+	return s
 }
 
 func (s *ListEventsResponseBodyEventsExtendedPropertiesSharedProperties) SetSourceOpenCid(v string) *ListEventsResponseBodyEventsExtendedPropertiesSharedProperties {
@@ -4637,6 +4649,7 @@ func (s *ListEventsViewResponseBodyEventsExtendedProperties) SetSharedProperties
 }
 
 type ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties struct {
+	BelongCorpId  *string `json:"belongCorpId,omitempty" xml:"belongCorpId,omitempty"`
 	SourceOpenCid *string `json:"sourceOpenCid,omitempty" xml:"sourceOpenCid,omitempty"`
 }
 
@@ -4646,6 +4659,11 @@ func (s ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties) Stri
 
 func (s ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties) GoString() string {
 	return s.String()
+}
+
+func (s *ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties) SetBelongCorpId(v string) *ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties {
+	s.BelongCorpId = &v
+	return s
 }
 
 func (s *ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties) SetSourceOpenCid(v string) *ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties {

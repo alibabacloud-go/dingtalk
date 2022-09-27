@@ -5,7 +5,7 @@
 package doc_2_0
 
 import (
-	openapi "github.com/alibabacloud-go/darabonba-openapi/client"
+	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
 	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
@@ -3679,7 +3679,7 @@ type RelatedSpacesRequest struct {
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 操作用户unionId。
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	// 团队id。
+	// 小组id。
 	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
 }
 
@@ -4444,6 +4444,8 @@ type SearchResponseBodyDentryResultItems struct {
 	OriginName *string `json:"originName,omitempty" xml:"originName,omitempty"`
 	// 节点的路径。
 	Path *string `json:"path,omitempty" xml:"path,omitempty"`
+	// 节点所属的业务场景。可选值有：1-知识库；2-我的文档；5-群聊。
+	SceneType *int32 `json:"sceneType,omitempty" xml:"sceneType,omitempty"`
 	// 文件类型。1-文档；2-表格；3-脑图；4-演示；5-白板；6-office文字；7-office表格；8-office ppt；10-多维表格；11-文本；12-图片；13-视频；14-音频；15-压缩文件；16-其他。
 	SearchFileType *int32 `json:"searchFileType,omitempty" xml:"searchFileType,omitempty"`
 	// 节点所属的知识库id。
@@ -4509,6 +4511,11 @@ func (s *SearchResponseBodyDentryResultItems) SetOriginName(v string) *SearchRes
 
 func (s *SearchResponseBodyDentryResultItems) SetPath(v string) *SearchResponseBodyDentryResultItems {
 	s.Path = &v
+	return s
+}
+
+func (s *SearchResponseBodyDentryResultItems) SetSceneType(v int32) *SearchResponseBodyDentryResultItems {
+	s.SceneType = &v
 	return s
 }
 
