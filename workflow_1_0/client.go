@@ -3689,6 +3689,146 @@ func (s *GrantProcessInstanceForDownloadFileResponse) SetBody(v *GrantProcessIns
 	return s
 }
 
+type InstallAppHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s InstallAppHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InstallAppHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *InstallAppHeaders) SetCommonHeaders(v map[string]*string) *InstallAppHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *InstallAppHeaders) SetXAcsDingtalkAccessToken(v string) *InstallAppHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type InstallAppRequest struct {
+	// 安装选项
+	//
+	InstallOption *InstallAppRequestInstallOption `json:"installOption,omitempty" xml:"installOption,omitempty" type:"Struct"`
+	// 安装的目录名称
+	SourceDirName *string `json:"sourceDirName,omitempty" xml:"sourceDirName,omitempty"`
+}
+
+func (s InstallAppRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InstallAppRequest) GoString() string {
+	return s.String()
+}
+
+func (s *InstallAppRequest) SetInstallOption(v *InstallAppRequestInstallOption) *InstallAppRequest {
+	s.InstallOption = v
+	return s
+}
+
+func (s *InstallAppRequest) SetSourceDirName(v string) *InstallAppRequest {
+	s.SourceDirName = &v
+	return s
+}
+
+type InstallAppRequestInstallOption struct {
+	// 是否同步，目前只有同步
+	IsSync *bool `json:"isSync,omitempty" xml:"isSync,omitempty"`
+}
+
+func (s InstallAppRequestInstallOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InstallAppRequestInstallOption) GoString() string {
+	return s.String()
+}
+
+func (s *InstallAppRequestInstallOption) SetIsSync(v bool) *InstallAppRequestInstallOption {
+	s.IsSync = &v
+	return s
+}
+
+type InstallAppResponseBody struct {
+	// 返回对象列表
+	Result []*InstallAppResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s InstallAppResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InstallAppResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *InstallAppResponseBody) SetResult(v []*InstallAppResponseBodyResult) *InstallAppResponseBody {
+	s.Result = v
+	return s
+}
+
+type InstallAppResponseBodyResult struct {
+	// 套件业务类型
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// 模版名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 模版processcode
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s InstallAppResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InstallAppResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *InstallAppResponseBodyResult) SetBizType(v string) *InstallAppResponseBodyResult {
+	s.BizType = &v
+	return s
+}
+
+func (s *InstallAppResponseBodyResult) SetName(v string) *InstallAppResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *InstallAppResponseBodyResult) SetProcessCode(v string) *InstallAppResponseBodyResult {
+	s.ProcessCode = &v
+	return s
+}
+
+type InstallAppResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *InstallAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s InstallAppResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InstallAppResponse) GoString() string {
+	return s.String()
+}
+
+func (s *InstallAppResponse) SetHeaders(v map[string]*string) *InstallAppResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *InstallAppResponse) SetBody(v *InstallAppResponseBody) *InstallAppResponse {
+	s.Body = v
+	return s
+}
+
 type ListProcessInstanceIdsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9222,6 +9362,54 @@ func (client *Client) GrantProcessInstanceForDownloadFileWithOptions(request *Gr
 	}
 	_result = &GrantProcessInstanceForDownloadFileResponse{}
 	_body, _err := client.DoROARequest(tea.String("GrantProcessInstanceForDownloadFile"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processInstances/spaces/files/urls/download"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) InstallApp(request *InstallAppRequest) (_result *InstallAppResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &InstallAppHeaders{}
+	_result = &InstallAppResponse{}
+	_body, _err := client.InstallAppWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) InstallAppWithOptions(request *InstallAppRequest, headers *InstallAppHeaders, runtime *util.RuntimeOptions) (_result *InstallAppResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.InstallOption))) {
+		body["installOption"] = request.InstallOption
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceDirName)) {
+		body["sourceDirName"] = request.SourceDirName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &InstallAppResponse{}
+	_body, _err := client.DoROARequest(tea.String("InstallApp"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processes/apps/install"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
