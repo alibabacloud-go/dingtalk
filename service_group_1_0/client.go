@@ -35,6 +35,8 @@ func (s *AddContactMemberToGroupHeaders) SetXAcsDingtalkAccessToken(v string) *A
 }
 
 type AddContactMemberToGroupRequest struct {
+	// 裂变方式
+	FissionType *string `json:"fissionType,omitempty" xml:"fissionType,omitempty"`
 	// 员工unionId
 	MemberUnionId *string `json:"memberUnionId,omitempty" xml:"memberUnionId,omitempty"`
 	// 员工成员ID
@@ -51,6 +53,11 @@ func (s AddContactMemberToGroupRequest) String() string {
 
 func (s AddContactMemberToGroupRequest) GoString() string {
 	return s.String()
+}
+
+func (s *AddContactMemberToGroupRequest) SetFissionType(v string) *AddContactMemberToGroupRequest {
+	s.FissionType = &v
+	return s
 }
 
 func (s *AddContactMemberToGroupRequest) SetMemberUnionId(v string) *AddContactMemberToGroupRequest {
@@ -11153,6 +11160,10 @@ func (client *Client) AddContactMemberToGroupWithOptions(request *AddContactMemb
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FissionType)) {
+		body["fissionType"] = request.FissionType
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.MemberUnionId)) {
 		body["memberUnionId"] = request.MemberUnionId
 	}
