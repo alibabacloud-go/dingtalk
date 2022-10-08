@@ -2888,6 +2888,316 @@ func (s *GetTbUserIdByStaffIdResponse) SetBody(v *GetTbUserIdByStaffIdResponseBo
 	return s
 }
 
+type QueryTaskOfProjectHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryTaskOfProjectHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTaskOfProjectHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTaskOfProjectHeaders) SetCommonHeaders(v map[string]*string) *QueryTaskOfProjectHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryTaskOfProjectHeaders) SetXAcsDingtalkAccessToken(v string) *QueryTaskOfProjectHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryTaskOfProjectRequest struct {
+	// 每页返回最大数量。默认10，最大500。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 供分页使用，下一页token，从当前页结果中获取。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 查询条件。如：“content ~ 标题1” 表示查询任务标题包含“标题1”的任务；“executor=05178xxxxx” 表示执行者是05178xxxx的任务；”involveMembers NOT IN["061xx","06112xx"] AND executorId=0673xxx AND content~标题2“ 表示查询参与者不是”061xx“和”06112xx“ 并且 执行者是0673xxx 并且 标题类似 ”标题2“的所有任务。
+	Query *string `json:"query,omitempty" xml:"query,omitempty"`
+}
+
+func (s QueryTaskOfProjectRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTaskOfProjectRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTaskOfProjectRequest) SetMaxResults(v int32) *QueryTaskOfProjectRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectRequest) SetNextToken(v string) *QueryTaskOfProjectRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectRequest) SetQuery(v string) *QueryTaskOfProjectRequest {
+	s.Query = &v
+	return s
+}
+
+type QueryTaskOfProjectResponseBody struct {
+	// 供分页使用，下一页token，从当前页结果中获取。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 任务对象列表。
+	Result []*QueryTaskOfProjectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// 任务总数。
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryTaskOfProjectResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTaskOfProjectResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTaskOfProjectResponseBody) SetNextToken(v string) *QueryTaskOfProjectResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBody) SetResult(v []*QueryTaskOfProjectResponseBodyResult) *QueryTaskOfProjectResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBody) SetTotalCount(v int32) *QueryTaskOfProjectResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryTaskOfProjectResponseBodyResult struct {
+	// 任务完成时间。
+	Accomplished *string `json:"accomplished,omitempty" xml:"accomplished,omitempty"`
+	// 父任务id列表。
+	AncestorIds []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	// 任务标题。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 创建时间。
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// 创建者id。
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 自定义字段id列表。
+	Customfields []*string `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	// 任务截止时间。
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// 执行者id。
+	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	// 参与者列表。
+	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	// 是否归档。
+	IsArchived *bool `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	// 是否已删除。
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// 任务是否已完成。
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// 任务自定义标识。
+	Labels *string `json:"labels,omitempty" xml:"labels,omitempty"`
+	// 备注。
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// 任务优先级。
+	Priority *int64 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// 任务进度。
+	Progress *int32 `json:"progress,omitempty" xml:"progress,omitempty"`
+	// 项目id。
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// 任务类型id。
+	ScenariofieldconfigId *string `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
+	// 任务迭代id。
+	SprintId *string `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
+	// 任务列表Id。
+	StageId *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
+	// 任务开始时间。
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 故事点数。
+	StoryPoint *int32 `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
+	// 标签id集合。
+	TagIds *string `json:"tagIds,omitempty" xml:"tagIds,omitempty"`
+	// 任务id。
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// 任务状态id。
+	TaskflowstatusId *string `json:"taskflowstatusId,omitempty" xml:"taskflowstatusId,omitempty"`
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// 任务的可见性规则 involves | members。
+	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
+}
+
+func (s QueryTaskOfProjectResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTaskOfProjectResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetAccomplished(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.Accomplished = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetAncestorIds(v []*string) *QueryTaskOfProjectResponseBodyResult {
+	s.AncestorIds = v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetContent(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetCreated(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.Created = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetCreatorId(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetCustomfields(v []*string) *QueryTaskOfProjectResponseBodyResult {
+	s.Customfields = v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetDueDate(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.DueDate = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetExecutorId(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.ExecutorId = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetInvolveMembers(v []*string) *QueryTaskOfProjectResponseBodyResult {
+	s.InvolveMembers = v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetIsArchived(v bool) *QueryTaskOfProjectResponseBodyResult {
+	s.IsArchived = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetIsDeleted(v bool) *QueryTaskOfProjectResponseBodyResult {
+	s.IsDeleted = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetIsDone(v bool) *QueryTaskOfProjectResponseBodyResult {
+	s.IsDone = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetLabels(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.Labels = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetNote(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.Note = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetPriority(v int64) *QueryTaskOfProjectResponseBodyResult {
+	s.Priority = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetProgress(v int32) *QueryTaskOfProjectResponseBodyResult {
+	s.Progress = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetProjectId(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.ProjectId = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetScenariofieldconfigId(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.ScenariofieldconfigId = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetSprintId(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.SprintId = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetStageId(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.StageId = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetStartDate(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.StartDate = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetStoryPoint(v int32) *QueryTaskOfProjectResponseBodyResult {
+	s.StoryPoint = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetTagIds(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.TagIds = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetTaskId(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetTaskflowstatusId(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.TaskflowstatusId = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetUpdated(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponseBodyResult) SetVisible(v string) *QueryTaskOfProjectResponseBodyResult {
+	s.Visible = &v
+	return s
+}
+
+type QueryTaskOfProjectResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryTaskOfProjectResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryTaskOfProjectResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTaskOfProjectResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTaskOfProjectResponse) SetHeaders(v map[string]*string) *QueryTaskOfProjectResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryTaskOfProjectResponse) SetBody(v *QueryTaskOfProjectResponseBody) *QueryTaskOfProjectResponse {
+	s.Body = v
+	return s
+}
+
 type SearchProjectTemplateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5257,6 +5567,60 @@ func (client *Client) GetTbUserIdByStaffIdWithOptions(request *GetTbUserIdByStaf
 	}
 	_result = &GetTbUserIdByStaffIdResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetTbUserIdByStaffId"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/teambition/users"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryTaskOfProject(userId *string, projectId *string, request *QueryTaskOfProjectRequest) (_result *QueryTaskOfProjectResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryTaskOfProjectHeaders{}
+	_result = &QueryTaskOfProjectResponse{}
+	_body, _err := client.QueryTaskOfProjectWithOptions(userId, projectId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryTaskOfProjectWithOptions(userId *string, projectId *string, request *QueryTaskOfProjectRequest, headers *QueryTaskOfProjectHeaders, runtime *util.RuntimeOptions) (_result *QueryTaskOfProjectResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	projectId = openapiutil.GetEncodeParam(projectId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Query)) {
+		query["query"] = request.Query
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryTaskOfProjectResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryTaskOfProject"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projectIds/"+tea.StringValue(projectId)+"/tasks"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

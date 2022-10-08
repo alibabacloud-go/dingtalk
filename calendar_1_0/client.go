@@ -5932,6 +5932,69 @@ func (s *SubscribeCalendarResponse) SetHeaders(v map[string]*string) *SubscribeC
 	return s
 }
 
+type UnsubscribeCalendarHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UnsubscribeCalendarHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnsubscribeCalendarHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UnsubscribeCalendarHeaders) SetCommonHeaders(v map[string]*string) *UnsubscribeCalendarHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UnsubscribeCalendarHeaders) SetXAcsDingtalkAccessToken(v string) *UnsubscribeCalendarHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UnsubscribeCalendarResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UnsubscribeCalendarResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnsubscribeCalendarResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UnsubscribeCalendarResponseBody) SetResult(v bool) *UnsubscribeCalendarResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UnsubscribeCalendarResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UnsubscribeCalendarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UnsubscribeCalendarResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnsubscribeCalendarResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UnsubscribeCalendarResponse) SetHeaders(v map[string]*string) *UnsubscribeCalendarResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UnsubscribeCalendarResponse) SetBody(v *UnsubscribeCalendarResponseBody) *UnsubscribeCalendarResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateSubscribedCalendarsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7416,6 +7479,42 @@ func (client *Client) SubscribeCalendarWithOptions(userId *string, calendarId *s
 	}
 	_result = &SubscribeCalendarResponse{}
 	_body, _err := client.DoROARequest(tea.String("SubscribeCalendar"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/subscribe"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UnsubscribeCalendar(userId *string, calendarId *string) (_result *UnsubscribeCalendarResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UnsubscribeCalendarHeaders{}
+	_result = &UnsubscribeCalendarResponse{}
+	_body, _err := client.UnsubscribeCalendarWithOptions(userId, calendarId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UnsubscribeCalendarWithOptions(userId *string, calendarId *string, headers *UnsubscribeCalendarHeaders, runtime *util.RuntimeOptions) (_result *UnsubscribeCalendarResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &UnsubscribeCalendarResponse{}
+	_body, _err := client.DoROARequest(tea.String("UnsubscribeCalendar"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/unsubscribe"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
