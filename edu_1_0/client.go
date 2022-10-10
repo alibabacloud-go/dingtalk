@@ -11,6 +11,116 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type ActivateDeviceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ActivateDeviceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ActivateDeviceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ActivateDeviceHeaders) SetCommonHeaders(v map[string]*string) *ActivateDeviceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ActivateDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *ActivateDeviceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ActivateDeviceRequest struct {
+	// 授权码
+	LicenseKey *string `json:"licenseKey,omitempty" xml:"licenseKey,omitempty"`
+	// 设备型号
+	Model *string `json:"model,omitempty" xml:"model,omitempty"`
+	// 设备名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 设备sn码
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// 设备类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s ActivateDeviceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ActivateDeviceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ActivateDeviceRequest) SetLicenseKey(v string) *ActivateDeviceRequest {
+	s.LicenseKey = &v
+	return s
+}
+
+func (s *ActivateDeviceRequest) SetModel(v string) *ActivateDeviceRequest {
+	s.Model = &v
+	return s
+}
+
+func (s *ActivateDeviceRequest) SetName(v string) *ActivateDeviceRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *ActivateDeviceRequest) SetSn(v string) *ActivateDeviceRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *ActivateDeviceRequest) SetType(v string) *ActivateDeviceRequest {
+	s.Type = &v
+	return s
+}
+
+type ActivateDeviceResponseBody struct {
+	// 是否成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s ActivateDeviceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ActivateDeviceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ActivateDeviceResponseBody) SetResult(v bool) *ActivateDeviceResponseBody {
+	s.Result = &v
+	return s
+}
+
+type ActivateDeviceResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ActivateDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ActivateDeviceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ActivateDeviceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ActivateDeviceResponse) SetHeaders(v map[string]*string) *ActivateDeviceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ActivateDeviceResponse) SetBody(v *ActivateDeviceResponseBody) *ActivateDeviceResponse {
+	s.Body = v
+	return s
+}
+
 type AddDeviceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3793,6 +3903,130 @@ func (s *CreateSectionConfigResponse) SetBody(v *CreateSectionConfigResponseBody
 	return s
 }
 
+type CreateStsTokenHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateStsTokenHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateStsTokenHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateStsTokenHeaders) SetCommonHeaders(v map[string]*string) *CreateStsTokenHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateStsTokenHeaders) SetXAcsDingtalkAccessToken(v string) *CreateStsTokenHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateStsTokenRequest struct {
+	// 设备sn码
+	DeviceSn *string `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
+	// sts类型: oss/sls
+	StsType *string `json:"stsType,omitempty" xml:"stsType,omitempty"`
+}
+
+func (s CreateStsTokenRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateStsTokenRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateStsTokenRequest) SetDeviceSn(v string) *CreateStsTokenRequest {
+	s.DeviceSn = &v
+	return s
+}
+
+func (s *CreateStsTokenRequest) SetStsType(v string) *CreateStsTokenRequest {
+	s.StsType = &v
+	return s
+}
+
+type CreateStsTokenResponseBody struct {
+	// keyId
+	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	// KeySecret
+	AccessKeySecret *string `json:"accessKeySecret,omitempty" xml:"accessKeySecret,omitempty"`
+	// 过期时间，默认1小时过期
+	Expiration *string `json:"expiration,omitempty" xml:"expiration,omitempty"`
+	// 扩展信息
+	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// 授权的token
+	SecurityToken *string `json:"securityToken,omitempty" xml:"securityToken,omitempty"`
+	// 状态
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s CreateStsTokenResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateStsTokenResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateStsTokenResponseBody) SetAccessKeyId(v string) *CreateStsTokenResponseBody {
+	s.AccessKeyId = &v
+	return s
+}
+
+func (s *CreateStsTokenResponseBody) SetAccessKeySecret(v string) *CreateStsTokenResponseBody {
+	s.AccessKeySecret = &v
+	return s
+}
+
+func (s *CreateStsTokenResponseBody) SetExpiration(v string) *CreateStsTokenResponseBody {
+	s.Expiration = &v
+	return s
+}
+
+func (s *CreateStsTokenResponseBody) SetExtInfo(v string) *CreateStsTokenResponseBody {
+	s.ExtInfo = &v
+	return s
+}
+
+func (s *CreateStsTokenResponseBody) SetSecurityToken(v string) *CreateStsTokenResponseBody {
+	s.SecurityToken = &v
+	return s
+}
+
+func (s *CreateStsTokenResponseBody) SetStatus(v string) *CreateStsTokenResponseBody {
+	s.Status = &v
+	return s
+}
+
+type CreateStsTokenResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateStsTokenResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateStsTokenResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateStsTokenResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateStsTokenResponse) SetHeaders(v map[string]*string) *CreateStsTokenResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateStsTokenResponse) SetBody(v *CreateStsTokenResponseBody) *CreateStsTokenResponse {
+	s.Body = v
+	return s
+}
+
 type CreateTokenHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4452,6 +4686,102 @@ func (s *CreateUniversityTeacherResponse) SetHeaders(v map[string]*string) *Crea
 }
 
 func (s *CreateUniversityTeacherResponse) SetBody(v *CreateUniversityTeacherResponseBody) *CreateUniversityTeacherResponse {
+	s.Body = v
+	return s
+}
+
+type DeactivateDeviceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeactivateDeviceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeactivateDeviceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeactivateDeviceHeaders) SetCommonHeaders(v map[string]*string) *DeactivateDeviceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeactivateDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *DeactivateDeviceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeactivateDeviceRequest struct {
+	// 设备型号
+	Model *string `json:"model,omitempty" xml:"model,omitempty"`
+	// 设备sn码
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// 设备类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s DeactivateDeviceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeactivateDeviceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeactivateDeviceRequest) SetModel(v string) *DeactivateDeviceRequest {
+	s.Model = &v
+	return s
+}
+
+func (s *DeactivateDeviceRequest) SetSn(v string) *DeactivateDeviceRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *DeactivateDeviceRequest) SetType(v string) *DeactivateDeviceRequest {
+	s.Type = &v
+	return s
+}
+
+type DeactivateDeviceResponseBody struct {
+	// 授权码已激活的次数
+	ActivateTimes *int32 `json:"activateTimes,omitempty" xml:"activateTimes,omitempty"`
+}
+
+func (s DeactivateDeviceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeactivateDeviceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeactivateDeviceResponseBody) SetActivateTimes(v int32) *DeactivateDeviceResponseBody {
+	s.ActivateTimes = &v
+	return s
+}
+
+type DeactivateDeviceResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeactivateDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeactivateDeviceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeactivateDeviceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeactivateDeviceResponse) SetHeaders(v map[string]*string) *DeactivateDeviceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeactivateDeviceResponse) SetBody(v *DeactivateDeviceResponseBody) *DeactivateDeviceResponse {
 	s.Body = v
 	return s
 }
@@ -7480,6 +7810,101 @@ func (s *InitDeviceResponse) SetBody(v *InitDeviceResponseBody) *InitDeviceRespo
 	return s
 }
 
+type InitVPaasDeviceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s InitVPaasDeviceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitVPaasDeviceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *InitVPaasDeviceHeaders) SetCommonHeaders(v map[string]*string) *InitVPaasDeviceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *InitVPaasDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *InitVPaasDeviceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type InitVPaasDeviceRequest struct {
+	// 设备sn码
+	Sn        *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	Timestamp *int64  `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	// 设备类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s InitVPaasDeviceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitVPaasDeviceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *InitVPaasDeviceRequest) SetSn(v string) *InitVPaasDeviceRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *InitVPaasDeviceRequest) SetTimestamp(v int64) *InitVPaasDeviceRequest {
+	s.Timestamp = &v
+	return s
+}
+
+func (s *InitVPaasDeviceRequest) SetType(v string) *InitVPaasDeviceRequest {
+	s.Type = &v
+	return s
+}
+
+type InitVPaasDeviceResponseBody struct {
+	// pspk
+	Pspk *string `json:"pspk,omitempty" xml:"pspk,omitempty"`
+}
+
+func (s InitVPaasDeviceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitVPaasDeviceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *InitVPaasDeviceResponseBody) SetPspk(v string) *InitVPaasDeviceResponseBody {
+	s.Pspk = &v
+	return s
+}
+
+type InitVPaasDeviceResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *InitVPaasDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s InitVPaasDeviceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitVPaasDeviceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *InitVPaasDeviceResponse) SetHeaders(v map[string]*string) *InitVPaasDeviceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *InitVPaasDeviceResponse) SetBody(v *InitVPaasDeviceResponseBody) *InitVPaasDeviceResponse {
+	s.Body = v
+	return s
+}
+
 type InsertSectionConfigHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8094,6 +8519,162 @@ func (s *MoveStudentResponse) SetBody(v *MoveStudentResponseBody) *MoveStudentRe
 	return s
 }
 
+type PageQueryDevicesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PageQueryDevicesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageQueryDevicesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PageQueryDevicesHeaders) SetCommonHeaders(v map[string]*string) *PageQueryDevicesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PageQueryDevicesHeaders) SetXAcsDingtalkAccessToken(v string) *PageQueryDevicesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PageQueryDevicesRequest struct {
+	// 分页参数-当页最大返回记录数
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页参数-页码 起始值:1
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 设备类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s PageQueryDevicesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageQueryDevicesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PageQueryDevicesRequest) SetMaxResults(v int64) *PageQueryDevicesRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *PageQueryDevicesRequest) SetNextToken(v string) *PageQueryDevicesRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *PageQueryDevicesRequest) SetType(v string) *PageQueryDevicesRequest {
+	s.Type = &v
+	return s
+}
+
+type PageQueryDevicesResponseBody struct {
+	// 当前页的记录列表
+	List []*PageQueryDevicesResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// 下一个页码
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 总记录数
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s PageQueryDevicesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageQueryDevicesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PageQueryDevicesResponseBody) SetList(v []*PageQueryDevicesResponseBodyList) *PageQueryDevicesResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *PageQueryDevicesResponseBody) SetNextToken(v string) *PageQueryDevicesResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *PageQueryDevicesResponseBody) SetTotalCount(v int64) *PageQueryDevicesResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type PageQueryDevicesResponseBodyList struct {
+	// 设备过期时间
+	GmtExpiry *int64 `json:"gmtExpiry,omitempty" xml:"gmtExpiry,omitempty"`
+	// 设备型号
+	Model *string `json:"model,omitempty" xml:"model,omitempty"`
+	// 设备名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 设备sn码
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// 设备类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s PageQueryDevicesResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageQueryDevicesResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *PageQueryDevicesResponseBodyList) SetGmtExpiry(v int64) *PageQueryDevicesResponseBodyList {
+	s.GmtExpiry = &v
+	return s
+}
+
+func (s *PageQueryDevicesResponseBodyList) SetModel(v string) *PageQueryDevicesResponseBodyList {
+	s.Model = &v
+	return s
+}
+
+func (s *PageQueryDevicesResponseBodyList) SetName(v string) *PageQueryDevicesResponseBodyList {
+	s.Name = &v
+	return s
+}
+
+func (s *PageQueryDevicesResponseBodyList) SetSn(v string) *PageQueryDevicesResponseBodyList {
+	s.Sn = &v
+	return s
+}
+
+func (s *PageQueryDevicesResponseBodyList) SetType(v string) *PageQueryDevicesResponseBodyList {
+	s.Type = &v
+	return s
+}
+
+type PageQueryDevicesResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PageQueryDevicesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PageQueryDevicesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageQueryDevicesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PageQueryDevicesResponse) SetHeaders(v map[string]*string) *PageQueryDevicesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PageQueryDevicesResponse) SetBody(v *PageQueryDevicesResponseBody) *PageQueryDevicesResponse {
+	s.Body = v
+	return s
+}
+
 type PayOrderHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8386,6 +8967,109 @@ func (s *PollingConfirmStatusResponse) SetHeaders(v map[string]*string) *Polling
 }
 
 func (s *PollingConfirmStatusResponse) SetBody(v *PollingConfirmStatusResponseBody) *PollingConfirmStatusResponse {
+	s.Body = v
+	return s
+}
+
+type PreDialHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PreDialHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreDialHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PreDialHeaders) SetCommonHeaders(v map[string]*string) *PreDialHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PreDialHeaders) SetXAcsDingtalkAccessToken(v string) *PreDialHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PreDialRequest struct {
+	// 通话发起人的userId
+	CallerUserId *string `json:"callerUserId,omitempty" xml:"callerUserId,omitempty"`
+	// 通话接收人的userId
+	ReceiverUserId *string `json:"receiverUserId,omitempty" xml:"receiverUserId,omitempty"`
+	// 设备sn码
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// 设备类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s PreDialRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreDialRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PreDialRequest) SetCallerUserId(v string) *PreDialRequest {
+	s.CallerUserId = &v
+	return s
+}
+
+func (s *PreDialRequest) SetReceiverUserId(v string) *PreDialRequest {
+	s.ReceiverUserId = &v
+	return s
+}
+
+func (s *PreDialRequest) SetSn(v string) *PreDialRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *PreDialRequest) SetType(v string) *PreDialRequest {
+	s.Type = &v
+	return s
+}
+
+type PreDialResponseBody struct {
+	// 是否成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s PreDialResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreDialResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PreDialResponseBody) SetResult(v bool) *PreDialResponseBody {
+	s.Result = &v
+	return s
+}
+
+type PreDialResponse struct {
+	Headers map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PreDialResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PreDialResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreDialResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PreDialResponse) SetHeaders(v map[string]*string) *PreDialResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PreDialResponse) SetBody(v *PreDialResponseBody) *PreDialResponse {
 	s.Body = v
 	return s
 }
@@ -14632,6 +15316,66 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) ActivateDevice(request *ActivateDeviceRequest) (_result *ActivateDeviceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ActivateDeviceHeaders{}
+	_result = &ActivateDeviceResponse{}
+	_body, _err := client.ActivateDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ActivateDeviceWithOptions(request *ActivateDeviceRequest, headers *ActivateDeviceHeaders, runtime *util.RuntimeOptions) (_result *ActivateDeviceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LicenseKey)) {
+		body["licenseKey"] = request.LicenseKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Model)) {
+		body["model"] = request.Model
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ActivateDeviceResponse{}
+	_body, _err := client.DoROARequest(tea.String("ActivateDevice"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/vpaas/devices/activate"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) AddDevice(request *AddDeviceRequest) (_result *AddDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddDeviceHeaders{}
@@ -16056,6 +16800,54 @@ func (client *Client) CreateSectionConfigWithOptions(request *CreateSectionConfi
 	return _result, _err
 }
 
+func (client *Client) CreateStsToken(request *CreateStsTokenRequest) (_result *CreateStsTokenResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateStsTokenHeaders{}
+	_result = &CreateStsTokenResponse{}
+	_body, _err := client.CreateStsTokenWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateStsTokenWithOptions(request *CreateStsTokenRequest, headers *CreateStsTokenHeaders, runtime *util.RuntimeOptions) (_result *CreateStsTokenResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceSn)) {
+		body["deviceSn"] = request.DeviceSn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StsType)) {
+		body["stsType"] = request.StsType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateStsTokenResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateStsToken"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/vpaas/ststoken"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateToken(request *CreateTokenRequest) (_result *CreateTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateTokenHeaders{}
@@ -16309,6 +17101,58 @@ func (client *Client) CreateUniversityTeacherWithOptions(request *CreateUniversi
 	}
 	_result = &CreateUniversityTeacherResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateUniversityTeacher"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/universities/teachers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeactivateDevice(request *DeactivateDeviceRequest) (_result *DeactivateDeviceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeactivateDeviceHeaders{}
+	_result = &DeactivateDeviceResponse{}
+	_body, _err := client.DeactivateDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeactivateDeviceWithOptions(request *DeactivateDeviceRequest, headers *DeactivateDeviceHeaders, runtime *util.RuntimeOptions) (_result *DeactivateDeviceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Model)) {
+		body["model"] = request.Model
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DeactivateDeviceResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeactivateDevice"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/vpaas/devices/deactivate"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -17448,6 +18292,58 @@ func (client *Client) InitDeviceWithOptions(request *InitDeviceRequest, headers 
 	return _result, _err
 }
 
+func (client *Client) InitVPaasDevice(request *InitVPaasDeviceRequest) (_result *InitVPaasDeviceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &InitVPaasDeviceHeaders{}
+	_result = &InitVPaasDeviceResponse{}
+	_body, _err := client.InitVPaasDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) InitVPaasDeviceWithOptions(request *InitVPaasDeviceRequest, headers *InitVPaasDeviceHeaders, runtime *util.RuntimeOptions) (_result *InitVPaasDeviceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Timestamp)) {
+		body["timestamp"] = request.Timestamp
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &InitVPaasDeviceResponse{}
+	_body, _err := client.DoROARequest(tea.String("InitVPaasDevice"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/vpaas/devices/init"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) InsertSectionConfig(request *InsertSectionConfigRequest) (_result *InsertSectionConfigResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InsertSectionConfigHeaders{}
@@ -17646,6 +18542,58 @@ func (client *Client) MoveStudentWithOptions(request *MoveStudentRequest, header
 	return _result, _err
 }
 
+func (client *Client) PageQueryDevices(request *PageQueryDevicesRequest) (_result *PageQueryDevicesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PageQueryDevicesHeaders{}
+	_result = &PageQueryDevicesResponse{}
+	_body, _err := client.PageQueryDevicesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PageQueryDevicesWithOptions(request *PageQueryDevicesRequest, headers *PageQueryDevicesHeaders, runtime *util.RuntimeOptions) (_result *PageQueryDevicesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		query["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &PageQueryDevicesResponse{}
+	_body, _err := client.DoROARequest(tea.String("PageQueryDevices"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/vpaas/devices"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) PayOrder(request *PayOrderRequest) (_result *PayOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PayOrderHeaders{}
@@ -17763,6 +18711,62 @@ func (client *Client) PollingConfirmStatusWithOptions(request *PollingConfirmSta
 	}
 	_result = &PollingConfirmStatusResponse{}
 	_body, _err := client.DoROARequest(tea.String("PollingConfirmStatus"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/edu/universities/courses/pollingConfirmStatus"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PreDial(request *PreDialRequest) (_result *PreDialResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PreDialHeaders{}
+	_result = &PreDialResponse{}
+	_body, _err := client.PreDialWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PreDialWithOptions(request *PreDialRequest, headers *PreDialHeaders, runtime *util.RuntimeOptions) (_result *PreDialResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CallerUserId)) {
+		body["callerUserId"] = request.CallerUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverUserId)) {
+		body["receiverUserId"] = request.ReceiverUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &PreDialResponse{}
+	_body, _err := client.DoROARequest(tea.String("PreDial"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/vpaas/devices/preDial"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
