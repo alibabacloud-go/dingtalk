@@ -6107,6 +6107,160 @@ func (s *DescribeRelationMetaResponse) SetBody(v *DescribeRelationMetaResponseBo
 	return s
 }
 
+type GetAllCustomerRecyclesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAllCustomerRecyclesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllCustomerRecyclesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllCustomerRecyclesHeaders) SetCommonHeaders(v map[string]*string) *GetAllCustomerRecyclesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAllCustomerRecyclesHeaders) SetXAcsDingtalkAccessToken(v string) *GetAllCustomerRecyclesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAllCustomerRecyclesRequest struct {
+	// 每页返回的结果集个数，默认10。
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s GetAllCustomerRecyclesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllCustomerRecyclesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllCustomerRecyclesRequest) SetMaxResults(v int32) *GetAllCustomerRecyclesRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetAllCustomerRecyclesRequest) SetNextToken(v string) *GetAllCustomerRecyclesRequest {
+	s.NextToken = &v
+	return s
+}
+
+type GetAllCustomerRecyclesResponseBody struct {
+	// 是否还有下一页。
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 下一页的游标。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 数据列表。
+	ResultList []*GetAllCustomerRecyclesResponseBodyResultList `json:"resultList,omitempty" xml:"resultList,omitempty" type:"Repeated"`
+}
+
+func (s GetAllCustomerRecyclesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllCustomerRecyclesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllCustomerRecyclesResponseBody) SetHasMore(v bool) *GetAllCustomerRecyclesResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetAllCustomerRecyclesResponseBody) SetNextToken(v string) *GetAllCustomerRecyclesResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetAllCustomerRecyclesResponseBody) SetResultList(v []*GetAllCustomerRecyclesResponseBodyResultList) *GetAllCustomerRecyclesResponseBody {
+	s.ResultList = v
+	return s
+}
+
+type GetAllCustomerRecyclesResponseBodyResultList struct {
+	// 客户ID
+	CustomerId *string `json:"customerId,omitempty" xml:"customerId,omitempty"`
+	// 上次跟进时间
+	FollowUpActionTime *string `json:"followUpActionTime,omitempty" xml:"followUpActionTime,omitempty"`
+	IsDeleted          *bool   `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// 掉保提醒时间
+	NotifyTime *string `json:"notifyTime,omitempty" xml:"notifyTime,omitempty"`
+	// 掉保规则ID
+	RecycleRuleId *int64 `json:"recycleRuleId,omitempty" xml:"recycleRuleId,omitempty"`
+	// 掉保时间
+	RecycleTime *string `json:"recycleTime,omitempty" xml:"recycleTime,omitempty"`
+}
+
+func (s GetAllCustomerRecyclesResponseBodyResultList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllCustomerRecyclesResponseBodyResultList) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllCustomerRecyclesResponseBodyResultList) SetCustomerId(v string) *GetAllCustomerRecyclesResponseBodyResultList {
+	s.CustomerId = &v
+	return s
+}
+
+func (s *GetAllCustomerRecyclesResponseBodyResultList) SetFollowUpActionTime(v string) *GetAllCustomerRecyclesResponseBodyResultList {
+	s.FollowUpActionTime = &v
+	return s
+}
+
+func (s *GetAllCustomerRecyclesResponseBodyResultList) SetIsDeleted(v bool) *GetAllCustomerRecyclesResponseBodyResultList {
+	s.IsDeleted = &v
+	return s
+}
+
+func (s *GetAllCustomerRecyclesResponseBodyResultList) SetNotifyTime(v string) *GetAllCustomerRecyclesResponseBodyResultList {
+	s.NotifyTime = &v
+	return s
+}
+
+func (s *GetAllCustomerRecyclesResponseBodyResultList) SetRecycleRuleId(v int64) *GetAllCustomerRecyclesResponseBodyResultList {
+	s.RecycleRuleId = &v
+	return s
+}
+
+func (s *GetAllCustomerRecyclesResponseBodyResultList) SetRecycleTime(v string) *GetAllCustomerRecyclesResponseBodyResultList {
+	s.RecycleTime = &v
+	return s
+}
+
+type GetAllCustomerRecyclesResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetAllCustomerRecyclesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAllCustomerRecyclesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllCustomerRecyclesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllCustomerRecyclesResponse) SetHeaders(v map[string]*string) *GetAllCustomerRecyclesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAllCustomerRecyclesResponse) SetBody(v *GetAllCustomerRecyclesResponseBody) *GetAllCustomerRecyclesResponse {
+	s.Body = v
+	return s
+}
+
 type GetCrmGroupChatHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -12296,6 +12450,54 @@ func (client *Client) DescribeRelationMetaWithOptions(request *DescribeRelationM
 	}
 	_result = &DescribeRelationMetaResponse{}
 	_body, _err := client.DoROARequest(tea.String("DescribeRelationMeta"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/relations/metas/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetAllCustomerRecycles(request *GetAllCustomerRecyclesRequest) (_result *GetAllCustomerRecyclesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAllCustomerRecyclesHeaders{}
+	_result = &GetAllCustomerRecyclesResponse{}
+	_body, _err := client.GetAllCustomerRecyclesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAllCustomerRecyclesWithOptions(request *GetAllCustomerRecyclesRequest, headers *GetAllCustomerRecyclesHeaders, runtime *util.RuntimeOptions) (_result *GetAllCustomerRecyclesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetAllCustomerRecyclesResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetAllCustomerRecycles"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/crm/customerRecycles"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
