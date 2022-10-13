@@ -1728,6 +1728,8 @@ func (s *UpdateShortcutsHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateSho
 type UpdateShortcutsRequest struct {
 	// 配置详情
 	Details []*UpdateShortcutsRequestDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
+	// 会话id
+	SessionId *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
 	// 用户信息
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -1742,6 +1744,11 @@ func (s UpdateShortcutsRequest) GoString() string {
 
 func (s *UpdateShortcutsRequest) SetDetails(v []*UpdateShortcutsRequestDetails) *UpdateShortcutsRequest {
 	s.Details = v
+	return s
+}
+
+func (s *UpdateShortcutsRequest) SetSessionId(v string) *UpdateShortcutsRequest {
+	s.SessionId = &v
 	return s
 }
 
@@ -2383,6 +2390,10 @@ func (client *Client) UpdateShortcutsWithOptions(request *UpdateShortcutsRequest
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Details)) {
 		body["details"] = request.Details
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SessionId)) {
+		body["sessionId"] = request.SessionId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {

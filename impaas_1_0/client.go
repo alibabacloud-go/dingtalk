@@ -1400,6 +1400,185 @@ func (s *SendMessageResponse) SetBody(v *SendMessageResponseBody) *SendMessageRe
 	return s
 }
 
+type SendRobotMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendRobotMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRobotMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendRobotMessageHeaders) SetCommonHeaders(v map[string]*string) *SendRobotMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendRobotMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendRobotMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendRobotMessageRequest struct {
+	// @人的appuid列表
+	AtAppUids []*string `json:"atAppUids,omitempty" xml:"atAppUids,omitempty" type:"Repeated"`
+	// @人的手机号列表
+	AtMobiles []*string `json:"atMobiles,omitempty" xml:"atMobiles,omitempty" type:"Repeated"`
+	// @人的unionid列表
+	AtUnionIds []*string `json:"atUnionIds,omitempty" xml:"atUnionIds,omitempty" type:"Repeated"`
+	// @人的userid列表
+	AtUsers []*string `json:"atUsers,omitempty" xml:"atUsers,omitempty" type:"Repeated"`
+	// 租户channel
+	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
+	// 是否@所有人。  true：是  false：否
+	IsAtAll *bool `json:"isAtAll,omitempty" xml:"isAtAll,omitempty"`
+	// 消息模板内容替换参数，多媒体类型
+	MsgMediaIdParamMap map[string]interface{} `json:"msgMediaIdParamMap,omitempty" xml:"msgMediaIdParamMap,omitempty"`
+	// 消息模板内容替换参数，普通文本类型
+	MsgParamMap map[string]interface{} `json:"msgParamMap,omitempty" xml:"msgParamMap,omitempty"`
+	// 消息模板id
+	MsgTemplateId *string `json:"msgTemplateId,omitempty" xml:"msgTemplateId,omitempty"`
+	// 消息接收人appuid列表
+	ReceiverAppUids []*string `json:"receiverAppUids,omitempty" xml:"receiverAppUids,omitempty" type:"Repeated"`
+	// 消息接收人手机号列表
+	ReceiverMobiles []*string `json:"receiverMobiles,omitempty" xml:"receiverMobiles,omitempty" type:"Repeated"`
+	// 消息接收人unionId列表
+	ReceiverUnionIds []*string `json:"receiverUnionIds,omitempty" xml:"receiverUnionIds,omitempty" type:"Repeated"`
+	// 消息接收人userId列表
+	ReceiverUserIds []*string `json:"receiverUserIds,omitempty" xml:"receiverUserIds,omitempty" type:"Repeated"`
+	// 用于发送卡片的机器人编码，与场景群模板中的机器人编码保持一致
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// 会话id
+	TargetOpenConversationId *string `json:"targetOpenConversationId,omitempty" xml:"targetOpenConversationId,omitempty"`
+}
+
+func (s SendRobotMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRobotMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendRobotMessageRequest) SetAtAppUids(v []*string) *SendRobotMessageRequest {
+	s.AtAppUids = v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetAtMobiles(v []*string) *SendRobotMessageRequest {
+	s.AtMobiles = v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetAtUnionIds(v []*string) *SendRobotMessageRequest {
+	s.AtUnionIds = v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetAtUsers(v []*string) *SendRobotMessageRequest {
+	s.AtUsers = v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetChannel(v string) *SendRobotMessageRequest {
+	s.Channel = &v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetIsAtAll(v bool) *SendRobotMessageRequest {
+	s.IsAtAll = &v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetMsgMediaIdParamMap(v map[string]interface{}) *SendRobotMessageRequest {
+	s.MsgMediaIdParamMap = v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetMsgParamMap(v map[string]interface{}) *SendRobotMessageRequest {
+	s.MsgParamMap = v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetMsgTemplateId(v string) *SendRobotMessageRequest {
+	s.MsgTemplateId = &v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetReceiverAppUids(v []*string) *SendRobotMessageRequest {
+	s.ReceiverAppUids = v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetReceiverMobiles(v []*string) *SendRobotMessageRequest {
+	s.ReceiverMobiles = v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetReceiverUnionIds(v []*string) *SendRobotMessageRequest {
+	s.ReceiverUnionIds = v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetReceiverUserIds(v []*string) *SendRobotMessageRequest {
+	s.ReceiverUserIds = v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetRobotCode(v string) *SendRobotMessageRequest {
+	s.RobotCode = &v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetTargetOpenConversationId(v string) *SendRobotMessageRequest {
+	s.TargetOpenConversationId = &v
+	return s
+}
+
+type SendRobotMessageResponseBody struct {
+	OpenMsgId *string `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
+}
+
+func (s SendRobotMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRobotMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendRobotMessageResponseBody) SetOpenMsgId(v string) *SendRobotMessageResponseBody {
+	s.OpenMsgId = &v
+	return s
+}
+
+type SendRobotMessageResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SendRobotMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendRobotMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRobotMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendRobotMessageResponse) SetHeaders(v map[string]*string) *SendRobotMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendRobotMessageResponse) SetBody(v *SendRobotMessageResponseBody) *SendRobotMessageResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateGroupNameHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	OperationSource         *string            `json:"operationSource,omitempty" xml:"operationSource,omitempty"`
@@ -2356,6 +2535,106 @@ func (client *Client) SendMessageWithOptions(request *SendMessageRequest, header
 	}
 	_result = &SendMessageResponse{}
 	_body, _err := client.DoROARequest(tea.String("SendMessage"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/messages/send"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendRobotMessage(request *SendRobotMessageRequest) (_result *SendRobotMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendRobotMessageHeaders{}
+	_result = &SendRobotMessageResponse{}
+	_body, _err := client.SendRobotMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendRobotMessageWithOptions(request *SendRobotMessageRequest, headers *SendRobotMessageHeaders, runtime *util.RuntimeOptions) (_result *SendRobotMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AtAppUids)) {
+		body["atAppUids"] = request.AtAppUids
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AtMobiles)) {
+		body["atMobiles"] = request.AtMobiles
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AtUnionIds)) {
+		body["atUnionIds"] = request.AtUnionIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AtUsers)) {
+		body["atUsers"] = request.AtUsers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Channel)) {
+		body["channel"] = request.Channel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsAtAll)) {
+		body["isAtAll"] = request.IsAtAll
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgMediaIdParamMap)) {
+		body["msgMediaIdParamMap"] = request.MsgMediaIdParamMap
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgParamMap)) {
+		body["msgParamMap"] = request.MsgParamMap
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgTemplateId)) {
+		body["msgTemplateId"] = request.MsgTemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverAppUids)) {
+		body["receiverAppUids"] = request.ReceiverAppUids
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverMobiles)) {
+		body["receiverMobiles"] = request.ReceiverMobiles
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverUnionIds)) {
+		body["receiverUnionIds"] = request.ReceiverUnionIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverUserIds)) {
+		body["receiverUserIds"] = request.ReceiverUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetOpenConversationId)) {
+		body["targetOpenConversationId"] = request.TargetOpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendRobotMessageResponse{}
+	_body, _err := client.DoROARequest(tea.String("SendRobotMessage"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/robots/messages/send"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

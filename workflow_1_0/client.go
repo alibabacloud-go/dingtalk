@@ -3982,6 +3982,214 @@ func (s *ListProcessInstanceIdsResponse) SetBody(v *ListProcessInstanceIdsRespon
 	return s
 }
 
+type ListTodoWorkRecordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListTodoWorkRecordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTodoWorkRecordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListTodoWorkRecordsHeaders) SetCommonHeaders(v map[string]*string) *ListTodoWorkRecordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListTodoWorkRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *ListTodoWorkRecordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListTodoWorkRecordsRequest struct {
+	// 分页大小，最大值50。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页游标。
+	//
+	// 如果是首次调用，该参数传0。
+	// 如果是非首次调用，该参数传上次调用时返回的nextToken。
+	//
+	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 待办事项的状态：
+	//
+	// 0：待处理
+	//
+	// -1：已经移除
+	//
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 要查询的执行人userid。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListTodoWorkRecordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTodoWorkRecordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListTodoWorkRecordsRequest) SetMaxResults(v int32) *ListTodoWorkRecordsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListTodoWorkRecordsRequest) SetNextToken(v int32) *ListTodoWorkRecordsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListTodoWorkRecordsRequest) SetStatus(v int32) *ListTodoWorkRecordsRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *ListTodoWorkRecordsRequest) SetUserId(v string) *ListTodoWorkRecordsRequest {
+	s.UserId = &v
+	return s
+}
+
+type ListTodoWorkRecordsResponseBody struct {
+	// 查询结果。
+	Result *ListTodoWorkRecordsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s ListTodoWorkRecordsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTodoWorkRecordsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListTodoWorkRecordsResponseBody) SetResult(v *ListTodoWorkRecordsResponseBodyResult) *ListTodoWorkRecordsResponseBody {
+	s.Result = v
+	return s
+}
+
+type ListTodoWorkRecordsResponseBodyResult struct {
+	// 待办事项列表。
+	List []*ListTodoWorkRecordsResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// 分页游标。不为空表示有数据。
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListTodoWorkRecordsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTodoWorkRecordsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListTodoWorkRecordsResponseBodyResult) SetList(v []*ListTodoWorkRecordsResponseBodyResultList) *ListTodoWorkRecordsResponseBodyResult {
+	s.List = v
+	return s
+}
+
+func (s *ListTodoWorkRecordsResponseBodyResult) SetNextToken(v int64) *ListTodoWorkRecordsResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
+type ListTodoWorkRecordsResponseBodyResultList struct {
+	// 表单列表。
+	Forms []*ListTodoWorkRecordsResponseBodyResultListForms `json:"forms,omitempty" xml:"forms,omitempty" type:"Repeated"`
+	// 实例ID。
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// 待办任务ID。
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// 待办标题。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 待办跳转链接。
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s ListTodoWorkRecordsResponseBodyResultList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTodoWorkRecordsResponseBodyResultList) GoString() string {
+	return s.String()
+}
+
+func (s *ListTodoWorkRecordsResponseBodyResultList) SetForms(v []*ListTodoWorkRecordsResponseBodyResultListForms) *ListTodoWorkRecordsResponseBodyResultList {
+	s.Forms = v
+	return s
+}
+
+func (s *ListTodoWorkRecordsResponseBodyResultList) SetInstanceId(v string) *ListTodoWorkRecordsResponseBodyResultList {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *ListTodoWorkRecordsResponseBodyResultList) SetTaskId(v int64) *ListTodoWorkRecordsResponseBodyResultList {
+	s.TaskId = &v
+	return s
+}
+
+func (s *ListTodoWorkRecordsResponseBodyResultList) SetTitle(v string) *ListTodoWorkRecordsResponseBodyResultList {
+	s.Title = &v
+	return s
+}
+
+func (s *ListTodoWorkRecordsResponseBodyResultList) SetUrl(v string) *ListTodoWorkRecordsResponseBodyResultList {
+	s.Url = &v
+	return s
+}
+
+type ListTodoWorkRecordsResponseBodyResultListForms struct {
+	// 表单内容。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 表单标题。
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s ListTodoWorkRecordsResponseBodyResultListForms) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTodoWorkRecordsResponseBodyResultListForms) GoString() string {
+	return s.String()
+}
+
+func (s *ListTodoWorkRecordsResponseBodyResultListForms) SetContent(v string) *ListTodoWorkRecordsResponseBodyResultListForms {
+	s.Content = &v
+	return s
+}
+
+func (s *ListTodoWorkRecordsResponseBodyResultListForms) SetTitle(v string) *ListTodoWorkRecordsResponseBodyResultListForms {
+	s.Title = &v
+	return s
+}
+
+type ListTodoWorkRecordsResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListTodoWorkRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListTodoWorkRecordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTodoWorkRecordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListTodoWorkRecordsResponse) SetHeaders(v map[string]*string) *ListTodoWorkRecordsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListTodoWorkRecordsResponse) SetBody(v *ListTodoWorkRecordsResponseBody) *ListTodoWorkRecordsResponse {
+	s.Body = v
+	return s
+}
+
 type ListUserVisibleBpmsProcessesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9474,6 +9682,62 @@ func (client *Client) ListProcessInstanceIdsWithOptions(request *ListProcessInst
 	}
 	_result = &ListProcessInstanceIdsResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListProcessInstanceIds"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/workflow/processes/instanceIds/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListTodoWorkRecords(request *ListTodoWorkRecordsRequest) (_result *ListTodoWorkRecordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListTodoWorkRecordsHeaders{}
+	_result = &ListTodoWorkRecordsResponse{}
+	_body, _err := client.ListTodoWorkRecordsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListTodoWorkRecordsWithOptions(request *ListTodoWorkRecordsRequest, headers *ListTodoWorkRecordsHeaders, runtime *util.RuntimeOptions) (_result *ListTodoWorkRecordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		query["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &ListTodoWorkRecordsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListTodoWorkRecords"), tea.String("workflow_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/workflow/workRecords/todoTasks"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
