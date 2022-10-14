@@ -859,6 +859,144 @@ func (s *ClearDataResponse) SetBody(v *ClearDataResponseBody) *ClearDataResponse
 	return s
 }
 
+type CreateConditionalFormattingRuleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateConditionalFormattingRuleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateConditionalFormattingRuleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateConditionalFormattingRuleHeaders) SetCommonHeaders(v map[string]*string) *CreateConditionalFormattingRuleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateConditionalFormattingRuleHeaders) SetXAcsDingtalkAccessToken(v string) *CreateConditionalFormattingRuleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateConditionalFormattingRuleRequest struct {
+	// 设定当前配置的规则的单元格样式
+	CellStyle *CreateConditionalFormattingRuleRequestCellStyle `json:"cellStyle,omitempty" xml:"cellStyle,omitempty" type:"Struct"`
+	// 重复值规则
+	DuplicateCondition *CreateConditionalFormattingRuleRequestDuplicateCondition `json:"duplicateCondition,omitempty" xml:"duplicateCondition,omitempty" type:"Struct"`
+	// 条件格式生效的区域。
+	Ranges []*string `json:"ranges,omitempty" xml:"ranges,omitempty" type:"Repeated"`
+	// 操作人unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s CreateConditionalFormattingRuleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateConditionalFormattingRuleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateConditionalFormattingRuleRequest) SetCellStyle(v *CreateConditionalFormattingRuleRequestCellStyle) *CreateConditionalFormattingRuleRequest {
+	s.CellStyle = v
+	return s
+}
+
+func (s *CreateConditionalFormattingRuleRequest) SetDuplicateCondition(v *CreateConditionalFormattingRuleRequestDuplicateCondition) *CreateConditionalFormattingRuleRequest {
+	s.DuplicateCondition = v
+	return s
+}
+
+func (s *CreateConditionalFormattingRuleRequest) SetRanges(v []*string) *CreateConditionalFormattingRuleRequest {
+	s.Ranges = v
+	return s
+}
+
+func (s *CreateConditionalFormattingRuleRequest) SetOperatorId(v string) *CreateConditionalFormattingRuleRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type CreateConditionalFormattingRuleRequestCellStyle struct {
+	// 背景色，使用十六进制颜色表示法，如#ff0000
+	BackgroundColor *string `json:"backgroundColor,omitempty" xml:"backgroundColor,omitempty"`
+}
+
+func (s CreateConditionalFormattingRuleRequestCellStyle) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateConditionalFormattingRuleRequestCellStyle) GoString() string {
+	return s.String()
+}
+
+func (s *CreateConditionalFormattingRuleRequestCellStyle) SetBackgroundColor(v string) *CreateConditionalFormattingRuleRequestCellStyle {
+	s.BackgroundColor = &v
+	return s
+}
+
+type CreateConditionalFormattingRuleRequestDuplicateCondition struct {
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+}
+
+func (s CreateConditionalFormattingRuleRequestDuplicateCondition) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateConditionalFormattingRuleRequestDuplicateCondition) GoString() string {
+	return s.String()
+}
+
+func (s *CreateConditionalFormattingRuleRequestDuplicateCondition) SetOperator(v string) *CreateConditionalFormattingRuleRequestDuplicateCondition {
+	s.Operator = &v
+	return s
+}
+
+type CreateConditionalFormattingRuleResponseBody struct {
+	// 条件格式ID
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s CreateConditionalFormattingRuleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateConditionalFormattingRuleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateConditionalFormattingRuleResponseBody) SetId(v string) *CreateConditionalFormattingRuleResponseBody {
+	s.Id = &v
+	return s
+}
+
+type CreateConditionalFormattingRuleResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateConditionalFormattingRuleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateConditionalFormattingRuleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateConditionalFormattingRuleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateConditionalFormattingRuleResponse) SetHeaders(v map[string]*string) *CreateConditionalFormattingRuleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateConditionalFormattingRuleResponse) SetBody(v *CreateConditionalFormattingRuleResponseBody) *CreateConditionalFormattingRuleResponse {
+	s.Body = v
+	return s
+}
+
 type CreateRangeProtectionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1619,8 +1757,26 @@ func (s *DeleteSheetRequest) SetOperatorId(v string) *DeleteSheetRequest {
 	return s
 }
 
+type DeleteSheetResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteSheetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteSheetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteSheetResponseBody) SetSuccess(v bool) *DeleteSheetResponseBody {
+	s.Success = &v
+	return s
+}
+
 type DeleteSheetResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteSheetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s DeleteSheetResponse) String() string {
@@ -1633,6 +1789,11 @@ func (s DeleteSheetResponse) GoString() string {
 
 func (s *DeleteSheetResponse) SetHeaders(v map[string]*string) *DeleteSheetResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *DeleteSheetResponse) SetBody(v *DeleteSheetResponseBody) *DeleteSheetResponse {
+	s.Body = v
 	return s
 }
 
@@ -4693,8 +4854,11 @@ func (s *UpdateRangeHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRangeHe
 
 type UpdateRangeRequest struct {
 	// 背景色
-	BackgroundColors [][]*string                       `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
-	Hyperlinks       [][]*UpdateRangeRequestHyperlinks `json:"hyperlinks,omitempty" xml:"hyperlinks,omitempty" type:"Repeated"`
+	BackgroundColors [][]*string `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
+	// 超链接
+	Hyperlinks [][]*UpdateRangeRequestHyperlinks `json:"hyperlinks,omitempty" xml:"hyperlinks,omitempty" type:"Repeated"`
+	// 数字格式
+	NumberFormat *string `json:"numberFormat,omitempty" xml:"numberFormat,omitempty"`
 	// 值
 	Values [][]*string `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 	// 操作人unionId
@@ -4716,6 +4880,11 @@ func (s *UpdateRangeRequest) SetBackgroundColors(v [][]*string) *UpdateRangeRequ
 
 func (s *UpdateRangeRequest) SetHyperlinks(v [][]*UpdateRangeRequestHyperlinks) *UpdateRangeRequest {
 	s.Hyperlinks = v
+	return s
+}
+
+func (s *UpdateRangeRequest) SetNumberFormat(v string) *UpdateRangeRequest {
+	s.NumberFormat = &v
 	return s
 }
 
@@ -4761,8 +4930,27 @@ func (s *UpdateRangeRequestHyperlinks) SetText(v string) *UpdateRangeRequestHype
 	return s
 }
 
+type UpdateRangeResponseBody struct {
+	// 使用A1表示法的Range地址
+	A1Notation *string `json:"a1Notation,omitempty" xml:"a1Notation,omitempty"`
+}
+
+func (s UpdateRangeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRangeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRangeResponseBody) SetA1Notation(v string) *UpdateRangeResponseBody {
+	s.A1Notation = &v
+	return s
+}
+
 type UpdateRangeResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateRangeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateRangeResponse) String() string {
@@ -4775,6 +4963,11 @@ func (s UpdateRangeResponse) GoString() string {
 
 func (s *UpdateRangeResponse) SetHeaders(v map[string]*string) *UpdateRangeResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateRangeResponse) SetBody(v *UpdateRangeResponseBody) *UpdateRangeResponse {
+	s.Body = v
 	return s
 }
 
@@ -5412,6 +5605,66 @@ func (client *Client) ClearDataWithOptions(workbookId *string, sheetId *string, 
 	return _result, _err
 }
 
+func (client *Client) CreateConditionalFormattingRule(workbookId *string, sheetId *string, request *CreateConditionalFormattingRuleRequest) (_result *CreateConditionalFormattingRuleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateConditionalFormattingRuleHeaders{}
+	_result = &CreateConditionalFormattingRuleResponse{}
+	_body, _err := client.CreateConditionalFormattingRuleWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateConditionalFormattingRuleWithOptions(workbookId *string, sheetId *string, request *CreateConditionalFormattingRuleRequest, headers *CreateConditionalFormattingRuleHeaders, runtime *util.RuntimeOptions) (_result *CreateConditionalFormattingRuleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
+	sheetId = openapiutil.GetEncodeParam(sheetId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CellStyle))) {
+		body["cellStyle"] = request.CellStyle
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.DuplicateCondition))) {
+		body["duplicateCondition"] = request.DuplicateCondition
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Ranges)) {
+		body["ranges"] = request.Ranges
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateConditionalFormattingRuleResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateConditionalFormattingRule"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/conditionalFormattingRules"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateRangeProtection(workbookId *string, sheetId *string, rangeAddress *string, request *CreateRangeProtectionRequest) (_result *CreateRangeProtectionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateRangeProtectionHeaders{}
@@ -5831,7 +6084,7 @@ func (client *Client) DeleteSheetWithOptions(workbookId *string, sheetId *string
 		Query:   openapiutil.Query(query),
 	}
 	_result = &DeleteSheetResponse{}
-	_body, _err := client.DoROARequest(tea.String("DeleteSheet"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("DeleteSheet"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7011,6 +7264,10 @@ func (client *Client) UpdateRangeWithOptions(workbookId *string, sheetId *string
 		body["hyperlinks"] = request.Hyperlinks
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.NumberFormat)) {
+		body["numberFormat"] = request.NumberFormat
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Values)) {
 		body["values"] = request.Values
 	}
@@ -7030,7 +7287,7 @@ func (client *Client) UpdateRangeWithOptions(workbookId *string, sheetId *string
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &UpdateRangeResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateRange"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/ranges/"+tea.StringValue(rangeAddress)), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("UpdateRange"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/ranges/"+tea.StringValue(rangeAddress)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

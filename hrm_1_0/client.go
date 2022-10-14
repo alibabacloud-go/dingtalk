@@ -2090,6 +2090,154 @@ func (s *QueryPositionsResponse) SetBody(v *QueryPositionsResponseBody) *QueryPo
 	return s
 }
 
+type RosterMetaFieldOptionsUpdateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RosterMetaFieldOptionsUpdateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RosterMetaFieldOptionsUpdateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RosterMetaFieldOptionsUpdateHeaders) SetCommonHeaders(v map[string]*string) *RosterMetaFieldOptionsUpdateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RosterMetaFieldOptionsUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *RosterMetaFieldOptionsUpdateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RosterMetaFieldOptionsUpdateRequest struct {
+	AppAgentId *int64                                   `json:"appAgentId,omitempty" xml:"appAgentId,omitempty"`
+	Body       *RosterMetaFieldOptionsUpdateRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Struct"`
+}
+
+func (s RosterMetaFieldOptionsUpdateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RosterMetaFieldOptionsUpdateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RosterMetaFieldOptionsUpdateRequest) SetAppAgentId(v int64) *RosterMetaFieldOptionsUpdateRequest {
+	s.AppAgentId = &v
+	return s
+}
+
+func (s *RosterMetaFieldOptionsUpdateRequest) SetBody(v *RosterMetaFieldOptionsUpdateRequestBody) *RosterMetaFieldOptionsUpdateRequest {
+	s.Body = v
+	return s
+}
+
+type RosterMetaFieldOptionsUpdateRequestBody struct {
+	// 字段fieldCode
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// 花名册分组id
+	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// 需要修改的选项值
+	Labels []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
+	// 修改类型，OPTIONS_ADD选项添加，OPTIONS_DELETE选项删除
+	ModifyType *string `json:"modifyType,omitempty" xml:"modifyType,omitempty"`
+}
+
+func (s RosterMetaFieldOptionsUpdateRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RosterMetaFieldOptionsUpdateRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *RosterMetaFieldOptionsUpdateRequestBody) SetFieldCode(v string) *RosterMetaFieldOptionsUpdateRequestBody {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *RosterMetaFieldOptionsUpdateRequestBody) SetGroupId(v string) *RosterMetaFieldOptionsUpdateRequestBody {
+	s.GroupId = &v
+	return s
+}
+
+func (s *RosterMetaFieldOptionsUpdateRequestBody) SetLabels(v []*string) *RosterMetaFieldOptionsUpdateRequestBody {
+	s.Labels = v
+	return s
+}
+
+func (s *RosterMetaFieldOptionsUpdateRequestBody) SetModifyType(v string) *RosterMetaFieldOptionsUpdateRequestBody {
+	s.ModifyType = &v
+	return s
+}
+
+type RosterMetaFieldOptionsUpdateShrinkRequest struct {
+	AppAgentId *int64  `json:"appAgentId,omitempty" xml:"appAgentId,omitempty"`
+	BodyShrink *string `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s RosterMetaFieldOptionsUpdateShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RosterMetaFieldOptionsUpdateShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RosterMetaFieldOptionsUpdateShrinkRequest) SetAppAgentId(v int64) *RosterMetaFieldOptionsUpdateShrinkRequest {
+	s.AppAgentId = &v
+	return s
+}
+
+func (s *RosterMetaFieldOptionsUpdateShrinkRequest) SetBodyShrink(v string) *RosterMetaFieldOptionsUpdateShrinkRequest {
+	s.BodyShrink = &v
+	return s
+}
+
+type RosterMetaFieldOptionsUpdateResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s RosterMetaFieldOptionsUpdateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RosterMetaFieldOptionsUpdateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RosterMetaFieldOptionsUpdateResponseBody) SetResult(v bool) *RosterMetaFieldOptionsUpdateResponseBody {
+	s.Result = &v
+	return s
+}
+
+type RosterMetaFieldOptionsUpdateResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RosterMetaFieldOptionsUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RosterMetaFieldOptionsUpdateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RosterMetaFieldOptionsUpdateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RosterMetaFieldOptionsUpdateResponse) SetHeaders(v map[string]*string) *RosterMetaFieldOptionsUpdateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RosterMetaFieldOptionsUpdateResponse) SetBody(v *RosterMetaFieldOptionsUpdateResponseBody) *RosterMetaFieldOptionsUpdateResponse {
+	s.Body = v
+	return s
+}
+
 type SolutionTaskInitHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3204,6 +3352,60 @@ func (client *Client) QueryPositionsWithOptions(request *QueryPositionsRequest, 
 	}
 	_result = &QueryPositionsResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryPositions"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/positions/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RosterMetaFieldOptionsUpdate(request *RosterMetaFieldOptionsUpdateRequest) (_result *RosterMetaFieldOptionsUpdateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RosterMetaFieldOptionsUpdateHeaders{}
+	_result = &RosterMetaFieldOptionsUpdateResponse{}
+	_body, _err := client.RosterMetaFieldOptionsUpdateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RosterMetaFieldOptionsUpdateWithOptions(tmpReq *RosterMetaFieldOptionsUpdateRequest, headers *RosterMetaFieldOptionsUpdateHeaders, runtime *util.RuntimeOptions) (_result *RosterMetaFieldOptionsUpdateResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &RosterMetaFieldOptionsUpdateShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(tmpReq.Body))) {
+		request.BodyShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tea.ToMap(tmpReq.Body), tea.String("body"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppAgentId)) {
+		query["appAgentId"] = request.AppAgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BodyShrink)) {
+		query["body"] = request.BodyShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &RosterMetaFieldOptionsUpdateResponse{}
+	_body, _err := client.DoROARequest(tea.String("RosterMetaFieldOptionsUpdate"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/hrm/rosters/meta/fields/options"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

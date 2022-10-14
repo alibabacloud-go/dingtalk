@@ -3228,6 +3228,181 @@ func (s *GetFileUploadInfoResponse) SetBody(v *GetFileUploadInfoResponseBody) *G
 	return s
 }
 
+type GetMultipartFileUploadInfosHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetMultipartFileUploadInfosHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMultipartFileUploadInfosHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetMultipartFileUploadInfosHeaders) SetCommonHeaders(v map[string]*string) *GetMultipartFileUploadInfosHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetMultipartFileUploadInfosHeaders) SetXAcsDingtalkAccessToken(v string) *GetMultipartFileUploadInfosHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetMultipartFileUploadInfosRequest struct {
+	// 分片id列表
+	// 分片id取值: 1~10000
+	// 分片大小限制: 100KB~5GB
+	PartNumbers []*int32 `json:"partNumbers,omitempty" xml:"partNumbers,omitempty" type:"Repeated"`
+	// 上传唯一标识
+	UploadKey *string `json:"uploadKey,omitempty" xml:"uploadKey,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetMultipartFileUploadInfosRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMultipartFileUploadInfosRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetMultipartFileUploadInfosRequest) SetPartNumbers(v []*int32) *GetMultipartFileUploadInfosRequest {
+	s.PartNumbers = v
+	return s
+}
+
+func (s *GetMultipartFileUploadInfosRequest) SetUploadKey(v string) *GetMultipartFileUploadInfosRequest {
+	s.UploadKey = &v
+	return s
+}
+
+func (s *GetMultipartFileUploadInfosRequest) SetUnionId(v string) *GetMultipartFileUploadInfosRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetMultipartFileUploadInfosResponseBody struct {
+	// 分片Header加签上传信息列表
+	MultipartHeaderSignatureInfos []*GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfos `json:"multipartHeaderSignatureInfos,omitempty" xml:"multipartHeaderSignatureInfos,omitempty" type:"Repeated"`
+}
+
+func (s GetMultipartFileUploadInfosResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMultipartFileUploadInfosResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetMultipartFileUploadInfosResponseBody) SetMultipartHeaderSignatureInfos(v []*GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfos) *GetMultipartFileUploadInfosResponseBody {
+	s.MultipartHeaderSignatureInfos = v
+	return s
+}
+
+type GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfos struct {
+	// header信息
+	HeaderSignatureInfo *GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo `json:"headerSignatureInfo,omitempty" xml:"headerSignatureInfo,omitempty" type:"Struct"`
+	// 分片number
+	PartNumber *int32 `json:"partNumber,omitempty" xml:"partNumber,omitempty"`
+}
+
+func (s GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfos) GoString() string {
+	return s.String()
+}
+
+func (s *GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfos) SetHeaderSignatureInfo(v *GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo) *GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfos {
+	s.HeaderSignatureInfo = v
+	return s
+}
+
+func (s *GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfos) SetPartNumber(v int32) *GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfos {
+	s.PartNumber = &v
+	return s
+}
+
+type GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo struct {
+	// 过期时间，单位秒
+	ExpirationSeconds *int32 `json:"expirationSeconds,omitempty" xml:"expirationSeconds,omitempty"`
+	// 请求头
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	// 内网URL, 在网络连通的情况下，使用内网URL可加速服务器间上传
+	InternalResourceUrls []*string `json:"internalResourceUrls,omitempty" xml:"internalResourceUrls,omitempty" type:"Repeated"`
+	// 地域
+	// 枚举值:
+	// 	ZHANGJIAKOU: 张家口
+	// 	SHENZHEN: 深圳
+	// 	SHANGHAI: 上海
+	// 	SINGAPORE: 新加坡
+	// 	UNKNOWN: 未知
+	Region *string `json:"region,omitempty" xml:"region,omitempty"`
+	// 多个上传下载URL, 前面url优先
+	ResourceUrls []*string `json:"resourceUrls,omitempty" xml:"resourceUrls,omitempty" type:"Repeated"`
+}
+
+func (s GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo) SetExpirationSeconds(v int32) *GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo {
+	s.ExpirationSeconds = &v
+	return s
+}
+
+func (s *GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo) SetHeaders(v map[string]*string) *GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo {
+	s.Headers = v
+	return s
+}
+
+func (s *GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo) SetInternalResourceUrls(v []*string) *GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo {
+	s.InternalResourceUrls = v
+	return s
+}
+
+func (s *GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo) SetRegion(v string) *GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo {
+	s.Region = &v
+	return s
+}
+
+func (s *GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo) SetResourceUrls(v []*string) *GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo {
+	s.ResourceUrls = v
+	return s
+}
+
+type GetMultipartFileUploadInfosResponse struct {
+	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetMultipartFileUploadInfosResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetMultipartFileUploadInfosResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMultipartFileUploadInfosResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetMultipartFileUploadInfosResponse) SetHeaders(v map[string]*string) *GetMultipartFileUploadInfosResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetMultipartFileUploadInfosResponse) SetBody(v *GetMultipartFileUploadInfosResponseBody) *GetMultipartFileUploadInfosResponse {
+	s.Body = v
+	return s
+}
+
 type GetOrgHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3945,6 +4120,197 @@ func (s *GetSpaceResponse) SetHeaders(v map[string]*string) *GetSpaceResponse {
 }
 
 func (s *GetSpaceResponse) SetBody(v *GetSpaceResponseBody) *GetSpaceResponse {
+	s.Body = v
+	return s
+}
+
+type InitMultipartFileUploadHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s InitMultipartFileUploadHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitMultipartFileUploadHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *InitMultipartFileUploadHeaders) SetCommonHeaders(v map[string]*string) *InitMultipartFileUploadHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *InitMultipartFileUploadHeaders) SetXAcsDingtalkAccessToken(v string) *InitMultipartFileUploadHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type InitMultipartFileUploadRequest struct {
+	// 可选参数
+	Option *InitMultipartFileUploadRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s InitMultipartFileUploadRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitMultipartFileUploadRequest) GoString() string {
+	return s.String()
+}
+
+func (s *InitMultipartFileUploadRequest) SetOption(v *InitMultipartFileUploadRequestOption) *InitMultipartFileUploadRequest {
+	s.Option = v
+	return s
+}
+
+func (s *InitMultipartFileUploadRequest) SetUnionId(v string) *InitMultipartFileUploadRequest {
+	s.UnionId = &v
+	return s
+}
+
+type InitMultipartFileUploadRequestOption struct {
+	// 预检查的字段。可实现对文件名称，文件完整性，容量的校验
+	PreCheckParam *InitMultipartFileUploadRequestOptionPreCheckParam `json:"preCheckParam,omitempty" xml:"preCheckParam,omitempty" type:"Struct"`
+	// 优先地域, 倾向于将资源存到哪个地域，可实现就近上传等功能
+	// 枚举值:
+	// 	ZHANGJIAKOU: 张家口
+	// 	SHENZHEN: 深圳
+	// 	SHANGHAI: 上海
+	// 	SINGAPORE: 新加坡
+	// 	UNKNOWN: 未知
+	PreferRegion *string `json:"preferRegion,omitempty" xml:"preferRegion,omitempty"`
+	// 文件存储驱动类型, 当前只支持DINGTALK
+	// 枚举值:
+	// 	DINGTALK: 钉钉统一存储驱动
+	// 	ALIDOC: 钉钉文档存储驱动
+	// 	SHANJI: 闪记存储驱动
+	// 	UNKNOWN: 未知驱动
+	// 默认值:
+	// 	DINGTALK
+	StorageDriver *string `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+}
+
+func (s InitMultipartFileUploadRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitMultipartFileUploadRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *InitMultipartFileUploadRequestOption) SetPreCheckParam(v *InitMultipartFileUploadRequestOptionPreCheckParam) *InitMultipartFileUploadRequestOption {
+	s.PreCheckParam = v
+	return s
+}
+
+func (s *InitMultipartFileUploadRequestOption) SetPreferRegion(v string) *InitMultipartFileUploadRequestOption {
+	s.PreferRegion = &v
+	return s
+}
+
+func (s *InitMultipartFileUploadRequestOption) SetStorageDriver(v string) *InitMultipartFileUploadRequestOption {
+	s.StorageDriver = &v
+	return s
+}
+
+type InitMultipartFileUploadRequestOptionPreCheckParam struct {
+	// 文件md5值, 做文件完整性校验。不传则不做校验。
+	Md5 *string `json:"md5,omitempty" xml:"md5,omitempty"`
+	// 文件名称, 文件名称合法性和文件名称冲突校验
+	// 规则：
+	// 1. 头尾不能包含空格，否则会自动去除
+	// 2. 不能包含特殊字符，包括：制表符、*、"、<、>、|
+	// 3. 不能以"."结尾
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 父目录id
+	// 根目录id值为0
+	// 用于同目录文件名冲突校验
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// 文件大小, 做容量相关校验。不传则不做校验。
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+}
+
+func (s InitMultipartFileUploadRequestOptionPreCheckParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitMultipartFileUploadRequestOptionPreCheckParam) GoString() string {
+	return s.String()
+}
+
+func (s *InitMultipartFileUploadRequestOptionPreCheckParam) SetMd5(v string) *InitMultipartFileUploadRequestOptionPreCheckParam {
+	s.Md5 = &v
+	return s
+}
+
+func (s *InitMultipartFileUploadRequestOptionPreCheckParam) SetName(v string) *InitMultipartFileUploadRequestOptionPreCheckParam {
+	s.Name = &v
+	return s
+}
+
+func (s *InitMultipartFileUploadRequestOptionPreCheckParam) SetParentId(v string) *InitMultipartFileUploadRequestOptionPreCheckParam {
+	s.ParentId = &v
+	return s
+}
+
+func (s *InitMultipartFileUploadRequestOptionPreCheckParam) SetSize(v int64) *InitMultipartFileUploadRequestOptionPreCheckParam {
+	s.Size = &v
+	return s
+}
+
+type InitMultipartFileUploadResponseBody struct {
+	// 文件存储类型
+	// 枚举值:
+	// 	DINGTALK: 钉钉统一存储驱动
+	// 	ALIDOC: 钉钉文档存储驱动
+	// 	SHANJI: 闪记存储驱动
+	// 	UNKNOWN: 未知驱动
+	StorageDriver *string `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	// 上传唯一标识
+	UploadKey *string `json:"uploadKey,omitempty" xml:"uploadKey,omitempty"`
+}
+
+func (s InitMultipartFileUploadResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitMultipartFileUploadResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *InitMultipartFileUploadResponseBody) SetStorageDriver(v string) *InitMultipartFileUploadResponseBody {
+	s.StorageDriver = &v
+	return s
+}
+
+func (s *InitMultipartFileUploadResponseBody) SetUploadKey(v string) *InitMultipartFileUploadResponseBody {
+	s.UploadKey = &v
+	return s
+}
+
+type InitMultipartFileUploadResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *InitMultipartFileUploadResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s InitMultipartFileUploadResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InitMultipartFileUploadResponse) GoString() string {
+	return s.String()
+}
+
+func (s *InitMultipartFileUploadResponse) SetHeaders(v map[string]*string) *InitMultipartFileUploadResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *InitMultipartFileUploadResponse) SetBody(v *InitMultipartFileUploadResponseBody) *InitMultipartFileUploadResponse {
 	s.Body = v
 	return s
 }
@@ -7026,6 +7392,60 @@ func (client *Client) GetFileUploadInfoWithOptions(spaceId *string, request *Get
 	return _result, _err
 }
 
+func (client *Client) GetMultipartFileUploadInfos(request *GetMultipartFileUploadInfosRequest) (_result *GetMultipartFileUploadInfosResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetMultipartFileUploadInfosHeaders{}
+	_result = &GetMultipartFileUploadInfosResponse{}
+	_body, _err := client.GetMultipartFileUploadInfosWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetMultipartFileUploadInfosWithOptions(request *GetMultipartFileUploadInfosRequest, headers *GetMultipartFileUploadInfosHeaders, runtime *util.RuntimeOptions) (_result *GetMultipartFileUploadInfosResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PartNumbers)) {
+		body["partNumbers"] = request.PartNumbers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UploadKey)) {
+		body["uploadKey"] = request.UploadKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetMultipartFileUploadInfosResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetMultipartFileUploadInfos"), tea.String("storage_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/storage/spaces/files/multiPartUploadInfos/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetOrg(corpId *string, request *GetOrgRequest) (_result *GetOrgResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOrgHeaders{}
@@ -7207,6 +7627,57 @@ func (client *Client) GetSpaceWithOptions(spaceId *string, request *GetSpaceRequ
 	}
 	_result = &GetSpaceResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetSpace"), tea.String("storage_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/storage/spaces/"+tea.StringValue(spaceId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) InitMultipartFileUpload(spaceId *string, request *InitMultipartFileUploadRequest) (_result *InitMultipartFileUploadResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &InitMultipartFileUploadHeaders{}
+	_result = &InitMultipartFileUploadResponse{}
+	_body, _err := client.InitMultipartFileUploadWithOptions(spaceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) InitMultipartFileUploadWithOptions(spaceId *string, request *InitMultipartFileUploadRequest, headers *InitMultipartFileUploadHeaders, runtime *util.RuntimeOptions) (_result *InitMultipartFileUploadResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
+		body["option"] = request.Option
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &InitMultipartFileUploadResponse{}
+	_body, _err := client.DoROARequest(tea.String("InitMultipartFileUpload"), tea.String("storage_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/storage/spaces/"+tea.StringValue(spaceId)+"/files/multiPartUploadInfos/init"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
