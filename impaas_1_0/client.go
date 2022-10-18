@@ -1424,6 +1424,8 @@ func (s *SendRobotMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendRobo
 }
 
 type SendRobotMessageRequest struct {
+	// 是否@全员
+	AtAll *bool `json:"atAll,omitempty" xml:"atAll,omitempty"`
 	// @人的appuid列表
 	AtAppUids []*string `json:"atAppUids,omitempty" xml:"atAppUids,omitempty" type:"Repeated"`
 	// @人的手机号列表
@@ -1434,8 +1436,6 @@ type SendRobotMessageRequest struct {
 	AtUsers []*string `json:"atUsers,omitempty" xml:"atUsers,omitempty" type:"Repeated"`
 	// 租户channel
 	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
-	// 是否@所有人。  true：是  false：否
-	IsAtAll *bool `json:"isAtAll,omitempty" xml:"isAtAll,omitempty"`
 	// 消息模板内容替换参数，多媒体类型
 	MsgMediaIdParamMap map[string]interface{} `json:"msgMediaIdParamMap,omitempty" xml:"msgMediaIdParamMap,omitempty"`
 	// 消息模板内容替换参数，普通文本类型
@@ -1464,6 +1464,11 @@ func (s SendRobotMessageRequest) GoString() string {
 	return s.String()
 }
 
+func (s *SendRobotMessageRequest) SetAtAll(v bool) *SendRobotMessageRequest {
+	s.AtAll = &v
+	return s
+}
+
 func (s *SendRobotMessageRequest) SetAtAppUids(v []*string) *SendRobotMessageRequest {
 	s.AtAppUids = v
 	return s
@@ -1486,11 +1491,6 @@ func (s *SendRobotMessageRequest) SetAtUsers(v []*string) *SendRobotMessageReque
 
 func (s *SendRobotMessageRequest) SetChannel(v string) *SendRobotMessageRequest {
 	s.Channel = &v
-	return s
-}
-
-func (s *SendRobotMessageRequest) SetIsAtAll(v bool) *SendRobotMessageRequest {
-	s.IsAtAll = &v
 	return s
 }
 
@@ -2560,6 +2560,10 @@ func (client *Client) SendRobotMessageWithOptions(request *SendRobotMessageReque
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AtAll)) {
+		body["atAll"] = request.AtAll
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.AtAppUids)) {
 		body["atAppUids"] = request.AtAppUids
 	}
@@ -2578,10 +2582,6 @@ func (client *Client) SendRobotMessageWithOptions(request *SendRobotMessageReque
 
 	if !tea.BoolValue(util.IsUnset(request.Channel)) {
 		body["channel"] = request.Channel
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.IsAtAll)) {
-		body["isAtAll"] = request.IsAtAll
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.MsgMediaIdParamMap)) {
