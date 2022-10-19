@@ -5696,6 +5696,132 @@ func (s *MoveDentryResponse) SetBody(v *MoveDentryResponseBody) *MoveDentryRespo
 	return s
 }
 
+type RegisterOpenInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RegisterOpenInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegisterOpenInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RegisterOpenInfoHeaders) SetCommonHeaders(v map[string]*string) *RegisterOpenInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RegisterOpenInfoHeaders) SetXAcsDingtalkAccessToken(v string) *RegisterOpenInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RegisterOpenInfoRequest struct {
+	// 注册打开信息
+	OpenInfos []*RegisterOpenInfoRequestOpenInfos `json:"openInfos,omitempty" xml:"openInfos,omitempty" type:"Repeated"`
+	// 链接供应商名称
+	// 枚举值:
+	// 	MS_OFFICE: MS Office
+	Provider *string `json:"provider,omitempty" xml:"provider,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s RegisterOpenInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegisterOpenInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RegisterOpenInfoRequest) SetOpenInfos(v []*RegisterOpenInfoRequestOpenInfos) *RegisterOpenInfoRequest {
+	s.OpenInfos = v
+	return s
+}
+
+func (s *RegisterOpenInfoRequest) SetProvider(v string) *RegisterOpenInfoRequest {
+	s.Provider = &v
+	return s
+}
+
+func (s *RegisterOpenInfoRequest) SetUnionId(v string) *RegisterOpenInfoRequest {
+	s.UnionId = &v
+	return s
+}
+
+type RegisterOpenInfoRequestOpenInfos struct {
+	// 打开方式
+	// 枚举值:
+	// 	PREVIEW: 预览
+	// 	EDIT: 编辑
+	OpenType *string `json:"openType,omitempty" xml:"openType,omitempty"`
+	// 注册链接
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s RegisterOpenInfoRequestOpenInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegisterOpenInfoRequestOpenInfos) GoString() string {
+	return s.String()
+}
+
+func (s *RegisterOpenInfoRequestOpenInfos) SetOpenType(v string) *RegisterOpenInfoRequestOpenInfos {
+	s.OpenType = &v
+	return s
+}
+
+func (s *RegisterOpenInfoRequestOpenInfos) SetUrl(v string) *RegisterOpenInfoRequestOpenInfos {
+	s.Url = &v
+	return s
+}
+
+type RegisterOpenInfoResponseBody struct {
+	// 本次操作是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s RegisterOpenInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegisterOpenInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RegisterOpenInfoResponseBody) SetSuccess(v bool) *RegisterOpenInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+type RegisterOpenInfoResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RegisterOpenInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RegisterOpenInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegisterOpenInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RegisterOpenInfoResponse) SetHeaders(v map[string]*string) *RegisterOpenInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RegisterOpenInfoResponse) SetBody(v *RegisterOpenInfoResponseBody) *RegisterOpenInfoResponse {
+	s.Body = v
+	return s
+}
+
 type RenameDentryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7962,6 +8088,62 @@ func (client *Client) MoveDentryWithOptions(spaceId *string, dentryId *string, r
 	}
 	_result = &MoveDentryResponse{}
 	_body, _err := client.DoROARequest(tea.String("MoveDentry"), tea.String("storage_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/storage/spaces/"+tea.StringValue(spaceId)+"/dentries/"+tea.StringValue(dentryId)+"/move"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RegisterOpenInfo(spaceId *string, dentryId *string, request *RegisterOpenInfoRequest) (_result *RegisterOpenInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RegisterOpenInfoHeaders{}
+	_result = &RegisterOpenInfoResponse{}
+	_body, _err := client.RegisterOpenInfoWithOptions(spaceId, dentryId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RegisterOpenInfoWithOptions(spaceId *string, dentryId *string, request *RegisterOpenInfoRequest, headers *RegisterOpenInfoHeaders, runtime *util.RuntimeOptions) (_result *RegisterOpenInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	dentryId = openapiutil.GetEncodeParam(dentryId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenInfos)) {
+		body["openInfos"] = request.OpenInfos
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Provider)) {
+		body["provider"] = request.Provider
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RegisterOpenInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("RegisterOpenInfo"), tea.String("storage_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/storage/spaces/"+tea.StringValue(spaceId)+"/dentries/"+tea.StringValue(dentryId)+"/openInfos/register"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
