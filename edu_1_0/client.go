@@ -4868,6 +4868,88 @@ func (s *DeleteDeptResponse) SetBody(v *DeleteDeptResponseBody) *DeleteDeptRespo
 	return s
 }
 
+type DeleteDeviceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteDeviceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDeviceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDeviceHeaders) SetCommonHeaders(v map[string]*string) *DeleteDeviceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteDeviceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteDeviceRequest struct {
+	// 设备sn码
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+}
+
+func (s DeleteDeviceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDeviceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDeviceRequest) SetSn(v string) *DeleteDeviceRequest {
+	s.Sn = &v
+	return s
+}
+
+type DeleteDeviceResponseBody struct {
+	// 是否删除成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteDeviceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDeviceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDeviceResponseBody) SetResult(v bool) *DeleteDeviceResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeleteDeviceResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteDeviceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDeviceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDeviceResponse) SetHeaders(v map[string]*string) *DeleteDeviceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteDeviceResponse) SetBody(v *DeleteDeviceResponseBody) *DeleteDeviceResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteDeviceOrgHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -15293,6 +15375,109 @@ func (s *UpdateUniversityCourseGroupResponse) SetBody(v *UpdateUniversityCourseG
 	return s
 }
 
+type VPaasProxyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s VPaasProxyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VPaasProxyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *VPaasProxyHeaders) SetCommonHeaders(v map[string]*string) *VPaasProxyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *VPaasProxyHeaders) SetXAcsDingtalkAccessToken(v string) *VPaasProxyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type VPaasProxyRequest struct {
+	// 代理操作码
+	ActionCode *string `json:"actionCode,omitempty" xml:"actionCode,omitempty"`
+	// 调用参数
+	Params *string `json:"params,omitempty" xml:"params,omitempty"`
+	// Base64加密的公钥
+	PublicKey *string `json:"publicKey,omitempty" xml:"publicKey,omitempty"`
+}
+
+func (s VPaasProxyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VPaasProxyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *VPaasProxyRequest) SetActionCode(v string) *VPaasProxyRequest {
+	s.ActionCode = &v
+	return s
+}
+
+func (s *VPaasProxyRequest) SetParams(v string) *VPaasProxyRequest {
+	s.Params = &v
+	return s
+}
+
+func (s *VPaasProxyRequest) SetPublicKey(v string) *VPaasProxyRequest {
+	s.PublicKey = &v
+	return s
+}
+
+type VPaasProxyResponseBody struct {
+	// 结果密文
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// 公钥加密的盐
+	Ticket *string `json:"ticket,omitempty" xml:"ticket,omitempty"`
+}
+
+func (s VPaasProxyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VPaasProxyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *VPaasProxyResponseBody) SetResult(v string) *VPaasProxyResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *VPaasProxyResponseBody) SetTicket(v string) *VPaasProxyResponseBody {
+	s.Ticket = &v
+	return s
+}
+
+type VPaasProxyResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *VPaasProxyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s VPaasProxyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VPaasProxyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *VPaasProxyResponse) SetHeaders(v map[string]*string) *VPaasProxyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *VPaasProxyResponse) SetBody(v *VPaasProxyResponseBody) *VPaasProxyResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -17198,6 +17383,50 @@ func (client *Client) DeleteDeptWithOptions(deptId *string, request *DeleteDeptR
 	}
 	_result = &DeleteDeptResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteDept"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/depts/"+tea.StringValue(deptId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteDevice(request *DeleteDeviceRequest) (_result *DeleteDeviceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteDeviceHeaders{}
+	_result = &DeleteDeviceResponse{}
+	_body, _err := client.DeleteDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteDeviceWithOptions(request *DeleteDeviceRequest, headers *DeleteDeviceHeaders, runtime *util.RuntimeOptions) (_result *DeleteDeviceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		query["sn"] = request.Sn
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteDeviceResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteDevice"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/edu/vpaas/devices"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -20740,6 +20969,58 @@ func (client *Client) UpdateUniversityCourseGroupWithOptions(request *UpdateUniv
 	}
 	_result = &UpdateUniversityCourseGroupResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateUniversityCourseGroup"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/edu/universities/courseGroups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) VPaasProxy(request *VPaasProxyRequest) (_result *VPaasProxyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &VPaasProxyHeaders{}
+	_result = &VPaasProxyResponse{}
+	_body, _err := client.VPaasProxyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) VPaasProxyWithOptions(request *VPaasProxyRequest, headers *VPaasProxyHeaders, runtime *util.RuntimeOptions) (_result *VPaasProxyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActionCode)) {
+		body["actionCode"] = request.ActionCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PublicKey)) {
+		body["publicKey"] = request.PublicKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &VPaasProxyResponse{}
+	_body, _err := client.DoROARequest(tea.String("VPaasProxy"), tea.String("edu_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/edu/vpaas/proxy"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

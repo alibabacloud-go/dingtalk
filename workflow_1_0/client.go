@@ -6742,8 +6742,8 @@ type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps struct {
 	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
 	// 业务套件类型。
 	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	// 套件内子组件可见性。
-	ChildFieldVisible *bool `json:"childFieldVisible,omitempty" xml:"childFieldVisible,omitempty"`
+	// 套件内子组件可见性
+	ChildFieldVisible map[string]*bool `json:"childFieldVisible,omitempty" xml:"childFieldVisible,omitempty"`
 	// 内部联系人choice，1表示多选，0表示单选。
 	Choice *int32 `json:"choice,omitempty" xml:"choice,omitempty"`
 	// common field的commonBizType。
@@ -6866,8 +6866,8 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetB
 	return s
 }
 
-func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetChildFieldVisible(v bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
-	s.ChildFieldVisible = &v
+func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetChildFieldVisible(v map[string]*bool) *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps {
+	s.ChildFieldVisible = v
 	return s
 }
 
@@ -8315,8 +8315,8 @@ func (s *UpdateIntegratedTaskRequest) SetTasks(v []*UpdateIntegratedTaskRequestT
 
 type UpdateIntegratedTaskRequestTasks struct {
 	// 当status为COMPLETED时，必须指定任务结果：
-	// agree：同意
-	// refuse：拒绝
+	// AGREE：同意
+	// REFUSE：拒绝
 	//
 	// 说明 当status为CANCELED时，不需要传result。
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`

@@ -4542,6 +4542,8 @@ type GetRealPeopleRecordsRequest struct {
 	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// 实人认证结果 1-成功 2-失败
 	PersonIdentification *int32 `json:"personIdentification,omitempty" xml:"personIdentification,omitempty"`
+	// 1. 姓名匹配阶段失败 2. 认证阶段失败 3. 实人流程阶段失败 4. 协议签署阶段失败 5. 人脸录入阶段失败 6. 人脸录入阶段用户主动取消 7. 人脸录入阶段成功 8. 人脸识别阶段失败 9. 人脸识别阶段主动取消 10. 人脸识别阶段成功  11.去实人场景
+	Scene *int32 `json:"scene,omitempty" xml:"scene,omitempty"`
 	// 记录结束时间(毫秒时间戳)
 	ToTime *int64 `json:"toTime,omitempty" xml:"toTime,omitempty"`
 	// 员工userIds
@@ -4578,6 +4580,11 @@ func (s *GetRealPeopleRecordsRequest) SetNextToken(v int64) *GetRealPeopleRecord
 
 func (s *GetRealPeopleRecordsRequest) SetPersonIdentification(v int32) *GetRealPeopleRecordsRequest {
 	s.PersonIdentification = &v
+	return s
+}
+
+func (s *GetRealPeopleRecordsRequest) SetScene(v int32) *GetRealPeopleRecordsRequest {
+	s.Scene = &v
 	return s
 }
 
@@ -4632,6 +4639,8 @@ type GetRealPeopleRecordsResponseBodyData struct {
 	PersonIdentification *int32 `json:"personIdentification,omitempty" xml:"personIdentification,omitempty"`
 	// 平台 0-Android 或 1-iOS
 	Platform *int32 `json:"platform,omitempty" xml:"platform,omitempty"`
+	// 1. 姓名匹配阶段失败 2. 认证阶段失败 3. 实人流程阶段失败 4. 协议签署阶段失败 5. 人脸录入阶段失败 6. 人脸录入阶段用户主动取消 7. 人脸录入阶段成功 8. 人脸识别阶段失败 9. 人脸识别阶段主动取消 10. 人脸识别阶段成功  11.去实人场景
+	Scene *int32 `json:"scene,omitempty" xml:"scene,omitempty"`
 	// userId
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -4661,6 +4670,11 @@ func (s *GetRealPeopleRecordsResponseBodyData) SetPersonIdentification(v int32) 
 
 func (s *GetRealPeopleRecordsResponseBodyData) SetPlatform(v int32) *GetRealPeopleRecordsResponseBodyData {
 	s.Platform = &v
+	return s
+}
+
+func (s *GetRealPeopleRecordsResponseBodyData) SetScene(v int32) *GetRealPeopleRecordsResponseBodyData {
+	s.Scene = &v
 	return s
 }
 
@@ -10552,6 +10566,10 @@ func (client *Client) GetRealPeopleRecordsWithOptions(request *GetRealPeopleReco
 
 	if !tea.BoolValue(util.IsUnset(request.PersonIdentification)) {
 		body["personIdentification"] = request.PersonIdentification
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scene)) {
+		body["scene"] = request.Scene
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ToTime)) {
