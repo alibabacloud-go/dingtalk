@@ -531,6 +531,8 @@ type SyncTripOrderRequestOrderDetails struct {
 	CheckOutTime *string `json:"checkOutTime,omitempty" xml:"checkOutTime,omitempty"`
 	// 出发时间
 	DepartTime *string `json:"departTime,omitempty" xml:"departTime,omitempty"`
+	// 目的地城市
+	DestinationCity *string `json:"destinationCity,omitempty" xml:"destinationCity,omitempty"`
 	// 目的地城市码
 	DestinationCityCode *string `json:"destinationCityCode,omitempty" xml:"destinationCityCode,omitempty"`
 	// 目的站名称
@@ -541,6 +543,8 @@ type SyncTripOrderRequestOrderDetails struct {
 	HotelLocation *SyncTripOrderRequestOrderDetailsHotelLocation `json:"hotelLocation,omitempty" xml:"hotelLocation,omitempty" type:"Struct"`
 	// 酒店名称
 	HotelName *string `json:"hotelName,omitempty" xml:"hotelName,omitempty"`
+	// 出发地城市
+	OriginCity *string `json:"originCity,omitempty" xml:"originCity,omitempty"`
 	// 出发地城市码
 	OriginCityCode *string `json:"originCityCode,omitempty" xml:"originCityCode,omitempty"`
 	// 出发站名称
@@ -613,6 +617,11 @@ func (s *SyncTripOrderRequestOrderDetails) SetDepartTime(v string) *SyncTripOrde
 	return s
 }
 
+func (s *SyncTripOrderRequestOrderDetails) SetDestinationCity(v string) *SyncTripOrderRequestOrderDetails {
+	s.DestinationCity = &v
+	return s
+}
+
 func (s *SyncTripOrderRequestOrderDetails) SetDestinationCityCode(v string) *SyncTripOrderRequestOrderDetails {
 	s.DestinationCityCode = &v
 	return s
@@ -635,6 +644,11 @@ func (s *SyncTripOrderRequestOrderDetails) SetHotelLocation(v *SyncTripOrderRequ
 
 func (s *SyncTripOrderRequestOrderDetails) SetHotelName(v string) *SyncTripOrderRequestOrderDetails {
 	s.HotelName = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetails) SetOriginCity(v string) *SyncTripOrderRequestOrderDetails {
+	s.OriginCity = &v
 	return s
 }
 
