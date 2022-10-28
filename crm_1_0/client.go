@@ -2829,6 +2829,88 @@ func (s *CreateRelationMetaResponse) SetBody(v *CreateRelationMetaResponseBody) 
 	return s
 }
 
+type DeleteCrmCustomObjectDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteCrmCustomObjectDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCrmCustomObjectDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCrmCustomObjectDataHeaders) SetCommonHeaders(v map[string]*string) *DeleteCrmCustomObjectDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteCrmCustomObjectDataHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteCrmCustomObjectDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteCrmCustomObjectDataRequest struct {
+	// 自定义对象表单code。
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+}
+
+func (s DeleteCrmCustomObjectDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCrmCustomObjectDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCrmCustomObjectDataRequest) SetFormCode(v string) *DeleteCrmCustomObjectDataRequest {
+	s.FormCode = &v
+	return s
+}
+
+type DeleteCrmCustomObjectDataResponseBody struct {
+	// 删除成功的CRM自定义对象数据ID。
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+}
+
+func (s DeleteCrmCustomObjectDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCrmCustomObjectDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCrmCustomObjectDataResponseBody) SetInstanceId(v string) *DeleteCrmCustomObjectDataResponseBody {
+	s.InstanceId = &v
+	return s
+}
+
+type DeleteCrmCustomObjectDataResponse struct {
+	Headers map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteCrmCustomObjectDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteCrmCustomObjectDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCrmCustomObjectDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCrmCustomObjectDataResponse) SetHeaders(v map[string]*string) *DeleteCrmCustomObjectDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteCrmCustomObjectDataResponse) SetBody(v *DeleteCrmCustomObjectDataResponseBody) *DeleteCrmCustomObjectDataResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteCrmFormInstanceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -12200,6 +12282,51 @@ func (client *Client) CreateRelationMetaWithOptions(request *CreateRelationMetaR
 	}
 	_result = &CreateRelationMetaResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateRelationMeta"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/relations/metas/create"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteCrmCustomObjectData(instanceId *string, request *DeleteCrmCustomObjectDataRequest) (_result *DeleteCrmCustomObjectDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteCrmCustomObjectDataHeaders{}
+	_result = &DeleteCrmCustomObjectDataResponse{}
+	_body, _err := client.DeleteCrmCustomObjectDataWithOptions(instanceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteCrmCustomObjectDataWithOptions(instanceId *string, request *DeleteCrmCustomObjectDataRequest, headers *DeleteCrmCustomObjectDataHeaders, runtime *util.RuntimeOptions) (_result *DeleteCrmCustomObjectDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	instanceId = openapiutil.GetEncodeParam(instanceId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormCode)) {
+		query["formCode"] = request.FormCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteCrmCustomObjectDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteCrmCustomObjectData"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/crm/customObjectDatas/instances/"+tea.StringValue(instanceId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

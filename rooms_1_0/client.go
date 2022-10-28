@@ -149,7 +149,7 @@ func (s *CreateMeetingRoomRequestRoomLocation) SetTitle(v string) *CreateMeeting
 
 type CreateMeetingRoomResponseBody struct {
 	// 创建的会议室id
-	Result *int64 `json:"result,omitempty" xml:"result,omitempty"`
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
 func (s CreateMeetingRoomResponseBody) String() string {
@@ -160,7 +160,7 @@ func (s CreateMeetingRoomResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *CreateMeetingRoomResponseBody) SetResult(v int64) *CreateMeetingRoomResponseBody {
+func (s *CreateMeetingRoomResponseBody) SetResult(v string) *CreateMeetingRoomResponseBody {
 	s.Result = &v
 	return s
 }
