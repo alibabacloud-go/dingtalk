@@ -69,6 +69,8 @@ func (s *FormComponent) SetProps(v *FormComponentProps) *FormComponent {
 }
 
 type FormComponentProps struct {
+	// 明细控件按钮显示文案
+	ActionName *string `json:"actionName,omitempty" xml:"actionName,omitempty"`
 	// 地址控件模式city省市,district省市区,street省市区街道
 	AddressModel *string `json:"addressModel,omitempty" xml:"addressModel,omitempty"`
 	// 文字提示控件显示方式:top|middle|bottom
@@ -107,6 +109,8 @@ type FormComponentProps struct {
 	Limit *int32 `json:"limit,omitempty" xml:"limit,omitempty"`
 	// 说明文字控件链接地址
 	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// 文本控件支持的最大长度
+	MaxLength *int32 `json:"maxLength,omitempty" xml:"maxLength,omitempty"`
 	// 电话控件支持的类型
 	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
 	// 部门控件是否可多选
@@ -137,6 +141,11 @@ func (s FormComponentProps) String() string {
 
 func (s FormComponentProps) GoString() string {
 	return s.String()
+}
+
+func (s *FormComponentProps) SetActionName(v string) *FormComponentProps {
+	s.ActionName = &v
+	return s
 }
 
 func (s *FormComponentProps) SetAddressModel(v string) *FormComponentProps {
@@ -231,6 +240,11 @@ func (s *FormComponentProps) SetLimit(v int32) *FormComponentProps {
 
 func (s *FormComponentProps) SetLink(v string) *FormComponentProps {
 	s.Link = &v
+	return s
+}
+
+func (s *FormComponentProps) SetMaxLength(v int32) *FormComponentProps {
+	s.MaxLength = &v
 	return s
 }
 

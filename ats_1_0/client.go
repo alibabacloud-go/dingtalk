@@ -1483,6 +1483,143 @@ func (s *UpdateInterviewSignInInfoResponse) SetHeaders(v map[string]*string) *Up
 	return s
 }
 
+type UpdateJobDeliverHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateJobDeliverHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateJobDeliverHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateJobDeliverHeaders) SetCommonHeaders(v map[string]*string) *UpdateJobDeliverHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateJobDeliverHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateJobDeliverHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateJobDeliverRequest struct {
+	// 招聘业务标识，目前固定ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// 渠道侧职位唯一标识
+	ChannelOuterId *string `json:"channelOuterId,omitempty" xml:"channelOuterId,omitempty"`
+	// 渠道侧错误码
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// 渠道侧错误信息
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// 操作时间
+	OpTime *int64 `json:"opTime,omitempty" xml:"opTime,omitempty"`
+	// 操作人userId
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 职位投递状态
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 企业corpId
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 钉钉侧职位唯一标识
+	JobId *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
+}
+
+func (s UpdateJobDeliverRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateJobDeliverRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateJobDeliverRequest) SetBizCode(v string) *UpdateJobDeliverRequest {
+	s.BizCode = &v
+	return s
+}
+
+func (s *UpdateJobDeliverRequest) SetChannelOuterId(v string) *UpdateJobDeliverRequest {
+	s.ChannelOuterId = &v
+	return s
+}
+
+func (s *UpdateJobDeliverRequest) SetErrorCode(v string) *UpdateJobDeliverRequest {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *UpdateJobDeliverRequest) SetErrorMsg(v string) *UpdateJobDeliverRequest {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *UpdateJobDeliverRequest) SetOpTime(v int64) *UpdateJobDeliverRequest {
+	s.OpTime = &v
+	return s
+}
+
+func (s *UpdateJobDeliverRequest) SetOpUserId(v string) *UpdateJobDeliverRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *UpdateJobDeliverRequest) SetStatus(v int32) *UpdateJobDeliverRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *UpdateJobDeliverRequest) SetCorpId(v string) *UpdateJobDeliverRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *UpdateJobDeliverRequest) SetJobId(v string) *UpdateJobDeliverRequest {
+	s.JobId = &v
+	return s
+}
+
+type UpdateJobDeliverResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateJobDeliverResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateJobDeliverResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateJobDeliverResponseBody) SetSuccess(v bool) *UpdateJobDeliverResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateJobDeliverResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateJobDeliverResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateJobDeliverResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateJobDeliverResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateJobDeliverResponse) SetHeaders(v map[string]*string) *UpdateJobDeliverResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateJobDeliverResponse) SetBody(v *UpdateJobDeliverResponseBody) *UpdateJobDeliverResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -2135,6 +2272,84 @@ func (client *Client) UpdateInterviewSignInInfoWithOptions(interviewId *string, 
 	}
 	_result = &UpdateInterviewSignInInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateInterviewSignInInfo"), tea.String("ats_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/ats/interviews/"+tea.StringValue(interviewId)+"/signInInfos"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateJobDeliver(request *UpdateJobDeliverRequest) (_result *UpdateJobDeliverResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateJobDeliverHeaders{}
+	_result = &UpdateJobDeliverResponse{}
+	_body, _err := client.UpdateJobDeliverWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateJobDeliverWithOptions(request *UpdateJobDeliverRequest, headers *UpdateJobDeliverHeaders, runtime *util.RuntimeOptions) (_result *UpdateJobDeliverResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		query["bizCode"] = request.BizCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.JobId)) {
+		query["jobId"] = request.JobId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChannelOuterId)) {
+		body["channelOuterId"] = request.ChannelOuterId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ErrorCode)) {
+		body["errorCode"] = request.ErrorCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ErrorMsg)) {
+		body["errorMsg"] = request.ErrorMsg
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpTime)) {
+		body["opTime"] = request.OpTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateJobDeliverResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateJobDeliver"), tea.String("ats_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/ats/jobs/deliveryStatus"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
