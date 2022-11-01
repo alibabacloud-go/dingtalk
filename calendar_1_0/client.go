@@ -91,6 +91,103 @@ func (s *AddAttendeeResponse) SetHeaders(v map[string]*string) *AddAttendeeRespo
 	return s
 }
 
+type AddMeetingRoomsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddMeetingRoomsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddMeetingRoomsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddMeetingRoomsHeaders) SetCommonHeaders(v map[string]*string) *AddMeetingRoomsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddMeetingRoomsHeaders) SetXAcsDingtalkAccessToken(v string) *AddMeetingRoomsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddMeetingRoomsRequest struct {
+	MeetingRoomsToAdd []*AddMeetingRoomsRequestMeetingRoomsToAdd `json:"meetingRoomsToAdd,omitempty" xml:"meetingRoomsToAdd,omitempty" type:"Repeated"`
+}
+
+func (s AddMeetingRoomsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddMeetingRoomsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddMeetingRoomsRequest) SetMeetingRoomsToAdd(v []*AddMeetingRoomsRequestMeetingRoomsToAdd) *AddMeetingRoomsRequest {
+	s.MeetingRoomsToAdd = v
+	return s
+}
+
+type AddMeetingRoomsRequestMeetingRoomsToAdd struct {
+	RoomId *string `json:"roomId,omitempty" xml:"roomId,omitempty"`
+}
+
+func (s AddMeetingRoomsRequestMeetingRoomsToAdd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddMeetingRoomsRequestMeetingRoomsToAdd) GoString() string {
+	return s.String()
+}
+
+func (s *AddMeetingRoomsRequestMeetingRoomsToAdd) SetRoomId(v string) *AddMeetingRoomsRequestMeetingRoomsToAdd {
+	s.RoomId = &v
+	return s
+}
+
+type AddMeetingRoomsResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s AddMeetingRoomsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddMeetingRoomsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddMeetingRoomsResponseBody) SetResult(v bool) *AddMeetingRoomsResponseBody {
+	s.Result = &v
+	return s
+}
+
+type AddMeetingRoomsResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddMeetingRoomsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddMeetingRoomsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddMeetingRoomsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddMeetingRoomsResponse) SetHeaders(v map[string]*string) *AddMeetingRoomsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddMeetingRoomsResponse) SetBody(v *AddMeetingRoomsResponseBody) *AddMeetingRoomsResponse {
+	s.Body = v
+	return s
+}
+
 type CheckInHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1601,6 +1698,7 @@ type GetEventResponseBody struct {
 	// 是否为全天日程
 	IsAllDay          *bool                                  `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
 	Location          *GetEventResponseBodyLocation          `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
+	MeetingRooms      []*GetEventResponseBodyMeetingRooms    `json:"meetingRooms,omitempty" xml:"meetingRooms,omitempty" type:"Repeated"`
 	OnlineMeetingInfo *GetEventResponseBodyOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
 	Organizer         *GetEventResponseBodyOrganizer         `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
 	Recurrence        *GetEventResponseBodyRecurrence        `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
@@ -1662,6 +1760,11 @@ func (s *GetEventResponseBody) SetIsAllDay(v bool) *GetEventResponseBody {
 
 func (s *GetEventResponseBody) SetLocation(v *GetEventResponseBodyLocation) *GetEventResponseBody {
 	s.Location = v
+	return s
+}
+
+func (s *GetEventResponseBody) SetMeetingRooms(v []*GetEventResponseBodyMeetingRooms) *GetEventResponseBody {
+	s.MeetingRooms = v
 	return s
 }
 
@@ -1843,6 +1946,35 @@ func (s *GetEventResponseBodyLocation) SetDisplayName(v string) *GetEventRespons
 
 func (s *GetEventResponseBodyLocation) SetMeetingRooms(v []*string) *GetEventResponseBodyLocation {
 	s.MeetingRooms = v
+	return s
+}
+
+type GetEventResponseBodyMeetingRooms struct {
+	DisplayName    *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
+	RoomId         *string `json:"roomId,omitempty" xml:"roomId,omitempty"`
+}
+
+func (s GetEventResponseBodyMeetingRooms) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEventResponseBodyMeetingRooms) GoString() string {
+	return s.String()
+}
+
+func (s *GetEventResponseBodyMeetingRooms) SetDisplayName(v string) *GetEventResponseBodyMeetingRooms {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *GetEventResponseBodyMeetingRooms) SetResponseStatus(v string) *GetEventResponseBodyMeetingRooms {
+	s.ResponseStatus = &v
+	return s
+}
+
+func (s *GetEventResponseBodyMeetingRooms) SetRoomId(v string) *GetEventResponseBodyMeetingRooms {
+	s.RoomId = &v
 	return s
 }
 
@@ -2090,6 +2222,229 @@ func (s *GetEventResponse) SetHeaders(v map[string]*string) *GetEventResponse {
 }
 
 func (s *GetEventResponse) SetBody(v *GetEventResponseBody) *GetEventResponse {
+	s.Body = v
+	return s
+}
+
+type GetMeetingRoomsScheduleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetMeetingRoomsScheduleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMeetingRoomsScheduleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetMeetingRoomsScheduleHeaders) SetCommonHeaders(v map[string]*string) *GetMeetingRoomsScheduleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetMeetingRoomsScheduleHeaders) SetXAcsDingtalkAccessToken(v string) *GetMeetingRoomsScheduleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetMeetingRoomsScheduleRequest struct {
+	// 查询结束时间
+	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 待查询的用户列表
+	RoomIds []*string `json:"roomIds,omitempty" xml:"roomIds,omitempty" type:"Repeated"`
+	// 查询开始时间
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s GetMeetingRoomsScheduleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMeetingRoomsScheduleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetMeetingRoomsScheduleRequest) SetEndTime(v string) *GetMeetingRoomsScheduleRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetMeetingRoomsScheduleRequest) SetRoomIds(v []*string) *GetMeetingRoomsScheduleRequest {
+	s.RoomIds = v
+	return s
+}
+
+func (s *GetMeetingRoomsScheduleRequest) SetStartTime(v string) *GetMeetingRoomsScheduleRequest {
+	s.StartTime = &v
+	return s
+}
+
+type GetMeetingRoomsScheduleResponseBody struct {
+	// 闲忙信息
+	ScheduleInformation []*GetMeetingRoomsScheduleResponseBodyScheduleInformation `json:"scheduleInformation,omitempty" xml:"scheduleInformation,omitempty" type:"Repeated"`
+}
+
+func (s GetMeetingRoomsScheduleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMeetingRoomsScheduleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetMeetingRoomsScheduleResponseBody) SetScheduleInformation(v []*GetMeetingRoomsScheduleResponseBodyScheduleInformation) *GetMeetingRoomsScheduleResponseBody {
+	s.ScheduleInformation = v
+	return s
+}
+
+type GetMeetingRoomsScheduleResponseBodyScheduleInformation struct {
+	// 异常描述
+	Error *string `json:"error,omitempty" xml:"error,omitempty"`
+	// 用户userId
+	RoomId        *string                                                                `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	ScheduleItems []*GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems `json:"scheduleItems,omitempty" xml:"scheduleItems,omitempty" type:"Repeated"`
+}
+
+func (s GetMeetingRoomsScheduleResponseBodyScheduleInformation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMeetingRoomsScheduleResponseBodyScheduleInformation) GoString() string {
+	return s.String()
+}
+
+func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformation) SetError(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformation {
+	s.Error = &v
+	return s
+}
+
+func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformation) SetRoomId(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformation {
+	s.RoomId = &v
+	return s
+}
+
+func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformation) SetScheduleItems(v []*GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems) *GetMeetingRoomsScheduleResponseBodyScheduleInformation {
+	s.ScheduleItems = v
+	return s
+}
+
+type GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems struct {
+	// 结束时间，表示一个日期，或者一个带时区的时间戳
+	End *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	// 开始时间，表示一个日期，或者一个带时区的时间戳
+	Start *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// 状态: - BUSY：繁忙, - TENTATIVE：暂定繁忙
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems) GoString() string {
+	return s.String()
+}
+
+func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems) SetEnd(v *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems {
+	s.End = v
+	return s
+}
+
+func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems) SetStart(v *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems {
+	s.Start = v
+	return s
+}
+
+func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems) SetStatus(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems {
+	s.Status = &v
+	return s
+}
+
+type GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd struct {
+	// 结束日期
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// 结束时间戳，按照ISO 8601格式
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	// 时间戳所属时区
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd) GoString() string {
+	return s.String()
+}
+
+func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd) SetDate(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd {
+	s.Date = &v
+	return s
+}
+
+func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd) SetDateTime(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd {
+	s.DateTime = &v
+	return s
+}
+
+func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd) SetTimeZone(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd {
+	s.TimeZone = &v
+	return s
+}
+
+type GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart struct {
+	// 开始日期
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// 开始时间戳，按照ISO 8601格式
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	// 所属时区
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart) GoString() string {
+	return s.String()
+}
+
+func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart) SetDate(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart {
+	s.Date = &v
+	return s
+}
+
+func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart) SetDateTime(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart {
+	s.DateTime = &v
+	return s
+}
+
+func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart) SetTimeZone(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart {
+	s.TimeZone = &v
+	return s
+}
+
+type GetMeetingRoomsScheduleResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetMeetingRoomsScheduleResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetMeetingRoomsScheduleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMeetingRoomsScheduleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetMeetingRoomsScheduleResponse) SetHeaders(v map[string]*string) *GetMeetingRoomsScheduleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetMeetingRoomsScheduleResponse) SetBody(v *GetMeetingRoomsScheduleResponseBody) *GetMeetingRoomsScheduleResponse {
 	s.Body = v
 	return s
 }
@@ -5707,6 +6062,103 @@ func (s *RemoveAttendeeResponse) SetHeaders(v map[string]*string) *RemoveAttende
 	return s
 }
 
+type RemoveMeetingRoomsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RemoveMeetingRoomsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveMeetingRoomsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveMeetingRoomsHeaders) SetCommonHeaders(v map[string]*string) *RemoveMeetingRoomsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveMeetingRoomsHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveMeetingRoomsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RemoveMeetingRoomsRequest struct {
+	MeetingRoomsToRemove []*RemoveMeetingRoomsRequestMeetingRoomsToRemove `json:"meetingRoomsToRemove,omitempty" xml:"meetingRoomsToRemove,omitempty" type:"Repeated"`
+}
+
+func (s RemoveMeetingRoomsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveMeetingRoomsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveMeetingRoomsRequest) SetMeetingRoomsToRemove(v []*RemoveMeetingRoomsRequestMeetingRoomsToRemove) *RemoveMeetingRoomsRequest {
+	s.MeetingRoomsToRemove = v
+	return s
+}
+
+type RemoveMeetingRoomsRequestMeetingRoomsToRemove struct {
+	RoomId *string `json:"roomId,omitempty" xml:"roomId,omitempty"`
+}
+
+func (s RemoveMeetingRoomsRequestMeetingRoomsToRemove) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveMeetingRoomsRequestMeetingRoomsToRemove) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveMeetingRoomsRequestMeetingRoomsToRemove) SetRoomId(v string) *RemoveMeetingRoomsRequestMeetingRoomsToRemove {
+	s.RoomId = &v
+	return s
+}
+
+type RemoveMeetingRoomsResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s RemoveMeetingRoomsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveMeetingRoomsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveMeetingRoomsResponseBody) SetResult(v bool) *RemoveMeetingRoomsResponseBody {
+	s.Result = &v
+	return s
+}
+
+type RemoveMeetingRoomsResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RemoveMeetingRoomsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RemoveMeetingRoomsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveMeetingRoomsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveMeetingRoomsResponse) SetHeaders(v map[string]*string) *RemoveMeetingRoomsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RemoveMeetingRoomsResponse) SetBody(v *RemoveMeetingRoomsResponseBody) *RemoveMeetingRoomsResponse {
+	s.Body = v
+	return s
+}
+
 type RespondEventHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6199,6 +6651,53 @@ func (client *Client) AddAttendeeWithOptions(userId *string, calendarId *string,
 	return _result, _err
 }
 
+func (client *Client) AddMeetingRooms(userId *string, calendarId *string, eventId *string, request *AddMeetingRoomsRequest) (_result *AddMeetingRoomsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddMeetingRoomsHeaders{}
+	_result = &AddMeetingRoomsResponse{}
+	_body, _err := client.AddMeetingRoomsWithOptions(userId, calendarId, eventId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddMeetingRoomsWithOptions(userId *string, calendarId *string, eventId *string, request *AddMeetingRoomsRequest, headers *AddMeetingRoomsHeaders, runtime *util.RuntimeOptions) (_result *AddMeetingRoomsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	eventId = openapiutil.GetEncodeParam(eventId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MeetingRoomsToAdd)) {
+		body["meetingRoomsToAdd"] = request.MeetingRoomsToAdd
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddMeetingRoomsResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddMeetingRooms"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/meetingRooms"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CheckIn(userId *string, calendarId *string, eventId *string) (_result *CheckInResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CheckInHeaders{}
@@ -6677,6 +7176,59 @@ func (client *Client) GetEventWithOptions(userId *string, calendarId *string, ev
 	}
 	_result = &GetEventResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetEvent"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetMeetingRoomsSchedule(userId *string, request *GetMeetingRoomsScheduleRequest) (_result *GetMeetingRoomsScheduleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetMeetingRoomsScheduleHeaders{}
+	_result = &GetMeetingRoomsScheduleResponse{}
+	_body, _err := client.GetMeetingRoomsScheduleWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetMeetingRoomsScheduleWithOptions(userId *string, request *GetMeetingRoomsScheduleRequest, headers *GetMeetingRoomsScheduleHeaders, runtime *util.RuntimeOptions) (_result *GetMeetingRoomsScheduleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoomIds)) {
+		body["roomIds"] = request.RoomIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetMeetingRoomsScheduleResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetMeetingRoomsSchedule"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/meetingRooms/schedules/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7322,6 +7874,53 @@ func (client *Client) RemoveAttendeeWithOptions(userId *string, calendarId *stri
 	}
 	_result = &RemoveAttendeeResponse{}
 	_body, _err := client.DoROARequest(tea.String("RemoveAttendee"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/attendees/batchRemove"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RemoveMeetingRooms(userId *string, calendarId *string, eventId *string, request *RemoveMeetingRoomsRequest) (_result *RemoveMeetingRoomsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RemoveMeetingRoomsHeaders{}
+	_result = &RemoveMeetingRoomsResponse{}
+	_body, _err := client.RemoveMeetingRoomsWithOptions(userId, calendarId, eventId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RemoveMeetingRoomsWithOptions(userId *string, calendarId *string, eventId *string, request *RemoveMeetingRoomsRequest, headers *RemoveMeetingRoomsHeaders, runtime *util.RuntimeOptions) (_result *RemoveMeetingRoomsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	calendarId = openapiutil.GetEncodeParam(calendarId)
+	eventId = openapiutil.GetEncodeParam(eventId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MeetingRoomsToRemove)) {
+		body["meetingRoomsToRemove"] = request.MeetingRoomsToRemove
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RemoveMeetingRoomsResponse{}
+	_body, _err := client.DoROARequest(tea.String("RemoveMeetingRooms"), tea.String("calendar_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/calendar/users/"+tea.StringValue(userId)+"/calendars/"+tea.StringValue(calendarId)+"/events/"+tea.StringValue(eventId)+"/meetingRooms/batchRemove"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

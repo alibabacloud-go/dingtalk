@@ -35,11 +35,13 @@ func (s *ApplyFollowerAuthInfoHeaders) SetXAcsDingtalkAccessToken(v string) *App
 }
 
 type ApplyFollowerAuthInfoRequest struct {
-	// 申请的授权数据，多个数据时使用,分隔
+	// 申请的授权数据，多个数据时使用,分隔。
+	// 暂时仅支持申请手机号码授权：Contact.User.mobile
 	FieldScope *string `json:"fieldScope,omitempty" xml:"fieldScope,omitempty"`
-	// 客服会话sessionId
+	// 服务窗机器人消息sessionId。
+	// 开发者需要接入服务窗自建机器人后通过回调消息获取到的sessionId。
 	SessionId *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
-	// 用户信息
+	// 服务窗关注用户userId。
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -462,9 +464,13 @@ func (s *GetFollowerInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetFollow
 }
 
 type GetFollowerInfoRequest struct {
+	// 服务窗帐号ID，可选参数。
+	// 帐号ID用于开发者应用为服务窗所属组织应用场景，此ID可以通过服务窗帐号信息查询接口获取。
 	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 待查询的服务窗关注者unionId。
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 待查询的服务窗关注者userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetFollowerInfoRequest) String() string {
@@ -608,8 +614,12 @@ func (s *GetPictureDownloadUrlHeaders) SetXAcsDingtalkAccessToken(v string) *Get
 }
 
 type GetPictureDownloadUrlRequest struct {
+	// 服务窗机器人图片消息图片下载码。
+	// 开发者需要接入服务窗自建机器人后根据图片回调消息内容获取到对应的downloadCode。
 	DownloadCode *string `json:"downloadCode,omitempty" xml:"downloadCode,omitempty"`
-	SessionId    *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
+	// 服务窗机器人消息sessionId。
+	// 开发者需要接入服务窗自建机器人后通过回调消息获取到的sessionId。
+	SessionId *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
 }
 
 func (s GetPictureDownloadUrlRequest) String() string {
@@ -696,6 +706,94 @@ func (s *GetPictureDownloadUrlResponse) SetBody(v *GetPictureDownloadUrlResponse
 	return s
 }
 
+type ListAccountHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListAccountHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAccountHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListAccountHeaders) SetCommonHeaders(v map[string]*string) *ListAccountHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListAccountHeaders) SetXAcsDingtalkAccessToken(v string) *ListAccountHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListAccountResponseBody struct {
+	Result []*ListAccountResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s ListAccountResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAccountResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListAccountResponseBody) SetResult(v []*ListAccountResponseBodyResult) *ListAccountResponseBody {
+	s.Result = v
+	return s
+}
+
+type ListAccountResponseBodyResult struct {
+	// 服务窗帐号ID
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// 服务窗名称
+	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
+}
+
+func (s ListAccountResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAccountResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListAccountResponseBodyResult) SetAccountId(v string) *ListAccountResponseBodyResult {
+	s.AccountId = &v
+	return s
+}
+
+func (s *ListAccountResponseBodyResult) SetAccountName(v string) *ListAccountResponseBodyResult {
+	s.AccountName = &v
+	return s
+}
+
+type ListAccountResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListAccountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListAccountResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAccountResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListAccountResponse) SetHeaders(v map[string]*string) *ListAccountResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListAccountResponse) SetBody(v *ListAccountResponseBody) *ListAccountResponse {
+	s.Body = v
+	return s
+}
+
 type ListFollowerHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -720,7 +818,8 @@ func (s *ListFollowerHeaders) SetXAcsDingtalkAccessToken(v string) *ListFollower
 }
 
 type ListFollowerRequest struct {
-	// 服务窗帐号ID，用于非服务窗自建应用场景下指定服务窗帐号。
+	// 服务窗帐号ID，用于服务窗归属组织下应用AK(非服务窗自建应用)指定服务窗帐号。
+	// 帐号ID可以通过服务窗帐号查询接口获取。
 	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
 	// 分页查询页大小。
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
@@ -1251,12 +1350,22 @@ func (s *SendInteractiveOTOMessageRequest) SetDetail(v *SendInteractiveOTOMessag
 }
 
 type SendInteractiveOTOMessageRequestDetail struct {
-	CallbackUrl    *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
-	CardBizId      *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
-	CardData       *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	// 卡片回调的URL地址，不传此参数则无回调。
+	// 回调URL暂不支持query参数。
+	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+	// 唯一标识一张卡片的ID，卡片幂等ID，可用于后续卡片更新。
+	// > 该参数由开发者传入，确保唯一。
+	CardBizId *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
+	// 卡片模板内容参数，JsonObject结构型。
+	// 卡片数据结构需要与卡片搭建平台上定义的参数结构一致。
+	CardData *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	// 卡片搭建平台模板ID，详情可查阅 [创建消息模板](https://open.dingtalk.com/document/group/create-message-template) 。
 	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
 	// 消息接收人id
-	UserId               *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 卡片模板userId差异用户参数，json结构体。
+	// 用户对应的数据结构需要与卡片搭建平台上定义的参数结构一致。
+	//
 	UserIdPrivateDataMap *string `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
 }
 
@@ -2135,6 +2244,40 @@ func (client *Client) GetPictureDownloadUrlWithOptions(request *GetPictureDownlo
 	}
 	_result = &GetPictureDownloadUrlResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetPictureDownloadUrl"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/link/oToMessages/pictures/downloadUrls"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListAccount() (_result *ListAccountResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListAccountHeaders{}
+	_result = &ListAccountResponse{}
+	_body, _err := client.ListAccountWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListAccountWithOptions(headers *ListAccountHeaders, runtime *util.RuntimeOptions) (_result *ListAccountResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &ListAccountResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListAccount"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/link/accounts"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
