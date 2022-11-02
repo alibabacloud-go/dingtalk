@@ -245,6 +245,122 @@ func (s *AddFileResponse) SetBody(v *AddFileResponseBody) *AddFileResponse {
 	return s
 }
 
+type AddUserAccountHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddUserAccountHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddUserAccountHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddUserAccountHeaders) SetCommonHeaders(v map[string]*string) *AddUserAccountHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddUserAccountHeaders) SetXAcsDingtalkAccessToken(v string) *AddUserAccountHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddUserAccountRequest struct {
+	// 业务标识
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// 渠道账号名
+	ChannelAccountName *string `json:"channelAccountName,omitempty" xml:"channelAccountName,omitempty"`
+	// 渠道用户标识
+	ChannelUserIdentify *string `json:"channelUserIdentify,omitempty" xml:"channelUserIdentify,omitempty"`
+	// 手机号
+	PhoneNumber *string `json:"phoneNumber,omitempty" xml:"phoneNumber,omitempty"`
+	// 企业标识
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 用户标识
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s AddUserAccountRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddUserAccountRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddUserAccountRequest) SetBizCode(v string) *AddUserAccountRequest {
+	s.BizCode = &v
+	return s
+}
+
+func (s *AddUserAccountRequest) SetChannelAccountName(v string) *AddUserAccountRequest {
+	s.ChannelAccountName = &v
+	return s
+}
+
+func (s *AddUserAccountRequest) SetChannelUserIdentify(v string) *AddUserAccountRequest {
+	s.ChannelUserIdentify = &v
+	return s
+}
+
+func (s *AddUserAccountRequest) SetPhoneNumber(v string) *AddUserAccountRequest {
+	s.PhoneNumber = &v
+	return s
+}
+
+func (s *AddUserAccountRequest) SetCorpId(v string) *AddUserAccountRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *AddUserAccountRequest) SetUserId(v string) *AddUserAccountRequest {
+	s.UserId = &v
+	return s
+}
+
+type AddUserAccountResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AddUserAccountResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddUserAccountResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddUserAccountResponseBody) SetSuccess(v bool) *AddUserAccountResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AddUserAccountResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddUserAccountResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddUserAccountResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddUserAccountResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddUserAccountResponse) SetHeaders(v map[string]*string) *AddUserAccountResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddUserAccountResponse) SetBody(v *AddUserAccountResponseBody) *AddUserAccountResponse {
+	s.Body = v
+	return s
+}
+
 type ConfirmRightsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1756,6 +1872,72 @@ func (client *Client) AddFileWithOptions(request *AddFileRequest, headers *AddFi
 	}
 	_result = &AddFileResponse{}
 	_body, _err := client.DoROARequest(tea.String("AddFile"), tea.String("ats_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/ats/files"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddUserAccount(request *AddUserAccountRequest) (_result *AddUserAccountResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddUserAccountHeaders{}
+	_result = &AddUserAccountResponse{}
+	_body, _err := client.AddUserAccountWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddUserAccountWithOptions(request *AddUserAccountRequest, headers *AddUserAccountHeaders, runtime *util.RuntimeOptions) (_result *AddUserAccountResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		query["bizCode"] = request.BizCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChannelAccountName)) {
+		body["channelAccountName"] = request.ChannelAccountName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ChannelUserIdentify)) {
+		body["channelUserIdentify"] = request.ChannelUserIdentify
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PhoneNumber)) {
+		body["phoneNumber"] = request.PhoneNumber
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddUserAccountResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddUserAccount"), tea.String("ats_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/ats/channels/users/accounts"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -3450,7 +3450,7 @@ type QueryRecentListRequest struct {
 	CreatorType *int32 `json:"creatorType,omitempty" xml:"creatorType,omitempty"`
 	// 访问文档类型：0-文字；1-表格；2-PPT；3-白板；6-脑图；7-多维表；不填的话，则默认是所有。
 	FileType *int32 `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	// 每页最大条目数，最大值50。
+	// 每页最大条目数，最大值10。
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	// 分页游标，第一页可不传。
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
