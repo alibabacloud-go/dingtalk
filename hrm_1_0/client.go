@@ -1360,6 +1360,106 @@ func (s *QueryCustomEntryProcessesResponse) SetBody(v *QueryCustomEntryProcesses
 	return s
 }
 
+type QueryDismissionStaffIdListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryDismissionStaffIdListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDismissionStaffIdListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDismissionStaffIdListHeaders) SetCommonHeaders(v map[string]*string) *QueryDismissionStaffIdListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryDismissionStaffIdListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryDismissionStaffIdListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryDismissionStaffIdListRequest struct {
+	// 单页查询最大条目数， 最大50
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页查询的游标， 首次查询时传入0， 后续查询使用上一次接口返回的nextToken
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s QueryDismissionStaffIdListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDismissionStaffIdListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDismissionStaffIdListRequest) SetMaxResults(v int32) *QueryDismissionStaffIdListRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryDismissionStaffIdListRequest) SetNextToken(v int64) *QueryDismissionStaffIdListRequest {
+	s.NextToken = &v
+	return s
+}
+
+type QueryDismissionStaffIdListResponseBody struct {
+	HasMore    *bool     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken  *int64    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s QueryDismissionStaffIdListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDismissionStaffIdListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDismissionStaffIdListResponseBody) SetHasMore(v bool) *QueryDismissionStaffIdListResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryDismissionStaffIdListResponseBody) SetNextToken(v int64) *QueryDismissionStaffIdListResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryDismissionStaffIdListResponseBody) SetUserIdList(v []*string) *QueryDismissionStaffIdListResponseBody {
+	s.UserIdList = v
+	return s
+}
+
+type QueryDismissionStaffIdListResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryDismissionStaffIdListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryDismissionStaffIdListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDismissionStaffIdListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDismissionStaffIdListResponse) SetHeaders(v map[string]*string) *QueryDismissionStaffIdListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryDismissionStaffIdListResponse) SetBody(v *QueryDismissionStaffIdListResponseBody) *QueryDismissionStaffIdListResponse {
+	s.Body = v
+	return s
+}
+
 type QueryHrmEmployeeDismissionInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3124,6 +3224,54 @@ func (client *Client) QueryCustomEntryProcessesWithOptions(request *QueryCustomE
 	}
 	_result = &QueryCustomEntryProcessesResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryCustomEntryProcesses"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/customEntryProcesses"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryDismissionStaffIdList(request *QueryDismissionStaffIdListRequest) (_result *QueryDismissionStaffIdListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryDismissionStaffIdListHeaders{}
+	_result = &QueryDismissionStaffIdListResponse{}
+	_body, _err := client.QueryDismissionStaffIdListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryDismissionStaffIdListWithOptions(request *QueryDismissionStaffIdListRequest, headers *QueryDismissionStaffIdListHeaders, runtime *util.RuntimeOptions) (_result *QueryDismissionStaffIdListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryDismissionStaffIdListResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryDismissionStaffIdList"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/employees/dismissions"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
