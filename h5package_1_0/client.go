@@ -39,6 +39,8 @@ type CreatePackageRequest struct {
 	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
 	// 第三方企业应用appId
 	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// 离线包入口页面地址。没有设置时，默认值是应用设置中的应用首页地址。
+	HomeUrl *string `json:"homeUrl,omitempty" xml:"homeUrl,omitempty"`
 	// 通过获取上传凭据接口返回的name值
 	OssObjectKey *string `json:"ossObjectKey,omitempty" xml:"ossObjectKey,omitempty"`
 }
@@ -58,6 +60,11 @@ func (s *CreatePackageRequest) SetAgentId(v int64) *CreatePackageRequest {
 
 func (s *CreatePackageRequest) SetAppId(v int64) *CreatePackageRequest {
 	s.AppId = &v
+	return s
+}
+
+func (s *CreatePackageRequest) SetHomeUrl(v string) *CreatePackageRequest {
+	s.HomeUrl = &v
 	return s
 }
 
@@ -505,6 +512,10 @@ func (client *Client) CreatePackageWithOptions(request *CreatePackageRequest, he
 
 	if !tea.BoolValue(util.IsUnset(request.AppId)) {
 		body["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HomeUrl)) {
+		body["homeUrl"] = request.HomeUrl
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OssObjectKey)) {
