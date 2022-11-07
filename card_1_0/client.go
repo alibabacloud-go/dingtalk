@@ -394,7 +394,8 @@ func (s *CreateAndDeliverHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAn
 
 type CreateAndDeliverRequest struct {
 	// 卡片回调时的路由 key
-	CallbackRouteKey *string `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	CallbackRouteKey *string   `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	CardAtUserIds    []*string `json:"cardAtUserIds,omitempty" xml:"cardAtUserIds,omitempty" type:"Repeated"`
 	// 卡片数据
 	CardData *CreateAndDeliverRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
 	// 卡片内容模板ID
@@ -423,7 +424,8 @@ type CreateAndDeliverRequest struct {
 	// 吊顶场域信息
 	TopOpenSpaceModel *CreateAndDeliverRequestTopOpenSpaceModel `json:"topOpenSpaceModel,omitempty" xml:"topOpenSpaceModel,omitempty" type:"Struct"`
 	// 卡片创建者 id
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserIdType *int32  `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 	// 工作台投放参数
 	WorkBenchOpenDeliverModel *CreateAndDeliverRequestWorkBenchOpenDeliverModel `json:"workBenchOpenDeliverModel,omitempty" xml:"workBenchOpenDeliverModel,omitempty" type:"Struct"`
 	// 工作台场域信息
@@ -440,6 +442,11 @@ func (s CreateAndDeliverRequest) GoString() string {
 
 func (s *CreateAndDeliverRequest) SetCallbackRouteKey(v string) *CreateAndDeliverRequest {
 	s.CallbackRouteKey = &v
+	return s
+}
+
+func (s *CreateAndDeliverRequest) SetCardAtUserIds(v []*string) *CreateAndDeliverRequest {
+	s.CardAtUserIds = v
 	return s
 }
 
@@ -515,6 +522,11 @@ func (s *CreateAndDeliverRequest) SetTopOpenSpaceModel(v *CreateAndDeliverReques
 
 func (s *CreateAndDeliverRequest) SetUserId(v string) *CreateAndDeliverRequest {
 	s.UserId = &v
+	return s
+}
+
+func (s *CreateAndDeliverRequest) SetUserIdType(v int32) *CreateAndDeliverRequest {
+	s.UserIdType = &v
 	return s
 }
 
@@ -1173,7 +1185,8 @@ func (s *CreateCardHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCardHead
 
 type CreateCardRequest struct {
 	// 卡片回调时的路由 Key，用于查询注册的 callbackUrl
-	CallbackRouteKey *string `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	CallbackRouteKey *string   `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	CardAtUserIds    []*string `json:"cardAtUserIds,omitempty" xml:"cardAtUserIds,omitempty" type:"Repeated"`
 	// 卡片数据
 	CardData *CreateCardRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
 	// 卡片的模版 Id
@@ -1195,7 +1208,8 @@ type CreateCardRequest struct {
 	// 吊顶场域信息
 	TopOpenSpaceModel *CreateCardRequestTopOpenSpaceModel `json:"topOpenSpaceModel,omitempty" xml:"topOpenSpaceModel,omitempty" type:"Struct"`
 	// 卡片创建者的 userId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserIdType *int32  `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 	// 工作台场域信息
 	WorkBenchOpenSpaceModel *CreateCardRequestWorkBenchOpenSpaceModel `json:"workBenchOpenSpaceModel,omitempty" xml:"workBenchOpenSpaceModel,omitempty" type:"Struct"`
 }
@@ -1210,6 +1224,11 @@ func (s CreateCardRequest) GoString() string {
 
 func (s *CreateCardRequest) SetCallbackRouteKey(v string) *CreateCardRequest {
 	s.CallbackRouteKey = &v
+	return s
+}
+
+func (s *CreateCardRequest) SetCardAtUserIds(v []*string) *CreateCardRequest {
+	s.CardAtUserIds = v
 	return s
 }
 
@@ -1260,6 +1279,11 @@ func (s *CreateCardRequest) SetTopOpenSpaceModel(v *CreateCardRequestTopOpenSpac
 
 func (s *CreateCardRequest) SetUserId(v string) *CreateCardRequest {
 	s.UserId = &v
+	return s
+}
+
+func (s *CreateCardRequest) SetUserIdType(v int32) *CreateCardRequest {
+	s.UserIdType = &v
 	return s
 }
 
@@ -2467,6 +2491,10 @@ func (client *Client) CreateAndDeliverWithOptions(request *CreateAndDeliverReque
 		body["callbackRouteKey"] = request.CallbackRouteKey
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.CardAtUserIds)) {
+		body["cardAtUserIds"] = request.CardAtUserIds
+	}
+
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardData))) {
 		body["cardData"] = request.CardData
 	}
@@ -2527,6 +2555,10 @@ func (client *Client) CreateAndDeliverWithOptions(request *CreateAndDeliverReque
 		body["userId"] = request.UserId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.UserIdType)) {
+		body["userIdType"] = request.UserIdType
+	}
+
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.WorkBenchOpenDeliverModel))) {
 		body["workBenchOpenDeliverModel"] = request.WorkBenchOpenDeliverModel
 	}
@@ -2579,6 +2611,10 @@ func (client *Client) CreateCardWithOptions(request *CreateCardRequest, headers 
 		body["callbackRouteKey"] = request.CallbackRouteKey
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.CardAtUserIds)) {
+		body["cardAtUserIds"] = request.CardAtUserIds
+	}
+
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardData))) {
 		body["cardData"] = request.CardData
 	}
@@ -2617,6 +2653,10 @@ func (client *Client) CreateCardWithOptions(request *CreateCardRequest, headers 
 
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdType)) {
+		body["userIdType"] = request.UserIdType
 	}
 
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.WorkBenchOpenSpaceModel))) {

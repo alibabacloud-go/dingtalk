@@ -427,6 +427,106 @@ func (s *DeleteMeetingRoomGroupResponse) SetBody(v *DeleteMeetingRoomGroupRespon
 	return s
 }
 
+type QueryDeviceIpByCodeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryDeviceIpByCodeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceIpByCodeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceIpByCodeHeaders) SetCommonHeaders(v map[string]*string) *QueryDeviceIpByCodeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryDeviceIpByCodeHeaders) SetXAcsDingtalkAccessToken(v string) *QueryDeviceIpByCodeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryDeviceIpByCodeRequest struct {
+	// 设备sn号
+	DeviceSn *string `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
+}
+
+func (s QueryDeviceIpByCodeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceIpByCodeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceIpByCodeRequest) SetDeviceSn(v string) *QueryDeviceIpByCodeRequest {
+	s.DeviceSn = &v
+	return s
+}
+
+type QueryDeviceIpByCodeResponseBody struct {
+	// 结果
+	Result *QueryDeviceIpByCodeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryDeviceIpByCodeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceIpByCodeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceIpByCodeResponseBody) SetResult(v *QueryDeviceIpByCodeResponseBodyResult) *QueryDeviceIpByCodeResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryDeviceIpByCodeResponseBodyResult struct {
+	// 设备内网ip
+	DeviceIp *string `json:"deviceIp,omitempty" xml:"deviceIp,omitempty"`
+}
+
+func (s QueryDeviceIpByCodeResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceIpByCodeResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceIpByCodeResponseBodyResult) SetDeviceIp(v string) *QueryDeviceIpByCodeResponseBodyResult {
+	s.DeviceIp = &v
+	return s
+}
+
+type QueryDeviceIpByCodeResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryDeviceIpByCodeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryDeviceIpByCodeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDeviceIpByCodeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDeviceIpByCodeResponse) SetHeaders(v map[string]*string) *QueryDeviceIpByCodeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryDeviceIpByCodeResponse) SetBody(v *QueryDeviceIpByCodeResponseBody) *QueryDeviceIpByCodeResponse {
+	s.Body = v
+	return s
+}
+
 type QueryMeetingRoomHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1573,6 +1673,51 @@ func (client *Client) DeleteMeetingRoomGroupWithOptions(groupId *string, request
 	}
 	_result = &DeleteMeetingRoomGroupResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteMeetingRoomGroup"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/rooms/groups/"+tea.StringValue(groupId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryDeviceIpByCode(shareCode *string, request *QueryDeviceIpByCodeRequest) (_result *QueryDeviceIpByCodeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryDeviceIpByCodeHeaders{}
+	_result = &QueryDeviceIpByCodeResponse{}
+	_body, _err := client.QueryDeviceIpByCodeWithOptions(shareCode, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryDeviceIpByCodeWithOptions(shareCode *string, request *QueryDeviceIpByCodeRequest, headers *QueryDeviceIpByCodeHeaders, runtime *util.RuntimeOptions) (_result *QueryDeviceIpByCodeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	shareCode = openapiutil.GetEncodeParam(shareCode)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceSn)) {
+		query["deviceSn"] = request.DeviceSn
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryDeviceIpByCodeResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryDeviceIpByCode"), tea.String("rooms_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/rooms/devices/shareCodes/"+tea.StringValue(shareCode)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
