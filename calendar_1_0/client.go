@@ -2333,6 +2333,10 @@ func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformation) SetScheduleItem
 type GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems struct {
 	// 结束时间，表示一个日期，或者一个带时区的时间戳
 	End *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	// 日程id。
+	EventId *string `json:"eventId,omitempty" xml:"eventId,omitempty"`
+	// 日程组织者。
+	Organizer *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
 	// 开始时间，表示一个日期，或者一个带时区的时间戳
 	Start *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
 	// 状态: - BUSY：繁忙, - TENTATIVE：暂定繁忙
@@ -2352,6 +2356,16 @@ func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems) Se
 	return s
 }
 
+func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems) SetEventId(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems {
+	s.EventId = &v
+	return s
+}
+
+func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems) SetOrganizer(v *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems {
+	s.Organizer = v
+	return s
+}
+
 func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems) SetStart(v *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems {
 	s.Start = v
 	return s
@@ -2363,8 +2377,6 @@ func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems) Se
 }
 
 type GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd struct {
-	// 结束日期
-	Date *string `json:"date,omitempty" xml:"date,omitempty"`
 	// 结束时间戳，按照ISO 8601格式
 	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
 	// 时间戳所属时区
@@ -2379,11 +2391,6 @@ func (s GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd) 
 	return s.String()
 }
 
-func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd) SetDate(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd {
-	s.Date = &v
-	return s
-}
-
 func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd) SetDateTime(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd {
 	s.DateTime = &v
 	return s
@@ -2394,9 +2401,32 @@ func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd)
 	return s
 }
 
+type GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer struct {
+	// 组织者名称。
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	// 组织者unionId。
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer) GoString() string {
+	return s.String()
+}
+
+func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer) SetDisplayName(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer) SetId(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer {
+	s.Id = &v
+	return s
+}
+
 type GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart struct {
-	// 开始日期
-	Date *string `json:"date,omitempty" xml:"date,omitempty"`
 	// 开始时间戳，按照ISO 8601格式
 	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
 	// 所属时区
@@ -2409,11 +2439,6 @@ func (s GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart
 
 func (s GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart) GoString() string {
 	return s.String()
-}
-
-func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart) SetDate(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart {
-	s.Date = &v
-	return s
 }
 
 func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart) SetDateTime(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart {
