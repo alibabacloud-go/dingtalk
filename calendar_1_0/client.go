@@ -2402,8 +2402,6 @@ func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsEnd)
 }
 
 type GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer struct {
-	// 组织者名称。
-	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	// 组织者unionId。
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
@@ -2414,11 +2412,6 @@ func (s GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrgan
 
 func (s GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer) GoString() string {
 	return s.String()
-}
-
-func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer) SetDisplayName(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer {
-	s.DisplayName = &v
-	return s
 }
 
 func (s *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer) SetId(v string) *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer {

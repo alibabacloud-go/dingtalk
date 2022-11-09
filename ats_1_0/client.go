@@ -361,6 +361,595 @@ func (s *AddUserAccountResponse) SetBody(v *AddUserAccountResponseBody) *AddUser
 	return s
 }
 
+type CollectResumeDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CollectResumeDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeDetailHeaders) SetCommonHeaders(v map[string]*string) *CollectResumeDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CollectResumeDetailHeaders) SetXAcsDingtalkAccessToken(v string) *CollectResumeDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CollectResumeDetailRequest struct {
+	// 业务标识，目前固定为ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// 渠道侧简历标识
+	ChannelOuterId *string `json:"channelOuterId,omitempty" xml:"channelOuterId,omitempty"`
+	// 简历投递职位标识
+	DeliverJobId *string `json:"deliverJobId,omitempty" xml:"deliverJobId,omitempty"`
+	OptUserId    *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+	// 简历详情信息
+	ResumeData *CollectResumeDetailRequestResumeData `json:"resumeData,omitempty" xml:"resumeData,omitempty" type:"Struct"`
+}
+
+func (s CollectResumeDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeDetailRequest) SetBizCode(v string) *CollectResumeDetailRequest {
+	s.BizCode = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequest) SetChannelOuterId(v string) *CollectResumeDetailRequest {
+	s.ChannelOuterId = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequest) SetDeliverJobId(v string) *CollectResumeDetailRequest {
+	s.DeliverJobId = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequest) SetOptUserId(v string) *CollectResumeDetailRequest {
+	s.OptUserId = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequest) SetResumeData(v *CollectResumeDetailRequestResumeData) *CollectResumeDetailRequest {
+	s.ResumeData = v
+	return s
+}
+
+type CollectResumeDetailRequestResumeData struct {
+	// 简历基础信息
+	BaseInfo *CollectResumeDetailRequestResumeDataBaseInfo `json:"baseInfo,omitempty" xml:"baseInfo,omitempty" type:"Struct"`
+	// 证书信息
+	Certificates []*CollectResumeDetailRequestResumeDataCertificates `json:"certificates,omitempty" xml:"certificates,omitempty" type:"Repeated"`
+	// 教育经历
+	EducationExperiences []*CollectResumeDetailRequestResumeDataEducationExperiences `json:"educationExperiences,omitempty" xml:"educationExperiences,omitempty" type:"Repeated"`
+	// 期望职位信息
+	JobExpect *CollectResumeDetailRequestResumeDataJobExpect `json:"jobExpect,omitempty" xml:"jobExpect,omitempty" type:"Struct"`
+	// 语言能力
+	LanguageSkill []*CollectResumeDetailRequestResumeDataLanguageSkill `json:"languageSkill,omitempty" xml:"languageSkill,omitempty" type:"Repeated"`
+	// 培训经历
+	TrainingExperiences []*CollectResumeDetailRequestResumeDataTrainingExperiences `json:"trainingExperiences,omitempty" xml:"trainingExperiences,omitempty" type:"Repeated"`
+	// 工作经历
+	WorkExperiences []*CollectResumeDetailRequestResumeDataWorkExperiences `json:"workExperiences,omitempty" xml:"workExperiences,omitempty" type:"Repeated"`
+}
+
+func (s CollectResumeDetailRequestResumeData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeDetailRequestResumeData) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeDetailRequestResumeData) SetBaseInfo(v *CollectResumeDetailRequestResumeDataBaseInfo) *CollectResumeDetailRequestResumeData {
+	s.BaseInfo = v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeData) SetCertificates(v []*CollectResumeDetailRequestResumeDataCertificates) *CollectResumeDetailRequestResumeData {
+	s.Certificates = v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeData) SetEducationExperiences(v []*CollectResumeDetailRequestResumeDataEducationExperiences) *CollectResumeDetailRequestResumeData {
+	s.EducationExperiences = v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeData) SetJobExpect(v *CollectResumeDetailRequestResumeDataJobExpect) *CollectResumeDetailRequestResumeData {
+	s.JobExpect = v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeData) SetLanguageSkill(v []*CollectResumeDetailRequestResumeDataLanguageSkill) *CollectResumeDetailRequestResumeData {
+	s.LanguageSkill = v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeData) SetTrainingExperiences(v []*CollectResumeDetailRequestResumeDataTrainingExperiences) *CollectResumeDetailRequestResumeData {
+	s.TrainingExperiences = v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeData) SetWorkExperiences(v []*CollectResumeDetailRequestResumeDataWorkExperiences) *CollectResumeDetailRequestResumeData {
+	s.WorkExperiences = v
+	return s
+}
+
+type CollectResumeDetailRequestResumeDataBaseInfo struct {
+	// 年龄
+	Age *int32 `json:"age,omitempty" xml:"age,omitempty"`
+	// 头像cdn地址，http链接
+	Avatar *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
+	// 初次工作时间
+	BeginWorkTime *string `json:"beginWorkTime,omitempty" xml:"beginWorkTime,omitempty"`
+	// 生日
+	Birthday *string `json:"birthday,omitempty" xml:"birthday,omitempty"`
+	// 邮箱地址
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+	// 英文名称
+	EnglishName *string `json:"englishName,omitempty" xml:"englishName,omitempty"`
+	// 毕业时间
+	GraduateTime *string `json:"graduateTime,omitempty" xml:"graduateTime,omitempty"`
+	// 最高学历
+	HighestEducation *int32 `json:"highestEducation,omitempty" xml:"highestEducation,omitempty"`
+	// 当前工作职位名称
+	JobTitle *string `json:"jobTitle,omitempty" xml:"jobTitle,omitempty"`
+	// 最高学历毕业院校名称
+	LastSchoolName *string `json:"lastSchoolName,omitempty" xml:"lastSchoolName,omitempty"`
+	// 婚姻状况
+	Married *int32 `json:"married,omitempty" xml:"married,omitempty"`
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 籍贯地址
+	NativePlace *string `json:"nativePlace,omitempty" xml:"nativePlace,omitempty"`
+	// 现居住地址
+	NowLocation *string `json:"nowLocation,omitempty" xml:"nowLocation,omitempty"`
+	// 个人荣誉
+	PersonalHonor *string `json:"personalHonor,omitempty" xml:"personalHonor,omitempty"`
+	// 手机号
+	PhoneNum *string `json:"phoneNum,omitempty" xml:"phoneNum,omitempty"`
+	// 政治面貌
+	PoliticalStatus *int32 `json:"politicalStatus,omitempty" xml:"politicalStatus,omitempty"`
+	// 自我评价
+	SelfEvaluation *string `json:"selfEvaluation,omitempty" xml:"selfEvaluation,omitempty"`
+	// 性别
+	Sex *int32 `json:"sex,omitempty" xml:"sex,omitempty"`
+	// 虚拟手机号
+	VirtualPhoneNum *string `json:"virtualPhoneNum,omitempty" xml:"virtualPhoneNum,omitempty"`
+	// 工作年限
+	WorkingYears *int32 `json:"workingYears,omitempty" xml:"workingYears,omitempty"`
+}
+
+func (s CollectResumeDetailRequestResumeDataBaseInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeDetailRequestResumeDataBaseInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetAge(v int32) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.Age = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetAvatar(v string) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.Avatar = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetBeginWorkTime(v string) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.BeginWorkTime = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetBirthday(v string) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.Birthday = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetEmail(v string) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.Email = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetEnglishName(v string) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.EnglishName = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetGraduateTime(v string) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.GraduateTime = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetHighestEducation(v int32) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.HighestEducation = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetJobTitle(v string) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.JobTitle = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetLastSchoolName(v string) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.LastSchoolName = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetMarried(v int32) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.Married = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetName(v string) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.Name = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetNativePlace(v string) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.NativePlace = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetNowLocation(v string) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.NowLocation = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetPersonalHonor(v string) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.PersonalHonor = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetPhoneNum(v string) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.PhoneNum = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetPoliticalStatus(v int32) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.PoliticalStatus = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetSelfEvaluation(v string) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.SelfEvaluation = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetSex(v int32) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.Sex = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetVirtualPhoneNum(v string) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.VirtualPhoneNum = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetWorkingYears(v int32) *CollectResumeDetailRequestResumeDataBaseInfo {
+	s.WorkingYears = &v
+	return s
+}
+
+type CollectResumeDetailRequestResumeDataCertificates struct {
+	// 证书名称
+	CertificateName *string `json:"certificateName,omitempty" xml:"certificateName,omitempty"`
+	// 证书授予时间
+	GrantTime *string `json:"grantTime,omitempty" xml:"grantTime,omitempty"`
+}
+
+func (s CollectResumeDetailRequestResumeDataCertificates) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeDetailRequestResumeDataCertificates) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeDetailRequestResumeDataCertificates) SetCertificateName(v string) *CollectResumeDetailRequestResumeDataCertificates {
+	s.CertificateName = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataCertificates) SetGrantTime(v string) *CollectResumeDetailRequestResumeDataCertificates {
+	s.GrantTime = &v
+	return s
+}
+
+type CollectResumeDetailRequestResumeDataEducationExperiences struct {
+	// 学历
+	Degree *int32 `json:"degree,omitempty" xml:"degree,omitempty"`
+	// 院系
+	Department *string `json:"department,omitempty" xml:"department,omitempty"`
+	// 详细描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 结束时间
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// 专业
+	Major *string `json:"major,omitempty" xml:"major,omitempty"`
+	// 学校名称
+	SchoolName *string `json:"schoolName,omitempty" xml:"schoolName,omitempty"`
+	// 开始时间
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+}
+
+func (s CollectResumeDetailRequestResumeDataEducationExperiences) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeDetailRequestResumeDataEducationExperiences) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeDetailRequestResumeDataEducationExperiences) SetDegree(v int32) *CollectResumeDetailRequestResumeDataEducationExperiences {
+	s.Degree = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataEducationExperiences) SetDepartment(v string) *CollectResumeDetailRequestResumeDataEducationExperiences {
+	s.Department = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataEducationExperiences) SetDescription(v string) *CollectResumeDetailRequestResumeDataEducationExperiences {
+	s.Description = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataEducationExperiences) SetEndDate(v string) *CollectResumeDetailRequestResumeDataEducationExperiences {
+	s.EndDate = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataEducationExperiences) SetMajor(v string) *CollectResumeDetailRequestResumeDataEducationExperiences {
+	s.Major = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataEducationExperiences) SetSchoolName(v string) *CollectResumeDetailRequestResumeDataEducationExperiences {
+	s.SchoolName = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataEducationExperiences) SetStartDate(v string) *CollectResumeDetailRequestResumeDataEducationExperiences {
+	s.StartDate = &v
+	return s
+}
+
+type CollectResumeDetailRequestResumeDataJobExpect struct {
+	// 期望职位名称
+	JobName *string `json:"jobName,omitempty" xml:"jobName,omitempty"`
+	// 期望工作地
+	Locations []*string `json:"locations,omitempty" xml:"locations,omitempty" type:"Repeated"`
+	// 最高期望工资
+	MaxSalary *string `json:"maxSalary,omitempty" xml:"maxSalary,omitempty"`
+	// 最低期望工资
+	MinSalary *string `json:"minSalary,omitempty" xml:"minSalary,omitempty"`
+	// 期望入职时间
+	OnboardTime *string `json:"onboardTime,omitempty" xml:"onboardTime,omitempty"`
+}
+
+func (s CollectResumeDetailRequestResumeDataJobExpect) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeDetailRequestResumeDataJobExpect) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeDetailRequestResumeDataJobExpect) SetJobName(v string) *CollectResumeDetailRequestResumeDataJobExpect {
+	s.JobName = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataJobExpect) SetLocations(v []*string) *CollectResumeDetailRequestResumeDataJobExpect {
+	s.Locations = v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataJobExpect) SetMaxSalary(v string) *CollectResumeDetailRequestResumeDataJobExpect {
+	s.MaxSalary = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataJobExpect) SetMinSalary(v string) *CollectResumeDetailRequestResumeDataJobExpect {
+	s.MinSalary = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataJobExpect) SetOnboardTime(v string) *CollectResumeDetailRequestResumeDataJobExpect {
+	s.OnboardTime = &v
+	return s
+}
+
+type CollectResumeDetailRequestResumeDataLanguageSkill struct {
+	// 证书名称
+	CertificateName *string `json:"certificateName,omitempty" xml:"certificateName,omitempty"`
+	// 语言名称
+	LanguageName *string `json:"languageName,omitempty" xml:"languageName,omitempty"`
+}
+
+func (s CollectResumeDetailRequestResumeDataLanguageSkill) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeDetailRequestResumeDataLanguageSkill) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeDetailRequestResumeDataLanguageSkill) SetCertificateName(v string) *CollectResumeDetailRequestResumeDataLanguageSkill {
+	s.CertificateName = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataLanguageSkill) SetLanguageName(v string) *CollectResumeDetailRequestResumeDataLanguageSkill {
+	s.LanguageName = &v
+	return s
+}
+
+type CollectResumeDetailRequestResumeDataTrainingExperiences struct {
+	// 详细内容描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 结束时间
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// 培训机构名称
+	InstitutionName *string `json:"institutionName,omitempty" xml:"institutionName,omitempty"`
+	// 培训地点
+	Location *string `json:"location,omitempty" xml:"location,omitempty"`
+	// 培训名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 开始时间
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+}
+
+func (s CollectResumeDetailRequestResumeDataTrainingExperiences) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeDetailRequestResumeDataTrainingExperiences) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeDetailRequestResumeDataTrainingExperiences) SetDescription(v string) *CollectResumeDetailRequestResumeDataTrainingExperiences {
+	s.Description = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataTrainingExperiences) SetEndDate(v string) *CollectResumeDetailRequestResumeDataTrainingExperiences {
+	s.EndDate = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataTrainingExperiences) SetInstitutionName(v string) *CollectResumeDetailRequestResumeDataTrainingExperiences {
+	s.InstitutionName = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataTrainingExperiences) SetLocation(v string) *CollectResumeDetailRequestResumeDataTrainingExperiences {
+	s.Location = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataTrainingExperiences) SetName(v string) *CollectResumeDetailRequestResumeDataTrainingExperiences {
+	s.Name = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataTrainingExperiences) SetStartDate(v string) *CollectResumeDetailRequestResumeDataTrainingExperiences {
+	s.StartDate = &v
+	return s
+}
+
+type CollectResumeDetailRequestResumeDataWorkExperiences struct {
+	// 公司名称
+	CompanyName *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
+	// 部门
+	Department *string `json:"department,omitempty" xml:"department,omitempty"`
+	// 工作详情描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 职位名称
+	JobTitle *string `json:"jobTitle,omitempty" xml:"jobTitle,omitempty"`
+	// 工作地点
+	Location *string `json:"location,omitempty" xml:"location,omitempty"`
+	// 工作职责
+	Responsibility *string `json:"responsibility,omitempty" xml:"responsibility,omitempty"`
+}
+
+func (s CollectResumeDetailRequestResumeDataWorkExperiences) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeDetailRequestResumeDataWorkExperiences) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeDetailRequestResumeDataWorkExperiences) SetCompanyName(v string) *CollectResumeDetailRequestResumeDataWorkExperiences {
+	s.CompanyName = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataWorkExperiences) SetDepartment(v string) *CollectResumeDetailRequestResumeDataWorkExperiences {
+	s.Department = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataWorkExperiences) SetDescription(v string) *CollectResumeDetailRequestResumeDataWorkExperiences {
+	s.Description = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataWorkExperiences) SetJobTitle(v string) *CollectResumeDetailRequestResumeDataWorkExperiences {
+	s.JobTitle = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataWorkExperiences) SetLocation(v string) *CollectResumeDetailRequestResumeDataWorkExperiences {
+	s.Location = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataWorkExperiences) SetResponsibility(v string) *CollectResumeDetailRequestResumeDataWorkExperiences {
+	s.Responsibility = &v
+	return s
+}
+
+type CollectResumeDetailResponseBody struct {
+	// 简历标识
+	ResumeId *string `json:"resumeId,omitempty" xml:"resumeId,omitempty"`
+}
+
+func (s CollectResumeDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeDetailResponseBody) SetResumeId(v string) *CollectResumeDetailResponseBody {
+	s.ResumeId = &v
+	return s
+}
+
+type CollectResumeDetailResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CollectResumeDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CollectResumeDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectResumeDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CollectResumeDetailResponse) SetHeaders(v map[string]*string) *CollectResumeDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CollectResumeDetailResponse) SetBody(v *CollectResumeDetailResponseBody) *CollectResumeDetailResponse {
+	s.Body = v
+	return s
+}
+
 type ConfirmRightsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1938,6 +2527,68 @@ func (client *Client) AddUserAccountWithOptions(request *AddUserAccountRequest, 
 	}
 	_result = &AddUserAccountResponse{}
 	_body, _err := client.DoROARequest(tea.String("AddUserAccount"), tea.String("ats_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/ats/channels/users/accounts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CollectResumeDetail(request *CollectResumeDetailRequest) (_result *CollectResumeDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CollectResumeDetailHeaders{}
+	_result = &CollectResumeDetailResponse{}
+	_body, _err := client.CollectResumeDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CollectResumeDetailWithOptions(request *CollectResumeDetailRequest, headers *CollectResumeDetailHeaders, runtime *util.RuntimeOptions) (_result *CollectResumeDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		query["bizCode"] = request.BizCode
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChannelOuterId)) {
+		body["channelOuterId"] = request.ChannelOuterId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeliverJobId)) {
+		body["deliverJobId"] = request.DeliverJobId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OptUserId)) {
+		body["optUserId"] = request.OptUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ResumeData))) {
+		body["resumeData"] = request.ResumeData
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CollectResumeDetailResponse{}
+	_body, _err := client.DoROARequest(tea.String("CollectResumeDetail"), tea.String("ats_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/ats/resumes/details"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

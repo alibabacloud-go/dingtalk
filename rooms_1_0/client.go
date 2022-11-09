@@ -470,7 +470,8 @@ func (s *QueryDeviceIpByCodeRequest) SetDeviceSn(v string) *QueryDeviceIpByCodeR
 
 type QueryDeviceIpByCodeResponseBody struct {
 	// 结果
-	Result *QueryDeviceIpByCodeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Result  *QueryDeviceIpByCodeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                  `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s QueryDeviceIpByCodeResponseBody) String() string {
@@ -483,6 +484,11 @@ func (s QueryDeviceIpByCodeResponseBody) GoString() string {
 
 func (s *QueryDeviceIpByCodeResponseBody) SetResult(v *QueryDeviceIpByCodeResponseBodyResult) *QueryDeviceIpByCodeResponseBody {
 	s.Result = v
+	return s
+}
+
+func (s *QueryDeviceIpByCodeResponseBody) SetSuccess(v bool) *QueryDeviceIpByCodeResponseBody {
+	s.Success = &v
 	return s
 }
 

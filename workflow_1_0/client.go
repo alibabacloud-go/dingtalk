@@ -3727,6 +3727,8 @@ func (s *InstallAppHeaders) SetXAcsDingtalkAccessToken(v string) *InstallAppHead
 }
 
 type InstallAppRequest struct {
+	// 业务分组
+	BizGroup *string `json:"bizGroup,omitempty" xml:"bizGroup,omitempty"`
 	// 安装选项
 	//
 	InstallOption *InstallAppRequestInstallOption `json:"installOption,omitempty" xml:"installOption,omitempty" type:"Struct"`
@@ -3740,6 +3742,11 @@ func (s InstallAppRequest) String() string {
 
 func (s InstallAppRequest) GoString() string {
 	return s.String()
+}
+
+func (s *InstallAppRequest) SetBizGroup(v string) *InstallAppRequest {
+	s.BizGroup = &v
+	return s
 }
 
 func (s *InstallAppRequest) SetInstallOption(v *InstallAppRequestInstallOption) *InstallAppRequest {
@@ -9609,6 +9616,10 @@ func (client *Client) InstallAppWithOptions(request *InstallAppRequest, headers 
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizGroup)) {
+		body["bizGroup"] = request.BizGroup
+	}
+
 	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.InstallOption))) {
 		body["installOption"] = request.InstallOption
 	}
