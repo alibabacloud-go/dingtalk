@@ -6139,8 +6139,7 @@ func (s *QueryIntegratedTodoTaskRequest) SetUserId(v string) *QueryIntegratedTod
 }
 
 type QueryIntegratedTodoTaskResponseBody struct {
-	RequestId *string                                      `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	TaskPage  *QueryIntegratedTodoTaskResponseBodyTaskPage `json:"taskPage,omitempty" xml:"taskPage,omitempty" type:"Struct"`
+	Result *QueryIntegratedTodoTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s QueryIntegratedTodoTaskResponseBody) String() string {
@@ -6151,41 +6150,36 @@ func (s QueryIntegratedTodoTaskResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *QueryIntegratedTodoTaskResponseBody) SetRequestId(v string) *QueryIntegratedTodoTaskResponseBody {
-	s.RequestId = &v
+func (s *QueryIntegratedTodoTaskResponseBody) SetResult(v *QueryIntegratedTodoTaskResponseBodyResult) *QueryIntegratedTodoTaskResponseBody {
+	s.Result = v
 	return s
 }
 
-func (s *QueryIntegratedTodoTaskResponseBody) SetTaskPage(v *QueryIntegratedTodoTaskResponseBodyTaskPage) *QueryIntegratedTodoTaskResponseBody {
-	s.TaskPage = v
-	return s
-}
-
-type QueryIntegratedTodoTaskResponseBodyTaskPage struct {
+type QueryIntegratedTodoTaskResponseBodyResult struct {
 	// 是否还有下一页
-	HasMore *bool                                              `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	List    []*QueryIntegratedTodoTaskResponseBodyTaskPageList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	HasMore *bool                                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*QueryIntegratedTodoTaskResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
 }
 
-func (s QueryIntegratedTodoTaskResponseBodyTaskPage) String() string {
+func (s QueryIntegratedTodoTaskResponseBodyResult) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryIntegratedTodoTaskResponseBodyTaskPage) GoString() string {
+func (s QueryIntegratedTodoTaskResponseBodyResult) GoString() string {
 	return s.String()
 }
 
-func (s *QueryIntegratedTodoTaskResponseBodyTaskPage) SetHasMore(v bool) *QueryIntegratedTodoTaskResponseBodyTaskPage {
+func (s *QueryIntegratedTodoTaskResponseBodyResult) SetHasMore(v bool) *QueryIntegratedTodoTaskResponseBodyResult {
 	s.HasMore = &v
 	return s
 }
 
-func (s *QueryIntegratedTodoTaskResponseBodyTaskPage) SetList(v []*QueryIntegratedTodoTaskResponseBodyTaskPageList) *QueryIntegratedTodoTaskResponseBodyTaskPage {
+func (s *QueryIntegratedTodoTaskResponseBodyResult) SetList(v []*QueryIntegratedTodoTaskResponseBodyResultList) *QueryIntegratedTodoTaskResponseBodyResult {
 	s.List = v
 	return s
 }
 
-type QueryIntegratedTodoTaskResponseBodyTaskPageList struct {
+type QueryIntegratedTodoTaskResponseBodyResultList struct {
 	// 待办组ID，需要在调用创建流程中心集成任务接口时，主动设置该值。
 	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
 	// OA审批任务创建时间
@@ -6204,50 +6198,50 @@ type QueryIntegratedTodoTaskResponseBodyTaskPageList struct {
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
-func (s QueryIntegratedTodoTaskResponseBodyTaskPageList) String() string {
+func (s QueryIntegratedTodoTaskResponseBodyResultList) String() string {
 	return tea.Prettify(s)
 }
 
-func (s QueryIntegratedTodoTaskResponseBodyTaskPageList) GoString() string {
+func (s QueryIntegratedTodoTaskResponseBodyResultList) GoString() string {
 	return s.String()
 }
 
-func (s *QueryIntegratedTodoTaskResponseBodyTaskPageList) SetActivityId(v string) *QueryIntegratedTodoTaskResponseBodyTaskPageList {
+func (s *QueryIntegratedTodoTaskResponseBodyResultList) SetActivityId(v string) *QueryIntegratedTodoTaskResponseBodyResultList {
 	s.ActivityId = &v
 	return s
 }
 
-func (s *QueryIntegratedTodoTaskResponseBodyTaskPageList) SetCreateTime(v int64) *QueryIntegratedTodoTaskResponseBodyTaskPageList {
+func (s *QueryIntegratedTodoTaskResponseBodyResultList) SetCreateTime(v int64) *QueryIntegratedTodoTaskResponseBodyResultList {
 	s.CreateTime = &v
 	return s
 }
 
-func (s *QueryIntegratedTodoTaskResponseBodyTaskPageList) SetFinishTime(v string) *QueryIntegratedTodoTaskResponseBodyTaskPageList {
+func (s *QueryIntegratedTodoTaskResponseBodyResultList) SetFinishTime(v string) *QueryIntegratedTodoTaskResponseBodyResultList {
 	s.FinishTime = &v
 	return s
 }
 
-func (s *QueryIntegratedTodoTaskResponseBodyTaskPageList) SetProcessInstanceId(v string) *QueryIntegratedTodoTaskResponseBodyTaskPageList {
+func (s *QueryIntegratedTodoTaskResponseBodyResultList) SetProcessInstanceId(v string) *QueryIntegratedTodoTaskResponseBodyResultList {
 	s.ProcessInstanceId = &v
 	return s
 }
 
-func (s *QueryIntegratedTodoTaskResponseBodyTaskPageList) SetResult(v string) *QueryIntegratedTodoTaskResponseBodyTaskPageList {
+func (s *QueryIntegratedTodoTaskResponseBodyResultList) SetResult(v string) *QueryIntegratedTodoTaskResponseBodyResultList {
 	s.Result = &v
 	return s
 }
 
-func (s *QueryIntegratedTodoTaskResponseBodyTaskPageList) SetStatus(v string) *QueryIntegratedTodoTaskResponseBodyTaskPageList {
+func (s *QueryIntegratedTodoTaskResponseBodyResultList) SetStatus(v string) *QueryIntegratedTodoTaskResponseBodyResultList {
 	s.Status = &v
 	return s
 }
 
-func (s *QueryIntegratedTodoTaskResponseBodyTaskPageList) SetTaskId(v int64) *QueryIntegratedTodoTaskResponseBodyTaskPageList {
+func (s *QueryIntegratedTodoTaskResponseBodyResultList) SetTaskId(v int64) *QueryIntegratedTodoTaskResponseBodyResultList {
 	s.TaskId = &v
 	return s
 }
 
-func (s *QueryIntegratedTodoTaskResponseBodyTaskPageList) SetUserId(v string) *QueryIntegratedTodoTaskResponseBodyTaskPageList {
+func (s *QueryIntegratedTodoTaskResponseBodyResultList) SetUserId(v string) *QueryIntegratedTodoTaskResponseBodyResultList {
 	s.UserId = &v
 	return s
 }

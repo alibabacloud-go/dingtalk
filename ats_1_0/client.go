@@ -1939,6 +1939,226 @@ func (s *QueryInterviewsResponse) SetBody(v *QueryInterviewsResponseBody) *Query
 	return s
 }
 
+type ReportMessageStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ReportMessageStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportMessageStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ReportMessageStatusHeaders) SetCommonHeaders(v map[string]*string) *ReportMessageStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ReportMessageStatusHeaders) SetXAcsDingtalkAccessToken(v string) *ReportMessageStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ReportMessageStatusRequest struct {
+	// 渠道标识。
+	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
+	// 错误码。
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// 错误信息描述。
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// 消息ID。
+	MessageId *string `json:"messageId,omitempty" xml:"messageId,omitempty"`
+}
+
+func (s ReportMessageStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportMessageStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ReportMessageStatusRequest) SetChannel(v string) *ReportMessageStatusRequest {
+	s.Channel = &v
+	return s
+}
+
+func (s *ReportMessageStatusRequest) SetErrorCode(v string) *ReportMessageStatusRequest {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *ReportMessageStatusRequest) SetErrorMsg(v string) *ReportMessageStatusRequest {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *ReportMessageStatusRequest) SetMessageId(v string) *ReportMessageStatusRequest {
+	s.MessageId = &v
+	return s
+}
+
+type ReportMessageStatusResponseBody struct {
+	// Id of the request
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s ReportMessageStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportMessageStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ReportMessageStatusResponseBody) SetResult(v string) *ReportMessageStatusResponseBody {
+	s.Result = &v
+	return s
+}
+
+type ReportMessageStatusResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ReportMessageStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ReportMessageStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReportMessageStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ReportMessageStatusResponse) SetHeaders(v map[string]*string) *ReportMessageStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ReportMessageStatusResponse) SetBody(v *ReportMessageStatusResponseBody) *ReportMessageStatusResponse {
+	s.Body = v
+	return s
+}
+
+type SyncChannelMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncChannelMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncChannelMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncChannelMessageHeaders) SetCommonHeaders(v map[string]*string) *SyncChannelMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncChannelMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SyncChannelMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncChannelMessageRequest struct {
+	// 渠道标识。
+	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
+	// 消息内容。
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// 消息创建时间。
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 消息接收者ID。
+	ReceiverUserId *string `json:"receiverUserId,omitempty" xml:"receiverUserId,omitempty"`
+	// 消息发送者用户ID。
+	SenderUserId *string `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
+	// 消息UUID，业务方产生用于去重。
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s SyncChannelMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncChannelMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncChannelMessageRequest) SetChannel(v string) *SyncChannelMessageRequest {
+	s.Channel = &v
+	return s
+}
+
+func (s *SyncChannelMessageRequest) SetContent(v string) *SyncChannelMessageRequest {
+	s.Content = &v
+	return s
+}
+
+func (s *SyncChannelMessageRequest) SetCreateTime(v int64) *SyncChannelMessageRequest {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *SyncChannelMessageRequest) SetReceiverUserId(v string) *SyncChannelMessageRequest {
+	s.ReceiverUserId = &v
+	return s
+}
+
+func (s *SyncChannelMessageRequest) SetSenderUserId(v string) *SyncChannelMessageRequest {
+	s.SenderUserId = &v
+	return s
+}
+
+func (s *SyncChannelMessageRequest) SetUuid(v string) *SyncChannelMessageRequest {
+	s.Uuid = &v
+	return s
+}
+
+type SyncChannelMessageResponseBody struct {
+	// Id of the request
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SyncChannelMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncChannelMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncChannelMessageResponseBody) SetResult(v string) *SyncChannelMessageResponseBody {
+	s.Result = &v
+	return s
+}
+
+type SyncChannelMessageResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SyncChannelMessageResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SyncChannelMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncChannelMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncChannelMessageResponse) SetHeaders(v map[string]*string) *SyncChannelMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncChannelMessageResponse) SetBody(v *SyncChannelMessageResponseBody) *SyncChannelMessageResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateApplicationRegFormHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2216,6 +2436,8 @@ type UpdateJobDeliverRequest struct {
 	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
 	// 渠道侧职位唯一标识
 	ChannelOuterId *string `json:"channelOuterId,omitempty" xml:"channelOuterId,omitempty"`
+	// 职位投递人userId
+	DeliverUserId *string `json:"deliverUserId,omitempty" xml:"deliverUserId,omitempty"`
 	// 渠道侧错误码
 	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
 	// 渠道侧错误信息
@@ -2226,8 +2448,6 @@ type UpdateJobDeliverRequest struct {
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 	// 职位投递状态
 	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
-	// 企业corpId
-	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 钉钉侧职位唯一标识
 	JobId *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
 }
@@ -2247,6 +2467,11 @@ func (s *UpdateJobDeliverRequest) SetBizCode(v string) *UpdateJobDeliverRequest 
 
 func (s *UpdateJobDeliverRequest) SetChannelOuterId(v string) *UpdateJobDeliverRequest {
 	s.ChannelOuterId = &v
+	return s
+}
+
+func (s *UpdateJobDeliverRequest) SetDeliverUserId(v string) *UpdateJobDeliverRequest {
+	s.DeliverUserId = &v
 	return s
 }
 
@@ -2272,11 +2497,6 @@ func (s *UpdateJobDeliverRequest) SetOpUserId(v string) *UpdateJobDeliverRequest
 
 func (s *UpdateJobDeliverRequest) SetStatus(v int32) *UpdateJobDeliverRequest {
 	s.Status = &v
-	return s
-}
-
-func (s *UpdateJobDeliverRequest) SetCorpId(v string) *UpdateJobDeliverRequest {
-	s.CorpId = &v
 	return s
 }
 
@@ -3006,6 +3226,126 @@ func (client *Client) QueryInterviewsWithOptions(request *QueryInterviewsRequest
 	return _result, _err
 }
 
+func (client *Client) ReportMessageStatus(request *ReportMessageStatusRequest) (_result *ReportMessageStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ReportMessageStatusHeaders{}
+	_result = &ReportMessageStatusResponse{}
+	_body, _err := client.ReportMessageStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ReportMessageStatusWithOptions(request *ReportMessageStatusRequest, headers *ReportMessageStatusHeaders, runtime *util.RuntimeOptions) (_result *ReportMessageStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Channel)) {
+		body["channel"] = request.Channel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ErrorCode)) {
+		body["errorCode"] = request.ErrorCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ErrorMsg)) {
+		body["errorMsg"] = request.ErrorMsg
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MessageId)) {
+		body["messageId"] = request.MessageId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ReportMessageStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("ReportMessageStatus"), tea.String("ats_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/ats/channels/messages/statuses/report"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SyncChannelMessage(request *SyncChannelMessageRequest) (_result *SyncChannelMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncChannelMessageHeaders{}
+	_result = &SyncChannelMessageResponse{}
+	_body, _err := client.SyncChannelMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SyncChannelMessageWithOptions(request *SyncChannelMessageRequest, headers *SyncChannelMessageHeaders, runtime *util.RuntimeOptions) (_result *SyncChannelMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Channel)) {
+		body["channel"] = request.Channel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateTime)) {
+		body["createTime"] = request.CreateTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverUserId)) {
+		body["receiverUserId"] = request.ReceiverUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SenderUserId)) {
+		body["senderUserId"] = request.SenderUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		body["uuid"] = request.Uuid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SyncChannelMessageResponse{}
+	_body, _err := client.DoROARequest(tea.String("SyncChannelMessage"), tea.String("ats_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/ats/channels/messages/sync"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) UpdateApplicationRegForm(flowId *string, request *UpdateApplicationRegFormRequest) (_result *UpdateApplicationRegFormResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateApplicationRegFormHeaders{}
@@ -3134,10 +3474,6 @@ func (client *Client) UpdateJobDeliverWithOptions(request *UpdateJobDeliverReque
 		query["bizCode"] = request.BizCode
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
-		query["corpId"] = request.CorpId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.JobId)) {
 		query["jobId"] = request.JobId
 	}
@@ -3145,6 +3481,10 @@ func (client *Client) UpdateJobDeliverWithOptions(request *UpdateJobDeliverReque
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ChannelOuterId)) {
 		body["channelOuterId"] = request.ChannelOuterId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeliverUserId)) {
+		body["deliverUserId"] = request.DeliverUserId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ErrorCode)) {

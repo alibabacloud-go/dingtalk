@@ -1682,6 +1682,176 @@ func (s *BatchGetGroupSetConfigResponse) SetBody(v *BatchGetGroupSetConfigRespon
 	return s
 }
 
+type BatchQueryGroupMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchQueryGroupMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryGroupMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryGroupMemberHeaders) SetCommonHeaders(v map[string]*string) *BatchQueryGroupMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchQueryGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *BatchQueryGroupMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchQueryGroupMemberRequest struct {
+	// 每页条数
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 游标
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 群会话ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s BatchQueryGroupMemberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryGroupMemberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryGroupMemberRequest) SetMaxResults(v int64) *BatchQueryGroupMemberRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *BatchQueryGroupMemberRequest) SetNextToken(v string) *BatchQueryGroupMemberRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *BatchQueryGroupMemberRequest) SetOpenConversationId(v string) *BatchQueryGroupMemberRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *BatchQueryGroupMemberRequest) SetOpenTeamId(v string) *BatchQueryGroupMemberRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type BatchQueryGroupMemberResponseBody struct {
+	// 是否还存在数据
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 下一次游标
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 会话ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 成员数据列表
+	Records []*BatchQueryGroupMemberResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+}
+
+func (s BatchQueryGroupMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryGroupMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryGroupMemberResponseBody) SetHasMore(v bool) *BatchQueryGroupMemberResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *BatchQueryGroupMemberResponseBody) SetNextToken(v string) *BatchQueryGroupMemberResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *BatchQueryGroupMemberResponseBody) SetOpenConversationId(v string) *BatchQueryGroupMemberResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *BatchQueryGroupMemberResponseBody) SetRecords(v []*BatchQueryGroupMemberResponseBodyRecords) *BatchQueryGroupMemberResponseBody {
+	s.Records = v
+	return s
+}
+
+type BatchQueryGroupMemberResponseBodyRecords struct {
+	// 是否内部员工
+	InnerStaff *bool `json:"innerStaff,omitempty" xml:"innerStaff,omitempty"`
+	// 群成员昵称
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// 是否群主
+	Owner *bool `json:"owner,omitempty" xml:"owner,omitempty"`
+	// 群成员uinionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 员工ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s BatchQueryGroupMemberResponseBodyRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryGroupMemberResponseBodyRecords) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryGroupMemberResponseBodyRecords) SetInnerStaff(v bool) *BatchQueryGroupMemberResponseBodyRecords {
+	s.InnerStaff = &v
+	return s
+}
+
+func (s *BatchQueryGroupMemberResponseBodyRecords) SetNickName(v string) *BatchQueryGroupMemberResponseBodyRecords {
+	s.NickName = &v
+	return s
+}
+
+func (s *BatchQueryGroupMemberResponseBodyRecords) SetOwner(v bool) *BatchQueryGroupMemberResponseBodyRecords {
+	s.Owner = &v
+	return s
+}
+
+func (s *BatchQueryGroupMemberResponseBodyRecords) SetUnionId(v string) *BatchQueryGroupMemberResponseBodyRecords {
+	s.UnionId = &v
+	return s
+}
+
+func (s *BatchQueryGroupMemberResponseBodyRecords) SetUserId(v string) *BatchQueryGroupMemberResponseBodyRecords {
+	s.UserId = &v
+	return s
+}
+
+type BatchQueryGroupMemberResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchQueryGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchQueryGroupMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryGroupMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryGroupMemberResponse) SetHeaders(v map[string]*string) *BatchQueryGroupMemberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchQueryGroupMemberResponse) SetBody(v *BatchQueryGroupMemberResponseBody) *BatchQueryGroupMemberResponse {
+	s.Body = v
+	return s
+}
+
 type BatchQuerySendMessageTaskHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11867,6 +12037,62 @@ func (client *Client) BatchGetGroupSetConfigWithOptions(request *BatchGetGroupSe
 	}
 	_result = &BatchGetGroupSetConfigResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchGetGroupSetConfig"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groupSetConfigs/batchQuery"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchQueryGroupMember(request *BatchQueryGroupMemberRequest) (_result *BatchQueryGroupMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchQueryGroupMemberHeaders{}
+	_result = &BatchQueryGroupMemberResponse{}
+	_body, _err := client.BatchQueryGroupMemberWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchQueryGroupMemberWithOptions(request *BatchQueryGroupMemberRequest, headers *BatchQueryGroupMemberHeaders, runtime *util.RuntimeOptions) (_result *BatchQueryGroupMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchQueryGroupMemberResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchQueryGroupMember"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/members/batchQuery"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
