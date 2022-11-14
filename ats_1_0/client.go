@@ -1963,6 +1963,7 @@ func (s *ReportMessageStatusHeaders) SetXAcsDingtalkAccessToken(v string) *Repor
 }
 
 type ReportMessageStatusRequest struct {
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
 	// 渠道标识。
 	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
 	// 错误码。
@@ -1979,6 +1980,11 @@ func (s ReportMessageStatusRequest) String() string {
 
 func (s ReportMessageStatusRequest) GoString() string {
 	return s.String()
+}
+
+func (s *ReportMessageStatusRequest) SetBizCode(v string) *ReportMessageStatusRequest {
+	s.BizCode = &v
+	return s
 }
 
 func (s *ReportMessageStatusRequest) SetChannel(v string) *ReportMessageStatusRequest {
@@ -2066,6 +2072,7 @@ func (s *SyncChannelMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SyncCh
 }
 
 type SyncChannelMessageRequest struct {
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
 	// 渠道标识。
 	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
 	// 消息内容。
@@ -2086,6 +2093,11 @@ func (s SyncChannelMessageRequest) String() string {
 
 func (s SyncChannelMessageRequest) GoString() string {
 	return s.String()
+}
+
+func (s *SyncChannelMessageRequest) SetBizCode(v string) *SyncChannelMessageRequest {
+	s.BizCode = &v
+	return s
 }
 
 func (s *SyncChannelMessageRequest) SetChannel(v string) *SyncChannelMessageRequest {
@@ -2789,7 +2801,7 @@ func (client *Client) CollectResumeDetailWithOptions(request *CollectResumeDetai
 		body["optUserId"] = request.OptUserId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ResumeData))) {
+	if !tea.BoolValue(util.IsUnset(request.ResumeData)) {
 		body["resumeData"] = request.ResumeData
 	}
 
@@ -3243,6 +3255,11 @@ func (client *Client) ReportMessageStatusWithOptions(request *ReportMessageStatu
 	if _err != nil {
 		return _result, _err
 	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		query["bizCode"] = request.BizCode
+	}
+
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Channel)) {
 		body["channel"] = request.Channel
@@ -3271,6 +3288,7 @@ func (client *Client) ReportMessageStatusWithOptions(request *ReportMessageStatu
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &ReportMessageStatusResponse{}
@@ -3299,6 +3317,11 @@ func (client *Client) SyncChannelMessageWithOptions(request *SyncChannelMessageR
 	if _err != nil {
 		return _result, _err
 	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		query["bizCode"] = request.BizCode
+	}
+
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Channel)) {
 		body["channel"] = request.Channel
@@ -3335,6 +3358,7 @@ func (client *Client) SyncChannelMessageWithOptions(request *SyncChannelMessageR
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &SyncChannelMessageResponse{}
@@ -3374,7 +3398,7 @@ func (client *Client) UpdateApplicationRegFormWithOptions(flowId *string, reques
 		body["content"] = request.Content
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.DingPanFile))) {
+	if !tea.BoolValue(util.IsUnset(request.DingPanFile)) {
 		body["dingPanFile"] = request.DingPanFile
 	}
 

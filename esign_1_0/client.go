@@ -3161,7 +3161,7 @@ func (client *Client) GetProcessStartUrlWithOptions(request *GetProcessStartUrlR
 		body["redirectUrl"] = request.RedirectUrl
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SourceInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SourceInfo)) {
 		body["sourceInfo"] = request.SourceInfo
 	}
 

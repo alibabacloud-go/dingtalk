@@ -11854,7 +11854,7 @@ func (client *Client) AddTicketMemoWithOptions(request *AddTicketMemoRequest, he
 		body["processorUnionId"] = request.ProcessorUnionId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
+	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 
@@ -11898,7 +11898,7 @@ func (client *Client) AssignTicketWithOptions(request *AssignTicketRequest, head
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
+	if !tea.BoolValue(util.IsUnset(request.Notify)) {
 		body["notify"] = request.Notify
 	}
 
@@ -11918,7 +11918,7 @@ func (client *Client) AssignTicketWithOptions(request *AssignTicketRequest, head
 		body["processorUnionIds"] = request.ProcessorUnionIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
+	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 
@@ -12254,7 +12254,7 @@ func (client *Client) CancelTicketWithOptions(request *CancelTicketRequest, head
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
+	if !tea.BoolValue(util.IsUnset(request.Notify)) {
 		body["notify"] = request.Notify
 	}
 
@@ -12270,7 +12270,7 @@ func (client *Client) CancelTicketWithOptions(request *CancelTicketRequest, head
 		body["operatorUnionId"] = request.OperatorUnionId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
+	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 
@@ -13010,7 +13010,7 @@ func (client *Client) CreateTicketWithOptions(request *CreateTicketRequest, head
 		body["customFields"] = request.CustomFields
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
+	if !tea.BoolValue(util.IsUnset(request.Notify)) {
 		body["notify"] = request.Notify
 	}
 
@@ -13030,7 +13030,7 @@ func (client *Client) CreateTicketWithOptions(request *CreateTicketRequest, head
 		body["scene"] = request.Scene
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SceneContext))) {
+	if !tea.BoolValue(util.IsUnset(request.SceneContext)) {
 		body["sceneContext"] = request.SceneContext
 	}
 
@@ -13318,7 +13318,7 @@ func (client *Client) FinishTicketWithOptions(request *FinishTicketRequest, head
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
+	if !tea.BoolValue(util.IsUnset(request.Notify)) {
 		body["notify"] = request.Notify
 	}
 
@@ -13334,7 +13334,7 @@ func (client *Client) FinishTicketWithOptions(request *FinishTicketRequest, head
 		body["processorUnionId"] = request.ProcessorUnionId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
+	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 
@@ -14797,7 +14797,7 @@ func (client *Client) ResubmitTicketWithOptions(request *ResubmitTicketRequest, 
 		body["customFields"] = request.CustomFields
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
+	if !tea.BoolValue(util.IsUnset(request.Notify)) {
 		body["notify"] = request.Notify
 	}
 
@@ -14821,11 +14821,11 @@ func (client *Client) ResubmitTicketWithOptions(request *ResubmitTicketRequest, 
 		body["scene"] = request.Scene
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SceneContext))) {
+	if !tea.BoolValue(util.IsUnset(request.SceneContext)) {
 		body["sceneContext"] = request.SceneContext
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
+	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 
@@ -14873,7 +14873,7 @@ func (client *Client) RetractTicketWithOptions(request *RetractTicketRequest, he
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
+	if !tea.BoolValue(util.IsUnset(request.Notify)) {
 		body["notify"] = request.Notify
 	}
 
@@ -14889,7 +14889,7 @@ func (client *Client) RetractTicketWithOptions(request *RetractTicketRequest, he
 		body["operatorUnionId"] = request.OperatorUnionId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
+	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 
@@ -15053,7 +15053,7 @@ func (client *Client) SendMsgByTaskWithOptions(request *SendMsgByTaskRequest, he
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.MessageContent))) {
+	if !tea.BoolValue(util.IsUnset(request.MessageContent)) {
 		body["messageContent"] = request.MessageContent
 	}
 
@@ -15061,11 +15061,11 @@ func (client *Client) SendMsgByTaskWithOptions(request *SendMsgByTaskRequest, he
 		body["openTeamId"] = request.OpenTeamId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.QueryGroup))) {
+	if !tea.BoolValue(util.IsUnset(request.QueryGroup)) {
 		body["queryGroup"] = request.QueryGroup
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SendConfig))) {
+	if !tea.BoolValue(util.IsUnset(request.SendConfig)) {
 		body["sendConfig"] = request.SendConfig
 	}
 
@@ -15389,7 +15389,7 @@ func (client *Client) TransferTicketWithOptions(request *TransferTicketRequest, 
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
+	if !tea.BoolValue(util.IsUnset(request.Notify)) {
 		body["notify"] = request.Notify
 	}
 
@@ -15409,7 +15409,7 @@ func (client *Client) TransferTicketWithOptions(request *TransferTicketRequest, 
 		body["processorUnionIds"] = request.ProcessorUnionIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
+	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 
@@ -15589,7 +15589,7 @@ func (client *Client) UpdateTicketWithOptions(request *UpdateTicketRequest, head
 		body["processorUnionId"] = request.ProcessorUnionId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
+	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 
@@ -15761,7 +15761,7 @@ func (client *Client) UrgeTicketWithOptions(request *UrgeTicketRequest, headers 
 		body["operatorUnionId"] = request.OperatorUnionId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
+	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 

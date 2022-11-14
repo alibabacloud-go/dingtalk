@@ -7081,7 +7081,7 @@ func (client *Client) ConsultCreateSubInstitutionWithOptions(request *ConsultCre
 		body["bindingAlipayLogonId"] = request.BindingAlipayLogonId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ContactInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.ContactInfo)) {
 		body["contactInfo"] = request.ContactInfo
 	}
 
@@ -7089,7 +7089,7 @@ func (client *Client) ConsultCreateSubInstitutionWithOptions(request *ConsultCre
 		body["instId"] = request.InstId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.LegalPersonCertInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.LegalPersonCertInfo)) {
 		body["legalPersonCertInfo"] = request.LegalPersonCertInfo
 	}
 
@@ -7109,7 +7109,7 @@ func (client *Client) ConsultCreateSubInstitutionWithOptions(request *ConsultCre
 		body["services"] = request.Services
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SettleInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SettleInfo)) {
 		body["settleInfo"] = request.SettleInfo
 	}
 
@@ -7117,19 +7117,19 @@ func (client *Client) ConsultCreateSubInstitutionWithOptions(request *ConsultCre
 		body["solution"] = request.Solution
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstAddressInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstAddressInfo)) {
 		body["subInstAddressInfo"] = request.SubInstAddressInfo
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstAuthInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstAuthInfo)) {
 		body["subInstAuthInfo"] = request.SubInstAuthInfo
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstBasicInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstBasicInfo)) {
 		body["subInstBasicInfo"] = request.SubInstBasicInfo
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstCertifyInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstCertifyInfo)) {
 		body["subInstCertifyInfo"] = request.SubInstCertifyInfo
 	}
 
@@ -7137,11 +7137,11 @@ func (client *Client) ConsultCreateSubInstitutionWithOptions(request *ConsultCre
 		body["subInstId"] = request.SubInstId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstInvoiceInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstInvoiceInfo)) {
 		body["subInstInvoiceInfo"] = request.SubInstInvoiceInfo
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstShopInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstShopInfo)) {
 		body["subInstShopInfo"] = request.SubInstShopInfo
 	}
 
@@ -7421,7 +7421,7 @@ func (client *Client) CreateSubInstitutionWithOptions(request *CreateSubInstitut
 		body["bindingAlipayLogonId"] = request.BindingAlipayLogonId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ContactInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.ContactInfo)) {
 		body["contactInfo"] = request.ContactInfo
 	}
 
@@ -7429,7 +7429,7 @@ func (client *Client) CreateSubInstitutionWithOptions(request *CreateSubInstitut
 		body["instId"] = request.InstId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.LegalPersonCertInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.LegalPersonCertInfo)) {
 		body["legalPersonCertInfo"] = request.LegalPersonCertInfo
 	}
 
@@ -7449,7 +7449,7 @@ func (client *Client) CreateSubInstitutionWithOptions(request *CreateSubInstitut
 		body["services"] = request.Services
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SettleInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SettleInfo)) {
 		body["settleInfo"] = request.SettleInfo
 	}
 
@@ -7457,19 +7457,19 @@ func (client *Client) CreateSubInstitutionWithOptions(request *CreateSubInstitut
 		body["solution"] = request.Solution
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstAddressInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstAddressInfo)) {
 		body["subInstAddressInfo"] = request.SubInstAddressInfo
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstAuthInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstAuthInfo)) {
 		body["subInstAuthInfo"] = request.SubInstAuthInfo
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstBasicInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstBasicInfo)) {
 		body["subInstBasicInfo"] = request.SubInstBasicInfo
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstCertifyInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstCertifyInfo)) {
 		body["subInstCertifyInfo"] = request.SubInstCertifyInfo
 	}
 
@@ -7477,11 +7477,11 @@ func (client *Client) CreateSubInstitutionWithOptions(request *CreateSubInstitut
 		body["subInstId"] = request.SubInstId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstInvoiceInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstInvoiceInfo)) {
 		body["subInstInvoiceInfo"] = request.SubInstInvoiceInfo
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstShopInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstShopInfo)) {
 		body["subInstShopInfo"] = request.SubInstShopInfo
 	}
 
@@ -7661,7 +7661,7 @@ func (client *Client) ModifySubInstitutionWithOptions(request *ModifySubInstitut
 		body["bindingAlipayLogonId"] = request.BindingAlipayLogonId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ContactInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.ContactInfo)) {
 		body["contactInfo"] = request.ContactInfo
 	}
 
@@ -7669,7 +7669,7 @@ func (client *Client) ModifySubInstitutionWithOptions(request *ModifySubInstitut
 		body["instId"] = request.InstId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.LegalPersonCertInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.LegalPersonCertInfo)) {
 		body["legalPersonCertInfo"] = request.LegalPersonCertInfo
 	}
 
@@ -7689,23 +7689,23 @@ func (client *Client) ModifySubInstitutionWithOptions(request *ModifySubInstitut
 		body["services"] = request.Services
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SettleInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SettleInfo)) {
 		body["settleInfo"] = request.SettleInfo
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstAddressInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstAddressInfo)) {
 		body["subInstAddressInfo"] = request.SubInstAddressInfo
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstAuthInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstAuthInfo)) {
 		body["subInstAuthInfo"] = request.SubInstAuthInfo
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstBasicInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstBasicInfo)) {
 		body["subInstBasicInfo"] = request.SubInstBasicInfo
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstCertifyInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstCertifyInfo)) {
 		body["subInstCertifyInfo"] = request.SubInstCertifyInfo
 	}
 
@@ -7713,11 +7713,11 @@ func (client *Client) ModifySubInstitutionWithOptions(request *ModifySubInstitut
 		body["subInstId"] = request.SubInstId
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstInvoiceInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstInvoiceInfo)) {
 		body["subInstInvoiceInfo"] = request.SubInstInvoiceInfo
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubInstShopInfo))) {
+	if !tea.BoolValue(util.IsUnset(request.SubInstShopInfo)) {
 		body["subInstShopInfo"] = request.SubInstShopInfo
 	}
 
@@ -8681,7 +8681,7 @@ func (client *Client) UploadInvoiceWithOptions(request *UploadInvoiceRequest, he
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Extension))) {
+	if !tea.BoolValue(util.IsUnset(request.Extension)) {
 		body["extension"] = request.Extension
 	}
 
@@ -8689,7 +8689,7 @@ func (client *Client) UploadInvoiceWithOptions(request *UploadInvoiceRequest, he
 		body["invoices"] = request.Invoices
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.UserIdentity))) {
+	if !tea.BoolValue(util.IsUnset(request.UserIdentity)) {
 		body["userIdentity"] = request.UserIdentity
 	}
 
@@ -8733,7 +8733,7 @@ func (client *Client) UploadInvoiceByAuthWithOptions(request *UploadInvoiceByAut
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Extension))) {
+	if !tea.BoolValue(util.IsUnset(request.Extension)) {
 		body["extension"] = request.Extension
 	}
 

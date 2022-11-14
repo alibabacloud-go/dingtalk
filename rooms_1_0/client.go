@@ -1502,7 +1502,7 @@ func (client *Client) CreateMeetingRoomWithOptions(request *CreateMeetingRoomReq
 		body["roomLabelIds"] = request.RoomLabelIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.RoomLocation))) {
+	if !tea.BoolValue(util.IsUnset(request.RoomLocation)) {
 		body["roomLocation"] = request.RoomLocation
 	}
 
@@ -1951,7 +1951,7 @@ func (client *Client) UpdateMeetingRoomWithOptions(request *UpdateMeetingRoomReq
 		body["roomLabelIds"] = request.RoomLabelIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.RoomLocation))) {
+	if !tea.BoolValue(util.IsUnset(request.RoomLocation)) {
 		body["roomLocation"] = request.RoomLocation
 	}
 

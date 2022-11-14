@@ -5630,11 +5630,11 @@ func (client *Client) CreateConditionalFormattingRuleWithOptions(workbookId *str
 	}
 
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CellStyle))) {
+	if !tea.BoolValue(util.IsUnset(request.CellStyle)) {
 		body["cellStyle"] = request.CellStyle
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.DuplicateCondition))) {
+	if !tea.BoolValue(util.IsUnset(request.DuplicateCondition)) {
 		body["duplicateCondition"] = request.DuplicateCondition
 	}
 
@@ -6684,7 +6684,7 @@ func (client *Client) InsertBlocksWithOptions(documentId *string, request *Inser
 		body["blocks"] = request.Blocks
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Location))) {
+	if !tea.BoolValue(util.IsUnset(request.Location)) {
 		body["location"] = request.Location
 	}
 
@@ -6959,7 +6959,7 @@ func (client *Client) RangeFindNextWithOptions(workbookId *string, sheetId *stri
 	}
 
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.FindOptions))) {
+	if !tea.BoolValue(util.IsUnset(request.FindOptions)) {
 		body["findOptions"] = request.FindOptions
 	}
 
