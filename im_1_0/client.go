@@ -11,6 +11,109 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AddRobotToConversationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddRobotToConversationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRobotToConversationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddRobotToConversationHeaders) SetCommonHeaders(v map[string]*string) *AddRobotToConversationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddRobotToConversationHeaders) SetXAcsDingtalkAccessToken(v string) *AddRobotToConversationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddRobotToConversationRequest struct {
+	// 机器人meidaId
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 机器人名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 会话id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 机器人编码
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s AddRobotToConversationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRobotToConversationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddRobotToConversationRequest) SetIcon(v string) *AddRobotToConversationRequest {
+	s.Icon = &v
+	return s
+}
+
+func (s *AddRobotToConversationRequest) SetName(v string) *AddRobotToConversationRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *AddRobotToConversationRequest) SetOpenConversationId(v string) *AddRobotToConversationRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *AddRobotToConversationRequest) SetRobotCode(v string) *AddRobotToConversationRequest {
+	s.RobotCode = &v
+	return s
+}
+
+type AddRobotToConversationResponseBody struct {
+	// Id of the request
+	ChatBotUserId *string `json:"chatBotUserId,omitempty" xml:"chatBotUserId,omitempty"`
+}
+
+func (s AddRobotToConversationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRobotToConversationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddRobotToConversationResponseBody) SetChatBotUserId(v string) *AddRobotToConversationResponseBody {
+	s.ChatBotUserId = &v
+	return s
+}
+
+type AddRobotToConversationResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddRobotToConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddRobotToConversationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRobotToConversationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddRobotToConversationResponse) SetHeaders(v map[string]*string) *AddRobotToConversationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddRobotToConversationResponse) SetBody(v *AddRobotToConversationResponseBody) *AddRobotToConversationResponse {
+	s.Body = v
+	return s
+}
+
 type AutoOpenDingTalkConnectHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2821,6 +2924,137 @@ func (s *GroupManageReduceResponse) SetHeaders(v map[string]*string) *GroupManag
 	return s
 }
 
+type InstallRobotToOrgHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s InstallRobotToOrgHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InstallRobotToOrgHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *InstallRobotToOrgHeaders) SetCommonHeaders(v map[string]*string) *InstallRobotToOrgHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *InstallRobotToOrgHeaders) SetXAcsDingtalkAccessToken(v string) *InstallRobotToOrgHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type InstallRobotToOrgRequest struct {
+	// 简介
+	Brief *string `json:"brief,omitempty" xml:"brief,omitempty"`
+	// 描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 机器人meidaId
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 机器人名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 消息回调验证token
+	OutgoingToken *string `json:"outgoingToken,omitempty" xml:"outgoingToken,omitempty"`
+	// 消息回调地址
+	OutgoingUrl *string `json:"outgoingUrl,omitempty" xml:"outgoingUrl,omitempty"`
+	// 预览图mediaId
+	PreviewMediaId *string `json:"previewMediaId,omitempty" xml:"previewMediaId,omitempty"`
+	// 机器人编码
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s InstallRobotToOrgRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InstallRobotToOrgRequest) GoString() string {
+	return s.String()
+}
+
+func (s *InstallRobotToOrgRequest) SetBrief(v string) *InstallRobotToOrgRequest {
+	s.Brief = &v
+	return s
+}
+
+func (s *InstallRobotToOrgRequest) SetDescription(v string) *InstallRobotToOrgRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *InstallRobotToOrgRequest) SetIcon(v string) *InstallRobotToOrgRequest {
+	s.Icon = &v
+	return s
+}
+
+func (s *InstallRobotToOrgRequest) SetName(v string) *InstallRobotToOrgRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *InstallRobotToOrgRequest) SetOutgoingToken(v string) *InstallRobotToOrgRequest {
+	s.OutgoingToken = &v
+	return s
+}
+
+func (s *InstallRobotToOrgRequest) SetOutgoingUrl(v string) *InstallRobotToOrgRequest {
+	s.OutgoingUrl = &v
+	return s
+}
+
+func (s *InstallRobotToOrgRequest) SetPreviewMediaId(v string) *InstallRobotToOrgRequest {
+	s.PreviewMediaId = &v
+	return s
+}
+
+func (s *InstallRobotToOrgRequest) SetRobotCode(v string) *InstallRobotToOrgRequest {
+	s.RobotCode = &v
+	return s
+}
+
+type InstallRobotToOrgResponseBody struct {
+	// Id of the request
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s InstallRobotToOrgResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InstallRobotToOrgResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *InstallRobotToOrgResponseBody) SetRobotCode(v string) *InstallRobotToOrgResponseBody {
+	s.RobotCode = &v
+	return s
+}
+
+type InstallRobotToOrgResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *InstallRobotToOrgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s InstallRobotToOrgResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InstallRobotToOrgResponse) GoString() string {
+	return s.String()
+}
+
+func (s *InstallRobotToOrgResponse) SetHeaders(v map[string]*string) *InstallRobotToOrgResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *InstallRobotToOrgResponse) SetBody(v *InstallRobotToOrgResponseBody) *InstallRobotToOrgResponse {
+	s.Body = v
+	return s
+}
+
 type InteractiveCardCreateInstanceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3962,6 +4196,95 @@ func (s *QueryUnReadMessageResponse) SetBody(v *QueryUnReadMessageResponseBody) 
 	return s
 }
 
+type RemoveRobotFromConversationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RemoveRobotFromConversationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveRobotFromConversationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveRobotFromConversationHeaders) SetCommonHeaders(v map[string]*string) *RemoveRobotFromConversationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveRobotFromConversationHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveRobotFromConversationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RemoveRobotFromConversationRequest struct {
+	// 机器人在会话里的id
+	ChatBotUserId *string `json:"chatBotUserId,omitempty" xml:"chatBotUserId,omitempty"`
+	// 会话id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s RemoveRobotFromConversationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveRobotFromConversationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveRobotFromConversationRequest) SetChatBotUserId(v string) *RemoveRobotFromConversationRequest {
+	s.ChatBotUserId = &v
+	return s
+}
+
+func (s *RemoveRobotFromConversationRequest) SetOpenConversationId(v string) *RemoveRobotFromConversationRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type RemoveRobotFromConversationResponseBody struct {
+	// Id of the request
+	ChatBotUserId *string `json:"chatBotUserId,omitempty" xml:"chatBotUserId,omitempty"`
+}
+
+func (s RemoveRobotFromConversationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveRobotFromConversationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveRobotFromConversationResponseBody) SetChatBotUserId(v string) *RemoveRobotFromConversationResponseBody {
+	s.ChatBotUserId = &v
+	return s
+}
+
+type RemoveRobotFromConversationResponse struct {
+	Headers map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RemoveRobotFromConversationResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RemoveRobotFromConversationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveRobotFromConversationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveRobotFromConversationResponse) SetHeaders(v map[string]*string) *RemoveRobotFromConversationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RemoveRobotFromConversationResponse) SetBody(v *RemoveRobotFromConversationResponseBody) *RemoveRobotFromConversationResponse {
+	s.Body = v
+	return s
+}
+
 type SendInteractiveCardHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4430,6 +4753,8 @@ type SendRobotMessageRequest struct {
 	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
 	// 群会话列表。
 	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
+	// 机器人robotId（robotCode），指定哪个机器人发送消息
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s SendRobotMessageRequest) String() string {
@@ -4467,6 +4792,11 @@ func (s *SendRobotMessageRequest) SetMsgType(v string) *SendRobotMessageRequest 
 
 func (s *SendRobotMessageRequest) SetOpenConversationIds(v []*string) *SendRobotMessageRequest {
 	s.OpenConversationIds = v
+	return s
+}
+
+func (s *SendRobotMessageRequest) SetRobotCode(v string) *SendRobotMessageRequest {
+	s.RobotCode = &v
 	return s
 }
 
@@ -5586,6 +5916,137 @@ func (s *UpdateMemberGroupNickResponse) SetBody(v *UpdateMemberGroupNickResponse
 	return s
 }
 
+type UpdateRobotInOrgHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateRobotInOrgHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRobotInOrgHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRobotInOrgHeaders) SetCommonHeaders(v map[string]*string) *UpdateRobotInOrgHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateRobotInOrgHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRobotInOrgHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateRobotInOrgRequest struct {
+	// 简介
+	Brief *string `json:"brief,omitempty" xml:"brief,omitempty"`
+	// 描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 机器人meidaId
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 机器人名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 消息回调验证token
+	OutgoingToken *string `json:"outgoingToken,omitempty" xml:"outgoingToken,omitempty"`
+	// 消息回调地址
+	OutgoingUrl *string `json:"outgoingUrl,omitempty" xml:"outgoingUrl,omitempty"`
+	// 预览图mediaId
+	PreviewMediaId *string `json:"previewMediaId,omitempty" xml:"previewMediaId,omitempty"`
+	// 机器人编码
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s UpdateRobotInOrgRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRobotInOrgRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRobotInOrgRequest) SetBrief(v string) *UpdateRobotInOrgRequest {
+	s.Brief = &v
+	return s
+}
+
+func (s *UpdateRobotInOrgRequest) SetDescription(v string) *UpdateRobotInOrgRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *UpdateRobotInOrgRequest) SetIcon(v string) *UpdateRobotInOrgRequest {
+	s.Icon = &v
+	return s
+}
+
+func (s *UpdateRobotInOrgRequest) SetName(v string) *UpdateRobotInOrgRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateRobotInOrgRequest) SetOutgoingToken(v string) *UpdateRobotInOrgRequest {
+	s.OutgoingToken = &v
+	return s
+}
+
+func (s *UpdateRobotInOrgRequest) SetOutgoingUrl(v string) *UpdateRobotInOrgRequest {
+	s.OutgoingUrl = &v
+	return s
+}
+
+func (s *UpdateRobotInOrgRequest) SetPreviewMediaId(v string) *UpdateRobotInOrgRequest {
+	s.PreviewMediaId = &v
+	return s
+}
+
+func (s *UpdateRobotInOrgRequest) SetRobotCode(v string) *UpdateRobotInOrgRequest {
+	s.RobotCode = &v
+	return s
+}
+
+type UpdateRobotInOrgResponseBody struct {
+	// Id of the request
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s UpdateRobotInOrgResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRobotInOrgResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRobotInOrgResponseBody) SetRobotCode(v string) *UpdateRobotInOrgResponseBody {
+	s.RobotCode = &v
+	return s
+}
+
+type UpdateRobotInOrgResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateRobotInOrgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateRobotInOrgResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRobotInOrgResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRobotInOrgResponse) SetHeaders(v map[string]*string) *UpdateRobotInOrgResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateRobotInOrgResponse) SetBody(v *UpdateRobotInOrgResponseBody) *UpdateRobotInOrgResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateRobotInteractiveCardHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6310,6 +6771,62 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) AddRobotToConversation(request *AddRobotToConversationRequest) (_result *AddRobotToConversationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddRobotToConversationHeaders{}
+	_result = &AddRobotToConversationResponse{}
+	_body, _err := client.AddRobotToConversationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddRobotToConversationWithOptions(request *AddRobotToConversationRequest, headers *AddRobotToConversationHeaders, runtime *util.RuntimeOptions) (_result *AddRobotToConversationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Icon)) {
+		query["icon"] = request.Icon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		query["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		query["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		query["robotCode"] = request.RobotCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &AddRobotToConversationResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddRobotToConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/conversations/robots"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) AutoOpenDingTalkConnect() (_result *AutoOpenDingTalkConnectResponse, _err error) {
@@ -7577,6 +8094,78 @@ func (client *Client) GroupManageReduceWithOptions(request *GroupManageReduceReq
 	return _result, _err
 }
 
+func (client *Client) InstallRobotToOrg(request *InstallRobotToOrgRequest) (_result *InstallRobotToOrgResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &InstallRobotToOrgHeaders{}
+	_result = &InstallRobotToOrgResponse{}
+	_body, _err := client.InstallRobotToOrgWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) InstallRobotToOrgWithOptions(request *InstallRobotToOrgRequest, headers *InstallRobotToOrgHeaders, runtime *util.RuntimeOptions) (_result *InstallRobotToOrgResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Brief)) {
+		query["brief"] = request.Brief
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		query["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Icon)) {
+		query["icon"] = request.Icon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		query["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutgoingToken)) {
+		query["outgoingToken"] = request.OutgoingToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutgoingUrl)) {
+		query["outgoingUrl"] = request.OutgoingUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PreviewMediaId)) {
+		query["previewMediaId"] = request.PreviewMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		query["robotCode"] = request.RobotCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &InstallRobotToOrgResponse{}
+	_body, _err := client.DoROARequest(tea.String("InstallRobotToOrg"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/organizations/robots/install"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) InteractiveCardCreateInstance(request *InteractiveCardCreateInstanceRequest) (_result *InteractiveCardCreateInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InteractiveCardCreateInstanceHeaders{}
@@ -8049,6 +8638,54 @@ func (client *Client) QueryUnReadMessageWithOptions(request *QueryUnReadMessageR
 	return _result, _err
 }
 
+func (client *Client) RemoveRobotFromConversation(request *RemoveRobotFromConversationRequest) (_result *RemoveRobotFromConversationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RemoveRobotFromConversationHeaders{}
+	_result = &RemoveRobotFromConversationResponse{}
+	_body, _err := client.RemoveRobotFromConversationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RemoveRobotFromConversationWithOptions(request *RemoveRobotFromConversationRequest, headers *RemoveRobotFromConversationHeaders, runtime *util.RuntimeOptions) (_result *RemoveRobotFromConversationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChatBotUserId)) {
+		query["chatBotUserId"] = request.ChatBotUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		query["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &RemoveRobotFromConversationResponse{}
+	_body, _err := client.DoROARequest(tea.String("RemoveRobotFromConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/conversations/robots/remove"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) SendInteractiveCard(request *SendInteractiveCardRequest) (_result *SendInteractiveCardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendInteractiveCardHeaders{}
@@ -8269,6 +8906,10 @@ func (client *Client) SendRobotMessageWithOptions(request *SendRobotMessageReque
 
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationIds)) {
 		body["openConversationIds"] = request.OpenConversationIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
 	}
 
 	realHeaders := make(map[string]*string)
@@ -8862,6 +9503,78 @@ func (client *Client) UpdateMemberGroupNickWithOptions(request *UpdateMemberGrou
 	}
 	_result = &UpdateMemberGroupNickResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateMemberGroupNick"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/im/sceneGroups/members/groupNicks"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateRobotInOrg(request *UpdateRobotInOrgRequest) (_result *UpdateRobotInOrgResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateRobotInOrgHeaders{}
+	_result = &UpdateRobotInOrgResponse{}
+	_body, _err := client.UpdateRobotInOrgWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateRobotInOrgWithOptions(request *UpdateRobotInOrgRequest, headers *UpdateRobotInOrgHeaders, runtime *util.RuntimeOptions) (_result *UpdateRobotInOrgResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Brief)) {
+		query["brief"] = request.Brief
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		query["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Icon)) {
+		query["icon"] = request.Icon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		query["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutgoingToken)) {
+		query["outgoingToken"] = request.OutgoingToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutgoingUrl)) {
+		query["outgoingUrl"] = request.OutgoingUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PreviewMediaId)) {
+		query["previewMediaId"] = request.PreviewMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		query["robotCode"] = request.RobotCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &UpdateRobotInOrgResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateRobotInOrg"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/organizations/robots"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
