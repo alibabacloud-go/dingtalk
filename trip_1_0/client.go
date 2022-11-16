@@ -986,7 +986,7 @@ func (client *Client) SyncTripOrderWithOptions(request *SyncTripOrderRequest, he
 		body["endorseFlag"] = request.EndorseFlag
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Event)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Event))) {
 		body["event"] = request.Event
 	}
 

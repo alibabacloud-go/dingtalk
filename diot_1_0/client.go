@@ -2142,7 +2142,7 @@ func (client *Client) RegisterDeviceWithOptions(request *RegisterDeviceRequest, 
 		body["id"] = request.Id
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.LiveUrls)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.LiveUrls))) {
 		body["liveUrls"] = request.LiveUrls
 	}
 

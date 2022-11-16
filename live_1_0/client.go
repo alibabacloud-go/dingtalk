@@ -3864,8 +3864,8 @@ func (client *Client) QuerySubscribeStatusWithOptions(tmpReq *QuerySubscribeStat
 	}
 	request := &QuerySubscribeStatusShrinkRequest{}
 	openapiutil.Convert(tmpReq, request)
-	if !tea.BoolValue(util.IsUnset(tmpReq.Body)) {
-		request.BodyShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.Body, tea.String("body"), tea.String("json"))
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(tmpReq.Body))) {
+		request.BodyShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tea.ToMap(tmpReq.Body), tea.String("body"), tea.String("json"))
 	}
 
 	query := map[string]interface{}{}

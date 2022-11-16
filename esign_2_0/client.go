@@ -3022,7 +3022,7 @@ func (client *Client) CreateProcessWithOptions(request *CreateProcessRequest, he
 		body["signEndTime"] = request.SignEndTime
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SourceInfo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SourceInfo))) {
 		body["sourceInfo"] = request.SourceInfo
 	}
 
@@ -3652,7 +3652,7 @@ func (client *Client) ProcessStartWithOptions(request *ProcessStartRequest, head
 		body["redirectUrl"] = request.RedirectUrl
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SourceInfo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SourceInfo))) {
 		body["sourceInfo"] = request.SourceInfo
 	}
 

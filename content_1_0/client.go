@@ -1059,7 +1059,7 @@ func (client *Client) CreateFeedWithOptions(request *CreateFeedRequest, headers 
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.CourseInfo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CourseInfo))) {
 		body["courseInfo"] = request.CourseInfo
 	}
 
@@ -1067,7 +1067,7 @@ func (client *Client) CreateFeedWithOptions(request *CreateFeedRequest, headers 
 		body["createUserId"] = request.CreateUserId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.FeedInfo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.FeedInfo))) {
 		body["feedInfo"] = request.FeedInfo
 	}
 

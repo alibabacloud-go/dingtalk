@@ -6992,7 +6992,7 @@ func (client *Client) CreateManagementGroupWithOptions(request *CreateManagement
 		body["resourceIds"] = request.ResourceIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Scope)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Scope))) {
 		body["scope"] = request.Scope
 	}
 
@@ -7053,7 +7053,7 @@ func (client *Client) CreateSecondaryManagementGroupWithOptions(request *CreateS
 		body["resourceIds"] = request.ResourceIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Scope)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Scope))) {
 		body["scope"] = request.Scope
 	}
 
@@ -9419,7 +9419,7 @@ func (client *Client) UpdateManagementGroupWithOptions(groupId *string, request 
 		body["resourceIds"] = request.ResourceIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Scope)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Scope))) {
 		body["scope"] = request.Scope
 	}
 

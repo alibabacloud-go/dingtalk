@@ -532,11 +532,11 @@ func (client *Client) CreateTopboxWithOptions(request *CreateTopboxRequest, head
 		body["callbackRouteKey"] = request.CallbackRouteKey
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CardData)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardData))) {
 		body["cardData"] = request.CardData
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CardSettings)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardSettings))) {
 		body["cardSettings"] = request.CardSettings
 	}
 

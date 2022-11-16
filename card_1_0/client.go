@@ -2423,15 +2423,15 @@ func (client *Client) AppendSpaceWithOptions(request *AppendSpaceRequest, header
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.CoFeedOpenSpaceModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CoFeedOpenSpaceModel))) {
 		body["coFeedOpenSpaceModel"] = request.CoFeedOpenSpaceModel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ImGroupOpenSpaceModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ImGroupOpenSpaceModel))) {
 		body["imGroupOpenSpaceModel"] = request.ImGroupOpenSpaceModel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ImSingleOpenSpaceModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ImSingleOpenSpaceModel))) {
 		body["imSingleOpenSpaceModel"] = request.ImSingleOpenSpaceModel
 	}
 
@@ -2439,11 +2439,11 @@ func (client *Client) AppendSpaceWithOptions(request *AppendSpaceRequest, header
 		body["outTrackId"] = request.OutTrackId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TopOpenSpaceModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TopOpenSpaceModel))) {
 		body["topOpenSpaceModel"] = request.TopOpenSpaceModel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.WorkBenchOpenSpaceModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.WorkBenchOpenSpaceModel))) {
 		body["workBenchOpenSpaceModel"] = request.WorkBenchOpenSpaceModel
 	}
 
@@ -2495,7 +2495,7 @@ func (client *Client) CreateAndDeliverWithOptions(request *CreateAndDeliverReque
 		body["cardAtUserIds"] = request.CardAtUserIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CardData)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardData))) {
 		body["cardData"] = request.CardData
 	}
 
@@ -2503,31 +2503,31 @@ func (client *Client) CreateAndDeliverWithOptions(request *CreateAndDeliverReque
 		body["cardTemplateId"] = request.CardTemplateId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CoFeedOpenDeliverModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CoFeedOpenDeliverModel))) {
 		body["coFeedOpenDeliverModel"] = request.CoFeedOpenDeliverModel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CoFeedOpenSpaceModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CoFeedOpenSpaceModel))) {
 		body["coFeedOpenSpaceModel"] = request.CoFeedOpenSpaceModel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ImGroupOpenDeliverModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ImGroupOpenDeliverModel))) {
 		body["imGroupOpenDeliverModel"] = request.ImGroupOpenDeliverModel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ImGroupOpenSpaceModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ImGroupOpenSpaceModel))) {
 		body["imGroupOpenSpaceModel"] = request.ImGroupOpenSpaceModel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ImSingleOpenDeliverModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ImSingleOpenDeliverModel))) {
 		body["imSingleOpenDeliverModel"] = request.ImSingleOpenDeliverModel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ImSingleOpenSpaceModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ImSingleOpenSpaceModel))) {
 		body["imSingleOpenSpaceModel"] = request.ImSingleOpenSpaceModel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.OpenDynamicDataConfig)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.OpenDynamicDataConfig))) {
 		body["openDynamicDataConfig"] = request.OpenDynamicDataConfig
 	}
 
@@ -2543,11 +2543,11 @@ func (client *Client) CreateAndDeliverWithOptions(request *CreateAndDeliverReque
 		body["privateData"] = request.PrivateData
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TopOpenDeliverModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TopOpenDeliverModel))) {
 		body["topOpenDeliverModel"] = request.TopOpenDeliverModel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TopOpenSpaceModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TopOpenSpaceModel))) {
 		body["topOpenSpaceModel"] = request.TopOpenSpaceModel
 	}
 
@@ -2559,11 +2559,11 @@ func (client *Client) CreateAndDeliverWithOptions(request *CreateAndDeliverReque
 		body["userIdType"] = request.UserIdType
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.WorkBenchOpenDeliverModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.WorkBenchOpenDeliverModel))) {
 		body["workBenchOpenDeliverModel"] = request.WorkBenchOpenDeliverModel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.WorkBenchOpenSpaceModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.WorkBenchOpenSpaceModel))) {
 		body["workBenchOpenSpaceModel"] = request.WorkBenchOpenSpaceModel
 	}
 
@@ -2615,7 +2615,7 @@ func (client *Client) CreateCardWithOptions(request *CreateCardRequest, headers 
 		body["cardAtUserIds"] = request.CardAtUserIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CardData)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardData))) {
 		body["cardData"] = request.CardData
 	}
 
@@ -2623,19 +2623,19 @@ func (client *Client) CreateCardWithOptions(request *CreateCardRequest, headers 
 		body["cardTemplateId"] = request.CardTemplateId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CoFeedOpenSpaceModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CoFeedOpenSpaceModel))) {
 		body["coFeedOpenSpaceModel"] = request.CoFeedOpenSpaceModel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ImGroupOpenSpaceModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ImGroupOpenSpaceModel))) {
 		body["imGroupOpenSpaceModel"] = request.ImGroupOpenSpaceModel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ImSingleOpenSpaceModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ImSingleOpenSpaceModel))) {
 		body["imSingleOpenSpaceModel"] = request.ImSingleOpenSpaceModel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.OpenDynamicDataConfig)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.OpenDynamicDataConfig))) {
 		body["openDynamicDataConfig"] = request.OpenDynamicDataConfig
 	}
 
@@ -2647,7 +2647,7 @@ func (client *Client) CreateCardWithOptions(request *CreateCardRequest, headers 
 		body["privateData"] = request.PrivateData
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TopOpenSpaceModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TopOpenSpaceModel))) {
 		body["topOpenSpaceModel"] = request.TopOpenSpaceModel
 	}
 
@@ -2659,7 +2659,7 @@ func (client *Client) CreateCardWithOptions(request *CreateCardRequest, headers 
 		body["userIdType"] = request.UserIdType
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.WorkBenchOpenSpaceModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.WorkBenchOpenSpaceModel))) {
 		body["workBenchOpenSpaceModel"] = request.WorkBenchOpenSpaceModel
 	}
 
@@ -2703,15 +2703,15 @@ func (client *Client) DeliverCardWithOptions(request *DeliverCardRequest, header
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.CoFeedOpenDeliverModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CoFeedOpenDeliverModel))) {
 		body["coFeedOpenDeliverModel"] = request.CoFeedOpenDeliverModel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ImGroupOpenDeliverModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ImGroupOpenDeliverModel))) {
 		body["imGroupOpenDeliverModel"] = request.ImGroupOpenDeliverModel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ImSingleOpenDeliverModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ImSingleOpenDeliverModel))) {
 		body["imSingleOpenDeliverModel"] = request.ImSingleOpenDeliverModel
 	}
 
@@ -2723,11 +2723,11 @@ func (client *Client) DeliverCardWithOptions(request *DeliverCardRequest, header
 		body["outTrackId"] = request.OutTrackId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TopOpenDeliverModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TopOpenDeliverModel))) {
 		body["topOpenDeliverModel"] = request.TopOpenDeliverModel
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.WorkBenchOpenDeliverModel)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.WorkBenchOpenDeliverModel))) {
 		body["workBenchOpenDeliverModel"] = request.WorkBenchOpenDeliverModel
 	}
 
@@ -2827,11 +2827,11 @@ func (client *Client) UpdateCardWithOptions(request *UpdateCardRequest, headers 
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.CardData)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardData))) {
 		body["cardData"] = request.CardData
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CardUpdateOptions)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardUpdateOptions))) {
 		body["cardUpdateOptions"] = request.CardUpdateOptions
 	}
 

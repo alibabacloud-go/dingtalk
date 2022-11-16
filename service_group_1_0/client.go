@@ -10664,6 +10664,101 @@ func (s *TransferTicketResponse) SetHeaders(v map[string]*string) *TransferTicke
 	return s
 }
 
+type UpdateGroupSetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateGroupSetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupSetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupSetHeaders) SetCommonHeaders(v map[string]*string) *UpdateGroupSetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateGroupSetHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateGroupSetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateGroupSetRequest struct {
+	// 开放群ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 开放群组ID
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// 开放团队ID
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+}
+
+func (s UpdateGroupSetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupSetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupSetRequest) SetOpenConversationId(v string) *UpdateGroupSetRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *UpdateGroupSetRequest) SetOpenGroupSetId(v string) *UpdateGroupSetRequest {
+	s.OpenGroupSetId = &v
+	return s
+}
+
+func (s *UpdateGroupSetRequest) SetOpenTeamId(v string) *UpdateGroupSetRequest {
+	s.OpenTeamId = &v
+	return s
+}
+
+type UpdateGroupSetResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateGroupSetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupSetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupSetResponseBody) SetSuccess(v bool) *UpdateGroupSetResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateGroupSetResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateGroupSetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateGroupSetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupSetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupSetResponse) SetHeaders(v map[string]*string) *UpdateGroupSetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateGroupSetResponse) SetBody(v *UpdateGroupSetResponseBody) *UpdateGroupSetResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateGroupTagHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11854,7 +11949,7 @@ func (client *Client) AddTicketMemoWithOptions(request *AddTicketMemoRequest, he
 		body["processorUnionId"] = request.ProcessorUnionId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 
@@ -11898,7 +11993,7 @@ func (client *Client) AssignTicketWithOptions(request *AssignTicketRequest, head
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Notify)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
 		body["notify"] = request.Notify
 	}
 
@@ -11918,7 +12013,7 @@ func (client *Client) AssignTicketWithOptions(request *AssignTicketRequest, head
 		body["processorUnionIds"] = request.ProcessorUnionIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 
@@ -12254,7 +12349,7 @@ func (client *Client) CancelTicketWithOptions(request *CancelTicketRequest, head
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Notify)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
 		body["notify"] = request.Notify
 	}
 
@@ -12270,7 +12365,7 @@ func (client *Client) CancelTicketWithOptions(request *CancelTicketRequest, head
 		body["operatorUnionId"] = request.OperatorUnionId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 
@@ -13010,7 +13105,7 @@ func (client *Client) CreateTicketWithOptions(request *CreateTicketRequest, head
 		body["customFields"] = request.CustomFields
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Notify)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
 		body["notify"] = request.Notify
 	}
 
@@ -13030,7 +13125,7 @@ func (client *Client) CreateTicketWithOptions(request *CreateTicketRequest, head
 		body["scene"] = request.Scene
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SceneContext)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SceneContext))) {
 		body["sceneContext"] = request.SceneContext
 	}
 
@@ -13318,7 +13413,7 @@ func (client *Client) FinishTicketWithOptions(request *FinishTicketRequest, head
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Notify)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
 		body["notify"] = request.Notify
 	}
 
@@ -13334,7 +13429,7 @@ func (client *Client) FinishTicketWithOptions(request *FinishTicketRequest, head
 		body["processorUnionId"] = request.ProcessorUnionId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 
@@ -14797,7 +14892,7 @@ func (client *Client) ResubmitTicketWithOptions(request *ResubmitTicketRequest, 
 		body["customFields"] = request.CustomFields
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Notify)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
 		body["notify"] = request.Notify
 	}
 
@@ -14821,11 +14916,11 @@ func (client *Client) ResubmitTicketWithOptions(request *ResubmitTicketRequest, 
 		body["scene"] = request.Scene
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SceneContext)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SceneContext))) {
 		body["sceneContext"] = request.SceneContext
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 
@@ -14873,7 +14968,7 @@ func (client *Client) RetractTicketWithOptions(request *RetractTicketRequest, he
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Notify)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
 		body["notify"] = request.Notify
 	}
 
@@ -14889,7 +14984,7 @@ func (client *Client) RetractTicketWithOptions(request *RetractTicketRequest, he
 		body["operatorUnionId"] = request.OperatorUnionId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 
@@ -15053,7 +15148,7 @@ func (client *Client) SendMsgByTaskWithOptions(request *SendMsgByTaskRequest, he
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.MessageContent)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.MessageContent))) {
 		body["messageContent"] = request.MessageContent
 	}
 
@@ -15061,11 +15156,11 @@ func (client *Client) SendMsgByTaskWithOptions(request *SendMsgByTaskRequest, he
 		body["openTeamId"] = request.OpenTeamId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.QueryGroup)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.QueryGroup))) {
 		body["queryGroup"] = request.QueryGroup
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SendConfig)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SendConfig))) {
 		body["sendConfig"] = request.SendConfig
 	}
 
@@ -15389,7 +15484,7 @@ func (client *Client) TransferTicketWithOptions(request *TransferTicketRequest, 
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Notify)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Notify))) {
 		body["notify"] = request.Notify
 	}
 
@@ -15409,7 +15504,7 @@ func (client *Client) TransferTicketWithOptions(request *TransferTicketRequest, 
 		body["processorUnionIds"] = request.ProcessorUnionIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 
@@ -15428,6 +15523,58 @@ func (client *Client) TransferTicketWithOptions(request *TransferTicketRequest, 
 	}
 	_result = &TransferTicketResponse{}
 	_body, _err := client.DoROARequest(tea.String("TransferTicket"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/serviceGroup/tickets/transfer"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateGroupSet(request *UpdateGroupSetRequest) (_result *UpdateGroupSetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateGroupSetHeaders{}
+	_result = &UpdateGroupSetResponse{}
+	_body, _err := client.UpdateGroupSetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateGroupSetWithOptions(request *UpdateGroupSetRequest, headers *UpdateGroupSetHeaders, runtime *util.RuntimeOptions) (_result *UpdateGroupSetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenGroupSetId)) {
+		body["openGroupSetId"] = request.OpenGroupSetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenTeamId)) {
+		body["openTeamId"] = request.OpenTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateGroupSetResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateGroupSet"), tea.String("serviceGroup_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/serviceGroup/groups/configurations"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15589,7 +15736,7 @@ func (client *Client) UpdateTicketWithOptions(request *UpdateTicketRequest, head
 		body["processorUnionId"] = request.ProcessorUnionId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 
@@ -15761,7 +15908,7 @@ func (client *Client) UrgeTicketWithOptions(request *UrgeTicketRequest, headers 
 		body["operatorUnionId"] = request.OperatorUnionId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TicketMemo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TicketMemo))) {
 		body["ticketMemo"] = request.TicketMemo
 	}
 

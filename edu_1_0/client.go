@@ -16323,7 +16323,7 @@ func (client *Client) BatchCreateWithOptions(request *BatchCreateRequest, header
 		body["cardBizCode"] = request.CardBizCode
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Data)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Data))) {
 		body["data"] = request.Data
 	}
 
@@ -16871,7 +16871,7 @@ func (client *Client) CreateCustomClassWithOptions(request *CreateCustomClassReq
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.CustomClass)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CustomClass))) {
 		body["customClass"] = request.CustomClass
 	}
 
@@ -16923,7 +16923,7 @@ func (client *Client) CreateCustomDeptWithOptions(request *CreateCustomDeptReque
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.CustomDept)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CustomDept))) {
 		body["customDept"] = request.CustomDept
 	}
 
@@ -17585,7 +17585,7 @@ func (client *Client) CreateRemoteClassCourseWithOptions(request *CreateRemoteCl
 		body["startTime"] = request.StartTime
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TeachingParticipant)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TeachingParticipant))) {
 		body["teachingParticipant"] = request.TeachingParticipant
 	}
 
@@ -19194,7 +19194,7 @@ func (client *Client) InitCoursesOfClassWithOptions(classId *string, request *In
 		body["courses"] = request.Courses
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SectionConfig)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SectionConfig))) {
 		body["sectionConfig"] = request.SectionConfig
 	}
 
@@ -19356,7 +19356,7 @@ func (client *Client) InsertSectionConfigWithOptions(request *InsertSectionConfi
 	}
 
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.End)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.End))) {
 		body["end"] = request.End
 	}
 
@@ -19368,7 +19368,7 @@ func (client *Client) InsertSectionConfigWithOptions(request *InsertSectionConfi
 		body["sectionModels"] = request.SectionModels
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Start)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Start))) {
 		body["start"] = request.Start
 	}
 
@@ -21501,7 +21501,7 @@ func (client *Client) UpdateCoursesOfClassWithOptions(classId *string, request *
 		body["courses"] = request.Courses
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SectionConfig)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SectionConfig))) {
 		body["sectionConfig"] = request.SectionConfig
 	}
 
@@ -21648,7 +21648,7 @@ func (client *Client) UpdateRemoteClassCourseWithOptions(request *UpdateRemoteCl
 		body["startTime"] = request.StartTime
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TeachingParticipant)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TeachingParticipant))) {
 		body["teachingParticipant"] = request.TeachingParticipant
 	}
 

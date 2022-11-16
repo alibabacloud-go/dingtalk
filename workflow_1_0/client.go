@@ -8624,7 +8624,7 @@ func (client *Client) AddProcessInstanceCommentWithOptions(request *AddProcessIn
 		body["commentUserId"] = request.CommentUserId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.File)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.File))) {
 		body["file"] = request.File
 	}
 
@@ -8820,7 +8820,7 @@ func (client *Client) CopyProcessWithOptions(request *CopyProcessRequest, header
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.CopyOptions)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CopyOptions))) {
 		body["copyOptions"] = request.CopyOptions
 	}
 
@@ -8976,7 +8976,7 @@ func (client *Client) ExecuteProcessInstanceWithOptions(request *ExecuteProcessI
 		body["actionerUserId"] = request.ActionerUserId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.File)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.File))) {
 		body["file"] = request.File
 	}
 
@@ -9052,7 +9052,7 @@ func (client *Client) FormCreateWithOptions(request *FormCreateRequest, headers 
 		body["processCode"] = request.ProcessCode
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TemplateConfig)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TemplateConfig))) {
 		body["templateConfig"] = request.TemplateConfig
 	}
 
@@ -9614,7 +9614,7 @@ func (client *Client) InstallAppWithOptions(request *InstallAppRequest, headers 
 		body["bizGroup"] = request.BizGroup
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.InstallOption)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.InstallOption))) {
 		body["installOption"] = request.InstallOption
 	}
 
@@ -10402,7 +10402,7 @@ func (client *Client) SaveProcessWithOptions(request *SaveProcessRequest, header
 		body["processCode"] = request.ProcessCode
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ProcessFeatureConfig)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ProcessFeatureConfig))) {
 		body["processFeatureConfig"] = request.ProcessFeatureConfig
 	}
 

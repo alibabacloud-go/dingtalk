@@ -6822,7 +6822,7 @@ func (client *Client) CreateAclsWithOptions(userId *string, calendarId *string, 
 		body["privilege"] = request.Privilege
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Scope)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Scope))) {
 		body["scope"] = request.Scope
 	}
 
@@ -6880,7 +6880,7 @@ func (client *Client) CreateEventWithOptions(userId *string, calendarId *string,
 		body["description"] = request.Description
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.End)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.End))) {
 		body["end"] = request.End
 	}
 
@@ -6892,15 +6892,15 @@ func (client *Client) CreateEventWithOptions(userId *string, calendarId *string,
 		body["isAllDay"] = request.IsAllDay
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Location)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Location))) {
 		body["location"] = request.Location
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.OnlineMeetingInfo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.OnlineMeetingInfo))) {
 		body["onlineMeetingInfo"] = request.OnlineMeetingInfo
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Recurrence)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Recurrence))) {
 		body["recurrence"] = request.Recurrence
 	}
 
@@ -6908,7 +6908,7 @@ func (client *Client) CreateEventWithOptions(userId *string, calendarId *string,
 		body["reminders"] = request.Reminders
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Start)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Start))) {
 		body["start"] = request.Start
 	}
 
@@ -6969,7 +6969,7 @@ func (client *Client) CreateSubscribedCalendarWithOptions(userId *string, reques
 		body["name"] = request.Name
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SubscribeScope)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubscribeScope))) {
 		body["subscribeScope"] = request.SubscribeScope
 	}
 
@@ -7794,7 +7794,7 @@ func (client *Client) PatchEventWithOptions(userId *string, calendarId *string, 
 		body["description"] = request.Description
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.End)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.End))) {
 		body["end"] = request.End
 	}
 
@@ -7810,11 +7810,11 @@ func (client *Client) PatchEventWithOptions(userId *string, calendarId *string, 
 		body["isAllDay"] = request.IsAllDay
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Location)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Location))) {
 		body["location"] = request.Location
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Recurrence)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Recurrence))) {
 		body["recurrence"] = request.Recurrence
 	}
 
@@ -7822,7 +7822,7 @@ func (client *Client) PatchEventWithOptions(userId *string, calendarId *string, 
 		body["reminders"] = request.Reminders
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Start)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Start))) {
 		body["start"] = request.Start
 	}
 
@@ -8171,7 +8171,7 @@ func (client *Client) UpdateSubscribedCalendarsWithOptions(calendarId *string, u
 		body["name"] = request.Name
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SubscribeScope)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubscribeScope))) {
 		body["subscribeScope"] = request.SubscribeScope
 	}
 

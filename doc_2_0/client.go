@@ -4963,7 +4963,7 @@ func (client *Client) CreateSpaceWithOptions(request *CreateSpaceRequest, header
 		body["sectionId"] = request.SectionId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ShareScope)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ShareScope))) {
 		body["shareScope"] = request.ShareScope
 	}
 
@@ -6227,7 +6227,7 @@ func (client *Client) SearchWithOptions(request *SearchRequest, headers *SearchH
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.DentryRequest)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.DentryRequest))) {
 		body["dentryRequest"] = request.DentryRequest
 	}
 
@@ -6239,7 +6239,7 @@ func (client *Client) SearchWithOptions(request *SearchRequest, headers *SearchH
 		body["operatorId"] = request.OperatorId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SpaceRequest)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SpaceRequest))) {
 		body["spaceRequest"] = request.SpaceRequest
 	}
 

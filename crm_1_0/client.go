@@ -11607,7 +11607,7 @@ func (client *Client) AddCrmPersonalCustomerWithOptions(request *AddCrmPersonalC
 		body["extendData"] = request.ExtendData
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Permission)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Permission))) {
 		body["permission"] = request.Permission
 	}
 
@@ -11899,7 +11899,7 @@ func (client *Client) BatchSendOfficialAccountOTOMessageWithOptions(request *Bat
 		body["bizId"] = request.BizId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Detail)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Detail))) {
 		body["detail"] = request.Detail
 	}
 
@@ -12071,11 +12071,11 @@ func (client *Client) CreateCustomerWithOptions(request *CreateCustomerRequest, 
 		body["objectType"] = request.ObjectType
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Permission)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Permission))) {
 		body["permission"] = request.Permission
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SaveOption)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SaveOption))) {
 		body["saveOption"] = request.SaveOption
 	}
 
@@ -12259,7 +12259,7 @@ func (client *Client) CreateRelationMetaWithOptions(request *CreateRelationMetaR
 		body["operatorUserId"] = request.OperatorUserId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.RelationMetaDTO)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.RelationMetaDTO))) {
 		body["relationMetaDTO"] = request.RelationMetaDTO
 	}
 
@@ -13630,7 +13630,7 @@ func (client *Client) SendOfficialAccountOTOMessageWithOptions(request *SendOffi
 		body["bizId"] = request.BizId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Detail)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Detail))) {
 		body["detail"] = request.Detail
 	}
 
@@ -13682,7 +13682,7 @@ func (client *Client) SendOfficialAccountSNSMessageWithOptions(request *SendOffi
 		body["bizId"] = request.BizId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Detail)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Detail))) {
 		body["detail"] = request.Detail
 	}
 
@@ -13730,7 +13730,7 @@ func (client *Client) ServiceWindowMessageBatchPushWithOptions(request *ServiceW
 		body["bizId"] = request.BizId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Detail)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Detail))) {
 		body["detail"] = request.Detail
 	}
 
@@ -13798,7 +13798,7 @@ func (client *Client) UpdateCrmPersonalCustomerWithOptions(request *UpdateCrmPer
 		body["modifierUserId"] = request.ModifierUserId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Permission)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Permission))) {
 		body["permission"] = request.Permission
 	}
 

@@ -12092,8 +12092,8 @@ func (client *Client) GetInvoiceByPageWithOptions(tmpReq *GetInvoiceByPageReques
 	}
 	request := &GetInvoiceByPageShrinkRequest{}
 	openapiutil.Convert(tmpReq, request)
-	if !tea.BoolValue(util.IsUnset(tmpReq.Request)) {
-		request.RequestShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.Request, tea.String("request"), tea.String("json"))
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(tmpReq.Request))) {
+		request.RequestShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tea.ToMap(tmpReq.Request), tea.String("request"), tea.String("json"))
 	}
 
 	query := map[string]interface{}{}
@@ -13123,7 +13123,7 @@ func (client *Client) UpdateInvoiceAbandonStatusWithOptions(request *UpdateInvoi
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.BlueGeneralInvoiceVO)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.BlueGeneralInvoiceVO))) {
 		body["blueGeneralInvoiceVO"] = request.BlueGeneralInvoiceVO
 	}
 
@@ -13143,7 +13143,7 @@ func (client *Client) UpdateInvoiceAbandonStatusWithOptions(request *UpdateInvoi
 		body["operator"] = request.Operator
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.RedGeneralInvoiceVO)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.RedGeneralInvoiceVO))) {
 		body["redGeneralInvoiceVO"] = request.RedGeneralInvoiceVO
 	}
 
@@ -13259,7 +13259,7 @@ func (client *Client) UpdateInvoiceAndReceiptRelatedWithOptions(request *UpdateI
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.GeneralInvoiceVO)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.GeneralInvoiceVO))) {
 		body["generalInvoiceVO"] = request.GeneralInvoiceVO
 	}
 

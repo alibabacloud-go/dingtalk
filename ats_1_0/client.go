@@ -2801,7 +2801,7 @@ func (client *Client) CollectResumeDetailWithOptions(request *CollectResumeDetai
 		body["optUserId"] = request.OptUserId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ResumeData)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ResumeData))) {
 		body["resumeData"] = request.ResumeData
 	}
 
@@ -3398,7 +3398,7 @@ func (client *Client) UpdateApplicationRegFormWithOptions(flowId *string, reques
 		body["content"] = request.Content
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.DingPanFile)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.DingPanFile))) {
 		body["dingPanFile"] = request.DingPanFile
 	}
 

@@ -7320,7 +7320,7 @@ func (client *Client) CreateSceneGroupConversationWithOptions(request *CreateSce
 		body["icon"] = request.Icon
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.ManagementOptions)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ManagementOptions))) {
 		body["managementOptions"] = request.ManagementOptions
 	}
 
@@ -8188,7 +8188,7 @@ func (client *Client) InteractiveCardCreateInstanceWithOptions(request *Interact
 		body["callbackRouteKey"] = request.CallbackRouteKey
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CardData)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardData))) {
 		body["cardData"] = request.CardData
 	}
 
@@ -8712,11 +8712,11 @@ func (client *Client) SendInteractiveCardWithOptions(request *SendInteractiveCar
 		body["callbackRouteKey"] = request.CallbackRouteKey
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CardData)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardData))) {
 		body["cardData"] = request.CardData
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CardOptions)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardOptions))) {
 		body["cardOptions"] = request.CardOptions
 	}
 
@@ -8828,7 +8828,7 @@ func (client *Client) SendRobotInteractiveCardWithOptions(request *SendRobotInte
 		body["robotCode"] = request.RobotCode
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SendOptions)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SendOptions))) {
 		body["sendOptions"] = request.SendOptions
 	}
 
@@ -8976,7 +8976,7 @@ func (client *Client) SendTemplateInteractiveCardWithOptions(request *SendTempla
 		body["robotCode"] = request.RobotCode
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SendOptions)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SendOptions))) {
 		body["sendOptions"] = request.SendOptions
 	}
 
@@ -9360,11 +9360,11 @@ func (client *Client) UpdateInteractiveCardWithOptions(request *UpdateInteractiv
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.CardData)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardData))) {
 		body["cardData"] = request.CardData
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CardOptions)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardOptions))) {
 		body["cardOptions"] = request.CardOptions
 	}
 
@@ -9612,7 +9612,7 @@ func (client *Client) UpdateRobotInteractiveCardWithOptions(request *UpdateRobot
 		body["unionIdPrivateDataMap"] = request.UnionIdPrivateDataMap
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.UpdateOptions)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.UpdateOptions))) {
 		body["updateOptions"] = request.UpdateOptions
 	}
 

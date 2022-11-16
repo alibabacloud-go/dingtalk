@@ -529,7 +529,7 @@ func (client *Client) NlpWordDistinguishWithOptions(request *NlpWordDistinguishR
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.AttachExtractDecisionInfo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.AttachExtractDecisionInfo))) {
 		body["attachExtractDecisionInfo"] = request.AttachExtractDecisionInfo
 	}
 

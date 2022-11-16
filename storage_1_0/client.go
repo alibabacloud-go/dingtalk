@@ -7981,7 +7981,7 @@ func (client *Client) AddFolderWithOptions(spaceId *string, parentId *string, re
 		body["name"] = request.Name
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 
@@ -8037,7 +8037,7 @@ func (client *Client) AddPermissionWithOptions(spaceId *string, dentryId *string
 		body["members"] = request.Members
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 
@@ -8091,7 +8091,7 @@ func (client *Client) AddSpaceWithOptions(request *AddSpaceRequest, headers *Add
 	}
 
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 
@@ -8191,7 +8191,7 @@ func (client *Client) CommitFileWithOptions(spaceId *string, request *CommitFile
 		body["name"] = request.Name
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 
@@ -8254,7 +8254,7 @@ func (client *Client) CopyDentriesWithOptions(spaceId *string, request *CopyDent
 		body["dentryIds"] = request.DentryIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 
@@ -8314,7 +8314,7 @@ func (client *Client) CopyDentryWithOptions(spaceId *string, dentryId *string, r
 	}
 
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 
@@ -8377,7 +8377,7 @@ func (client *Client) DeleteDentriesWithOptions(spaceId *string, request *Delete
 		body["dentryIds"] = request.DentryIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 
@@ -8728,7 +8728,7 @@ func (client *Client) GetDentryWithOptions(spaceId *string, dentryId *string, re
 	}
 
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 
@@ -8780,7 +8780,7 @@ func (client *Client) GetDentryOpenInfoWithOptions(spaceId *string, dentryId *st
 	}
 
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 
@@ -8832,7 +8832,7 @@ func (client *Client) GetFileDownloadInfoWithOptions(spaceId *string, dentryId *
 	}
 
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 
@@ -8887,7 +8887,7 @@ func (client *Client) GetFileUploadInfoWithOptions(spaceId *string, request *Get
 		body["multipart"] = request.Multipart
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 
@@ -9229,7 +9229,7 @@ func (client *Client) InitMultipartFileUploadWithOptions(spaceId *string, reques
 	}
 
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 
@@ -9400,7 +9400,7 @@ func (client *Client) ListPermissionsWithOptions(spaceId *string, dentryId *stri
 	}
 
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 
@@ -9508,7 +9508,7 @@ func (client *Client) MoveDentriesWithOptions(spaceId *string, request *MoveDent
 		body["dentryIds"] = request.DentryIds
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 
@@ -9568,7 +9568,7 @@ func (client *Client) MoveDentryWithOptions(spaceId *string, dentryId *string, r
 	}
 
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 
@@ -9736,7 +9736,7 @@ func (client *Client) RestoreRecycleItemWithOptions(recycleBinId *string, recycl
 	}
 
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 
@@ -9787,7 +9787,7 @@ func (client *Client) RestoreRecycleItemsWithOptions(recycleBinId *string, reque
 	}
 
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 
@@ -9946,7 +9946,7 @@ func (client *Client) UpdatePermissionWithOptions(spaceId *string, dentryId *str
 		body["members"] = request.Members
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.Option)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Option))) {
 		body["option"] = request.Option
 	}
 

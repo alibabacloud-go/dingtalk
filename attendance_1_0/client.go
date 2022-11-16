@@ -6021,7 +6021,7 @@ func (client *Client) AddLeaveTypeWithOptions(request *AddLeaveTypeRequest, head
 		body["hoursInPerDay"] = request.HoursInPerDay
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.LeaveCertificate)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.LeaveCertificate))) {
 		body["leaveCertificate"] = request.LeaveCertificate
 	}
 
@@ -6037,7 +6037,7 @@ func (client *Client) AddLeaveTypeWithOptions(request *AddLeaveTypeRequest, head
 		body["naturalDayLeave"] = request.NaturalDayLeave
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SubmitTimeRule)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubmitTimeRule))) {
 		body["submitTimeRule"] = request.SubmitTimeRule
 	}
 
@@ -6354,7 +6354,7 @@ func (client *Client) CreateApproveWithOptions(request *CreateApproveRequest, he
 		body["opUserid"] = request.OpUserid
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.PunchParam)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.PunchParam))) {
 		body["punchParam"] = request.PunchParam
 	}
 
@@ -7087,7 +7087,7 @@ func (client *Client) GroupAddWithOptions(request *GroupAddRequest, headers *Gro
 		body["forbidHideOutSideAddress"] = request.ForbidHideOutSideAddress
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.FreeCheckSetting)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.FreeCheckSetting))) {
 		body["freeCheckSetting"] = request.FreeCheckSetting
 	}
 
@@ -7277,7 +7277,7 @@ func (client *Client) GroupUpdateWithOptions(request *GroupUpdateRequest, header
 		body["forbidHideOutSideAddress"] = request.ForbidHideOutSideAddress
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.FreeCheckSetting)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.FreeCheckSetting))) {
 		body["freeCheckSetting"] = request.FreeCheckSetting
 	}
 
@@ -7516,7 +7516,7 @@ func (client *Client) ProcessApproveCreateWithOptions(request *ProcessApproveCre
 		body["opUserId"] = request.OpUserId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.PunchParam)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.PunchParam))) {
 		body["punchParam"] = request.PunchParam
 	}
 
@@ -7711,7 +7711,7 @@ func (client *Client) UpdateLeaveTypeWithOptions(request *UpdateLeaveTypeRequest
 		body["hoursInPerDay"] = request.HoursInPerDay
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.LeaveCertificate)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.LeaveCertificate))) {
 		body["leaveCertificate"] = request.LeaveCertificate
 	}
 
@@ -7731,7 +7731,7 @@ func (client *Client) UpdateLeaveTypeWithOptions(request *UpdateLeaveTypeRequest
 		body["naturalDayLeave"] = request.NaturalDayLeave
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.SubmitTimeRule)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.SubmitTimeRule))) {
 		body["submitTimeRule"] = request.SubmitTimeRule
 	}
 

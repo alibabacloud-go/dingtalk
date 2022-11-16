@@ -4173,7 +4173,7 @@ func (client *Client) AddResidentMemberWithOptions(request *AddResidentMemberReq
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.ResidentAddInfo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ResidentAddInfo))) {
 		body["residentAddInfo"] = request.ResidentAddInfo
 	}
 
@@ -5555,7 +5555,7 @@ func (client *Client) UpdateResidentMemberWithOptions(request *UpdateResidentMem
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.ResidentUpdateInfo)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.ResidentUpdateInfo))) {
 		body["residentUpdateInfo"] = request.ResidentUpdateInfo
 	}
 

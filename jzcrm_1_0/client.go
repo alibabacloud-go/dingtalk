@@ -4154,7 +4154,7 @@ func (client *Client) EditContactWithOptions(request *EditContactRequest, header
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Data)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Data))) {
 		body["data"] = request.Data
 	}
 
@@ -4210,7 +4210,7 @@ func (client *Client) EditCustomerWithOptions(request *EditCustomerRequest, head
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Data)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Data))) {
 		body["data"] = request.Data
 	}
 
@@ -4266,7 +4266,7 @@ func (client *Client) EditCustomerPoolWithOptions(request *EditCustomerPoolReque
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Data)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Data))) {
 		body["data"] = request.Data
 	}
 
@@ -4322,7 +4322,7 @@ func (client *Client) EditExchangeWithOptions(request *EditExchangeRequest, head
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Data)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Data))) {
 		body["data"] = request.Data
 	}
 
@@ -4378,7 +4378,7 @@ func (client *Client) EditGoodsWithOptions(request *EditGoodsRequest, headers *E
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Data)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Data))) {
 		body["data"] = request.Data
 	}
 
@@ -4434,7 +4434,7 @@ func (client *Client) EditIntostockWithOptions(request *EditIntostockRequest, he
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Data)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Data))) {
 		body["data"] = request.Data
 	}
 
@@ -4490,7 +4490,7 @@ func (client *Client) EditInvoiceWithOptions(request *EditInvoiceRequest, header
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Data)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Data))) {
 		body["data"] = request.Data
 	}
 
@@ -4546,7 +4546,7 @@ func (client *Client) EditOrderWithOptions(request *EditOrderRequest, headers *E
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Data)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Data))) {
 		body["data"] = request.Data
 	}
 
@@ -4602,7 +4602,7 @@ func (client *Client) EditOutstockWithOptions(request *EditOutstockRequest, head
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Data)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Data))) {
 		body["data"] = request.Data
 	}
 
@@ -4658,7 +4658,7 @@ func (client *Client) EditProductionWithOptions(request *EditProductionRequest, 
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Data)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Data))) {
 		body["data"] = request.Data
 	}
 
@@ -4714,7 +4714,7 @@ func (client *Client) EditPurchaseWithOptions(request *EditPurchaseRequest, head
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Data)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Data))) {
 		body["data"] = request.Data
 	}
 
@@ -4770,7 +4770,7 @@ func (client *Client) EditQuotationRecordWithOptions(request *EditQuotationRecor
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Data)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Data))) {
 		body["data"] = request.Data
 	}
 
@@ -4826,7 +4826,7 @@ func (client *Client) EditSalesWithOptions(request *EditSalesRequest, headers *E
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Data)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Data))) {
 		body["data"] = request.Data
 	}
 

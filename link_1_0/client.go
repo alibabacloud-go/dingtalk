@@ -2077,7 +2077,7 @@ func (client *Client) CloseTopBoxInteractiveOTOMessageWithOptions(request *Close
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Detail)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Detail))) {
 		body["detail"] = request.Detail
 	}
 
@@ -2355,7 +2355,7 @@ func (client *Client) SendAgentOTOMessageWithOptions(request *SendAgentOTOMessag
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Detail)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Detail))) {
 		body["detail"] = request.Detail
 	}
 
@@ -2399,7 +2399,7 @@ func (client *Client) SendInteractiveOTOMessageWithOptions(request *SendInteract
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Detail)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Detail))) {
 		body["detail"] = request.Detail
 	}
 
@@ -2443,7 +2443,7 @@ func (client *Client) SendTopBoxInteractiveOTOMessageWithOptions(request *SendTo
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Detail)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Detail))) {
 		body["detail"] = request.Detail
 	}
 
@@ -2487,7 +2487,7 @@ func (client *Client) UpdateInteractiveOTOMessageWithOptions(request *UpdateInte
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Detail)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Detail))) {
 		body["detail"] = request.Detail
 	}
 

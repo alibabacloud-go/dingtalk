@@ -3526,8 +3526,8 @@ func (client *Client) RosterMetaFieldOptionsUpdateWithOptions(tmpReq *RosterMeta
 	}
 	request := &RosterMetaFieldOptionsUpdateShrinkRequest{}
 	openapiutil.Convert(tmpReq, request)
-	if !tea.BoolValue(util.IsUnset(tmpReq.Body)) {
-		request.BodyShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.Body, tea.String("body"), tea.String("json"))
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(tmpReq.Body))) {
+		request.BodyShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tea.ToMap(tmpReq.Body), tea.String("body"), tea.String("json"))
 	}
 
 	query := map[string]interface{}{}
@@ -3776,7 +3776,7 @@ func (client *Client) SyncTaskTemplateWithOptions(request *SyncTaskTemplateReque
 		body["outerId"] = request.OuterId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.TaskScopeVO)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.TaskScopeVO))) {
 		body["taskScopeVO"] = request.TaskScopeVO
 	}
 

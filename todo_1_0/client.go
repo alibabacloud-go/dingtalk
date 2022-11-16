@@ -3681,7 +3681,7 @@ func (client *Client) CreateTodoTaskWithOptions(unionId *string, request *Create
 		body["description"] = request.Description
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.DetailUrl)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.DetailUrl))) {
 		body["detailUrl"] = request.DetailUrl
 	}
 
@@ -3697,7 +3697,7 @@ func (client *Client) CreateTodoTaskWithOptions(unionId *string, request *Create
 		body["isOnlyShowExecutor"] = request.IsOnlyShowExecutor
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.NotifyConfigs)) {
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.NotifyConfigs))) {
 		body["notifyConfigs"] = request.NotifyConfigs
 	}
 
