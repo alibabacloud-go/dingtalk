@@ -35,6 +35,8 @@ func (s *CreateMeetingRoomHeaders) SetXAcsDingtalkAccessToken(v string) *CreateM
 }
 
 type CreateMeetingRoomRequest struct {
+	// 会议室所属分组id
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
 	// isv外部会议室id
 	IsvRoomId *string `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
 	// 会议室容量
@@ -59,6 +61,11 @@ func (s CreateMeetingRoomRequest) String() string {
 
 func (s CreateMeetingRoomRequest) GoString() string {
 	return s.String()
+}
+
+func (s *CreateMeetingRoomRequest) SetGroupId(v int64) *CreateMeetingRoomRequest {
+	s.GroupId = &v
+	return s
 }
 
 func (s *CreateMeetingRoomRequest) SetIsvRoomId(v string) *CreateMeetingRoomRequest {
@@ -598,6 +605,8 @@ type QueryMeetingRoomResponseBodyResult struct {
 	IsvRoomId *string `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
 	// 会议室容量
 	RoomCapacity *int32 `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
+	// 会议室分组
+	RoomGroup *QueryMeetingRoomResponseBodyResultRoomGroup `json:"roomGroup,omitempty" xml:"roomGroup,omitempty" type:"Struct"`
 	// 会议室id
 	RoomId     *string                                         `json:"roomId,omitempty" xml:"roomId,omitempty"`
 	RoomLabels []*QueryMeetingRoomResponseBodyResultRoomLabels `json:"roomLabels,omitempty" xml:"roomLabels,omitempty" type:"Repeated"`
@@ -636,6 +645,11 @@ func (s *QueryMeetingRoomResponseBodyResult) SetRoomCapacity(v int32) *QueryMeet
 	return s
 }
 
+func (s *QueryMeetingRoomResponseBodyResult) SetRoomGroup(v *QueryMeetingRoomResponseBodyResultRoomGroup) *QueryMeetingRoomResponseBodyResult {
+	s.RoomGroup = v
+	return s
+}
+
 func (s *QueryMeetingRoomResponseBodyResult) SetRoomId(v string) *QueryMeetingRoomResponseBodyResult {
 	s.RoomId = &v
 	return s
@@ -668,6 +682,38 @@ func (s *QueryMeetingRoomResponseBodyResult) SetRoomStaffId(v string) *QueryMeet
 
 func (s *QueryMeetingRoomResponseBodyResult) SetRoomStatus(v int32) *QueryMeetingRoomResponseBodyResult {
 	s.RoomStatus = &v
+	return s
+}
+
+type QueryMeetingRoomResponseBodyResultRoomGroup struct {
+	// 分组id
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// 分组名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 父分组id
+	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
+}
+
+func (s QueryMeetingRoomResponseBodyResultRoomGroup) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomResponseBodyResultRoomGroup) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomResponseBodyResultRoomGroup) SetGroupId(v int64) *QueryMeetingRoomResponseBodyResultRoomGroup {
+	s.GroupId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResultRoomGroup) SetGroupName(v string) *QueryMeetingRoomResponseBodyResultRoomGroup {
+	s.GroupName = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResultRoomGroup) SetParentId(v int64) *QueryMeetingRoomResponseBodyResultRoomGroup {
+	s.ParentId = &v
 	return s
 }
 
@@ -1046,6 +1092,8 @@ type QueryMeetingRoomListResponseBodyResult struct {
 	IsvRoomId *string `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
 	// 会议室容量
 	RoomCapacity *int32 `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
+	// 会议室分组
+	RoomGroup *QueryMeetingRoomListResponseBodyResultRoomGroup `json:"roomGroup,omitempty" xml:"roomGroup,omitempty" type:"Struct"`
 	// 会议室id
 	RoomId     *string                                             `json:"roomId,omitempty" xml:"roomId,omitempty"`
 	RoomLabels []*QueryMeetingRoomListResponseBodyResultRoomLabels `json:"roomLabels,omitempty" xml:"roomLabels,omitempty" type:"Repeated"`
@@ -1084,6 +1132,11 @@ func (s *QueryMeetingRoomListResponseBodyResult) SetRoomCapacity(v int32) *Query
 	return s
 }
 
+func (s *QueryMeetingRoomListResponseBodyResult) SetRoomGroup(v *QueryMeetingRoomListResponseBodyResultRoomGroup) *QueryMeetingRoomListResponseBodyResult {
+	s.RoomGroup = v
+	return s
+}
+
 func (s *QueryMeetingRoomListResponseBodyResult) SetRoomId(v string) *QueryMeetingRoomListResponseBodyResult {
 	s.RoomId = &v
 	return s
@@ -1116,6 +1169,38 @@ func (s *QueryMeetingRoomListResponseBodyResult) SetRoomStaffId(v string) *Query
 
 func (s *QueryMeetingRoomListResponseBodyResult) SetRoomStatus(v int32) *QueryMeetingRoomListResponseBodyResult {
 	s.RoomStatus = &v
+	return s
+}
+
+type QueryMeetingRoomListResponseBodyResultRoomGroup struct {
+	// 分组id
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// 分组名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 父分组id
+	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
+}
+
+func (s QueryMeetingRoomListResponseBodyResultRoomGroup) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomListResponseBodyResultRoomGroup) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomListResponseBodyResultRoomGroup) SetGroupId(v int64) *QueryMeetingRoomListResponseBodyResultRoomGroup {
+	s.GroupId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomListResponseBodyResultRoomGroup) SetGroupName(v string) *QueryMeetingRoomListResponseBodyResultRoomGroup {
+	s.GroupName = &v
+	return s
+}
+
+func (s *QueryMeetingRoomListResponseBodyResultRoomGroup) SetParentId(v int64) *QueryMeetingRoomListResponseBodyResultRoomGroup {
+	s.ParentId = &v
 	return s
 }
 
@@ -1214,6 +1299,8 @@ func (s *UpdateMeetingRoomHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateM
 }
 
 type UpdateMeetingRoomRequest struct {
+	// 会议室所属分组id
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
 	// isv外部会议室id
 	IsvRoomId *string `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
 	// 会议室容量
@@ -1240,6 +1327,11 @@ func (s UpdateMeetingRoomRequest) String() string {
 
 func (s UpdateMeetingRoomRequest) GoString() string {
 	return s.String()
+}
+
+func (s *UpdateMeetingRoomRequest) SetGroupId(v int64) *UpdateMeetingRoomRequest {
+	s.GroupId = &v
+	return s
 }
 
 func (s *UpdateMeetingRoomRequest) SetIsvRoomId(v string) *UpdateMeetingRoomRequest {
@@ -1490,6 +1582,10 @@ func (client *Client) CreateMeetingRoomWithOptions(request *CreateMeetingRoomReq
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupId)) {
+		body["groupId"] = request.GroupId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.IsvRoomId)) {
 		body["isvRoomId"] = request.IsvRoomId
 	}
@@ -1935,6 +2031,10 @@ func (client *Client) UpdateMeetingRoomWithOptions(request *UpdateMeetingRoomReq
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupId)) {
+		body["groupId"] = request.GroupId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.IsvRoomId)) {
 		body["isvRoomId"] = request.IsvRoomId
 	}

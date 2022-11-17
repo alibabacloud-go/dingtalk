@@ -389,6 +389,8 @@ type CollectResumeDetailRequest struct {
 	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
 	// 渠道侧简历标识
 	ChannelOuterId *string `json:"channelOuterId,omitempty" xml:"channelOuterId,omitempty"`
+	// 渠道侧候选人标识。
+	ChannelTalentId *string `json:"channelTalentId,omitempty" xml:"channelTalentId,omitempty"`
 	// 简历投递职位标识
 	DeliverJobId *string `json:"deliverJobId,omitempty" xml:"deliverJobId,omitempty"`
 	OptUserId    *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
@@ -411,6 +413,11 @@ func (s *CollectResumeDetailRequest) SetBizCode(v string) *CollectResumeDetailRe
 
 func (s *CollectResumeDetailRequest) SetChannelOuterId(v string) *CollectResumeDetailRequest {
 	s.ChannelOuterId = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequest) SetChannelTalentId(v string) *CollectResumeDetailRequest {
+	s.ChannelTalentId = &v
 	return s
 }
 
@@ -2791,6 +2798,10 @@ func (client *Client) CollectResumeDetailWithOptions(request *CollectResumeDetai
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ChannelOuterId)) {
 		body["channelOuterId"] = request.ChannelOuterId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ChannelTalentId)) {
+		body["channelTalentId"] = request.ChannelTalentId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.DeliverJobId)) {
