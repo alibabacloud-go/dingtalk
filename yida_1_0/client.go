@@ -3503,6 +3503,169 @@ func (s *GetCorpTasksResponse) SetBody(v *GetCorpTasksResponseBody) *GetCorpTask
 	return s
 }
 
+type GetFieldDefByUuidHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFieldDefByUuidHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFieldDefByUuidHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFieldDefByUuidHeaders) SetCommonHeaders(v map[string]*string) *GetFieldDefByUuidHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFieldDefByUuidHeaders) SetXAcsDingtalkAccessToken(v string) *GetFieldDefByUuidHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFieldDefByUuidRequest struct {
+	// 应用编码。应用唯一标识。如：APP_XXX
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 表单唯一标识
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// 应用秘钥。在应用设置-部署运维-应用密钥中获取。
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 操作人userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetFieldDefByUuidRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFieldDefByUuidRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFieldDefByUuidRequest) SetAppType(v string) *GetFieldDefByUuidRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetFieldDefByUuidRequest) SetFormUuid(v string) *GetFieldDefByUuidRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *GetFieldDefByUuidRequest) SetSystemToken(v string) *GetFieldDefByUuidRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *GetFieldDefByUuidRequest) SetUserId(v string) *GetFieldDefByUuidRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetFieldDefByUuidResponseBody struct {
+	Result []*GetFieldDefByUuidResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// 是否成功，true代表成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetFieldDefByUuidResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFieldDefByUuidResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFieldDefByUuidResponseBody) SetResult(v []*GetFieldDefByUuidResponseBodyResult) *GetFieldDefByUuidResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetFieldDefByUuidResponseBody) SetSuccess(v bool) *GetFieldDefByUuidResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetFieldDefByUuidResponseBodyResult struct {
+	// 组件展示状态
+	// 普通NORMAL/禁用DISABLED/只读READONLY/隐藏HIDDEN
+	Behavior *string `json:"behavior,omitempty" xml:"behavior,omitempty"`
+	// 子组件信息
+	Children *string `json:"children,omitempty" xml:"children,omitempty"`
+	// 组件类型，如文本类型：TextField
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// 字段ID，字段唯一标识
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// 字段名称。符合国际化标准。
+	Label interface{} `json:"label,omitempty" xml:"label,omitempty"`
+	//  组件属性
+	Props interface{} `json:"props,omitempty" xml:"props,omitempty"`
+}
+
+func (s GetFieldDefByUuidResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFieldDefByUuidResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetFieldDefByUuidResponseBodyResult) SetBehavior(v string) *GetFieldDefByUuidResponseBodyResult {
+	s.Behavior = &v
+	return s
+}
+
+func (s *GetFieldDefByUuidResponseBodyResult) SetChildren(v string) *GetFieldDefByUuidResponseBodyResult {
+	s.Children = &v
+	return s
+}
+
+func (s *GetFieldDefByUuidResponseBodyResult) SetComponentName(v string) *GetFieldDefByUuidResponseBodyResult {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *GetFieldDefByUuidResponseBodyResult) SetFieldId(v string) *GetFieldDefByUuidResponseBodyResult {
+	s.FieldId = &v
+	return s
+}
+
+func (s *GetFieldDefByUuidResponseBodyResult) SetLabel(v interface{}) *GetFieldDefByUuidResponseBodyResult {
+	s.Label = v
+	return s
+}
+
+func (s *GetFieldDefByUuidResponseBodyResult) SetProps(v interface{}) *GetFieldDefByUuidResponseBodyResult {
+	s.Props = v
+	return s
+}
+
+type GetFieldDefByUuidResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetFieldDefByUuidResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetFieldDefByUuidResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFieldDefByUuidResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFieldDefByUuidResponse) SetHeaders(v map[string]*string) *GetFieldDefByUuidResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFieldDefByUuidResponse) SetBody(v *GetFieldDefByUuidResponseBody) *GetFieldDefByUuidResponse {
+	s.Body = v
+	return s
+}
+
 type GetFormComponentDefinitionListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3842,6 +4005,231 @@ func (s *GetFormDataByIDResponse) SetHeaders(v map[string]*string) *GetFormDataB
 }
 
 func (s *GetFormDataByIDResponse) SetBody(v *GetFormDataByIDResponseBody) *GetFormDataByIDResponse {
+	s.Body = v
+	return s
+}
+
+type GetFormListInAppHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFormListInAppHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFormListInAppHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFormListInAppHeaders) SetCommonHeaders(v map[string]*string) *GetFormListInAppHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFormListInAppHeaders) SetXAcsDingtalkAccessToken(v string) *GetFormListInAppHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFormListInAppRequest struct {
+	// 应用编码。应用唯一标识。如：APP_XXX
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// 支持两种表单类型。
+	// receipt :  普通单据表单
+	// process ： 流程表单
+	// 如需查询多种类型，可用英文逗号分隔。
+	// 不传时默认单据和流程均返回。
+	FormTypes *string `json:"formTypes,omitempty" xml:"formTypes,omitempty"`
+	// 页码，不填默认为1。
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 单页返回的条目数，最大值100。
+	// 不填默认为100。
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 应用秘钥。在应用设置-部署运维-应用密钥中获取。
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// 操作人userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetFormListInAppRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFormListInAppRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFormListInAppRequest) SetAppType(v string) *GetFormListInAppRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetFormListInAppRequest) SetFormTypes(v string) *GetFormListInAppRequest {
+	s.FormTypes = &v
+	return s
+}
+
+func (s *GetFormListInAppRequest) SetPageNumber(v int32) *GetFormListInAppRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetFormListInAppRequest) SetPageSize(v int32) *GetFormListInAppRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetFormListInAppRequest) SetSystemToken(v string) *GetFormListInAppRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *GetFormListInAppRequest) SetUserId(v string) *GetFormListInAppRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetFormListInAppResponseBody struct {
+	// 接口返回的结果
+	Result *GetFormListInAppResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// 是否成功，true代表成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetFormListInAppResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFormListInAppResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFormListInAppResponseBody) SetResult(v *GetFormListInAppResponseBodyResult) *GetFormListInAppResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetFormListInAppResponseBody) SetSuccess(v bool) *GetFormListInAppResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetFormListInAppResponseBodyResult struct {
+	// 分页参数，当前页码
+	CurrentPage *int32 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	// 返回的表单列表
+	Data []*GetFormListInAppResponseBodyResultData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// 符合条件的总数目
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s GetFormListInAppResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFormListInAppResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetFormListInAppResponseBodyResult) SetCurrentPage(v int32) *GetFormListInAppResponseBodyResult {
+	s.CurrentPage = &v
+	return s
+}
+
+func (s *GetFormListInAppResponseBodyResult) SetData(v []*GetFormListInAppResponseBodyResultData) *GetFormListInAppResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+func (s *GetFormListInAppResponseBodyResult) SetTotalCount(v int32) *GetFormListInAppResponseBodyResult {
+	s.TotalCount = &v
+	return s
+}
+
+type GetFormListInAppResponseBodyResultData struct {
+	Creator   *string                                      `json:"creator,omitempty" xml:"creator,omitempty"`
+	FormType  *string                                      `json:"formType,omitempty" xml:"formType,omitempty"`
+	FormUuid  *string                                      `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	GmtCreate *string                                      `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	Title     *GetFormListInAppResponseBodyResultDataTitle `json:"title,omitempty" xml:"title,omitempty" type:"Struct"`
+}
+
+func (s GetFormListInAppResponseBodyResultData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFormListInAppResponseBodyResultData) GoString() string {
+	return s.String()
+}
+
+func (s *GetFormListInAppResponseBodyResultData) SetCreator(v string) *GetFormListInAppResponseBodyResultData {
+	s.Creator = &v
+	return s
+}
+
+func (s *GetFormListInAppResponseBodyResultData) SetFormType(v string) *GetFormListInAppResponseBodyResultData {
+	s.FormType = &v
+	return s
+}
+
+func (s *GetFormListInAppResponseBodyResultData) SetFormUuid(v string) *GetFormListInAppResponseBodyResultData {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *GetFormListInAppResponseBodyResultData) SetGmtCreate(v string) *GetFormListInAppResponseBodyResultData {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *GetFormListInAppResponseBodyResultData) SetTitle(v *GetFormListInAppResponseBodyResultDataTitle) *GetFormListInAppResponseBodyResultData {
+	s.Title = v
+	return s
+}
+
+type GetFormListInAppResponseBodyResultDataTitle struct {
+	EnUS *string `json:"enUS,omitempty" xml:"enUS,omitempty"`
+	ZhCN *string `json:"zhCN,omitempty" xml:"zhCN,omitempty"`
+}
+
+func (s GetFormListInAppResponseBodyResultDataTitle) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFormListInAppResponseBodyResultDataTitle) GoString() string {
+	return s.String()
+}
+
+func (s *GetFormListInAppResponseBodyResultDataTitle) SetEnUS(v string) *GetFormListInAppResponseBodyResultDataTitle {
+	s.EnUS = &v
+	return s
+}
+
+func (s *GetFormListInAppResponseBodyResultDataTitle) SetZhCN(v string) *GetFormListInAppResponseBodyResultDataTitle {
+	s.ZhCN = &v
+	return s
+}
+
+type GetFormListInAppResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetFormListInAppResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetFormListInAppResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFormListInAppResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFormListInAppResponse) SetHeaders(v map[string]*string) *GetFormListInAppResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFormListInAppResponse) SetBody(v *GetFormListInAppResponseBody) *GetFormListInAppResponse {
 	s.Body = v
 	return s
 }
@@ -17150,6 +17538,62 @@ func (client *Client) GetCorpTasksWithOptions(request *GetCorpTasksRequest, head
 	return _result, _err
 }
 
+func (client *Client) GetFieldDefByUuid(request *GetFieldDefByUuidRequest) (_result *GetFieldDefByUuidResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFieldDefByUuidHeaders{}
+	_result = &GetFieldDefByUuidResponse{}
+	_body, _err := client.GetFieldDefByUuidWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetFieldDefByUuidWithOptions(request *GetFieldDefByUuidRequest, headers *GetFieldDefByUuidHeaders, runtime *util.RuntimeOptions) (_result *GetFieldDefByUuidResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		query["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetFieldDefByUuidResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetFieldDefByUuid"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/forms/formFields"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetFormComponentDefinitionList(appType *string, formUuid *string, request *GetFormComponentDefinitionListRequest) (_result *GetFormComponentDefinitionListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetFormComponentDefinitionListHeaders{}
@@ -17258,6 +17702,70 @@ func (client *Client) GetFormDataByIDWithOptions(id *string, request *GetFormDat
 	}
 	_result = &GetFormDataByIDResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetFormDataByID"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/forms/instances/"+tea.StringValue(id)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetFormListInApp(request *GetFormListInAppRequest) (_result *GetFormListInAppResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFormListInAppHeaders{}
+	_result = &GetFormListInAppResponse{}
+	_body, _err := client.GetFormListInAppWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetFormListInAppWithOptions(request *GetFormListInAppRequest, headers *GetFormListInAppHeaders, runtime *util.RuntimeOptions) (_result *GetFormListInAppResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormTypes)) {
+		query["formTypes"] = request.FormTypes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetFormListInAppResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetFormListInApp"), tea.String("yida_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/yida/forms"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

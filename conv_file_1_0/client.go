@@ -11,6 +11,134 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type GetSpaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSpaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpaceHeaders) SetCommonHeaders(v map[string]*string) *GetSpaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *GetSpaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSpaceRequest struct {
+	// 会话id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetSpaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpaceRequest) SetOpenConversationId(v string) *GetSpaceRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GetSpaceRequest) SetUnionId(v string) *GetSpaceRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetSpaceResponseBody struct {
+	// IM会话存储空间信息
+	Space *GetSpaceResponseBodySpace `json:"space,omitempty" xml:"space,omitempty" type:"Struct"`
+}
+
+func (s GetSpaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpaceResponseBody) SetSpace(v *GetSpaceResponseBodySpace) *GetSpaceResponseBody {
+	s.Space = v
+	return s
+}
+
+type GetSpaceResponseBodySpace struct {
+	// 空间归属企业的id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 修改时间
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// 空间id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s GetSpaceResponseBodySpace) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpaceResponseBodySpace) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpaceResponseBodySpace) SetCorpId(v string) *GetSpaceResponseBodySpace {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetSpaceResponseBodySpace) SetCreateTime(v string) *GetSpaceResponseBodySpace {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetSpaceResponseBodySpace) SetModifiedTime(v string) *GetSpaceResponseBodySpace {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *GetSpaceResponseBodySpace) SetSpaceId(v string) *GetSpaceResponseBodySpace {
+	s.SpaceId = &v
+	return s
+}
+
+type GetSpaceResponse struct {
+	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSpaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpaceResponse) SetHeaders(v map[string]*string) *GetSpaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSpaceResponse) SetBody(v *GetSpaceResponseBody) *GetSpaceResponse {
+	s.Body = v
+	return s
+}
+
 type SendByAppHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -258,6 +386,56 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) GetSpace(request *GetSpaceRequest) (_result *GetSpaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSpaceHeaders{}
+	_result = &GetSpaceResponse{}
+	_body, _err := client.GetSpaceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSpaceWithOptions(request *GetSpaceRequest, headers *GetSpaceHeaders, runtime *util.RuntimeOptions) (_result *GetSpaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetSpaceResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetSpace"), tea.String("convFile_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/convFile/conversations/spaces/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) SendByApp(request *SendByAppRequest) (_result *SendByAppResponse, _err error) {
