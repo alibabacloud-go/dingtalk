@@ -511,6 +511,108 @@ func (s *DeleteCommentResponse) SetBody(v bool) *DeleteCommentResponse {
 	return s
 }
 
+type DeleteTrustedDeviceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteTrustedDeviceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteTrustedDeviceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteTrustedDeviceHeaders) SetCommonHeaders(v map[string]*string) *DeleteTrustedDeviceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteTrustedDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteTrustedDeviceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteTrustedDeviceRequest struct {
+	// DID设备唯一码：与mac地址任一必填一个
+	Did *string `json:"did,omitempty" xml:"did,omitempty"`
+	// 是否踢下线
+	KickOff *bool `json:"kickOff,omitempty" xml:"kickOff,omitempty"`
+	// mac地址：与DID任一必填一个
+	MacAddress *string `json:"macAddress,omitempty" xml:"macAddress,omitempty"`
+	// 员工userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DeleteTrustedDeviceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteTrustedDeviceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteTrustedDeviceRequest) SetDid(v string) *DeleteTrustedDeviceRequest {
+	s.Did = &v
+	return s
+}
+
+func (s *DeleteTrustedDeviceRequest) SetKickOff(v bool) *DeleteTrustedDeviceRequest {
+	s.KickOff = &v
+	return s
+}
+
+func (s *DeleteTrustedDeviceRequest) SetMacAddress(v string) *DeleteTrustedDeviceRequest {
+	s.MacAddress = &v
+	return s
+}
+
+func (s *DeleteTrustedDeviceRequest) SetUserId(v string) *DeleteTrustedDeviceRequest {
+	s.UserId = &v
+	return s
+}
+
+type DeleteTrustedDeviceResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteTrustedDeviceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteTrustedDeviceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteTrustedDeviceResponseBody) SetSuccess(v bool) *DeleteTrustedDeviceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteTrustedDeviceResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteTrustedDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteTrustedDeviceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteTrustedDeviceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteTrustedDeviceResponse) SetHeaders(v map[string]*string) *DeleteTrustedDeviceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteTrustedDeviceResponse) SetBody(v *DeleteTrustedDeviceResponseBody) *DeleteTrustedDeviceResponse {
+	s.Body = v
+	return s
+}
+
 type DistributePartnerAppHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9119,6 +9221,62 @@ func (client *Client) DeleteCommentWithOptions(publisherId *string, commentId *s
 	}
 	_result = &DeleteCommentResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteComment"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/exclusive/publishers/"+tea.StringValue(publisherId)+"/comments/"+tea.StringValue(commentId)), tea.String("boolean"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteTrustedDevice(request *DeleteTrustedDeviceRequest) (_result *DeleteTrustedDeviceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteTrustedDeviceHeaders{}
+	_result = &DeleteTrustedDeviceResponse{}
+	_body, _err := client.DeleteTrustedDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteTrustedDeviceWithOptions(request *DeleteTrustedDeviceRequest, headers *DeleteTrustedDeviceHeaders, runtime *util.RuntimeOptions) (_result *DeleteTrustedDeviceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Did)) {
+		body["did"] = request.Did
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.KickOff)) {
+		body["kickOff"] = request.KickOff
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MacAddress)) {
+		body["macAddress"] = request.MacAddress
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DeleteTrustedDeviceResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteTrustedDevice"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/trustedDevices/remove"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
