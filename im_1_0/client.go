@@ -4526,6 +4526,226 @@ func (s *SendInteractiveCardResponse) SetBody(v *SendInteractiveCardResponseBody
 	return s
 }
 
+type SendOTOInteractiveCardHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendOTOInteractiveCardHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOTOInteractiveCardHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendOTOInteractiveCardHeaders) SetCommonHeaders(v map[string]*string) *SendOTOInteractiveCardHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendOTOInteractiveCardHeaders) SetXAcsDingtalkAccessToken(v string) *SendOTOInteractiveCardHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendOTOInteractiveCardRequest struct {
+	// 消息@人，{123456:"钉三多"}，key：根据userIdType来设置，【特殊设置：如果key、value都为"@ALL"则判断at所有人】
+	AtOpenIds map[string]*string `json:"atOpenIds,omitempty" xml:"atOpenIds,omitempty"`
+	// 可控制卡片回调时的路由Key，用于指定特定的callbackUrl【可空：不填写默认用企业的回调地址】
+	CallbackRouteKey *string `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	// 卡片公共主体部分数据
+	CardData *SendOTOInteractiveCardRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	// 卡片属性
+	CardOptions *SendOTOInteractiveCardRequestCardOptions `json:"cardOptions,omitempty" xml:"cardOptions,omitempty" type:"Struct"`
+	// 卡片模板ID
+	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+	// 接收卡片的群的openConversationId
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 唯一标识一张卡片的外部ID（卡片幂等ID，可用于更新或重复发送同一卡片到多个群会话）
+	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	// 卡片用户私有差异部分数据（如卡片不同人显示不同按钮；key：用户userId；value：用户数据变量）
+	PrivateData map[string]*PrivateDataValue `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	// 是否开启卡片纯拉模式
+	PullStrategy *bool `json:"pullStrategy,omitempty" xml:"pullStrategy,omitempty"`
+	// 互动卡片消息需要群会话部分人可见时的接收人列表，不填写默认群会话所有人可见
+	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
+	// 【robotCode & chatBotId二选一必填】机器人编码（群模板机器人）
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// 用户ID类型：1：userId模式【默认】；2：unionId模式；对应receiverUserIdList、privateData字段关于用户id的值填写方式
+	UserIdType *int32 `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+}
+
+func (s SendOTOInteractiveCardRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOTOInteractiveCardRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendOTOInteractiveCardRequest) SetAtOpenIds(v map[string]*string) *SendOTOInteractiveCardRequest {
+	s.AtOpenIds = v
+	return s
+}
+
+func (s *SendOTOInteractiveCardRequest) SetCallbackRouteKey(v string) *SendOTOInteractiveCardRequest {
+	s.CallbackRouteKey = &v
+	return s
+}
+
+func (s *SendOTOInteractiveCardRequest) SetCardData(v *SendOTOInteractiveCardRequestCardData) *SendOTOInteractiveCardRequest {
+	s.CardData = v
+	return s
+}
+
+func (s *SendOTOInteractiveCardRequest) SetCardOptions(v *SendOTOInteractiveCardRequestCardOptions) *SendOTOInteractiveCardRequest {
+	s.CardOptions = v
+	return s
+}
+
+func (s *SendOTOInteractiveCardRequest) SetCardTemplateId(v string) *SendOTOInteractiveCardRequest {
+	s.CardTemplateId = &v
+	return s
+}
+
+func (s *SendOTOInteractiveCardRequest) SetOpenConversationId(v string) *SendOTOInteractiveCardRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SendOTOInteractiveCardRequest) SetOutTrackId(v string) *SendOTOInteractiveCardRequest {
+	s.OutTrackId = &v
+	return s
+}
+
+func (s *SendOTOInteractiveCardRequest) SetPrivateData(v map[string]*PrivateDataValue) *SendOTOInteractiveCardRequest {
+	s.PrivateData = v
+	return s
+}
+
+func (s *SendOTOInteractiveCardRequest) SetPullStrategy(v bool) *SendOTOInteractiveCardRequest {
+	s.PullStrategy = &v
+	return s
+}
+
+func (s *SendOTOInteractiveCardRequest) SetReceiverUserIdList(v []*string) *SendOTOInteractiveCardRequest {
+	s.ReceiverUserIdList = v
+	return s
+}
+
+func (s *SendOTOInteractiveCardRequest) SetRobotCode(v string) *SendOTOInteractiveCardRequest {
+	s.RobotCode = &v
+	return s
+}
+
+func (s *SendOTOInteractiveCardRequest) SetUserIdType(v int32) *SendOTOInteractiveCardRequest {
+	s.UserIdType = &v
+	return s
+}
+
+type SendOTOInteractiveCardRequestCardData struct {
+	// 卡片模板内容替换参数-普通文本类型
+	CardParamMap map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
+}
+
+func (s SendOTOInteractiveCardRequestCardData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOTOInteractiveCardRequestCardData) GoString() string {
+	return s.String()
+}
+
+func (s *SendOTOInteractiveCardRequestCardData) SetCardParamMap(v map[string]*string) *SendOTOInteractiveCardRequestCardData {
+	s.CardParamMap = v
+	return s
+}
+
+type SendOTOInteractiveCardRequestCardOptions struct {
+	// 是否支持转发
+	SupportForward *bool `json:"supportForward,omitempty" xml:"supportForward,omitempty"`
+}
+
+func (s SendOTOInteractiveCardRequestCardOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOTOInteractiveCardRequestCardOptions) GoString() string {
+	return s.String()
+}
+
+func (s *SendOTOInteractiveCardRequestCardOptions) SetSupportForward(v bool) *SendOTOInteractiveCardRequestCardOptions {
+	s.SupportForward = &v
+	return s
+}
+
+type SendOTOInteractiveCardResponseBody struct {
+	// 创建卡片结果
+	Result *SendOTOInteractiveCardResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SendOTOInteractiveCardResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOTOInteractiveCardResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendOTOInteractiveCardResponseBody) SetResult(v *SendOTOInteractiveCardResponseBodyResult) *SendOTOInteractiveCardResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SendOTOInteractiveCardResponseBody) SetSuccess(v bool) *SendOTOInteractiveCardResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SendOTOInteractiveCardResponseBodyResult struct {
+	// 用于业务方后续查看已读列表的查询key
+	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
+}
+
+func (s SendOTOInteractiveCardResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOTOInteractiveCardResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SendOTOInteractiveCardResponseBodyResult) SetProcessQueryKey(v string) *SendOTOInteractiveCardResponseBodyResult {
+	s.ProcessQueryKey = &v
+	return s
+}
+
+type SendOTOInteractiveCardResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SendOTOInteractiveCardResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SendOTOInteractiveCardResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOTOInteractiveCardResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendOTOInteractiveCardResponse) SetHeaders(v map[string]*string) *SendOTOInteractiveCardResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendOTOInteractiveCardResponse) SetBody(v *SendOTOInteractiveCardResponseBody) *SendOTOInteractiveCardResponse {
+	s.Body = v
+	return s
+}
+
 type SendRobotInteractiveCardHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8775,6 +8995,94 @@ func (client *Client) SendInteractiveCardWithOptions(request *SendInteractiveCar
 	}
 	_result = &SendInteractiveCardResponse{}
 	_body, _err := client.DoROARequest(tea.String("SendInteractiveCard"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interactiveCards/send"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SendOTOInteractiveCard(request *SendOTOInteractiveCardRequest) (_result *SendOTOInteractiveCardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendOTOInteractiveCardHeaders{}
+	_result = &SendOTOInteractiveCardResponse{}
+	_body, _err := client.SendOTOInteractiveCardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SendOTOInteractiveCardWithOptions(request *SendOTOInteractiveCardRequest, headers *SendOTOInteractiveCardHeaders, runtime *util.RuntimeOptions) (_result *SendOTOInteractiveCardResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AtOpenIds)) {
+		body["atOpenIds"] = request.AtOpenIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallbackRouteKey)) {
+		body["callbackRouteKey"] = request.CallbackRouteKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardData))) {
+		body["cardData"] = request.CardData
+	}
+
+	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.CardOptions))) {
+		body["cardOptions"] = request.CardOptions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardTemplateId)) {
+		body["cardTemplateId"] = request.CardTemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutTrackId)) {
+		body["outTrackId"] = request.OutTrackId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PrivateData)) {
+		body["privateData"] = request.PrivateData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PullStrategy)) {
+		body["pullStrategy"] = request.PullStrategy
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverUserIdList)) {
+		body["receiverUserIdList"] = request.ReceiverUserIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdType)) {
+		body["userIdType"] = request.UserIdType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SendOTOInteractiveCardResponse{}
+	_body, _err := client.DoROARequest(tea.String("SendOTOInteractiveCard"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/privateChat/interactiveCards/send"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
