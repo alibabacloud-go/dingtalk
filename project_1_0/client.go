@@ -4974,7 +4974,7 @@ func (client *Client) CreateTaskObjectLinkWithOptions(userId *string, taskId *st
 	userId = openapiutil.GetEncodeParam(userId)
 	taskId = openapiutil.GetEncodeParam(taskId)
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.LinkedData))) {
+	if !tea.BoolValue(util.IsUnset(request.LinkedData)) {
 		body["linkedData"] = request.LinkedData
 	}
 

@@ -4353,7 +4353,7 @@ func (client *Client) UpdateCardWithOptions(request *UpdateCardRequest, headers 
 		body["cardData"] = request.CardData
 	}
 
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Tips))) {
+	if !tea.BoolValue(util.IsUnset(request.Tips)) {
 		body["tips"] = request.Tips
 	}
 

@@ -6083,7 +6083,7 @@ func (client *Client) ManagementBuyQuotaWithOptions(request *ManagementBuyQuotaR
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.Order))) {
+	if !tea.BoolValue(util.IsUnset(request.Order)) {
 		body["order"] = request.Order
 	}
 

@@ -821,7 +821,7 @@ func (client *Client) MachineManagerUpdateWithOptions(request *MachineManagerUpd
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(tea.ToMap(request.AtmManagerRightMap))) {
+	if !tea.BoolValue(util.IsUnset(request.AtmManagerRightMap)) {
 		body["atmManagerRightMap"] = request.AtmManagerRightMap
 	}
 
