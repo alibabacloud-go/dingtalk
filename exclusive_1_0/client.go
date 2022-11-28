@@ -535,11 +535,9 @@ func (s *DeleteTrustedDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *Delet
 }
 
 type DeleteTrustedDeviceRequest struct {
-	// DID设备唯一码：与mac地址任一必填一个
-	Did *string `json:"did,omitempty" xml:"did,omitempty"`
 	// 是否踢下线
 	KickOff *bool `json:"kickOff,omitempty" xml:"kickOff,omitempty"`
-	// mac地址：与DID任一必填一个
+	// mac地址
 	MacAddress *string `json:"macAddress,omitempty" xml:"macAddress,omitempty"`
 	// 员工userId
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
@@ -551,11 +549,6 @@ func (s DeleteTrustedDeviceRequest) String() string {
 
 func (s DeleteTrustedDeviceRequest) GoString() string {
 	return s.String()
-}
-
-func (s *DeleteTrustedDeviceRequest) SetDid(v string) *DeleteTrustedDeviceRequest {
-	s.Did = &v
-	return s
 }
 
 func (s *DeleteTrustedDeviceRequest) SetKickOff(v bool) *DeleteTrustedDeviceRequest {
@@ -9246,10 +9239,6 @@ func (client *Client) DeleteTrustedDeviceWithOptions(request *DeleteTrustedDevic
 		return _result, _err
 	}
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.Did)) {
-		body["did"] = request.Did
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.KickOff)) {
 		body["kickOff"] = request.KickOff
 	}
