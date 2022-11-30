@@ -7010,21 +7010,21 @@ func (client *Client) AddRobotToConversationWithOptions(request *AddRobotToConve
 	if _err != nil {
 		return _result, _err
 	}
-	query := map[string]interface{}{}
+	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Icon)) {
-		query["icon"] = request.Icon
+		body["icon"] = request.Icon
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
-		query["name"] = request.Name
+		body["name"] = request.Name
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
-		query["openConversationId"] = request.OpenConversationId
+		body["openConversationId"] = request.OpenConversationId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
-		query["robotCode"] = request.RobotCode
+		body["robotCode"] = request.RobotCode
 	}
 
 	realHeaders := make(map[string]*string)
@@ -7038,7 +7038,7 @@ func (client *Client) AddRobotToConversationWithOptions(request *AddRobotToConve
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &AddRobotToConversationResponse{}
 	_body, _err := client.DoROARequest(tea.String("AddRobotToConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/conversations/robots"), tea.String("json"), req, runtime)
@@ -8331,37 +8331,37 @@ func (client *Client) InstallRobotToOrgWithOptions(request *InstallRobotToOrgReq
 	if _err != nil {
 		return _result, _err
 	}
-	query := map[string]interface{}{}
+	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Brief)) {
-		query["brief"] = request.Brief
+		body["brief"] = request.Brief
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Description)) {
-		query["description"] = request.Description
+		body["description"] = request.Description
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Icon)) {
-		query["icon"] = request.Icon
+		body["icon"] = request.Icon
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
-		query["name"] = request.Name
+		body["name"] = request.Name
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OutgoingToken)) {
-		query["outgoingToken"] = request.OutgoingToken
+		body["outgoingToken"] = request.OutgoingToken
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OutgoingUrl)) {
-		query["outgoingUrl"] = request.OutgoingUrl
+		body["outgoingUrl"] = request.OutgoingUrl
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.PreviewMediaId)) {
-		query["previewMediaId"] = request.PreviewMediaId
+		body["previewMediaId"] = request.PreviewMediaId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
-		query["robotCode"] = request.RobotCode
+		body["robotCode"] = request.RobotCode
 	}
 
 	realHeaders := make(map[string]*string)
@@ -8375,7 +8375,7 @@ func (client *Client) InstallRobotToOrgWithOptions(request *InstallRobotToOrgReq
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &InstallRobotToOrgResponse{}
 	_body, _err := client.DoROARequest(tea.String("InstallRobotToOrg"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/organizations/robots/install"), tea.String("json"), req, runtime)
@@ -8875,13 +8875,13 @@ func (client *Client) RemoveRobotFromConversationWithOptions(request *RemoveRobo
 	if _err != nil {
 		return _result, _err
 	}
-	query := map[string]interface{}{}
+	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ChatBotUserId)) {
-		query["chatBotUserId"] = request.ChatBotUserId
+		body["chatBotUserId"] = request.ChatBotUserId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
-		query["openConversationId"] = request.OpenConversationId
+		body["openConversationId"] = request.OpenConversationId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -8895,7 +8895,7 @@ func (client *Client) RemoveRobotFromConversationWithOptions(request *RemoveRobo
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &RemoveRobotFromConversationResponse{}
 	_body, _err := client.DoROARequest(tea.String("RemoveRobotFromConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/conversations/robots/remove"), tea.String("json"), req, runtime)
@@ -9835,37 +9835,37 @@ func (client *Client) UpdateRobotInOrgWithOptions(request *UpdateRobotInOrgReque
 	if _err != nil {
 		return _result, _err
 	}
-	query := map[string]interface{}{}
+	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Brief)) {
-		query["brief"] = request.Brief
+		body["brief"] = request.Brief
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Description)) {
-		query["description"] = request.Description
+		body["description"] = request.Description
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Icon)) {
-		query["icon"] = request.Icon
+		body["icon"] = request.Icon
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
-		query["name"] = request.Name
+		body["name"] = request.Name
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OutgoingToken)) {
-		query["outgoingToken"] = request.OutgoingToken
+		body["outgoingToken"] = request.OutgoingToken
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OutgoingUrl)) {
-		query["outgoingUrl"] = request.OutgoingUrl
+		body["outgoingUrl"] = request.OutgoingUrl
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.PreviewMediaId)) {
-		query["previewMediaId"] = request.PreviewMediaId
+		body["previewMediaId"] = request.PreviewMediaId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
-		query["robotCode"] = request.RobotCode
+		body["robotCode"] = request.RobotCode
 	}
 
 	realHeaders := make(map[string]*string)
@@ -9879,7 +9879,7 @@ func (client *Client) UpdateRobotInOrgWithOptions(request *UpdateRobotInOrgReque
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &UpdateRobotInOrgResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateRobotInOrg"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/organizations/robots"), tea.String("json"), req, runtime)

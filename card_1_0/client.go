@@ -39,6 +39,8 @@ type AppendSpaceRequest struct {
 	CoFeedOpenSpaceModel *AppendSpaceRequestCoFeedOpenSpaceModel `json:"coFeedOpenSpaceModel,omitempty" xml:"coFeedOpenSpaceModel,omitempty" type:"Struct"`
 	// IM群聊场域信息
 	ImGroupOpenSpaceModel *AppendSpaceRequestImGroupOpenSpaceModel `json:"imGroupOpenSpaceModel,omitempty" xml:"imGroupOpenSpaceModel,omitempty" type:"Struct"`
+	// IM群聊场域信息
+	ImRobotOpenSpaceModel *AppendSpaceRequestImRobotOpenSpaceModel `json:"imRobotOpenSpaceModel,omitempty" xml:"imRobotOpenSpaceModel,omitempty" type:"Struct"`
 	// IM单聊场域信息
 	ImSingleOpenSpaceModel *AppendSpaceRequestImSingleOpenSpaceModel `json:"imSingleOpenSpaceModel,omitempty" xml:"imSingleOpenSpaceModel,omitempty" type:"Struct"`
 	// 唯一标识一张卡片的外部Id
@@ -64,6 +66,11 @@ func (s *AppendSpaceRequest) SetCoFeedOpenSpaceModel(v *AppendSpaceRequestCoFeed
 
 func (s *AppendSpaceRequest) SetImGroupOpenSpaceModel(v *AppendSpaceRequestImGroupOpenSpaceModel) *AppendSpaceRequest {
 	s.ImGroupOpenSpaceModel = v
+	return s
+}
+
+func (s *AppendSpaceRequest) SetImRobotOpenSpaceModel(v *AppendSpaceRequestImRobotOpenSpaceModel) *AppendSpaceRequest {
+	s.ImRobotOpenSpaceModel = v
 	return s
 }
 
@@ -192,6 +199,97 @@ func (s *AppendSpaceRequestImGroupOpenSpaceModelSearchSupport) SetSearchIcon(v s
 }
 
 func (s *AppendSpaceRequestImGroupOpenSpaceModelSearchSupport) SetSearchTypeName(v string) *AppendSpaceRequestImGroupOpenSpaceModelSearchSupport {
+	s.SearchTypeName = &v
+	return s
+}
+
+type AppendSpaceRequestImRobotOpenSpaceModel struct {
+	// 支持国际化的LastMessage
+	LastMessageI18n map[string]*string `json:"lastMessageI18n,omitempty" xml:"lastMessageI18n,omitempty"`
+	// xpn信息
+	Notification *AppendSpaceRequestImRobotOpenSpaceModelNotification `json:"notification,omitempty" xml:"notification,omitempty" type:"Struct"`
+	// 支持卡片消息可被搜索字段
+	SearchSupport *AppendSpaceRequestImRobotOpenSpaceModelSearchSupport `json:"searchSupport,omitempty" xml:"searchSupport,omitempty" type:"Struct"`
+	// 是否支持转发, 默认false
+	SupportForward *bool `json:"supportForward,omitempty" xml:"supportForward,omitempty"`
+}
+
+func (s AppendSpaceRequestImRobotOpenSpaceModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendSpaceRequestImRobotOpenSpaceModel) GoString() string {
+	return s.String()
+}
+
+func (s *AppendSpaceRequestImRobotOpenSpaceModel) SetLastMessageI18n(v map[string]*string) *AppendSpaceRequestImRobotOpenSpaceModel {
+	s.LastMessageI18n = v
+	return s
+}
+
+func (s *AppendSpaceRequestImRobotOpenSpaceModel) SetNotification(v *AppendSpaceRequestImRobotOpenSpaceModelNotification) *AppendSpaceRequestImRobotOpenSpaceModel {
+	s.Notification = v
+	return s
+}
+
+func (s *AppendSpaceRequestImRobotOpenSpaceModel) SetSearchSupport(v *AppendSpaceRequestImRobotOpenSpaceModelSearchSupport) *AppendSpaceRequestImRobotOpenSpaceModel {
+	s.SearchSupport = v
+	return s
+}
+
+func (s *AppendSpaceRequestImRobotOpenSpaceModel) SetSupportForward(v bool) *AppendSpaceRequestImRobotOpenSpaceModel {
+	s.SupportForward = &v
+	return s
+}
+
+type AppendSpaceRequestImRobotOpenSpaceModelNotification struct {
+	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
+	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
+}
+
+func (s AppendSpaceRequestImRobotOpenSpaceModelNotification) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendSpaceRequestImRobotOpenSpaceModelNotification) GoString() string {
+	return s.String()
+}
+
+func (s *AppendSpaceRequestImRobotOpenSpaceModelNotification) SetAlertContent(v string) *AppendSpaceRequestImRobotOpenSpaceModelNotification {
+	s.AlertContent = &v
+	return s
+}
+
+func (s *AppendSpaceRequestImRobotOpenSpaceModelNotification) SetNotificationOff(v bool) *AppendSpaceRequestImRobotOpenSpaceModelNotification {
+	s.NotificationOff = &v
+	return s
+}
+
+type AppendSpaceRequestImRobotOpenSpaceModelSearchSupport struct {
+	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
+}
+
+func (s AppendSpaceRequestImRobotOpenSpaceModelSearchSupport) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendSpaceRequestImRobotOpenSpaceModelSearchSupport) GoString() string {
+	return s.String()
+}
+
+func (s *AppendSpaceRequestImRobotOpenSpaceModelSearchSupport) SetSearchDesc(v string) *AppendSpaceRequestImRobotOpenSpaceModelSearchSupport {
+	s.SearchDesc = &v
+	return s
+}
+
+func (s *AppendSpaceRequestImRobotOpenSpaceModelSearchSupport) SetSearchIcon(v string) *AppendSpaceRequestImRobotOpenSpaceModelSearchSupport {
+	s.SearchIcon = &v
+	return s
+}
+
+func (s *AppendSpaceRequestImRobotOpenSpaceModelSearchSupport) SetSearchTypeName(v string) *AppendSpaceRequestImRobotOpenSpaceModelSearchSupport {
 	s.SearchTypeName = &v
 	return s
 }
@@ -409,6 +507,10 @@ type CreateAndDeliverRequest struct {
 	// IM群聊场域信息
 	ImGroupOpenSpaceModel *CreateAndDeliverRequestImGroupOpenSpaceModel `json:"imGroupOpenSpaceModel,omitempty" xml:"imGroupOpenSpaceModel,omitempty" type:"Struct"`
 	// 单聊场域投放参数
+	ImRobotOpenDeliverModel *CreateAndDeliverRequestImRobotOpenDeliverModel `json:"imRobotOpenDeliverModel,omitempty" xml:"imRobotOpenDeliverModel,omitempty" type:"Struct"`
+	// IM单聊场域信息
+	ImRobotOpenSpaceModel *CreateAndDeliverRequestImRobotOpenSpaceModel `json:"imRobotOpenSpaceModel,omitempty" xml:"imRobotOpenSpaceModel,omitempty" type:"Struct"`
+	// 单聊场域投放参数
 	ImSingleOpenDeliverModel *CreateAndDeliverRequestImSingleOpenDeliverModel `json:"imSingleOpenDeliverModel,omitempty" xml:"imSingleOpenDeliverModel,omitempty" type:"Struct"`
 	// IM单聊场域信息
 	ImSingleOpenSpaceModel *CreateAndDeliverRequestImSingleOpenSpaceModel `json:"imSingleOpenSpaceModel,omitempty" xml:"imSingleOpenSpaceModel,omitempty" type:"Struct"`
@@ -477,6 +579,16 @@ func (s *CreateAndDeliverRequest) SetImGroupOpenDeliverModel(v *CreateAndDeliver
 
 func (s *CreateAndDeliverRequest) SetImGroupOpenSpaceModel(v *CreateAndDeliverRequestImGroupOpenSpaceModel) *CreateAndDeliverRequest {
 	s.ImGroupOpenSpaceModel = v
+	return s
+}
+
+func (s *CreateAndDeliverRequest) SetImRobotOpenDeliverModel(v *CreateAndDeliverRequestImRobotOpenDeliverModel) *CreateAndDeliverRequest {
+	s.ImRobotOpenDeliverModel = v
+	return s
+}
+
+func (s *CreateAndDeliverRequest) SetImRobotOpenSpaceModel(v *CreateAndDeliverRequestImRobotOpenSpaceModel) *CreateAndDeliverRequest {
+	s.ImRobotOpenSpaceModel = v
 	return s
 }
 
@@ -720,6 +832,114 @@ func (s *CreateAndDeliverRequestImGroupOpenSpaceModelSearchSupport) SetSearchIco
 }
 
 func (s *CreateAndDeliverRequestImGroupOpenSpaceModelSearchSupport) SetSearchTypeName(v string) *CreateAndDeliverRequestImGroupOpenSpaceModelSearchSupport {
+	s.SearchTypeName = &v
+	return s
+}
+
+type CreateAndDeliverRequestImRobotOpenDeliverModel struct {
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+}
+
+func (s CreateAndDeliverRequestImRobotOpenDeliverModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverRequestImRobotOpenDeliverModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverRequestImRobotOpenDeliverModel) SetSpaceType(v string) *CreateAndDeliverRequestImRobotOpenDeliverModel {
+	s.SpaceType = &v
+	return s
+}
+
+type CreateAndDeliverRequestImRobotOpenSpaceModel struct {
+	// 支持国际化的LastMessage
+	LastMessageI18n map[string]*string `json:"lastMessageI18n,omitempty" xml:"lastMessageI18n,omitempty"`
+	// 通知信息
+	Notification *CreateAndDeliverRequestImRobotOpenSpaceModelNotification `json:"notification,omitempty" xml:"notification,omitempty" type:"Struct"`
+	// 支持卡片消息可被搜索字段
+	SearchSupport *CreateAndDeliverRequestImRobotOpenSpaceModelSearchSupport `json:"searchSupport,omitempty" xml:"searchSupport,omitempty" type:"Struct"`
+	// 是否支持转发, 默认false
+	SupportForward *bool `json:"supportForward,omitempty" xml:"supportForward,omitempty"`
+}
+
+func (s CreateAndDeliverRequestImRobotOpenSpaceModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverRequestImRobotOpenSpaceModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverRequestImRobotOpenSpaceModel) SetLastMessageI18n(v map[string]*string) *CreateAndDeliverRequestImRobotOpenSpaceModel {
+	s.LastMessageI18n = v
+	return s
+}
+
+func (s *CreateAndDeliverRequestImRobotOpenSpaceModel) SetNotification(v *CreateAndDeliverRequestImRobotOpenSpaceModelNotification) *CreateAndDeliverRequestImRobotOpenSpaceModel {
+	s.Notification = v
+	return s
+}
+
+func (s *CreateAndDeliverRequestImRobotOpenSpaceModel) SetSearchSupport(v *CreateAndDeliverRequestImRobotOpenSpaceModelSearchSupport) *CreateAndDeliverRequestImRobotOpenSpaceModel {
+	s.SearchSupport = v
+	return s
+}
+
+func (s *CreateAndDeliverRequestImRobotOpenSpaceModel) SetSupportForward(v bool) *CreateAndDeliverRequestImRobotOpenSpaceModel {
+	s.SupportForward = &v
+	return s
+}
+
+type CreateAndDeliverRequestImRobotOpenSpaceModelNotification struct {
+	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
+	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
+}
+
+func (s CreateAndDeliverRequestImRobotOpenSpaceModelNotification) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverRequestImRobotOpenSpaceModelNotification) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverRequestImRobotOpenSpaceModelNotification) SetAlertContent(v string) *CreateAndDeliverRequestImRobotOpenSpaceModelNotification {
+	s.AlertContent = &v
+	return s
+}
+
+func (s *CreateAndDeliverRequestImRobotOpenSpaceModelNotification) SetNotificationOff(v bool) *CreateAndDeliverRequestImRobotOpenSpaceModelNotification {
+	s.NotificationOff = &v
+	return s
+}
+
+type CreateAndDeliverRequestImRobotOpenSpaceModelSearchSupport struct {
+	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
+}
+
+func (s CreateAndDeliverRequestImRobotOpenSpaceModelSearchSupport) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAndDeliverRequestImRobotOpenSpaceModelSearchSupport) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAndDeliverRequestImRobotOpenSpaceModelSearchSupport) SetSearchDesc(v string) *CreateAndDeliverRequestImRobotOpenSpaceModelSearchSupport {
+	s.SearchDesc = &v
+	return s
+}
+
+func (s *CreateAndDeliverRequestImRobotOpenSpaceModelSearchSupport) SetSearchIcon(v string) *CreateAndDeliverRequestImRobotOpenSpaceModelSearchSupport {
+	s.SearchIcon = &v
+	return s
+}
+
+func (s *CreateAndDeliverRequestImRobotOpenSpaceModelSearchSupport) SetSearchTypeName(v string) *CreateAndDeliverRequestImRobotOpenSpaceModelSearchSupport {
 	s.SearchTypeName = &v
 	return s
 }
@@ -1196,6 +1416,8 @@ type CreateCardRequest struct {
 	// IM 群聊场域信息
 	ImGroupOpenSpaceModel *CreateCardRequestImGroupOpenSpaceModel `json:"imGroupOpenSpaceModel,omitempty" xml:"imGroupOpenSpaceModel,omitempty" type:"Struct"`
 	// IM 单聊场域信息
+	ImRobotOpenSpaceModel *CreateCardRequestImRobotOpenSpaceModel `json:"imRobotOpenSpaceModel,omitempty" xml:"imRobotOpenSpaceModel,omitempty" type:"Struct"`
+	// IM 单聊场域信息
 	ImSingleOpenSpaceModel *CreateCardRequestImSingleOpenSpaceModel `json:"imSingleOpenSpaceModel,omitempty" xml:"imSingleOpenSpaceModel,omitempty" type:"Struct"`
 	// 动态数据源配置
 	OpenDynamicDataConfig *CreateCardRequestOpenDynamicDataConfig `json:"openDynamicDataConfig,omitempty" xml:"openDynamicDataConfig,omitempty" type:"Struct"`
@@ -1249,6 +1471,11 @@ func (s *CreateCardRequest) SetCoFeedOpenSpaceModel(v *CreateCardRequestCoFeedOp
 
 func (s *CreateCardRequest) SetImGroupOpenSpaceModel(v *CreateCardRequestImGroupOpenSpaceModel) *CreateCardRequest {
 	s.ImGroupOpenSpaceModel = v
+	return s
+}
+
+func (s *CreateCardRequest) SetImRobotOpenSpaceModel(v *CreateCardRequestImRobotOpenSpaceModel) *CreateCardRequest {
+	s.ImRobotOpenSpaceModel = v
 	return s
 }
 
@@ -1431,6 +1658,111 @@ func (s *CreateCardRequestImGroupOpenSpaceModelSearchSupport) SetSearchIcon(v st
 }
 
 func (s *CreateCardRequestImGroupOpenSpaceModelSearchSupport) SetSearchTypeName(v string) *CreateCardRequestImGroupOpenSpaceModelSearchSupport {
+	s.SearchTypeName = &v
+	return s
+}
+
+type CreateCardRequestImRobotOpenSpaceModel struct {
+	// 支持国际化的LastMessage
+	// key为语言枚举值，value为lastMessage内容
+	// 目前支持的语言枚举值：
+	// 简体中文: ZH_CN
+	// 繁体中文: ZH_TW
+	// 英文： EN_US
+	// 日语: JA_JP
+	// 越南语: VI_VN
+	LastMessageI18n map[string]*string `json:"lastMessageI18n,omitempty" xml:"lastMessageI18n,omitempty"`
+	// 卡片的通知属性信息
+	Notification *CreateCardRequestImRobotOpenSpaceModelNotification `json:"notification,omitempty" xml:"notification,omitempty" type:"Struct"`
+	// 支持卡片消息可被搜索字段
+	SearchSupport *CreateCardRequestImRobotOpenSpaceModelSearchSupport `json:"searchSupport,omitempty" xml:"searchSupport,omitempty" type:"Struct"`
+	// 是否支持转发, 默认 false
+	SupportForward *bool `json:"supportForward,omitempty" xml:"supportForward,omitempty"`
+}
+
+func (s CreateCardRequestImRobotOpenSpaceModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardRequestImRobotOpenSpaceModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardRequestImRobotOpenSpaceModel) SetLastMessageI18n(v map[string]*string) *CreateCardRequestImRobotOpenSpaceModel {
+	s.LastMessageI18n = v
+	return s
+}
+
+func (s *CreateCardRequestImRobotOpenSpaceModel) SetNotification(v *CreateCardRequestImRobotOpenSpaceModelNotification) *CreateCardRequestImRobotOpenSpaceModel {
+	s.Notification = v
+	return s
+}
+
+func (s *CreateCardRequestImRobotOpenSpaceModel) SetSearchSupport(v *CreateCardRequestImRobotOpenSpaceModelSearchSupport) *CreateCardRequestImRobotOpenSpaceModel {
+	s.SearchSupport = v
+	return s
+}
+
+func (s *CreateCardRequestImRobotOpenSpaceModel) SetSupportForward(v bool) *CreateCardRequestImRobotOpenSpaceModel {
+	s.SupportForward = &v
+	return s
+}
+
+type CreateCardRequestImRobotOpenSpaceModelNotification struct {
+	// 【条件必填】通知内容
+	// 若不填写则使用默认文案：如你收到1条新消息
+	AlertContent *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
+	// 是否推送通知，默认为 false
+	NotificationOff *bool `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
+}
+
+func (s CreateCardRequestImRobotOpenSpaceModelNotification) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardRequestImRobotOpenSpaceModelNotification) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardRequestImRobotOpenSpaceModelNotification) SetAlertContent(v string) *CreateCardRequestImRobotOpenSpaceModelNotification {
+	s.AlertContent = &v
+	return s
+}
+
+func (s *CreateCardRequestImRobotOpenSpaceModelNotification) SetNotificationOff(v bool) *CreateCardRequestImRobotOpenSpaceModelNotification {
+	s.NotificationOff = &v
+	return s
+}
+
+type CreateCardRequestImRobotOpenSpaceModelSearchSupport struct {
+	// 【条件必填】供消息展示与搜索的字段
+	//  【注意】最大限制200个字符，超过存储截断200
+	SearchDesc *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	// 类型的icon，供搜索展示使用
+	SearchIcon *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// 卡片类型名
+	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
+}
+
+func (s CreateCardRequestImRobotOpenSpaceModelSearchSupport) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCardRequestImRobotOpenSpaceModelSearchSupport) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCardRequestImRobotOpenSpaceModelSearchSupport) SetSearchDesc(v string) *CreateCardRequestImRobotOpenSpaceModelSearchSupport {
+	s.SearchDesc = &v
+	return s
+}
+
+func (s *CreateCardRequestImRobotOpenSpaceModelSearchSupport) SetSearchIcon(v string) *CreateCardRequestImRobotOpenSpaceModelSearchSupport {
+	s.SearchIcon = &v
+	return s
+}
+
+func (s *CreateCardRequestImRobotOpenSpaceModelSearchSupport) SetSearchTypeName(v string) *CreateCardRequestImRobotOpenSpaceModelSearchSupport {
 	s.SearchTypeName = &v
 	return s
 }
@@ -1759,6 +2091,8 @@ type DeliverCardRequest struct {
 	// 群聊投放参数
 	ImGroupOpenDeliverModel *DeliverCardRequestImGroupOpenDeliverModel `json:"imGroupOpenDeliverModel,omitempty" xml:"imGroupOpenDeliverModel,omitempty" type:"Struct"`
 	// 单聊场域投放参数
+	ImRobotOpenDeliverModel *DeliverCardRequestImRobotOpenDeliverModel `json:"imRobotOpenDeliverModel,omitempty" xml:"imRobotOpenDeliverModel,omitempty" type:"Struct"`
+	// 单聊场域投放参数
 	ImSingleOpenDeliverModel *DeliverCardRequestImSingleOpenDeliverModel `json:"imSingleOpenDeliverModel,omitempty" xml:"imSingleOpenDeliverModel,omitempty" type:"Struct"`
 	// dt.card//spaceType.spaceId;spaceType.spaceId
 	OpenSpaceId *string `json:"openSpaceId,omitempty" xml:"openSpaceId,omitempty"`
@@ -1785,6 +2119,11 @@ func (s *DeliverCardRequest) SetCoFeedOpenDeliverModel(v *DeliverCardRequestCoFe
 
 func (s *DeliverCardRequest) SetImGroupOpenDeliverModel(v *DeliverCardRequestImGroupOpenDeliverModel) *DeliverCardRequest {
 	s.ImGroupOpenDeliverModel = v
+	return s
+}
+
+func (s *DeliverCardRequest) SetImRobotOpenDeliverModel(v *DeliverCardRequestImRobotOpenDeliverModel) *DeliverCardRequest {
+	s.ImRobotOpenDeliverModel = v
 	return s
 }
 
@@ -1867,6 +2206,23 @@ func (s *DeliverCardRequestImGroupOpenDeliverModel) SetRecipients(v []*string) *
 
 func (s *DeliverCardRequestImGroupOpenDeliverModel) SetRobotCode(v string) *DeliverCardRequestImGroupOpenDeliverModel {
 	s.RobotCode = &v
+	return s
+}
+
+type DeliverCardRequestImRobotOpenDeliverModel struct {
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+}
+
+func (s DeliverCardRequestImRobotOpenDeliverModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverCardRequestImRobotOpenDeliverModel) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverCardRequestImRobotOpenDeliverModel) SetSpaceType(v string) *DeliverCardRequestImRobotOpenDeliverModel {
+	s.SpaceType = &v
 	return s
 }
 
@@ -2431,6 +2787,10 @@ func (client *Client) AppendSpaceWithOptions(request *AppendSpaceRequest, header
 		body["imGroupOpenSpaceModel"] = request.ImGroupOpenSpaceModel
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.ImRobotOpenSpaceModel)) {
+		body["imRobotOpenSpaceModel"] = request.ImRobotOpenSpaceModel
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ImSingleOpenSpaceModel)) {
 		body["imSingleOpenSpaceModel"] = request.ImSingleOpenSpaceModel
 	}
@@ -2517,6 +2877,14 @@ func (client *Client) CreateAndDeliverWithOptions(request *CreateAndDeliverReque
 
 	if !tea.BoolValue(util.IsUnset(request.ImGroupOpenSpaceModel)) {
 		body["imGroupOpenSpaceModel"] = request.ImGroupOpenSpaceModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImRobotOpenDeliverModel)) {
+		body["imRobotOpenDeliverModel"] = request.ImRobotOpenDeliverModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImRobotOpenSpaceModel)) {
+		body["imRobotOpenSpaceModel"] = request.ImRobotOpenSpaceModel
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ImSingleOpenDeliverModel)) {
@@ -2631,6 +2999,10 @@ func (client *Client) CreateCardWithOptions(request *CreateCardRequest, headers 
 		body["imGroupOpenSpaceModel"] = request.ImGroupOpenSpaceModel
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.ImRobotOpenSpaceModel)) {
+		body["imRobotOpenSpaceModel"] = request.ImRobotOpenSpaceModel
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ImSingleOpenSpaceModel)) {
 		body["imSingleOpenSpaceModel"] = request.ImSingleOpenSpaceModel
 	}
@@ -2709,6 +3081,10 @@ func (client *Client) DeliverCardWithOptions(request *DeliverCardRequest, header
 
 	if !tea.BoolValue(util.IsUnset(request.ImGroupOpenDeliverModel)) {
 		body["imGroupOpenDeliverModel"] = request.ImGroupOpenDeliverModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImRobotOpenDeliverModel)) {
+		body["imRobotOpenDeliverModel"] = request.ImRobotOpenDeliverModel
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ImSingleOpenDeliverModel)) {
