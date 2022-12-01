@@ -1021,6 +1021,8 @@ func (s *CreateRangeProtectionHeaders) SetXAcsDingtalkAccessToken(v string) *Cre
 }
 
 type CreateRangeProtectionRequest struct {
+	// 对于拥有「可编辑」权限的用户的细化权限配置。
+	EditableSetting *CreateRangeProtectionRequestEditableSetting `json:"editableSetting,omitempty" xml:"editableSetting,omitempty" type:"Struct"`
 	// 其它用户的权限
 	OtherUserPermission *string `json:"otherUserPermission,omitempty" xml:"otherUserPermission,omitempty"`
 	// 操作人unionId
@@ -1035,6 +1037,11 @@ func (s CreateRangeProtectionRequest) GoString() string {
 	return s.String()
 }
 
+func (s *CreateRangeProtectionRequest) SetEditableSetting(v *CreateRangeProtectionRequestEditableSetting) *CreateRangeProtectionRequest {
+	s.EditableSetting = v
+	return s
+}
+
 func (s *CreateRangeProtectionRequest) SetOtherUserPermission(v string) *CreateRangeProtectionRequest {
 	s.OtherUserPermission = &v
 	return s
@@ -1042,6 +1049,59 @@ func (s *CreateRangeProtectionRequest) SetOtherUserPermission(v string) *CreateR
 
 func (s *CreateRangeProtectionRequest) SetOperatorId(v string) *CreateRangeProtectionRequest {
 	s.OperatorId = &v
+	return s
+}
+
+type CreateRangeProtectionRequestEditableSetting struct {
+	// 是否可删除列
+	DeleteColumns *bool `json:"deleteColumns,omitempty" xml:"deleteColumns,omitempty"`
+	// 是否可删除行
+	DeleteRows *bool `json:"deleteRows,omitempty" xml:"deleteRows,omitempty"`
+	// 是否可修改单元格的值
+	EditCells *bool `json:"editCells,omitempty" xml:"editCells,omitempty"`
+	// 是否可修改单元格样式
+	FormatCells *bool `json:"formatCells,omitempty" xml:"formatCells,omitempty"`
+	// 是否可插入列
+	InsertColumns *bool `json:"insertColumns,omitempty" xml:"insertColumns,omitempty"`
+	// 是否可插入行
+	InsertRows *bool `json:"insertRows,omitempty" xml:"insertRows,omitempty"`
+}
+
+func (s CreateRangeProtectionRequestEditableSetting) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRangeProtectionRequestEditableSetting) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRangeProtectionRequestEditableSetting) SetDeleteColumns(v bool) *CreateRangeProtectionRequestEditableSetting {
+	s.DeleteColumns = &v
+	return s
+}
+
+func (s *CreateRangeProtectionRequestEditableSetting) SetDeleteRows(v bool) *CreateRangeProtectionRequestEditableSetting {
+	s.DeleteRows = &v
+	return s
+}
+
+func (s *CreateRangeProtectionRequestEditableSetting) SetEditCells(v bool) *CreateRangeProtectionRequestEditableSetting {
+	s.EditCells = &v
+	return s
+}
+
+func (s *CreateRangeProtectionRequestEditableSetting) SetFormatCells(v bool) *CreateRangeProtectionRequestEditableSetting {
+	s.FormatCells = &v
+	return s
+}
+
+func (s *CreateRangeProtectionRequestEditableSetting) SetInsertColumns(v bool) *CreateRangeProtectionRequestEditableSetting {
+	s.InsertColumns = &v
+	return s
+}
+
+func (s *CreateRangeProtectionRequestEditableSetting) SetInsertRows(v bool) *CreateRangeProtectionRequestEditableSetting {
+	s.InsertRows = &v
 	return s
 }
 
@@ -5691,6 +5751,10 @@ func (client *Client) CreateRangeProtectionWithOptions(workbookId *string, sheet
 	}
 
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EditableSetting)) {
+		body["editableSetting"] = request.EditableSetting
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.OtherUserPermission)) {
 		body["otherUserPermission"] = request.OtherUserPermission
 	}

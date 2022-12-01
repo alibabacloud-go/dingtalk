@@ -2864,6 +2864,404 @@ func (s *GetCurrentAppResponse) SetBody(v *GetCurrentAppResponseBody) *GetCurren
 	return s
 }
 
+type GetDentriesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetDentriesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentriesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentriesHeaders) SetCommonHeaders(v map[string]*string) *GetDentriesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetDentriesHeaders) SetXAcsDingtalkAccessToken(v string) *GetDentriesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetDentriesRequest struct {
+	// 文件(夹)id列表
+	// 最大size:
+	// 	30
+	DentryIds []*string `json:"dentryIds,omitempty" xml:"dentryIds,omitempty" type:"Repeated"`
+	// 可选参数
+	Option *GetDentriesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetDentriesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentriesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentriesRequest) SetDentryIds(v []*string) *GetDentriesRequest {
+	s.DentryIds = v
+	return s
+}
+
+func (s *GetDentriesRequest) SetOption(v *GetDentriesRequestOption) *GetDentriesRequest {
+	s.Option = v
+	return s
+}
+
+func (s *GetDentriesRequest) SetUnionId(v string) *GetDentriesRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetDentriesRequestOption struct {
+	// 通过指定应用id, 返回对应的可见属性，即dentry.appProperties，
+	// 默认都会返回当前应用的属性，
+	// 如不指定appIds, 则默认返回当前应用的appProperties
+	// 最大size:
+	// 	20
+	AppIdsForAppProperties []*string `json:"appIdsForAppProperties,omitempty" xml:"appIdsForAppProperties,omitempty" type:"Repeated"`
+	// 是否获取文件缩略图临时链接
+	// 注: 按需获取, 会影响接口耗时
+	// 默认值:
+	// 	false
+	WithThumbnail *bool `json:"withThumbnail,omitempty" xml:"withThumbnail,omitempty"`
+}
+
+func (s GetDentriesRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentriesRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentriesRequestOption) SetAppIdsForAppProperties(v []*string) *GetDentriesRequestOption {
+	s.AppIdsForAppProperties = v
+	return s
+}
+
+func (s *GetDentriesRequestOption) SetWithThumbnail(v bool) *GetDentriesRequestOption {
+	s.WithThumbnail = &v
+	return s
+}
+
+type GetDentriesResponseBody struct {
+	// 批量获取文件(夹)信息结果列表
+	// 最大size:
+	// 	30
+	ResultItems []*GetDentriesResponseBodyResultItems `json:"resultItems,omitempty" xml:"resultItems,omitempty" type:"Repeated"`
+}
+
+func (s GetDentriesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentriesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentriesResponseBody) SetResultItems(v []*GetDentriesResponseBodyResultItems) *GetDentriesResponseBody {
+	s.ResultItems = v
+	return s
+}
+
+type GetDentriesResponseBodyResultItems struct {
+	// 文件(夹)信息
+	Dentry *GetDentriesResponseBodyResultItemsDentry `json:"dentry,omitempty" xml:"dentry,omitempty" type:"Struct"`
+	// 文件(夹)id
+	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// 错误原因
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// 文件(夹)空间id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetDentriesResponseBodyResultItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentriesResponseBodyResultItems) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentriesResponseBodyResultItems) SetDentry(v *GetDentriesResponseBodyResultItemsDentry) *GetDentriesResponseBodyResultItems {
+	s.Dentry = v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItems) SetDentryId(v string) *GetDentriesResponseBodyResultItems {
+	s.DentryId = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItems) SetErrorCode(v string) *GetDentriesResponseBodyResultItems {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItems) SetSpaceId(v string) *GetDentriesResponseBodyResultItems {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItems) SetSuccess(v bool) *GetDentriesResponseBodyResultItems {
+	s.Success = &v
+	return s
+}
+
+type GetDentriesResponseBodyResultItemsDentry struct {
+	// 在特定应用上的属性。key是微应用Id, value是属性列表。
+	// 可以通过修改DentryAppProperty里的scope来设置属性的可见性
+	// 最大size:
+	// 	10
+	AppProperties map[string][]*ResultItemsDentryAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 创建者id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 后缀
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 修改时间
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// 修改者id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 父目录id, 根目录id值为0
+	// 空值代表根目录的parentId不存在
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// 存储分区，目前包括公有云OSS存储分区和专属Mini OSS存储分区
+	// 枚举值:
+	// 	PUBLIC_OSS_PARTITION: 公有云OSS存储分区
+	// 	MINI_OSS_PARTITION: 专属Mini OSS存储分区
+	PartitionType *string `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
+	// 路径
+	Path *string `json:"path,omitempty" xml:"path,omitempty"`
+	// 属性
+	Properties *GetDentriesResponseBodyResultItemsDentryProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
+	// 大小, 单位:Byte
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// 所在空间id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 状态
+	// 枚举值:
+	// 	NORMAL: 正常
+	// 	DELETED: 已删除
+	// 	EXPIRED: 已过期
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 驱动类型
+	// 枚举值:
+	// 	DINGTALK: 钉钉统一存储驱动
+	// 	ALIDOC: 钉钉文档存储驱动
+	// 	SHANJI: 闪记存储驱动
+	// 	UNKNOWN: 未知驱动
+	StorageDriver *string `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	// 缩略图信息
+	Thumbnail *GetDentriesResponseBodyResultItemsDentryThumbnail `json:"thumbnail,omitempty" xml:"thumbnail,omitempty" type:"Struct"`
+	// 类型，目录或文件
+	// 枚举值:
+	// 	FILE: 文件
+	// 	FOLDER: 文件夹
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// uuid，如移动文件，此字段不变
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// 版本
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s GetDentriesResponseBodyResultItemsDentry) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentriesResponseBodyResultItemsDentry) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetAppProperties(v map[string][]*ResultItemsDentryAppPropertiesValue) *GetDentriesResponseBodyResultItemsDentry {
+	s.AppProperties = v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetCreateTime(v string) *GetDentriesResponseBodyResultItemsDentry {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetCreatorId(v string) *GetDentriesResponseBodyResultItemsDentry {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetExtension(v string) *GetDentriesResponseBodyResultItemsDentry {
+	s.Extension = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetId(v string) *GetDentriesResponseBodyResultItemsDentry {
+	s.Id = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetModifiedTime(v string) *GetDentriesResponseBodyResultItemsDentry {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetModifierId(v string) *GetDentriesResponseBodyResultItemsDentry {
+	s.ModifierId = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetName(v string) *GetDentriesResponseBodyResultItemsDentry {
+	s.Name = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetParentId(v string) *GetDentriesResponseBodyResultItemsDentry {
+	s.ParentId = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetPartitionType(v string) *GetDentriesResponseBodyResultItemsDentry {
+	s.PartitionType = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetPath(v string) *GetDentriesResponseBodyResultItemsDentry {
+	s.Path = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetProperties(v *GetDentriesResponseBodyResultItemsDentryProperties) *GetDentriesResponseBodyResultItemsDentry {
+	s.Properties = v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetSize(v int64) *GetDentriesResponseBodyResultItemsDentry {
+	s.Size = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetSpaceId(v string) *GetDentriesResponseBodyResultItemsDentry {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetStatus(v string) *GetDentriesResponseBodyResultItemsDentry {
+	s.Status = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetStorageDriver(v string) *GetDentriesResponseBodyResultItemsDentry {
+	s.StorageDriver = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetThumbnail(v *GetDentriesResponseBodyResultItemsDentryThumbnail) *GetDentriesResponseBodyResultItemsDentry {
+	s.Thumbnail = v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetType(v string) *GetDentriesResponseBodyResultItemsDentry {
+	s.Type = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetUuid(v string) *GetDentriesResponseBodyResultItemsDentry {
+	s.Uuid = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentry) SetVersion(v int64) *GetDentriesResponseBodyResultItemsDentry {
+	s.Version = &v
+	return s
+}
+
+type GetDentriesResponseBodyResultItemsDentryProperties struct {
+	// 文件是否只读
+	ReadOnly *bool `json:"readOnly,omitempty" xml:"readOnly,omitempty"`
+}
+
+func (s GetDentriesResponseBodyResultItemsDentryProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentriesResponseBodyResultItemsDentryProperties) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentryProperties) SetReadOnly(v bool) *GetDentriesResponseBodyResultItemsDentryProperties {
+	s.ReadOnly = &v
+	return s
+}
+
+type GetDentriesResponseBodyResultItemsDentryThumbnail struct {
+	// 缩略图高度
+	Height *int32 `json:"height,omitempty" xml:"height,omitempty"`
+	// 缩略图url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 缩略图宽度
+	Width *int32 `json:"width,omitempty" xml:"width,omitempty"`
+}
+
+func (s GetDentriesResponseBodyResultItemsDentryThumbnail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentriesResponseBodyResultItemsDentryThumbnail) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentryThumbnail) SetHeight(v int32) *GetDentriesResponseBodyResultItemsDentryThumbnail {
+	s.Height = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentryThumbnail) SetUrl(v string) *GetDentriesResponseBodyResultItemsDentryThumbnail {
+	s.Url = &v
+	return s
+}
+
+func (s *GetDentriesResponseBodyResultItemsDentryThumbnail) SetWidth(v int32) *GetDentriesResponseBodyResultItemsDentryThumbnail {
+	s.Width = &v
+	return s
+}
+
+type GetDentriesResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetDentriesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetDentriesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentriesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentriesResponse) SetHeaders(v map[string]*string) *GetDentriesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetDentriesResponse) SetBody(v *GetDentriesResponseBody) *GetDentriesResponse {
+	s.Body = v
+	return s
+}
+
 type GetDentryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2919,6 +3317,11 @@ type GetDentryRequestOption struct {
 	// 最大size:
 	// 	20
 	AppIdsForAppProperties []*string `json:"appIdsForAppProperties,omitempty" xml:"appIdsForAppProperties,omitempty" type:"Repeated"`
+	// 是否获取文件缩略图临时链接
+	// 注: 按需获取, 会影响接口耗时
+	// 默认值:
+	// 	false
+	WithThumbnail *bool `json:"withThumbnail,omitempty" xml:"withThumbnail,omitempty"`
 }
 
 func (s GetDentryRequestOption) String() string {
@@ -2931,6 +3334,11 @@ func (s GetDentryRequestOption) GoString() string {
 
 func (s *GetDentryRequestOption) SetAppIdsForAppProperties(v []*string) *GetDentryRequestOption {
 	s.AppIdsForAppProperties = v
+	return s
+}
+
+func (s *GetDentryRequestOption) SetWithThumbnail(v bool) *GetDentryRequestOption {
+	s.WithThumbnail = &v
 	return s
 }
 
@@ -3001,6 +3409,8 @@ type GetDentryResponseBodyDentry struct {
 	// 	SHANJI: 闪记存储驱动
 	// 	UNKNOWN: 未知驱动
 	StorageDriver *string `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	// 缩略图信息
+	Thumbnail *GetDentryResponseBodyDentryThumbnail `json:"thumbnail,omitempty" xml:"thumbnail,omitempty" type:"Struct"`
 	// 类型，目录或文件
 	// 枚举值:
 	// 	FILE: 文件
@@ -3100,6 +3510,11 @@ func (s *GetDentryResponseBodyDentry) SetStorageDriver(v string) *GetDentryRespo
 	return s
 }
 
+func (s *GetDentryResponseBodyDentry) SetThumbnail(v *GetDentryResponseBodyDentryThumbnail) *GetDentryResponseBodyDentry {
+	s.Thumbnail = v
+	return s
+}
+
 func (s *GetDentryResponseBodyDentry) SetType(v string) *GetDentryResponseBodyDentry {
 	s.Type = &v
 	return s
@@ -3130,6 +3545,38 @@ func (s GetDentryResponseBodyDentryProperties) GoString() string {
 
 func (s *GetDentryResponseBodyDentryProperties) SetReadOnly(v bool) *GetDentryResponseBodyDentryProperties {
 	s.ReadOnly = &v
+	return s
+}
+
+type GetDentryResponseBodyDentryThumbnail struct {
+	// 缩略图高度
+	Height *int32 `json:"height,omitempty" xml:"height,omitempty"`
+	// 缩略图url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 缩略图宽度
+	Width *int32 `json:"width,omitempty" xml:"width,omitempty"`
+}
+
+func (s GetDentryResponseBodyDentryThumbnail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentryResponseBodyDentryThumbnail) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentryResponseBodyDentryThumbnail) SetHeight(v int32) *GetDentryResponseBodyDentryThumbnail {
+	s.Height = &v
+	return s
+}
+
+func (s *GetDentryResponseBodyDentryThumbnail) SetUrl(v string) *GetDentryResponseBodyDentryThumbnail {
+	s.Url = &v
+	return s
+}
+
+func (s *GetDentryResponseBodyDentryThumbnail) SetWidth(v int32) *GetDentryResponseBodyDentryThumbnail {
+	s.Width = &v
 	return s
 }
 
@@ -3305,6 +3752,177 @@ func (s *GetDentryOpenInfoResponse) SetBody(v *GetDentryOpenInfoResponseBody) *G
 	return s
 }
 
+type GetDentryThumbnailsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetDentryThumbnailsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentryThumbnailsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentryThumbnailsHeaders) SetCommonHeaders(v map[string]*string) *GetDentryThumbnailsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetDentryThumbnailsHeaders) SetXAcsDingtalkAccessToken(v string) *GetDentryThumbnailsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetDentryThumbnailsRequest struct {
+	// 文件id列表
+	// 最大size:
+	// 	30
+	DentryIds []*string `json:"dentryIds,omitempty" xml:"dentryIds,omitempty" type:"Repeated"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetDentryThumbnailsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentryThumbnailsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentryThumbnailsRequest) SetDentryIds(v []*string) *GetDentryThumbnailsRequest {
+	s.DentryIds = v
+	return s
+}
+
+func (s *GetDentryThumbnailsRequest) SetUnionId(v string) *GetDentryThumbnailsRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetDentryThumbnailsResponseBody struct {
+	// 缩略图获取结果列表
+	// 最大size:
+	// 	30
+	ResultItems []*GetDentryThumbnailsResponseBodyResultItems `json:"resultItems,omitempty" xml:"resultItems,omitempty" type:"Repeated"`
+}
+
+func (s GetDentryThumbnailsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentryThumbnailsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentryThumbnailsResponseBody) SetResultItems(v []*GetDentryThumbnailsResponseBodyResultItems) *GetDentryThumbnailsResponseBody {
+	s.ResultItems = v
+	return s
+}
+
+type GetDentryThumbnailsResponseBodyResultItems struct {
+	// 源文件(夹)id
+	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// 错误原因
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// 源文件(夹)空间id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 是否成功获取到缩略图
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 缩略图信息
+	Thumbnail *GetDentryThumbnailsResponseBodyResultItemsThumbnail `json:"thumbnail,omitempty" xml:"thumbnail,omitempty" type:"Struct"`
+}
+
+func (s GetDentryThumbnailsResponseBodyResultItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentryThumbnailsResponseBodyResultItems) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentryThumbnailsResponseBodyResultItems) SetDentryId(v string) *GetDentryThumbnailsResponseBodyResultItems {
+	s.DentryId = &v
+	return s
+}
+
+func (s *GetDentryThumbnailsResponseBodyResultItems) SetErrorCode(v string) *GetDentryThumbnailsResponseBodyResultItems {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *GetDentryThumbnailsResponseBodyResultItems) SetSpaceId(v string) *GetDentryThumbnailsResponseBodyResultItems {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *GetDentryThumbnailsResponseBodyResultItems) SetSuccess(v bool) *GetDentryThumbnailsResponseBodyResultItems {
+	s.Success = &v
+	return s
+}
+
+func (s *GetDentryThumbnailsResponseBodyResultItems) SetThumbnail(v *GetDentryThumbnailsResponseBodyResultItemsThumbnail) *GetDentryThumbnailsResponseBodyResultItems {
+	s.Thumbnail = v
+	return s
+}
+
+type GetDentryThumbnailsResponseBodyResultItemsThumbnail struct {
+	// 缩略图高度
+	Height *int32 `json:"height,omitempty" xml:"height,omitempty"`
+	// 缩略图url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 缩略图宽度
+	Width *int32 `json:"width,omitempty" xml:"width,omitempty"`
+}
+
+func (s GetDentryThumbnailsResponseBodyResultItemsThumbnail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentryThumbnailsResponseBodyResultItemsThumbnail) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentryThumbnailsResponseBodyResultItemsThumbnail) SetHeight(v int32) *GetDentryThumbnailsResponseBodyResultItemsThumbnail {
+	s.Height = &v
+	return s
+}
+
+func (s *GetDentryThumbnailsResponseBodyResultItemsThumbnail) SetUrl(v string) *GetDentryThumbnailsResponseBodyResultItemsThumbnail {
+	s.Url = &v
+	return s
+}
+
+func (s *GetDentryThumbnailsResponseBodyResultItemsThumbnail) SetWidth(v int32) *GetDentryThumbnailsResponseBodyResultItemsThumbnail {
+	s.Width = &v
+	return s
+}
+
+type GetDentryThumbnailsResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetDentryThumbnailsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetDentryThumbnailsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDentryThumbnailsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetDentryThumbnailsResponse) SetHeaders(v map[string]*string) *GetDentryThumbnailsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetDentryThumbnailsResponse) SetBody(v *GetDentryThumbnailsResponseBody) *GetDentryThumbnailsResponse {
+	s.Body = v
+	return s
+}
+
 type GetFileDownloadInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3354,6 +3972,11 @@ func (s *GetFileDownloadInfoRequest) SetUnionId(v string) *GetFileDownloadInfoRe
 }
 
 type GetFileDownloadInfoRequestOption struct {
+	// 优先使用内网传输
+	// 前提: 配置了专属存储内网传输
+	// 默认值:
+	// 	true
+	PreferIntranet *bool `json:"preferIntranet,omitempty" xml:"preferIntranet,omitempty"`
 	// 历史版本号
 	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
@@ -3364,6 +3987,11 @@ func (s GetFileDownloadInfoRequestOption) String() string {
 
 func (s GetFileDownloadInfoRequestOption) GoString() string {
 	return s.String()
+}
+
+func (s *GetFileDownloadInfoRequestOption) SetPreferIntranet(v bool) *GetFileDownloadInfoRequestOption {
+	s.PreferIntranet = &v
+	return s
 }
 
 func (s *GetFileDownloadInfoRequestOption) SetVersion(v int64) *GetFileDownloadInfoRequestOption {
@@ -3548,6 +4176,11 @@ func (s *GetFileUploadInfoRequest) SetUnionId(v string) *GetFileUploadInfoReques
 type GetFileUploadInfoRequestOption struct {
 	// 预检查的字段。可实现对文件名称，文件完整性，容量的校验
 	PreCheckParam *GetFileUploadInfoRequestOptionPreCheckParam `json:"preCheckParam,omitempty" xml:"preCheckParam,omitempty" type:"Struct"`
+	// 优先使用内网传输
+	// 前提: 配置了专属存储内网传输
+	// 默认值:
+	// 	true
+	PreferIntranet *bool `json:"preferIntranet,omitempty" xml:"preferIntranet,omitempty"`
 	// 优先地域, 倾向于将资源存到哪个地域，可实现就近上传等功能
 	// 枚举值:
 	// 	ZHANGJIAKOU: 张家口
@@ -3577,6 +4210,11 @@ func (s GetFileUploadInfoRequestOption) GoString() string {
 
 func (s *GetFileUploadInfoRequestOption) SetPreCheckParam(v *GetFileUploadInfoRequestOptionPreCheckParam) *GetFileUploadInfoRequestOption {
 	s.PreCheckParam = v
+	return s
+}
+
+func (s *GetFileUploadInfoRequestOption) SetPreferIntranet(v bool) *GetFileUploadInfoRequestOption {
+	s.PreferIntranet = &v
 	return s
 }
 
@@ -3786,6 +4424,8 @@ func (s *GetMultipartFileUploadInfosHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type GetMultipartFileUploadInfosRequest struct {
+	// 可选参数
+	Option *GetMultipartFileUploadInfosRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
 	// 分片id列表
 	// 分片id取值: 1~10000
 	// 分片大小限制: 100KB~5GB
@@ -3806,6 +4446,11 @@ func (s GetMultipartFileUploadInfosRequest) GoString() string {
 	return s.String()
 }
 
+func (s *GetMultipartFileUploadInfosRequest) SetOption(v *GetMultipartFileUploadInfosRequestOption) *GetMultipartFileUploadInfosRequest {
+	s.Option = v
+	return s
+}
+
 func (s *GetMultipartFileUploadInfosRequest) SetPartNumbers(v []*int32) *GetMultipartFileUploadInfosRequest {
 	s.PartNumbers = v
 	return s
@@ -3818,6 +4463,27 @@ func (s *GetMultipartFileUploadInfosRequest) SetUploadKey(v string) *GetMultipar
 
 func (s *GetMultipartFileUploadInfosRequest) SetUnionId(v string) *GetMultipartFileUploadInfosRequest {
 	s.UnionId = &v
+	return s
+}
+
+type GetMultipartFileUploadInfosRequestOption struct {
+	// 优先使用内网传输
+	// 前提: 配置了专属存储内网传输
+	// 默认值:
+	// 	true
+	PreferIntranet *bool `json:"preferIntranet,omitempty" xml:"preferIntranet,omitempty"`
+}
+
+func (s GetMultipartFileUploadInfosRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMultipartFileUploadInfosRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *GetMultipartFileUploadInfosRequestOption) SetPreferIntranet(v bool) *GetMultipartFileUploadInfosRequestOption {
+	s.PreferIntranet = &v
 	return s
 }
 
@@ -5128,6 +5794,379 @@ func (s *InitMultipartFileUploadResponse) SetBody(v *InitMultipartFileUploadResp
 	return s
 }
 
+type ListAllDentriesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListAllDentriesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllDentriesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllDentriesHeaders) SetCommonHeaders(v map[string]*string) *ListAllDentriesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListAllDentriesHeaders) SetXAcsDingtalkAccessToken(v string) *ListAllDentriesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListAllDentriesRequest struct {
+	// 可选参数
+	Option *ListAllDentriesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s ListAllDentriesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllDentriesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllDentriesRequest) SetOption(v *ListAllDentriesRequestOption) *ListAllDentriesRequest {
+	s.Option = v
+	return s
+}
+
+func (s *ListAllDentriesRequest) SetUnionId(v string) *ListAllDentriesRequest {
+	s.UnionId = &v
+	return s
+}
+
+type ListAllDentriesRequestOption struct {
+	// 分页大小
+	// 默认值:
+	// 	50
+	// 最大值:
+	// 	50
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页游标, 首次拉取不用传
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 排序规则, 升降或降序
+	// 目前仅支持按修改时间排序,
+	// 如果是升序排序, 分页拉取过程中, 如果文件发生变化, 可能拉取到重复数据
+	// 如果是降序排序, 分页拉取过程中, 如果文件发生变化, 可能会丢失数据
+	// 枚举值:
+	// 	ASC: 升序
+	// 	DESC: 降序
+	// 默认值:
+	// 	ASC
+	Order *string `json:"order,omitempty" xml:"order,omitempty"`
+	// 是否获取文件缩略图临时链接
+	// 注: 按需获取, 会影响接口耗时
+	// 默认值:
+	// 	false
+	WithThumbnail *bool `json:"withThumbnail,omitempty" xml:"withThumbnail,omitempty"`
+}
+
+func (s ListAllDentriesRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllDentriesRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllDentriesRequestOption) SetMaxResults(v int32) *ListAllDentriesRequestOption {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListAllDentriesRequestOption) SetNextToken(v string) *ListAllDentriesRequestOption {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListAllDentriesRequestOption) SetOrder(v string) *ListAllDentriesRequestOption {
+	s.Order = &v
+	return s
+}
+
+func (s *ListAllDentriesRequestOption) SetWithThumbnail(v bool) *ListAllDentriesRequestOption {
+	s.WithThumbnail = &v
+	return s
+}
+
+type ListAllDentriesResponseBody struct {
+	// 文件列表
+	// 最大size:
+	// 	50
+	Dentries []*ListAllDentriesResponseBodyDentries `json:"dentries,omitempty" xml:"dentries,omitempty" type:"Repeated"`
+	// 分页游标
+	// 不为空表示有更多数据
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListAllDentriesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllDentriesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllDentriesResponseBody) SetDentries(v []*ListAllDentriesResponseBodyDentries) *ListAllDentriesResponseBody {
+	s.Dentries = v
+	return s
+}
+
+func (s *ListAllDentriesResponseBody) SetNextToken(v string) *ListAllDentriesResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type ListAllDentriesResponseBodyDentries struct {
+	// 在特定应用上的属性。key是微应用Id, value是属性列表。
+	// 可以通过修改DentryAppProperty里的scope来设置属性的可见性
+	// 最大size:
+	// 	10
+	AppProperties map[string][]*DentriesAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 创建者id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 后缀
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 修改时间
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// 修改者id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 父目录id, 根目录id值为0
+	// 空值代表根目录的parentId不存在
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// 存储分区，目前包括公有云OSS存储分区和专属Mini OSS存储分区
+	// 枚举值:
+	// 	PUBLIC_OSS_PARTITION: 公有云OSS存储分区
+	// 	MINI_OSS_PARTITION: 专属Mini OSS存储分区
+	PartitionType *string `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
+	// 路径
+	Path *string `json:"path,omitempty" xml:"path,omitempty"`
+	// 属性
+	Properties *ListAllDentriesResponseBodyDentriesProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
+	// 大小, 单位:Byte
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// 所在空间id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 状态
+	// 枚举值:
+	// 	NORMAL: 正常
+	// 	DELETED: 已删除
+	// 	EXPIRED: 已过期
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 驱动类型
+	// 枚举值:
+	// 	DINGTALK: 钉钉统一存储驱动
+	// 	ALIDOC: 钉钉文档存储驱动
+	// 	SHANJI: 闪记存储驱动
+	// 	UNKNOWN: 未知驱动
+	StorageDriver *string `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	// 缩略图信息
+	Thumbnail *ListAllDentriesResponseBodyDentriesThumbnail `json:"thumbnail,omitempty" xml:"thumbnail,omitempty" type:"Struct"`
+	// 类型，目录或文件
+	// 枚举值:
+	// 	FILE: 文件
+	// 	FOLDER: 文件夹
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// uuid，如移动文件，此字段不变
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// 版本
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s ListAllDentriesResponseBodyDentries) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllDentriesResponseBodyDentries) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetAppProperties(v map[string][]*DentriesAppPropertiesValue) *ListAllDentriesResponseBodyDentries {
+	s.AppProperties = v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetCreateTime(v string) *ListAllDentriesResponseBodyDentries {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetCreatorId(v string) *ListAllDentriesResponseBodyDentries {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetExtension(v string) *ListAllDentriesResponseBodyDentries {
+	s.Extension = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetId(v string) *ListAllDentriesResponseBodyDentries {
+	s.Id = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetModifiedTime(v string) *ListAllDentriesResponseBodyDentries {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetModifierId(v string) *ListAllDentriesResponseBodyDentries {
+	s.ModifierId = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetName(v string) *ListAllDentriesResponseBodyDentries {
+	s.Name = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetParentId(v string) *ListAllDentriesResponseBodyDentries {
+	s.ParentId = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetPartitionType(v string) *ListAllDentriesResponseBodyDentries {
+	s.PartitionType = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetPath(v string) *ListAllDentriesResponseBodyDentries {
+	s.Path = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetProperties(v *ListAllDentriesResponseBodyDentriesProperties) *ListAllDentriesResponseBodyDentries {
+	s.Properties = v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetSize(v int64) *ListAllDentriesResponseBodyDentries {
+	s.Size = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetSpaceId(v string) *ListAllDentriesResponseBodyDentries {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetStatus(v string) *ListAllDentriesResponseBodyDentries {
+	s.Status = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetStorageDriver(v string) *ListAllDentriesResponseBodyDentries {
+	s.StorageDriver = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetThumbnail(v *ListAllDentriesResponseBodyDentriesThumbnail) *ListAllDentriesResponseBodyDentries {
+	s.Thumbnail = v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetType(v string) *ListAllDentriesResponseBodyDentries {
+	s.Type = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetUuid(v string) *ListAllDentriesResponseBodyDentries {
+	s.Uuid = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentries) SetVersion(v int64) *ListAllDentriesResponseBodyDentries {
+	s.Version = &v
+	return s
+}
+
+type ListAllDentriesResponseBodyDentriesProperties struct {
+	// 文件是否只读
+	ReadOnly *bool `json:"readOnly,omitempty" xml:"readOnly,omitempty"`
+}
+
+func (s ListAllDentriesResponseBodyDentriesProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllDentriesResponseBodyDentriesProperties) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllDentriesResponseBodyDentriesProperties) SetReadOnly(v bool) *ListAllDentriesResponseBodyDentriesProperties {
+	s.ReadOnly = &v
+	return s
+}
+
+type ListAllDentriesResponseBodyDentriesThumbnail struct {
+	// 缩略图高度
+	Height *int32 `json:"height,omitempty" xml:"height,omitempty"`
+	// 缩略图url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 缩略图宽度
+	Width *int32 `json:"width,omitempty" xml:"width,omitempty"`
+}
+
+func (s ListAllDentriesResponseBodyDentriesThumbnail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllDentriesResponseBodyDentriesThumbnail) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllDentriesResponseBodyDentriesThumbnail) SetHeight(v int32) *ListAllDentriesResponseBodyDentriesThumbnail {
+	s.Height = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentriesThumbnail) SetUrl(v string) *ListAllDentriesResponseBodyDentriesThumbnail {
+	s.Url = &v
+	return s
+}
+
+func (s *ListAllDentriesResponseBodyDentriesThumbnail) SetWidth(v int32) *ListAllDentriesResponseBodyDentriesThumbnail {
+	s.Width = &v
+	return s
+}
+
+type ListAllDentriesResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListAllDentriesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListAllDentriesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllDentriesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllDentriesResponse) SetHeaders(v map[string]*string) *ListAllDentriesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListAllDentriesResponse) SetBody(v *ListAllDentriesResponseBody) *ListAllDentriesResponse {
+	s.Body = v
+	return s
+}
+
 type ListDentriesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5180,6 +6219,11 @@ type ListDentriesRequest struct {
 	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
 	// 用户id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// 是否获取文件缩略图临时链接
+	// 注: 按需获取, 会影响接口耗时
+	// 默认值:
+	// 	false
+	WithThumbnail *bool `json:"withThumbnail,omitempty" xml:"withThumbnail,omitempty"`
 }
 
 func (s ListDentriesRequest) String() string {
@@ -5217,6 +6261,11 @@ func (s *ListDentriesRequest) SetParentId(v string) *ListDentriesRequest {
 
 func (s *ListDentriesRequest) SetUnionId(v string) *ListDentriesRequest {
 	s.UnionId = &v
+	return s
+}
+
+func (s *ListDentriesRequest) SetWithThumbnail(v bool) *ListDentriesRequest {
+	s.WithThumbnail = &v
 	return s
 }
 
@@ -5297,6 +6346,8 @@ type ListDentriesResponseBodyDentries struct {
 	// 	SHANJI: 闪记存储驱动
 	// 	UNKNOWN: 未知驱动
 	StorageDriver *string `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	// 缩略图信息
+	Thumbnail *ListDentriesResponseBodyDentriesThumbnail `json:"thumbnail,omitempty" xml:"thumbnail,omitempty" type:"Struct"`
 	// 类型，目录或文件
 	// 枚举值:
 	// 	FILE: 文件
@@ -5396,6 +6447,11 @@ func (s *ListDentriesResponseBodyDentries) SetStorageDriver(v string) *ListDentr
 	return s
 }
 
+func (s *ListDentriesResponseBodyDentries) SetThumbnail(v *ListDentriesResponseBodyDentriesThumbnail) *ListDentriesResponseBodyDentries {
+	s.Thumbnail = v
+	return s
+}
+
 func (s *ListDentriesResponseBodyDentries) SetType(v string) *ListDentriesResponseBodyDentries {
 	s.Type = &v
 	return s
@@ -5426,6 +6482,38 @@ func (s ListDentriesResponseBodyDentriesProperties) GoString() string {
 
 func (s *ListDentriesResponseBodyDentriesProperties) SetReadOnly(v bool) *ListDentriesResponseBodyDentriesProperties {
 	s.ReadOnly = &v
+	return s
+}
+
+type ListDentriesResponseBodyDentriesThumbnail struct {
+	// 缩略图高度
+	Height *int32 `json:"height,omitempty" xml:"height,omitempty"`
+	// 缩略图url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 缩略图宽度
+	Width *int32 `json:"width,omitempty" xml:"width,omitempty"`
+}
+
+func (s ListDentriesResponseBodyDentriesThumbnail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListDentriesResponseBodyDentriesThumbnail) GoString() string {
+	return s.String()
+}
+
+func (s *ListDentriesResponseBodyDentriesThumbnail) SetHeight(v int32) *ListDentriesResponseBodyDentriesThumbnail {
+	s.Height = &v
+	return s
+}
+
+func (s *ListDentriesResponseBodyDentriesThumbnail) SetUrl(v string) *ListDentriesResponseBodyDentriesThumbnail {
+	s.Url = &v
+	return s
+}
+
+func (s *ListDentriesResponseBodyDentriesThumbnail) SetWidth(v int32) *ListDentriesResponseBodyDentriesThumbnail {
+	s.Width = &v
 	return s
 }
 
@@ -7894,6 +8982,41 @@ func (s *DentryAppPropertiesValue) SetVisibility(v string) *DentryAppPropertiesV
 	return s
 }
 
+type ResultItemsDentryAppPropertiesValue struct {
+	// 属性名称 该属性名称在当前app下需要保证唯一，不同app间同名属性互不影响
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 属性值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 属性可见范围
+	// 枚举值:
+	// 	PUBLIC: 该属性所有App可见
+	// 	PRIVATE: 该属性仅其归属App可见
+	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
+}
+
+func (s ResultItemsDentryAppPropertiesValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResultItemsDentryAppPropertiesValue) GoString() string {
+	return s.String()
+}
+
+func (s *ResultItemsDentryAppPropertiesValue) SetName(v string) *ResultItemsDentryAppPropertiesValue {
+	s.Name = &v
+	return s
+}
+
+func (s *ResultItemsDentryAppPropertiesValue) SetValue(v string) *ResultItemsDentryAppPropertiesValue {
+	s.Value = &v
+	return s
+}
+
+func (s *ResultItemsDentryAppPropertiesValue) SetVisibility(v string) *ResultItemsDentryAppPropertiesValue {
+	s.Visibility = &v
+	return s
+}
+
 type DentriesAppPropertiesValue struct {
 	// 属性名称 该属性名称在当前app下需要保证唯一，不同app间同名属性互不影响
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
@@ -8703,6 +9826,61 @@ func (client *Client) GetCurrentAppWithOptions(request *GetCurrentAppRequest, he
 	return _result, _err
 }
 
+func (client *Client) GetDentries(spaceId *string, request *GetDentriesRequest) (_result *GetDentriesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetDentriesHeaders{}
+	_result = &GetDentriesResponse{}
+	_body, _err := client.GetDentriesWithOptions(spaceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetDentriesWithOptions(spaceId *string, request *GetDentriesRequest, headers *GetDentriesHeaders, runtime *util.RuntimeOptions) (_result *GetDentriesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DentryIds)) {
+		body["dentryIds"] = request.DentryIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Option)) {
+		body["option"] = request.Option
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetDentriesResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetDentries"), tea.String("storage_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/storage/spaces/"+tea.StringValue(spaceId)+"/dentries/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetDentry(spaceId *string, dentryId *string, request *GetDentryRequest) (_result *GetDentryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDentryHeaders{}
@@ -8800,6 +9978,57 @@ func (client *Client) GetDentryOpenInfoWithOptions(spaceId *string, dentryId *st
 	}
 	_result = &GetDentryOpenInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetDentryOpenInfo"), tea.String("storage_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/storage/spaces/"+tea.StringValue(spaceId)+"/dentries/"+tea.StringValue(dentryId)+"/openInfos/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetDentryThumbnails(spaceId *string, request *GetDentryThumbnailsRequest) (_result *GetDentryThumbnailsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetDentryThumbnailsHeaders{}
+	_result = &GetDentryThumbnailsResponse{}
+	_body, _err := client.GetDentryThumbnailsWithOptions(spaceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetDentryThumbnailsWithOptions(spaceId *string, request *GetDentryThumbnailsRequest, headers *GetDentryThumbnailsHeaders, runtime *util.RuntimeOptions) (_result *GetDentryThumbnailsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DentryIds)) {
+		body["dentryIds"] = request.DentryIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetDentryThumbnailsResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetDentryThumbnails"), tea.String("storage_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/storage/spaces/"+tea.StringValue(spaceId)+"/thumbnails/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8941,6 +10170,10 @@ func (client *Client) GetMultipartFileUploadInfosWithOptions(request *GetMultipa
 	}
 
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Option)) {
+		body["option"] = request.Option
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.PartNumbers)) {
 		body["partNumbers"] = request.PartNumbers
 	}
@@ -9256,6 +10489,57 @@ func (client *Client) InitMultipartFileUploadWithOptions(spaceId *string, reques
 	return _result, _err
 }
 
+func (client *Client) ListAllDentries(spaceId *string, request *ListAllDentriesRequest) (_result *ListAllDentriesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListAllDentriesHeaders{}
+	_result = &ListAllDentriesResponse{}
+	_body, _err := client.ListAllDentriesWithOptions(spaceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListAllDentriesWithOptions(spaceId *string, request *ListAllDentriesRequest, headers *ListAllDentriesHeaders, runtime *util.RuntimeOptions) (_result *ListAllDentriesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Option)) {
+		body["option"] = request.Option
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ListAllDentriesResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListAllDentries"), tea.String("storage_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/storage/spaces/"+tea.StringValue(spaceId)+"/dentries/listAll"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ListDentries(spaceId *string, request *ListDentriesRequest) (_result *ListDentriesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListDentriesHeaders{}
@@ -9297,6 +10581,10 @@ func (client *Client) ListDentriesWithOptions(spaceId *string, request *ListDent
 
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		query["unionId"] = request.UnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WithThumbnail)) {
+		query["withThumbnail"] = request.WithThumbnail
 	}
 
 	realHeaders := make(map[string]*string)
