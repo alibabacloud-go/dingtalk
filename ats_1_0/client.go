@@ -870,12 +870,14 @@ type CollectResumeDetailRequestResumeDataWorkExperiences struct {
 	Department *string `json:"department,omitempty" xml:"department,omitempty"`
 	// 工作详情描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	EndDate     *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
 	// 职位名称
 	JobTitle *string `json:"jobTitle,omitempty" xml:"jobTitle,omitempty"`
 	// 工作地点
 	Location *string `json:"location,omitempty" xml:"location,omitempty"`
 	// 工作职责
 	Responsibility *string `json:"responsibility,omitempty" xml:"responsibility,omitempty"`
+	StartDate      *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
 }
 
 func (s CollectResumeDetailRequestResumeDataWorkExperiences) String() string {
@@ -901,6 +903,11 @@ func (s *CollectResumeDetailRequestResumeDataWorkExperiences) SetDescription(v s
 	return s
 }
 
+func (s *CollectResumeDetailRequestResumeDataWorkExperiences) SetEndDate(v string) *CollectResumeDetailRequestResumeDataWorkExperiences {
+	s.EndDate = &v
+	return s
+}
+
 func (s *CollectResumeDetailRequestResumeDataWorkExperiences) SetJobTitle(v string) *CollectResumeDetailRequestResumeDataWorkExperiences {
 	s.JobTitle = &v
 	return s
@@ -913,6 +920,11 @@ func (s *CollectResumeDetailRequestResumeDataWorkExperiences) SetLocation(v stri
 
 func (s *CollectResumeDetailRequestResumeDataWorkExperiences) SetResponsibility(v string) *CollectResumeDetailRequestResumeDataWorkExperiences {
 	s.Responsibility = &v
+	return s
+}
+
+func (s *CollectResumeDetailRequestResumeDataWorkExperiences) SetStartDate(v string) *CollectResumeDetailRequestResumeDataWorkExperiences {
+	s.StartDate = &v
 	return s
 }
 

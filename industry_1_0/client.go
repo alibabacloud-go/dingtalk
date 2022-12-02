@@ -13807,6 +13807,349 @@ func (s *QueryDepartmentInfoResponse) SetBody(v *QueryDepartmentInfoResponseBody
 	return s
 }
 
+type QueryDoctorDetailsByJobNumberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryDoctorDetailsByJobNumberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDoctorDetailsByJobNumberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDoctorDetailsByJobNumberHeaders) SetCommonHeaders(v map[string]*string) *QueryDoctorDetailsByJobNumberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberHeaders) SetXAcsDingtalkAccessToken(v string) *QueryDoctorDetailsByJobNumberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryDoctorDetailsByJobNumberRequest struct {
+	// 按月安排
+	MonthMark *string `json:"monthMark,omitempty" xml:"monthMark,omitempty"`
+}
+
+func (s QueryDoctorDetailsByJobNumberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDoctorDetailsByJobNumberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDoctorDetailsByJobNumberRequest) SetMonthMark(v string) *QueryDoctorDetailsByJobNumberRequest {
+	s.MonthMark = &v
+	return s
+}
+
+type QueryDoctorDetailsByJobNumberResponseBody struct {
+	Content *QueryDoctorDetailsByJobNumberResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+}
+
+func (s QueryDoctorDetailsByJobNumberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDoctorDetailsByJobNumberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBody) SetContent(v *QueryDoctorDetailsByJobNumberResponseBodyContent) *QueryDoctorDetailsByJobNumberResponseBody {
+	s.Content = v
+	return s
+}
+
+type QueryDoctorDetailsByJobNumberResponseBodyContent struct {
+	// 科室列表
+	DeptList []*QueryDoctorDetailsByJobNumberResponseBodyContentDeptList `json:"deptList,omitempty" xml:"deptList,omitempty" type:"Repeated"`
+	// 医疗组列表
+	GroupList []*QueryDoctorDetailsByJobNumberResponseBodyContentGroupList `json:"groupList,omitempty" xml:"groupList,omitempty" type:"Repeated"`
+	// 工号
+	JobNumber *string `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
+	// 状态列表
+	JobStatus []*QueryDoctorDetailsByJobNumberResponseBodyContentJobStatus `json:"jobStatus,omitempty" xml:"jobStatus,omitempty" type:"Repeated"`
+	// 职称
+	ProfessionalTitle *QueryDoctorDetailsByJobNumberResponseBodyContentProfessionalTitle `json:"professionalTitle,omitempty" xml:"professionalTitle,omitempty" type:"Struct"`
+	// 医生的userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 用户名称
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// 身份属性
+	UserProbList []*QueryDoctorDetailsByJobNumberResponseBodyContentUserProbList `json:"userProbList,omitempty" xml:"userProbList,omitempty" type:"Repeated"`
+}
+
+func (s QueryDoctorDetailsByJobNumberResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDoctorDetailsByJobNumberResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContent) SetDeptList(v []*QueryDoctorDetailsByJobNumberResponseBodyContentDeptList) *QueryDoctorDetailsByJobNumberResponseBodyContent {
+	s.DeptList = v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContent) SetGroupList(v []*QueryDoctorDetailsByJobNumberResponseBodyContentGroupList) *QueryDoctorDetailsByJobNumberResponseBodyContent {
+	s.GroupList = v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContent) SetJobNumber(v string) *QueryDoctorDetailsByJobNumberResponseBodyContent {
+	s.JobNumber = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContent) SetJobStatus(v []*QueryDoctorDetailsByJobNumberResponseBodyContentJobStatus) *QueryDoctorDetailsByJobNumberResponseBodyContent {
+	s.JobStatus = v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContent) SetProfessionalTitle(v *QueryDoctorDetailsByJobNumberResponseBodyContentProfessionalTitle) *QueryDoctorDetailsByJobNumberResponseBodyContent {
+	s.ProfessionalTitle = v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContent) SetUserId(v string) *QueryDoctorDetailsByJobNumberResponseBodyContent {
+	s.UserId = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContent) SetUserName(v string) *QueryDoctorDetailsByJobNumberResponseBodyContent {
+	s.UserName = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContent) SetUserProbList(v []*QueryDoctorDetailsByJobNumberResponseBodyContentUserProbList) *QueryDoctorDetailsByJobNumberResponseBodyContent {
+	s.UserProbList = v
+	return s
+}
+
+type QueryDoctorDetailsByJobNumberResponseBodyContentDeptList struct {
+	// 科室大类名称
+	CategoryName *string `json:"categoryName,omitempty" xml:"categoryName,omitempty"`
+	// 科室id
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 科室名称
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// 创建时间
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 修改时间
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// 人科关系关联id
+	RelationId *int64 `json:"relationId,omitempty" xml:"relationId,omitempty"`
+}
+
+func (s QueryDoctorDetailsByJobNumberResponseBodyContentDeptList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDoctorDetailsByJobNumberResponseBodyContentDeptList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentDeptList) SetCategoryName(v string) *QueryDoctorDetailsByJobNumberResponseBodyContentDeptList {
+	s.CategoryName = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentDeptList) SetDeptId(v int64) *QueryDoctorDetailsByJobNumberResponseBodyContentDeptList {
+	s.DeptId = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentDeptList) SetDeptName(v string) *QueryDoctorDetailsByJobNumberResponseBodyContentDeptList {
+	s.DeptName = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentDeptList) SetGmtCreate(v string) *QueryDoctorDetailsByJobNumberResponseBodyContentDeptList {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentDeptList) SetGmtModified(v string) *QueryDoctorDetailsByJobNumberResponseBodyContentDeptList {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentDeptList) SetRelationId(v int64) *QueryDoctorDetailsByJobNumberResponseBodyContentDeptList {
+	s.RelationId = &v
+	return s
+}
+
+type QueryDoctorDetailsByJobNumberResponseBodyContentGroupList struct {
+	// 科室id
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 科室名称
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// 医疗组id
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// 医疗组名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 用户在该医疗组是否为考核医疗组
+	IsAssessGroup *string `json:"isAssessGroup,omitempty" xml:"isAssessGroup,omitempty"`
+	// 用户在该医疗组是否为组长
+	IsLeader *bool `json:"isLeader,omitempty" xml:"isLeader,omitempty"`
+	// 人组关系关联id
+	RelationId *int64 `json:"relationId,omitempty" xml:"relationId,omitempty"`
+}
+
+func (s QueryDoctorDetailsByJobNumberResponseBodyContentGroupList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDoctorDetailsByJobNumberResponseBodyContentGroupList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentGroupList) SetDeptId(v int64) *QueryDoctorDetailsByJobNumberResponseBodyContentGroupList {
+	s.DeptId = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentGroupList) SetDeptName(v string) *QueryDoctorDetailsByJobNumberResponseBodyContentGroupList {
+	s.DeptName = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentGroupList) SetGroupId(v int64) *QueryDoctorDetailsByJobNumberResponseBodyContentGroupList {
+	s.GroupId = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentGroupList) SetGroupName(v string) *QueryDoctorDetailsByJobNumberResponseBodyContentGroupList {
+	s.GroupName = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentGroupList) SetIsAssessGroup(v string) *QueryDoctorDetailsByJobNumberResponseBodyContentGroupList {
+	s.IsAssessGroup = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentGroupList) SetIsLeader(v bool) *QueryDoctorDetailsByJobNumberResponseBodyContentGroupList {
+	s.IsLeader = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentGroupList) SetRelationId(v int64) *QueryDoctorDetailsByJobNumberResponseBodyContentGroupList {
+	s.RelationId = &v
+	return s
+}
+
+type QueryDoctorDetailsByJobNumberResponseBodyContentJobStatus struct {
+	// 状态编码
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 状态名称
+	StatusName *string `json:"statusName,omitempty" xml:"statusName,omitempty"`
+}
+
+func (s QueryDoctorDetailsByJobNumberResponseBodyContentJobStatus) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDoctorDetailsByJobNumberResponseBodyContentJobStatus) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentJobStatus) SetCode(v string) *QueryDoctorDetailsByJobNumberResponseBodyContentJobStatus {
+	s.Code = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentJobStatus) SetStatusName(v string) *QueryDoctorDetailsByJobNumberResponseBodyContentJobStatus {
+	s.StatusName = &v
+	return s
+}
+
+type QueryDoctorDetailsByJobNumberResponseBodyContentProfessionalTitle struct {
+	// 职称编码
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 职称大类
+	ProfessionalTitleCategory *string `json:"professionalTitleCategory,omitempty" xml:"professionalTitleCategory,omitempty"`
+	// 职称明细
+	ProfessionalTitleDetail *string `json:"professionalTitleDetail,omitempty" xml:"professionalTitleDetail,omitempty"`
+}
+
+func (s QueryDoctorDetailsByJobNumberResponseBodyContentProfessionalTitle) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDoctorDetailsByJobNumberResponseBodyContentProfessionalTitle) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentProfessionalTitle) SetCode(v string) *QueryDoctorDetailsByJobNumberResponseBodyContentProfessionalTitle {
+	s.Code = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentProfessionalTitle) SetProfessionalTitleCategory(v string) *QueryDoctorDetailsByJobNumberResponseBodyContentProfessionalTitle {
+	s.ProfessionalTitleCategory = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentProfessionalTitle) SetProfessionalTitleDetail(v string) *QueryDoctorDetailsByJobNumberResponseBodyContentProfessionalTitle {
+	s.ProfessionalTitleDetail = &v
+	return s
+}
+
+type QueryDoctorDetailsByJobNumberResponseBodyContentUserProbList struct {
+	// 身份属性编码
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// 身份属性名称
+	UserPropertyName *string `json:"userPropertyName,omitempty" xml:"userPropertyName,omitempty"`
+}
+
+func (s QueryDoctorDetailsByJobNumberResponseBodyContentUserProbList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDoctorDetailsByJobNumberResponseBodyContentUserProbList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentUserProbList) SetCode(v string) *QueryDoctorDetailsByJobNumberResponseBodyContentUserProbList {
+	s.Code = &v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponseBodyContentUserProbList) SetUserPropertyName(v string) *QueryDoctorDetailsByJobNumberResponseBodyContentUserProbList {
+	s.UserPropertyName = &v
+	return s
+}
+
+type QueryDoctorDetailsByJobNumberResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryDoctorDetailsByJobNumberResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryDoctorDetailsByJobNumberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDoctorDetailsByJobNumberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponse) SetHeaders(v map[string]*string) *QueryDoctorDetailsByJobNumberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryDoctorDetailsByJobNumberResponse) SetBody(v *QueryDoctorDetailsByJobNumberResponseBody) *QueryDoctorDetailsByJobNumberResponse {
+	s.Body = v
+	return s
+}
+
 type QueryGroupInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -21469,6 +21812,51 @@ func (client *Client) QueryDepartmentInfoWithOptions(deptId *string, headers *Qu
 	}
 	_result = &QueryDepartmentInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryDepartmentInfo"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/medicals/departments/"+tea.StringValue(deptId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryDoctorDetailsByJobNumber(jobNumber *string, request *QueryDoctorDetailsByJobNumberRequest) (_result *QueryDoctorDetailsByJobNumberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryDoctorDetailsByJobNumberHeaders{}
+	_result = &QueryDoctorDetailsByJobNumberResponse{}
+	_body, _err := client.QueryDoctorDetailsByJobNumberWithOptions(jobNumber, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryDoctorDetailsByJobNumberWithOptions(jobNumber *string, request *QueryDoctorDetailsByJobNumberRequest, headers *QueryDoctorDetailsByJobNumberHeaders, runtime *util.RuntimeOptions) (_result *QueryDoctorDetailsByJobNumberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	jobNumber = openapiutil.GetEncodeParam(jobNumber)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MonthMark)) {
+		query["monthMark"] = request.MonthMark
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryDoctorDetailsByJobNumberResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryDoctorDetailsByJobNumber"), tea.String("industry_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/industry/medicals/doctors/"+tea.StringValue(jobNumber)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -1608,6 +1608,391 @@ func (s *GetConversationUrlResponse) SetBody(v *GetConversationUrlResponseBody) 
 	return s
 }
 
+type GetFamilySchoolConversationMsgHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFamilySchoolConversationMsgHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFamilySchoolConversationMsgHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFamilySchoolConversationMsgHeaders) SetCommonHeaders(v map[string]*string) *GetFamilySchoolConversationMsgHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgHeaders) SetXAcsDingtalkAccessToken(v string) *GetFamilySchoolConversationMsgHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFamilySchoolConversationMsgRequest struct {
+	// 查询最大消息数
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 要查询的消息类型
+	MsgTypes []*int32 `json:"msgTypes,omitempty" xml:"msgTypes,omitempty" type:"Repeated"`
+	// 下一次查询的游标，毫秒值
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 接收卡片的群的openConversationId
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 用户唯一标识
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetFamilySchoolConversationMsgRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFamilySchoolConversationMsgRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFamilySchoolConversationMsgRequest) SetMaxResults(v int32) *GetFamilySchoolConversationMsgRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgRequest) SetMsgTypes(v []*int32) *GetFamilySchoolConversationMsgRequest {
+	s.MsgTypes = v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgRequest) SetNextToken(v int64) *GetFamilySchoolConversationMsgRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgRequest) SetOpenConversationId(v string) *GetFamilySchoolConversationMsgRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgRequest) SetUnionId(v string) *GetFamilySchoolConversationMsgRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetFamilySchoolConversationMsgResponseBody struct {
+	// 企业名称，corp123
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 是否有更多数据
+	HasMore *string `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 消息数据
+	Messages []*GetFamilySchoolConversationMsgResponseBodyMessages `json:"messages,omitempty" xml:"messages,omitempty" type:"Repeated"`
+	// 查询下次消息的游标,时间毫秒值
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 开放群Id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s GetFamilySchoolConversationMsgResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFamilySchoolConversationMsgResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFamilySchoolConversationMsgResponseBody) SetCorpId(v string) *GetFamilySchoolConversationMsgResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgResponseBody) SetHasMore(v string) *GetFamilySchoolConversationMsgResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgResponseBody) SetMessages(v []*GetFamilySchoolConversationMsgResponseBodyMessages) *GetFamilySchoolConversationMsgResponseBody {
+	s.Messages = v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgResponseBody) SetNextToken(v string) *GetFamilySchoolConversationMsgResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgResponseBody) SetOpenConversationId(v string) *GetFamilySchoolConversationMsgResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+type GetFamilySchoolConversationMsgResponseBodyMessages struct {
+	// 消息类型，2-图片、202视频、3100富文本消息
+	ContentType *int32 `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	// 消息的创建时间
+	CreateAt *int64 `json:"createAt,omitempty" xml:"createAt,omitempty"`
+	// media文件对象列表
+	MediaModels []*GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels `json:"mediaModels,omitempty" xml:"mediaModels,omitempty" type:"Repeated"`
+	// 消息的唯一标识
+	OpenMsgId *string `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
+}
+
+func (s GetFamilySchoolConversationMsgResponseBodyMessages) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFamilySchoolConversationMsgResponseBodyMessages) GoString() string {
+	return s.String()
+}
+
+func (s *GetFamilySchoolConversationMsgResponseBodyMessages) SetContentType(v int32) *GetFamilySchoolConversationMsgResponseBodyMessages {
+	s.ContentType = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgResponseBodyMessages) SetCreateAt(v int64) *GetFamilySchoolConversationMsgResponseBodyMessages {
+	s.CreateAt = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgResponseBodyMessages) SetMediaModels(v []*GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels) *GetFamilySchoolConversationMsgResponseBodyMessages {
+	s.MediaModels = v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgResponseBodyMessages) SetOpenMsgId(v string) *GetFamilySchoolConversationMsgResponseBodyMessages {
+	s.OpenMsgId = &v
+	return s
+}
+
+type GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels struct {
+	// 消息mediaId文件名称
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// 消息mediaId文件类型
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// 消息mediaId
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// 消息mediaId文件大小
+	Size *string `json:"size,omitempty" xml:"size,omitempty"`
+	// 消息mediaId对应的下载地址
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 视频文件缩略图mediaId
+	VideoPicMediaId *string `json:"videoPicMediaId,omitempty" xml:"videoPicMediaId,omitempty"`
+}
+
+func (s GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels) GoString() string {
+	return s.String()
+}
+
+func (s *GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels) SetFileName(v string) *GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels {
+	s.FileName = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels) SetFileType(v string) *GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels {
+	s.FileType = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels) SetMediaId(v string) *GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels {
+	s.MediaId = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels) SetSize(v string) *GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels {
+	s.Size = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels) SetUrl(v string) *GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels {
+	s.Url = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels) SetVideoPicMediaId(v string) *GetFamilySchoolConversationMsgResponseBodyMessagesMediaModels {
+	s.VideoPicMediaId = &v
+	return s
+}
+
+type GetFamilySchoolConversationMsgResponse struct {
+	Headers map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetFamilySchoolConversationMsgResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetFamilySchoolConversationMsgResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFamilySchoolConversationMsgResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFamilySchoolConversationMsgResponse) SetHeaders(v map[string]*string) *GetFamilySchoolConversationMsgResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFamilySchoolConversationMsgResponse) SetBody(v *GetFamilySchoolConversationMsgResponseBody) *GetFamilySchoolConversationMsgResponse {
+	s.Body = v
+	return s
+}
+
+type GetFamilySchoolConversationsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFamilySchoolConversationsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFamilySchoolConversationsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFamilySchoolConversationsHeaders) SetCommonHeaders(v map[string]*string) *GetFamilySchoolConversationsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFamilySchoolConversationsHeaders) SetXAcsDingtalkAccessToken(v string) *GetFamilySchoolConversationsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFamilySchoolConversationsRequest struct {
+	// 获取家校群数量
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 时间的毫秒值，分页游标
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 用户身份ID
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetFamilySchoolConversationsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFamilySchoolConversationsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFamilySchoolConversationsRequest) SetMaxResults(v int32) *GetFamilySchoolConversationsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationsRequest) SetNextToken(v int64) *GetFamilySchoolConversationsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationsRequest) SetUnionId(v string) *GetFamilySchoolConversationsRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetFamilySchoolConversationsResponseBody struct {
+	GroupInfoList []*GetFamilySchoolConversationsResponseBodyGroupInfoList `json:"groupInfoList,omitempty" xml:"groupInfoList,omitempty" type:"Repeated"`
+	// 是否还有数据
+	HasMore *string `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 返回下一页游标
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s GetFamilySchoolConversationsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFamilySchoolConversationsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFamilySchoolConversationsResponseBody) SetGroupInfoList(v []*GetFamilySchoolConversationsResponseBodyGroupInfoList) *GetFamilySchoolConversationsResponseBody {
+	s.GroupInfoList = v
+	return s
+}
+
+func (s *GetFamilySchoolConversationsResponseBody) SetHasMore(v string) *GetFamilySchoolConversationsResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationsResponseBody) SetNextToken(v string) *GetFamilySchoolConversationsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type GetFamilySchoolConversationsResponseBodyGroupInfoList struct {
+	// 企业名称
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// 部门名称链
+	DeptNameChain []*string `json:"deptNameChain,omitempty" xml:"deptNameChain,omitempty" type:"Repeated"`
+	// 群名称
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// 群类型
+	GroupType *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	// 群开放ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s GetFamilySchoolConversationsResponseBodyGroupInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFamilySchoolConversationsResponseBodyGroupInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *GetFamilySchoolConversationsResponseBodyGroupInfoList) SetCorpId(v string) *GetFamilySchoolConversationsResponseBodyGroupInfoList {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationsResponseBodyGroupInfoList) SetDeptNameChain(v []*string) *GetFamilySchoolConversationsResponseBodyGroupInfoList {
+	s.DeptNameChain = v
+	return s
+}
+
+func (s *GetFamilySchoolConversationsResponseBodyGroupInfoList) SetGroupName(v string) *GetFamilySchoolConversationsResponseBodyGroupInfoList {
+	s.GroupName = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationsResponseBodyGroupInfoList) SetGroupType(v string) *GetFamilySchoolConversationsResponseBodyGroupInfoList {
+	s.GroupType = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationsResponseBodyGroupInfoList) SetOpenConversationId(v string) *GetFamilySchoolConversationsResponseBodyGroupInfoList {
+	s.OpenConversationId = &v
+	return s
+}
+
+type GetFamilySchoolConversationsResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetFamilySchoolConversationsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetFamilySchoolConversationsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFamilySchoolConversationsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFamilySchoolConversationsResponse) SetHeaders(v map[string]*string) *GetFamilySchoolConversationsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFamilySchoolConversationsResponse) SetBody(v *GetFamilySchoolConversationsResponseBody) *GetFamilySchoolConversationsResponse {
+	s.Body = v
+	return s
+}
+
 type GetInterconnectionUrlHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7743,6 +8128,118 @@ func (client *Client) GetConversationUrlWithOptions(request *GetConversationUrlR
 	}
 	_result = &GetConversationUrlResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetConversationUrl"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/conversations/urls"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetFamilySchoolConversationMsg(request *GetFamilySchoolConversationMsgRequest) (_result *GetFamilySchoolConversationMsgResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFamilySchoolConversationMsgHeaders{}
+	_result = &GetFamilySchoolConversationMsgResponse{}
+	_body, _err := client.GetFamilySchoolConversationMsgWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetFamilySchoolConversationMsgWithOptions(request *GetFamilySchoolConversationMsgRequest, headers *GetFamilySchoolConversationMsgHeaders, runtime *util.RuntimeOptions) (_result *GetFamilySchoolConversationMsgResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgTypes)) {
+		body["msgTypes"] = request.MsgTypes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetFamilySchoolConversationMsgResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetFamilySchoolConversationMsg"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/conversations/familySchools/messages/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetFamilySchoolConversations(request *GetFamilySchoolConversationsRequest) (_result *GetFamilySchoolConversationsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFamilySchoolConversationsHeaders{}
+	_result = &GetFamilySchoolConversationsResponse{}
+	_body, _err := client.GetFamilySchoolConversationsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetFamilySchoolConversationsWithOptions(request *GetFamilySchoolConversationsRequest, headers *GetFamilySchoolConversationsHeaders, runtime *util.RuntimeOptions) (_result *GetFamilySchoolConversationsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetFamilySchoolConversationsResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetFamilySchoolConversations"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/conversations/familySchools/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
