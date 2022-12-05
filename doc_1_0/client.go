@@ -4889,6 +4889,175 @@ func (s *SheetAutofitRowsResponse) SetBody(v *SheetAutofitRowsResponseBody) *She
 	return s
 }
 
+type SheetFindAllHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SheetFindAllHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SheetFindAllHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SheetFindAllHeaders) SetCommonHeaders(v map[string]*string) *SheetFindAllHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SheetFindAllHeaders) SetXAcsDingtalkAccessToken(v string) *SheetFindAllHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SheetFindAllRequest struct {
+	// 查找选项
+	FindOptions *SheetFindAllRequestFindOptions `json:"findOptions,omitempty" xml:"findOptions,omitempty" type:"Struct"`
+	// 要查找的文本
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+	// 操作人unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s SheetFindAllRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SheetFindAllRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SheetFindAllRequest) SetFindOptions(v *SheetFindAllRequestFindOptions) *SheetFindAllRequest {
+	s.FindOptions = v
+	return s
+}
+
+func (s *SheetFindAllRequest) SetText(v string) *SheetFindAllRequest {
+	s.Text = &v
+	return s
+}
+
+func (s *SheetFindAllRequest) SetOperatorId(v string) *SheetFindAllRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type SheetFindAllRequestFindOptions struct {
+	IncludeHidden *bool `json:"includeHidden,omitempty" xml:"includeHidden,omitempty"`
+	// 匹配大小写
+	MatchCase *bool `json:"matchCase,omitempty" xml:"matchCase,omitempty"`
+	// 匹配整个单元格
+	MatchEntireCell *bool `json:"matchEntireCell,omitempty" xml:"matchEntireCell,omitempty"`
+	// 在公式内搜索
+	MatchFormulaText *bool   `json:"matchFormulaText,omitempty" xml:"matchFormulaText,omitempty"`
+	Scope            *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	UnionCells       *bool   `json:"unionCells,omitempty" xml:"unionCells,omitempty"`
+	// text是正则表达式
+	UseRegExp *bool `json:"useRegExp,omitempty" xml:"useRegExp,omitempty"`
+}
+
+func (s SheetFindAllRequestFindOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SheetFindAllRequestFindOptions) GoString() string {
+	return s.String()
+}
+
+func (s *SheetFindAllRequestFindOptions) SetIncludeHidden(v bool) *SheetFindAllRequestFindOptions {
+	s.IncludeHidden = &v
+	return s
+}
+
+func (s *SheetFindAllRequestFindOptions) SetMatchCase(v bool) *SheetFindAllRequestFindOptions {
+	s.MatchCase = &v
+	return s
+}
+
+func (s *SheetFindAllRequestFindOptions) SetMatchEntireCell(v bool) *SheetFindAllRequestFindOptions {
+	s.MatchEntireCell = &v
+	return s
+}
+
+func (s *SheetFindAllRequestFindOptions) SetMatchFormulaText(v bool) *SheetFindAllRequestFindOptions {
+	s.MatchFormulaText = &v
+	return s
+}
+
+func (s *SheetFindAllRequestFindOptions) SetScope(v string) *SheetFindAllRequestFindOptions {
+	s.Scope = &v
+	return s
+}
+
+func (s *SheetFindAllRequestFindOptions) SetUnionCells(v bool) *SheetFindAllRequestFindOptions {
+	s.UnionCells = &v
+	return s
+}
+
+func (s *SheetFindAllRequestFindOptions) SetUseRegExp(v bool) *SheetFindAllRequestFindOptions {
+	s.UseRegExp = &v
+	return s
+}
+
+type SheetFindAllResponseBody struct {
+	Value []*SheetFindAllResponseBodyValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+}
+
+func (s SheetFindAllResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SheetFindAllResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SheetFindAllResponseBody) SetValue(v []*SheetFindAllResponseBodyValue) *SheetFindAllResponseBody {
+	s.Value = v
+	return s
+}
+
+type SheetFindAllResponseBodyValue struct {
+	A1Notation *string `json:"a1Notation,omitempty" xml:"a1Notation,omitempty"`
+}
+
+func (s SheetFindAllResponseBodyValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SheetFindAllResponseBodyValue) GoString() string {
+	return s.String()
+}
+
+func (s *SheetFindAllResponseBodyValue) SetA1Notation(v string) *SheetFindAllResponseBodyValue {
+	s.A1Notation = &v
+	return s
+}
+
+type SheetFindAllResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SheetFindAllResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SheetFindAllResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SheetFindAllResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SheetFindAllResponse) SetHeaders(v map[string]*string) *SheetFindAllResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SheetFindAllResponse) SetBody(v *SheetFindAllResponseBody) *SheetFindAllResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateRangeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7287,6 +7456,62 @@ func (client *Client) SheetAutofitRowsWithOptions(workbookId *string, sheetId *s
 	}
 	_result = &SheetAutofitRowsResponse{}
 	_body, _err := client.DoROARequest(tea.String("SheetAutofitRows"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/autofitRows"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SheetFindAll(workbookId *string, sheetId *string, request *SheetFindAllRequest) (_result *SheetFindAllResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SheetFindAllHeaders{}
+	_result = &SheetFindAllResponse{}
+	_body, _err := client.SheetFindAllWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SheetFindAllWithOptions(workbookId *string, sheetId *string, request *SheetFindAllRequest, headers *SheetFindAllHeaders, runtime *util.RuntimeOptions) (_result *SheetFindAllResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
+	sheetId = openapiutil.GetEncodeParam(sheetId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FindOptions)) {
+		body["findOptions"] = request.FindOptions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Text)) {
+		body["text"] = request.Text
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SheetFindAllResponse{}
+	_body, _err := client.DoROARequest(tea.String("SheetFindAll"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/findAll"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -3076,6 +3076,8 @@ func (s *GetProcessInstanceResponseBodyResultFormComponentValues) SetValue(v str
 type GetProcessInstanceResponseBodyResultOperationRecords struct {
 	// 评论附件列表。
 	Attachments []*GetProcessInstanceResponseBodyResultOperationRecordsAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+	// 抄送人userIds列表
+	CcUserIds []*string `json:"ccUserIds,omitempty" xml:"ccUserIds,omitempty" type:"Repeated"`
 	// 操作时间。
 	Date *string `json:"date,omitempty" xml:"date,omitempty"`
 	// 评论内容。  审批操作附带评论时才返回该字段。
@@ -3098,6 +3100,11 @@ func (s GetProcessInstanceResponseBodyResultOperationRecords) GoString() string 
 
 func (s *GetProcessInstanceResponseBodyResultOperationRecords) SetAttachments(v []*GetProcessInstanceResponseBodyResultOperationRecordsAttachments) *GetProcessInstanceResponseBodyResultOperationRecords {
 	s.Attachments = v
+	return s
+}
+
+func (s *GetProcessInstanceResponseBodyResultOperationRecords) SetCcUserIds(v []*string) *GetProcessInstanceResponseBodyResultOperationRecords {
+	s.CcUserIds = v
 	return s
 }
 
