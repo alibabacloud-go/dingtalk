@@ -1598,6 +1598,87 @@ func (s *DeleteColumnsResponse) SetBody(v *DeleteColumnsResponseBody) *DeleteCol
 	return s
 }
 
+type DeleteDropdownListsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteDropdownListsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDropdownListsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDropdownListsHeaders) SetCommonHeaders(v map[string]*string) *DeleteDropdownListsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteDropdownListsHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteDropdownListsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteDropdownListsRequest struct {
+	// 操作人unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DeleteDropdownListsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDropdownListsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDropdownListsRequest) SetOperatorId(v string) *DeleteDropdownListsRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DeleteDropdownListsResponseBody struct {
+	A1Notation *string `json:"a1Notation,omitempty" xml:"a1Notation,omitempty"`
+}
+
+func (s DeleteDropdownListsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDropdownListsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDropdownListsResponseBody) SetA1Notation(v string) *DeleteDropdownListsResponseBody {
+	s.A1Notation = &v
+	return s
+}
+
+type DeleteDropdownListsResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteDropdownListsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteDropdownListsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDropdownListsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDropdownListsResponse) SetHeaders(v map[string]*string) *DeleteDropdownListsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteDropdownListsResponse) SetBody(v *DeleteDropdownListsResponseBody) *DeleteDropdownListsResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteRangeProtectionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3838,6 +3919,116 @@ func (s *InsertColumnsBeforeResponse) SetHeaders(v map[string]*string) *InsertCo
 }
 
 func (s *InsertColumnsBeforeResponse) SetBody(v *InsertColumnsBeforeResponseBody) *InsertColumnsBeforeResponse {
+	s.Body = v
+	return s
+}
+
+type InsertDropdownListsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s InsertDropdownListsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertDropdownListsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *InsertDropdownListsHeaders) SetCommonHeaders(v map[string]*string) *InsertDropdownListsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *InsertDropdownListsHeaders) SetXAcsDingtalkAccessToken(v string) *InsertDropdownListsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type InsertDropdownListsRequest struct {
+	Options []*InsertDropdownListsRequestOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// 操作人unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s InsertDropdownListsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertDropdownListsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *InsertDropdownListsRequest) SetOptions(v []*InsertDropdownListsRequestOptions) *InsertDropdownListsRequest {
+	s.Options = v
+	return s
+}
+
+func (s *InsertDropdownListsRequest) SetOperatorId(v string) *InsertDropdownListsRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type InsertDropdownListsRequestOptions struct {
+	Color *string `json:"color,omitempty" xml:"color,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s InsertDropdownListsRequestOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertDropdownListsRequestOptions) GoString() string {
+	return s.String()
+}
+
+func (s *InsertDropdownListsRequestOptions) SetColor(v string) *InsertDropdownListsRequestOptions {
+	s.Color = &v
+	return s
+}
+
+func (s *InsertDropdownListsRequestOptions) SetValue(v string) *InsertDropdownListsRequestOptions {
+	s.Value = &v
+	return s
+}
+
+type InsertDropdownListsResponseBody struct {
+	A1Notation *string `json:"a1Notation,omitempty" xml:"a1Notation,omitempty"`
+}
+
+func (s InsertDropdownListsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertDropdownListsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *InsertDropdownListsResponseBody) SetA1Notation(v string) *InsertDropdownListsResponseBody {
+	s.A1Notation = &v
+	return s
+}
+
+type InsertDropdownListsResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *InsertDropdownListsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s InsertDropdownListsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertDropdownListsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *InsertDropdownListsResponse) SetHeaders(v map[string]*string) *InsertDropdownListsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *InsertDropdownListsResponse) SetBody(v *InsertDropdownListsResponseBody) *InsertDropdownListsResponse {
 	s.Body = v
 	return s
 }
@@ -6175,6 +6366,53 @@ func (client *Client) DeleteColumnsWithOptions(workbookId *string, sheetId *stri
 	return _result, _err
 }
 
+func (client *Client) DeleteDropdownLists(workbookId *string, sheetId *string, rangeAddress *string, request *DeleteDropdownListsRequest) (_result *DeleteDropdownListsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteDropdownListsHeaders{}
+	_result = &DeleteDropdownListsResponse{}
+	_body, _err := client.DeleteDropdownListsWithOptions(workbookId, sheetId, rangeAddress, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteDropdownListsWithOptions(workbookId *string, sheetId *string, rangeAddress *string, request *DeleteDropdownListsRequest, headers *DeleteDropdownListsHeaders, runtime *util.RuntimeOptions) (_result *DeleteDropdownListsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
+	sheetId = openapiutil.GetEncodeParam(sheetId)
+	rangeAddress = openapiutil.GetEncodeParam(rangeAddress)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &DeleteDropdownListsResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteDropdownLists"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/ranges/"+tea.StringValue(rangeAddress)+"/deleteDropdownLists"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteRangeProtection(workbookId *string, sheetId *string, rangeAddress *string, protectionId *string, request *DeleteRangeProtectionRequest) (_result *DeleteRangeProtectionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteRangeProtectionHeaders{}
@@ -6996,6 +7234,59 @@ func (client *Client) InsertColumnsBeforeWithOptions(workbookId *string, sheetId
 	}
 	_result = &InsertColumnsBeforeResponse{}
 	_body, _err := client.DoROARequest(tea.String("InsertColumnsBefore"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/insertColumnsBefore"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) InsertDropdownLists(workbookId *string, sheetId *string, rangeAddress *string, request *InsertDropdownListsRequest) (_result *InsertDropdownListsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &InsertDropdownListsHeaders{}
+	_result = &InsertDropdownListsResponse{}
+	_body, _err := client.InsertDropdownListsWithOptions(workbookId, sheetId, rangeAddress, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) InsertDropdownListsWithOptions(workbookId *string, sheetId *string, rangeAddress *string, request *InsertDropdownListsRequest, headers *InsertDropdownListsHeaders, runtime *util.RuntimeOptions) (_result *InsertDropdownListsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
+	sheetId = openapiutil.GetEncodeParam(sheetId)
+	rangeAddress = openapiutil.GetEncodeParam(rangeAddress)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Options)) {
+		body["options"] = request.Options
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &InsertDropdownListsResponse{}
+	_body, _err := client.DoROARequest(tea.String("InsertDropdownLists"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/ranges/"+tea.StringValue(rangeAddress)+"/insertDropdownLists"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

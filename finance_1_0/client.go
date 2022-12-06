@@ -5847,9 +5847,11 @@ func (s *UploadInvoiceRequest) SetUserIdentity(v *UploadInvoiceRequestUserIdenti
 }
 
 type UploadInvoiceRequestExtension struct {
-	BizCode   *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	OrderNo   *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
-	OrderType *string `json:"orderType,omitempty" xml:"orderType,omitempty"`
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// 订单号列表
+	OrderNoList []*string `json:"orderNoList,omitempty" xml:"orderNoList,omitempty" type:"Repeated"`
+	OrderType   *string   `json:"orderType,omitempty" xml:"orderType,omitempty"`
 }
 
 func (s UploadInvoiceRequestExtension) String() string {
@@ -5867,6 +5869,11 @@ func (s *UploadInvoiceRequestExtension) SetBizCode(v string) *UploadInvoiceReque
 
 func (s *UploadInvoiceRequestExtension) SetOrderNo(v string) *UploadInvoiceRequestExtension {
 	s.OrderNo = &v
+	return s
+}
+
+func (s *UploadInvoiceRequestExtension) SetOrderNoList(v []*string) *UploadInvoiceRequestExtension {
+	s.OrderNoList = v
 	return s
 }
 
