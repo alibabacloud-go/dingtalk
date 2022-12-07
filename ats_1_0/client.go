@@ -1990,7 +1990,9 @@ type ReportMessageStatusRequest struct {
 	// 错误信息描述。
 	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
 	// 消息ID。
-	MessageId *string `json:"messageId,omitempty" xml:"messageId,omitempty"`
+	MessageId      *string `json:"messageId,omitempty" xml:"messageId,omitempty"`
+	ReceiverUserId *string `json:"receiverUserId,omitempty" xml:"receiverUserId,omitempty"`
+	SenderUserId   *string `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
 }
 
 func (s ReportMessageStatusRequest) String() string {
@@ -2023,6 +2025,16 @@ func (s *ReportMessageStatusRequest) SetErrorMsg(v string) *ReportMessageStatusR
 
 func (s *ReportMessageStatusRequest) SetMessageId(v string) *ReportMessageStatusRequest {
 	s.MessageId = &v
+	return s
+}
+
+func (s *ReportMessageStatusRequest) SetReceiverUserId(v string) *ReportMessageStatusRequest {
+	s.ReceiverUserId = &v
+	return s
+}
+
+func (s *ReportMessageStatusRequest) SetSenderUserId(v string) *ReportMessageStatusRequest {
+	s.SenderUserId = &v
 	return s
 }
 
@@ -3298,6 +3310,14 @@ func (client *Client) ReportMessageStatusWithOptions(request *ReportMessageStatu
 
 	if !tea.BoolValue(util.IsUnset(request.MessageId)) {
 		body["messageId"] = request.MessageId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverUserId)) {
+		body["receiverUserId"] = request.ReceiverUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SenderUserId)) {
+		body["senderUserId"] = request.SenderUserId
 	}
 
 	realHeaders := make(map[string]*string)
