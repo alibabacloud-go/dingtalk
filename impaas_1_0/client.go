@@ -814,6 +814,201 @@ func (s *GetMediaUrlResponse) SetBody(v *GetMediaUrlResponseBody) *GetMediaUrlRe
 	return s
 }
 
+type GetMediaUrlsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetMediaUrlsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMediaUrlsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetMediaUrlsHeaders) SetCommonHeaders(v map[string]*string) *GetMediaUrlsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetMediaUrlsHeaders) SetXAcsDingtalkAccessToken(v string) *GetMediaUrlsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetMediaUrlsRequest struct {
+	// 多媒体id列表
+	MediaIds []*string `json:"mediaIds,omitempty" xml:"mediaIds,omitempty" type:"Repeated"`
+	// 过期时间
+	UrlExpireTime *int32 `json:"urlExpireTime,omitempty" xml:"urlExpireTime,omitempty"`
+}
+
+func (s GetMediaUrlsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMediaUrlsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetMediaUrlsRequest) SetMediaIds(v []*string) *GetMediaUrlsRequest {
+	s.MediaIds = v
+	return s
+}
+
+func (s *GetMediaUrlsRequest) SetUrlExpireTime(v int32) *GetMediaUrlsRequest {
+	s.UrlExpireTime = &v
+	return s
+}
+
+type GetMediaUrlsResponseBody struct {
+	Urls map[string]interface{} `json:"urls,omitempty" xml:"urls,omitempty"`
+}
+
+func (s GetMediaUrlsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMediaUrlsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetMediaUrlsResponseBody) SetUrls(v map[string]interface{}) *GetMediaUrlsResponseBody {
+	s.Urls = v
+	return s
+}
+
+type GetMediaUrlsResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetMediaUrlsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetMediaUrlsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMediaUrlsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetMediaUrlsResponse) SetHeaders(v map[string]*string) *GetMediaUrlsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetMediaUrlsResponse) SetBody(v *GetMediaUrlsResponseBody) *GetMediaUrlsResponse {
+	s.Body = v
+	return s
+}
+
+type GetSpaceFileUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSpaceFileUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpaceFileUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpaceFileUrlHeaders) SetCommonHeaders(v map[string]*string) *GetSpaceFileUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSpaceFileUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetSpaceFileUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSpaceFileUrlRequest struct {
+	// 钉盘文件id
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// 发送人互通账号
+	SenderUid *string `json:"senderUid,omitempty" xml:"senderUid,omitempty"`
+	// 钉盘spaceId
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s GetSpaceFileUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpaceFileUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpaceFileUrlRequest) SetFileId(v string) *GetSpaceFileUrlRequest {
+	s.FileId = &v
+	return s
+}
+
+func (s *GetSpaceFileUrlRequest) SetSenderUid(v string) *GetSpaceFileUrlRequest {
+	s.SenderUid = &v
+	return s
+}
+
+func (s *GetSpaceFileUrlRequest) SetSpaceId(v string) *GetSpaceFileUrlRequest {
+	s.SpaceId = &v
+	return s
+}
+
+type GetSpaceFileUrlResponseBody struct {
+	Headers             map[string]interface{} `json:"headers,omitempty" xml:"headers,omitempty"`
+	InternalResourceUrl *string                `json:"internalResourceUrl,omitempty" xml:"internalResourceUrl,omitempty"`
+	ResourceUrl         *string                `json:"resourceUrl,omitempty" xml:"resourceUrl,omitempty"`
+}
+
+func (s GetSpaceFileUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpaceFileUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpaceFileUrlResponseBody) SetHeaders(v map[string]interface{}) *GetSpaceFileUrlResponseBody {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSpaceFileUrlResponseBody) SetInternalResourceUrl(v string) *GetSpaceFileUrlResponseBody {
+	s.InternalResourceUrl = &v
+	return s
+}
+
+func (s *GetSpaceFileUrlResponseBody) SetResourceUrl(v string) *GetSpaceFileUrlResponseBody {
+	s.ResourceUrl = &v
+	return s
+}
+
+type GetSpaceFileUrlResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetSpaceFileUrlResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSpaceFileUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSpaceFileUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSpaceFileUrlResponse) SetHeaders(v map[string]*string) *GetSpaceFileUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSpaceFileUrlResponse) SetBody(v *GetSpaceFileUrlResponseBody) *GetSpaceFileUrlResponse {
+	s.Body = v
+	return s
+}
+
 type ListGroupStaffMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2211,6 +2406,106 @@ func (client *Client) GetMediaUrlWithOptions(request *GetMediaUrlRequest, header
 	}
 	_result = &GetMediaUrlResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetMediaUrl"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/medium/urls"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetMediaUrls(request *GetMediaUrlsRequest) (_result *GetMediaUrlsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetMediaUrlsHeaders{}
+	_result = &GetMediaUrlsResponse{}
+	_body, _err := client.GetMediaUrlsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetMediaUrlsWithOptions(request *GetMediaUrlsRequest, headers *GetMediaUrlsHeaders, runtime *util.RuntimeOptions) (_result *GetMediaUrlsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MediaIds)) {
+		body["mediaIds"] = request.MediaIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UrlExpireTime)) {
+		body["urlExpireTime"] = request.UrlExpireTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetMediaUrlsResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetMediaUrls"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/mediaUrls/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSpaceFileUrl(request *GetSpaceFileUrlRequest) (_result *GetSpaceFileUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSpaceFileUrlHeaders{}
+	_result = &GetSpaceFileUrlResponse{}
+	_body, _err := client.GetSpaceFileUrlWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSpaceFileUrlWithOptions(request *GetSpaceFileUrlRequest, headers *GetSpaceFileUrlHeaders, runtime *util.RuntimeOptions) (_result *GetSpaceFileUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FileId)) {
+		query["fileId"] = request.FileId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SenderUid)) {
+		query["senderUid"] = request.SenderUid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SpaceId)) {
+		query["spaceId"] = request.SpaceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetSpaceFileUrlResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetSpaceFileUrl"), tea.String("impaas_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/impaas/interconnections/spaces/files/urls"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

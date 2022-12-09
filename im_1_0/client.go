@@ -1933,6 +1933,8 @@ type GetFamilySchoolConversationsResponseBodyGroupInfoList struct {
 	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
 	// 群类型
 	GroupType *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	// 进群时间
+	JoinGroupTime *int64 `json:"joinGroupTime,omitempty" xml:"joinGroupTime,omitempty"`
 	// 群开放ID
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
@@ -1962,6 +1964,11 @@ func (s *GetFamilySchoolConversationsResponseBodyGroupInfoList) SetGroupName(v s
 
 func (s *GetFamilySchoolConversationsResponseBodyGroupInfoList) SetGroupType(v string) *GetFamilySchoolConversationsResponseBodyGroupInfoList {
 	s.GroupType = &v
+	return s
+}
+
+func (s *GetFamilySchoolConversationsResponseBodyGroupInfoList) SetJoinGroupTime(v int64) *GetFamilySchoolConversationsResponseBodyGroupInfoList {
+	s.JoinGroupTime = &v
 	return s
 }
 

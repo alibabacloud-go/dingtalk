@@ -972,6 +972,82 @@ func (s *QueryHtmlBundleBuildResponse) SetBody(v *QueryHtmlBundleBuildResponseBo
 	return s
 }
 
+type RollBackVersionRequest struct {
+	BundleId        *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
+	MiniAppId       *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	RollbackVersion *string `json:"rollbackVersion,omitempty" xml:"rollbackVersion,omitempty"`
+	TargetVersion   *string `json:"targetVersion,omitempty" xml:"targetVersion,omitempty"`
+}
+
+func (s RollBackVersionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RollBackVersionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RollBackVersionRequest) SetBundleId(v string) *RollBackVersionRequest {
+	s.BundleId = &v
+	return s
+}
+
+func (s *RollBackVersionRequest) SetMiniAppId(v string) *RollBackVersionRequest {
+	s.MiniAppId = &v
+	return s
+}
+
+func (s *RollBackVersionRequest) SetRollbackVersion(v string) *RollBackVersionRequest {
+	s.RollbackVersion = &v
+	return s
+}
+
+func (s *RollBackVersionRequest) SetTargetVersion(v string) *RollBackVersionRequest {
+	s.TargetVersion = &v
+	return s
+}
+
+type RollBackVersionResponseBody struct {
+	// Id of the request
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s RollBackVersionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RollBackVersionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RollBackVersionResponseBody) SetResult(v string) *RollBackVersionResponseBody {
+	s.Result = &v
+	return s
+}
+
+type RollBackVersionResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RollBackVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RollBackVersionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RollBackVersionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RollBackVersionResponse) SetHeaders(v map[string]*string) *RollBackVersionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RollBackVersionResponse) SetBody(v *RollBackVersionResponseBody) *RollBackVersionResponse {
+	s.Body = v
+	return s
+}
+
 type SetExtendSettingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1667,6 +1743,53 @@ func (client *Client) QueryHtmlBundleBuildWithOptions(request *QueryHtmlBundleBu
 	}
 	_result = &QueryHtmlBundleBuildResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryHtmlBundleBuild"), tea.String("miniapp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/miniapp/h5Bundles/buildResults"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RollBackVersion(request *RollBackVersionRequest) (_result *RollBackVersionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &RollBackVersionResponse{}
+	_body, _err := client.RollBackVersionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RollBackVersionWithOptions(request *RollBackVersionRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RollBackVersionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BundleId)) {
+		body["bundleId"] = request.BundleId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MiniAppId)) {
+		body["miniAppId"] = request.MiniAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RollbackVersion)) {
+		body["rollbackVersion"] = request.RollbackVersion
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetVersion)) {
+		body["targetVersion"] = request.TargetVersion
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RollBackVersionResponse{}
+	_body, _err := client.DoROARequest(tea.String("RollBackVersion"), tea.String("miniapp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/miniapp/versions/rollback"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

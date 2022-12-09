@@ -1101,12 +1101,13 @@ func (s *SyncDataRequest) SetTriggerDataList(v []*SyncDataRequestTriggerDataList
 }
 
 type SyncDataRequestTriggerDataList struct {
-	Action          *string `json:"action,omitempty" xml:"action,omitempty"`
-	CustomTriggerId *string `json:"customTriggerId,omitempty" xml:"customTriggerId,omitempty"`
-	DataGmtCreate   *int64  `json:"dataGmtCreate,omitempty" xml:"dataGmtCreate,omitempty"`
-	DataGmtModified *int64  `json:"dataGmtModified,omitempty" xml:"dataGmtModified,omitempty"`
-	JsonData        *string `json:"jsonData,omitempty" xml:"jsonData,omitempty"`
-	TriggerId       *string `json:"triggerId,omitempty" xml:"triggerId,omitempty"`
+	Action            *string `json:"action,omitempty" xml:"action,omitempty"`
+	CustomTriggerId   *string `json:"customTriggerId,omitempty" xml:"customTriggerId,omitempty"`
+	DataGmtCreate     *int64  `json:"dataGmtCreate,omitempty" xml:"dataGmtCreate,omitempty"`
+	DataGmtModified   *int64  `json:"dataGmtModified,omitempty" xml:"dataGmtModified,omitempty"`
+	IntegrationObject *string `json:"integrationObject,omitempty" xml:"integrationObject,omitempty"`
+	JsonData          *string `json:"jsonData,omitempty" xml:"jsonData,omitempty"`
+	TriggerId         *string `json:"triggerId,omitempty" xml:"triggerId,omitempty"`
 }
 
 func (s SyncDataRequestTriggerDataList) String() string {
@@ -1134,6 +1135,11 @@ func (s *SyncDataRequestTriggerDataList) SetDataGmtCreate(v int64) *SyncDataRequ
 
 func (s *SyncDataRequestTriggerDataList) SetDataGmtModified(v int64) *SyncDataRequestTriggerDataList {
 	s.DataGmtModified = &v
+	return s
+}
+
+func (s *SyncDataRequestTriggerDataList) SetIntegrationObject(v string) *SyncDataRequestTriggerDataList {
+	s.IntegrationObject = &v
 	return s
 }
 
