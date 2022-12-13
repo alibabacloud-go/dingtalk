@@ -7166,7 +7166,7 @@ func (s *GetOpenCoursesHeaders) SetXAcsDingtalkAccessToken(v string) *GetOpenCou
 }
 
 type GetOpenCoursesRequest struct {
-	// 分页起始, 起始值为1
+	// 分页起始, 起始值为0
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
 	// 分页大小
 	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
