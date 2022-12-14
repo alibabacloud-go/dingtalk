@@ -997,6 +997,157 @@ func (s *CreateConditionalFormattingRuleResponse) SetBody(v *CreateConditionalFo
 	return s
 }
 
+type CreateDeveloperMetadataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateDeveloperMetadataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDeveloperMetadataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDeveloperMetadataHeaders) SetCommonHeaders(v map[string]*string) *CreateDeveloperMetadataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateDeveloperMetadataHeaders) SetXAcsDingtalkAccessToken(v string) *CreateDeveloperMetadataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateDeveloperMetadataRequest struct {
+	// 元数据所关联到的列
+	AssociatedColumn *CreateDeveloperMetadataRequestAssociatedColumn `json:"associatedColumn,omitempty" xml:"associatedColumn,omitempty" type:"Struct"`
+	// 元数据所关联到的行
+	AssociatedRow *CreateDeveloperMetadataRequestAssociatedRow `json:"associatedRow,omitempty" xml:"associatedRow,omitempty" type:"Struct"`
+	// 元数据值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// 操作人unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s CreateDeveloperMetadataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDeveloperMetadataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDeveloperMetadataRequest) SetAssociatedColumn(v *CreateDeveloperMetadataRequestAssociatedColumn) *CreateDeveloperMetadataRequest {
+	s.AssociatedColumn = v
+	return s
+}
+
+func (s *CreateDeveloperMetadataRequest) SetAssociatedRow(v *CreateDeveloperMetadataRequestAssociatedRow) *CreateDeveloperMetadataRequest {
+	s.AssociatedRow = v
+	return s
+}
+
+func (s *CreateDeveloperMetadataRequest) SetValue(v string) *CreateDeveloperMetadataRequest {
+	s.Value = &v
+	return s
+}
+
+func (s *CreateDeveloperMetadataRequest) SetOperatorId(v string) *CreateDeveloperMetadataRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type CreateDeveloperMetadataRequestAssociatedColumn struct {
+	// 列号，从0开始
+	Column *int32  `json:"column,omitempty" xml:"column,omitempty"`
+	Sheet  *string `json:"sheet,omitempty" xml:"sheet,omitempty"`
+}
+
+func (s CreateDeveloperMetadataRequestAssociatedColumn) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDeveloperMetadataRequestAssociatedColumn) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDeveloperMetadataRequestAssociatedColumn) SetColumn(v int32) *CreateDeveloperMetadataRequestAssociatedColumn {
+	s.Column = &v
+	return s
+}
+
+func (s *CreateDeveloperMetadataRequestAssociatedColumn) SetSheet(v string) *CreateDeveloperMetadataRequestAssociatedColumn {
+	s.Sheet = &v
+	return s
+}
+
+type CreateDeveloperMetadataRequestAssociatedRow struct {
+	// 行号，从0开始
+	Row *int32 `json:"row,omitempty" xml:"row,omitempty"`
+	// 工作表ID或名称
+	Sheet *string `json:"sheet,omitempty" xml:"sheet,omitempty"`
+}
+
+func (s CreateDeveloperMetadataRequestAssociatedRow) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDeveloperMetadataRequestAssociatedRow) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDeveloperMetadataRequestAssociatedRow) SetRow(v int32) *CreateDeveloperMetadataRequestAssociatedRow {
+	s.Row = &v
+	return s
+}
+
+func (s *CreateDeveloperMetadataRequestAssociatedRow) SetSheet(v string) *CreateDeveloperMetadataRequestAssociatedRow {
+	s.Sheet = &v
+	return s
+}
+
+type CreateDeveloperMetadataResponseBody struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s CreateDeveloperMetadataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDeveloperMetadataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDeveloperMetadataResponseBody) SetId(v string) *CreateDeveloperMetadataResponseBody {
+	s.Id = &v
+	return s
+}
+
+type CreateDeveloperMetadataResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateDeveloperMetadataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateDeveloperMetadataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDeveloperMetadataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDeveloperMetadataResponse) SetHeaders(v map[string]*string) *CreateDeveloperMetadataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateDeveloperMetadataResponse) SetBody(v *CreateDeveloperMetadataResponseBody) *CreateDeveloperMetadataResponse {
+	s.Body = v
+	return s
+}
+
 type CreateRangeProtectionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2279,6 +2430,150 @@ func (s *GetAllSheetsResponse) SetHeaders(v map[string]*string) *GetAllSheetsRes
 }
 
 func (s *GetAllSheetsResponse) SetBody(v *GetAllSheetsResponseBody) *GetAllSheetsResponse {
+	s.Body = v
+	return s
+}
+
+type GetDeveloperMetadataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetDeveloperMetadataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDeveloperMetadataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetDeveloperMetadataHeaders) SetCommonHeaders(v map[string]*string) *GetDeveloperMetadataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetDeveloperMetadataHeaders) SetXAcsDingtalkAccessToken(v string) *GetDeveloperMetadataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetDeveloperMetadataRequest struct {
+	// 操作人unionId
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetDeveloperMetadataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDeveloperMetadataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetDeveloperMetadataRequest) SetOperatorId(v string) *GetDeveloperMetadataRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetDeveloperMetadataResponseBody struct {
+	// 元数据所关联到的列
+	AssociatedColumn *GetDeveloperMetadataResponseBodyAssociatedColumn `json:"associatedColumn,omitempty" xml:"associatedColumn,omitempty" type:"Struct"`
+	// 元数据所关联到的行
+	AssociatedRow *GetDeveloperMetadataResponseBodyAssociatedRow `json:"associatedRow,omitempty" xml:"associatedRow,omitempty" type:"Struct"`
+	Value         interface{}                                    `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetDeveloperMetadataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDeveloperMetadataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetDeveloperMetadataResponseBody) SetAssociatedColumn(v *GetDeveloperMetadataResponseBodyAssociatedColumn) *GetDeveloperMetadataResponseBody {
+	s.AssociatedColumn = v
+	return s
+}
+
+func (s *GetDeveloperMetadataResponseBody) SetAssociatedRow(v *GetDeveloperMetadataResponseBodyAssociatedRow) *GetDeveloperMetadataResponseBody {
+	s.AssociatedRow = v
+	return s
+}
+
+func (s *GetDeveloperMetadataResponseBody) SetValue(v interface{}) *GetDeveloperMetadataResponseBody {
+	s.Value = v
+	return s
+}
+
+type GetDeveloperMetadataResponseBodyAssociatedColumn struct {
+	// 列号，从0开始
+	Column  *int32  `json:"column,omitempty" xml:"column,omitempty"`
+	SheetId *string `json:"sheetId,omitempty" xml:"sheetId,omitempty"`
+}
+
+func (s GetDeveloperMetadataResponseBodyAssociatedColumn) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDeveloperMetadataResponseBodyAssociatedColumn) GoString() string {
+	return s.String()
+}
+
+func (s *GetDeveloperMetadataResponseBodyAssociatedColumn) SetColumn(v int32) *GetDeveloperMetadataResponseBodyAssociatedColumn {
+	s.Column = &v
+	return s
+}
+
+func (s *GetDeveloperMetadataResponseBodyAssociatedColumn) SetSheetId(v string) *GetDeveloperMetadataResponseBodyAssociatedColumn {
+	s.SheetId = &v
+	return s
+}
+
+type GetDeveloperMetadataResponseBodyAssociatedRow struct {
+	// 行号，从0开始
+	Row *int32 `json:"row,omitempty" xml:"row,omitempty"`
+	// 工作表ID或名称
+	SheetId *string `json:"sheetId,omitempty" xml:"sheetId,omitempty"`
+}
+
+func (s GetDeveloperMetadataResponseBodyAssociatedRow) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDeveloperMetadataResponseBodyAssociatedRow) GoString() string {
+	return s.String()
+}
+
+func (s *GetDeveloperMetadataResponseBodyAssociatedRow) SetRow(v int32) *GetDeveloperMetadataResponseBodyAssociatedRow {
+	s.Row = &v
+	return s
+}
+
+func (s *GetDeveloperMetadataResponseBodyAssociatedRow) SetSheetId(v string) *GetDeveloperMetadataResponseBodyAssociatedRow {
+	s.SheetId = &v
+	return s
+}
+
+type GetDeveloperMetadataResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetDeveloperMetadataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetDeveloperMetadataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDeveloperMetadataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetDeveloperMetadataResponse) SetHeaders(v map[string]*string) *GetDeveloperMetadataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetDeveloperMetadataResponse) SetBody(v *GetDeveloperMetadataResponseBody) *GetDeveloperMetadataResponse {
 	s.Body = v
 	return s
 }
@@ -6085,6 +6380,65 @@ func (client *Client) CreateConditionalFormattingRuleWithOptions(workbookId *str
 	return _result, _err
 }
 
+func (client *Client) CreateDeveloperMetadata(workbookId *string, request *CreateDeveloperMetadataRequest) (_result *CreateDeveloperMetadataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateDeveloperMetadataHeaders{}
+	_result = &CreateDeveloperMetadataResponse{}
+	_body, _err := client.CreateDeveloperMetadataWithOptions(workbookId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateDeveloperMetadataWithOptions(workbookId *string, request *CreateDeveloperMetadataRequest, headers *CreateDeveloperMetadataHeaders, runtime *util.RuntimeOptions) (_result *CreateDeveloperMetadataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AssociatedColumn)) {
+		body["associatedColumn"] = request.AssociatedColumn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AssociatedRow)) {
+		body["associatedRow"] = request.AssociatedRow
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Value)) {
+		body["value"] = request.Value
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateDeveloperMetadataResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateDeveloperMetadata"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/developerMetadatas"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateRangeProtection(workbookId *string, sheetId *string, rangeAddress *string, request *CreateRangeProtectionRequest) (_result *CreateRangeProtectionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateRangeProtectionHeaders{}
@@ -6746,6 +7100,52 @@ func (client *Client) GetAllSheetsWithOptions(workbookId *string, request *GetAl
 	}
 	_result = &GetAllSheetsResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetAllSheets"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetDeveloperMetadata(workbookId *string, developerMetadataId *string, request *GetDeveloperMetadataRequest) (_result *GetDeveloperMetadataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetDeveloperMetadataHeaders{}
+	_result = &GetDeveloperMetadataResponse{}
+	_body, _err := client.GetDeveloperMetadataWithOptions(workbookId, developerMetadataId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetDeveloperMetadataWithOptions(workbookId *string, developerMetadataId *string, request *GetDeveloperMetadataRequest, headers *GetDeveloperMetadataHeaders, runtime *util.RuntimeOptions) (_result *GetDeveloperMetadataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	workbookId = openapiutil.GetEncodeParam(workbookId)
+	developerMetadataId = openapiutil.GetEncodeParam(developerMetadataId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetDeveloperMetadataResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetDeveloperMetadata"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/developerMetadatas/"+tea.StringValue(developerMetadataId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
