@@ -9988,6 +9988,8 @@ func (s *SendOfficialAccountOTOMessageRequestDetail) SetUuid(v string) *SendOffi
 type SendOfficialAccountOTOMessageRequestDetailMessageBody struct {
 	// 卡片消息
 	ActionCard *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard `json:"actionCard,omitempty" xml:"actionCard,omitempty" type:"Struct"`
+	// 图片消息类型时，此参数必填。 设置此参数时，msgType必须为image类型
+	Image *SendOfficialAccountOTOMessageRequestDetailMessageBodyImage `json:"image,omitempty" xml:"image,omitempty" type:"Struct"`
 	// 链接消息类型
 	Link *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink `json:"link,omitempty" xml:"link,omitempty" type:"Struct"`
 	// markdown消息，仅对消息类型为markdown时有效
@@ -10006,6 +10008,11 @@ func (s SendOfficialAccountOTOMessageRequestDetailMessageBody) GoString() string
 
 func (s *SendOfficialAccountOTOMessageRequestDetailMessageBody) SetActionCard(v *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) *SendOfficialAccountOTOMessageRequestDetailMessageBody {
 	s.ActionCard = v
+	return s
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBody) SetImage(v *SendOfficialAccountOTOMessageRequestDetailMessageBodyImage) *SendOfficialAccountOTOMessageRequestDetailMessageBody {
+	s.Image = v
 	return s
 }
 
@@ -10099,6 +10106,24 @@ func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonLi
 
 func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) SetTitle(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList {
 	s.Title = &v
+	return s
+}
+
+type SendOfficialAccountOTOMessageRequestDetailMessageBodyImage struct {
+	// 图片mediaId，可以通过上传媒体文件接口上传图片获取mediaId。
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyImage) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyImage) GoString() string {
+	return s.String()
+}
+
+func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyImage) SetMediaId(v string) *SendOfficialAccountOTOMessageRequestDetailMessageBodyImage {
+	s.MediaId = &v
 	return s
 }
 
