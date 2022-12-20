@@ -3477,6 +3477,104 @@ func (s *GetSupplierResponse) SetBody(v *GetSupplierResponseBody) *GetSupplierRe
 	return s
 }
 
+type ProfessionBenefitConsumeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ProfessionBenefitConsumeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProfessionBenefitConsumeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ProfessionBenefitConsumeHeaders) SetCommonHeaders(v map[string]*string) *ProfessionBenefitConsumeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ProfessionBenefitConsumeHeaders) SetXAcsDingtalkAccessToken(v string) *ProfessionBenefitConsumeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ProfessionBenefitConsumeRequest struct {
+	// 权益编码
+	//
+	BenefitCode *string `json:"benefitCode,omitempty" xml:"benefitCode,omitempty"`
+	// 幂等ID
+	//
+	BizRequestId *string `json:"bizRequestId,omitempty" xml:"bizRequestId,omitempty"`
+	// 核销数量
+	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
+}
+
+func (s ProfessionBenefitConsumeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProfessionBenefitConsumeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ProfessionBenefitConsumeRequest) SetBenefitCode(v string) *ProfessionBenefitConsumeRequest {
+	s.BenefitCode = &v
+	return s
+}
+
+func (s *ProfessionBenefitConsumeRequest) SetBizRequestId(v string) *ProfessionBenefitConsumeRequest {
+	s.BizRequestId = &v
+	return s
+}
+
+func (s *ProfessionBenefitConsumeRequest) SetQuota(v int64) *ProfessionBenefitConsumeRequest {
+	s.Quota = &v
+	return s
+}
+
+type ProfessionBenefitConsumeResponseBody struct {
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ProfessionBenefitConsumeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProfessionBenefitConsumeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ProfessionBenefitConsumeResponseBody) SetSuccess(v bool) *ProfessionBenefitConsumeResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ProfessionBenefitConsumeResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ProfessionBenefitConsumeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ProfessionBenefitConsumeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProfessionBenefitConsumeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ProfessionBenefitConsumeResponse) SetHeaders(v map[string]*string) *ProfessionBenefitConsumeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ProfessionBenefitConsumeResponse) SetBody(v *ProfessionBenefitConsumeResponseBody) *ProfessionBenefitConsumeResponse {
+	s.Body = v
+	return s
+}
+
 type QueryCategoryByPageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -12286,6 +12384,58 @@ func (client *Client) GetSupplierWithOptions(request *GetSupplierRequest, header
 	}
 	_result = &GetSupplierResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetSupplier"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/bizfinance/suppliers/details"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ProfessionBenefitConsume(request *ProfessionBenefitConsumeRequest) (_result *ProfessionBenefitConsumeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ProfessionBenefitConsumeHeaders{}
+	_result = &ProfessionBenefitConsumeResponse{}
+	_body, _err := client.ProfessionBenefitConsumeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ProfessionBenefitConsumeWithOptions(request *ProfessionBenefitConsumeRequest, headers *ProfessionBenefitConsumeHeaders, runtime *util.RuntimeOptions) (_result *ProfessionBenefitConsumeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BenefitCode)) {
+		body["benefitCode"] = request.BenefitCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizRequestId)) {
+		body["bizRequestId"] = request.BizRequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Quota)) {
+		body["quota"] = request.Quota
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ProfessionBenefitConsumeResponse{}
+	_body, _err := client.DoROARequest(tea.String("ProfessionBenefitConsume"), tea.String("bizfinance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/bizfinance/professions/benefits/consume"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

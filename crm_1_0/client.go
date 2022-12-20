@@ -401,6 +401,140 @@ func (s *AddCustomerTrackResponse) SetBody(v *AddCustomerTrackResponseBody) *Add
 	return s
 }
 
+type AddLeadsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddLeadsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLeadsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddLeadsHeaders) SetCommonHeaders(v map[string]*string) *AddLeadsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddLeadsHeaders) SetXAcsDingtalkAccessToken(v string) *AddLeadsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddLeadsRequest struct {
+	// 分配时间戳，如果不传则默认为当前时间。
+	AssignTimestamp *int64 `json:"assignTimestamp,omitempty" xml:"assignTimestamp,omitempty"`
+	// 分配线索的员工userId。
+	AssignUserId *string `json:"assignUserId,omitempty" xml:"assignUserId,omitempty"`
+	// 被分配线索的员工userId。
+	AssignedUserId *string `json:"assignedUserId,omitempty" xml:"assignedUserId,omitempty"`
+	// 线索。
+	Leads []*AddLeadsRequestLeads `json:"leads,omitempty" xml:"leads,omitempty" type:"Repeated"`
+	// 任务ID，用于幂等控制。
+	OutTaskId *string `json:"outTaskId,omitempty" xml:"outTaskId,omitempty"`
+}
+
+func (s AddLeadsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLeadsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddLeadsRequest) SetAssignTimestamp(v int64) *AddLeadsRequest {
+	s.AssignTimestamp = &v
+	return s
+}
+
+func (s *AddLeadsRequest) SetAssignUserId(v string) *AddLeadsRequest {
+	s.AssignUserId = &v
+	return s
+}
+
+func (s *AddLeadsRequest) SetAssignedUserId(v string) *AddLeadsRequest {
+	s.AssignedUserId = &v
+	return s
+}
+
+func (s *AddLeadsRequest) SetLeads(v []*AddLeadsRequestLeads) *AddLeadsRequest {
+	s.Leads = v
+	return s
+}
+
+func (s *AddLeadsRequest) SetOutTaskId(v string) *AddLeadsRequest {
+	s.OutTaskId = &v
+	return s
+}
+
+type AddLeadsRequestLeads struct {
+	// 线索名称。
+	LeadsName *string `json:"leadsName,omitempty" xml:"leadsName,omitempty"`
+	// 线索id。
+	OutLeadsId *string `json:"outLeadsId,omitempty" xml:"outLeadsId,omitempty"`
+}
+
+func (s AddLeadsRequestLeads) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLeadsRequestLeads) GoString() string {
+	return s.String()
+}
+
+func (s *AddLeadsRequestLeads) SetLeadsName(v string) *AddLeadsRequestLeads {
+	s.LeadsName = &v
+	return s
+}
+
+func (s *AddLeadsRequestLeads) SetOutLeadsId(v string) *AddLeadsRequestLeads {
+	s.OutLeadsId = &v
+	return s
+}
+
+type AddLeadsResponseBody struct {
+	OutTaskId *string `json:"outTaskId,omitempty" xml:"outTaskId,omitempty"`
+}
+
+func (s AddLeadsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLeadsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddLeadsResponseBody) SetOutTaskId(v string) *AddLeadsResponseBody {
+	s.OutTaskId = &v
+	return s
+}
+
+type AddLeadsResponse struct {
+	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddLeadsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddLeadsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLeadsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddLeadsResponse) SetHeaders(v map[string]*string) *AddLeadsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddLeadsResponse) SetBody(v *AddLeadsResponseBody) *AddLeadsResponse {
+	s.Body = v
+	return s
+}
+
 type AddRelationMetaFieldHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3084,6 +3218,87 @@ func (s *DeleteCrmPersonalCustomerResponse) SetHeaders(v map[string]*string) *De
 }
 
 func (s *DeleteCrmPersonalCustomerResponse) SetBody(v *DeleteCrmPersonalCustomerResponseBody) *DeleteCrmPersonalCustomerResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteLeadsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteLeadsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteLeadsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteLeadsHeaders) SetCommonHeaders(v map[string]*string) *DeleteLeadsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteLeadsHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteLeadsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteLeadsRequest struct {
+	// 线索ID列表。
+	OutLeadsIds []*string `json:"outLeadsIds,omitempty" xml:"outLeadsIds,omitempty" type:"Repeated"`
+}
+
+func (s DeleteLeadsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteLeadsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteLeadsRequest) SetOutLeadsIds(v []*string) *DeleteLeadsRequest {
+	s.OutLeadsIds = v
+	return s
+}
+
+type DeleteLeadsResponseBody struct {
+	OutLeadsIds []*string `json:"outLeadsIds,omitempty" xml:"outLeadsIds,omitempty" type:"Repeated"`
+}
+
+func (s DeleteLeadsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteLeadsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteLeadsResponseBody) SetOutLeadsIds(v []*string) *DeleteLeadsResponseBody {
+	s.OutLeadsIds = v
+	return s
+}
+
+type DeleteLeadsResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteLeadsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteLeadsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteLeadsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteLeadsResponse) SetHeaders(v map[string]*string) *DeleteLeadsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteLeadsResponse) SetBody(v *DeleteLeadsResponseBody) *DeleteLeadsResponse {
 	s.Body = v
 	return s
 }
@@ -11738,6 +11953,66 @@ func (client *Client) AddCustomerTrackWithOptions(request *AddCustomerTrackReque
 	return _result, _err
 }
 
+func (client *Client) AddLeads(request *AddLeadsRequest) (_result *AddLeadsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddLeadsHeaders{}
+	_result = &AddLeadsResponse{}
+	_body, _err := client.AddLeadsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddLeadsWithOptions(request *AddLeadsRequest, headers *AddLeadsHeaders, runtime *util.RuntimeOptions) (_result *AddLeadsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AssignTimestamp)) {
+		body["assignTimestamp"] = request.AssignTimestamp
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AssignUserId)) {
+		body["assignUserId"] = request.AssignUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AssignedUserId)) {
+		body["assignedUserId"] = request.AssignedUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Leads)) {
+		body["leads"] = request.Leads
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutTaskId)) {
+		body["outTaskId"] = request.OutTaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddLeadsResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddLeads"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/leads"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) AddRelationMetaField(request *AddRelationMetaFieldRequest) (_result *AddRelationMetaFieldResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddRelationMetaFieldHeaders{}
@@ -12450,6 +12725,50 @@ func (client *Client) DeleteCrmPersonalCustomerWithOptions(dataId *string, reque
 	}
 	_result = &DeleteCrmPersonalCustomerResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteCrmPersonalCustomer"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/crm/personalCustomers/"+tea.StringValue(dataId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteLeads(request *DeleteLeadsRequest) (_result *DeleteLeadsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteLeadsHeaders{}
+	_result = &DeleteLeadsResponse{}
+	_body, _err := client.DeleteLeadsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteLeadsWithOptions(request *DeleteLeadsRequest, headers *DeleteLeadsHeaders, runtime *util.RuntimeOptions) (_result *DeleteLeadsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OutLeadsIds)) {
+		body["outLeadsIds"] = request.OutLeadsIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DeleteLeadsResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteLeads"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/leads/remove"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

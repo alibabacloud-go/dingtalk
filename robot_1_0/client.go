@@ -1111,6 +1111,95 @@ func (s *QueryRobotPluginResponse) SetBody(v *QueryRobotPluginResponseBody) *Que
 	return s
 }
 
+type RobotMessageFileDownloadHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RobotMessageFileDownloadHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotMessageFileDownloadHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RobotMessageFileDownloadHeaders) SetCommonHeaders(v map[string]*string) *RobotMessageFileDownloadHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RobotMessageFileDownloadHeaders) SetXAcsDingtalkAccessToken(v string) *RobotMessageFileDownloadHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RobotMessageFileDownloadRequest struct {
+	// 机器人收到消息中的下载码，换取临时下载文件的链接使用。
+	DownloadCode *string `json:"downloadCode,omitempty" xml:"downloadCode,omitempty"`
+	// 机器人的robotCode。
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s RobotMessageFileDownloadRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotMessageFileDownloadRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RobotMessageFileDownloadRequest) SetDownloadCode(v string) *RobotMessageFileDownloadRequest {
+	s.DownloadCode = &v
+	return s
+}
+
+func (s *RobotMessageFileDownloadRequest) SetRobotCode(v string) *RobotMessageFileDownloadRequest {
+	s.RobotCode = &v
+	return s
+}
+
+type RobotMessageFileDownloadResponseBody struct {
+	// 文件的临时下载链接。
+	DownloadUrl *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+}
+
+func (s RobotMessageFileDownloadResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotMessageFileDownloadResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RobotMessageFileDownloadResponseBody) SetDownloadUrl(v string) *RobotMessageFileDownloadResponseBody {
+	s.DownloadUrl = &v
+	return s
+}
+
+type RobotMessageFileDownloadResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RobotMessageFileDownloadResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RobotMessageFileDownloadResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotMessageFileDownloadResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RobotMessageFileDownloadResponse) SetHeaders(v map[string]*string) *RobotMessageFileDownloadResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RobotMessageFileDownloadResponse) SetBody(v *RobotMessageFileDownloadResponseBody) *RobotMessageFileDownloadResponse {
+	s.Body = v
+	return s
+}
+
 type SendRobotDingMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2003,6 +2092,54 @@ func (client *Client) QueryRobotPluginWithOptions(request *QueryRobotPluginReque
 	}
 	_result = &QueryRobotPluginResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryRobotPlugin"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/plugins/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RobotMessageFileDownload(request *RobotMessageFileDownloadRequest) (_result *RobotMessageFileDownloadResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RobotMessageFileDownloadHeaders{}
+	_result = &RobotMessageFileDownloadResponse{}
+	_body, _err := client.RobotMessageFileDownloadWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RobotMessageFileDownloadWithOptions(request *RobotMessageFileDownloadRequest, headers *RobotMessageFileDownloadHeaders, runtime *util.RuntimeOptions) (_result *RobotMessageFileDownloadResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DownloadCode)) {
+		body["downloadCode"] = request.DownloadCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RobotMessageFileDownloadResponse{}
+	_body, _err := client.DoROARequest(tea.String("RobotMessageFileDownload"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/messageFiles/download"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
