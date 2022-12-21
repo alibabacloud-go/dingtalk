@@ -735,7 +735,8 @@ func (s *OpenMicroAppPackageRequest) SetAgentId(v int64) *OpenMicroAppPackageReq
 }
 
 type OpenMicroAppPackageResponseBody struct {
-	Result interface{} `json:"result,omitempty" xml:"result,omitempty"`
+	// 离线包ID
+	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
 }
 
 func (s OpenMicroAppPackageResponseBody) String() string {
@@ -746,8 +747,8 @@ func (s OpenMicroAppPackageResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *OpenMicroAppPackageResponseBody) SetResult(v interface{}) *OpenMicroAppPackageResponseBody {
-	s.Result = v
+func (s *OpenMicroAppPackageResponseBody) SetMiniAppId(v string) *OpenMicroAppPackageResponseBody {
+	s.MiniAppId = &v
 	return s
 }
 
