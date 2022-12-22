@@ -1046,6 +1046,9 @@ func (s *SendAgentOTOMessageRequestDetail) SetUuid(v string) *SendAgentOTOMessag
 type SendAgentOTOMessageRequestDetailMessageBody struct {
 	// 卡片消息
 	ActionCard *SendAgentOTOMessageRequestDetailMessageBodyActionCard `json:"actionCard,omitempty" xml:"actionCard,omitempty" type:"Struct"`
+	// 图片类型的消息场景使用
+	Image              *SendAgentOTOMessageRequestDetailMessageBodyImage              `json:"image,omitempty" xml:"image,omitempty" type:"Struct"`
+	InteractiveMessage *SendAgentOTOMessageRequestDetailMessageBodyInteractiveMessage `json:"interactiveMessage,omitempty" xml:"interactiveMessage,omitempty" type:"Struct"`
 	// 链接消息类型
 	Link *SendAgentOTOMessageRequestDetailMessageBodyLink `json:"link,omitempty" xml:"link,omitempty" type:"Struct"`
 	// markdown消息，仅对消息类型为markdown时有效
@@ -1064,6 +1067,16 @@ func (s SendAgentOTOMessageRequestDetailMessageBody) GoString() string {
 
 func (s *SendAgentOTOMessageRequestDetailMessageBody) SetActionCard(v *SendAgentOTOMessageRequestDetailMessageBodyActionCard) *SendAgentOTOMessageRequestDetailMessageBody {
 	s.ActionCard = v
+	return s
+}
+
+func (s *SendAgentOTOMessageRequestDetailMessageBody) SetImage(v *SendAgentOTOMessageRequestDetailMessageBodyImage) *SendAgentOTOMessageRequestDetailMessageBody {
+	s.Image = v
+	return s
+}
+
+func (s *SendAgentOTOMessageRequestDetailMessageBody) SetInteractiveMessage(v *SendAgentOTOMessageRequestDetailMessageBodyInteractiveMessage) *SendAgentOTOMessageRequestDetailMessageBody {
+	s.InteractiveMessage = v
 	return s
 }
 
@@ -1157,6 +1170,63 @@ func (s *SendAgentOTOMessageRequestDetailMessageBodyActionCardButtonList) SetAct
 
 func (s *SendAgentOTOMessageRequestDetailMessageBodyActionCardButtonList) SetTitle(v string) *SendAgentOTOMessageRequestDetailMessageBodyActionCardButtonList {
 	s.Title = &v
+	return s
+}
+
+type SendAgentOTOMessageRequestDetailMessageBodyImage struct {
+	// 图片mediaId信息
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+}
+
+func (s SendAgentOTOMessageRequestDetailMessageBodyImage) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendAgentOTOMessageRequestDetailMessageBodyImage) GoString() string {
+	return s.String()
+}
+
+func (s *SendAgentOTOMessageRequestDetailMessageBodyImage) SetMediaId(v string) *SendAgentOTOMessageRequestDetailMessageBodyImage {
+	s.MediaId = &v
+	return s
+}
+
+type SendAgentOTOMessageRequestDetailMessageBodyInteractiveMessage struct {
+	// 需要回调的互动卡片可通过此参数定义回调地址
+	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+	// 卡片ID，由开发者自定义，同一卡片此ID需要保持一致。
+	CardBizId *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
+	// 互动卡片数据，必须是json object 格式
+	CardData *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	// 卡片模板ID，可通过互动卡片搭建后台获取。
+	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+}
+
+func (s SendAgentOTOMessageRequestDetailMessageBodyInteractiveMessage) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendAgentOTOMessageRequestDetailMessageBodyInteractiveMessage) GoString() string {
+	return s.String()
+}
+
+func (s *SendAgentOTOMessageRequestDetailMessageBodyInteractiveMessage) SetCallbackUrl(v string) *SendAgentOTOMessageRequestDetailMessageBodyInteractiveMessage {
+	s.CallbackUrl = &v
+	return s
+}
+
+func (s *SendAgentOTOMessageRequestDetailMessageBodyInteractiveMessage) SetCardBizId(v string) *SendAgentOTOMessageRequestDetailMessageBodyInteractiveMessage {
+	s.CardBizId = &v
+	return s
+}
+
+func (s *SendAgentOTOMessageRequestDetailMessageBodyInteractiveMessage) SetCardData(v string) *SendAgentOTOMessageRequestDetailMessageBodyInteractiveMessage {
+	s.CardData = &v
+	return s
+}
+
+func (s *SendAgentOTOMessageRequestDetailMessageBodyInteractiveMessage) SetCardTemplateId(v string) *SendAgentOTOMessageRequestDetailMessageBodyInteractiveMessage {
+	s.CardTemplateId = &v
 	return s
 }
 

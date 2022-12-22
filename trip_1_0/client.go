@@ -539,6 +539,7 @@ type SyncTripOrderRequestOrderDetails struct {
 	DestinationStation *string `json:"destinationStation,omitempty" xml:"destinationStation,omitempty"`
 	// 酒店地址
 	HotelAddress *string `json:"hotelAddress,omitempty" xml:"hotelAddress,omitempty"`
+	HotelCity    *string `json:"hotelCity,omitempty" xml:"hotelCity,omitempty"`
 	// 酒店定位信息
 	HotelLocation *SyncTripOrderRequestOrderDetailsHotelLocation `json:"hotelLocation,omitempty" xml:"hotelLocation,omitempty" type:"Struct"`
 	// 酒店名称
@@ -634,6 +635,11 @@ func (s *SyncTripOrderRequestOrderDetails) SetDestinationStation(v string) *Sync
 
 func (s *SyncTripOrderRequestOrderDetails) SetHotelAddress(v string) *SyncTripOrderRequestOrderDetails {
 	s.HotelAddress = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetails) SetHotelCity(v string) *SyncTripOrderRequestOrderDetails {
+	s.HotelCity = &v
 	return s
 }
 

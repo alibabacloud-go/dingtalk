@@ -694,7 +694,8 @@ type GrantHonorRequest struct {
 	// 是否使用官宣号发送内网动态
 	NoticeAnnouncer *bool `json:"noticeAnnouncer,omitempty" xml:"noticeAnnouncer,omitempty"`
 	// 是否触达单聊会话通知
-	NoticeSingle *bool `json:"noticeSingle,omitempty" xml:"noticeSingle,omitempty"`
+	NoticeSingle        *bool     `json:"noticeSingle,omitempty" xml:"noticeSingle,omitempty"`
+	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
 	// 接受人userId
 	ReceiverUserIds []*string `json:"receiverUserIds,omitempty" xml:"receiverUserIds,omitempty" type:"Repeated"`
 	// 发送人userId
@@ -731,6 +732,11 @@ func (s *GrantHonorRequest) SetNoticeAnnouncer(v bool) *GrantHonorRequest {
 
 func (s *GrantHonorRequest) SetNoticeSingle(v bool) *GrantHonorRequest {
 	s.NoticeSingle = &v
+	return s
+}
+
+func (s *GrantHonorRequest) SetOpenConversationIds(v []*string) *GrantHonorRequest {
+	s.OpenConversationIds = v
 	return s
 }
 
@@ -2718,6 +2724,10 @@ func (client *Client) GrantHonorWithOptions(honorId *string, request *GrantHonor
 
 	if !tea.BoolValue(util.IsUnset(request.NoticeSingle)) {
 		body["noticeSingle"] = request.NoticeSingle
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationIds)) {
+		body["openConversationIds"] = request.OpenConversationIds
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ReceiverUserIds)) {
