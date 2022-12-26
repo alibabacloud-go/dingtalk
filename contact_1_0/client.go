@@ -4501,6 +4501,144 @@ func (s *MultiOrgPermissionGrantResponse) SetHeaders(v map[string]*string) *Mult
 	return s
 }
 
+type QueryCardVisitorStatisticDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCardVisitorStatisticDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCardVisitorStatisticDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCardVisitorStatisticDataHeaders) SetCommonHeaders(v map[string]*string) *QueryCardVisitorStatisticDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCardVisitorStatisticDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCardVisitorStatisticDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCardVisitorStatisticDataRequest struct {
+	// 用户的unionId
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryCardVisitorStatisticDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCardVisitorStatisticDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCardVisitorStatisticDataRequest) SetUnionId(v string) *QueryCardVisitorStatisticDataRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryCardVisitorStatisticDataResponseBody struct {
+	// 发送名片数
+	CardSendCnt *int64 `json:"cardSendCnt,omitempty" xml:"cardSendCnt,omitempty"`
+	// 今日访客增加数
+	TodayVisitAddCnt *int64 `json:"todayVisitAddCnt,omitempty" xml:"todayVisitAddCnt,omitempty"`
+	// 今日访客数
+	TodayVisitCnt *int64 `json:"todayVisitCnt,omitempty" xml:"todayVisitCnt,omitempty"`
+	// 总访客新增数
+	TotalVisitAddCnt *int64 `json:"totalVisitAddCnt,omitempty" xml:"totalVisitAddCnt,omitempty"`
+	// 总访客数
+	TotalVisitCnt *int64 `json:"totalVisitCnt,omitempty" xml:"totalVisitCnt,omitempty"`
+	// 微信今日访客新增数
+	WechatTodayVisitAddCnt *int64 `json:"wechatTodayVisitAddCnt,omitempty" xml:"wechatTodayVisitAddCnt,omitempty"`
+	// 微信今日访客数
+	WechatTodayVisitCnt *int64 `json:"wechatTodayVisitCnt,omitempty" xml:"wechatTodayVisitCnt,omitempty"`
+	// 微信今日访客增加数
+	WechatTotalVisitAddCnt *int64 `json:"wechatTotalVisitAddCnt,omitempty" xml:"wechatTotalVisitAddCnt,omitempty"`
+	// 微信访客数
+	WechatTotalVisitCnt *int64 `json:"wechatTotalVisitCnt,omitempty" xml:"wechatTotalVisitCnt,omitempty"`
+}
+
+func (s QueryCardVisitorStatisticDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCardVisitorStatisticDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCardVisitorStatisticDataResponseBody) SetCardSendCnt(v int64) *QueryCardVisitorStatisticDataResponseBody {
+	s.CardSendCnt = &v
+	return s
+}
+
+func (s *QueryCardVisitorStatisticDataResponseBody) SetTodayVisitAddCnt(v int64) *QueryCardVisitorStatisticDataResponseBody {
+	s.TodayVisitAddCnt = &v
+	return s
+}
+
+func (s *QueryCardVisitorStatisticDataResponseBody) SetTodayVisitCnt(v int64) *QueryCardVisitorStatisticDataResponseBody {
+	s.TodayVisitCnt = &v
+	return s
+}
+
+func (s *QueryCardVisitorStatisticDataResponseBody) SetTotalVisitAddCnt(v int64) *QueryCardVisitorStatisticDataResponseBody {
+	s.TotalVisitAddCnt = &v
+	return s
+}
+
+func (s *QueryCardVisitorStatisticDataResponseBody) SetTotalVisitCnt(v int64) *QueryCardVisitorStatisticDataResponseBody {
+	s.TotalVisitCnt = &v
+	return s
+}
+
+func (s *QueryCardVisitorStatisticDataResponseBody) SetWechatTodayVisitAddCnt(v int64) *QueryCardVisitorStatisticDataResponseBody {
+	s.WechatTodayVisitAddCnt = &v
+	return s
+}
+
+func (s *QueryCardVisitorStatisticDataResponseBody) SetWechatTodayVisitCnt(v int64) *QueryCardVisitorStatisticDataResponseBody {
+	s.WechatTodayVisitCnt = &v
+	return s
+}
+
+func (s *QueryCardVisitorStatisticDataResponseBody) SetWechatTotalVisitAddCnt(v int64) *QueryCardVisitorStatisticDataResponseBody {
+	s.WechatTotalVisitAddCnt = &v
+	return s
+}
+
+func (s *QueryCardVisitorStatisticDataResponseBody) SetWechatTotalVisitCnt(v int64) *QueryCardVisitorStatisticDataResponseBody {
+	s.WechatTotalVisitCnt = &v
+	return s
+}
+
+type QueryCardVisitorStatisticDataResponse struct {
+	Headers map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryCardVisitorStatisticDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryCardVisitorStatisticDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCardVisitorStatisticDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCardVisitorStatisticDataResponse) SetHeaders(v map[string]*string) *QueryCardVisitorStatisticDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCardVisitorStatisticDataResponse) SetBody(v *QueryCardVisitorStatisticDataResponseBody) *QueryCardVisitorStatisticDataResponse {
+	s.Body = v
+	return s
+}
+
 type QueryResourceManagementMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8381,6 +8519,50 @@ func (client *Client) MultiOrgPermissionGrantWithOptions(request *MultiOrgPermis
 	}
 	_result = &MultiOrgPermissionGrantResponse{}
 	_body, _err := client.DoROARequest(tea.String("MultiOrgPermissionGrant"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/orgAccounts/multiOrgPermissions/auth"), tea.String("none"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryCardVisitorStatisticData(request *QueryCardVisitorStatisticDataRequest) (_result *QueryCardVisitorStatisticDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCardVisitorStatisticDataHeaders{}
+	_result = &QueryCardVisitorStatisticDataResponse{}
+	_body, _err := client.QueryCardVisitorStatisticDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryCardVisitorStatisticDataWithOptions(request *QueryCardVisitorStatisticDataRequest, headers *QueryCardVisitorStatisticDataHeaders, runtime *util.RuntimeOptions) (_result *QueryCardVisitorStatisticDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &QueryCardVisitorStatisticDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryCardVisitorStatisticData"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/cards/visitors/statistics"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
