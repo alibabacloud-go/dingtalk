@@ -1371,6 +1371,365 @@ func (s *ListActivateDevicesResponse) SetBody(v *ListActivateDevicesResponseBody
 	return s
 }
 
+type ListInspectInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListInspectInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListInspectInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListInspectInfoHeaders) SetCommonHeaders(v map[string]*string) *ListInspectInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListInspectInfoHeaders) SetXAcsDingtalkAccessToken(v string) *ListInspectInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListInspectInfoRequest struct {
+	DeviceUuid []*string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty" type:"Repeated"`
+	// 页码
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 当页大小
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 类型（inspect：巡检，protect：保养）
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s ListInspectInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListInspectInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListInspectInfoRequest) SetDeviceUuid(v []*string) *ListInspectInfoRequest {
+	s.DeviceUuid = v
+	return s
+}
+
+func (s *ListInspectInfoRequest) SetPageNumber(v int32) *ListInspectInfoRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ListInspectInfoRequest) SetPageSize(v int32) *ListInspectInfoRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ListInspectInfoRequest) SetType(v string) *ListInspectInfoRequest {
+	s.Type = &v
+	return s
+}
+
+type ListInspectInfoResponseBody struct {
+	// 结果集
+	Result []*ListInspectInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 总共数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s ListInspectInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListInspectInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListInspectInfoResponseBody) SetResult(v []*ListInspectInfoResponseBodyResult) *ListInspectInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *ListInspectInfoResponseBody) SetSuccess(v bool) *ListInspectInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *ListInspectInfoResponseBody) SetTotalCount(v int64) *ListInspectInfoResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type ListInspectInfoResponseBodyResult struct {
+	// 设备码
+	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	// 设备名称
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// 处理时间
+	HandleTime *string `json:"handleTime,omitempty" xml:"handleTime,omitempty"`
+	// 维修人员
+	MaintenanceStaff []*string `json:"maintenanceStaff,omitempty" xml:"maintenanceStaff,omitempty" type:"Repeated"`
+	// 巡检表名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 巡检/保养内容
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// 处理结果（1:未修复，2:已修复）
+	RepairStatus *int32 `json:"repairStatus,omitempty" xml:"repairStatus,omitempty"`
+	// 巡检/保养结果：0:正常，1:异常
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// 类型（inspect：巡检，protect：保养）
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s ListInspectInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListInspectInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListInspectInfoResponseBodyResult) SetDeviceCode(v string) *ListInspectInfoResponseBodyResult {
+	s.DeviceCode = &v
+	return s
+}
+
+func (s *ListInspectInfoResponseBodyResult) SetDeviceName(v string) *ListInspectInfoResponseBodyResult {
+	s.DeviceName = &v
+	return s
+}
+
+func (s *ListInspectInfoResponseBodyResult) SetHandleTime(v string) *ListInspectInfoResponseBodyResult {
+	s.HandleTime = &v
+	return s
+}
+
+func (s *ListInspectInfoResponseBodyResult) SetMaintenanceStaff(v []*string) *ListInspectInfoResponseBodyResult {
+	s.MaintenanceStaff = v
+	return s
+}
+
+func (s *ListInspectInfoResponseBodyResult) SetName(v string) *ListInspectInfoResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *ListInspectInfoResponseBodyResult) SetRemark(v string) *ListInspectInfoResponseBodyResult {
+	s.Remark = &v
+	return s
+}
+
+func (s *ListInspectInfoResponseBodyResult) SetRepairStatus(v int32) *ListInspectInfoResponseBodyResult {
+	s.RepairStatus = &v
+	return s
+}
+
+func (s *ListInspectInfoResponseBodyResult) SetStatus(v int32) *ListInspectInfoResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *ListInspectInfoResponseBodyResult) SetType(v string) *ListInspectInfoResponseBodyResult {
+	s.Type = &v
+	return s
+}
+
+type ListInspectInfoResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListInspectInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListInspectInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListInspectInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListInspectInfoResponse) SetHeaders(v map[string]*string) *ListInspectInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListInspectInfoResponse) SetBody(v *ListInspectInfoResponseBody) *ListInspectInfoResponse {
+	s.Body = v
+	return s
+}
+
+type ListMaintainInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListMaintainInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListMaintainInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListMaintainInfoHeaders) SetCommonHeaders(v map[string]*string) *ListMaintainInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListMaintainInfoHeaders) SetXAcsDingtalkAccessToken(v string) *ListMaintainInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListMaintainInfoRequest struct {
+	DeviceUuid []*string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty" type:"Repeated"`
+	// 页码
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 页面大小
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s ListMaintainInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListMaintainInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListMaintainInfoRequest) SetDeviceUuid(v []*string) *ListMaintainInfoRequest {
+	s.DeviceUuid = v
+	return s
+}
+
+func (s *ListMaintainInfoRequest) SetPageNumber(v int32) *ListMaintainInfoRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ListMaintainInfoRequest) SetPageSize(v int32) *ListMaintainInfoRequest {
+	s.PageSize = &v
+	return s
+}
+
+type ListMaintainInfoResponseBody struct {
+	// 结果集
+	Result []*ListMaintainInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 总共的数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s ListMaintainInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListMaintainInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListMaintainInfoResponseBody) SetResult(v []*ListMaintainInfoResponseBodyResult) *ListMaintainInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *ListMaintainInfoResponseBody) SetSuccess(v bool) *ListMaintainInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *ListMaintainInfoResponseBody) SetTotalCount(v int64) *ListMaintainInfoResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type ListMaintainInfoResponseBodyResult struct {
+	// 报修设备码
+	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	// 设备名称
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// 报修时间
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 处理时间
+	HandleTime *string `json:"handleTime,omitempty" xml:"handleTime,omitempty"`
+	// 报修人
+	MaintenanceStaff []*string `json:"maintenanceStaff,omitempty" xml:"maintenanceStaff,omitempty" type:"Repeated"`
+	// 处理结果，0:同意，1:拒绝，2:终止，3:删除，4:进行中
+	ProcessState *int32 `json:"processState,omitempty" xml:"processState,omitempty"`
+	// 异常描述
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+}
+
+func (s ListMaintainInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListMaintainInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListMaintainInfoResponseBodyResult) SetDeviceCode(v string) *ListMaintainInfoResponseBodyResult {
+	s.DeviceCode = &v
+	return s
+}
+
+func (s *ListMaintainInfoResponseBodyResult) SetDeviceName(v string) *ListMaintainInfoResponseBodyResult {
+	s.DeviceName = &v
+	return s
+}
+
+func (s *ListMaintainInfoResponseBodyResult) SetGmtCreate(v string) *ListMaintainInfoResponseBodyResult {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *ListMaintainInfoResponseBodyResult) SetHandleTime(v string) *ListMaintainInfoResponseBodyResult {
+	s.HandleTime = &v
+	return s
+}
+
+func (s *ListMaintainInfoResponseBodyResult) SetMaintenanceStaff(v []*string) *ListMaintainInfoResponseBodyResult {
+	s.MaintenanceStaff = v
+	return s
+}
+
+func (s *ListMaintainInfoResponseBodyResult) SetProcessState(v int32) *ListMaintainInfoResponseBodyResult {
+	s.ProcessState = &v
+	return s
+}
+
+func (s *ListMaintainInfoResponseBodyResult) SetRemark(v string) *ListMaintainInfoResponseBodyResult {
+	s.Remark = &v
+	return s
+}
+
+type ListMaintainInfoResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListMaintainInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListMaintainInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListMaintainInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListMaintainInfoResponse) SetHeaders(v map[string]*string) *ListMaintainInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListMaintainInfoResponse) SetBody(v *ListMaintainInfoResponseBody) *ListMaintainInfoResponse {
+	s.Body = v
+	return s
+}
+
 type PullDeviceToGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3736,6 +4095,114 @@ func (client *Client) ListActivateDevicesWithOptions(request *ListActivateDevice
 	}
 	_result = &ListActivateDevicesResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListActivateDevices"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/devices/activations/infos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListInspectInfo(request *ListInspectInfoRequest) (_result *ListInspectInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListInspectInfoHeaders{}
+	_result = &ListInspectInfoResponse{}
+	_body, _err := client.ListInspectInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListInspectInfoWithOptions(request *ListInspectInfoRequest, headers *ListInspectInfoHeaders, runtime *util.RuntimeOptions) (_result *ListInspectInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceUuid)) {
+		body["deviceUuid"] = request.DeviceUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ListInspectInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListInspectInfo"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/devices/inspectInfos/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListMaintainInfo(request *ListMaintainInfoRequest) (_result *ListMaintainInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListMaintainInfoHeaders{}
+	_result = &ListMaintainInfoResponse{}
+	_body, _err := client.ListMaintainInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListMaintainInfoWithOptions(request *ListMaintainInfoRequest, headers *ListMaintainInfoHeaders, runtime *util.RuntimeOptions) (_result *ListMaintainInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceUuid)) {
+		body["deviceUuid"] = request.DeviceUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ListMaintainInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListMaintainInfo"), tea.String("devicemng_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/devicemng/customers/devices/maintainInfos/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
