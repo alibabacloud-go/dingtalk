@@ -1969,6 +1969,271 @@ func (s *ListDentriesResponse) SetBody(v *ListDentriesResponseBody) *ListDentrie
 	return s
 }
 
+type ListExpiredHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListExpiredHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListExpiredHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListExpiredHeaders) SetCommonHeaders(v map[string]*string) *ListExpiredHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListExpiredHeaders) SetXAcsDingtalkAccessToken(v string) *ListExpiredHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListExpiredRequest struct {
+	// 会话id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 可选参数
+	Option *ListExpiredRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s ListExpiredRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListExpiredRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListExpiredRequest) SetOpenConversationId(v string) *ListExpiredRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *ListExpiredRequest) SetOption(v *ListExpiredRequestOption) *ListExpiredRequest {
+	s.Option = v
+	return s
+}
+
+func (s *ListExpiredRequest) SetUnionId(v string) *ListExpiredRequest {
+	s.UnionId = &v
+	return s
+}
+
+type ListExpiredRequestOption struct {
+	// 分页大小
+	// 默认值:
+	// 	50
+	// 最大值:
+	// 	50
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页游标, 首次拉取不用传
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListExpiredRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListExpiredRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *ListExpiredRequestOption) SetMaxResults(v int32) *ListExpiredRequestOption {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListExpiredRequestOption) SetNextToken(v string) *ListExpiredRequestOption {
+	s.NextToken = &v
+	return s
+}
+
+type ListExpiredResponseBody struct {
+	// 过期文件列表
+	// 最大size:
+	// 	50
+	Files []*ListExpiredResponseBodyFiles `json:"files,omitempty" xml:"files,omitempty" type:"Repeated"`
+	// 分页游标
+	// 不为空表示有更多数据
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListExpiredResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListExpiredResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListExpiredResponseBody) SetFiles(v []*ListExpiredResponseBodyFiles) *ListExpiredResponseBody {
+	s.Files = v
+	return s
+}
+
+func (s *ListExpiredResponseBody) SetNextToken(v string) *ListExpiredResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type ListExpiredResponseBodyFiles struct {
+	// 文件所在会话id
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 创建者id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 文件后缀
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// 文件id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 修改时间
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// 修改者id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// 文件(夹)名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 文件所在的父目录id, 根目录id值为0
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// 文件路径
+	Path *string `json:"path,omitempty" xml:"path,omitempty"`
+	// 文件大小, 单位:Byte
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// 文件所在空间id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 文件状态
+	// 枚举值:
+	// 	NORMAL: 正常
+	// 	DELETED: 已删除
+	// 	EXPIRED: 已过期
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 文件类型：文件、文件夹
+	// 枚举值:
+	// 	FILE: 文件
+	// 	FOLDER: 文件夹
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// uuid，如移动文件，此字段不变
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// 文件版本
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s ListExpiredResponseBodyFiles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListExpiredResponseBodyFiles) GoString() string {
+	return s.String()
+}
+
+func (s *ListExpiredResponseBodyFiles) SetConversationId(v string) *ListExpiredResponseBodyFiles {
+	s.ConversationId = &v
+	return s
+}
+
+func (s *ListExpiredResponseBodyFiles) SetCreateTime(v string) *ListExpiredResponseBodyFiles {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *ListExpiredResponseBodyFiles) SetCreatorId(v string) *ListExpiredResponseBodyFiles {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *ListExpiredResponseBodyFiles) SetExtension(v string) *ListExpiredResponseBodyFiles {
+	s.Extension = &v
+	return s
+}
+
+func (s *ListExpiredResponseBodyFiles) SetId(v string) *ListExpiredResponseBodyFiles {
+	s.Id = &v
+	return s
+}
+
+func (s *ListExpiredResponseBodyFiles) SetModifiedTime(v string) *ListExpiredResponseBodyFiles {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *ListExpiredResponseBodyFiles) SetModifierId(v string) *ListExpiredResponseBodyFiles {
+	s.ModifierId = &v
+	return s
+}
+
+func (s *ListExpiredResponseBodyFiles) SetName(v string) *ListExpiredResponseBodyFiles {
+	s.Name = &v
+	return s
+}
+
+func (s *ListExpiredResponseBodyFiles) SetParentId(v string) *ListExpiredResponseBodyFiles {
+	s.ParentId = &v
+	return s
+}
+
+func (s *ListExpiredResponseBodyFiles) SetPath(v string) *ListExpiredResponseBodyFiles {
+	s.Path = &v
+	return s
+}
+
+func (s *ListExpiredResponseBodyFiles) SetSize(v int64) *ListExpiredResponseBodyFiles {
+	s.Size = &v
+	return s
+}
+
+func (s *ListExpiredResponseBodyFiles) SetSpaceId(v string) *ListExpiredResponseBodyFiles {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *ListExpiredResponseBodyFiles) SetStatus(v string) *ListExpiredResponseBodyFiles {
+	s.Status = &v
+	return s
+}
+
+func (s *ListExpiredResponseBodyFiles) SetType(v string) *ListExpiredResponseBodyFiles {
+	s.Type = &v
+	return s
+}
+
+func (s *ListExpiredResponseBodyFiles) SetUuid(v string) *ListExpiredResponseBodyFiles {
+	s.Uuid = &v
+	return s
+}
+
+func (s *ListExpiredResponseBodyFiles) SetVersion(v int64) *ListExpiredResponseBodyFiles {
+	s.Version = &v
+	return s
+}
+
+type ListExpiredResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListExpiredResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListExpiredResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListExpiredResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListExpiredResponse) SetHeaders(v map[string]*string) *ListExpiredResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListExpiredResponse) SetBody(v *ListExpiredResponseBody) *ListExpiredResponse {
+	s.Body = v
+	return s
+}
+
 type SubscribeEventHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2676,6 +2941,60 @@ func (client *Client) ListDentriesWithOptions(spaceId *string, request *ListDent
 	}
 	_result = &ListDentriesResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListDentries"), tea.String("snsStorage_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/snsStorage/spaces/"+tea.StringValue(spaceId)+"/dentries"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) ListExpired(request *ListExpiredRequest) (_result *ListExpiredResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListExpiredHeaders{}
+	_result = &ListExpiredResponse{}
+	_body, _err := client.ListExpiredWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListExpiredWithOptions(request *ListExpiredRequest, headers *ListExpiredHeaders, runtime *util.RuntimeOptions) (_result *ListExpiredResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Option)) {
+		body["option"] = request.Option
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ListExpiredResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListExpired"), tea.String("snsStorage_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/snsStorage/conversations/expiredFileLists/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
