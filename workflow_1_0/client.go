@@ -3902,6 +3902,13 @@ type ListProcessInstanceIdsRequest struct {
 	//
 	// 例如：获取审批单发起时间在2020.4.10-2020.4.14之间审批单，该值传2020.4.10 00:00:00对应的时间戳1586448000000。
 	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 流程实例状态，未传值代表查询所有状态的实例ID列表。
+	// NEW：新创建
+	// RUNNING：审批中
+	// TERMINATED：被终止
+	// COMPLETED：完成
+	// CANCELED：取消
+	Statuses []*string `json:"statuses,omitempty" xml:"statuses,omitempty" type:"Repeated"`
 	// 发起userid列表，最大列表长度为10。
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
@@ -3936,6 +3943,11 @@ func (s *ListProcessInstanceIdsRequest) SetProcessCode(v string) *ListProcessIns
 
 func (s *ListProcessInstanceIdsRequest) SetStartTime(v int64) *ListProcessInstanceIdsRequest {
 	s.StartTime = &v
+	return s
+}
+
+func (s *ListProcessInstanceIdsRequest) SetStatuses(v []*string) *ListProcessInstanceIdsRequest {
+	s.Statuses = v
 	return s
 }
 
@@ -6196,9 +6208,9 @@ func (s *QueryIntegratedTodoTaskResponseBodyResult) SetList(v []*QueryIntegrated
 type QueryIntegratedTodoTaskResponseBodyResultList struct {
 	// 待办组ID，需要在调用创建流程中心集成任务接口时，主动设置该值。
 	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	// OA审批任务创建时间
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	// OA审批任务完成时间
+	// OA审批任务创建时间。
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// OA审批任务完成时间。
 	FinishTime *string `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
 	// 流程实例ID
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
@@ -6225,7 +6237,7 @@ func (s *QueryIntegratedTodoTaskResponseBodyResultList) SetActivityId(v string) 
 	return s
 }
 
-func (s *QueryIntegratedTodoTaskResponseBodyResultList) SetCreateTime(v int64) *QueryIntegratedTodoTaskResponseBodyResultList {
+func (s *QueryIntegratedTodoTaskResponseBodyResultList) SetCreateTime(v string) *QueryIntegratedTodoTaskResponseBodyResultList {
 	s.CreateTime = &v
 	return s
 }
@@ -9694,6 +9706,10 @@ func (client *Client) ListProcessInstanceIdsWithOptions(request *ListProcessInst
 
 	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
 		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Statuses)) {
+		body["statuses"] = request.Statuses
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.UserIds)) {

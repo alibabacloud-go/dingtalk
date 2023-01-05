@@ -365,6 +365,108 @@ func (s *ECertQueryResponse) SetBody(v *ECertQueryResponseBody) *ECertQueryRespo
 	return s
 }
 
+type HrmProcessRegularHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrmProcessRegularHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmProcessRegularHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrmProcessRegularHeaders) SetCommonHeaders(v map[string]*string) *HrmProcessRegularHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrmProcessRegularHeaders) SetXAcsDingtalkAccessToken(v string) *HrmProcessRegularHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrmProcessRegularRequest struct {
+	// 操作人用户ID
+	OperationId *string `json:"operationId,omitempty" xml:"operationId,omitempty"`
+	// 转正时间
+	RegularDate *int64 `json:"regularDate,omitempty" xml:"regularDate,omitempty"`
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// 用户ID
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s HrmProcessRegularRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmProcessRegularRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrmProcessRegularRequest) SetOperationId(v string) *HrmProcessRegularRequest {
+	s.OperationId = &v
+	return s
+}
+
+func (s *HrmProcessRegularRequest) SetRegularDate(v int64) *HrmProcessRegularRequest {
+	s.RegularDate = &v
+	return s
+}
+
+func (s *HrmProcessRegularRequest) SetRemark(v string) *HrmProcessRegularRequest {
+	s.Remark = &v
+	return s
+}
+
+func (s *HrmProcessRegularRequest) SetUserId(v string) *HrmProcessRegularRequest {
+	s.UserId = &v
+	return s
+}
+
+type HrmProcessRegularResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s HrmProcessRegularResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmProcessRegularResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrmProcessRegularResponseBody) SetResult(v bool) *HrmProcessRegularResponseBody {
+	s.Result = &v
+	return s
+}
+
+type HrmProcessRegularResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *HrmProcessRegularResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s HrmProcessRegularResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmProcessRegularResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrmProcessRegularResponse) SetHeaders(v map[string]*string) *HrmProcessRegularResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrmProcessRegularResponse) SetBody(v *HrmProcessRegularResponseBody) *HrmProcessRegularResponse {
+	s.Body = v
+	return s
+}
+
 type HrmProcessTransferHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2887,6 +2989,62 @@ func (client *Client) ECertQueryWithOptions(request *ECertQueryRequest, headers 
 	}
 	_result = &ECertQueryResponse{}
 	_body, _err := client.DoROARequest(tea.String("ECertQuery"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/eCerts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) HrmProcessRegular(request *HrmProcessRegularRequest) (_result *HrmProcessRegularResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrmProcessRegularHeaders{}
+	_result = &HrmProcessRegularResponse{}
+	_body, _err := client.HrmProcessRegularWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) HrmProcessRegularWithOptions(request *HrmProcessRegularRequest, headers *HrmProcessRegularHeaders, runtime *util.RuntimeOptions) (_result *HrmProcessRegularResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperationId)) {
+		body["operationId"] = request.OperationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RegularDate)) {
+		body["regularDate"] = request.RegularDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &HrmProcessRegularResponse{}
+	_body, _err := client.DoROARequest(tea.String("HrmProcessRegular"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/processes/regulars/become"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
