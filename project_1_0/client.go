@@ -868,10 +868,20 @@ type CreateTaskRequest struct {
 	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
 	// 任务备注
 	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// 父任务id。
+	ParentTaskId *string `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
 	// 任务优先级
 	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
 	// 项目id
 	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// 任务类型id，任务类型比如：缺陷、需求。。
+	ScenariofieldconfigId *string `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
+	// 任务列id。
+	StageId *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
+	// 任务开始时间。
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// 任务可见性,members,involves。
+	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s CreateTaskRequest) String() string {
@@ -907,6 +917,11 @@ func (s *CreateTaskRequest) SetNote(v string) *CreateTaskRequest {
 	return s
 }
 
+func (s *CreateTaskRequest) SetParentTaskId(v string) *CreateTaskRequest {
+	s.ParentTaskId = &v
+	return s
+}
+
 func (s *CreateTaskRequest) SetPriority(v int32) *CreateTaskRequest {
 	s.Priority = &v
 	return s
@@ -914,6 +929,26 @@ func (s *CreateTaskRequest) SetPriority(v int32) *CreateTaskRequest {
 
 func (s *CreateTaskRequest) SetProjectId(v string) *CreateTaskRequest {
 	s.ProjectId = &v
+	return s
+}
+
+func (s *CreateTaskRequest) SetScenariofieldconfigId(v string) *CreateTaskRequest {
+	s.ScenariofieldconfigId = &v
+	return s
+}
+
+func (s *CreateTaskRequest) SetStageId(v string) *CreateTaskRequest {
+	s.StageId = &v
+	return s
+}
+
+func (s *CreateTaskRequest) SetStartDate(v string) *CreateTaskRequest {
+	s.StartDate = &v
+	return s
+}
+
+func (s *CreateTaskRequest) SetVisible(v string) *CreateTaskRequest {
+	s.Visible = &v
 	return s
 }
 
@@ -4924,12 +4959,32 @@ func (client *Client) CreateTaskWithOptions(userId *string, request *CreateTaskR
 		body["note"] = request.Note
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.ParentTaskId)) {
+		body["parentTaskId"] = request.ParentTaskId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Priority)) {
 		body["priority"] = request.Priority
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ProjectId)) {
 		body["projectId"] = request.ProjectId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScenariofieldconfigId)) {
+		body["scenariofieldconfigId"] = request.ScenariofieldconfigId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StageId)) {
+		body["stageId"] = request.StageId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartDate)) {
+		body["startDate"] = request.StartDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Visible)) {
+		body["visible"] = request.Visible
 	}
 
 	realHeaders := make(map[string]*string)
