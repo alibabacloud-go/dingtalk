@@ -2574,6 +2574,7 @@ type UpdateCardRequest struct {
 	// ● key：userId
 	// ● value：用户私有数据（cardData）
 	PrivateData map[string]*PrivateDataValue `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	UserIdType  *int32                       `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 }
 
 func (s UpdateCardRequest) String() string {
@@ -2601,6 +2602,11 @@ func (s *UpdateCardRequest) SetOutTrackId(v string) *UpdateCardRequest {
 
 func (s *UpdateCardRequest) SetPrivateData(v map[string]*PrivateDataValue) *UpdateCardRequest {
 	s.PrivateData = v
+	return s
+}
+
+func (s *UpdateCardRequest) SetUserIdType(v int32) *UpdateCardRequest {
+	s.UserIdType = &v
 	return s
 }
 
@@ -3217,6 +3223,10 @@ func (client *Client) UpdateCardWithOptions(request *UpdateCardRequest, headers 
 
 	if !tea.BoolValue(util.IsUnset(request.PrivateData)) {
 		body["privateData"] = request.PrivateData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdType)) {
+		body["userIdType"] = request.UserIdType
 	}
 
 	realHeaders := make(map[string]*string)
