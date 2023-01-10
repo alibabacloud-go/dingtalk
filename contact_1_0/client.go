@@ -1274,6 +1274,10 @@ func (s *GetCardInUserHolderHeaders) SetXAcsDingtalkAccessToken(v string) *GetCa
 type GetCardInUserHolderResponseBody struct {
 	// 头像
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// 名片收下状态
+	CardAcceptStatus *int32 `json:"cardAcceptStatus,omitempty" xml:"cardAcceptStatus,omitempty"`
+	// 名片收下时间
+	CardAcceptTime interface{} `json:"cardAcceptTime,omitempty" xml:"cardAcceptTime,omitempty"`
 	// 名片ID
 	CardId *string `json:"cardId,omitempty" xml:"cardId,omitempty"`
 	// 扩展信息
@@ -1302,6 +1306,16 @@ func (s GetCardInUserHolderResponseBody) GoString() string {
 
 func (s *GetCardInUserHolderResponseBody) SetAvatarUrl(v string) *GetCardInUserHolderResponseBody {
 	s.AvatarUrl = &v
+	return s
+}
+
+func (s *GetCardInUserHolderResponseBody) SetCardAcceptStatus(v int32) *GetCardInUserHolderResponseBody {
+	s.CardAcceptStatus = &v
+	return s
+}
+
+func (s *GetCardInUserHolderResponseBody) SetCardAcceptTime(v interface{}) *GetCardInUserHolderResponseBody {
+	s.CardAcceptTime = v
 	return s
 }
 
@@ -2718,6 +2732,9 @@ func (s *GetUserCardHolderListResponseBody) SetTotalCount(v int32) *GetUserCardH
 type GetUserCardHolderListResponseBodyList struct {
 	// 头像
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// 名片收下状态
+	CardAcceptStatus *int32      `json:"cardAcceptStatus,omitempty" xml:"cardAcceptStatus,omitempty"`
+	CardAcceptTime   interface{} `json:"cardAcceptTime,omitempty" xml:"cardAcceptTime,omitempty"`
 	// 名片ID
 	CardId *string `json:"cardId,omitempty" xml:"cardId,omitempty"`
 	// 扩展信息
@@ -2746,6 +2763,16 @@ func (s GetUserCardHolderListResponseBodyList) GoString() string {
 
 func (s *GetUserCardHolderListResponseBodyList) SetAvatarUrl(v string) *GetUserCardHolderListResponseBodyList {
 	s.AvatarUrl = &v
+	return s
+}
+
+func (s *GetUserCardHolderListResponseBodyList) SetCardAcceptStatus(v int32) *GetUserCardHolderListResponseBodyList {
+	s.CardAcceptStatus = &v
+	return s
+}
+
+func (s *GetUserCardHolderListResponseBodyList) SetCardAcceptTime(v interface{}) *GetUserCardHolderListResponseBodyList {
+	s.CardAcceptTime = v
 	return s
 }
 
@@ -5225,8 +5252,26 @@ func (s *SetDisableRequest) SetUserId(v string) *SetDisableRequest {
 	return s
 }
 
+type SetDisableResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SetDisableResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetDisableResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetDisableResponseBody) SetResult(v bool) *SetDisableResponseBody {
+	s.Result = &v
+	return s
+}
+
 type SetDisableResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SetDisableResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SetDisableResponse) String() string {
@@ -5239,6 +5284,11 @@ func (s SetDisableResponse) GoString() string {
 
 func (s *SetDisableResponse) SetHeaders(v map[string]*string) *SetDisableResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SetDisableResponse) SetBody(v *SetDisableResponseBody) *SetDisableResponse {
+	s.Body = v
 	return s
 }
 
@@ -5283,8 +5333,26 @@ func (s *SetEnableRequest) SetUserId(v string) *SetEnableRequest {
 	return s
 }
 
+type SetEnableResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SetEnableResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetEnableResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetEnableResponseBody) SetResult(v bool) *SetEnableResponseBody {
+	s.Result = &v
+	return s
+}
+
 type SetEnableResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SetEnableResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SetEnableResponse) String() string {
@@ -5297,6 +5365,11 @@ func (s SetEnableResponse) GoString() string {
 
 func (s *SetEnableResponse) SetHeaders(v map[string]*string) *SetEnableResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SetEnableResponse) SetBody(v *SetEnableResponseBody) *SetEnableResponse {
+	s.Body = v
 	return s
 }
 
@@ -5346,8 +5419,26 @@ func (s *SignOutRequest) SetUserId(v string) *SignOutRequest {
 	return s
 }
 
+type SignOutResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SignOutResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SignOutResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SignOutResponseBody) SetResult(v bool) *SignOutResponseBody {
+	s.Result = &v
+	return s
+}
+
 type SignOutResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SignOutResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s SignOutResponse) String() string {
@@ -5360,6 +5451,11 @@ func (s SignOutResponse) GoString() string {
 
 func (s *SignOutResponse) SetHeaders(v map[string]*string) *SignOutResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *SignOutResponse) SetBody(v *SignOutResponseBody) *SignOutResponse {
+	s.Body = v
 	return s
 }
 
@@ -8876,7 +8972,7 @@ func (client *Client) SetDisableWithOptions(request *SetDisableRequest, headers 
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &SetDisableResponse{}
-	_body, _err := client.DoROARequest(tea.String("SetDisable"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/orgAccounts/disable"), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("SetDisable"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/orgAccounts/disable"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8920,7 +9016,7 @@ func (client *Client) SetEnableWithOptions(request *SetEnableRequest, headers *S
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &SetEnableResponse{}
-	_body, _err := client.DoROARequest(tea.String("SetEnable"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/orgAccounts/enable"), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("SetEnable"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/orgAccounts/enable"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8968,7 +9064,7 @@ func (client *Client) SignOutWithOptions(request *SignOutRequest, headers *SignO
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &SignOutResponse{}
-	_body, _err := client.DoROARequest(tea.String("SignOut"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/orgAccounts/signOut"), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("SignOut"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/orgAccounts/signOut"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

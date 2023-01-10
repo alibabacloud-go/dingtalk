@@ -11452,10 +11452,14 @@ type QueryOrderResponseBody struct {
 	ActualAmount *int64 `json:"actualAmount,omitempty" xml:"actualAmount,omitempty"`
 	// 支付宝应用id。
 	AlipayAppId *string `json:"alipayAppId,omitempty" xml:"alipayAppId,omitempty"`
-	// 订单关单时间。
-	CloseTime *int64 `json:"closeTime,omitempty" xml:"closeTime,omitempty"`
-	// 订单创建时间。
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 订单关闭时间
+	CloseTime *string `json:"closeTime,omitempty" xml:"closeTime,omitempty"`
+	// 订单关闭时间戳
+	CloseTimestamp *int64 `json:"closeTimestamp,omitempty" xml:"closeTimestamp,omitempty"`
+	// 订单创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 订单创建时间戳
+	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
 	// 扩展字段。
 	Feature     *string `json:"feature,omitempty" xml:"feature,omitempty"`
 	LabelAmount *int64  `json:"labelAmount,omitempty" xml:"labelAmount,omitempty"`
@@ -11478,14 +11482,18 @@ type QueryOrderResponseBody struct {
 	// 买家支付登陆id。
 	PayLogonId *string `json:"payLogonId,omitempty" xml:"payLogonId,omitempty"`
 	PayStatus  *int32  `json:"payStatus,omitempty" xml:"payStatus,omitempty"`
-	// 订单支付时间。
-	PayTime *int64 `json:"payTime,omitempty" xml:"payTime,omitempty"`
+	// 订单支付时间
+	PayTime *string `json:"payTime,omitempty" xml:"payTime,omitempty"`
+	// 订单支付时间戳
+	PayTimestamp *int64 `json:"payTimestamp,omitempty" xml:"payTimestamp,omitempty"`
 	// 买家支付渠道类型。
 	PayType      *string `json:"payType,omitempty" xml:"payType,omitempty"`
 	RefundAmount *int64  `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
 	RefundStatus *int32  `json:"refundStatus,omitempty" xml:"refundStatus,omitempty"`
-	// 订单退款时间。
-	RefundTime *int64 `json:"refundTime,omitempty" xml:"refundTime,omitempty"`
+	// 订单退款时间
+	RefundTime *string `json:"refundTime,omitempty" xml:"refundTime,omitempty"`
+	// 订单退款时间戳
+	RefundTimestamp *int64 `json:"refundTimestamp,omitempty" xml:"refundTimestamp,omitempty"`
 	// 订单标题。
 	Subject *string `json:"subject,omitempty" xml:"subject,omitempty"`
 	// 交易流水号。
@@ -11510,13 +11518,23 @@ func (s *QueryOrderResponseBody) SetAlipayAppId(v string) *QueryOrderResponseBod
 	return s
 }
 
-func (s *QueryOrderResponseBody) SetCloseTime(v int64) *QueryOrderResponseBody {
+func (s *QueryOrderResponseBody) SetCloseTime(v string) *QueryOrderResponseBody {
 	s.CloseTime = &v
 	return s
 }
 
-func (s *QueryOrderResponseBody) SetCreateTime(v int64) *QueryOrderResponseBody {
+func (s *QueryOrderResponseBody) SetCloseTimestamp(v int64) *QueryOrderResponseBody {
+	s.CloseTimestamp = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetCreateTime(v string) *QueryOrderResponseBody {
 	s.CreateTime = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetCreateTimestamp(v int64) *QueryOrderResponseBody {
+	s.CreateTimestamp = &v
 	return s
 }
 
@@ -11580,8 +11598,13 @@ func (s *QueryOrderResponseBody) SetPayStatus(v int32) *QueryOrderResponseBody {
 	return s
 }
 
-func (s *QueryOrderResponseBody) SetPayTime(v int64) *QueryOrderResponseBody {
+func (s *QueryOrderResponseBody) SetPayTime(v string) *QueryOrderResponseBody {
 	s.PayTime = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetPayTimestamp(v int64) *QueryOrderResponseBody {
+	s.PayTimestamp = &v
 	return s
 }
 
@@ -11600,8 +11623,13 @@ func (s *QueryOrderResponseBody) SetRefundStatus(v int32) *QueryOrderResponseBod
 	return s
 }
 
-func (s *QueryOrderResponseBody) SetRefundTime(v int64) *QueryOrderResponseBody {
+func (s *QueryOrderResponseBody) SetRefundTime(v string) *QueryOrderResponseBody {
 	s.RefundTime = &v
+	return s
+}
+
+func (s *QueryOrderResponseBody) SetRefundTimestamp(v int64) *QueryOrderResponseBody {
+	s.RefundTimestamp = &v
 	return s
 }
 
@@ -12819,10 +12847,14 @@ type QuerySnsOrderResponseBody struct {
 	ActualAmount *int64 `json:"actualAmount,omitempty" xml:"actualAmount,omitempty"`
 	// 支付宝应用id。
 	AlipayAppId *string `json:"alipayAppId,omitempty" xml:"alipayAppId,omitempty"`
-	// 订单关单时间。
-	CloseTime *int64 `json:"closeTime,omitempty" xml:"closeTime,omitempty"`
-	// 订单创建时间。
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 订单关闭时间
+	CloseTime *string `json:"closeTime,omitempty" xml:"closeTime,omitempty"`
+	// 订单关闭时间戳
+	CloseTimestamp *int64 `json:"closeTimestamp,omitempty" xml:"closeTimestamp,omitempty"`
+	// 订单创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 订单创建时间戳
+	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
 	// 扩展字段。
 	Feature     *string `json:"feature,omitempty" xml:"feature,omitempty"`
 	LabelAmount *int64  `json:"labelAmount,omitempty" xml:"labelAmount,omitempty"`
@@ -12845,14 +12877,18 @@ type QuerySnsOrderResponseBody struct {
 	// 买家支付登陆id。
 	PayLogonId *string `json:"payLogonId,omitempty" xml:"payLogonId,omitempty"`
 	PayStatus  *int32  `json:"payStatus,omitempty" xml:"payStatus,omitempty"`
-	// 订单支付时间。
-	PayTime *int64 `json:"payTime,omitempty" xml:"payTime,omitempty"`
+	// 订单支付时间
+	PayTime *string `json:"payTime,omitempty" xml:"payTime,omitempty"`
+	// 订单支付时间戳
+	PayTimestamp *int64 `json:"payTimestamp,omitempty" xml:"payTimestamp,omitempty"`
 	// 买家支付渠道类型。
 	PayType      *string `json:"payType,omitempty" xml:"payType,omitempty"`
 	RefundAmount *int64  `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
 	RefundStatus *int32  `json:"refundStatus,omitempty" xml:"refundStatus,omitempty"`
-	// 订单退款时间。
-	RefundTime *int64 `json:"refundTime,omitempty" xml:"refundTime,omitempty"`
+	// 订单退款时间
+	RefundTime *string `json:"refundTime,omitempty" xml:"refundTime,omitempty"`
+	// 订单退款时间戳
+	RefundTimestamp *int64 `json:"refundTimestamp,omitempty" xml:"refundTimestamp,omitempty"`
 	// 订单标题。
 	Subject *string `json:"subject,omitempty" xml:"subject,omitempty"`
 	// 交易流水号。
@@ -12877,13 +12913,23 @@ func (s *QuerySnsOrderResponseBody) SetAlipayAppId(v string) *QuerySnsOrderRespo
 	return s
 }
 
-func (s *QuerySnsOrderResponseBody) SetCloseTime(v int64) *QuerySnsOrderResponseBody {
+func (s *QuerySnsOrderResponseBody) SetCloseTime(v string) *QuerySnsOrderResponseBody {
 	s.CloseTime = &v
 	return s
 }
 
-func (s *QuerySnsOrderResponseBody) SetCreateTime(v int64) *QuerySnsOrderResponseBody {
+func (s *QuerySnsOrderResponseBody) SetCloseTimestamp(v int64) *QuerySnsOrderResponseBody {
+	s.CloseTimestamp = &v
+	return s
+}
+
+func (s *QuerySnsOrderResponseBody) SetCreateTime(v string) *QuerySnsOrderResponseBody {
 	s.CreateTime = &v
+	return s
+}
+
+func (s *QuerySnsOrderResponseBody) SetCreateTimestamp(v int64) *QuerySnsOrderResponseBody {
+	s.CreateTimestamp = &v
 	return s
 }
 
@@ -12947,8 +12993,13 @@ func (s *QuerySnsOrderResponseBody) SetPayStatus(v int32) *QuerySnsOrderResponse
 	return s
 }
 
-func (s *QuerySnsOrderResponseBody) SetPayTime(v int64) *QuerySnsOrderResponseBody {
+func (s *QuerySnsOrderResponseBody) SetPayTime(v string) *QuerySnsOrderResponseBody {
 	s.PayTime = &v
+	return s
+}
+
+func (s *QuerySnsOrderResponseBody) SetPayTimestamp(v int64) *QuerySnsOrderResponseBody {
+	s.PayTimestamp = &v
 	return s
 }
 
@@ -12967,8 +13018,13 @@ func (s *QuerySnsOrderResponseBody) SetRefundStatus(v int32) *QuerySnsOrderRespo
 	return s
 }
 
-func (s *QuerySnsOrderResponseBody) SetRefundTime(v int64) *QuerySnsOrderResponseBody {
+func (s *QuerySnsOrderResponseBody) SetRefundTime(v string) *QuerySnsOrderResponseBody {
 	s.RefundTime = &v
+	return s
+}
+
+func (s *QuerySnsOrderResponseBody) SetRefundTimestamp(v int64) *QuerySnsOrderResponseBody {
+	s.RefundTimestamp = &v
 	return s
 }
 
