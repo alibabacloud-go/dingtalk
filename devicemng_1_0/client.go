@@ -1469,6 +1469,8 @@ type ListInspectInfoResponseBodyResult struct {
 	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
 	// 设备名称
 	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// 创建时间
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
 	// 处理时间
 	HandleTime *string `json:"handleTime,omitempty" xml:"handleTime,omitempty"`
 	// 维修人员
@@ -1500,6 +1502,11 @@ func (s *ListInspectInfoResponseBodyResult) SetDeviceCode(v string) *ListInspect
 
 func (s *ListInspectInfoResponseBodyResult) SetDeviceName(v string) *ListInspectInfoResponseBodyResult {
 	s.DeviceName = &v
+	return s
+}
+
+func (s *ListInspectInfoResponseBodyResult) SetGmtCreate(v string) *ListInspectInfoResponseBodyResult {
+	s.GmtCreate = &v
 	return s
 }
 

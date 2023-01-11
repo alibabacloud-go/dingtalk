@@ -11474,8 +11474,6 @@ type QueryOrderResponseBody struct {
 	// 订单类型。
 	OrderType *string `json:"orderType,omitempty" xml:"orderType,omitempty"`
 	// 用户唯一id。
-	OuterUid *string `json:"outerUid,omitempty" xml:"outerUid,omitempty"`
-	// 用户唯一id。
 	OuterUserId *string `json:"outerUserId,omitempty" xml:"outerUserId,omitempty"`
 	// 买家支付id。
 	PayId *string `json:"payId,omitempty" xml:"payId,omitempty"`
@@ -11570,11 +11568,6 @@ func (s *QueryOrderResponseBody) SetOrderNo(v string) *QueryOrderResponseBody {
 
 func (s *QueryOrderResponseBody) SetOrderType(v string) *QueryOrderResponseBody {
 	s.OrderType = &v
-	return s
-}
-
-func (s *QueryOrderResponseBody) SetOuterUid(v string) *QueryOrderResponseBody {
-	s.OuterUid = &v
 	return s
 }
 
@@ -12869,8 +12862,6 @@ type QuerySnsOrderResponseBody struct {
 	// 订单类型。
 	OrderType *string `json:"orderType,omitempty" xml:"orderType,omitempty"`
 	// 用户唯一id。
-	OuterUid *string `json:"outerUid,omitempty" xml:"outerUid,omitempty"`
-	// 用户唯一id。
 	OuterUserId *string `json:"outerUserId,omitempty" xml:"outerUserId,omitempty"`
 	// 买家支付id。
 	PayId *string `json:"payId,omitempty" xml:"payId,omitempty"`
@@ -12965,11 +12956,6 @@ func (s *QuerySnsOrderResponseBody) SetOrderNo(v string) *QuerySnsOrderResponseB
 
 func (s *QuerySnsOrderResponseBody) SetOrderType(v string) *QuerySnsOrderResponseBody {
 	s.OrderType = &v
-	return s
-}
-
-func (s *QuerySnsOrderResponseBody) SetOuterUid(v string) *QuerySnsOrderResponseBody {
-	s.OuterUid = &v
 	return s
 }
 
