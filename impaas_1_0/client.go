@@ -476,6 +476,8 @@ type CreateTrustGroupRequest struct {
 	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
 	// 素材ID
 	IconMediaId *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
+	// 群成员列表
+	Members []*CreateTrustGroupRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
 	// 群名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 其他扩展参数
@@ -502,6 +504,11 @@ func (s *CreateTrustGroupRequest) SetIconMediaId(v string) *CreateTrustGroupRequ
 	return s
 }
 
+func (s *CreateTrustGroupRequest) SetMembers(v []*CreateTrustGroupRequestMembers) *CreateTrustGroupRequest {
+	s.Members = v
+	return s
+}
+
 func (s *CreateTrustGroupRequest) SetName(v string) *CreateTrustGroupRequest {
 	s.Name = &v
 	return s
@@ -514,6 +521,31 @@ func (s *CreateTrustGroupRequest) SetProperties(v map[string]*string) *CreateTru
 
 func (s *CreateTrustGroupRequest) SetUuid(v string) *CreateTrustGroupRequest {
 	s.Uuid = &v
+	return s
+}
+
+type CreateTrustGroupRequestMembers struct {
+	// 昵称
+	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	// 互通账号ID
+	Uid *string `json:"uid,omitempty" xml:"uid,omitempty"`
+}
+
+func (s CreateTrustGroupRequestMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTrustGroupRequestMembers) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTrustGroupRequestMembers) SetNick(v string) *CreateTrustGroupRequestMembers {
+	s.Nick = &v
+	return s
+}
+
+func (s *CreateTrustGroupRequestMembers) SetUid(v string) *CreateTrustGroupRequestMembers {
+	s.Uid = &v
 	return s
 }
 
@@ -2225,6 +2257,10 @@ func (client *Client) CreateTrustGroupWithOptions(request *CreateTrustGroupReque
 
 	if !tea.BoolValue(util.IsUnset(request.IconMediaId)) {
 		body["iconMediaId"] = request.IconMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Members)) {
+		body["members"] = request.Members
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Name)) {

@@ -252,9 +252,11 @@ func (s *AppendRowsHeaders) SetXAcsDingtalkAccessToken(v string) *AppendRowsHead
 }
 
 type AppendRowsRequest struct {
-	// 要追加的值
+	// 要追加的值(二维数组)
+	// 最大size:
+	// 	1000
 	Values [][]*string `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
-	// 操作人unionId
+	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -276,8 +278,27 @@ func (s *AppendRowsRequest) SetOperatorId(v string) *AppendRowsRequest {
 	return s
 }
 
+type AppendRowsResponseBody struct {
+	// 本次操作是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AppendRowsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendRowsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AppendRowsResponseBody) SetSuccess(v bool) *AppendRowsResponseBody {
+	s.Success = &v
+	return s
+}
+
 type AppendRowsResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AppendRowsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s AppendRowsResponse) String() string {
@@ -290,6 +311,11 @@ func (s AppendRowsResponse) GoString() string {
 
 func (s *AppendRowsResponse) SetHeaders(v map[string]*string) *AppendRowsResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *AppendRowsResponse) SetBody(v *AppendRowsResponseBody) *AppendRowsResponse {
+	s.Body = v
 	return s
 }
 
@@ -719,7 +745,7 @@ func (s *ClearHeaders) SetXAcsDingtalkAccessToken(v string) *ClearHeaders {
 }
 
 type ClearRequest struct {
-	// 操作人unionId
+	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -737,7 +763,7 @@ func (s *ClearRequest) SetOperatorId(v string) *ClearRequest {
 }
 
 type ClearResponseBody struct {
-	// 单元格地址
+	// 使用A1表示法的Range地址
 	A1Notation *string `json:"a1Notation,omitempty" xml:"a1Notation,omitempty"`
 }
 
@@ -801,7 +827,7 @@ func (s *ClearDataHeaders) SetXAcsDingtalkAccessToken(v string) *ClearDataHeader
 }
 
 type ClearDataRequest struct {
-	// 操作人unionId
+	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -819,7 +845,7 @@ func (s *ClearDataRequest) SetOperatorId(v string) *ClearDataRequest {
 }
 
 type ClearDataResponseBody struct {
-	// 单元格地址
+	// 使用A1表示法的Range地址
 	A1Notation *string `json:"a1Notation,omitempty" xml:"a1Notation,omitempty"`
 }
 
@@ -1323,7 +1349,7 @@ func (s *CreateSheetHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSheetHe
 type CreateSheetRequest struct {
 	// 工作表名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 操作人unionId
+	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -1346,10 +1372,11 @@ func (s *CreateSheetRequest) SetOperatorId(v string) *CreateSheetRequest {
 }
 
 type CreateSheetResponseBody struct {
+	// 工作表id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 创建的工作表的名称。当输入参数中的工作表名称在表格中已存在时，可能与输入参数指定的工作表名称不同。
+	// 工作表名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 工作表可见性
+	// 工作表可见性, 创建之后默认为visible
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
@@ -1677,11 +1704,11 @@ func (s *DeleteColumnsHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteColum
 }
 
 type DeleteColumnsRequest struct {
-	// 要删除的第一列的位置，从0开始
+	// 要删除的第一列的位置，从0开始。
 	Column *int64 `json:"column,omitempty" xml:"column,omitempty"`
-	// 要删除的列的数量
+	// 要删除的列的数量。
 	ColumnCount *int64 `json:"columnCount,omitempty" xml:"columnCount,omitempty"`
-	// 操作人unionId
+	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -1709,7 +1736,7 @@ func (s *DeleteColumnsRequest) SetOperatorId(v string) *DeleteColumnsRequest {
 }
 
 type DeleteColumnsResponseBody struct {
-	// 工作表ID
+	// 工作表id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
@@ -1936,11 +1963,11 @@ func (s *DeleteRowsHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteRowsHead
 }
 
 type DeleteRowsRequest struct {
-	// 要删除的第一行的位置，从0开始
+	// 要删除的第一行的位置，从0开始。
 	Row *int64 `json:"row,omitempty" xml:"row,omitempty"`
-	// 要删除的行的数量
+	// 要删除的行的数量。
 	RowCount *int64 `json:"rowCount,omitempty" xml:"rowCount,omitempty"`
-	// 操作人unionId
+	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -1968,7 +1995,7 @@ func (s *DeleteRowsRequest) SetOperatorId(v string) *DeleteRowsRequest {
 }
 
 type DeleteRowsResponseBody struct {
-	// 工作表ID
+	// 工作表id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
@@ -2032,7 +2059,7 @@ func (s *DeleteSheetHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteSheetHe
 }
 
 type DeleteSheetRequest struct {
-	// 操作人unionId
+	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -2050,6 +2077,7 @@ func (s *DeleteSheetRequest) SetOperatorId(v string) *DeleteSheetRequest {
 }
 
 type DeleteSheetResponseBody struct {
+	// 本次操作是否成功
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -2351,7 +2379,7 @@ func (s *GetAllSheetsHeaders) SetXAcsDingtalkAccessToken(v string) *GetAllSheets
 }
 
 type GetAllSheetsRequest struct {
-	// 操作人unionId
+	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -2369,7 +2397,9 @@ func (s *GetAllSheetsRequest) SetOperatorId(v string) *GetAllSheetsRequest {
 }
 
 type GetAllSheetsResponseBody struct {
-	// 所有工作表信息
+	// 工作表列表
+	// 最大size:
+	// 	1000
 	Value []*GetAllSheetsResponseBodyValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
@@ -2387,7 +2417,7 @@ func (s *GetAllSheetsResponseBody) SetValue(v []*GetAllSheetsResponseBodyValue) 
 }
 
 type GetAllSheetsResponseBodyValue struct {
-	// 工作表ID
+	// 工作表id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 	// 工作表名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
@@ -2602,7 +2632,7 @@ func (s *GetRangeHeaders) SetXAcsDingtalkAccessToken(v string) *GetRangeHeaders 
 }
 
 type GetRangeRequest struct {
-	// 操作人unionId
+	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 	// 限定要返回的字段
 	Select *string `json:"select,omitempty" xml:"select,omitempty"`
@@ -2627,10 +2657,21 @@ func (s *GetRangeRequest) SetSelect(v string) *GetRangeRequest {
 }
 
 type GetRangeResponseBody struct {
+	// 背景颜色
+	// 最大size:
+	// 	1000
 	BackgroundColors [][]*GetRangeResponseBodyBackgroundColors `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
-	DisplayValues    [][]*string                               `json:"displayValues,omitempty" xml:"displayValues,omitempty" type:"Repeated"`
-	Formulas         [][]*string                               `json:"formulas,omitempty" xml:"formulas,omitempty" type:"Repeated"`
+	// 展示值
+	// 最大size:
+	// 	1000
+	DisplayValues [][]*string `json:"displayValues,omitempty" xml:"displayValues,omitempty" type:"Repeated"`
+	// 公式
+	// 最大size:
+	// 	1000
+	Formulas [][]*string `json:"formulas,omitempty" xml:"formulas,omitempty" type:"Repeated"`
 	// 值
+	// 最大size:
+	// 	1000
 	Values [][]interface{} `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 }
 
@@ -2664,11 +2705,11 @@ func (s *GetRangeResponseBody) SetValues(v [][]interface{}) *GetRangeResponseBod
 
 type GetRangeResponseBodyBackgroundColors struct {
 	// RGB值中的红色值
-	Red *int64 `json:"red,omitempty" xml:"red,omitempty"`
+	Red *int32 `json:"red,omitempty" xml:"red,omitempty"`
 	// RGB值中的绿色值
-	Green *int64 `json:"green,omitempty" xml:"green,omitempty"`
+	Green *int32 `json:"green,omitempty" xml:"green,omitempty"`
 	// RGB值中的蓝色值
-	Blue *int64 `json:"blue,omitempty" xml:"blue,omitempty"`
+	Blue *int32 `json:"blue,omitempty" xml:"blue,omitempty"`
 	// 16进制表示的颜色
 	HexString *string `json:"hexString,omitempty" xml:"hexString,omitempty"`
 }
@@ -2681,17 +2722,17 @@ func (s GetRangeResponseBodyBackgroundColors) GoString() string {
 	return s.String()
 }
 
-func (s *GetRangeResponseBodyBackgroundColors) SetRed(v int64) *GetRangeResponseBodyBackgroundColors {
+func (s *GetRangeResponseBodyBackgroundColors) SetRed(v int32) *GetRangeResponseBodyBackgroundColors {
 	s.Red = &v
 	return s
 }
 
-func (s *GetRangeResponseBodyBackgroundColors) SetGreen(v int64) *GetRangeResponseBodyBackgroundColors {
+func (s *GetRangeResponseBodyBackgroundColors) SetGreen(v int32) *GetRangeResponseBodyBackgroundColors {
 	s.Green = &v
 	return s
 }
 
-func (s *GetRangeResponseBodyBackgroundColors) SetBlue(v int64) *GetRangeResponseBodyBackgroundColors {
+func (s *GetRangeResponseBodyBackgroundColors) SetBlue(v int32) *GetRangeResponseBodyBackgroundColors {
 	s.Blue = &v
 	return s
 }
@@ -3392,7 +3433,7 @@ func (s *GetSheetHeaders) SetXAcsDingtalkAccessToken(v string) *GetSheetHeaders 
 }
 
 type GetSheetRequest struct {
-	// 操作人unionId
+	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -3410,19 +3451,22 @@ func (s *GetSheetRequest) SetOperatorId(v string) *GetSheetRequest {
 }
 
 type GetSheetResponseBody struct {
-	// 工作表列数
+	// 工作表列数。
 	ColumnCount *int64 `json:"columnCount,omitempty" xml:"columnCount,omitempty"`
-	// 工作表ID
+	// 工作表id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
-	// 最后一列非空列的位置，从0开始。表为空时返回-1。
+	// 最后一列非空列的位置，从0开始，表为空时返回-1。
 	LastNonEmptyColumn *int64 `json:"lastNonEmptyColumn,omitempty" xml:"lastNonEmptyColumn,omitempty"`
-	// 最后一行非空行的位置，从0开始。表为空时返回-1。
+	// 最后一行非空行的位置，从0开始，表为空时返回-1。
 	LastNonEmptyRow *int64 `json:"lastNonEmptyRow,omitempty" xml:"lastNonEmptyRow,omitempty"`
 	// 工作表名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 工作表行数
+	// 工作表行数。
 	RowCount *int64 `json:"rowCount,omitempty" xml:"rowCount,omitempty"`
 	// 工作表可见性
+	// 枚举值:
+	//    visible: 可见
+	//    hidden: 隐藏
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
@@ -4146,11 +4190,11 @@ func (s *InsertColumnsBeforeHeaders) SetXAcsDingtalkAccessToken(v string) *Inser
 }
 
 type InsertColumnsBeforeRequest struct {
-	// 插入列的位置，从0开始
+	// 要插入列的位置，从0开始。
 	Column *int64 `json:"column,omitempty" xml:"column,omitempty"`
-	// 插入列的数量
+	// 要插入列的数量。
 	ColumnCount *int64 `json:"columnCount,omitempty" xml:"columnCount,omitempty"`
-	// 操作人unionId
+	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -4178,7 +4222,7 @@ func (s *InsertColumnsBeforeRequest) SetOperatorId(v string) *InsertColumnsBefor
 }
 
 type InsertColumnsBeforeResponseBody struct {
-	// 工作表ID
+	// 工作表id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
@@ -4352,11 +4396,11 @@ func (s *InsertRowsBeforeHeaders) SetXAcsDingtalkAccessToken(v string) *InsertRo
 }
 
 type InsertRowsBeforeRequest struct {
-	// 插入行的位置，从0开始
+	// 要插入行的位置，从0开始。
 	Row *int64 `json:"row,omitempty" xml:"row,omitempty"`
-	// 插入行的数量
+	// 要插入行的数量。
 	RowCount *int64 `json:"rowCount,omitempty" xml:"rowCount,omitempty"`
-	// 操作人unionId
+	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -4384,7 +4428,7 @@ func (s *InsertRowsBeforeRequest) SetOperatorId(v string) *InsertRowsBeforeReque
 }
 
 type InsertRowsBeforeResponseBody struct {
-	// 工作表ID
+	// 工作表id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
@@ -5091,13 +5135,16 @@ func (s *SetColumnsVisibilityHeaders) SetXAcsDingtalkAccessToken(v string) *SetC
 }
 
 type SetColumnsVisibilityRequest struct {
-	// 要显示、隐藏的第一列的位置，从0开始
+	// 要显示、隐藏的第一列的位置，从0开始。
 	Column *int64 `json:"column,omitempty" xml:"column,omitempty"`
-	// 要显示、隐藏的列的数量
+	// 要显示、隐藏的列的数量。
 	ColumnCount *int64 `json:"columnCount,omitempty" xml:"columnCount,omitempty"`
-	// 可见性
+	// 列可见性
+	// 枚举值:
+	//    visible: 可见
+	//    hidden: 隐藏
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
-	// 操作人unionId
+	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -5130,7 +5177,7 @@ func (s *SetColumnsVisibilityRequest) SetOperatorId(v string) *SetColumnsVisibil
 }
 
 type SetColumnsVisibilityResponseBody struct {
-	// 工作表ID
+	// 工作表id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
@@ -5194,13 +5241,16 @@ func (s *SetRowsVisibilityHeaders) SetXAcsDingtalkAccessToken(v string) *SetRows
 }
 
 type SetRowsVisibilityRequest struct {
-	// 要显示、隐藏的第一行的位置，从0开始
+	// 要显示、隐藏的第一行的位置，从0开始。
 	Row *int64 `json:"row,omitempty" xml:"row,omitempty"`
-	// 要显示、隐藏的行的数量
+	// 要显示、隐藏的行的数量。
 	RowCount *int64 `json:"rowCount,omitempty" xml:"rowCount,omitempty"`
-	// 可见性
+	// 行可见性
+	// 枚举值:
+	//    visible: 可见
+	//    hidden: 隐藏
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
-	// 操作人unionId
+	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -5233,7 +5283,7 @@ func (s *SetRowsVisibilityRequest) SetOperatorId(v string) *SetRowsVisibilityReq
 }
 
 type SetRowsVisibilityResponseBody struct {
-	// 工作表ID
+	// 工作表id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
@@ -5569,14 +5619,20 @@ func (s *UpdateRangeHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRangeHe
 
 type UpdateRangeRequest struct {
 	// 背景色
+	// 最大size:
+	// 	1000
 	BackgroundColors [][]*string `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
 	// 超链接
+	// 最大size:
+	// 	1000
 	Hyperlinks [][]*UpdateRangeRequestHyperlinks `json:"hyperlinks,omitempty" xml:"hyperlinks,omitempty" type:"Repeated"`
 	// 数字格式
 	NumberFormat *string `json:"numberFormat,omitempty" xml:"numberFormat,omitempty"`
 	// 值
+	// 最大size:
+	// 	1000
 	Values [][]*string `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
-	// 操作人unionId
+	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -5614,11 +5670,11 @@ func (s *UpdateRangeRequest) SetOperatorId(v string) *UpdateRangeRequest {
 }
 
 type UpdateRangeRequestHyperlinks struct {
-	// 超链接类型，可选 "path", "sheet", "range"
+	// 超链接类型，可选path、sheet、range
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// 链接地址
+	// 超链接地址
 	Link *string `json:"link,omitempty" xml:"link,omitempty"`
-	// 链接文本
+	// 超链接文本
 	Text *string `json:"text,omitempty" xml:"text,omitempty"`
 }
 
@@ -5713,8 +5769,11 @@ type UpdateSheetRequest struct {
 	// 工作表名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 工作表可见性
+	// 枚举值:
+	//    visible: 可见
+	//    hidden: 隐藏
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
-	// 操作人unionId
+	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -5741,8 +5800,27 @@ func (s *UpdateSheetRequest) SetOperatorId(v string) *UpdateSheetRequest {
 	return s
 }
 
+type UpdateSheetResponseBody struct {
+	// 本次操作是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateSheetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSheetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSheetResponseBody) SetSuccess(v bool) *UpdateSheetResponseBody {
+	s.Success = &v
+	return s
+}
+
 type UpdateSheetResponse struct {
-	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateSheetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
 }
 
 func (s UpdateSheetResponse) String() string {
@@ -5755,6 +5833,11 @@ func (s UpdateSheetResponse) GoString() string {
 
 func (s *UpdateSheetResponse) SetHeaders(v map[string]*string) *UpdateSheetResponse {
 	s.Headers = v
+	return s
+}
+
+func (s *UpdateSheetResponse) SetBody(v *UpdateSheetResponseBody) *UpdateSheetResponse {
+	s.Body = v
 	return s
 }
 
@@ -6118,7 +6201,7 @@ func (client *Client) AppendRowsWithOptions(workbookId *string, sheetId *string,
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &AppendRowsResponse{}
-	_body, _err := client.DoROARequest(tea.String("AppendRows"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/appendRows"), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("AppendRows"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/appendRows"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8323,7 +8406,7 @@ func (client *Client) UpdateSheetWithOptions(workbookId *string, sheetId *string
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &UpdateSheetResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateSheet"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)), tea.String("none"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("UpdateSheet"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

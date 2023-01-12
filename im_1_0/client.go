@@ -11,6 +11,142 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AddOrgTextEmotionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddOrgTextEmotionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOrgTextEmotionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddOrgTextEmotionHeaders) SetCommonHeaders(v map[string]*string) *AddOrgTextEmotionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddOrgTextEmotionHeaders) SetXAcsDingtalkAccessToken(v string) *AddOrgTextEmotionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddOrgTextEmotionRequest struct {
+	// 展示在消息气泡上的表情的mediaId，mediaId可以通过使用文件上传接口上传表情图片得到，图片上限为500KB。
+	//
+	// 请严格按照表情设计规范设计表情，服务端会检查图片的大小、宽度、高度是否符合规范。
+	BackgroundMediaId *string `json:"backgroundMediaId,omitempty" xml:"backgroundMediaId,omitempty"`
+	// 展示在消息长按菜单的表情的mediaId，mediaId可以通过使用文件上传接口上传表情图片得到，图片上限为500KB。
+	//
+	// 请严格按照表情设计规范设计表情，服务端会检查图片的大小、宽度、高度是否符合规范。
+	BackgroundMediaIdForPanel *string `json:"backgroundMediaIdForPanel,omitempty" xml:"backgroundMediaIdForPanel,omitempty"`
+	// 部门Id，设置规则：
+	//
+	// -1：当添加企业层面的文字表情时使用-1，此时表情对企业内所有员工可见
+	//
+	// 一级部门Id：当添加一级部门层面的文字表情时使用一级部门Id，此时表情对该一级部门及该一级部门下的所有子部门的员工可见
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 表情名称，对用户不可见
+	EmotionName *string `json:"emotionName,omitempty" xml:"emotionName,omitempty"`
+}
+
+func (s AddOrgTextEmotionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOrgTextEmotionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddOrgTextEmotionRequest) SetBackgroundMediaId(v string) *AddOrgTextEmotionRequest {
+	s.BackgroundMediaId = &v
+	return s
+}
+
+func (s *AddOrgTextEmotionRequest) SetBackgroundMediaIdForPanel(v string) *AddOrgTextEmotionRequest {
+	s.BackgroundMediaIdForPanel = &v
+	return s
+}
+
+func (s *AddOrgTextEmotionRequest) SetDeptId(v int64) *AddOrgTextEmotionRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *AddOrgTextEmotionRequest) SetEmotionName(v string) *AddOrgTextEmotionRequest {
+	s.EmotionName = &v
+	return s
+}
+
+type AddOrgTextEmotionResponseBody struct {
+	// 添加企业文字表情结果
+	Result *AddOrgTextEmotionResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// 返回结果
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AddOrgTextEmotionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOrgTextEmotionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddOrgTextEmotionResponseBody) SetResult(v *AddOrgTextEmotionResponseBodyResult) *AddOrgTextEmotionResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *AddOrgTextEmotionResponseBody) SetSuccess(v bool) *AddOrgTextEmotionResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AddOrgTextEmotionResponseBodyResult struct {
+	// 表情Id，用于唯一标识每个企业文字表情
+	EmotionId *string `json:"emotionId,omitempty" xml:"emotionId,omitempty"`
+}
+
+func (s AddOrgTextEmotionResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOrgTextEmotionResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AddOrgTextEmotionResponseBodyResult) SetEmotionId(v string) *AddOrgTextEmotionResponseBodyResult {
+	s.EmotionId = &v
+	return s
+}
+
+type AddOrgTextEmotionResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddOrgTextEmotionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddOrgTextEmotionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOrgTextEmotionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddOrgTextEmotionResponse) SetHeaders(v map[string]*string) *AddOrgTextEmotionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddOrgTextEmotionResponse) SetBody(v *AddOrgTextEmotionResponseBody) *AddOrgTextEmotionResponse {
+	s.Body = v
+	return s
+}
+
 type AddRobotToConversationHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1412,6 +1548,97 @@ func (s *CreateStoreGroupConversationResponse) SetHeaders(v map[string]*string) 
 }
 
 func (s *CreateStoreGroupConversationResponse) SetBody(v *CreateStoreGroupConversationResponseBody) *CreateStoreGroupConversationResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteOrgTextEmotionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteOrgTextEmotionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteOrgTextEmotionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteOrgTextEmotionHeaders) SetCommonHeaders(v map[string]*string) *DeleteOrgTextEmotionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteOrgTextEmotionHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteOrgTextEmotionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteOrgTextEmotionRequest struct {
+	// 表情所属部门Id：
+	// -1：当文字表情属于企业层面时使用-1
+	// 一级部门Id：当文字表情属于一级部门层面时使用一级部门Id
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 要删除的表情Id列表。请注意，该列表中的所有表情Id一定要同属于deptId
+	EmotionIds []*string `json:"emotionIds,omitempty" xml:"emotionIds,omitempty" type:"Repeated"`
+}
+
+func (s DeleteOrgTextEmotionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteOrgTextEmotionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteOrgTextEmotionRequest) SetDeptId(v int64) *DeleteOrgTextEmotionRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *DeleteOrgTextEmotionRequest) SetEmotionIds(v []*string) *DeleteOrgTextEmotionRequest {
+	s.EmotionIds = v
+	return s
+}
+
+type DeleteOrgTextEmotionResponseBody struct {
+	// 返回结果
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteOrgTextEmotionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteOrgTextEmotionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteOrgTextEmotionResponseBody) SetSuccess(v bool) *DeleteOrgTextEmotionResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteOrgTextEmotionResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteOrgTextEmotionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteOrgTextEmotionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteOrgTextEmotionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteOrgTextEmotionResponse) SetHeaders(v map[string]*string) *DeleteOrgTextEmotionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteOrgTextEmotionResponse) SetBody(v *DeleteOrgTextEmotionResponseBody) *DeleteOrgTextEmotionResponse {
 	s.Body = v
 	return s
 }
@@ -3630,6 +3857,153 @@ func (s *InteractiveCardCreateInstanceResponse) SetBody(v *InteractiveCardCreate
 	return s
 }
 
+type ListOrgTextEmotionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListOrgTextEmotionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrgTextEmotionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrgTextEmotionHeaders) SetCommonHeaders(v map[string]*string) *ListOrgTextEmotionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListOrgTextEmotionHeaders) SetXAcsDingtalkAccessToken(v string) *ListOrgTextEmotionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListOrgTextEmotionResponseBody struct {
+	// 拉取企业文字表情结果
+	Result *ListOrgTextEmotionResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// 返回结果
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ListOrgTextEmotionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrgTextEmotionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrgTextEmotionResponseBody) SetResult(v *ListOrgTextEmotionResponseBodyResult) *ListOrgTextEmotionResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *ListOrgTextEmotionResponseBody) SetSuccess(v bool) *ListOrgTextEmotionResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ListOrgTextEmotionResponseBodyResult struct {
+	// 企业文字表情列表
+	Emotions []*ListOrgTextEmotionResponseBodyResultEmotions `json:"emotions,omitempty" xml:"emotions,omitempty" type:"Repeated"`
+}
+
+func (s ListOrgTextEmotionResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrgTextEmotionResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrgTextEmotionResponseBodyResult) SetEmotions(v []*ListOrgTextEmotionResponseBodyResultEmotions) *ListOrgTextEmotionResponseBodyResult {
+	s.Emotions = v
+	return s
+}
+
+type ListOrgTextEmotionResponseBodyResultEmotions struct {
+	// 展示在消息气泡中的文字表情的mediaId
+	BackgroundMediaId *string `json:"backgroundMediaId,omitempty" xml:"backgroundMediaId,omitempty"`
+	// 展示在消息长按菜单中的文字表情的mediaId
+	BackgroundMediaIdForPanel *string `json:"backgroundMediaIdForPanel,omitempty" xml:"backgroundMediaIdForPanel,omitempty"`
+	// 表情所属部门Id：
+	// -1：该表情为企业层面的文字表情
+	// 一级部门Id：该表情为一级部门层面的文字表情
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// 表情Id
+	EmotionId *string `json:"emotionId,omitempty" xml:"emotionId,omitempty"`
+	// 表情名称，对用户不可见
+	EmotionName *string `json:"emotionName,omitempty" xml:"emotionName,omitempty"`
+	// 表情状态
+	// 0：已删除
+	// 1：可用
+	// 2：安全审核不通过
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s ListOrgTextEmotionResponseBodyResultEmotions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrgTextEmotionResponseBodyResultEmotions) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrgTextEmotionResponseBodyResultEmotions) SetBackgroundMediaId(v string) *ListOrgTextEmotionResponseBodyResultEmotions {
+	s.BackgroundMediaId = &v
+	return s
+}
+
+func (s *ListOrgTextEmotionResponseBodyResultEmotions) SetBackgroundMediaIdForPanel(v string) *ListOrgTextEmotionResponseBodyResultEmotions {
+	s.BackgroundMediaIdForPanel = &v
+	return s
+}
+
+func (s *ListOrgTextEmotionResponseBodyResultEmotions) SetDeptId(v int64) *ListOrgTextEmotionResponseBodyResultEmotions {
+	s.DeptId = &v
+	return s
+}
+
+func (s *ListOrgTextEmotionResponseBodyResultEmotions) SetEmotionId(v string) *ListOrgTextEmotionResponseBodyResultEmotions {
+	s.EmotionId = &v
+	return s
+}
+
+func (s *ListOrgTextEmotionResponseBodyResultEmotions) SetEmotionName(v string) *ListOrgTextEmotionResponseBodyResultEmotions {
+	s.EmotionName = &v
+	return s
+}
+
+func (s *ListOrgTextEmotionResponseBodyResultEmotions) SetStatus(v int32) *ListOrgTextEmotionResponseBodyResultEmotions {
+	s.Status = &v
+	return s
+}
+
+type ListOrgTextEmotionResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListOrgTextEmotionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListOrgTextEmotionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrgTextEmotionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrgTextEmotionResponse) SetHeaders(v map[string]*string) *ListOrgTextEmotionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListOrgTextEmotionResponse) SetBody(v *ListOrgTextEmotionResponseBody) *ListOrgTextEmotionResponse {
+	s.Body = v
+	return s
+}
+
 type QueryGroupInfoByMemberAuthHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5623,6 +5997,140 @@ func (s *SendTemplateInteractiveCardResponse) SetBody(v *SendTemplateInteractive
 	return s
 }
 
+type SetRightPanelHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetRightPanelHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRightPanelHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetRightPanelHeaders) SetCommonHeaders(v map[string]*string) *SetRightPanelHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetRightPanelHeaders) SetXAcsDingtalkAccessToken(v string) *SetRightPanelHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetRightPanelRequest struct {
+	// 场景群的openConversationId
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 是否允许群成员关闭侧边栏 true-允许 false-不允许
+	RightPanelClosePermitted *bool `json:"rightPanelClosePermitted,omitempty" xml:"rightPanelClosePermitted,omitempty"`
+	// 侧边栏打开状态 1-开启 0-关闭
+	RightPanelOpenStatus *int32 `json:"rightPanelOpenStatus,omitempty" xml:"rightPanelOpenStatus,omitempty"`
+	// 标题栏文案
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// 网页侧边栏属性配置
+	WebWndParams *SetRightPanelRequestWebWndParams `json:"webWndParams,omitempty" xml:"webWndParams,omitempty" type:"Struct"`
+	// 侧边栏
+	Width *int32 `json:"width,omitempty" xml:"width,omitempty"`
+}
+
+func (s SetRightPanelRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRightPanelRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetRightPanelRequest) SetOpenConversationId(v string) *SetRightPanelRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SetRightPanelRequest) SetRightPanelClosePermitted(v bool) *SetRightPanelRequest {
+	s.RightPanelClosePermitted = &v
+	return s
+}
+
+func (s *SetRightPanelRequest) SetRightPanelOpenStatus(v int32) *SetRightPanelRequest {
+	s.RightPanelOpenStatus = &v
+	return s
+}
+
+func (s *SetRightPanelRequest) SetTitle(v string) *SetRightPanelRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *SetRightPanelRequest) SetWebWndParams(v *SetRightPanelRequestWebWndParams) *SetRightPanelRequest {
+	s.WebWndParams = v
+	return s
+}
+
+func (s *SetRightPanelRequest) SetWidth(v int32) *SetRightPanelRequest {
+	s.Width = &v
+	return s
+}
+
+type SetRightPanelRequestWebWndParams struct {
+	// 侧边栏URL
+	TargetURL *string `json:"targetURL,omitempty" xml:"targetURL,omitempty"`
+}
+
+func (s SetRightPanelRequestWebWndParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRightPanelRequestWebWndParams) GoString() string {
+	return s.String()
+}
+
+func (s *SetRightPanelRequestWebWndParams) SetTargetURL(v string) *SetRightPanelRequestWebWndParams {
+	s.TargetURL = &v
+	return s
+}
+
+type SetRightPanelResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SetRightPanelResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRightPanelResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetRightPanelResponseBody) SetSuccess(v bool) *SetRightPanelResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SetRightPanelResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SetRightPanelResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SetRightPanelResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRightPanelResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetRightPanelResponse) SetHeaders(v map[string]*string) *SetRightPanelResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SetRightPanelResponse) SetBody(v *SetRightPanelResponseBody) *SetRightPanelResponse {
+	s.Body = v
+	return s
+}
+
 type TopboxCloseHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7385,6 +7893,62 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+func (client *Client) AddOrgTextEmotion(request *AddOrgTextEmotionRequest) (_result *AddOrgTextEmotionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddOrgTextEmotionHeaders{}
+	_result = &AddOrgTextEmotionResponse{}
+	_body, _err := client.AddOrgTextEmotionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddOrgTextEmotionWithOptions(request *AddOrgTextEmotionRequest, headers *AddOrgTextEmotionHeaders, runtime *util.RuntimeOptions) (_result *AddOrgTextEmotionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BackgroundMediaId)) {
+		body["backgroundMediaId"] = request.BackgroundMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BackgroundMediaIdForPanel)) {
+		body["backgroundMediaIdForPanel"] = request.BackgroundMediaIdForPanel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EmotionName)) {
+		body["emotionName"] = request.EmotionName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddOrgTextEmotionResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddOrgTextEmotion"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/organizations/textEmotions"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) AddRobotToConversation(request *AddRobotToConversationRequest) (_result *AddRobotToConversationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddRobotToConversationHeaders{}
@@ -8031,6 +8595,54 @@ func (client *Client) CreateStoreGroupConversationWithOptions(request *CreateSto
 	}
 	_result = &CreateStoreGroupConversationResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateStoreGroupConversation"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interconnections/storeGroups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteOrgTextEmotion(request *DeleteOrgTextEmotionRequest) (_result *DeleteOrgTextEmotionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteOrgTextEmotionHeaders{}
+	_result = &DeleteOrgTextEmotionResponse{}
+	_body, _err := client.DeleteOrgTextEmotionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteOrgTextEmotionWithOptions(request *DeleteOrgTextEmotionRequest, headers *DeleteOrgTextEmotionHeaders, runtime *util.RuntimeOptions) (_result *DeleteOrgTextEmotionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EmotionIds)) {
+		body["emotionIds"] = request.EmotionIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &DeleteOrgTextEmotionResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteOrgTextEmotion"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/organizations/textEmotions/remove"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8978,6 +9590,40 @@ func (client *Client) InteractiveCardCreateInstanceWithOptions(request *Interact
 	return _result, _err
 }
 
+func (client *Client) ListOrgTextEmotion() (_result *ListOrgTextEmotionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListOrgTextEmotionHeaders{}
+	_result = &ListOrgTextEmotionResponse{}
+	_body, _err := client.ListOrgTextEmotionWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListOrgTextEmotionWithOptions(headers *ListOrgTextEmotionHeaders, runtime *util.RuntimeOptions) (_result *ListOrgTextEmotionResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &ListOrgTextEmotionResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListOrgTextEmotion"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/im/organizations/textEmotions"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) QueryGroupInfoByMemberAuth(request *QueryGroupInfoByMemberAuthRequest) (_result *QueryGroupInfoByMemberAuthResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryGroupInfoByMemberAuthHeaders{}
@@ -9811,6 +10457,70 @@ func (client *Client) SendTemplateInteractiveCardWithOptions(request *SendTempla
 	}
 	_result = &SendTemplateInteractiveCardResponse{}
 	_body, _err := client.DoROARequest(tea.String("SendTemplateInteractiveCard"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/interactiveCards/templates/send"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SetRightPanel(request *SetRightPanelRequest) (_result *SetRightPanelResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetRightPanelHeaders{}
+	_result = &SetRightPanelResponse{}
+	_body, _err := client.SetRightPanelWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SetRightPanelWithOptions(request *SetRightPanelRequest, headers *SetRightPanelHeaders, runtime *util.RuntimeOptions) (_result *SetRightPanelResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RightPanelClosePermitted)) {
+		body["rightPanelClosePermitted"] = request.RightPanelClosePermitted
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RightPanelOpenStatus)) {
+		body["rightPanelOpenStatus"] = request.RightPanelOpenStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WebWndParams)) {
+		body["webWndParams"] = request.WebWndParams
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Width)) {
+		body["width"] = request.Width
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SetRightPanelResponse{}
+	_body, _err := client.DoROARequest(tea.String("SetRightPanel"), tea.String("im_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/im/rightPanels/set"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

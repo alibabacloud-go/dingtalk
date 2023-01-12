@@ -4415,6 +4415,292 @@ func (s *GetPartnerTypeByParentIdResponse) SetBody(v *GetPartnerTypeByParentIdRe
 	return s
 }
 
+type GetPublicDevicesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPublicDevicesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPublicDevicesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPublicDevicesHeaders) SetCommonHeaders(v map[string]*string) *GetPublicDevicesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPublicDevicesHeaders) SetXAcsDingtalkAccessToken(v string) *GetPublicDevicesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPublicDevicesRequest struct {
+	// 注册/申请时间止
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 设备mac地址
+	MacAddress *string `json:"macAddress,omitempty" xml:"macAddress,omitempty"`
+	// 页码
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 单页条目数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 系统
+	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	// 注册/申请时间起
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 设备标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetPublicDevicesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPublicDevicesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPublicDevicesRequest) SetEndTime(v int64) *GetPublicDevicesRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetPublicDevicesRequest) SetMacAddress(v string) *GetPublicDevicesRequest {
+	s.MacAddress = &v
+	return s
+}
+
+func (s *GetPublicDevicesRequest) SetPageNumber(v int32) *GetPublicDevicesRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetPublicDevicesRequest) SetPageSize(v int32) *GetPublicDevicesRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetPublicDevicesRequest) SetPlatform(v string) *GetPublicDevicesRequest {
+	s.Platform = &v
+	return s
+}
+
+func (s *GetPublicDevicesRequest) SetStartTime(v int64) *GetPublicDevicesRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetPublicDevicesRequest) SetTitle(v string) *GetPublicDevicesRequest {
+	s.Title = &v
+	return s
+}
+
+type GetPublicDevicesResponseBody struct {
+	Data []*GetPublicDevicesResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// 当前页条目数
+	DataCnt *int32 `json:"dataCnt,omitempty" xml:"dataCnt,omitempty"`
+	// 总条目数
+	TotalCnt *int64 `json:"totalCnt,omitempty" xml:"totalCnt,omitempty"`
+}
+
+func (s GetPublicDevicesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPublicDevicesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPublicDevicesResponseBody) SetData(v []*GetPublicDevicesResponseBodyData) *GetPublicDevicesResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *GetPublicDevicesResponseBody) SetDataCnt(v int32) *GetPublicDevicesResponseBody {
+	s.DataCnt = &v
+	return s
+}
+
+func (s *GetPublicDevicesResponseBody) SetTotalCnt(v int64) *GetPublicDevicesResponseBody {
+	s.TotalCnt = &v
+	return s
+}
+
+type GetPublicDevicesResponseBodyData struct {
+	// 部门列表，仅生效范围是部分生效时有效
+	DeviceDepts []*GetPublicDevicesResponseBodyDataDeviceDepts `json:"deviceDepts,omitempty" xml:"deviceDepts,omitempty" type:"Repeated"`
+	// 角色列表，仅生效范围是部分生效时有效
+	DeviceRoles []*GetPublicDevicesResponseBodyDataDeviceRoles `json:"deviceRoles,omitempty" xml:"deviceRoles,omitempty" type:"Repeated"`
+	// 生效范围
+	DeviceScopeType *int32 `json:"deviceScopeType,omitempty" xml:"deviceScopeType,omitempty"`
+	// 员工列表，仅生效范围是部分生效时有效
+	DeviceStaffs []*GetPublicDevicesResponseBodyDataDeviceStaffs `json:"deviceStaffs,omitempty" xml:"deviceStaffs,omitempty" type:"Repeated"`
+	// 创建时间时间戳
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 修改时间时间戳
+	GmtModified *int64 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// 设备mac地址
+	MacAddress *string `json:"macAddress,omitempty" xml:"macAddress,omitempty"`
+	// 系统
+	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	// 设备标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetPublicDevicesResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPublicDevicesResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetPublicDevicesResponseBodyData) SetDeviceDepts(v []*GetPublicDevicesResponseBodyDataDeviceDepts) *GetPublicDevicesResponseBodyData {
+	s.DeviceDepts = v
+	return s
+}
+
+func (s *GetPublicDevicesResponseBodyData) SetDeviceRoles(v []*GetPublicDevicesResponseBodyDataDeviceRoles) *GetPublicDevicesResponseBodyData {
+	s.DeviceRoles = v
+	return s
+}
+
+func (s *GetPublicDevicesResponseBodyData) SetDeviceScopeType(v int32) *GetPublicDevicesResponseBodyData {
+	s.DeviceScopeType = &v
+	return s
+}
+
+func (s *GetPublicDevicesResponseBodyData) SetDeviceStaffs(v []*GetPublicDevicesResponseBodyDataDeviceStaffs) *GetPublicDevicesResponseBodyData {
+	s.DeviceStaffs = v
+	return s
+}
+
+func (s *GetPublicDevicesResponseBodyData) SetGmtCreate(v int64) *GetPublicDevicesResponseBodyData {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *GetPublicDevicesResponseBodyData) SetGmtModified(v int64) *GetPublicDevicesResponseBodyData {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *GetPublicDevicesResponseBodyData) SetMacAddress(v string) *GetPublicDevicesResponseBodyData {
+	s.MacAddress = &v
+	return s
+}
+
+func (s *GetPublicDevicesResponseBodyData) SetPlatform(v string) *GetPublicDevicesResponseBodyData {
+	s.Platform = &v
+	return s
+}
+
+func (s *GetPublicDevicesResponseBodyData) SetTitle(v string) *GetPublicDevicesResponseBodyData {
+	s.Title = &v
+	return s
+}
+
+type GetPublicDevicesResponseBodyDataDeviceDepts struct {
+	// 部门id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 部门名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetPublicDevicesResponseBodyDataDeviceDepts) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPublicDevicesResponseBodyDataDeviceDepts) GoString() string {
+	return s.String()
+}
+
+func (s *GetPublicDevicesResponseBodyDataDeviceDepts) SetId(v int64) *GetPublicDevicesResponseBodyDataDeviceDepts {
+	s.Id = &v
+	return s
+}
+
+func (s *GetPublicDevicesResponseBodyDataDeviceDepts) SetName(v string) *GetPublicDevicesResponseBodyDataDeviceDepts {
+	s.Name = &v
+	return s
+}
+
+type GetPublicDevicesResponseBodyDataDeviceRoles struct {
+	// 角色名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 角色code
+	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+}
+
+func (s GetPublicDevicesResponseBodyDataDeviceRoles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPublicDevicesResponseBodyDataDeviceRoles) GoString() string {
+	return s.String()
+}
+
+func (s *GetPublicDevicesResponseBodyDataDeviceRoles) SetName(v string) *GetPublicDevicesResponseBodyDataDeviceRoles {
+	s.Name = &v
+	return s
+}
+
+func (s *GetPublicDevicesResponseBodyDataDeviceRoles) SetTagCode(v string) *GetPublicDevicesResponseBodyDataDeviceRoles {
+	s.TagCode = &v
+	return s
+}
+
+type GetPublicDevicesResponseBodyDataDeviceStaffs struct {
+	// 员工姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 员工id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetPublicDevicesResponseBodyDataDeviceStaffs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPublicDevicesResponseBodyDataDeviceStaffs) GoString() string {
+	return s.String()
+}
+
+func (s *GetPublicDevicesResponseBodyDataDeviceStaffs) SetName(v string) *GetPublicDevicesResponseBodyDataDeviceStaffs {
+	s.Name = &v
+	return s
+}
+
+func (s *GetPublicDevicesResponseBodyDataDeviceStaffs) SetUserId(v string) *GetPublicDevicesResponseBodyDataDeviceStaffs {
+	s.UserId = &v
+	return s
+}
+
+type GetPublicDevicesResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetPublicDevicesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetPublicDevicesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPublicDevicesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPublicDevicesResponse) SetHeaders(v map[string]*string) *GetPublicDevicesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPublicDevicesResponse) SetBody(v *GetPublicDevicesResponseBody) *GetPublicDevicesResponse {
+	s.Body = v
+	return s
+}
+
 type GetPublisherSummaryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10621,6 +10907,74 @@ func (client *Client) GetPartnerTypeByParentIdWithOptions(parentId *string, head
 	}
 	_result = &GetPartnerTypeByParentIdResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetPartnerTypeByParentId"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/partnerLabels/"+tea.StringValue(parentId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetPublicDevices(request *GetPublicDevicesRequest) (_result *GetPublicDevicesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPublicDevicesHeaders{}
+	_result = &GetPublicDevicesResponse{}
+	_body, _err := client.GetPublicDevicesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetPublicDevicesWithOptions(request *GetPublicDevicesRequest, headers *GetPublicDevicesHeaders, runtime *util.RuntimeOptions) (_result *GetPublicDevicesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MacAddress)) {
+		query["macAddress"] = request.MacAddress
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Platform)) {
+		query["platform"] = request.Platform
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		query["title"] = request.Title
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetPublicDevicesResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetPublicDevices"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/trusts/publicDevices"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
