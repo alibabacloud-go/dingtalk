@@ -1275,9 +1275,8 @@ type GetCardInUserHolderResponseBody struct {
 	// 头像
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
 	// 名片收下状态
-	CardAcceptStatus *int32 `json:"cardAcceptStatus,omitempty" xml:"cardAcceptStatus,omitempty"`
-	// 名片收下时间
-	CardAcceptTime interface{} `json:"cardAcceptTime,omitempty" xml:"cardAcceptTime,omitempty"`
+	CardAcceptStatus   *int32 `json:"cardAcceptStatus,omitempty" xml:"cardAcceptStatus,omitempty"`
+	CardAcceptTimeLong *int64 `json:"cardAcceptTimeLong,omitempty" xml:"cardAcceptTimeLong,omitempty"`
 	// 名片ID
 	CardId *string `json:"cardId,omitempty" xml:"cardId,omitempty"`
 	// 扩展信息
@@ -1314,8 +1313,8 @@ func (s *GetCardInUserHolderResponseBody) SetCardAcceptStatus(v int32) *GetCardI
 	return s
 }
 
-func (s *GetCardInUserHolderResponseBody) SetCardAcceptTime(v interface{}) *GetCardInUserHolderResponseBody {
-	s.CardAcceptTime = v
+func (s *GetCardInUserHolderResponseBody) SetCardAcceptTimeLong(v int64) *GetCardInUserHolderResponseBody {
+	s.CardAcceptTimeLong = &v
 	return s
 }
 
@@ -1500,8 +1499,6 @@ type GetCardInfoResponseBodyExtension struct {
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// 拍名片部门
 	Department *string `json:"department,omitempty" xml:"department,omitempty"`
-	// 企业认证等级
-	OrgAuthLevel *int64 `json:"orgAuthLevel,omitempty" xml:"orgAuthLevel,omitempty"`
 	// 企业是否认证
 	OrgAuthed *bool `json:"orgAuthed,omitempty" xml:"orgAuthed,omitempty"`
 	// 企业LOGO
@@ -1540,11 +1537,6 @@ func (s *GetCardInfoResponseBodyExtension) SetCorpId(v string) *GetCardInfoRespo
 
 func (s *GetCardInfoResponseBodyExtension) SetDepartment(v string) *GetCardInfoResponseBodyExtension {
 	s.Department = &v
-	return s
-}
-
-func (s *GetCardInfoResponseBodyExtension) SetOrgAuthLevel(v int64) *GetCardInfoResponseBodyExtension {
-	s.OrgAuthLevel = &v
 	return s
 }
 
@@ -2733,8 +2725,8 @@ type GetUserCardHolderListResponseBodyList struct {
 	// 头像
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
 	// 名片收下状态
-	CardAcceptStatus *int32      `json:"cardAcceptStatus,omitempty" xml:"cardAcceptStatus,omitempty"`
-	CardAcceptTime   interface{} `json:"cardAcceptTime,omitempty" xml:"cardAcceptTime,omitempty"`
+	CardAcceptStatus   *int32 `json:"cardAcceptStatus,omitempty" xml:"cardAcceptStatus,omitempty"`
+	CardAcceptTimeLong *int64 `json:"cardAcceptTimeLong,omitempty" xml:"cardAcceptTimeLong,omitempty"`
 	// 名片ID
 	CardId *string `json:"cardId,omitempty" xml:"cardId,omitempty"`
 	// 扩展信息
@@ -2771,8 +2763,8 @@ func (s *GetUserCardHolderListResponseBodyList) SetCardAcceptStatus(v int32) *Ge
 	return s
 }
 
-func (s *GetUserCardHolderListResponseBodyList) SetCardAcceptTime(v interface{}) *GetUserCardHolderListResponseBodyList {
-	s.CardAcceptTime = v
+func (s *GetUserCardHolderListResponseBodyList) SetCardAcceptTimeLong(v int64) *GetUserCardHolderListResponseBodyList {
+	s.CardAcceptTimeLong = &v
 	return s
 }
 
