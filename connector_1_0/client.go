@@ -524,6 +524,102 @@ func (s *CreateConnectorResponse) SetBody(v *CreateConnectorResponseBody) *Creat
 	return s
 }
 
+type CreateInvocableInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateInvocableInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInvocableInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInvocableInstanceHeaders) SetCommonHeaders(v map[string]*string) *CreateInvocableInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateInvocableInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *CreateInvocableInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateInvocableInstanceRequest struct {
+	// 连接资产标识
+	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
+	// 关联实例标识
+	InstanceKey *string `json:"instanceKey,omitempty" xml:"instanceKey,omitempty"`
+}
+
+func (s CreateInvocableInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInvocableInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInvocableInstanceRequest) SetConnectAssetUri(v string) *CreateInvocableInstanceRequest {
+	s.ConnectAssetUri = &v
+	return s
+}
+
+func (s *CreateInvocableInstanceRequest) SetInstanceKey(v string) *CreateInvocableInstanceRequest {
+	s.InstanceKey = &v
+	return s
+}
+
+type CreateInvocableInstanceResponseBody struct {
+	// 资产标识
+	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
+	// 连接实例版本ID
+	VersionId *string `json:"versionId,omitempty" xml:"versionId,omitempty"`
+}
+
+func (s CreateInvocableInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInvocableInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInvocableInstanceResponseBody) SetConnectAssetUri(v string) *CreateInvocableInstanceResponseBody {
+	s.ConnectAssetUri = &v
+	return s
+}
+
+func (s *CreateInvocableInstanceResponseBody) SetVersionId(v string) *CreateInvocableInstanceResponseBody {
+	s.VersionId = &v
+	return s
+}
+
+type CreateInvocableInstanceResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateInvocableInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateInvocableInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateInvocableInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateInvocableInstanceResponse) SetHeaders(v map[string]*string) *CreateInvocableInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateInvocableInstanceResponse) SetBody(v *CreateInvocableInstanceResponseBody) *CreateInvocableInstanceResponse {
+	s.Body = v
+	return s
+}
+
 type CreateTriggerHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -720,6 +816,336 @@ func (s *CreateTriggerResponse) SetHeaders(v map[string]*string) *CreateTriggerR
 }
 
 func (s *CreateTriggerResponse) SetBody(v *CreateTriggerResponseBody) *CreateTriggerResponse {
+	s.Body = v
+	return s
+}
+
+type GetActionDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetActionDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetActionDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetActionDetailHeaders) SetCommonHeaders(v map[string]*string) *GetActionDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetActionDetailHeaders) SetXAcsDingtalkAccessToken(v string) *GetActionDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetActionDetailRequest struct {
+	// 连接资产标识
+	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
+}
+
+func (s GetActionDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetActionDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetActionDetailRequest) SetConnectAssetUri(v string) *GetActionDetailRequest {
+	s.ConnectAssetUri = &v
+	return s
+}
+
+type GetActionDetailResponseBody struct {
+	// 连接资产标识
+	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
+	// 调用时以JsonSchema描述的入参格式
+	InputSchema *string `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
+	// 执行动作集成配置信息
+	IntegrationConfig *GetActionDetailResponseBodyIntegrationConfig `json:"integrationConfig,omitempty" xml:"integrationConfig,omitempty" type:"Struct"`
+	// 执行动作的名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 调用时以JsonSchema描述的出参格式
+	OutputSchema *string `json:"outputSchema,omitempty" xml:"outputSchema,omitempty"`
+	// 执行动作的ID
+	RefId *string `json:"refId,omitempty" xml:"refId,omitempty"`
+	// 执行动作提供组织
+	RefProviderCorpId *string `json:"refProviderCorpId,omitempty" xml:"refProviderCorpId,omitempty"`
+	// 连接资产类型
+	RefType *string `json:"refType,omitempty" xml:"refType,omitempty"`
+}
+
+func (s GetActionDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetActionDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetActionDetailResponseBody) SetConnectAssetUri(v string) *GetActionDetailResponseBody {
+	s.ConnectAssetUri = &v
+	return s
+}
+
+func (s *GetActionDetailResponseBody) SetInputSchema(v string) *GetActionDetailResponseBody {
+	s.InputSchema = &v
+	return s
+}
+
+func (s *GetActionDetailResponseBody) SetIntegrationConfig(v *GetActionDetailResponseBodyIntegrationConfig) *GetActionDetailResponseBody {
+	s.IntegrationConfig = v
+	return s
+}
+
+func (s *GetActionDetailResponseBody) SetName(v string) *GetActionDetailResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *GetActionDetailResponseBody) SetOutputSchema(v string) *GetActionDetailResponseBody {
+	s.OutputSchema = &v
+	return s
+}
+
+func (s *GetActionDetailResponseBody) SetRefId(v string) *GetActionDetailResponseBody {
+	s.RefId = &v
+	return s
+}
+
+func (s *GetActionDetailResponseBody) SetRefProviderCorpId(v string) *GetActionDetailResponseBody {
+	s.RefProviderCorpId = &v
+	return s
+}
+
+func (s *GetActionDetailResponseBody) SetRefType(v string) *GetActionDetailResponseBody {
+	s.RefType = &v
+	return s
+}
+
+type GetActionDetailResponseBodyIntegrationConfig struct {
+	// 类目配置
+	CategoryNames []*GetActionDetailResponseBodyIntegrationConfigCategoryNames `json:"categoryNames,omitempty" xml:"categoryNames,omitempty" type:"Repeated"`
+	// 集成对象的名称
+	EntityName *string `json:"entityName,omitempty" xml:"entityName,omitempty"`
+	// 其它额外属性
+	Props []*GetActionDetailResponseBodyIntegrationConfigProps `json:"props,omitempty" xml:"props,omitempty" type:"Repeated"`
+}
+
+func (s GetActionDetailResponseBodyIntegrationConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetActionDetailResponseBodyIntegrationConfig) GoString() string {
+	return s.String()
+}
+
+func (s *GetActionDetailResponseBodyIntegrationConfig) SetCategoryNames(v []*GetActionDetailResponseBodyIntegrationConfigCategoryNames) *GetActionDetailResponseBodyIntegrationConfig {
+	s.CategoryNames = v
+	return s
+}
+
+func (s *GetActionDetailResponseBodyIntegrationConfig) SetEntityName(v string) *GetActionDetailResponseBodyIntegrationConfig {
+	s.EntityName = &v
+	return s
+}
+
+func (s *GetActionDetailResponseBodyIntegrationConfig) SetProps(v []*GetActionDetailResponseBodyIntegrationConfigProps) *GetActionDetailResponseBodyIntegrationConfig {
+	s.Props = v
+	return s
+}
+
+type GetActionDetailResponseBodyIntegrationConfigCategoryNames struct {
+	// 类目名称
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetActionDetailResponseBodyIntegrationConfigCategoryNames) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetActionDetailResponseBodyIntegrationConfigCategoryNames) GoString() string {
+	return s.String()
+}
+
+func (s *GetActionDetailResponseBodyIntegrationConfigCategoryNames) SetValue(v string) *GetActionDetailResponseBodyIntegrationConfigCategoryNames {
+	s.Value = &v
+	return s
+}
+
+type GetActionDetailResponseBodyIntegrationConfigProps struct {
+	// 配置的KEY值
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// 配置的属性值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetActionDetailResponseBodyIntegrationConfigProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetActionDetailResponseBodyIntegrationConfigProps) GoString() string {
+	return s.String()
+}
+
+func (s *GetActionDetailResponseBodyIntegrationConfigProps) SetKey(v string) *GetActionDetailResponseBodyIntegrationConfigProps {
+	s.Key = &v
+	return s
+}
+
+func (s *GetActionDetailResponseBodyIntegrationConfigProps) SetValue(v string) *GetActionDetailResponseBodyIntegrationConfigProps {
+	s.Value = &v
+	return s
+}
+
+type GetActionDetailResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetActionDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetActionDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetActionDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetActionDetailResponse) SetHeaders(v map[string]*string) *GetActionDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetActionDetailResponse) SetBody(v *GetActionDetailResponseBody) *GetActionDetailResponse {
+	s.Body = v
+	return s
+}
+
+type InvokeInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s InvokeInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InvokeInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *InvokeInstanceHeaders) SetCommonHeaders(v map[string]*string) *InvokeInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *InvokeInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *InvokeInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type InvokeInstanceRequest struct {
+	// 连接资产标识
+	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
+	// 入参JSON文本
+	InputJsonString *string `json:"inputJsonString,omitempty" xml:"inputJsonString,omitempty"`
+	// 外部实例唯一标识
+	InstanceKey *string `json:"instanceKey,omitempty" xml:"instanceKey,omitempty"`
+}
+
+func (s InvokeInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InvokeInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *InvokeInstanceRequest) SetConnectAssetUri(v string) *InvokeInstanceRequest {
+	s.ConnectAssetUri = &v
+	return s
+}
+
+func (s *InvokeInstanceRequest) SetInputJsonString(v string) *InvokeInstanceRequest {
+	s.InputJsonString = &v
+	return s
+}
+
+func (s *InvokeInstanceRequest) SetInstanceKey(v string) *InvokeInstanceRequest {
+	s.InstanceKey = &v
+	return s
+}
+
+type InvokeInstanceResponseBody struct {
+	// 本次执行耗时
+	Cost *int64 `json:"cost,omitempty" xml:"cost,omitempty"`
+	// 连接器错误码
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// 连接器错误信息
+	ErrorMessage *string `json:"errorMessage,omitempty" xml:"errorMessage,omitempty"`
+	// 调用记录的ID
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// Id of the request
+	OutputJson *string `json:"outputJson,omitempty" xml:"outputJson,omitempty"`
+}
+
+func (s InvokeInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InvokeInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *InvokeInstanceResponseBody) SetCost(v int64) *InvokeInstanceResponseBody {
+	s.Cost = &v
+	return s
+}
+
+func (s *InvokeInstanceResponseBody) SetErrorCode(v string) *InvokeInstanceResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *InvokeInstanceResponseBody) SetErrorMessage(v string) *InvokeInstanceResponseBody {
+	s.ErrorMessage = &v
+	return s
+}
+
+func (s *InvokeInstanceResponseBody) SetInstanceId(v string) *InvokeInstanceResponseBody {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *InvokeInstanceResponseBody) SetOutputJson(v string) *InvokeInstanceResponseBody {
+	s.OutputJson = &v
+	return s
+}
+
+type InvokeInstanceResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *InvokeInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s InvokeInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InvokeInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *InvokeInstanceResponse) SetHeaders(v map[string]*string) *InvokeInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *InvokeInstanceResponse) SetBody(v *InvokeInstanceResponseBody) *InvokeInstanceResponse {
 	s.Body = v
 	return s
 }
@@ -1049,6 +1475,381 @@ func (s *PullDataByPkResponse) SetHeaders(v map[string]*string) *PullDataByPkRes
 }
 
 func (s *PullDataByPkResponse) SetBody(v *PullDataByPkResponseBody) *PullDataByPkResponse {
+	s.Body = v
+	return s
+}
+
+type SearchActionsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchActionsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchActionsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchActionsHeaders) SetCommonHeaders(v map[string]*string) *SearchActionsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchActionsHeaders) SetXAcsDingtalkAccessToken(v string) *SearchActionsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchActionsRequest struct {
+	// 连接器的ID
+	ConnectorId *string `json:"connectorId,omitempty" xml:"connectorId,omitempty"`
+	// 连接器提供组织ID
+	ConnectorProviderCorpId *string `json:"connectorProviderCorpId,omitempty" xml:"connectorProviderCorpId,omitempty"`
+	// 集成类型，默认只有basic-基础类型
+	IntegrationTypes []*string `json:"integrationTypes,omitempty" xml:"integrationTypes,omitempty" type:"Repeated"`
+	// 最大返回记录数
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 查询位置，为空表示从头开始
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s SearchActionsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchActionsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchActionsRequest) SetConnectorId(v string) *SearchActionsRequest {
+	s.ConnectorId = &v
+	return s
+}
+
+func (s *SearchActionsRequest) SetConnectorProviderCorpId(v string) *SearchActionsRequest {
+	s.ConnectorProviderCorpId = &v
+	return s
+}
+
+func (s *SearchActionsRequest) SetIntegrationTypes(v []*string) *SearchActionsRequest {
+	s.IntegrationTypes = v
+	return s
+}
+
+func (s *SearchActionsRequest) SetMaxResults(v int32) *SearchActionsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchActionsRequest) SetNextToken(v string) *SearchActionsRequest {
+	s.NextToken = &v
+	return s
+}
+
+type SearchActionsResponseBody struct {
+	// 是否有更多记录
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 执行动作列表
+	List []*SearchActionsResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// 下一页位置
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 总记录数
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s SearchActionsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchActionsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchActionsResponseBody) SetHasMore(v bool) *SearchActionsResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *SearchActionsResponseBody) SetList(v []*SearchActionsResponseBodyList) *SearchActionsResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *SearchActionsResponseBody) SetNextToken(v string) *SearchActionsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchActionsResponseBody) SetTotalCount(v int64) *SearchActionsResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type SearchActionsResponseBodyList struct {
+	// 授权页地址
+	AuthorityUrl *string `json:"authorityUrl,omitempty" xml:"authorityUrl,omitempty"`
+	// 是否已授权
+	Authorized *bool `json:"authorized,omitempty" xml:"authorized,omitempty"`
+	// 连接资产唯一标识
+	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
+	// 执行动作所属连接器ID
+	ConnectorId *string `json:"connectorId,omitempty" xml:"connectorId,omitempty"`
+	// 描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 图标
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 执行动作的ID
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 集成类型
+	IntegrationType *string `json:"integrationType,omitempty" xml:"integrationType,omitempty"`
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 提供组织
+	ProviderCorpId *string `json:"providerCorpId,omitempty" xml:"providerCorpId,omitempty"`
+}
+
+func (s SearchActionsResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchActionsResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *SearchActionsResponseBodyList) SetAuthorityUrl(v string) *SearchActionsResponseBodyList {
+	s.AuthorityUrl = &v
+	return s
+}
+
+func (s *SearchActionsResponseBodyList) SetAuthorized(v bool) *SearchActionsResponseBodyList {
+	s.Authorized = &v
+	return s
+}
+
+func (s *SearchActionsResponseBodyList) SetConnectAssetUri(v string) *SearchActionsResponseBodyList {
+	s.ConnectAssetUri = &v
+	return s
+}
+
+func (s *SearchActionsResponseBodyList) SetConnectorId(v string) *SearchActionsResponseBodyList {
+	s.ConnectorId = &v
+	return s
+}
+
+func (s *SearchActionsResponseBodyList) SetDescription(v string) *SearchActionsResponseBodyList {
+	s.Description = &v
+	return s
+}
+
+func (s *SearchActionsResponseBodyList) SetIcon(v string) *SearchActionsResponseBodyList {
+	s.Icon = &v
+	return s
+}
+
+func (s *SearchActionsResponseBodyList) SetId(v string) *SearchActionsResponseBodyList {
+	s.Id = &v
+	return s
+}
+
+func (s *SearchActionsResponseBodyList) SetIntegrationType(v string) *SearchActionsResponseBodyList {
+	s.IntegrationType = &v
+	return s
+}
+
+func (s *SearchActionsResponseBodyList) SetName(v string) *SearchActionsResponseBodyList {
+	s.Name = &v
+	return s
+}
+
+func (s *SearchActionsResponseBodyList) SetProviderCorpId(v string) *SearchActionsResponseBodyList {
+	s.ProviderCorpId = &v
+	return s
+}
+
+type SearchActionsResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchActionsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchActionsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchActionsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchActionsResponse) SetHeaders(v map[string]*string) *SearchActionsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchActionsResponse) SetBody(v *SearchActionsResponseBody) *SearchActionsResponse {
+	s.Body = v
+	return s
+}
+
+type SearchConnectorsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchConnectorsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchConnectorsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchConnectorsHeaders) SetCommonHeaders(v map[string]*string) *SearchConnectorsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchConnectorsHeaders) SetXAcsDingtalkAccessToken(v string) *SearchConnectorsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchConnectorsRequest struct {
+	// 最大返回记录数，最多50
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 查询指定位置的记录，为空则从头开始
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 查询连接器的类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s SearchConnectorsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchConnectorsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchConnectorsRequest) SetMaxResults(v int32) *SearchConnectorsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchConnectorsRequest) SetNextToken(v string) *SearchConnectorsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchConnectorsRequest) SetType(v string) *SearchConnectorsRequest {
+	s.Type = &v
+	return s
+}
+
+type SearchConnectorsResponseBody struct {
+	// 是否有更多记录
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 连接器信息列表
+	List []*SearchConnectorsResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// 下一页记录的查询位置
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 总记录数
+	TotalCount *string `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s SearchConnectorsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchConnectorsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchConnectorsResponseBody) SetHasMore(v bool) *SearchConnectorsResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *SearchConnectorsResponseBody) SetList(v []*SearchConnectorsResponseBodyList) *SearchConnectorsResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *SearchConnectorsResponseBody) SetNextToken(v string) *SearchConnectorsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchConnectorsResponseBody) SetTotalCount(v string) *SearchConnectorsResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type SearchConnectorsResponseBodyList struct {
+	// 连接器的描述信息
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 连接器的图标
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 连接器的ID
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 连接器的名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 连接器的提供组织
+	ProviderCorpId *string `json:"providerCorpId,omitempty" xml:"providerCorpId,omitempty"`
+}
+
+func (s SearchConnectorsResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchConnectorsResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *SearchConnectorsResponseBodyList) SetDescription(v string) *SearchConnectorsResponseBodyList {
+	s.Description = &v
+	return s
+}
+
+func (s *SearchConnectorsResponseBodyList) SetIcon(v string) *SearchConnectorsResponseBodyList {
+	s.Icon = &v
+	return s
+}
+
+func (s *SearchConnectorsResponseBodyList) SetId(v string) *SearchConnectorsResponseBodyList {
+	s.Id = &v
+	return s
+}
+
+func (s *SearchConnectorsResponseBodyList) SetName(v string) *SearchConnectorsResponseBodyList {
+	s.Name = &v
+	return s
+}
+
+func (s *SearchConnectorsResponseBodyList) SetProviderCorpId(v string) *SearchConnectorsResponseBodyList {
+	s.ProviderCorpId = &v
+	return s
+}
+
+type SearchConnectorsResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchConnectorsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchConnectorsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchConnectorsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchConnectorsResponse) SetHeaders(v map[string]*string) *SearchConnectorsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchConnectorsResponse) SetBody(v *SearchConnectorsResponseBody) *SearchConnectorsResponse {
 	s.Body = v
 	return s
 }
@@ -2092,6 +2893,54 @@ func (client *Client) CreateConnectorWithOptions(request *CreateConnectorRequest
 	return _result, _err
 }
 
+func (client *Client) CreateInvocableInstance(request *CreateInvocableInstanceRequest) (_result *CreateInvocableInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateInvocableInstanceHeaders{}
+	_result = &CreateInvocableInstanceResponse{}
+	_body, _err := client.CreateInvocableInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateInvocableInstanceWithOptions(request *CreateInvocableInstanceRequest, headers *CreateInvocableInstanceHeaders, runtime *util.RuntimeOptions) (_result *CreateInvocableInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ConnectAssetUri)) {
+		body["connectAssetUri"] = request.ConnectAssetUri
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceKey)) {
+		body["instanceKey"] = request.InstanceKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateInvocableInstanceResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateInvocableInstance"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/connector/instances"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) CreateTrigger(request *CreateTriggerRequest) (_result *CreateTriggerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateTriggerHeaders{}
@@ -2133,6 +2982,102 @@ func (client *Client) CreateTriggerWithOptions(request *CreateTriggerRequest, he
 	}
 	_result = &CreateTriggerResponse{}
 	_body, _err := client.DoROARequest(tea.String("CreateTrigger"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/connector/triggers"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetActionDetail(request *GetActionDetailRequest) (_result *GetActionDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetActionDetailHeaders{}
+	_result = &GetActionDetailResponse{}
+	_body, _err := client.GetActionDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetActionDetailWithOptions(request *GetActionDetailRequest, headers *GetActionDetailHeaders, runtime *util.RuntimeOptions) (_result *GetActionDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ConnectAssetUri)) {
+		body["connectAssetUri"] = request.ConnectAssetUri
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetActionDetailResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetActionDetail"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/connector/assets/actions/details/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) InvokeInstance(request *InvokeInstanceRequest) (_result *InvokeInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &InvokeInstanceHeaders{}
+	_result = &InvokeInstanceResponse{}
+	_body, _err := client.InvokeInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) InvokeInstanceWithOptions(request *InvokeInstanceRequest, headers *InvokeInstanceHeaders, runtime *util.RuntimeOptions) (_result *InvokeInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ConnectAssetUri)) {
+		body["connectAssetUri"] = request.ConnectAssetUri
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InputJsonString)) {
+		body["inputJsonString"] = request.InputJsonString
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceKey)) {
+		body["instanceKey"] = request.InstanceKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &InvokeInstanceResponse{}
+	_body, _err := client.DoROARequest(tea.String("InvokeInstance"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/connector/instances/invoke"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2250,6 +3195,118 @@ func (client *Client) PullDataByPkWithOptions(dataModelId *string, request *Pull
 	}
 	_result = &PullDataByPkResponse{}
 	_body, _err := client.DoROARequest(tea.String("PullDataByPk"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/connector/data/"+tea.StringValue(dataModelId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchActions(request *SearchActionsRequest) (_result *SearchActionsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchActionsHeaders{}
+	_result = &SearchActionsResponse{}
+	_body, _err := client.SearchActionsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchActionsWithOptions(request *SearchActionsRequest, headers *SearchActionsHeaders, runtime *util.RuntimeOptions) (_result *SearchActionsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ConnectorId)) {
+		body["connectorId"] = request.ConnectorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ConnectorProviderCorpId)) {
+		body["connectorProviderCorpId"] = request.ConnectorProviderCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IntegrationTypes)) {
+		body["integrationTypes"] = request.IntegrationTypes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SearchActionsResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchActions"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/connector/assets/actions/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SearchConnectors(request *SearchConnectorsRequest) (_result *SearchConnectorsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchConnectorsHeaders{}
+	_result = &SearchConnectorsResponse{}
+	_body, _err := client.SearchConnectorsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchConnectorsWithOptions(request *SearchConnectorsRequest, headers *SearchConnectorsHeaders, runtime *util.RuntimeOptions) (_result *SearchConnectorsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		query["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &SearchConnectorsResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchConnectors"), tea.String("connector_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/connector/assets/connectors"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
