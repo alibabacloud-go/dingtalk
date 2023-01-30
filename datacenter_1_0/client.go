@@ -120,6 +120,115 @@ func (s *GetAbnormalOperationResponse) SetBody(v *GetAbnormalOperationResponseBo
 	return s
 }
 
+type GetAdministrativeLicensingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAdministrativeLicensingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAdministrativeLicensingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAdministrativeLicensingHeaders) SetCommonHeaders(v map[string]*string) *GetAdministrativeLicensingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAdministrativeLicensingHeaders) SetXAcsDingtalkAccessToken(v string) *GetAdministrativeLicensingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAdministrativeLicensingRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetAdministrativeLicensingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAdministrativeLicensingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAdministrativeLicensingRequest) SetPageNumber(v int32) *GetAdministrativeLicensingRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetAdministrativeLicensingRequest) SetPageSize(v int32) *GetAdministrativeLicensingRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetAdministrativeLicensingRequest) SetSearchKey(v string) *GetAdministrativeLicensingRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetAdministrativeLicensingResponseBody struct {
+	// 返回结果
+	// LicenseNo:许可文件编号
+	// LicenseName:许可文件名称
+	// Department:许可机关
+	// StartDate:有效期自
+	// EndDate:有效期至
+	// Content:许可内容
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetAdministrativeLicensingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAdministrativeLicensingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAdministrativeLicensingResponseBody) SetData(v string) *GetAdministrativeLicensingResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetAdministrativeLicensingResponseBody) SetTotal(v int64) *GetAdministrativeLicensingResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetAdministrativeLicensingResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetAdministrativeLicensingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetAdministrativeLicensingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAdministrativeLicensingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAdministrativeLicensingResponse) SetHeaders(v map[string]*string) *GetAdministrativeLicensingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAdministrativeLicensingResponse) SetBody(v *GetAdministrativeLicensingResponseBody) *GetAdministrativeLicensingResponse {
+	s.Body = v
+	return s
+}
+
 type GetAdministrativePenaltiesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -364,6 +473,560 @@ func (s *GetBasicInfoResponse) SetBody(v *GetBasicInfoResponseBody) *GetBasicInf
 	return s
 }
 
+type GetBiddingInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetBiddingInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBiddingInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetBiddingInfoHeaders) SetCommonHeaders(v map[string]*string) *GetBiddingInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetBiddingInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetBiddingInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetBiddingInfoRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetBiddingInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBiddingInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetBiddingInfoRequest) SetPageNumber(v int32) *GetBiddingInfoRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetBiddingInfoRequest) SetPageSize(v int32) *GetBiddingInfoRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetBiddingInfoRequest) SetSearchKey(v string) *GetBiddingInfoRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetBiddingInfoResponseBody struct {
+	// 返回结果
+	// EntName:企业名称
+	// BidTitle:标文标题
+	// BidType:招标方式
+	// RegionName:地区
+	// BidIndustry:标的所属行业
+	// PublicDate:发布时间
+	// ProjectNum:项目编号
+	// ProjectName:项目名称
+	// ProjectAmount:项目金额
+	// TenderEntName:招标企业
+	// AgentEntName:代理企业
+	// WinnerEntName:中标企业
+	// Content:正文
+	// InfoType:标文类型
+	// SubType:子类型
+	// OpeningTime:开标时间
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetBiddingInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBiddingInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetBiddingInfoResponseBody) SetData(v string) *GetBiddingInfoResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetBiddingInfoResponseBody) SetTotal(v int64) *GetBiddingInfoResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetBiddingInfoResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetBiddingInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetBiddingInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBiddingInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetBiddingInfoResponse) SetHeaders(v map[string]*string) *GetBiddingInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetBiddingInfoResponse) SetBody(v *GetBiddingInfoResponseBody) *GetBiddingInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetBranchInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetBranchInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBranchInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetBranchInfoHeaders) SetCommonHeaders(v map[string]*string) *GetBranchInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetBranchInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetBranchInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetBranchInfoRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetBranchInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBranchInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetBranchInfoRequest) SetPageNumber(v int32) *GetBranchInfoRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetBranchInfoRequest) SetPageSize(v int32) *GetBranchInfoRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetBranchInfoRequest) SetSearchKey(v string) *GetBranchInfoRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetBranchInfoResponseBody struct {
+	// 返回结果
+	// EntName:分支机构名称
+	// EntStatus:经营状态
+	// OperName:负责人
+	// EsDate:成立日期
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetBranchInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBranchInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetBranchInfoResponseBody) SetData(v string) *GetBranchInfoResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetBranchInfoResponseBody) SetTotal(v int64) *GetBranchInfoResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetBranchInfoResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetBranchInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetBranchInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBranchInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetBranchInfoResponse) SetHeaders(v map[string]*string) *GetBranchInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetBranchInfoResponse) SetBody(v *GetBranchInfoResponseBody) *GetBranchInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetChangeRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetChangeRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetChangeRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetChangeRecordHeaders) SetCommonHeaders(v map[string]*string) *GetChangeRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetChangeRecordHeaders) SetXAcsDingtalkAccessToken(v string) *GetChangeRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetChangeRecordRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetChangeRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetChangeRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetChangeRecordRequest) SetPageNumber(v int32) *GetChangeRecordRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetChangeRecordRequest) SetPageSize(v int32) *GetChangeRecordRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetChangeRecordRequest) SetSearchKey(v string) *GetChangeRecordRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetChangeRecordResponseBody struct {
+	// 返回结果
+	// Type:变更事项
+	// ChangeDate:变更日期
+	// BeforeContent:变更前
+	// AfterContent:变更后
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetChangeRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetChangeRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetChangeRecordResponseBody) SetData(v string) *GetChangeRecordResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetChangeRecordResponseBody) SetTotal(v int64) *GetChangeRecordResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetChangeRecordResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetChangeRecordResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetChangeRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetChangeRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetChangeRecordResponse) SetHeaders(v map[string]*string) *GetChangeRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetChangeRecordResponse) SetBody(v *GetChangeRecordResponseBody) *GetChangeRecordResponse {
+	s.Body = v
+	return s
+}
+
+type GetDomainInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetDomainInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDomainInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetDomainInfoHeaders) SetCommonHeaders(v map[string]*string) *GetDomainInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetDomainInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetDomainInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetDomainInfoRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetDomainInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDomainInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetDomainInfoRequest) SetPageNumber(v int32) *GetDomainInfoRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetDomainInfoRequest) SetPageSize(v int32) *GetDomainInfoRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetDomainInfoRequest) SetSearchKey(v string) *GetDomainInfoRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetDomainInfoResponseBody struct {
+	// 返回结果
+	// EntName:企业名称
+	// Number:备案号
+	// Domain:域名
+	// SiteName:网站名称
+	// HomeUrl:网站首页链接
+	// CheckDate:备案日期
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetDomainInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDomainInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetDomainInfoResponseBody) SetData(v string) *GetDomainInfoResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetDomainInfoResponseBody) SetTotal(v int64) *GetDomainInfoResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetDomainInfoResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetDomainInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetDomainInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDomainInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetDomainInfoResponse) SetHeaders(v map[string]*string) *GetDomainInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetDomainInfoResponse) SetBody(v *GetDomainInfoResponseBody) *GetDomainInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetDoubleRandomHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetDoubleRandomHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDoubleRandomHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetDoubleRandomHeaders) SetCommonHeaders(v map[string]*string) *GetDoubleRandomHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetDoubleRandomHeaders) SetXAcsDingtalkAccessToken(v string) *GetDoubleRandomHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetDoubleRandomRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetDoubleRandomRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDoubleRandomRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetDoubleRandomRequest) SetPageNumber(v int32) *GetDoubleRandomRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetDoubleRandomRequest) SetPageSize(v int32) *GetDoubleRandomRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetDoubleRandomRequest) SetSearchKey(v string) *GetDoubleRandomRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetDoubleRandomResponseBody struct {
+	// 返回结果
+	// InspectPlanId:抽查计划编号
+	// InspectPlanName:抽查计划名称
+	// InspectTaskId:抽查任务编号
+	// InspectTaskName:抽查任务名称
+	// InspectTypeName:抽查类型
+	// InspectDepartment:抽查机关
+	// InspectDate:抽查完成时间
+	// InspectItem:检查事项
+	// InspectResult:检查结果
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetDoubleRandomResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDoubleRandomResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetDoubleRandomResponseBody) SetData(v string) *GetDoubleRandomResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetDoubleRandomResponseBody) SetTotal(v int64) *GetDoubleRandomResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetDoubleRandomResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetDoubleRandomResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetDoubleRandomResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDoubleRandomResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetDoubleRandomResponse) SetHeaders(v map[string]*string) *GetDoubleRandomResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetDoubleRandomResponse) SetBody(v *GetDoubleRandomResponseBody) *GetDoubleRandomResponse {
+	s.Body = v
+	return s
+}
+
 type GetEnvironmentalPenaltiesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -584,6 +1247,570 @@ func (s *GetHolderInfoResponse) SetBody(v *GetHolderInfoResponseBody) *GetHolder
 	return s
 }
 
+type GetIntellectualPropertyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetIntellectualPropertyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetIntellectualPropertyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetIntellectualPropertyHeaders) SetCommonHeaders(v map[string]*string) *GetIntellectualPropertyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetIntellectualPropertyHeaders) SetXAcsDingtalkAccessToken(v string) *GetIntellectualPropertyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetIntellectualPropertyRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetIntellectualPropertyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetIntellectualPropertyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetIntellectualPropertyRequest) SetPageNumber(v int32) *GetIntellectualPropertyRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetIntellectualPropertyRequest) SetPageSize(v int32) *GetIntellectualPropertyRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetIntellectualPropertyRequest) SetSearchKey(v string) *GetIntellectualPropertyRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetIntellectualPropertyResponseBody struct {
+	// 返回结果
+	// EntName:公司名称
+	// Number:登记证号
+	// Type:种类
+	// Pledgor:出质人名称
+	// Pawnee:质权人名称
+	// Period:质权登记期限
+	// Status:出质状态
+	// PublicDate:公示日期
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetIntellectualPropertyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetIntellectualPropertyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetIntellectualPropertyResponseBody) SetData(v string) *GetIntellectualPropertyResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetIntellectualPropertyResponseBody) SetTotal(v int64) *GetIntellectualPropertyResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetIntellectualPropertyResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetIntellectualPropertyResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetIntellectualPropertyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetIntellectualPropertyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetIntellectualPropertyResponse) SetHeaders(v map[string]*string) *GetIntellectualPropertyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetIntellectualPropertyResponse) SetBody(v *GetIntellectualPropertyResponseBody) *GetIntellectualPropertyResponse {
+	s.Body = v
+	return s
+}
+
+type GetInvestmentAbroadHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetInvestmentAbroadHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInvestmentAbroadHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetInvestmentAbroadHeaders) SetCommonHeaders(v map[string]*string) *GetInvestmentAbroadHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetInvestmentAbroadHeaders) SetXAcsDingtalkAccessToken(v string) *GetInvestmentAbroadHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetInvestmentAbroadRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetInvestmentAbroadRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInvestmentAbroadRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetInvestmentAbroadRequest) SetPageNumber(v int32) *GetInvestmentAbroadRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetInvestmentAbroadRequest) SetPageSize(v int32) *GetInvestmentAbroadRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetInvestmentAbroadRequest) SetSearchKey(v string) *GetInvestmentAbroadRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetInvestmentAbroadResponseBody struct {
+	// 返回结果
+	// EntName:企业名称
+	// InvestName:被投资企业名称	北京德润华日投资顾问有限公司
+	// InvestCreditCode:被投资企业社会信用编码	911101073991890434
+	// InvestLicenseNo:被投资企业注册号	110107017240281
+	// InvestEsDate:被投资企业成立日期	2014-05-19
+	// InvestLegalName:被投资企业法定代表人	北京星际智慧投资基金管理有限公司
+	// InvestRegCap:被投资企业注册资本	13500.0万人民币
+	// InvestStatus:被投资企业经营状态	在营
+	// ShouldCap:投资数额	4000.0万人民币
+	// StockPercentage:投资比例	19.5%
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetInvestmentAbroadResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInvestmentAbroadResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetInvestmentAbroadResponseBody) SetData(v string) *GetInvestmentAbroadResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetInvestmentAbroadResponseBody) SetTotal(v int64) *GetInvestmentAbroadResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetInvestmentAbroadResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetInvestmentAbroadResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetInvestmentAbroadResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInvestmentAbroadResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetInvestmentAbroadResponse) SetHeaders(v map[string]*string) *GetInvestmentAbroadResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetInvestmentAbroadResponse) SetBody(v *GetInvestmentAbroadResponseBody) *GetInvestmentAbroadResponse {
+	s.Body = v
+	return s
+}
+
+type GetJobInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetJobInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobInfoHeaders) SetCommonHeaders(v map[string]*string) *GetJobInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetJobInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetJobInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetJobInfoRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetJobInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobInfoRequest) SetPageNumber(v int32) *GetJobInfoRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetJobInfoRequest) SetPageSize(v int32) *GetJobInfoRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetJobInfoRequest) SetSearchKey(v string) *GetJobInfoRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetJobInfoResponseBody struct {
+	// 返回结果
+	// EntName:企业名称
+	// RecruitingName:职位
+	// Description:描述
+	// Salary:薪资
+	// RecruitingAddress:公司地点
+	// Education:学历
+	// Experience:工作经验
+	// BenefitList:福利
+	// PublishDate:发布日期
+	// StartDate:招聘开始日期
+	// EndDate:招聘截止日期
+	// PageUrl:数据源链接
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetJobInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobInfoResponseBody) SetData(v string) *GetJobInfoResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetJobInfoResponseBody) SetTotal(v int64) *GetJobInfoResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetJobInfoResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetJobInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetJobInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobInfoResponse) SetHeaders(v map[string]*string) *GetJobInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetJobInfoResponse) SetBody(v *GetJobInfoResponseBody) *GetJobInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetPatentInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPatentInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPatentInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPatentInfoHeaders) SetCommonHeaders(v map[string]*string) *GetPatentInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPatentInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetPatentInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPatentInfoRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetPatentInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPatentInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPatentInfoRequest) SetPageNumber(v int32) *GetPatentInfoRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetPatentInfoRequest) SetPageSize(v int32) *GetPatentInfoRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetPatentInfoRequest) SetSearchKey(v string) *GetPatentInfoRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetPatentInfoResponseBody struct {
+	// 返回结果
+	// EntName:企业名称
+	// PatentType:专利类型
+	// PatentName:专利名
+	// PatentStatus:专利状态
+	// RequestNum:申请号
+	// RequestDate:申请日
+	// PublicNum:公开(公告)号
+	// PublicDate:公开(公告)日
+	// InventorList:发明人
+	// PatenteeList:专利权人
+	// CateNum:分类号
+	// PrioNum:优先权号
+	// PrioDate:优先权日
+	// Agency:专利代理机构
+	// Agent:代理人
+	// Brief:简要说明
+	// MainClaim:主权项
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetPatentInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPatentInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPatentInfoResponseBody) SetData(v string) *GetPatentInfoResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetPatentInfoResponseBody) SetTotal(v int64) *GetPatentInfoResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetPatentInfoResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetPatentInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetPatentInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPatentInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPatentInfoResponse) SetHeaders(v map[string]*string) *GetPatentInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPatentInfoResponse) SetBody(v *GetPatentInfoResponseBody) *GetPatentInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetPrincipalEmployeeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPrincipalEmployeeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrincipalEmployeeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrincipalEmployeeHeaders) SetCommonHeaders(v map[string]*string) *GetPrincipalEmployeeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPrincipalEmployeeHeaders) SetXAcsDingtalkAccessToken(v string) *GetPrincipalEmployeeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPrincipalEmployeeRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetPrincipalEmployeeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrincipalEmployeeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrincipalEmployeeRequest) SetPageNumber(v int32) *GetPrincipalEmployeeRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetPrincipalEmployeeRequest) SetPageSize(v int32) *GetPrincipalEmployeeRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetPrincipalEmployeeRequest) SetSearchKey(v string) *GetPrincipalEmployeeRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetPrincipalEmployeeResponseBody struct {
+	// 返回结果
+	// Name:姓名
+	// JobTitle:职位
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetPrincipalEmployeeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrincipalEmployeeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrincipalEmployeeResponseBody) SetData(v string) *GetPrincipalEmployeeResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetPrincipalEmployeeResponseBody) SetTotal(v int64) *GetPrincipalEmployeeResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetPrincipalEmployeeResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetPrincipalEmployeeResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetPrincipalEmployeeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrincipalEmployeeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrincipalEmployeeResponse) SetHeaders(v map[string]*string) *GetPrincipalEmployeeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPrincipalEmployeeResponse) SetBody(v *GetPrincipalEmployeeResponseBody) *GetPrincipalEmployeeResponse {
+	s.Body = v
+	return s
+}
+
 type GetQeneralTaxpayerInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -694,6 +1921,119 @@ func (s *GetQeneralTaxpayerInfoResponse) SetBody(v *GetQeneralTaxpayerInfoRespon
 	return s
 }
 
+type GetQualificationCertHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetQualificationCertHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetQualificationCertHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetQualificationCertHeaders) SetCommonHeaders(v map[string]*string) *GetQualificationCertHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetQualificationCertHeaders) SetXAcsDingtalkAccessToken(v string) *GetQualificationCertHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetQualificationCertRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetQualificationCertRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetQualificationCertRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetQualificationCertRequest) SetPageNumber(v int32) *GetQualificationCertRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetQualificationCertRequest) SetPageSize(v int32) *GetQualificationCertRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetQualificationCertRequest) SetSearchKey(v string) *GetQualificationCertRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetQualificationCertResponseBody struct {
+	// 返回结果
+	// EntName:企业名称
+	// CertType:证书类型
+	// CertNum:证书认证编号
+	// ValidStartDate:有效期开始日期
+	// ValidEndDate:有效期截止日期
+	// AuthorizeDate:授权日期
+	// AuthorizeDepartment:授权部门
+	// PubDate:公示日期
+	// Province:省份
+	// CertScope:认证范围
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetQualificationCertResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetQualificationCertResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetQualificationCertResponseBody) SetData(v string) *GetQualificationCertResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetQualificationCertResponseBody) SetTotal(v int64) *GetQualificationCertResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetQualificationCertResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetQualificationCertResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetQualificationCertResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetQualificationCertResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetQualificationCertResponse) SetHeaders(v map[string]*string) *GetQualificationCertResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetQualificationCertResponse) SetBody(v *GetQualificationCertResponseBody) *GetQualificationCertResponse {
+	s.Body = v
+	return s
+}
+
 type GetSeriousViolationHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -796,6 +2136,346 @@ func (s *GetSeriousViolationResponse) SetHeaders(v map[string]*string) *GetSerio
 }
 
 func (s *GetSeriousViolationResponse) SetBody(v *GetSeriousViolationResponseBody) *GetSeriousViolationResponse {
+	s.Body = v
+	return s
+}
+
+type GetSoftwareCopyrightHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSoftwareCopyrightHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSoftwareCopyrightHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSoftwareCopyrightHeaders) SetCommonHeaders(v map[string]*string) *GetSoftwareCopyrightHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSoftwareCopyrightHeaders) SetXAcsDingtalkAccessToken(v string) *GetSoftwareCopyrightHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSoftwareCopyrightRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetSoftwareCopyrightRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSoftwareCopyrightRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSoftwareCopyrightRequest) SetPageNumber(v int32) *GetSoftwareCopyrightRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetSoftwareCopyrightRequest) SetPageSize(v int32) *GetSoftwareCopyrightRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetSoftwareCopyrightRequest) SetSearchKey(v string) *GetSoftwareCopyrightRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetSoftwareCopyrightResponseBody struct {
+	// 返回结果
+	// EntName:企业名称
+	// CopyNum:登记号
+	// TypeNum:分类号
+	// ShortName:作品简称
+	// CopyName:作品全称
+	// Version:版本号
+	// SuccessDate:创作完成日期
+	// FirstDate:首次发表日期
+	// ApprovalDate:登记批准日期
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetSoftwareCopyrightResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSoftwareCopyrightResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSoftwareCopyrightResponseBody) SetData(v string) *GetSoftwareCopyrightResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetSoftwareCopyrightResponseBody) SetTotal(v int64) *GetSoftwareCopyrightResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetSoftwareCopyrightResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetSoftwareCopyrightResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetSoftwareCopyrightResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSoftwareCopyrightResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSoftwareCopyrightResponse) SetHeaders(v map[string]*string) *GetSoftwareCopyrightResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSoftwareCopyrightResponse) SetBody(v *GetSoftwareCopyrightResponseBody) *GetSoftwareCopyrightResponse {
+	s.Body = v
+	return s
+}
+
+type GetTrademarkInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTrademarkInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTrademarkInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTrademarkInfoHeaders) SetCommonHeaders(v map[string]*string) *GetTrademarkInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTrademarkInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetTrademarkInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTrademarkInfoRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetTrademarkInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTrademarkInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTrademarkInfoRequest) SetPageNumber(v int32) *GetTrademarkInfoRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetTrademarkInfoRequest) SetPageSize(v int32) *GetTrademarkInfoRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetTrademarkInfoRequest) SetSearchKey(v string) *GetTrademarkInfoRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetTrademarkInfoResponseBody struct {
+	// 返回结果
+	// entName:企业名称
+	// trademarkName:商标名称
+	// regNum:商标注册号
+	// trademarkType:商标类型
+	// trademarkForm:商标形式
+	// trademarkStatus:商标状态
+	// applyDate:申请日期
+	// imageUrl:图片链接
+	// typeName:商标类型名
+	// period:专用权期限
+	// agent:代理人名称
+	// regPubNo:注册公告号
+	// regPubDate:注册公告日期
+	// firstPubNo:初审公告号
+	// firstPubDate:初审公告日期
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetTrademarkInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTrademarkInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTrademarkInfoResponseBody) SetData(v string) *GetTrademarkInfoResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetTrademarkInfoResponseBody) SetTotal(v int64) *GetTrademarkInfoResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetTrademarkInfoResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetTrademarkInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetTrademarkInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTrademarkInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTrademarkInfoResponse) SetHeaders(v map[string]*string) *GetTrademarkInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTrademarkInfoResponse) SetBody(v *GetTrademarkInfoResponseBody) *GetTrademarkInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetWorkCopyrightHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetWorkCopyrightHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWorkCopyrightHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetWorkCopyrightHeaders) SetCommonHeaders(v map[string]*string) *GetWorkCopyrightHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetWorkCopyrightHeaders) SetXAcsDingtalkAccessToken(v string) *GetWorkCopyrightHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetWorkCopyrightRequest struct {
+	// 页数,第几页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 每页条数
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 关键词
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+}
+
+func (s GetWorkCopyrightRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWorkCopyrightRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetWorkCopyrightRequest) SetPageNumber(v int32) *GetWorkCopyrightRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetWorkCopyrightRequest) SetPageSize(v int32) *GetWorkCopyrightRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetWorkCopyrightRequest) SetSearchKey(v string) *GetWorkCopyrightRequest {
+	s.SearchKey = &v
+	return s
+}
+
+type GetWorkCopyrightResponseBody struct {
+	// 返回结果
+	// EntName:企业名称
+	// CopyName:作品全称
+	// TypeName:作品类别
+	// CopyNum:登记号
+	// SuccessDate:创作完成日期
+	// FirstDate:首次发表日期
+	// ApprovalDate:登记批准日期
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// 总条数
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetWorkCopyrightResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWorkCopyrightResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetWorkCopyrightResponseBody) SetData(v string) *GetWorkCopyrightResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *GetWorkCopyrightResponseBody) SetTotal(v int64) *GetWorkCopyrightResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetWorkCopyrightResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetWorkCopyrightResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetWorkCopyrightResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWorkCopyrightResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetWorkCopyrightResponse) SetHeaders(v map[string]*string) *GetWorkCopyrightResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetWorkCopyrightResponse) SetBody(v *GetWorkCopyrightResponseBody) *GetWorkCopyrightResponse {
 	s.Body = v
 	return s
 }
@@ -10334,6 +12014,58 @@ func (client *Client) GetAbnormalOperationWithOptions(request *GetAbnormalOperat
 	return _result, _err
 }
 
+func (client *Client) GetAdministrativeLicensing(request *GetAdministrativeLicensingRequest) (_result *GetAdministrativeLicensingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAdministrativeLicensingHeaders{}
+	_result = &GetAdministrativeLicensingResponse{}
+	_body, _err := client.GetAdministrativeLicensingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetAdministrativeLicensingWithOptions(request *GetAdministrativeLicensingRequest, headers *GetAdministrativeLicensingHeaders, runtime *util.RuntimeOptions) (_result *GetAdministrativeLicensingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetAdministrativeLicensingResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetAdministrativeLicensing"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/administrativeLicenses"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetAdministrativePenalties(request *GetAdministrativePenaltiesRequest) (_result *GetAdministrativePenaltiesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAdministrativePenaltiesHeaders{}
@@ -10431,6 +12163,266 @@ func (client *Client) GetBasicInfoWithOptions(request *GetBasicInfoRequest, head
 	}
 	_result = &GetBasicInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetBasicInfo"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/businessBasicInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetBiddingInfo(request *GetBiddingInfoRequest) (_result *GetBiddingInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetBiddingInfoHeaders{}
+	_result = &GetBiddingInfoResponse{}
+	_body, _err := client.GetBiddingInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetBiddingInfoWithOptions(request *GetBiddingInfoRequest, headers *GetBiddingInfoHeaders, runtime *util.RuntimeOptions) (_result *GetBiddingInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetBiddingInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetBiddingInfo"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/biddingInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetBranchInfo(request *GetBranchInfoRequest) (_result *GetBranchInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetBranchInfoHeaders{}
+	_result = &GetBranchInfoResponse{}
+	_body, _err := client.GetBranchInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetBranchInfoWithOptions(request *GetBranchInfoRequest, headers *GetBranchInfoHeaders, runtime *util.RuntimeOptions) (_result *GetBranchInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetBranchInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetBranchInfo"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/branchInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetChangeRecord(request *GetChangeRecordRequest) (_result *GetChangeRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetChangeRecordHeaders{}
+	_result = &GetChangeRecordResponse{}
+	_body, _err := client.GetChangeRecordWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetChangeRecordWithOptions(request *GetChangeRecordRequest, headers *GetChangeRecordHeaders, runtime *util.RuntimeOptions) (_result *GetChangeRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetChangeRecordResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetChangeRecord"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/changeRecords"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetDomainInfo(request *GetDomainInfoRequest) (_result *GetDomainInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetDomainInfoHeaders{}
+	_result = &GetDomainInfoResponse{}
+	_body, _err := client.GetDomainInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetDomainInfoWithOptions(request *GetDomainInfoRequest, headers *GetDomainInfoHeaders, runtime *util.RuntimeOptions) (_result *GetDomainInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetDomainInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetDomainInfo"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/domainInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetDoubleRandom(request *GetDoubleRandomRequest) (_result *GetDoubleRandomResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetDoubleRandomHeaders{}
+	_result = &GetDoubleRandomResponse{}
+	_body, _err := client.GetDoubleRandomWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetDoubleRandomWithOptions(request *GetDoubleRandomRequest, headers *GetDoubleRandomHeaders, runtime *util.RuntimeOptions) (_result *GetDoubleRandomResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetDoubleRandomResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetDoubleRandom"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/doubleRandomness"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -10542,6 +12534,266 @@ func (client *Client) GetHolderInfoWithOptions(request *GetHolderInfoRequest, he
 	return _result, _err
 }
 
+func (client *Client) GetIntellectualProperty(request *GetIntellectualPropertyRequest) (_result *GetIntellectualPropertyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetIntellectualPropertyHeaders{}
+	_result = &GetIntellectualPropertyResponse{}
+	_body, _err := client.GetIntellectualPropertyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetIntellectualPropertyWithOptions(request *GetIntellectualPropertyRequest, headers *GetIntellectualPropertyHeaders, runtime *util.RuntimeOptions) (_result *GetIntellectualPropertyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetIntellectualPropertyResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetIntellectualProperty"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/intellectualProperties"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetInvestmentAbroad(request *GetInvestmentAbroadRequest) (_result *GetInvestmentAbroadResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetInvestmentAbroadHeaders{}
+	_result = &GetInvestmentAbroadResponse{}
+	_body, _err := client.GetInvestmentAbroadWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetInvestmentAbroadWithOptions(request *GetInvestmentAbroadRequest, headers *GetInvestmentAbroadHeaders, runtime *util.RuntimeOptions) (_result *GetInvestmentAbroadResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetInvestmentAbroadResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetInvestmentAbroad"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/abroadInvestments"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetJobInfo(request *GetJobInfoRequest) (_result *GetJobInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetJobInfoHeaders{}
+	_result = &GetJobInfoResponse{}
+	_body, _err := client.GetJobInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetJobInfoWithOptions(request *GetJobInfoRequest, headers *GetJobInfoHeaders, runtime *util.RuntimeOptions) (_result *GetJobInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetJobInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetJobInfo"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/jobInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetPatentInfo(request *GetPatentInfoRequest) (_result *GetPatentInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPatentInfoHeaders{}
+	_result = &GetPatentInfoResponse{}
+	_body, _err := client.GetPatentInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetPatentInfoWithOptions(request *GetPatentInfoRequest, headers *GetPatentInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPatentInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetPatentInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetPatentInfo"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/patentInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetPrincipalEmployee(request *GetPrincipalEmployeeRequest) (_result *GetPrincipalEmployeeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPrincipalEmployeeHeaders{}
+	_result = &GetPrincipalEmployeeResponse{}
+	_body, _err := client.GetPrincipalEmployeeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetPrincipalEmployeeWithOptions(request *GetPrincipalEmployeeRequest, headers *GetPrincipalEmployeeHeaders, runtime *util.RuntimeOptions) (_result *GetPrincipalEmployeeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetPrincipalEmployeeResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetPrincipalEmployee"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/principalEmployees"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetQeneralTaxpayerInfo(request *GetQeneralTaxpayerInfoRequest) (_result *GetQeneralTaxpayerInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetQeneralTaxpayerInfoHeaders{}
@@ -10594,6 +12846,58 @@ func (client *Client) GetQeneralTaxpayerInfoWithOptions(request *GetQeneralTaxpa
 	return _result, _err
 }
 
+func (client *Client) GetQualificationCert(request *GetQualificationCertRequest) (_result *GetQualificationCertResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetQualificationCertHeaders{}
+	_result = &GetQualificationCertResponse{}
+	_body, _err := client.GetQualificationCertWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetQualificationCertWithOptions(request *GetQualificationCertRequest, headers *GetQualificationCertHeaders, runtime *util.RuntimeOptions) (_result *GetQualificationCertResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetQualificationCertResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetQualificationCert"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/qualificationCerts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetSeriousViolation(request *GetSeriousViolationRequest) (_result *GetSeriousViolationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSeriousViolationHeaders{}
@@ -10639,6 +12943,162 @@ func (client *Client) GetSeriousViolationWithOptions(request *GetSeriousViolatio
 	}
 	_result = &GetSeriousViolationResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetSeriousViolation"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/seriousViolations"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetSoftwareCopyright(request *GetSoftwareCopyrightRequest) (_result *GetSoftwareCopyrightResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSoftwareCopyrightHeaders{}
+	_result = &GetSoftwareCopyrightResponse{}
+	_body, _err := client.GetSoftwareCopyrightWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetSoftwareCopyrightWithOptions(request *GetSoftwareCopyrightRequest, headers *GetSoftwareCopyrightHeaders, runtime *util.RuntimeOptions) (_result *GetSoftwareCopyrightResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetSoftwareCopyrightResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetSoftwareCopyright"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/softwareCopyrights"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetTrademarkInfo(request *GetTrademarkInfoRequest) (_result *GetTrademarkInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTrademarkInfoHeaders{}
+	_result = &GetTrademarkInfoResponse{}
+	_body, _err := client.GetTrademarkInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetTrademarkInfoWithOptions(request *GetTrademarkInfoRequest, headers *GetTrademarkInfoHeaders, runtime *util.RuntimeOptions) (_result *GetTrademarkInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetTrademarkInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetTrademarkInfo"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/trademarkInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetWorkCopyright(request *GetWorkCopyrightRequest) (_result *GetWorkCopyrightResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetWorkCopyrightHeaders{}
+	_result = &GetWorkCopyrightResponse{}
+	_body, _err := client.GetWorkCopyrightWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetWorkCopyrightWithOptions(request *GetWorkCopyrightRequest, headers *GetWorkCopyrightHeaders, runtime *util.RuntimeOptions) (_result *GetWorkCopyrightResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchKey)) {
+		query["searchKey"] = request.SearchKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetWorkCopyrightResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetWorkCopyright"), tea.String("datacenter_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/datacenter/companies/workCopyrights"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
