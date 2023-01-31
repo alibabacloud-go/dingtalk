@@ -278,27 +278,8 @@ func (s *AppendRowsRequest) SetOperatorId(v string) *AppendRowsRequest {
 	return s
 }
 
-type AppendRowsResponseBody struct {
-	// 本次操作是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
-}
-
-func (s AppendRowsResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s AppendRowsResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *AppendRowsResponseBody) SetSuccess(v bool) *AppendRowsResponseBody {
-	s.Success = &v
-	return s
-}
-
 type AppendRowsResponse struct {
-	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *AppendRowsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
 }
 
 func (s AppendRowsResponse) String() string {
@@ -311,11 +292,6 @@ func (s AppendRowsResponse) GoString() string {
 
 func (s *AppendRowsResponse) SetHeaders(v map[string]*string) *AppendRowsResponse {
 	s.Headers = v
-	return s
-}
-
-func (s *AppendRowsResponse) SetBody(v *AppendRowsResponseBody) *AppendRowsResponse {
-	s.Body = v
 	return s
 }
 
@@ -2398,8 +2374,6 @@ func (s *GetAllSheetsRequest) SetOperatorId(v string) *GetAllSheetsRequest {
 
 type GetAllSheetsResponseBody struct {
 	// 工作表列表
-	// 最大size:
-	// 	1000
 	Value []*GetAllSheetsResponseBodyValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
@@ -2658,20 +2632,12 @@ func (s *GetRangeRequest) SetSelect(v string) *GetRangeRequest {
 
 type GetRangeResponseBody struct {
 	// 背景颜色
-	// 最大size:
-	// 	1000
 	BackgroundColors [][]*GetRangeResponseBodyBackgroundColors `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
 	// 展示值
-	// 最大size:
-	// 	1000
 	DisplayValues [][]*string `json:"displayValues,omitempty" xml:"displayValues,omitempty" type:"Repeated"`
 	// 公式
-	// 最大size:
-	// 	1000
 	Formulas [][]*string `json:"formulas,omitempty" xml:"formulas,omitempty" type:"Repeated"`
 	// 值
-	// 最大size:
-	// 	1000
 	Values [][]interface{} `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 }
 
@@ -5141,8 +5107,8 @@ type SetColumnsVisibilityRequest struct {
 	ColumnCount *int64 `json:"columnCount,omitempty" xml:"columnCount,omitempty"`
 	// 列可见性
 	// 枚举值:
-	//    visible: 可见
-	//    hidden: 隐藏
+	// 	visible: 可见
+	// 	hidden: 隐藏
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
@@ -5247,8 +5213,8 @@ type SetRowsVisibilityRequest struct {
 	RowCount *int64 `json:"rowCount,omitempty" xml:"rowCount,omitempty"`
 	// 行可见性
 	// 枚举值:
-	//    visible: 可见
-	//    hidden: 隐藏
+	// 	visible: 可见
+	// 	hidden: 隐藏
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
@@ -5770,8 +5736,8 @@ type UpdateSheetRequest struct {
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 工作表可见性
 	// 枚举值:
-	//    visible: 可见
-	//    hidden: 隐藏
+	// 	visible: 可见
+	// 	hidden: 隐藏
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 	// 操作人id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
@@ -5800,27 +5766,8 @@ func (s *UpdateSheetRequest) SetOperatorId(v string) *UpdateSheetRequest {
 	return s
 }
 
-type UpdateSheetResponseBody struct {
-	// 本次操作是否成功
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
-}
-
-func (s UpdateSheetResponseBody) String() string {
-	return tea.Prettify(s)
-}
-
-func (s UpdateSheetResponseBody) GoString() string {
-	return s.String()
-}
-
-func (s *UpdateSheetResponseBody) SetSuccess(v bool) *UpdateSheetResponseBody {
-	s.Success = &v
-	return s
-}
-
 type UpdateSheetResponse struct {
-	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
-	Body    *UpdateSheetResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+	Headers map[string]*string `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
 }
 
 func (s UpdateSheetResponse) String() string {
@@ -5833,11 +5780,6 @@ func (s UpdateSheetResponse) GoString() string {
 
 func (s *UpdateSheetResponse) SetHeaders(v map[string]*string) *UpdateSheetResponse {
 	s.Headers = v
-	return s
-}
-
-func (s *UpdateSheetResponse) SetBody(v *UpdateSheetResponseBody) *UpdateSheetResponse {
-	s.Body = v
 	return s
 }
 
@@ -6201,7 +6143,7 @@ func (client *Client) AppendRowsWithOptions(workbookId *string, sheetId *string,
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &AppendRowsResponse{}
-	_body, _err := client.DoROARequest(tea.String("AppendRows"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/appendRows"), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("AppendRows"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)+"/appendRows"), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8406,7 +8348,7 @@ func (client *Client) UpdateSheetWithOptions(workbookId *string, sheetId *string
 		Body:    openapiutil.ParseToMap(body),
 	}
 	_result = &UpdateSheetResponse{}
-	_body, _err := client.DoROARequest(tea.String("UpdateSheet"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)), tea.String("json"), req, runtime)
+	_body, _err := client.DoROARequest(tea.String("UpdateSheet"), tea.String("doc_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/doc/workbooks/"+tea.StringValue(workbookId)+"/sheets/"+tea.StringValue(sheetId)), tea.String("none"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
