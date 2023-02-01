@@ -355,6 +355,145 @@ func (s *ConsumeUserPointsResponse) SetBody(v *ConsumeUserPointsResponseBody) *C
 	return s
 }
 
+type CreateOrgHonorHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateOrgHonorHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrgHonorHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrgHonorHeaders) SetCommonHeaders(v map[string]*string) *CreateOrgHonorHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateOrgHonorHeaders) SetXAcsDingtalkAccessToken(v string) *CreateOrgHonorHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateOrgHonorRequest struct {
+	// 头像挂件   图片尺寸 240*240，不超过1M，支持PNG。图片请使用钉钉媒体资源标识符media_id，参考文档：https://open.dingtalk.com/document/isvapp-server/upload-media-files
+	AvatarFrameMediaId *string `json:"avatarFrameMediaId,omitempty" xml:"avatarFrameMediaId,omitempty"`
+	// 背景颜色，如下可选：#FFFBB4 #FFE7BC #FFDAF4 #DAF6A8 #E4D7FF #BFDFFF #B9F2D6
+	DefaultBgColor *string `json:"defaultBgColor,omitempty" xml:"defaultBgColor,omitempty"`
+	// 描述 长度30字符 不支持表情图标等
+	MedalDesc *string `json:"medalDesc,omitempty" xml:"medalDesc,omitempty"`
+	// 荣誉图片  图片尺寸 900*900，不超过1M，支持PNG 。图片请使用钉钉媒体资源标识符media_id，参考文档：https://open.dingtalk.com/document/isvapp-server/upload-media-files
+	MedalMediaId *string `json:"medalMediaId,omitempty" xml:"medalMediaId,omitempty"`
+	// 组织的勋章名称 长度10字符 不支持表情图标等
+	MedalName *string `json:"medalName,omitempty" xml:"medalName,omitempty"`
+	// 创建荣誉勋章模板人在组织内的userid，需要主/子管理员角色
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateOrgHonorRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrgHonorRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrgHonorRequest) SetAvatarFrameMediaId(v string) *CreateOrgHonorRequest {
+	s.AvatarFrameMediaId = &v
+	return s
+}
+
+func (s *CreateOrgHonorRequest) SetDefaultBgColor(v string) *CreateOrgHonorRequest {
+	s.DefaultBgColor = &v
+	return s
+}
+
+func (s *CreateOrgHonorRequest) SetMedalDesc(v string) *CreateOrgHonorRequest {
+	s.MedalDesc = &v
+	return s
+}
+
+func (s *CreateOrgHonorRequest) SetMedalMediaId(v string) *CreateOrgHonorRequest {
+	s.MedalMediaId = &v
+	return s
+}
+
+func (s *CreateOrgHonorRequest) SetMedalName(v string) *CreateOrgHonorRequest {
+	s.MedalName = &v
+	return s
+}
+
+func (s *CreateOrgHonorRequest) SetUserId(v string) *CreateOrgHonorRequest {
+	s.UserId = &v
+	return s
+}
+
+type CreateOrgHonorResponseBody struct {
+	Result  *CreateOrgHonorResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                             `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateOrgHonorResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrgHonorResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrgHonorResponseBody) SetResult(v *CreateOrgHonorResponseBodyResult) *CreateOrgHonorResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *CreateOrgHonorResponseBody) SetSuccess(v bool) *CreateOrgHonorResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateOrgHonorResponseBodyResult struct {
+	HonorId *string `json:"honorId,omitempty" xml:"honorId,omitempty"`
+}
+
+func (s CreateOrgHonorResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrgHonorResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrgHonorResponseBodyResult) SetHonorId(v string) *CreateOrgHonorResponseBodyResult {
+	s.HonorId = &v
+	return s
+}
+
+type CreateOrgHonorResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CreateOrgHonorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CreateOrgHonorResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateOrgHonorResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateOrgHonorResponse) SetHeaders(v map[string]*string) *CreateOrgHonorResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateOrgHonorResponse) SetBody(v *CreateOrgHonorResponseBody) *CreateOrgHonorResponse {
+	s.Body = v
+	return s
+}
+
 type DeductionPointBatchHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2177,6 +2316,110 @@ func (s *QueryUserPointsResponse) SetBody(v *QueryUserPointsResponseBody) *Query
 	return s
 }
 
+type RecallHonorHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RecallHonorHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RecallHonorHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RecallHonorHeaders) SetCommonHeaders(v map[string]*string) *RecallHonorHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RecallHonorHeaders) SetXAcsDingtalkAccessToken(v string) *RecallHonorHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RecallHonorRequest struct {
+	// 要取消荣誉的员工userid 必填
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s RecallHonorRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RecallHonorRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RecallHonorRequest) SetUserId(v string) *RecallHonorRequest {
+	s.UserId = &v
+	return s
+}
+
+type RecallHonorResponseBody struct {
+	Result  *RecallHonorResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                          `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s RecallHonorResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RecallHonorResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RecallHonorResponseBody) SetResult(v *RecallHonorResponseBodyResult) *RecallHonorResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *RecallHonorResponseBody) SetSuccess(v bool) *RecallHonorResponseBody {
+	s.Success = &v
+	return s
+}
+
+type RecallHonorResponseBodyResult struct {
+	HonorId *string `json:"honorId,omitempty" xml:"honorId,omitempty"`
+}
+
+func (s RecallHonorResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RecallHonorResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *RecallHonorResponseBodyResult) SetHonorId(v string) *RecallHonorResponseBodyResult {
+	s.HonorId = &v
+	return s
+}
+
+type RecallHonorResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RecallHonorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RecallHonorResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RecallHonorResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RecallHonorResponse) SetHeaders(v map[string]*string) *RecallHonorResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RecallHonorResponse) SetBody(v *RecallHonorResponseBody) *RecallHonorResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateAutoIssuePointHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2568,6 +2811,70 @@ func (client *Client) ConsumeUserPointsWithOptions(userId *string, request *Cons
 	}
 	_result = &ConsumeUserPointsResponse{}
 	_body, _err := client.DoROARequest(tea.String("ConsumeUserPoints"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/orgCulture/users/"+tea.StringValue(userId)+"/points/deduct"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CreateOrgHonor(request *CreateOrgHonorRequest) (_result *CreateOrgHonorResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateOrgHonorHeaders{}
+	_result = &CreateOrgHonorResponse{}
+	_body, _err := client.CreateOrgHonorWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CreateOrgHonorWithOptions(request *CreateOrgHonorRequest, headers *CreateOrgHonorHeaders, runtime *util.RuntimeOptions) (_result *CreateOrgHonorResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AvatarFrameMediaId)) {
+		body["avatarFrameMediaId"] = request.AvatarFrameMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DefaultBgColor)) {
+		body["defaultBgColor"] = request.DefaultBgColor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MedalDesc)) {
+		body["medalDesc"] = request.MedalDesc
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MedalMediaId)) {
+		body["medalMediaId"] = request.MedalMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MedalName)) {
+		body["medalName"] = request.MedalName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CreateOrgHonorResponse{}
+	_body, _err := client.DoROARequest(tea.String("CreateOrgHonor"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/orgCulture/honors/templates"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3105,6 +3412,51 @@ func (client *Client) QueryUserPointsWithOptions(userId *string, headers *QueryU
 	}
 	_result = &QueryUserPointsResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryUserPoints"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/orgCulture/users/"+tea.StringValue(userId)+"/points"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RecallHonor(honorId *string, request *RecallHonorRequest) (_result *RecallHonorResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RecallHonorHeaders{}
+	_result = &RecallHonorResponse{}
+	_body, _err := client.RecallHonorWithOptions(honorId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RecallHonorWithOptions(honorId *string, request *RecallHonorRequest, headers *RecallHonorHeaders, runtime *util.RuntimeOptions) (_result *RecallHonorResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	honorId = openapiutil.GetEncodeParam(honorId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RecallHonorResponse{}
+	_body, _err := client.DoROARequest(tea.String("RecallHonor"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/orgCulture/honors/"+tea.StringValue(honorId)+"/recall"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
