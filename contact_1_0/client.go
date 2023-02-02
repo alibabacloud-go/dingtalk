@@ -1279,6 +1279,8 @@ type GetCardInUserHolderResponseBody struct {
 	CardAcceptTimeLong *int64 `json:"cardAcceptTimeLong,omitempty" xml:"cardAcceptTimeLong,omitempty"`
 	// 名片ID
 	CardId *string `json:"cardId,omitempty" xml:"cardId,omitempty"`
+	// 名片来源
+	CardSource *int32 `json:"cardSource,omitempty" xml:"cardSource,omitempty"`
 	// 扩展信息
 	Extension map[string]interface{} `json:"extension,omitempty" xml:"extension,omitempty"`
 	// 行业
@@ -1320,6 +1322,11 @@ func (s *GetCardInUserHolderResponseBody) SetCardAcceptTimeLong(v int64) *GetCar
 
 func (s *GetCardInUserHolderResponseBody) SetCardId(v string) *GetCardInUserHolderResponseBody {
 	s.CardId = &v
+	return s
+}
+
+func (s *GetCardInUserHolderResponseBody) SetCardSource(v int32) *GetCardInUserHolderResponseBody {
+	s.CardSource = &v
 	return s
 }
 
@@ -2729,6 +2736,8 @@ type GetUserCardHolderListResponseBodyList struct {
 	CardAcceptTimeLong *int64 `json:"cardAcceptTimeLong,omitempty" xml:"cardAcceptTimeLong,omitempty"`
 	// 名片ID
 	CardId *string `json:"cardId,omitempty" xml:"cardId,omitempty"`
+	// 名片来源
+	CardSource *int32 `json:"cardSource,omitempty" xml:"cardSource,omitempty"`
 	// 扩展信息
 	Extension map[string]interface{} `json:"extension,omitempty" xml:"extension,omitempty"`
 	// 行业名称
@@ -2770,6 +2779,11 @@ func (s *GetUserCardHolderListResponseBodyList) SetCardAcceptTimeLong(v int64) *
 
 func (s *GetUserCardHolderListResponseBodyList) SetCardId(v string) *GetUserCardHolderListResponseBodyList {
 	s.CardId = &v
+	return s
+}
+
+func (s *GetUserCardHolderListResponseBodyList) SetCardSource(v int32) *GetUserCardHolderListResponseBodyList {
+	s.CardSource = &v
 	return s
 }
 

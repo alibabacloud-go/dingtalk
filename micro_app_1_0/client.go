@@ -560,7 +560,8 @@ func (s *CreateInnerAppHeaders) SetXAcsDingtalkAccessToken(v string) *CreateInne
 
 type CreateInnerAppRequest struct {
 	// 应用描述
-	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	Desc        *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	DevelopType *int32  `json:"developType,omitempty" xml:"developType,omitempty"`
 	// 应用首页地址
 	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
 	// 应用图标
@@ -589,6 +590,11 @@ func (s CreateInnerAppRequest) GoString() string {
 
 func (s *CreateInnerAppRequest) SetDesc(v string) *CreateInnerAppRequest {
 	s.Desc = &v
+	return s
+}
+
+func (s *CreateInnerAppRequest) SetDevelopType(v int32) *CreateInnerAppRequest {
+	s.DevelopType = &v
 	return s
 }
 
@@ -3206,6 +3212,10 @@ func (client *Client) CreateInnerAppWithOptions(request *CreateInnerAppRequest, 
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Desc)) {
 		body["desc"] = request.Desc
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DevelopType)) {
+		body["developType"] = request.DevelopType
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.HomepageLink)) {
