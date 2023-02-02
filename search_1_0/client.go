@@ -159,6 +159,10 @@ func (s *CreateSearchTabHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSea
 }
 
 type CreateSearchTabRequest struct {
+	// 暗黑模式下，数据源图标，非必填，不填则使用默认图标
+	DarkIcon *string `json:"darkIcon,omitempty" xml:"darkIcon,omitempty"`
+	// 数据源图标，非必填，不填则使用默认图标
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
 	// 数据源名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 数据源优先级，数值越小优先级越高
@@ -175,6 +179,16 @@ func (s CreateSearchTabRequest) String() string {
 
 func (s CreateSearchTabRequest) GoString() string {
 	return s.String()
+}
+
+func (s *CreateSearchTabRequest) SetDarkIcon(v string) *CreateSearchTabRequest {
+	s.DarkIcon = &v
+	return s
+}
+
+func (s *CreateSearchTabRequest) SetIcon(v string) *CreateSearchTabRequest {
+	s.Icon = &v
+	return s
 }
 
 func (s *CreateSearchTabRequest) SetName(v string) *CreateSearchTabRequest {
@@ -673,10 +687,14 @@ func (s *GetSearchTabHeaders) SetXAcsDingtalkAccessToken(v string) *GetSearchTab
 }
 
 type GetSearchTabResponseBody struct {
+	// 暗黑模式下，数据源图标，非必填，不填则使用默认图标
+	DarkIcon *string `json:"darkIcon,omitempty" xml:"darkIcon,omitempty"`
 	// 创建时间
 	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
 	// 修改时间
 	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// 数据源图标，非必填，不填则使用默认图标
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
 	// 数据源名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 数据源优先级，数值越小优先级越高
@@ -697,6 +715,11 @@ func (s GetSearchTabResponseBody) GoString() string {
 	return s.String()
 }
 
+func (s *GetSearchTabResponseBody) SetDarkIcon(v string) *GetSearchTabResponseBody {
+	s.DarkIcon = &v
+	return s
+}
+
 func (s *GetSearchTabResponseBody) SetGmtCreate(v string) *GetSearchTabResponseBody {
 	s.GmtCreate = &v
 	return s
@@ -704,6 +727,11 @@ func (s *GetSearchTabResponseBody) SetGmtCreate(v string) *GetSearchTabResponseB
 
 func (s *GetSearchTabResponseBody) SetGmtModified(v string) *GetSearchTabResponseBody {
 	s.GmtModified = &v
+	return s
+}
+
+func (s *GetSearchTabResponseBody) SetIcon(v string) *GetSearchTabResponseBody {
+	s.Icon = &v
 	return s
 }
 
@@ -904,10 +932,14 @@ func (s *ListSearchTabsByOrgIdResponseBody) SetSearchTabResult(v []*ListSearchTa
 }
 
 type ListSearchTabsByOrgIdResponseBodySearchTabResult struct {
+	// 暗黑模式下，数据源图标，非必填，不填则使用默认图标
+	DarkIcon *string `json:"darkIcon,omitempty" xml:"darkIcon,omitempty"`
 	// 创建时间
 	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
 	// 修改时间
 	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// 数据源图标，非必填，不填则使用默认图标
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
 	// 数据源名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 数据源优先级，数值越小优先级越高
@@ -928,6 +960,11 @@ func (s ListSearchTabsByOrgIdResponseBodySearchTabResult) GoString() string {
 	return s.String()
 }
 
+func (s *ListSearchTabsByOrgIdResponseBodySearchTabResult) SetDarkIcon(v string) *ListSearchTabsByOrgIdResponseBodySearchTabResult {
+	s.DarkIcon = &v
+	return s
+}
+
 func (s *ListSearchTabsByOrgIdResponseBodySearchTabResult) SetGmtCreate(v string) *ListSearchTabsByOrgIdResponseBodySearchTabResult {
 	s.GmtCreate = &v
 	return s
@@ -935,6 +972,11 @@ func (s *ListSearchTabsByOrgIdResponseBodySearchTabResult) SetGmtCreate(v string
 
 func (s *ListSearchTabsByOrgIdResponseBodySearchTabResult) SetGmtModified(v string) *ListSearchTabsByOrgIdResponseBodySearchTabResult {
 	s.GmtModified = &v
+	return s
+}
+
+func (s *ListSearchTabsByOrgIdResponseBodySearchTabResult) SetIcon(v string) *ListSearchTabsByOrgIdResponseBodySearchTabResult {
+	s.Icon = &v
 	return s
 }
 
@@ -1010,6 +1052,10 @@ func (s *UpdateSearchTabHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateSea
 }
 
 type UpdateSearchTabRequest struct {
+	// 暗黑模式下，数据源图标，非必填，不填则使用默认图标
+	DarkIcon *string `json:"darkIcon,omitempty" xml:"darkIcon,omitempty"`
+	// 数据源图标，非必填，不填则使用默认图标
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
 	// 数据源名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 数据源优先级，数值越小优先级越高
@@ -1026,6 +1072,16 @@ func (s UpdateSearchTabRequest) String() string {
 
 func (s UpdateSearchTabRequest) GoString() string {
 	return s.String()
+}
+
+func (s *UpdateSearchTabRequest) SetDarkIcon(v string) *UpdateSearchTabRequest {
+	s.DarkIcon = &v
+	return s
+}
+
+func (s *UpdateSearchTabRequest) SetIcon(v string) *UpdateSearchTabRequest {
+	s.Icon = &v
+	return s
 }
 
 func (s *UpdateSearchTabRequest) SetName(v string) *UpdateSearchTabRequest {
@@ -1151,6 +1207,14 @@ func (client *Client) CreateSearchTabWithOptions(request *CreateSearchTabRequest
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DarkIcon)) {
+		body["darkIcon"] = request.DarkIcon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Icon)) {
+		body["icon"] = request.Icon
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
 		body["name"] = request.Name
 	}
@@ -1510,6 +1574,14 @@ func (client *Client) UpdateSearchTabWithOptions(tabId *string, request *UpdateS
 	}
 	tabId = openapiutil.GetEncodeParam(tabId)
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DarkIcon)) {
+		body["darkIcon"] = request.DarkIcon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Icon)) {
+		body["icon"] = request.Icon
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
 		body["name"] = request.Name
 	}

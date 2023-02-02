@@ -1908,6 +1908,7 @@ type SyncDataRequestTriggerDataList struct {
 	DataGmtModified   *int64  `json:"dataGmtModified,omitempty" xml:"dataGmtModified,omitempty"`
 	IntegrationObject *string `json:"integrationObject,omitempty" xml:"integrationObject,omitempty"`
 	JsonData          *string `json:"jsonData,omitempty" xml:"jsonData,omitempty"`
+	TriggerCondition  *string `json:"triggerCondition,omitempty" xml:"triggerCondition,omitempty"`
 	TriggerId         *string `json:"triggerId,omitempty" xml:"triggerId,omitempty"`
 }
 
@@ -1946,6 +1947,11 @@ func (s *SyncDataRequestTriggerDataList) SetIntegrationObject(v string) *SyncDat
 
 func (s *SyncDataRequestTriggerDataList) SetJsonData(v string) *SyncDataRequestTriggerDataList {
 	s.JsonData = &v
+	return s
+}
+
+func (s *SyncDataRequestTriggerDataList) SetTriggerCondition(v string) *SyncDataRequestTriggerDataList {
+	s.TriggerCondition = &v
 	return s
 }
 
