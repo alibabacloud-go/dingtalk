@@ -1253,7 +1253,7 @@ type QueryConferenceMembersResponseBodyMemberModels struct {
 	// 是否为pstn入会
 	PstnJoin *bool `json:"pstnJoin,omitempty" xml:"pstnJoin,omitempty"`
 	// 用户unionId
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	// 成员昵称
 	UserNick *string `json:"userNick,omitempty" xml:"userNick,omitempty"`
 }
@@ -1311,8 +1311,8 @@ func (s *QueryConferenceMembersResponseBodyMemberModels) SetPstnJoin(v bool) *Qu
 	return s
 }
 
-func (s *QueryConferenceMembersResponseBodyMemberModels) SetUserId(v string) *QueryConferenceMembersResponseBodyMemberModels {
-	s.UserId = &v
+func (s *QueryConferenceMembersResponseBodyMemberModels) SetUnionId(v string) *QueryConferenceMembersResponseBodyMemberModels {
+	s.UnionId = &v
 	return s
 }
 
