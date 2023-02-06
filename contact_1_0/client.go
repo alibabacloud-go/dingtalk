@@ -11,6 +11,450 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AddContactHideBySceneSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddContactHideBySceneSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddContactHideBySceneSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddContactHideBySceneSettingHeaders) SetCommonHeaders(v map[string]*string) *AddContactHideBySceneSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddContactHideBySceneSettingHeaders) SetXAcsDingtalkAccessToken(v string) *AddContactHideBySceneSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddContactHideBySceneSettingRequest struct {
+	// 设置描述信息
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 允许查看的部门列表
+	ExcludeDeptIds []*int64 `json:"excludeDeptIds,omitempty" xml:"excludeDeptIds,omitempty" type:"Repeated"`
+	// 允许查看的角色列表
+	ExcludeTagIds []*int64 `json:"excludeTagIds,omitempty" xml:"excludeTagIds,omitempty" type:"Repeated"`
+	// 允许查看的员工列表
+	ExcludeUserIds []*string `json:"excludeUserIds,omitempty" xml:"excludeUserIds,omitempty" type:"Repeated"`
+	// 设置名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 浏览组织架构与选人组件场景下的配置
+	NodeListSceneConfig *AddContactHideBySceneSettingRequestNodeListSceneConfig `json:"nodeListSceneConfig,omitempty" xml:"nodeListSceneConfig,omitempty" type:"Struct"`
+	// 被隐藏的部门列表
+	ObjectDeptIds []*int64 `json:"objectDeptIds,omitempty" xml:"objectDeptIds,omitempty" type:"Repeated"`
+	// 被隐藏的角色列表
+	ObjectTagIds []*int64 `json:"objectTagIds,omitempty" xml:"objectTagIds,omitempty" type:"Repeated"`
+	// 被隐藏的员工UserId列表
+	ObjectUserIds []*string `json:"objectUserIds,omitempty" xml:"objectUserIds,omitempty" type:"Repeated"`
+	// 用户详情场景下的配置
+	ProfileSceneConfig *AddContactHideBySceneSettingRequestProfileSceneConfig `json:"profileSceneConfig,omitempty" xml:"profileSceneConfig,omitempty" type:"Struct"`
+	// 搜索的场景配置（包括搜索部门、搜索员工）
+	SearchSceneConfig *AddContactHideBySceneSettingRequestSearchSceneConfig `json:"searchSceneConfig,omitempty" xml:"searchSceneConfig,omitempty" type:"Struct"`
+}
+
+func (s AddContactHideBySceneSettingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddContactHideBySceneSettingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddContactHideBySceneSettingRequest) SetDescription(v string) *AddContactHideBySceneSettingRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *AddContactHideBySceneSettingRequest) SetExcludeDeptIds(v []*int64) *AddContactHideBySceneSettingRequest {
+	s.ExcludeDeptIds = v
+	return s
+}
+
+func (s *AddContactHideBySceneSettingRequest) SetExcludeTagIds(v []*int64) *AddContactHideBySceneSettingRequest {
+	s.ExcludeTagIds = v
+	return s
+}
+
+func (s *AddContactHideBySceneSettingRequest) SetExcludeUserIds(v []*string) *AddContactHideBySceneSettingRequest {
+	s.ExcludeUserIds = v
+	return s
+}
+
+func (s *AddContactHideBySceneSettingRequest) SetName(v string) *AddContactHideBySceneSettingRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *AddContactHideBySceneSettingRequest) SetNodeListSceneConfig(v *AddContactHideBySceneSettingRequestNodeListSceneConfig) *AddContactHideBySceneSettingRequest {
+	s.NodeListSceneConfig = v
+	return s
+}
+
+func (s *AddContactHideBySceneSettingRequest) SetObjectDeptIds(v []*int64) *AddContactHideBySceneSettingRequest {
+	s.ObjectDeptIds = v
+	return s
+}
+
+func (s *AddContactHideBySceneSettingRequest) SetObjectTagIds(v []*int64) *AddContactHideBySceneSettingRequest {
+	s.ObjectTagIds = v
+	return s
+}
+
+func (s *AddContactHideBySceneSettingRequest) SetObjectUserIds(v []*string) *AddContactHideBySceneSettingRequest {
+	s.ObjectUserIds = v
+	return s
+}
+
+func (s *AddContactHideBySceneSettingRequest) SetProfileSceneConfig(v *AddContactHideBySceneSettingRequestProfileSceneConfig) *AddContactHideBySceneSettingRequest {
+	s.ProfileSceneConfig = v
+	return s
+}
+
+func (s *AddContactHideBySceneSettingRequest) SetSearchSceneConfig(v *AddContactHideBySceneSettingRequestSearchSceneConfig) *AddContactHideBySceneSettingRequest {
+	s.SearchSceneConfig = v
+	return s
+}
+
+type AddContactHideBySceneSettingRequestNodeListSceneConfig struct {
+	// 是否在浏览组织架构与选人组件中生效，默认为true
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+	// 是否同时隐藏被隐藏部门下的员工，默认为true。如果为false，仅部门不可见，但是允许跳转到被隐藏部门查看部门下员工。
+	DeptObjectIncludeEmp *bool `json:"deptObjectIncludeEmp,omitempty" xml:"deptObjectIncludeEmp,omitempty"`
+}
+
+func (s AddContactHideBySceneSettingRequestNodeListSceneConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddContactHideBySceneSettingRequestNodeListSceneConfig) GoString() string {
+	return s.String()
+}
+
+func (s *AddContactHideBySceneSettingRequestNodeListSceneConfig) SetActive(v bool) *AddContactHideBySceneSettingRequestNodeListSceneConfig {
+	s.Active = &v
+	return s
+}
+
+func (s *AddContactHideBySceneSettingRequestNodeListSceneConfig) SetDeptObjectIncludeEmp(v bool) *AddContactHideBySceneSettingRequestNodeListSceneConfig {
+	s.DeptObjectIncludeEmp = &v
+	return s
+}
+
+type AddContactHideBySceneSettingRequestProfileSceneConfig struct {
+	// 是否在用户详情页面生效，默认为true。如果为false，仍然允许查看个人资料页中的员工信息。
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+}
+
+func (s AddContactHideBySceneSettingRequestProfileSceneConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddContactHideBySceneSettingRequestProfileSceneConfig) GoString() string {
+	return s.String()
+}
+
+func (s *AddContactHideBySceneSettingRequestProfileSceneConfig) SetActive(v bool) *AddContactHideBySceneSettingRequestProfileSceneConfig {
+	s.Active = &v
+	return s
+}
+
+type AddContactHideBySceneSettingRequestSearchSceneConfig struct {
+	// 是否在搜索场景生效，默认为true。如果为false，允许被搜索。
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+	// 是否同时隐藏被隐藏的部门下的员工，默认为true。如果为false，objectDeptIds中的部门无法被搜索，但是员工仍然可以被搜索
+	DeptObjectIncludeEmp *bool `json:"deptObjectIncludeEmp,omitempty" xml:"deptObjectIncludeEmp,omitempty"`
+}
+
+func (s AddContactHideBySceneSettingRequestSearchSceneConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddContactHideBySceneSettingRequestSearchSceneConfig) GoString() string {
+	return s.String()
+}
+
+func (s *AddContactHideBySceneSettingRequestSearchSceneConfig) SetActive(v bool) *AddContactHideBySceneSettingRequestSearchSceneConfig {
+	s.Active = &v
+	return s
+}
+
+func (s *AddContactHideBySceneSettingRequestSearchSceneConfig) SetDeptObjectIncludeEmp(v bool) *AddContactHideBySceneSettingRequestSearchSceneConfig {
+	s.DeptObjectIncludeEmp = &v
+	return s
+}
+
+type AddContactHideBySceneSettingResponseBody struct {
+	// settingId
+	SettingId *int64 `json:"settingId,omitempty" xml:"settingId,omitempty"`
+}
+
+func (s AddContactHideBySceneSettingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddContactHideBySceneSettingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddContactHideBySceneSettingResponseBody) SetSettingId(v int64) *AddContactHideBySceneSettingResponseBody {
+	s.SettingId = &v
+	return s
+}
+
+type AddContactHideBySceneSettingResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddContactHideBySceneSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddContactHideBySceneSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddContactHideBySceneSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddContactHideBySceneSettingResponse) SetHeaders(v map[string]*string) *AddContactHideBySceneSettingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddContactHideBySceneSettingResponse) SetBody(v *AddContactHideBySceneSettingResponseBody) *AddContactHideBySceneSettingResponse {
+	s.Body = v
+	return s
+}
+
+type AddEmpAttributeHideBySceneSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddEmpAttributeHideBySceneSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddEmpAttributeHideBySceneSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddEmpAttributeHideBySceneSettingHeaders) SetCommonHeaders(v map[string]*string) *AddEmpAttributeHideBySceneSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddEmpAttributeHideBySceneSettingHeaders) SetXAcsDingtalkAccessToken(v string) *AddEmpAttributeHideBySceneSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddEmpAttributeHideBySceneSettingRequest struct {
+	// 单聊副标题场景配置，开启时单聊中相关的员工字段不显示
+	ChatSubtitleConfig *AddEmpAttributeHideBySceneSettingRequestChatSubtitleConfig `json:"chatSubtitleConfig,omitempty" xml:"chatSubtitleConfig,omitempty" type:"Struct"`
+	// 设置描述信息
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 允许查看的部门列表
+	ExcludeDeptIds []*int64 `json:"excludeDeptIds,omitempty" xml:"excludeDeptIds,omitempty" type:"Repeated"`
+	// 允许查看的角色列表
+	ExcludeTagIds []*int64 `json:"excludeTagIds,omitempty" xml:"excludeTagIds,omitempty" type:"Repeated"`
+	// 允许查看的员工列表
+	ExcludeUserIds []*string `json:"excludeUserIds,omitempty" xml:"excludeUserIds,omitempty" type:"Repeated"`
+	// 隐藏字段id列表
+	// 枚举列表：
+	//         department：部门
+	//         email：邮箱
+	//         manager：直属主管
+	//         title：职位
+	//         mobile：手机号
+	//         ext_number：分机号
+	//         work_station：办公地点
+	//         remark：备注
+	//         hire_date：入职时间
+	//         job_number：工号
+	HideFields []*string `json:"hideFields,omitempty" xml:"hideFields,omitempty" type:"Repeated"`
+	// 设置名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 被隐藏的部门列表
+	ObjectDeptIds []*int64 `json:"objectDeptIds,omitempty" xml:"objectDeptIds,omitempty" type:"Repeated"`
+	// 被隐藏的角色列表
+	ObjectTagIds []*int64 `json:"objectTagIds,omitempty" xml:"objectTagIds,omitempty" type:"Repeated"`
+	// 被隐藏的员工UserId列表
+	ObjectUserIds []*string `json:"objectUserIds,omitempty" xml:"objectUserIds,omitempty" type:"Repeated"`
+	// 用户资料页场景配置，开启时相关的员工字段不在资料页中显示
+	ProfileSceneConfig *AddEmpAttributeHideBySceneSettingRequestProfileSceneConfig `json:"profileSceneConfig,omitempty" xml:"profileSceneConfig,omitempty" type:"Struct"`
+	// 搜索场景配置，开启时隐藏的字段不在搜索结果中展示，并且不允许根据这些字段搜索到。
+	SearchSceneConfig *AddEmpAttributeHideBySceneSettingRequestSearchSceneConfig `json:"searchSceneConfig,omitempty" xml:"searchSceneConfig,omitempty" type:"Struct"`
+}
+
+func (s AddEmpAttributeHideBySceneSettingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddEmpAttributeHideBySceneSettingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddEmpAttributeHideBySceneSettingRequest) SetChatSubtitleConfig(v *AddEmpAttributeHideBySceneSettingRequestChatSubtitleConfig) *AddEmpAttributeHideBySceneSettingRequest {
+	s.ChatSubtitleConfig = v
+	return s
+}
+
+func (s *AddEmpAttributeHideBySceneSettingRequest) SetDescription(v string) *AddEmpAttributeHideBySceneSettingRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *AddEmpAttributeHideBySceneSettingRequest) SetExcludeDeptIds(v []*int64) *AddEmpAttributeHideBySceneSettingRequest {
+	s.ExcludeDeptIds = v
+	return s
+}
+
+func (s *AddEmpAttributeHideBySceneSettingRequest) SetExcludeTagIds(v []*int64) *AddEmpAttributeHideBySceneSettingRequest {
+	s.ExcludeTagIds = v
+	return s
+}
+
+func (s *AddEmpAttributeHideBySceneSettingRequest) SetExcludeUserIds(v []*string) *AddEmpAttributeHideBySceneSettingRequest {
+	s.ExcludeUserIds = v
+	return s
+}
+
+func (s *AddEmpAttributeHideBySceneSettingRequest) SetHideFields(v []*string) *AddEmpAttributeHideBySceneSettingRequest {
+	s.HideFields = v
+	return s
+}
+
+func (s *AddEmpAttributeHideBySceneSettingRequest) SetName(v string) *AddEmpAttributeHideBySceneSettingRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *AddEmpAttributeHideBySceneSettingRequest) SetObjectDeptIds(v []*int64) *AddEmpAttributeHideBySceneSettingRequest {
+	s.ObjectDeptIds = v
+	return s
+}
+
+func (s *AddEmpAttributeHideBySceneSettingRequest) SetObjectTagIds(v []*int64) *AddEmpAttributeHideBySceneSettingRequest {
+	s.ObjectTagIds = v
+	return s
+}
+
+func (s *AddEmpAttributeHideBySceneSettingRequest) SetObjectUserIds(v []*string) *AddEmpAttributeHideBySceneSettingRequest {
+	s.ObjectUserIds = v
+	return s
+}
+
+func (s *AddEmpAttributeHideBySceneSettingRequest) SetProfileSceneConfig(v *AddEmpAttributeHideBySceneSettingRequestProfileSceneConfig) *AddEmpAttributeHideBySceneSettingRequest {
+	s.ProfileSceneConfig = v
+	return s
+}
+
+func (s *AddEmpAttributeHideBySceneSettingRequest) SetSearchSceneConfig(v *AddEmpAttributeHideBySceneSettingRequestSearchSceneConfig) *AddEmpAttributeHideBySceneSettingRequest {
+	s.SearchSceneConfig = v
+	return s
+}
+
+type AddEmpAttributeHideBySceneSettingRequestChatSubtitleConfig struct {
+	// 是否生效
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+}
+
+func (s AddEmpAttributeHideBySceneSettingRequestChatSubtitleConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddEmpAttributeHideBySceneSettingRequestChatSubtitleConfig) GoString() string {
+	return s.String()
+}
+
+func (s *AddEmpAttributeHideBySceneSettingRequestChatSubtitleConfig) SetActive(v bool) *AddEmpAttributeHideBySceneSettingRequestChatSubtitleConfig {
+	s.Active = &v
+	return s
+}
+
+type AddEmpAttributeHideBySceneSettingRequestProfileSceneConfig struct {
+	// 是否生效
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+}
+
+func (s AddEmpAttributeHideBySceneSettingRequestProfileSceneConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddEmpAttributeHideBySceneSettingRequestProfileSceneConfig) GoString() string {
+	return s.String()
+}
+
+func (s *AddEmpAttributeHideBySceneSettingRequestProfileSceneConfig) SetActive(v bool) *AddEmpAttributeHideBySceneSettingRequestProfileSceneConfig {
+	s.Active = &v
+	return s
+}
+
+type AddEmpAttributeHideBySceneSettingRequestSearchSceneConfig struct {
+	// 是否生效
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+}
+
+func (s AddEmpAttributeHideBySceneSettingRequestSearchSceneConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddEmpAttributeHideBySceneSettingRequestSearchSceneConfig) GoString() string {
+	return s.String()
+}
+
+func (s *AddEmpAttributeHideBySceneSettingRequestSearchSceneConfig) SetActive(v bool) *AddEmpAttributeHideBySceneSettingRequestSearchSceneConfig {
+	s.Active = &v
+	return s
+}
+
+type AddEmpAttributeHideBySceneSettingResponseBody struct {
+	// settingId
+	SettingId *int64 `json:"settingId,omitempty" xml:"settingId,omitempty"`
+}
+
+func (s AddEmpAttributeHideBySceneSettingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddEmpAttributeHideBySceneSettingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddEmpAttributeHideBySceneSettingResponseBody) SetSettingId(v int64) *AddEmpAttributeHideBySceneSettingResponseBody {
+	s.SettingId = &v
+	return s
+}
+
+type AddEmpAttributeHideBySceneSettingResponse struct {
+	Headers map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *AddEmpAttributeHideBySceneSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s AddEmpAttributeHideBySceneSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddEmpAttributeHideBySceneSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddEmpAttributeHideBySceneSettingResponse) SetHeaders(v map[string]*string) *AddEmpAttributeHideBySceneSettingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddEmpAttributeHideBySceneSettingResponse) SetBody(v *AddEmpAttributeHideBySceneSettingResponseBody) *AddEmpAttributeHideBySceneSettingResponse {
+	s.Body = v
+	return s
+}
+
 type AnnualCertificationAuditHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -805,6 +1249,70 @@ func (s *CreateSecondaryManagementGroupResponse) SetBody(v *CreateSecondaryManag
 	return s
 }
 
+type DeleteContactHideBySceneSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteContactHideBySceneSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteContactHideBySceneSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteContactHideBySceneSettingHeaders) SetCommonHeaders(v map[string]*string) *DeleteContactHideBySceneSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteContactHideBySceneSettingHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteContactHideBySceneSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteContactHideBySceneSettingResponseBody struct {
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteContactHideBySceneSettingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteContactHideBySceneSettingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteContactHideBySceneSettingResponseBody) SetSuccess(v bool) *DeleteContactHideBySceneSettingResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteContactHideBySceneSettingResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteContactHideBySceneSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteContactHideBySceneSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteContactHideBySceneSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteContactHideBySceneSettingResponse) SetHeaders(v map[string]*string) *DeleteContactHideBySceneSettingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteContactHideBySceneSettingResponse) SetBody(v *DeleteContactHideBySceneSettingResponseBody) *DeleteContactHideBySceneSettingResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteContactHideSettingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -905,6 +1413,70 @@ func (s *DeleteContactRestrictSettingResponse) SetHeaders(v map[string]*string) 
 }
 
 func (s *DeleteContactRestrictSettingResponse) SetBody(v *DeleteContactRestrictSettingResponseBody) *DeleteContactRestrictSettingResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteEmpAttributeHideBySceneSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteEmpAttributeHideBySceneSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteEmpAttributeHideBySceneSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteEmpAttributeHideBySceneSettingHeaders) SetCommonHeaders(v map[string]*string) *DeleteEmpAttributeHideBySceneSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteEmpAttributeHideBySceneSettingHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteEmpAttributeHideBySceneSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteEmpAttributeHideBySceneSettingResponseBody struct {
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteEmpAttributeHideBySceneSettingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteEmpAttributeHideBySceneSettingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteEmpAttributeHideBySceneSettingResponseBody) SetSuccess(v bool) *DeleteEmpAttributeHideBySceneSettingResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteEmpAttributeHideBySceneSettingResponse struct {
+	Headers map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *DeleteEmpAttributeHideBySceneSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s DeleteEmpAttributeHideBySceneSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteEmpAttributeHideBySceneSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteEmpAttributeHideBySceneSettingResponse) SetHeaders(v map[string]*string) *DeleteEmpAttributeHideBySceneSettingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteEmpAttributeHideBySceneSettingResponse) SetBody(v *DeleteEmpAttributeHideBySceneSettingResponseBody) *DeleteEmpAttributeHideBySceneSettingResponse {
 	s.Body = v
 	return s
 }
@@ -1768,6 +2340,215 @@ func (s *GetCardInfoResponse) SetBody(v *GetCardInfoResponseBody) *GetCardInfoRe
 	return s
 }
 
+type GetContactHideBySceneSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetContactHideBySceneSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContactHideBySceneSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetContactHideBySceneSettingHeaders) SetCommonHeaders(v map[string]*string) *GetContactHideBySceneSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetContactHideBySceneSettingHeaders) SetXAcsDingtalkAccessToken(v string) *GetContactHideBySceneSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetContactHideBySceneSettingResponseBody struct {
+	// 设置描述信息
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 允许查看的部门列表
+	ExcludeDeptIds []*int64 `json:"excludeDeptIds,omitempty" xml:"excludeDeptIds,omitempty" type:"Repeated"`
+	// 允许查看的角色列表
+	ExcludeTagIds []*int64 `json:"excludeTagIds,omitempty" xml:"excludeTagIds,omitempty" type:"Repeated"`
+	// 允许查看的员工列表
+	ExcludeUserIds []*string `json:"excludeUserIds,omitempty" xml:"excludeUserIds,omitempty" type:"Repeated"`
+	// 设置id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 设置名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 浏览组织架构与选人组件场景下的配置
+	NodeListSceneConfig *GetContactHideBySceneSettingResponseBodyNodeListSceneConfig `json:"nodeListSceneConfig,omitempty" xml:"nodeListSceneConfig,omitempty" type:"Struct"`
+	// 被隐藏的部门列表
+	ObjectDeptIds []*int64 `json:"objectDeptIds,omitempty" xml:"objectDeptIds,omitempty" type:"Repeated"`
+	// 被隐藏的角色列表
+	ObjectTagIds []*int64 `json:"objectTagIds,omitempty" xml:"objectTagIds,omitempty" type:"Repeated"`
+	// 被隐藏的员工UserId列表
+	ObjectUserIds []*string `json:"objectUserIds,omitempty" xml:"objectUserIds,omitempty" type:"Repeated"`
+	// 用户详情场景下的配置
+	ProfileSceneConfig *GetContactHideBySceneSettingResponseBodyProfileSceneConfig `json:"profileSceneConfig,omitempty" xml:"profileSceneConfig,omitempty" type:"Struct"`
+	// 搜索的场景配置（包括搜索部门、搜索员工）
+	SearchSceneConfig *GetContactHideBySceneSettingResponseBodySearchSceneConfig `json:"searchSceneConfig,omitempty" xml:"searchSceneConfig,omitempty" type:"Struct"`
+}
+
+func (s GetContactHideBySceneSettingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContactHideBySceneSettingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetContactHideBySceneSettingResponseBody) SetDescription(v string) *GetContactHideBySceneSettingResponseBody {
+	s.Description = &v
+	return s
+}
+
+func (s *GetContactHideBySceneSettingResponseBody) SetExcludeDeptIds(v []*int64) *GetContactHideBySceneSettingResponseBody {
+	s.ExcludeDeptIds = v
+	return s
+}
+
+func (s *GetContactHideBySceneSettingResponseBody) SetExcludeTagIds(v []*int64) *GetContactHideBySceneSettingResponseBody {
+	s.ExcludeTagIds = v
+	return s
+}
+
+func (s *GetContactHideBySceneSettingResponseBody) SetExcludeUserIds(v []*string) *GetContactHideBySceneSettingResponseBody {
+	s.ExcludeUserIds = v
+	return s
+}
+
+func (s *GetContactHideBySceneSettingResponseBody) SetId(v int64) *GetContactHideBySceneSettingResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *GetContactHideBySceneSettingResponseBody) SetName(v string) *GetContactHideBySceneSettingResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *GetContactHideBySceneSettingResponseBody) SetNodeListSceneConfig(v *GetContactHideBySceneSettingResponseBodyNodeListSceneConfig) *GetContactHideBySceneSettingResponseBody {
+	s.NodeListSceneConfig = v
+	return s
+}
+
+func (s *GetContactHideBySceneSettingResponseBody) SetObjectDeptIds(v []*int64) *GetContactHideBySceneSettingResponseBody {
+	s.ObjectDeptIds = v
+	return s
+}
+
+func (s *GetContactHideBySceneSettingResponseBody) SetObjectTagIds(v []*int64) *GetContactHideBySceneSettingResponseBody {
+	s.ObjectTagIds = v
+	return s
+}
+
+func (s *GetContactHideBySceneSettingResponseBody) SetObjectUserIds(v []*string) *GetContactHideBySceneSettingResponseBody {
+	s.ObjectUserIds = v
+	return s
+}
+
+func (s *GetContactHideBySceneSettingResponseBody) SetProfileSceneConfig(v *GetContactHideBySceneSettingResponseBodyProfileSceneConfig) *GetContactHideBySceneSettingResponseBody {
+	s.ProfileSceneConfig = v
+	return s
+}
+
+func (s *GetContactHideBySceneSettingResponseBody) SetSearchSceneConfig(v *GetContactHideBySceneSettingResponseBodySearchSceneConfig) *GetContactHideBySceneSettingResponseBody {
+	s.SearchSceneConfig = v
+	return s
+}
+
+type GetContactHideBySceneSettingResponseBodyNodeListSceneConfig struct {
+	// 是否生效
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+	// 是否同时隐藏被隐藏部门下的员工，默认为true。如果为false，仅部门不可见，但是允许跳转到被隐藏部门查看部门下员工。
+	DeptObjectIncludeEmp *bool `json:"deptObjectIncludeEmp,omitempty" xml:"deptObjectIncludeEmp,omitempty"`
+}
+
+func (s GetContactHideBySceneSettingResponseBodyNodeListSceneConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContactHideBySceneSettingResponseBodyNodeListSceneConfig) GoString() string {
+	return s.String()
+}
+
+func (s *GetContactHideBySceneSettingResponseBodyNodeListSceneConfig) SetActive(v bool) *GetContactHideBySceneSettingResponseBodyNodeListSceneConfig {
+	s.Active = &v
+	return s
+}
+
+func (s *GetContactHideBySceneSettingResponseBodyNodeListSceneConfig) SetDeptObjectIncludeEmp(v bool) *GetContactHideBySceneSettingResponseBodyNodeListSceneConfig {
+	s.DeptObjectIncludeEmp = &v
+	return s
+}
+
+type GetContactHideBySceneSettingResponseBodyProfileSceneConfig struct {
+	// 是否生效
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+}
+
+func (s GetContactHideBySceneSettingResponseBodyProfileSceneConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContactHideBySceneSettingResponseBodyProfileSceneConfig) GoString() string {
+	return s.String()
+}
+
+func (s *GetContactHideBySceneSettingResponseBodyProfileSceneConfig) SetActive(v bool) *GetContactHideBySceneSettingResponseBodyProfileSceneConfig {
+	s.Active = &v
+	return s
+}
+
+type GetContactHideBySceneSettingResponseBodySearchSceneConfig struct {
+	// 是否生效
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+	// 是否同时隐藏被隐藏的部门下的员工，默认为true。如果为false，objectDeptIds中的部门无法被搜索，但是员工仍然可以被搜索
+	DeptObjectIncludeEmp *bool `json:"deptObjectIncludeEmp,omitempty" xml:"deptObjectIncludeEmp,omitempty"`
+}
+
+func (s GetContactHideBySceneSettingResponseBodySearchSceneConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContactHideBySceneSettingResponseBodySearchSceneConfig) GoString() string {
+	return s.String()
+}
+
+func (s *GetContactHideBySceneSettingResponseBodySearchSceneConfig) SetActive(v bool) *GetContactHideBySceneSettingResponseBodySearchSceneConfig {
+	s.Active = &v
+	return s
+}
+
+func (s *GetContactHideBySceneSettingResponseBodySearchSceneConfig) SetDeptObjectIncludeEmp(v bool) *GetContactHideBySceneSettingResponseBodySearchSceneConfig {
+	s.DeptObjectIncludeEmp = &v
+	return s
+}
+
+type GetContactHideBySceneSettingResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetContactHideBySceneSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetContactHideBySceneSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContactHideBySceneSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetContactHideBySceneSettingResponse) SetHeaders(v map[string]*string) *GetContactHideBySceneSettingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetContactHideBySceneSettingResponse) SetBody(v *GetContactHideBySceneSettingResponseBody) *GetContactHideBySceneSettingResponse {
+	s.Body = v
+	return s
+}
+
 type GetCooperateOrgInviteInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1973,6 +2754,219 @@ func (s *GetDingIdByMigrationDingIdResponse) SetHeaders(v map[string]*string) *G
 }
 
 func (s *GetDingIdByMigrationDingIdResponse) SetBody(v *GetDingIdByMigrationDingIdResponseBody) *GetDingIdByMigrationDingIdResponse {
+	s.Body = v
+	return s
+}
+
+type GetEmpAttributeHideBySceneSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetEmpAttributeHideBySceneSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEmpAttributeHideBySceneSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetEmpAttributeHideBySceneSettingHeaders) SetCommonHeaders(v map[string]*string) *GetEmpAttributeHideBySceneSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetEmpAttributeHideBySceneSettingHeaders) SetXAcsDingtalkAccessToken(v string) *GetEmpAttributeHideBySceneSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetEmpAttributeHideBySceneSettingResponseBody struct {
+	// 单聊副标题场景配置，开启时单聊中相关的员工字段不显示
+	ChatSubtitleConfig *GetEmpAttributeHideBySceneSettingResponseBodyChatSubtitleConfig `json:"chatSubtitleConfig,omitempty" xml:"chatSubtitleConfig,omitempty" type:"Struct"`
+	// 设置描述信息
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 允许查看的部门列表
+	ExcludeDeptIds []*int64 `json:"excludeDeptIds,omitempty" xml:"excludeDeptIds,omitempty" type:"Repeated"`
+	// 允许查看的角色列表
+	ExcludeTagIds []*int64 `json:"excludeTagIds,omitempty" xml:"excludeTagIds,omitempty" type:"Repeated"`
+	// 允许查看的员工列表
+	ExcludeUserIds []*string `json:"excludeUserIds,omitempty" xml:"excludeUserIds,omitempty" type:"Repeated"`
+	// 隐藏字段id列表
+	// 枚举列表：
+	//         department：部门
+	//         email：邮箱
+	//         manager：直属主管
+	//         title：职位
+	//         mobile：手机号
+	//         ext_number：分机号
+	//         work_station：办公地点
+	//         remark：备注
+	//         hire_date：入职时间
+	//         job_number：工号
+	HideFields []*string `json:"hideFields,omitempty" xml:"hideFields,omitempty" type:"Repeated"`
+	// 设置id
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// 设置名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 被隐藏的部门列表
+	ObjectDeptIds []*int64 `json:"objectDeptIds,omitempty" xml:"objectDeptIds,omitempty" type:"Repeated"`
+	// 被隐藏的角色列表
+	ObjectTagIds []*int64 `json:"objectTagIds,omitempty" xml:"objectTagIds,omitempty" type:"Repeated"`
+	// 被隐藏的员工UserId列表
+	ObjectUserIds []*string `json:"objectUserIds,omitempty" xml:"objectUserIds,omitempty" type:"Repeated"`
+	// 用户资料页场景配置，开启时相关的员工字段不在资料页中显示
+	ProfileSceneConfig *GetEmpAttributeHideBySceneSettingResponseBodyProfileSceneConfig `json:"profileSceneConfig,omitempty" xml:"profileSceneConfig,omitempty" type:"Struct"`
+	// 搜索场景配置，开启时隐藏的字段不在搜索结果中展示，并且不允许根据这些字段搜索到。
+	SearchSceneConfig *GetEmpAttributeHideBySceneSettingResponseBodySearchSceneConfig `json:"searchSceneConfig,omitempty" xml:"searchSceneConfig,omitempty" type:"Struct"`
+}
+
+func (s GetEmpAttributeHideBySceneSettingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEmpAttributeHideBySceneSettingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponseBody) SetChatSubtitleConfig(v *GetEmpAttributeHideBySceneSettingResponseBodyChatSubtitleConfig) *GetEmpAttributeHideBySceneSettingResponseBody {
+	s.ChatSubtitleConfig = v
+	return s
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponseBody) SetDescription(v string) *GetEmpAttributeHideBySceneSettingResponseBody {
+	s.Description = &v
+	return s
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponseBody) SetExcludeDeptIds(v []*int64) *GetEmpAttributeHideBySceneSettingResponseBody {
+	s.ExcludeDeptIds = v
+	return s
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponseBody) SetExcludeTagIds(v []*int64) *GetEmpAttributeHideBySceneSettingResponseBody {
+	s.ExcludeTagIds = v
+	return s
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponseBody) SetExcludeUserIds(v []*string) *GetEmpAttributeHideBySceneSettingResponseBody {
+	s.ExcludeUserIds = v
+	return s
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponseBody) SetHideFields(v []*string) *GetEmpAttributeHideBySceneSettingResponseBody {
+	s.HideFields = v
+	return s
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponseBody) SetId(v int64) *GetEmpAttributeHideBySceneSettingResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponseBody) SetName(v string) *GetEmpAttributeHideBySceneSettingResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponseBody) SetObjectDeptIds(v []*int64) *GetEmpAttributeHideBySceneSettingResponseBody {
+	s.ObjectDeptIds = v
+	return s
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponseBody) SetObjectTagIds(v []*int64) *GetEmpAttributeHideBySceneSettingResponseBody {
+	s.ObjectTagIds = v
+	return s
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponseBody) SetObjectUserIds(v []*string) *GetEmpAttributeHideBySceneSettingResponseBody {
+	s.ObjectUserIds = v
+	return s
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponseBody) SetProfileSceneConfig(v *GetEmpAttributeHideBySceneSettingResponseBodyProfileSceneConfig) *GetEmpAttributeHideBySceneSettingResponseBody {
+	s.ProfileSceneConfig = v
+	return s
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponseBody) SetSearchSceneConfig(v *GetEmpAttributeHideBySceneSettingResponseBodySearchSceneConfig) *GetEmpAttributeHideBySceneSettingResponseBody {
+	s.SearchSceneConfig = v
+	return s
+}
+
+type GetEmpAttributeHideBySceneSettingResponseBodyChatSubtitleConfig struct {
+	// 是否生效
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+}
+
+func (s GetEmpAttributeHideBySceneSettingResponseBodyChatSubtitleConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEmpAttributeHideBySceneSettingResponseBodyChatSubtitleConfig) GoString() string {
+	return s.String()
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponseBodyChatSubtitleConfig) SetActive(v bool) *GetEmpAttributeHideBySceneSettingResponseBodyChatSubtitleConfig {
+	s.Active = &v
+	return s
+}
+
+type GetEmpAttributeHideBySceneSettingResponseBodyProfileSceneConfig struct {
+	// 是否生效
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+}
+
+func (s GetEmpAttributeHideBySceneSettingResponseBodyProfileSceneConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEmpAttributeHideBySceneSettingResponseBodyProfileSceneConfig) GoString() string {
+	return s.String()
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponseBodyProfileSceneConfig) SetActive(v bool) *GetEmpAttributeHideBySceneSettingResponseBodyProfileSceneConfig {
+	s.Active = &v
+	return s
+}
+
+type GetEmpAttributeHideBySceneSettingResponseBodySearchSceneConfig struct {
+	// 是否生效
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+}
+
+func (s GetEmpAttributeHideBySceneSettingResponseBodySearchSceneConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEmpAttributeHideBySceneSettingResponseBodySearchSceneConfig) GoString() string {
+	return s.String()
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponseBodySearchSceneConfig) SetActive(v bool) *GetEmpAttributeHideBySceneSettingResponseBodySearchSceneConfig {
+	s.Active = &v
+	return s
+}
+
+type GetEmpAttributeHideBySceneSettingResponse struct {
+	Headers map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetEmpAttributeHideBySceneSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetEmpAttributeHideBySceneSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEmpAttributeHideBySceneSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponse) SetHeaders(v map[string]*string) *GetEmpAttributeHideBySceneSettingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetEmpAttributeHideBySceneSettingResponse) SetBody(v *GetEmpAttributeHideBySceneSettingResponseBody) *GetEmpAttributeHideBySceneSettingResponse {
 	s.Body = v
 	return s
 }
@@ -6073,6 +7067,225 @@ func (s *UpdateBranchVisibleSettingInCooperateResponse) SetHeaders(v map[string]
 	return s
 }
 
+type UpdateContactHideBySceneSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateContactHideBySceneSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateContactHideBySceneSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateContactHideBySceneSettingHeaders) SetCommonHeaders(v map[string]*string) *UpdateContactHideBySceneSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateContactHideBySceneSettingHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateContactHideBySceneSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateContactHideBySceneSettingRequest struct {
+	// 设置描述信息
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 允许查看的部门列表
+	ExcludeDeptIds []*int64 `json:"excludeDeptIds,omitempty" xml:"excludeDeptIds,omitempty" type:"Repeated"`
+	// 允许查看的角色列表
+	ExcludeTagIds []*int64 `json:"excludeTagIds,omitempty" xml:"excludeTagIds,omitempty" type:"Repeated"`
+	// 允许查看的员工列表
+	ExcludeUserIds []*string `json:"excludeUserIds,omitempty" xml:"excludeUserIds,omitempty" type:"Repeated"`
+	// 设置名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 浏览组织架构与选人组件场景下的配置
+	NodeListSceneConfig *UpdateContactHideBySceneSettingRequestNodeListSceneConfig `json:"nodeListSceneConfig,omitempty" xml:"nodeListSceneConfig,omitempty" type:"Struct"`
+	// 被隐藏的部门列表
+	ObjectDeptIds []*int64 `json:"objectDeptIds,omitempty" xml:"objectDeptIds,omitempty" type:"Repeated"`
+	// 被隐藏的角色列表
+	ObjectTagIds []*int64 `json:"objectTagIds,omitempty" xml:"objectTagIds,omitempty" type:"Repeated"`
+	// 被隐藏的员工UserId列表
+	ObjectUserIds []*string `json:"objectUserIds,omitempty" xml:"objectUserIds,omitempty" type:"Repeated"`
+	// 用户详情场景下的配置
+	ProfileSceneConfig *UpdateContactHideBySceneSettingRequestProfileSceneConfig `json:"profileSceneConfig,omitempty" xml:"profileSceneConfig,omitempty" type:"Struct"`
+	// 搜索的场景配置（包括搜索部门、搜索员工）
+	SearchSceneConfig *UpdateContactHideBySceneSettingRequestSearchSceneConfig `json:"searchSceneConfig,omitempty" xml:"searchSceneConfig,omitempty" type:"Struct"`
+}
+
+func (s UpdateContactHideBySceneSettingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateContactHideBySceneSettingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateContactHideBySceneSettingRequest) SetDescription(v string) *UpdateContactHideBySceneSettingRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *UpdateContactHideBySceneSettingRequest) SetExcludeDeptIds(v []*int64) *UpdateContactHideBySceneSettingRequest {
+	s.ExcludeDeptIds = v
+	return s
+}
+
+func (s *UpdateContactHideBySceneSettingRequest) SetExcludeTagIds(v []*int64) *UpdateContactHideBySceneSettingRequest {
+	s.ExcludeTagIds = v
+	return s
+}
+
+func (s *UpdateContactHideBySceneSettingRequest) SetExcludeUserIds(v []*string) *UpdateContactHideBySceneSettingRequest {
+	s.ExcludeUserIds = v
+	return s
+}
+
+func (s *UpdateContactHideBySceneSettingRequest) SetName(v string) *UpdateContactHideBySceneSettingRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateContactHideBySceneSettingRequest) SetNodeListSceneConfig(v *UpdateContactHideBySceneSettingRequestNodeListSceneConfig) *UpdateContactHideBySceneSettingRequest {
+	s.NodeListSceneConfig = v
+	return s
+}
+
+func (s *UpdateContactHideBySceneSettingRequest) SetObjectDeptIds(v []*int64) *UpdateContactHideBySceneSettingRequest {
+	s.ObjectDeptIds = v
+	return s
+}
+
+func (s *UpdateContactHideBySceneSettingRequest) SetObjectTagIds(v []*int64) *UpdateContactHideBySceneSettingRequest {
+	s.ObjectTagIds = v
+	return s
+}
+
+func (s *UpdateContactHideBySceneSettingRequest) SetObjectUserIds(v []*string) *UpdateContactHideBySceneSettingRequest {
+	s.ObjectUserIds = v
+	return s
+}
+
+func (s *UpdateContactHideBySceneSettingRequest) SetProfileSceneConfig(v *UpdateContactHideBySceneSettingRequestProfileSceneConfig) *UpdateContactHideBySceneSettingRequest {
+	s.ProfileSceneConfig = v
+	return s
+}
+
+func (s *UpdateContactHideBySceneSettingRequest) SetSearchSceneConfig(v *UpdateContactHideBySceneSettingRequestSearchSceneConfig) *UpdateContactHideBySceneSettingRequest {
+	s.SearchSceneConfig = v
+	return s
+}
+
+type UpdateContactHideBySceneSettingRequestNodeListSceneConfig struct {
+	// 是否在浏览组织架构与选人组件中生效，默认为true
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+	// 是否同时隐藏被隐藏部门下的员工，默认为true。如果为false，仅部门不可见，但是允许跳转到被隐藏部门查看部门下员工。
+	DeptObjectIncludeEmp *bool `json:"deptObjectIncludeEmp,omitempty" xml:"deptObjectIncludeEmp,omitempty"`
+}
+
+func (s UpdateContactHideBySceneSettingRequestNodeListSceneConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateContactHideBySceneSettingRequestNodeListSceneConfig) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateContactHideBySceneSettingRequestNodeListSceneConfig) SetActive(v bool) *UpdateContactHideBySceneSettingRequestNodeListSceneConfig {
+	s.Active = &v
+	return s
+}
+
+func (s *UpdateContactHideBySceneSettingRequestNodeListSceneConfig) SetDeptObjectIncludeEmp(v bool) *UpdateContactHideBySceneSettingRequestNodeListSceneConfig {
+	s.DeptObjectIncludeEmp = &v
+	return s
+}
+
+type UpdateContactHideBySceneSettingRequestProfileSceneConfig struct {
+	// 是否在用户详情页面生效，默认为true。如果为false，仍然允许查看个人资料页中的员工信息。
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+}
+
+func (s UpdateContactHideBySceneSettingRequestProfileSceneConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateContactHideBySceneSettingRequestProfileSceneConfig) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateContactHideBySceneSettingRequestProfileSceneConfig) SetActive(v bool) *UpdateContactHideBySceneSettingRequestProfileSceneConfig {
+	s.Active = &v
+	return s
+}
+
+type UpdateContactHideBySceneSettingRequestSearchSceneConfig struct {
+	// 是否在搜索场景生效，默认为true。如果为false，允许被搜索。
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+	// 是否同时隐藏被隐藏的部门下的员工，默认为true。如果为false，objectDeptIds中的部门无法被搜索，但是员工仍然可以被搜索
+	DeptObjectIncludeEmp *bool `json:"deptObjectIncludeEmp,omitempty" xml:"deptObjectIncludeEmp,omitempty"`
+}
+
+func (s UpdateContactHideBySceneSettingRequestSearchSceneConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateContactHideBySceneSettingRequestSearchSceneConfig) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateContactHideBySceneSettingRequestSearchSceneConfig) SetActive(v bool) *UpdateContactHideBySceneSettingRequestSearchSceneConfig {
+	s.Active = &v
+	return s
+}
+
+func (s *UpdateContactHideBySceneSettingRequestSearchSceneConfig) SetDeptObjectIncludeEmp(v bool) *UpdateContactHideBySceneSettingRequestSearchSceneConfig {
+	s.DeptObjectIncludeEmp = &v
+	return s
+}
+
+type UpdateContactHideBySceneSettingResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateContactHideBySceneSettingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateContactHideBySceneSettingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateContactHideBySceneSettingResponseBody) SetSuccess(v bool) *UpdateContactHideBySceneSettingResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateContactHideBySceneSettingResponse struct {
+	Headers map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateContactHideBySceneSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateContactHideBySceneSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateContactHideBySceneSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateContactHideBySceneSettingResponse) SetHeaders(v map[string]*string) *UpdateContactHideBySceneSettingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateContactHideBySceneSettingResponse) SetBody(v *UpdateContactHideBySceneSettingResponseBody) *UpdateContactHideBySceneSettingResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateContactHideSettingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6607,6 +7820,230 @@ func (s *UpdateEmpAttrbuteVisibilitySettingResponse) SetBody(v *UpdateEmpAttrbut
 	return s
 }
 
+type UpdateEmpAttributeHideBySceneSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateEmpAttributeHideBySceneSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateEmpAttributeHideBySceneSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingHeaders) SetCommonHeaders(v map[string]*string) *UpdateEmpAttributeHideBySceneSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateEmpAttributeHideBySceneSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateEmpAttributeHideBySceneSettingRequest struct {
+	// 单聊副标题场景配置，开启时单聊中相关的员工字段不显示
+	ChatSubtitleConfig *UpdateEmpAttributeHideBySceneSettingRequestChatSubtitleConfig `json:"chatSubtitleConfig,omitempty" xml:"chatSubtitleConfig,omitempty" type:"Struct"`
+	// 设置描述信息
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 允许查看的部门列表
+	ExcludeDeptIds []*int64 `json:"excludeDeptIds,omitempty" xml:"excludeDeptIds,omitempty" type:"Repeated"`
+	// 允许查看的角色列表
+	ExcludeTagIds []*int64 `json:"excludeTagIds,omitempty" xml:"excludeTagIds,omitempty" type:"Repeated"`
+	// 允许查看的员工列表
+	ExcludeUserIds []*string `json:"excludeUserIds,omitempty" xml:"excludeUserIds,omitempty" type:"Repeated"`
+	// 隐藏字段id列表
+	// 枚举列表：
+	//         department：部门
+	//         email：邮箱
+	//         manager：直属主管
+	//         title：职位
+	//         mobile：手机号
+	//         ext_number：分机号
+	//         work_station：办公地点
+	//         remark：备注
+	//         hire_date：入职时间
+	//         job_number：工号
+	HideFields []*string `json:"hideFields,omitempty" xml:"hideFields,omitempty" type:"Repeated"`
+	// 设置名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 被隐藏的部门列表
+	ObjectDeptIds []*int64 `json:"objectDeptIds,omitempty" xml:"objectDeptIds,omitempty" type:"Repeated"`
+	// 被隐藏的角色列表
+	ObjectTagIds []*int64 `json:"objectTagIds,omitempty" xml:"objectTagIds,omitempty" type:"Repeated"`
+	// 被隐藏的员工UserId列表
+	ObjectUserIds []*string `json:"objectUserIds,omitempty" xml:"objectUserIds,omitempty" type:"Repeated"`
+	// 用户资料页场景配置，开启时相关的员工字段不在资料页中显示
+	ProfileSceneConfig *UpdateEmpAttributeHideBySceneSettingRequestProfileSceneConfig `json:"profileSceneConfig,omitempty" xml:"profileSceneConfig,omitempty" type:"Struct"`
+	// 搜索场景配置，开启时隐藏的字段不在搜索结果中展示，并且不允许根据这些字段搜索到。
+	SearchSceneConfig *UpdateEmpAttributeHideBySceneSettingRequestSearchSceneConfig `json:"searchSceneConfig,omitempty" xml:"searchSceneConfig,omitempty" type:"Struct"`
+}
+
+func (s UpdateEmpAttributeHideBySceneSettingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateEmpAttributeHideBySceneSettingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingRequest) SetChatSubtitleConfig(v *UpdateEmpAttributeHideBySceneSettingRequestChatSubtitleConfig) *UpdateEmpAttributeHideBySceneSettingRequest {
+	s.ChatSubtitleConfig = v
+	return s
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingRequest) SetDescription(v string) *UpdateEmpAttributeHideBySceneSettingRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingRequest) SetExcludeDeptIds(v []*int64) *UpdateEmpAttributeHideBySceneSettingRequest {
+	s.ExcludeDeptIds = v
+	return s
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingRequest) SetExcludeTagIds(v []*int64) *UpdateEmpAttributeHideBySceneSettingRequest {
+	s.ExcludeTagIds = v
+	return s
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingRequest) SetExcludeUserIds(v []*string) *UpdateEmpAttributeHideBySceneSettingRequest {
+	s.ExcludeUserIds = v
+	return s
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingRequest) SetHideFields(v []*string) *UpdateEmpAttributeHideBySceneSettingRequest {
+	s.HideFields = v
+	return s
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingRequest) SetName(v string) *UpdateEmpAttributeHideBySceneSettingRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingRequest) SetObjectDeptIds(v []*int64) *UpdateEmpAttributeHideBySceneSettingRequest {
+	s.ObjectDeptIds = v
+	return s
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingRequest) SetObjectTagIds(v []*int64) *UpdateEmpAttributeHideBySceneSettingRequest {
+	s.ObjectTagIds = v
+	return s
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingRequest) SetObjectUserIds(v []*string) *UpdateEmpAttributeHideBySceneSettingRequest {
+	s.ObjectUserIds = v
+	return s
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingRequest) SetProfileSceneConfig(v *UpdateEmpAttributeHideBySceneSettingRequestProfileSceneConfig) *UpdateEmpAttributeHideBySceneSettingRequest {
+	s.ProfileSceneConfig = v
+	return s
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingRequest) SetSearchSceneConfig(v *UpdateEmpAttributeHideBySceneSettingRequestSearchSceneConfig) *UpdateEmpAttributeHideBySceneSettingRequest {
+	s.SearchSceneConfig = v
+	return s
+}
+
+type UpdateEmpAttributeHideBySceneSettingRequestChatSubtitleConfig struct {
+	// 是否生效
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+}
+
+func (s UpdateEmpAttributeHideBySceneSettingRequestChatSubtitleConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateEmpAttributeHideBySceneSettingRequestChatSubtitleConfig) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingRequestChatSubtitleConfig) SetActive(v bool) *UpdateEmpAttributeHideBySceneSettingRequestChatSubtitleConfig {
+	s.Active = &v
+	return s
+}
+
+type UpdateEmpAttributeHideBySceneSettingRequestProfileSceneConfig struct {
+	// 是否生效
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+}
+
+func (s UpdateEmpAttributeHideBySceneSettingRequestProfileSceneConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateEmpAttributeHideBySceneSettingRequestProfileSceneConfig) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingRequestProfileSceneConfig) SetActive(v bool) *UpdateEmpAttributeHideBySceneSettingRequestProfileSceneConfig {
+	s.Active = &v
+	return s
+}
+
+type UpdateEmpAttributeHideBySceneSettingRequestSearchSceneConfig struct {
+	// 是否生效
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+}
+
+func (s UpdateEmpAttributeHideBySceneSettingRequestSearchSceneConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateEmpAttributeHideBySceneSettingRequestSearchSceneConfig) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingRequestSearchSceneConfig) SetActive(v bool) *UpdateEmpAttributeHideBySceneSettingRequestSearchSceneConfig {
+	s.Active = &v
+	return s
+}
+
+type UpdateEmpAttributeHideBySceneSettingResponseBody struct {
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateEmpAttributeHideBySceneSettingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateEmpAttributeHideBySceneSettingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingResponseBody) SetSuccess(v bool) *UpdateEmpAttributeHideBySceneSettingResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateEmpAttributeHideBySceneSettingResponse struct {
+	Headers map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateEmpAttributeHideBySceneSettingResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateEmpAttributeHideBySceneSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateEmpAttributeHideBySceneSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingResponse) SetHeaders(v map[string]*string) *UpdateEmpAttributeHideBySceneSettingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateEmpAttributeHideBySceneSettingResponse) SetBody(v *UpdateEmpAttributeHideBySceneSettingResponseBody) *UpdateEmpAttributeHideBySceneSettingResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateManagementGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6953,6 +8390,178 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) AddContactHideBySceneSetting(request *AddContactHideBySceneSettingRequest) (_result *AddContactHideBySceneSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddContactHideBySceneSettingHeaders{}
+	_result = &AddContactHideBySceneSettingResponse{}
+	_body, _err := client.AddContactHideBySceneSettingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddContactHideBySceneSettingWithOptions(request *AddContactHideBySceneSettingRequest, headers *AddContactHideBySceneSettingHeaders, runtime *util.RuntimeOptions) (_result *AddContactHideBySceneSettingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeDeptIds)) {
+		body["excludeDeptIds"] = request.ExcludeDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeTagIds)) {
+		body["excludeTagIds"] = request.ExcludeTagIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeUserIds)) {
+		body["excludeUserIds"] = request.ExcludeUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NodeListSceneConfig)) {
+		body["nodeListSceneConfig"] = request.NodeListSceneConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectDeptIds)) {
+		body["objectDeptIds"] = request.ObjectDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectTagIds)) {
+		body["objectTagIds"] = request.ObjectTagIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectUserIds)) {
+		body["objectUserIds"] = request.ObjectUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProfileSceneConfig)) {
+		body["profileSceneConfig"] = request.ProfileSceneConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchSceneConfig)) {
+		body["searchSceneConfig"] = request.SearchSceneConfig
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddContactHideBySceneSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddContactHideBySceneSetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/organizations/hides/settings"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) AddEmpAttributeHideBySceneSetting(request *AddEmpAttributeHideBySceneSettingRequest) (_result *AddEmpAttributeHideBySceneSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddEmpAttributeHideBySceneSettingHeaders{}
+	_result = &AddEmpAttributeHideBySceneSettingResponse{}
+	_body, _err := client.AddEmpAttributeHideBySceneSettingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) AddEmpAttributeHideBySceneSettingWithOptions(request *AddEmpAttributeHideBySceneSettingRequest, headers *AddEmpAttributeHideBySceneSettingHeaders, runtime *util.RuntimeOptions) (_result *AddEmpAttributeHideBySceneSettingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChatSubtitleConfig)) {
+		body["chatSubtitleConfig"] = request.ChatSubtitleConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeDeptIds)) {
+		body["excludeDeptIds"] = request.ExcludeDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeTagIds)) {
+		body["excludeTagIds"] = request.ExcludeTagIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeUserIds)) {
+		body["excludeUserIds"] = request.ExcludeUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HideFields)) {
+		body["hideFields"] = request.HideFields
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectDeptIds)) {
+		body["objectDeptIds"] = request.ObjectDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectTagIds)) {
+		body["objectTagIds"] = request.ObjectTagIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectUserIds)) {
+		body["objectUserIds"] = request.ObjectUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProfileSceneConfig)) {
+		body["profileSceneConfig"] = request.ProfileSceneConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchSceneConfig)) {
+		body["searchSceneConfig"] = request.SearchSceneConfig
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &AddEmpAttributeHideBySceneSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("AddEmpAttributeHideBySceneSetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/empAttributes/hides/settings"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) AnnualCertificationAudit(request *AnnualCertificationAuditRequest) (_result *AnnualCertificationAuditResponse, _err error) {
@@ -7320,6 +8929,41 @@ func (client *Client) CreateSecondaryManagementGroupWithOptions(request *CreateS
 	return _result, _err
 }
 
+func (client *Client) DeleteContactHideBySceneSetting(settingId *string) (_result *DeleteContactHideBySceneSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteContactHideBySceneSettingHeaders{}
+	_result = &DeleteContactHideBySceneSettingResponse{}
+	_body, _err := client.DeleteContactHideBySceneSettingWithOptions(settingId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteContactHideBySceneSettingWithOptions(settingId *string, headers *DeleteContactHideBySceneSettingHeaders, runtime *util.RuntimeOptions) (_result *DeleteContactHideBySceneSettingResponse, _err error) {
+	settingId = openapiutil.GetEncodeParam(settingId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &DeleteContactHideBySceneSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteContactHideBySceneSetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/contact/organizations/hides/settings/"+tea.StringValue(settingId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) DeleteContactHideSetting(settingId *string) (_result *DeleteContactHideSettingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteContactHideSettingHeaders{}
@@ -7383,6 +9027,41 @@ func (client *Client) DeleteContactRestrictSettingWithOptions(settingId *string,
 	}
 	_result = &DeleteContactRestrictSettingResponse{}
 	_body, _err := client.DoROARequest(tea.String("DeleteContactRestrictSetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/contact/restrictions/settings/"+tea.StringValue(settingId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) DeleteEmpAttributeHideBySceneSetting(settingId *string) (_result *DeleteEmpAttributeHideBySceneSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteEmpAttributeHideBySceneSettingHeaders{}
+	_result = &DeleteEmpAttributeHideBySceneSettingResponse{}
+	_body, _err := client.DeleteEmpAttributeHideBySceneSettingWithOptions(settingId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) DeleteEmpAttributeHideBySceneSettingWithOptions(settingId *string, headers *DeleteEmpAttributeHideBySceneSettingHeaders, runtime *util.RuntimeOptions) (_result *DeleteEmpAttributeHideBySceneSettingResponse, _err error) {
+	settingId = openapiutil.GetEncodeParam(settingId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &DeleteEmpAttributeHideBySceneSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("DeleteEmpAttributeHideBySceneSetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("DELETE"), tea.String("AK"), tea.String("/v1.0/contact/empAttributes/hides/settings/"+tea.StringValue(settingId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7632,6 +9311,41 @@ func (client *Client) GetCardInfoWithOptions(cardId *string, headers *GetCardInf
 	return _result, _err
 }
 
+func (client *Client) GetContactHideBySceneSetting(settingId *string) (_result *GetContactHideBySceneSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetContactHideBySceneSettingHeaders{}
+	_result = &GetContactHideBySceneSettingResponse{}
+	_body, _err := client.GetContactHideBySceneSettingWithOptions(settingId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetContactHideBySceneSettingWithOptions(settingId *string, headers *GetContactHideBySceneSettingHeaders, runtime *util.RuntimeOptions) (_result *GetContactHideBySceneSettingResponse, _err error) {
+	settingId = openapiutil.GetEncodeParam(settingId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetContactHideBySceneSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetContactHideBySceneSetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/organizations/hides/settings/"+tea.StringValue(settingId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetCooperateOrgInviteInfo(cooperateCorpId *string) (_result *GetCooperateOrgInviteInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCooperateOrgInviteInfoHeaders{}
@@ -7738,6 +9452,41 @@ func (client *Client) GetDingIdByMigrationDingIdWithOptions(request *GetDingIdBy
 	}
 	_result = &GetDingIdByMigrationDingIdResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetDingIdByMigrationDingId"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/orgAccount/getDingIdByMigrationDingIds"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetEmpAttributeHideBySceneSetting(settingId *string) (_result *GetEmpAttributeHideBySceneSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetEmpAttributeHideBySceneSettingHeaders{}
+	_result = &GetEmpAttributeHideBySceneSettingResponse{}
+	_body, _err := client.GetEmpAttributeHideBySceneSettingWithOptions(settingId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetEmpAttributeHideBySceneSettingWithOptions(settingId *string, headers *GetEmpAttributeHideBySceneSettingHeaders, runtime *util.RuntimeOptions) (_result *GetEmpAttributeHideBySceneSettingResponse, _err error) {
+	settingId = openapiutil.GetEncodeParam(settingId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetEmpAttributeHideBySceneSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetEmpAttributeHideBySceneSetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/empAttributes/hides/settings/"+tea.StringValue(settingId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -9364,6 +11113,91 @@ func (client *Client) UpdateBranchVisibleSettingInCooperateWithOptions(request *
 	return _result, _err
 }
 
+func (client *Client) UpdateContactHideBySceneSetting(settingId *string, request *UpdateContactHideBySceneSettingRequest) (_result *UpdateContactHideBySceneSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateContactHideBySceneSettingHeaders{}
+	_result = &UpdateContactHideBySceneSettingResponse{}
+	_body, _err := client.UpdateContactHideBySceneSettingWithOptions(settingId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateContactHideBySceneSettingWithOptions(settingId *string, request *UpdateContactHideBySceneSettingRequest, headers *UpdateContactHideBySceneSettingHeaders, runtime *util.RuntimeOptions) (_result *UpdateContactHideBySceneSettingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	settingId = openapiutil.GetEncodeParam(settingId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeDeptIds)) {
+		body["excludeDeptIds"] = request.ExcludeDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeTagIds)) {
+		body["excludeTagIds"] = request.ExcludeTagIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeUserIds)) {
+		body["excludeUserIds"] = request.ExcludeUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NodeListSceneConfig)) {
+		body["nodeListSceneConfig"] = request.NodeListSceneConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectDeptIds)) {
+		body["objectDeptIds"] = request.ObjectDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectTagIds)) {
+		body["objectTagIds"] = request.ObjectTagIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectUserIds)) {
+		body["objectUserIds"] = request.ObjectUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProfileSceneConfig)) {
+		body["profileSceneConfig"] = request.ProfileSceneConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchSceneConfig)) {
+		body["searchSceneConfig"] = request.SearchSceneConfig
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateContactHideBySceneSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateContactHideBySceneSetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/contact/organizations/hides/settings/"+tea.StringValue(settingId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) UpdateContactHideSetting(request *UpdateContactHideSettingRequest) (_result *UpdateContactHideSettingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateContactHideSettingHeaders{}
@@ -9665,6 +11499,95 @@ func (client *Client) UpdateEmpAttrbuteVisibilitySettingWithOptions(request *Upd
 	}
 	_result = &UpdateEmpAttrbuteVisibilitySettingResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateEmpAttrbuteVisibilitySetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/staffAttributes/visibilitySettings"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateEmpAttributeHideBySceneSetting(settingId *string, request *UpdateEmpAttributeHideBySceneSettingRequest) (_result *UpdateEmpAttributeHideBySceneSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateEmpAttributeHideBySceneSettingHeaders{}
+	_result = &UpdateEmpAttributeHideBySceneSettingResponse{}
+	_body, _err := client.UpdateEmpAttributeHideBySceneSettingWithOptions(settingId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateEmpAttributeHideBySceneSettingWithOptions(settingId *string, request *UpdateEmpAttributeHideBySceneSettingRequest, headers *UpdateEmpAttributeHideBySceneSettingHeaders, runtime *util.RuntimeOptions) (_result *UpdateEmpAttributeHideBySceneSettingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	settingId = openapiutil.GetEncodeParam(settingId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChatSubtitleConfig)) {
+		body["chatSubtitleConfig"] = request.ChatSubtitleConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeDeptIds)) {
+		body["excludeDeptIds"] = request.ExcludeDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeTagIds)) {
+		body["excludeTagIds"] = request.ExcludeTagIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExcludeUserIds)) {
+		body["excludeUserIds"] = request.ExcludeUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HideFields)) {
+		body["hideFields"] = request.HideFields
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectDeptIds)) {
+		body["objectDeptIds"] = request.ObjectDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectTagIds)) {
+		body["objectTagIds"] = request.ObjectTagIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjectUserIds)) {
+		body["objectUserIds"] = request.ObjectUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProfileSceneConfig)) {
+		body["profileSceneConfig"] = request.ProfileSceneConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchSceneConfig)) {
+		body["searchSceneConfig"] = request.SearchSceneConfig
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateEmpAttributeHideBySceneSettingResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateEmpAttributeHideBySceneSetting"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/contact/empAttributes/hides/settings/"+tea.StringValue(settingId)), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

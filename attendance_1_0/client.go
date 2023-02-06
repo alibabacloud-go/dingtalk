@@ -2256,6 +2256,265 @@ func (s *GetClosingAccountsResponse) SetBody(v *GetClosingAccountsResponseBody) 
 	return s
 }
 
+type GetLeaveRecordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetLeaveRecordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLeaveRecordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetLeaveRecordsHeaders) SetCommonHeaders(v map[string]*string) *GetLeaveRecordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetLeaveRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *GetLeaveRecordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetLeaveRecordsRequest struct {
+	// 假期类型唯一标识。
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// 操作人userId。
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// 分页页码。
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 分页大小。
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 查询员工userId列表。一次最多支持50个。
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s GetLeaveRecordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLeaveRecordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetLeaveRecordsRequest) SetLeaveCode(v string) *GetLeaveRecordsRequest {
+	s.LeaveCode = &v
+	return s
+}
+
+func (s *GetLeaveRecordsRequest) SetOpUserId(v string) *GetLeaveRecordsRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *GetLeaveRecordsRequest) SetPageNumber(v int64) *GetLeaveRecordsRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetLeaveRecordsRequest) SetPageSize(v int32) *GetLeaveRecordsRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetLeaveRecordsRequest) SetUserIds(v []*string) *GetLeaveRecordsRequest {
+	s.UserIds = v
+	return s
+}
+
+type GetLeaveRecordsResponseBody struct {
+	// 返回结果。
+	//
+	Result *GetLeaveRecordsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// 是否正确访问。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetLeaveRecordsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLeaveRecordsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetLeaveRecordsResponseBody) SetResult(v *GetLeaveRecordsResponseBodyResult) *GetLeaveRecordsResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetLeaveRecordsResponseBody) SetSuccess(v bool) *GetLeaveRecordsResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetLeaveRecordsResponseBodyResult struct {
+	// 是否有更多结果。
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 假期消费记录列表。
+	LeaveRecords []*GetLeaveRecordsResponseBodyResultLeaveRecords `json:"leaveRecords,omitempty" xml:"leaveRecords,omitempty" type:"Repeated"`
+}
+
+func (s GetLeaveRecordsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLeaveRecordsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetLeaveRecordsResponseBodyResult) SetHasMore(v bool) *GetLeaveRecordsResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetLeaveRecordsResponseBodyResult) SetLeaveRecords(v []*GetLeaveRecordsResponseBodyResultLeaveRecords) *GetLeaveRecordsResponseBodyResult {
+	s.LeaveRecords = v
+	return s
+}
+
+type GetLeaveRecordsResponseBodyResultLeaveRecords struct {
+	// 计算类型。
+	CalType *string `json:"calType,omitempty" xml:"calType,omitempty"`
+	// 额度有效期结束时间或请假结束时间，毫秒级时间戳。
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 记录创建时间。
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// 记录修改时间。
+	GmtModified *int64 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// 假期类型唯一标识。
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// 原因。
+	LeaveReason *string `json:"leaveReason,omitempty" xml:"leaveReason,omitempty"`
+	// 假期记录类型。
+	LeaveRecordType *string `json:"leaveRecordType,omitempty" xml:"leaveRecordType,omitempty"`
+	// 请假状态。
+	LeaveStatus *string `json:"leaveStatus,omitempty" xml:"leaveStatus,omitempty"`
+	// 显示单位。
+	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	// 额度唯一标识。
+	QuotaId *string `json:"quotaId,omitempty" xml:"quotaId,omitempty"`
+	// 假期记录唯一标识。
+	RecordId *string `json:"recordId,omitempty" xml:"recordId,omitempty"`
+	// 以天计算的消费额度。
+	RecordNumPerDay *int64 `json:"recordNumPerDay,omitempty" xml:"recordNumPerDay,omitempty"`
+	// 以小时计算的消费额度。
+	RecordNumPerHour *int64 `json:"recordNumPerHour,omitempty" xml:"recordNumPerHour,omitempty"`
+	// 额度有效期开始时间或请假开始时间，毫秒级时间戳。
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 员工userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetLeaveRecordsResponseBodyResultLeaveRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLeaveRecordsResponseBodyResultLeaveRecords) GoString() string {
+	return s.String()
+}
+
+func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetCalType(v string) *GetLeaveRecordsResponseBodyResultLeaveRecords {
+	s.CalType = &v
+	return s
+}
+
+func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetEndTime(v int64) *GetLeaveRecordsResponseBodyResultLeaveRecords {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetGmtCreate(v int64) *GetLeaveRecordsResponseBodyResultLeaveRecords {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetGmtModified(v int64) *GetLeaveRecordsResponseBodyResultLeaveRecords {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetLeaveCode(v string) *GetLeaveRecordsResponseBodyResultLeaveRecords {
+	s.LeaveCode = &v
+	return s
+}
+
+func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetLeaveReason(v string) *GetLeaveRecordsResponseBodyResultLeaveRecords {
+	s.LeaveReason = &v
+	return s
+}
+
+func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetLeaveRecordType(v string) *GetLeaveRecordsResponseBodyResultLeaveRecords {
+	s.LeaveRecordType = &v
+	return s
+}
+
+func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetLeaveStatus(v string) *GetLeaveRecordsResponseBodyResultLeaveRecords {
+	s.LeaveStatus = &v
+	return s
+}
+
+func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetLeaveViewUnit(v string) *GetLeaveRecordsResponseBodyResultLeaveRecords {
+	s.LeaveViewUnit = &v
+	return s
+}
+
+func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetQuotaId(v string) *GetLeaveRecordsResponseBodyResultLeaveRecords {
+	s.QuotaId = &v
+	return s
+}
+
+func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetRecordId(v string) *GetLeaveRecordsResponseBodyResultLeaveRecords {
+	s.RecordId = &v
+	return s
+}
+
+func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetRecordNumPerDay(v int64) *GetLeaveRecordsResponseBodyResultLeaveRecords {
+	s.RecordNumPerDay = &v
+	return s
+}
+
+func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetRecordNumPerHour(v int64) *GetLeaveRecordsResponseBodyResultLeaveRecords {
+	s.RecordNumPerHour = &v
+	return s
+}
+
+func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetStartTime(v int64) *GetLeaveRecordsResponseBodyResultLeaveRecords {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetLeaveRecordsResponseBodyResultLeaveRecords) SetUserId(v string) *GetLeaveRecordsResponseBodyResultLeaveRecords {
+	s.UserId = &v
+	return s
+}
+
+type GetLeaveRecordsResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetLeaveRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetLeaveRecordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetLeaveRecordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetLeaveRecordsResponse) SetHeaders(v map[string]*string) *GetLeaveRecordsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetLeaveRecordsResponse) SetBody(v *GetLeaveRecordsResponseBody) *GetLeaveRecordsResponse {
+	s.Body = v
+	return s
+}
+
 type GetLeaveTypeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6705,6 +6964,66 @@ func (client *Client) GetClosingAccountsWithOptions(request *GetClosingAccountsR
 	}
 	_result = &GetClosingAccountsResponse{}
 	_body, _err := client.DoROARequest(tea.String("GetClosingAccounts"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/closingAccounts/rules/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetLeaveRecords(request *GetLeaveRecordsRequest) (_result *GetLeaveRecordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetLeaveRecordsHeaders{}
+	_result = &GetLeaveRecordsResponse{}
+	_body, _err := client.GetLeaveRecordsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetLeaveRecordsWithOptions(request *GetLeaveRecordsRequest, headers *GetLeaveRecordsHeaders, runtime *util.RuntimeOptions) (_result *GetLeaveRecordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LeaveCode)) {
+		body["leaveCode"] = request.LeaveCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetLeaveRecordsResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetLeaveRecords"), tea.String("attendance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/attendance/vacations/records/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

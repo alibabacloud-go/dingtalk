@@ -2674,6 +2674,117 @@ func (s *UpdatePointActionAutoAssignRuleResponse) SetBody(v *UpdatePointActionAu
 	return s
 }
 
+type WearOrgHonorHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s WearOrgHonorHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WearOrgHonorHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *WearOrgHonorHeaders) SetCommonHeaders(v map[string]*string) *WearOrgHonorHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *WearOrgHonorHeaders) SetXAcsDingtalkAccessToken(v string) *WearOrgHonorHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type WearOrgHonorRequest struct {
+	// 员工userid
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// 佩戴true，卸下false
+	Wear *bool `json:"wear,omitempty" xml:"wear,omitempty"`
+}
+
+func (s WearOrgHonorRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WearOrgHonorRequest) GoString() string {
+	return s.String()
+}
+
+func (s *WearOrgHonorRequest) SetUserId(v string) *WearOrgHonorRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *WearOrgHonorRequest) SetWear(v bool) *WearOrgHonorRequest {
+	s.Wear = &v
+	return s
+}
+
+type WearOrgHonorResponseBody struct {
+	Result  *WearOrgHonorResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s WearOrgHonorResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WearOrgHonorResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *WearOrgHonorResponseBody) SetResult(v *WearOrgHonorResponseBodyResult) *WearOrgHonorResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *WearOrgHonorResponseBody) SetSuccess(v bool) *WearOrgHonorResponseBody {
+	s.Success = &v
+	return s
+}
+
+type WearOrgHonorResponseBodyResult struct {
+	HonorId *string `json:"honorId,omitempty" xml:"honorId,omitempty"`
+}
+
+func (s WearOrgHonorResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WearOrgHonorResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *WearOrgHonorResponseBodyResult) SetHonorId(v string) *WearOrgHonorResponseBodyResult {
+	s.HonorId = &v
+	return s
+}
+
+type WearOrgHonorResponse struct {
+	Headers map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *WearOrgHonorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s WearOrgHonorResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WearOrgHonorResponse) GoString() string {
+	return s.String()
+}
+
+func (s *WearOrgHonorResponse) SetHeaders(v map[string]*string) *WearOrgHonorResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *WearOrgHonorResponse) SetBody(v *WearOrgHonorResponseBody) *WearOrgHonorResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -3561,6 +3672,55 @@ func (client *Client) UpdatePointActionAutoAssignRuleWithOptions(request *Update
 	}
 	_result = &UpdatePointActionAutoAssignRuleResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdatePointActionAutoAssignRule"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/orgCulture/users/points/actionRules"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) WearOrgHonor(honorId *string, request *WearOrgHonorRequest) (_result *WearOrgHonorResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &WearOrgHonorHeaders{}
+	_result = &WearOrgHonorResponse{}
+	_body, _err := client.WearOrgHonorWithOptions(honorId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) WearOrgHonorWithOptions(honorId *string, request *WearOrgHonorRequest, headers *WearOrgHonorHeaders, runtime *util.RuntimeOptions) (_result *WearOrgHonorResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	honorId = openapiutil.GetEncodeParam(honorId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Wear)) {
+		body["wear"] = request.Wear
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &WearOrgHonorResponse{}
+	_body, _err := client.DoROARequest(tea.String("WearOrgHonor"), tea.String("orgCulture_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/orgCulture/honors/"+tea.StringValue(honorId)+"/wear"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

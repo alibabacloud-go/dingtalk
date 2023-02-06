@@ -8654,6 +8654,208 @@ func (s *RevertDentryVersionResponse) SetBody(v *RevertDentryVersionResponseBody
 	return s
 }
 
+type SubscribeEventHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SubscribeEventHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubscribeEventHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SubscribeEventHeaders) SetCommonHeaders(v map[string]*string) *SubscribeEventHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SubscribeEventHeaders) SetXAcsDingtalkAccessToken(v string) *SubscribeEventHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SubscribeEventRequest struct {
+	// 订阅范围
+	// 枚举值:
+	// 	SPACE: 空间
+	Scope *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	// 订阅范围对应的id
+	// ORG时，对应的是企业id
+	// APP时，对应的是应用id
+	// SPACE时，对应的是空间id
+	ScopeId *string `json:"scopeId,omitempty" xml:"scopeId,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s SubscribeEventRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubscribeEventRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SubscribeEventRequest) SetScope(v string) *SubscribeEventRequest {
+	s.Scope = &v
+	return s
+}
+
+func (s *SubscribeEventRequest) SetScopeId(v string) *SubscribeEventRequest {
+	s.ScopeId = &v
+	return s
+}
+
+func (s *SubscribeEventRequest) SetUnionId(v string) *SubscribeEventRequest {
+	s.UnionId = &v
+	return s
+}
+
+type SubscribeEventResponseBody struct {
+	// 本次操作是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SubscribeEventResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubscribeEventResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SubscribeEventResponseBody) SetSuccess(v bool) *SubscribeEventResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SubscribeEventResponse struct {
+	Headers map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SubscribeEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SubscribeEventResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubscribeEventResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SubscribeEventResponse) SetHeaders(v map[string]*string) *SubscribeEventResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SubscribeEventResponse) SetBody(v *SubscribeEventResponseBody) *SubscribeEventResponse {
+	s.Body = v
+	return s
+}
+
+type UnsubscribeEventHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UnsubscribeEventHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnsubscribeEventHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UnsubscribeEventHeaders) SetCommonHeaders(v map[string]*string) *UnsubscribeEventHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UnsubscribeEventHeaders) SetXAcsDingtalkAccessToken(v string) *UnsubscribeEventHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UnsubscribeEventRequest struct {
+	// 订阅范围
+	// 枚举值:
+	// 	SPACE: 空间
+	Scope *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	// 订阅范围对应的id
+	// ORG时，对应的是企业id
+	// APP时，对应的是应用id
+	// SPACE时，对应的是空间id
+	ScopeId *string `json:"scopeId,omitempty" xml:"scopeId,omitempty"`
+	// 用户id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s UnsubscribeEventRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnsubscribeEventRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UnsubscribeEventRequest) SetScope(v string) *UnsubscribeEventRequest {
+	s.Scope = &v
+	return s
+}
+
+func (s *UnsubscribeEventRequest) SetScopeId(v string) *UnsubscribeEventRequest {
+	s.ScopeId = &v
+	return s
+}
+
+func (s *UnsubscribeEventRequest) SetUnionId(v string) *UnsubscribeEventRequest {
+	s.UnionId = &v
+	return s
+}
+
+type UnsubscribeEventResponseBody struct {
+	// 本次操作是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UnsubscribeEventResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnsubscribeEventResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UnsubscribeEventResponseBody) SetSuccess(v bool) *UnsubscribeEventResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UnsubscribeEventResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UnsubscribeEventResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UnsubscribeEventResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnsubscribeEventResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UnsubscribeEventResponse) SetHeaders(v map[string]*string) *UnsubscribeEventResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UnsubscribeEventResponse) SetBody(v *UnsubscribeEventResponseBody) *UnsubscribeEventResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateDentryAppPropertiesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11146,6 +11348,114 @@ func (client *Client) RevertDentryVersionWithOptions(spaceId *string, dentryId *
 	}
 	_result = &RevertDentryVersionResponse{}
 	_body, _err := client.DoROARequest(tea.String("RevertDentryVersion"), tea.String("storage_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/storage/spaces/"+tea.StringValue(spaceId)+"/dentries/"+tea.StringValue(dentryId)+"/versions/"+tea.StringValue(version)+"/revert"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) SubscribeEvent(request *SubscribeEventRequest) (_result *SubscribeEventResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SubscribeEventHeaders{}
+	_result = &SubscribeEventResponse{}
+	_body, _err := client.SubscribeEventWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SubscribeEventWithOptions(request *SubscribeEventRequest, headers *SubscribeEventHeaders, runtime *util.RuntimeOptions) (_result *SubscribeEventResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Scope)) {
+		body["scope"] = request.Scope
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScopeId)) {
+		body["scopeId"] = request.ScopeId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &SubscribeEventResponse{}
+	_body, _err := client.DoROARequest(tea.String("SubscribeEvent"), tea.String("storage_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/storage/events/subscribe"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UnsubscribeEvent(request *UnsubscribeEventRequest) (_result *UnsubscribeEventResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UnsubscribeEventHeaders{}
+	_result = &UnsubscribeEventResponse{}
+	_body, _err := client.UnsubscribeEventWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UnsubscribeEventWithOptions(request *UnsubscribeEventRequest, headers *UnsubscribeEventHeaders, runtime *util.RuntimeOptions) (_result *UnsubscribeEventResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Scope)) {
+		body["scope"] = request.Scope
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScopeId)) {
+		body["scopeId"] = request.ScopeId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UnsubscribeEventResponse{}
+	_body, _err := client.DoROARequest(tea.String("UnsubscribeEvent"), tea.String("storage_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/storage/events/unsubscribe"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

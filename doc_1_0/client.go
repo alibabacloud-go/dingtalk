@@ -5421,6 +5421,7 @@ type SheetFindAllRequest struct {
 	Text *string `json:"text,omitempty" xml:"text,omitempty"`
 	// 操作人unionId
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	Select     *string `json:"select,omitempty" xml:"select,omitempty"`
 }
 
 func (s SheetFindAllRequest) String() string {
@@ -5443,6 +5444,11 @@ func (s *SheetFindAllRequest) SetText(v string) *SheetFindAllRequest {
 
 func (s *SheetFindAllRequest) SetOperatorId(v string) *SheetFindAllRequest {
 	s.OperatorId = &v
+	return s
+}
+
+func (s *SheetFindAllRequest) SetSelect(v string) *SheetFindAllRequest {
+	s.Select = &v
 	return s
 }
 
@@ -5521,7 +5527,8 @@ func (s *SheetFindAllResponseBody) SetValue(v []*SheetFindAllResponseBodyValue) 
 }
 
 type SheetFindAllResponseBodyValue struct {
-	A1Notation *string `json:"a1Notation,omitempty" xml:"a1Notation,omitempty"`
+	A1Notation *string         `json:"a1Notation,omitempty" xml:"a1Notation,omitempty"`
+	Values     [][]interface{} `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 }
 
 func (s SheetFindAllResponseBodyValue) String() string {
@@ -5534,6 +5541,11 @@ func (s SheetFindAllResponseBodyValue) GoString() string {
 
 func (s *SheetFindAllResponseBodyValue) SetA1Notation(v string) *SheetFindAllResponseBodyValue {
 	s.A1Notation = &v
+	return s
+}
+
+func (s *SheetFindAllResponseBodyValue) SetValues(v [][]interface{}) *SheetFindAllResponseBodyValue {
+	s.Values = v
 	return s
 }
 
@@ -8201,6 +8213,10 @@ func (client *Client) SheetFindAllWithOptions(workbookId *string, sheetId *strin
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Select)) {
+		query["select"] = request.Select
 	}
 
 	body := map[string]interface{}{}

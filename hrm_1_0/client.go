@@ -2292,6 +2292,119 @@ func (s *QueryPositionsResponse) SetBody(v *QueryPositionsResponseBody) *QueryPo
 	return s
 }
 
+type RosterMetaAvailableFieldListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RosterMetaAvailableFieldListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RosterMetaAvailableFieldListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RosterMetaAvailableFieldListHeaders) SetCommonHeaders(v map[string]*string) *RosterMetaAvailableFieldListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RosterMetaAvailableFieldListHeaders) SetXAcsDingtalkAccessToken(v string) *RosterMetaAvailableFieldListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RosterMetaAvailableFieldListRequest struct {
+	// 应用的agentId
+	AppAgentId *int64 `json:"appAgentId,omitempty" xml:"appAgentId,omitempty"`
+}
+
+func (s RosterMetaAvailableFieldListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RosterMetaAvailableFieldListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RosterMetaAvailableFieldListRequest) SetAppAgentId(v int64) *RosterMetaAvailableFieldListRequest {
+	s.AppAgentId = &v
+	return s
+}
+
+type RosterMetaAvailableFieldListResponseBody struct {
+	Result []*RosterMetaAvailableFieldListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s RosterMetaAvailableFieldListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RosterMetaAvailableFieldListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RosterMetaAvailableFieldListResponseBody) SetResult(v []*RosterMetaAvailableFieldListResponseBodyResult) *RosterMetaAvailableFieldListResponseBody {
+	s.Result = v
+	return s
+}
+
+type RosterMetaAvailableFieldListResponseBodyResult struct {
+	// 字段标识
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// 字段名称
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// 字段类型
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+}
+
+func (s RosterMetaAvailableFieldListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RosterMetaAvailableFieldListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *RosterMetaAvailableFieldListResponseBodyResult) SetFieldCode(v string) *RosterMetaAvailableFieldListResponseBodyResult {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *RosterMetaAvailableFieldListResponseBodyResult) SetFieldName(v string) *RosterMetaAvailableFieldListResponseBodyResult {
+	s.FieldName = &v
+	return s
+}
+
+func (s *RosterMetaAvailableFieldListResponseBodyResult) SetFieldType(v string) *RosterMetaAvailableFieldListResponseBodyResult {
+	s.FieldType = &v
+	return s
+}
+
+type RosterMetaAvailableFieldListResponse struct {
+	Headers map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RosterMetaAvailableFieldListResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RosterMetaAvailableFieldListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RosterMetaAvailableFieldListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RosterMetaAvailableFieldListResponse) SetHeaders(v map[string]*string) *RosterMetaAvailableFieldListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RosterMetaAvailableFieldListResponse) SetBody(v *RosterMetaAvailableFieldListResponseBody) *RosterMetaAvailableFieldListResponse {
+	s.Body = v
+	return s
+}
+
 type RosterMetaFieldOptionsUpdateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3618,6 +3731,50 @@ func (client *Client) QueryPositionsWithOptions(request *QueryPositionsRequest, 
 	}
 	_result = &QueryPositionsResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryPositions"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/hrm/positions/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RosterMetaAvailableFieldList(request *RosterMetaAvailableFieldListRequest) (_result *RosterMetaAvailableFieldListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RosterMetaAvailableFieldListHeaders{}
+	_result = &RosterMetaAvailableFieldListResponse{}
+	_body, _err := client.RosterMetaAvailableFieldListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RosterMetaAvailableFieldListWithOptions(request *RosterMetaAvailableFieldListRequest, headers *RosterMetaAvailableFieldListHeaders, runtime *util.RuntimeOptions) (_result *RosterMetaAvailableFieldListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppAgentId)) {
+		query["appAgentId"] = request.AppAgentId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &RosterMetaAvailableFieldListResponse{}
+	_body, _err := client.DoROARequest(tea.String("RosterMetaAvailableFieldList"), tea.String("hrm_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/hrm/rosters/meta/authorities/fields"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
