@@ -1218,6 +1218,10 @@ type CreateRangeProtectionRequestEditableSetting struct {
 	InsertColumns *bool `json:"insertColumns,omitempty" xml:"insertColumns,omitempty"`
 	// 是否可插入行
 	InsertRows *bool `json:"insertRows,omitempty" xml:"insertRows,omitempty"`
+	// 是否可显示、隐藏列
+	ToggleColumnsVisibility *bool `json:"toggleColumnsVisibility,omitempty" xml:"toggleColumnsVisibility,omitempty"`
+	// 是否可显示、隐藏行
+	ToggleRowsVisibility *bool `json:"toggleRowsVisibility,omitempty" xml:"toggleRowsVisibility,omitempty"`
 }
 
 func (s CreateRangeProtectionRequestEditableSetting) String() string {
@@ -1255,6 +1259,16 @@ func (s *CreateRangeProtectionRequestEditableSetting) SetInsertColumns(v bool) *
 
 func (s *CreateRangeProtectionRequestEditableSetting) SetInsertRows(v bool) *CreateRangeProtectionRequestEditableSetting {
 	s.InsertRows = &v
+	return s
+}
+
+func (s *CreateRangeProtectionRequestEditableSetting) SetToggleColumnsVisibility(v bool) *CreateRangeProtectionRequestEditableSetting {
+	s.ToggleColumnsVisibility = &v
+	return s
+}
+
+func (s *CreateRangeProtectionRequestEditableSetting) SetToggleRowsVisibility(v bool) *CreateRangeProtectionRequestEditableSetting {
+	s.ToggleRowsVisibility = &v
 	return s
 }
 

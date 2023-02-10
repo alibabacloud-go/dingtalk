@@ -8680,12 +8680,12 @@ func (s *SubscribeEventHeaders) SetXAcsDingtalkAccessToken(v string) *SubscribeE
 type SubscribeEventRequest struct {
 	// 订阅范围
 	// 枚举值:
+	// 	ORG: 企业
 	// 	SPACE: 空间
 	Scope *string `json:"scope,omitempty" xml:"scope,omitempty"`
 	// 订阅范围对应的id
-	// ORG时，对应的是企业id
-	// APP时，对应的是应用id
-	// SPACE时，对应的是空间id
+	// scope为ORG时，scopeId对应的是企业id
+	// scope为SPACE时，scopeId对应的是空间id
 	ScopeId *string `json:"scopeId,omitempty" xml:"scopeId,omitempty"`
 	// 用户id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
@@ -8781,12 +8781,12 @@ func (s *UnsubscribeEventHeaders) SetXAcsDingtalkAccessToken(v string) *Unsubscr
 type UnsubscribeEventRequest struct {
 	// 订阅范围
 	// 枚举值:
+	// 	ORG: 企业
 	// 	SPACE: 空间
 	Scope *string `json:"scope,omitempty" xml:"scope,omitempty"`
 	// 订阅范围对应的id
-	// ORG时，对应的是企业id
-	// APP时，对应的是应用id
-	// SPACE时，对应的是空间id
+	// scope为ORG时，scopeId对应的是企业id
+	// scope为SPACE时，scopeId对应的是空间id
 	ScopeId *string `json:"scopeId,omitempty" xml:"scopeId,omitempty"`
 	// 用户id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
