@@ -472,7 +472,7 @@ func (s *CreateTrustGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTr
 }
 
 type CreateTrustGroupRequest struct {
-	// MPASS渠道编码
+	// IMPASS渠道编码
 	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
 	// 素材ID
 	IconMediaId *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
@@ -482,6 +482,8 @@ type CreateTrustGroupRequest struct {
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 其他扩展参数
 	Properties map[string]*string `json:"properties,omitempty" xml:"properties,omitempty"`
+	// 系统消息
+	SystemMsg *string `json:"systemMsg,omitempty" xml:"systemMsg,omitempty"`
 	// 外部系统映射唯一标识
 	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
@@ -516,6 +518,11 @@ func (s *CreateTrustGroupRequest) SetName(v string) *CreateTrustGroupRequest {
 
 func (s *CreateTrustGroupRequest) SetProperties(v map[string]*string) *CreateTrustGroupRequest {
 	s.Properties = v
+	return s
+}
+
+func (s *CreateTrustGroupRequest) SetSystemMsg(v string) *CreateTrustGroupRequest {
+	s.SystemMsg = &v
 	return s
 }
 
@@ -2269,6 +2276,10 @@ func (client *Client) CreateTrustGroupWithOptions(request *CreateTrustGroupReque
 
 	if !tea.BoolValue(util.IsUnset(request.Properties)) {
 		body["properties"] = request.Properties
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemMsg)) {
+		body["systemMsg"] = request.SystemMsg
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
