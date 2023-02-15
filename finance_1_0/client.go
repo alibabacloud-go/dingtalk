@@ -149,6 +149,95 @@ func (s *ApplyBatchPayResponse) SetBody(v *ApplyBatchPayResponseBody) *ApplyBatc
 	return s
 }
 
+type CloseLoanEntranceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CloseLoanEntranceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseLoanEntranceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CloseLoanEntranceHeaders) SetCommonHeaders(v map[string]*string) *CloseLoanEntranceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CloseLoanEntranceHeaders) SetXAcsDingtalkAccessToken(v string) *CloseLoanEntranceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CloseLoanEntranceRequest struct {
+	// 请求id唯一
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s CloseLoanEntranceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseLoanEntranceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CloseLoanEntranceRequest) SetRequestId(v string) *CloseLoanEntranceRequest {
+	s.RequestId = &v
+	return s
+}
+
+type CloseLoanEntranceResponseBody struct {
+	// 请求id与传入保持一致
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// 结果：Y 成功, N 失败
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CloseLoanEntranceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseLoanEntranceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CloseLoanEntranceResponseBody) SetRequestId(v string) *CloseLoanEntranceResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *CloseLoanEntranceResponseBody) SetResult(v string) *CloseLoanEntranceResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CloseLoanEntranceResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CloseLoanEntranceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CloseLoanEntranceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseLoanEntranceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CloseLoanEntranceResponse) SetHeaders(v map[string]*string) *CloseLoanEntranceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CloseLoanEntranceResponse) SetBody(v *CloseLoanEntranceResponseBody) *CloseLoanEntranceResponse {
+	s.Body = v
+	return s
+}
+
 type ConsultCreateSubInstitutionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7059,6 +7148,50 @@ func (client *Client) ApplyBatchPayWithOptions(request *ApplyBatchPayRequest, he
 	}
 	_result = &ApplyBatchPayResponse{}
 	_body, _err := client.DoROARequest(tea.String("ApplyBatchPay"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/finance/batchTrades/orders/pay"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CloseLoanEntrance(request *CloseLoanEntranceRequest) (_result *CloseLoanEntranceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CloseLoanEntranceHeaders{}
+	_result = &CloseLoanEntranceResponse{}
+	_body, _err := client.CloseLoanEntranceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CloseLoanEntranceWithOptions(request *CloseLoanEntranceRequest, headers *CloseLoanEntranceHeaders, runtime *util.RuntimeOptions) (_result *CloseLoanEntranceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		body["requestId"] = request.RequestId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CloseLoanEntranceResponse{}
+	_body, _err := client.DoROARequest(tea.String("CloseLoanEntrance"), tea.String("finance_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/finance/loans/entrances/close"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -1007,6 +1007,184 @@ func (s *BatchAddContactsResponse) SetBody(v *BatchAddContactsResponseBody) *Bat
 	return s
 }
 
+type BatchAddFollowRecordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchAddFollowRecordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddFollowRecordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddFollowRecordsHeaders) SetCommonHeaders(v map[string]*string) *BatchAddFollowRecordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchAddFollowRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *BatchAddFollowRecordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchAddFollowRecordsRequest struct {
+	// 关系数据列表。
+	InstanceList []*BatchAddFollowRecordsRequestInstanceList `json:"instanceList,omitempty" xml:"instanceList,omitempty" type:"Repeated"`
+	// 操作人userId
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+}
+
+func (s BatchAddFollowRecordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddFollowRecordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddFollowRecordsRequest) SetInstanceList(v []*BatchAddFollowRecordsRequestInstanceList) *BatchAddFollowRecordsRequest {
+	s.InstanceList = v
+	return s
+}
+
+func (s *BatchAddFollowRecordsRequest) SetOperatorUserId(v string) *BatchAddFollowRecordsRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+type BatchAddFollowRecordsRequestInstanceList struct {
+	// 关系模型数据。
+	DataArray []*BatchAddFollowRecordsRequestInstanceListDataArray `json:"dataArray,omitempty" xml:"dataArray,omitempty" type:"Repeated"`
+}
+
+func (s BatchAddFollowRecordsRequestInstanceList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddFollowRecordsRequestInstanceList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddFollowRecordsRequestInstanceList) SetDataArray(v []*BatchAddFollowRecordsRequestInstanceListDataArray) *BatchAddFollowRecordsRequestInstanceList {
+	s.DataArray = v
+	return s
+}
+
+type BatchAddFollowRecordsRequestInstanceListDataArray struct {
+	// 模型字段extendValue。
+	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
+	// 模型字段id。
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// 模型字段value。
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s BatchAddFollowRecordsRequestInstanceListDataArray) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddFollowRecordsRequestInstanceListDataArray) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddFollowRecordsRequestInstanceListDataArray) SetExtendValue(v string) *BatchAddFollowRecordsRequestInstanceListDataArray {
+	s.ExtendValue = &v
+	return s
+}
+
+func (s *BatchAddFollowRecordsRequestInstanceListDataArray) SetKey(v string) *BatchAddFollowRecordsRequestInstanceListDataArray {
+	s.Key = &v
+	return s
+}
+
+func (s *BatchAddFollowRecordsRequestInstanceListDataArray) SetValue(v string) *BatchAddFollowRecordsRequestInstanceListDataArray {
+	s.Value = &v
+	return s
+}
+
+type BatchAddFollowRecordsResponseBody struct {
+	// 批量插入结果列表，results的结果和要新增的数据是一一对应的，可以获取到每条数据分别是否成功。
+	Results []*BatchAddFollowRecordsResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
+}
+
+func (s BatchAddFollowRecordsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddFollowRecordsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddFollowRecordsResponseBody) SetResults(v []*BatchAddFollowRecordsResponseBodyResults) *BatchAddFollowRecordsResponseBody {
+	s.Results = v
+	return s
+}
+
+type BatchAddFollowRecordsResponseBodyResults struct {
+	// 如果保存失败，则表示失败的错误码。
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// 如果保存失败，则表示失败的错误原因。
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// 保存成功的关系id。
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// 数据是否保存成功。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchAddFollowRecordsResponseBodyResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddFollowRecordsResponseBodyResults) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddFollowRecordsResponseBodyResults) SetErrorCode(v string) *BatchAddFollowRecordsResponseBodyResults {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *BatchAddFollowRecordsResponseBodyResults) SetErrorMsg(v string) *BatchAddFollowRecordsResponseBodyResults {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *BatchAddFollowRecordsResponseBodyResults) SetInstanceId(v string) *BatchAddFollowRecordsResponseBodyResults {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *BatchAddFollowRecordsResponseBodyResults) SetSuccess(v bool) *BatchAddFollowRecordsResponseBodyResults {
+	s.Success = &v
+	return s
+}
+
+type BatchAddFollowRecordsResponse struct {
+	Headers map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchAddFollowRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchAddFollowRecordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddFollowRecordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddFollowRecordsResponse) SetHeaders(v map[string]*string) *BatchAddFollowRecordsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchAddFollowRecordsResponse) SetBody(v *BatchAddFollowRecordsResponseBody) *BatchAddFollowRecordsResponse {
+	s.Body = v
+	return s
+}
+
 type BatchAddRelationDatasHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1241,6 +1419,134 @@ func (s *BatchAddRelationDatasResponse) SetHeaders(v map[string]*string) *BatchA
 }
 
 func (s *BatchAddRelationDatasResponse) SetBody(v *BatchAddRelationDatasResponseBody) *BatchAddRelationDatasResponse {
+	s.Body = v
+	return s
+}
+
+type BatchRemoveFollowRecordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchRemoveFollowRecordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRemoveFollowRecordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRemoveFollowRecordsHeaders) SetCommonHeaders(v map[string]*string) *BatchRemoveFollowRecordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchRemoveFollowRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *BatchRemoveFollowRecordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchRemoveFollowRecordsRequest struct {
+	// 关系数据列表。
+	InstanceIds []*string `json:"instanceIds,omitempty" xml:"instanceIds,omitempty" type:"Repeated"`
+	// 操作人userId
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+}
+
+func (s BatchRemoveFollowRecordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRemoveFollowRecordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRemoveFollowRecordsRequest) SetInstanceIds(v []*string) *BatchRemoveFollowRecordsRequest {
+	s.InstanceIds = v
+	return s
+}
+
+func (s *BatchRemoveFollowRecordsRequest) SetOperatorUserId(v string) *BatchRemoveFollowRecordsRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+type BatchRemoveFollowRecordsResponseBody struct {
+	// 批量插入结果列表，results的结果和要新增的数据是一一对应的，可以获取到每条数据分别是否成功。
+	Results []*BatchRemoveFollowRecordsResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
+}
+
+func (s BatchRemoveFollowRecordsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRemoveFollowRecordsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRemoveFollowRecordsResponseBody) SetResults(v []*BatchRemoveFollowRecordsResponseBodyResults) *BatchRemoveFollowRecordsResponseBody {
+	s.Results = v
+	return s
+}
+
+type BatchRemoveFollowRecordsResponseBodyResults struct {
+	// 如果保存失败，则表示失败的错误码。
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// 如果保存失败，则表示失败的错误原因。
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// 保存成功的关系id。
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// 数据是否保存成功。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchRemoveFollowRecordsResponseBodyResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRemoveFollowRecordsResponseBodyResults) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRemoveFollowRecordsResponseBodyResults) SetErrorCode(v string) *BatchRemoveFollowRecordsResponseBodyResults {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *BatchRemoveFollowRecordsResponseBodyResults) SetErrorMsg(v string) *BatchRemoveFollowRecordsResponseBodyResults {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *BatchRemoveFollowRecordsResponseBodyResults) SetInstanceId(v string) *BatchRemoveFollowRecordsResponseBodyResults {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *BatchRemoveFollowRecordsResponseBodyResults) SetSuccess(v bool) *BatchRemoveFollowRecordsResponseBodyResults {
+	s.Success = &v
+	return s
+}
+
+type BatchRemoveFollowRecordsResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchRemoveFollowRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchRemoveFollowRecordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRemoveFollowRecordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRemoveFollowRecordsResponse) SetHeaders(v map[string]*string) *BatchRemoveFollowRecordsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchRemoveFollowRecordsResponse) SetBody(v *BatchRemoveFollowRecordsResponseBody) *BatchRemoveFollowRecordsResponse {
 	s.Body = v
 	return s
 }
@@ -1805,6 +2111,190 @@ func (s *BatchUpdateContactsResponse) SetHeaders(v map[string]*string) *BatchUpd
 }
 
 func (s *BatchUpdateContactsResponse) SetBody(v *BatchUpdateContactsResponseBody) *BatchUpdateContactsResponse {
+	s.Body = v
+	return s
+}
+
+type BatchUpdateFollowRecordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchUpdateFollowRecordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateFollowRecordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateFollowRecordsHeaders) SetCommonHeaders(v map[string]*string) *BatchUpdateFollowRecordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchUpdateFollowRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *BatchUpdateFollowRecordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchUpdateFollowRecordsRequest struct {
+	// 关系数据列表。
+	InstanceList []*BatchUpdateFollowRecordsRequestInstanceList `json:"instanceList,omitempty" xml:"instanceList,omitempty" type:"Repeated"`
+	// 操作人userId
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+}
+
+func (s BatchUpdateFollowRecordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateFollowRecordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateFollowRecordsRequest) SetInstanceList(v []*BatchUpdateFollowRecordsRequestInstanceList) *BatchUpdateFollowRecordsRequest {
+	s.InstanceList = v
+	return s
+}
+
+func (s *BatchUpdateFollowRecordsRequest) SetOperatorUserId(v string) *BatchUpdateFollowRecordsRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+type BatchUpdateFollowRecordsRequestInstanceList struct {
+	// 关系模型数据。
+	DataArray  []*BatchUpdateFollowRecordsRequestInstanceListDataArray `json:"dataArray,omitempty" xml:"dataArray,omitempty" type:"Repeated"`
+	InstanceId *string                                                 `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+}
+
+func (s BatchUpdateFollowRecordsRequestInstanceList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateFollowRecordsRequestInstanceList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateFollowRecordsRequestInstanceList) SetDataArray(v []*BatchUpdateFollowRecordsRequestInstanceListDataArray) *BatchUpdateFollowRecordsRequestInstanceList {
+	s.DataArray = v
+	return s
+}
+
+func (s *BatchUpdateFollowRecordsRequestInstanceList) SetInstanceId(v string) *BatchUpdateFollowRecordsRequestInstanceList {
+	s.InstanceId = &v
+	return s
+}
+
+type BatchUpdateFollowRecordsRequestInstanceListDataArray struct {
+	// 模型字段extendValue。
+	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
+	// 模型字段id。
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// 模型字段value。
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s BatchUpdateFollowRecordsRequestInstanceListDataArray) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateFollowRecordsRequestInstanceListDataArray) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateFollowRecordsRequestInstanceListDataArray) SetExtendValue(v string) *BatchUpdateFollowRecordsRequestInstanceListDataArray {
+	s.ExtendValue = &v
+	return s
+}
+
+func (s *BatchUpdateFollowRecordsRequestInstanceListDataArray) SetKey(v string) *BatchUpdateFollowRecordsRequestInstanceListDataArray {
+	s.Key = &v
+	return s
+}
+
+func (s *BatchUpdateFollowRecordsRequestInstanceListDataArray) SetValue(v string) *BatchUpdateFollowRecordsRequestInstanceListDataArray {
+	s.Value = &v
+	return s
+}
+
+type BatchUpdateFollowRecordsResponseBody struct {
+	// 批量插入结果列表，results的结果和要新增的数据是一一对应的，可以获取到每条数据分别是否成功。
+	Results []*BatchUpdateFollowRecordsResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
+}
+
+func (s BatchUpdateFollowRecordsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateFollowRecordsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateFollowRecordsResponseBody) SetResults(v []*BatchUpdateFollowRecordsResponseBodyResults) *BatchUpdateFollowRecordsResponseBody {
+	s.Results = v
+	return s
+}
+
+type BatchUpdateFollowRecordsResponseBodyResults struct {
+	// 如果保存失败，则表示失败的错误码。
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// 如果保存失败，则表示失败的错误原因。
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// 保存成功的关系id。
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// 数据是否保存成功。
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchUpdateFollowRecordsResponseBodyResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateFollowRecordsResponseBodyResults) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateFollowRecordsResponseBodyResults) SetErrorCode(v string) *BatchUpdateFollowRecordsResponseBodyResults {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *BatchUpdateFollowRecordsResponseBodyResults) SetErrorMsg(v string) *BatchUpdateFollowRecordsResponseBodyResults {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *BatchUpdateFollowRecordsResponseBodyResults) SetInstanceId(v string) *BatchUpdateFollowRecordsResponseBodyResults {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *BatchUpdateFollowRecordsResponseBodyResults) SetSuccess(v bool) *BatchUpdateFollowRecordsResponseBodyResults {
+	s.Success = &v
+	return s
+}
+
+type BatchUpdateFollowRecordsResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchUpdateFollowRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchUpdateFollowRecordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateFollowRecordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateFollowRecordsResponse) SetHeaders(v map[string]*string) *BatchUpdateFollowRecordsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchUpdateFollowRecordsResponse) SetBody(v *BatchUpdateFollowRecordsResponseBody) *BatchUpdateFollowRecordsResponse {
 	s.Body = v
 	return s
 }
@@ -12117,6 +12607,54 @@ func (client *Client) BatchAddContactsWithOptions(request *BatchAddContactsReque
 	return _result, _err
 }
 
+func (client *Client) BatchAddFollowRecords(request *BatchAddFollowRecordsRequest) (_result *BatchAddFollowRecordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchAddFollowRecordsHeaders{}
+	_result = &BatchAddFollowRecordsResponse{}
+	_body, _err := client.BatchAddFollowRecordsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchAddFollowRecordsWithOptions(request *BatchAddFollowRecordsRequest, headers *BatchAddFollowRecordsHeaders, runtime *util.RuntimeOptions) (_result *BatchAddFollowRecordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstanceList)) {
+		body["instanceList"] = request.InstanceList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchAddFollowRecordsResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchAddFollowRecords"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/followRecords/batch"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) BatchAddRelationDatas(request *BatchAddRelationDatasRequest) (_result *BatchAddRelationDatasResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchAddRelationDatasHeaders{}
@@ -12166,6 +12704,54 @@ func (client *Client) BatchAddRelationDatasWithOptions(request *BatchAddRelation
 	}
 	_result = &BatchAddRelationDatasResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchAddRelationDatas"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/relationDatas/batch"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchRemoveFollowRecords(request *BatchRemoveFollowRecordsRequest) (_result *BatchRemoveFollowRecordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchRemoveFollowRecordsHeaders{}
+	_result = &BatchRemoveFollowRecordsResponse{}
+	_body, _err := client.BatchRemoveFollowRecordsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchRemoveFollowRecordsWithOptions(request *BatchRemoveFollowRecordsRequest, headers *BatchRemoveFollowRecordsHeaders, runtime *util.RuntimeOptions) (_result *BatchRemoveFollowRecordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstanceIds)) {
+		body["instanceIds"] = request.InstanceIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchRemoveFollowRecordsResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchRemoveFollowRecords"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/crm/followRecords/batchRemove"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12266,6 +12852,54 @@ func (client *Client) BatchUpdateContactsWithOptions(request *BatchUpdateContact
 	}
 	_result = &BatchUpdateContactsResponse{}
 	_body, _err := client.DoROARequest(tea.String("BatchUpdateContacts"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/crm/contacts/batch"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) BatchUpdateFollowRecords(request *BatchUpdateFollowRecordsRequest) (_result *BatchUpdateFollowRecordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchUpdateFollowRecordsHeaders{}
+	_result = &BatchUpdateFollowRecordsResponse{}
+	_body, _err := client.BatchUpdateFollowRecordsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchUpdateFollowRecordsWithOptions(request *BatchUpdateFollowRecordsRequest, headers *BatchUpdateFollowRecordsHeaders, runtime *util.RuntimeOptions) (_result *BatchUpdateFollowRecordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstanceList)) {
+		body["instanceList"] = request.InstanceList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchUpdateFollowRecordsResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchUpdateFollowRecords"), tea.String("crm_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/crm/followRecords/batch"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
