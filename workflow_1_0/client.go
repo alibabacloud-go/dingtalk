@@ -7648,6 +7648,8 @@ type SaveProcessRequest struct {
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 	// 流程中心集成配置
 	ProcessFeatureConfig *SaveProcessRequestProcessFeatureConfig `json:"processFeatureConfig,omitempty" xml:"processFeatureConfig,omitempty" type:"Struct"`
+	// 流程中心模板配置
+	TemplateConfig *SaveProcessRequestTemplateConfig `json:"templateConfig,omitempty" xml:"templateConfig,omitempty" type:"Struct"`
 }
 
 func (s SaveProcessRequest) String() string {
@@ -7680,6 +7682,11 @@ func (s *SaveProcessRequest) SetProcessCode(v string) *SaveProcessRequest {
 
 func (s *SaveProcessRequest) SetProcessFeatureConfig(v *SaveProcessRequestProcessFeatureConfig) *SaveProcessRequest {
 	s.ProcessFeatureConfig = v
+	return s
+}
+
+func (s *SaveProcessRequest) SetTemplateConfig(v *SaveProcessRequestTemplateConfig) *SaveProcessRequest {
+	s.TemplateConfig = v
 	return s
 }
 
@@ -7777,6 +7784,45 @@ func (s *SaveProcessRequestProcessFeatureConfigFeaturesCallback) SetAppUuid(v st
 
 func (s *SaveProcessRequestProcessFeatureConfigFeaturesCallback) SetVersion(v string) *SaveProcessRequestProcessFeatureConfigFeaturesCallback {
 	s.Version = &v
+	return s
+}
+
+type SaveProcessRequestTemplateConfig struct {
+	// 表单创建移动端地址
+	CreateInstanceMobileUrl *string `json:"createInstanceMobileUrl,omitempty" xml:"createInstanceMobileUrl,omitempty"`
+	// 表单创建PC端地址
+	CreateInstancePcUrl *string `json:"createInstancePcUrl,omitempty" xml:"createInstancePcUrl,omitempty"`
+	// 是否为隐藏模板
+	Hidden *bool `json:"hidden,omitempty" xml:"hidden,omitempty"`
+	// 模板编辑地址
+	TemplateEditUrl *string `json:"templateEditUrl,omitempty" xml:"templateEditUrl,omitempty"`
+}
+
+func (s SaveProcessRequestTemplateConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveProcessRequestTemplateConfig) GoString() string {
+	return s.String()
+}
+
+func (s *SaveProcessRequestTemplateConfig) SetCreateInstanceMobileUrl(v string) *SaveProcessRequestTemplateConfig {
+	s.CreateInstanceMobileUrl = &v
+	return s
+}
+
+func (s *SaveProcessRequestTemplateConfig) SetCreateInstancePcUrl(v string) *SaveProcessRequestTemplateConfig {
+	s.CreateInstancePcUrl = &v
+	return s
+}
+
+func (s *SaveProcessRequestTemplateConfig) SetHidden(v bool) *SaveProcessRequestTemplateConfig {
+	s.Hidden = &v
+	return s
+}
+
+func (s *SaveProcessRequestTemplateConfig) SetTemplateEditUrl(v string) *SaveProcessRequestTemplateConfig {
+	s.TemplateEditUrl = &v
 	return s
 }
 
@@ -10434,6 +10480,10 @@ func (client *Client) SaveProcessWithOptions(request *SaveProcessRequest, header
 
 	if !tea.BoolValue(util.IsUnset(request.ProcessFeatureConfig)) {
 		body["processFeatureConfig"] = request.ProcessFeatureConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateConfig)) {
+		body["templateConfig"] = request.TemplateConfig
 	}
 
 	realHeaders := make(map[string]*string)

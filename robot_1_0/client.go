@@ -345,6 +345,109 @@ func (s *BatchRecallOTOResponse) SetBody(v *BatchRecallOTOResponseBody) *BatchRe
 	return s
 }
 
+type BatchRecallPrivateChatHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchRecallPrivateChatHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRecallPrivateChatHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRecallPrivateChatHeaders) SetCommonHeaders(v map[string]*string) *BatchRecallPrivateChatHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchRecallPrivateChatHeaders) SetXAcsDingtalkAccessToken(v string) *BatchRecallPrivateChatHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchRecallPrivateChatRequest struct {
+	// 开放的群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 消息id
+	ProcessQueryKeys []*string `json:"processQueryKeys,omitempty" xml:"processQueryKeys,omitempty" type:"Repeated"`
+	// 机器人的robotCode
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s BatchRecallPrivateChatRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRecallPrivateChatRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRecallPrivateChatRequest) SetOpenConversationId(v string) *BatchRecallPrivateChatRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *BatchRecallPrivateChatRequest) SetProcessQueryKeys(v []*string) *BatchRecallPrivateChatRequest {
+	s.ProcessQueryKeys = v
+	return s
+}
+
+func (s *BatchRecallPrivateChatRequest) SetRobotCode(v string) *BatchRecallPrivateChatRequest {
+	s.RobotCode = &v
+	return s
+}
+
+type BatchRecallPrivateChatResponseBody struct {
+	// 撤回失败的消息id及原因
+	FailedResult map[string]*string `json:"failedResult,omitempty" xml:"failedResult,omitempty"`
+	// 撤回成功的消息id
+	SuccessResult []*string `json:"successResult,omitempty" xml:"successResult,omitempty" type:"Repeated"`
+}
+
+func (s BatchRecallPrivateChatResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRecallPrivateChatResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRecallPrivateChatResponseBody) SetFailedResult(v map[string]*string) *BatchRecallPrivateChatResponseBody {
+	s.FailedResult = v
+	return s
+}
+
+func (s *BatchRecallPrivateChatResponseBody) SetSuccessResult(v []*string) *BatchRecallPrivateChatResponseBody {
+	s.SuccessResult = v
+	return s
+}
+
+type BatchRecallPrivateChatResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchRecallPrivateChatResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchRecallPrivateChatResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchRecallPrivateChatResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchRecallPrivateChatResponse) SetHeaders(v map[string]*string) *BatchRecallPrivateChatResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchRecallPrivateChatResponse) SetBody(v *BatchRecallPrivateChatResponseBody) *BatchRecallPrivateChatResponse {
+	s.Body = v
+	return s
+}
+
 type BatchSendOTOHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -540,6 +643,123 @@ func (s *ClearRobotPluginResponse) SetHeaders(v map[string]*string) *ClearRobotP
 }
 
 func (s *ClearRobotPluginResponse) SetBody(v *ClearRobotPluginResponseBody) *ClearRobotPluginResponse {
+	s.Body = v
+	return s
+}
+
+type GetBotListInGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetBotListInGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBotListInGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetBotListInGroupHeaders) SetCommonHeaders(v map[string]*string) *GetBotListInGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetBotListInGroupHeaders) SetXAcsDingtalkAccessToken(v string) *GetBotListInGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetBotListInGroupRequest struct {
+	// 群id。
+	//
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s GetBotListInGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBotListInGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetBotListInGroupRequest) SetOpenConversationId(v string) *GetBotListInGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type GetBotListInGroupResponseBody struct {
+	ChatbotInstanceVOList []*GetBotListInGroupResponseBodyChatbotInstanceVOList `json:"chatbotInstanceVOList,omitempty" xml:"chatbotInstanceVOList,omitempty" type:"Repeated"`
+}
+
+func (s GetBotListInGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBotListInGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetBotListInGroupResponseBody) SetChatbotInstanceVOList(v []*GetBotListInGroupResponseBodyChatbotInstanceVOList) *GetBotListInGroupResponseBody {
+	s.ChatbotInstanceVOList = v
+	return s
+}
+
+type GetBotListInGroupResponseBodyChatbotInstanceVOList struct {
+	DownloadIconURL *string `json:"downloadIconURL,omitempty" xml:"downloadIconURL,omitempty"`
+	Name            *string `json:"name,omitempty" xml:"name,omitempty"`
+	OpenRobotType   *int32  `json:"openRobotType,omitempty" xml:"openRobotType,omitempty"`
+	RobotCode       *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s GetBotListInGroupResponseBodyChatbotInstanceVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBotListInGroupResponseBodyChatbotInstanceVOList) GoString() string {
+	return s.String()
+}
+
+func (s *GetBotListInGroupResponseBodyChatbotInstanceVOList) SetDownloadIconURL(v string) *GetBotListInGroupResponseBodyChatbotInstanceVOList {
+	s.DownloadIconURL = &v
+	return s
+}
+
+func (s *GetBotListInGroupResponseBodyChatbotInstanceVOList) SetName(v string) *GetBotListInGroupResponseBodyChatbotInstanceVOList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetBotListInGroupResponseBodyChatbotInstanceVOList) SetOpenRobotType(v int32) *GetBotListInGroupResponseBodyChatbotInstanceVOList {
+	s.OpenRobotType = &v
+	return s
+}
+
+func (s *GetBotListInGroupResponseBodyChatbotInstanceVOList) SetRobotCode(v string) *GetBotListInGroupResponseBodyChatbotInstanceVOList {
+	s.RobotCode = &v
+	return s
+}
+
+type GetBotListInGroupResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetBotListInGroupResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetBotListInGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBotListInGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetBotListInGroupResponse) SetHeaders(v map[string]*string) *GetBotListInGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetBotListInGroupResponse) SetBody(v *GetBotListInGroupResponseBody) *GetBotListInGroupResponse {
 	s.Body = v
 	return s
 }
@@ -987,6 +1207,137 @@ func (s *OrgGroupSendResponse) SetHeaders(v map[string]*string) *OrgGroupSendRes
 }
 
 func (s *OrgGroupSendResponse) SetBody(v *OrgGroupSendResponseBody) *OrgGroupSendResponse {
+	s.Body = v
+	return s
+}
+
+type PrivateChatQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PrivateChatQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrivateChatQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PrivateChatQueryHeaders) SetCommonHeaders(v map[string]*string) *PrivateChatQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PrivateChatQueryHeaders) SetXAcsDingtalkAccessToken(v string) *PrivateChatQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PrivateChatQueryRequest struct {
+	// 分页查询每页的数量
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 一次查询后返回的加密的分页凭证，首次查询不填
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 开放的群id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 发送消息返回的加密消息id
+	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
+	// 企业机器人的robotcode
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s PrivateChatQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrivateChatQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PrivateChatQueryRequest) SetMaxResults(v int64) *PrivateChatQueryRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *PrivateChatQueryRequest) SetNextToken(v string) *PrivateChatQueryRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *PrivateChatQueryRequest) SetOpenConversationId(v string) *PrivateChatQueryRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *PrivateChatQueryRequest) SetProcessQueryKey(v string) *PrivateChatQueryRequest {
+	s.ProcessQueryKey = &v
+	return s
+}
+
+func (s *PrivateChatQueryRequest) SetRobotCode(v string) *PrivateChatQueryRequest {
+	s.RobotCode = &v
+	return s
+}
+
+type PrivateChatQueryResponseBody struct {
+	// 分页查询是否还有人员可查询消息已读状态
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// 下次分页查询的加密凭证
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 消息已读人的userId列表
+	ReadUserIds []*string `json:"readUserIds,omitempty" xml:"readUserIds,omitempty" type:"Repeated"`
+	// 消息发送状态
+	SendStatus *string `json:"sendStatus,omitempty" xml:"sendStatus,omitempty"`
+}
+
+func (s PrivateChatQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrivateChatQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PrivateChatQueryResponseBody) SetHasMore(v bool) *PrivateChatQueryResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *PrivateChatQueryResponseBody) SetNextToken(v string) *PrivateChatQueryResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *PrivateChatQueryResponseBody) SetReadUserIds(v []*string) *PrivateChatQueryResponseBody {
+	s.ReadUserIds = v
+	return s
+}
+
+func (s *PrivateChatQueryResponseBody) SetSendStatus(v string) *PrivateChatQueryResponseBody {
+	s.SendStatus = &v
+	return s
+}
+
+type PrivateChatQueryResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PrivateChatQueryResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PrivateChatQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrivateChatQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PrivateChatQueryResponse) SetHeaders(v map[string]*string) *PrivateChatQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PrivateChatQueryResponse) SetBody(v *PrivateChatQueryResponseBody) *PrivateChatQueryResponse {
 	s.Body = v
 	return s
 }
@@ -1826,6 +2177,58 @@ func (client *Client) BatchRecallOTOWithOptions(request *BatchRecallOTORequest, 
 	return _result, _err
 }
 
+func (client *Client) BatchRecallPrivateChat(request *BatchRecallPrivateChatRequest) (_result *BatchRecallPrivateChatResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchRecallPrivateChatHeaders{}
+	_result = &BatchRecallPrivateChatResponse{}
+	_body, _err := client.BatchRecallPrivateChatWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchRecallPrivateChatWithOptions(request *BatchRecallPrivateChatRequest, headers *BatchRecallPrivateChatHeaders, runtime *util.RuntimeOptions) (_result *BatchRecallPrivateChatResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessQueryKeys)) {
+		body["processQueryKeys"] = request.ProcessQueryKeys
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchRecallPrivateChatResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchRecallPrivateChat"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/privateChatMessages/batchRecall"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) BatchSendOTO(request *BatchSendOTORequest) (_result *BatchSendOTOResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchSendOTOHeaders{}
@@ -1919,6 +2322,50 @@ func (client *Client) ClearRobotPluginWithOptions(request *ClearRobotPluginReque
 	}
 	_result = &ClearRobotPluginResponse{}
 	_body, _err := client.DoROARequest(tea.String("ClearRobotPlugin"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/plugins/clear"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) GetBotListInGroup(request *GetBotListInGroupRequest) (_result *GetBotListInGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetBotListInGroupHeaders{}
+	_result = &GetBotListInGroupResponse{}
+	_body, _err := client.GetBotListInGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetBotListInGroupWithOptions(request *GetBotListInGroupRequest, headers *GetBotListInGroupHeaders, runtime *util.RuntimeOptions) (_result *GetBotListInGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &GetBotListInGroupResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetBotListInGroup"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/groups/robots/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2147,6 +2594,66 @@ func (client *Client) OrgGroupSendWithOptions(request *OrgGroupSendRequest, head
 	}
 	_result = &OrgGroupSendResponse{}
 	_body, _err := client.DoROARequest(tea.String("OrgGroupSend"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/groupMessages/send"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PrivateChatQuery(request *PrivateChatQueryRequest) (_result *PrivateChatQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PrivateChatQueryHeaders{}
+	_result = &PrivateChatQueryResponse{}
+	_body, _err := client.PrivateChatQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PrivateChatQueryWithOptions(request *PrivateChatQueryRequest, headers *PrivateChatQueryHeaders, runtime *util.RuntimeOptions) (_result *PrivateChatQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessQueryKey)) {
+		body["processQueryKey"] = request.ProcessQueryKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &PrivateChatQueryResponse{}
+	_body, _err := client.DoROARequest(tea.String("PrivateChatQuery"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/privateChatMessages/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
