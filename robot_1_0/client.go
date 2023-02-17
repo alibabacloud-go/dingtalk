@@ -1342,6 +1342,116 @@ func (s *PrivateChatQueryResponse) SetBody(v *PrivateChatQueryResponseBody) *Pri
 	return s
 }
 
+type PrivateChatSendHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PrivateChatSendHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrivateChatSendHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PrivateChatSendHeaders) SetCommonHeaders(v map[string]*string) *PrivateChatSendHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PrivateChatSendHeaders) SetXAcsDingtalkAccessToken(v string) *PrivateChatSendHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PrivateChatSendRequest struct {
+	// 酷应用的code
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	// 消息类型的key
+	MsgKey *string `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
+	// 消息体
+	MsgParam *string `json:"msgParam,omitempty" xml:"msgParam,omitempty"`
+	// 开放会话ID
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// 机器人robotCode
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s PrivateChatSendRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrivateChatSendRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PrivateChatSendRequest) SetCoolAppCode(v string) *PrivateChatSendRequest {
+	s.CoolAppCode = &v
+	return s
+}
+
+func (s *PrivateChatSendRequest) SetMsgKey(v string) *PrivateChatSendRequest {
+	s.MsgKey = &v
+	return s
+}
+
+func (s *PrivateChatSendRequest) SetMsgParam(v string) *PrivateChatSendRequest {
+	s.MsgParam = &v
+	return s
+}
+
+func (s *PrivateChatSendRequest) SetOpenConversationId(v string) *PrivateChatSendRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *PrivateChatSendRequest) SetRobotCode(v string) *PrivateChatSendRequest {
+	s.RobotCode = &v
+	return s
+}
+
+type PrivateChatSendResponseBody struct {
+	// 加密消息id
+	ProcessQueryKey *string `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
+}
+
+func (s PrivateChatSendResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrivateChatSendResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PrivateChatSendResponseBody) SetProcessQueryKey(v string) *PrivateChatSendResponseBody {
+	s.ProcessQueryKey = &v
+	return s
+}
+
+type PrivateChatSendResponse struct {
+	Headers map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PrivateChatSendResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PrivateChatSendResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrivateChatSendResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PrivateChatSendResponse) SetHeaders(v map[string]*string) *PrivateChatSendResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PrivateChatSendResponse) SetBody(v *PrivateChatSendResponseBody) *PrivateChatSendResponse {
+	s.Body = v
+	return s
+}
+
 type QueryBotInstanceInGroupInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2654,6 +2764,66 @@ func (client *Client) PrivateChatQueryWithOptions(request *PrivateChatQueryReque
 	}
 	_result = &PrivateChatQueryResponse{}
 	_body, _err := client.DoROARequest(tea.String("PrivateChatQuery"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/privateChatMessages/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PrivateChatSend(request *PrivateChatSendRequest) (_result *PrivateChatSendResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PrivateChatSendHeaders{}
+	_result = &PrivateChatSendResponse{}
+	_body, _err := client.PrivateChatSendWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PrivateChatSendWithOptions(request *PrivateChatSendRequest, headers *PrivateChatSendHeaders, runtime *util.RuntimeOptions) (_result *PrivateChatSendResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CoolAppCode)) {
+		body["coolAppCode"] = request.CoolAppCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgKey)) {
+		body["msgKey"] = request.MsgKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgParam)) {
+		body["msgParam"] = request.MsgParam
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &PrivateChatSendResponse{}
+	_body, _err := client.DoROARequest(tea.String("PrivateChatSend"), tea.String("robot_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/robot/privateChatMessages/send"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

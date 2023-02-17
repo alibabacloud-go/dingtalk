@@ -5666,6 +5666,335 @@ func (s *QueryCardVisitorStatisticDataResponse) SetBody(v *QueryCardVisitorStati
 	return s
 }
 
+type QueryCorpStatisticDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCorpStatisticDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCorpStatisticDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCorpStatisticDataHeaders) SetCommonHeaders(v map[string]*string) *QueryCorpStatisticDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCorpStatisticDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCorpStatisticDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCorpStatisticDataRequest struct {
+	// 结束时间（yyyymmdd）
+	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 开始时间（yyyymmdd）
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 模版id列表
+	TemplateIds []*string `json:"templateIds,omitempty" xml:"templateIds,omitempty" type:"Repeated"`
+	// 操作者id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryCorpStatisticDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCorpStatisticDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCorpStatisticDataRequest) SetEndTime(v string) *QueryCorpStatisticDataRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryCorpStatisticDataRequest) SetStartTime(v string) *QueryCorpStatisticDataRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryCorpStatisticDataRequest) SetTemplateIds(v []*string) *QueryCorpStatisticDataRequest {
+	s.TemplateIds = v
+	return s
+}
+
+func (s *QueryCorpStatisticDataRequest) SetUnionId(v string) *QueryCorpStatisticDataRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryCorpStatisticDataResponseBody struct {
+	// 被收下总数
+	CardBeReceivedTotalCnt *int64 `json:"cardBeReceivedTotalCnt,omitempty" xml:"cardBeReceivedTotalCnt,omitempty"`
+	// 收下总数
+	CardReceiveTotalCnt *int64 `json:"cardReceiveTotalCnt,omitempty" xml:"cardReceiveTotalCnt,omitempty"`
+	// 被查看总数
+	CardTotalBeVisitedCnt *int64 `json:"cardTotalBeVisitedCnt,omitempty" xml:"cardTotalBeVisitedCnt,omitempty"`
+	// 数据日期
+	DataDate *string `json:"dataDate,omitempty" xml:"dataDate,omitempty"`
+	// 钉钉发送数
+	DingTotalShareCnt *int64 `json:"dingTotalShareCnt,omitempty" xml:"dingTotalShareCnt,omitempty"`
+	// 总发送数
+	TotalSendCnt *int64 `json:"totalSendCnt,omitempty" xml:"totalSendCnt,omitempty"`
+	// 微信发送数
+	WechatTotalShareCnt *int64 `json:"wechatTotalShareCnt,omitempty" xml:"wechatTotalShareCnt,omitempty"`
+}
+
+func (s QueryCorpStatisticDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCorpStatisticDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCorpStatisticDataResponseBody) SetCardBeReceivedTotalCnt(v int64) *QueryCorpStatisticDataResponseBody {
+	s.CardBeReceivedTotalCnt = &v
+	return s
+}
+
+func (s *QueryCorpStatisticDataResponseBody) SetCardReceiveTotalCnt(v int64) *QueryCorpStatisticDataResponseBody {
+	s.CardReceiveTotalCnt = &v
+	return s
+}
+
+func (s *QueryCorpStatisticDataResponseBody) SetCardTotalBeVisitedCnt(v int64) *QueryCorpStatisticDataResponseBody {
+	s.CardTotalBeVisitedCnt = &v
+	return s
+}
+
+func (s *QueryCorpStatisticDataResponseBody) SetDataDate(v string) *QueryCorpStatisticDataResponseBody {
+	s.DataDate = &v
+	return s
+}
+
+func (s *QueryCorpStatisticDataResponseBody) SetDingTotalShareCnt(v int64) *QueryCorpStatisticDataResponseBody {
+	s.DingTotalShareCnt = &v
+	return s
+}
+
+func (s *QueryCorpStatisticDataResponseBody) SetTotalSendCnt(v int64) *QueryCorpStatisticDataResponseBody {
+	s.TotalSendCnt = &v
+	return s
+}
+
+func (s *QueryCorpStatisticDataResponseBody) SetWechatTotalShareCnt(v int64) *QueryCorpStatisticDataResponseBody {
+	s.WechatTotalShareCnt = &v
+	return s
+}
+
+type QueryCorpStatisticDataResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryCorpStatisticDataResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryCorpStatisticDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCorpStatisticDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCorpStatisticDataResponse) SetHeaders(v map[string]*string) *QueryCorpStatisticDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCorpStatisticDataResponse) SetBody(v *QueryCorpStatisticDataResponseBody) *QueryCorpStatisticDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryCorpUserStatisticHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCorpUserStatisticHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCorpUserStatisticHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCorpUserStatisticHeaders) SetCommonHeaders(v map[string]*string) *QueryCorpUserStatisticHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCorpUserStatisticHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCorpUserStatisticHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCorpUserStatisticRequest struct {
+	// 结束时间（yyyymmdd）
+	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 页大小
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 当前页
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 开始时间（yyyymmdd）
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 模版id列表
+	TemplateIds []*string `json:"templateIds,omitempty" xml:"templateIds,omitempty" type:"Repeated"`
+	// 操作者id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryCorpUserStatisticRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCorpUserStatisticRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCorpUserStatisticRequest) SetEndTime(v string) *QueryCorpUserStatisticRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryCorpUserStatisticRequest) SetMaxResults(v int64) *QueryCorpUserStatisticRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryCorpUserStatisticRequest) SetNextToken(v int64) *QueryCorpUserStatisticRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryCorpUserStatisticRequest) SetStartTime(v string) *QueryCorpUserStatisticRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryCorpUserStatisticRequest) SetTemplateIds(v []*string) *QueryCorpUserStatisticRequest {
+	s.TemplateIds = v
+	return s
+}
+
+func (s *QueryCorpUserStatisticRequest) SetUnionId(v string) *QueryCorpUserStatisticRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryCorpUserStatisticResponseBody struct {
+	// 是否还有更多数据
+	HasMore *bool                                     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*QueryCorpUserStatisticResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// 下一游标
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 总数
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryCorpUserStatisticResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCorpUserStatisticResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCorpUserStatisticResponseBody) SetHasMore(v bool) *QueryCorpUserStatisticResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryCorpUserStatisticResponseBody) SetList(v []*QueryCorpUserStatisticResponseBodyList) *QueryCorpUserStatisticResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *QueryCorpUserStatisticResponseBody) SetNextToken(v int64) *QueryCorpUserStatisticResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryCorpUserStatisticResponseBody) SetTotalCount(v int64) *QueryCorpUserStatisticResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryCorpUserStatisticResponseBodyList struct {
+	// 用户头像
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// 用户名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 收下数
+	ReceiveCnt *int64 `json:"receiveCnt,omitempty" xml:"receiveCnt,omitempty"`
+	// 发送数
+	SendCnt *int64 `json:"sendCnt,omitempty" xml:"sendCnt,omitempty"`
+	// 用户id
+	//
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryCorpUserStatisticResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCorpUserStatisticResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCorpUserStatisticResponseBodyList) SetAvatarUrl(v string) *QueryCorpUserStatisticResponseBodyList {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *QueryCorpUserStatisticResponseBodyList) SetName(v string) *QueryCorpUserStatisticResponseBodyList {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryCorpUserStatisticResponseBodyList) SetReceiveCnt(v int64) *QueryCorpUserStatisticResponseBodyList {
+	s.ReceiveCnt = &v
+	return s
+}
+
+func (s *QueryCorpUserStatisticResponseBodyList) SetSendCnt(v int64) *QueryCorpUserStatisticResponseBodyList {
+	s.SendCnt = &v
+	return s
+}
+
+func (s *QueryCorpUserStatisticResponseBodyList) SetUnionId(v string) *QueryCorpUserStatisticResponseBodyList {
+	s.UnionId = &v
+	return s
+}
+
+type QueryCorpUserStatisticResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryCorpUserStatisticResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryCorpUserStatisticResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCorpUserStatisticResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCorpUserStatisticResponse) SetHeaders(v map[string]*string) *QueryCorpUserStatisticResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCorpUserStatisticResponse) SetBody(v *QueryCorpUserStatisticResponseBody) *QueryCorpUserStatisticResponse {
+	s.Body = v
+	return s
+}
+
 type QueryResourceManagementMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10414,6 +10743,126 @@ func (client *Client) QueryCardVisitorStatisticDataWithOptions(request *QueryCar
 	}
 	_result = &QueryCardVisitorStatisticDataResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryCardVisitorStatisticData"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/contact/cards/visitors/statistics"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryCorpStatisticData(request *QueryCorpStatisticDataRequest) (_result *QueryCorpStatisticDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCorpStatisticDataHeaders{}
+	_result = &QueryCorpStatisticDataResponse{}
+	_body, _err := client.QueryCorpStatisticDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryCorpStatisticDataWithOptions(request *QueryCorpStatisticDataRequest, headers *QueryCorpStatisticDataHeaders, runtime *util.RuntimeOptions) (_result *QueryCorpStatisticDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateIds)) {
+		body["templateIds"] = request.TemplateIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryCorpStatisticDataResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryCorpStatisticData"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/cards/templates/statistics/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryCorpUserStatistic(request *QueryCorpUserStatisticRequest) (_result *QueryCorpUserStatisticResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCorpUserStatisticHeaders{}
+	_result = &QueryCorpUserStatisticResponse{}
+	_body, _err := client.QueryCorpUserStatisticWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryCorpUserStatisticWithOptions(request *QueryCorpUserStatisticRequest, headers *QueryCorpUserStatisticHeaders, runtime *util.RuntimeOptions) (_result *QueryCorpUserStatisticResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateIds)) {
+		body["templateIds"] = request.TemplateIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryCorpUserStatisticResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryCorpUserStatistic"), tea.String("contact_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/contact/cards/users/statistics/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
