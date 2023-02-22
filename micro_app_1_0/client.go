@@ -1502,6 +1502,151 @@ func (s *ListAllAppResponse) SetBody(v *ListAllAppResponseBody) *ListAllAppRespo
 	return s
 }
 
+type ListAllInnerAppsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListAllInnerAppsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllInnerAppsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllInnerAppsHeaders) SetCommonHeaders(v map[string]*string) *ListAllInnerAppsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListAllInnerAppsHeaders) SetXAcsDingtalkAccessToken(v string) *ListAllInnerAppsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListAllInnerAppsResponseBody struct {
+	// 应用列表
+	AppList []*ListAllInnerAppsResponseBodyAppList `json:"appList,omitempty" xml:"appList,omitempty" type:"Repeated"`
+}
+
+func (s ListAllInnerAppsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllInnerAppsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllInnerAppsResponseBody) SetAppList(v []*ListAllInnerAppsResponseBodyAppList) *ListAllInnerAppsResponseBody {
+	s.AppList = v
+	return s
+}
+
+type ListAllInnerAppsResponseBodyAppList struct {
+	// 应用id
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// 三方应用id，如果是企业内部应用，返回0
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// 应用状态，0：停用，1：启用 ，3：过期
+	AppStatus *int32 `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
+	// 应用描述
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// 应用类型，0表示h5应用，1表示小程序
+	DevelopType *int32 `json:"developType,omitempty" xml:"developType,omitempty"`
+	// 应用移动端首页地址
+	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	// 应用图标
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 应用名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 应用管理后台地址
+	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	// 应用PC端首页地址
+	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
+}
+
+func (s ListAllInnerAppsResponseBodyAppList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllInnerAppsResponseBodyAppList) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllInnerAppsResponseBodyAppList) SetAgentId(v int64) *ListAllInnerAppsResponseBodyAppList {
+	s.AgentId = &v
+	return s
+}
+
+func (s *ListAllInnerAppsResponseBodyAppList) SetAppId(v int64) *ListAllInnerAppsResponseBodyAppList {
+	s.AppId = &v
+	return s
+}
+
+func (s *ListAllInnerAppsResponseBodyAppList) SetAppStatus(v int32) *ListAllInnerAppsResponseBodyAppList {
+	s.AppStatus = &v
+	return s
+}
+
+func (s *ListAllInnerAppsResponseBodyAppList) SetDesc(v string) *ListAllInnerAppsResponseBodyAppList {
+	s.Desc = &v
+	return s
+}
+
+func (s *ListAllInnerAppsResponseBodyAppList) SetDevelopType(v int32) *ListAllInnerAppsResponseBodyAppList {
+	s.DevelopType = &v
+	return s
+}
+
+func (s *ListAllInnerAppsResponseBodyAppList) SetHomepageLink(v string) *ListAllInnerAppsResponseBodyAppList {
+	s.HomepageLink = &v
+	return s
+}
+
+func (s *ListAllInnerAppsResponseBodyAppList) SetIcon(v string) *ListAllInnerAppsResponseBodyAppList {
+	s.Icon = &v
+	return s
+}
+
+func (s *ListAllInnerAppsResponseBodyAppList) SetName(v string) *ListAllInnerAppsResponseBodyAppList {
+	s.Name = &v
+	return s
+}
+
+func (s *ListAllInnerAppsResponseBodyAppList) SetOmpLink(v string) *ListAllInnerAppsResponseBodyAppList {
+	s.OmpLink = &v
+	return s
+}
+
+func (s *ListAllInnerAppsResponseBodyAppList) SetPcHomepageLink(v string) *ListAllInnerAppsResponseBodyAppList {
+	s.PcHomepageLink = &v
+	return s
+}
+
+type ListAllInnerAppsResponse struct {
+	Headers map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListAllInnerAppsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListAllInnerAppsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllInnerAppsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllInnerAppsResponse) SetHeaders(v map[string]*string) *ListAllInnerAppsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListAllInnerAppsResponse) SetBody(v *ListAllInnerAppsResponseBody) *ListAllInnerAppsResponse {
+	s.Body = v
+	return s
+}
+
 type ListAppRoleScopesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1807,6 +1952,130 @@ func (s *ListInnerAppResponse) SetBody(v *ListInnerAppResponseBody) *ListInnerAp
 	return s
 }
 
+type ListInnerAppVersionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListInnerAppVersionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListInnerAppVersionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListInnerAppVersionHeaders) SetCommonHeaders(v map[string]*string) *ListInnerAppVersionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListInnerAppVersionHeaders) SetXAcsDingtalkAccessToken(v string) *ListInnerAppVersionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListInnerAppVersionResponseBody struct {
+	// 企业内部小程序版本号列表
+	AppVersionList []*ListInnerAppVersionResponseBodyAppVersionList `json:"appVersionList,omitempty" xml:"appVersionList,omitempty" type:"Repeated"`
+}
+
+func (s ListInnerAppVersionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListInnerAppVersionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListInnerAppVersionResponseBody) SetAppVersionList(v []*ListInnerAppVersionResponseBodyAppVersionList) *ListInnerAppVersionResponseBody {
+	s.AppVersionList = v
+	return s
+}
+
+type ListInnerAppVersionResponseBodyAppVersionList struct {
+	// 小程序版本号
+	AppVersion *string `json:"appVersion,omitempty" xml:"appVersion,omitempty"`
+	// 小程序版本id，用于发布和回滚的版本唯一标识。
+	AppVersionId *int64 `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
+	// 小程序版本类型，0表示开发版本，2表示正式版本，3表示体验版本
+	AppVersionType *int32 `json:"appVersionType,omitempty" xml:"appVersionType,omitempty"`
+	// 小程序版本创建事件，格式:yyyy-MM-dd HH:mm:ss
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 小程序id
+	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	// 是否支持PC端打开小程序，false表示只支持移动端，true表示既支持移动端又支持PC端
+	MiniAppOnPc *bool `json:"miniAppOnPc,omitempty" xml:"miniAppOnPc,omitempty"`
+	// 小程序版本号更新时间，格式:yyyy-MM-dd HH:mm:ss
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+}
+
+func (s ListInnerAppVersionResponseBodyAppVersionList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListInnerAppVersionResponseBodyAppVersionList) GoString() string {
+	return s.String()
+}
+
+func (s *ListInnerAppVersionResponseBodyAppVersionList) SetAppVersion(v string) *ListInnerAppVersionResponseBodyAppVersionList {
+	s.AppVersion = &v
+	return s
+}
+
+func (s *ListInnerAppVersionResponseBodyAppVersionList) SetAppVersionId(v int64) *ListInnerAppVersionResponseBodyAppVersionList {
+	s.AppVersionId = &v
+	return s
+}
+
+func (s *ListInnerAppVersionResponseBodyAppVersionList) SetAppVersionType(v int32) *ListInnerAppVersionResponseBodyAppVersionList {
+	s.AppVersionType = &v
+	return s
+}
+
+func (s *ListInnerAppVersionResponseBodyAppVersionList) SetCreateTime(v string) *ListInnerAppVersionResponseBodyAppVersionList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *ListInnerAppVersionResponseBodyAppVersionList) SetMiniAppId(v string) *ListInnerAppVersionResponseBodyAppVersionList {
+	s.MiniAppId = &v
+	return s
+}
+
+func (s *ListInnerAppVersionResponseBodyAppVersionList) SetMiniAppOnPc(v bool) *ListInnerAppVersionResponseBodyAppVersionList {
+	s.MiniAppOnPc = &v
+	return s
+}
+
+func (s *ListInnerAppVersionResponseBodyAppVersionList) SetModifyTime(v string) *ListInnerAppVersionResponseBodyAppVersionList {
+	s.ModifyTime = &v
+	return s
+}
+
+type ListInnerAppVersionResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListInnerAppVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListInnerAppVersionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListInnerAppVersionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListInnerAppVersionResponse) SetHeaders(v map[string]*string) *ListInnerAppVersionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListInnerAppVersionResponse) SetBody(v *ListInnerAppVersionResponseBody) *ListInnerAppVersionResponse {
+	s.Body = v
+	return s
+}
+
 type ListRoleInfoByUserHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2043,6 +2312,265 @@ func (s *ListUserVilebleAppResponse) SetHeaders(v map[string]*string) *ListUserV
 }
 
 func (s *ListUserVilebleAppResponse) SetBody(v *ListUserVilebleAppResponseBody) *ListUserVilebleAppResponse {
+	s.Body = v
+	return s
+}
+
+type PageInnerAppHistoryVersionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PageInnerAppHistoryVersionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageInnerAppHistoryVersionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PageInnerAppHistoryVersionHeaders) SetCommonHeaders(v map[string]*string) *PageInnerAppHistoryVersionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PageInnerAppHistoryVersionHeaders) SetXAcsDingtalkAccessToken(v string) *PageInnerAppHistoryVersionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PageInnerAppHistoryVersionRequest struct {
+	// 当前页
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 本次读取的最大数据记录数量
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s PageInnerAppHistoryVersionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageInnerAppHistoryVersionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PageInnerAppHistoryVersionRequest) SetPageNumber(v int32) *PageInnerAppHistoryVersionRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *PageInnerAppHistoryVersionRequest) SetPageSize(v int32) *PageInnerAppHistoryVersionRequest {
+	s.PageSize = &v
+	return s
+}
+
+type PageInnerAppHistoryVersionResponseBody struct {
+	// 企业内部小程序版本号列表
+	MiniAppVersionList []*PageInnerAppHistoryVersionResponseBodyMiniAppVersionList `json:"miniAppVersionList,omitempty" xml:"miniAppVersionList,omitempty" type:"Repeated"`
+	// 当前小程序历史版本的总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s PageInnerAppHistoryVersionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageInnerAppHistoryVersionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PageInnerAppHistoryVersionResponseBody) SetMiniAppVersionList(v []*PageInnerAppHistoryVersionResponseBodyMiniAppVersionList) *PageInnerAppHistoryVersionResponseBody {
+	s.MiniAppVersionList = v
+	return s
+}
+
+func (s *PageInnerAppHistoryVersionResponseBody) SetTotalCount(v int64) *PageInnerAppHistoryVersionResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type PageInnerAppHistoryVersionResponseBodyMiniAppVersionList struct {
+	// 小程序版本号
+	AppVersion *string `json:"appVersion,omitempty" xml:"appVersion,omitempty"`
+	// 小程序版本号id，用于小程序的发布和回滚等操作的唯一标识。
+	AppVersionId *int64 `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
+	// 小程序版本类型，0表示开发版本，2表示正式版本，3表示体验版本
+	AppVersionType *int32 `json:"appVersionType,omitempty" xml:"appVersionType,omitempty"`
+	// 小程序版本创建事件，格式:yyyy-MM-dd HH:mm:ss
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 小程序id
+	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	// 是否支持PC端打开小程序，false表示只支持移动端，true表示既支持移动端又支持PC端
+	MiniAppOnPc *bool `json:"miniAppOnPc,omitempty" xml:"miniAppOnPc,omitempty"`
+	// 小程序版本号更新时间，格式:yyyy-MM-dd HH:mm:ss
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+}
+
+func (s PageInnerAppHistoryVersionResponseBodyMiniAppVersionList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageInnerAppHistoryVersionResponseBodyMiniAppVersionList) GoString() string {
+	return s.String()
+}
+
+func (s *PageInnerAppHistoryVersionResponseBodyMiniAppVersionList) SetAppVersion(v string) *PageInnerAppHistoryVersionResponseBodyMiniAppVersionList {
+	s.AppVersion = &v
+	return s
+}
+
+func (s *PageInnerAppHistoryVersionResponseBodyMiniAppVersionList) SetAppVersionId(v int64) *PageInnerAppHistoryVersionResponseBodyMiniAppVersionList {
+	s.AppVersionId = &v
+	return s
+}
+
+func (s *PageInnerAppHistoryVersionResponseBodyMiniAppVersionList) SetAppVersionType(v int32) *PageInnerAppHistoryVersionResponseBodyMiniAppVersionList {
+	s.AppVersionType = &v
+	return s
+}
+
+func (s *PageInnerAppHistoryVersionResponseBodyMiniAppVersionList) SetCreateTime(v string) *PageInnerAppHistoryVersionResponseBodyMiniAppVersionList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *PageInnerAppHistoryVersionResponseBodyMiniAppVersionList) SetMiniAppId(v string) *PageInnerAppHistoryVersionResponseBodyMiniAppVersionList {
+	s.MiniAppId = &v
+	return s
+}
+
+func (s *PageInnerAppHistoryVersionResponseBodyMiniAppVersionList) SetMiniAppOnPc(v bool) *PageInnerAppHistoryVersionResponseBodyMiniAppVersionList {
+	s.MiniAppOnPc = &v
+	return s
+}
+
+func (s *PageInnerAppHistoryVersionResponseBodyMiniAppVersionList) SetModifyTime(v string) *PageInnerAppHistoryVersionResponseBodyMiniAppVersionList {
+	s.ModifyTime = &v
+	return s
+}
+
+type PageInnerAppHistoryVersionResponse struct {
+	Headers map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PageInnerAppHistoryVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PageInnerAppHistoryVersionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageInnerAppHistoryVersionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PageInnerAppHistoryVersionResponse) SetHeaders(v map[string]*string) *PageInnerAppHistoryVersionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PageInnerAppHistoryVersionResponse) SetBody(v *PageInnerAppHistoryVersionResponseBody) *PageInnerAppHistoryVersionResponse {
+	s.Body = v
+	return s
+}
+
+type PublishInnerAppVersionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PublishInnerAppVersionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PublishInnerAppVersionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PublishInnerAppVersionHeaders) SetCommonHeaders(v map[string]*string) *PublishInnerAppVersionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PublishInnerAppVersionHeaders) SetXAcsDingtalkAccessToken(v string) *PublishInnerAppVersionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PublishInnerAppVersionRequest struct {
+	// 小程序是否在PC端发布，true表示发布移动端和PC端，false表示只发布移动端
+	MiniAppOnPc *bool `json:"miniAppOnPc,omitempty" xml:"miniAppOnPc,omitempty"`
+	// 操作人unionId
+	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	// 小程序发布类型，”online“表示发布线上版本，”experience“表示发布体验版本
+	PublishType *string `json:"publishType,omitempty" xml:"publishType,omitempty"`
+	// 小程序版本id
+	VersionId *int64 `json:"versionId,omitempty" xml:"versionId,omitempty"`
+}
+
+func (s PublishInnerAppVersionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PublishInnerAppVersionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PublishInnerAppVersionRequest) SetMiniAppOnPc(v bool) *PublishInnerAppVersionRequest {
+	s.MiniAppOnPc = &v
+	return s
+}
+
+func (s *PublishInnerAppVersionRequest) SetOpUnionId(v string) *PublishInnerAppVersionRequest {
+	s.OpUnionId = &v
+	return s
+}
+
+func (s *PublishInnerAppVersionRequest) SetPublishType(v string) *PublishInnerAppVersionRequest {
+	s.PublishType = &v
+	return s
+}
+
+func (s *PublishInnerAppVersionRequest) SetVersionId(v int64) *PublishInnerAppVersionRequest {
+	s.VersionId = &v
+	return s
+}
+
+type PublishInnerAppVersionResponseBody struct {
+	// 小程序发布结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s PublishInnerAppVersionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PublishInnerAppVersionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PublishInnerAppVersionResponseBody) SetResult(v bool) *PublishInnerAppVersionResponseBody {
+	s.Result = &v
+	return s
+}
+
+type PublishInnerAppVersionResponse struct {
+	Headers map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PublishInnerAppVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PublishInnerAppVersionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PublishInnerAppVersionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PublishInnerAppVersionResponse) SetHeaders(v map[string]*string) *PublishInnerAppVersionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PublishInnerAppVersionResponse) SetBody(v *PublishInnerAppVersionResponseBody) *PublishInnerAppVersionResponse {
 	s.Body = v
 	return s
 }
@@ -2446,6 +2974,95 @@ func (s *RemoveMemberForAppRoleResponse) SetHeaders(v map[string]*string) *Remov
 }
 
 func (s *RemoveMemberForAppRoleResponse) SetBody(v *RemoveMemberForAppRoleResponseBody) *RemoveMemberForAppRoleResponse {
+	s.Body = v
+	return s
+}
+
+type RollbackInnerAppVersionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RollbackInnerAppVersionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RollbackInnerAppVersionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RollbackInnerAppVersionHeaders) SetCommonHeaders(v map[string]*string) *RollbackInnerAppVersionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RollbackInnerAppVersionHeaders) SetXAcsDingtalkAccessToken(v string) *RollbackInnerAppVersionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RollbackInnerAppVersionRequest struct {
+	// 操作人unionId
+	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	// 小程序版本id
+	VersionId *int64 `json:"versionId,omitempty" xml:"versionId,omitempty"`
+}
+
+func (s RollbackInnerAppVersionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RollbackInnerAppVersionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RollbackInnerAppVersionRequest) SetOpUnionId(v string) *RollbackInnerAppVersionRequest {
+	s.OpUnionId = &v
+	return s
+}
+
+func (s *RollbackInnerAppVersionRequest) SetVersionId(v int64) *RollbackInnerAppVersionRequest {
+	s.VersionId = &v
+	return s
+}
+
+type RollbackInnerAppVersionResponseBody struct {
+	// 小程序回滚结果
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s RollbackInnerAppVersionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RollbackInnerAppVersionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RollbackInnerAppVersionResponseBody) SetResult(v bool) *RollbackInnerAppVersionResponseBody {
+	s.Result = &v
+	return s
+}
+
+type RollbackInnerAppVersionResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *RollbackInnerAppVersionResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s RollbackInnerAppVersionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RollbackInnerAppVersionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RollbackInnerAppVersionResponse) SetHeaders(v map[string]*string) *RollbackInnerAppVersionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RollbackInnerAppVersionResponse) SetBody(v *RollbackInnerAppVersionResponseBody) *RollbackInnerAppVersionResponse {
 	s.Body = v
 	return s
 }
@@ -3588,6 +4205,40 @@ func (client *Client) ListAllAppWithOptions(headers *ListAllAppHeaders, runtime 
 	return _result, _err
 }
 
+func (client *Client) ListAllInnerApps() (_result *ListAllInnerAppsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListAllInnerAppsHeaders{}
+	_result = &ListAllInnerAppsResponse{}
+	_body, _err := client.ListAllInnerAppsWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListAllInnerAppsWithOptions(headers *ListAllInnerAppsHeaders, runtime *util.RuntimeOptions) (_result *ListAllInnerAppsResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &ListAllInnerAppsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListAllInnerApps"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/allInnerApps"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ListAppRoleScopes(agentId *string, request *ListAppRoleScopesRequest) (_result *ListAppRoleScopesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListAppRoleScopesHeaders{}
@@ -3681,6 +4332,41 @@ func (client *Client) ListInnerAppWithOptions(request *ListInnerAppRequest, head
 	return _result, _err
 }
 
+func (client *Client) ListInnerAppVersion(agentId *string) (_result *ListInnerAppVersionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListInnerAppVersionHeaders{}
+	_result = &ListInnerAppVersionResponse{}
+	_body, _err := client.ListInnerAppVersionWithOptions(agentId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListInnerAppVersionWithOptions(agentId *string, headers *ListInnerAppVersionHeaders, runtime *util.RuntimeOptions) (_result *ListInnerAppVersionResponse, _err error) {
+	agentId = openapiutil.GetEncodeParam(agentId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &ListInnerAppVersionResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListInnerAppVersion"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/innerMiniApps/"+tea.StringValue(agentId)+"/versions"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ListRoleInfoByUser(agentId *string, userId *string) (_result *ListRoleInfoByUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListRoleInfoByUserHeaders{}
@@ -3745,6 +4431,112 @@ func (client *Client) ListUserVilebleAppWithOptions(userId *string, headers *Lis
 	}
 	_result = &ListUserVilebleAppResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListUserVilebleApp"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/users/"+tea.StringValue(userId)+"/apps"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PageInnerAppHistoryVersion(agentId *string, request *PageInnerAppHistoryVersionRequest) (_result *PageInnerAppHistoryVersionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PageInnerAppHistoryVersionHeaders{}
+	_result = &PageInnerAppHistoryVersionResponse{}
+	_body, _err := client.PageInnerAppHistoryVersionWithOptions(agentId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PageInnerAppHistoryVersionWithOptions(agentId *string, request *PageInnerAppHistoryVersionRequest, headers *PageInnerAppHistoryVersionHeaders, runtime *util.RuntimeOptions) (_result *PageInnerAppHistoryVersionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	agentId = openapiutil.GetEncodeParam(agentId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &PageInnerAppHistoryVersionResponse{}
+	_body, _err := client.DoROARequest(tea.String("PageInnerAppHistoryVersion"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/innerMiniApps/"+tea.StringValue(agentId)+"/historyVersions"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PublishInnerAppVersion(agentId *string, request *PublishInnerAppVersionRequest) (_result *PublishInnerAppVersionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PublishInnerAppVersionHeaders{}
+	_result = &PublishInnerAppVersionResponse{}
+	_body, _err := client.PublishInnerAppVersionWithOptions(agentId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PublishInnerAppVersionWithOptions(agentId *string, request *PublishInnerAppVersionRequest, headers *PublishInnerAppVersionHeaders, runtime *util.RuntimeOptions) (_result *PublishInnerAppVersionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	agentId = openapiutil.GetEncodeParam(agentId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MiniAppOnPc)) {
+		body["miniAppOnPc"] = request.MiniAppOnPc
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpUnionId)) {
+		body["opUnionId"] = request.OpUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PublishType)) {
+		body["publishType"] = request.PublishType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VersionId)) {
+		body["versionId"] = request.VersionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &PublishInnerAppVersionResponse{}
+	_body, _err := client.DoROARequest(tea.String("PublishInnerAppVersion"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/innerMiniApps/"+tea.StringValue(agentId)+"/versions/publish"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3966,6 +4758,55 @@ func (client *Client) RemoveMemberForAppRoleWithOptions(agentId *string, roleId 
 	}
 	_result = &RemoveMemberForAppRoleResponse{}
 	_body, _err := client.DoROARequest(tea.String("RemoveMemberForAppRole"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/apps/"+tea.StringValue(agentId)+"/roles/"+tea.StringValue(roleId)+"/members/batchRemove"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) RollbackInnerAppVersion(agentId *string, request *RollbackInnerAppVersionRequest) (_result *RollbackInnerAppVersionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RollbackInnerAppVersionHeaders{}
+	_result = &RollbackInnerAppVersionResponse{}
+	_body, _err := client.RollbackInnerAppVersionWithOptions(agentId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) RollbackInnerAppVersionWithOptions(agentId *string, request *RollbackInnerAppVersionRequest, headers *RollbackInnerAppVersionHeaders, runtime *util.RuntimeOptions) (_result *RollbackInnerAppVersionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	agentId = openapiutil.GetEncodeParam(agentId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUnionId)) {
+		body["opUnionId"] = request.OpUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VersionId)) {
+		body["versionId"] = request.VersionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &RollbackInnerAppVersionResponse{}
+	_body, _err := client.DoROARequest(tea.String("RollbackInnerAppVersion"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/microApp/innerMiniApps/"+tea.StringValue(agentId)+"/versions/rollback"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

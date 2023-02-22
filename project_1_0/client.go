@@ -3389,6 +3389,204 @@ func (s *SearchProjectTemplateResponse) SetBody(v *SearchProjectTemplateResponse
 	return s
 }
 
+type SearchTaskflowStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchTaskflowStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTaskflowStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTaskflowStatusHeaders) SetCommonHeaders(v map[string]*string) *SearchTaskflowStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchTaskflowStatusHeaders) SetXAcsDingtalkAccessToken(v string) *SearchTaskflowStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchTaskflowStatusRequest struct {
+	// 每页返回最大数量。默认10，最大300。
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页标，从上一次请求结果中获取。
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 模糊查询工作流状态名字。
+	Query *string `json:"query,omitempty" xml:"query,omitempty"`
+	// 工作流ID集合，多个以逗号隔开。
+	TfIds *string `json:"tfIds,omitempty" xml:"tfIds,omitempty"`
+	// 工作流状态ID集合，多个以逗号隔开。
+	TfsIds *string `json:"tfsIds,omitempty" xml:"tfsIds,omitempty"`
+}
+
+func (s SearchTaskflowStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTaskflowStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTaskflowStatusRequest) SetMaxResults(v int32) *SearchTaskflowStatusRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *SearchTaskflowStatusRequest) SetNextToken(v string) *SearchTaskflowStatusRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *SearchTaskflowStatusRequest) SetQuery(v string) *SearchTaskflowStatusRequest {
+	s.Query = &v
+	return s
+}
+
+func (s *SearchTaskflowStatusRequest) SetTfIds(v string) *SearchTaskflowStatusRequest {
+	s.TfIds = &v
+	return s
+}
+
+func (s *SearchTaskflowStatusRequest) SetTfsIds(v string) *SearchTaskflowStatusRequest {
+	s.TfsIds = &v
+	return s
+}
+
+type SearchTaskflowStatusResponseBody struct {
+	// 工作流状态列表。
+	Result []*SearchTaskflowStatusResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s SearchTaskflowStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTaskflowStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTaskflowStatusResponseBody) SetResult(v []*SearchTaskflowStatusResponseBodyResult) *SearchTaskflowStatusResponseBody {
+	s.Result = v
+	return s
+}
+
+type SearchTaskflowStatusResponseBodyResult struct {
+	// 创建时间。
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// 创建者ID。
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// 工作流状态ID。
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 是否已删除。
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// 是否特定任务角色才能流转该工作流状态。
+	IsTaskflowstatusruleexector *bool `json:"isTaskflowstatusruleexector,omitempty" xml:"isTaskflowstatusruleexector,omitempty"`
+	// start,end,unset
+	Kind *string `json:"kind,omitempty" xml:"kind,omitempty"`
+	// 工作流状态名字。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 工作流状态位置。
+	Pos *int32 `json:"pos,omitempty" xml:"pos,omitempty"`
+	// 该工作流状态不能流转到其他工作流状态。
+	RejectStatusIds []*string `json:"rejectStatusIds,omitempty" xml:"rejectStatusIds,omitempty" type:"Repeated"`
+	// 工作流状态ID。
+	TaskflowId *string `json:"taskflowId,omitempty" xml:"taskflowId,omitempty"`
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s SearchTaskflowStatusResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTaskflowStatusResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTaskflowStatusResponseBodyResult) SetCreated(v string) *SearchTaskflowStatusResponseBodyResult {
+	s.Created = &v
+	return s
+}
+
+func (s *SearchTaskflowStatusResponseBodyResult) SetCreatorId(v string) *SearchTaskflowStatusResponseBodyResult {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *SearchTaskflowStatusResponseBodyResult) SetId(v string) *SearchTaskflowStatusResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *SearchTaskflowStatusResponseBodyResult) SetIsDeleted(v bool) *SearchTaskflowStatusResponseBodyResult {
+	s.IsDeleted = &v
+	return s
+}
+
+func (s *SearchTaskflowStatusResponseBodyResult) SetIsTaskflowstatusruleexector(v bool) *SearchTaskflowStatusResponseBodyResult {
+	s.IsTaskflowstatusruleexector = &v
+	return s
+}
+
+func (s *SearchTaskflowStatusResponseBodyResult) SetKind(v string) *SearchTaskflowStatusResponseBodyResult {
+	s.Kind = &v
+	return s
+}
+
+func (s *SearchTaskflowStatusResponseBodyResult) SetName(v string) *SearchTaskflowStatusResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *SearchTaskflowStatusResponseBodyResult) SetPos(v int32) *SearchTaskflowStatusResponseBodyResult {
+	s.Pos = &v
+	return s
+}
+
+func (s *SearchTaskflowStatusResponseBodyResult) SetRejectStatusIds(v []*string) *SearchTaskflowStatusResponseBodyResult {
+	s.RejectStatusIds = v
+	return s
+}
+
+func (s *SearchTaskflowStatusResponseBodyResult) SetTaskflowId(v string) *SearchTaskflowStatusResponseBodyResult {
+	s.TaskflowId = &v
+	return s
+}
+
+func (s *SearchTaskflowStatusResponseBodyResult) SetUpdated(v string) *SearchTaskflowStatusResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type SearchTaskflowStatusResponse struct {
+	Headers map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *SearchTaskflowStatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s SearchTaskflowStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchTaskflowStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchTaskflowStatusResponse) SetHeaders(v map[string]*string) *SearchTaskflowStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchTaskflowStatusResponse) SetBody(v *SearchTaskflowStatusResponseBody) *SearchTaskflowStatusResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateCustomfieldValueHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4638,6 +4836,113 @@ func (s *UpdateProjectGroupResponse) SetBody(v *UpdateProjectGroupResponseBody) 
 	return s
 }
 
+type UpdateTaskTaskflowstatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateTaskTaskflowstatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskTaskflowstatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskTaskflowstatusHeaders) SetCommonHeaders(v map[string]*string) *UpdateTaskTaskflowstatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateTaskTaskflowstatusHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTaskTaskflowstatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateTaskTaskflowstatusRequest struct {
+	// 任务状态ID。
+	TaskflowStatusId *string `json:"taskflowStatusId,omitempty" xml:"taskflowStatusId,omitempty"`
+	// 任务流转说明。
+	TfsUpdateNote *string `json:"tfsUpdateNote,omitempty" xml:"tfsUpdateNote,omitempty"`
+}
+
+func (s UpdateTaskTaskflowstatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskTaskflowstatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskTaskflowstatusRequest) SetTaskflowStatusId(v string) *UpdateTaskTaskflowstatusRequest {
+	s.TaskflowStatusId = &v
+	return s
+}
+
+func (s *UpdateTaskTaskflowstatusRequest) SetTfsUpdateNote(v string) *UpdateTaskTaskflowstatusRequest {
+	s.TfsUpdateNote = &v
+	return s
+}
+
+type UpdateTaskTaskflowstatusResponseBody struct {
+	// 结果。
+	Result *UpdateTaskTaskflowstatusResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateTaskTaskflowstatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskTaskflowstatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskTaskflowstatusResponseBody) SetResult(v *UpdateTaskTaskflowstatusResponseBodyResult) *UpdateTaskTaskflowstatusResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateTaskTaskflowstatusResponseBodyResult struct {
+	// 更新时间。
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+}
+
+func (s UpdateTaskTaskflowstatusResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskTaskflowstatusResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskTaskflowstatusResponseBodyResult) SetUpdated(v string) *UpdateTaskTaskflowstatusResponseBodyResult {
+	s.Updated = &v
+	return s
+}
+
+type UpdateTaskTaskflowstatusResponse struct {
+	Headers map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UpdateTaskTaskflowstatusResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UpdateTaskTaskflowstatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTaskTaskflowstatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTaskTaskflowstatusResponse) SetHeaders(v map[string]*string) *UpdateTaskTaskflowstatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateTaskTaskflowstatusResponse) SetBody(v *UpdateTaskTaskflowstatusResponseBody) *UpdateTaskTaskflowstatusResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -5728,6 +6033,68 @@ func (client *Client) SearchProjectTemplateWithOptions(userId *string, request *
 	return _result, _err
 }
 
+func (client *Client) SearchTaskflowStatus(userId *string, projectId *string, request *SearchTaskflowStatusRequest) (_result *SearchTaskflowStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchTaskflowStatusHeaders{}
+	_result = &SearchTaskflowStatusResponse{}
+	_body, _err := client.SearchTaskflowStatusWithOptions(userId, projectId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) SearchTaskflowStatusWithOptions(userId *string, projectId *string, request *SearchTaskflowStatusRequest, headers *SearchTaskflowStatusHeaders, runtime *util.RuntimeOptions) (_result *SearchTaskflowStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	projectId = openapiutil.GetEncodeParam(projectId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Query)) {
+		query["query"] = request.Query
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TfIds)) {
+		query["tfIds"] = request.TfIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TfsIds)) {
+		query["tfsIds"] = request.TfsIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &SearchTaskflowStatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("SearchTaskflowStatus"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/taskflowStatuses/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) UpdateCustomfieldValue(userId *string, taskId *string, request *UpdateCustomfieldValueRequest) (_result *UpdateCustomfieldValueResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateCustomfieldValueHeaders{}
@@ -6211,6 +6578,56 @@ func (client *Client) UpdateProjectGroupWithOptions(userId *string, projectId *s
 	}
 	_result = &UpdateProjectGroupResponse{}
 	_body, _err := client.DoROARequest(tea.String("UpdateProjectGroup"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/projects/"+tea.StringValue(projectId)+"/groups"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskTaskflowstatus(userId *string, taskId *string, request *UpdateTaskTaskflowstatusRequest) (_result *UpdateTaskTaskflowstatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTaskTaskflowstatusHeaders{}
+	_result = &UpdateTaskTaskflowstatusResponse{}
+	_body, _err := client.UpdateTaskTaskflowstatusWithOptions(userId, taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UpdateTaskTaskflowstatusWithOptions(userId *string, taskId *string, request *UpdateTaskTaskflowstatusRequest, headers *UpdateTaskTaskflowstatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskTaskflowstatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	userId = openapiutil.GetEncodeParam(userId)
+	taskId = openapiutil.GetEncodeParam(taskId)
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskflowStatusId)) {
+		body["taskflowStatusId"] = request.TaskflowStatusId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TfsUpdateNote)) {
+		body["tfsUpdateNote"] = request.TfsUpdateNote
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &UpdateTaskTaskflowstatusResponse{}
+	_body, _err := client.DoROARequest(tea.String("UpdateTaskTaskflowstatus"), tea.String("project_1.0"), tea.String("HTTP"), tea.String("PUT"), tea.String("AK"), tea.String("/v1.0/project/users/"+tea.StringValue(userId)+"/tasks/"+tea.StringValue(taskId)+"/taskflowStatuses"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
