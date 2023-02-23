@@ -3022,7 +3022,7 @@ type QueryTaskOfProjectResponseBodyResult struct {
 	// 创建者id。
 	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
 	// 自定义字段id列表。
-	Customfields []*string `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	Customfields []*QueryTaskOfProjectResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
 	// 任务截止时间。
 	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
 	// 执行者id。
@@ -3035,8 +3035,8 @@ type QueryTaskOfProjectResponseBodyResult struct {
 	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
 	// 任务是否已完成。
 	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	// 任务自定义标识。
-	Labels *string `json:"labels,omitempty" xml:"labels,omitempty"`
+	// 任务标签集合。
+	Labels []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
 	// 备注。
 	Note *string `json:"note,omitempty" xml:"note,omitempty"`
 	// 任务优先级。
@@ -3056,7 +3056,7 @@ type QueryTaskOfProjectResponseBodyResult struct {
 	// 故事点数。
 	StoryPoint *int32 `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
 	// 标签id集合。
-	TagIds *string `json:"tagIds,omitempty" xml:"tagIds,omitempty"`
+	TagIds []*string `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
 	// 任务id。
 	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 	// 任务状态id。
@@ -3100,7 +3100,7 @@ func (s *QueryTaskOfProjectResponseBodyResult) SetCreatorId(v string) *QueryTask
 	return s
 }
 
-func (s *QueryTaskOfProjectResponseBodyResult) SetCustomfields(v []*string) *QueryTaskOfProjectResponseBodyResult {
+func (s *QueryTaskOfProjectResponseBodyResult) SetCustomfields(v []*QueryTaskOfProjectResponseBodyResultCustomfields) *QueryTaskOfProjectResponseBodyResult {
 	s.Customfields = v
 	return s
 }
@@ -3135,8 +3135,8 @@ func (s *QueryTaskOfProjectResponseBodyResult) SetIsDone(v bool) *QueryTaskOfPro
 	return s
 }
 
-func (s *QueryTaskOfProjectResponseBodyResult) SetLabels(v string) *QueryTaskOfProjectResponseBodyResult {
-	s.Labels = &v
+func (s *QueryTaskOfProjectResponseBodyResult) SetLabels(v []*string) *QueryTaskOfProjectResponseBodyResult {
+	s.Labels = v
 	return s
 }
 
@@ -3185,8 +3185,8 @@ func (s *QueryTaskOfProjectResponseBodyResult) SetStoryPoint(v int32) *QueryTask
 	return s
 }
 
-func (s *QueryTaskOfProjectResponseBodyResult) SetTagIds(v string) *QueryTaskOfProjectResponseBodyResult {
-	s.TagIds = &v
+func (s *QueryTaskOfProjectResponseBodyResult) SetTagIds(v []*string) *QueryTaskOfProjectResponseBodyResult {
+	s.TagIds = v
 	return s
 }
 
@@ -3207,6 +3207,24 @@ func (s *QueryTaskOfProjectResponseBodyResult) SetUpdated(v string) *QueryTaskOf
 
 func (s *QueryTaskOfProjectResponseBodyResult) SetVisible(v string) *QueryTaskOfProjectResponseBodyResult {
 	s.Visible = &v
+	return s
+}
+
+type QueryTaskOfProjectResponseBodyResultCustomfields struct {
+	// 自定义字段Id。
+	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+}
+
+func (s QueryTaskOfProjectResponseBodyResultCustomfields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTaskOfProjectResponseBodyResultCustomfields) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTaskOfProjectResponseBodyResultCustomfields) SetCustomfieldId(v string) *QueryTaskOfProjectResponseBodyResultCustomfields {
+	s.CustomfieldId = &v
 	return s
 }
 
@@ -3459,7 +3477,7 @@ func (s *SearchTaskflowStatusRequest) SetTfsIds(v string) *SearchTaskflowStatusR
 }
 
 type SearchTaskflowStatusResponseBody struct {
-	// 工作流状态列表。
+	// 任务工作流状态列表。
 	Result []*SearchTaskflowStatusResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -3481,22 +3499,22 @@ type SearchTaskflowStatusResponseBodyResult struct {
 	Created *string `json:"created,omitempty" xml:"created,omitempty"`
 	// 创建者ID。
 	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	// 工作流状态ID。
-	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 	// 是否已删除。
 	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
 	// 是否特定任务角色才能流转该工作流状态。
 	IsTaskflowstatusruleexector *bool `json:"isTaskflowstatusruleexector,omitempty" xml:"isTaskflowstatusruleexector,omitempty"`
-	// start,end,unset
+	// 任务工作流状态类型。  start: 开始  end: 结束  unset: 未设置
 	Kind *string `json:"kind,omitempty" xml:"kind,omitempty"`
-	// 工作流状态名字。
+	// 任务工作流状态名字。
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// 工作流状态位置。
+	// 任务工作流状态位置。
 	Pos *int32 `json:"pos,omitempty" xml:"pos,omitempty"`
-	// 该工作流状态不能流转到其他工作流状态。
+	// 拒绝的工作流状态Id。
 	RejectStatusIds []*string `json:"rejectStatusIds,omitempty" xml:"rejectStatusIds,omitempty" type:"Repeated"`
-	// 工作流状态ID。
+	// 任务工作流ID。
 	TaskflowId *string `json:"taskflowId,omitempty" xml:"taskflowId,omitempty"`
+	// 任务工作流状态ID。
+	TaskflowStatusId *string `json:"taskflowStatusId,omitempty" xml:"taskflowStatusId,omitempty"`
 	// 更新时间。
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
@@ -3516,11 +3534,6 @@ func (s *SearchTaskflowStatusResponseBodyResult) SetCreated(v string) *SearchTas
 
 func (s *SearchTaskflowStatusResponseBodyResult) SetCreatorId(v string) *SearchTaskflowStatusResponseBodyResult {
 	s.CreatorId = &v
-	return s
-}
-
-func (s *SearchTaskflowStatusResponseBodyResult) SetId(v string) *SearchTaskflowStatusResponseBodyResult {
-	s.Id = &v
 	return s
 }
 
@@ -3556,6 +3569,11 @@ func (s *SearchTaskflowStatusResponseBodyResult) SetRejectStatusIds(v []*string)
 
 func (s *SearchTaskflowStatusResponseBodyResult) SetTaskflowId(v string) *SearchTaskflowStatusResponseBodyResult {
 	s.TaskflowId = &v
+	return s
+}
+
+func (s *SearchTaskflowStatusResponseBodyResult) SetTaskflowStatusId(v string) *SearchTaskflowStatusResponseBodyResult {
+	s.TaskflowStatusId = &v
 	return s
 }
 

@@ -127,6 +127,136 @@ func (s *ApplyFollowerAuthInfoResponse) SetBody(v *ApplyFollowerAuthInfoResponse
 	return s
 }
 
+type CallbackRegiesterHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CallbackRegiesterHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CallbackRegiesterHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CallbackRegiesterHeaders) SetCommonHeaders(v map[string]*string) *CallbackRegiesterHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CallbackRegiesterHeaders) SetXAcsDingtalkAccessToken(v string) *CallbackRegiesterHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CallbackRegiesterRequest struct {
+	// 回调API签名生成密钥。
+	// 最大长度不超过32个字符。
+	ApiSecret *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
+	// 回调key，由调用者定义，需要确保同一服务窗帐号下的唯一性。
+	// 最长不超过32个字符。
+	CallbackKey *string `json:"callbackKey,omitempty" xml:"callbackKey,omitempty"`
+	// 回调URL。暂不支持附带queryString的URL
+	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+	// 回调类型，支持互动卡片、应用快捷入口、吊顶卡片等。
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s CallbackRegiesterRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CallbackRegiesterRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CallbackRegiesterRequest) SetApiSecret(v string) *CallbackRegiesterRequest {
+	s.ApiSecret = &v
+	return s
+}
+
+func (s *CallbackRegiesterRequest) SetCallbackKey(v string) *CallbackRegiesterRequest {
+	s.CallbackKey = &v
+	return s
+}
+
+func (s *CallbackRegiesterRequest) SetCallbackUrl(v string) *CallbackRegiesterRequest {
+	s.CallbackUrl = &v
+	return s
+}
+
+func (s *CallbackRegiesterRequest) SetType(v string) *CallbackRegiesterRequest {
+	s.Type = &v
+	return s
+}
+
+type CallbackRegiesterResponseBody struct {
+	// 注册结果详情
+	Result *CallbackRegiesterResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s CallbackRegiesterResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CallbackRegiesterResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CallbackRegiesterResponseBody) SetResult(v *CallbackRegiesterResponseBodyResult) *CallbackRegiesterResponseBody {
+	s.Result = v
+	return s
+}
+
+type CallbackRegiesterResponseBodyResult struct {
+	// 成功注册的api secret
+	ApiSecret *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
+	// 成功注册的url
+	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+}
+
+func (s CallbackRegiesterResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CallbackRegiesterResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CallbackRegiesterResponseBodyResult) SetApiSecret(v string) *CallbackRegiesterResponseBodyResult {
+	s.ApiSecret = &v
+	return s
+}
+
+func (s *CallbackRegiesterResponseBodyResult) SetCallbackUrl(v string) *CallbackRegiesterResponseBodyResult {
+	s.CallbackUrl = &v
+	return s
+}
+
+type CallbackRegiesterResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CallbackRegiesterResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CallbackRegiesterResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CallbackRegiesterResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CallbackRegiesterResponse) SetHeaders(v map[string]*string) *CallbackRegiesterResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CallbackRegiesterResponse) SetBody(v *CallbackRegiesterResponseBody) *CallbackRegiesterResponse {
+	s.Body = v
+	return s
+}
+
 type CloseTopBoxInteractiveOTOMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2122,6 +2252,62 @@ func (client *Client) ApplyFollowerAuthInfoWithOptions(request *ApplyFollowerAut
 	}
 	_result = &ApplyFollowerAuthInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("ApplyFollowerAuthInfo"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/link/followers/authInfos/apply"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CallbackRegiester(request *CallbackRegiesterRequest) (_result *CallbackRegiesterResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CallbackRegiesterHeaders{}
+	_result = &CallbackRegiesterResponse{}
+	_body, _err := client.CallbackRegiesterWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CallbackRegiesterWithOptions(request *CallbackRegiesterRequest, headers *CallbackRegiesterHeaders, runtime *util.RuntimeOptions) (_result *CallbackRegiesterResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ApiSecret)) {
+		body["apiSecret"] = request.ApiSecret
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallbackKey)) {
+		body["callbackKey"] = request.CallbackKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallbackUrl)) {
+		body["callbackUrl"] = request.CallbackUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CallbackRegiesterResponse{}
+	_body, _err := client.DoROARequest(tea.String("CallbackRegiester"), tea.String("link_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/link/callbacks/regiester"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
