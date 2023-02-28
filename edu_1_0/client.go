@@ -1842,8 +1842,6 @@ func (s *CreateAppOrderRequest) SetTimestamp(v int64) *CreateAppOrderRequest {
 }
 
 type CreateAppOrderRequestDetailList struct {
-	// 扩展字段。
-	Feature *string `json:"feature,omitempty" xml:"feature,omitempty"`
 	// 商品id。
 	GoodsId *string `json:"goodsId,omitempty" xml:"goodsId,omitempty"`
 	// 商品名称。
@@ -1860,11 +1858,6 @@ func (s CreateAppOrderRequestDetailList) String() string {
 
 func (s CreateAppOrderRequestDetailList) GoString() string {
 	return s.String()
-}
-
-func (s *CreateAppOrderRequestDetailList) SetFeature(v string) *CreateAppOrderRequestDetailList {
-	s.Feature = &v
-	return s
 }
 
 func (s *CreateAppOrderRequestDetailList) SetGoodsId(v string) *CreateAppOrderRequestDetailList {
@@ -4157,8 +4150,6 @@ func (s *CreateSnsAppOrderRequest) SetTimestamp(v int64) *CreateSnsAppOrderReque
 }
 
 type CreateSnsAppOrderRequestDetailList struct {
-	// 扩展字段。
-	Feature *string `json:"feature,omitempty" xml:"feature,omitempty"`
 	// 商品id。
 	GoodsId *string `json:"goodsId,omitempty" xml:"goodsId,omitempty"`
 	// 商品名称。
@@ -4175,11 +4166,6 @@ func (s CreateSnsAppOrderRequestDetailList) String() string {
 
 func (s CreateSnsAppOrderRequestDetailList) GoString() string {
 	return s.String()
-}
-
-func (s *CreateSnsAppOrderRequestDetailList) SetFeature(v string) *CreateSnsAppOrderRequestDetailList {
-	s.Feature = &v
-	return s
 }
 
 func (s *CreateSnsAppOrderRequestDetailList) SetGoodsId(v string) *CreateSnsAppOrderRequestDetailList {
@@ -11460,9 +11446,7 @@ type QueryOrderResponseBody struct {
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 订单创建时间戳
 	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
-	// 扩展字段。
-	Feature     *string `json:"feature,omitempty" xml:"feature,omitempty"`
-	LabelAmount *int64  `json:"labelAmount,omitempty" xml:"labelAmount,omitempty"`
+	LabelAmount     *int64 `json:"labelAmount,omitempty" xml:"labelAmount,omitempty"`
 	// 商户id。
 	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
 	// 商户聚合支付订单号。
@@ -11533,11 +11517,6 @@ func (s *QueryOrderResponseBody) SetCreateTime(v string) *QueryOrderResponseBody
 
 func (s *QueryOrderResponseBody) SetCreateTimestamp(v int64) *QueryOrderResponseBody {
 	s.CreateTimestamp = &v
-	return s
-}
-
-func (s *QueryOrderResponseBody) SetFeature(v string) *QueryOrderResponseBody {
-	s.Feature = &v
 	return s
 }
 
@@ -12848,9 +12827,7 @@ type QuerySnsOrderResponseBody struct {
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// 订单创建时间戳
 	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
-	// 扩展字段。
-	Feature     *string `json:"feature,omitempty" xml:"feature,omitempty"`
-	LabelAmount *int64  `json:"labelAmount,omitempty" xml:"labelAmount,omitempty"`
+	LabelAmount     *int64 `json:"labelAmount,omitempty" xml:"labelAmount,omitempty"`
 	// 商户id。
 	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
 	// 商户聚合支付订单号。
@@ -12921,11 +12898,6 @@ func (s *QuerySnsOrderResponseBody) SetCreateTime(v string) *QuerySnsOrderRespon
 
 func (s *QuerySnsOrderResponseBody) SetCreateTimestamp(v int64) *QuerySnsOrderResponseBody {
 	s.CreateTimestamp = &v
-	return s
-}
-
-func (s *QuerySnsOrderResponseBody) SetFeature(v string) *QuerySnsOrderResponseBody {
-	s.Feature = &v
 	return s
 }
 

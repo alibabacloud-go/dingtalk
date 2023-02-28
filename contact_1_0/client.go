@@ -4573,6 +4573,10 @@ type ListContactRestrictSettingResponseBodyList struct {
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
 	// 规则名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 是否同时限制搜索
+	RestrictInSearch *bool `json:"restrictInSearch,omitempty" xml:"restrictInSearch,omitempty"`
+	// 是否同时限制查看个人资料页
+	RestrictInUserProfile *bool `json:"restrictInUserProfile,omitempty" xml:"restrictInUserProfile,omitempty"`
 	// 主体用户deptId列表
 	SubjectDeptIds []*int64 `json:"subjectDeptIds,omitempty" xml:"subjectDeptIds,omitempty" type:"Repeated"`
 	// 主体用户tagId列表
@@ -4623,6 +4627,16 @@ func (s *ListContactRestrictSettingResponseBodyList) SetId(v int64) *ListContact
 
 func (s *ListContactRestrictSettingResponseBodyList) SetName(v string) *ListContactRestrictSettingResponseBodyList {
 	s.Name = &v
+	return s
+}
+
+func (s *ListContactRestrictSettingResponseBodyList) SetRestrictInSearch(v bool) *ListContactRestrictSettingResponseBodyList {
+	s.RestrictInSearch = &v
+	return s
+}
+
+func (s *ListContactRestrictSettingResponseBodyList) SetRestrictInUserProfile(v bool) *ListContactRestrictSettingResponseBodyList {
+	s.RestrictInUserProfile = &v
 	return s
 }
 

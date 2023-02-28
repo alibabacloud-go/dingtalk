@@ -1357,6 +1357,69 @@ func (s *GetMicroAppUserAccessResponse) SetBody(v *GetMicroAppUserAccessResponse
 	return s
 }
 
+type GetUserAppDevAccessHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetUserAppDevAccessHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserAppDevAccessHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserAppDevAccessHeaders) SetCommonHeaders(v map[string]*string) *GetUserAppDevAccessHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetUserAppDevAccessHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserAppDevAccessHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetUserAppDevAccessResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s GetUserAppDevAccessResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserAppDevAccessResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserAppDevAccessResponseBody) SetResult(v bool) *GetUserAppDevAccessResponseBody {
+	s.Result = &v
+	return s
+}
+
+type GetUserAppDevAccessResponse struct {
+	Headers map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetUserAppDevAccessResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetUserAppDevAccessResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserAppDevAccessResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserAppDevAccessResponse) SetHeaders(v map[string]*string) *GetUserAppDevAccessResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetUserAppDevAccessResponse) SetBody(v *GetUserAppDevAccessResponseBody) *GetUserAppDevAccessResponse {
+	s.Body = v
+	return s
+}
+
 type ListAllAppHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2496,14 +2559,14 @@ func (s *PublishInnerAppVersionHeaders) SetXAcsDingtalkAccessToken(v string) *Pu
 }
 
 type PublishInnerAppVersionRequest struct {
+	// 小程序版本id，用于唯一标识小程序版本信息。
+	AppVersionId *int64 `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
 	// 小程序是否在PC端发布，true表示发布移动端和PC端，false表示只发布移动端
 	MiniAppOnPc *bool `json:"miniAppOnPc,omitempty" xml:"miniAppOnPc,omitempty"`
 	// 操作人unionId
 	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
 	// 小程序发布类型，”online“表示发布线上版本，”experience“表示发布体验版本
 	PublishType *string `json:"publishType,omitempty" xml:"publishType,omitempty"`
-	// 小程序版本id
-	VersionId *int64 `json:"versionId,omitempty" xml:"versionId,omitempty"`
 }
 
 func (s PublishInnerAppVersionRequest) String() string {
@@ -2512,6 +2575,11 @@ func (s PublishInnerAppVersionRequest) String() string {
 
 func (s PublishInnerAppVersionRequest) GoString() string {
 	return s.String()
+}
+
+func (s *PublishInnerAppVersionRequest) SetAppVersionId(v int64) *PublishInnerAppVersionRequest {
+	s.AppVersionId = &v
+	return s
 }
 
 func (s *PublishInnerAppVersionRequest) SetMiniAppOnPc(v bool) *PublishInnerAppVersionRequest {
@@ -2526,11 +2594,6 @@ func (s *PublishInnerAppVersionRequest) SetOpUnionId(v string) *PublishInnerAppV
 
 func (s *PublishInnerAppVersionRequest) SetPublishType(v string) *PublishInnerAppVersionRequest {
 	s.PublishType = &v
-	return s
-}
-
-func (s *PublishInnerAppVersionRequest) SetVersionId(v int64) *PublishInnerAppVersionRequest {
-	s.VersionId = &v
 	return s
 }
 
@@ -3002,10 +3065,10 @@ func (s *RollbackInnerAppVersionHeaders) SetXAcsDingtalkAccessToken(v string) *R
 }
 
 type RollbackInnerAppVersionRequest struct {
+	// 小程序版本id，用于唯一标识小程序版本信息。
+	AppVersionId *int64 `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
 	// 操作人unionId
 	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
-	// 小程序版本id
-	VersionId *int64 `json:"versionId,omitempty" xml:"versionId,omitempty"`
 }
 
 func (s RollbackInnerAppVersionRequest) String() string {
@@ -3016,13 +3079,13 @@ func (s RollbackInnerAppVersionRequest) GoString() string {
 	return s.String()
 }
 
-func (s *RollbackInnerAppVersionRequest) SetOpUnionId(v string) *RollbackInnerAppVersionRequest {
-	s.OpUnionId = &v
+func (s *RollbackInnerAppVersionRequest) SetAppVersionId(v int64) *RollbackInnerAppVersionRequest {
+	s.AppVersionId = &v
 	return s
 }
 
-func (s *RollbackInnerAppVersionRequest) SetVersionId(v int64) *RollbackInnerAppVersionRequest {
-	s.VersionId = &v
+func (s *RollbackInnerAppVersionRequest) SetOpUnionId(v string) *RollbackInnerAppVersionRequest {
+	s.OpUnionId = &v
 	return s
 }
 
@@ -4171,6 +4234,41 @@ func (client *Client) GetMicroAppUserAccessWithOptions(agentId *string, userId *
 	return _result, _err
 }
 
+func (client *Client) GetUserAppDevAccess(userId *string) (_result *GetUserAppDevAccessResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetUserAppDevAccessHeaders{}
+	_result = &GetUserAppDevAccessResponse{}
+	_body, _err := client.GetUserAppDevAccessWithOptions(userId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetUserAppDevAccessWithOptions(userId *string, headers *GetUserAppDevAccessHeaders, runtime *util.RuntimeOptions) (_result *GetUserAppDevAccessResponse, _err error) {
+	userId = openapiutil.GetEncodeParam(userId)
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	_result = &GetUserAppDevAccessResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetUserAppDevAccess"), tea.String("microApp_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/microApp/users/"+tea.StringValue(userId)+"/devAccesses"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ListAllApp() (_result *ListAllAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListAllAppHeaders{}
@@ -4506,6 +4604,10 @@ func (client *Client) PublishInnerAppVersionWithOptions(agentId *string, request
 	}
 	agentId = openapiutil.GetEncodeParam(agentId)
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppVersionId)) {
+		body["appVersionId"] = request.AppVersionId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.MiniAppOnPc)) {
 		body["miniAppOnPc"] = request.MiniAppOnPc
 	}
@@ -4516,10 +4618,6 @@ func (client *Client) PublishInnerAppVersionWithOptions(agentId *string, request
 
 	if !tea.BoolValue(util.IsUnset(request.PublishType)) {
 		body["publishType"] = request.PublishType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.VersionId)) {
-		body["versionId"] = request.VersionId
 	}
 
 	realHeaders := make(map[string]*string)
@@ -4784,12 +4882,12 @@ func (client *Client) RollbackInnerAppVersionWithOptions(agentId *string, reques
 	}
 	agentId = openapiutil.GetEncodeParam(agentId)
 	body := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.OpUnionId)) {
-		body["opUnionId"] = request.OpUnionId
+	if !tea.BoolValue(util.IsUnset(request.AppVersionId)) {
+		body["appVersionId"] = request.AppVersionId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.VersionId)) {
-		body["versionId"] = request.VersionId
+	if !tea.BoolValue(util.IsUnset(request.OpUnionId)) {
+		body["opUnionId"] = request.OpUnionId
 	}
 
 	realHeaders := make(map[string]*string)

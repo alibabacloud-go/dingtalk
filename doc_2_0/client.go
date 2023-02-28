@@ -1268,6 +1268,97 @@ func (s *TeamVOVisitInfo) SetRoleCode(v string) *TeamVOVisitInfo {
 	return s
 }
 
+type BatchDeleteRecentsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchDeleteRecentsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchDeleteRecentsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchDeleteRecentsHeaders) SetCommonHeaders(v map[string]*string) *BatchDeleteRecentsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchDeleteRecentsHeaders) SetXAcsDingtalkAccessToken(v string) *BatchDeleteRecentsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchDeleteRecentsRequest struct {
+	// 移除最近记录文档uuid
+	// 最大size:
+	// 	20
+	DentryUuids []*string `json:"dentryUuids,omitempty" xml:"dentryUuids,omitempty" type:"Repeated"`
+	// 操作人id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s BatchDeleteRecentsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchDeleteRecentsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchDeleteRecentsRequest) SetDentryUuids(v []*string) *BatchDeleteRecentsRequest {
+	s.DentryUuids = v
+	return s
+}
+
+func (s *BatchDeleteRecentsRequest) SetOperatorId(v string) *BatchDeleteRecentsRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type BatchDeleteRecentsResponseBody struct {
+	// 本次操作是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchDeleteRecentsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchDeleteRecentsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchDeleteRecentsResponseBody) SetSuccess(v bool) *BatchDeleteRecentsResponseBody {
+	s.Success = &v
+	return s
+}
+
+type BatchDeleteRecentsResponse struct {
+	Headers map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *BatchDeleteRecentsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s BatchDeleteRecentsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchDeleteRecentsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchDeleteRecentsResponse) SetHeaders(v map[string]*string) *BatchDeleteRecentsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchDeleteRecentsResponse) SetBody(v *BatchDeleteRecentsResponseBody) *BatchDeleteRecentsResponse {
+	s.Body = v
+	return s
+}
+
 type CopyDentryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2001,6 +2092,88 @@ func (s *GetSpaceDirectoriesResponse) SetBody(v *GetSpaceDirectoriesResponseBody
 	return s
 }
 
+type GetStarInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetStarInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStarInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetStarInfoHeaders) SetCommonHeaders(v map[string]*string) *GetStarInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetStarInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetStarInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetStarInfoRequest struct {
+	// 操作人id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetStarInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStarInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetStarInfoRequest) SetOperatorId(v string) *GetStarInfoRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetStarInfoResponseBody struct {
+	// 是否已星标
+	Starred *bool `json:"starred,omitempty" xml:"starred,omitempty"`
+}
+
+func (s GetStarInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStarInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetStarInfoResponseBody) SetStarred(v bool) *GetStarInfoResponseBody {
+	s.Starred = &v
+	return s
+}
+
+type GetStarInfoResponse struct {
+	Headers map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *GetStarInfoResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s GetStarInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetStarInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetStarInfoResponse) SetHeaders(v map[string]*string) *GetStarInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetStarInfoResponse) SetBody(v *GetStarInfoResponseBody) *GetStarInfoResponse {
+	s.Body = v
+	return s
+}
+
 type GetTeamHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2568,6 +2741,414 @@ func (s *ListHotDocsResponse) SetBody(v *ListHotDocsResponseBody) *ListHotDocsRe
 	return s
 }
 
+type ListPinSpacesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListPinSpacesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPinSpacesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListPinSpacesHeaders) SetCommonHeaders(v map[string]*string) *ListPinSpacesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListPinSpacesHeaders) SetXAcsDingtalkAccessToken(v string) *ListPinSpacesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListPinSpacesRequest struct {
+	// 可选参数
+	Option *ListPinSpacesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// 操作人id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s ListPinSpacesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPinSpacesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListPinSpacesRequest) SetOption(v *ListPinSpacesRequestOption) *ListPinSpacesRequest {
+	s.Option = v
+	return s
+}
+
+func (s *ListPinSpacesRequest) SetOperatorId(v string) *ListPinSpacesRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type ListPinSpacesRequestOption struct {
+	// 分页大小
+	// 默认值:
+	// 	20
+	// 最大值:
+	// 	20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页游标
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 是否获取知识库创建者信息
+	// 默认值:
+	// 	false
+	WithSpaceCreatorInfo *bool `json:"withSpaceCreatorInfo,omitempty" xml:"withSpaceCreatorInfo,omitempty"`
+	// 是否获取知识库修改者信息
+	// 默认值:
+	// 	false
+	WithSpaceModifierInfo *bool `json:"withSpaceModifierInfo,omitempty" xml:"withSpaceModifierInfo,omitempty"`
+	// 是否获取知识库权限
+	// 默认值:
+	// 	false
+	WithSpacePermissionRole *bool `json:"withSpacePermissionRole,omitempty" xml:"withSpacePermissionRole,omitempty"`
+	// 是否获取小组信息
+	// 默认值:
+	// 	false
+	WithTeamDetail *bool `json:"withTeamDetail,omitempty" xml:"withTeamDetail,omitempty"`
+}
+
+func (s ListPinSpacesRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPinSpacesRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *ListPinSpacesRequestOption) SetMaxResults(v int32) *ListPinSpacesRequestOption {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListPinSpacesRequestOption) SetNextToken(v string) *ListPinSpacesRequestOption {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListPinSpacesRequestOption) SetWithSpaceCreatorInfo(v bool) *ListPinSpacesRequestOption {
+	s.WithSpaceCreatorInfo = &v
+	return s
+}
+
+func (s *ListPinSpacesRequestOption) SetWithSpaceModifierInfo(v bool) *ListPinSpacesRequestOption {
+	s.WithSpaceModifierInfo = &v
+	return s
+}
+
+func (s *ListPinSpacesRequestOption) SetWithSpacePermissionRole(v bool) *ListPinSpacesRequestOption {
+	s.WithSpacePermissionRole = &v
+	return s
+}
+
+func (s *ListPinSpacesRequestOption) SetWithTeamDetail(v bool) *ListPinSpacesRequestOption {
+	s.WithTeamDetail = &v
+	return s
+}
+
+type ListPinSpacesResponseBody struct {
+	// 分页游标
+	// 不为空表示有更多数据
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 知识库置顶数据集合
+	// 最大size:
+	// 	20
+	ResultItems []*ListPinSpacesResponseBodyResultItems `json:"resultItems,omitempty" xml:"resultItems,omitempty" type:"Repeated"`
+}
+
+func (s ListPinSpacesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPinSpacesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListPinSpacesResponseBody) SetNextToken(v string) *ListPinSpacesResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListPinSpacesResponseBody) SetResultItems(v []*ListPinSpacesResponseBodyResultItems) *ListPinSpacesResponseBody {
+	s.ResultItems = v
+	return s
+}
+
+type ListPinSpacesResponseBodyResultItems struct {
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 修改时间
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// 知识库信息
+	SpaceInfo *ListPinSpacesResponseBodyResultItemsSpaceInfo `json:"spaceInfo,omitempty" xml:"spaceInfo,omitempty" type:"Struct"`
+	// 知识库权限
+	// 枚举值:
+	// 	NO_PERMISSION: 无权限
+	// 	READ_ONLY: 仅可查看
+	// 	READ_AND_DOWNLOAD: 可查看/下载
+	// 	EDIT: 可编辑
+	// 	MANAGER: 可管理
+	// 	OWNER: 所有者
+	SpacePermissionRole *string `json:"spacePermissionRole,omitempty" xml:"spacePermissionRole,omitempty"`
+	// 小组信息
+	TeamInfo *ListPinSpacesResponseBodyResultItemsTeamInfo `json:"teamInfo,omitempty" xml:"teamInfo,omitempty" type:"Struct"`
+}
+
+func (s ListPinSpacesResponseBodyResultItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPinSpacesResponseBodyResultItems) GoString() string {
+	return s.String()
+}
+
+func (s *ListPinSpacesResponseBodyResultItems) SetCreateTime(v string) *ListPinSpacesResponseBodyResultItems {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItems) SetModifiedTime(v string) *ListPinSpacesResponseBodyResultItems {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItems) SetSpaceInfo(v *ListPinSpacesResponseBodyResultItemsSpaceInfo) *ListPinSpacesResponseBodyResultItems {
+	s.SpaceInfo = v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItems) SetSpacePermissionRole(v string) *ListPinSpacesResponseBodyResultItems {
+	s.SpacePermissionRole = &v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItems) SetTeamInfo(v *ListPinSpacesResponseBodyResultItemsTeamInfo) *ListPinSpacesResponseBodyResultItems {
+	s.TeamInfo = v
+	return s
+}
+
+type ListPinSpacesResponseBodyResultItemsSpaceInfo struct {
+	// 知识库封面路径
+	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 创建者信息
+	Creator *ListPinSpacesResponseBodyResultItemsSpaceInfoCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	// 知识库描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 知识库图标
+	IconVO *ListPinSpacesResponseBodyResultItemsSpaceInfoIconVO `json:"iconVO,omitempty" xml:"iconVO,omitempty" type:"Struct"`
+	// 知识库id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// Mobile 访问链接
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// 修改时间
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// 修改者信息
+	Modifier *ListPinSpacesResponseBodyResultItemsSpaceInfoModifier `json:"modifier,omitempty" xml:"modifier,omitempty" type:"Struct"`
+	// 知识库名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// PC 访问链接
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+}
+
+func (s ListPinSpacesResponseBodyResultItemsSpaceInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPinSpacesResponseBodyResultItemsSpaceInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsSpaceInfo) SetCover(v string) *ListPinSpacesResponseBodyResultItemsSpaceInfo {
+	s.Cover = &v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsSpaceInfo) SetCreateTime(v string) *ListPinSpacesResponseBodyResultItemsSpaceInfo {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsSpaceInfo) SetCreator(v *ListPinSpacesResponseBodyResultItemsSpaceInfoCreator) *ListPinSpacesResponseBodyResultItemsSpaceInfo {
+	s.Creator = v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsSpaceInfo) SetDescription(v string) *ListPinSpacesResponseBodyResultItemsSpaceInfo {
+	s.Description = &v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsSpaceInfo) SetIconVO(v *ListPinSpacesResponseBodyResultItemsSpaceInfoIconVO) *ListPinSpacesResponseBodyResultItemsSpaceInfo {
+	s.IconVO = v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsSpaceInfo) SetId(v string) *ListPinSpacesResponseBodyResultItemsSpaceInfo {
+	s.Id = &v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsSpaceInfo) SetMobileUrl(v string) *ListPinSpacesResponseBodyResultItemsSpaceInfo {
+	s.MobileUrl = &v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsSpaceInfo) SetModifiedTime(v string) *ListPinSpacesResponseBodyResultItemsSpaceInfo {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsSpaceInfo) SetModifier(v *ListPinSpacesResponseBodyResultItemsSpaceInfoModifier) *ListPinSpacesResponseBodyResultItemsSpaceInfo {
+	s.Modifier = v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsSpaceInfo) SetName(v string) *ListPinSpacesResponseBodyResultItemsSpaceInfo {
+	s.Name = &v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsSpaceInfo) SetPcUrl(v string) *ListPinSpacesResponseBodyResultItemsSpaceInfo {
+	s.PcUrl = &v
+	return s
+}
+
+type ListPinSpacesResponseBodyResultItemsSpaceInfoCreator struct {
+	// 用户名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListPinSpacesResponseBodyResultItemsSpaceInfoCreator) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPinSpacesResponseBodyResultItemsSpaceInfoCreator) GoString() string {
+	return s.String()
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsSpaceInfoCreator) SetName(v string) *ListPinSpacesResponseBodyResultItemsSpaceInfoCreator {
+	s.Name = &v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsSpaceInfoCreator) SetUserId(v string) *ListPinSpacesResponseBodyResultItemsSpaceInfoCreator {
+	s.UserId = &v
+	return s
+}
+
+type ListPinSpacesResponseBodyResultItemsSpaceInfoIconVO struct {
+	// 图片存放地址
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 图片存放类型
+	// 枚举值:
+	// 	UNICODE: unicode
+	// 	URL: url
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s ListPinSpacesResponseBodyResultItemsSpaceInfoIconVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPinSpacesResponseBodyResultItemsSpaceInfoIconVO) GoString() string {
+	return s.String()
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsSpaceInfoIconVO) SetIcon(v string) *ListPinSpacesResponseBodyResultItemsSpaceInfoIconVO {
+	s.Icon = &v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsSpaceInfoIconVO) SetType(v string) *ListPinSpacesResponseBodyResultItemsSpaceInfoIconVO {
+	s.Type = &v
+	return s
+}
+
+type ListPinSpacesResponseBodyResultItemsSpaceInfoModifier struct {
+	// 用户名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListPinSpacesResponseBodyResultItemsSpaceInfoModifier) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPinSpacesResponseBodyResultItemsSpaceInfoModifier) GoString() string {
+	return s.String()
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsSpaceInfoModifier) SetName(v string) *ListPinSpacesResponseBodyResultItemsSpaceInfoModifier {
+	s.Name = &v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsSpaceInfoModifier) SetUserId(v string) *ListPinSpacesResponseBodyResultItemsSpaceInfoModifier {
+	s.UserId = &v
+	return s
+}
+
+type ListPinSpacesResponseBodyResultItemsTeamInfo struct {
+	// 小组id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 小组名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s ListPinSpacesResponseBodyResultItemsTeamInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPinSpacesResponseBodyResultItemsTeamInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsTeamInfo) SetId(v string) *ListPinSpacesResponseBodyResultItemsTeamInfo {
+	s.Id = &v
+	return s
+}
+
+func (s *ListPinSpacesResponseBodyResultItemsTeamInfo) SetName(v string) *ListPinSpacesResponseBodyResultItemsTeamInfo {
+	s.Name = &v
+	return s
+}
+
+type ListPinSpacesResponse struct {
+	Headers map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListPinSpacesResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListPinSpacesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPinSpacesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListPinSpacesResponse) SetHeaders(v map[string]*string) *ListPinSpacesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListPinSpacesResponse) SetBody(v *ListPinSpacesResponseBody) *ListPinSpacesResponse {
+	s.Body = v
+	return s
+}
+
 type ListRelatedSpaceTeamsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2903,6 +3484,528 @@ func (s *ListSpaceSectionsResponse) SetBody(v *ListSpaceSectionsResponseBody) *L
 	return s
 }
 
+type ListStarsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListStarsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListStarsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListStarsHeaders) SetCommonHeaders(v map[string]*string) *ListStarsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListStarsHeaders) SetXAcsDingtalkAccessToken(v string) *ListStarsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListStarsRequest struct {
+	// 可选参数
+	Option *ListStarsRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// 操作人id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s ListStarsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListStarsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListStarsRequest) SetOption(v *ListStarsRequestOption) *ListStarsRequest {
+	s.Option = v
+	return s
+}
+
+func (s *ListStarsRequest) SetOperatorId(v string) *ListStarsRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type ListStarsRequestOption struct {
+	// 文档类型
+	// 最大size:
+	// 	20
+	FilterDocTypes []*string `json:"filterDocTypes,omitempty" xml:"filterDocTypes,omitempty" type:"Repeated"`
+	// 分页大小
+	// 默认值:
+	// 	20
+	// 最大值:
+	// 	20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// 分页游标
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 排序规则, 升降或降序
+	// 支持按字段排序，支持字段在orderBy中
+	// 枚举值:
+	// 	ASC: 升序
+	// 	DESC: 降序
+	// 默认值:
+	// 	ASC
+	Order *string `json:"order,omitempty" xml:"order,omitempty"`
+	// 排序字段, 根据选择字段排序
+	// 枚举值:
+	// 	UPDATE_TIME: updateTime
+	// 	NAME: name
+	// 	CREATE_TIME: createTime
+	OrderBy *string `json:"orderBy,omitempty" xml:"orderBy,omitempty"`
+	// 是否获取文档创建者名称
+	// 默认值:
+	// 	false
+	WithDentryCreatorInfo *bool `json:"withDentryCreatorInfo,omitempty" xml:"withDentryCreatorInfo,omitempty"`
+	// 是否获取文档修改者名称
+	// 默认值:
+	// 	false
+	WithDentryModifierInfo *bool `json:"withDentryModifierInfo,omitempty" xml:"withDentryModifierInfo,omitempty"`
+	// 是否获取文档权限
+	// 默认值:
+	// 	false
+	WithDentryPermissionRole *bool `json:"withDentryPermissionRole,omitempty" xml:"withDentryPermissionRole,omitempty"`
+	// 是否获取知识库信息
+	// 默认值:
+	// 	false
+	WithSpaceDetail *bool `json:"withSpaceDetail,omitempty" xml:"withSpaceDetail,omitempty"`
+	// 是否获取知识库权限
+	// 默认值:
+	// 	false
+	WithSpacePermissionRole *bool `json:"withSpacePermissionRole,omitempty" xml:"withSpacePermissionRole,omitempty"`
+	// 是否获取小组信息
+	// 默认值:
+	// 	false
+	WithTeamDetail *bool `json:"withTeamDetail,omitempty" xml:"withTeamDetail,omitempty"`
+}
+
+func (s ListStarsRequestOption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListStarsRequestOption) GoString() string {
+	return s.String()
+}
+
+func (s *ListStarsRequestOption) SetFilterDocTypes(v []*string) *ListStarsRequestOption {
+	s.FilterDocTypes = v
+	return s
+}
+
+func (s *ListStarsRequestOption) SetMaxResults(v int32) *ListStarsRequestOption {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListStarsRequestOption) SetNextToken(v string) *ListStarsRequestOption {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListStarsRequestOption) SetOrder(v string) *ListStarsRequestOption {
+	s.Order = &v
+	return s
+}
+
+func (s *ListStarsRequestOption) SetOrderBy(v string) *ListStarsRequestOption {
+	s.OrderBy = &v
+	return s
+}
+
+func (s *ListStarsRequestOption) SetWithDentryCreatorInfo(v bool) *ListStarsRequestOption {
+	s.WithDentryCreatorInfo = &v
+	return s
+}
+
+func (s *ListStarsRequestOption) SetWithDentryModifierInfo(v bool) *ListStarsRequestOption {
+	s.WithDentryModifierInfo = &v
+	return s
+}
+
+func (s *ListStarsRequestOption) SetWithDentryPermissionRole(v bool) *ListStarsRequestOption {
+	s.WithDentryPermissionRole = &v
+	return s
+}
+
+func (s *ListStarsRequestOption) SetWithSpaceDetail(v bool) *ListStarsRequestOption {
+	s.WithSpaceDetail = &v
+	return s
+}
+
+func (s *ListStarsRequestOption) SetWithSpacePermissionRole(v bool) *ListStarsRequestOption {
+	s.WithSpacePermissionRole = &v
+	return s
+}
+
+func (s *ListStarsRequestOption) SetWithTeamDetail(v bool) *ListStarsRequestOption {
+	s.WithTeamDetail = &v
+	return s
+}
+
+type ListStarsResponseBody struct {
+	// 分页游标
+	// 不为空表示有更多数据
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// 星标数据集合
+	// 最大size:
+	// 	20
+	StarList []*ListStarsResponseBodyStarList `json:"starList,omitempty" xml:"starList,omitempty" type:"Repeated"`
+}
+
+func (s ListStarsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListStarsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListStarsResponseBody) SetNextToken(v string) *ListStarsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListStarsResponseBody) SetStarList(v []*ListStarsResponseBodyStarList) *ListStarsResponseBody {
+	s.StarList = v
+	return s
+}
+
+type ListStarsResponseBodyStarList struct {
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 资源实体数据
+	DentryInfo *ListStarsResponseBodyStarListDentryInfo `json:"dentryInfo,omitempty" xml:"dentryInfo,omitempty" type:"Struct"`
+	// 文档权限
+	// 枚举值:
+	// 	NO_PERMISSION: 无权限
+	// 	READ_ONLY: 仅可查看
+	// 	READ_AND_DOWNLOAD: 可查看/下载
+	// 	EDIT: 可编辑
+	// 	MANAGER: 可管理
+	// 	OWNER: 所有者
+	DentryPermissionRole *string `json:"dentryPermissionRole,omitempty" xml:"dentryPermissionRole,omitempty"`
+	// 星标id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 是否已经删除
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// 修改时间
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// 知识库信息
+	SpaceInfo *ListStarsResponseBodyStarListSpaceInfo `json:"spaceInfo,omitempty" xml:"spaceInfo,omitempty" type:"Struct"`
+	// 知识库权限
+	// 枚举值:
+	// 	NO_PERMISSION: 无权限
+	// 	READ_ONLY: 仅可查看
+	// 	READ_AND_DOWNLOAD: 可查看/下载
+	// 	EDIT: 可编辑
+	// 	MANAGER: 可管理
+	// 	OWNER: 所有者
+	SpacePermissionRole *string `json:"spacePermissionRole,omitempty" xml:"spacePermissionRole,omitempty"`
+	// 星标类型
+	// 枚举值:
+	// 	TOP: 置顶星标
+	// 	COMMON: 普通星标
+	StarType *string `json:"starType,omitempty" xml:"starType,omitempty"`
+	// 小组信息
+	TeamInfo *ListStarsResponseBodyStarListTeamInfo `json:"teamInfo,omitempty" xml:"teamInfo,omitempty" type:"Struct"`
+}
+
+func (s ListStarsResponseBodyStarList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListStarsResponseBodyStarList) GoString() string {
+	return s.String()
+}
+
+func (s *ListStarsResponseBodyStarList) SetCreateTime(v string) *ListStarsResponseBodyStarList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarList) SetDentryInfo(v *ListStarsResponseBodyStarListDentryInfo) *ListStarsResponseBodyStarList {
+	s.DentryInfo = v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarList) SetDentryPermissionRole(v string) *ListStarsResponseBodyStarList {
+	s.DentryPermissionRole = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarList) SetId(v string) *ListStarsResponseBodyStarList {
+	s.Id = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarList) SetIsDeleted(v bool) *ListStarsResponseBodyStarList {
+	s.IsDeleted = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarList) SetModifiedTime(v string) *ListStarsResponseBodyStarList {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarList) SetSpaceInfo(v *ListStarsResponseBodyStarListSpaceInfo) *ListStarsResponseBodyStarList {
+	s.SpaceInfo = v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarList) SetSpacePermissionRole(v string) *ListStarsResponseBodyStarList {
+	s.SpacePermissionRole = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarList) SetStarType(v string) *ListStarsResponseBodyStarList {
+	s.StarType = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarList) SetTeamInfo(v *ListStarsResponseBodyStarListTeamInfo) *ListStarsResponseBodyStarList {
+	s.TeamInfo = v
+	return s
+}
+
+type ListStarsResponseBodyStarListDentryInfo struct {
+	// 创建时间
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// 创建者信息
+	Creator *ListStarsResponseBodyStarListDentryInfoCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	// 后缀
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// Mobile访问链接
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// 修改时间
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// 修改者信息
+	Modifier *ListStarsResponseBodyStarListDentryInfoModifier `json:"modifier,omitempty" xml:"modifier,omitempty" type:"Struct"`
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// PC 访问链接
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// 所在空间id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// 状态
+	// 枚举值:
+	// 	NORMAL: 正常
+	// 	DELETED: 已删除
+	// 	EXPIRED: 已过期
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 类型，目录或文件
+	// 枚举值:
+	// 	FILE: 文件
+	// 	FOLDER: 文件夹
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// uuid，如移动文件，此字段不变
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s ListStarsResponseBodyStarListDentryInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListStarsResponseBodyStarListDentryInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ListStarsResponseBodyStarListDentryInfo) SetCreateTime(v string) *ListStarsResponseBodyStarListDentryInfo {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListDentryInfo) SetCreator(v *ListStarsResponseBodyStarListDentryInfoCreator) *ListStarsResponseBodyStarListDentryInfo {
+	s.Creator = v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListDentryInfo) SetExtension(v string) *ListStarsResponseBodyStarListDentryInfo {
+	s.Extension = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListDentryInfo) SetId(v string) *ListStarsResponseBodyStarListDentryInfo {
+	s.Id = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListDentryInfo) SetMobileUrl(v string) *ListStarsResponseBodyStarListDentryInfo {
+	s.MobileUrl = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListDentryInfo) SetModifiedTime(v string) *ListStarsResponseBodyStarListDentryInfo {
+	s.ModifiedTime = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListDentryInfo) SetModifier(v *ListStarsResponseBodyStarListDentryInfoModifier) *ListStarsResponseBodyStarListDentryInfo {
+	s.Modifier = v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListDentryInfo) SetName(v string) *ListStarsResponseBodyStarListDentryInfo {
+	s.Name = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListDentryInfo) SetPcUrl(v string) *ListStarsResponseBodyStarListDentryInfo {
+	s.PcUrl = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListDentryInfo) SetSpaceId(v string) *ListStarsResponseBodyStarListDentryInfo {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListDentryInfo) SetStatus(v string) *ListStarsResponseBodyStarListDentryInfo {
+	s.Status = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListDentryInfo) SetType(v string) *ListStarsResponseBodyStarListDentryInfo {
+	s.Type = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListDentryInfo) SetUuid(v string) *ListStarsResponseBodyStarListDentryInfo {
+	s.Uuid = &v
+	return s
+}
+
+type ListStarsResponseBodyStarListDentryInfoCreator struct {
+	// 用户名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListStarsResponseBodyStarListDentryInfoCreator) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListStarsResponseBodyStarListDentryInfoCreator) GoString() string {
+	return s.String()
+}
+
+func (s *ListStarsResponseBodyStarListDentryInfoCreator) SetName(v string) *ListStarsResponseBodyStarListDentryInfoCreator {
+	s.Name = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListDentryInfoCreator) SetUserId(v string) *ListStarsResponseBodyStarListDentryInfoCreator {
+	s.UserId = &v
+	return s
+}
+
+type ListStarsResponseBodyStarListDentryInfoModifier struct {
+	// 用户名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListStarsResponseBodyStarListDentryInfoModifier) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListStarsResponseBodyStarListDentryInfoModifier) GoString() string {
+	return s.String()
+}
+
+func (s *ListStarsResponseBodyStarListDentryInfoModifier) SetName(v string) *ListStarsResponseBodyStarListDentryInfoModifier {
+	s.Name = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListDentryInfoModifier) SetUserId(v string) *ListStarsResponseBodyStarListDentryInfoModifier {
+	s.UserId = &v
+	return s
+}
+
+type ListStarsResponseBodyStarListSpaceInfo struct {
+	// 空间id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 空间名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s ListStarsResponseBodyStarListSpaceInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListStarsResponseBodyStarListSpaceInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ListStarsResponseBodyStarListSpaceInfo) SetId(v string) *ListStarsResponseBodyStarListSpaceInfo {
+	s.Id = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListSpaceInfo) SetName(v string) *ListStarsResponseBodyStarListSpaceInfo {
+	s.Name = &v
+	return s
+}
+
+type ListStarsResponseBodyStarListTeamInfo struct {
+	// 小组id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 小组名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s ListStarsResponseBodyStarListTeamInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListStarsResponseBodyStarListTeamInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ListStarsResponseBodyStarListTeamInfo) SetId(v string) *ListStarsResponseBodyStarListTeamInfo {
+	s.Id = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListTeamInfo) SetName(v string) *ListStarsResponseBodyStarListTeamInfo {
+	s.Name = &v
+	return s
+}
+
+type ListStarsResponse struct {
+	Headers map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *ListStarsResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s ListStarsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListStarsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListStarsResponse) SetHeaders(v map[string]*string) *ListStarsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListStarsResponse) SetBody(v *ListStarsResponseBody) *ListStarsResponse {
+	s.Body = v
+	return s
+}
+
 type ListTeamMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3033,6 +4136,88 @@ func (s *ListTeamMembersResponse) SetBody(v *ListTeamMembersResponseBody) *ListT
 	return s
 }
 
+type MarkStarHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s MarkStarHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MarkStarHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *MarkStarHeaders) SetCommonHeaders(v map[string]*string) *MarkStarHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *MarkStarHeaders) SetXAcsDingtalkAccessToken(v string) *MarkStarHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type MarkStarRequest struct {
+	// 操作人id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s MarkStarRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MarkStarRequest) GoString() string {
+	return s.String()
+}
+
+func (s *MarkStarRequest) SetOperatorId(v string) *MarkStarRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type MarkStarResponseBody struct {
+	// 本次操作是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s MarkStarResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MarkStarResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *MarkStarResponseBody) SetSuccess(v bool) *MarkStarResponseBody {
+	s.Success = &v
+	return s
+}
+
+type MarkStarResponse struct {
+	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *MarkStarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s MarkStarResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MarkStarResponse) GoString() string {
+	return s.String()
+}
+
+func (s *MarkStarResponse) SetHeaders(v map[string]*string) *MarkStarResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *MarkStarResponse) SetBody(v *MarkStarResponseBody) *MarkStarResponse {
+	s.Body = v
+	return s
+}
+
 type MoveDentryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3121,6 +4306,88 @@ func (s *MoveDentryResponse) SetHeaders(v map[string]*string) *MoveDentryRespons
 }
 
 func (s *MoveDentryResponse) SetBody(v *DentryVO) *MoveDentryResponse {
+	s.Body = v
+	return s
+}
+
+type PinSpaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PinSpaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PinSpaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PinSpaceHeaders) SetCommonHeaders(v map[string]*string) *PinSpaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PinSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *PinSpaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PinSpaceRequest struct {
+	// 操作人id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s PinSpaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PinSpaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PinSpaceRequest) SetOperatorId(v string) *PinSpaceRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type PinSpaceResponseBody struct {
+	// 本次操作是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PinSpaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PinSpaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PinSpaceResponseBody) SetSuccess(v bool) *PinSpaceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PinSpaceResponse struct {
+	Headers map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *PinSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s PinSpaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PinSpaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PinSpaceResponse) SetHeaders(v map[string]*string) *PinSpaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PinSpaceResponse) SetBody(v *PinSpaceResponseBody) *PinSpaceResponse {
 	s.Body = v
 	return s
 }
@@ -3537,6 +4804,8 @@ type QueryRecentListResponseBodyRecentList struct {
 	Dentry *DentryModel `json:"dentry,omitempty" xml:"dentry,omitempty"`
 	// 如果查询的是访问，那么这里是访问时间；否则就是编辑时间。
 	RecentTime *int64 `json:"recentTime,omitempty" xml:"recentTime,omitempty"`
+	// 小组信息
+	Team *QueryRecentListResponseBodyRecentListTeam `json:"team,omitempty" xml:"team,omitempty" type:"Struct"`
 }
 
 func (s QueryRecentListResponseBodyRecentList) String() string {
@@ -3559,6 +4828,36 @@ func (s *QueryRecentListResponseBodyRecentList) SetDentry(v *DentryModel) *Query
 
 func (s *QueryRecentListResponseBodyRecentList) SetRecentTime(v int64) *QueryRecentListResponseBodyRecentList {
 	s.RecentTime = &v
+	return s
+}
+
+func (s *QueryRecentListResponseBodyRecentList) SetTeam(v *QueryRecentListResponseBodyRecentListTeam) *QueryRecentListResponseBodyRecentList {
+	s.Team = v
+	return s
+}
+
+type QueryRecentListResponseBodyRecentListTeam struct {
+	// 小组id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 小组名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s QueryRecentListResponseBodyRecentListTeam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRecentListResponseBodyRecentListTeam) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRecentListResponseBodyRecentListTeam) SetId(v string) *QueryRecentListResponseBodyRecentListTeam {
+	s.Id = &v
+	return s
+}
+
+func (s *QueryRecentListResponseBodyRecentListTeam) SetName(v string) *QueryRecentListResponseBodyRecentListTeam {
+	s.Name = &v
 	return s
 }
 
@@ -3713,8 +5012,8 @@ func (s *RelatedSpacesRequest) SetTeamId(v string) *RelatedSpacesRequest {
 
 type RelatedSpacesResponseBody struct {
 	// 是否还有更多数据。
-	HasMore *bool         `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	Items   []*SpaceModel `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	HasMore *bool                             `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	Items   []*RelatedSpacesResponseBodyItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
 	// 分页游标。
 	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
@@ -3732,13 +5031,215 @@ func (s *RelatedSpacesResponseBody) SetHasMore(v bool) *RelatedSpacesResponseBod
 	return s
 }
 
-func (s *RelatedSpacesResponseBody) SetItems(v []*SpaceModel) *RelatedSpacesResponseBody {
+func (s *RelatedSpacesResponseBody) SetItems(v []*RelatedSpacesResponseBodyItems) *RelatedSpacesResponseBody {
 	s.Items = v
 	return s
 }
 
 func (s *RelatedSpacesResponseBody) SetNextToken(v string) *RelatedSpacesResponseBody {
 	s.NextToken = &v
+	return s
+}
+
+type RelatedSpacesResponseBodyItems struct {
+	// 封面
+	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
+	// 空间描述信息
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// 知识库高清图标
+	HdIconVO *RelatedSpacesResponseBodyItemsHdIconVO `json:"hdIconVO,omitempty" xml:"hdIconVO,omitempty" type:"Struct"`
+	// 知识库图标
+	IconVO *RelatedSpacesResponseBodyItemsIconVO `json:"iconVO,omitempty" xml:"iconVO,omitempty" type:"Struct"`
+	// 知识库id。
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// 知识库名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 知识库所有者。
+	Owner *RelatedSpacesResponseBodyItemsOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	// 知识库中最近编辑的三篇文档。
+	RecentList []*DentryModel `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
+	// 知识库类型。
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	// 知识库访问url。
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// 访问者对当前知识库的权限等信息。
+	VisitorInfo *RelatedSpacesResponseBodyItemsVisitorInfo `json:"visitorInfo,omitempty" xml:"visitorInfo,omitempty" type:"Struct"`
+}
+
+func (s RelatedSpacesResponseBodyItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RelatedSpacesResponseBodyItems) GoString() string {
+	return s.String()
+}
+
+func (s *RelatedSpacesResponseBodyItems) SetCover(v string) *RelatedSpacesResponseBodyItems {
+	s.Cover = &v
+	return s
+}
+
+func (s *RelatedSpacesResponseBodyItems) SetDescription(v string) *RelatedSpacesResponseBodyItems {
+	s.Description = &v
+	return s
+}
+
+func (s *RelatedSpacesResponseBodyItems) SetHdIconVO(v *RelatedSpacesResponseBodyItemsHdIconVO) *RelatedSpacesResponseBodyItems {
+	s.HdIconVO = v
+	return s
+}
+
+func (s *RelatedSpacesResponseBodyItems) SetIconVO(v *RelatedSpacesResponseBodyItemsIconVO) *RelatedSpacesResponseBodyItems {
+	s.IconVO = v
+	return s
+}
+
+func (s *RelatedSpacesResponseBodyItems) SetId(v string) *RelatedSpacesResponseBodyItems {
+	s.Id = &v
+	return s
+}
+
+func (s *RelatedSpacesResponseBodyItems) SetName(v string) *RelatedSpacesResponseBodyItems {
+	s.Name = &v
+	return s
+}
+
+func (s *RelatedSpacesResponseBodyItems) SetOwner(v *RelatedSpacesResponseBodyItemsOwner) *RelatedSpacesResponseBodyItems {
+	s.Owner = v
+	return s
+}
+
+func (s *RelatedSpacesResponseBodyItems) SetRecentList(v []*DentryModel) *RelatedSpacesResponseBodyItems {
+	s.RecentList = v
+	return s
+}
+
+func (s *RelatedSpacesResponseBodyItems) SetType(v int32) *RelatedSpacesResponseBodyItems {
+	s.Type = &v
+	return s
+}
+
+func (s *RelatedSpacesResponseBodyItems) SetUrl(v string) *RelatedSpacesResponseBodyItems {
+	s.Url = &v
+	return s
+}
+
+func (s *RelatedSpacesResponseBodyItems) SetVisitorInfo(v *RelatedSpacesResponseBodyItemsVisitorInfo) *RelatedSpacesResponseBodyItems {
+	s.VisitorInfo = v
+	return s
+}
+
+type RelatedSpacesResponseBodyItemsHdIconVO struct {
+	// 图标
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 图标类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s RelatedSpacesResponseBodyItemsHdIconVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RelatedSpacesResponseBodyItemsHdIconVO) GoString() string {
+	return s.String()
+}
+
+func (s *RelatedSpacesResponseBodyItemsHdIconVO) SetIcon(v string) *RelatedSpacesResponseBodyItemsHdIconVO {
+	s.Icon = &v
+	return s
+}
+
+func (s *RelatedSpacesResponseBodyItemsHdIconVO) SetType(v string) *RelatedSpacesResponseBodyItemsHdIconVO {
+	s.Type = &v
+	return s
+}
+
+type RelatedSpacesResponseBodyItemsIconVO struct {
+	// 图标
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// 图标类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s RelatedSpacesResponseBodyItemsIconVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RelatedSpacesResponseBodyItemsIconVO) GoString() string {
+	return s.String()
+}
+
+func (s *RelatedSpacesResponseBodyItemsIconVO) SetIcon(v string) *RelatedSpacesResponseBodyItemsIconVO {
+	s.Icon = &v
+	return s
+}
+
+func (s *RelatedSpacesResponseBodyItemsIconVO) SetType(v string) *RelatedSpacesResponseBodyItemsIconVO {
+	s.Type = &v
+	return s
+}
+
+type RelatedSpacesResponseBodyItemsOwner struct {
+	// 用户名称。
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 用户unionId。
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s RelatedSpacesResponseBodyItemsOwner) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RelatedSpacesResponseBodyItemsOwner) GoString() string {
+	return s.String()
+}
+
+func (s *RelatedSpacesResponseBodyItemsOwner) SetName(v string) *RelatedSpacesResponseBodyItemsOwner {
+	s.Name = &v
+	return s
+}
+
+func (s *RelatedSpacesResponseBodyItemsOwner) SetUnionId(v string) *RelatedSpacesResponseBodyItemsOwner {
+	s.UnionId = &v
+	return s
+}
+
+type RelatedSpacesResponseBodyItemsVisitorInfo struct {
+	// 节点的操作列表。
+	DentryActions []*string `json:"dentryActions,omitempty" xml:"dentryActions,omitempty" type:"Repeated"`
+	// 是否置顶
+	Pinned *bool `json:"pinned,omitempty" xml:"pinned,omitempty"`
+	// 权限
+	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	// 空间的操作列表。
+	SpaceActions []*string `json:"spaceActions,omitempty" xml:"spaceActions,omitempty" type:"Repeated"`
+}
+
+func (s RelatedSpacesResponseBodyItemsVisitorInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RelatedSpacesResponseBodyItemsVisitorInfo) GoString() string {
+	return s.String()
+}
+
+func (s *RelatedSpacesResponseBodyItemsVisitorInfo) SetDentryActions(v []*string) *RelatedSpacesResponseBodyItemsVisitorInfo {
+	s.DentryActions = v
+	return s
+}
+
+func (s *RelatedSpacesResponseBodyItemsVisitorInfo) SetPinned(v bool) *RelatedSpacesResponseBodyItemsVisitorInfo {
+	s.Pinned = &v
+	return s
+}
+
+func (s *RelatedSpacesResponseBodyItemsVisitorInfo) SetRoleCode(v string) *RelatedSpacesResponseBodyItemsVisitorInfo {
+	s.RoleCode = &v
+	return s
+}
+
+func (s *RelatedSpacesResponseBodyItemsVisitorInfo) SetSpaceActions(v []*string) *RelatedSpacesResponseBodyItemsVisitorInfo {
+	s.SpaceActions = v
 	return s
 }
 
@@ -4697,6 +6198,170 @@ func (s *SearchResponse) SetBody(v *SearchResponseBody) *SearchResponse {
 	return s
 }
 
+type UnmarkStarHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UnmarkStarHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnmarkStarHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UnmarkStarHeaders) SetCommonHeaders(v map[string]*string) *UnmarkStarHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UnmarkStarHeaders) SetXAcsDingtalkAccessToken(v string) *UnmarkStarHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UnmarkStarRequest struct {
+	// 操作人id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s UnmarkStarRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnmarkStarRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UnmarkStarRequest) SetOperatorId(v string) *UnmarkStarRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type UnmarkStarResponseBody struct {
+	// 本次操作是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UnmarkStarResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnmarkStarResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UnmarkStarResponseBody) SetSuccess(v bool) *UnmarkStarResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UnmarkStarResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UnmarkStarResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UnmarkStarResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnmarkStarResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UnmarkStarResponse) SetHeaders(v map[string]*string) *UnmarkStarResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UnmarkStarResponse) SetBody(v *UnmarkStarResponseBody) *UnmarkStarResponse {
+	s.Body = v
+	return s
+}
+
+type UnpinSpaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UnpinSpaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnpinSpaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UnpinSpaceHeaders) SetCommonHeaders(v map[string]*string) *UnpinSpaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UnpinSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *UnpinSpaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UnpinSpaceRequest struct {
+	// 操作人id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s UnpinSpaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnpinSpaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UnpinSpaceRequest) SetOperatorId(v string) *UnpinSpaceRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type UnpinSpaceResponseBody struct {
+	// 本次操作是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UnpinSpaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnpinSpaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UnpinSpaceResponseBody) SetSuccess(v bool) *UnpinSpaceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UnpinSpaceResponse struct {
+	Headers map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *UnpinSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s UnpinSpaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnpinSpaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UnpinSpaceResponse) SetHeaders(v map[string]*string) *UnpinSpaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UnpinSpaceResponse) SetBody(v *UnpinSpaceResponseBody) *UnpinSpaceResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateTeamHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4796,6 +6461,56 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+func (client *Client) BatchDeleteRecents(request *BatchDeleteRecentsRequest) (_result *BatchDeleteRecentsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchDeleteRecentsHeaders{}
+	_result = &BatchDeleteRecentsResponse{}
+	_body, _err := client.BatchDeleteRecentsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) BatchDeleteRecentsWithOptions(request *BatchDeleteRecentsRequest, headers *BatchDeleteRecentsHeaders, runtime *util.RuntimeOptions) (_result *BatchDeleteRecentsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DentryUuids)) {
+		body["dentryUuids"] = request.DentryUuids
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &BatchDeleteRecentsResponse{}
+	_body, _err := client.DoROARequest(tea.String("BatchDeleteRecents"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/dentries/recentRecords/batchRemove"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
 }
 
 func (client *Client) CopyDentry(spaceId *string, dentryId *string, request *CopyDentryRequest) (_result *CopyDentryResponse, _err error) {
@@ -5208,6 +6923,51 @@ func (client *Client) GetSpaceDirectoriesWithOptions(spaceId *string, request *G
 	return _result, _err
 }
 
+func (client *Client) GetStarInfo(dentryUuid *string, request *GetStarInfoRequest) (_result *GetStarInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetStarInfoHeaders{}
+	_result = &GetStarInfoResponse{}
+	_body, _err := client.GetStarInfoWithOptions(dentryUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) GetStarInfoWithOptions(dentryUuid *string, request *GetStarInfoRequest, headers *GetStarInfoHeaders, runtime *util.RuntimeOptions) (_result *GetStarInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	dentryUuid = openapiutil.GetEncodeParam(dentryUuid)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &GetStarInfoResponse{}
+	_body, _err := client.DoROARequest(tea.String("GetStarInfo"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/dentries/"+tea.StringValue(dentryUuid)+"/starInfos"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) GetTeam(teamId *string, request *GetTeamRequest) (_result *GetTeamResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTeamHeaders{}
@@ -5499,6 +7259,56 @@ func (client *Client) ListHotDocsWithOptions(teamId *string, request *ListHotDoc
 	return _result, _err
 }
 
+func (client *Client) ListPinSpaces(request *ListPinSpacesRequest) (_result *ListPinSpacesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListPinSpacesHeaders{}
+	_result = &ListPinSpacesResponse{}
+	_body, _err := client.ListPinSpacesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListPinSpacesWithOptions(request *ListPinSpacesRequest, headers *ListPinSpacesHeaders, runtime *util.RuntimeOptions) (_result *ListPinSpacesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Option)) {
+		body["option"] = request.Option
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ListPinSpacesResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListPinSpaces"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/spaces/pinLists/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ListRelatedSpaceTeams(request *ListRelatedSpaceTeamsRequest) (_result *ListRelatedSpaceTeamsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListRelatedSpaceTeamsHeaders{}
@@ -5648,6 +7458,56 @@ func (client *Client) ListSpaceSectionsWithOptions(teamId *string, request *List
 	return _result, _err
 }
 
+func (client *Client) ListStars(request *ListStarsRequest) (_result *ListStarsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListStarsHeaders{}
+	_result = &ListStarsResponse{}
+	_body, _err := client.ListStarsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) ListStarsWithOptions(request *ListStarsRequest, headers *ListStarsHeaders, runtime *util.RuntimeOptions) (_result *ListStarsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Option)) {
+		body["option"] = request.Option
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &ListStarsResponse{}
+	_body, _err := client.DoROARequest(tea.String("ListStars"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/dentries/starLists/query"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
 func (client *Client) ListTeamMembers(teamId *string, request *ListTeamMembersRequest) (_result *ListTeamMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListTeamMembersHeaders{}
@@ -5686,6 +7546,51 @@ func (client *Client) ListTeamMembersWithOptions(teamId *string, request *ListTe
 	}
 	_result = &ListTeamMembersResponse{}
 	_body, _err := client.DoROARequest(tea.String("ListTeamMembers"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v2.0/doc/teams/"+tea.StringValue(teamId)+"/members"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) MarkStar(dentryUuid *string, request *MarkStarRequest) (_result *MarkStarResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &MarkStarHeaders{}
+	_result = &MarkStarResponse{}
+	_body, _err := client.MarkStarWithOptions(dentryUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) MarkStarWithOptions(dentryUuid *string, request *MarkStarRequest, headers *MarkStarHeaders, runtime *util.RuntimeOptions) (_result *MarkStarResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	dentryUuid = openapiutil.GetEncodeParam(dentryUuid)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &MarkStarResponse{}
+	_body, _err := client.DoROARequest(tea.String("MarkStar"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/dentries/"+tea.StringValue(dentryUuid)+"/stars/mark"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5748,6 +7653,51 @@ func (client *Client) MoveDentryWithOptions(spaceId *string, dentryId *string, r
 	}
 	_result = &MoveDentryResponse{}
 	_body, _err := client.DoROARequest(tea.String("MoveDentry"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)+"/dentries/"+tea.StringValue(dentryId)+"/move"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) PinSpace(spaceId *string, request *PinSpaceRequest) (_result *PinSpaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PinSpaceHeaders{}
+	_result = &PinSpaceResponse{}
+	_body, _err := client.PinSpaceWithOptions(spaceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) PinSpaceWithOptions(spaceId *string, request *PinSpaceRequest, headers *PinSpaceHeaders, runtime *util.RuntimeOptions) (_result *PinSpaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &PinSpaceResponse{}
+	_body, _err := client.DoROARequest(tea.String("PinSpace"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)+"/pin"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6258,6 +8208,96 @@ func (client *Client) SearchWithOptions(request *SearchRequest, headers *SearchH
 	}
 	_result = &SearchResponse{}
 	_body, _err := client.DoROARequest(tea.String("Search"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/search"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UnmarkStar(dentryUuid *string, request *UnmarkStarRequest) (_result *UnmarkStarResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UnmarkStarHeaders{}
+	_result = &UnmarkStarResponse{}
+	_body, _err := client.UnmarkStarWithOptions(dentryUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UnmarkStarWithOptions(dentryUuid *string, request *UnmarkStarRequest, headers *UnmarkStarHeaders, runtime *util.RuntimeOptions) (_result *UnmarkStarResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	dentryUuid = openapiutil.GetEncodeParam(dentryUuid)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &UnmarkStarResponse{}
+	_body, _err := client.DoROARequest(tea.String("UnmarkStar"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/dentries/"+tea.StringValue(dentryUuid)+"/stars/unmark"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) UnpinSpace(spaceId *string, request *UnpinSpaceRequest) (_result *UnpinSpaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UnpinSpaceHeaders{}
+	_result = &UnpinSpaceResponse{}
+	_body, _err := client.UnpinSpaceWithOptions(spaceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) UnpinSpaceWithOptions(spaceId *string, request *UnpinSpaceRequest, headers *UnpinSpaceHeaders, runtime *util.RuntimeOptions) (_result *UnpinSpaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	spaceId = openapiutil.GetEncodeParam(spaceId)
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	_result = &UnpinSpaceResponse{}
+	_body, _err := client.DoROARequest(tea.String("UnpinSpace"), tea.String("doc_2.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v2.0/doc/spaces/"+tea.StringValue(spaceId)+"/unpin"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

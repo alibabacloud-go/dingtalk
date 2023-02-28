@@ -7749,6 +7749,183 @@ func (s *QueryPartnerInfoResponse) SetBody(v *QueryPartnerInfoResponseBody) *Que
 	return s
 }
 
+type QueryUserBehaviorHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryUserBehaviorHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserBehaviorHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserBehaviorHeaders) SetCommonHeaders(v map[string]*string) *QueryUserBehaviorHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryUserBehaviorHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUserBehaviorHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryUserBehaviorRequest struct {
+	// 结束时间(默认当前时间)
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// 起始页(默认从1开始)
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// 页大小(最大100)
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// 端类型((0-全部，1-iOS，2-Android, 3-Mac, 4-Windows))
+	Platform *int32 `json:"platform,omitempty" xml:"platform,omitempty"`
+	// 开始时间(默认当前时间前7天)
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// 用户行为((0-全部，1-截屏，2-录屏))
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	// 工号
+	UserId *int64 `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryUserBehaviorRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserBehaviorRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserBehaviorRequest) SetEndTime(v int64) *QueryUserBehaviorRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryUserBehaviorRequest) SetPageNumber(v int64) *QueryUserBehaviorRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryUserBehaviorRequest) SetPageSize(v int32) *QueryUserBehaviorRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryUserBehaviorRequest) SetPlatform(v int32) *QueryUserBehaviorRequest {
+	s.Platform = &v
+	return s
+}
+
+func (s *QueryUserBehaviorRequest) SetStartTime(v int64) *QueryUserBehaviorRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryUserBehaviorRequest) SetType(v int32) *QueryUserBehaviorRequest {
+	s.Type = &v
+	return s
+}
+
+func (s *QueryUserBehaviorRequest) SetUserId(v int64) *QueryUserBehaviorRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryUserBehaviorResponseBody struct {
+	// 数据列表
+	Data     []*QueryUserBehaviorResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	DataCnt  *int32                               `json:"dataCnt,omitempty" xml:"dataCnt,omitempty"`
+	TotalCnt *int32                               `json:"totalCnt,omitempty" xml:"totalCnt,omitempty"`
+}
+
+func (s QueryUserBehaviorResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserBehaviorResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserBehaviorResponseBody) SetData(v []*QueryUserBehaviorResponseBodyData) *QueryUserBehaviorResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *QueryUserBehaviorResponseBody) SetDataCnt(v int32) *QueryUserBehaviorResponseBody {
+	s.DataCnt = &v
+	return s
+}
+
+func (s *QueryUserBehaviorResponseBody) SetTotalCnt(v int32) *QueryUserBehaviorResponseBody {
+	s.TotalCnt = &v
+	return s
+}
+
+type QueryUserBehaviorResponseBodyData struct {
+	PictureUrl *string `json:"pictureUrl,omitempty" xml:"pictureUrl,omitempty"`
+	Platform   *int32  `json:"platform,omitempty" xml:"platform,omitempty"`
+	Time       *int64  `json:"time,omitempty" xml:"time,omitempty"`
+	Type       *int32  `json:"type,omitempty" xml:"type,omitempty"`
+	UserName   *string `json:"userName,omitempty" xml:"userName,omitempty"`
+}
+
+func (s QueryUserBehaviorResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserBehaviorResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserBehaviorResponseBodyData) SetPictureUrl(v string) *QueryUserBehaviorResponseBodyData {
+	s.PictureUrl = &v
+	return s
+}
+
+func (s *QueryUserBehaviorResponseBodyData) SetPlatform(v int32) *QueryUserBehaviorResponseBodyData {
+	s.Platform = &v
+	return s
+}
+
+func (s *QueryUserBehaviorResponseBodyData) SetTime(v int64) *QueryUserBehaviorResponseBodyData {
+	s.Time = &v
+	return s
+}
+
+func (s *QueryUserBehaviorResponseBodyData) SetType(v int32) *QueryUserBehaviorResponseBodyData {
+	s.Type = &v
+	return s
+}
+
+func (s *QueryUserBehaviorResponseBodyData) SetUserName(v string) *QueryUserBehaviorResponseBodyData {
+	s.UserName = &v
+	return s
+}
+
+type QueryUserBehaviorResponse struct {
+	Headers map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *QueryUserBehaviorResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s QueryUserBehaviorResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserBehaviorResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserBehaviorResponse) SetHeaders(v map[string]*string) *QueryUserBehaviorResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryUserBehaviorResponse) SetBody(v *QueryUserBehaviorResponseBody) *QueryUserBehaviorResponse {
+	s.Body = v
+	return s
+}
+
 type RollbackMiniAppVersionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11951,6 +12128,74 @@ func (client *Client) QueryPartnerInfoWithOptions(userId *string, headers *Query
 	}
 	_result = &QueryPartnerInfoResponse{}
 	_body, _err := client.DoROARequest(tea.String("QueryPartnerInfo"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("GET"), tea.String("AK"), tea.String("/v1.0/exclusive/partners/users/"+tea.StringValue(userId)), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) QueryUserBehavior(request *QueryUserBehaviorRequest) (_result *QueryUserBehaviorResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryUserBehaviorHeaders{}
+	_result = &QueryUserBehaviorResponse{}
+	_body, _err := client.QueryUserBehaviorWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) QueryUserBehaviorWithOptions(request *QueryUserBehaviorRequest, headers *QueryUserBehaviorHeaders, runtime *util.RuntimeOptions) (_result *QueryUserBehaviorResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Platform)) {
+		body["platform"] = request.Platform
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &QueryUserBehaviorResponse{}
+	_body, _err := client.DoROARequest(tea.String("QueryUserBehavior"), tea.String("exclusive_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/exclusive/enterpriseSecurities/userBehaviors/screenshots/query"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}

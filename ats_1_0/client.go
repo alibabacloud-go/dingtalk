@@ -361,6 +361,456 @@ func (s *AddUserAccountResponse) SetBody(v *AddUserAccountResponseBody) *AddUser
 	return s
 }
 
+type CollectRecruitJobDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CollectRecruitJobDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectRecruitJobDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CollectRecruitJobDetailHeaders) SetCommonHeaders(v map[string]*string) *CollectRecruitJobDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CollectRecruitJobDetailHeaders) SetXAcsDingtalkAccessToken(v string) *CollectRecruitJobDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CollectRecruitJobDetailRequest struct {
+	// 业务标识，目前固定为ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// 业务标识，目前固定为ddats
+	Channel *string                                `json:"channel,omitempty" xml:"channel,omitempty"`
+	JonInfo *CollectRecruitJobDetailRequestJonInfo `json:"jonInfo,omitempty" xml:"jonInfo,omitempty" type:"Struct"`
+	// 渠道侧外部企业唯一ID
+	OutCorpId *string `json:"outCorpId,omitempty" xml:"outCorpId,omitempty"`
+	// 企业名称
+	OutCorpName *string `json:"outCorpName,omitempty" xml:"outCorpName,omitempty"`
+	// 招聘人信息
+	RecruitUserInfo *CollectRecruitJobDetailRequestRecruitUserInfo `json:"recruitUserInfo,omitempty" xml:"recruitUserInfo,omitempty" type:"Struct"`
+	// 来源
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// 数据源更新时间
+	UpdateTime *int64 `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+}
+
+func (s CollectRecruitJobDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectRecruitJobDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CollectRecruitJobDetailRequest) SetBizCode(v string) *CollectRecruitJobDetailRequest {
+	s.BizCode = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequest) SetChannel(v string) *CollectRecruitJobDetailRequest {
+	s.Channel = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequest) SetJonInfo(v *CollectRecruitJobDetailRequestJonInfo) *CollectRecruitJobDetailRequest {
+	s.JonInfo = v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequest) SetOutCorpId(v string) *CollectRecruitJobDetailRequest {
+	s.OutCorpId = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequest) SetOutCorpName(v string) *CollectRecruitJobDetailRequest {
+	s.OutCorpName = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequest) SetRecruitUserInfo(v *CollectRecruitJobDetailRequestRecruitUserInfo) *CollectRecruitJobDetailRequest {
+	s.RecruitUserInfo = v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequest) SetSource(v string) *CollectRecruitJobDetailRequest {
+	s.Source = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequest) SetUpdateTime(v int64) *CollectRecruitJobDetailRequest {
+	s.UpdateTime = &v
+	return s
+}
+
+type CollectRecruitJobDetailRequestJonInfo struct {
+	// 地址信息
+	Address *CollectRecruitJobDetailRequestJonInfoAddress `json:"address,omitempty" xml:"address,omitempty" type:"Struct"`
+	// 职位分类编码
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// 职位描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	ExtInfo     *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// 全职信息
+	FullTimeInfo *CollectRecruitJobDetailRequestJonInfoFullTimeInfo `json:"fullTimeInfo,omitempty" xml:"fullTimeInfo,omitempty" type:"Struct"`
+	// 招聘人数
+	HeadCount *string `json:"headCount,omitempty" xml:"headCount,omitempty"`
+	// 职位性质
+	JobNature *string `json:"jobNature,omitempty" xml:"jobNature,omitempty"`
+	// 职位标签，字符串列表
+	JobTags []*string `json:"jobTags,omitempty" xml:"jobTags,omitempty" type:"Repeated"`
+	// 最高薪资
+	MaxSalary *string `json:"maxSalary,omitempty" xml:"maxSalary,omitempty"`
+	// 最低薪资
+	MinSalary *string `json:"minSalary,omitempty" xml:"minSalary,omitempty"`
+	// 职位名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 渠道职位ID
+	OutJobId *string `json:"outJobId,omitempty" xml:"outJobId,omitempty"`
+	// 兼职信息
+	PartTimeInfo *CollectRecruitJobDetailRequestJonInfoPartTimeInfo `json:"partTimeInfo,omitempty" xml:"partTimeInfo,omitempty" type:"Struct"`
+	// 学历要求
+	RequiredEdu *string `json:"requiredEdu,omitempty" xml:"requiredEdu,omitempty"`
+}
+
+func (s CollectRecruitJobDetailRequestJonInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectRecruitJobDetailRequestJonInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfo) SetAddress(v *CollectRecruitJobDetailRequestJonInfoAddress) *CollectRecruitJobDetailRequestJonInfo {
+	s.Address = v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfo) SetCategory(v string) *CollectRecruitJobDetailRequestJonInfo {
+	s.Category = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfo) SetDescription(v string) *CollectRecruitJobDetailRequestJonInfo {
+	s.Description = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfo) SetExtInfo(v string) *CollectRecruitJobDetailRequestJonInfo {
+	s.ExtInfo = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfo) SetFullTimeInfo(v *CollectRecruitJobDetailRequestJonInfoFullTimeInfo) *CollectRecruitJobDetailRequestJonInfo {
+	s.FullTimeInfo = v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfo) SetHeadCount(v string) *CollectRecruitJobDetailRequestJonInfo {
+	s.HeadCount = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfo) SetJobNature(v string) *CollectRecruitJobDetailRequestJonInfo {
+	s.JobNature = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfo) SetJobTags(v []*string) *CollectRecruitJobDetailRequestJonInfo {
+	s.JobTags = v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfo) SetMaxSalary(v string) *CollectRecruitJobDetailRequestJonInfo {
+	s.MaxSalary = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfo) SetMinSalary(v string) *CollectRecruitJobDetailRequestJonInfo {
+	s.MinSalary = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfo) SetName(v string) *CollectRecruitJobDetailRequestJonInfo {
+	s.Name = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfo) SetOutJobId(v string) *CollectRecruitJobDetailRequestJonInfo {
+	s.OutJobId = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfo) SetPartTimeInfo(v *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) *CollectRecruitJobDetailRequestJonInfo {
+	s.PartTimeInfo = v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfo) SetRequiredEdu(v string) *CollectRecruitJobDetailRequestJonInfo {
+	s.RequiredEdu = &v
+	return s
+}
+
+type CollectRecruitJobDetailRequestJonInfoAddress struct {
+	// 城市编码
+	CityCode *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// 位置详情描述
+	Detail *string `json:"detail,omitempty" xml:"detail,omitempty"`
+	// 区县编码
+	DistrictCode *string `json:"districtCode,omitempty" xml:"districtCode,omitempty"`
+	// 经度（高德地图选点）
+	Latitude *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	// 纬度（高德地图选点）
+	Longitude *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
+	// 位置名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// 省份编码
+	ProvinceCode *string `json:"provinceCode,omitempty" xml:"provinceCode,omitempty"`
+}
+
+func (s CollectRecruitJobDetailRequestJonInfoAddress) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectRecruitJobDetailRequestJonInfoAddress) GoString() string {
+	return s.String()
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoAddress) SetCityCode(v string) *CollectRecruitJobDetailRequestJonInfoAddress {
+	s.CityCode = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoAddress) SetDetail(v string) *CollectRecruitJobDetailRequestJonInfoAddress {
+	s.Detail = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoAddress) SetDistrictCode(v string) *CollectRecruitJobDetailRequestJonInfoAddress {
+	s.DistrictCode = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoAddress) SetLatitude(v string) *CollectRecruitJobDetailRequestJonInfoAddress {
+	s.Latitude = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoAddress) SetLongitude(v string) *CollectRecruitJobDetailRequestJonInfoAddress {
+	s.Longitude = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoAddress) SetName(v string) *CollectRecruitJobDetailRequestJonInfoAddress {
+	s.Name = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoAddress) SetProvinceCode(v string) *CollectRecruitJobDetailRequestJonInfoAddress {
+	s.ProvinceCode = &v
+	return s
+}
+
+type CollectRecruitJobDetailRequestJonInfoFullTimeInfo struct {
+	// 工作经验要求最高年限
+	MaxJobExperience *string `json:"maxJobExperience,omitempty" xml:"maxJobExperience,omitempty"`
+	// 工作经验要求最低年限
+	MinJobExperience *string `json:"minJobExperience,omitempty" xml:"minJobExperience,omitempty"`
+	// 薪资发放月数
+	SalaryMonth *string `json:"salaryMonth,omitempty" xml:"salaryMonth,omitempty"`
+}
+
+func (s CollectRecruitJobDetailRequestJonInfoFullTimeInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectRecruitJobDetailRequestJonInfoFullTimeInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoFullTimeInfo) SetMaxJobExperience(v string) *CollectRecruitJobDetailRequestJonInfoFullTimeInfo {
+	s.MaxJobExperience = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoFullTimeInfo) SetMinJobExperience(v string) *CollectRecruitJobDetailRequestJonInfoFullTimeInfo {
+	s.MinJobExperience = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoFullTimeInfo) SetSalaryMonth(v string) *CollectRecruitJobDetailRequestJonInfoFullTimeInfo {
+	s.SalaryMonth = &v
+	return s
+}
+
+type CollectRecruitJobDetailRequestJonInfoPartTimeInfo struct {
+	// 联系电话
+	ContactNumber *string `json:"contactNumber,omitempty" xml:"contactNumber,omitempty"`
+	// 薪资发放周期
+	SalaryPeriod *string `json:"salaryPeriod,omitempty" xml:"salaryPeriod,omitempty"`
+	// 薪资结算类型
+	SettleType *string `json:"settleType,omitempty" xml:"settleType,omitempty"`
+	// 是否指定工作日期
+	SpecifyWorkDate *string `json:"specifyWorkDate,omitempty" xml:"specifyWorkDate,omitempty"`
+	// 是否指定工作时间
+	SpecifyWorkTime *string `json:"specifyWorkTime,omitempty" xml:"specifyWorkTime,omitempty"`
+	// 工作开始时间
+	WorkBeginTimeMin *string `json:"workBeginTimeMin,omitempty" xml:"workBeginTimeMin,omitempty"`
+	// 工作日期类型
+	WorkDateType *string `json:"workDateType,omitempty" xml:"workDateType,omitempty"`
+	// 工作结束日期
+	WorkEndDate *string `json:"workEndDate,omitempty" xml:"workEndDate,omitempty"`
+	// 工作结束时间
+	WorkEndTimeMin *string `json:"workEndTimeMin,omitempty" xml:"workEndTimeMin,omitempty"`
+	// 工作开始日期
+	WorkStartDate *string `json:"workStartDate,omitempty" xml:"workStartDate,omitempty"`
+}
+
+func (s CollectRecruitJobDetailRequestJonInfoPartTimeInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectRecruitJobDetailRequestJonInfoPartTimeInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetContactNumber(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+	s.ContactNumber = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetSalaryPeriod(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+	s.SalaryPeriod = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetSettleType(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+	s.SettleType = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetSpecifyWorkDate(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+	s.SpecifyWorkDate = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetSpecifyWorkTime(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+	s.SpecifyWorkTime = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetWorkBeginTimeMin(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+	s.WorkBeginTimeMin = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetWorkDateType(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+	s.WorkDateType = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetWorkEndDate(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+	s.WorkEndDate = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetWorkEndTimeMin(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+	s.WorkEndTimeMin = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestJonInfoPartTimeInfo) SetWorkStartDate(v string) *CollectRecruitJobDetailRequestJonInfoPartTimeInfo {
+	s.WorkStartDate = &v
+	return s
+}
+
+type CollectRecruitJobDetailRequestRecruitUserInfo struct {
+	// 额外信息
+	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// 招聘员工唯一ID
+	OutUserId *string `json:"outUserId,omitempty" xml:"outUserId,omitempty"`
+	// 招聘员工手机号码
+	UserMobile *string `json:"userMobile,omitempty" xml:"userMobile,omitempty"`
+	// 招聘员工姓名
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+}
+
+func (s CollectRecruitJobDetailRequestRecruitUserInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectRecruitJobDetailRequestRecruitUserInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CollectRecruitJobDetailRequestRecruitUserInfo) SetExtInfo(v string) *CollectRecruitJobDetailRequestRecruitUserInfo {
+	s.ExtInfo = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestRecruitUserInfo) SetOutUserId(v string) *CollectRecruitJobDetailRequestRecruitUserInfo {
+	s.OutUserId = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestRecruitUserInfo) SetUserMobile(v string) *CollectRecruitJobDetailRequestRecruitUserInfo {
+	s.UserMobile = &v
+	return s
+}
+
+func (s *CollectRecruitJobDetailRequestRecruitUserInfo) SetUserName(v string) *CollectRecruitJobDetailRequestRecruitUserInfo {
+	s.UserName = &v
+	return s
+}
+
+type CollectRecruitJobDetailResponseBody struct {
+	// 是否成功
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CollectRecruitJobDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectRecruitJobDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CollectRecruitJobDetailResponseBody) SetResult(v bool) *CollectRecruitJobDetailResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CollectRecruitJobDetailResponse struct {
+	Headers map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty" require:"true"`
+	Body    *CollectRecruitJobDetailResponseBody `json:"body,omitempty" xml:"body,omitempty" require:"true"`
+}
+
+func (s CollectRecruitJobDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CollectRecruitJobDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CollectRecruitJobDetailResponse) SetHeaders(v map[string]*string) *CollectRecruitJobDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CollectRecruitJobDetailResponse) SetBody(v *CollectRecruitJobDetailResponseBody) *CollectRecruitJobDetailResponse {
+	s.Body = v
+	return s
+}
+
 type CollectResumeDetailHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2790,6 +3240,80 @@ func (client *Client) AddUserAccountWithOptions(request *AddUserAccountRequest, 
 	}
 	_result = &AddUserAccountResponse{}
 	_body, _err := client.DoROARequest(tea.String("AddUserAccount"), tea.String("ats_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/ats/channels/users/accounts"), tea.String("json"), req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+func (client *Client) CollectRecruitJobDetail(request *CollectRecruitJobDetailRequest) (_result *CollectRecruitJobDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CollectRecruitJobDetailHeaders{}
+	_result = &CollectRecruitJobDetailResponse{}
+	_body, _err := client.CollectRecruitJobDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+func (client *Client) CollectRecruitJobDetailWithOptions(request *CollectRecruitJobDetailRequest, headers *CollectRecruitJobDetailHeaders, runtime *util.RuntimeOptions) (_result *CollectRecruitJobDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		query["bizCode"] = request.BizCode
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Channel)) {
+		body["channel"] = request.Channel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.JonInfo)) {
+		body["jonInfo"] = request.JonInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutCorpId)) {
+		body["outCorpId"] = request.OutCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutCorpName)) {
+		body["outCorpName"] = request.OutCorpName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RecruitUserInfo)) {
+		body["recruitUserInfo"] = request.RecruitUserInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Source)) {
+		body["source"] = request.Source
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UpdateTime)) {
+		body["updateTime"] = request.UpdateTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	_result = &CollectRecruitJobDetailResponse{}
+	_body, _err := client.DoROARequest(tea.String("CollectRecruitJobDetail"), tea.String("ats_1.0"), tea.String("HTTP"), tea.String("POST"), tea.String("AK"), tea.String("/v1.0/ats/channels/jobs/import"), tea.String("json"), req, runtime)
 	if _err != nil {
 		return _result, _err
 	}
